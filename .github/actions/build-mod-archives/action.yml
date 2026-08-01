@@ -1,8 +1,8 @@
 name: Build mod archives
 description: >
-  Set up the Spriggit CLI, verify FOMOD <-> manifest parity, and build the release .7z archives
-  (addon + patch collection) from Spriggit YAML and the committed .pex into build/dist/.
-  Assumes the repository is already checked out.
+  Set up the Spriggit CLI, verify FOMOD <-> manifest parity, and build every patch .7z archive
+  listed in build/manifest.json from its Spriggit YAML and committed .pex into build/dist/.
+  Assumes the repository is already checked out. An empty manifest builds nothing and succeeds.
 
 inputs:
   spriggit-version:

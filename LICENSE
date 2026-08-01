@@ -25,17 +25,21 @@ SOFTWARE.
 NOTE ON SCOPE
 
 This licence covers the workspace tooling in this repository: the build scripts,
-Claude Code skills and subagents, configuration, documentation, and the bundled
-ExampleMod source.
+Claude Code skills and subagents, configuration, documentation, and the patch
+plugin sources under `src/`.
 
 It does NOT cover, and this repository does not distribute:
 
-  - Bethesda game assets, scripts, or plugin files. The `reference/` and
-    `modlist/` trees are gitignored; you generate them locally from your own
-    legally-obtained copy of the game and mods.
-  - Any third-party mod content. Patches you author here may reference other
-    mods as masters, but their content remains under their authors' terms.
+  - Bethesda game assets, scripts, or plugin files.
+  - Enderal: Forgotten Stories content. Enderal is by SureAI and is distributed
+    under its own terms; nothing from it is committed here.
+  - Any third-party mod content. Patches authored here reference other mods as
+    masters, but their content remains under their authors' terms.
 
-ExampleMod reuses vanilla record values and mesh paths from Skyrim Special
-Edition for illustration. It ships no Bethesda assets — it references a mesh
-that already exists in the player's own game installation.
+The `reference/`, `papyrus-source/`, `modlist/` and `downloads/` trees are all
+gitignored precisely so that none of the above can be committed. You generate
+them locally from your own legally-obtained copies of the game and mods.
+
+Patch plugins built here consist of record overrides that reference FormIDs in
+Enderal's and Skyrim's masters. They ship no Bethesda or SureAI assets — they
+reference records and files that already exist in the player's own installation.

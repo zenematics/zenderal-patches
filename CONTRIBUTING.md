@@ -1,32 +1,35 @@
 # Contributing
 
-Thanks for looking. This repo is a **template** for building SkyrimSE mods as text — so the useful
-contributions are ones that make the *workspace* better for everyone, not ones that add mod content.
+This repo holds the **patch plugins for the Zenderal modlist** (Enderal SE — bug fixes, modern
+combat, modern visuals) and the curation docs behind it. Useful contributions are patches the list
+actually needs, and improvements to the workspace that builds them.
+
+Read **`CLAUDE.md`** first. It carries the verified Enderal facts — masters, SKSE version, archive
+order, Papyrus import order — that a patch has to be correct about before anything else matters.
 
 ## What's in scope
 
-- **Fixes and improvements to the tooling** — `build/build.ps1`, `build/Test-RecordYaml.ps1`, the
-  GitHub Actions workflows, `.claude/config/tools.ps1`.
-- **New or improved skills and subagents** under `.claude/`. If you have automated part of your own
-  modding loop and it isn't specific to your mod, it probably belongs here.
-- **`arch-docs/skyrim-record-patterns.md`.** This is the highest-value file in the repo and the one
+- **Patches the list needs.** A compatibility or bugfix `.esp` that serves one of the three pillars.
+  Say which pillar in the PR description, and add the mod's row to
+  `arch-docs/zenderal-curation.md` so the patch isn't orphaned later.
+- **Curation.** Roster entries, load-order reasoning, rejected-mod rationale, conversion hazards.
+  "We tried X and it broke Y" is worth as much as a working patch.
+- **`arch-docs/enderal-record-patterns.md`.** The highest-value file after `CLAUDE.md` and the one
   most likely to be incomplete. If you have lost an afternoon to a record that built cleanly and did
-  nothing in-game, that belongs in the guide. Please mark it `[verified]` only if you personally saw
-  it fail and then saw the fix work; use `[community]` otherwise.
-- **Support for other Bethesda games.** Spriggit handles Fallout 4, Starfield and Oblivion too.
-  Most of this workspace is game-agnostic; the parts that aren't are mostly in `.spriggit`,
-  `tools.example.json` and the SkyrimSE-specific record guidance.
-- **Documentation** — especially anywhere the README or `CLAUDE.md` is wrong, stale, or assumes
-  knowledge a newcomer won't have.
+  nothing in-game, that belongs in the guide. Mark it `[verified]` only if you personally saw it fail
+  and then saw the fix work; use `[community]` otherwise.
+- **Tooling** — `build/build.ps1`, `build/Test-RecordYaml.ps1`, the GitHub Actions workflows,
+  `.claude/config/tools.ps1`, and the skills and subagents under `.claude/`.
 
 ## What's out of scope
 
-- **Your mod's content.** Fork the template and build your mod in your own repo — that's the point.
-  `ExampleMod` stays deliberately minimal; please don't grow it. If you want to demonstrate an
-  additional record type, the record-patterns guide is the better home.
-- **Anything containing Bethesda assets or third-party mod content.** Nothing under `reference/` or
-  `modlist/` is committed, and it must stay that way. Before opening a PR, check `git status` — if a
-  `.esp`, `.bsa`, `.pex` you didn't author, or a decompiled vanilla record has crept in, remove it.
+- **The modlist itself.** The Wabbajack list, its `modlist.txt` and its install machinery live
+  elsewhere. This repo builds the patches the list installs.
+- **Content that isn't a patch.** New quests, new areas, new gear — Zenderal is not an overhaul.
+- **Anything containing Bethesda, SureAI or third-party mod assets.** Nothing under `reference/`,
+  `papyrus-source/` or `modlist/` is committed, and it must stay that way. Before opening a PR check
+  `git status` — if a `.esp`, `.bsa`, a `.pex` you didn't author, or a decompiled Enderal record has
+  crept in, remove it.
 
 ## Before you open a PR
 
@@ -43,19 +46,28 @@ contributions are ones that make the *workspace* better for everyone, not ones t
    pwsh build/Test-RecordYaml.ps1
    ```
 
-3. **Round-trip stability** if you hand-edited a record: deserialize, re-serialize, and confirm the
+3. **Run the pre-ship checklist** at the bottom of `arch-docs/enderal-record-patterns.md`, or ask the
+   `spriggit-formkey-auditor` subagent to. Items 1 and 2 (copied from the *winning* plugin;
+   `EnderalSE` release with no DLC master) catch the two mistakes that get through everything else.
+
+4. **Round-trip stability** if you hand-edited a record: deserialize, re-serialize, and confirm the
    YAML comes back identical. Spriggit output is canonical; hand-authored YAML should match it
    byte-for-byte so nobody gets a spurious whole-file diff later.
 
-4. **Don't commit `.claude/config/tools.json`.** It's gitignored for a reason — it contains your
-   machine's paths. Update `tools.example.json` instead if you're adding a key.
+5. **Say what you actually tested.** "Builds clean" and "played 20 minutes in Ark with the patch
+   active" are very different claims and the review depends on which one it is. A clean build is not
+   a working patch.
 
-5. **If you changed a `.psc`, recompile and commit the `.pex`.** CI cannot compile Papyrus. The
-   build fails on a *missing* `.pex` but cannot detect a *stale* one, so this one is on you.
+6. **If you changed a `.psc`, recompile and commit the `.pex`.** CI cannot compile Papyrus. The build
+   fails on a *missing* `.pex` but cannot detect a *stale* one, so this one is on you. Check the
+   import order while you're there — Enderal's source tree must be first.
+
+7. **Don't commit `.claude/config/tools.json`.** It's gitignored because it contains your machine's
+   paths. Update `tools.example.json` instead if you're adding a key.
 
 Opening a PR triggers a test build that attaches the resulting archives as an Actions artifact, with
-a comment linking to them. Fork PRs get a read-only token, so that comment step will be skipped —
-the build itself still runs.
+a comment linking to them. A docs-only PR builds no archives and skips that step. Fork PRs get a
+read-only token, so the comment step is skipped — the build itself still runs.
 
 ## Style
 
@@ -65,3 +77,5 @@ the build itself still runs.
   gets dropped the first time it's inconvenient.
 - Keep skills declarative: they describe a procedure for an agent to follow. Resolve every tool path
   through `$Tools` from `tools.json`; never hardcode one.
+- Mark claims about Enderal's behaviour with how you know: measured on your install, read from
+  SureAI's source, or assumed. The distinction is the whole value of `CLAUDE.md`.

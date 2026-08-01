@@ -7,12 +7,17 @@ Thumbs.db
 # Machine-specific tool/modlist paths — never commit. Copy from tools.example.json.
 /.claude/config/tools.json
 
-# Wabbajack modlists installed into the repo — HUNDREDS of GB, third-party content.
-# Includes the game copy, mods, tools (Creation Kit, Papyrus compiler), and downloads.
+# The installed Zenderal MO2 instance — HUNDREDS of GB, third-party content.
+# Includes the Enderal game copy, mods, tools, and downloads.
 # Install anywhere and point .claude/config/tools.json at it; if you install under the
 # repo, keep it in this gitignored folder. See the modlist-install skill.
 /modlist/
 /downloads/
+
+# Extracted Papyrus source trees. Enderal's ScriptsEnderal.zip and Skyrim's Scripts.zip
+# have to be unpacked somewhere before you can compile against them; they are third-party
+# game content and are never committed. Unpack them outside the repo, or here.
+/papyrus-source/
 
 # Binary Bethesda plugins — never commit. Edit the YAML, deserialize to build these.
 # CAUTION: Spriggit names its YAML cell/worldspace record *folders*
@@ -41,21 +46,22 @@ Thumbs.db
 *.7z
 
 # Packaging build artifacts — derivable, do NOT commit.
-# Source of truth = Spriggit YAML + src/<ModName>/Scripts/source/*.psc.
+# Source of truth = Spriggit YAML + src/<PatchName>/Scripts/source/*.psc.
 /dist/
 
 # Compiled Papyrus is ignored BY DEFAULT...
 *.pex
 
-# ...but a plugin that ships scripts must opt its compiled folder back in, because CI cannot run
-# the Creation Kit compiler (it needs the licensed base-game script source) and therefore packages
-# the committed .pex as-is. Recompile and re-commit whenever a .psc changes — build/build.ps1 fails
-# if a .pex is MISSING but cannot tell that one is STALE. See "CI build & release" in README.md.
+# ...but a patch that ships scripts must opt its compiled folder back in, because CI cannot run
+# the Papyrus compiler (it needs the licensed base-game + Enderal script source) and therefore
+# packages the committed .pex as-is. Recompile and re-commit whenever a .psc changes —
+# build/build.ps1 fails if a .pex is MISSING but cannot tell that one is STALE.
+# See "CI build & release" in README.md.
 #
-# Add one pair of lines per script-shipping plugin (the /mod-new-plugin skill does this for you):
-!src/ExampleMod/Scripts/compiled/
-!src/ExampleMod/Scripts/compiled/*.pex
+# Add one pair of lines per script-shipping patch (the /mod-new-plugin skill does this for you):
+# !src/<PatchName>/Scripts/compiled/
+# !src/<PatchName>/Scripts/compiled/*.pex
 
-# Reference decompiles — vanilla and third-party plugins serialized ONLY for FormKey lookups.
-# Large, regenerated locally from each machine's own copy of the source mod, never committed.
+# Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
+# lookups. Large, regenerated locally from each machine's own copy, never committed.
 /reference/

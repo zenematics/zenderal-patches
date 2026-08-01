@@ -15,7 +15,7 @@
   This is deliberately NOT a YAML parser. Windows PowerShell 5.1 ships no YAML support, and a full
   parse would be slow to run on every edit. The checks above are the ones that actually recur.
   For deep semantic auditing (collisions, dangling references, in-game anti-patterns) use the
-  `spriggit-formkey-auditor` subagent instead - see arch-docs/skyrim-record-patterns.md.
+  `spriggit-formkey-auditor` subagent instead - see arch-docs/enderal-record-patterns.md.
 
   Only files that live inside a Spriggit plugin folder are examined. A folder counts as one when it,
   or one of its ancestors, contains a spriggit-meta.json. Everything else is ignored, so this is safe
@@ -32,7 +32,7 @@
 
 .EXAMPLE
   pwsh build/Test-RecordYaml.ps1
-  pwsh build/Test-RecordYaml.ps1 -Path src/ExampleMod/ExampleModESP
+  pwsh build/Test-RecordYaml.ps1 -Path src/ZenderalBugfixes/ZenderalBugfixesESP
 #>
 [CmdletBinding()]
 param(
@@ -219,8 +219,13 @@ elseif (-not $Path -or $Path.Count -eq 0) {
     Push-Location $RepoRoot
     try {
         $gitFiles = @(& git ls-files --cached --others --exclude-standard -- '*.yaml' 2>$null)
-        if ($LASTEXITCODE -ne 0 -or $gitFiles.Count -eq 0) {
-            throw "Could not list YAML via git (not a git repo, or no YAML tracked). Pass -Path explicitly."
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not list YAML via git (not a git repo?). Pass -Path explicitly."
+        }
+        # No YAML at all is the pre-first-patch state of this workspace, not a failure.
+        if ($gitFiles.Count -eq 0) {
+            Write-Host "No record YAML tracked yet - nothing to check." -ForegroundColor Yellow
+            exit 0
         }
         $targets = @($gitFiles | ForEach-Object { Join-Path $RepoRoot $_ } | Where-Object { Test-Path $_ })
     }

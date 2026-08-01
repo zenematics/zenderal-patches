@@ -1,6 +1,6 @@
 ---
 name: formkey-check
-description: Check the SkyrimSE Spriggit workspace for FormID/FormKey collisions before assigning a new one, or find the next free FormID block. Use when the user is about to create a record, asks "is this FormID free", "what's the next free FormKey", or wants a collision audit.
+description: Check the Enderal SE Spriggit workspace for FormID/FormKey collisions before assigning a new one, or find the next free FormID block. Use when the user is about to create a record, asks "is this FormID free", "what's the next free FormKey", or wants a collision audit.
 ---
 
 # FormKey collision check
@@ -14,9 +14,9 @@ because a collision against a master is just as bad as one against your own reco
 ### A) "Is this FormID free?" — collision check for a specific hex
 
 1. Normalize the input to a 6-hex-digit FormID (e.g. `0x000812` → `000812`). Note that in
-   Spriggit YAML, FormKeys appear as `<FormID>:<ModKey>` (e.g. `000812:MyMod.esp`).
+   Spriggit YAML, FormKeys appear as `<FormID>:<ModKey>` (e.g. `000812:MyPatch.esp`).
 2. Grep the workspace for the hex, case-insensitive, across `*.yaml`:
-   - Search your record folders **and** `reference/`.
+   - Search `src/` **and** `reference/`.
 3. Report:
    - **Collision** → list each file/line that uses it, and whether it's your plugin or a reference master.
    - **Free** → confirm no matches found.
@@ -33,10 +33,17 @@ because a collision against a master is just as bad as one against your own reco
 
 - **ESL range:** if the plugin is ESL-flagged (`.esl`, or `.esp`/`.esm` with the ESL/light flag
   set in `RecordData.yaml`), new FormIDs are limited to `0x800–0xFFF`. Warn before exceeding.
-- New records use **this plugin's** name as the FormKey suffix — don't propose IDs under a master's ModKey.
+  **Overrides do not consume this budget** — only records the patch invents do, so an ESL patch can
+  override thousands of records and still be nowhere near the limit. Don't report an override count
+  as ESL pressure.
+- New records use **this plugin's** name as the FormKey suffix — don't propose IDs under a master's
+  ModKey. In this repo the common suffixes on existing records are
+  `:Enderal - Forgotten Stories.esm` (overriding Enderal), `:Skyrim.esm`/`:Update.esm` (overriding
+  something Enderal left vanilla), and `:<SomeMod>.esp` (overriding a list mod).
 
 ## Tips
 
 - Use the Grep tool over `glob: "*.yaml"` rather than shell `grep`.
 - If the workspace has no record YAML yet, say so plainly ("no FormIDs found yet — start anywhere
-  in this plugin's range").
+  in this plugin's range"). `src/` ships empty in this repo, so that is the expected answer until the
+  first patch exists.

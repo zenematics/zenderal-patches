@@ -1,11 +1,12 @@
 ---
 name: mod-deploy
-description: Deploy the packaged mod from dist/<ModName>/ into an MO2 modlist's mods folder and verify it actually landed under the exact expected name. Use when the user wants to install, deploy, or test the built mod in a modlist, or asks why their change isn't showing up in-game.
+description: Deploy the packaged patch from dist/<PatchName>/ into an MO2 instance's mods folder and verify it actually landed under the exact expected name. Use when the user wants to install, deploy, or test the built mod in a modlist, or asks why their change isn't showing up in-game.
 ---
 
-# Deploy to an MO2 modlist (and verify it landed)
+# Deploy to an MO2 instance (and verify it landed)
 
-Copy `dist/<ModName>/` into a Mod Organizer 2 instance and then **prove it arrived**. The verify
+Copy `dist/<PatchName>/` into a Mod Organizer 2 instance (normally the Zenderal one) and then
+**prove it arrived**. The verify
 step is the point of this skill: a mod deployed into a wrongly-named folder is invisible to MO2, the
 game runs happily without it, and the symptom is "my change didn't work" — which sends you debugging
 records that were never loaded.
@@ -19,7 +20,7 @@ Read `.claude/config/tools.json` via `. ".claude/config/tools.ps1"`:
 | `$Tools.modsDir` | The MO2 instance's `mods\` folder you deploy into. |
 | `$Tools.deployModName` | The **exact** folder name to create inside it. |
 | `$Tools.modlistsRoot` | Parent of several MO2 instances, when you switch between them. |
-| `$Tools.modlistRoot` | A single Wabbajack instance root (its `mods\` is `<modlistRoot>\mods`). |
+| `$Tools.modlistRoot` | The Zenderal instance root (its `mods\` is `<modlistRoot>\mods`). |
 
 If `modsDir` or `deployModName` is blank, **ask the user** — do not guess and do not search the
 filesystem for something that looks like a modlist. Then offer to write the answer into `tools.json`
@@ -31,14 +32,14 @@ so the next deploy needs no questions.
 
 ## Steps
 
-1. **Confirm the source exists.** `dist/<ModName>/` must be present and current. If it is missing or
+1. **Confirm the source exists.** `dist/<PatchName>/` must be present and current. If it is missing or
    older than the YAML/scripts, run the **package-mod** skill first (which itself runs
    **spriggit-deserialize** and **papyrus-compile** as needed).
 
 2. **Show the user the exact destination and confirm it** before copying:
 
    ```
-   dist/<ModName>/  ->  <modsDir>\<deployModName>\
+   dist/<PatchName>/  ->  <modsDir>\<deployModName>\
    ```
 
    If `<modsDir>\<deployModName>\` already exists, say so — this is an overwrite. Note whether MO2
@@ -48,7 +49,7 @@ so the next deploy needs no questions.
 
    ```powershell
    . ".claude/config/tools.ps1"
-   $src  = "dist/<ModName>"
+   $src  = "dist/<PatchName>"
    $dest = Join-Path (Assert-Tool $Tools.modsDir 'modsDir') $Tools.deployModName
    New-Item -ItemType Directory -Force $dest | Out-Null
    Copy-Item "$src\*" $dest -Recurse -Force
@@ -87,13 +88,15 @@ so the next deploy needs no questions.
 5. **Tell the user what is left to do by hand.** This skill cannot do these:
    - refresh MO2 (F5) and **enable** the mod in the left pane;
    - **enable the `.esp`** and set its load order in the right pane;
-   - launch the game through MO2 and confirm the change in-game.
+   - **set the patch's load order so it loads after everything it forwards** — a forwarding patch
+     above the mod it forwards is a patch that does nothing;
+   - launch Enderal through MO2 and confirm the change in-game.
 
 ## Notes
 
 - `dist/` is gitignored — it is fully derivable from the committed Spriggit YAML plus
-  `src/<ModName>/Scripts/source/`.
+  `src/<PatchName>/Scripts/source/`.
 - **A clean build and a successful deploy still prove nothing about behaviour.** See
-  `arch-docs/skyrim-record-patterns.md` for record shapes that install perfectly and do nothing.
+  `arch-docs/enderal-record-patterns.md` for record shapes that install perfectly and do nothing.
 - For a release archive rather than a loose test deploy, use `build/build.ps1`, which produces the
   FOMOD-installable `.7z` in `build/dist/`.

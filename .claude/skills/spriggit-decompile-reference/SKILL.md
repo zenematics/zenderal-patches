@@ -1,24 +1,29 @@
 ---
 name: spriggit-decompile-reference
-description: Serialize a vanilla or third-party SkyrimSE plugin into the gitignored reference/ folder for FormKey lookups only. Use when the user wants to decompile Skyrim.esm, Update.esm, a DLC, or another mod purely for reference/lookup (not to edit or commit).
+description: Serialize Enderal's ESM or a third-party Enderal SE plugin into the gitignored reference/ folder for FormKey lookups only. Use when the user wants to decompile 'Enderal - Forgotten Stories.esm', Skyrim.esm, Update.esm, or another mod purely for reference/lookup (not to edit or commit).
 ---
 
 # Spriggit: Decompile a reference master (lookup only)
 
-Serialize a master you do **not** own (vanilla game files, DLC, or another author's mod) into
-the gitignored `reference/<name>/` folder so you can grep it for FormKeys without committing it.
+Serialize a master you do **not** own (Enderal's ESM, vanilla game files, or another author's mod)
+into the gitignored `reference/<name>/` folder so you can grep it for FormKeys without committing it.
+
+**This is how you find Enderal's own FormKeys** — its worldspace, keywords, crafting benches and
+talent perks. Do not copy a constants table out of Skyrim documentation; Enderal's records are its
+own.
 
 ## Workspace settings (from config)
 
 Paths and Spriggit settings come from `.claude/config/tools.json` (loaded via
 `.claude/config/tools.ps1`): `$Tools.spriggitCli`, and `$Tools.spriggit.{gameRelease,packageName,packageVersion}`
-(defaults `SkyrimSE` / `Spriggit.Yaml.Skyrim` / `0.40.0`).
+(defaults **`EnderalSE`** / `Spriggit.Yaml.Skyrim` / `0.40.0`).
 
 ## Inputs to collect
 
-1. **Plugin path** (`--InputPath`) — e.g. `Skyrim.esm`.
-2. **Reference name** — a short folder name under `reference/`, e.g. `skyrimBaseGame`,
-   `skyrimUpdate`, `dawnguard`, or the source mod name.
+1. **Plugin path** (`--InputPath`) — e.g. `$($Tools.gameDataDir)/Enderal - Forgotten Stories.esm`.
+2. **Reference name** — a short folder name under `reference/`. Convention:
+   `reference/base/<name>` for game masters (`EnderalFS`, `skyrimBaseGame`, `skyrimUpdate`) and
+   `reference/mods/<name>` for third-party list mods.
 
 ## Steps
 
@@ -27,8 +32,8 @@ Paths and Spriggit settings come from `.claude/config/tools.json` (loaded via
 ```powershell
 . ".claude/config/tools.ps1"
 & (Assert-Tool $Tools.spriggitCli 'spriggitCli') serialize `
-  --InputPath   "<Skyrim.esm>" `
-  --OutputPath  "./reference/<name>" `
+  --InputPath   "<Enderal - Forgotten Stories.esm>" `
+  --OutputPath  "./reference/base/<name>" `
   --GameRelease $Tools.spriggit.gameRelease `
   --PackageName $Tools.spriggit.packageName `
   --PackageVersion $Tools.spriggit.packageVersion

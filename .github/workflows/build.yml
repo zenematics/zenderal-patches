@@ -1,8 +1,9 @@
 name: Build & Package
 
-# Builds the two release archives (addon + patch collection) from Spriggit YAML and the
-# committed .pex, on every push to main and on version tags. Papyrus is NOT compiled here —
-# the .pex are committed (recompile + commit locally when a .psc changes; see README "CI build").
+# Builds every Zenderal patch archive listed in build/manifest.json from its Spriggit YAML and
+# committed .pex, on every push to main and on version tags. Papyrus is NOT compiled here — the
+# .pex are committed (recompile + commit locally when a .psc changes; see README "CI build").
+# An empty manifest builds nothing and still succeeds; the release steps below are skipped.
 
 on:
   push:
@@ -46,7 +47,11 @@ jobs:
           $title = $now.ToString('yyyy-MM-dd HH:mm:ss') + ' UTC'
           # @(...) is required: with exactly one archive this collapses to a scalar string,
           # and splatting a scalar passes its first character as the argument instead of the path.
-          $assets = @(Get-ChildItem build/dist/*.7z | ForEach-Object { $_.FullName })
+          $assets = @(Get-ChildItem build/dist/*.7z -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName })
+          if ($assets.Count -eq 0) {
+            Write-Host 'No archives built (empty manifest) - skipping the rolling pre-release.'
+            exit 0
+          }
           gh release create "$tag" @assets `
             --target "$env:GITHUB_SHA" `
             --title "$title" `
@@ -75,7 +80,8 @@ jobs:
         run: |
           # @(...) is required: with exactly one archive this collapses to a scalar string,
           # and splatting a scalar passes its first character as the argument instead of the path.
-          $assets = @(Get-ChildItem build/dist/*.7z | ForEach-Object { $_.FullName })
+          $assets = @(Get-ChildItem build/dist/*.7z -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName })
+          if ($assets.Count -eq 0) { throw "Tagged release $env:GITHUB_REF_NAME built no archives. Is build/manifest.json empty?" }
           gh release create "$env:GITHUB_REF_NAME" @assets `
             --title "$env:GITHUB_REF_NAME" `
             --generate-notes

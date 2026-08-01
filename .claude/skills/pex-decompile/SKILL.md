@@ -7,6 +7,12 @@ description: Decompile compiled Papyrus bytecode (.pex) back into readable sourc
 
 Turn compiled Papyrus bytecode into human-readable `.psc` source you can edit, then recompile.
 
+> **First, check whether you need this at all.** Enderal ships **real source** for its own ~5000
+> scripts in `<gameDataDir>/ScriptsEnderal.zip`, and SKSE's source is loose in
+> `<gameDataDir>/Source/Scripts`. Decompiling an Enderal script throws away real names and comments
+> for no reason. Use Champollion only for scripts with no available source — typically a
+> third-party mod's.
+
 ## Tool (from config)
 
 - `$Tools.champollion` — from `.claude/config/tools.json` (loaded via `.claude/config/tools.ps1`).
@@ -27,8 +33,9 @@ Turn compiled Papyrus bytecode into human-readable `.psc` source you can edit, t
 ```
 
 2. Choose the output dir by intent:
-   - Scripts **you will edit / own** → `src/<ModName>/Scripts/source/` (committed source of truth).
-   - **Reference-only** lookups → `reference/<name>/` (gitignored).
+   - Scripts **you will edit / own** → `src/<PatchName>/Scripts/source/` (committed source of truth).
+   - **Reference-only** lookups → `reference/<name>/` (gitignored). Third-party source belongs here,
+     never in `src/`.
 
 ## CRITICAL: decompiled source is a reconstruction
 
@@ -42,6 +49,8 @@ For non-trivial cleanup and compile-error fixing, hand off to the **papyrus-scri
 
 ## Notes
 
-- Commit the `.psc` source in `src/<ModName>/Scripts/source/`. `.pex` are gitignored by default;
+- Commit the `.psc` source in `src/<PatchName>/Scripts/source/`. `.pex` are gitignored by default;
   a plugin that ships scripts opts its `Scripts/compiled/` folder back in (see `.gitignore`).
-- If you only have a `.bsa`/`.ba2`, run **bsa-extract** first to get the `.pex` files.
+- If you only have a `.bsa`, run **bsa-extract** first to get the `.pex` files. Check
+  `E - Update.bsa` before the earlier Enderal archives — it loads last and wins.
+- Recompiling needs the correct three-tree import order (Enderal first). See **papyrus-compile**.

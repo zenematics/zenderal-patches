@@ -1,6 +1,6 @@
 ---
 name: spriggit-deserialize
-description: Rebuild a Bethesda plugin (.esp/.esm/.esl) from its Spriggit YAML folder in this SkyrimSE workspace. Use when the user wants to deserialize, re-pack, build, or compile the plugin from the edited YAML.
+description: Rebuild a Bethesda plugin (.esp/.esm/.esl) from its Spriggit YAML folder in this Enderal SE workspace. Use when the user wants to deserialize, re-pack, build, or compile the plugin from the edited YAML.
 ---
 
 # Spriggit: Deserialize (YAML → plugin)
@@ -14,8 +14,9 @@ Rebuild the binary plugin from the edited YAML. Run this after editing records.
 
 ## Inputs to collect
 
-1. **YAML folder** (`--InputPath`) — the Spriggit text folder under `src/`, e.g. `./src/MyMod/MyModESP`.
-2. **Output plugin** (`--OutputPath`) — the plugin to (re)build, e.g. `MyMod.esp`.
+1. **YAML folder** (`--InputPath`) — the Spriggit text folder under `src/`, e.g.
+   `./src/ZenderalBugfixes/ZenderalBugfixesESP`.
+2. **Output plugin** (`--OutputPath`) — the plugin to (re)build, e.g. `ZenderalBugfixes.esp`.
 
 ## Steps
 
@@ -25,8 +26,8 @@ Rebuild the binary plugin from the edited YAML. Run this after editing records.
 ```powershell
 . ".claude/config/tools.ps1"
 & (Assert-Tool $Tools.spriggitCli 'spriggitCli') deserialize `
-  --InputPath  "./src/<ModName>/<modFolderName>" `
-  --OutputPath "<MyMod.esp>"
+  --InputPath  "./src/<PatchName>/<PatchName>ESP" `
+  --OutputPath "<MyPatch.esp>"
 ```
 
 3. `--PackageName` / `--PackageVersion` are intentionally omitted — Spriggit auto-detects them
@@ -35,5 +36,8 @@ Rebuild the binary plugin from the edited YAML. Run this after editing records.
 ## After deserializing — ALWAYS remind
 
 - The rebuilt `.esp/.esm` is a **build artifact** and is gitignored (commit the YAML, not the binary).
-- **Load the plugin in xEdit and/or the Creation Kit to verify it before shipping.** Deserialize
-  succeeding does not guarantee the records are correct.
+- **Load the plugin in xEdit — in `-EnderalSE` mode — to verify it before shipping.** Plain SSEEdit
+  mode reads the Skyrim game folder and will not see Enderal's plugins at all. Use the
+  **xedit-audit** skill, which passes the switch.
+- Deserialize succeeding does not guarantee the records are correct, and a clean xEdit report does
+  not mean the patch works. Only launching Enderal proves that.

@@ -16,6 +16,10 @@
   GitHub Actions (pass -SpriggitCli explicitly). It never invokes the Papyrus compiler - the
   .pex are expected to be committed and current (recompile + commit when a .psc changes).
 
+  An empty manifest (releases: []) is a valid state, not an error: it is what a fresh clone of
+  this workspace looks like before the first patch exists. The script writes an empty report and
+  exits 0 WITHOUT requiring the Spriggit CLI or 7-Zip, so CI stays green from the first commit.
+
 .PARAMETER SpriggitCli
   Path to Spriggit.CLI.exe. Defaults to $Tools.spriggitCli from tools.json when available.
 
@@ -126,6 +130,19 @@ function Write-Report {
     if ($sha) { [void]$sb.AppendLine("- **Commit:** ``$sha``") }
     if ($ref) { [void]$sb.AppendLine("- **Ref:** ``$ref``") }
     [void]$sb.AppendLine('')
+    if (@($Archives).Count -eq 0 -and @($Plugins).Count -eq 0) {
+        # ASCII only in this file: Windows PowerShell 5.1 reads a BOM-less .ps1 as ANSI, so a
+        # non-ASCII literal here would land in the report as mojibake.
+        [void]$sb.AppendLine('**No releases in `build/manifest.json`** - nothing was built.')
+        [void]$sb.AppendLine('')
+        [void]$sb.AppendLine('This is the expected state before the first patch exists. Scaffold one with the')
+        [void]$sb.AppendLine('`/mod-new-plugin` skill, which adds its release entry to the manifest.')
+        [void]$sb.AppendLine('')
+        New-Item -ItemType Directory -Force (Split-Path -Parent $Path) | Out-Null
+        [System.IO.File]::WriteAllText($Path, $sb.ToString(), (New-Object System.Text.UTF8Encoding($false)))
+        Write-Host "  report -> $Path"
+        return
+    }
     [void]$sb.AppendLine('## Archives')
     [void]$sb.AppendLine('')
     [void]$sb.AppendLine('| Archive | Size | SHA-256 |')
@@ -255,10 +272,24 @@ function Test-FomodParity {
     return $ok
 }
 
+$releases = @($manifest.releases)
+
 if ($CheckFomod) {
     Write-Host "Checking manifest <-> FOMOD parity..." -ForegroundColor Cyan
+    if ($releases.Count -eq 0) { Write-Host "No releases in manifest.json - nothing to check." -ForegroundColor Yellow; exit 0 }
     if (Test-FomodParity) { Write-Host "FOMOD parity OK." -ForegroundColor Green; exit 0 }
     else { Write-Error "FOMOD parity check failed."; exit 1 }
+}
+
+# ---- Nothing to build ------------------------------------------------------
+# A manifest with no releases is the pre-first-patch state of this workspace, not a failure.
+# Bail out BEFORE resolving the Spriggit CLI and 7-Zip: neither is needed to build nothing, and
+# demanding them here would make a fresh clone fail its own build for no reason.
+if ($releases.Count -eq 0) {
+    Write-Host "No releases in build/manifest.json - nothing to build." -ForegroundColor Yellow
+    Write-Host "Add one with the /mod-new-plugin skill once you have a patch to ship."
+    Write-Report -Path (Join-Path $RepoRoot $Report) -Plugins @() -Archives @() -Scripts @()
+    exit 0
 }
 
 # ---- Build -----------------------------------------------------------------
@@ -277,7 +308,7 @@ $reportPlugins = @()
 $reportArchives = @()
 $scriptFiles = @()
 
-foreach ($rel in $manifest.releases) {
+foreach ($rel in $releases) {
     Write-Host "`n=== Release: $($rel.name) ===" -ForegroundColor Cyan
     $stageDir = Join-Path $stagingAbs $rel.name
 

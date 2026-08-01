@@ -1,58 +1,69 @@
 {
-  "$comment": "Workspace tool paths + settings. COPY to tools.json (gitignored) and fill in for your machine. Populate/refresh automatically with the `modlist-install` skill, or edit by hand. Use forward slashes; they work fine in PowerShell.",
+  "$comment": "Workspace tool paths + settings for the Zenderal patch workspace (Enderal SE). COPY to tools.json (gitignored) and fill in for your machine. Populate/refresh automatically with the `modlist-install` skill, or edit by hand. Use forward slashes; they work fine in PowerShell.",
 
   "modlistRoot": "",
-  "_modlistRoot_help": "Root of the installed Wabbajack modlist (the MO2 instance: contains ModOrganizer.exe, mods/, profiles/, tools/). Leave blank if you are not using a modlist and set the explicit tool paths below instead.",
+  "_modlistRoot_help": "Root of the installed Zenderal MO2 instance (contains ModOrganizer.exe, mods/, profiles/, tools/). Leave blank if you are not testing against an installed modlist and set the explicit tool paths below instead.",
 
-  "gameRoot": "C:/Gaming/steamapps/common/Skyrim Special Edition",
-  "_gameRoot_help": "Skyrim SE game folder. With a Wabbajack list this is usually <modlistRoot>/Stock Game (or 'Game Root' / 'Stock Game Folder'), a self-contained copy so the modlist never touches your Steam install.",
+  "gameRoot": "C:/Gaming/steamapps/common/Enderal Special Edition",
+  "_gameRoot_help": "Enderal Special Edition game folder - the one holding SkyrimSE.exe, skse64_loader.exe and 'Enderal Launcher.exe'. This is NOT your Skyrim SE folder; Enderal SE installs as a separate Steam app with its own copy of the engine. With a Wabbajack list this is usually <modlistRoot>/Stock Game (or 'Game Root'), a self-contained copy so the list never touches your Steam install.",
 
-  "gameDataDir": "C:/Gaming/steamapps/common/Skyrim Special Edition/Data",
-  "gameSourceScripts": "C:/Gaming/steamapps/common/Skyrim Special Edition/Data/Source/Scripts",
-  "_gameSourceScripts_help": "Vanilla Papyrus .psc imports + TESV_Papyrus_Flags.flg. Extract <gameDataDir>/Scripts.zip here once if the folder is missing.",
+  "gameDataDir": "C:/Gaming/steamapps/common/Enderal Special Edition/Data",
+  "_gameDataDir_help": "Enderal's Data folder: 'Enderal - Forgotten Stories.esm', the E - *.bsa archives, Scripts/, Source/Scripts/, ScriptsEnderal.zip.",
+
+  "skyrimSeRoot": "C:/Gaming/steamapps/common/Skyrim Special Edition",
+  "_skyrimSeRoot_help": "Your ordinary Skyrim SE install. Enderal ships no Creation Kit and no Papyrus compiler, so both come from here - as does the vanilla Papyrus source (Data/Scripts.zip). Enderal SE is built on the SSE engine, so the SSE CK and compiler are the correct tools; you just point them at Enderal's Data folder.",
+
+  "papyrusSource": {
+    "enderal": "",
+    "skse": "",
+    "vanilla": ""
+  },
+  "_papyrusSource_help": "The three Papyrus .psc source trees, in PRECEDENCE order. The compiler's -i path is FIRST-WINS (verified on this workspace's toolchain), and Enderal overrides 55 vanilla script names, so Enderal MUST come first or you compile against the wrong signatures. 'enderal': extract <gameDataDir>/ScriptsEnderal.zip once -> its source/scripts folder. 'skse': <gameDataDir>/Source/Scripts (SKSE64 ships its extended vanilla types there in an Enderal install). 'vanilla': extract <skyrimSeRoot>/Data/Scripts.zip once -> its Source/Scripts folder; this is also where TESV_Papyrus_Flags.flg comes from. See CLAUDE.md 'Papyrus toolchain'.",
+
   "papyrusFlags": "TESV_Papyrus_Flags.flg",
+  "_papyrusFlags_help": "User-flags file name, resolved off the -i import path. Ships inside the vanilla Scripts.zip; Enderal's own source trees do not contain one.",
 
   "spriggitCli": "C:/Tools/SpriggitCLI/Spriggit.CLI.exe",
   "bsab": "C:/Tools/BSA Browser/bsab.exe",
   "champollion": "C:/Tools/Champollion-x64/Champollion.exe",
   "papyrusCompiler": "C:/Gaming/steamapps/common/Skyrim Special Edition/Papyrus Compiler/PapyrusCompiler.exe",
   "creationKit": "C:/Gaming/steamapps/common/Skyrim Special Edition/CreationKit.exe",
+  "_creationKit_help": "SSE Creation Kit. To edit Enderal with it you must run it against Enderal's Data folder and set bAllowMultipleMasterLoads=1 - see CLAUDE.md 'Creation Kit against Enderal'. The CK is only needed for the Papyrus compiler and for asset work; all record editing here happens in the Spriggit YAML.",
 
-  "sseedit": "",
-  "_sseedit_help": "SSEEdit.exe (xEdit). Used by the `xedit-audit` skill for conflict/error review. Wabbajack dev lists ship it under <modlistRoot>/tools/xEdit/.",
-  "sseeditQuickAutoClean": "",
-  "_sseeditQuickAutoClean_help": "SSEEditQuickAutoClean.exe — headless master cleaner (strips ITMs/UDRs/deleted refs). Same xEdit folder. Used by `xedit-audit`.",
+  "xedit": "",
+  "_xedit_help": "xEdit executable. For Enderal SE it must run in EnderalSE mode: either use a copy named EnderalSEEdit.exe or pass -EnderalSE. The `xedit-audit` skill passes the switch for you. Plain SSEEdit mode reads the wrong game folder and INI and will not find Enderal's plugins.",
+  "xeditQuickAutoClean": "",
+  "_xeditQuickAutoClean_help": "xEditQuickAutoClean.exe - headless cleaner (strips ITMs/UDRs/deleted refs). Same xEdit folder; also needs -EnderalSE. Used by `xedit-audit`.",
   "xeditScriptsDir": "",
-  "_xeditScriptsDir_help": "xEdit 'Edit Scripts' folder (contains 'Check for Errors.pas' etc.) — passed to SSEEdit -script by `xedit-audit`.",
+  "_xeditScriptsDir_help": "xEdit 'Edit Scripts' folder (contains 'Check for Errors.pas' etc.) - passed to xEdit -script by `xedit-audit`.",
   "bsarch": "",
-  "_bsarch_help": "BSArch64.exe — CLI BSA/BA2 packer (bundled in xEdit's folder). Reference key; no skill wraps it yet.",
+  "_bsarch_help": "BSArch64.exe - CLI BSA packer (bundled in xEdit's folder). Reference key; no skill wraps it yet.",
   "synthesis": "",
-  "_synthesis_help": "Synthesis.exe — Mutagen patcher pipeline runner. Reference key; no skill wraps it yet.",
+  "_synthesis_help": "Synthesis.exe - Mutagen patcher pipeline runner. Mutagen supports EnderalSE, so Synthesis can target it. Reference key; no skill wraps it yet.",
   "resaver": "",
-  "_resaver_help": "ReSaver.exe (Fallrim Tools) — savegame script cleaner (GUI-primary). Reference key; no skill wraps it yet.",
+  "_resaver_help": "ReSaver.exe (Fallrim Tools) - savegame script cleaner (GUI-primary). Reference key; no skill wraps it yet.",
   "cao": "",
-  "_cao_help": "Cathedral Assets Optimizer .exe — mesh/texture optimization. Reference key; no skill wraps it yet.",
+  "_cao_help": "Cathedral Assets Optimizer .exe - mesh/texture optimization, relevant to the visuals pillar. Reference key; no skill wraps it yet.",
   "nifskope": "",
-  "_nifskope_help": "NifSkope.exe — .nif mesh viewer/editor. Reference key; no skill wraps it yet.",
-  "octagon": "",
-  "_octagon_help": "Octagon.exe — BSA/texture GUI tool. Reference key; no skill wraps it yet.",
+  "_nifskope_help": "NifSkope.exe - .nif mesh viewer/editor. Reference key; no skill wraps it yet.",
   "bae": "",
-  "_bae_help": "bae.exe (Beth Archive Extract) — alternate .bsa/.ba2 extractor STD ships instead of BSA Browser. Reference key; `bsa-extract` uses `bsab`.",
+  "_bae_help": "bae.exe (Beth Archive Extract) - alternate .bsa extractor. Reference key; `bsa-extract` uses `bsab`.",
 
   "modlistsRoot": "C:/modding/modlists",
-  "_modlistsRoot_help": "Parent folder of MO2 instances you install built mods into for testing (e.g. STD, LoreRim, Baseline). May be the same as modlistRoot's parent.",
+  "_modlistsRoot_help": "Parent folder of the MO2 instances you install built patches into for testing. May be the same as modlistRoot's parent.",
 
   "modsDir": "",
-  "_modsDir_help": "The MO2 'mods' folder the `mod-deploy` skill copies dist/<ModName>/ into, e.g. C:/modding/modlists/STD/mods. Set this rather than letting anything search for it.",
+  "_modsDir_help": "The MO2 'mods' folder the `mod-deploy` skill copies dist/<PatchName>/ into, e.g. C:/modding/modlists/Zenderal/mods. Set this rather than letting anything search for it.",
   "deployModName": "",
-  "_deployModName_help": "EXACT folder name to create under modsDir, e.g. 'My-Mod-Name'. Frequently differs from the .esp name (spaces/dashes/case). A mismatch here is the #1 cause of 'my change never showed up in-game' - MO2 simply doesn't see the folder and the game runs fine without it.",
+  "_deployModName_help": "EXACT folder name to create under modsDir, e.g. 'Zenderal-Bugfixes'. Frequently differs from the .esp name (spaces/dashes/case). A mismatch here is the #1 cause of 'my change never showed up in-game' - MO2 simply doesn't see the folder and the game runs fine without it.",
 
   "spriggit": {
-    "gameRelease": "SkyrimSE",
+    "gameRelease": "EnderalSE",
     "packageName": "Spriggit.Yaml.Skyrim",
     "packageVersion": "0.40.0"
   },
+  "_spriggit_help": "gameRelease is Mutagen's GameRelease.EnderalSE - NOT SkyrimSE. It is still served by the Spriggit.Yaml.Skyrim package (EnderalSE maps to GameCategory.Skyrim), but it carries a different implicit base-master set that includes 'Enderal - Forgotten Stories.esm'. Keep this in sync with the repo-root .spriggit file.",
 
   "importDirs": [],
-  "_importDirs_help": "Extra Papyrus Source/Scripts dirs (SKSE, SkyUI, MCM, other mods) appended to the compiler -i path. Add as you discover them."
+  "_importDirs_help": "EXTRA Papyrus source dirs (SkyUI/MCM, PapyrusUtil, other frameworks) appended to the compiler -i path AFTER the three papyrusSource trees. Add as you discover them, and record each in CLAUDE.md's imports table."
 }

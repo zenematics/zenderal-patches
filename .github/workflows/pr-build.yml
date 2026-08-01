@@ -1,6 +1,6 @@
 name: PR Test Build
 
-# On every PR open/update, builds the two release archives (addon + patch collection) and attaches
+# On every PR open/update, builds every patch archive in build/manifest.json and attaches
 # them to the PR as a downloadable GitHub Actions artifact + a sticky comment linking to it. Each new
 # push deletes the previous artifact and uploads a fresh one; merging/closing the PR deletes it.
 # The main/tag release pipeline lives in build.yml and is unaffected.
@@ -49,7 +49,19 @@ jobs:
           spriggit-version: ${{ env.SPRIGGIT_VERSION }}
           github-token: ${{ github.token }}
 
+      # An empty build/manifest.json produces no archives. That is a legitimate state (a PR that
+      # only touches docs or tooling, or the repo before its first patch), so detect it and skip
+      # the upload/comment rather than failing the PR check.
+      - name: Check for built archives
+        id: archives
+        shell: pwsh
+        run: |
+          $n = @(Get-ChildItem build/dist/*.7z -ErrorAction SilentlyContinue).Count
+          "found=$($n -gt 0)".ToLower() >> $env:GITHUB_OUTPUT
+          Write-Host "$n archive(s) built."
+
       - name: Upload test builds
+        if: steps.archives.outputs.found == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
@@ -59,6 +71,7 @@ jobs:
           if-no-files-found: error
 
       - name: Post/update sticky PR comment
+        if: steps.archives.outputs.found == 'true'
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}

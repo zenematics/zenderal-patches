@@ -21,7 +21,7 @@ python -c "import json;print('\n'.join(r['archiveName']+'.7z' for r in json.load
 ```
 
 GitHub replaces spaces with dots in uploaded asset filenames, so a manifest `archiveName` of
-`Example Mod` arrives as `Example.Mod.7z`. Confirm the actual names with
+`Zenderal Bugfixes` arrives as `Zenderal.Bugfixes.7z`. Confirm the actual names with
 `gh release view <buildTag> -R "$REPO" --json assets --jq '.assets[].name'` before referencing them.
 
 ## Background: how CI releases work

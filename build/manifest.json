@@ -1,16 +1,4 @@
 {
-  "$comment": "Single source of truth for the CI/local build. Each release lists the Spriggit YAML folders to deserialize and where the built .esp lands inside the release (FOMOD) tree. 'dest' paths must match the source= attributes in that release's fomod/ModuleConfig.xml (verified by build/build.ps1 -CheckFomod). Paths are repo-relative, and every mod's sources live under src/<ModName>/. Optional per-release keys: 'scripts' {from,to} bulk-copies committed .pex; 'allowUnreferencedPlugins' silences the warning about a plugin the FOMOD never installs. Optional per-plugin key: 'scripts' [{from,to}] copies individual .pex. Add releases with the /mod-new-plugin skill.",
-  "releases": [
-    {
-      "name": "Example Mod",
-      "archiveName": "Example Mod",
-      "scripts": {
-        "from": "src/ExampleMod/Scripts/compiled",
-        "to": "Scripts"
-      },
-      "plugins": [
-        { "yamlSource": "src/ExampleMod/ExampleModESP", "dest": "ExampleMod.esp" }
-      ]
-    }
-  ]
+  "$comment": "Single source of truth for the CI/local build. Each release lists the Spriggit YAML folders to deserialize and where the built .esp lands inside the release (FOMOD) tree. 'dest' paths must match the source= attributes in that release's fomod/ModuleConfig.xml (verified by build/build.ps1 -CheckFomod). Paths are repo-relative, and every patch's sources live under src/<PatchName>/. Optional per-release keys: 'scripts' {from,to} bulk-copies committed .pex; 'allowUnreferencedPlugins' silences the warning about a plugin the FOMOD never installs. Optional per-plugin key: 'scripts' [{from,to}] copies individual .pex. Add releases with the /mod-new-plugin skill. An empty 'releases' array is valid - the build reports 'nothing to build' and succeeds, so the repo stays green before the first patch exists.",
+  "releases": []
 }
