@@ -1,0 +1,109 @@
+[size=5]Relentless Sword — Enderal Conversion[/size]
+
+[i]johnskyrim's Relentless Sword SE, rebuilt to actually work in Enderal: Forgotten Stories.[/i]
+
+Six blades — a longsword and a greatsword, each in plain, [color=#e07b39]Fire[/color] and [color=#5aaed6]Ice[/color] variants — forged at Enderal's shadowsteel tier, gated behind a blueprint the way Enderal gates its own top-tier weapons, and dismantlable back into ingots like everything else in the game.
+
+[line]
+
+[size=4]⚠ Requirements — read this part[/size]
+
+[list]
+[*][b][url=https://www.nexusmods.com/skyrimspecialedition/mods/114022]Relentless Sword SE by johnskyrim[/url][/b] — install it for its meshes and textures. Pick the [b]CORE[/b] (runed) branch and whichever fire/ice glow intensity you like in [i]his[/i] installer.
+[*][b]Then disable [font=Courier New]Relentless Sword SE - Johnskyrim.esp[/font].[/b] This mod replaces it.
+[/list]
+
+[b]Any texture resolution works.[/b] 1K, 2K and 4K ship byte-identical plugins and byte-identical meshes — they differ only in the texture files, at the same paths. This mod references meshes and no textures at all, so there is nothing to match up and no version of it to choose. Install whichever resolution your VRAM likes.
+
+[b]The CORE branch is required, though.[/b] NoRune ships different meshes ([font=Courier New]runeless.nif[/font]) and only two weapons rather than six, so it is not covered by this conversion.
+
+That second step is not optional housekeeping. His plugin masters [font=Courier New]Dawnguard.esm[/font], [font=Courier New]HearthFires.esm[/font] and [font=Courier New]Dragonborn.esm[/font] — Enderal ships those as empty 44 KB stubs and never loads them — so it cannot function here. This mod carries the same swords with clean masters.
+
+[line]
+
+[size=4]Why a conversion and not a patch[/size]
+
+Enderal reuses Skyrim's engine and almost none of its design. Four things had to change, and none of them could be fixed by a patch plugin loaded on top:
+
+[list=1]
+[*][b]The masters.[/b] Three DLC that Enderal does not load. A patch cannot rewrite another plugin's master list, so the records were re-homed into a standalone plugin that masters only [font=Courier New]Skyrim.esm[/font] and [font=Courier New]Enderal - Forgotten Stories.esm[/font].
+[*][b]The recipes could never have appeared.[/b] Every forge recipe was keyed to the [b]Skyforge[/b] and a [b]Companions questline[/b] global. Neither of those FormIDs exists anywhere in Enderal — not in its [font=Courier New]Skyrim.esm[/font], not in [font=Courier New]Update.esm[/font], not in the Forgotten Stories ESM. The swords were uncraftable, silently, with no error.
+[*][b]The damage was on the wrong scale.[/b] Enderal's numbers run roughly 1.6× Skyrim's. At 11 and 20 damage these landed around steel tier — a 1000-gold "unique" you would sell rather than swing.
+[*][b]No dismantle recipes, no [font=Courier New]WeapTypeMelee[/font] keyword.[/b] Forgotten Stories ships 587 dismantle recipes. These would have been the only weapons in the game you could not break down.
+[/list]
+
+[line]
+
+[size=4]The swords[/size]
+
+Retuned to exact parity with Enderal's shadowsteel tier — the same numbers as [i]Sword of the Righteous Path[/i] and its greatsword. Weight, speed, reach, stagger and the 1000 gold value are johnskyrim's originals, untouched.
+
+[code]
+                  Damage   Critical   Weight   Value
+  One-handed        23         6        10     1000
+  Two-handed        37        11        18     1000
+[/code]
+
+They are unenchanted, so they take any enchantment you like.
+
+[line]
+
+[size=4]How to get them[/size]
+
+[b]1. Find the blueprint.[/b]
+[font=Courier New]Blueprint: Relentless Sword (Handicraft 50)[/font] sits on the shelf of the noble dresser in the [b]Riverville Temple[/b]. It is free to take — nobody owns it, and picking it up is not stealing. If you have already left Riverville behind, blueprint traders stock it from [b]level 30[/b], alongside the Righteous Path and Aeterna plans.
+
+One copy unlocks all six swords. Keep it in your pack — the recipes check that you still have it.
+
+[b]2. Forge them.[/b]
+Any forge or anvil, once your [b]Handicraft[/b] reaches [b]50[/b] and you are carrying the blueprint. This is the same two-part gate Enderal puts on its own shadowsteel weapons, rather than the smithing-perk checks a Skyrim mod would use — Enderal grants every vanilla smithing perk at level one, so perk gating does nothing here.
+
+[code]
+  One-handed    2 Steel Ingot   3 Leather Strips   2 Shadowsteel Ingot   1 Leather
+  Two-handed    3 Steel Ingot   3 Leather Strips   3 Shadowsteel Ingot   1 Leather
+[/code]
+
+[b]3. Improve and recycle.[/b]
+Tempered at a sharpening wheel with a shadowsteel ingot. Dismantled at a smelter back into shadowsteel — 2 ingots for a longsword, 3 for a greatsword — exactly as Forgotten Stories handles its own gear.
+
+[line]
+
+[size=4]Compatibility and load order[/size]
+
+The plugin is [b]ESL-flagged[/b], so it costs you nothing against the 254-plugin limit.
+
+It overrides exactly two existing records:
+[list]
+[*][b]Riverville Temple[/b] — to place the blueprint on the shelf.
+[*][b]The blueprint trader list[/b] — to stock it at level 30.
+[/list]
+
+Both were forwarded from the Forgotten Stories versions rather than base Enderal's, so nothing FS changed is reverted. [b]Load this after anything else that edits the Riverville Temple interior[/b]; if something else wins that conflict you lose the shelf copy, and the trader entry becomes your only source.
+
+Everything else the mod adds is brand new records that touch nothing.
+
+[line]
+
+[size=4]Installation[/size]
+
+FOMOD installer — Mod Organizer 2, Vortex or Wrye Bash. Install johnskyrim's mod first, then this, then disable his ESP.
+
+To uninstall, drop any swords and the blueprint first, as with any mod that adds items.
+
+[line]
+
+[size=4]Credits[/size]
+
+[b]johnskyrim[/b] — the models, textures and the original mod. All the artistry here is his; this release only makes his work run on a different game. Go endorse [url=https://www.nexusmods.com/skyrimspecialedition/mods/114022]the original[/url].
+[b]SureAI[/b] — Enderal: Forgotten Stories.
+
+Built from Spriggit YAML sources. Every record shape here was checked against Enderal's own serialized plugins rather than assumed from Skyrim modding habits.
+
+[line]
+
+[size=4]Known limitations[/size]
+
+[list]
+[*]The one-handed and two-handed variants share display names ("Relentless", "Relentless Fire", "Relentless Ice") — that is johnskyrim's original naming, left alone deliberately.
+[*]Requires Enderal SE, which is pinned to Skyrim SE [b]1.5.97[/b]. This is a plugin only, so no SKSE version concerns apply to it.
+[/list]

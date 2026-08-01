@@ -22,6 +22,8 @@
 
 REQUIRES johnskyrim's Relentless Sword SE, installed separately for its meshes and textures - pick the CORE (runed) branch and whichever fire/ice glow intensity you prefer in HIS installer.
 
+Any texture resolution works - 1K, 2K and 4K ship identical plugins and identical meshes, and differ only in the texture files themselves. There is nothing to match on this side. The CORE branch is required though; NoRune ships different meshes (runeless.nif) and only two weapons, so it is not covered.
+
 Then DISABLE "Relentless Sword SE - Johnskyrim.esp". It masters the Skyrim DLC, which Enderal does not load, and its recipes are gated on the Skyforge - it cannot work here. This plugin replaces it.
 
 To forge the swords you need Handicraft 50 AND the blueprint, exactly like Enderal's own shadowsteel weapons.
