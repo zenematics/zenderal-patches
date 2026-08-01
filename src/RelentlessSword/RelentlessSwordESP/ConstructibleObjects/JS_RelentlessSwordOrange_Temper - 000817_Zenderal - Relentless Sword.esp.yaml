@@ -1,0 +1,22 @@
+FormKey: 000817:Zenderal - Relentless Sword.esp
+EditorID: JS_RelentlessSwordOrange_Temper
+Items:
+- Item:
+    Item: 05AD9D:Skyrim.esm
+    Count: 1
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: EPTemperingItemIsEnchantedConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 05218E:Skyrim.esm
+  ComparisonValue: 1
+CreatedObject: 00080B:Zenderal - Relentless Sword.esp
+WorkbenchKeyword: 088108:Skyrim.esm
+CreatedObjectCount: 1

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fomod>
+  <Name>Zenderal - Relentless Sword</Name>
+  <Author>johnskyrim (records) / Zenderal (Enderal conversion)</Author>
+  <Version MachineVersion="1.0.0">1.0.0</Version>
+  <Website>https://www.nexusmods.com/skyrimspecialedition/mods/114022</Website>
+  <Description>
+    Enderal: Forgotten Stories SE conversion of johnskyrim's Relentless Sword SE.
+
+    The original plugin cannot load in Enderal - it masters Dawnguard.esm, HearthFires.esm and
+    Dragonborn.esm, and its recipes are gated on the Skyforge keyword and a Companions questline
+    global, neither of which exists in Enderal. This plugin carries the same six swords with clean
+    masters, Enderal shadowsteel-tier damage, forge recipes gated the way Enderal gates its own tier
+    - Handicraft 50 plus a blueprint - and dismantle recipes matching the rest of Forgotten Stories.
+
+    The blueprint is on the noble shelf in Riverville Temple, and is stocked by blueprint vendors
+    from level 30. One copy unlocks all six swords.
+
+    REQUIRES johnskyrim's Relentless Sword SE installed for its meshes and textures (CORE / runed
+    branch). Disable its own "Relentless Sword SE - Johnskyrim.esp" - this plugin replaces it.
+  </Description>
+  <Groups>
+    <element>Weapons</element>
+  </Groups>
+</fomod>

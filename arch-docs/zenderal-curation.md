@@ -59,7 +59,39 @@ if it needed none.
 
 | Mod | Version | Why | Patch | Notes |
 |---|---|---|---|---|
-| _(none recorded yet)_ | | | | |
+| [Relentless Sword SE](https://www.nexusmods.com/skyrimspecialedition/mods/114022) — johnskyrim | 1.0 | A craftable high-tier longsword in 1H and 2H, in Enderal's own dark-metal register. Small (34 records); overrides only two existing records — the Riverville Temple cell and one blueprint vendor list. | **RelentlessSword** | **Install for meshes/textures only — its own `.esp` must be disabled.** Install the **CORE** (runed) branch; the fire/ice glow intensity stays johnskyrim's FOMOD choice and is asset-only. The shipped plugin cannot load or function in Enderal on four counts, all fixed in the patch — see below. |
+
+**Why Relentless Sword needed a conversion rather than a patch** (all verified against
+`reference/base/`, 2026-08-01):
+
+1. Its `.esp` masters `Dawnguard.esm`, `HearthFires.esm` and `Dragonborn.esm` — no record actually
+   references them, but Enderal does not load them. A patch cannot rewrite another plugin's master
+   list, so the records had to be re-homed.
+2. Every forge recipe used `WorkbenchKeyword: 0F46CE` (Skyforge) and `GetGlobalValue 0F46D1`
+   (Companions questline). **Neither FormID exists in Enderal's `Skyrim.esm`** — the recipes could
+   never have appeared. Now `CraftingSmithingForge` (`088105`) gated the way Enderal gates its own
+   shadowsteel tier, copying **both** conditions off
+   `_03E_RecipeWeapon_27_SwordOfTheRighteousPathForged`: `GetActorValue Smithing >= 50` **and**
+   possession of a blueprint. The blueprint —
+   `JS_CraftingPlan_RelentlessSword`, *"Blueprint: Relentless Sword (Handicraft 50)"* — is a
+   `MiscItem` built from Enderal's `_00E_CraftingPlan_04E_SwordOfTheRighteousPathForged`, and one
+   copy unlocks all six swords. It has two sources:
+   - hand-placed on the noble shelf (`13476D`) in **Riverville Temple** (`FlusshaimTemple`), which
+     is the only cell this patch overrides;
+   - added at Level 30 to **`_00ETraderCraftingPlansC`** (`148ABE`), the vendor tier its Handicraft-50
+     peers already sit in, so it is not lose-forever missable.
+3. Damage was on Skyrim's scale (11 / 20), which lands near steel tier here. Retuned to parity with
+   Enderal's shadowsteel tier — **23 dmg / crit 6** (1H) and **37 / crit 11** (2H), matching
+   `_03E_27_SwordOfTheRighteousPathForged` and its greatsword. Weight, speed, reach, stagger and the
+   1000 value are johnskyrim's, untouched.
+4. Added six dismantle recipes (`InvisibleDismantling`, → shadowsteel) so the swords are not the
+   only weapons in the game that cannot be broken down, plus the `WeapTypeMelee` keyword every
+   Enderal weapon carries.
+
+Everything else in the mod already resolved correctly in Enderal and was deliberately left alone —
+including the **temper** recipes, whose `HasPerk 05218E` condition resolves here to Enderal's own
+`_00E_Class_Phasmalist_P04_B_ArcaneSmith` ("You can improve enchanted armors and weapons"), which
+means exactly what johnskyrim intended it to mean.
 
 ### Modern visuals
 
@@ -90,7 +122,7 @@ tell you.
 
 | Position | Plugin | Must load after | Because |
 |---|---|---|---|
-| _(none recorded yet)_ | | | |
+| last | `Zenderal - Relentless Sword.esp` | anything editing `FlusshaimTemple` (`015282`) or `_00ETraderCraftingPlansC` (`148ABE`) | It overrides both to place and stock the crafting blueprint. A mod that edits the Riverville Temple cell and loads after it will drop the blueprint from the shelf — the vendor entry is the fallback, but the hand-placed copy is the intended find. |
 
 **Patches from this repo load last**, after everything they forward, or they are not forwarding
 anything. See `enderal-record-patterns.md` §0.1.

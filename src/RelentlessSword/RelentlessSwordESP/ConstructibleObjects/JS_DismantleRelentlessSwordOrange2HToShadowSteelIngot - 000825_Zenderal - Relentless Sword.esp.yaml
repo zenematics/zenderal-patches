@@ -1,0 +1,16 @@
+FormKey: 000825:Zenderal - Relentless Sword.esp
+EditorID: JS_DismantleRelentlessSwordOrange2HToShadowSteelIngot
+Items:
+- Item:
+    Item: 00080F:Zenderal - Relentless Sword.esp
+    Count: 1
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    ItemOrList: 00080F:Zenderal - Relentless Sword.esp
+  ComparisonValue: 1
+CreatedObject: 05AD9D:Skyrim.esm
+WorkbenchKeyword: 02F336:Enderal - Forgotten Stories.esm
+CreatedObjectCount: 3

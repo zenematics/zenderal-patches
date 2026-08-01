@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+  <moduleName>Zenderal - Relentless Sword</moduleName>
+
+  <requiredInstallFiles>
+    <file source="Zenderal - Relentless Sword.esp" destination="Zenderal - Relentless Sword.esp" priority="0" />
+  </requiredInstallFiles>
+
+  <!--
+    A single-plugin patch has no real choices, but the installer still needs one page: it is the
+    only place the install requirement below reliably reaches the user, and (per CLAUDE.md's
+    "FOMOD images that actually render in MO2") an <installSteps> block is what gives MO2 a wizard
+    page to draw on at all if a banner is ever added here.
+  -->
+  <installSteps order="Explicit">
+    <installStep name="Before you install">
+      <optionalFileGroups order="Explicit">
+        <group name="Requirements" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="Install the Enderal conversion plugin">
+              <description>Adds "Zenderal - Relentless Sword.esp".
+
+REQUIRES johnskyrim's Relentless Sword SE, installed separately for its meshes and textures - pick the CORE (runed) branch and whichever fire/ice glow intensity you prefer in HIS installer.
+
+Then DISABLE "Relentless Sword SE - Johnskyrim.esp". It masters the Skyrim DLC, which Enderal does not load, and its recipes are gated on the Skyforge - it cannot work here. This plugin replaces it.
+
+To forge the swords you need Handicraft 50 AND the blueprint, exactly like Enderal's own shadowsteel weapons.
+
+"Blueprint: Relentless Sword (Handicraft 50)" sits on the noble shelf in Riverville Temple, and blacksmiths who deal in blueprints will stock it from level 30. One copy unlocks all six swords.
+
+They temper at a sharpening wheel and dismantle back into shadowsteel at a smelter.</description>
+              <typeDescriptor>
+                <type name="Required" />
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+  </installSteps>
+</config>
