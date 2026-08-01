@@ -46,6 +46,13 @@ records is handled as though it depended on an ordinary third-party mod. **Keep
 Mutagen also resolves the load order from `%LOCALAPPDATA%\Enderal Special Edition\plugins.txt` for
 this release **[upstream]**, which is the correct file on this machine **[verified]**.
 
+**`--GameRelease EnderalSE` is confirmed working end to end with Spriggit CLI 0.40.0. [verified]**
+Every plugin in `reference/base/` was serialized with it; the CLI picks up the repo-root `.spriggit`
+(`Release = EnderalSE`), resolves the `Spriggit.Yaml.Skyrim.0.40.0` entry point, and its built-in
+correctness check round-trips the result back to a plugin. The three-tree import order is likewise
+confirmed by compiling real Enderal scripts (`_00E_TalentLibrary`, `_00E_Game_TalentControlSC`,
+`dgintimidateplayerscript`) clean against `reference/base`. **[verified]**
+
 > **Why Spriggit 0.40.0 is pinned.** Spriggit **0.41.0 silently corrupts leveled-list entries that
 > carry COED owner ExtraData**, verified 2026-07-31 and reverted. Its deserializer throws a
 > `NullReferenceException` on the 0.40 shape (`MutagenObjectType: NoOwner` + `RawOwnerData`), and its
@@ -80,11 +87,17 @@ with it. This is the single most common source of "the list doesn't launch" repo
 `Update.esm`. **[verified]** (Read from the TES4 header: two `MAST` subrecords, then `ONAM`. Author
 `Niseam`, HEDR version 1.7, flags `0x81` = ESM + Localized.)
 
-> **Do not master the DLC.** `Dawnguard.esm`, `HearthFires.esm` and `Dragonborn.esm` sit in Enderal's
-> `Data/` because Enderal ships a whole SSE copy, but they are **not** in `plugins.txt` and **not**
-> mastered by Enderal. **[verified]** Mutagen's *implicit* base-master list for `EnderalSE` does
-> include them **[upstream]**, so Spriggit will not object if you add one — the game will. A patch
-> that masters a DLC in Enderal is a patch that fails to load.
+> **Do not master the DLC — they are empty stubs.** `Dawnguard.esm`, `HearthFires.esm` and
+> `Dragonborn.esm` sit in Enderal's `Data/`, but they are **not** in `plugins.txt`, **not** mastered
+> by Enderal, and **not the real DLC**: they are 44 KB, 80 bytes and 44 KB respectively, and
+> serializing them yields **1–2 records each**. **[verified]** `HearthFires.esm` at 80 bytes is a
+> bare TES4 header with no content at all. Enderal ships them only so the SSE engine finds the
+> filenames it expects.
+>
+> Mutagen's *implicit* base-master list for `EnderalSE` does include them **[upstream]**, so Spriggit
+> will not object if you add one — the game will. A patch that masters a DLC in Enderal is a patch
+> that fails to load, and there is nothing in them to reference anyway. Compare
+> `reference/base/Dawnguard-stub/` with `reference/base/EnderalFS/` if you ever doubt it.
 
 **Stock load order** (`%LOCALAPPDATA%\Enderal Special Edition\plugins.txt`) **[verified]**:
 
@@ -147,14 +160,46 @@ src/                       # EVERY patch lives here — one folder per patch
     Scripts/compiled/*.pex # COMMITTED via a .gitignore exception (CI can't compile Papyrus)
 build/                     # build.ps1 + manifest.json + committed FOMOD trees
 arch-docs/                 # patch-authoring guide, curation docs, generated build report
-reference/                 # gitignored — Enderal/third-party decompiles, LOOKUP ONLY
+reference/base/            # gitignored — Enderal/vanilla decompiles + script source, LOOKUP ONLY
+reference/mods/            # gitignored — third-party list mods, serialized for lookup
 modlist/                   # gitignored — the installed Zenderal MO2 instance, hundreds of GB
-papyrus-source/            # gitignored — unpacked Enderal/vanilla .psc trees
+papyrus-source/            # gitignored — spare slot for unpacked .psc trees (see reference/base)
 ```
 
 `src/` is the only place patch content goes, and it holds as many patches as the list needs. Each
 gets its own `src/<PatchName>/` folder and its own `build/manifest.json` release entry; the
 `/mod-new-plugin` skill sets both up.
+
+### What's in `reference/base/` (built 2026-08-01, ~0.9 GB, gitignored)
+
+Regenerate any of these with `/spriggit-decompile-reference`; the script trees are plain unzips.
+**Grep these instead of guessing a FormKey or a script signature.**
+
+| Folder | Source | Contents |
+|---|---|---|
+| `Skyrim/` | `Skyrim.esm` | **87322 records — this is BASE ENDERAL, not vanilla Skyrim.** Start here for base-game content |
+| `EnderalFS/` | `Enderal - Forgotten Stories.esm` | 14061 records across 86 types — the FS expansion, overriding the above |
+| `Update/` | `Update.esm` | 404 records |
+| `SkyUI_SE/` | `SkyUI_SE.esp` | 8 records (SkyUI is built into Enderal) |
+| `Dawnguard-stub/`, `Dragonborn-stub/`, `HearthFires-stub/` | the DLC ESMs | **1–2 records each — they are empty stubs** (see below) |
+| `EnderalScripts/source/scripts/` | `ScriptsEnderal.zip` | **5029 real `.psc`** from SureAI — not decompiles |
+| `SKSEScripts/` | `Data/Source/Scripts` | 74 SKSE-extended vanilla types |
+| `VanillaScripts/Source/Scripts/` | Skyrim SE `Scripts.zip` | 14301 `.psc` **plus `TESV_Papyrus_Flags.flg`** |
+
+`tools.json`'s `papyrusSource` points at the three script trees here, so the compiler and the
+lookup copies are the same files — there is no second copy to drift.
+
+> **`reference/base/Skyrim/` is lookup-only and cannot be rebuilt.** Spriggit 0.40.0 serializes it
+> fine but **fails its own round-trip check**: `Skyrim.esm`'s NavigationMeshInfoMap (NAVI) record has
+> a **null FormKey**, so Spriggit writes it as `NavigationMeshInfoMaps/Null.yaml` with no `FormKey:`
+> line, then on read-back parses the next line as the FormKey and throws
+> `Malformed FormKey string: 89103`. **[verified]** The serialized tree is complete and correct for
+> grepping — we never deserialize a reference tree — so this is a caveat, not a problem.
+>
+> **Enderal's own NAVI record is unaffected**: it has a real FormKey
+> (`000802:Enderal - Forgotten Stories.esm`) and `EnderalFS/` passed its round-trip check. **[verified]**
+> That matters because it means navmesh-adjacent bugfix patches on Enderal *are* buildable. Only the
+> null-FormKey case breaks, and only in `Skyrim.esm`.
 
 **There is deliberately no starter plugin.** `build/manifest.json` ships with `"releases": []`, and
 the build reports "nothing to build" and exits 0 in that state — the repo is green from the first
@@ -207,10 +252,27 @@ These are distilled from real failures in this workspace's lineage. They cost te
 
   | Suffix | Means |
   |---|---|
-  | `:Enderal - Forgotten Stories.esm` | overriding an Enderal record — the common case here |
-  | `:Skyrim.esm` / `:Update.esm` | overriding a record Enderal left vanilla |
+  | `:Enderal - Forgotten Stories.esm` | a record Enderal itself created — **71%** of its records |
+  | `:Skyrim.esm` / `:Update.esm` | a vanilla FormID. May be untouched vanilla, **or Enderal content sitting on an overridden vanilla record** — see below |
   | `:<SomeMod>.esp` | overriding a third-party list mod — check *its* load position |
   | `:<PatchName>.esp` | a record this patch invented |
+
+> **`Skyrim.esm` in Enderal's Data folder is not Skyrim — it *is* base Enderal.** **[verified]**
+> Enderal ships a wholesale replacement: **191,827,554 bytes** (vs 249,753,412 for the real SSE
+> file), author `mcarofano` in the TES4 `CNAM` (not Bethesda), **12,223 `_00E_`-prefixed records**,
+> **no Tamriel worldspace** — Enderal's overworld is `Vyn`. All nine base memory-tree perk FormLists
+> (`BastionPerks` `06686B:Skyrim.esm`, …) live in it.
+>
+> So the two plugins are: **`Skyrim.esm` = base Enderal** (author `mcarofano`) and
+> **`Enderal - Forgotten Stories.esm` = the FS expansion** (author `Niseam`). Of the FS plugin's
+> 9566 records, **28.7% (2749) carry `:Skyrim.esm` FormKeys — that is FS overriding base Enderal**,
+> not touching anything of Bethesda's.
+>
+> Consequences: `reference/base/Skyrim/` is **Enderal content, not vanilla lookup material**; a
+> `:Skyrim.esm` suffix means "base Enderal"; and a FormID copied from a Skyrim wiki will not resolve
+> to the same record. The engine-hardcoded IDs (`000014` PlayerRef, `000039` GameDaysPassed,
+> `000010` MapMarker) are still safe. Full detail in
+> [`arch-docs/enderal/plugin-architecture.md`](arch-docs/enderal/plugin-architecture.md).
 
 - **Master order in `RecordData.yaml`** is load order:
   `Skyrim.esm`, `Update.esm`, `Enderal - Forgotten Stories.esm`, then any third-party plugin you
@@ -241,8 +303,15 @@ Scripts go through extract → decompile → edit → compile → package. Use t
 
 There are **three** Papyrus source trees in an Enderal setup, and **55 script names exist in both
 Enderal's and Skyrim's** — `critter.psc`, `dgintimidateplayerscript.psc`, `dragonactorscript.psc`,
-the `default*` handlers, and so on. **[verified]** Compile against the wrong copy and you get code
-built on vanilla signatures that fails at runtime, not at compile time.
+the `default*` handlers, and so on. Compile against the wrong copy and you get code built on vanilla
+signatures that fails at runtime, not at compile time.
+
+**All 55 differ from vanilla — not one is an accidental identical duplicate.** **[verified]** by
+byte-comparing `reference/base/EnderalScripts` against `reference/base/VanillaScripts`. Two of them
+are explicit `; DUMMY, DO NOTHING` stubs: `dgintimidateplayerscript.psc` and
+`dgintimidatealiasscript.psc`, where Enderal has gutted the vanilla brawl/intimidate system down to
+4 lines from 59. **[verified]** That is the concrete cost of getting the order wrong: compile
+against vanilla's copy and you link in brawl logic Enderal deliberately deleted.
 
 **The Papyrus compiler's `-i` path is FIRST-WINS. [verified]** — tested directly on this machine's
 `PapyrusCompiler.exe` by putting a deliberately broken copy of a script in the first import dir and
@@ -318,8 +387,20 @@ different repo.
 | **Modern combat** | Contemporary combat feel without breaking Enderal's balance | Reconcile combat overhauls with Enderal's talent/perk system, weapon/armor keywords and combat styles |
 | **Modern visuals** | Current-generation look, Enderal's art direction intact | Reconcile lighting/weather/ENB-adjacent mods with Enderal's own lighting, and mesh/texture replacers with Enderal's assets |
 
-See `arch-docs/zenderal-curation.md` for what is actually in the list and why, and
-`arch-docs/enderal-record-patterns.md` for the record shapes that build clean and do nothing.
+### Where the documentation is
+
+| Read this | For |
+|---|---|
+| **[`arch-docs/enderal/`](arch-docs/enderal/)** | **How Enderal actually works** — six documents mined from the serialized plugins and SureAI's own source. Start with [`plugin-architecture.md`](arch-docs/enderal/plugin-architecture.md) |
+| `arch-docs/enderal-record-patterns.md` | Record shapes that build clean and do nothing in-game |
+| `arch-docs/zenderal-curation.md` | What is actually in the list and why |
+
+Per pillar: combat patches start at [`arch-docs/enderal/combat.md`](arch-docs/enderal/combat.md),
+visuals at [`visuals-and-world.md`](arch-docs/enderal/visuals-and-world.md), and anything touching
+progression, potions or scripts at
+[`progression-and-classes.md`](arch-docs/enderal/progression-and-classes.md) /
+[`crafting-alchemy-economy.md`](arch-docs/enderal/crafting-alchemy-economy.md) /
+[`scripting-and-actorvalues.md`](arch-docs/enderal/scripting-and-actorvalues.md).
 
 ## How Enderal differs (and what that breaks)
 
@@ -361,8 +442,14 @@ talent cooldown/control quests (`_00E_Game_TalentControlSC`, `_00E_Game_TalentCo
 
 ## Useful FormKey constants
 
-Vanilla FormIDs Enderal inherits unchanged — safe to reference, but **confirm Enderal has not
-overridden the record** before relying on its contents.
+These are **engine-hardcoded** FormIDs — Bethesda's own code depends on them, so Enderal's replacement
+`Skyrim.esm` keeps them. They are safe to reference.
+
+> **This table is deliberately short.** Because Enderal's `Skyrim.esm` *is* Enderal (see "Masters"
+> above), an ordinary-looking vanilla FormID usually resolves to an Enderal record. Do not extend this
+> table from Skyrim documentation — look the record up in `reference/base/Skyrim/` and cite the
+> EditorID you actually found. Enderal's own worldspace, keyword, bench and talent FormKeys are
+> documented in [`arch-docs/enderal/`](arch-docs/enderal/).
 
 | FormKey | Meaning |
 |---|---|

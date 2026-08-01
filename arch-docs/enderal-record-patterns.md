@@ -13,6 +13,11 @@ Enderal runs the **SkyrimSE engine**, so every engine-level rule below is inheri
 holds unchanged. What does *not* carry over is Enderal's **design**: progression, crafting, lighting
 and the character UI are SureAI's own. §0 covers the Enderal-specific traps; §1 onward is the engine.
 
+> **This file is about record *shapes*. For how Enderal's *systems* work — the two-ESM structure,
+> memory trees and affinities, repurposed ActorValues, the crafting and lighting inventories — see
+> [`enderal/`](enderal/), starting with
+> [`enderal/plugin-architecture.md`](enderal/plugin-architecture.md).**
+
 **How to use it:**
 
 - **Before authoring a patch**, find the closest archetype below and copy its shape. Prefer a proven
