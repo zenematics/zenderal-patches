@@ -12,8 +12,10 @@ does-it-load, SKSE builds, masters, worldspace collisions, patch-vs-replacement.
 here; if that triage has not happened, stop and do it, because a magic mod at `HEDR` 1.71 is invisible
 and every hour you spend on its spell strings is wasted.
 
-This file is everything that is **specific to magic**. Worked example throughout:
-`src/Apocalypse/` and its generators in `src/Apocalypse/tools/`.
+This file is everything that is **specific to magic**. Worked example throughout: the Apocalypse
+conversion — `src/Apocalypse/` and its generators in `src/Apocalypse/tools/`, which live in the
+[`enderal-mods`](https://github.com/whisperdealer/enderal-mods) repo rather than here. Every rule
+below was paid for by that port; you do not need the checkout to follow them.
 
 ---
 

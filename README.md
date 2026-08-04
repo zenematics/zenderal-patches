@@ -320,10 +320,11 @@ itself the signal to give it a FOMOD.
 - **Existing saves are unaffected:** the trigger checks that the main quest has not started and
   deletes itself either way.
 
-### `Apocalypse - Enderal Patch`
-
-A **replacement plugin**, not a patch: it ships under Enai's original filename
-`Apocalypse - Magic of Skyrim.esp` so the mod's BSAs keep loading. Install it over the original.
+> **The Apocalypse conversion moved.** It is a *replacement plugin* rather than a patch — it ships
+> under Enai Siaion's own filename `Apocalypse - Magic of Skyrim.esp` — and is now released from
+> [**`enderal-mods`**](https://github.com/whisperdealer/enderal-mods), which holds Enderal SE mods
+> in general rather than this list's patches. The Zenderal list still installs it; see
+> `arch-docs/zenderal-curation.md`.
 
 ## CI build & release (GitHub Actions)
 

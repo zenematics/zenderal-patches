@@ -24,11 +24,17 @@ instead of minute #2 is the single most expensive mistake available here.
 1.71.** Silently. No warning, no log entry, no missing-master dialog — the plugin is simply absent
 from the game. 1.70 is the ceiling; 1.71 is what the AE-era Creation Kit and newer tools emit.
 
-```
-src/Apocalypse/tools/verify-plugin-structure.ps1 "<mod>.esp"     # prints HEDR
+Read the float at **file offset 30** of the `.esp`:
+
+```powershell
+$fs = [IO.File]::OpenRead("<mod>.esp"); $b = New-Object byte[] 4
+$null = $fs.Seek(30, 'Begin'); $null = $fs.Read($b, 0, 4); $fs.Close()
+[BitConverter]::ToSingle($b, 0)      # 1.7 = fine, 1.71 = will not load
 ```
 
-or read the float at **file offset 30**.
+(`src/Apocalypse/tools/verify-plugin-structure.ps1` in the
+[`enderal-mods`](https://github.com/whisperdealer/enderal-mods) repo prints this plus the master
+list, if you have that checkout to hand.)
 
 | `HEDR` | Verdict |
 |---|---|
@@ -177,9 +183,10 @@ that throw on zero matches, watch the CRLF `$`-anchor trap, and re-resolve every
 mod. Ported mods already point at hundreds of vanilla FormIDs Enderal lacks — those are the author's,
 not yours. Only **newly** unresolved references are your bug.
 
-```
-src/Apocalypse/tools/verify-dangling-diff.ps1     # expect: 0 new
-```
+Resolve every FormKey the port emits against the serialized masters in `reference/`, do the same for
+the *unmodified* mod, and diff the two sets. **Expect zero new unresolved references.** Write the
+script per port — `src/Apocalypse/tools/verify-dangling-diff.ps1` in the
+[`enderal-mods`](https://github.com/whisperdealer/enderal-mods) repo is a working model.
 
 Also remember Enderal's five magic disciplines are **renamed vanilla ActorValues** — mechanics port
 unchanged, but every user-visible string naming a school must be rewritten. Alteration is

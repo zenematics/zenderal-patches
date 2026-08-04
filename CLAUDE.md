@@ -185,15 +185,21 @@ modlist/                   # gitignored — the installed Zenderal MO2 instance,
 papyrus-source/            # gitignored — spare slot for unpacked .psc trees (see reference/base)
 ```
 
-> **Two shapes of release live here.** Most are **patches**: a small plugin of overrides that masters
-> the mod it fixes. A few must be **replacements**: the third-party plugin itself, rebuilt with our
-> changes and shipped under its *original filename* so its BSAs keep loading. `Apocalypse` is a
-> replacement, forced by the form-version ceiling below — its `src/Apocalypse/ApocalypseESP/` holds
-> **all ~3,890 of Enai's records**, not just our edits, because that is what the build deserializes.
-> A replacement is only legitimate when the author's permissions allow modification and re-upload,
-> and it must ship credit in the plugin header, the FOMOD and the mod page. Its `tools/` folder holds
-> the scripts that regenerate the tree against a new upstream version — without those, an update
-> means redoing the analysis from scratch.
+> **Two shapes of release exist.** Most are **patches**: a small plugin of overrides that masters the
+> mod it fixes — everything in this repo is one. A few mods must instead be **replacements**: the
+> third-party plugin itself, rebuilt with our changes and shipped under its *original filename* so
+> its BSAs keep loading, with `src/<Name>/<Name>ESP/` holding *all* of the author's records rather
+> than just our edits, because that is what the build deserializes. A replacement is only legitimate
+> when the author's permissions allow modification and re-upload, and it must ship credit in the
+> plugin header and on the mod page. It also needs a `tools/` folder of generators that can rebuild
+> the tree against a new upstream version — without those, an update means redoing the analysis from
+> scratch.
+>
+> **Replacements are not built here.** The form-version ceiling below forces some Enderal ports into
+> that shape, and those live in the
+> [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) repo, which holds Enderal SE mods
+> in general rather than this list's patches. `Apocalypse - Magic of Skyrim` is the worked example and
+> the source of most of what the ceiling section below records.
 
 `src/` is the only place patch content goes, and it holds as many patches as the list needs. Each
 gets its own `src/<PatchName>/` folder and its own `build/manifest.json` release entry; the
@@ -329,15 +335,12 @@ These are distilled from real failures in this workspace's lineage. They cost te
 
 ### Allocations in use
 
-Each patch's own ESL block. Overrides are not listed — they consume nothing. One release
-(`Apocalypse`) is a *replacement plugin* rather than a patch and allocates in its host's space
-instead; the row says so.
+Each patch's own ESL block. Overrides are not listed — they consume nothing.
 
 | Patch / plugin | Block | Contents |
 |---|---|---|
 | `RelentlessSword` → `Zenderal - Relentless Sword.esp` | `0x800–0x827` | `800–806` statics (1st-person models), `809–80F` weapons, `811–81F` forge + temper recipes (johnskyrim's original offsets, preserved for traceability), `820–825` dismantle recipes (new, this repo's), `826` crafting blueprint, `827` its placed reference in Riverville Temple |
 | `SkipToTamingTheWaves` → `Zenderal - Skip To Taming The Waves.esp` | `0x800–0x803` | `800` Quest `ZP_SkipTTW`, `801` Activator `ZP_SkipTTW_StartTrigger`, `802` its placed trigger ref in Ark market cell `070793`, `803` Message `ZP_SkipTTW_sClassChoice`. Overrides `MQ101 03372B` (alias 183 `StartMarkerRef` → `TeleportMarker_ArkMarket 0EAB74`) and forwards FS's `CapitalCityMarketArea 07072A` header — neither costs anything from the block. **No `MQP01PrologStart` override**: `QF_MQ101_0003372B.Fragment_332` only does `MoveTo(StartMarkerRef)`, and nothing else starts the prologue — `MQP01` is started by the trigger inside `MQP01Home`, which a player spawning in Ark never reaches. SkipIntro disables that trigger defensively; it is not needed |
-| `Apocalypse` → **`Apocalypse - Magic of Skyrim.esp`** | `0x1C1E71–0x1C1E76` | **Not an ESL block.** This release *replaces* Enai's plugin rather than patching it (see the form-version ceiling above), so new records are allocated in **Apocalypse's own FormID space**, just past its highest own ID `1C1E70`. `1C1E71–75` `ZP_Apoc_Tomes_R000/R025/R050/R075/R100` — one LeveledItem per spell rank; `1C1E76` `ZP_Apoc_Scrolls`. ~3,890 records, full ESP, no ESL flag |
 
 > **`Enderal - Forgotten Stories.esm` survives as a declared master.** It is an *implicit* base
 > master under `GameRelease.EnderalSE`, so there was reason to fear Mutagen would drop it from the
@@ -612,8 +615,9 @@ talent cooldown/control quests (`_00E_Game_TalentControlSC`, `_00E_Game_TalentCo
 > *flat* cost per line, so HP-per-point improves with tier. **`11A4B6` is Self-delivery and has zero
 > precedent on an Aimed spell across 370 non-Self spells**, so leech/drain heals cannot be taxed this
 > way. Full mechanism and the worked example in
-> [`crafting-alchemy-economy.md`](arch-docs/enderal/crafting-alchemy-economy.md#arcane-fever) and
-> `src/Apocalypse/tools/09-arcane-fever-heals.ps1`.
+> [`crafting-alchemy-economy.md`](arch-docs/enderal/crafting-alchemy-economy.md#arcane-fever); the
+> worked example is `src/Apocalypse/tools/09-arcane-fever-heals.ps1` in the
+> [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) repo.
 
 **A ported Skyrim gear mod's recipes are the part most likely to be silently inert.** Enderal keeps
 the crafting *plumbing* (bench keywords are vanilla — see
@@ -673,8 +677,8 @@ Enderal lacks.
 > over a `SmallWorld` interior-ish worldspace, drops `Parent: Vyn`, `Location` and the
 > `SmallWorld`/`CannotFastTravel` flags, and gives the persistent cell a `Regions` list of five
 > FormIDs — **four absent from Enderal, and the fifth (`041449`) is `_00E_Ark_1024WallRound01`, a
-> Static.** `Zenderal - Apocalypse.esp` forwards Enderal's own record back (from **Forgotten
-> Stories**, which also overrides it — guardrail 5).
+> Static.** The rebuilt `Apocalypse - Magic of Skyrim.esp` forwards Enderal's own record back (from
+> **Forgotten Stories**, which also overrides it — guardrail 5).
 >
 > Generalise the *check*, not the fix: for any ported mod, list every record it overrides whose
 > FormKey suffix is `:Skyrim.esm` / `:Update.esm` and confirm the Enderal record at that ID is the
@@ -719,7 +723,7 @@ readable and leaves Enderal's own list contents byte-identical.
 >
 > Do the arithmetic before shipping: `draws x (your entries / entries at or below player level)`.
 > Duplicating the injected entry — same `Level`, same `Reference` — is the lever, because it still
-> touches none of Enderal's own entries. `src/Apocalypse/tools/06-weight-distribution.ps1` tops each
+> touches none of Enderal's own entries. `enderal-mods`' `src/Apocalypse/tools/06-weight-distribution.ps1` tops each
 > injection up to a target multiplicity and is idempotent.
 >
 > Two traps when picking that multiplicity, both found by measuring rather than reasoning:
@@ -904,7 +908,8 @@ These are **engine-hardcoded** FormIDs — Bethesda's own code depends on them, 
 >   became invisible looks exactly like a crash that was fixed.
 >
 > **Check `HEDR` before you plan anything.** Read the float at offset 30 of the `.esp`
-> (`src/Apocalypse/tools/verify-plugin-structure.ps1` prints it). If it is 1.71:
+> (`enderal-mods`' `src/Apocalypse/tools/verify-plugin-structure.ps1` prints it, or read the four
+> bytes directly). If it is 1.71:
 >
 > - a patch plugin **cannot** work — the only route is to rebuild the mod's own plugin at 1.70,
 >   which means shipping a modified copy under the same filename (keeps its BSAs loading). Check the

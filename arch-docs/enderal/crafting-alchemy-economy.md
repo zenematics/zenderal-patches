@@ -160,7 +160,7 @@ Enderal charges a **flat** fever cost per line — every FlashHeal 5, every Boon
 | Boon `_05E`→`_40E` | 6 → 39 HP/s, flat 0.5 AF/s | 12 → **78.0** |
 
 Those two ceilings — **26 burst, 78 over-time** — are the numbers to price a ported healing mod
-against (30 / 92 with the Ambrosia perk `069D05`). `src/Apocalypse/tools/09-arcane-fever-heals.ps1`
+against (30 / 92 with the Ambrosia perk `069D05`). `src/Apocalypse/tools/09-arcane-fever-heals.ps1` (in the `enderal-mods` repo)
 is the worked example. Note **`11A4B6` is Self-delivery**: there is no precedent anywhere in Enderal,
 FS or Apocalypse for it on an Aimed spell, so leech-style heals cannot be taxed this way.
 

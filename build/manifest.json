@@ -23,17 +23,6 @@
           "dest": "Zenderal - Skip To Taming The Waves.esp"
         }
       ]
-    },
-    {
-      "name": "Apocalypse - Enderal Patch",
-      "archiveName": "Apocalypse - Enderal Patch",
-      "fomod": false,
-      "plugins": [
-        {
-          "yamlSource": "src/Apocalypse/ApocalypseESP",
-          "dest": "Apocalypse - Magic of Skyrim.esp"
-        }
-      ]
     }
   ]
 }

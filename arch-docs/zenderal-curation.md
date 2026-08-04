@@ -94,9 +94,15 @@ including the **temper** recipes, whose `HasPerk 05218E` condition resolves here
 `_00E_Class_Phasmalist_P04_B_ArcaneSmith` ("You can improve enchanted armors and weapons"), which
 means exactly what johnskyrim intended it to mean.
 
-| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — Enai Siaion | 10.2.3 | 373 spells across all five schools; the standard answer to Enderal's thin mage offering. Enderal keeps all five vanilla magic ActorValues, so the spells themselves need no mechanical conversion. | **Apocalypse** | **Replaces `Apocalypse - Magic of Skyrim.esp`.** Install Enai's mod for its two BSAs, then let this overwrite the plugin. Apocalypse ships at `HEDR` form version **1.71**, which Enderal's 1.5.97 engine silently refuses to load, so a patch is impossible — the plugin itself is rebuilt at 1.70. Delete any old `Zenderal - Apocalypse.esp`. |
+| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — Enai Siaion | 10.2.3 | 373 spells across all five schools; the standard answer to Enderal's thin mage offering. Enderal keeps all five vanilla magic ActorValues, so the spells themselves need no mechanical conversion. | **`Apocalypse - Enderal Patch`**, released from [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) | **Replaces `Apocalypse - Magic of Skyrim.esp`.** Install Enai's mod for its two BSAs, then let the conversion overwrite the plugin. Apocalypse ships at `HEDR` form version **1.71**, which Enderal's 1.5.97 engine silently refuses to load, so a patch is impossible — the plugin itself is rebuilt at 1.70. Delete any old `Zenderal - Apocalypse.esp`. |
 
-**Why Apocalypse needed a patch, and what the patch does** (all verified against `reference/`,
+> **This conversion is not built in this repo.** Being a replacement plugin rather than a patch, it
+> lives in [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) and is useful to any
+> Enderal player, not only this list. The analysis below is kept here because it is *why the list
+> installs it* — the curation rationale — and because points 1, 5 and 7 generalise to every ported
+> Skyrim mod.
+
+**Why Apocalypse needed a conversion, and what it does** (all verified against `reference/`,
 2026-08-02). Unusually, the mod is not merely unbalanced in Enderal — **out of the box it delivers
 literally nothing**:
 

@@ -126,7 +126,7 @@ them as records appear. Do not scaffold empty ones.
 
 5. **Create a FOMOD only if the install has something to ask.** The default for a new release is
    **no FOMOD**: set `"fomod": false` on it in `build/manifest.json` and ship a plain archive — the
-   `.esp` (and `Scripts/`) at the root, which is what `Apocalypse - Enderal Patch` does. Every mod
+   `.esp` (and `Scripts/`) at the root, which is what every release here does. Every mod
    manager installs that correctly with no wizard, and there is nothing for the user to get wrong.
    Build one **only** when at least one holds:
 
