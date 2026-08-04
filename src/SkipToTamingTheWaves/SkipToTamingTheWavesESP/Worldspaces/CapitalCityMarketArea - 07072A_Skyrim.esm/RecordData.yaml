@@ -1,0 +1,43 @@
+﻿FormKey: 07072A:Skyrim.esm
+EditorID: CapitalCityMarketArea
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Ark, Marketplace
+  - Language: Japanese
+    String: å¸‚å ´
+  - Language: Spanish
+    String: Ark, Mercado
+  - Language: Polish
+    String: Arka, Targowisko
+  - Language: Italian
+    String: Ark - Mercato
+  - Language: Korean
+    String: ì•„í¬, ì‹œìž¥
+  - Language: French
+    String: Ark - Place du marchÃ©
+  - Language: Chinese
+    String: æ–¹èˆŸåŸŽï¼Œå¸‚åœº
+  - Language: German
+    String: Ark, Marktplatz
+  - Language: Russian
+    String: ÐÑ€Ðº, Ð Ñ‹Ð½Ð¾Ðº
+Location: 0A1A12:Skyrim.esm
+Parent:
+  Worldspace: 001D3C:Skyrim.esm
+  Flags:
+  - UseLandData
+  - UseLodData
+  - UseMapData
+  - UseWaterData
+  - UseClimateData
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -5, -6
+ObjectBoundsMax: 2, 1
+Music: 0B3671:Skyrim.esm

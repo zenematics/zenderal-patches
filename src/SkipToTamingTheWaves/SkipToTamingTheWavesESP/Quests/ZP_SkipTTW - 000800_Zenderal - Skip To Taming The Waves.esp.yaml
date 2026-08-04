@@ -1,0 +1,89 @@
+FormKey: 000800:Zenderal - Skip To Taming The Waves.esp
+EditorID: ZP_SkipTTW
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_SkipTTW_Functions
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Class_ClassMenuWord
+      Object: 05C270:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Class_Meditate
+      Object: 05C231:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_Ab_RacialAb_Aeterna
+      Object: 01EC69:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_Ab_RacialAb_Arazalean
+      Object: 01EC68:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_Ab_RacialAb_Kilean
+      Object: 01EC67:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_Ab_RacialAb_Qyranian
+      Object: 01EC66:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MQP03_MagicFeverSpell
+      Object: 02506B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MQ04_FeuerloescherSpell
+      Object: 032A23:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Special_Act1Theme
+      Object: 0BEB42:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Special_WiegeDesLebens
+      Object: 129140:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BretonRace
+      Object: 013741:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ClothesPrisonerRags
+      Object: 08F19A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HighElfRace
+      Object: 013743:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Lernpunkte
+      Object: 031ACB:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Levelsystem
+      Object: 010AA2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQ01
+      Object: 02EBA0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQ02
+      Object: 02EBA1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQ03
+      Object: 02B251:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQ04
+      Object: 02EBA2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NordRace
+      Object: 033899:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Player
+      Object: 000007:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerREF
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RedguardRace
+      Object: 033898:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TalentPoints
+      Object: 05BCFA:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZP_SkipTTW_sClassChoice
+      Object: 000803:Zenderal - Skip To Taming The Waves.esp
+Filter: ZP_SkipTTW\
+Stages:
+- Index: 5
+  Flags:
+  - StartUpStage
+  LogEntries:
+  - Flags: []
+NextAliasID: 0

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fomod>
+  <Name>Zenderal - Skip To Taming The Waves</Name>
+  <Author>Zenderal</Author>
+  <Version MachineVersion="1.0.0">1.0.0</Version>
+  <Description>
+    Starts a new Enderal game with the main quest already advanced past "Taming the Waves" (MQ04).
+
+    Character creation runs as normal, then the mod picks up where Lishari's taming ritual leaves
+    off: MQ01 "A New Beginning", MQ02 "The Void", MQ03 "The First Steps" and MQ04 "Taming the
+    Waves" are all completed, their rewards handed out by Enderal's own quest scripts, and the
+    Arcane Fever the prologue inflicts is cleared - exactly as finishing MQ04 would.
+
+    Because the MQ02 dream is skipped, the mod asks which class you want (Warrior, Mage or Rogue)
+    and hands out that class's starting skillbooks through Enderal's own GivePlayerSkillbook().
+
+    DO NOT INSTALL ALONGSIDE Skip Intro SE. Both mods repoint Enderal's game-start marker and
+    place a start trigger; running both will conflict. This mod replaces it.
+  </Description>
+  <Groups>
+    <element>Gameplay Effects and Changes</element>
+  </Groups>
+</fomod>

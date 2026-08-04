@@ -61,6 +61,8 @@ Thumbs.db
 # Add one pair of lines per script-shipping patch (the /mod-new-plugin skill does this for you):
 # !src/<PatchName>/Scripts/compiled/
 # !src/<PatchName>/Scripts/compiled/*.pex
+!src/SkipToTamingTheWaves/Scripts/compiled/
+!src/SkipToTamingTheWaves/Scripts/compiled/*.pex
 
 # Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
 # lookups. Large, regenerated locally from each machine's own copy, never committed.

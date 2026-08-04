@@ -1,0 +1,58 @@
+FormKey: 03372B:Skyrim.esm
+EditorID: MQ101
+Version2: 12
+VirtualMachineAdapter:
+  Scripts:
+  - Name: QF_MQ101_0003372B
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_Player
+      Object: 03372B:Skyrim.esm
+      Alias: 119
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_StartMarkerRef
+      Object: 03372B:Skyrim.esm
+      Alias: 183
+  FileName: QF_MQ101_0003372B
+  Fragments:
+  - Unknown2: 1
+    ScriptName: QF_MQ101_0003372B
+    FragmentName: Fragment_2
+  - Stage: 10
+    Unknown2: 1
+    ScriptName: QF_MQ101_0003372B
+    FragmentName: Fragment_332
+Priority: 80
+Type: MainQuest
+Filter: Main Quest\
+Stages:
+- Flags:
+  - StartUpStage
+  LogEntries:
+  - Flags: []
+- Index: 10
+  LogEntries:
+  - Flags:
+    - CompleteQuest
+NextAliasID: 184
+Aliases:
+- ID: 119
+  Name: Player
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  Items:
+  - Item:
+      Item: 03CA00:Skyrim.esm
+      Count: 1
+  - Item:
+      Item: 03C9FE:Skyrim.esm
+      Count: 1
+  - Item:
+      Item: 10E039:Skyrim.esm
+      Count: 1
+  VoiceTypes: Null
+- ID: 183
+  Name: StartMarkerRef
+  Flags: []
+  ForcedReference: 0EAB74:Skyrim.esm
+  VoiceTypes: Null

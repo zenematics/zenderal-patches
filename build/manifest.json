@@ -10,6 +10,17 @@
           "dest": "Zenderal - Relentless Sword.esp"
         }
       ]
+    },
+    {
+      "name": "Zenderal - Skip To Taming The Waves",
+      "archiveName": "Zenderal - Skip To Taming The Waves",
+      "scripts": { "from": "src/SkipToTamingTheWaves/Scripts/compiled", "to": "Scripts" },
+      "plugins": [
+        {
+          "yamlSource": "src/SkipToTamingTheWaves/SkipToTamingTheWavesESP",
+          "dest": "Zenderal - Skip To Taming The Waves.esp"
+        }
+      ]
     }
   ]
 }

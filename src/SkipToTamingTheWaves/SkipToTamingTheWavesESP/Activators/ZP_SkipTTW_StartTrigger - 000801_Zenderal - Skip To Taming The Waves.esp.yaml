@@ -1,0 +1,23 @@
+FormKey: 000801:Zenderal - Skip To Taming The Waves.esp
+EditorID: ZP_SkipTTW_StartTrigger
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_SkipTTW_Trigger
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQ01
+      Object: 02EBA0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerREF
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkipQuest
+      Object: 000800:Zenderal - Skip To Taming The Waves.esp
+ObjectBounds:
+  First: -100, -100, -100
+  Second: 100, 100, 100
+Name:
+  TargetLanguage: English
+  Value: '[Zenderal] Skip To Taming The Waves Trigger'
+MarkerColor: '#00CC4C33'
+Flags: []

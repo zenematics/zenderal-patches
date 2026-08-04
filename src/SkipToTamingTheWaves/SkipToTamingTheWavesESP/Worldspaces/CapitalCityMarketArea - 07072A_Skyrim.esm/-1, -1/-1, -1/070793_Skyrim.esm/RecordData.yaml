@@ -1,0 +1,22 @@
+FormKey: 070793:Skyrim.esm
+Flags:
+- HasWater
+Grid:
+  Point: -3, -2
+  Flags: -1254349555
+WaterHeight: 3.4028235E+38
+Regions:
+- 139A20:Skyrim.esm
+Location: 0A1A12:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000802:Zenderal - Skip To Taming The Waves.esp
+  Base: 000801:Zenderal - Skip To Taming The Waves.esp
+  Primitive:
+    Bounds: 200, 200, 200
+    Color: '#00CC4C33'
+    Unknown: 0.15
+    Type: Box
+  Placement:
+    Position: -8706.7, -8170.7, 2143.0
+    Rotation: 0, -0, 2.4431899

@@ -293,6 +293,7 @@ Each patch's own ESL block. Overrides are not listed — they consume nothing.
 | Patch / plugin | Block | Contents |
 |---|---|---|
 | `RelentlessSword` → `Zenderal - Relentless Sword.esp` | `0x800–0x827` | `800–806` statics (1st-person models), `809–80F` weapons, `811–81F` forge + temper recipes (johnskyrim's original offsets, preserved for traceability), `820–825` dismantle recipes (new, this repo's), `826` crafting blueprint, `827` its placed reference in Riverville Temple |
+| `SkipToTamingTheWaves` → `Zenderal - Skip To Taming The Waves.esp` | `0x800–0x803` | `800` Quest `ZP_SkipTTW`, `801` Activator `ZP_SkipTTW_StartTrigger`, `802` its placed trigger ref in Ark market cell `070793`, `803` Message `ZP_SkipTTW_sClassChoice`. Overrides `MQ101 03372B` (alias 183 `StartMarkerRef` → `TeleportMarker_ArkMarket 0EAB74`) and forwards FS's `CapitalCityMarketArea 07072A` header — neither costs anything from the block. **No `MQP01PrologStart` override**: `QF_MQ101_0003372B.Fragment_332` only does `MoveTo(StartMarkerRef)`, and nothing else starts the prologue — `MQP01` is started by the trigger inside `MQP01Home`, which a player spawning in Ark never reaches. SkipIntro disables that trigger defensively; it is not needed |
 
 > **`Enderal - Forgotten Stories.esm` survives as a declared master.** It is an *implicit* base
 > master under `GameRelease.EnderalSE`, so there was reason to fear Mutagen would drop it from the
@@ -568,6 +569,36 @@ These are **engine-hardcoded** FormIDs — Bethesda's own code depends on them, 
   Spriggit 0.40.0 round-trips this correctly, emitting the canonical
   `GRUP CELL → block → sub-block → CELL → GRUP cellchildren → GRUP celltemp → REFR` nesting, and a
   new `REFR` in an ESL-flagged plugin keeps the flag. **[verified]**
+- **Placing a ref in an EXTERIOR cell needs three scaffolding files, or Spriggit silently drops the
+  whole tree.** **[verified 2026-08-03]** An interior cell is one `RecordData.yaml` (see above), but
+  a worldspace cell will not build from the cell file alone — the plugin comes out with **zero**
+  `WRLD`/`CELL`/`REFR` records, no error, no warning. The build succeeds and the ref simply is not
+  there. Four files are required:
+
+  ```
+  Worldspaces/<WS EditorID> - <hex>_<master>/RecordData.yaml   # the WRLD record itself
+  Worldspaces/<WS…>/<blockX, blockY>/GroupRecordData.yaml      # GroupType: ExteriorCellBlock
+  Worldspaces/<WS…>/<blockX, blockY>/<subX, subY>/GroupRecordData.yaml  # ExteriorCellSubBlock
+  Worldspaces/<WS…>/<blockX, blockY>/<subX, subY>/<cell>/RecordData.yaml
+  ```
+
+  Folder names are `<X>, <Y>`; block = `floor(coord/32)`, sub-block = `floor(coord/8)`. Inside the
+  `GroupRecordData.yaml` the fields are `BlockNumberY` **then** `BlockNumberX` plus `GroupType`, and
+  a zero is **omitted** (Spriggit drops defaults) — so folder `0, -1` yields only `BlockNumberY: -1`.
+  A cell with no EditorID gets a folder of just `<hex>_<master>` with no `" - "` prefix.
+
+  **Truncate the WRLD record before its `TopCell:` block** unless you actually mean to override the
+  worldspace's persistent cell. Copying the master's record whole drags in every persistent ref
+  (Ark's market is ~40 of them) as an override you then have to be right about. Header-only builds
+  fine and keeps the conflict surface to the WRLD fields. Copy the file and cut it with a script —
+  do not retype it (guardrail 4).
+- **Never rewrite a UTF-8 doc with PowerShell 5.1's `Set-Content -Encoding utf8`.** **[verified
+  2026-08-03]** It reads the file as the system ANSI codepage and writes it back as UTF-8 **with a
+  BOM**, double-encoding every non-ASCII character — every `—` in this file became `â€"` in one
+  pass, and `git diff` then reports the whole file as changed. It happened here while resolving a
+  rebase conflict in `CLAUDE.md`. Use the Edit tool for surgical text changes, or `git checkout` the
+  file and redo them; if you must script it, read and write with an explicit
+  `[System.Text.UTF8Encoding]::new($false)` rather than the `-Encoding utf8` shorthand.
 - **`E - Update.bsa` loads last and wins.** When a record or asset doesn't look like the one you
   found in `E - Meshes.bsa`, check `E - Update.bsa` before concluding your patch is wrong.
 - **A DLC master silently breaks the plugin.** Spriggit accepts it (Mutagen's implicit base-master
