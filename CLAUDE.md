@@ -162,6 +162,7 @@ build/                     # build.ps1 + manifest.json + committed FOMOD trees
 arch-docs/                 # patch-authoring guide, curation docs, generated build report
 reference/base/            # gitignored — Enderal/vanilla decompiles + script source, LOOKUP ONLY
 reference/mods/            # gitignored — third-party list mods, serialized for lookup
+reference/mods/EGO/        #   `-- EGO's .esp + its loose scripts; documented in arch-docs/EGO/
 modlist/                   # gitignored — the installed Zenderal MO2 instance, hundreds of GB
 papyrus-source/            # gitignored — spare slot for unpacked .psc trees (see reference/base)
 ```
@@ -407,6 +408,7 @@ different repo.
 | Read this | For |
 |---|---|
 | **[`arch-docs/enderal/`](arch-docs/enderal/)** | **How Enderal actually works** — six documents mined from the serialized plugins and SureAI's own source. Start with [`plugin-architecture.md`](arch-docs/enderal/plugin-architecture.md) |
+| **[`arch-docs/EGO/`](arch-docs/EGO/)** | **How EGO works and how to patch around it** — the list's gameplay overhaul, 6203 overridden records. Start with [`patching-ego.md`](arch-docs/EGO/patching-ego.md) before any combat/loot/crafting patch |
 | `arch-docs/enderal-record-patterns.md` | Record shapes that build clean and do nothing in-game |
 | `arch-docs/zenderal-curation.md` | What is actually in the list and why |
 
@@ -416,6 +418,30 @@ progression, potions or scripts at
 [`progression-and-classes.md`](arch-docs/enderal/progression-and-classes.md) /
 [`crafting-alchemy-economy.md`](arch-docs/enderal/crafting-alchemy-economy.md) /
 [`scripting-and-actorvalues.md`](arch-docs/enderal/scripting-and-actorvalues.md).
+
+### EGO is the list's dominant conflict source
+
+`Enderal SE - Gameplay Overhaul.esp` (v1.93.1.0, author *Ixion XVII*) overrides **6203** records and
+adds **974**. **[verified 2026-08-04]** Zenderal patches load **after** it. Four facts that change
+how you write a patch, all documented in [`arch-docs/EGO/`](arch-docs/EGO/):
+
+1. **EGO is not `Localized`.** Every string on every record it overrides collapses from a
+   multi-language `Values:` list to a single English `Value:`. So `['Name', 'Description',
+   'Version2']` is the **null diff** — filter it out — and copying the FS/Skyrim version of a record
+   EGO also overrides re-adds the `Values:` block, which is the tell that you copied the wrong source.
+2. **`Player 000007:Skyrim.esm` carries 42 EGO perks.** That record *is* EGO's player ruleset.
+   Overriding it without forwarding them deletes the mod's combat, economy, alchemy and mana rules
+   while everything else still looks installed.
+3. **61 records are injected**, not overridden — FormIDs in `Skyrim.esm`'s space that `Skyrim.esm`
+   does not define (`ChaurusChitin 03AD57`, `DeflectArrows 058F68`, the Dragon Priest masks, six
+   `DeathItem*` lists…). Referencing one means declaring EGO as a master.
+4. **EGO rewrites all three blueprint vendor lists** (`_00ETraderCraftingPlansA/B/C`) — the exact
+   records a new craftable-weapon patch needs — plus 123 other leveled lists, 99 GMSTs and 18 GMSTs
+   it creates outright.
+
+Before touching a record, `grep` its FormKey in
+[`arch-docs/EGO/conflict-index.md`](arch-docs/EGO/conflict-index.md); if it is listed, build your
+version from **EGO's** YAML file, not the master's.
 
 ## How Enderal differs (and what that breaks)
 
