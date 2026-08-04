@@ -70,7 +70,7 @@ src/<PatchName>/<PatchName>ESP/          # all patch content lives under src/
    intact: parallel arrays must stay the same length; every referenced FormKey must resolve to a
    real record (yours or a master in `reference/`).
 4. After a bulk change, recommend running the **spriggit-formkey-auditor** subagent and then
-   deserializing to rebuild and verify in xEdit (`-EnderalSE` mode, via the `xedit-audit` skill).
+   deserializing to rebuild and verify in xEdit (`-EnderalSE` mode).
 5. Never run `serialize`/`deserialize` yourself unless explicitly asked — they overwrite files.
    Point the user to the `spriggit-serialize` / `spriggit-deserialize` skills.
 

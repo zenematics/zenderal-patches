@@ -20,7 +20,7 @@ automatically.
   under the modlist root, and do not leave them pointing at an Enderal path.
 - **xEdit must run in `-EnderalSE` mode.** The discovered executable may be named `EnderalSEEdit.exe`,
   `SSEEdit.exe` or `xEdit.exe` — they are the same program; the mode comes from the name or the
-  switch. The `xedit-audit` skill passes `-EnderalSE` explicitly.
+  switch. Pass `-EnderalSE` explicitly unless the executable is already named `EnderalSEEdit.exe`.
 - **There are three Papyrus source trees**, two of which need unpacking. Part 3 handles them.
 
 ## Part 1 — Install the `.wabbajack` (manual, GUI step)
@@ -210,6 +210,5 @@ $Tools | ConvertTo-Json -Depth 4
   third-party content.
 - Re-run Part 2 any time you reinstall or move the modlist; it's idempotent, preserves keys it can't
   rediscover, and never drops `importDirs` entries you added by hand.
-- After this, `papyrus-compile`, `bsa-extract`, `pex-decompile`, `package-mod`, `mod-deploy`,
-  `xedit-audit` and the Spriggit skills all resolve their paths from `tools.json` — no manual edits
-  to each skill needed.
+- After this, `papyrus-compile`, `bsa-extract`, `pex-decompile`, `package-mod`, `mod-deploy` and the
+  Spriggit skills all resolve their paths from `tools.json` — no manual edits to each skill needed.

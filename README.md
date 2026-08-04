@@ -142,7 +142,7 @@ install, then probes the instance and writes the discovered paths into `tools.js
 |-----------------------------------------|----------------------------------------------------------|
 | Each patch's YAML folder                | Binary plugins (`*.esp/*.esm/*.esl`)                     |
 | Papyrus source `src/<PatchName>/Scripts/source/*.psc` | Compiled scripts (`*.pex`)\*, archives (`*.bsa`) |
-| Each release's FOMOD stub (`build/staging/<release>/fomod/`) | Build output (`dist/`, `build/dist/`) and the derived `.esp`/`.pex` inside `build/staging/<release>/` |
+| A release's FOMOD, if it has one (`build/staging/<release>/fomod/`) — none currently do | Build output (`dist/`, `build/dist/`) and the derived `.esp`/`.pex` inside `build/staging/<release>/` |
 | `.spriggit`, configs, docs, `CLAUDE.md` | Enderal/third-party reference decompiles (`/reference/`) |
 | `arch-docs/` curation + patterns docs   | Unpacked Papyrus source (`/papyrus-source/`), the modlist (`/modlist/`), editor dirs |
 
@@ -280,6 +280,51 @@ like a broken record rather than a bad path.
 Then in MO2: refresh, enable the mod and its `.esp`, set load order, and launch through MO2.
 **A clean compile is necessary but not sufficient — verify it actually runs in-game.**
 
+## Releases — install requirements
+
+Every release here ships as a **plain archive**: the `.esp` (plus `Scripts/`) at the root, no FOMOD
+installer. A patch with nothing to choose does not need a wizard — see `/mod-new-plugin` step 5 for
+when one *is* warranted.
+
+The consequence is that **install-time requirements have to reach the user from here and from the
+mod page**, because there is no installer to display them. Keep this section and the Nexus
+description in sync; if a patch's requirements ever grow past what a description can carry, that is
+itself the signal to give it a FOMOD.
+
+### `Zenderal - Relentless Sword`
+
+- **Requires johnskyrim's *Relentless Sword SE*, installed separately** for its meshes and textures.
+  Pick the **CORE (runed)** branch and whichever fire/ice glow intensity you prefer in *his*
+  installer. The **NoRune** branch is not covered — it ships different meshes (`runeless.nif`) and
+  only two weapons.
+- **Any texture resolution works.** 1K, 2K and 4K ship identical plugins and identical meshes and
+  differ only in the texture files, so there is nothing to match on this side.
+- **Then DISABLE `Relentless Sword SE - Johnskyrim.esp`.** It masters the Skyrim DLC, which Enderal
+  does not load, and its recipes are gated on the Skyforge — it cannot work here. This plugin
+  replaces it.
+- **To forge the swords you need Handicraft 50 *and* the blueprint**, exactly like Enderal's own
+  shadowsteel weapons. *"Blueprint: Relentless Sword (Handicraft 50)"* sits on the noble shelf in
+  Riverville Temple, and blacksmiths who deal in blueprints stock it from level 30. One copy unlocks
+  all six swords. They temper at a sharpening wheel and dismantle back into shadowsteel at a smelter.
+
+### `Zenderal - Skip To Taming The Waves`
+
+- **DO NOT INSTALL ALONGSIDE *Skip Intro SE*.** Both mods repoint Enderal's game-start marker and
+  place their own start trigger. This mod replaces it — disable Skip Intro SE first.
+- Start a new game and you get character creation as normal, then begin in Ark with the main quest
+  advanced to the end of *"Taming the Waves"* (MQ04). MQ01–MQ04 are completed in order, so Enderal's
+  own quest scripts hand out their EP, gold and teleport scrolls, and the prologue's Arcane Fever is
+  cleared exactly as Lishari's ritual would.
+- The MQ02 dream normally decides your class, so the mod **asks instead** — Warrior, Mage or Rogue —
+  and gives you that class's starting skillbooks.
+- **Existing saves are unaffected:** the trigger checks that the main quest has not started and
+  deletes itself either way.
+
+### `Apocalypse - Enderal Patch`
+
+A **replacement plugin**, not a patch: it ships under Enai's original filename
+`Apocalypse - Magic of Skyrim.esp` so the mod's BSAs keep loading. Install it over the original.
+
 ## CI build & release (GitHub Actions)
 
 `.github/workflows/build.yml` rebuilds every release archive on each push to `main` (publishing them
@@ -289,7 +334,7 @@ The build script contains no patch-specific names — everything it builds comes
 adding a patch means editing JSON, not PowerShell.
 
 What CI does: download the pinned Spriggit CLI → `deserialize` every plugin's YAML into the
-committed `build/staging/<release>/` (whose `fomod/` subfolder is already checked into git; only the
+committed `build/staging/<release>/` (a release with a `fomod/` has it checked into git; only the
 derived `.esp`/`.pex` are regenerated) → copy the committed `.pex` into that release's `Scripts/` →
 `7z` each release into `build/dist/*.7z` → attach the archives to a GitHub Release → regenerate
 `arch-docs/build-report.md`.
@@ -334,7 +379,7 @@ the verified CLI paths and flags so you don't retype them.
 | Skill | What it does |
 |-------|--------------|
 | `modlist-install` | Install the Zenderal modlist (gitignored) and auto-discover tool paths into `tools.json` |
-| `mod-new-plugin` | **Scaffold a new patch** — YAML folder + manifest entry + FOMOD stub, buildable from the first commit |
+| `mod-new-plugin` | **Scaffold a new patch** — YAML folder + manifest entry (FOMOD only if the install has options), buildable from the first commit |
 | `spriggit-serialize` | Serialize a plugin → its YAML folder |
 | `spriggit-deserialize` | Rebuild a plugin from its YAML folder (+ xEdit verify reminder) |
 | `spriggit-decompile-reference` | Serialize Enderal's ESM or a third-party mod into gitignored `reference/` for lookups |
@@ -344,7 +389,6 @@ the verified CLI paths and flags so you don't retype them.
 | `papyrus-compile` | Compile `.psc` → `.pex` with the correct three-tree import order |
 | `package-mod` | Assemble `dist/<PatchName>/` (esp + scripts) for MO2 testing |
 | `mod-deploy` | **Deploy into an MO2 instance and verify it landed** under the exact expected folder name |
-| `xedit-audit` | Headless xEdit clean + "Check for Errors" pass, in `-EnderalSE` mode |
 | `github-release` | Cut a curated `vX.Y.Z` release from the CI-built assets and tidy the `build-*` tags |
 
 **Subagents:**

@@ -37,7 +37,7 @@ Rebuild the binary plugin from the edited YAML. Run this after editing records.
 
 - The rebuilt `.esp/.esm` is a **build artifact** and is gitignored (commit the YAML, not the binary).
 - **Load the plugin in xEdit — in `-EnderalSE` mode — to verify it before shipping.** Plain SSEEdit
-  mode reads the Skyrim game folder and will not see Enderal's plugins at all. Use the
-  **xedit-audit** skill, which passes the switch.
+  mode reads the Skyrim game folder and will not see Enderal's plugins at all. Use a copy named
+  `EnderalSEEdit.exe`, or pass `-EnderalSE` yourself.
 - Deserialize succeeding does not guarantee the records are correct, and a clean xEdit report does
   not mean the patch works. Only launching Enderal proves that.

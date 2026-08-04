@@ -175,7 +175,8 @@ src/                       # EVERY patch lives here — one folder per patch
     Scripts/source/*.psc   # Papyrus source — COMMITTED
     Scripts/compiled/*.pex # COMMITTED via a .gitignore exception (CI can't compile Papyrus)
     tools/*.ps1            # only for REPLACEMENT releases — the generators that rebuild the tree
-build/                     # build.ps1 + manifest.json + committed FOMOD trees (opt out: "fomod": false)
+build/                     # build.ps1 + manifest.json (+ a committed FOMOD tree per release that has
+                           #   one - none currently do; releases carry "fomod": false)
 arch-docs/                 # patch-authoring guide, curation docs, generated build report
 reference/base/            # gitignored — Enderal/vanilla decompiles + script source, LOOKUP ONLY
 reference/mods/            # gitignored — third-party list mods, serialized for lookup
@@ -437,7 +438,7 @@ Use the `mod-deploy` skill rather than copying by hand.
 
 **xEdit must run in Enderal mode:** use a copy named `EnderalSEEdit.exe` or pass **`-EnderalSE`**.
 **[upstream]** Plain SSEEdit mode reads the Skyrim game folder and INI and will not see Enderal's
-plugins at all. The `xedit-audit` skill passes the switch.
+plugins at all. Pass the switch yourself — there is no skill that does it for you.
 
 ### Crash logs are written to the SKYRIM SE folder, not Enderal's
 
