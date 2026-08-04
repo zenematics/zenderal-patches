@@ -1,0 +1,17 @@
+FormKey: 002E1A:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_AlterationAlt_Static_TharnsPrison
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+ObjectBounds:
+  First: -114, -114, -131
+  Second: 110, 104, 366
+Model:
+  File: ApocNew\AlterationAlt_Static_TharnsPrison.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

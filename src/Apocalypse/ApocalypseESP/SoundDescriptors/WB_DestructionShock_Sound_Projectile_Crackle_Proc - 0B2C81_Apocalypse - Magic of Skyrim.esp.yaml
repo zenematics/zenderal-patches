@@ -1,0 +1,14 @@
+FormKey: 0B2C81:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Projectile_Crackle_Proc
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Shock\MAG_Shock_Concentration_Projectile_LP.wav
+OutputModel: 0E322C:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 11.01

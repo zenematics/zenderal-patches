@@ -1,0 +1,9 @@
+FormKey: 00A084:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Hands
+ObjectBounds:
+  First: -7, -7, -9
+  Second: 7, 8, 12
+Model:
+  File: ApocNew\AlterationEarth_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

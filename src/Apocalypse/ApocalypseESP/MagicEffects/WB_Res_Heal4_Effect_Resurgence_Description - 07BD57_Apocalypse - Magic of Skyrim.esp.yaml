@@ -1,0 +1,36 @@
+FormKey: 07BD57:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal4_Effect_Resurgence_Description
+Name:
+  TargetLanguage: English
+  Value: Resurgence
+MenuDisplayObject: 0A0E7D:Skyrim.esm
+Keywords:
+- 01CEB0:Skyrim.esm
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoArea
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Restoration
+CastingLight: 10CDC8:Skyrim.esm
+HitShader: 07BD55:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01C859:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: For <dur> seconds, heals <mag> points per second when the caster falls below <50>% Health.

@@ -1,0 +1,33 @@
+FormKey: 01A0A7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Buff3_Effect_DaedricCrescent_EnchStagger
+Name:
+  TargetLanguage: English
+  Value: Entropic Crescent - Stagger
+MenuDisplayObject: 10AB43:Skyrim.esm
+Flags:
+- Hostile
+- NoArea
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 5
+TaperWeight: 0.2
+EnchantShader: 069CE8:Skyrim.esm
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Staggers a target.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0D205E:Skyrim.esm

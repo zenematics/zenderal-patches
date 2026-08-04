@@ -1,0 +1,22 @@
+FormKey: 0BC47F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_ConjureBattlemage_Frost_Spell_2
+Name:
+  TargetLanguage: English
+  Value: Battlemage Diamond Dust
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 75
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C0:Skyrim.esm
+Effects:
+- BaseEffect: 0BC47E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 40
+    Duration: 1

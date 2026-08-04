@@ -1,0 +1,11 @@
+FormKey: 115E18:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationBanish_Sound_Release_Hiss
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_Halldir_Cairn_Fade.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 8.81

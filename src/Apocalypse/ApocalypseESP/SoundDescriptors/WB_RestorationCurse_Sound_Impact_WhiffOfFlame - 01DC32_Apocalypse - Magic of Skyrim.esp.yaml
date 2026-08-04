@@ -1,0 +1,16 @@
+FormKey: 01DC32:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationCurse_Sound_Impact_WhiffOfFlame
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\flames\impact\MAG_Flames_Impact_03.wav
+- fx\mag\flames\impact\MAG_Flames_Impact_02.wav
+- fx\mag\flames\impact\MAG_Flames_Impact_01.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 5
+Priority: 128
+Variance: 3
+StaticAttenuation: 2.2

@@ -1,0 +1,13 @@
+FormKey: 1132CB:Apocalypse - Magic of Skyrim.esp
+EditorID: WBx_ConjurationAltSoundDescriptor
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\mag\conjure\mag_conjure_fire.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 1
+PercentFrequencyShift: 70
+Priority: 128
+StaticAttenuation: 4.41

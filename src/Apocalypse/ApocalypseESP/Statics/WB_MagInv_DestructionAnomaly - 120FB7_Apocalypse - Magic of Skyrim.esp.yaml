@@ -1,0 +1,10 @@
+FormKey: 120FB7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_DestructionAnomaly
+ObjectBounds:
+  First: -16, -15, -4
+  Second: 19, 19, 12
+Model:
+  File: ApocNew\DestructionAnomaly_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

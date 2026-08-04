@@ -1,0 +1,10 @@
+FormKey: 083A60:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationCurse_Light_Hazard_CircleOfGlory
+Time: -1
+Radius: 250
+Color: '#00DE8C43'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1

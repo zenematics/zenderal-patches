@@ -1,0 +1,19 @@
+FormKey: 036A03:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_HealCurse2_Spell_LambOfMara
+Name:
+  TargetLanguage: English
+  Value: Lamb of Irlanda
+MenuDisplayObject: 0A0E7D:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 83
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C7:Skyrim.esm
+Effects:
+- BaseEffect: 0974DD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

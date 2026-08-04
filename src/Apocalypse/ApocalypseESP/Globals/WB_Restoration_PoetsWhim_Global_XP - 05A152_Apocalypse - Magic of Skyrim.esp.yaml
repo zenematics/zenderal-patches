@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalFloat
+FormKey: 05A152:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Restoration_PoetsWhim_Global_XP
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 0.4

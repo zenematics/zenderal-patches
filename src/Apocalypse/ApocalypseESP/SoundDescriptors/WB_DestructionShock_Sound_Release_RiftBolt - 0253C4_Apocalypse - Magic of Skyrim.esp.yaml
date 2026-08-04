@@ -1,0 +1,15 @@
+FormKey: 0253C4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Release_RiftBolt
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\shock\ff\MAG_Shock_FF_Fire_01.wav
+- Data\Sound\FX\MAG\Shock\FF\MAG_Shock_FF_Fire_02.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 7.93

@@ -1,0 +1,75 @@
+FormKey: 00BB1E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage2_Effect_Thoughtsteal
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Thoughtsteal_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.5
+Name:
+  TargetLanguage: English
+  Value: Thoughtsteal
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 020D32:Apocalypse - Magic of Skyrim.esp
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- A00108:Update.esm
+Flags:
+- Recover
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- Painless
+- NoDeathDispel
+BaseCost: 6.5
+MagicSkill: Illusion
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+HitShader: 00D0DC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 11BBC4:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 13835E:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11C6C3:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 07C71F:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E0B:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Equip the spells the target has equipped. Lasts for <dur> seconds or until unequipped.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+    SpellSource: Right
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

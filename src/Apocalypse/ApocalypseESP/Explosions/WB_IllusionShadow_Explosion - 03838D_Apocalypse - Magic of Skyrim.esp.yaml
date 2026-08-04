@@ -1,0 +1,19 @@
+FormKey: 03838D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Explosion
+ObjectBounds:
+  First: -222, -196, -98
+  Second: 222, 196, 98
+Model:
+  File: ApocNew\IllusionShadow_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 00CB79:Apocalypse - Magic of Skyrim.esp
+Sound1: 03838B:Apocalypse - Magic of Skyrim.esp
+Force: 6
+Radius: 640
+ISRadius: 512
+VerticalOffsetMult: 0.6
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Silent

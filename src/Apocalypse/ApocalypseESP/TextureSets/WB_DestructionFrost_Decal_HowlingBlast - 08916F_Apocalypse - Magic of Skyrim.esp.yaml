@@ -1,0 +1,22 @@
+FormKey: 08916F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Decal_HowlingBlast
+Diffuse: ImpactDecals\DecalFrostImpact01.dds
+NormalOrGloss: ImpactDecals\DecalFrostImpact01_n.dds
+GlowOrDetailMap: Effects\FxColorBlueDeep.dds
+Decal:
+  MinWidth: 128
+  MaxWidth: 170
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  Shininess: 300
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00FFFFFF'
+Flags: []

@@ -1,0 +1,19 @@
+FormKey: 02CD7E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Curse2_Spell_AtronachMark
+Name:
+  TargetLanguage: English
+  Value: Atronach Mark
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 75
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 02CD79:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

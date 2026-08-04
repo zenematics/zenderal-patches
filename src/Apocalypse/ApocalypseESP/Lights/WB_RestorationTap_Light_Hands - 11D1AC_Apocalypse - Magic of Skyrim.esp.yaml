@@ -1,0 +1,10 @@
+FormKey: 11D1AC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationTap_Light_Hands
+Time: -1
+Radius: 32
+Color: '#00E2A93F'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.15

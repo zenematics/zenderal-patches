@@ -1,0 +1,14 @@
+FormKey: 07A228:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R075_NaturesBalance_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Nature's Balance
+EnchantmentCost: 405
+CastType: FireAndForget
+EnchantmentAmount: 405
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 2
+Effects:
+- BaseEffect: 0012D6:Apocalypse - Magic of Skyrim.esp
+  Data: {}

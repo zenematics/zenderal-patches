@@ -1,0 +1,10 @@
+FormKey: 0BB3EB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Light_Hands_Inferno
+Time: -1
+Radius: 128
+Color: '#00F9D899'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 4

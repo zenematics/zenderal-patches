@@ -1,0 +1,15 @@
+FormKey: 0012F1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Release_JoyBuzzer_1
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Witchlight\Attack\NPC_Witchlight_Attack_02.wav
+- Data\Sound\FX\NPC\Witchlight\Attack\NPC_Witchlight_Attack_03.wav
+- Data\Sound\FX\NPC\Witchlight\Attack\NPC_Witchlight_Attack_01.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 40
+PercentFrequencyVariance: 15
+Priority: 128
+Variance: 1
+StaticAttenuation: 3.96

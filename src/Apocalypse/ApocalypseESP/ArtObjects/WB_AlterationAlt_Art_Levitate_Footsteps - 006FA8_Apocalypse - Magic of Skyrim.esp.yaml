@@ -1,0 +1,10 @@
+FormKey: 006FA8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Art_Levitate_Footsteps
+ObjectBounds:
+  First: -32768, -32768, -32768
+  Second: 32767, 32767, 32767
+Model:
+  File: ApocNew\AlterationAlt_Art_Levitate_Footsteps.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

@@ -1,0 +1,10 @@
+FormKey: 086B66:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Art_SothasMaelstrom_Curse
+ObjectBounds:
+  First: -25, -24, -61
+  Second: 22, 23, 68
+Model:
+  File: ApocNew\AlterationBaleful_Art_SothasMaelstrom_Curse.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

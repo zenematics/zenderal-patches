@@ -1,0 +1,10 @@
+FormKey: 12081F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_RestorationArcane
+ObjectBounds:
+  First: -92, -108, -15
+  Second: 93, 110, 15
+Model:
+  File: ApocNew\RestorationArcane_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

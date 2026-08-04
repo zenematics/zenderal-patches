@@ -1,0 +1,77 @@
+FormKey: 0B8DCA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_UndeadDmg5_Effect_MeridiasWrath
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MagicImodBasicScript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: bPlayerOnly
+      Data: True
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fImodStrength
+      Data: 0.75
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ImodFX
+      Object: 11122A:Apocalypse - Magic of Skyrim.esp
+  - Name: WB_EQDualCast_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_EQSpell
+      Object: 0B8DCC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_SelfSpell
+      Object: 0362C7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.5
+  - Name: WB_ShakeCamera_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Duration
+      Data: 3
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Strength
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: Malphas' Wrath
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 00B63E:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- PowerAffectsDuration
+BaseCost: 2.25
+MagicSkill: Restoration
+CastingLight: 04C6DC:Skyrim.esm
+HitShader: 0A12D5:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 0E755B:Skyrim.esm
+HitEffectArt: 0A12D4:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+EquipAbility: 0E755C:Skyrim.esm
+ImageSpaceModifier: 11122A:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 000D6A:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Attunes the caster to light, equipping the Starstorm spell for up to <dur> seconds. This spell deals <mag> damage per second to undead while the caster concentrates.

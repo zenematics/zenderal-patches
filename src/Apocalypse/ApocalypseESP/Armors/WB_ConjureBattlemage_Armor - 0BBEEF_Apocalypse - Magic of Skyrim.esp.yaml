@@ -1,0 +1,41 @@
+FormKey: 0BBEEF:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureBattlemage_Armor
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Battlemage's Robes
+WorldModel:
+  Male:
+    Model:
+      File: Clothes\Warlock\WarlockRobesGND.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: Clothes\Warlock\WarlockRobesGND.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  - Forearms
+  ArmorType: HeavyArmor
+  ActsLike44: True
+PickUpSound: 03E879:Skyrim.esm
+PutDownSound: 03E909:Skyrim.esm
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBE8:Skyrim.esm
+- 08F95B:Skyrim.esm
+- 0A8657:Skyrim.esm
+- 06BBD2:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 0BBEED:Apocalypse - Magic of Skyrim.esp
+Value: 500
+Weight: 1
+ArmorRating: 50
+MajorFlags:
+- NonPlayable

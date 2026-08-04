@@ -1,0 +1,88 @@
+FormKey: 07A22A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R050_Ruin_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Ruin
+EnchantmentCost: 151
+CastType: FireAndForget
+EnchantmentAmount: 151
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 01E708:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E709:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E70A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E70B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E70C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E70D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E70E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E70F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01E710:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC76:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC77:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC78:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC79:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC7A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC7B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC7C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC7D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC7E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120
+- BaseEffect: 01EC7F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 120

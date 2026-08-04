@@ -1,0 +1,31 @@
+FormKey: 086B57:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Effect_SothasMaelstrom_StackingDebuff
+Name:
+  TargetLanguage: English
+  Value: Thaumaturgic Maelstrom - Proc
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 007519:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoHitEvent
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+MagicSkill: Alteration
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistMagic
+CastType: FireAndForget
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

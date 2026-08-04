@@ -1,0 +1,21 @@
+FormKey: 06CF3F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionWizardfire_Projectile_Apocalypse
+ObjectBounds:
+  First: -49, -329, -63
+  Second: 50, 57, 48
+Model:
+  File: ApocNew\DestructionWizardfire_Projectile_Apocalypse.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 1250
+Range: 10000
+Light: 05C71A:Apocalypse - Magic of Skyrim.esp
+Sound: 000D69:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 8
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

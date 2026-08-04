@@ -1,0 +1,55 @@
+FormKey: 07C83A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock2_Effect_Thundercrack
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Thundercrack_Impact_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionShock_Marker_Impact_Thundercrack
+      Object: 07C83F:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Thundercrack
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 01CEAF:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 0.75
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 057C68:Skyrim.esm
+HitShader: 057C67:Skyrim.esm
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 07C83D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Magicka
+CastingArt: 058E9B:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+ImageSpaceModifier: 07C83E:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 03F20C:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 07C837:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deafening close range blast that deals <mag> points of shock damage to Health and Magicka.

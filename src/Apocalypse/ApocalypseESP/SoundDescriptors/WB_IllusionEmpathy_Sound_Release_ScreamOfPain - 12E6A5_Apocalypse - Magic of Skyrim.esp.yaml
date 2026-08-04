@@ -1,0 +1,14 @@
+FormKey: 12E6A5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Sound_Release_ScreamOfPain
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Wisp\Attack\NPC_Wisp_Attack_01.wav
+- Data\Sound\FX\NPC\Wisp\Attack\NPC_Wisp_Attack_02.wav
+- Data\Sound\FX\NPC\Wisp\Attack\NPC_Wisp_Attack_03.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 6
+Priority: 128
+StaticAttenuation: 8.37

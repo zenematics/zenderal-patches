@@ -1,0 +1,12 @@
+FormKey: 103A80:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionPuppeteer_Sound_Concentration_KnotOfFetters
+Type: Standard
+Category: 0DDDC5:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\DA10\QST_DA10_Haunt_LPM.wav
+OutputModel: 0E32BF:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 6.61

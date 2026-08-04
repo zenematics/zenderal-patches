@@ -1,0 +1,12 @@
+FormKey: 001863:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Impact_Shatter
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\FX\Explosion\Ice\FX_Explosion_Ice_01.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 3
+Priority: 128

@@ -1,0 +1,52 @@
+FormKey: 0A5904:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_LocateObject_4_Key_Quest
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 0A5904:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    Scripts:
+    - Name: WB_ObjectInventory_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_A050_LocateObject_Spell_PC
+        Object: 00C143:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Locate Object - Key
+Flags:
+- AllowRepeatedStages
+Priority: 34
+Filter: WB\
+NextAliasID: 2
+Aliases:
+- Name: WB_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Object
+  Flags:
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsObjectTypeConditionData
+      FormType: Key
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetDestroyedConditionData
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      UseAliases: True
+    ComparisonValue: 4267
+  VoiceTypes: Null

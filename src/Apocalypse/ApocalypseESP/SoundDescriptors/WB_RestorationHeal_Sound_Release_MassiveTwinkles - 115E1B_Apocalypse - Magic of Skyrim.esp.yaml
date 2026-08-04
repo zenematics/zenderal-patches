@@ -1,0 +1,11 @@
+FormKey: 115E1B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Sound_Release_MassiveTwinkles
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_T02_Lovers_Ascending.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 30
+Priority: 128
+StaticAttenuation: 7.49

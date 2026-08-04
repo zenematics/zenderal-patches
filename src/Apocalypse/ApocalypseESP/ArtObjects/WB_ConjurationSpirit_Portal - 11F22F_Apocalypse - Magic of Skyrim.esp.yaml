@@ -1,0 +1,10 @@
+FormKey: 11F22F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSpirit_Portal
+ObjectBounds:
+  First: -189, -61, -12
+  Second: 189, 292, 344
+Model:
+  File: ApocNew\ConjurationSpirit_Portal.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

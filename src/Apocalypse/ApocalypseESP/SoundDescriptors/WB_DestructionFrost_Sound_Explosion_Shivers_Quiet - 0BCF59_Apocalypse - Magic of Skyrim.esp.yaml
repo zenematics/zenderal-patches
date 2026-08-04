@@ -1,0 +1,13 @@
+FormKey: 0BCF59:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Explosion_Shivers_Quiet
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\icicle\impactbreak\MAG_Icicle_ImpactBreak.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 75
+PercentFrequencyVariance: 6
+Priority: 128
+StaticAttenuation: 4.41

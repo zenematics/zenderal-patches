@@ -1,0 +1,77 @@
+FormKey: 034D0F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Disease2_Effect_Necroplague_AoE
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MagicImodOnPlayerHitScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OnStartImodFX
+      Object: 10E3D2:Skyrim.esm
+  - Name: WB_Disease_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Disease_Spell
+      Object: 034D10:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 1.5
+Name:
+  TargetLanguage: English
+  Value: Necroplague
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 034D0E:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- ADA001:Update.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 2.75
+MagicSkill: Restoration
+ResistValue: ResistDisease
+HitShader: 043CDC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+  Association: 034D0E:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+HitEffectArt: 078769:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> disease damage for <dur> seconds and periodically spreads to living foes.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 034D0E:Apocalypse - Magic of Skyrim.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

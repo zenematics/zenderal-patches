@@ -1,0 +1,10 @@
+FormKey: 085589:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Art_SpectralWarband
+ObjectBounds:
+  First: -77, -105, -51
+  Second: 77, 126, 59
+Model:
+  File: ApocNew\IllusionNightmare_Art_SpectralWarband.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

@@ -1,0 +1,19 @@
+FormKey: 0896F0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D000_Blaze_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Blaze
+EnchantmentCost: 31
+CastType: FireAndForget
+EnchantmentAmount: 31
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0B2C72:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10
+- BaseEffect: 0B2C75:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25
+    Duration: 1

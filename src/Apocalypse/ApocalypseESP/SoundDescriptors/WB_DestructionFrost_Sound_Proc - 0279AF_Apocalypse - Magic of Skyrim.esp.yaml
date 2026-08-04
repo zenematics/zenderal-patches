@@ -1,0 +1,10 @@
+FormKey: 0279AF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Proc
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\VOC\Shout\FX\Frostbreath\VOC_Shout_FX_FrostBreath_A_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+Priority: 64
+StaticAttenuation: 2.64

@@ -1,0 +1,119 @@
+FormKey: 1C1E72:Apocalypse - Magic of Skyrim.esp
+EditorID: ZP_Apoc_Tomes_R025
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 03C51A:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C51C:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C51B:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C519:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C51D:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C51E:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D048:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D046:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D047:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D044:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DB22:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DB21:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DB23:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DB24:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DB26:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DB25:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03E601:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03E5FF:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03E602:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03E603:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03E600:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03E604:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03EB7E:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03EB7F:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03EB80:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03EB81:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03EB82:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03EB7D:Apocalypse - Magic of Skyrim.esp
+    Count: 1

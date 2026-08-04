@@ -1,0 +1,29 @@
+FormKey: 0253C2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock2_Spell_RiftBolt_NPC
+Name:
+  TargetLanguage: English
+  Value: Rift Bolt
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 56
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44BF:Skyrim.esm
+Effects:
+- BaseEffect: 0253BE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+- BaseEffect: 076116:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.35
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.25
+- BaseEffect: 0F3F0D:Skyrim.esm
+  Data:
+    Magnitude: 200
+    Duration: 1

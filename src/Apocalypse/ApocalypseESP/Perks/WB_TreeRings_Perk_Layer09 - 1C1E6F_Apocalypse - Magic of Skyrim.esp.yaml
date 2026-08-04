@@ -1,0 +1,15 @@
+FormKey: 1C1E6F:Apocalypse - Magic of Skyrim.esp
+VersionControl: 13506
+EditorID: WB_TreeRings_Perk_Layer09
+Name:
+  TargetLanguage: English
+  Value: Fortify Health
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 1C1E63:Apocalypse - Magic of Skyrim.esp

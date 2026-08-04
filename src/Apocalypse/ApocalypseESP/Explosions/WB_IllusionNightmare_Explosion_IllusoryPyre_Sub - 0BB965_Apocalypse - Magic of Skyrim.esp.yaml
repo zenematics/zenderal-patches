@@ -1,0 +1,15 @@
+FormKey: 0BB965:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Explosion_IllusoryPyre_Sub
+ObjectBounds:
+  First: -57, -60, -1
+  Second: 57, 60, 33
+Model:
+  File: ApocNew\IllusionNightmare_Explosion_IllusoryPyre.nif
+  Data: 0x020000000000000000000000
+Radius: 256
+VerticalOffsetMult: 0.6
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Silent

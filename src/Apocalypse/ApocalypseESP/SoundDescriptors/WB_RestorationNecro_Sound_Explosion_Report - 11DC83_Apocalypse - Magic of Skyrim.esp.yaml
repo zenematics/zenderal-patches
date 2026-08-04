@@ -1,0 +1,12 @@
+FormKey: 11DC83:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Sound_Explosion_Report
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_SerpentStone_Explosion_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 6.17

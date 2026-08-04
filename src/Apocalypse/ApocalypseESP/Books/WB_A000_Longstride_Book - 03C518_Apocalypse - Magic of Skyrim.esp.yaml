@@ -1,0 +1,28 @@
+FormKey: 03C518:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A000_Longstride_Book
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Longstride'
+Model:
+  File: Clutter\Books\SpellTomeAlterationLowPoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face'$HandwrittenFont'><font size='40'><p align='center'>
+
+    Longstride
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 00541E:Apocalypse - Magic of Skyrim.esp
+Value: 35
+Weight: 1
+InventoryArt: 02FBB3:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

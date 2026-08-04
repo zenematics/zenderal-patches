@@ -1,0 +1,17 @@
+FormKey: 0B2C80:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Beam_Crackle_Proc
+Model:
+  File: ApocNew\DestructionShock_Projectile_Crackle_Proc.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 1024
+Light: 0B2C88:Apocalypse - Magic of Skyrim.esp
+Sound: 0B2C81:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.1
+ImpactForce: 10
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

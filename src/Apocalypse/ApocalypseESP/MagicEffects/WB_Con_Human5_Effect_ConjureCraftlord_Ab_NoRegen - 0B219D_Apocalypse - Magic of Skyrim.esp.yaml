@@ -1,0 +1,23 @@
+FormKey: 0B219D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureCraftlord_Ab_NoRegen
+Name:
+  TargetLanguage: English
+  Value: Craftlord - No regen
+Flags:
+- Recover
+- Detrimental
+- NoHitEvent
+- NoDuration
+- NoArea
+- NoHitEffect
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: MagickaRateMult
+  Type: DualValueModifier
+SecondActorValue: StaminaRateMult
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

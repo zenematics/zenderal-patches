@@ -1,0 +1,19 @@
+FormKey: 0263FF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Volcano_2C
+ObjectBounds:
+  First: -73, -245, -17
+  Second: 73, 68, 15
+Model:
+  File: ApocNew\DestructionFire_Projectile_Volcano2C.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 1
+Speed: 1500
+Range: 10000
+Light: 01CBB3:Skyrim.esm
+FadeDuration: 0.5
+ImpactForce: 0.65
+CollisionRadius: 15
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

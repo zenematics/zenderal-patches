@@ -1,0 +1,23 @@
+FormKey: 001873:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Projectile_Electrosphere
+ObjectBounds:
+  First: -92, -108, -9
+  Second: 93, 110, 19
+Model:
+  File: ApocNew\DestructionShock_Projectile_Electrosphere.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 1250
+Range: 4000
+Light: 001874:Apocalypse - Magic of Skyrim.esp
+Explosion: 10FBE6:Skyrim.esm
+Sound: 02283D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 75
+CollisionRadius: 10
+Lifetime: 0.35
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

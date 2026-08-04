@@ -1,0 +1,10 @@
+FormKey: 00ECB6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionHellfire_Light_Projectile
+Time: -1
+Radius: 350
+Color: '#00A9FD5E'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.2

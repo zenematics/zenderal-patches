@@ -1,0 +1,12 @@
+FormKey: 02D06D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Explosion_Thunderball
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\VOC\Shout\FX\UnrelentingForce\Thunder\VOC_Shout_FX_UnrelentingForce_B_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 75
+PercentFrequencyVariance: 6
+Priority: 128
+StaticAttenuation: 4.41

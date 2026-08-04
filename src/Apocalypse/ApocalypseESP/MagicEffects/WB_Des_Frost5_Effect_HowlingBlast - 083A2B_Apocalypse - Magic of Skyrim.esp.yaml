@@ -1,0 +1,52 @@
+FormKey: 083A2B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost5_Effect_HowlingBlast
+Name:
+  TargetLanguage: English
+  Value: Howling Blast
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 01CEAE:Skyrim.esm
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1.35
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 1.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 089165:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 042854:Skyrim.esm
+ImpactData: 089170:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+ImageSpaceModifier: 10FBF1:Skyrim.esm
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Charge
+  Sound: 08198C:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 03F2EB:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 089169:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Casts a jet of icy wind that deals <mag> damage per second to Health and Stamina.

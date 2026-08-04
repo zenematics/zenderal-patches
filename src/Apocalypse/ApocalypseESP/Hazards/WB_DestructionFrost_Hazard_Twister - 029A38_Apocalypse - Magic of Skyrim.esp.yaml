@@ -1,0 +1,21 @@
+FormKey: 029A38:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Hazard_Twister
+ObjectBounds:
+  First: -52, -43, -23
+  Second: 73, 36, 70
+Name:
+  TargetLanguage: English
+  Value: Twister Hazard
+Model:
+  File: ApocNew\DestructionFrost_Hazard_Tornado2.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 0B79F8:Skyrim.esm
+Radius: 10
+Lifetime: 20
+ImageSpaceRadius: 384
+TargetInterval: 0.3
+Flags:
+- InheritDurationFromSpawnSpell
+- DropToGround
+Spell: 02D5DF:Apocalypse - Magic of Skyrim.esp
+Sound: 02E0C6:Apocalypse - Magic of Skyrim.esp

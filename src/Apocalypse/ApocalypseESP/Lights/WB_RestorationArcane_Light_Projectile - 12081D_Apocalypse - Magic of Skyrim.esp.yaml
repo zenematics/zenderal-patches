@@ -1,0 +1,10 @@
+FormKey: 12081D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Light_Projectile
+Time: -1
+Radius: 250
+Color: '#003F99E2'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.2

@@ -1,0 +1,10 @@
+FormKey: 085B05:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Art_IronMaiden
+ObjectBounds:
+  First: -103, -149, -15
+  Second: 103, 182, 58
+Model:
+  File: ApocNew\IllusionBlue_Art_IronMaiden.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

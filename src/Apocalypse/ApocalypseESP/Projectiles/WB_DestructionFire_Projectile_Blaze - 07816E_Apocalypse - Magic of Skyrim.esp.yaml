@@ -1,0 +1,20 @@
+FormKey: 07816E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Blaze
+ObjectBounds:
+  First: -107, -87, -35
+  Second: 113, 102, 24
+Model:
+  File: ApocNew\DestructionFire_Projectile_Wildfire.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.1
+Speed: 1500
+Range: 1000
+Light: 01CBB3:Skyrim.esm
+Sound: 026ECA:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 1.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

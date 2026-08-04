@@ -1,0 +1,18 @@
+FormKey: 124ECF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Explosion
+ObjectBounds:
+  First: -258, -258, -27
+  Second: 258, 258, 51
+Model:
+  File: Magic\TurnUndeadMassExplosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 04780A:Skyrim.esm
+Sound1: 0362C2:Apocalypse - Magic of Skyrim.esp
+Force: 32
+Radius: 160
+ISRadius: 512
+VerticalOffsetMult: 0.4
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

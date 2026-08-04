@@ -1,0 +1,25 @@
+FormKey: 0A538E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl5_Spell_ThrummingStone_Hazard
+Name:
+  TargetLanguage: English
+  Value: Thrumming Stone
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 246
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+CastType: FireAndForget
+Effects:
+- BaseEffect: 0A538B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 40
+    Area: 40
+    Duration: 2
+- BaseEffect: 0A538D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1.5
+    Area: 40

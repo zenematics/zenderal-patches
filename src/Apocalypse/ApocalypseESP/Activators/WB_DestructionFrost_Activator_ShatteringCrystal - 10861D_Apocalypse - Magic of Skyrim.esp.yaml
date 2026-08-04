@@ -1,0 +1,10 @@
+FormKey: 10861D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Activator_ShatteringCrystal
+ObjectBounds:
+  First: -101, -101, -44
+  Second: 101, 101, 72
+Model:
+  File: ApocNew\DestructionFrost_Static_ShatteringCrystal.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []

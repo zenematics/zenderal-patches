@@ -1,0 +1,10 @@
+FormKey: 007A84:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationShieldArmor_Art
+ObjectBounds:
+  First: -62, -162, -112
+  Second: 62, 180, 130
+Model:
+  File: ApocNew\AlterationShieldArmor_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

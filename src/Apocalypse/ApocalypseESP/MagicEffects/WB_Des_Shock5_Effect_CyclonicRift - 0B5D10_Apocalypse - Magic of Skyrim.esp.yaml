@@ -1,0 +1,48 @@
+FormKey: 0B5D10:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Effect_CyclonicRift
+Name:
+  TargetLanguage: English
+  Value: Cyclonic Rift
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- 044D4E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoHitEvent
+- PowerAffectsMagnitude
+- Painless
+- NoHitEffect
+BaseCost: 4
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 0592D9:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingArea: 6
+SpellmakingCastingTime: 2.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 0B5D15:Apocalypse - Magic of Skyrim.esp
+Explosion: 0B5D12:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 05B1BD:Skyrim.esm
+ImpactData: 038B05:Skyrim.esm
+DualCastScale: 1.1
+ImageSpaceModifier: 0A9D93:Skyrim.esm
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 115E21:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Creates a storm portal for <dur> seconds. If two portals are active, those approaching either get warped across and take <mag> shock damage to Health and Magicka.

@@ -1,0 +1,14 @@
+FormKey: 02AFDF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Projectile_HighWinds
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\amb\dungeon\wind\door\AMB_Dungeon_Wind_Door_02_LP.wav
+- fx\amb\dungeon\wind\door\AMB_Dungeon_Wind_Door_01_LP.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 40
+PercentFrequencyVariance: 8
+Priority: 128

@@ -1,0 +1,15 @@
+FormKey: 016A26:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: WB_BanishLiving_Chest
+SkyrimMajorRecordFlags:
+- 0x8000000
+Name:
+  TargetLanguage: English
+  Value: Chest
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Respawns
+MajorFlags:
+- NavMeshGenerationBoundingBox

@@ -1,0 +1,10 @@
+FormKey: 06EA51:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Art_LifesFinale
+ObjectBounds:
+  First: -74, -54, -15
+  Second: 46, 70, 12
+Model:
+  File: ApocNew\RestorationNecro_Art_LifesFinale.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

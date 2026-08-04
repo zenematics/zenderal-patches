@@ -1,0 +1,14 @@
+FormKey: 00A07D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Sound_Release
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\TRP\RockfallRelease\TRP_Rockfall_Release_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 10
+Priority: 128
+Variance: 1
+StaticAttenuation: 5.73

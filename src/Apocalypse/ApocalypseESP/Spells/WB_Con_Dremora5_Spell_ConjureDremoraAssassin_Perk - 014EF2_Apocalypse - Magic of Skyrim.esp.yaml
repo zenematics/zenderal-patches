@@ -1,0 +1,20 @@
+FormKey: 014EF2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Spell_ConjureDremoraAssassin_Perk
+Name:
+  TargetLanguage: English
+  Value: Death Mark
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 014EEF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

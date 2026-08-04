@@ -1,0 +1,7 @@
+FormKey: 084AAB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Message_DropZone_Record
+Description:
+  TargetLanguage: English
+  Value: You fell %.0f feet! (A new record!)
+INAM: 0x00000000
+DisplayTime: 2

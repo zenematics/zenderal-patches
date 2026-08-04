@@ -1,0 +1,15 @@
+FormKey: 00234C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Projectile_FingersOfTheMountain
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Shock\ConcentrationBolt\MAG_Shock_Concentration_Bolt_01.wav
+- \Data\Sound\FX\MAG\Shock\ConcentrationBolt\MAG_Shock_Concentration_Bolt_02.wav
+- \Data\Sound\FX\MAG\Shock\ConcentrationBolt\MAG_Shock_Concentration_Bolt_03.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 6

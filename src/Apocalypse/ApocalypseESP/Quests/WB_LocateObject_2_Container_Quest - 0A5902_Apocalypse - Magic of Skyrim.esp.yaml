@@ -1,0 +1,40 @@
+FormKey: 0A5902:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_LocateObject_2_Container_Quest
+Name:
+  TargetLanguage: English
+  Value: Locate Object - Container
+Flags:
+- AllowRepeatedStages
+Priority: 34
+Filter: WB\
+NextAliasID: 2
+Aliases:
+- Name: WB_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Object
+  Flags:
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsObjectTypeConditionData
+      FormType: Container
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsInListConditionData
+      FormList: 0A58FD:Apocalypse - Magic of Skyrim.esp
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetDestroyedConditionData
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      UseAliases: True
+    ComparisonValue: 4267
+  VoiceTypes: Null

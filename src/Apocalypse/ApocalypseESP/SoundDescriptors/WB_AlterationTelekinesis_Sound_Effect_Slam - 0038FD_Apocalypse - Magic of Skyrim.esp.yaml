@@ -1,0 +1,13 @@
+FormKey: 0038FD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Sound_Effect_Slam
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Alteration\Telekinesis\MAG_Alteration_Telekinesis_Throw_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+  RumbleValues: 32
+PercentFrequencyShift: -25
+Priority: 128
+StaticAttenuation: 3.08

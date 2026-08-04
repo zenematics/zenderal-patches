@@ -1,0 +1,62 @@
+FormKey: 15B83F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage1_Effect_SilveryBarbs
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_RetaliatoryCast_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Spell
+      Object: 15B841:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Silvery Barbs
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 20
+MagicSkill: Illusion
+ResistValue: ResistMagic
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 1
+HitShader: 00D0DC:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 085575:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 13835E:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11C6C3:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+ImageSpaceModifier: 1274D8:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 08196D:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Curses a target for <dur> seconds. When the target casts a spell, they get <10>% weakness to magic and you get <10>% magic resistance. This effect stacks.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

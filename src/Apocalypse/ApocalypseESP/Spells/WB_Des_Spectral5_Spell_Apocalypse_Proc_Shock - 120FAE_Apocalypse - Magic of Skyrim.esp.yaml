@@ -1,0 +1,24 @@
+FormKey: 120FAE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Spectral5_Spell_Apocalypse_Proc_Shock
+Name:
+  TargetLanguage: English
+  Value: Elemental Sparks
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 88
+CastType: Concentration
+TargetType: Aimed
+CastDuration: 6
+HalfCostPerk: 0F2CA8:Skyrim.esm
+Effects:
+- BaseEffect: 120FB2:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 32
+    Duration: 1
+- BaseEffect: 0F3F0C:Skyrim.esm
+  Data:
+    Magnitude: 200
+    Duration: 1

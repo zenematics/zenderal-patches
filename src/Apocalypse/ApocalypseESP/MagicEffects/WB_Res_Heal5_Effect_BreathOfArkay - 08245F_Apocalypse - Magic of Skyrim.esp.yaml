@@ -1,0 +1,83 @@
+FormKey: 08245F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal5_Effect_BreathOfArkay
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_BreathOfArkay2_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ImpactSet
+      Object: 074798:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationArkay_Marker_Release_BreathOfArkay
+      Object: 0829EC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationArkay_Marker_Scripted_BreathOfArkay_Max
+      Object: 082464:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Explosion_Rune
+      Object: 12544E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Imod_Heartstopper
+      Object: 111D00:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_S_BreathOfArkay_Spell
+      Objects:
+      - Name: ''
+        Object: 083A47:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A4A:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A4C:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A4E:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A50:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A52:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A54:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A56:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A58:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 083A5A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Breath of Tyr
+MenuDisplayObject: 12B05C:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01CEB0:Skyrim.esm
+- 0A9B1E:Skyrim.esm
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- FXPersist
+BaseCost: 1.2
+MagicSkill: Restoration
+CastingLight: 12B05E:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 1
+HitShader: 12B05F:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 012FDC:Skyrim.esm
+CastType: Concentration
+CastingArt: 12B05D:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Release
+  Sound: 057C61:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 0829ED:Apocalypse - Magic of Skyrim.esp
+- Type: Charge
+  Sound: 08196C:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Accumulate <mag> points of divine energy per second while concentrating. After you stop concentrating, the energy is converted into healing.

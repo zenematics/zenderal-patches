@@ -1,0 +1,23 @@
+FormKey: 0BC477:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_ConjureBattlemage_Frost_Spell_3
+Name:
+  TargetLanguage: English
+  Value: Battlemage Winter's Wrath
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 150
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 0BC475:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 65
+    Area: 7
+    Duration: 1

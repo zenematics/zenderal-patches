@@ -1,0 +1,33 @@
+FormKey: 0B5D11:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Activator_CyclonicRift_0
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CyclonicRift_Activator_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_CyclonicRift_Other
+      Object: 0B5D18:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_D100_CyclonicRift_Effect_SelfDuration
+      Object: 0B5D25:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D100_CyclonicRift_Proc_Spell_PC
+      Object: 0B5D20:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.5
+ObjectBounds:
+  First: -239, -257, -14
+  Second: 259, 240, 557
+Name:
+  TargetLanguage: English
+  Value: Alpha Portal
+Model:
+  File: ApocNew\DestructionShock_Static_CyclonicRift_2.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+LoopingSound: 0B628C:Apocalypse - Magic of Skyrim.esp
+Flags: []

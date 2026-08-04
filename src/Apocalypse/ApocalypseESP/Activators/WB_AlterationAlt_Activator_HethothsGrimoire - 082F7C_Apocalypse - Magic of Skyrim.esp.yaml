@@ -1,0 +1,16 @@
+FormKey: 082F7C:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_AlterationAlt_Activator_HethothsGrimoire
+SkyrimMajorRecordFlags:
+- 0x4000000
+ObjectBounds:
+  First: -106, -110, -5
+  Second: 104, 111, 7
+Model:
+  File: ApocNew\AlterationAlt_Static_HethothsGrimoire.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+LoopingSound: 0A89D6:Apocalypse - Magic of Skyrim.esp
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

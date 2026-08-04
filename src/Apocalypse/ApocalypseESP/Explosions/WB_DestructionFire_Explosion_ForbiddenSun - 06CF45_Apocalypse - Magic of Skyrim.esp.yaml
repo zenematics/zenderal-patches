@@ -1,0 +1,18 @@
+FormKey: 06CF45:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_ForbiddenSun
+ObjectBounds:
+  First: -143, -150, -9
+  Second: 143, 150, 83
+Model:
+  File: ApocNew\DestructionFire_Explosion_ForbiddenSun.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 037E91:Skyrim.esm
+Sound1: 02518E:Skyrim.esm
+Sound2: 02A504:Apocalypse - Magic of Skyrim.esp
+Force: 512
+Radius: 512
+ISRadius: 1024
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

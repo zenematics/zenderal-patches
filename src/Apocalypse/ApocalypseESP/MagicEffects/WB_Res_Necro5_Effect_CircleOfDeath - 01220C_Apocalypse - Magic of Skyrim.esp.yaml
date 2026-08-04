@@ -1,0 +1,37 @@
+FormKey: 01220C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Necro5_Effect_CircleOfDeath
+Name:
+  TargetLanguage: English
+  Value: Circle of Death
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01E19B:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+Flags:
+- NoArea
+- FXPersist
+BaseCost: 35
+MagicSkill: Restoration
+CastingLight: 11D1AB:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectSpawnHazardArchetype
+  Association: 012209:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11D19F:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1.5
+ImageSpaceModifier: 11D711:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 0960E9:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 116E57:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Circle instantly kills living targets below <40>% Health.

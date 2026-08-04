@@ -1,0 +1,12 @@
+FormKey: 1238E7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Light_Hazard_CircleOfTheMoons
+Time: -1
+Radius: 512
+Color: '#005BB6D0'
+Flags:
+- Dynamic
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.25

@@ -1,0 +1,18 @@
+FormKey: 11BBC4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Projectile
+ObjectBounds:
+  First: -28, -102, -18
+  Second: 28, 31, 19
+Model:
+  File: ApocNew\IllusionBlue_Projectile.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2000
+Range: 10000
+Light: 11C6B4:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

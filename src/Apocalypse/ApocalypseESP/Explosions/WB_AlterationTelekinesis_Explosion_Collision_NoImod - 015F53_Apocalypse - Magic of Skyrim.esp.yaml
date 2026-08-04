@@ -1,0 +1,14 @@
+FormKey: 015F53:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Explosion_Collision_NoImod
+Model:
+  File: ApocNew\AlterationTelekinesis_Explosion_Collision.nif
+  Data: 0x020000000000000000000000
+Sound1: 003E81:Apocalypse - Magic of Skyrim.esp
+Sound2: 03C8FC:Skyrim.esm
+Force: 64
+Radius: 250
+VerticalOffsetMult: -10
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

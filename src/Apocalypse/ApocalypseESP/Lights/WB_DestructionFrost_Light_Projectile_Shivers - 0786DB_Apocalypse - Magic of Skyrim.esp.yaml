@@ -1,0 +1,10 @@
+FormKey: 0786DB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Light_Projectile_Shivers
+Time: -1
+Radius: 280
+Color: '#0081A0B4'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 0.7

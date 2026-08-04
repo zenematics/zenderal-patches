@@ -1,0 +1,10 @@
+FormKey: 11C6B3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionAntimagic_Light_Projectile
+Time: -1
+Radius: 300
+Color: '#004768DA'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1

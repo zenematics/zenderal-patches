@@ -1,0 +1,19 @@
+FormKey: 01C694:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationBanish_Projectile
+ObjectBounds:
+  First: -47, -93, -16
+  Second: 47, 51, 17
+Model:
+  File: ApocNew\ConjurationBanish_Projectile.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1000
+Range: 1000
+Light: 11F235:Apocalypse - Magic of Skyrim.esp
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

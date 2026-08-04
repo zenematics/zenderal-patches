@@ -1,0 +1,29 @@
+FormKey: 05C717:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 100663808
+EditorID: WB_DestructionWizardfire_Activator_Wizardfire
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_WizardfireSelfDamage_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DangerDistance
+      Data: 745
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_SelfDamage
+      Data: 400
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#008F32CD'
+Flags: []
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle
+- NavMeshGenerationFilter

@@ -1,0 +1,75 @@
+FormKey: 0321B5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_TempDmg5_Effect_ScreamOfPain
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ScreamOfPain_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_ScreamOfPain_Global_XP
+      Object: 0321B9:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Scream of Pain
+MenuDisplayObject: 11D198:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0806E1:Skyrim.esm
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 0321C1:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 750
+MagicSkill: Illusion
+CastingLight: 127A43:Apocalypse - Magic of Skyrim.esp
+HitShader: 032724:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 20
+SpellmakingCastingTime: 2.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 0321B8:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 127A42:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 127A44:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+EquipAbility: 11C6BC:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 0321B6:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 0207B5:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 020D2C:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Lowers the Health percentage of nearby creatures and humanoids to the caster's Health percentage. The lost Health is restored after <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 035D59:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

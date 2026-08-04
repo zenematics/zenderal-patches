@@ -1,0 +1,13 @@
+FormKey: 115E0A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Illusion_Sound_Charge_050
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Illusion\MAG_Illusion_Charge_100.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 4.41

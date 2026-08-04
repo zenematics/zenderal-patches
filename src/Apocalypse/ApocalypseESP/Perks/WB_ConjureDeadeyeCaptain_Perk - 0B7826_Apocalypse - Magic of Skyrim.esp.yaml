@@ -1,0 +1,101 @@
+FormKey: 0B7826:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDeadeyeCaptain_Perk
+VirtualMachineAdapter:
+  Scripts:
+  - Name: PRKF_WB_ConjureDeadeyeCaptai_010B7826
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationGhosts_Message_ConjureDeadeyeCaptain
+      Object: 0B7828:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationGhosts_Message_ConjureDeadeyeCaptain_End
+      Object: 0B7829:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjureDeadeyeCaptain_Quest
+      Object: 0B7827:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Corpse
+      Object: 0B7827:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Marker
+      Object: 0AE5C0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_C025_ConjureDeadeyeCaptain_Spell_SplashSpell_PC
+      Object: 0BA39D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_WaterBlast
+      Object: 0B782A:Apocalypse - Magic of Skyrim.esp
+  ScriptFragments:
+    FileName: PRKF_WB_ConjureDeadeyeCaptai_010B7826
+    Fragments:
+    - Unknown2: 1
+      ScriptName: PRKF_WB_ConjureDeadeyeCaptai_010B7826
+      FragmentName: Fragment_0
+    - FragmentIndex: 1
+      Unknown2: 1
+      ScriptName: PRKF_WB_ConjureDeadeyeCaptai_010B7826
+      FragmentName: Fragment_8
+Name:
+  TargetLanguage: English
+  Value: Deadeye Captain
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointAddActivateChoice
+  Priority: 74
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetQuestRunningConditionData
+        Quest: 0B7827:Apocalypse - Magic of Skyrim.esp
+      ComparisonValue: 1
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetIsIDConditionData
+        Object: 0B7818:Apocalypse - Magic of Skyrim.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsHostileToActorConditionData
+        TargetNpc: 000014:Skyrim.esm
+  ButtonLabel:
+    TargetLanguage: English
+    Value: 'Deadeye Captain: Dredge Up Corpse'
+  Flags:
+    FragmentIndex: 1
+  EntryPoint: Activate
+  PerkConditionTabCount: 2
+- MutagenObjectType: PerkEntryPointAddActivateChoice
+  Priority: 75
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetQuestRunningConditionData
+        Quest: 0B7827:Apocalypse - Magic of Skyrim.esp
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsActorConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetDeadConditionData
+      ComparisonValue: 1
+  ButtonLabel:
+    TargetLanguage: English
+    Value: 'Deadeye Captain: Preserve Corpse'
+  EntryPoint: Activate
+  PerkConditionTabCount: 2

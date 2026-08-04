@@ -1,0 +1,18 @@
+FormKey: 0369FD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_DrainCircle1_Spell_CircleOfStrength_Hazard
+Name:
+  TargetLanguage: English
+  Value: Circle of Strength
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 14
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 0369FC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 6
+    Duration: 1

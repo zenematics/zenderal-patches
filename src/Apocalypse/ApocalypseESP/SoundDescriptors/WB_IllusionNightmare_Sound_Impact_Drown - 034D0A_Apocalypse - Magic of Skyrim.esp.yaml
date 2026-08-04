@@ -1,0 +1,15 @@
+FormKey: 034D0A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Impact_Drown
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Human\Drowning\NPC_Human_Drowning_02.wav
+- Data\Sound\FX\NPC\Human\Drowning\NPC_Human_Drowning_03.wav
+- Data\Sound\FX\NPC\Human\Drowning\NPC_Human_Drowning_01.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 10
+Priority: 128
+Variance: 3
+StaticAttenuation: 5.29

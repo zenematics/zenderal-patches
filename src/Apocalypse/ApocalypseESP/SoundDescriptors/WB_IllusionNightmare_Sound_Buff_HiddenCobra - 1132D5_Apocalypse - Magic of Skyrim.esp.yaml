@@ -1,0 +1,12 @@
+FormKey: 1132D5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Buff_HiddenCobra
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_SerpentStone_Impact_01.wav
+- Data\Sound\FX\MAG\PowerRacial\MAG_SerpentStone_Impact_02.wav
+OutputModel: 0FE240:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: -25
+PercentFrequencyVariance: 5
+Priority: 128

@@ -1,0 +1,22 @@
+FormKey: 098525:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationChaos_Decal_ShalidorsMirror
+Diffuse: ApocNew\Tex_Alteration_Chaos_ShalidorsMirror.dds
+NormalOrGloss: ImpactDecals\DecalFlameBurn01_n.dds
+GlowOrDetailMap: ApocNew\Tex_Alteration_Chaos_ShalidorsMirror_g.dds
+Decal:
+  MinWidth: 384
+  MaxWidth: 384
+  MinHeight: 384
+  MaxHeight: 384
+  Depth: 64
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00000000'
+Flags:
+- NoSpecularMap

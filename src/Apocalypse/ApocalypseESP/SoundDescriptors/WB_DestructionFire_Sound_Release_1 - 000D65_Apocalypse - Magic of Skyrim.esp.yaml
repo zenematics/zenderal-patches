@@ -1,0 +1,12 @@
+FormKey: 000D65:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Release_1
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\VOC\Shout\Projectile\FireBreath\VOC_Shout_Projectile_FireBreath_01.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+PercentFrequencyShift: 25
+PercentFrequencyVariance: 5
+Priority: 128

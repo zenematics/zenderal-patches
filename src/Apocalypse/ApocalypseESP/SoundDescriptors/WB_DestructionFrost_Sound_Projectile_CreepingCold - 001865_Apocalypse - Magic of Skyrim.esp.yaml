@@ -1,0 +1,12 @@
+FormKey: 001865:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Projectile_CreepingCold
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMBt\Dungeon\Ice\Generic\AMBt_Dungeon_CaveIce_Generic_2D_01_LP.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  Loop: Loop
+PercentFrequencyShift: 50
+Priority: 128

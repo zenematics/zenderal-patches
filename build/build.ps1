@@ -205,6 +205,8 @@ function Get-JpegEncoding {
 function Test-FomodParity {
     $ok = $true
     foreach ($rel in $manifest.releases) {
+        # A release may opt out of a FOMOD entirely with "fomod": false - there is nothing to check.
+        if (($rel.PSObject.Properties.Name -contains 'fomod') -and (-not $rel.fomod)) { continue }
         $fomod = Join-Path $RepoRoot (Join-Path (Join-Path 'build/staging' $rel.name) 'fomod/ModuleConfig.xml')
         if (-not (Test-Path $fomod)) { Write-Warning "No ModuleConfig.xml for '$($rel.name)'"; continue }
         [xml]$xml = Get-Content $fomod -Raw
@@ -313,9 +315,21 @@ foreach ($rel in $releases) {
     $stageDir = Join-Path $stagingAbs $rel.name
 
     # 1. verify the committed fomod/ is in place (it lives directly in build/staging and is never
-    #    wiped by this script - only the derived parts below are regenerated)
+    #    wiped by this script - only the derived parts below are regenerated).
+    #
+    #    A release may opt out with "fomod": false in the manifest and ship a plain archive instead.
+    #    That is the right shape for a REPLACEMENT plugin, where the archive is just the .esp and
+    #    there is nothing for an installer to ask. Without a committed fomod/ the stage dir is not
+    #    tracked by git (it holds only derived files), so create it here.
+    $wantsFomod = $true
+    if ($rel.PSObject.Properties.Name -contains 'fomod') { $wantsFomod = [bool]$rel.fomod }
     $fomodDir = Join-Path $stageDir 'fomod'
-    if (-not (Test-Path $fomodDir)) { throw "Missing committed fomod/ for '$($rel.name)' at $fomodDir" }
+    if ($wantsFomod) {
+        if (-not (Test-Path $fomodDir)) { throw "Missing committed fomod/ for '$($rel.name)' at $fomodDir" }
+    } else {
+        if (Test-Path $fomodDir) { throw "'$($rel.name)' sets fomod: false but $fomodDir still exists - delete it" }
+        New-Item -ItemType Directory -Force $stageDir | Out-Null
+    }
 
     # Clear everything else in the stage dir (previous run's .esp/.pex) so stale derived files
     # from a renamed dest/script never survive into the new archive - fomod/ is left untouched.

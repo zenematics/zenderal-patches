@@ -1,0 +1,24 @@
+FormKey: 07C840:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Effect_Thundercrack_Proc
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\Weather\Thunder\AMB_Weather_Thunder_Distant_03.wav
+- Data\Sound\FX\AMB\Weather\Thunder\AMB_Weather_Thunder_Distant_04.wav
+- Data\Sound\FX\AMB\Weather\Thunder\AMB_Weather_Thunder_Distant_01.wav
+- Data\Sound\FX\AMB\Weather\Thunder\AMB_Weather_Thunder_Distant_02.wav
+OutputModel: 07EDCA:Skyrim.esm
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsRainingConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInInteriorConditionData
+LoopAndRumble: {}
+PercentFrequencyShift: 40
+PercentFrequencyVariance: 10
+Priority: 128
+Variance: 1
+StaticAttenuation: 4.41

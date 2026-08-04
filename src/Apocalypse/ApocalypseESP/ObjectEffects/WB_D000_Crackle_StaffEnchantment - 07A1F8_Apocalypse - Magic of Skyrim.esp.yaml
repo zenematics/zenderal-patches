@@ -1,0 +1,19 @@
+FormKey: 07A1F8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D000_Crackle_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Crackle
+EnchantmentCost: 31
+CastType: FireAndForget
+EnchantmentAmount: 31
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0B2C77:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10
+- BaseEffect: 0B2C78:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Duration: 10

@@ -1,0 +1,9 @@
+FormKey: 085AFC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Message_PullFromEternity_NoCorpse
+Description:
+  TargetLanguage: English
+  Value: No ghost captured. Cast on a corpse first.
+INAM: 0x00000000
+Flags:
+- AutoDisplay
+DisplayTime: 2

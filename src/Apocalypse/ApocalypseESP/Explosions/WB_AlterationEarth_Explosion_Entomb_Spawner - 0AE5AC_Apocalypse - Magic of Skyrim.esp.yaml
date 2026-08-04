@@ -1,0 +1,12 @@
+FormKey: 0AE5AC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Explosion_Entomb_Spawner
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+PlacedObject: 0AE5AB:Apocalypse - Magic of Skyrim.esp
+Radius: 5
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Silent

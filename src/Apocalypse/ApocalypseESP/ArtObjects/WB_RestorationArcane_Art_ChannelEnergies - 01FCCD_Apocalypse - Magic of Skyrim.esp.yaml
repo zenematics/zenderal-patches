@@ -1,0 +1,10 @@
+FormKey: 01FCCD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Art_ChannelEnergies
+ObjectBounds:
+  First: -81, -29, -99
+  Second: 79, 69, 118
+Model:
+  File: ApocNew\RestorationArcane_Art_ChannelEnergies.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

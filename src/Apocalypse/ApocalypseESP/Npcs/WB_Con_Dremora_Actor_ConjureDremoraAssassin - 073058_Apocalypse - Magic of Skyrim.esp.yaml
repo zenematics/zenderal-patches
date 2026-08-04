@@ -1,0 +1,240 @@
+FormKey: 073058:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Con_Dremora_Actor_ConjureDremoraAssassin
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FXunsommonSCRIPT
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AtronachUnsummonDeathFXS
+      Object: 0EA8FF:Skyrim.esm
+  - Name: WB_MinionSpellScaling_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_BaseLevel
+      Data: 30
+Configuration:
+  Flags:
+  - Female
+  - Respawn
+  - AutoCalcStats
+  - Summonable
+  StaminaOffset: 105
+  Level:
+    MutagenObjectType: PcLevelMult
+    LevelMult: 1
+  CalcMinLevel: 30
+  CalcMaxLevel: 45
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: -140
+Factions:
+- Faction: 000013:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 043597:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 03AD80:Skyrim.esm
+Voice: 01F1D3:Skyrim.esm
+Race: 0131F0:Skyrim.esm
+ActorEffect:
+- 0128F4:Apocalypse - Magic of Skyrim.esp
+Perks:
+- Perk: 012357:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 014EED:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 155AAC:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 0D82B9:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 037C14:Skyrim.esm
+    Count: 250
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsFriendsAndAllies
+Keywords:
+- 013797:Skyrim.esm
+- 014EF4:Apocalypse - Magic of Skyrim.esp
+Class: 023C0D:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Dremora Assassin
+ShortName:
+  TargetLanguage: English
+  Value: Tanchelm
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 73
+  - Key: TwoHanded
+    Value: 53
+  - Key: Archery
+    Value: 73
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 54
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 54
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 200
+  Magicka: 50
+  Stamina: 300
+HeadParts:
+- 00F244:Apocalypse - Magic of Skyrim.esp
+HairColor: 0A0431:Skyrim.esm
+CombatStyle: 038A23:Skyrim.esm
+NAM5: 255
+Height: 1.1
+SoundLevel: Normal
+DefaultOutfit: 073059:Apocalypse - Magic of Skyrim.esp
+DefaultPackageList: 021E81:Skyrim.esm
+HeadTexture: 019390:Skyrim.esm
+TextureLighting: '#00D85636'
+FaceMorph:
+  JawUpVsDown: -0.39999998
+  EyesUpVsDown: -0.39999998
+  BrowsUpVsDown: -0.8
+FaceParts:
+  Nose: 16
+  Eyes: 15
+  Mouth: 13
+TintLayers:
+- Index: 24
+  Color: '#00D85636'
+  InterpolationValue: 1
+  Preset: -1
+- Index: 30
+  Color: '#006C0000'
+  InterpolationValue: 1
+  Preset: -1
+- Index: 36
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 521
+- Index: 37
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 545
+- Index: 38
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 569
+- Index: 39
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 593
+- Index: 40
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 617
+- Index: 41
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 641
+- Index: 42
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 665
+- Index: 43
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 689
+- Index: 44
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 713
+- Index: 45
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 737
+- Index: 47
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 761
+- Index: 49
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 809
+- Index: 50
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 833
+- Index: 51
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: -1
+MajorFlags:
+- 0x40000

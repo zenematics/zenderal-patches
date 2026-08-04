@@ -1,0 +1,22 @@
+FormKey: 003E0F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Necro2_Spell_SlayLiving
+Name:
+  TargetLanguage: English
+  Value: Slay Living
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 95
+Flags:
+- IgnoreResistance
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 5
+HalfCostPerk: 0C44C7:Skyrim.esm
+Effects:
+- BaseEffect: 003E0B:Apocalypse - Magic of Skyrim.esp
+  Data: {}

@@ -1,0 +1,7 @@
+FormKey: 103A8A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_MPS_Seidsigil
+Model:
+  File: ApocNew\IllusionNightmare_AddOnNode_Seidsigil.nif
+  Data: 0x020000000000000000000000
+NodeIndex: 746
+Flags: MasterParticleSystem

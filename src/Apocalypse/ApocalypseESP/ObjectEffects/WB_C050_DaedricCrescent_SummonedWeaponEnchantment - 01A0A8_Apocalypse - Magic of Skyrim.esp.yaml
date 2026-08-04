@@ -1,0 +1,19 @@
+FormKey: 01A0A8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C050_DaedricCrescent_SummonedWeaponEnchantment
+Name:
+  TargetLanguage: English
+  Value: Entropic Crescent
+EnchantmentCost: 1000
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 1000
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 01A0A7:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.25
+- BaseEffect: 01A0AA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50

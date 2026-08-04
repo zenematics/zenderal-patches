@@ -1,0 +1,29 @@
+FormKey: 08763B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_Proc_4
+Name:
+  TargetLanguage: English
+  Value: Blood
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- NoHitEffect
+BaseCost: 15
+MagicSkill: Alteration
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+SkillUsageMultiplier: 1
+DualCastScale: 1
+PerkToApply: 08763A:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Weapon damage increased by <15>% for <dur> seconds.

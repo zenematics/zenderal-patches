@@ -1,0 +1,49 @@
+FormKey: 1A1B7D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Peace3_Effect_DustInTheClockwork
+Name:
+  TargetLanguage: English
+  Value: Dust in the Clockwork
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 30
+MagicSkill: Restoration
+CastingLight: 11D716:Apocalypse - Magic of Skyrim.esp
+HitShader: 09EBCD:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+Projectile: 02F104:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11D717:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11DC81:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.7
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 116E55:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Induces fungal growth in mechanical targets, dealing <mag> pure damage for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+  ComparisonValue: 1

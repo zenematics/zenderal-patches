@@ -1,0 +1,14 @@
+FormKey: 0BCF5D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_Battlemage_Frost_3
+Model:
+  File: Magic\ExplosionFrost01.nif
+  Data: 0x020000000000000000000000
+Sound1: 0BCF5F:Apocalypse - Magic of Skyrim.esp
+Force: 96
+Radius: 320
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

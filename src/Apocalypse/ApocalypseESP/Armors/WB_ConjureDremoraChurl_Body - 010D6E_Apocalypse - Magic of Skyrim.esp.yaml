@@ -1,0 +1,31 @@
+FormKey: 010D6E:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureDremoraChurl_Body
+SkyrimMajorRecordFlags:
+- NotPlayable
+ObjectBounds:
+  First: -27, -40, -1
+  Second: 28, 46, 27
+Name:
+  TargetLanguage: English
+  Value: Churl's Body
+WorldModel:
+  Male:
+    Model:
+      File: Armor\Daedric\DaedricCuirassGO.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  - Forearms
+  - Calves
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 010D6D:Apocalypse - Magic of Skyrim.esp
+MajorFlags:
+- NonPlayable

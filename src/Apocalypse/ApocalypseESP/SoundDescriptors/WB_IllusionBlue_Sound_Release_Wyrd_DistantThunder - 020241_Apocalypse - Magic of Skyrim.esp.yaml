@@ -1,0 +1,22 @@
+FormKey: 020241:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Sound_Release_Wyrd_DistantThunder
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMBr\Catapult\AMBr_Explosion_Catapult_Far_01.wav
+- Data\Sound\FX\AMBr\Catapult\AMBr_Explosion_Catapult_Far_02.wav
+- Data\Sound\FX\AMBr\Catapult\AMBr_Explosion_Catapult_Far_03.wav
+- Data\Sound\FX\AMBr\Catapult\AMBr_Explosion_Catapult_Far_04.wav
+OutputModel: 0FD93D:Skyrim.esm
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 10DE1E:Skyrim.esm
+  ComparisonValue: 1
+LoopAndRumble: {}
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 12
+Priority: 128
+Variance: 9
+StaticAttenuation: 2.64

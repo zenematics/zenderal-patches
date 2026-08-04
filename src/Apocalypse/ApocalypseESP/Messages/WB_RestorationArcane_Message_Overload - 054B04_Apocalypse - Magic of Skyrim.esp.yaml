@@ -1,0 +1,7 @@
+FormKey: 054B04:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Message_Overload
+Description:
+  TargetLanguage: English
+  Value: You deal %.0f damage!
+INAM: 0x00000000
+DisplayTime: 6

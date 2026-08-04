@@ -1,0 +1,16 @@
+FormKey: 07A211:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I025_CurseOfTheSilent_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Curse of the Silent
+EnchantmentCost: 98
+CastType: FireAndForget
+EnchantmentAmount: 98
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 016FA4:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 8
+    Duration: 30

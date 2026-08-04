@@ -1,0 +1,15 @@
+FormKey: 07A1E4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C075_ConjureAvengingWraith_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Conjure Avenging Wraith
+EnchantmentCost: 351
+CastType: FireAndForget
+EnchantmentAmount: 351
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 017524:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

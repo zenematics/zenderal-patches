@@ -1,0 +1,78 @@
+FormKey: 0B1C1A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Attributes
+Description:
+  TargetLanguage: English
+  Value: >-
+    Unspent Points: %.0f
+
+
+    Health Modifier: %.0f%%
+
+    Magicka Modifier: %.0f%%
+
+    Stamina Modifier: %.0f%%
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Health +25% (-2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 2
+- Text:
+    TargetLanguage: English
+    Value: Magicka +25% (-1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Stamina +25% (-1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Health -25% (+2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C1B:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 0.25
+- Text:
+    TargetLanguage: English
+    Value: Magicka -25% (+1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C1C:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: Stamina -25% (+1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C1D:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: Ok

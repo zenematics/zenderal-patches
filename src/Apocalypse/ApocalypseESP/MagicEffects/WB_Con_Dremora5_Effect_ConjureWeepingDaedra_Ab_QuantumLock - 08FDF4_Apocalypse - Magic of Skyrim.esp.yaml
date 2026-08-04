@@ -1,0 +1,31 @@
+FormKey: 08FDF4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Effect_ConjureWeepingDaedra_Ab_QuantumLock
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_WeepingDaedra_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_C025_DaedricMind_Spell_PC
+      Object: 037E17:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_IsInvulnerable
+Name:
+  TargetLanguage: English
+  Value: Weeping Daedra - Quantum Lock
+Flags:
+- Recover
+- Detrimental
+- NoDuration
+- FXPersist
+HitShader: 08FDF7:Apocalypse - Magic of Skyrim.esp
+SecondActorValueWeight: 0.25
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: DamageResist
+  Type: DualValueModifier
+SecondActorValue: ResistMagic
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,43 @@
+FormKey: 099580:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_X100_OblivionUnbound_Effect_Heal
+Name:
+  TargetLanguage: English
+  Value: Sinistra Unbound - Heal
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoArea
+- PowerAffectsDuration
+MagicSkill: Conjuration
+CastingLight: 11F7B6:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 2
+SecondActorValueWeight: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 11F234:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 11F232:Apocalypse - Magic of Skyrim.esp
+ImpactData: 12495F:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 00ECB2:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 016F8E:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: It heals <mag> points per second. Lasts <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+  ComparisonValue: 1

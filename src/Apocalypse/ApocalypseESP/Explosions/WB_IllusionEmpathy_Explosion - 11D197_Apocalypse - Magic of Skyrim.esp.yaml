@@ -1,0 +1,17 @@
+FormKey: 11D197:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Explosion
+ObjectBounds:
+  First: -222, -196, -74
+  Second: 222, 196, 195
+Model:
+  File: ApocNew\IllusionEmpathy_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 0321B6:Apocalypse - Magic of Skyrim.esp
+Sound1: 020D2C:Apocalypse - Magic of Skyrim.esp
+Sound2: 020244:Apocalypse - Magic of Skyrim.esp
+Radius: 160
+ISRadius: 240
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

@@ -1,0 +1,67 @@
+FormKey: 0AD56C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl3_Effect_TharnsPrison
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_TharnsGibbet_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FXS_CreatedObject_LR
+      Object: 0AD570:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Object
+      Object: 0AD56E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Scale
+      Data: 1.25
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Z
+      Data: 96
+Name:
+  TargetLanguage: English
+  Value: Girathû's Prison
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- PowerAffectsDuration
+BaseCost: 190
+MagicSkill: Alteration
+CastingLight: 0059B3:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Projectile: 00751A:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 0059B7:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0AD56F:Apocalypse - Magic of Skyrim.esp
+ImpactData: 0059B9:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 002E1F:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Materializes a cage to trap target humanoid for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0172AC:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013794:Skyrim.esm
+  ComparisonValue: 1

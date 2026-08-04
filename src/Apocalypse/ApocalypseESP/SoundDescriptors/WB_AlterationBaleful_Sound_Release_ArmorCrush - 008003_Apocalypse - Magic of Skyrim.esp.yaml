@@ -1,0 +1,13 @@
+FormKey: 008003:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_Release_ArmorCrush
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 40
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 7.93

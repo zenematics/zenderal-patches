@@ -1,0 +1,70 @@
+FormKey: 0BDF96:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureBattlemage_Perk_Caster
+VirtualMachineAdapter:
+  Scripts:
+  - Name: PRKF_WB_ConjureBattlemage_Pe_010BDF96
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Gold001
+      Object: 00000F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Element_Max
+      Object: 0BCF5B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_DamageBonusPct
+      Object: 0BCF52:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_Health
+      Object: 0BDF98:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_Magicka
+      Object: 0BDF99:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_SpellBonusPct
+      Object: 0BDF97:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_ConjureBattlemage_Global_Upgrade_Cancel
+      Object: 0BDF9E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ConjureBattlemage
+      Object: 0BDF9A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ConjureBattlemage_CancelAllowed
+      Object: 0BDF9F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ConjureBattlemage_Fail
+      Object: 0BDF9D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ConjureBattlemage_Upgrades
+      Object: 0BDF9B:Apocalypse - Magic of Skyrim.esp
+  ScriptFragments:
+    FileName: PRKF_WB_ConjureBattlemage_Pe_010BDF96
+    Fragments:
+    - Unknown2: 1
+      ScriptName: PRKF_WB_ConjureBattlemage_Pe_010BDF96
+      FragmentName: Fragment_0
+Name:
+  TargetLanguage: English
+  Value: Pay to Win
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointAddActivateChoice
+  Priority: 35
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0BD4C4:Apocalypse - Magic of Skyrim.esp
+      ComparisonValue: 1
+  ButtonLabel:
+    TargetLanguage: English
+    Value: Purchase Upgrades
+  EntryPoint: Activate
+  PerkConditionTabCount: 2

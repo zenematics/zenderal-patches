@@ -1,0 +1,97 @@
+FormKey: 06EA52:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Blood5_Effect_Bloodseeker
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Bloodstar_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_AllowHeals
+      Data: True
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_AttackRate
+      Data: 0.25
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_BloodstarResist
+      Data: MagicResist
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_AllDeathSpells_Global_XP
+      Object: 043CEF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Bloodseeker_Global_Mult
+      Object: 071AD7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Bloodseeker_Global_XP
+      Object: 071AD6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Explosion
+      Object: 07156A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Message_Bloodstar
+      Object: 06EA54:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Message_BloodstarHeal
+      Object: 07156C:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Static_Bloodstar
+      Object: 07156B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_SeekRange
+      Data: 150
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Speed
+      Data: 125
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_StartHeight
+      Data: 48
+Name:
+  TargetLanguage: English
+  Value: Bloodseeker
+MenuDisplayObject: 11D19D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- FXPersist
+BaseCost: 180
+MagicSkill: Restoration
+CastingLight: 0069CF:Apocalypse - Magic of Skyrim.esp
+HitShader: 01FCD0:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 035D5B:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 00E69A:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.25
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015465:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 116E57:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Casts a homing flare at a target. When it reaches the target, it heals or deals magic damage equal to <Global=WB_Restoration_Bloodseeker_Global_Mult>% of the Health the target gained or lost while it was in flight.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

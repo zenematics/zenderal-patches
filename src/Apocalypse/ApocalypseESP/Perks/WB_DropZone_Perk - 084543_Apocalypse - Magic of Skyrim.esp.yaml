@@ -1,0 +1,17 @@
+FormKey: 084543:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DropZone_Perk
+Name:
+  TargetLanguage: English
+  Value: Cushion Fall
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 160
+  EntryPoint: ModFallingDamage
+  PerkConditionTabCount: 1
+  Value: 0

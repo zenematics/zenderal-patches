@@ -1,0 +1,10 @@
+FormKey: 123E60:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_ConjurationDwemer
+ObjectBounds:
+  First: -21, -21, -6
+  Second: 22, 22, 6
+Model:
+  File: ApocNew\ConjurationDwemer_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

@@ -1,0 +1,44 @@
+FormKey: 08FDEB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Effect_ConjureWeepingDaedra_CloakProc
+Name:
+  TargetLanguage: English
+  Value: Quantum Lock
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 08811E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoHitEvent
+- NoArea
+- FXPersist
+- NoHitEffect
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: VampirePerks
+  Type: Absorb
+Projectile: 04BE35:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Freezes up the Weeping Daedra when spotting it.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThan
+  Data:
+    MutagenObjectType: GetLineOfSightConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

@@ -1,0 +1,21 @@
+FormKey: 0F5058:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Explosion_LightningStrike
+ObjectBounds:
+  First: -222, -196, -26
+  Second: 222, 196, 52
+Model:
+  File: Magic\ExplosionShock01.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 001869:Apocalypse - Magic of Skyrim.esp
+Light: 0E7555:Skyrim.esm
+Sound1: 00185C:Apocalypse - Magic of Skyrim.esp
+Sound2: 0A0F53:Skyrim.esm
+PlacedObject: 0FADFF:Apocalypse - Magic of Skyrim.esp
+Force: 512
+Radius: 300
+ISRadius: 1024
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

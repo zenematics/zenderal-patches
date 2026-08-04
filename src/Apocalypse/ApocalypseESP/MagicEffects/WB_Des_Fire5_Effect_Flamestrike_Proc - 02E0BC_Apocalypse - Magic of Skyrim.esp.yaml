@@ -1,0 +1,55 @@
+FormKey: 02E0BC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire5_Effect_Flamestrike_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MG01FireEffectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MG01
+      Object: 01F251:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Flamestrike - Flameball
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+- 10F5D4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.25
+MagicSkill: Destruction
+ResistValue: ResistFire
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingArea: 7
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 02E0BA:Apocalypse - Magic of Skyrim.esp
+Explosion: 02E0BB:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 0647BD:Skyrim.esm
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm

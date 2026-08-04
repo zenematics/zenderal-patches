@@ -1,0 +1,24 @@
+FormKey: 08BCF9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDaedric_ConjureDremoraMentor_Message_WhichMentor
+Description:
+  TargetLanguage: English
+  Value: Conjure which Mentor?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Alteration
+- Text:
+    TargetLanguage: English
+    Value: Conjuration
+- Text:
+    TargetLanguage: English
+    Value: Destruction
+- Text:
+    TargetLanguage: English
+    Value: Illusion
+- Text:
+    TargetLanguage: English
+    Value: Restoration

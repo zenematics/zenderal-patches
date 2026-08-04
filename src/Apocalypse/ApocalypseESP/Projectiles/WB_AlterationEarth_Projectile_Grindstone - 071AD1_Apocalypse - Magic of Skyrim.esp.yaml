@@ -1,0 +1,18 @@
+FormKey: 071AD1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Projectile_Grindstone
+ObjectBounds:
+  First: -39, -184, -40
+  Second: 39, 53, 37
+Model:
+  File: ApocNew\AlterationEarth_Projectile_Grindstone.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.25
+Speed: 1550
+Range: 6000
+Sound: 115E10:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 15
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 2

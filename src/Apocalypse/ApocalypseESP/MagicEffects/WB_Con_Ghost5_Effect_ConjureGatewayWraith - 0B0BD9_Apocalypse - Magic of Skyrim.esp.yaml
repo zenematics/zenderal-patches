@@ -1,0 +1,43 @@
+FormKey: 0B0BD9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Ghost5_Effect_ConjureGatewayWraith
+Name:
+  TargetLanguage: English
+  Value: Conjure Gateway Wraith
+MenuDisplayObject: 11F238:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 02482B:Skyrim.esm
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- SnapToNavmesh
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 27
+MagicSkill: Conjuration
+CastingLight: 11F7B5:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 04734F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetLocation
+CastingArt: 11F233:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11F23A:Apocalypse - Magic of Skyrim.esp
+ImpactData: 03A1E9:Skyrim.esm
+SkillUsageMultiplier: 2.5
+DualCastScale: 1
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Summons a Gateway Wraith for <dur> seconds. It reduces the cost of creature spells to zero in combat.

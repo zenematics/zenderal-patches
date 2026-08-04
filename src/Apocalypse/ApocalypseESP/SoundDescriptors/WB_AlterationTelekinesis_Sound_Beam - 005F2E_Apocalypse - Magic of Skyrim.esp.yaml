@@ -1,0 +1,14 @@
+FormKey: 005F2E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Sound_Beam
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- fx\mag\flames\mag_flames_fire_lpm.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 3.96

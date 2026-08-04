@@ -1,0 +1,51 @@
+FormKey: 118984:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MGRitualConjurationBooks
+ChanceNone: 1
+Flags:
+- UseAll
+Global: 0FDE74:Skyrim.esm
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A26FA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D5B7:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D5B8:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D5B9:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D5BA:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D5BB:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03D5BC:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 048910:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05E224:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 089707:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 089708:Apocalypse - Magic of Skyrim.esp
+    Count: 1

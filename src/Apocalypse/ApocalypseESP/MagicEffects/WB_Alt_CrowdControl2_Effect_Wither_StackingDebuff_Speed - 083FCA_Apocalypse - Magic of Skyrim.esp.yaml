@@ -1,0 +1,46 @@
+FormKey: 083FCA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl2_Effect_Wither_StackingDebuff_Speed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CarryWeight_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_WeightDelta
+      Data: 0.01
+Name:
+  TargetLanguage: English
+  Value: Wither - Proc Speed
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 007519:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0A5398:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoHitEvent
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+MagicSkill: Alteration
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: SpeedMult
+CastType: FireAndForget
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThan
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: SpeedMult
+  ComparisonValue: 5

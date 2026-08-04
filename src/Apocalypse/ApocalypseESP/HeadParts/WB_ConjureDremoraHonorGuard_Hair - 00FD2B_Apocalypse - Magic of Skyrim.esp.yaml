@@ -1,0 +1,19 @@
+FormKey: 00FD2B:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureDremoraHonorGuard_Hair
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: WB_HonorGuard_Hair
+Flags:
+- Male
+Type: Hair
+ExtraParts:
+- 109DFE:Skyrim.esm
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\MaleDremoraHair01.tri
+ValidRaces: 0A8027:Skyrim.esm
+MajorFlags:
+- NonPlayable

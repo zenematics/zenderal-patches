@@ -1,0 +1,172 @@
+FormKey: 0B00DB:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Con_Human_Actor_ConjureCraftlord
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FXunsommonSCRIPT
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AtronachUnsummonDeathFXS
+      Object: 0EA8FF:Skyrim.esm
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - Summonable
+  - DoesNotBleed
+  - LoopedScript
+  - LoopedAudio
+  MagickaOffset: 20
+  StaminaOffset: 20
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 40
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: -175
+Voice: 01F1D4:Skyrim.esm
+Race: 0BBEE7:Apocalypse - Magic of Skyrim.esp
+ActorEffect:
+- 0128F2:Apocalypse - Magic of Skyrim.esp
+- 0B1C13:Apocalypse - Magic of Skyrim.esp
+AttackRace: 0BBEE7:Apocalypse - Magic of Skyrim.esp
+Perks:
+- Perk: 012357:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0B1C34:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 0B1C15:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Assistance: HelpsFriendsAndAllies
+Keywords:
+- 01397A:Skyrim.esm
+Class: 013177:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Craftlord
+ShortName:
+  TargetLanguage: English
+  Value: Razak
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 100
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 100
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 20
+  - Key: Conjuration
+    Value: 20
+  - Key: Destruction
+    Value: 100
+  - Key: Illusion
+    Value: 25
+  - Key: Restoration
+    Value: 78
+  - Key: Enchanting
+    Value: 20
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 200
+  Magicka: 200
+  Stamina: 200
+  GearedUpWeapons: 1
+HeadParts:
+- 0BBEE9:Apocalypse - Magic of Skyrim.esp
+- 0BBEEA:Apocalypse - Magic of Skyrim.esp
+- 0BBEEB:Apocalypse - Magic of Skyrim.esp
+- 0BBEEC:Apocalypse - Magic of Skyrim.esp
+HairColor: 0A0436:Skyrim.esm
+CombatStyle: 0B1C16:Apocalypse - Magic of Skyrim.esp
+NAM5: 255
+Height: 1
+Weight: 15
+SoundLevel: Normal
+DefaultOutfit: 123E5E:Apocalypse - Magic of Skyrim.esp
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#006D653D'
+FaceMorph:
+  NoseLongVsShort: -0.72
+  NoseUpVsDown: 0.1
+  JawUpVsDown: -0.56
+  JawNarrowVsWide: -0.22
+  EyesUpVsDown: 1
+  EyesInVsOut: -0.6
+  LipsUpVsDown: 0.32
+  ChinNarrowVsWide: -0.58
+  ChinUpVsDown: -0.7
+  ChinUnderbiteVsOverbite: -0.52
+  Unknown: 3.4028235E+38
+TintLayers:
+- Index: 1
+  Color: '#006D653D'
+  InterpolationValue: 1
+  Preset: 59
+MajorFlags:
+- 0x40000

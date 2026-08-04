@@ -1,0 +1,106 @@
+FormKey: 082F56:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_AddSpell
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_SpellTwine2_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_Imod_Outro
+      Object: 006A25:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_SpellTwine_FormList
+      Object: 084A95:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_AlterationMetamagic_SpellTwine_FormList_X
+      Objects:
+      - Name: ''
+        Object: 084A98:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 084A97:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 084A99:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_SpellTwine_Message
+      Object: 082F5B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_SpellTwine_Message_Double
+      Object: 082F61:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_SpellTwine_Message_Fail
+      Object: 082F60:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_SpellTwine_Message_Select
+      Object: 082F63:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_SpellTwine_Message_TooMany
+      Object: 082F62:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_SpellMax
+      Data: 3
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_SpellTwine_Proc
+      Objects:
+      - Name: ''
+        Object: 082F66:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0870D4:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 082F74:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0870D1:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 08763C:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 087640:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 082F6A:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 087644:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 087649:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Spell Twine - Add Spell
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 006A21:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+MagicSkill: Alteration
+CastingLight: 006A22:Apocalypse - Magic of Skyrim.esp
+HitShader: 00D640:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 006A1E:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 006A26:Apocalypse - Magic of Skyrim.esp
+- Type: Release
+  Sound: 115E1A:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+  ComparisonValue: 9

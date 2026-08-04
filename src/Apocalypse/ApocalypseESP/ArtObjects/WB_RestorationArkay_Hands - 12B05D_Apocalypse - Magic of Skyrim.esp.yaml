@@ -1,0 +1,9 @@
+FormKey: 12B05D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArkay_Hands
+ObjectBounds:
+  First: -13, -13, -1
+  Second: 13, 13, 0
+Model:
+  File: ApocNew\RestorationArkay_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

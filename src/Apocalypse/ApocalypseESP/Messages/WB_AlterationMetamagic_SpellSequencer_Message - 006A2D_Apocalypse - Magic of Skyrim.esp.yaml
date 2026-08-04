@@ -1,0 +1,7 @@
+FormKey: 006A2D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_SpellSequencer_Message
+Description:
+  TargetLanguage: English
+  Value: Spell %.0f stored.
+INAM: 0x00000000
+DisplayTime: 1

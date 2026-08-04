@@ -1,0 +1,10 @@
+FormKey: 12081E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Light_Hands
+Time: -1
+Radius: 32
+Color: '#0042B0EC'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.25

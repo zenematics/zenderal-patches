@@ -1,0 +1,121 @@
+FormKey: 0B1C17:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureCraftlord_Reconfigure
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ReconfigureCraftlord_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_C100_ConjureCraftlord_Spell_PC
+      Object: 123E5B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_Armor
+      Object: 0B1C25:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_AttackMult
+      Object: 0B1C1E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_HealthMult
+      Object: 0B1C1B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_LifeDrainMult
+      Object: 0B1C23:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_MagickaMult
+      Object: 0B1C1C:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_MagicResist
+      Object: 0B1C26:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_PowerAttackMult
+      Object: 0B1C1F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_SpellMult
+      Object: 0B1C22:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_StaminaMult
+      Object: 0B1C1D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_ToggleDuration
+      Object: 0B1C27:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_ToggleHalfCost
+      Object: 0B1C28:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_ToggleOnlyOne
+      Object: 0B1C2A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_UnspentPoints
+      Object: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ReconfigureCraftlord
+      Object: 0B1C18:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Attributes
+      Object: 0B1C1A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Defense
+      Object: 0B1C24:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Magic
+      Object: 0B1C21:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Special
+      Objects:
+      - Name: ''
+        Object: 0B1C2C:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0B1C2D:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0B1C2E:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0B1C2F:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0B1C30:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0B1C31:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0B1C32:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0B1C33:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Weapon
+      Object: 0B1C20:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Reconfigure Craftlord
+MenuDisplayObject: 123E60:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 037E14:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 750
+MagicSkill: Conjuration
+CastingLight: 123E64:Apocalypse - Magic of Skyrim.esp
+HitShader: 01B65A:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 123E61:Apocalypse - Magic of Skyrim.esp
+ImpactData: 03A1E9:Skyrim.esm
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+EquipAbility: 123E66:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 016F8E:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Modify the stats of your <Conjure Craftlord> spell.

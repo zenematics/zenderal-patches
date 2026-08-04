@@ -1,0 +1,72 @@
+FormKey: 08A1D8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage5_Effect_LastWord
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_GenericCounterspell_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionAntimagic_Imod_Counterspell
+      Object: 144BEE:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Last Word
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207BB:Apocalypse - Magic of Skyrim.esp
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 085B0E:Apocalypse - Magic of Skyrim.esp
+- A00108:Update.esm
+Flags:
+- Hostile
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- Painless
+BaseCost: 150
+MagicSkill: Illusion
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+HitShader: 08A1D9:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Projectile: 085575:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 08A1DA:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 074096:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Interrupts target spellcaster. If a spell is interrupted, any other Illusion spells cast on the target within <dur> seconds last four times longer and are twice as powerful.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+    SpellSource: Right
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCastingConditionData
+  ComparisonValue: 1

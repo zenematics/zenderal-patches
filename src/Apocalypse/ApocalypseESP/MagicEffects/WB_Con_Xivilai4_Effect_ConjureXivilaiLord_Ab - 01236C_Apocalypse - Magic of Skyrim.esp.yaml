@@ -1,0 +1,36 @@
+FormKey: 01236C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Xivilai4_Effect_ConjureXivilaiLord_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshadersonendscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX01
+      Object: 0EA8FF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDuration
+      Data: 0.1
+  - Name: WB_FXAnaxes_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureXivilaiLord_Global_MagickaLoss
+      Object: 07AD21:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_MagMult
+      Data: 2
+Name:
+  TargetLanguage: English
+  Value: Xivilai Lord - FX
+Flags:
+- Recover
+- Detrimental
+- NoDuration
+- FXPersist
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: MagickaRateMult
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

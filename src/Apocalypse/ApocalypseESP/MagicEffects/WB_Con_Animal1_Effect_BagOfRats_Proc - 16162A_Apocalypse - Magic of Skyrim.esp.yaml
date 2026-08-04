@@ -1,0 +1,40 @@
+FormKey: 16162A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Animal1_Effect_BagOfRats_Proc
+Name:
+  TargetLanguage: English
+  Value: Conjure Skeever
+MenuDisplayObject: 11F229:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 024823:Skyrim.esm
+Flags:
+- SnapToNavmesh
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 5
+MagicSkill: Conjuration
+CastingLight: 11F7B7:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 161628:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11F228:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11F22F:Apocalypse - Magic of Skyrim.esp
+ImpactData: 03A1E9:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds:
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 056B75:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Summons a Skeever for <dur> seconds.

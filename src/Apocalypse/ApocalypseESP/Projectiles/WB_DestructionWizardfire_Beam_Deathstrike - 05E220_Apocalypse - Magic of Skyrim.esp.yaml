@@ -1,0 +1,19 @@
+FormKey: 05E220:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionWizardfire_Beam_Deathstrike
+ObjectBounds:
+  First: -22, -2, -32
+  Second: 19, 512, 28
+Model:
+  File: ApocNew\DestructionWizardfire_Beam_Deathstrike.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 5000
+Light: 05C71A:Apocalypse - Magic of Skyrim.esp
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 10
+Lifetime: 0.4
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

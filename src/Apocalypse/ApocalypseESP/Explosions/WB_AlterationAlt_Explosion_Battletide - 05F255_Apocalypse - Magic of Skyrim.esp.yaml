@@ -1,0 +1,21 @@
+FormKey: 05F255:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Explosion_Battletide
+ObjectBounds:
+  First: -275, -275, -23
+  Second: 275, 275, 243
+Model:
+  File: ApocNew\AlterationAlt_Explosion_Battletide.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 006FAD:Apocalypse - Magic of Skyrim.esp
+Sound1: 00A080:Apocalypse - Magic of Skyrim.esp
+Sound2: 08196F:Skyrim.esm
+ImpactDataSet: 022AD2:Apocalypse - Magic of Skyrim.esp
+Force: 128
+Radius: 50
+ISRadius: 150
+VerticalOffsetMult: 0.9
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

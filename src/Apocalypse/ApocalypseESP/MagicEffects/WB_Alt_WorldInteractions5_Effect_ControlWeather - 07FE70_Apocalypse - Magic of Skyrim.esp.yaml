@@ -1,0 +1,83 @@
+FormKey: 07FE70:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions5_Effect_ControlWeather
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ControlWeather2_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MAGProjectileStormVar
+      Object: 101DAB:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQClearSkyFogSpell
+      Object: 10387F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Activator_MinorCreation
+      Object: 0735E8:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Explosion_CreateLodeOrb
+      Object: 00C145:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FormList_WeatherBackup
+      Object: 07FE77:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FormList_WeatherExceptionList
+      Object: 07FE78:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_ControlWeather
+      Object: 07FE71:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_ControlWeather_DifficultWeather
+      Object: 07FE76:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_ControlWeather_Interior
+      Object: 07FE73:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_ControlWeather_ProjectileStorm
+      Object: 07FE74:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_ControlWeather_RegularWeather
+      Object: 07FE75:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_ControlWeather_WrongWeather
+      Object: 07FE72:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_HaloScale
+      Data: 6
+Name:
+  TargetLanguage: English
+  Value: Control Weather
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0806E1:Skyrim.esm
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+BaseCost: 1250
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+HitShader: 0735E6:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+SkillUsageMultiplier: 0.2
+DualCastScale: 1.1
+EquipAbility: 006FB2:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 124ED9:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 07D014:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Temporarily summon the weather of your choice.

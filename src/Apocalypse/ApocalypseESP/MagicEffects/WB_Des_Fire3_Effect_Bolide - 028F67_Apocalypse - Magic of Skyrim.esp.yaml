@@ -1,0 +1,58 @@
+FormKey: 028F67:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire3_Effect_Bolide
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MG01FireEffectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MG01
+      Object: 01F251:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Bolide
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 0140EC:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 02743D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 01B211:Skyrim.esm
+ImpactData: 0647BD:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1.15
+ImageSpaceModifier: 10FBEB:Skyrim.esm
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000D63:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Meteoric rock that deals <mag> fire damage. It heats up as it travels, dealing up to x<5> damage based on distance.

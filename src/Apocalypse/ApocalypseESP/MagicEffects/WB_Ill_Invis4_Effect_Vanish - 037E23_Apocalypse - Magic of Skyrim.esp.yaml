@@ -1,0 +1,61 @@
+FormKey: 037E23:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis4_Effect_Vanish
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Vanish_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Vanish
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+Flags:
+- Detrimental
+- NoDuration
+- NoMagnitude
+BaseCost: 680
+MagicSkill: Illusion
+CastingLight: 11CC2E:Apocalypse - Magic of Skyrim.esp
+HitShader: 0207B8:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingArea: 90
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 03838D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11CC2D:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11CC2F:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.15
+DualCastScale: 1
+EquipAbility: 12E6A2:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 0207B5:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E12:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: All nearby opponents targeting the caster or searching for the caster leave combat.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCombatTargetConditionData
+  ComparisonValue: 1

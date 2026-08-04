@@ -1,0 +1,10 @@
+FormKey: 140AFD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSouls_Cloak
+ObjectBounds:
+  First: -74, -251, -140
+  Second: 46, 251, 215
+Model:
+  File: ApocNew\ConjurationSouls_Cloak.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

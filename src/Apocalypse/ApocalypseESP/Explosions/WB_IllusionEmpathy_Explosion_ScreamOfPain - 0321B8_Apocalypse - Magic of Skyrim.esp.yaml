@@ -1,0 +1,20 @@
+FormKey: 0321B8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Explosion_ScreamOfPain
+ObjectBounds:
+  First: -116, -116, -4
+  Second: 116, 116, 43
+Model:
+  File: ApocNew\IllusionEmpathy_Explosion_ScreamOfPain.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 0321B7:Apocalypse - Magic of Skyrim.esp
+Sound1: 12E6A5:Apocalypse - Magic of Skyrim.esp
+Sound2: 00A080:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 015C7B:Skyrim.esm
+Force: 96
+Radius: 512
+ISRadius: 768
+VerticalOffsetMult: 0.8
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

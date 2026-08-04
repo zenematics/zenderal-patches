@@ -1,0 +1,25 @@
+FormKey: 1124B5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Firebloom
+ObjectBounds:
+  First: -83, -528, 38
+  Second: 83, 95, 116
+Model:
+  File: ApocNew\DestructionFire_Hazard_Firebloom.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- AltTrigger
+Type: Lobber
+Speed: 768
+Range: 2000
+Light: 01CBB3:Skyrim.esm
+MuzzleFlash: 0E2172:Skyrim.esm
+ExplosionAltTriggerTimer: 3.5
+Explosion: 1124B4:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashDuration: 3
+FadeDuration: 0.5
+CollisionRadius: 50
+RelaunchInterval: 0.25
+CollisionLayer: 100BA7:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,178 @@
+FormKey: 0A5916:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions3_Effect_LocateObject
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_LocateObject_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Explosion_FindOre
+      Object: 00C6AA:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FXS
+      Object: 0735E6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Light_FindOre
+      Object: 00C6AB:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_AlterationAlt_Message_Failure
+      Objects:
+      - Name: ''
+        Object: 00C6A9:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5908:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A590A:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A590C:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A590E:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A79A5:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5910:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5912:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A799F:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A79A3:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_LocateObject
+      Object: 0A5900:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_AlterationAlt_Message_Success
+      Objects:
+      - Name: ''
+        Object: 00C6AC:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5909:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A590B:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A590D:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A590F:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A79A6:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5911:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5913:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A79A0:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A79A4:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Static_FindOre
+      Object: 00C142:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_AltSkill
+      Data: 15
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_FindQuest
+      Objects:
+      - Name: ''
+        Object: 0A539A:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5901:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5902:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5903:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5904:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A79A2:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5905:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A5906:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A799C:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0A79A1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_FindRef
+      Objects:
+      - Name: ''
+        Object: 0A539A:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A5901:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A5902:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A5903:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A5904:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A79A2:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A5905:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A5906:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A799C:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0A79A1:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_InitialWait
+      Data: 0.2
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Wait
+      Data: 0.8
+Name:
+  TargetLanguage: English
+  Value: Locate Object
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 00C140:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 100
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+HitShader: 0735E6:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+DualCastScale: 1.1
+EquipAbility: 006FB2:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 124ED9:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 002E1F:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Illuminates the nearest ore vein, gold, container, door, key, soul gem, written text, potion, gem, ingot or equipment of your choice for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1

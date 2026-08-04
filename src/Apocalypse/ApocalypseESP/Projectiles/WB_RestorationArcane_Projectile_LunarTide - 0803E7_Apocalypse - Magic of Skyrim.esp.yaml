@@ -1,0 +1,19 @@
+FormKey: 0803E7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Projectile_LunarTide
+ObjectBounds:
+  First: -88, -161, -23
+  Second: 88, 77, 21
+Model:
+  File: ApocNew\RestorationArcane_Projectile_LunarTide.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2600
+Range: 10000
+Light: 12081D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+ConeSpread: 0.01
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

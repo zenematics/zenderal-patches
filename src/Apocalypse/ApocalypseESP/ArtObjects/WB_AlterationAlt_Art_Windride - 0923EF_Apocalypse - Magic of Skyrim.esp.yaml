@@ -1,0 +1,10 @@
+FormKey: 0923EF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Art_Windride
+ObjectBounds:
+  First: -62, -162, -112
+  Second: 62, 180, 130
+Model:
+  File: ApocNew\AlterationAlt_Art_Windride.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

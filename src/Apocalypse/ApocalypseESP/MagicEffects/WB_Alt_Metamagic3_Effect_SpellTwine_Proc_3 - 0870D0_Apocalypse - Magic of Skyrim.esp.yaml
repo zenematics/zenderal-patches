@@ -1,0 +1,30 @@
+FormKey: 0870D0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_Proc_3
+Name:
+  TargetLanguage: English
+  Value: Heal
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 087646:Apocalypse - Magic of Skyrim.esp
+- 0CF334:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoArea
+- NoHitEffect
+BaseCost: 30
+MagicSkill: Alteration
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+  Association: 0CF334:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Restores <mag> health.

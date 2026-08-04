@@ -1,0 +1,20 @@
+FormKey: 108627:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost4_Spell_ShatteringCrystal
+Name:
+  TargetLanguage: English
+  Value: Shattering Crystal
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 638
+Flags:
+- NoDualCastModification
+ChargeTime: 2.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 10861C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 270

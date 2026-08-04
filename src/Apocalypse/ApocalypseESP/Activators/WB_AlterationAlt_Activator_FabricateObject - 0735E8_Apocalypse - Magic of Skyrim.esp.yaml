@@ -1,0 +1,15 @@
+FormKey: 0735E8:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_AlterationAlt_Activator_FabricateObject
+SkyrimMajorRecordFlags:
+- 0x4000000
+ObjectBounds:
+  First: -202, -157, -110
+  Second: 202, 157, 203
+Model:
+  File: ApocNew\AlterationAlt_Static_FabricateObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

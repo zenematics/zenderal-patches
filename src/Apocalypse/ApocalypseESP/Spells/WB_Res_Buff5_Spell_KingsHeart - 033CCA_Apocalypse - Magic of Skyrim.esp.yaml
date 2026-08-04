@@ -1,0 +1,25 @@
+FormKey: 033CCA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Spell_KingsHeart
+Name:
+  TargetLanguage: English
+  Value: King's Heart
+MenuDisplayObject: 11D1A7:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 635
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 0B9E2B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 60
+- BaseEffect: 11A4B6:Skyrim.esm
+  Data:
+    Magnitude: 12
+    Duration: 1

@@ -1,0 +1,10 @@
+FormKey: 00DBCD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionPuppeteer_Message_EnslaveTheWeakName
+Description:
+  TargetLanguage: English
+  Value: <Alias=Player>'s Slave
+Name:
+  TargetLanguage: English
+  Value: <Alias=Player>'s Slave
+INAM: 0x00000000
+DisplayTime: 2

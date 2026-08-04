@@ -1,0 +1,27 @@
+FormKey: 07A202:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D050_Bolide_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Bolide
+EnchantmentCost: 134
+CastType: FireAndForget
+EnchantmentAmount: 134
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 028F67:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25
+- BaseEffect: 0294CB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25
+- BaseEffect: 02AA75:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25
+- BaseEffect: 02AA76:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25
+- BaseEffect: 02AA77:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25

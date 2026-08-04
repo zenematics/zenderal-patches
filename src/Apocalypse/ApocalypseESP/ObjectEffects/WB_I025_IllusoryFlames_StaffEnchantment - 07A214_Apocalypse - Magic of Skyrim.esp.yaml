@@ -1,0 +1,16 @@
+FormKey: 07A214:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I025_IllusoryFlames_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Illusory Flames
+EnchantmentCost: 19
+CastType: Concentration
+EnchantmentAmount: 19
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 03682D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 2

@@ -1,0 +1,20 @@
+FormKey: 00ECB5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionHellfire_Projectile
+ObjectBounds:
+  First: -26, -63, -8
+  Second: 26, 33, 8
+Model:
+  File: ApocNew\DestructionHellfire_Projectile.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.5
+Speed: 2500
+Range: 10000
+Light: 00ECB6:Apocalypse - Magic of Skyrim.esp
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 1.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

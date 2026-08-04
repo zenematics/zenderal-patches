@@ -1,0 +1,26 @@
+FormKey: 155AAC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Any_Perk_MinionSpellScaling
+Name:
+  TargetLanguage: English
+  Value: Minion Spell Scaling
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 99
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  ActorValue: DestructionPowerModifier
+  Value: 0.02
+  Modification: MultiplyOnePlusAVMult
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 100
+  EntryPoint: ModSpellMagnitude
+  PerkConditionTabCount: 3
+  ActorValue: DestructionPowerModifier
+  Value: 0.02
+  Modification: MultiplyOnePlusAVMult

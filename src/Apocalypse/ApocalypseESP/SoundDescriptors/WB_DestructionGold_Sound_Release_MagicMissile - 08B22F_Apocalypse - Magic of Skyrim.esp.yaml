@@ -1,0 +1,14 @@
+FormKey: 08B22F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionGold_Sound_Release_MagicMissile
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\firebolt\mag_firebolt_fire_2d.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 90
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 7.49

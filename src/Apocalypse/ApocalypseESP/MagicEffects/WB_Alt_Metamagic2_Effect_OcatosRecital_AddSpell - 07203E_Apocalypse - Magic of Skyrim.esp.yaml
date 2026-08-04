@@ -1,0 +1,83 @@
+FormKey: 07203E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic2_Effect_OcatosRecital_AddSpell
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_OcatosRecital2_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_Imod_Outro
+      Object: 006A25:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_OcatosRecital_FormList
+      Object: 006A28:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_OcatosRecital_FormList_SpellsOut
+      Object: 006FA1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_OcatosRecital_Message
+      Object: 161612:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_OcatosRecital_Message_Double
+      Object: 073081:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_OcatosRecital_Message_Fail
+      Object: 006FA0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_OcatosRecital_Message_TooMany
+      Object: 161614:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_SpellMax
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Baledor's Recital - Add Spell
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 006A21:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+MagicSkill: Alteration
+CastingLight: 006A22:Apocalypse - Magic of Skyrim.esp
+HitShader: 00D640:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 006A1E:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 006A26:Apocalypse - Magic of Skyrim.esp
+- Type: Release
+  Sound: 115E1A:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+  ComparisonValue: 9
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetCurrentCastingTypeConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetCurrentDeliveryTypeConditionData

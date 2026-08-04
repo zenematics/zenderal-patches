@@ -1,0 +1,15 @@
+FormKey: 005448:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_Projectile_WarpTheFlesh
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Witchlight\Attack\NPC_Witchlight_Attack_02.wav
+- Data\Sound\FX\NPC\Witchlight\Attack\NPC_Witchlight_Attack_03.wav
+- Data\Sound\FX\NPC\Witchlight\Attack\NPC_Witchlight_Attack_01.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: -10
+PercentFrequencyVariance: 10
+Priority: 128
+Variance: 1
+StaticAttenuation: 3.96

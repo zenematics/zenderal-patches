@@ -1,0 +1,82 @@
+FormKey: 00AAE5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis4_Effect_Ghostwalk
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Ghostwalk_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_CheckLocation
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DetectionSoundBase
+      Data: 75
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DetectionSoundMult
+      Data: 0.5
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_Imod_GhostwalkReturn
+      Object: 0207BC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_Marker_Script_GhostwalkReturn
+      Object: 0207BF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_Message_GhostwalkFail
+      Object: 00AAE6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_VFX_GhostwalkReturn
+      Object: 0207C1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I000_InvisFix_Spell_Ab_PC
+      Object: 0CB7E1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_TriggerVFXDur
+      Data: 3
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Wait
+      Data: 0.4
+Name:
+  TargetLanguage: English
+  Value: Ghostwalk
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01EA6F:Skyrim.esm
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 450
+MagicSkill: Illusion
+CastingLight: 11CC2E:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 1
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 9
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Invisibility
+  Type: Invisibility
+CastType: FireAndForget
+CastingArt: 11CC2D:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11CC2F:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.1
+DualCastScale: 1
+ImageSpaceModifier: 0207BA:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E12:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Caster is invisible for <dur> seconds or until broken, then teleports back to where the spell was cast.

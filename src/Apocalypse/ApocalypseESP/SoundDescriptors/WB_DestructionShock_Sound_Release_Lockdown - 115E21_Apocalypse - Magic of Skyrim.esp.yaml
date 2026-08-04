@@ -1,0 +1,13 @@
+FormKey: 115E21:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Release_Lockdown
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\shock\ff\MAG_Shock_FF_Fire_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 8.81

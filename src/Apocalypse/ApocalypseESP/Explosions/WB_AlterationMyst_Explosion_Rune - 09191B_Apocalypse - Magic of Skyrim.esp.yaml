@@ -1,0 +1,17 @@
+FormKey: 09191B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMyst_Explosion_Rune
+ObjectBounds:
+  First: -57, -60, 0
+  Second: 57, 60, 52
+Model:
+  File: ApocNew\AlterationMyst_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 00E698:Apocalypse - Magic of Skyrim.esp
+Sound1: 03C8FC:Skyrim.esm
+Radius: 320
+ISRadius: 1024
+VerticalOffsetMult: -10
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

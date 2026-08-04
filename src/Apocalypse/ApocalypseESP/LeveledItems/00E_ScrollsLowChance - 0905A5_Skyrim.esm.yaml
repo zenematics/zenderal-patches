@@ -1,0 +1,103 @@
+FormKey: 0905A5:Skyrim.esm
+EditorID: 00E_ScrollsLowChance
+ChanceNone: 0.5
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0458DB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0905A6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04C97F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04C97E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01D18D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014CB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0905A9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01F8B1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04C97D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02A04B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04C97F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04C97E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01D18D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014CB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0905A9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01F8B1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04C97D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02A04B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0458DB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0905A8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E76:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E76:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E76:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E76:Apocalypse - Magic of Skyrim.esp
+    Count: 1

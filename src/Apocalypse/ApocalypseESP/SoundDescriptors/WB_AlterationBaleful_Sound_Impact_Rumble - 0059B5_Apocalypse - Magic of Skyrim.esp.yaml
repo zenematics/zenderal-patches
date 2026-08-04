@@ -1,0 +1,12 @@
+FormKey: 0059B5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_Impact_Rumble
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\NPC\AtronachFrost\AttackPower\Impact\NPC_AtronachFrost_AttackPower_Impact_01.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 5
+Priority: 128

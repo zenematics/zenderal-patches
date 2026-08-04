@@ -1,0 +1,21 @@
+FormKey: 15E71D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Arcane4_Spell_Willpower
+Name:
+  TargetLanguage: English
+  Value: Willpower
+MenuDisplayObject: 12081F:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 120
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 15E71C:Apocalypse - Magic of Skyrim.esp
+  Data: {}

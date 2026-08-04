@@ -1,0 +1,49 @@
+FormKey: 11E0A4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Corpse3_Effect_CorpseExplosion_ProcNew
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CorpseExplosion_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_CorpseExplosion_Global_BaseHP
+      Object: 11E0A3:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DmgMult
+      Data: 0.4
+Name:
+  TargetLanguage: English
+  Value: Corpse Explosion - Proc
+MenuDisplayObject: 1212F0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 037E14:Apocalypse - Magic of Skyrim.esp
+- 00ECB4:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- 01B648:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+BaseCost: 175
+MagicSkill: Conjuration
+ResistValue: ResistMagic
+MinimumSkillLevel: 50
+SpellmakingArea: 20
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Explosion: 1212ED:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+Sounds:
+- Type: Release
+  Sound: 11FD2D:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData

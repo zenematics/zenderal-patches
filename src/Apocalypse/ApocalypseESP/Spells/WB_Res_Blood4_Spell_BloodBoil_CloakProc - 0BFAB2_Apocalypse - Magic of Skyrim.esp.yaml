@@ -1,0 +1,20 @@
+FormKey: 0BFAB2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Blood4_Spell_BloodBoil_CloakProc
+Name:
+  TargetLanguage: English
+  Value: Blood Boil
+MenuDisplayObject: 11D19D:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 103
+Flags:
+- AreaEffectIgnoresLOS
+CastType: Concentration
+TargetType: Aimed
+Effects:
+- BaseEffect: 0BFAB7:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25
+    Duration: 1

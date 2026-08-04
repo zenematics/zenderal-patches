@@ -1,0 +1,74 @@
+FormKey: 00B5B6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Damage5_Effect_MagickaVoid
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ManaVoid_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_General_Global_XP
+      Object: 043CEF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_MagickaVoid_Global_XP
+      Object: 071AD5:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_KillMargin
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Magicka Void
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 020D2D:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoRecast
+BaseCost: 725
+MagicSkill: Illusion
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+HitShader: 00D0DC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 30
+SpellmakingCastingTime: 5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 11BBC4:Apocalypse - Magic of Skyrim.esp
+Explosion: 11C6B8:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 13835E:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11C6C3:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.4
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 087588:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E1A:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Reduces the Health percentage of all targets to match their Magicka percentage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThan
+  Data:
+    MutagenObjectType: GetBaseActorValueConditionData
+    ActorValue: Magicka

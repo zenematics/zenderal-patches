@@ -1,0 +1,59 @@
+FormKey: 04218E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_TwilightZone_Water
+Name:
+  TargetLanguage: English
+  Value: Nightmare Water
+Opacity: 100
+Flags:
+- CausesDamage
+DamagePerSecond: 5000
+Unknown: 0xCDCCCC3D0000B4420000003F0000803F
+SpecularSunPower: 1373
+WaterReflectivity: 0.28
+WaterFresnel: 0.03
+FogAboveWaterDistanceFarPlane: 40
+ShallowColor: '#00000000'
+DeepColor: '#00000000'
+ReflectionColor: '#00000000'
+Unknown3: 0x32CDCDCDCDCCCC3D9A99193FF6287C3F00000040
+DisplacementDampner: 0.98
+Unknown4: 1028443341
+NoiseFalloff: 8192
+NoiseLayerOneWindDirection: 162
+NoiseLayerTwoWindDirection: 69
+NoiseLayerThreeWindDirection: 33
+NoiseLayerOneWindSpeed: 0.015
+NoiseLayerTwoWindSpeed: 0.014
+NoiseLayerThreeWindSpeed: 0.047
+Unknown5: 0x00C0C145CDCC4C3E
+FogAboveWaterAmount: 1
+Unknown6: 1147207680
+FogUnderWaterAmount: 1
+FogUnderWaterDistanceNearPlane: -1000
+FogUnderWaterDistanceFarPlane: 1000
+WaterRefractionMagnitude: 15
+SpecularPower: 2570
+SpecularRadius: 5000
+SpecularBrightness: 11.6
+NoiseLayerOneUvScale: 1341
+NoiseLayerTwoUvScale: 1123
+NoiseLayerThreeUvScale: 290
+NoiseLayerOneAmplitudeScale: 0.558
+NoiseLayerTwoAmplitudeScale: 0.6268
+NoiseLayerThreeAmplitudeScale: 0.3297
+WaterReflectionMagnitude: 0.91
+SpecularSunSparkleMagnitude: 0.5
+SpecularSunSpecularMagnitude: 0.8
+DepthReflections: 0.84
+DepthRefraction: 0.34
+DepthNormals: 0.45
+DepthSpecularLighting: 0.86
+SpecularSunSparklePower: 1690
+NoiseFlowmapScale: 1
+GNAM: 0x000000000000000000000000
+LinearVelocity: 0, 0, 0
+AngularVelocity: 0, 0, 0
+NoiseLayerOneTexture: Data\Textures\Water\DefaultWater.dds
+NoiseLayerTwoTexture: Data\Textures\Water\DefaultWater.dds
+NoiseLayerThreeTexture: Data\Textures\Water\DefaultWater.dds
+FlowNormalsNoiseTexture: ''

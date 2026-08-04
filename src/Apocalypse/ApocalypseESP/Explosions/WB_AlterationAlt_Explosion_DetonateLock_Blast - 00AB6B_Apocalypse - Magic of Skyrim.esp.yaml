@@ -1,0 +1,19 @@
+FormKey: 00AB6B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Explosion_DetonateLock_Blast
+Model:
+  File: ApocNew\AlterationAlt_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 006FAD:Apocalypse - Magic of Skyrim.esp
+Sound1: 00496B:Apocalypse - Magic of Skyrim.esp
+Sound2: 08196F:Skyrim.esm
+ImpactDataSet: 022AD2:Apocalypse - Magic of Skyrim.esp
+Force: 512
+Radius: 200
+ISRadius: 250
+VerticalOffsetMult: 0.9
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- KnockDownAlways
+- KnockDownByFormula
+- IgnoreImageSpaceSwap

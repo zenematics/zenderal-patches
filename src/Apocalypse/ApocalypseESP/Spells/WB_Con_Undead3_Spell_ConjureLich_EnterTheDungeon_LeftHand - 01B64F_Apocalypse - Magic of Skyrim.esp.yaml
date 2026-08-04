@@ -1,0 +1,23 @@
+FormKey: 01B64F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead3_Spell_ConjureLich_EnterTheDungeon_LeftHand
+Name:
+  TargetLanguage: English
+  Value: Enter the Dungeon
+MenuDisplayObject: 08B22B:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F42:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 150
+Flags:
+- ManualCostCalc
+ChargeTime: 3
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 15
+HalfCostPerk: 0C44BF:Skyrim.esm
+Effects:
+- BaseEffect: 0AF610:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 10

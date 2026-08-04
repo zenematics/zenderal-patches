@@ -1,0 +1,9 @@
+FormKey: 019B27:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureLordOfBindings_Texture_Armor
+ObjectBounds:
+  First: -8, -30, -20
+  Second: 7, 29, 19
+Diffuse: ApocNew\Other_Model\LordOfBindings_Armor.dds
+NormalOrGloss: clothes\yarlclothes03\Yarl03M_n.dds
+EnvironmentMaskOrSubsurfaceTint: clothes\yarlclothes03\Yarl03M_rim.dds
+Flags: []

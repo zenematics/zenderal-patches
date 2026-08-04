@@ -1,0 +1,13 @@
+FormKey: 020D2C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Illusion_Sound_Explosion_Subsonic
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\FX\Explosion\Catapult\FX_Explosion_Catapult_01_2D.wav
+- Data\Sound\FX\FX\Explosion\Catapult\FX_Explosion_Catapult_02_2D.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 4
+Priority: 128
+StaticAttenuation: 3.96

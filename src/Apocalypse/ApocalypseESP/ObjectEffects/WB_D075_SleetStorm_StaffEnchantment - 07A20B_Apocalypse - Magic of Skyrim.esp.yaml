@@ -1,0 +1,16 @@
+FormKey: 07A20B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D075_SleetStorm_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Sleet Storm
+EnchantmentCost: 117
+CastType: Concentration
+EnchantmentAmount: 117
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 1.5
+Effects:
+- BaseEffect: 09C0A0:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 60
+    Duration: 1

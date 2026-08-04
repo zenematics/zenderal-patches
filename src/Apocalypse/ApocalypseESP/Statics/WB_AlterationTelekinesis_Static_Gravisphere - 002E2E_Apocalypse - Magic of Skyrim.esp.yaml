@@ -1,0 +1,17 @@
+FormKey: 002E2E:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_AlterationTelekinesis_Static_Gravisphere
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+ObjectBounds:
+  First: -82, -74, -32
+  Second: 79, 71, 32
+Model:
+  File: ApocNew\AlterationTelekinesis_Static_Gravisphere.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

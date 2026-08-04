@@ -1,0 +1,20 @@
+FormKey: 0369F7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationPeace_Hazard_CircleOfStrength
+ObjectBounds:
+  First: -138, -84, -7
+  Second: 138, 84, 147
+Name:
+  TargetLanguage: English
+  Value: Circle of Strength Hazard
+Model:
+  File: ApocNew\RestorationPeace_Hazard.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 12
+Lifetime: 30
+TargetInterval: 0.2
+Flags:
+- InheritDurationFromSpawnSpell
+Spell: 0369FD:Apocalypse - Magic of Skyrim.esp
+Light: 11D715:Apocalypse - Magic of Skyrim.esp
+Sound: 056623:Skyrim.esm

@@ -1,0 +1,13 @@
+FormKey: 115E0B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Sound_Release
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Illusion\Charm\MAG_Illusion_Charm_On_01.wav
+OutputModel: 07F80C:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 3.08

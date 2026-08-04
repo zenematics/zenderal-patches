@@ -1,0 +1,41 @@
+FormKey: 0A7436:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Active4_Effect_GraceOfWater_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicPlaceExplosionScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExplosionRef
+      Object: 0001F5:Skyrim.esm
+  - Name: shaderparticlegeometryscript
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: FadeInTime
+      Data: 0.1
+    - MutagenObjectType: ScriptFloatProperty
+      Name: FadeOutTime
+      Data: 0.1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PSGD
+      Object: 10780F:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Flow Like Water
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- NoArea
+- HideInUI
+- NoRecast
+TaperWeight: 1
+HitShader: 0A9A08:Apocalypse - Magic of Skyrim.esp
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: SlowTime
+CastType: FireAndForget
+HitEffectArt: 0A799B:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

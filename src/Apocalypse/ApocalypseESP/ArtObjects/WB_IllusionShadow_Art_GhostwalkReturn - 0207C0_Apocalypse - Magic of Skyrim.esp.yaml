@@ -1,0 +1,10 @@
+FormKey: 0207C0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Art_GhostwalkReturn
+ObjectBounds:
+  First: -188, 31, 0
+  Second: 188, 260, 348
+Model:
+  File: ApocNew\IllusionShadow_Art_GhostwalkReturn.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

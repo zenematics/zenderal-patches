@@ -1,0 +1,10 @@
+FormKey: 0DD9C8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_PrepareForAdventure_Name_Robe
+Description:
+  TargetLanguage: English
+  Value: ''
+Name:
+  TargetLanguage: English
+  Value: <Alias=Player>'s Fabricated Robes
+INAM: 0x00000000
+DisplayTime: 2

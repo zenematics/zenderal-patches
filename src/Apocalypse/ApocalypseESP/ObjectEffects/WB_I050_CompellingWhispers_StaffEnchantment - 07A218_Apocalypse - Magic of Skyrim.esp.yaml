@@ -1,0 +1,16 @@
+FormKey: 07A218:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I050_CompellingWhispers_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Compelling Whispers
+EnchantmentCost: 23
+CastType: Concentration
+EnchantmentAmount: 23
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0580F2:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+    Duration: 1

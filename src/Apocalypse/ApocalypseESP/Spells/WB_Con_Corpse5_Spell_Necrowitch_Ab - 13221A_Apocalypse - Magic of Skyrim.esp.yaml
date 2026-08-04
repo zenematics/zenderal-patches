@@ -1,0 +1,15 @@
+FormKey: 13221A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Corpse5_Spell_Necrowitch_Ab
+Name:
+  TargetLanguage: English
+  Value: Necrowitch - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 132219:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25

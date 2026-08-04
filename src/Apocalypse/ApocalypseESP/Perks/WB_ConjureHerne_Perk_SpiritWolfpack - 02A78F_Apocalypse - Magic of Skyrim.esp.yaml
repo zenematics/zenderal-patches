@@ -1,0 +1,17 @@
+FormKey: 02A78F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureHerne_Perk_SpiritWolfpack
+Name:
+  TargetLanguage: English
+  Value: Spirit Wolfpack Damage
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Add
+  Value: 5

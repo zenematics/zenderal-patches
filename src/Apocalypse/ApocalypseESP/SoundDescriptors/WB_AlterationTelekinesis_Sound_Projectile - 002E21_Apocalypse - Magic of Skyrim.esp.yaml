@@ -1,0 +1,14 @@
+FormKey: 002E21:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Sound_Projectile
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Alteration\Telekinesis\MAG_Alteration_Telekinesis_Throw_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+  RumbleValues: 32
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 6
+Priority: 128
+StaticAttenuation: 6.17

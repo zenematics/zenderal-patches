@@ -1,0 +1,22 @@
+FormKey: 00BB25:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Dispel1_Spell_DispelMagic
+Name:
+  TargetLanguage: English
+  Value: Dispel Magic
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 55
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoDualCastModification
+ChargeTime: 1
+CastType: FireAndForget
+HalfCostPerk: 0F2CA9:Skyrim.esm
+Effects:
+- BaseEffect: 00C0A9:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 40

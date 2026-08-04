@@ -1,0 +1,13 @@
+FormKey: 00B640:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Light_Projectile
+Time: -1
+Radius: 300
+Color: '#00B59F9B'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.2

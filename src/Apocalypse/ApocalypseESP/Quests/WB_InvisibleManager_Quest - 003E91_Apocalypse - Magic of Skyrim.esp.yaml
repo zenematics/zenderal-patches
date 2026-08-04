@@ -1,0 +1,31 @@
+FormKey: 003E91:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_InvisibleManager_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Manager_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Books_Spell_Ab
+      Object: 080961:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Unified_Spell_Ab
+      Object: 003E90:Apocalypse - Magic of Skyrim.esp
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Name:
+  TargetLanguage: English
+  Value: Invisible Manager
+Flags:
+- StartGameEnabled
+- 0x10
+Filter: ApocNew\
+NextAliasID: 1
+Aliases:
+- Name: WB_InvisibleManager_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  Spells:
+  - 003E90:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null

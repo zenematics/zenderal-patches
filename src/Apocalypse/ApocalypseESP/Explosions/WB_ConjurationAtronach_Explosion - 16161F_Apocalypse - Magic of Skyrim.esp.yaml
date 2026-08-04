@@ -1,0 +1,13 @@
+FormKey: 16161F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Explosion
+Model:
+  File: ApocNew\ConjurationDetonate_Explosion_CorpseExplosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 12185B:Apocalypse - Magic of Skyrim.esp
+Sound1: 0BA39B:Apocalypse - Magic of Skyrim.esp
+Force: 128
+Radius: 256
+ISRadius: 2048
+Flags:
+- 0x1
+- IgnoreLosCheck

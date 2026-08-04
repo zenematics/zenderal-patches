@@ -1,0 +1,30 @@
+FormKey: 08FDF1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Spell_ConjureWeepingDaedra_Ab
+Name:
+  TargetLanguage: English
+  Value: Weeping Daedra - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 08FDF3:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+- BaseEffect: 08FDEC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+- BaseEffect: 08FDF4:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1000
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: VampirePerks

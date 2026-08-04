@@ -1,0 +1,15 @@
+FormKey: 15E72D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_HotPotato
+Model:
+  File: ApocNew\DestructionFire_Projectile_Volcano2C.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1500
+Range: 2133
+Light: 01CBB3:Skyrim.esm
+FadeDuration: 0.5
+ImpactForce: 0.65
+CollisionRadius: 15
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,42 @@
+FormKey: 07FE6D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Effect_WindRunning_OperationalCeiling
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Levitation_TooHigh_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_Levitate_TooHigh
+      Object: 07FE6C:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Wind Running - Too High
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Detrimental
+- NoMagnitude
+- NoArea
+- HideInUI
+- PowerAffectsDuration
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

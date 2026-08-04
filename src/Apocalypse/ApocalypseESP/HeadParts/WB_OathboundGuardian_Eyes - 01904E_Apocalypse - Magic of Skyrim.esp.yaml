@@ -1,0 +1,24 @@
+FormKey: 01904E:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_OathboundGuardian_Eyes
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: WB_HonorboundGuardian_Eyes
+Model:
+  File: Actors\Character\Character Assets\EyesFemale.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Female
+Type: Eyes
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\EyesFemale.tri
+- PartType: ChargenMorph
+  FileName: Actors\Character\Character Assets\EyesFemaleChargen.tri
+TextureSet: 01904F:Apocalypse - Magic of Skyrim.esp
+Color: 0F1233:Skyrim.esm
+ValidRaces: 0A8026:Skyrim.esm
+MajorFlags:
+- NonPlayable

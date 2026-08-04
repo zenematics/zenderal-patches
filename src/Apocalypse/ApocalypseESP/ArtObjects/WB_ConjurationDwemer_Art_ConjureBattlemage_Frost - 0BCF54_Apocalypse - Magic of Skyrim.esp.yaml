@@ -1,0 +1,10 @@
+FormKey: 0BCF54:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Art_ConjureBattlemage_Frost
+ObjectBounds:
+  First: -21, -22, 2
+  Second: 21, 22, 85
+Model:
+  File: ApocNew\ConjurationDwemer_Art_ConjureBattlemage_Frost.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

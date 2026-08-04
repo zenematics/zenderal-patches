@@ -1,0 +1,18 @@
+FormKey: 0834AE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_VolcanoNew
+ObjectBounds:
+  First: -5, -5, -5
+  Second: 5, 5, 5
+Model:
+  File: ApocNew\DestructionFire_Explosion_Pyroclasm.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 0294CF:Apocalypse - Magic of Skyrim.esp
+Sound1: 02518E:Skyrim.esm
+ImpactDataSet: 026113:Skyrim.esm
+PlacedObject: 0834AD:Apocalypse - Magic of Skyrim.esp
+Force: 128
+Radius: 64
+ISRadius: 256
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

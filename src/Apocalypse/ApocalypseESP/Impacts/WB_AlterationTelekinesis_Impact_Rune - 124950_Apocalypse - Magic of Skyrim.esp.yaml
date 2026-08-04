@@ -1,0 +1,12 @@
+FormKey: 124950:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Impact_Rune
+Model:
+  File: ApocNew\AlterationTelekinesis_Impact.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+AngleThreshold: 80
+PlacementRadius: 5
+SoundLevel: Normal
+NoDecalData: True
+TextureSet: 124EDA:Apocalypse - Magic of Skyrim.esp
+Sound1: 0639A5:Skyrim.esm

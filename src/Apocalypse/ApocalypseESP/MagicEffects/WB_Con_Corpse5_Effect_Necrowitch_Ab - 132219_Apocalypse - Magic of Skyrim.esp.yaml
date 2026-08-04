@@ -1,0 +1,19 @@
+FormKey: 132219:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Corpse5_Effect_Necrowitch_Ab
+Name:
+  TargetLanguage: English
+  Value: Necrowitch - FX
+Flags:
+- NoDuration
+- FXPersist
+- NoDeathDispel
+HitShader: 050FBC:Apocalypse - Magic of Skyrim.esp
+EnchantShader: 050FBC:Apocalypse - Magic of Skyrim.esp
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

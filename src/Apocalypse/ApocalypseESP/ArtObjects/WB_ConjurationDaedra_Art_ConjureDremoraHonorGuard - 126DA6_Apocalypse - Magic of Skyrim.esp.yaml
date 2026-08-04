@@ -1,0 +1,10 @@
+FormKey: 126DA6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDaedra_Art_ConjureDremoraHonorGuard
+ObjectBounds:
+  First: -81, -29, -99
+  Second: 79, 70, 118
+Model:
+  File: ApocNew\ConjurationDaedra_Art_ConjureDremoraHonorGuard.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

@@ -1,0 +1,28 @@
+FormKey: 108623:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost4_Spell_ShatteringCrystal_Explosion
+Name:
+  TargetLanguage: English
+  Value: Shattering Crystal - Resonance
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 422
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 10861E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 90
+    Area: 35
+- BaseEffect: 108621:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 90
+    Area: 20
+- BaseEffect: 108622:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 90
+    Area: 10

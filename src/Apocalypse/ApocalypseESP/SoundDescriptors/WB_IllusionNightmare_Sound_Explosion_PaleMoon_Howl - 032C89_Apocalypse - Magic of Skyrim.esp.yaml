@@ -1,0 +1,17 @@
+FormKey: 032C89:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Explosion_PaleMoon_Howl
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Wolf\Howl\NPC_Wolf_Howl_01.wav
+- Data\Sound\FX\NPC\Wolf\Howl\NPC_Wolf_Howl_02.wav
+- Data\Sound\FX\NPC\Wolf\Howl\NPC_Wolf_Howl_03.wav
+- Data\Sound\FX\NPC\Wolf\Howl\NPC_Wolf_Howl_04.wav
+- Data\Sound\FX\NPC\Wolf\Howl\NPC_Wolf_Howl_05.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 3
+StaticAttenuation: 2.2

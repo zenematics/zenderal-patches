@@ -1,0 +1,10 @@
+FormKey: 0AD56F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Art_TharnsPrison
+ObjectBounds:
+  First: -104, -36, -118
+  Second: 105, 43, 132
+Model:
+  File: ApocNew\AlterationBaleful_Art_TharnsPrison.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

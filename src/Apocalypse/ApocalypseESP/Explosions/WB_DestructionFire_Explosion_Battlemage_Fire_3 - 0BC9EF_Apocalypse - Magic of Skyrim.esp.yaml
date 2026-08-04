@@ -1,0 +1,18 @@
+FormKey: 0BC9EF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_Battlemage_Fire_3
+ObjectBounds:
+  First: -275, -275, -23
+  Second: 275, 275, 243
+Model:
+  File: ApocNew\DestructionFire_Explosion_Carbonize.nif
+  Data: 0x020000000000000000000000
+Sound1: 08558F:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 0BCF5E:Apocalypse - Magic of Skyrim.esp
+Force: 64
+Radius: 512
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

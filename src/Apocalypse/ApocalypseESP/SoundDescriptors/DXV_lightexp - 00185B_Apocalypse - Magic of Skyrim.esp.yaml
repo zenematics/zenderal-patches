@@ -1,0 +1,12 @@
+FormKey: 00185B:Apocalypse - Magic of Skyrim.esp
+EditorID: DXV_lightexp
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\AtronachStorm\AttackPower\Bomb\NPC_AtronachStorm_AttackPower_Bomb_Thunder2D.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyVariance: 2
+Priority: 128
+Variance: 2
+StaticAttenuation: 5.29

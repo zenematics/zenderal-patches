@@ -1,0 +1,18 @@
+FormKey: 09CB72:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Projectile_PlasmaFlux_2C
+Model:
+  File: ApocNew\DestructionShock_Projectile_Thunderwave_2C.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Cone
+Gravity: -0.25
+Range: 850
+Light: 12D0FC:Apocalypse - Magic of Skyrim.esp
+Sound: 09CB73:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 6
+ConeSpread: 16.7
+CollisionRadius: 10
+RelaunchInterval: 0.3
+MuzzleFlashModel: ''

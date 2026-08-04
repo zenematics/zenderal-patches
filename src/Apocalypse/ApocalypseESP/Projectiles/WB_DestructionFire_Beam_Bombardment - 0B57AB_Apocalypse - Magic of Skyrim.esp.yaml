@@ -1,0 +1,23 @@
+FormKey: 0B57AB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Beam_Bombardment
+ObjectBounds:
+  First: -250, -75, -210
+  Second: 250, 2000, 327
+Model:
+  File: ApocNew\DestructionFire_Beam_Volcano.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+- PassThroughSmallTransparent
+Type: Flame
+Speed: 10000
+Range: 2000
+Light: 089F27:Skyrim.esm
+Explosion: 0439C0:Skyrim.esm
+MuzzleFlashDuration: 3
+FadeDuration: 10
+CollisionRadius: 10
+RelaunchInterval: 0.1
+MuzzleFlashModel: Effects\ImpactEffects\FireballImpact01.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 1

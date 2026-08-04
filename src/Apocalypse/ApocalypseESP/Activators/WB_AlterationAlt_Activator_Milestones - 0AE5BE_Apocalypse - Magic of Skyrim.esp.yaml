@@ -1,0 +1,19 @@
+FormKey: 0AE5BE:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_AlterationAlt_Activator_Milestones
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+ObjectBounds:
+  First: -327, -306, 241
+  Second: 327, 347, 2185
+Model:
+  File: ApocNew\AlterationAlt_Static_Milestones.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+LoopingSound: 006FAF:Apocalypse - Magic of Skyrim.esp
+ActivationSound: 086EFE:Skyrim.esm
+Flags: []
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

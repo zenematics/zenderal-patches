@@ -1,0 +1,50 @@
+FormKey: 00CC1E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic4_Effect_KnowledgeIsPower_Power
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicImodScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IntroFX
+      Object: 00D6F1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OutroFX
+      Object: 006A25:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StaticFX
+      Object: 006A23:Apocalypse - Magic of Skyrim.esp
+  - Name: WB_KnowledgeIsPowerPower_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_FormList_KnowledgeIsPower
+      Object: 00CC19:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: The Power of Knowledge
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 006A21:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds:
+- Type: Release
+  Sound: 03C8FB:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Casts the spell stored by Knowledge is Power.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1

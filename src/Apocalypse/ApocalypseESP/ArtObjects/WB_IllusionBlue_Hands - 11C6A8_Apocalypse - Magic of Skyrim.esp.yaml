@@ -1,0 +1,9 @@
+FormKey: 11C6A8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Hands
+ObjectBounds:
+  First: -12, -12, 0
+  Second: 12, 12, 2
+Model:
+  File: ApocNew\IllusionBlue_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

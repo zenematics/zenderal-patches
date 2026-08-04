@@ -1,0 +1,14 @@
+FormKey: 005F28:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_AlterationAlt_Static_Levitate
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+Model:
+  File: ApocNew\AlterationAlt_Static_Levitate.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

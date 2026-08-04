@@ -1,0 +1,49 @@
+FormKey: 003E90:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_InvisibleManager_Spell
+Name:
+  TargetLanguage: English
+  Value: Invisible Manager
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 003E8F:Apocalypse - Magic of Skyrim.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 03F660:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- BaseEffect: 006A32:Apocalypse - Magic of Skyrim.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: HasSpellConditionData
+      Spell: 006FA6:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: HasSpellConditionData
+      Spell: 1A1B71:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasSpellConditionData
+      Spell: 161610:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: IsInCombatConditionData

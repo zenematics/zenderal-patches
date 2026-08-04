@@ -1,0 +1,20 @@
+FormKey: 120FB5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_ElementalHost_2
+Model:
+  File: Magic\MAGdragonFire01.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Flame
+Speed: 1000
+Range: 1024
+Light: 09EE7C:Skyrim.esm
+MuzzleFlash: 0E2172:Skyrim.esm
+Explosion: 0439C0:Skyrim.esm
+MuzzleFlashDuration: 3
+FadeDuration: 10
+ImpactForce: 10
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

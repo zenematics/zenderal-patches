@@ -1,0 +1,10 @@
+FormKey: 0378A3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Art_Instant
+ObjectBounds:
+  First: -226, -63, -203
+  Second: 257, 85, 213
+Model:
+  File: ApocNew\IllusionBlue_Art_Instant.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

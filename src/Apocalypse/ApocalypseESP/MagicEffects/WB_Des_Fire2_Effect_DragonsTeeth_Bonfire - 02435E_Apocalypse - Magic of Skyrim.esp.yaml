@@ -1,0 +1,37 @@
+FormKey: 02435E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire2_Effect_DragonsTeeth_Bonfire
+Name:
+  TargetLanguage: English
+  Value: Bonfire of the Damned
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1.2
+MagicSkill: Destruction
+TaperWeight: 1
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectSpawnHazardArchetype
+  Association: 02B54B:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+Sounds:
+- Type: Release
+  Sound: 000D65:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

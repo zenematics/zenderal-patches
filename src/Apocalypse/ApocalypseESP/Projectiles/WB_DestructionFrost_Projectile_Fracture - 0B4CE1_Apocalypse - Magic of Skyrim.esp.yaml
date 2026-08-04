@@ -1,0 +1,15 @@
+FormKey: 0B4CE1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_Fracture
+Model:
+  File: ApocNew\DestructionFrost_Projectile_Fracture.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2500
+Range: 10000
+Light: 10FBF0:Skyrim.esm
+Sound: 001864:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 5
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,18 @@
+FormKey: 12E6A1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AbilityFX_IllusionShadow_Effect
+Name:
+  TargetLanguage: English
+  Value: ShadowHealBodyArtHolder
+Flags:
+- NoDuration
+- FXPersist
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+HitEffectArt: 12E6A0:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

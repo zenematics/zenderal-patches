@@ -1,0 +1,15 @@
+FormKey: 0207BE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Sound_Script_GhostwalkReturn
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\mag\shock\impact\MAG_Shock_Impact_03.wav
+- fx\mag\shock\impact\MAG_Shock_Impact_02.wav
+- fx\mag\shock\impact\MAG_Shock_Impact_01.wav
+OutputModel: 0D78B4:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 15
+Priority: 128
+Variance: 6

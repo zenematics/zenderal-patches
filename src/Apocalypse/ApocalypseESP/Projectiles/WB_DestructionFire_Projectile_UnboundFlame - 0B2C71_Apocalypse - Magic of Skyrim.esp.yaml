@@ -1,0 +1,20 @@
+FormKey: 0B2C71:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_UnboundFlame
+ObjectBounds:
+  First: -71, -157, -34
+  Second: 75, 68, 19
+Model:
+  File: ApocNew\DestructionFire_Projectile_UnboundFlame.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.66
+Speed: 1250
+Range: 1250
+Light: 01CBB3:Skyrim.esm
+Sound: 026ECA:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 1.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

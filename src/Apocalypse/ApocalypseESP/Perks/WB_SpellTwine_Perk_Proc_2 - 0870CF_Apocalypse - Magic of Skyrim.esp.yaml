@@ -1,0 +1,18 @@
+FormKey: 0870CF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_SpellTwine_Perk_Proc_2
+Name:
+  TargetLanguage: English
+  Value: Spell Twine
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 254
+  EntryPoint: ModSpellCost
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 0.8

@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalFloat
+FormKey: 043CF1:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Restoration_SlayLiving_Global_XP
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 0.75

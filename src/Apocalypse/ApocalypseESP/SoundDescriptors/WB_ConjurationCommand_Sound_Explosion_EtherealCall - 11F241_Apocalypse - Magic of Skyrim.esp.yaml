@@ -1,0 +1,12 @@
+FormKey: 11F241:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationCommand_Sound_Explosion_EtherealCall
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_PowerRacial_WoodElfCommandAnimal_Fire_2D.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 6
+Priority: 128
+StaticAttenuation: 1.32

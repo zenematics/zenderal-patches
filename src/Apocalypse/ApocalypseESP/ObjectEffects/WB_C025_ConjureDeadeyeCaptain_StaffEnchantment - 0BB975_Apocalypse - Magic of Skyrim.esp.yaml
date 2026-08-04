@@ -1,0 +1,15 @@
+FormKey: 0BB975:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C025_ConjureDeadeyeCaptain_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Conjure Deadeye Captain
+EnchantmentCost: 172
+CastType: FireAndForget
+EnchantmentAmount: 172
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0B7822:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

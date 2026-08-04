@@ -1,0 +1,12 @@
+FormKey: 089166:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Projectile_HowlingBlast
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\KagrenzelWind\AMB_Kagrenzel_Wind_Shaft_LPM.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 3.52

@@ -1,0 +1,13 @@
+FormKey: 00BBBB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_Sound_Use_Spellstone
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\FrostbiteDragon\MAG_Destruction_ForstbiteDragon_Explosion_01.wav
+OutputModel: 0F1B1A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 1
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 6.17

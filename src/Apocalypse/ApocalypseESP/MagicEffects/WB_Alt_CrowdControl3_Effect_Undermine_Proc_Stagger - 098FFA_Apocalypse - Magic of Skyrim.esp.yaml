@@ -1,0 +1,20 @@
+FormKey: 098FFA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl3_Effect_Undermine_Proc_Stagger
+Name:
+  TargetLanguage: English
+  Value: Undermine Stagger
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- HideInUI
+- PowerAffectsMagnitude
+TaperWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

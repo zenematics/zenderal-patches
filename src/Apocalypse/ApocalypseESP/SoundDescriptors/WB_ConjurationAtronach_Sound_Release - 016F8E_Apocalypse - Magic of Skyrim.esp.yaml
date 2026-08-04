@@ -1,0 +1,14 @@
+FormKey: 016F8E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Sound_Release
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mgk\firebolt\mgk_firebolt_03_fire.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 9
+Priority: 128
+StaticAttenuation: 8.37

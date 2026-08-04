@@ -1,0 +1,49 @@
+FormKey: 0B0BDD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Spirit5_Effect_ConjureBearTotem_Ab_Shapeshifter
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_TotemOfOld_Ab_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BearSnowRace
+      Object: 0B0BDE:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DraugrMaleEyeGlowFX
+      Object: 0ABEE8:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NordRace
+      Object: 013746:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Alpha
+      Data: 0.01
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Chance
+      Data: 0.33
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationSummon_Explosion_TotemOfOld
+      Object: 0B0BDA:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_VFX_GhostwalkReturn
+      Object: 0207C1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Unequip1
+      Object: 0B0BD2:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Unequip3
+      Object: 0B0BD5:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 10
+Name:
+  TargetLanguage: English
+  Value: Bear Totem - Shapeshifter
+Flags:
+- NoDuration
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

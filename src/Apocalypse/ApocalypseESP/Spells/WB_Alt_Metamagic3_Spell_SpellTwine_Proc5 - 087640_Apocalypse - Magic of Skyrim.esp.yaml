@@ -1,0 +1,22 @@
+FormKey: 087640:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Spell_SpellTwine_Proc5
+Name:
+  TargetLanguage: English
+  Value: Spell Twine
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 14
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 3
+CastType: FireAndForget
+HalfCostPerk: 0C44B8:Skyrim.esm
+Effects:
+- BaseEffect: 08763E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Duration: 10

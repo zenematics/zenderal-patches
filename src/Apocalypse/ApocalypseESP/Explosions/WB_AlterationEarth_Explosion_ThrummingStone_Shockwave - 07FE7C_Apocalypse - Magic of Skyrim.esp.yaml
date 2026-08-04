@@ -1,0 +1,17 @@
+FormKey: 07FE7C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Explosion_ThrummingStone_Shockwave
+ObjectBounds:
+  First: -116, -116, -18
+  Second: 116, 116, 44
+Model:
+  File: ApocNew\AlterationEarth_Explosion_Massive.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 07FE7F:Apocalypse - Magic of Skyrim.esp
+Sound1: 07FE7D:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 00AB5C:Apocalypse - Magic of Skyrim.esp
+Force: 256
+Radius: 400
+ISRadius: 512
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

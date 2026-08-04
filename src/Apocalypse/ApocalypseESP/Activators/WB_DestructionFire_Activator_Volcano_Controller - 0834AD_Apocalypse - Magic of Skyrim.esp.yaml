@@ -1,0 +1,59 @@
+FormKey: 0834AD:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_DestructionFire_Activator_Volcano_Controller
+SkyrimMajorRecordFlags:
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_VolcanoController2_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionFire_Activator_VolcanoNew_Fountain
+      Object: 0834B2:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionFire_Light_Volcano_Fountain
+      Object: 0834B8:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Duration
+      Data: 10
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_EndLocZ
+      Data: 2000
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_FallHeight
+      Data: -128
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_FireballRadius
+      Data: 750
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_MoveSpeed
+      Data: 64
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_RumbleRadius
+      Data: 1024
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_RumbleStrength
+      Data: 0.25
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D100_VolcanoNew_Spell_PC
+      Object: 0834B3:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_TotalHeight
+      Data: 28
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.125
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+LoopingSound: 0834B6:Apocalypse - Magic of Skyrim.esp
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

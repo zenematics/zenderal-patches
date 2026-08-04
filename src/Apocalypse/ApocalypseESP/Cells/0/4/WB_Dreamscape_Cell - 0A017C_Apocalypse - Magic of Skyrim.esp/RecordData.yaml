@@ -1,0 +1,3629 @@
+FormKey: 0A017C:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Dreamscape_Cell
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Quagmire
+Flags:
+- IsInteriorCell
+- HasWater
+- PublicArea
+- ShowSky
+- UseSkyLighting
+Lighting:
+  AmbientColor: '#00808080'
+  DirectionalColor: '#00000000'
+  FogNearColor: '#00000000'
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#008D8086'
+    DirectionalXMinus: '#0073807A'
+    DirectionalYPlus: '#00808680'
+    DirectionalYMinus: '#00807A80'
+    DirectionalZPlus: '#003D3D3A'
+    DirectionalZMinus: '#00C3C3C6'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+WaterHeight: 0
+Location: 0A01FA:Apocalypse - Magic of Skyrim.esp
+SkyAndWeatherFromRegion: 105F3F:Skyrim.esm
+AcousticSpace: 02F78E:Skyrim.esm
+EncounterZone: 0A01FB:Apocalypse - Magic of Skyrim.esp
+Music: 04DA92:Skyrim.esm
+ImageSpace: 0421DB:Apocalypse - Magic of Skyrim.esp
+NavigationMeshes:
+- FormKey: 0A0252:Apocalypse - Magic of Skyrim.esp
+  IsCompressed: True
+  MajorRecordFlagsRaw: 262144
+  SkyrimMajorRecordFlags:
+  - Compressed
+  Data:
+    Parent:
+      MutagenObjectType: CellNavmeshParent
+      Parent: 0A017C:Apocalypse - Magic of Skyrim.esp
+    Vertices:
+    - 54.419273, 182.02911, 65.33093
+    - -128.40994, 11.25676, 50.86389
+    - 66.4949, -4.198532, 53.192383
+    - -119.22809, 94.64953, 72.081696
+    - -110.046234, 178.0423, 93.2995
+    - -0.58838654, 249.19168, 94.555786
+    - -152.19093, 278.05743, 134.76285
+    - -62.026596, 316.82623, 136.3758
+    - -210.01202, 445.8603, 155.42273
+    - -102.97513, 450.74927, 155.42274
+    - -209.77496, 566.8303, 155.42273
+    - 44.470825, 457.48395, 155.42276
+    - 43.819275, 699.08887, 172.09337
+    - 205.33508, 456.44272, 51.81726
+    - 149.08705, 699.58765, 99.27547
+    - 215.92242, 699.90436, 53.042786
+    - 340.11877, 712.7519, 51.28778
+    - 326.03003, 440.81763, 54.051193
+    - 214.84732, 342.2081, 52.184326
+    - 227.7158, 187.66776, 52.68091
+    - 47.740005, 294.66516, 99.40582
+    - 261.14673, 25.38668, 61.132202
+    - 129.46683, -184.74707, 66.22717
+    - 355.85327, -180.25261, 51.395386
+    - 183.66402, -477.07928, 90.39429
+    - 30.527, -275.33188, 86.38206
+    - 30.793264, -431.69324, 80.65145
+    - 31.173798, -655.1587, 72.46149
+    - -76.644165, -655.52826, 128.11559
+    - -184.46213, -655.8978, 183.76968
+    - -292.2801, -656.2674, 239.42378
+    - -400.09808, -656.63696, 295.07788
+    - -400.73822, -411.43124, 308.6941
+    - -604.7156, -675.2109, 303.8777
+    - -500.96732, -422.6237, 307.0887
+    - -701.42554, -445.00858, 303.878
+    - -763.6515, -520.11414, 303.87793
+    - -956.22144, -1034.3613, 588.84766
+    - -1128.3815, -878.7844, 594.57227
+    - -1056.5679, -1139.3644, 675.6658
+    - -1216.6068, -985.58386, 675.7103
+    - -1086.1396, -1183.2185, 707.18524
+    - -1255.8171, -1014.0911, 706.07007
+    - -41.695694, -180.18347, 84.48981
+    - 363.53415, -328.40338, 56.128845
+    - 454.8725, -160.63501, 66.85181
+    - 478.8041, -19.402958, 54.26361
+    - 459.66428, 197.53976, 51.89142
+    - 618.2527, 360.12265, 50.96135
+    - 577.42377, 497.1396, 51.56967
+    - 712.3022, 537.8043, 114.20772
+    - 604.6197, 585.3419, 76.13779
+    - 559.4906, 734.00635, 52.66867
+    - 337.18616, 840.7135, 52.39891
+    - 335.37927, 919.55597, 53.083527
+    - 433.00177, 931.1395, 51.3154
+    - 580.36096, 937.28516, 54.13687
+    - 720.61646, 860.1591, 52.280293
+    - 692.69885, 694.22986, 113.019455
+    - 648.6593, 639.7859, 94.57862
+    - 759.61426, 712.9175, 112.15344
+    - 852.6046, 813.2903, 101.415115
+    - 820.64453, 938.4757, 54.39386
+    - 876.87085, 927.3084, 50.904633
+    - 820.46, 1066.4756, 54.316036
+    - 820.36725, 1130.8655, 54.276886
+    - 619.71783, 1132.953, 50.961365
+    - 423.86517, 1130.2979, 51.368378
+    - 427.1358, 1059.005, 51.349415
+    - 821.22253, 678.485, 124.605316
+    - 882.83075, 644.0524, 137.05719
+    - 1082.7673, 821.3508, 60.311523
+    - 1094.5853, 717.47955, 63.228645
+    - 1107.4506, 604.40485, 66.404236
+    - 1160.0623, 686.4905, 62.64741
+    - 1225.5393, 655.50146, 62.066177
+    - 1223.6531, 412.91785, 62.11083
+    - 1365.8484, 647.0478, 159.28513
+    - 1295.5452, 405.03494, 110.53322
+    - 1367.4373, 397.15204, 158.9556
+    - 1572.7269, 418.97162, 157.36401
+    - 1582.6238, 794.4065, 156.71722
+    - 1319.7332, 809.8095, 148.17711
+    - 1529.8401, 835.30383, 145.33495
+    - 1477.0564, 876.2011, 133.95267
+    - 1243.3713, 952.1069, 174.70798
+    - 1458.4009, 1048.4587, 152.02167
+    - 1251.0605, 1131.7288, 189.16516
+    - 1358.0204, 1144.3843, 177.97687
+    - 1464.9802, 1157.0397, 166.78859
+    - 964.2932, 970.48474, 406.0509
+    - 993.34247, 1120.4615, 407.15555
+    - 167.18945, 1120.266, 409.3937
+    - 733.43274, 972.2114, 406.98843
+    - 387.142, 974.8014, 408.39478
+    - 156.2815, 976.5281, 409.3323
+    - 25.483154, 1130.6879, 333.179
+    - 19.23169, 971.8148, 333.42682
+    - -244.79181, 1127.5432, 336.11142
+    - -248.29959, 1042.0554, 333.39493
+    - -251.80737, 956.5676, 330.67844
+    - -161.97272, 799.18726, 239.44687
+    - 30.17929, 876.8299, 278.1348
+    - 41.126892, 781.845, 222.84277
+    - -137.85126, 711.5198, 168.71075
+    - 1137.3633, 399.87048, 50.961426
+    - 1040.7991, 491.36502, 52.869324
+    - 1074.495, 344.07993, 54.60431
+    - 863.0687, 386.63083, 86.5329
+    - 882.07275, 232.39807, 49.472473
+    - 793.42755, 372.3802, 56.541336
+    - 683.7555, 219.25067, 49.61151
+    - 797.76086, 519.2636, 115.09669
+    - 883.2195, 500.72287, 115.98566
+    - 704.7368, -8.968964, 50.405334
+    - 665.3435, -155.09814, 50.961426
+    - 916.5226, -142.50949, 111.64762
+    - 901.34503, 11.363937, 50.867737
+    - 1190.5024, -159.29181, 51.37799
+    - 1039.6263, 79.961975, 53.74411
+    - 1317.4587, 76.13266, 54.90509
+    - 1064.5509, 268.7572, 54.358994
+    - 1175.1025, 272.9227, 53.355133
+    - 1396.2057, 281.2537, 51.347412
+    - 1483.3025, 193.87193, 52.635376
+    - 1507.012, 281.13593, 53.974487
+    - 696.5529, -133.92282, 111.513695
+    - 886.35175, -194.82999, 128.00003
+    - 704.5033, -197.77213, 128
+    - 892.44476, -306.51743, 128
+    - 707.09033, -258.99496, 127.99997
+    - 953.0312, -227.0658, 128
+    - 954.5026, -318.68872, 128.00003
+    - 1162.1191, -377.26065, 128
+    - 1152.4266, -201.85574, 128.00003
+    - 947.61395, -15.943176, 50.949383
+    - 951.2898, -166.68542, 52.454132
+    - 674.38635, -27.93807, 50.597534
+    - -1403.2982, -1154.8921, 690.6067
+    - -1235.8054, -1332.6808, 690.46155
+    - -1632.0216, -1379.3479, 687.5565
+    - -1470.4679, -1542.612, 688.0476
+    - -1898.5457, -1613.1255, 493.43604
+    - -1708.3417, -1803.2908, 492.49066
+    - -2165.0256, -1862.5017, 298.88263
+    - -1912.3844, -2120.6235, 299.0467
+    - -2556.7344, -2254.283, 297.6377
+    - -2314.105, -2526.4941, 299.76013
+    - -2608.5796, -2417.174, 315.4666
+    - -2397.1382, -2614.9773, 300.94806
+    - -2745.355, -2502.515, 315.10822
+    - -2525.5288, -2694.7808, 299.07892
+    - -2856.3967, -2689.8735, 417.70868
+    - -2688.2395, -2858.9673, 417.67358
+    - -2936.354, -2735.9065, 456.72223
+    - -2753.914, -2922.0232, 456.77527
+    - -2953.9885, -2814.5364, 451.94348
+    - -2782.9807, -2996.4473, 451.71634
+    - -3750.7986, -3983.1775, 467.9496
+    - -3559.3003, -3649.2888, 482.4895
+    - -3481.6528, -3719.3584, 451.7466
+    - -3431.81, -3500.869, 487.06015
+    - -3353.6514, -3598.9214, 450.0347
+    - -3296.2197, -3650.7295, 451.13016
+    - -3458.3916, -3779.2913, 451.8921
+    - -3221.2273, -3723.2947, 451.6815
+    - -3349.5103, -3904.0762, 453.8537
+    - -3402.2202, -3991.7825, 460.61172
+    - -3182.4338, -3572.5232, 453.94357
+    - -3286.9167, -3589.8596, 453.24112
+    - -3409.5603, -3445.562, 487.78467
+    - -3316.7354, -3549.4768, 451.70013
+    - -3263.1826, -3284.7615, 452.7206
+    - -3169.622, -3397.9097, 460.37
+    - -3166.51, -3159.1428, 452.17816
+    - -2990.78, -3257.2769, 448.77844
+    - -3037.7302, -3011.3098, 451.95618
+    - -2921.157, -3126.8213, 450.96133
+    - -3007.794, -2966.4817, 451.95618
+    - -2891.4944, -3085.7236, 450.9614
+    - -3073.6812, -3052.5796, 452.01816
+    - -3075.3047, -2965.6497, 450.96133
+    - -3131.5989, -2998.685, 455.8198
+    - -3224.7563, -3498.081, 456.43048
+    - -3486.201, -4246.122, 467.94983
+    - -3679.7397, -4044.206, 466.52322
+    - -3627.9387, -3968.9895, 466.52335
+    - -3449.0278, -4211.5806, 467.9499
+    - -3333.2417, -4108.869, 467.94977
+    - -3674.083, -3915.704, 464.0745
+    - -3664.853, -3669.4927, 461.33643
+    - -3799.8142, -3792.444, 467.94992
+    - -3861.1045, -3872.0588, 467.9498
+    - -3501.5156, -3823.2346, 450.04852
+    - -3242.3416, -4207.5186, 525.87213
+    - -3377.3154, -4309.6987, 536.4939
+    - -3539.8074, -3775.981, 449.33035
+    - -3179.2964, -4287.105, 564.4474
+    - -3299.0713, -4419.676, 558.91534
+    - -3222.337, -4334.7437, 562.4595
+    - -3196.742, -4360.5527, 538.9153
+    - -3277.8916, -4449.1963, 538.9153
+    - -2772.3176, -4593.561, 538.9153
+    - -2947.8345, -4764.5244, 538.9154
+    - -2859.051, -4545.9443, 538.9153
+    - -3042.177, -4205.8477, 538.9154
+    - -2771.1272, -4393.182, 538.9154
+    - -2852.0618, -4337.2446, 538.9154
+    - -2902.1829, -4252.1816, 538.9153
+    - -3195.3774, -4528.0283, 538.9153
+    - -2399.736, -2097.2556, 298.13666
+    - -2552.1724, -1928.4552, 301.99115
+    - -2638.2913, -2094.6697, 299.34973
+    - -2399.1228, -1933.4655, 304.35272
+    - -2123.6907, -2334.1128, 299.42197
+    - -1855.758, -2337.1191, 298.96136
+    - -1946.7583, -2477.2263, 297.87927
+    - -2005.254, -2429.9114, 298.3893
+    - -2145.981, -2588.0337, 314.14557
+    - -1632.3466, -1882.7402, 498.59253
+    - -2076.4075, -1779.5713, 363.5816
+    - -1973.878, -1541.2618, 503.20276
+    - -1598.7079, -1346.6558, 688.0008
+    - -1467.4583, -1130.6182, 692.05347
+    - -1638.759, -1288.3844, 702.9896
+    - -1411.0624, -1489.4673, 688.6587
+    - -1238.8488, -1448.771, 691.2229
+    - -1356.904, -1579.3623, 690.2545
+    - -1310.9812, -1066.7566, 700.28613
+    - -1765.2837, -1496.2367, 590.4963
+    - -1831.9147, -1554.6812, 541.9662
+    - -1648.8733, -1738.1211, 541.3799
+    - -2676.9673, -2459.8445, 315.2874
+    - -2800.876, -2596.194, 366.40845
+    - -2634.0027, -2804.2385, 378.14203
+    - -2579.7656, -2749.5095, 338.61047
+    - -1772.3655, -2001.6819, 398.8196
+    - -1702.356, -1942.211, 448.7061
+    - -1553.1086, -1209.5012, 697.52155
+    Triangles:
+    - Vertices: 0, 1, 2
+      EdgeLink_0_1: 1
+      EdgeLink_1_2: 46
+      EdgeLink_2_0: 21
+      Flags:
+      - Found
+    - Vertices: 3, 1, 0
+      EdgeLink_0_1: -1
+      EdgeLink_2_0: 2
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 0, 4, 3
+      EdgeLink_0_1: 3
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 1
+      Flags:
+      - Found
+      CoverFlags: 17216
+      IsCover: True
+    - Vertices: 5, 4, 0
+      EdgeLink_0_1: 4
+      EdgeLink_1_2: 2
+      EdgeLink_2_0: 20
+      Flags:
+      - Found
+    - Vertices: 6, 4, 5
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 3
+      EdgeLink_2_0: 5
+      Flags:
+      - Found
+      CoverFlags: 16388
+      IsCover: True
+    - Vertices: 7, 6, 5
+      EdgeLink_0_1: 6
+      EdgeLink_1_2: 4
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 8, 6, 7
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 5
+      EdgeLink_2_0: 7
+      Flags:
+      - Found
+    - Vertices: 9, 8, 7
+      EdgeLink_0_1: 8
+      EdgeLink_1_2: 6
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 10, 8, 9
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 7
+      EdgeLink_2_0: 9
+      Flags:
+      - Found
+      CoverFlags: 16390
+      IsCover: True
+    - Vertices: 9, 11, 10
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 10
+      EdgeLink_2_0: 8
+      Flags:
+      - Found
+    - Vertices: 10, 11, 12
+      EdgeLink_0_1: 9
+      EdgeLink_1_2: 11
+      EdgeLink_2_0: 116
+      Flags:
+      - Found
+    - Vertices: 12, 11, 13
+      EdgeLink_0_1: 10
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 12
+      Flags:
+      - Found
+    - Vertices: 14, 12, 13
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 11
+      EdgeLink_2_0: 13
+      Flags:
+      - Found
+      CoverFlags: 16415
+      IsCover: True
+    - Vertices: 13, 15, 14
+      EdgeLink_0_1: 14
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 12
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 13, 16, 15
+      EdgeLink_0_1: 15
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 13
+      Flags:
+      - Found
+      CoverFlags: 19392
+      IsCover: True
+    - Vertices: 13, 17, 16
+      EdgeLink_0_1: 16
+      EdgeLink_1_2: 59
+      EdgeLink_2_0: 14
+      Flags:
+      - Found
+    - Vertices: 17, 13, 18
+      EdgeLink_0_1: 15
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 17
+      Flags:
+      - Found
+    - Vertices: 18, 19, 17
+      EdgeLink_0_1: 18
+      EdgeLink_1_2: 52
+      EdgeLink_2_0: 16
+      Flags:
+      - Found
+    - Vertices: 18, 20, 19
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 19
+      EdgeLink_2_0: 17
+      Flags:
+      - Found
+    - Vertices: 19, 20, 0
+      EdgeLink_0_1: 18
+      EdgeLink_1_2: 20
+      EdgeLink_2_0: 21
+      Flags:
+      - Found
+    - Vertices: 20, 5, 0
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 3
+      EdgeLink_2_0: 19
+      Flags:
+      - Found
+    - Vertices: 2, 19, 0
+      EdgeLink_0_1: 22
+      EdgeLink_1_2: 19
+      Flags:
+      - Found
+    - Vertices: 19, 2, 21
+      EdgeLink_0_1: 21
+      EdgeLink_1_2: 23
+      EdgeLink_2_0: 51
+      Flags:
+      - Found
+    - Vertices: 22, 21, 2
+      EdgeLink_0_1: 24
+      EdgeLink_1_2: 22
+      EdgeLink_2_0: 45
+      Flags:
+      - Found
+    - Vertices: 21, 22, 23
+      EdgeLink_0_1: 23
+      EdgeLink_1_2: 25
+      EdgeLink_2_0: 48
+      Flags:
+      - Found
+    - Vertices: 22, 24, 23
+      EdgeLink_0_1: 26
+      EdgeLink_1_2: 47
+      EdgeLink_2_0: 24
+      Flags:
+      - Found
+    - Vertices: 25, 24, 22
+      EdgeLink_0_1: 27
+      EdgeLink_1_2: 25
+      EdgeLink_2_0: 44
+      Flags:
+      - Found
+    - Vertices: 24, 25, 26
+      EdgeLink_0_1: 26
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 28
+      Flags:
+      - Found
+    - Vertices: 26, 27, 24
+      EdgeLink_0_1: 29
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 27
+      Flags:
+      - Found
+    - Vertices: 28, 27, 26
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 28
+      EdgeLink_2_0: 30
+      Flags:
+      - Found
+      CoverFlags: 16390
+      IsCover: True
+    - Vertices: 26, 29, 28
+      EdgeLink_0_1: 31
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 29
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 26, 30, 29
+      EdgeLink_0_1: 32
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 30
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 26, 31, 30
+      EdgeLink_0_1: 33
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 31
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 31, 26, 32
+      EdgeLink_0_1: 32
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 34
+      Flags:
+      - Found
+    - Vertices: 32, 33, 31
+      EdgeLink_0_1: 35
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 33
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 33, 32, 34
+      EdgeLink_0_1: 34
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 36
+      Flags:
+      - Found
+      CoverFlags: 17152
+      IsCover: True
+    - Vertices: 34, 35, 33
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 37
+      EdgeLink_2_0: 35
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 35, 36, 33
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 38
+      EdgeLink_2_0: 36
+      Flags:
+      - Found
+      CoverFlags: 16394
+      IsCover: True
+    - Vertices: 36, 37, 33
+      EdgeLink_0_1: 39
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 37
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 36, 38, 37
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 40
+      EdgeLink_2_0: 38
+      Flags:
+      - Found
+    - Vertices: 38, 39, 37
+      EdgeLink_0_1: 41
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 39
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 38, 40, 39
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 42
+      EdgeLink_2_0: 40
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 40, 41, 39
+      EdgeLink_0_1: 43
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 41
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 40, 42, 41
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 161
+      EdgeLink_2_0: 42
+      Flags:
+      - Found
+      CoverFlags: 17359
+      IsCover: True
+    - Vertices: 22, 43, 25
+      EdgeLink_0_1: 45
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 26
+      Flags:
+      - Found
+    - Vertices: 22, 2, 43
+      EdgeLink_0_1: 23
+      EdgeLink_1_2: 46
+      EdgeLink_2_0: 44
+      Flags:
+      - Found
+    - Vertices: 2, 1, 43
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 45
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 24, 44, 23
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 25
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 45, 21, 23
+      EdgeLink_0_1: 49
+      EdgeLink_1_2: 24
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 46, 21, 45
+      EdgeLink_0_1: 50
+      EdgeLink_1_2: 48
+      EdgeLink_2_0: 134
+      Flags:
+      - Found
+    - Vertices: 47, 21, 46
+      EdgeLink_0_1: 51
+      EdgeLink_1_2: 49
+      EdgeLink_2_0: 131
+      Flags:
+      - Found
+    - Vertices: 21, 47, 19
+      EdgeLink_0_1: 50
+      EdgeLink_1_2: 52
+      EdgeLink_2_0: 22
+      Flags:
+      - Found
+    - Vertices: 17, 19, 47
+      EdgeLink_0_1: 17
+      EdgeLink_1_2: 51
+      EdgeLink_2_0: 53
+      Flags:
+      - Found
+    - Vertices: 48, 17, 47
+      EdgeLink_0_1: 54
+      EdgeLink_1_2: 52
+      EdgeLink_2_0: 130
+      Flags:
+      - Found
+    - Vertices: 17, 48, 49
+      EdgeLink_0_1: 53
+      EdgeLink_1_2: 55
+      EdgeLink_2_0: 59
+      Flags:
+      - Found
+    - Vertices: 50, 49, 48
+      EdgeLink_0_1: 56
+      EdgeLink_1_2: 54
+      EdgeLink_2_0: 125
+      Flags:
+      - Found
+    - Vertices: 49, 50, 51
+      EdgeLink_0_1: 55
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 57
+      Flags:
+      - Found
+    - Vertices: 52, 49, 51
+      EdgeLink_0_1: 58
+      EdgeLink_1_2: 56
+      EdgeLink_2_0: 67
+      Flags:
+      - Found
+    - Vertices: 16, 49, 52
+      EdgeLink_0_1: 59
+      EdgeLink_1_2: 57
+      EdgeLink_2_0: 60
+      Flags:
+      - Found
+    - Vertices: 17, 49, 16
+      EdgeLink_0_1: 54
+      EdgeLink_1_2: 58
+      EdgeLink_2_0: 15
+      Flags:
+      - Found
+    - Vertices: 53, 16, 52
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 58
+      EdgeLink_2_0: 61
+      Flags:
+      - Found
+      CoverFlags: 16415
+      IsCover: True
+    - Vertices: 52, 54, 53
+      EdgeLink_0_1: 62
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 60
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 52, 55, 54
+      EdgeLink_0_1: 63
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 61
+      Flags:
+      - Found
+      CoverFlags: 19392
+      IsCover: True
+    - Vertices: 52, 56, 55
+      EdgeLink_0_1: 64
+      EdgeLink_1_2: 78
+      EdgeLink_2_0: 62
+      Flags:
+      - Found
+    - Vertices: 56, 52, 57
+      EdgeLink_0_1: 63
+      EdgeLink_1_2: 65
+      EdgeLink_2_0: 72
+      Flags:
+      - Found
+    - Vertices: 57, 52, 58
+      EdgeLink_0_1: 64
+      EdgeLink_1_2: 66
+      EdgeLink_2_0: 68
+      Flags:
+      - Found
+    - Vertices: 59, 58, 52
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 65
+      EdgeLink_2_0: 67
+      Flags:
+      - Found
+      CoverFlags: 16389
+      IsCover: True
+    - Vertices: 52, 51, 59
+      EdgeLink_0_1: 57
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 66
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 57, 58, 60
+      EdgeLink_0_1: 65
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 69
+      Flags:
+      - Found
+      CoverFlags: 16640
+      IsCover: True
+    - Vertices: 61, 57, 60
+      EdgeLink_0_1: 70
+      EdgeLink_1_2: 68
+      EdgeLink_2_0: 79
+      Flags:
+      - Found
+    - Vertices: 57, 61, 62
+      EdgeLink_0_1: 69
+      EdgeLink_1_2: 150
+      EdgeLink_2_0: 72
+      Flags:
+      - Found
+    - Vertices: 133, 134, 131
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 137
+      Flags:
+      - Found
+    - Vertices: 57, 62, 56
+      EdgeLink_0_1: 70
+      EdgeLink_1_2: 73
+      EdgeLink_2_0: 64
+      Flags:
+      - Found
+    - Vertices: 56, 62, 64
+      EdgeLink_0_1: 72
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 74
+      Flags:
+      - Found
+      CoverFlags: 19392
+      IsCover: True
+    - Vertices: 64, 65, 56
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 75
+      EdgeLink_2_0: 73
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 56, 65, 66
+      EdgeLink_0_1: 74
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 76
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 56, 66, 67
+      EdgeLink_0_1: 75
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 77
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 56, 67, 68
+      EdgeLink_0_1: 76
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 78
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 68, 55, 56
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 63
+      EdgeLink_2_0: 77
+      Flags:
+      - Found
+      CoverFlags: 16415
+      IsCover: True
+    - Vertices: 61, 60, 69
+      EdgeLink_0_1: 69
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 80
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 69, 70, 61
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 81
+      EdgeLink_2_0: 79
+      Flags:
+      - Found
+      CoverFlags: 16388
+      IsCover: True
+    - Vertices: 61, 70, 71
+      EdgeLink_0_1: 80
+      EdgeLink_1_2: 82
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 72, 71, 70
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 81
+      EdgeLink_2_0: 83
+      Flags:
+      - Found
+    - Vertices: 70, 73, 72
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 84
+      EdgeLink_2_0: 82
+      Flags:
+      - Found
+    - Vertices: 74, 72, 73
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 83
+      EdgeLink_2_0: 85
+      Flags:
+      - Found
+      CoverFlags: 16404
+      IsCover: True
+    - Vertices: 73, 75, 74
+      EdgeLink_0_1: 86
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 84
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 76, 75, 73
+      EdgeLink_0_1: 87
+      EdgeLink_1_2: 85
+      EdgeLink_2_0: 117
+      Flags:
+      - Found
+    - Vertices: 75, 76, 77
+      EdgeLink_0_1: 86
+      EdgeLink_1_2: 88
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 77, 76, 78
+      EdgeLink_0_1: 87
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 89
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 78, 79, 77
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 90
+      EdgeLink_2_0: 88
+      Flags:
+      - Found
+      CoverFlags: 16388
+      IsCover: True
+    - Vertices: 79, 80, 77
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 91
+      EdgeLink_2_0: 89
+      Flags:
+      - Found
+    - Vertices: 77, 80, 81
+      EdgeLink_0_1: 90
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 92
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 81, 82, 77
+      EdgeLink_0_1: 93
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 91
+      Flags:
+      - Found
+    - Vertices: 82, 81, 83
+      EdgeLink_0_1: 92
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 94
+      Flags:
+      - Found
+      CoverFlags: 16896
+      IsCover: True
+    - Vertices: 83, 84, 82
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 95
+      EdgeLink_2_0: 93
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 84, 85, 82
+      EdgeLink_0_1: 96
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 94
+      Flags:
+      - Found
+    - Vertices: 85, 84, 86
+      EdgeLink_0_1: 95
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 97
+      Flags:
+      - Found
+    - Vertices: 86, 87, 85
+      EdgeLink_0_1: 98
+      EdgeLink_1_2: 100
+      EdgeLink_2_0: 96
+      Flags:
+      - Found
+    - Vertices: 88, 87, 86
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 97
+      EdgeLink_2_0: 99
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 86, 89, 88
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 98
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 87, 90, 85
+      EdgeLink_0_1: 101
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 97
+      Flags:
+      - Found
+    - Vertices: 90, 87, 91
+      EdgeLink_0_1: 100
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 102
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 91, 92, 90
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 103
+      EdgeLink_2_0: 101
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 93, 90, 92
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 102
+      EdgeLink_2_0: 104
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 92, 94, 93
+      EdgeLink_0_1: 105
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 103
+      Flags:
+      - Found
+      CoverFlags: 16512
+      IsCover: True
+    - Vertices: 92, 95, 94
+      EdgeLink_0_1: 106
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 104
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 92, 96, 95
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 107
+      EdgeLink_2_0: 105
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 95, 96, 97
+      EdgeLink_0_1: 106
+      EdgeLink_1_2: 108
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 96, 98, 97
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 109
+      EdgeLink_2_0: 107
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 97, 98, 99
+      EdgeLink_0_1: 108
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 110
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 99, 100, 97
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 111
+      EdgeLink_2_0: 109
+      Flags:
+      - Found
+      CoverFlags: 16397
+      IsCover: True
+    - Vertices: 97, 100, 101
+      EdgeLink_0_1: 110
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 112
+      Flags:
+      - Found
+    - Vertices: 102, 97, 101
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 111
+      EdgeLink_2_0: 113
+      Flags:
+      - Found
+      CoverFlags: 16407
+      IsCover: True
+    - Vertices: 101, 103, 102
+      EdgeLink_0_1: 114
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 112
+      Flags:
+      - Found
+      CoverFlags: 16896
+      IsCover: True
+    - Vertices: 103, 101, 104
+      EdgeLink_0_1: 113
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 115
+      Flags:
+      - Found
+      CoverFlags: 17280
+      IsCover: True
+    - Vertices: 104, 12, 103
+      EdgeLink_0_1: 116
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 114
+      Flags:
+      - Found
+      CoverFlags: 19200
+      IsCover: True
+    - Vertices: 12, 104, 10
+      EdgeLink_0_1: 115
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 10
+      Flags:
+      - Found
+      CoverFlags: 17216
+      IsCover: True
+    - Vertices: 73, 105, 76
+      EdgeLink_0_1: 118
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 86
+      Flags:
+      - Found
+      CoverFlags: 16640
+      IsCover: True
+    - Vertices: 105, 73, 106
+      EdgeLink_0_1: 117
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 119
+      Flags:
+      - Found
+    - Vertices: 106, 107, 105
+      EdgeLink_0_1: 120
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 118
+      Flags:
+      - Found
+    - Vertices: 108, 107, 106
+      EdgeLink_0_1: 121
+      EdgeLink_1_2: 119
+      EdgeLink_2_0: 129
+      Flags:
+      - Found
+    - Vertices: 107, 108, 109
+      EdgeLink_0_1: 120
+      EdgeLink_1_2: 122
+      EdgeLink_2_0: 149
+      Flags:
+      - Found
+    - Vertices: 110, 109, 108
+      EdgeLink_0_1: 123
+      EdgeLink_1_2: 121
+      EdgeLink_2_0: 128
+      Flags:
+      - Found
+    - Vertices: 110, 111, 109
+      EdgeLink_0_1: 124
+      EdgeLink_1_2: 148
+      EdgeLink_2_0: 122
+      Flags:
+      - Found
+    - Vertices: 110, 48, 111
+      EdgeLink_0_1: 125
+      EdgeLink_1_2: 130
+      EdgeLink_2_0: 123
+      Flags:
+      - Found
+    - Vertices: 48, 110, 50
+      EdgeLink_0_1: 124
+      EdgeLink_1_2: 126
+      EdgeLink_2_0: 55
+      Flags:
+      - Found
+    - Vertices: 112, 50, 110
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 125
+      EdgeLink_2_0: 127
+      Flags:
+      - Found
+      CoverFlags: 16390
+      IsCover: True
+    - Vertices: 110, 113, 112
+      EdgeLink_0_1: 128
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 126
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 110, 108, 113
+      EdgeLink_0_1: 122
+      EdgeLink_1_2: 129
+      EdgeLink_2_0: 127
+      Flags:
+      - Found
+    - Vertices: 106, 113, 108
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 128
+      EdgeLink_2_0: 120
+      Flags:
+      - Found
+    - Vertices: 111, 48, 47
+      EdgeLink_0_1: 124
+      EdgeLink_1_2: 53
+      EdgeLink_2_0: 131
+      Flags:
+      - Found
+    - Vertices: 46, 111, 47
+      EdgeLink_0_1: 132
+      EdgeLink_1_2: 130
+      EdgeLink_2_0: 50
+      Flags:
+      - Found
+    - Vertices: 111, 46, 114
+      EdgeLink_0_1: 131
+      EdgeLink_1_2: 133
+      EdgeLink_2_0: 148
+      Flags:
+      - Found
+    - Vertices: 137, 114, 46
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 132
+      EdgeLink_2_0: 151
+      Flags:
+      - Found
+    - Vertices: 115, 46, 45
+      EdgeLink_0_1: 151
+      EdgeLink_1_2: 49
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 126, 116, 114
+      EdgeLink_0_1: 159
+      EdgeLink_1_2: 136
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 116, 117, 114
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 147
+      EdgeLink_2_0: 135
+      Flags:
+      - Found
+    - Vertices: 131, 132, 133
+      EdgeLink_0_1: 156
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 71
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 135, 118, 119
+      EdgeLink_0_1: 158
+      EdgeLink_1_2: 139
+      EdgeLink_2_0: 157
+      Flags:
+      - Found
+    - Vertices: 118, 120, 119
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 140
+      EdgeLink_2_0: 138
+      Flags:
+      - Found
+    - Vertices: 119, 120, 121
+      EdgeLink_0_1: 139
+      EdgeLink_1_2: 141
+      EdgeLink_2_0: 145
+      Flags:
+      - Found
+    - Vertices: 122, 121, 120
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 140
+      EdgeLink_2_0: 142
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 120, 123, 122
+      EdgeLink_0_1: 143
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 141
+      Flags:
+      - Found
+      CoverFlags: 16896
+      IsCover: True
+    - Vertices: 123, 120, 124
+      EdgeLink_0_1: 142
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 144
+      Flags:
+      - Found
+    - Vertices: 124, 125, 123
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 143
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 109, 119, 121
+      EdgeLink_0_1: 146
+      EdgeLink_1_2: 140
+      EdgeLink_2_0: 149
+      Flags:
+      - Found
+    - Vertices: 119, 109, 117
+      EdgeLink_0_1: 145
+      EdgeLink_1_2: 147
+      EdgeLink_2_0: 157
+      Flags:
+      - Found
+    - Vertices: 109, 114, 117
+      EdgeLink_0_1: 148
+      EdgeLink_1_2: 136
+      EdgeLink_2_0: 146
+      Flags:
+      - Found
+    - Vertices: 114, 109, 111
+      EdgeLink_0_1: 147
+      EdgeLink_1_2: 123
+      EdgeLink_2_0: 132
+      Flags:
+      - Found
+    - Vertices: 121, 107, 109
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 121
+      EdgeLink_2_0: 145
+      Flags:
+      - Found
+    - Vertices: 61, 63, 62
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 70
+      Flags:
+      - Found
+      CoverFlags: 18368
+      IsCover: True
+    - Vertices: 46, 115, 137
+      EdgeLink_0_1: 134
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 133
+      Flags:
+      - Found
+    - Vertices: 126, 128, 127
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 153
+      EdgeLink_2_0: 159
+      Flags:
+      - Found
+    - Vertices: 127, 128, 129
+      EdgeLink_0_1: 152
+      EdgeLink_1_2: 154
+      EdgeLink_2_0: 155
+      Flags:
+      - Found
+    - Vertices: 128, 130, 129
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 153
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 127, 129, 131
+      EdgeLink_0_1: 153
+      EdgeLink_1_2: 156
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 129, 132, 131
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 137
+      EdgeLink_2_0: 155
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 119, 117, 135
+      EdgeLink_0_1: 146
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 138
+      Flags:
+      - Found
+    - Vertices: 135, 136, 118
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 138
+      Flags:
+      - Found
+    - Vertices: 126, 127, 116
+      EdgeLink_0_1: 152
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 135
+      Flags:
+      - Found
+      CoverFlags: 18816
+      IsCover: True
+    - Vertices: 228, 138, 41
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 258
+      EdgeLink_2_0: 161
+      Flags:
+      - Found
+      CoverFlags: 16415
+      IsCover: True
+    - Vertices: 41, 42, 228
+      EdgeLink_0_1: 43
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 160
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 222, 140, 139
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 163
+      EdgeLink_2_0: 252
+      Flags:
+      - Found
+    - Vertices: 225, 139, 140
+      EdgeLink_0_1: 268
+      EdgeLink_1_2: 162
+      EdgeLink_2_0: 255
+      Flags:
+      - Found
+    - Vertices: 230, 142, 141
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 260
+      EdgeLink_2_0: 165
+      Flags:
+      - Found
+      CoverFlags: 16405
+      IsCover: True
+    - Vertices: 141, 229, 230
+      EdgeLink_0_1: 259
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 164
+      Flags:
+      - Found
+      CoverFlags: 16896
+      IsCover: True
+    - Vertices: 220, 144, 143
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 167
+      EdgeLink_2_0: 250
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 143, 144, 145
+      EdgeLink_0_1: 166
+      EdgeLink_1_2: 238
+      EdgeLink_2_0: 266
+      Flags:
+      - Found
+    - Vertices: 210, 146, 145
+      EdgeLink_0_1: 239
+      EdgeLink_1_2: 169
+      EdgeLink_2_0: 238
+      Flags:
+      - Found
+    - Vertices: 214, 145, 146
+      EdgeLink_0_1: 244
+      EdgeLink_1_2: 168
+      EdgeLink_2_0: 243
+      Flags:
+      - Found
+    - Vertices: 146, 148, 147
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 171
+      EdgeLink_2_0: 243
+      Flags:
+      - Found
+    - Vertices: 147, 148, 149
+      EdgeLink_0_1: 170
+      EdgeLink_1_2: 173
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 232, 150, 149
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 262
+      EdgeLink_2_0: 173
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 149, 148, 232
+      EdgeLink_0_1: 171
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 172
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 233, 152, 151
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 263
+      EdgeLink_2_0: 175
+      Flags:
+      - Found
+      CoverFlags: 16394
+      IsCover: True
+    - Vertices: 151, 150, 233
+      EdgeLink_0_1: 262
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 174
+      Flags:
+      - Found
+      CoverFlags: 17216
+      IsCover: True
+    - Vertices: 152, 154, 153
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 177
+      EdgeLink_2_0: 264
+      Flags:
+      - Found
+      CoverFlags: 16389
+      IsCover: True
+    - Vertices: 153, 154, 155
+      EdgeLink_0_1: 176
+      EdgeLink_1_2: 178
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 154, 156, 155
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 179
+      EdgeLink_2_0: 177
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 155, 156, 157
+      EdgeLink_0_1: 178
+      EdgeLink_1_2: 234
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 168, 183, 169
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 188
+      EdgeLink_2_0: 214
+      Flags:
+      - Found
+    - Vertices: 176, 175, 177
+      EdgeLink_0_1: 184
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 182
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 177, 178, 176
+      EdgeLink_0_1: 189
+      EdgeLink_1_2: 237
+      EdgeLink_2_0: 181
+      Flags:
+      - Found
+      CoverFlags: 18368
+      IsCover: True
+    - Vertices: 164, 166, 165
+      EdgeLink_0_1: 209
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 207
+      Flags:
+      - Found
+      CoverFlags: 16768
+      IsCover: True
+    - Vertices: 175, 176, 180
+      EdgeLink_0_1: 181
+      EdgeLink_1_2: 185
+      EdgeLink_2_0: 215
+      Flags:
+      - Found
+    - Vertices: 180, 176, 181
+      EdgeLink_0_1: 184
+      EdgeLink_1_2: 237
+      EdgeLink_2_0: 186
+      Flags:
+      - Found
+      CoverFlags: 19392
+      IsCover: True
+    - Vertices: 181, 182, 180
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 185
+      Flags:
+      - Found
+      CoverFlags: 18383
+      IsCover: True
+    - Vertices: 183, 173, 171
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 219
+      EdgeLink_2_0: 188
+      Flags:
+      - Found
+      CoverFlags: 16431
+      IsCover: True
+    - Vertices: 171, 169, 183
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 180
+      EdgeLink_2_0: 187
+      Flags:
+      - Found
+    - Vertices: 177, 179, 178
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 265
+      EdgeLink_2_0: 182
+      Flags:
+      - Found
+      CoverFlags: 17359
+      IsCover: True
+    - Vertices: 186, 184, 187
+      EdgeLink_0_1: 208
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 191
+      Flags:
+      - Found
+    - Vertices: 187, 188, 186
+      EdgeLink_0_1: 193
+      EdgeLink_1_2: 210
+      EdgeLink_2_0: 190
+      Flags:
+      - Found
+    - Vertices: 167, 193, 186
+      EdgeLink_0_1: 212
+      EdgeLink_1_2: 195
+      EdgeLink_2_0: 210
+      Flags:
+      - Found
+    - Vertices: 187, 194, 188
+      EdgeLink_0_1: 194
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 191
+      Flags:
+      - Found
+    - Vertices: 194, 187, 195
+      EdgeLink_0_1: 193
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 221
+      Flags:
+      - Found
+      CoverFlags: 18560
+      IsCover: True
+    - Vertices: 186, 193, 196
+      EdgeLink_0_1: 192
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 196
+      Flags:
+      - Found
+    - Vertices: 196, 189, 186
+      EdgeLink_0_1: 197
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 195
+      Flags:
+      - Found
+    - Vertices: 189, 196, 190
+      EdgeLink_0_1: 196
+      EdgeLink_1_2: 201
+      EdgeLink_2_0: 198
+      Flags:
+      - Found
+    - Vertices: 190, 191, 189
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 199
+      EdgeLink_2_0: 197
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 189, 191, 192
+      EdgeLink_0_1: 198
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 200
+      Flags:
+      - Found
+    - Vertices: 192, 158, 189
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 199
+      Flags:
+      - Found
+      CoverFlags: 16386
+      IsCover: True
+    - Vertices: 196, 159, 190
+      EdgeLink_0_1: 202
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 197
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 159, 196, 160
+      EdgeLink_0_1: 201
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 203
+      Flags:
+      - Found
+    - Vertices: 160, 161, 159
+      EdgeLink_0_1: 204
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 202
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 161, 160, 162
+      EdgeLink_0_1: 203
+      EdgeLink_1_2: 205
+      EdgeLink_2_0: 216
+      Flags:
+      - Found
+    - Vertices: 160, 163, 162
+      EdgeLink_0_1: 206
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 204
+      Flags:
+      - Found
+    - Vertices: 163, 160, 164
+      EdgeLink_0_1: 205
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 207
+      Flags:
+      - Found
+    - Vertices: 164, 165, 163
+      EdgeLink_0_1: 183
+      EdgeLink_1_2: 213
+      EdgeLink_2_0: 206
+      Flags:
+      - Found
+    - Vertices: 186, 185, 184
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 190
+      Flags:
+      - Found
+      CoverFlags: 16512
+      IsCover: True
+    - Vertices: 164, 193, 166
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 212
+      EdgeLink_2_0: 183
+      Flags:
+      - Found
+    - Vertices: 186, 188, 167
+      EdgeLink_0_1: 191
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 192
+      Flags:
+      - Found
+    - Vertices: 174, 173, 175
+      EdgeLink_0_1: 220
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 215
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 166, 193, 167
+      EdgeLink_0_1: 209
+      EdgeLink_1_2: 192
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 163, 165, 168
+      EdgeLink_0_1: 207
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 214
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 168, 169, 163
+      EdgeLink_0_1: 180
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 213
+      Flags:
+      - Found
+    - Vertices: 180, 174, 175
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 211
+      EdgeLink_2_0: 184
+      Flags:
+      - Found
+      CoverFlags: 16431
+      IsCover: True
+    - Vertices: 162, 170, 161
+      EdgeLink_0_1: 217
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 204
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 170, 162, 171
+      EdgeLink_0_1: 216
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 218
+      Flags:
+      - Found
+    - Vertices: 171, 172, 170
+      EdgeLink_0_1: 219
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 217
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 172, 171, 173
+      EdgeLink_0_1: 218
+      EdgeLink_1_2: 187
+      EdgeLink_2_0: 220
+      Flags:
+      - Found
+    - Vertices: 173, 174, 172
+      EdgeLink_0_1: 211
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 219
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 195, 197, 194
+      EdgeLink_0_1: 222
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 194
+      Flags:
+      - Found
+    - Vertices: 199, 197, 195
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 221
+      EdgeLink_2_0: 223
+      Flags:
+      - Found
+      CoverFlags: 16421
+      IsCover: True
+    - Vertices: 195, 198, 199
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 224
+      EdgeLink_2_0: 222
+      Flags:
+      - Found
+      CoverFlags: 16386
+      IsCover: True
+    - Vertices: 199, 198, 200
+      EdgeLink_0_1: 223
+      EdgeLink_1_2: 225
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 198, 201, 200
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 226
+      EdgeLink_2_0: 224
+      Flags:
+      - Found
+    - Vertices: 204, 200, 201
+      EdgeLink_0_1: 229
+      EdgeLink_1_2: 225
+      EdgeLink_2_0: 228
+      Flags:
+      - Found
+    - Vertices: 209, 203, 202
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 233
+      Flags:
+      - Found
+      CoverFlags: 17096
+      IsCover: True
+    - Vertices: 201, 202, 204
+      EdgeLink_0_1: 233
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 226
+      Flags:
+      - Found
+    - Vertices: 204, 205, 200
+      EdgeLink_0_1: 230
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 226
+      Flags:
+      - Found
+      CoverFlags: 17856
+      IsCover: True
+    - Vertices: 207, 205, 204
+      EdgeLink_0_1: 232
+      EdgeLink_1_2: 229
+      EdgeLink_2_0: 231
+      Flags:
+      - Found
+    - Vertices: 204, 206, 207
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 230
+      Flags:
+      - Found
+      CoverFlags: 16896
+      IsCover: True
+    - Vertices: 207, 208, 205
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 230
+      Flags:
+      - Found
+      CoverFlags: 17354
+      IsCover: True
+    - Vertices: 202, 201, 209
+      EdgeLink_0_1: 228
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 227
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 156, 178, 157
+      EdgeLink_0_1: 236
+      EdgeLink_1_2: 265
+      EdgeLink_2_0: 179
+      Flags:
+      - Found
+    - Vertices: 152, 234, 235
+      EdgeLink_0_1: 264
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 263
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 178, 156, 181
+      EdgeLink_0_1: 234
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 237
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 181, 176, 178
+      EdgeLink_0_1: 185
+      EdgeLink_1_2: 182
+      EdgeLink_2_0: 236
+      Flags:
+      - Found
+    - Vertices: 145, 144, 210
+      EdgeLink_0_1: 167
+      EdgeLink_1_2: 242
+      EdgeLink_2_0: 168
+      Flags:
+      - Found
+    - Vertices: 146, 210, 211
+      EdgeLink_0_1: 168
+      EdgeLink_1_2: 241
+      EdgeLink_2_0: 240
+      Flags:
+      - Found
+    - Vertices: 211, 212, 146
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 239
+      Flags:
+      - Found
+      CoverFlags: 16399
+      IsCover: True
+    - Vertices: 211, 210, 213
+      EdgeLink_0_1: 239
+      EdgeLink_1_2: 242
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 210, 144, 213
+      EdgeLink_0_1: 238
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 241
+      Flags:
+      - Found
+    - Vertices: 146, 147, 214
+      EdgeLink_0_1: 170
+      EdgeLink_1_2: 248
+      EdgeLink_2_0: 169
+      Flags:
+      - Found
+    - Vertices: 145, 214, 215
+      EdgeLink_0_1: 169
+      EdgeLink_1_2: 246
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 217, 216, 215
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 246
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 215, 214, 217
+      EdgeLink_0_1: 244
+      EdgeLink_1_2: 247
+      EdgeLink_2_0: 245
+      Flags:
+      - Found
+    - Vertices: 217, 214, 218
+      EdgeLink_0_1: 246
+      EdgeLink_1_2: 248
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 214, 147, 218
+      EdgeLink_0_1: 243
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 247
+      Flags:
+      - Found
+      CoverFlags: 19072
+      IsCover: True
+    - Vertices: 237, 219, 143
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 267
+      Flags:
+      - Found
+      CoverFlags: 17743
+      IsCover: True
+    - Vertices: 143, 142, 220
+      EdgeLink_0_1: 261
+      EdgeLink_1_2: 251
+      EdgeLink_2_0: 166
+      Flags:
+      - Found
+    - Vertices: 142, 221, 220
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 250
+      Flags:
+      - Found
+      CoverFlags: 17381
+      IsCover: True
+    - Vertices: 139, 138, 222
+      EdgeLink_0_1: 258
+      EdgeLink_1_2: 253
+      EdgeLink_2_0: 162
+      Flags:
+      - Found
+    - Vertices: 138, 223, 222
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 256
+      EdgeLink_2_0: 252
+      Flags:
+      - Found
+      CoverFlags: 16431
+      IsCover: True
+    - Vertices: 238, 224, 222
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 256
+      Flags:
+      - Found
+      CoverFlags: 16388
+      IsCover: True
+    - Vertices: 140, 141, 225
+      EdgeLink_0_1: 259
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 163
+      Flags:
+      - Found
+    - Vertices: 222, 223, 238
+      EdgeLink_0_1: 253
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 254
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 225, 227, 226
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 268
+      Flags:
+      - Found
+    - Vertices: 138, 139, 41
+      EdgeLink_0_1: 252
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 160
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 141, 140, 229
+      EdgeLink_0_1: 255
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 165
+      Flags:
+      - Found
+      CoverFlags: 16960
+      IsCover: True
+    - Vertices: 231, 141, 142
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 164
+      EdgeLink_2_0: 261
+      Flags:
+      - Found
+      CoverFlags: 16394
+      IsCover: True
+    - Vertices: 142, 143, 231
+      EdgeLink_0_1: 250
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 260
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 150, 151, 149
+      EdgeLink_0_1: 175
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 172
+      Flags:
+      - Found
+      CoverFlags: 17024
+      IsCover: True
+    - Vertices: 235, 151, 152
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 174
+      EdgeLink_2_0: 235
+      Flags:
+      - Found
+      CoverFlags: 16392
+      IsCover: True
+    - Vertices: 152, 153, 234
+      EdgeLink_0_1: 176
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 235
+      Flags:
+      - Found
+      CoverFlags: 16704
+      IsCover: True
+    - Vertices: 178, 179, 157
+      EdgeLink_0_1: 189
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 234
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 143, 145, 236
+      EdgeLink_0_1: 167
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 267
+      Flags:
+      - Found
+      CoverFlags: 16384
+    - Vertices: 143, 236, 237
+      EdgeLink_0_1: 266
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 249
+      Flags:
+      - Found
+      CoverFlags: 17088
+      IsCover: True
+    - Vertices: 225, 226, 139
+      EdgeLink_0_1: 257
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 163
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    NavmeshGridDivisor: 7
+    MaxDistanceX: 777.67554
+    MaxDistanceY: 845.93774
+    Min: -3861.1045, -4764.5244, 49.472473
+    Max: 1582.6238, 1157.0397, 707.18524
+    NavmeshGrid: 0x15000000BE00BF00C000C100C200C300C400C800D000D200D400DD00DE00DF00E000E100E200E300E400E500E90008000000E200E300E400E500E600E700E800E90000000000000000000000000000000000000000001D000000B400B700BB00BC00C000C300C400C500C600C700C800C900CA00CB00CC00CD00CE00CF00D100D300D400D500D600D700D800D900DA00DB00DC0007000000B500B600B800BD00D300D7000901000000000000000000000000000000000000000002000000BA00D7001F000000A800A900AA00AB00AC00AD00AE00AF00B000B100B200B300B500B600B800B900BA00BD00D700EA00EB00EC00ED00EF00F000F300F800060107010801090107000000A900F300F400F500F600F700F800000000000000000000000000000000000000000007000000A800A900EE00EF00F000F100F20013000000A300A400A500A600A700A800A900EE00F200F400F900FA00FB00FF000301040105010A010B0108000000A300A400A500FF000101030104010C01000000000000000000000000000000000000000008000000A200A300FC00FD00FE00FF00000103010F00000026002700280029002A002B00A000A100A200A300FC00FD00000102010C010A0000001D001E001F002000210022002300240025002600020000001C001D00000000000000000000000000000000000300000025002600270015000000000001000200030004000500060014001D001E001F0020002100220023002400250026002C002D002E002F00000000000100020003001100120013001400150016001700180019001A001B001C001D001E001F00200021002C002D002E002F003000310032003300340035007B007C008200830084008500860087008800930094009700980099009A009F001B000000470079007A007B008700880089008A008B008C008D008E008F00900091009200930094009500980099009A009B009C009D009E009F000000000000000000000000000000000011000000050006000700080009000A006A006B006C006D006E006F00700071007200730074003800000009000A000B000C000D000E000F001000110012003400350036003700380039003A003B003C003D003E003F004000410042004300440045004600480049004A004B004C004D004E004F0066006700680069006A006B00700071007200730074007A007B007C007D007E007F00800082002B00000045004600480049004A004B004F0050005100520053005400550056005700580059005A005B005C005D005E005F0060006100620063006400650066006700750076007700780079007A007B007F008000810095009600
+  MajorFlags:
+  - 0x40000
+- FormKey: 0A0253:Apocalypse - Magic of Skyrim.esp
+  IsCompressed: True
+  MajorRecordFlagsRaw: 262144
+  SkyrimMajorRecordFlags:
+  - Compressed
+  Data:
+    Parent:
+      MutagenObjectType: CellNavmeshParent
+      Parent: 0A017C:Apocalypse - Magic of Skyrim.esp
+    Vertices:
+    - 1464.9802, 1157.0397, 166.78859
+    - 1487.929, 1392.6456, 167.00385
+    - 1364.9341, 1389.0807, 167.69305
+    - 1369.1561, 1140.667, 161.20297
+    Triangles:
+    - Vertices: 0, 1, 2
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 1
+      Flags:
+      - Found
+      CoverFlags: 17359
+      IsCover: True
+    - Vertices: 0, 2, 3
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    NavmeshGridDivisor: 1
+    MaxDistanceX: 122.99487
+    MaxDistanceY: 251.97864
+    Min: 1364.9341, 1140.667, 161.20297
+    Max: 1487.929, 1392.6456, 167.69305
+    NavmeshGrid: 0x0200000000000100
+  MajorFlags:
+  - 0x40000
+Persistent:
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01D7:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -1050.4979, -978.4472, 584.01526
+    Rotation: 0, -0, 0.8
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01DF:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 592, 976, 54.49388
+    Rotation: 0, -0, 3.3000002
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0230:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 0A022F:Apocalypse - Magic of Skyrim.esp
+  Scale: 9.87
+  Placement:
+    Position: -6324.3936, -6058.8457, -262.60535
+    Rotation: 0, -0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0288:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 1371.1118, 1030.9476, 159.07831
+    Rotation: 0, 0, 3.1415927
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0188:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement: {}
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0189:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 256, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A018A:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -256, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A018B:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 256, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A018C:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 0, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A018D:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 0, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A018E:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -256, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A018F:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 256, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0190:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -256, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0191:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 0, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0192:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 256, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0193:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -256, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0194:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 256, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0195:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 0, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0196:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 0, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0197:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -256, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0198:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 256, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0199:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -256, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A019A:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 768, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A019B:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1024, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A019C:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 512, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A019D:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 1024, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A019E:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 768, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A019F:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 768, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A0:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 512, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A1:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 1024, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A2:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 512, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A3:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -256, -768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A4:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 0, -768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A5:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -512, -768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A6:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 0, -512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A7:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -256, -512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A8:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -256, -1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01A9:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -512, -1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01AA:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 0, -1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01AB:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -512, -512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01AC:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 027D1D:Skyrim.esm
+  Scale: 0.33
+  Placement:
+    Position: -736, 576, 512
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01AD:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 256, -512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01AE:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 027D1F:Skyrim.esm
+  Scale: 0.57
+  Placement:
+    Position: 576, -1312, 64
+    Rotation: 0, -0, 5.683187
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01AF:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 512, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B1:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1024, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B2:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 768, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B3:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 1280, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B4:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1280, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B5:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 1024, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B6:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 768, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B7:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 512, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B8:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 512, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01B9:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1280, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01BA:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1280, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01BB:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 1280, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01BC:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 1280, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01BD:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1024, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01BE:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 056ABE:Skyrim.esm
+  Placement:
+    Position: 224, 1952, 880
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01C0:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 05A08D:Skyrim.esm
+  Scale: 0.61
+  Placement:
+    Position: 2016, -800, 1312
+    Rotation: 0, -0, 5.7072268
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01C4:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1536, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01C5:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 1536, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01C6:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 1536, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01C7:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1536, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01C8:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 1792, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01C9:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 1792, 512, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01CA:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: 1792, 768, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01CB:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: 1792, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01CD:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 06F273:Skyrim.esm
+  Placement:
+    Position: 1920, 864, 800
+    Rotation: 0, 0, 4.712389
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01CE:Apocalypse - Magic of Skyrim.esp
+  Base: 03CDE5:Skyrim.esm
+  Placement:
+    Position: -192, -96, -640
+    Rotation: 0, 0, 3.1415927
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01CF:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 03B824:Skyrim.esm
+  Placement:
+    Position: -1220.2036, -1148.1528, 528
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01D2:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 027D1D:Skyrim.esm
+  Scale: 0.4
+  Placement:
+    Position: -2023.477, -525.8988, 1136
+    Rotation: 0, 0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01D3:Apocalypse - Magic of Skyrim.esp
+  Base: 01CF9F:Skyrim.esm
+  Placement:
+    Position: -1536.9875, -695.6045, 384
+    Rotation: 0, -0, 0.98540115
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01D6:Apocalypse - Magic of Skyrim.esp
+  Base: 025DA8:Skyrim.esm
+  Placement:
+    Position: -439.55768, -1408.3682, 64
+    Rotation: 0, -0, 4.983191
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01D8:Apocalypse - Magic of Skyrim.esp
+  Base: 000032:Skyrim.esm
+  Placement:
+    Position: -914.73346, -815.8126, 487.6184
+    Rotation: 0, -0, 0.7000006
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01D9:Apocalypse - Magic of Skyrim.esp
+  Base: 067168:Skyrim.esm
+  Placement:
+    Position: 832, 672, -92.23216
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01DA:Apocalypse - Magic of Skyrim.esp
+  Base: 067169:Skyrim.esm
+  Placement:
+    Position: 384, -48, -52.47012
+    Rotation: 0, -0, 3.2000003
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01DB:Apocalypse - Magic of Skyrim.esp
+  Base: 069824:Skyrim.esm
+  Placement:
+    Position: -48, 352, -51.701065
+    Rotation: 0, -0, 1.1999999
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01DD:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 042515:Skyrim.esm
+  Scale: 0.99
+  Placement:
+    Position: 608, 1104, 32
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01DE:Apocalypse - Magic of Skyrim.esp
+  Base: 000003:Skyrim.esm
+  Placement:
+    Position: 636, 612, 51
+    Rotation: 0, -0, 5.0977883
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E0:Apocalypse - Magic of Skyrim.esp
+  Base: 0533BA:Skyrim.esm
+  Placement:
+    Position: 272, 1040, 416
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E1:Apocalypse - Magic of Skyrim.esp
+  Base: 0533BA:Skyrim.esm
+  Placement:
+    Position: 544, 1040, 416
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E2:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: 816, 1040, 416
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E3:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 560, 1040, 608
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E4:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 800, 1040, 608
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E5:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 320, 1040, 608
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E6:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 80, 1040, 608
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E7:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: -160, 1040, 608
+    Rotation: 0, -0, 3.1415927
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E8:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: -400, 1040, 608
+    Rotation: 0, -0, 3.1415927
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01E9:Apocalypse - Magic of Skyrim.esp
+  Base: 0533BE:Skyrim.esm
+  Placement:
+    Position: 1216, 1328, 480
+    Rotation: 0, 0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01EA:Apocalypse - Magic of Skyrim.esp
+  Base: 0533BA:Skyrim.esm
+  Placement:
+    Position: 1200, 1328, 288
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01EB:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C1:Skyrim.esm
+  Placement:
+    Position: -128, 768, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01EC:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C1:Skyrim.esm
+  Placement:
+    Position: 640, 768, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01ED:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C1:Skyrim.esm
+  Placement:
+    Position: 128, 768, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01EE:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C1:Skyrim.esm
+  Placement:
+    Position: 384, 768, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01EF:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: -128, 1024, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F0:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: -128, 1280, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F1:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 640, 1280, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F2:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 640, 1024, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F3:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 384, 1024, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F4:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C0:Skyrim.esm
+  Placement:
+    Position: 128, 1024, 1424
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F6:Apocalypse - Magic of Skyrim.esp
+  Base: 0C5861:Skyrim.esm
+  Placement:
+    Position: 928, -672, -96
+    Rotation: 0, 0, 3.1415927
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F8:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 066723:Skyrim.esm
+  Placement:
+    Position: 160, -752, -48
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01F9:Apocalypse - Magic of Skyrim.esp
+  Base: 0B9BAD:Skyrim.esm
+  Scale: 1.15
+  Placement:
+    Position: -1440, -1392, -48
+    Rotation: 0, 0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01FC:Apocalypse - Magic of Skyrim.esp
+  Base: 07776F:Skyrim.esm
+  Placement:
+    Position: 64, -208, 112
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01FD:Apocalypse - Magic of Skyrim.esp
+  Base: 07776F:Skyrim.esm
+  Placement:
+    Position: 672, 32, 112
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01FE:Apocalypse - Magic of Skyrim.esp
+  Base: 07776F:Skyrim.esm
+  Placement:
+    Position: 1344, -48, 128
+- MutagenObjectType: PlacedObject
+  FormKey: 0A01FF:Apocalypse - Magic of Skyrim.esp
+  Base: 10C4D1:Skyrim.esm
+  Placement:
+    Position: 2496, 608, 1776
+    Rotation: 0, -0, 3.1415927
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0200:Apocalypse - Magic of Skyrim.esp
+  Base: 10C4CB:Skyrim.esm
+  Placement:
+    Position: -1072, 960, 1728
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0201:Apocalypse - Magic of Skyrim.esp
+  Base: 10C4C5:Skyrim.esm
+  Placement:
+    Position: -1168, -2352, 1984
+    Rotation: 0, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0206:Apocalypse - Magic of Skyrim.esp
+  Base: 077772:Skyrim.esm
+  Placement:
+    Position: -400, -272, 224
+- MutagenObjectType: PlacedObject
+  FormKey: 0A020C:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 03B824:Skyrim.esm
+  Placement:
+    Position: -2951.2012, -2992.2876, 368
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0210:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -3075.6519, -3116.7383, 400
+    Rotation: 0, 0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0211:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -2894.6326, -3297.7576, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0212:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -3256.6714, -2935.7188, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0213:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -3256.6714, -3297.7576, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0214:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -3437.6907, -3116.7383, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0215:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -3075.6519, -3478.7769, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0216:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -3437.6907, -3478.7769, 400
+    Rotation: 0, 0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0217:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -3256.6714, -3659.7964, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0218:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -3075.6519, -3840.8157, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0219:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -3256.6714, -4021.835, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A021A:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -3618.71, -3659.7964, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A021B:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -3437.6907, -3840.8157, 400
+    Rotation: 0, 0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A021C:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 027D1D:Skyrim.esm
+  Scale: 0.45
+  Placement:
+    Position: -3618.71, -4044.4624, -880
+    Rotation: -0.19999732, -0, 3.926991
+- MutagenObjectType: PlacedObject
+  FormKey: 0A021E:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C1:Skyrim.esm
+  Placement:
+    Position: -3596.0825, -3999.2075, 462.57346
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A021F:Apocalypse - Magic of Skyrim.esp
+  Base: 0183CF:Skyrim.esm
+  Placement:
+    Position: -3415.0632, -4180.2266, 464
+    Rotation: 0, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0220:Apocalypse - Magic of Skyrim.esp
+  Base: 0C5861:Skyrim.esm
+  Placement:
+    Position: -2770.1816, -4259.423, 322.91537
+    Rotation: 0, 0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0221:Apocalypse - Magic of Skyrim.esp
+  Base: 0183CF:Skyrim.esm
+  Placement:
+    Position: -3765.788, -3829.502, 464
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0222:Apocalypse - Magic of Skyrim.esp
+  Base: 0533C1:Skyrim.esm
+  Placement:
+    Position: -3938.1685, -3651.3577, 462.57346
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0226:Apocalypse - Magic of Skyrim.esp
+  Base: 069824:Skyrim.esm
+  Placement:
+    Position: -3631.7307, -3411.438, 377.39465
+- MutagenObjectType: PlacedObject
+  FormKey: 0A022E:Apocalypse - Magic of Skyrim.esp
+  Base: 0A0DA0:Skyrim.esm
+  Scale: 0.78
+  Placement:
+    Position: -4186.5166, -2925.1123, 1449
+    Rotation: 0, -0, 5.9831862
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0231:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 027D1D:Skyrim.esm
+  Placement:
+    Position: -5849.218, -2619.4783, 9.394653
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0232:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 027D1F:Skyrim.esm
+  Scale: 1.19
+  Placement:
+    Position: -995.6365, -5798.6304, -598.60535
+    Rotation: 0, -0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0234:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 043F55:Skyrim.esm
+  Placement:
+    Position: -5487.179, -9543.469, 105.39465
+    Rotation: 0, -0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0235:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 045AB4:Skyrim.esm
+  Placement:
+    Position: -7331.3135, -5549.729, -262.60535
+    Rotation: 0, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0236:Apocalypse - Magic of Skyrim.esp
+  Base: 01751E:Skyrim.esm
+  Placement:
+    Position: -6901.3926, -7111.021, 2633.3945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0237:Apocalypse - Magic of Skyrim.esp
+  Base: 017521:Skyrim.esm
+  Placement:
+    Position: -1945.988, -8400.783, 1881.3947
+    Rotation: 0, 0, 3.926991
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0238:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: -3754.4744, -3818.1882, 272
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0239:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: -3562.1414, -4010.5212, 272
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A023A:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: -3946.8074, -3625.8552, 272
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A023B:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: -3369.8083, -4202.8545, 272
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A023C:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: -3562.1414, -4010.5212, 80
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A023D:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: -3754.4744, -3818.1882, 80
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A023E:Apocalypse - Magic of Skyrim.esp
+  Base: 0EF0D7:Skyrim.esm
+  Placement:
+    Position: -3946.8074, -3625.8552, 80
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0243:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 05A08D:Skyrim.esm
+  Placement:
+    Position: -6851.9814, -6642.171, 1328
+    Rotation: 0, 0, 0.885399
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0244:Apocalypse - Magic of Skyrim.esp
+  Base: 017521:Skyrim.esm
+  Scale: 0.71
+  Placement:
+    Position: -5100.001, -5726.387, -336
+    Rotation: 0, -0, 5.7831874
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0245:Apocalypse - Magic of Skyrim.esp
+  Base: 0C585F:Skyrim.esm
+  Placement:
+    Position: -5861.2734, -6514.164, 1504.2631
+    Rotation: 0, -0, 5.000003
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0246:Apocalypse - Magic of Skyrim.esp
+  Base: 0C5860:Skyrim.esm
+  Placement:
+    Position: -7011.539, -5739.261, 1582.6165
+    Rotation: 0, -0, 3.583194
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0248:Apocalypse - Magic of Skyrim.esp
+  Base: 07776F:Skyrim.esm
+  Scale: 2.12
+  Placement:
+    Position: -4753.174, -5442.812, -112
+    Rotation: 0, -0, 5.4831886
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0249:Apocalypse - Magic of Skyrim.esp
+  Base: 069824:Skyrim.esm
+  Placement:
+    Position: -2983.9858, -3562.261, 384
+    Rotation: 0, -0, 5.1831884
+- MutagenObjectType: PlacedObject
+  FormKey: 0A024A:Apocalypse - Magic of Skyrim.esp
+  Base: 069824:Skyrim.esm
+  Placement:
+    Position: -3100.0593, -3925.8418, 384
+    Rotation: 0, -0, 3.0588903E-06
+- MutagenObjectType: PlacedObject
+  FormKey: 0A024C:Apocalypse - Magic of Skyrim.esp
+  Base: 067169:Skyrim.esm
+  Placement:
+    Position: -3256.6711, -3026.2285, 368
+- MutagenObjectType: PlacedObject
+  FormKey: 0A024D:Apocalypse - Magic of Skyrim.esp
+  Base: 07776F:Skyrim.esm
+  Placement:
+    Position: -3426.3767, -3648.4827, 496
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A024E:Apocalypse - Magic of Skyrim.esp
+  Base: 077772:Skyrim.esm
+  Placement:
+    Position: -3053.0244, -3094.1108, 576
+- MutagenObjectType: PlacedObject
+  FormKey: 0A024F:Apocalypse - Magic of Skyrim.esp
+  Base: 0C5862:Skyrim.esm
+  Placement:
+    Position: -3652.651, -3263.8164, 560
+    Rotation: 0, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0250:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: 768, 1024, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0255:Apocalypse - Magic of Skyrim.esp
+  Base: 018195:Skyrim.esm
+  Scale: 1.37
+  Placement:
+    Position: -301.91022, 528.6219, 106.59328
+    Rotation: 0, -0, 1.7
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0257:Apocalypse - Magic of Skyrim.esp
+  Base: 019AF7:Skyrim.esm
+  Scale: 1.17
+  Placement:
+    Position: -308.6585, 1072.4193, 251.81029
+    Rotation: 0, -0, 1.0000021
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0258:Apocalypse - Magic of Skyrim.esp
+  Base: 01B0A7:Skyrim.esm
+  Scale: 1.15
+  Placement:
+    Position: -285.05313, 911.6677, 270.32614
+    Rotation: 0, -0, 3.0831943
+- MutagenObjectType: PlacedObject
+  FormKey: 0A025C:Apocalypse - Magic of Skyrim.esp
+  Base: 0C8CFC:Skyrim.esm
+  Placement:
+    Position: -250.05898, 1038.1259, 315.41058
+- MutagenObjectType: PlacedObject
+  FormKey: 0A025D:Apocalypse - Magic of Skyrim.esp
+  Base: 0C8CFC:Skyrim.esm
+  Placement:
+    Position: 1051.8524, 851.44574, 43.069798
+- MutagenObjectType: PlacedObject
+  FormKey: 0A025E:Apocalypse - Magic of Skyrim.esp
+  Base: 0A731C:Skyrim.esm
+  Scale: 0.73
+  Placement:
+    Position: 1045.7369, 846.39905, 109.21915
+    Rotation: 0, -0, 0.90000004
+- MutagenObjectType: PlacedObject
+  FormKey: 0A025F:Apocalypse - Magic of Skyrim.esp
+  Base: 0A731C:Skyrim.esm
+  Scale: 0.82
+  Placement:
+    Position: -244.06187, 1028.3738, 384.3465
+    Rotation: 0, -0, 3.3000002
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0260:Apocalypse - Magic of Skyrim.esp
+  Base: 01ED86:Skyrim.esm
+  Placement:
+    Position: -3765.7878, -3897.3843, 768
+    Rotation: 0, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0262:Apocalypse - Magic of Skyrim.esp
+  Base: 0D201C:Skyrim.esm
+  Scale: 1.07
+  Placement:
+    Position: -3762.9263, -3897.7136, 764.7398
+    Rotation: 0, -0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0265:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0A6C42:Skyrim.esm
+  Scale: 3.33
+  Placement:
+    Position: -5630.7974, -5603.575, 2147.2634
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0266:Apocalypse - Magic of Skyrim.esp
+  Base: 10C4D1:Skyrim.esm
+  Placement:
+    Position: -7428.1743, -7120.7983, 1538.8413
+    Rotation: 0, -0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0267:Apocalypse - Magic of Skyrim.esp
+  Base: 0C5860:Skyrim.esm
+  Placement:
+    Position: -1017.0398, -5634.795, 2117.627
+    Rotation: 0, 0, 6.2831855
+- MutagenObjectType: PlacedObject
+  FormKey: 0A026D:Apocalypse - Magic of Skyrim.esp
+  Base: 07EA44:Skyrim.esm
+  Placement:
+    Position: -3741.0393, -3715.6577, 648
+    Rotation: 0, 0, 3.926991
+- MutagenObjectType: PlacedObject
+  FormKey: 0A026E:Apocalypse - Magic of Skyrim.esp
+  Base: 042191:Apocalypse - Magic of Skyrim.esp
+  Scale: 0.27
+  Placement:
+    Position: -3723.5347, -3730.6445, 665.52313
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0270:Apocalypse - Magic of Skyrim.esp
+  Base: 0A026F:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -3708.1418, -3750.4065, 678.26764
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0271:Apocalypse - Magic of Skyrim.esp
+  Base: 07EA44:Skyrim.esm
+  Placement:
+    Position: -1022.6217, -1166.1674, 768
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0272:Apocalypse - Magic of Skyrim.esp
+  Base: 07EA44:Skyrim.esm
+  Placement:
+    Position: -1234.5438, -954.77075, 768
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0273:Apocalypse - Magic of Skyrim.esp
+  Base: 042191:Apocalypse - Magic of Skyrim.esp
+  Scale: 0.27
+  Placement:
+    Position: -1218.6511, -936.7462, 786.47125
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0274:Apocalypse - Magic of Skyrim.esp
+  Base: 042191:Apocalypse - Magic of Skyrim.esp
+  Scale: 0.26
+  Placement:
+    Position: -1006.78546, -1149.0247, 786.47046
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0276:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 65536
+  SkyrimMajorRecordFlags:
+  - 0x10000
+  Base: 0A0275:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -1003.6119, -1142.0365, 791.11523
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0277:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 65536
+  SkyrimMajorRecordFlags:
+  - 0x10000
+  Base: 0A0275:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -1208.78, -930.05115, 792.01746
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0278:Apocalypse - Magic of Skyrim.esp
+  Base: 07EA44:Skyrim.esm
+  Placement:
+    Position: 847.27716, 934.8169, 167.05533
+    Rotation: 0, 0, 4.712389
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0279:Apocalypse - Magic of Skyrim.esp
+  Base: 07EA44:Skyrim.esm
+  Placement:
+    Position: 387.08237, 937.7654, 161.95708
+    Rotation: 0, 0, 4.712389
+- MutagenObjectType: PlacedObject
+  FormKey: 0A027A:Apocalypse - Magic of Skyrim.esp
+  Base: 042191:Apocalypse - Magic of Skyrim.esp
+  Scale: 0.26
+  Placement:
+    Position: 388.53568, 914.08905, 180.42677
+- MutagenObjectType: PlacedObject
+  FormKey: 0A027B:Apocalypse - Magic of Skyrim.esp
+  Base: 042191:Apocalypse - Magic of Skyrim.esp
+  Scale: 0.27
+  Placement:
+    Position: 847.9821, 910.64795, 185.52605
+- MutagenObjectType: PlacedObject
+  FormKey: 0A027C:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 65536
+  SkyrimMajorRecordFlags:
+  - 0x10000
+  Base: 0A0275:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: 845.44586, 899.0386, 205.65796
+- MutagenObjectType: PlacedObject
+  FormKey: 0A027D:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 65536
+  SkyrimMajorRecordFlags:
+  - 0x10000
+  Base: 0A0275:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: 387.248, 911.94086, 190.64043
+- MutagenObjectType: PlacedObject
+  FormKey: 0A027F:Apocalypse - Magic of Skyrim.esp
+  Base: 0A027E:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: 302.46176, 155.15007, 394.3293
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0280:Apocalypse - Magic of Skyrim.esp
+  Base: 02F78D:Skyrim.esm
+  Placement:
+    Position: -623.704, -915.6417, 731.0917
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0281:Apocalypse - Magic of Skyrim.esp
+  Base: 028D91:Skyrim.esm
+  Placement:
+    Position: -3748.9595, -4115.673, 749.2318
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0282:Apocalypse - Magic of Skyrim.esp
+  Base: 10C2E7:Skyrim.esm
+  Placement:
+    Position: -3077.198, -4857.291, 599.3437
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0283:Apocalypse - Magic of Skyrim.esp
+  Base: 10CB69:Skyrim.esm
+  Placement:
+    Position: -3803.2683, -3864.4893, 799.3048
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0284:Apocalypse - Magic of Skyrim.esp
+  Base: 10CB69:Skyrim.esm
+  Placement:
+    Position: 451.55865, 855.449, 399.3814
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0287:Apocalypse - Magic of Skyrim.esp
+  Base: 04D7C1:Skyrim.esm
+  Placement:
+    Position: 809.6649, -62.180702, -1.7895355
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A028E:Apocalypse - Magic of Skyrim.esp
+  Base: 042191:Apocalypse - Magic of Skyrim.esp
+  Scale: 1.96
+  Placement:
+    Position: -2680.8528, -4516.1714, 538.9154
+- MutagenObjectType: PlacedObject
+  FormKey: 0A028F:Apocalypse - Magic of Skyrim.esp
+  Base: 0A0275:Apocalypse - Magic of Skyrim.esp
+  Radius: 82.41223
+  Placement:
+    Position: -2771.958, -4457.1724, 633.9872
+- MutagenObjectType: PlacedObject
+  FormKey: 0A0290:Apocalypse - Magic of Skyrim.esp
+  Base: 000021:Skyrim.esm
+  Primitive:
+    Bounds: 10354.504, 2, 12088.963
+    Color: '#00FFFF00'
+    Unknown: 0.15
+    Type: PortalBox
+  Placement:
+    Position: -1699.3726, -4244.6978, 1296
+    Rotation: -1.5707964, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07C6:Apocalypse - Magic of Skyrim.esp
+  Base: 03E203:Skyrim.esm
+  Placement:
+    Position: -1352.78, -1266.0511, 640.01746
+    Rotation: 0, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07C7:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -2894.6326, -2935.719, 400
+    Rotation: 0, 0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07C8:Apocalypse - Magic of Skyrim.esp
+  Base: 0B9BAD:Skyrim.esm
+  Placement:
+    Position: -1938.624, -1866.5734, 216
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07CE:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -3075.6519, -2754.6997, 400
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D0:Apocalypse - Magic of Skyrim.esp
+  Base: 02FDC3:Skyrim.esm
+  Placement:
+    Position: -2657.0447, -2584.9941, 248
+    Rotation: 0, 0, 3.926991
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D1:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -2589.1624, -2517.1118, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D2:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -2770.1816, -2336.0923, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D3:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -2408.143, -2698.131, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D4:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -2589.1624, -2155.073, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D5:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -2408.143, -2336.0925, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D6:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -2227.1238, -2517.1118, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D7:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -2232.7805, -2160.73, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D8:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -2046.1044, -2336.0923, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07D9:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -2408.143, -1974.0537, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07DA:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -2227.1235, -1793.0342, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07DB:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -2046.1044, -1974.0537, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07DC:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -1865.0851, -2155.073, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07DD:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -2770.1816, -1974.0537, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07DE:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -2594.8193, -1798.6912, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E0:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 0201F4:Skyrim.esm
+  Placement:
+    Position: -4371.072, -1085.9275, 1848
+    Rotation: 0, -0, 1.9000046
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E1:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 027D1F:Skyrim.esm
+  Placement:
+    Position: -1208.8899, -3546.6592, -856
+    Rotation: 0, -0, 5.0831895
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E2:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8A:Skyrim.esm
+  Placement:
+    Position: -1684.0657, -1974.0537, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E3:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -1870.742, -2522.7686, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E4:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -2046.1045, -2698.131, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E5:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB89:Skyrim.esm
+  Placement:
+    Position: -2227.1238, -2879.1504, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E6:Apocalypse - Magic of Skyrim.esp
+  Base: 03CB8B:Skyrim.esm
+  Placement:
+    Position: -1689.7225, -2341.7493, 248
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E7:Apocalypse - Magic of Skyrim.esp
+  Base: 067169:Skyrim.esm
+  Placement:
+    Position: -2317.6333, -2720.7585, 224
+    Rotation: 0, -0, 2.2
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E8:Apocalypse - Magic of Skyrim.esp
+  Base: 067168:Skyrim.esm
+  Placement:
+    Position: -1638.8108, -2143.7593, 160
+    Rotation: 0, -0, 2.3000047
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07E9:Apocalypse - Magic of Skyrim.esp
+  Base: 067164:Skyrim.esm
+  Placement:
+    Position: -2736.2407, -1974.0537, 184
+    Rotation: 0, -0, 2.1
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07EA:Apocalypse - Magic of Skyrim.esp
+  Base: 067169:Skyrim.esm
+  Scale: 1.15
+  Placement:
+    Position: -2419.4568, -1826.9755, 192
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07EB:Apocalypse - Magic of Skyrim.esp
+  Base: 069824:Skyrim.esm
+  Placement:
+    Position: -2741.8975, -2398.3179, 200
+    Rotation: 0, -0, 2.800002
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07EC:Apocalypse - Magic of Skyrim.esp
+  Base: 0C5861:Skyrim.esm
+  Placement:
+    Position: -1983.8789, -3201.591, 412.38406
+    Rotation: 0, 0, 3.926991
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07ED:Apocalypse - Magic of Skyrim.esp
+  Base: 067168:Skyrim.esm
+  Placement:
+    Position: -1904.683, -2737.729, 168
+    Rotation: 0, -0, 1.5707964
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07EE:Apocalypse - Magic of Skyrim.esp
+  Base: 07EA44:Skyrim.esm
+  Placement:
+    Position: -2753.2112, -3009.258, 608
+    Rotation: 0, -0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07EF:Apocalypse - Magic of Skyrim.esp
+  Base: 042191:Apocalypse - Magic of Skyrim.esp
+  Scale: 0.26
+  Placement:
+    Position: -2737.066, -2990.4075, 627.54895
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07F0:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 65536
+  SkyrimMajorRecordFlags:
+  - 0x10000
+  Base: 0A0275:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -2731.7632, -2986.5562, 633.21045
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07F1:Apocalypse - Magic of Skyrim.esp
+  Base: 067168:Skyrim.esm
+  Placement:
+    Position: -1847.3945, -951.85767, 647.1706
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07F2:Apocalypse - Magic of Skyrim.esp
+  Base: 067164:Skyrim.esm
+  Placement:
+    Position: -1926.1361, -1243.6122, 468.04443
+    Rotation: 0, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07F3:Apocalypse - Magic of Skyrim.esp
+  Base: 0684DA:Skyrim.esm
+  Placement:
+    Position: -1626.4403, -1238.693, 622.01526
+    Rotation: 0, -0, 3.926991
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07F4:Apocalypse - Magic of Skyrim.esp
+  Base: 077772:Skyrim.esm
+  Placement:
+    Position: -1517.5151, -1511.2197, 760.1287
+- MutagenObjectType: PlacedObject
+  FormKey: 0A07F5:Apocalypse - Magic of Skyrim.esp
+  Base: 07776F:Skyrim.esm
+  Scale: 1.23
+  Placement:
+    Position: -2250.5264, -2156.6267, 426.36902
+    Rotation: 0, -0, 0.7853982
+- MutagenObjectType: PlacedObject
+  FormKey: 0A12C1:Apocalypse - Magic of Skyrim.esp
+  Base: 0A028C:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -2307.4453, -3174.0637, 626.91534
+    Rotation: 0, 0, 5.4977875
+MajorFlags:
+- 0x40000

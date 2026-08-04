@@ -1,0 +1,57 @@
+FormKey: 00649F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Detection1_Effect_Alarm_CloakProc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_AlarmProc_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationDetect_Alarm_Message
+      Object: 0064A7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationDetect_Scripted_Marker_Alarm
+      Object: 0064A5:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_MinDist
+      Data: 50
+Name:
+  TargetLanguage: English
+  Value: Detected
+MenuDisplayObject: 104F70:Skyrim.esm
+Flags:
+- Recover
+- NoHitEvent
+- NoArea
+- HideInUI
+- NoRecast
+- Painless
+- NoHitEffect
+BaseCost: 7.5
+MagicSkill: Alteration
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 012FCF:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+SkillUsageMultiplier: 0.15
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0F82F4:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

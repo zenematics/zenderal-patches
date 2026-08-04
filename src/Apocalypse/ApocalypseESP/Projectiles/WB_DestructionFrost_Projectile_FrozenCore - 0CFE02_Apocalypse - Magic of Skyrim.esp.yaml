@@ -1,0 +1,19 @@
+FormKey: 0CFE02:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_FrozenCore
+ObjectBounds:
+  First: -84, -247, -38
+  Second: 84, 99, 119
+Model:
+  File: ApocNew\DestructionFrost_Projectile_FrozenCore.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 2
+Speed: 768
+Range: 768
+Light: 10FBF0:Skyrim.esm
+Sound: 02AFDF:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

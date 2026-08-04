@@ -1,0 +1,13 @@
+FormKey: 001874:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Light_Projectile_Electrosphere
+Time: -1
+Radius: 550
+Color: '#00A49CEB'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 5.5

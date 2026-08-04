@@ -1,0 +1,16 @@
+FormKey: 07816B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Beam_Crackle
+Model:
+  File: ApocNew\DestructionShock_Projectile_Crackle.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 1000
+Light: 0E7555:Skyrim.esm
+Sound: 00234C:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 10
+Lifetime: 0.4
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

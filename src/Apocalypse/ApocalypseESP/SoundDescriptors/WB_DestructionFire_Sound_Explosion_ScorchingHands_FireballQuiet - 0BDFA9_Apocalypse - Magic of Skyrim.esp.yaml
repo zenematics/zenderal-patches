@@ -1,0 +1,14 @@
+FormKey: 0BDFA9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Explosion_ScorchingHands_FireballQuiet
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\Fireball\Explosion\MAG_Destruction_Fireball_Explosion_01.wav
+- Data\Sound\FX\MAG\Destruction\Fireball\Explosion\MAG_Destruction_Fireball_Explosion_02.wav
+- Data\Sound\FX\MAG\Destruction\Fireball\Explosion\MAG_Destruction_Fireball_Explosion_03.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyVariance: 6
+Priority: 128
+Variance: 2
+StaticAttenuation: 12.78

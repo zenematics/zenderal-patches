@@ -1,0 +1,17 @@
+FormKey: 00E124:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_Fracture
+ObjectBounds:
+  First: -6, -9, 3
+  Second: 10, 9, 22
+Model:
+  File: Effects\FXIceWraithDeathExplosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 00E122:Apocalypse - Magic of Skyrim.esp
+Sound1: 03EDD8:Skyrim.esm
+Force: 48
+Radius: 32
+ISRadius: 256
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

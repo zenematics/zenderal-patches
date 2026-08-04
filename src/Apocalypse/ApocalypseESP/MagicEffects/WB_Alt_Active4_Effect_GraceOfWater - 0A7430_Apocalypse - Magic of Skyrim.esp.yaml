@@ -1,0 +1,49 @@
+FormKey: 0A7430:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Active4_Effect_GraceOfWater
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Flourish_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Flourish
+      Object: 0A7437:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Grace of Water
+MenuDisplayObject: 0A846D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoDuration
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+BaseCost: 25
+MagicSkill: Alteration
+CastingLight: 0A9A07:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: Concentration
+CastingArt: 0A846C:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0AAA30:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.015
+DualCastScale: 1.1
+ImageSpaceModifier: 124ED9:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0A8470:Apocalypse - Magic of Skyrim.esp
+- Type: Release
+  Sound: 0A8473:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 0A9A09:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Concentrate to become ethereal. Release after attacking to briefly slow time.

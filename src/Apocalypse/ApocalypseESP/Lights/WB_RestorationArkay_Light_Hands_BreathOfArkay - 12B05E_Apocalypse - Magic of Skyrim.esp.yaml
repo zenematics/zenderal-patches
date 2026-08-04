@@ -1,0 +1,10 @@
+FormKey: 12B05E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArkay_Light_Hands_BreathOfArkay
+Time: -1
+Radius: 40
+Color: '#00701414'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 2

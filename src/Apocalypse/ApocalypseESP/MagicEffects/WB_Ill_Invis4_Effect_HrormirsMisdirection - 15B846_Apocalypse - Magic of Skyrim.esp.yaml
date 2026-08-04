@@ -1,0 +1,65 @@
+FormKey: 15B846:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis4_Effect_HrormirsMisdirection
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Hrormir_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicArmorSpell
+      Object: 01EA72:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicCloak
+      Object: 0B62E4:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Wait
+      Data: 0.1
+Name:
+  TargetLanguage: English
+  Value: Veil of Misdirection
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 90
+MagicSkill: Illusion
+CastingLight: 11CC2E:Apocalypse - Magic of Skyrim.esp
+HitShader: 055B30:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 11CC2D:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11CC2F:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+ImageSpaceModifier: 0207BA:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 000D66:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Curses a target for <dur> seconds. Whenever the target casts an armor or cloak spell, it is transferred to the caster.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

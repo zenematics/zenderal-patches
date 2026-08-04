@@ -1,0 +1,10 @@
+FormKey: 11F236:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_ConjurationAtronach_Big
+ObjectBounds:
+  First: -25, -19, -6
+  Second: 24, 26, 12
+Model:
+  File: ApocNew\ConjurationAtronach_Inv_Big.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

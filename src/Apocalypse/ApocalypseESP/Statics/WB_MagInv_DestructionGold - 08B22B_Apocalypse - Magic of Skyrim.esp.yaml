@@ -1,0 +1,10 @@
+FormKey: 08B22B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_DestructionGold
+ObjectBounds:
+  First: -22, -15, -4
+  Second: 27, 21, 12
+Model:
+  File: ApocNew\DestructionGold_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

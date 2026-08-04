@@ -1,0 +1,16 @@
+FormKey: 07C84B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_BondOfSummoning_Quest
+Name:
+  TargetLanguage: English
+  Value: Bond of Summoning
+Flags:
+- StartGameEnabled
+- 0x10
+Filter: ApocNew\
+NextAliasID: 2
+Aliases:
+- ID: 1
+  Name: WB_Bonded_Target
+  Flags:
+  - Optional
+  VoiceTypes: Null

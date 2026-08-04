@@ -1,0 +1,11 @@
+FormKey: 00ECB2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Conjuration_Sound_Charge_200_Icy
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Icicle\MAG_Destruction_Icicle_Charge_300.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 35
+Priority: 128

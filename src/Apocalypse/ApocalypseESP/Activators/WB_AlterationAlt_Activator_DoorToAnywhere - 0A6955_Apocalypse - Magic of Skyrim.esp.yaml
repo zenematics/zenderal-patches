@@ -1,0 +1,19 @@
+FormKey: 0A6955:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_AlterationAlt_Activator_DoorToAnywhere
+SkyrimMajorRecordFlags:
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_DoorActivator_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DoorFinder_Quest
+      Object: 0A6957:Apocalypse - Magic of Skyrim.esp
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

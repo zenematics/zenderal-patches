@@ -1,0 +1,54 @@
+FormKey: 03527F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_UndeadDmg1_Effect_BoneSpirit_AoE
+Name:
+  TargetLanguage: English
+  Value: Bone Spirit - Ashes to Ashes
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035280:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 0.75
+MagicSkill: Restoration
+ResistValue: ResistMagic
+HitShader: 0E7557:Skyrim.esm
+SpellmakingArea: 15
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Explosion: 124ECF:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 04C6DA:Skyrim.esm
+SkillUsageMultiplier: 0.75
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 11DC83:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 1052A3:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+  ComparisonValue: 1

@@ -1,0 +1,13 @@
+FormKey: 02E0C5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_Tornado
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Force: 128
+Radius: 128
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

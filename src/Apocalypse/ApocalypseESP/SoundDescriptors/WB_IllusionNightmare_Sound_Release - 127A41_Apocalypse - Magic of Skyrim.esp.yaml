@@ -1,0 +1,15 @@
+FormKey: 127A41:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Release
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Wisp\Attack\NPC_Wisp_Attack_01.wav
+- Data\Sound\FX\NPC\Wisp\Attack\NPC_Wisp_Attack_02.wav
+- Data\Sound\FX\NPC\Wisp\Attack\NPC_Wisp_Attack_03.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 3
+Priority: 128
+Variance: 1
+StaticAttenuation: 9.69

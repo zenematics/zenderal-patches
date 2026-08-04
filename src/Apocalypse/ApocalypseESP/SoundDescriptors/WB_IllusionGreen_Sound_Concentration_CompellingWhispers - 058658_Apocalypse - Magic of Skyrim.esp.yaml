@@ -1,0 +1,13 @@
+FormKey: 058658:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionGreen_Sound_Concentration_CompellingWhispers
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\QST\QST_WordWall_Whisper_2D_LP.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  Loop: Loop
+PercentFrequencyShift: 95
+Priority: 128
+StaticAttenuation: 10.13

@@ -1,0 +1,27 @@
+FormKey: 0AD578:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67109376
+EditorID: WB_AlterationAlt_Activator_WellocsInstantForest_Spawner_Simple
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_PillarSpawner_Simple_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_AlterationAlt_Activator_NaturalBarrier_Tree
+      Objects:
+      - Name: ''
+        Object: 0AC542:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0AD007:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0AD008:Apocalypse - Magic of Skyrim.esp
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- HiddenFromLocalMap
+- NavMeshGenerationFilter

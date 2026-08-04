@@ -1,0 +1,15 @@
+FormKey: 0896F6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I000_PaleShadow_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Pale Shadow
+EnchantmentCost: 40
+CastType: FireAndForget
+EnchantmentAmount: 40
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 085582:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

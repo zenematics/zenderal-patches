@@ -1,0 +1,34 @@
+FormKey: 00186D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock4_Spell_ShockNova
+Name:
+  TargetLanguage: English
+  Value: Shock Nova
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 375
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 0D1E61:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 40
+    Area: 25
+- BaseEffect: 0D1E64:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Area: 25
+- BaseEffect: 0D1E65:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Area: 25
+- BaseEffect: 023DF1:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 200
+    Area: 25
+    Duration: 1

@@ -1,0 +1,22 @@
+FormKey: 0128DF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Spell_ConjureDremoraChampion_NPC
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Champion
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 366
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BD:Skyrim.esm
+Effects:
+- BaseEffect: 0128DE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

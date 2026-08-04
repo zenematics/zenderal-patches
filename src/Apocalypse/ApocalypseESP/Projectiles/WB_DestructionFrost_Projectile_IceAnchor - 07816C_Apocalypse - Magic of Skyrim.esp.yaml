@@ -1,0 +1,19 @@
+FormKey: 07816C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_IceAnchor
+ObjectBounds:
+  First: -28, -1, -28
+  Second: 28, 64, 28
+Model:
+  File: ApocNew\DestructionFrost_Projectile_IceAnchor.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.8
+Speed: 1250
+Range: 2500
+Light: 10FBF0:Skyrim.esm
+Sound: 0279B0:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 8
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

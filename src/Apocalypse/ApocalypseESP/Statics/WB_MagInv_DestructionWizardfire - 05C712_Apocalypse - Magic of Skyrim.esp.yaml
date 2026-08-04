@@ -1,0 +1,10 @@
+FormKey: 05C712:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_DestructionWizardfire
+ObjectBounds:
+  First: -37, -29, -10
+  Second: 37, 42, 4
+Model:
+  File: ApocNew\DestructionWizardfire_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

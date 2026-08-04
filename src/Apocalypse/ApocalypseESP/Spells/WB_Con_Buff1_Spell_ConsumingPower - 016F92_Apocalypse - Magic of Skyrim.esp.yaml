@@ -1,0 +1,27 @@
+FormKey: 016F92:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Buff1_Spell_ConsumingPower
+Name:
+  TargetLanguage: English
+  Value: Consuming Power
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 103
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0F2CA7:Skyrim.esm
+Effects:
+- BaseEffect: 016F8D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.75
+    Duration: 10
+- BaseEffect: 0C002A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 75
+    Duration: 10

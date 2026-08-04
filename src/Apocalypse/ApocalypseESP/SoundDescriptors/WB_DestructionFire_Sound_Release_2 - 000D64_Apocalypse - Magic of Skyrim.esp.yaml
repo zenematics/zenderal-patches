@@ -1,0 +1,14 @@
+FormKey: 000D64:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Release_2
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\OBJ\Catapult\OBJ_Catapult_Projectile_01_LP.wav
+- Data\Sound\FX\OBJ\Catapult\OBJ_Catapult_Projectile_02_LP.wav
+- Data\Sound\FX\OBJ\Catapult\OBJ_Catapult_Projectile_03_LP.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 25
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 9.69

@@ -1,0 +1,18 @@
+FormKey: 057B8F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Beam_Invisible
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 6000
+Explosion: 10A292:Skyrim.esm
+Sound: 03838C:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.1
+ImpactForce: 10
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 2

@@ -1,0 +1,15 @@
+FormKey: 111797:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Explosion_DustToDust
+ObjectBounds:
+  First: -28, -27, -14
+  Second: 29, 29, -1
+Model:
+  File: Effects\FXdustBurstMed.nif
+  Data: 0x020000000000000000000000
+Force: 10
+Radius: 600
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

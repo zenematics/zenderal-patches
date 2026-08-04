@@ -1,0 +1,22 @@
+FormKey: 0128F7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Spell_ConjureDremoraAssassin_NPC
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Assassin
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1201
+Flags:
+- NoAbsorbOrReflect
+- NoDualCastModification
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 100
+HalfCostPerk: 0C44BE:Skyrim.esm
+Effects:
+- BaseEffect: 0128F6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 180

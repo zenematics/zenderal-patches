@@ -1,0 +1,10 @@
+FormKey: 11D1A6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationTap_Art
+ObjectBounds:
+  First: -104, -36, -118
+  Second: 105, 43, 132
+Model:
+  File: ApocNew\RestorationTap_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

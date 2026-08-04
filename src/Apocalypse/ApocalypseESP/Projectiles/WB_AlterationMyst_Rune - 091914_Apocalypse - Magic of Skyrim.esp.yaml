@@ -1,0 +1,20 @@
+FormKey: 091914:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMyst_Rune
+Model:
+  File: ApocNew\AlterationMyst_Rune.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- AltTrigger
+Type: Lobber
+Speed: 1000
+Range: 10000
+ExplosionAltTriggerProximity: 150
+Explosion: 09191B:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 50
+RelaunchInterval: 0.25
+DecalData: 091912:Apocalypse - Magic of Skyrim.esp
+CollisionLayer: 100F2F:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 1

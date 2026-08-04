@@ -1,0 +1,41 @@
+FormKey: 0B1C36:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureCraftlord_Technobolt_LifeDrain
+Name:
+  TargetLanguage: English
+  Value: Decompile
+MenuDisplayObject: 1097CB:Skyrim.esm
+Keywords:
+- 0B1C37:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- DispelWithKeywords
+- FXPersist
+- PowerAffectsMagnitude
+MagicSkill: Destruction
+ResistValue: ResistMagic
+CastingLight: 02016B:Skyrim.esm
+HitShader: 07DDF1:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+  Association: 0B1C37:Apocalypse - Magic of Skyrim.esp
+Projectile: 0159F0:Apocalypse - Magic of Skyrim.esp
+Explosion: 015F53:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 02016C:Skyrim.esm
+ImpactData: 11BBC7:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 053A5E:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Targets take <mag> magic damage for <dur> seconds.

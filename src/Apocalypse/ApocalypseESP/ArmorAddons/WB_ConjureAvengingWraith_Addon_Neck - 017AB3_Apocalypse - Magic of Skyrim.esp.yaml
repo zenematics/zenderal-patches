@@ -1,0 +1,48 @@
+FormKey: 017AB3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureAvengingWraith_Addon_Neck
+BodyTemplate:
+  FirstPersonFlags:
+  - Head
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 013746:Skyrim.esm
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: True
+  Female: False
+DetectionSoundValue: 76
+Unknown2: 23
+WeaponAdjust: 1
+WorldModel:
+  Male:
+    File: Actors\Character\Character Assets\DecapitatedNeck_1.nif
+    Data: 0x020000000000000000000000
+  Female:
+    File: ApocNew\Other_Model\ConjurationUndead_Neck_AvengingWraith.nif
+    Data: 0x020000000000000000000000
+SkinTexture:
+  Male: 03B521:Skyrim.esm
+  Female: 03B522:Skyrim.esm
+AdditionalRaces:
+- 013741:Skyrim.esm
+- 08883C:Skyrim.esm
+- 097A3D:Skyrim.esm
+- 013742:Skyrim.esm
+- 08883D:Skyrim.esm
+- 000019:Skyrim.esm
+- 0131F0:Skyrim.esm
+- 067CD8:Skyrim.esm
+- 0A82BA:Skyrim.esm
+- 013743:Skyrim.esm
+- 088840:Skyrim.esm
+- 013744:Skyrim.esm
+- 088844:Skyrim.esm
+- 088794:Skyrim.esm
+- 013747:Skyrim.esm
+- 0A82B9:Skyrim.esm
+- 013748:Skyrim.esm
+- 088846:Skyrim.esm
+- 088884:Skyrim.esm
+- 013749:Skyrim.esm

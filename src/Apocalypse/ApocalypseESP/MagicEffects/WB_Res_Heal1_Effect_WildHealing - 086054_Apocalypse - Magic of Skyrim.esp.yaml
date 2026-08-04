@@ -1,0 +1,50 @@
+FormKey: 086054:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal1_Effect_WildHealing
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_FickleHealing_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Range
+      Data: 50
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_R000_FickleHealing_Spell_PC
+      Object: 086056:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Wild Healing
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01CEB0:Skyrim.esm
+- 0A9B1E:Skyrim.esm
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 1.4
+MagicSkill: Restoration
+CastingLight: 11D716:Apocalypse - Magic of Skyrim.esp
+HitShader: 0829C6:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+CastingArt: 11D717:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0829C5:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 0829C7:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Heals the caster <mag> points, then heals a random target within range <mag> points.

@@ -1,0 +1,9 @@
+FormKey: 048904:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Message_BloodForBloodFail
+Description:
+  TargetLanguage: English
+  Value: The killer is too strong...
+INAM: 0x00000000
+Flags:
+- AutoDisplay
+DisplayTime: 2

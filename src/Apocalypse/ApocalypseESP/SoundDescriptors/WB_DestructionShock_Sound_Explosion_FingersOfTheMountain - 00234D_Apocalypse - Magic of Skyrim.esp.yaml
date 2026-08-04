@@ -1,0 +1,13 @@
+FormKey: 00234D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Explosion_FingersOfTheMountain
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\VOC\Shout\FX\UnrelentingForce\Thunder\VOC_Shout_FX_UnrelentingForce_C_01.wav
+OutputModel: 109AC9:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 20
+Priority: 128
+Variance: 2
+StaticAttenuation: 9.69

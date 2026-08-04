@@ -1,0 +1,7 @@
+FormKey: 097A4D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_MovableStatic_RockSpike04
+Model:
+  File: ApocNew\AlterationEarth_Static_RockSpike01.nif
+  Data: 0x020000000000000000000000
+Flags:
+- OnLocalMap

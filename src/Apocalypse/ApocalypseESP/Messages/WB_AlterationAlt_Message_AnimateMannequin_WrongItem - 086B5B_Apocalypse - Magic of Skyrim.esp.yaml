@@ -1,0 +1,11 @@
+FormKey: 086B5B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_AnimateMannequin_WrongItem
+Description:
+  TargetLanguage: English
+  Value: You can only place Armor, Weapons or Ammo on the Mannequin.
+Name:
+  TargetLanguage: English
+  Value: Mannequin
+INAM: 0x00000000
+Flags:
+- MessageBox

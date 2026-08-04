@@ -1,0 +1,71 @@
+FormKey: 1274CA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage4_Effect_MimicsCloak_CloakProc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CloakOfMimicry_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_I075_CloakOfMimicry_EffectCurseLeft
+      Object: 030C1B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_I075_CloakOfMimicry_EffectCurseRight
+      Object: 030C1D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_CloakOfMimicry_Global_XP
+      Object: 030C1F:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Mimic
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 020D32:Apocalypse - Magic of Skyrim.esp
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+BaseCost: 10
+MagicSkill: Illusion
+TaperWeight: 1
+HitShader: 00D0DC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 074796:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+HitEffectArt: 13835E:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11C6C3:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Caster copies all spells cast.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+    SpellSource: Right
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

@@ -1,0 +1,18 @@
+FormKey: 012367:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead3_Spell_ConjureLich_Ab
+Name:
+  TargetLanguage: English
+  Value: Lich - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 012366:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1

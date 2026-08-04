@@ -1,0 +1,54 @@
+FormKey: 05F256:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CombatTrick5_Effect_Battletide
+Name:
+  TargetLanguage: English
+  Value: Battletide
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 1.7
+MagicSkill: Alteration
+ResistValue: ResistMagic
+CastingLight: 01E013:Skyrim.esm
+TaperWeight: 1
+MinimumSkillLevel: 100
+SpellmakingArea: 25
+SpellmakingCastingTime: 2
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: DamageResist
+  Type: Absorb
+Explosion: 05F255:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+HitEffectArt: 00B644:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.2
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 00856E:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 0059B6:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Steals <mag> points of armor rating from each nearby target for <dur> seconds. The caster gains the total amount stolen.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

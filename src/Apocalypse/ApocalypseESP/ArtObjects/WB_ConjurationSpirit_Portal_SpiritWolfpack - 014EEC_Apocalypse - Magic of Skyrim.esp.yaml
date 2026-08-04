@@ -1,0 +1,7 @@
+FormKey: 014EEC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSpirit_Portal_SpiritWolfpack
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

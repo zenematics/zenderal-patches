@@ -1,0 +1,12 @@
+FormKey: 0A9A09:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationWater_Sound_Concentration_GraceOfWater
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\AMB_Underwater_2D_LPM.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 75
+Priority: 128
+StaticAttenuation: 7.49

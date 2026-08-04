@@ -1,0 +1,22 @@
+FormKey: 0B2C7D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_Shivers
+ObjectBounds:
+  First: -428, -336, -53
+  Second: 428, 336, 223
+Model:
+  File: ApocNew\DestructionFrost_Explosion_Shivers.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 04408A:Skyrim.esm
+Sound1: 0786D8:Apocalypse - Magic of Skyrim.esp
+Sound2: 001862:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 018A2E:Skyrim.esm
+Force: 24
+Radius: 128
+ISRadius: 192
+VerticalOffsetMult: 10
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

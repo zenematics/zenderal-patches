@@ -1,0 +1,13 @@
+FormKey: 00E740:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Conjuration_Sound_Projectile2
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Shock\MAG_Shock_Concentration_Projectile_LP.wav
+OutputModel: 0D78B4:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 5.73

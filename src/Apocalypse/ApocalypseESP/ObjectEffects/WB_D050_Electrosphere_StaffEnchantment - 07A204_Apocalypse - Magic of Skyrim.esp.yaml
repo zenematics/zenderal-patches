@@ -1,0 +1,15 @@
+FormKey: 07A204:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D050_Electrosphere_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Electrosphere
+EnchantmentCost: 131
+CastType: FireAndForget
+EnchantmentAmount: 131
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 001875:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 55

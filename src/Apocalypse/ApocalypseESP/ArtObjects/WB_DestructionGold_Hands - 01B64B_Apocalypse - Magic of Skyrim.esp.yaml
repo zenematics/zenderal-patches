@@ -1,0 +1,9 @@
+FormKey: 01B64B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionGold_Hands
+ObjectBounds:
+  First: -21, -21, -2
+  Second: 21, 21, 0
+Model:
+  File: ApocNew\DestructionGold_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

@@ -1,0 +1,19 @@
+FormKey: 09FC12:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Projectile_Luminaries
+ObjectBounds:
+  First: -105, -110, 0
+  Second: 105, 111, 8
+Model:
+  File: ApocNew\RestorationHeal_Projectile_Luminaries.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1000
+Range: 10000
+Light: 02F669:Apocalypse - Magic of Skyrim.esp
+Sound: 020241:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.25
+CollisionRadius: 10
+RelaunchInterval: 0.35
+MuzzleFlashModel: ''
+SoundLevel: 1

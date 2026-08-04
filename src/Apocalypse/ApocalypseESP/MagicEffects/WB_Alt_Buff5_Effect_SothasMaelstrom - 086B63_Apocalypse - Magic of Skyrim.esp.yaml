@@ -1,0 +1,40 @@
+FormKey: 086B63:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Effect_SothasMaelstrom
+Name:
+  TargetLanguage: English
+  Value: Thaumaturgic Maelstrom
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+BaseCost: 1.5
+MagicSkill: Alteration
+CastingLight: 0059B3:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 086B64:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 0059B7:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0870CB:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 0059B6:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Nearby foes within <mag> feet get <5>% weakness to magic per second, up to <100>%. Lasts <dur> seconds.

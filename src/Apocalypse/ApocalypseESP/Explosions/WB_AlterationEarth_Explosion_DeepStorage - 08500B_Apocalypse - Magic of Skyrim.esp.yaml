@@ -1,0 +1,13 @@
+FormKey: 08500B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Explosion_DeepStorage
+ObjectBounds:
+  First: -28, -27, -14
+  Second: 29, 29, -1
+Model:
+  File: Effects\FXdustBurstTiny.nif
+  Data: 0x020000000000000000000000
+Radius: 512
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

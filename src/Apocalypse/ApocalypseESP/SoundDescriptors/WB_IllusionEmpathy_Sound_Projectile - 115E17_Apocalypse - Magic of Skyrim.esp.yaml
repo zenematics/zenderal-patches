@@ -1,0 +1,12 @@
+FormKey: 115E17:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Sound_Projectile
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\DA16\QST_DA16_Soul_Gem_Off.wav
+OutputModel: 0D78B4:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+PercentFrequencyShift: 90
+Priority: 128
+StaticAttenuation: 4.85

@@ -1,0 +1,27 @@
+FormKey: 08BD2B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDremoraMentor_Perk_Res
+Name:
+  TargetLanguage: English
+  Value: Demonic Tutor
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 160
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: EPMagic_IsAdvanceSkillConditionData
+        ActorValue: Restoration
+      ComparisonValue: 1
+  EntryPoint: ModSkillUse
+  PerkConditionTabCount: 1
+  Modification: Multiply
+  Value: 1.2

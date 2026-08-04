@@ -1,0 +1,48 @@
+FormKey: 0BC472:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureBattlemage_Spell_Fire_3
+Name:
+  TargetLanguage: English
+  Value: Molten Impact
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+- 01CEAD:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1.5
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 0140EC:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 9
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 0BC9ED:Apocalypse - Magic of Skyrim.esp
+Explosion: 0BC9EF:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+CastingArt: 01B211:Skyrim.esm
+ImpactData: 026113:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.25
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 02A505:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> points of fire damage in a large radius. Targets on fire take extra damage.

@@ -1,0 +1,17 @@
+FormKey: 125445:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSummon_Explosion_Rune
+ObjectBounds:
+  First: -222, -196, -98
+  Second: 222, 196, 98
+Model:
+  File: ApocNew\ConjurationSummon_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 00E744:Apocalypse - Magic of Skyrim.esp
+Sound1: 03F26A:Skyrim.esm
+Radius: 160
+ISRadius: 1024
+VerticalOffsetMult: 0.6
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

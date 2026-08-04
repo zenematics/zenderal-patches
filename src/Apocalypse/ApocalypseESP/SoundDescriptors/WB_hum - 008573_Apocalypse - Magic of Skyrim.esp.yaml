@@ -1,0 +1,13 @@
+FormKey: 008573:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_hum
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMBt\Dungeon\Dwemer\AMBt_Dungeon_Dwemer_Generic_2DLP.wav
+OutputModel: 07EDCA:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  Loop: Loop
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 7.49

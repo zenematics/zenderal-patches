@@ -1,0 +1,28 @@
+FormKey: 03BFAF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C100_ConjureNetherLich_Scroll
+Name:
+  TargetLanguage: English
+  Value: Scroll of Conjure Nether Lich
+Keywords:
+- 0A0E57:Skyrim.esm
+MenuDisplayObject: 076E8F:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Model:
+  File: Clutter\Common\Scroll05.nif
+  Data: 0x020000000000000000000000
+Value: 250
+Weight: 0.5
+BaseCost: 1441
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 3
+CastType: 3
+TargetType: TargetLocation
+Range: 100
+Effects:
+- BaseEffect: 0128F9:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 180

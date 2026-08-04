@@ -1,0 +1,13 @@
+FormKey: 044D0A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Sound_FXS_Disease
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DA01_Azura_Magic_End_01_LPM.wav
+OutputModel: 08F3E4:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 19.82

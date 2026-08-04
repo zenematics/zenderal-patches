@@ -1,0 +1,25 @@
+FormKey: 0B5D25:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Effect_CyclonicRift_SelfDuration
+Name:
+  TargetLanguage: English
+  Value: Cyclonic Rift
+MenuDisplayObject: 09FA64:Skyrim.esm
+Flags:
+- Recover
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- NoHitEffect
+MagicSkill: Destruction
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: The rifts will dissipate in <dur> seconds.

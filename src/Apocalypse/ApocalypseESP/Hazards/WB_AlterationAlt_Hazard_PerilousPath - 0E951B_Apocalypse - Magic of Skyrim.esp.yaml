@@ -1,0 +1,19 @@
+FormKey: 0E951B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Hazard_PerilousPath
+ObjectBounds:
+  First: -106, -105, -80
+  Second: 104, 130, 60
+Name:
+  TargetLanguage: English
+  Value: Perilous Path Hazard
+Model:
+  File: ApocNew\AlterationAlt_Static_PerilousPath.nif
+  Data: 0x020000000000000000000000
+Limit: 64
+Radius: 4
+TargetInterval: 0.3
+Flags:
+- InheritDurationFromSpawnSpell
+- DropToGround
+Spell: 0F2181:Apocalypse - Magic of Skyrim.esp
+Sound: 00A07E:Apocalypse - Magic of Skyrim.esp

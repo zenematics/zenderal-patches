@@ -1,0 +1,12 @@
+FormKey: 016F9D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationGhosts_Sound_Projectile
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Mysticism\SoulTrap\MAG_Mysticism_SoulTrap_Active_LP.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+Priority: 128
+StaticAttenuation: 4.41

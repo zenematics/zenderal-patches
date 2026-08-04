@@ -1,0 +1,10 @@
+FormKey: 0B781E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationUndead_Art_EyesMale_Pirate
+ObjectBounds:
+  First: -5, 5, 1
+  Second: 5, 9, 6
+Model:
+  File: ApocNew\other_model\ConjurationUndead_Art_EyesMale_Pirate.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

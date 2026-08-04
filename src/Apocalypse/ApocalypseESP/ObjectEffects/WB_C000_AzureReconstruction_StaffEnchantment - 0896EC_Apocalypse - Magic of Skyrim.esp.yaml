@@ -1,0 +1,15 @@
+FormKey: 0896EC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C000_AzureReconstruction_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Azure Reconstruction
+EnchantmentCost: 3
+CastType: Concentration
+EnchantmentAmount: 3
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 126DA1:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10

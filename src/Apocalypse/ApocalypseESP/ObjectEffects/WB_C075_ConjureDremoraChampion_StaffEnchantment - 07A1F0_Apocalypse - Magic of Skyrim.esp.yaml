@@ -1,0 +1,15 @@
+FormKey: 07A1F0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C075_ConjureDremoraChampion_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Champion
+EnchantmentCost: 366
+CastType: FireAndForget
+EnchantmentAmount: 366
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0128DE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

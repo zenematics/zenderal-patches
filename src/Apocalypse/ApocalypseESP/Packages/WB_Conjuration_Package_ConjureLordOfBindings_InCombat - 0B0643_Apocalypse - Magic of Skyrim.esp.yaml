@@ -1,0 +1,84 @@
+FormKey: 0B0643:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Conjuration_Package_ConjureLordOfBindings_InCombat
+Type: Package
+InterruptOverride: Combat
+PreferredSpeed: Run
+Unknown: 108
+InteruptFlags:
+- 0x400
+- 0x800
+- 0x1000
+- 0x2000
+- 0x4000
+- 0x8000
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+CombatStyle: 107812:Skyrim.esm
+PackageTemplate: 0504F5:Skyrim.esm
+DataInputVersion: 1
+Data:
+- Key: 2
+  Value:
+    MutagenObjectType: PackageDataLocation
+    Location:
+      Target:
+        MutagenObjectType: LocationFallback
+        Type: NearSelf
+      Radius: 500
+- Key: 3
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Target:
+      MutagenObjectType: PackageTargetObjectID
+      Reference: 0B064C:Apocalypse - Magic of Skyrim.esp
+- Key: 4
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Type: SingleRef
+    Target:
+      MutagenObjectType: PackageTargetUnknown
+      Data: 4
+- Key: 5
+  Value:
+    MutagenObjectType: PackageDataBool
+- Key: 6
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 4
+- Key: 7
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 6
+- Key: 8
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 0.25
+- Key: 9
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 0.25
+- Key: 10
+  Value:
+    MutagenObjectType: PackageDataInt
+    Data: 150
+- Key: 11
+  Value:
+    MutagenObjectType: PackageDataInt
+    Data: 150
+- Key: 12
+  Value:
+    MutagenObjectType: PackageDataBool
+    Data: True
+XnamMarker: 0x0D
+OnBegin:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnEnd:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnChange:
+  Topics:
+  - MutagenObjectType: TopicReference

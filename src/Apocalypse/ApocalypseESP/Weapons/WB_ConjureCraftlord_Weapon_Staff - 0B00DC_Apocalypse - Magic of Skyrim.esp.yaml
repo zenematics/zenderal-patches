@@ -1,0 +1,52 @@
+FormKey: 0B00DC:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureCraftlord_Weapon_Staff
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Craftlord's Staff
+Model:
+  File: ApocNew\Other_Model\ConjurationDwarven_Staff_Radac.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 0B00DE:Apocalypse - Magic of Skyrim.esp
+EnchantmentAmount: 5000
+EquipmentType: 013F42:Skyrim.esm
+BlockBashImpact: 0193C6:Skyrim.esm
+AlternateBlockMaterial: 0774B6:Skyrim.esm
+Keywords:
+- 01E716:Skyrim.esm
+- 0937A4:Skyrim.esm
+- 0C27BD:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+FirstPersonModel: 0C6925:Skyrim.esm
+BasicStats:
+  Value: 50
+  Weight: 8
+  Damage: 1
+Data:
+  AnimationType: Staff
+  Unused: 0x000000
+  Speed: 1
+  Reach: 1.3
+  Flags:
+  - CantDrop
+  - NonPlayable
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1065353216
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+Critical:
+  Damage: 1
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Normal
+MajorFlags:
+- NonPlayable

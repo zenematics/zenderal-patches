@@ -1,0 +1,22 @@
+FormKey: 04734D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Spirit5_Spell_ConjureBearTotem
+Name:
+  TargetLanguage: English
+  Value: Conjure Bear Totem
+MenuDisplayObject: 11F229:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1484
+Flags:
+- NoAbsorbOrReflect
+- NoDualCastModification
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BE:Skyrim.esm
+Effects:
+- BaseEffect: 047356:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 240

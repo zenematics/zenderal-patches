@@ -1,0 +1,19 @@
+FormKey: 12649C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl2_Spell_Wither
+Name:
+  TargetLanguage: English
+  Value: Wither
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 62
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 12649A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 20

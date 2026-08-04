@@ -1,0 +1,15 @@
+FormKey: 07A21E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I075_Seidstone_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Seidstone
+EnchantmentCost: 344
+CastType: FireAndForget
+EnchantmentAmount: 344
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 109836:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 40

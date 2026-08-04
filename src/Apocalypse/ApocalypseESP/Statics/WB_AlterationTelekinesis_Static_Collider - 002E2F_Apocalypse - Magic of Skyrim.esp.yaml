@@ -1,0 +1,14 @@
+FormKey: 002E2F:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_AlterationTelekinesis_Static_Collider
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+Model:
+  File: ApocNew\AlterationTelekinesis_Static_Collider.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

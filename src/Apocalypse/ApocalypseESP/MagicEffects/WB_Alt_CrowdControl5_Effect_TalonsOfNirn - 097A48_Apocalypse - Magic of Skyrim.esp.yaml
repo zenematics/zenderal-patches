@@ -1,0 +1,45 @@
+FormKey: 097A48:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl5_Effect_TalonsOfNirn
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicPlaceExplosionScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExplosionRef
+      Object: 097A47:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Talons of Vyn
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 0.35
+MagicSkill: Alteration
+CastingLight: 00A5E8:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3.8
+Archetype:
+  MutagenObjectType: MagicEffectSpawnHazardArchetype
+  Association: 097A45:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 00A084:Apocalypse - Magic of Skyrim.esp
+ImpactData: 00AB5C:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1.1
+ImageSpaceModifier: 124ED9:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0803F8:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 115E10:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Whenever an enemy in the area is staggered, a spike of rock erupts from the ground, tossing the target and dealing <mag> Stamina damage. Lasts <dur> seconds.

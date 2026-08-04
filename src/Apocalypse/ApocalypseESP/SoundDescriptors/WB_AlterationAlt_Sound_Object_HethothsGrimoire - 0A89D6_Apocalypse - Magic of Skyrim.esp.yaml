@@ -1,0 +1,12 @@
+FormKey: 0A89D6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_Object_HethothsGrimoire
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\AMB_DarkBrotherhoodDoor_LP.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 2.2

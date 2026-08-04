@@ -1,0 +1,15 @@
+FormKey: 0A5E82:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_DoorToAnywhere
+Description:
+  TargetLanguage: English
+  Value: Create which portal?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: 1
+- Text:
+    TargetLanguage: English
+    Value: 2

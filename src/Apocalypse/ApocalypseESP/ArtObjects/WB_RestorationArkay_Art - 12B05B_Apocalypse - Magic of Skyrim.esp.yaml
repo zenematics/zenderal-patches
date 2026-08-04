@@ -1,0 +1,10 @@
+FormKey: 12B05B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArkay_Art
+ObjectBounds:
+  First: -81, -29, -99
+  Second: 79, 69, 118
+Model:
+  File: ApocNew\RestorationArkay_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

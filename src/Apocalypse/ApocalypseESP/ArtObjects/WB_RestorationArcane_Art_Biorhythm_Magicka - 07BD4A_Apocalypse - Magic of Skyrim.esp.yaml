@@ -1,0 +1,10 @@
+FormKey: 07BD4A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Art_Biorhythm_Magicka
+ObjectBounds:
+  First: -81, -29, -99
+  Second: 79, 69, 118
+Model:
+  File: ApocNew\RestorationArcane_Art_Magicka.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

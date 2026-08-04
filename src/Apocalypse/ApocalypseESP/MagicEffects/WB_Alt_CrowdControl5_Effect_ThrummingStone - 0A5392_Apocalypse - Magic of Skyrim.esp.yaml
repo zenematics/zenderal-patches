@@ -1,0 +1,41 @@
+FormKey: 0A5392:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl5_Effect_ThrummingStone
+Name:
+  TargetLanguage: English
+  Value: Thrumming Stone
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- SnapToNavmesh
+- PowerAffectsMagnitude
+BaseCost: 65
+MagicSkill: Alteration
+CastingLight: 00A5E8:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 8
+SpellmakingCastingTime: 3.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Explosion: 0A5E8A:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetLocation
+CastingArt: 00A084:Apocalypse - Magic of Skyrim.esp
+ImpactData: 015C7B:Skyrim.esm
+SkillUsageMultiplier: 0.3
+DualCastArt: 0A5395:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+ImageSpaceModifier: 124ED9:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0803F8:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 115E10:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Magical vibrating rock that emits a tremor every <8> seconds, staggering enemies and inflicting <mag>% weakness to magic for <dur> seconds. Emits <5> pulses.

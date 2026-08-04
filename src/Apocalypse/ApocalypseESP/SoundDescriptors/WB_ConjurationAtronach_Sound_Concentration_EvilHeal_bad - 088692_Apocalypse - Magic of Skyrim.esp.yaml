@@ -1,0 +1,14 @@
+FormKey: 088692:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Sound_Concentration_EvilHeal_bad
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_Concentration_Fire_LPM.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+PercentFrequencyShift: -53
+Priority: 128
+StaticAttenuation: 4.85

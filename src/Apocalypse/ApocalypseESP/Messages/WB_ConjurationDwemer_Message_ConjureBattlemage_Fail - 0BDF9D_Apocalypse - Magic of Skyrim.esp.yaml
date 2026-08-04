@@ -1,0 +1,7 @@
+FormKey: 0BDF9D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ConjureBattlemage_Fail
+Description:
+  TargetLanguage: English
+  Value: You have insufficient gold to purchase this upgrade.
+INAM: 0x00000000
+DisplayTime: 2

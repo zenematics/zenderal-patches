@@ -1,0 +1,19 @@
+FormKey: 036A05:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_DrainCircle1_Spell_CircleOfStrength
+Name:
+  TargetLanguage: English
+  Value: Circle of Strength
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 60
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0F2CAA:Skyrim.esm
+Effects:
+- BaseEffect: 036A01:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 6
+    Duration: 30

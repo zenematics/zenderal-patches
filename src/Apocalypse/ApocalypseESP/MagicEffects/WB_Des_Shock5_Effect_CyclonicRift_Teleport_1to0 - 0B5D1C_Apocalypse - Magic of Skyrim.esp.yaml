@@ -1,0 +1,44 @@
+FormKey: 0B5D1C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Effect_CyclonicRift_Teleport_1to0
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CyclonicRift_Teleport_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_CyclonicRift_Exit
+      Object: 0B5D16:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionShock_Imod_Explosion_ShockNova
+      Object: 001869:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Cyclonic Rift - 1 to 0
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 0B5D1D:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- HideInUI
+- NoDeathDispel
+MagicSkill: Destruction
+MinimumSkillLevel: 100
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+HitEffectArt: 0253BF:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 0B5D1D:Apocalypse - Magic of Skyrim.esp

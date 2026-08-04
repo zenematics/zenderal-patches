@@ -1,0 +1,19 @@
+FormKey: 09035F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureWeepingDaedra_Hair
+Name:
+  TargetLanguage: English
+  Value: WB_WeepingDaedra_Hair
+Model:
+  File: Actors\Character\Character Assets\Hair\Elf\Female\Hair08.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Female
+Type: Hair
+ExtraParts:
+- 0EC3BF:Skyrim.esm
+- 010D83:Apocalypse - Magic of Skyrim.esp
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\Elf\Female\ElfHair08.tri
+ValidRaces: 0A8027:Skyrim.esm

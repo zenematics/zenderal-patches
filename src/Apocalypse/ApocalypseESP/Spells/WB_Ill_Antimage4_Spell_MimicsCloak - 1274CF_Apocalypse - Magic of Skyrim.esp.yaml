@@ -1,0 +1,24 @@
+FormKey: 1274CF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage4_Spell_MimicsCloak
+Name:
+  TargetLanguage: English
+  Value: Mimic's Cloak
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 435
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C5:Skyrim.esm
+Effects:
+- BaseEffect: 1274CE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Duration: 60
+- BaseEffect: 030C15:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

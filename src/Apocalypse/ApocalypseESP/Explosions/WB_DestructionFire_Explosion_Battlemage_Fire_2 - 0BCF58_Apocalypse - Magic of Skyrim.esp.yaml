@@ -1,0 +1,12 @@
+FormKey: 0BCF58:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_Battlemage_Fire_2
+Model:
+  File: Magic\FireBallExp01.nif
+  Data: 0x020000000000000000000000
+Sound1: 10E052:Skyrim.esm
+ImpactDataSet: 026113:Skyrim.esm
+Force: 128
+ISRadius: 128
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

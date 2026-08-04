@@ -1,0 +1,13 @@
+FormKey: 0A3DF8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Restoration_LoadScreen
+Description:
+  TargetLanguage: English
+  Value: The discipline of Light Magic can heal, but also harm. Spells such as Necroplague and Horrid Wilting inflict living opponents with deadly poisons and diseases.
+LoadingScreenNif: 036F5C:Skyrim.esm
+InitialScale: 2.5
+InitialRotation: 0, -15, 0
+RotationOffsetConstraints:
+  Min: -180
+  Max: 180
+InitialTranslationOffset: -10, 0, -15
+CameraPath: Cameras\LSCameraPanZoomInSmall.nif

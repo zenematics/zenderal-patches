@@ -1,0 +1,15 @@
+FormKey: 091E84:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_Effect_Tanglefoot
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\Cobweb\Break\AMB_Cobweb_Break_01.wav
+- Data\Sound\FX\AMB\Cobweb\Break\AMB_Cobweb_Break_02.wav
+- Data\Sound\FX\AMB\Cobweb\Break\AMB_Cobweb_Break_03.wav
+OutputModel: 0ABEF3:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+PercentFrequencyShift: -30
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 4.85

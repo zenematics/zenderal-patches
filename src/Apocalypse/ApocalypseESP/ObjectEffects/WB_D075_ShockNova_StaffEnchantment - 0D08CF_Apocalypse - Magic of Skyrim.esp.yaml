@@ -1,0 +1,23 @@
+FormKey: 0D08CF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D075_ShockNova_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Shock Nova
+EnchantmentCost: 375
+CastType: FireAndForget
+EnchantmentAmount: 375
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0D1E61:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 40
+    Area: 25
+- BaseEffect: 0D1E64:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Area: 25
+- BaseEffect: 0D1E65:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Area: 25

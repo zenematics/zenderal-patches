@@ -1,0 +1,11 @@
+FormKey: 1132CE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Sound_Explosion_DustToDust
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_PowerRacial_Histskin_01_2D.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 90
+Priority: 128
+StaticAttenuation: 5.29

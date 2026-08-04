@@ -1,0 +1,38 @@
+FormKey: 0A5397:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl2_Effect_Wither_StackingDebuff_Attack
+Name:
+  TargetLanguage: English
+  Value: Wither - Proc Attack
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 007519:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoHitEvent
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+MagicSkill: Alteration
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: AttackDamageMult
+CastType: FireAndForget
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThan
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: AttackDamageMult
+  ComparisonValue: 0.05

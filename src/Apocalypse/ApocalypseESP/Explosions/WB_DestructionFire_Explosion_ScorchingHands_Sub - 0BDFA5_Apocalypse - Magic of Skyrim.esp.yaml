@@ -1,0 +1,13 @@
+FormKey: 0BDFA5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_ScorchingHands_Sub
+Model:
+  File: ApocNew\DestructionFire_Explosion_Carbonize.nif
+  Data: 0x020000000000000000000000
+Sound1: 0BDFA6:Apocalypse - Magic of Skyrim.esp
+Radius: 96
+ISRadius: 512
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

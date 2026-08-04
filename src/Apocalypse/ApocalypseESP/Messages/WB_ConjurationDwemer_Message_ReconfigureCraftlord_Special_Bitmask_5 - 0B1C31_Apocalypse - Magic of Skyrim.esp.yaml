@@ -1,0 +1,89 @@
+FormKey: 0B1C31:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Special_Bitmask_5
+Description:
+  TargetLanguage: English
+  Value: >-
+    Unspent Points: %.0f
+
+
+    Extended Duration
+
+    Standard Cost
+
+    Max. 1 Summoned
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Extended Duration (-10)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 10
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C27:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: Half Cost (-5)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 5
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C28:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: Max. 1 Summoned (+5)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C2A:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: Remove Extended Duration (+10)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C27:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Remove Half Cost (+5)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C28:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Remove Max. 1 Summoned (-5)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 5
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C2A:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Ok

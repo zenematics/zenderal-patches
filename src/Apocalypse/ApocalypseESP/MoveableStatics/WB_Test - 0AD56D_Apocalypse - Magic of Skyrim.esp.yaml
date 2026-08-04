@@ -1,0 +1,10 @@
+FormKey: 0AD56D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Test
+ObjectBounds:
+  First: -447, -447, -1144
+  Second: 447, 447, 166
+Model:
+  File: ApocNew\AlterationAlt_Static_TharnsGibbet.nif
+  Data: 0x020000000000000000000000
+Flags:
+- OnLocalMap

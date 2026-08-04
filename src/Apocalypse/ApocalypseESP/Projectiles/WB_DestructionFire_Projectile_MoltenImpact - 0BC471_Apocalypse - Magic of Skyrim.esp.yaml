@@ -1,0 +1,21 @@
+FormKey: 0BC471:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_MoltenImpact
+ObjectBounds:
+  First: -99, -659, -102
+  Second: 100, 115, 97
+Model:
+  File: ApocNew\DestructionFire_Projectile_MoltenImpact.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 750
+Range: 1500
+Light: 10FBEC:Skyrim.esm
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 17
+CollisionRadius: 20
+RelaunchInterval: 0.75
+MuzzleFlashModel: ''
+SoundLevel: 1

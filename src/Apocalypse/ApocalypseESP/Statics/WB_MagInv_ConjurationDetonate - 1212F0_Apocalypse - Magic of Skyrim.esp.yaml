@@ -1,0 +1,10 @@
+FormKey: 1212F0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_ConjurationDetonate
+ObjectBounds:
+  First: -25, -18, -11
+  Second: 24, 24, 12
+Model:
+  File: ApocNew\ConjurationDetonate_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

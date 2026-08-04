@@ -1,0 +1,22 @@
+FormKey: 003902:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions4_Spell_FabricateObject
+Name:
+  TargetLanguage: English
+  Value: Fabricate Object
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 615
+Flags:
+- NoDualCastModification
+ChargeTime: 3
+CastType: FireAndForget
+HalfCostPerk: 0C44B9:Skyrim.esm
+Effects:
+- BaseEffect: 0735E4:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 120
+- BaseEffect: 0735EA:Apocalypse - Magic of Skyrim.esp
+  Data: {}

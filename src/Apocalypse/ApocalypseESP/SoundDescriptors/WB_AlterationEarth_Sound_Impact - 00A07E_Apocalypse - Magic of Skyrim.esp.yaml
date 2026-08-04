@@ -1,0 +1,16 @@
+FormKey: 00A07E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Sound_Impact
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\PHY\Boulder\Large\Boulder\H\PHY_Boulder_Large_Boulder_H_01.wav
+- Data\Sound\FX\PHY\Boulder\Large\Boulder\H\PHY_Boulder_Large_Boulder_H_02.wav
+- Data\Sound\FX\PHY\Boulder\Large\Boulder\H\PHY_Boulder_Large_Boulder_H_03.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 20
+PercentFrequencyVariance: 15
+Priority: 128
+Variance: 6
+StaticAttenuation: 3.96

@@ -1,0 +1,24 @@
+FormKey: 0B0BD6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureBearTotem_Perk
+Name:
+  TargetLanguage: English
+  Value: Totem of Old
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 200
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Value: 30

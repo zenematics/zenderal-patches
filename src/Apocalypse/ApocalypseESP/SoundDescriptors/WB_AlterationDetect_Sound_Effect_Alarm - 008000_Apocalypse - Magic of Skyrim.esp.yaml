@@ -1,0 +1,12 @@
+FormKey: 008000:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationDetect_Sound_Effect_Alarm
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\OBJ\MetalRack\OBJ_Metal_Rotate_Rack_01.wav
+OutputModel: 017464:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 7.05

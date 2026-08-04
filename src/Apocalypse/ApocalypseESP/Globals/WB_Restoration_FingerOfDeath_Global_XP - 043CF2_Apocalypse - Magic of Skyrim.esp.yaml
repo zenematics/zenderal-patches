@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalFloat
+FormKey: 043CF2:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Restoration_FingerOfDeath_Global_XP
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 0.75

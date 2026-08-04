@@ -1,0 +1,11 @@
+FormKey: 082463:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArkay_Sound_Effect_BreathOfArkay_Max
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DwemerGong_01.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 5.73

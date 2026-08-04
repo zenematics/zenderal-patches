@@ -1,0 +1,23 @@
+FormKey: 0BC473:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_ConjureBattlemage_Fire_Spell_3
+Name:
+  TargetLanguage: English
+  Value: Battlemage Molten Impact
+MenuDisplayObject: 10EA46:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 150
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 0BC472:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 65
+    Area: 9
+    Duration: 1

@@ -1,0 +1,10 @@
+FormKey: 087092:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Art_Godform_Persistent
+ObjectBounds:
+  First: -74, -54, -15
+  Second: 46, 70, 12
+Model:
+  File: ApocNew\RestorationArcane_Art_Godform_Persistent.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

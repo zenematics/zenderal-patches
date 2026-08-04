@@ -1,0 +1,19 @@
+FormKey: 0B2C82:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 100663808
+EditorID: WB_DestructionShock_Activator_Crackle
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+- 0x4000000
+ObjectBounds:
+  First: -64, -58, -27
+  Second: 65, 58, 5
+Model:
+  File: ApocNew\DestructionShock_Static_Crackle.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#008F32CD'
+Flags: []
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle
+- NavMeshGenerationFilter

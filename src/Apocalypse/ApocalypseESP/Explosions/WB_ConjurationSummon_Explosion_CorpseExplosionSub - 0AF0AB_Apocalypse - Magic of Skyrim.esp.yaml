@@ -1,0 +1,17 @@
+FormKey: 0AF0AB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSummon_Explosion_CorpseExplosionSub
+ObjectBounds:
+  First: -222, -196, -98
+  Second: 222, 196, 98
+Model:
+  File: ApocNew\ConjurationSummon_Explosion_CorpseExplosion.nif
+  Data: 0x020000000000000000000000
+Sound1: 11FD2F:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 11E0A6:Apocalypse - Magic of Skyrim.esp
+Force: 18
+Radius: 240
+VerticalOffsetMult: 0.6
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

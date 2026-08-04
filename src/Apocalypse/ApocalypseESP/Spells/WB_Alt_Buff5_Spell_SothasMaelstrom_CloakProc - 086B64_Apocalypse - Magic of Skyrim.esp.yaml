@@ -1,0 +1,22 @@
+FormKey: 086B64:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Spell_SothasMaelstrom_CloakProc
+Name:
+  TargetLanguage: English
+  Value: Thaumaturgic Maelstrom
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 17
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44BA:Skyrim.esm
+Effects:
+- BaseEffect: 086B58:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 1

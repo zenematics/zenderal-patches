@@ -1,0 +1,37 @@
+FormKey: 0A5393:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_AlterationEarth_Activator_ThrummingStone_Spawner_2C
+SkyrimMajorRecordFlags:
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ThrummingStone_Spawner_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_ThrummingStone_Global_Delay
+      Object: 0A6EC1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationEarth_Activator_ThrummingStone
+      Object: 0A5389:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_Pulses
+      Data: 8
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_A100_ThrummingStone_Spell_PC
+      Object: 0A538E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Speed
+      Data: 500
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Z
+      Data: -192
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

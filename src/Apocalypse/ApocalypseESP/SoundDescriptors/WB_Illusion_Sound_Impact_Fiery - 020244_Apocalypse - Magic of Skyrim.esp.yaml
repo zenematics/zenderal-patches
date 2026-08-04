@@ -1,0 +1,12 @@
+FormKey: 020244:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Illusion_Sound_Impact_Fiery
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mgk\firebolt\impact\MGK_Firebolt_Impact_01.wav
+OutputModel: 0ABEF3:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 8
+Priority: 128

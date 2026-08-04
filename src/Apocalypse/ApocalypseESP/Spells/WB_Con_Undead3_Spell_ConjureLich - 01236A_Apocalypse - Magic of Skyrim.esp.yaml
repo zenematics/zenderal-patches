@@ -1,0 +1,22 @@
+FormKey: 01236A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead3_Spell_ConjureLich
+Name:
+  TargetLanguage: English
+  Value: Conjure Lich
+MenuDisplayObject: 11F238:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 244
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BC:Skyrim.esm
+Effects:
+- BaseEffect: 012369:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

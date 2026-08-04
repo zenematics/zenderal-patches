@@ -1,0 +1,30 @@
+FormKey: 047349:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Ghost5_Effect_ConjureGatewayWraith_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicSetActorAlphaScript
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: AlphaValue
+      Data: 0.1
+    - MutagenObjectType: ScriptBoolProperty
+      Name: DontFadeBack
+      Data: True
+Name:
+  TargetLanguage: English
+  Value: Gateway Wraith - FX
+Flags:
+- NoDuration
+- FXPersist
+- NoDeathDispel
+HitShader: 047348:Apocalypse - Magic of Skyrim.esp
+EnchantShader: 047348:Apocalypse - Magic of Skyrim.esp
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+HitEffectArt: 017522:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

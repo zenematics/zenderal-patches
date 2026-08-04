@@ -1,0 +1,10 @@
+FormKey: 07D31B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Art_Levitate
+ObjectBounds:
+  First: -34, -29, -56
+  Second: 37, 42, 56
+Model:
+  File: ApocNew\AlterationAlt_Art_Levitate.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

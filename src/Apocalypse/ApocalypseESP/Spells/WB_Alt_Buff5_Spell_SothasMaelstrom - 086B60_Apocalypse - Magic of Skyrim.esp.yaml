@@ -1,0 +1,23 @@
+FormKey: 086B60:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Spell_SothasMaelstrom
+Name:
+  TargetLanguage: English
+  Value: Thaumaturgic Maelstrom
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 622
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44BA:Skyrim.esm
+Effects:
+- BaseEffect: 086B63:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Duration: 120
+- BaseEffect: 0870CD:Apocalypse - Magic of Skyrim.esp
+  Data: {}

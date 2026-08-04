@@ -1,0 +1,18 @@
+FormKey: 076680:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Beam_RideTheLightning
+Model:
+  File: ApocNew\DestructionShock_Projectile_RideTheLightning.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 40000
+Range: 4000
+Light: 056ACA:Skyrim.esm
+Sound: 057C6C:Skyrim.esm
+FadeDuration: 0.5
+ImpactForce: 4
+CollisionRadius: 10
+Lifetime: 0.35
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

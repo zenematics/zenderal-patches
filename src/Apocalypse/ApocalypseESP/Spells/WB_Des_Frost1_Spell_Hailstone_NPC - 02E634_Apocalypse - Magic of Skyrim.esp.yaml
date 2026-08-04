@@ -1,0 +1,34 @@
+FormKey: 02E634:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost1_Spell_Hailstone_NPC
+Name:
+  TargetLanguage: English
+  Value: Hailstone
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 31
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0F2CA8:Skyrim.esm
+Effects:
+- BaseEffect: 0B2C7F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+- BaseEffect: 0B374E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Area: 10
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.25
+- BaseEffect: 0B729F:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 3
+- BaseEffect: 0F3932:Skyrim.esm
+  Data:
+    Duration: 3

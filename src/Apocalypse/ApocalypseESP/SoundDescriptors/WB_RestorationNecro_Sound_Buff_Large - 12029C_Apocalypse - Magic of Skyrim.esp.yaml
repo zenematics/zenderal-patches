@@ -1,0 +1,12 @@
+FormKey: 12029C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Sound_Buff_Large
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Vampire\MAG_Vampire_Sunlight_01.wav
+- Data\Sound\FX\MAG\Vampire\MAG_Vampire_Sunlight_02.wav
+OutputModel: 0D78B8:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: -40
+Priority: 128
+StaticAttenuation: 10.57

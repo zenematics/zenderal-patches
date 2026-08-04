@@ -1,0 +1,23 @@
+FormKey: 010D74:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureLordOfBindings_Hair
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: WB_LordOfBindings_Hair
+Model:
+  File: Actors\Character\Character Assets\Hair\Elf\Male\Hair08.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Male
+Type: Hair
+ExtraParts:
+- 0C8250:Skyrim.esm
+- 109DFE:Skyrim.esm
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\Elf\Male\ElfHair08.tri
+ValidRaces: 0A8027:Skyrim.esm
+MajorFlags:
+- NonPlayable

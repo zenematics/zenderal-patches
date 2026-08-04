@@ -1,0 +1,14 @@
+FormKey: 02E633:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionCantrip_Sound_Ready
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\mgk\firebolt\mgk_firebolt_02_ready_lp.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+  RumbleValues: 32
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 7.05

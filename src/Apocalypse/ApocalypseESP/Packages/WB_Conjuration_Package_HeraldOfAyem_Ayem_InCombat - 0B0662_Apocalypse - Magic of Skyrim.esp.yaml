@@ -1,0 +1,49 @@
+FormKey: 0B0662:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Conjuration_Package_HeraldOfAyem_Ayem_InCombat
+Flags:
+- PreferredSpeed
+- IgnoreCombat
+- NoCombatAlert
+Type: Package
+InterruptOverride: Combat
+Unknown: 116
+InteruptFlags:
+- 0x400
+- 0x800
+- 0x1000
+- 0x2000
+- 0x4000
+- 0x8000
+Unknown2: 4
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+IdleAnimations:
+  Type: RunInSequence
+  TimerSetting: 90
+  Animations:
+  - 0F3A99:Skyrim.esm
+CombatStyle: 044CD0:Skyrim.esm
+PackageTemplate: 0503D0:Skyrim.esm
+DataInputVersion: 5
+Data:
+- Key: 0
+  Value:
+    MutagenObjectType: PackageDataLocation
+    Location:
+      Target:
+        MutagenObjectType: LocationFallback
+        Type: NearSelf
+      Radius: 500
+XnamMarker: 0x08
+OnBegin:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnEnd:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnChange:
+  Topics:
+  - MutagenObjectType: TopicReference

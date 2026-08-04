@@ -1,0 +1,16 @@
+FormKey: 0BC476:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Beam_Battlemage_Frost_3
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 1024
+Light: 11ECBF:Apocalypse - Magic of Skyrim.esp
+Sound: 02592B:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.4
+ImpactForce: 10
+CollisionRadius: 1
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,12 @@
+FormKey: 120819:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationTap_Sound_Release
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\DA16\QST_DA16_Soul_Gem_Off.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+PercentFrequencyShift: 75
+Priority: 128
+StaticAttenuation: 4.41

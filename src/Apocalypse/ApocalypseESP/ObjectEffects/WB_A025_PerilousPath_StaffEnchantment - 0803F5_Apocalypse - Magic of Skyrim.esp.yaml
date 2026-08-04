@@ -1,0 +1,15 @@
+FormKey: 0803F5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A025_PerilousPath_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Perilous Path
+EnchantmentCost: 80
+CastType: FireAndForget
+EnchantmentAmount: 80
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0F2184:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

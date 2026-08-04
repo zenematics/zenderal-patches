@@ -1,0 +1,67 @@
+FormKey: 15E727:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock4_Effect_RavagingStorm
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_RavagingStorm_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Proc
+      Object: 15E725:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_SeekRange
+      Data: 2066
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Sound
+      Object: 038B03:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Ravaging Storm
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- 044D4E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 16
+MagicSkill: Destruction
+CastingLight: 057C68:Skyrim.esm
+HitShader: 057C67:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 058E9B:Skyrim.esm
+HitEffectArt: 09C606:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.2
+DualCastScale: 1.1
+ImageSpaceModifier: 0A9D93:Skyrim.esm
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 03F20C:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 0012F1:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: For <dur> seconds, strikes a random target (including the caster) every second, dealing <mag> shock damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

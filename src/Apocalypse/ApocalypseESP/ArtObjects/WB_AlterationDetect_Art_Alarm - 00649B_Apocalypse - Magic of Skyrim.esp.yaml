@@ -1,0 +1,10 @@
+FormKey: 00649B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationDetect_Art_Alarm
+ObjectBounds:
+  First: -62, -162, -112
+  Second: 62, 180, 130
+Model:
+  File: ApocNew\AlterationDetect_Art_Alarm.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

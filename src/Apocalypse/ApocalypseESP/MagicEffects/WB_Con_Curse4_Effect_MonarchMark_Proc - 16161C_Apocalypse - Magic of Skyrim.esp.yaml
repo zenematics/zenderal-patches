@@ -1,0 +1,34 @@
+FormKey: 16161C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Curse4_Effect_MonarchMark_Proc
+Name:
+  TargetLanguage: English
+  Value: Monarch Pulse
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 2
+MagicSkill: Conjuration
+ResistValue: ResistMagic
+HitShader: 149F80:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingArea: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 11F234:Apocalypse - Magic of Skyrim.esp
+Explosion: 16161F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 1168F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> magic damage.

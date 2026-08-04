@@ -1,0 +1,45 @@
+FormKey: 0A7433:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Active4_Effect_GraceOfWater_NoAttackSpeedFix
+Name:
+  TargetLanguage: English
+  Value: Grace of Water - -0.5 Attack Speed
+MenuDisplayObject: 0A846D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 0A7434:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- NoRecast
+MagicSkill: Alteration
+CastingLight: 0A9A07:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 2
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: WeaponSpeedMult
+  Association: 0A7434:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+CastingArt: 0A846C:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 00856E:Apocalypse - Magic of Skyrim.esp
+- Type: Release
+  Sound: 0A8473:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 0A9A09:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: WeaponSpeedMult
+  ComparisonValue: 0.5

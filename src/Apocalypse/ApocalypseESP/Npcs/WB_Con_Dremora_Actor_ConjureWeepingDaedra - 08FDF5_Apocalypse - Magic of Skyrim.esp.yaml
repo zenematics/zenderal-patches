@@ -1,0 +1,238 @@
+FormKey: 08FDF5:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Con_Dremora_Actor_ConjureWeepingDaedra
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FXunsommonSCRIPT
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AtronachUnsummonDeathFXS
+      Object: 0EA8FF:Skyrim.esm
+  - Name: WB_MinionSpellScaling_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_BaseLevel
+      Data: 30
+Configuration:
+  Flags:
+  - Female
+  - Respawn
+  - AutoCalcStats
+  - Summonable
+  MagickaOffset: 326
+  Level:
+    MutagenObjectType: PcLevelMult
+    LevelMult: 1
+  CalcMinLevel: 30
+  CalcMaxLevel: 45
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: -236
+Factions:
+- Faction: 000013:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 043597:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 03AD80:Skyrim.esm
+Voice: 01F1D4:Skyrim.esm
+Race: 0131F0:Skyrim.esm
+ActorEffect:
+- 08FDF1:Apocalypse - Magic of Skyrim.esp
+- 090363:Apocalypse - Magic of Skyrim.esp
+AttackRace: 0131F0:Skyrim.esm
+Perks:
+- Perk: 0153CF:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 012357:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 155AAC:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsFriendsAndAllies
+Keywords:
+- 013797:Skyrim.esm
+Class: 072887:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Weeping Daedra
+ShortName:
+  TargetLanguage: English
+  Value: Zenaida Nacarra
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 41
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 41
+  - Key: Conjuration
+    Value: 92
+  - Key: Destruction
+    Value: 92
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 41
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 75
+  Magicka: 550
+  Stamina: 50
+HeadParts:
+- 09035F:Apocalypse - Magic of Skyrim.esp
+HairColor: 0A0438:Skyrim.esm
+CombatStyle: 03BE1C:Skyrim.esm
+NAM5: 255
+Height: 1.0475
+SoundLevel: Normal
+DefaultOutfit: 09035C:Apocalypse - Magic of Skyrim.esp
+DefaultPackageList: 021E81:Skyrim.esm
+HeadTexture: 019390:Skyrim.esm
+TextureLighting: '#00D1E1E9'
+FaceMorph:
+  JawUpVsDown: -0.39999998
+  EyesUpVsDown: -0.39999998
+  BrowsUpVsDown: -0.8
+FaceParts:
+  Nose: 16
+  Eyes: 15
+  Mouth: 13
+TintLayers:
+- Index: 24
+  Color: '#00D1E1E9'
+  InterpolationValue: 1
+  Preset: -1
+- Index: 30
+  Color: '#006C0000'
+  InterpolationValue: 1
+  Preset: -1
+- Index: 36
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 521
+- Index: 37
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 545
+- Index: 38
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 569
+- Index: 39
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 593
+- Index: 40
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 617
+- Index: 41
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 641
+- Index: 42
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 665
+- Index: 43
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 689
+- Index: 44
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 713
+- Index: 45
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 737
+- Index: 47
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 761
+- Index: 49
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 809
+- Index: 50
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 833
+- Index: 51
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 35
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 865
+MajorFlags:
+- 0x40000

@@ -1,0 +1,39 @@
+FormKey: 073B53:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_FabricateObject
+Description:
+  TargetLanguage: English
+  Value: Fabricate which object?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Bridge
+- Text:
+    TargetLanguage: English
+    Value: Bed
+- Text:
+    TargetLanguage: English
+    Value: Arcane Enchanter
+- Text:
+    TargetLanguage: English
+    Value: Alchemy Lab
+- Text:
+    TargetLanguage: English
+    Value: Tanning Rack
+- Text:
+    TargetLanguage: English
+    Value: Workbench
+- Text:
+    TargetLanguage: English
+    Value: Anvil
+- Text:
+    TargetLanguage: English
+    Value: Cooking Spit
+- Text:
+    TargetLanguage: English
+    Value: Grindstone
+- Text:
+    TargetLanguage: English
+    Value: Chair

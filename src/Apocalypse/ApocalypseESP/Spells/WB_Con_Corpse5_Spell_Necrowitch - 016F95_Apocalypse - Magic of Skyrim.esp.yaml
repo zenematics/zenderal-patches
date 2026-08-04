@@ -1,0 +1,20 @@
+FormKey: 016F95:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Corpse5_Spell_Necrowitch
+Name:
+  TargetLanguage: English
+  Value: Necrowitch
+MenuDisplayObject: 1097CC:Skyrim.esm
+EquipmentType: 013F42:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 677
+Flags:
+- NoDualCastModification
+ChargeTime: 5
+CastType: FireAndForget
+HalfCostPerk: 0C44BE:Skyrim.esm
+Effects:
+- BaseEffect: 132216:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 600

@@ -1,0 +1,12 @@
+FormKey: 0A5E8A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Explosion_ThrummingStone_Origin
+Model:
+  File: ApocNew\AlterationEarth_Explosion_Grindstone.nif
+  Data: 0x020000000000000000000000
+ImpactDataSet: 00AB5C:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 0A5391:Apocalypse - Magic of Skyrim.esp
+Force: 256
+Radius: 256
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

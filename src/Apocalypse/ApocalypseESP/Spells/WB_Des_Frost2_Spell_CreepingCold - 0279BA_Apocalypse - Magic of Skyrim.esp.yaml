@@ -1,0 +1,20 @@
+FormKey: 0279BA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost2_Spell_CreepingCold
+Name:
+  TargetLanguage: English
+  Value: Creeping Cold - Coldgrip
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 90
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 0279BC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 60
+- BaseEffect: 0279B9:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 4

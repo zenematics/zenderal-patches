@@ -1,0 +1,21 @@
+FormKey: 15E71A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Disease4_Spell_SerpentsScale
+Name:
+  TargetLanguage: English
+  Value: Serpent's Scale
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 393
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 15B84D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10
+    Duration: 15

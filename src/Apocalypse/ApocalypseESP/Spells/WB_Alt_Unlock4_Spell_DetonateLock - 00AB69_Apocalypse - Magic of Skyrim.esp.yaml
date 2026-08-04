@@ -1,0 +1,24 @@
+FormKey: 00AB69:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Unlock4_Spell_DetonateLock
+Name:
+  TargetLanguage: English
+  Value: Detonate Lock
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 595
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 2
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44B9:Skyrim.esm
+Effects:
+- BaseEffect: 00AB60:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 40

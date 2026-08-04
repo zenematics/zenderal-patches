@@ -1,0 +1,51 @@
+FormKey: 09C0A0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost4_Effect_SleetStorm
+Name:
+  TargetLanguage: English
+  Value: Sleet Storm
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 1.3
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 1.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 09C09F:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 020BF5:Skyrim.esm
+ImpactData: 018A2E:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1.2
+ImageSpaceModifier: 10FBF1:Skyrim.esm
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Charge
+  Sound: 08198C:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 1347F0:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 001865:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: A rapid stream of ice shards that deal <mag> damage to Health and Stamina per second.

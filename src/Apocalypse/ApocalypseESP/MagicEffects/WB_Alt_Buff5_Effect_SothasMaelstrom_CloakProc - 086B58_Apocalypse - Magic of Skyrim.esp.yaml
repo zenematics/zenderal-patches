@@ -1,0 +1,62 @@
+FormKey: 086B58:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Effect_SothasMaelstrom_CloakProc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Wither_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_A025_Wither_Spell_StackingDebuff_PC
+      Object: 086B59:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_StackMax
+      Data: 20
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Thaumaturgic Maelstrom
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 007519:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- FXPersist
+BaseCost: 3
+MagicSkill: Alteration
+HitShader: 0870CE:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 012FCF:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+HitEffectArt: 086B66:Apocalypse - Magic of Skyrim.esp
+ImpactData: 026113:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 0059B6:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Reduces a target's magic resistance by <mag>% each second.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

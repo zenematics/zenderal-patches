@@ -1,0 +1,38 @@
+FormKey: 108621:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost4_Effect_ShatteringCrystal_Proc2
+Name:
+  TargetLanguage: English
+  Value: Crystal Shatter - Medium
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 1
+MagicSkill: Destruction
+ResistValue: ResistFrost
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 20
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Explosion: 108620:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SecondActorValue: Stamina
+ImpactData: 0D6C64:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

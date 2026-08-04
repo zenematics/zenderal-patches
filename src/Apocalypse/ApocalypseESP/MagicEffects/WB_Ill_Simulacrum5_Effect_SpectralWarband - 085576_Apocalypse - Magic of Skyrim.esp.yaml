@@ -1,0 +1,95 @@
+FormKey: 085576:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Simulacrum5_Effect_SpectralWarband
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Warband_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicAllegianceFaction
+      Object: 09E0C9:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DistanceInFront
+      Data: 64
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusoryEntity_Faction
+      Object: 0668E6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_LevelMod
+      Data: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I100_EphemeralWarband_Spell_Ab_PC
+      Object: 08557B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.5
+Name:
+  TargetLanguage: English
+  Value: Spectral Warband
+MenuDisplayObject: 11CC26:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0806E1:Skyrim.esm
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- A00105:Update.esm
+- 044D47:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+BaseCost: 175
+MagicSkill: Illusion
+CastingLight: 11C6AA:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 75
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 08557D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11C6A9:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 085589:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+EquipAbility: 085581:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 0331F4:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 07BBAE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Manifests illusions of all allies in combat for <dur> seconds. Illusions take extra damage from attacks.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 035D59:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: A00666:Update.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInListConditionData
+    FormList: 14FD15:Apocalypse - Magic of Skyrim.esp
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: IsInCombatConditionData

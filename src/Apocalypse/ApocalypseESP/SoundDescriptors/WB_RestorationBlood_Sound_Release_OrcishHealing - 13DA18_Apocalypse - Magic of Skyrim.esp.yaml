@@ -1,0 +1,11 @@
+FormKey: 13DA18:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Sound_Release_OrcishHealing
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_PowerRacial_Berserker_Fire_2D.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 5.73

@@ -1,0 +1,10 @@
+FormKey: 05FD2D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Art_PoetsWhim
+ObjectBounds:
+  First: -63, -63, -29
+  Second: 63, 63, 35
+Model:
+  File: ApocNew\RestorationArcane_Art_PoetsWhim.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

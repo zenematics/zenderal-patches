@@ -1,0 +1,51 @@
+FormKey: 014EEF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Effect_ConjureDremoraAssassin_Perk
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_DeathMark_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationAtronach_Imod_AtronachMark
+      Object: 02CD7D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDaedric_Marker_AtronachMark
+      Object: 014EF1:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Death Mark
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 016A25:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- DispelWithKeywords
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+HitShader: 03544E:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 06EBC8:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds:
+- Type: Release
+  Sound: 03C8FB:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Target with <Global=WB_Conjuration_ConjureDremoraAssassin_Global_Health> Health or less has its Health set to <1> for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionGlobal
+  CompareOperator: LessThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: Health
+  ComparisonValue: 01A60D:Apocalypse - Magic of Skyrim.esp

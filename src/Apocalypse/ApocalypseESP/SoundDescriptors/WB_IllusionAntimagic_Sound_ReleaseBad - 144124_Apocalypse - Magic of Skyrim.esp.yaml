@@ -1,0 +1,14 @@
+FormKey: 144124:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionAntimagic_Sound_ReleaseBad
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Illusion\ReleaseAimed\MAG_Illusion_Release_Aimed_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 3
+Priority: 128
+StaticAttenuation: 4.41

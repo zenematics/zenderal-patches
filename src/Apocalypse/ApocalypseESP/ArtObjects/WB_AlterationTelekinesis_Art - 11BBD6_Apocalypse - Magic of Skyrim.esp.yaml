@@ -1,0 +1,10 @@
+FormKey: 11BBD6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Art
+ObjectBounds:
+  First: -107, -29, -114
+  Second: 96, 91, 118
+Model:
+  File: ApocNew\AlterationTelekinesis_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

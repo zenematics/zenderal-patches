@@ -1,0 +1,25 @@
+FormKey: 05E21C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_TempDmg5_Spell_Wyrd
+Name:
+  TargetLanguage: English
+  Value: Wyrd
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1100
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoDualCastModification
+ChargeTime: 3
+CastType: FireAndForget
+HalfCostPerk: 0C44C6:Skyrim.esm
+Effects:
+- BaseEffect: 096A12:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 50
+- BaseEffect: 096A14:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

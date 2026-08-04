@@ -1,0 +1,22 @@
+FormKey: 11122C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_UndeadDmg5_Spell_DustToDust
+Name:
+  TargetLanguage: English
+  Value: Dust To Dust
+MenuDisplayObject: 1097CA:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1250
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoDualCastModification
+ChargeTime: 2
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 11122B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 50

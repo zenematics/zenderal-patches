@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalFloat
+FormKey: 048901:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Illusion_BloodForBlood_Global_XP
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 0.25

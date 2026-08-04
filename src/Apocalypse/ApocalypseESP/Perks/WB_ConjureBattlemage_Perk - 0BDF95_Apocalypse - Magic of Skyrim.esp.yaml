@@ -1,0 +1,34 @@
+FormKey: 0BDF95:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureBattlemage_Perk
+Name:
+  TargetLanguage: English
+  Value: Battlemage
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 49
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0B1C35:Apocalypse - Magic of Skyrim.esp
+      ComparisonValue: 1
+  EntryPoint: ModSpellMagnitude
+  PerkConditionTabCount: 3
+  ActorValue: Variable02
+  Value: 0.01
+  Modification: MultiplyOnePlusAVMult
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 50
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  ActorValue: Variable01
+  Value: 0.01
+  Modification: MultiplyOnePlusAVMult

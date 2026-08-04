@@ -1,0 +1,10 @@
+FormKey: 0B98C4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationCurse_Light_Hands
+Time: -1
+Radius: 32
+Color: '#00823F02'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.5

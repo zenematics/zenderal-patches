@@ -1,0 +1,13 @@
+FormKey: 115E0D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Illusion_Sound_Channel
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Illusion\MAG_Illusion_Fire_LPM.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 5.29

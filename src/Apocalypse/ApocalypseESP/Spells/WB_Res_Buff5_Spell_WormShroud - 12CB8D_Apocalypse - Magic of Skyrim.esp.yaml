@@ -1,0 +1,21 @@
+FormKey: 12CB8D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Spell_WormShroud
+Name:
+  TargetLanguage: English
+  Value: Worm Shroud
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1453
+Flags:
+- NoDualCastModification
+ChargeTime: 2
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 0B9338:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Duration: 120

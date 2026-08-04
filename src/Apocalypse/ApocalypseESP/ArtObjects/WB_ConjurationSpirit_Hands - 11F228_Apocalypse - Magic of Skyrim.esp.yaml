@@ -1,0 +1,9 @@
+FormKey: 11F228:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSpirit_Hands
+ObjectBounds:
+  First: -11, -10, 0
+  Second: 11, 14, 1
+Model:
+  File: ApocNew\ConjurationSpirit_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

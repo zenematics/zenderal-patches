@@ -1,0 +1,13 @@
+FormKey: 0A07B8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Sound_HeartOfThorns_Slash
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Kill\Gore\NPC_Kill_Gore_02.wav
+- Data\Sound\FX\NPC\Kill\Gore\NPC_Kill_Gore_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 12
+Priority: 128
+StaticAttenuation: 3.08

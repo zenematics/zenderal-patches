@@ -1,0 +1,16 @@
+FormKey: 0834B2:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_DestructionFire_Activator_Volcano_Fountain
+SkyrimMajorRecordFlags:
+- 0x4000000
+ObjectBounds:
+  First: -89, -87, -314
+  Second: 81, 84, 411
+Model:
+  File: ApocNew\DestructionFire_Static_VolcanoNew_Fountain.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+LoopingSound: 0263FB:Apocalypse - Magic of Skyrim.esp
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

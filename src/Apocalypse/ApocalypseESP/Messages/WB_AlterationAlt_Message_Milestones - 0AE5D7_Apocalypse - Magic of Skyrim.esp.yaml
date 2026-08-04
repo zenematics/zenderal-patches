@@ -1,0 +1,52 @@
+FormKey: 0AE5D7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_Milestones
+Description:
+  TargetLanguage: English
+  Value: Create which Milestone?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: '#1'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D2:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: '#2'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D3:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: '#3'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D4:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: '#4'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D5:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: '#5'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D6:Apocalypse - Magic of Skyrim.esp
+- Text:
+    TargetLanguage: English
+    Value: Cancel

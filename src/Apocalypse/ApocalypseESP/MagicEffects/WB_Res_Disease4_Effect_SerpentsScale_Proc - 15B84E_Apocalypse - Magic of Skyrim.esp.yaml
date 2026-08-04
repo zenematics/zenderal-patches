@@ -1,0 +1,50 @@
+FormKey: 15B84E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Disease4_Effect_SerpentsScale_Proc
+Name:
+  TargetLanguage: English
+  Value: Snakebite
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+- ADA001:Update.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3
+MagicSkill: Restoration
+ResistValue: ResistDisease
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+HitEffectArt: 06EA51:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 1132C7:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Inflicts <mag> disease damage per second to living targets for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

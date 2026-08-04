@@ -1,0 +1,19 @@
+FormKey: 11D1A1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Projectile
+ObjectBounds:
+  First: -64, -196, -13
+  Second: 64, 59, 12
+Model:
+  File: ApocNew\RestorationNecro_Projectile.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1000
+Range: 10000
+Light: 11D1A2:Apocalypse - Magic of Skyrim.esp
+Sound: 000DFE:Skyrim.esm
+FadeDuration: 8
+ImpactForce: 0.25
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

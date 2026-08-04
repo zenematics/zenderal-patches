@@ -1,0 +1,27 @@
+FormKey: 083FA8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Disease5_Spell_LifesFinale
+Name:
+  TargetLanguage: English
+  Value: Life's Finale
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1019
+Flags:
+- AreaEffectIgnoresLOS
+- NoDualCastModification
+ChargeTime: 2.2
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 082451:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Area: 35
+    Duration: 20
+- BaseEffect: 083FB2:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 20

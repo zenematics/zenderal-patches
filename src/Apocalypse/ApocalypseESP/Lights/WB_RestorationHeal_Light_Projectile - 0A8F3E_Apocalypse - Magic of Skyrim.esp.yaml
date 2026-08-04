@@ -1,0 +1,13 @@
+FormKey: 0A8F3E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Light_Projectile
+Time: -1
+Radius: 350
+Color: '#00F2D89F'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.5

@@ -1,0 +1,14 @@
+FormKey: 1132C7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Sound_Heartstopper
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Perk\ShadowWarrior\MAG_Perk_ShadowWarrior_Fire_2D_01.wav
+- Data\Sound\FX\MAG\Perk\ShadowWarrior\MAG_Perk_ShadowWarrior_Fire_2D_02.wav
+- Data\Sound\FX\MAG\Perk\ShadowWarrior\MAG_Perk_ShadowWarrior_Fire_2D_03.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 0.88

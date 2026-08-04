@@ -1,0 +1,22 @@
+FormKey: 00C145:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Explosion_FabricateObject
+ObjectBounds:
+  First: -222, -196, -98
+  Second: 222, 196, 98
+Model:
+  File: ApocNew\AlterationAlt_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 006FAD:Apocalypse - Magic of Skyrim.esp
+Sound1: 03C8FC:Skyrim.esm
+Sound2: 08196F:Skyrim.esm
+ImpactDataSet: 022AD2:Apocalypse - Magic of Skyrim.esp
+Force: 4
+Radius: 50
+ISRadius: 150
+VerticalOffsetMult: 0.9
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- KnockDownAlways
+- KnockDownByFormula
+- IgnoreImageSpaceSwap

@@ -1,0 +1,51 @@
+FormKey: 0279B9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost2_Effect_CreepingCold_ProcFreeze
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshadersonendscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX01
+      Object: 0EA519:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX02
+      Object: 0EA51A:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Creeping Cold - Coldgrip Ice Form
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01EA70:Skyrim.esm
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01B648:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- NoMagnitude
+- FXPersist
+- HideInUI
+BaseCost: 1
+MagicSkill: Destruction
+HitShader: 02AA78:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Paralysis
+  Type: Paralysis
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: VeryLoud
+Sounds:
+- Type: Release
+  Sound: 07F8E7:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0F23C5:Skyrim.esm

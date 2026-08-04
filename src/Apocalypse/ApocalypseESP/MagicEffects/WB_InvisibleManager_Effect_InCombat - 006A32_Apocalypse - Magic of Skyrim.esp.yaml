@@ -1,0 +1,46 @@
+FormKey: 006A32:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_InvisibleManager_Effect_InCombat
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_InvisibleManagerInCombat9_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_MedorasMysteries_FormList
+      Object: 1A1B6C:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_OcatosRecital_FormList
+      Object: 006A28:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationMetamagic_SilmanesSpellSentinel_FormList
+      Object: 16160B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Destruction_Crackle_Global
+      Object: 05D74B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_MedorasMysteries_Global_Enabled
+      Object: 1A1B6B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_SilmanesTickRate
+      Data: 30
+Name:
+  TargetLanguage: English
+  Value: Invisible Manager - In Combat
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,13 @@
+FormKey: 001862:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Explosion_Shatter
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\FrostbiteDragon\MAG_Destruction_ForstbiteDragon_Explosion_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 1
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 6.17

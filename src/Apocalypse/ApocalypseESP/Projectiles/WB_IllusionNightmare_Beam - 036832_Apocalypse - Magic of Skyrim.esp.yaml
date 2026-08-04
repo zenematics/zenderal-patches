@@ -1,0 +1,22 @@
+FormKey: 036832:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Beam
+ObjectBounds:
+  First: -26, -37, -27
+  Second: 27, 542, 9
+Model:
+  File: ApocNew\IllusionNightmare_Beam.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 6000
+Light: 11C6B2:Apocalypse - Magic of Skyrim.esp
+Explosion: 10A292:Skyrim.esm
+Sound: 058659:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.1
+ImpactForce: 10
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

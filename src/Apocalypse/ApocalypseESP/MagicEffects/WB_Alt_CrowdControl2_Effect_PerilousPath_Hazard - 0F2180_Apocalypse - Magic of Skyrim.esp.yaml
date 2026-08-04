@@ -1,0 +1,42 @@
+FormKey: 0F2180:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl2_Effect_PerilousPath_Hazard
+Name:
+  TargetLanguage: English
+  Value: Perilous Path
+MenuDisplayObject: 00856C:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- NoHitEvent
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoHitEffect
+BaseCost: 30
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Staggered by spikes.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsMovingConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetRandomPercentConditionData
+  ComparisonValue: 22.5

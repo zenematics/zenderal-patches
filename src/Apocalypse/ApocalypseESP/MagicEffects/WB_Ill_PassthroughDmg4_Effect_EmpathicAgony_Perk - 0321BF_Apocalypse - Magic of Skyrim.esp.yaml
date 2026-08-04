@@ -1,0 +1,120 @@
+FormKey: 0321BF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_PassthroughDmg4_Effect_EmpathicAgony_Perk
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MagicImodOnPlayerHitScript
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fImodStrength
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OnStartImodFX
+      Object: 0321B6:Apocalypse - Magic of Skyrim.esp
+  - Name: WB_Empathic_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Apoc_FXS_Red
+      Object: 048336:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_FractionDamage
+      Data: 0.75
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_EmpathicAgony_Global_XP
+      Object: 0321BD:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: Empathic Agony - Master of the Mind
+MenuDisplayObject: 11D198:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0321C1:Apocalypse - Magic of Skyrim.esp
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsDuration
+- Painless
+- NoDeathDispel
+MagicSkill: Illusion
+CastingLight: 127A43:Apocalypse - Magic of Skyrim.esp
+HitShader: 032724:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 11D196:Apocalypse - Magic of Skyrim.esp
+Explosion: 11D197:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 127A42:Apocalypse - Magic of Skyrim.esp
+ImpactData: 128510:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E17:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Target
+    Perk: 059B76:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: A00666:Update.esm
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+  ComparisonValue: 1

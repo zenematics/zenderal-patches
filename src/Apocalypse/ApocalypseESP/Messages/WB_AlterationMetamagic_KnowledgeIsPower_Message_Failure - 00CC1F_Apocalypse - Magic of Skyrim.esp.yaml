@@ -1,0 +1,7 @@
+FormKey: 00CC1F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_KnowledgeIsPower_Message_Failure
+Description:
+  TargetLanguage: English
+  Value: This spell cannot be stored.
+INAM: 0x00000000
+DisplayTime: 1

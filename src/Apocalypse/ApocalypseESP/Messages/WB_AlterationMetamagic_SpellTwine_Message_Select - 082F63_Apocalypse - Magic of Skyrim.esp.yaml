@@ -1,0 +1,63 @@
+FormKey: 082F63:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_SpellTwine_Message_Select
+Description:
+  TargetLanguage: English
+  Value: >-
+    Entwine which effect? The effect is cast whenever you cast the spell in your left hand.
+
+
+    Cushion: No fall damage for 10 seconds.
+
+    Haste: Speed +15%% for 10 seconds.
+
+    Flow: Spells are 20%% cheaper for 5 seconds.
+
+    Heal: Heals for 50%% of Alteration level.
+
+    Blood: Weapons damage +15%% for 10 seconds.
+
+    Feather: Carry weight +50 for 10 seconds.
+
+    Rock: Weapon damage taken -15%% for 5 seconds.
+
+    Crystal: Magic resist +15%% for 10 seconds.
+Name:
+  TargetLanguage: English
+  Value: Spell Twine
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Cushion
+- Text:
+    TargetLanguage: English
+    Value: Haste
+- Text:
+    TargetLanguage: English
+    Value: Flow
+- Text:
+    TargetLanguage: English
+    Value: Heal
+- Text:
+    TargetLanguage: English
+    Value: Blood
+- Text:
+    TargetLanguage: English
+    Value: Feather
+- Text:
+    TargetLanguage: English
+    Value: Rock
+- Text:
+    TargetLanguage: English
+    Value: Nova
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0A5396:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Crystal

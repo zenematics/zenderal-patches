@@ -1,0 +1,16 @@
+FormKey: 08F316:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Beam_Invisible_StaticDome
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 10000
+Explosion: 10A292:Skyrim.esm
+FadeDuration: 0.1
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 2

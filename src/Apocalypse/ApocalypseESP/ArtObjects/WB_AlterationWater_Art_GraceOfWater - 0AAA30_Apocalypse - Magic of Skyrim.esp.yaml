@@ -1,0 +1,7 @@
+FormKey: 0AAA30:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationWater_Art_GraceOfWater
+Model:
+  File: ApocNew\AlterationWater_Art_GraceOfWater.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

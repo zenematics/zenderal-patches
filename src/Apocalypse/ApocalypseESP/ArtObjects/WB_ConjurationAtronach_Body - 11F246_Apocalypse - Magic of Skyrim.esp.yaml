@@ -1,0 +1,10 @@
+FormKey: 11F246:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Body
+ObjectBounds:
+  First: -222, -196, -166
+  Second: 222, 196, 181
+Model:
+  File: ApocNew\ConjurationAtronach_Body.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

@@ -1,0 +1,13 @@
+FormKey: 07C836:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Effect_Thundercrack
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\AtronachStorm\AttackPower\Bomb\NPC_AtronachStorm_AttackPower_Bomb_Thunder2D.wav
+OutputModel: 0E363A:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 2
+Priority: 128
+Variance: 2
+StaticAttenuation: 5.73

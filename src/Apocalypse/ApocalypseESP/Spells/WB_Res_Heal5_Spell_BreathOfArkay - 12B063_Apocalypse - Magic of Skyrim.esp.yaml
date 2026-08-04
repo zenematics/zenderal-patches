@@ -1,0 +1,22 @@
+FormKey: 12B063:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal5_Spell_BreathOfArkay
+Name:
+  TargetLanguage: English
+  Value: Breath of Tyr
+MenuDisplayObject: 12B05C:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 88
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 1
+CastType: Concentration
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 08245F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50

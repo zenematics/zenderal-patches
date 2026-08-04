@@ -1,0 +1,54 @@
+FormKey: 0AEB3D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_Milestones_GoTo_1
+Description:
+  TargetLanguage: English
+  Value: ''
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: 'Teleport to #2'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D3:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: 'Teleport to #3'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D4:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: 'Teleport to #4'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D5:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: 'Teleport to #5'
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0AE5D6:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Toggle Beacon
+- Text:
+    TargetLanguage: English
+    Value: Destroy
+- Text:
+    TargetLanguage: English
+    Value: Cancel

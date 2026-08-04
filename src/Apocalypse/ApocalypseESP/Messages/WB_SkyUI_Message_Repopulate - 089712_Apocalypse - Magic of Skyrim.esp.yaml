@@ -1,0 +1,22 @@
+FormKey: 089712:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_SkyUI_Message_Repopulate
+Description:
+  TargetLanguage: English
+  Value: >-
+    This will remove all spell tomes, scrolls and staves that were added to their leveled lists by a script and add the Apocalypse ones.
+
+
+    Are you sure?
+Name:
+  TargetLanguage: English
+  Value: Repopulate Leveled Lists
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Yes
+- Text:
+    TargetLanguage: English
+    Value: No

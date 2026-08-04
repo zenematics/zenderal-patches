@@ -1,0 +1,23 @@
+FormKey: 088683:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Projectile_FlamesOfOblivion
+ObjectBounds:
+  First: -937, -165, -665
+  Second: 940, 2200, 871
+Model:
+  File: ApocNew\ConjurationAtronach_Projectile_FlamesOfOblivion.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+- PassThroughSmallTransparent
+Type: Flame
+Speed: 1024
+Range: 2048
+Light: 088684:Apocalypse - Magic of Skyrim.esp
+MuzzleFlash: 0E2172:Skyrim.esm
+Explosion: 0439C0:Skyrim.esm
+MuzzleFlashDuration: 3
+FadeDuration: 10
+CollisionRadius: 10
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''
+SoundLevel: 1

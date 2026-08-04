@@ -1,0 +1,18 @@
+FormKey: 00ECBB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionHellfire_Explosion
+ObjectBounds:
+  First: -57, -60, -9
+  Second: 57, 60, 33
+Model:
+  File: ApocNew\DestructionHellfire_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 00ECBC:Apocalypse - Magic of Skyrim.esp
+Sound1: 00ECB7:Apocalypse - Magic of Skyrim.esp
+Sound2: 03C8FC:Skyrim.esm
+Force: 64
+Radius: 128
+ISRadius: 1024
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

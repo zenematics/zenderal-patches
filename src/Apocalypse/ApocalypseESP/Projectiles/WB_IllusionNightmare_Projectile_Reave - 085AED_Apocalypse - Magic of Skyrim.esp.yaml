@@ -1,0 +1,20 @@
+FormKey: 085AED:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Projectile_Reave
+ObjectBounds:
+  First: -64, -193, -51
+  Second: 64, 59, 48
+Model:
+  File: ApocNew\IllusionNightmare_Projectile_Slayer.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.1
+Speed: 1750
+Range: 8000
+Light: 11C6B2:Apocalypse - Magic of Skyrim.esp
+Sound: 016F9D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

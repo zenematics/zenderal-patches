@@ -1,0 +1,12 @@
+FormKey: 0195B6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationStars_Sound_FXS
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMBt\DA01AzuraStar\AMB_DA01_Azura_Star_Ambient_LPM.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 20.7

@@ -1,0 +1,31 @@
+FormKey: 0B1C18:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ReconfigureCraftlord
+Description:
+  TargetLanguage: English
+  Value: >-
+    Modify the stats of your Craftlord. Reduce stats to gain points, then spend those points to increase other stats.
+
+
+    Unspent Points: %.0f
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Attributes...
+- Text:
+    TargetLanguage: English
+    Value: Weapon...
+- Text:
+    TargetLanguage: English
+    Value: Magic...
+- Text:
+    TargetLanguage: English
+    Value: Defense...
+- Text:
+    TargetLanguage: English
+    Value: Special...
+- Text:
+    TargetLanguage: English
+    Value: Ok

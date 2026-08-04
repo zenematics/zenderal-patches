@@ -1,0 +1,9 @@
+FormKey: 120FB6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionAnomaly_Hands
+ObjectBounds:
+  First: -17, -17, 0
+  Second: 17, 17, 0
+Model:
+  File: ApocNew\DestructionAnomaly_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

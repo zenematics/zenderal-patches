@@ -1,0 +1,23 @@
+FormKey: 124949:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionGreen_Rune
+ObjectBounds:
+  First: -77, -83, -3
+  Second: 77, 83, 42
+Model:
+  File: ApocNew\IllusionGreen_Rune.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- AltTrigger
+Type: Lobber
+Speed: 1000
+Range: 10000
+ExplosionAltTriggerProximity: 150
+Explosion: 0562F0:Skyrim.esm
+FadeDuration: 0.5
+CollisionRadius: 50
+RelaunchInterval: 0.25
+DecalData: 12F175:Apocalypse - Magic of Skyrim.esp
+CollisionLayer: 100F2F:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 1

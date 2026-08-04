@@ -1,0 +1,51 @@
+FormKey: 016FA4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage2_Effect_CurseOfTheSilent
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CurseOfTheSilent_Script
+Name:
+  TargetLanguage: English
+  Value: Curse of the Silent
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 020D2D:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 3
+MagicSkill: Illusion
+ResistValue: ResistMagic
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 1
+HitShader: 00D0DC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+Projectile: 11BBC4:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 021804:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11C6C3:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.35
+DualCastScale: 1
+ImageSpaceModifier: 1274D8:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 08196D:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Drains <mag> points of Magicka per second for <dur> seconds or until the target successfully casts a spell.

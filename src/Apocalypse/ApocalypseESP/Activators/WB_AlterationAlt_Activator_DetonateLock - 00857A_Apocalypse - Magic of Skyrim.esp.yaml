@@ -1,0 +1,22 @@
+FormKey: 00857A:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_AlterationAlt_Activator_DetonateLock
+SkyrimMajorRecordFlags:
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_LockActivator_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Unlock_Quest
+      Object: 00AB5D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Wait
+      Data: 1
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

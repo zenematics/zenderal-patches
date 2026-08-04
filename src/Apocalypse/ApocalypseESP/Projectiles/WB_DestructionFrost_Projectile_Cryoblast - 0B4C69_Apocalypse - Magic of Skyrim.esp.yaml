@@ -1,0 +1,19 @@
+FormKey: 0B4C69:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_Cryoblast
+ObjectBounds:
+  First: -294, -275, -139
+  Second: 294, 272, 137
+Model:
+  File: ApocNew\DestructionFrost_Projectile_Cryoblast.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 750
+Range: 6000
+Light: 11ECBF:Apocalypse - Magic of Skyrim.esp
+Sound: 02592B:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 50
+CollisionRadius: 20
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

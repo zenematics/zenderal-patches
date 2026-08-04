@@ -1,0 +1,23 @@
+FormKey: 11E1F8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Beam_Tornado
+ObjectBounds:
+  First: -26, -37, -27
+  Second: 27, 542, 9
+Model:
+  File: ApocNew\DestructionFrost_Beam_Tornado.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 5000
+Light: 0DC20C:Skyrim.esm
+Explosion: 10A292:Skyrim.esm
+Sound: 03E5CB:Skyrim.esm
+FadeDuration: 0.4
+ImpactForce: 6
+CollisionRadius: 1
+Lifetime: 0.7
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''
+SoundLevel: 1

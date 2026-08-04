@@ -1,0 +1,31 @@
+FormKey: 00DBD0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Command4_Effect_EnslaveTheWeak_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_EnslaveTheWeak_Ab_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_EnslaveTheWeak_Quest
+      Object: 00DBCB:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Protect my Name!
+MenuDisplayObject: 13BEE7:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- FXPersist
+MagicSkill: Illusion
+HitShader: 13BEE8:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Health increased by <mag> and serving your will.

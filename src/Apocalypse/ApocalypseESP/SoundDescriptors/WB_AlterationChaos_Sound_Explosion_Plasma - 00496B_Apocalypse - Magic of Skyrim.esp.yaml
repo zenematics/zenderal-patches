@@ -1,0 +1,11 @@
+FormKey: 00496B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationChaos_Sound_Explosion_Plasma
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\FX\Explosion\Catapult\FX_Explosion_Catapult_Near_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyVariance: 15
+Priority: 128
+StaticAttenuation: 4.85

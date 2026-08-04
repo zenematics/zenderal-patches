@@ -1,0 +1,69 @@
+FormKey: 1124AD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost5_Effect_Twister_Hazard
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_TornadoHazard_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Height
+      Data: 128
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_PushForce
+      Data: -3
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.1
+Name:
+  TargetLanguage: English
+  Value: Twister - Hazard
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 01CEAE:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsMagnitude
+BaseCost: 15
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+CastType: FireAndForget
+TargetType: Touch
+SecondActorValue: Stamina
+CastingArt: 042854:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+ImageSpaceModifier: 10FBF1:Skyrim.esm
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Charge
+  Sound: 03EDD5:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 03EA7B:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: The tornado deals <mag> frost damage to Health and Stamina for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 10F5D5:Apocalypse - Magic of Skyrim.esp

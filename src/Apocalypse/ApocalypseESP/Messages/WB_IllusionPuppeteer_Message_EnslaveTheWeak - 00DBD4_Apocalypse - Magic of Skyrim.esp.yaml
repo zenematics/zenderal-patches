@@ -1,0 +1,8 @@
+FormKey: 00DBD4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionPuppeteer_Message_EnslaveTheWeak
+Description:
+  TargetLanguage: English
+  Value: The <Alias.Race=WBA_Dominate_Target> succumbs to your will.
+INAM: 0x00000000
+Quest: 00DBCB:Apocalypse - Magic of Skyrim.esp
+DisplayTime: 2

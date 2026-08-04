@@ -1,0 +1,7 @@
+FormKey: 006FAA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_SpellSequencer_Message_HasIt
+Description:
+  TargetLanguage: English
+  Value: Spells can only be stored once.
+INAM: 0x00000000
+DisplayTime: 1

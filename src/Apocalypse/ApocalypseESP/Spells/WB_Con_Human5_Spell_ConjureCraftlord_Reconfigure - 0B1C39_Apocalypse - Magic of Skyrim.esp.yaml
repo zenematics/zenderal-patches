@@ -1,0 +1,18 @@
+FormKey: 0B1C39:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Spell_ConjureCraftlord_Reconfigure
+Name:
+  TargetLanguage: English
+  Value: Reconfigure Craftlord
+MenuDisplayObject: 123E60:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 750
+Flags:
+- NoAbsorbOrReflect
+- NoDualCastModification
+CastType: FireAndForget
+Effects:
+- BaseEffect: 0B1C17:Apocalypse - Magic of Skyrim.esp
+  Data: {}

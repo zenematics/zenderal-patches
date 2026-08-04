@@ -1,0 +1,18 @@
+FormKey: 1A792C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C050_Gank_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Gank
+EnchantmentCost: 250
+CastType: FireAndForget
+EnchantmentAmount: 250
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 1A1B76:Apocalypse - Magic of Skyrim.esp
+  Data: {}
+- BaseEffect: 1A1B77:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.5
+    Area: 100

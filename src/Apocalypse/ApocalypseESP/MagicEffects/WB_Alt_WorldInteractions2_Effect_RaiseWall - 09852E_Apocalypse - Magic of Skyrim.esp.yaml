@@ -1,0 +1,80 @@
+FormKey: 09852E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions2_Effect_RaiseWall
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_FabricateWall_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Activator_MinorCreation
+      Object: 0735E8:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Explosion_CreateLodeOrb
+      Object: 00C145:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FormList_FabricateWall
+      Object: 09852A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FXS_CreatedObject
+      Object: 0735E7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DistanceInFront
+      Data: 192
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DistanceZ
+      Data: -48
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DistanceZStart
+      Data: -288
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Speed
+      Data: 512
+Name:
+  TargetLanguage: English
+  Value: Raise Wall
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoDuration
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 8
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+HitShader: 0735E6:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: Concentration
+CastingArt: 01E012:Skyrim.esm
+HitEffectArt: 006FAC:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.08
+DualCastScale: 1.1
+ImageSpaceModifier: 124ED9:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 07D014:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 098A92:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Concentrate to summon a wall from the earth that blocks passage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetVATSFrontAreaFreeConditionData
+  ComparisonValue: 300

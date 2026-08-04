@@ -1,0 +1,117 @@
+FormKey: 035450:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Necro3_Effect_FingerOfDeath
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_FingerOfDeath_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AshPileObject
+      Object: 00001B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DisintegrationMainImmunityList
+      Object: 0F6534:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_BloodSpatters
+      Data: 8
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_FlingForce
+      Data: 10
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_FoDResist
+      Data: MagicResist
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_AllDeathSpells_Global_XP
+      Object: 043CEF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_FingerOfDeath_Global_Percentage
+      Object: 01E196:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_FingerOfDeath_Global_XP
+      Object: 043CF2:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Marker_Explosion
+      Object: 01E197:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationNecro_FXS_FingerOfDeath
+      Object: 035451:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationNecro_Imod_FingerOfDeath
+      Object: 03544F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationNecro_Message_FingerOfDeath
+      Object: 0DEEEE:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_StartingBoxDisplacedZ
+      Data: -150
+Name:
+  TargetLanguage: English
+  Value: Finger of Death
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 01DC33:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoMagnitude
+- NoArea
+- NoRecast
+BaseCost: 160
+MagicSkill: Restoration
+CastingLight: 11D1AB:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 11D19F:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 01DC2F:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.15
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 116E55:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Blast of death magic that damages a living target equal to its Health but the caster takes <Global=WB_Restoration_FingerOfDeath_Global_Percentage>% damage. If this would kill the caster, damage to the target is reduced.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 000EDF:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsEssentialConditionData

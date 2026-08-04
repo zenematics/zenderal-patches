@@ -1,0 +1,48 @@
+FormKey: 0BC47E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureBattlemage_Spell_Frost_2
+Name:
+  TargetLanguage: English
+  Value: Diamond Dust
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01CEAE:Skyrim.esm
+- 02283A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+BaseCost: 1.25
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 50
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 0BC9EE:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 020BF5:Skyrim.esm
+ImpactData: 018A2E:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1.25
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 11383F:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 09C0A2:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: A stream of ice that deals <mag> points of frost damage to Health and Stamina.

@@ -1,0 +1,20 @@
+FormKey: 0EC3E6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Hazard_IncendiaryFlow
+ObjectBounds:
+  First: -100, -86, -16
+  Second: 99, 145, 51
+Name:
+  TargetLanguage: English
+  Value: Incendiary Flow Hazard
+Model:
+  File: ApocNew\DestructionFire_Hazard_IncendiaryFlow_2.nif
+  Data: 0x020000000000000000000000
+Limit: 96
+Radius: 3
+TargetInterval: 0.3
+Flags:
+- InheritDurationFromSpawnSpell
+- AlignToImpactNormal
+- DropToGround
+Spell: 0F2189:Apocalypse - Magic of Skyrim.esp
+Sound: 03E764:Skyrim.esm

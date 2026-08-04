@@ -1,0 +1,16 @@
+FormKey: 1A7938:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R050_DustInTheClockwork_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Dust in the Clockwork
+EnchantmentCost: 176
+CastType: FireAndForget
+EnchantmentAmount: 176
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 1A1B7D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 10

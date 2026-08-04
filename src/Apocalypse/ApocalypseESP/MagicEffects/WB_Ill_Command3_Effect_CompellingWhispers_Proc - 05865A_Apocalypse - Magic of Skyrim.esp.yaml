@@ -1,0 +1,53 @@
+FormKey: 05865A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Command3_Effect_CompellingWhispers_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: VoiceCharmFactionScript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: bMakePlayerTeammate
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CharmFaction
+      Object: 09E0C9:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Compelling Whispers - Compelled
+MenuDisplayObject: 0A59AD:Skyrim.esm
+Keywords:
+- 03732D:Apocalypse - Magic of Skyrim.esp
+- 078098:Skyrim.esm
+- 01B648:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- Detrimental
+- DispelWithKeywords
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsDuration
+- Painless
+- NoDeathDispel
+BaseCost: 0.09
+MagicSkill: Illusion
+CastingLight: 07331B:Skyrim.esm
+HitShader: 073321:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Confidence
+  Type: Rally
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 07331A:Skyrim.esm
+HitEffectArt: 0CD2CD:Apocalypse - Magic of Skyrim.esp
+ImpactData: 073320:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Type: Release
+  Sound: 020244:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

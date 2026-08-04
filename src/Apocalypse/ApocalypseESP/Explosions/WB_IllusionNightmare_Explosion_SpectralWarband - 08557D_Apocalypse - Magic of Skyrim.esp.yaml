@@ -1,0 +1,19 @@
+FormKey: 08557D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Explosion_SpectralWarband
+ObjectBounds:
+  First: -116, -116, -18
+  Second: 116, 116, 44
+Model:
+  File: ApocNew\IllusionNightmare_Explosion_SpectralWarband.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 11CC29:Apocalypse - Magic of Skyrim.esp
+Sound1: 020D2C:Apocalypse - Magic of Skyrim.esp
+Sound2: 020244:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 11CC2B:Apocalypse - Magic of Skyrim.esp
+Radius: 320
+ISRadius: 2048
+VerticalOffsetMult: 0.6
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

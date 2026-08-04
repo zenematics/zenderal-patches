@@ -1,0 +1,10 @@
+FormKey: 0253BF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Art_RiftBolt
+ObjectBounds:
+  First: -170, 25, 0
+  Second: 172, 260, 348
+Model:
+  File: ApocNew\DestructionShock_Art_Warpstrike.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

@@ -1,0 +1,10 @@
+FormKey: 11CC2F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Art
+ObjectBounds:
+  First: -62, -81, -51
+  Second: 62, 97, 59
+Model:
+  File: ApocNew\IllusionShadow_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

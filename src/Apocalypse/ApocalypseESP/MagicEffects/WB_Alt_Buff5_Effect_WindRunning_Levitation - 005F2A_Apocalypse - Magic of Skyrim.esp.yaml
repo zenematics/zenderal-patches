@@ -1,0 +1,50 @@
+FormKey: 005F2A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Effect_WindRunning_Levitation
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Levitate_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Static_Levitate
+      Object: 005F28:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Mult
+      Data: 50
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.1
+Name:
+  TargetLanguage: English
+  Value: Wind Running - Levitator
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsDuration
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+HitEffectArt: 006FA8:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

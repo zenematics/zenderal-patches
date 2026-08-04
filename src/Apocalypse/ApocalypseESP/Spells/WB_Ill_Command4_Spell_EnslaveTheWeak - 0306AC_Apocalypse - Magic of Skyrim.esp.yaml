@@ -1,0 +1,26 @@
+FormKey: 0306AC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Command4_Spell_EnslaveTheWeak
+Name:
+  TargetLanguage: English
+  Value: Enslave the Weak
+MenuDisplayObject: 13BEE7:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F42:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 650
+Flags:
+- NoDualCastModification
+ChargeTime: 3
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C5:Skyrim.esm
+Effects:
+- BaseEffect: 0791A0:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+    Duration: 10
+- BaseEffect: 00DBCC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+    Duration: 10

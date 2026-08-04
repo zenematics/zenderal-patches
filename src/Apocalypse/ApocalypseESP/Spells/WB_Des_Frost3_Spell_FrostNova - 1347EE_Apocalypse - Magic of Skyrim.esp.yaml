@@ -1,0 +1,38 @@
+FormKey: 1347EE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost3_Spell_FrostNova
+Name:
+  TargetLanguage: English
+  Value: Frost Nova
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 136
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C0:Skyrim.esm
+Effects:
+- BaseEffect: 0D1E5B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+    Area: 25
+- BaseEffect: 0D1E5C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Area: 15
+- BaseEffect: 0D1E5E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Area: 8
+- BaseEffect: 1347ED:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Area: 25
+    Duration: 3
+- BaseEffect: 1347EC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 25
+    Duration: 3

@@ -1,0 +1,49 @@
+FormKey: 00541D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Active1_Effect_Longstride
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_AlmalexiasGrace_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_WeightDelta
+      Data: 25
+Name:
+  TargetLanguage: English
+  Value: Longstride
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 006498:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 0.5
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+TaperWeight: 1
+HitShader: 0735E6:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.6
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+  Association: 006498:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+CastingArt: 01E012:Skyrim.esm
+HitEffectArt: 006496:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.08
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 006497:Apocalypse - Magic of Skyrim.esp
+- Type: Release
+  Sound: 1168EE:Apocalypse - Magic of Skyrim.esp
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: While concentrating, grants <mag>% movement speed and <25> carry weight, tripled when out of combat.

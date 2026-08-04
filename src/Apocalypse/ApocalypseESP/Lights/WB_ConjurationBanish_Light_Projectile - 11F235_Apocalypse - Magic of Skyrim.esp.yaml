@@ -1,0 +1,10 @@
+FormKey: 11F235:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationBanish_Light_Projectile
+Time: -1
+Radius: 350
+Color: '#00DF9542'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.25

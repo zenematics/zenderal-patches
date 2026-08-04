@@ -1,0 +1,7 @@
+FormKey: 07F3A6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_SpellSequencer_Message_Clear
+Description:
+  TargetLanguage: English
+  Value: All spells removed.
+INAM: 0x00000000
+DisplayTime: 1

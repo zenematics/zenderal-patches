@@ -1,0 +1,15 @@
+FormKey: 0974E0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R025_LambOfMara_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Lamb of Irlanda
+EnchantmentCost: 83
+CastType: FireAndForget
+EnchantmentAmount: 83
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0974DD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

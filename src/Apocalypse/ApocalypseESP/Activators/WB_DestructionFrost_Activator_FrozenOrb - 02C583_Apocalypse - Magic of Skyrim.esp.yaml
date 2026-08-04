@@ -1,0 +1,43 @@
+FormKey: 02C583:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_DestructionFrost_Activator_FrozenOrb
+SkyrimMajorRecordFlags:
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_FrozenOrb2_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_AttackRate
+      Data: 0.125
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionFrost_Explosion_FrozenOrbEnd
+      Object: 02C585:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionFrost_Static_FrozenOrb
+      Object: 02CAE8:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D100_FrozenOrb_Spell
+      Object: 02CAE9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Speed
+      Data: 200
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_StallDuration
+      Data: 24
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_StartHeight
+      Data: 64
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

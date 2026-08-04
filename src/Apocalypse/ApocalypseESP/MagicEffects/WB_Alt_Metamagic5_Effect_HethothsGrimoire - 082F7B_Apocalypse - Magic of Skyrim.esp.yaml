@@ -1,0 +1,90 @@
+FormKey: 082F7B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic5_Effect_HethothsGrimoire
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_HethothsGrimoire_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Activator_HethothsGrimoire
+      Object: 082F7C:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Explosion_CreateLodeOrb
+      Object: 00C145:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_HethothsGrimoire_Fail
+      Object: 0834E0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_D100_ForbiddenSun_Spell_PC
+      Object: 044264:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_D100_StaticDome_Spell_PC
+      Object: 083A22:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DistanceInFront
+      Data: 1000
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DistanceInFrontSpawn
+      Data: 64
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Height
+      Data: 96
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 1.25
+Name:
+  TargetLanguage: English
+  Value: Eventuality Grimoire
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 215
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+SkillUsageMultiplier: 0.12
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 1168EE:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Creates a hovering spell tome of the (projectile, non-concentration) spell in your left hand. It repeatedly casts the spell in the direction you are facing for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetVATSFrontAreaFreeConditionData
+  ComparisonValue: 64
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+  ComparisonValue: 9
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetCurrentCastingTypeConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetCurrentDeliveryTypeConditionData
+  ComparisonValue: 2

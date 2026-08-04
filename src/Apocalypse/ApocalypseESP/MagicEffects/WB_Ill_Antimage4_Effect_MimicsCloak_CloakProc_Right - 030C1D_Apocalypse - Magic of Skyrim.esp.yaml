@@ -1,0 +1,50 @@
+FormKey: 030C1D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage4_Effect_MimicsCloak_CloakProc_Right
+Name:
+  TargetLanguage: English
+  Value: Mimic - Right
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- HideInUI
+MagicSkill: Illusion
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 074796:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+ImpactData: 11C6C3:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasEquippedSpellConditionData
+    SpellSource: Right
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetCurrentCastingTypeConditionData
+    SpellSource: Right
+  ComparisonValue: 1

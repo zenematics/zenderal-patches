@@ -1,0 +1,57 @@
+FormKey: 0159E1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead5_Effect_ConjureNetherLich_Ruin_2
+Name:
+  TargetLanguage: English
+  Value: Ruin - Stats 2
+MenuDisplayObject: 11D1A7:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- HideInUI
+- PowerAffectsMagnitude
+MagicSkill: Restoration
+CastingLight: 11D1AC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Archery
+  Type: DualValueModifier
+Projectile: 11D1A8:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+SecondActorValue: Block
+CastingArt: 11D1A5:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11D714:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015465:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 120819:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

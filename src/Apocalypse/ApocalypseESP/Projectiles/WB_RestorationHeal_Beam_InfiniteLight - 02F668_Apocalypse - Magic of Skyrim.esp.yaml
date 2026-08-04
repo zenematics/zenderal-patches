@@ -1,0 +1,19 @@
+FormKey: 02F668:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Beam_InfiniteLight
+ObjectBounds:
+  First: -40, -11, -32
+  Second: 39, 512, 28
+Model:
+  File: ApocNew\RestorationHeal_Beam_InfiniteLight.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 6144
+Light: 02F669:Apocalypse - Magic of Skyrim.esp
+Explosion: 02F66A:Apocalypse - Magic of Skyrim.esp
+Sound: 02F66C:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.1
+CollisionRadius: 1
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

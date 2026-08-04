@@ -1,0 +1,45 @@
+FormKey: 006499:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Active1_Effect_LongstrideOutOfCombat
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_AlmalexiasGrace_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_WeightDelta
+      Data: 50
+Name:
+  TargetLanguage: English
+  Value: Longstride - Out of Combat
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 00649A:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- HideInUI
+- PowerAffectsMagnitude
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+TaperWeight: 1
+SpellmakingCastingTime: 0.6
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+  Association: 00649A:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+CastingArt: 01E012:Skyrim.esm
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 006497:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInCombatConditionData

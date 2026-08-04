@@ -1,0 +1,25 @@
+FormKey: 0CFE00:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Projectile_LightningStrike
+ObjectBounds:
+  First: -136, -103, -123
+  Second: 141, 168, 236
+Model:
+  File: ApocNew\DestructionShock_Hazard_LightningStrikeIncoming.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- AltTrigger
+Type: Lobber
+Gravity: 1.5
+Speed: 768
+Range: 1024
+Light: 056ACA:Skyrim.esm
+ExplosionAltTriggerTimer: 2.5
+Explosion: 0F5058:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ConeSpread: 0.01
+CollisionRadius: 50
+RelaunchInterval: 0.25
+CollisionLayer: 100BA7:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashModel: ''
+SoundLevel: 1

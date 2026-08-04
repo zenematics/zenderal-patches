@@ -1,0 +1,34 @@
+FormKey: 08453B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Telekinesis2_Effect_DropZone_Hazard
+Name:
+  TargetLanguage: English
+  Value: Drop Zone
+MenuDisplayObject: 1097CB:Skyrim.esm
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- HideInUI
+HitShader: 084AA6:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 012E84:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 01C2AF:Skyrim.esm
+DualCastScale: 1
+PerkToApply: 084543:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

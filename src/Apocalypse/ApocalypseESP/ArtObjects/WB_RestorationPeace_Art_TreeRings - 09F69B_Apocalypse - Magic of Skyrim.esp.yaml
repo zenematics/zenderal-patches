@@ -1,0 +1,10 @@
+FormKey: 09F69B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationPeace_Art_TreeRings
+ObjectBounds:
+  First: -62, -325, -225
+  Second: 62, 361, 260
+Model:
+  File: ApocNew\RestorationPeace_Art_TreeRings.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

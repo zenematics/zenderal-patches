@@ -1,0 +1,21 @@
+FormKey: 097A45:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Hazard_TalonsOfNirn
+ObjectBounds:
+  First: -906, -1344, -287
+  Second: 908, 1146, 391
+Name:
+  TargetLanguage: English
+  Value: Talons of Vyn Hazard
+Model:
+  File: ApocNew\AlterationEarth_Hazard_TalonsOfNirn.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 40
+Lifetime: 60
+TargetInterval: 0.1
+Flags:
+- InheritDurationFromSpawnSpell
+- DropToGround
+Spell: 097A50:Apocalypse - Magic of Skyrim.esp
+Light: 0A8F3C:Apocalypse - Magic of Skyrim.esp
+Sound: 097A46:Apocalypse - Magic of Skyrim.esp

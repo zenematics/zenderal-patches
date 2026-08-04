@@ -1,0 +1,50 @@
+FormKey: 0253BE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock2_Effect_RiftBolt
+Name:
+  TargetLanguage: English
+  Value: Rift Bolt
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.1
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 057C68:Skyrim.esm
+HitShader: 0253C1:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 024364:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Magicka
+CastingArt: 058E9B:Skyrim.esm
+ImpactData: 038B05:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+ImageSpaceModifier: 0A9D93:Skyrim.esm
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 03F20C:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 0253C4:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> shock damage to Health and Magicka and teleports the target backwards.

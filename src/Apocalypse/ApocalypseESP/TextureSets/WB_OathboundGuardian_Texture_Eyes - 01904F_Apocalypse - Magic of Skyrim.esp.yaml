@@ -1,0 +1,7 @@
+FormKey: 01904F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_OathboundGuardian_Texture_Eyes
+Diffuse: ApocNew\Other_Model\HonorboundGuardian_Eyes.dds
+NormalOrGloss: Actors\Character\Eyes\EyeBrown_n.dds
+EnvironmentMaskOrSubsurfaceTint: Actors\Character\Eyes\EyeEnvironmentMask_M.dds
+Environment: Cubemaps\EyeCubeMap.dds
+Flags: []

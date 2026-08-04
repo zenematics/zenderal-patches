@@ -1,0 +1,12 @@
+FormKey: 010D75:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureXivilaiSorcerer_Texture_Runes
+ObjectBounds:
+  First: -8, -30, -20
+  Second: 7, 29, 19
+Diffuse: ApocNew\Other_Model\DremoraRunes_M_Bodytex.dds
+NormalOrGloss: Actors\Character\Male\MaleBody_1_msn.dds
+GlowOrDetailMap: Actors\Character\Male\MaleBody_1_sk.dds
+BacklightMaskOrSpecular: Actors\Character\Male\MaleBody_1_S.dds
+Flags:
+- FaceGenTextures
+- HasModelSpaceNormalMap

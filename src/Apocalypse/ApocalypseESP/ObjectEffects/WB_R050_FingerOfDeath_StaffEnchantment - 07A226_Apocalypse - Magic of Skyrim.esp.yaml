@@ -1,0 +1,14 @@
+FormKey: 07A226:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R050_FingerOfDeath_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Finger of Death
+EnchantmentCost: 160
+CastType: FireAndForget
+EnchantmentAmount: 160
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 035450:Apocalypse - Magic of Skyrim.esp
+  Data: {}

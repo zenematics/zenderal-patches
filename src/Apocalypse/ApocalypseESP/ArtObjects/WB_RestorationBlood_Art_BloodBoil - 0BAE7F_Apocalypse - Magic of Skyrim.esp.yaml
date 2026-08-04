@@ -1,0 +1,10 @@
+FormKey: 0BAE7F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Art_BloodBoil
+ObjectBounds:
+  First: -143, -140, -72
+  Second: 143, 140, 95
+Model:
+  File: ApocNew\RestorationBlood_Art_BloodBoil.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

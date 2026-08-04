@@ -1,0 +1,13 @@
+FormKey: 0BCF5E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_Meteor_BallOFire_Small
+Model:
+  File: ApocNew\DestructionFire_Explosion_BallOFire.nif
+  Data: 0x020000000000000000000000
+ImpactDataSet: 0647BD:Skyrim.esm
+Radius: 192
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

@@ -1,0 +1,101 @@
+FormKey: 0DD9C7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_PrepareForAdventure_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: QF_WB_FabricateEquipment_Que_030DD9C7
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Item1
+      Object: 0DD9C7:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Item2
+      Object: 0DD9C7:Apocalypse - Magic of Skyrim.esp
+      Alias: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Item3
+      Object: 0DD9C7:Apocalypse - Magic of Skyrim.esp
+      Alias: 3
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Item4
+      Object: 0DD9C7:Apocalypse - Magic of Skyrim.esp
+      Alias: 4
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Player
+      Object: 0DD9C7:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+  FileName: QF_WB_FabricateEquipment_Que_030DD9C7
+  Fragments:
+  - Stage: 200
+    Unknown2: 1
+    ScriptName: QF_WB_FabricateEquipment_Que_030DD9C7
+    FragmentName: Fragment_0
+Name:
+  TargetLanguage: English
+  Value: Prepare for Adventure
+Priority: 18
+Filter: WB\
+Stages:
+- Index: 200
+  Flags:
+  - ShutDownStage
+  LogEntries:
+  - Flags: []
+NextAliasID: 5
+Aliases:
+- Name: WB_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Item1
+  Flags:
+  - QuestObject
+  - StoresText
+  - UsesStoredText
+  - ClearNamesWhenRemoved
+  CreateReferenceToObject:
+    Object: 0DD9C9:Apocalypse - Magic of Skyrim.esp
+    Create: In
+    Level: 4
+  DisplayName: 0DD9C8:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 2
+  Name: WB_Item2
+  Flags:
+  - QuestObject
+  - StoresText
+  - UsesStoredText
+  - ClearNamesWhenRemoved
+  CreateReferenceToObject:
+    Object: 0DD9CB:Apocalypse - Magic of Skyrim.esp
+    Create: In
+    Level: 4
+  DisplayName: 0DD9CC:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 3
+  Name: WB_Item3
+  Flags:
+  - QuestObject
+  - StoresText
+  - UsesStoredText
+  - ClearNamesWhenRemoved
+  CreateReferenceToObject:
+    Object: 0DD9CF:Apocalypse - Magic of Skyrim.esp
+    Create: In
+    Level: 4
+  DisplayName: 0DD9CD:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 4
+  Name: WB_Item4
+  Flags:
+  - QuestObject
+  - StoresText
+  - UsesStoredText
+  - ClearNamesWhenRemoved
+  CreateReferenceToObject:
+    Object: 0DD9CA:Apocalypse - Magic of Skyrim.esp
+    Create: In
+    Level: 4
+  DisplayName: 0DD9E4:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null

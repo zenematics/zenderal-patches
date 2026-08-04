@@ -1,0 +1,23 @@
+FormKey: 123EA3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionAnomaly_Beam
+ObjectBounds:
+  First: -26, -37, -27
+  Second: 27, 542, 9
+Model:
+  File: ApocNew\DestructionAnomaly_Beam.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 984
+Light: 106AD9:Skyrim.esm
+Explosion: 10A292:Skyrim.esm
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashDuration: 1.5
+FadeDuration: 0.4
+ImpactForce: 5
+CollisionRadius: 1
+Lifetime: 0.7
+RelaunchInterval: 0.1
+MuzzleFlashModel: Effects\ImpactEffects\ImpactFrostSmall01.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 1

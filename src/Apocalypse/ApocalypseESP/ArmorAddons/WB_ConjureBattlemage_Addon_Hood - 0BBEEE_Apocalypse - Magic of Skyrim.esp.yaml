@@ -1,0 +1,48 @@
+FormKey: 0BBEEE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureBattlemage_Addon_Hood
+BodyTemplate:
+  FirstPersonFlags:
+  - Hair
+  - LongHair
+  - Ears
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 24
+WorldModel:
+  Male:
+    File: ApocNew\other_model\ConjurationDwemer_Hood_Battlemage.nif
+    Data: 0x020000000000000000000000
+  Female:
+    File: ApocNew\other_model\ConjurationDwemer_Hood_Battlemage.nif
+    Data: 0x020000000000000000000000
+AdditionalRaces:
+- 013741:Skyrim.esm
+- 013742:Skyrim.esm
+- 013743:Skyrim.esm
+- 013744:Skyrim.esm
+- 013746:Skyrim.esm
+- 013747:Skyrim.esm
+- 013748:Skyrim.esm
+- 013749:Skyrim.esm
+- 067CD8:Skyrim.esm
+- 088794:Skyrim.esm
+- 08883C:Skyrim.esm
+- 08883D:Skyrim.esm
+- 088840:Skyrim.esm
+- 088844:Skyrim.esm
+- 088846:Skyrim.esm
+- 088884:Skyrim.esm
+- 097A3D:Skyrim.esm
+- 0A82B9:Skyrim.esm
+- 0A82BA:Skyrim.esm
+- 0B7998:Skyrim.esm
+- 10760A:Skyrim.esm
+- 0BA395:Apocalypse - Magic of Skyrim.esp
+- 0BBEE7:Apocalypse - Magic of Skyrim.esp

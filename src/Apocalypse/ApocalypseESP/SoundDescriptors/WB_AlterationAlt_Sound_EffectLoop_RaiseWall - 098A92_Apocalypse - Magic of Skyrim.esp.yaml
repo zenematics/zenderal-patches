@@ -1,0 +1,14 @@
+FormKey: 098A92:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_EffectLoop_RaiseWall
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\amb\rumble\amb_rumble_a_lp.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  Loop: Loop
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 15
+Priority: 128
+StaticAttenuation: 7.93

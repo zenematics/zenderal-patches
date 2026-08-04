@@ -1,0 +1,10 @@
+FormKey: 08A1DA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Art_LastWord
+ObjectBounds:
+  First: -103, -93, -15
+  Second: 103, 113, 78
+Model:
+  File: ApocNew\IllusionBlue_Art_LastWord.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

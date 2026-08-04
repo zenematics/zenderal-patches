@@ -1,0 +1,10 @@
+FormKey: 115E12:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Sound_Release_Buff
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DA02_Boethiah_Impact_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 90
+Priority: 128

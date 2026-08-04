@@ -1,0 +1,16 @@
+FormKey: 0BB966:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I050_IllusoryPyre_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Illusory Pyre
+EnchantmentCost: 140
+CastType: FireAndForget
+EnchantmentAmount: 140
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0BB963:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 10
+    Duration: 15

@@ -1,0 +1,10 @@
+FormKey: 00856C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_AlterationChaos
+ObjectBounds:
+  First: -205, -202, -104
+  Second: 205, 232, 19
+Model:
+  File: ApocNew\AlterationChaos_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

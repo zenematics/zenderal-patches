@@ -1,0 +1,25 @@
+FormKey: 0A59D5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Teleport5_Spell_Milestones
+Name:
+  TargetLanguage: English
+  Value: Milestones
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1400
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 4
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 15
+HalfCostPerk: 0C44BA:Skyrim.esm
+Effects:
+- BaseEffect: 0AE5BC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 5

@@ -1,0 +1,24 @@
+FormKey: 03890F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I075_MindControl_Scroll
+Name:
+  TargetLanguage: English
+  Value: Scroll of Mind Control
+Keywords:
+- 0A0E57:Skyrim.esm
+MenuDisplayObject: 076E8F:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Model:
+  File: Clutter\Common\Scroll05.nif
+  Data: 0x020000000000000000000000
+Value: 125
+Weight: 0.5
+BaseCost: 468
+ChargeTime: 1
+TargetType: Aimed
+Effects:
+- BaseEffect: 0378AB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

@@ -1,0 +1,79 @@
+FormKey: 0AE5BD:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67109376
+EditorID: WB_AlterationAlt_Activator_Milestones_Spawner
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_MilestonesSpawner_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_Milestones_Fail
+      Object: 0AEB3B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_Milestones_Spawner
+      Object: 0AEB3A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_InUse
+      Objects:
+      - Name: ''
+        Object: 0AE5D2:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0AE5D3:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0AE5D4:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0AE5D5:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0AE5D6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_Milestone
+      Objects:
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 2
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 3
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 4
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 5
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_MilestoneGlow
+      Objects:
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 6
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 7
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 8
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 9
+      - Name: ''
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 10
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Scale
+      Data: 0.5
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Z
+      Data: 48
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- HiddenFromLocalMap
+- NavMeshGenerationFilter

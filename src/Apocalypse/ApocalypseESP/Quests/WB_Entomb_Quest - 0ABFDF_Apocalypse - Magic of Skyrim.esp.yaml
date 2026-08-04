@@ -1,0 +1,72 @@
+FormKey: 0ABFDF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Entomb_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Entomb_Quest_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GameDaysPassed
+      Object: 000039:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_EntombStatus_Global
+      Object: 0AE5B9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationBaleful_Marker_Explosion_Subsonic
+      Object: 0ABFE1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationEarth_Explosion_Entomb
+      Object: 0AC53E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationEarth_FXS_DancingStones_EQ
+      Object: 00AB5A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationEarth_Hazard_Entomb
+      Object: 0AC53D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationEarth_Message_Entomb_Insanity
+      Object: 0AE5AF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Destination
+      Object: 0ABFDA:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_GameDaysPassedBeforeInsane
+      Data: 0.02
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_HeightMultScale
+      Data: 0.008
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_HeightMultSink
+      Data: 0.4
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_A075_Entomb_Spell_Ab_PC
+      Object: 0AE5B2:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_A075_Entomb_Spell_Insanity_PC
+      Object: 0AE5B5:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Victim
+      Object: 0ABFDF:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Name:
+  TargetLanguage: English
+  Value: Entomb
+Flags:
+- StartGameEnabled
+- AllowRepeatedStages
+- 0x10
+Priority: 39
+Filter: WB\
+NextAliasID: 1
+Aliases:
+- Name: WB_Target
+  Flags:
+  - Optional
+  - AllowReserved
+  VoiceTypes: Null

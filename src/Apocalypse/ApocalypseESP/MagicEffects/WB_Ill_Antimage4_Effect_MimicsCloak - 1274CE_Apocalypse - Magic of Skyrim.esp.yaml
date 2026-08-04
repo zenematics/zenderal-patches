@@ -1,0 +1,41 @@
+FormKey: 1274CE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Antimage4_Effect_MimicsCloak
+Name:
+  TargetLanguage: English
+  Value: Mimic's Cloak
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0B62E4:Skyrim.esm
+Flags:
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 2.25
+MagicSkill: Illusion
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 0.3
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 1274CC:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 1274C9:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03EDD4:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: For <dur> seconds, the caster copies most (non-concentration) spells cast by others within <mag> foot.

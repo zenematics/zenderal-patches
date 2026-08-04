@@ -1,0 +1,20 @@
+FormKey: 05C716:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionWizardfire_Explosion_Wizardfire
+ObjectBounds:
+  First: -57, -60, -9
+  Second: 57, 60, 33
+Model:
+  File: ApocNew\DestructionWizardfire_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 05C715:Apocalypse - Magic of Skyrim.esp
+Sound1: 05C713:Apocalypse - Magic of Skyrim.esp
+Sound2: 00A080:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 05C717:Apocalypse - Magic of Skyrim.esp
+Force: 384
+Radius: 320
+ISRadius: 1536
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- KnockDownAlways
+- IgnoreLosCheck

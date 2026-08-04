@@ -1,0 +1,19 @@
+FormKey: 106B27:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_SkullTrap
+ObjectBounds:
+  First: -37, -162, -10
+  Second: 37, 42, 31
+Model:
+  File: ApocNew\DestructionFire_Projectile_SkullTrap.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2
+Range: 600
+Light: 01CBB3:Skyrim.esm
+Sound: 03C8FE:Skyrim.esm
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 25
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

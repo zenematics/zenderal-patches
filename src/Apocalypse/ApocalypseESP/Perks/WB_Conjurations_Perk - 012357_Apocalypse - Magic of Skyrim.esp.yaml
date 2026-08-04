@@ -1,0 +1,36 @@
+FormKey: 012357:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Conjurations_Perk
+Name:
+  TargetLanguage: English
+  Value: Conjurations Perk
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 55
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 60
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 65
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 70
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1

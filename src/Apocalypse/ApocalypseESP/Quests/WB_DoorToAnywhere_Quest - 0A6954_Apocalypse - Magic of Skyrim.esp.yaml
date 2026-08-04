@@ -1,0 +1,49 @@
+FormKey: 0A6954:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DoorToAnywhere_Quest
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 0A6954:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+    Scripts:
+    - Name: WB_Door_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_OtherDoor
+        Object: 0A6954:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+  - Property:
+      Name: ''
+      Object: 0A6954:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    Scripts:
+    - Name: WB_Door_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_OtherDoor
+        Object: 0A6954:Apocalypse - Magic of Skyrim.esp
+        Alias: 0
+Name:
+  TargetLanguage: English
+  Value: Door to Anywhere
+Flags:
+- AllowRepeatedStages
+NextAliasID: 2
+Aliases:
+- Name: WB_Door_1
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Door_2
+  Flags:
+  - Optional
+  VoiceTypes: Null

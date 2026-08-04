@@ -1,0 +1,9 @@
+FormKey: 085AFD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Message_PullFromEternity_Saved
+Description:
+  TargetLanguage: English
+  Value: Ghost captured.
+INAM: 0x00000000
+Flags:
+- AutoDisplay
+DisplayTime: 2

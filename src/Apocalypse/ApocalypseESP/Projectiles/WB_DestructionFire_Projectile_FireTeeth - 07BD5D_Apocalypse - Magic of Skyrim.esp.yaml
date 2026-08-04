@@ -1,0 +1,22 @@
+FormKey: 07BD5D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_FireTeeth
+ObjectBounds:
+  First: -135, -117, -8
+  Second: 135, 54, 7
+Model:
+  File: ApocNew\DestructionFire_Projectile_FireTeeth.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Cone
+Speed: 800
+Range: 350
+Light: 01CBB3:Skyrim.esm
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 6
+ConeSpread: 9.8
+CollisionRadius: 10
+Lifetime: 0.4
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

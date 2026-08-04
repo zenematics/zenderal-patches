@@ -1,0 +1,9 @@
+FormKey: 127A42:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Hands
+ObjectBounds:
+  First: -13, -13, -1
+  Second: 13, 13, 0
+Model:
+  File: ApocNew\IllusionEmpathy_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

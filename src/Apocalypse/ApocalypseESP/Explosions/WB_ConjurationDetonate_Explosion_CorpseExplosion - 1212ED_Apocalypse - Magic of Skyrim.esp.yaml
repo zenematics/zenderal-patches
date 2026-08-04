@@ -1,0 +1,18 @@
+FormKey: 1212ED:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDetonate_Explosion_CorpseExplosion
+ObjectBounds:
+  First: -57, -60, -9
+  Second: 57, 60, 33
+Model:
+  File: ApocNew\ConjurationDetonate_Explosion_CorpseExplosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 12185B:Apocalypse - Magic of Skyrim.esp
+Sound1: 00E747:Apocalypse - Magic of Skyrim.esp
+Sound2: 0059B6:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 0AF0AB:Apocalypse - Magic of Skyrim.esp
+Force: 256
+Radius: 256
+ISRadius: 2048
+Flags:
+- 0x1
+- IgnoreLosCheck

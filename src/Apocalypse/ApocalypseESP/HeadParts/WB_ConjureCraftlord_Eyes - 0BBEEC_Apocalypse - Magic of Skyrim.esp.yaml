@@ -1,0 +1,19 @@
+FormKey: 0BBEEC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureCraftlord_Eyes
+Name:
+  TargetLanguage: English
+  Value: MaleEyesElfBlind
+Model:
+  File: Actors\Character\Character Assets\EyesMale.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Male
+Type: Eyes
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\EyesMale.tri
+- PartType: ChargenMorph
+  FileName: Actors\Character\Character Assets\EyesMaleCharGen.tri
+TextureSet: 024277:Skyrim.esm
+ValidRaces: 0BBEE8:Apocalypse - Magic of Skyrim.esp

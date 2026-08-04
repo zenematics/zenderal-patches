@@ -1,0 +1,7 @@
+FormKey: 07FE75:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_ControlWeather_RegularWeather
+Description:
+  TargetLanguage: English
+  Value: The weather yields easily to your spell.
+INAM: 0x00000000
+DisplayTime: 2

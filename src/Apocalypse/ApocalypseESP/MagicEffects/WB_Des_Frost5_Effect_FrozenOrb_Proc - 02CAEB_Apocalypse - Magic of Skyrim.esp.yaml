@@ -1,0 +1,46 @@
+FormKey: 02CAEB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost5_Effect_FrozenOrb_Proc
+Name:
+  TargetLanguage: English
+  Value: Frozen Orb - Ice Bolt
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 10F5D4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 2
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 0647B9:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingArea: 5
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 02CAF3:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 0334B9:Skyrim.esm
+ImpactData: 02E0B8:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm

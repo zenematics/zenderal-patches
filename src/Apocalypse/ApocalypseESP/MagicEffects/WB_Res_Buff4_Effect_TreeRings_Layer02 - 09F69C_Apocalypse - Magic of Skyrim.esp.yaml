@@ -1,0 +1,37 @@
+FormKey: 09F69C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff4_Effect_TreeRings_Layer02
+Name:
+  TargetLanguage: English
+  Value: Tree Rings - Layer 02
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 01CEB0:Skyrim.esm
+- 09F69D:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- HideInUI
+- PowerAffectsDuration
+MagicSkill: Restoration
+CastingLight: 11D716:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 11D717:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+PerkToApply: 1C1E68:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 0829C7:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

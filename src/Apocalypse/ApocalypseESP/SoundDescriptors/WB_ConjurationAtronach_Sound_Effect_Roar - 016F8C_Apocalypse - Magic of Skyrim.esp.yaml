@@ -1,0 +1,16 @@
+FormKey: 016F8C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Sound_Effect_Roar
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Dragon\FlightRoar\Obstructed\NPC_Dragon_FlightRoarObstructed_01.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\Obstructed\NPC_Dragon_FlightRoarObstructed_02.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\Obstructed\NPC_Dragon_FlightRoarObstructed_03.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 5
+Priority: 128
+Variance: 2
+StaticAttenuation: 6.17

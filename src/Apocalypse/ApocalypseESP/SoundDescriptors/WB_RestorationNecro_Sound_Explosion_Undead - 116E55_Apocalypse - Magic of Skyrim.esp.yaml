@@ -1,0 +1,11 @@
+FormKey: 116E55:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Sound_Explosion_Undead
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_BaneOfTheDead_Explosion.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 4.41

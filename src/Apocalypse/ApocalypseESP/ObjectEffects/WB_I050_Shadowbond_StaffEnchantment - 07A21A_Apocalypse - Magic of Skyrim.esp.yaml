@@ -1,0 +1,15 @@
+FormKey: 07A21A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I050_Shadowbond_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Shadowbond
+EnchantmentCost: 182
+CastType: FireAndForget
+EnchantmentAmount: 182
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 055B2F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 20

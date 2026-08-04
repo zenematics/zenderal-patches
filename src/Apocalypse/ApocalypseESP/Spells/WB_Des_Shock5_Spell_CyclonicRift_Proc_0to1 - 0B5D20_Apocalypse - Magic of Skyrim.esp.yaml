@@ -1,0 +1,32 @@
+FormKey: 0B5D20:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Spell_CyclonicRift_Proc_0to1
+Name:
+  TargetLanguage: English
+  Value: Cyclonic Rift
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 176
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 0B5D1E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Area: 10
+    Duration: 1
+- BaseEffect: 0B5D1B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.5
+    Area: 10
+    Duration: 4
+- BaseEffect: 0C1B16:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 200
+    Area: 10
+    Duration: 1

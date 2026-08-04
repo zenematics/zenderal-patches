@@ -1,0 +1,10 @@
+FormKey: 097FB9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_MovableStatic_RockSpike06
+ObjectBounds:
+  First: -12, -18, -208
+  Second: 22, 14, 2
+Model:
+  File: ApocNew\AlterationEarth_Static_RockSpike06.nif
+  Data: 0x020000000000000000000000
+Flags:
+- OnLocalMap

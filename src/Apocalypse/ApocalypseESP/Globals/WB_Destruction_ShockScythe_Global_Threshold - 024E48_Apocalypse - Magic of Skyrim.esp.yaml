@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalShort
+FormKey: 024E48:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Destruction_ShockScythe_Global_Threshold
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 5

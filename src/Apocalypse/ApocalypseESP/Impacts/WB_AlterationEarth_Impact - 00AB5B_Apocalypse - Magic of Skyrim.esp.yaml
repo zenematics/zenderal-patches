@@ -1,0 +1,27 @@
+FormKey: 00AB5B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Impact
+Model:
+  File: ApocNew\AlterationEarth_Impact.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+Orientation: ProjectileReflection
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Normal
+Decal:
+  MinWidth: 64
+  MaxWidth: 85
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00FFFFFF'
+Sound1: 00A07E:Apocalypse - Magic of Skyrim.esp
+Sound2: 03EA96:Skyrim.esm

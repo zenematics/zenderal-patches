@@ -1,0 +1,9 @@
+FormKey: 0059B7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Hands
+ObjectBounds:
+  First: -13, -13, 0
+  Second: 13, 13, 1
+Model:
+  File: ApocNew\AlterationBaleful_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

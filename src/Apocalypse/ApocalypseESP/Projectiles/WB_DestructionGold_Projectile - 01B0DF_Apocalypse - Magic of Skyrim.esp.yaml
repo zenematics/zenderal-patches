@@ -1,0 +1,21 @@
+FormKey: 01B0DF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionGold_Projectile
+ObjectBounds:
+  First: -47, -93, -16
+  Second: 47, 51, 17
+Model:
+  File: ApocNew\DestructionGold_Projectile.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 2500
+Range: 1000
+Light: 01B0E3:Apocalypse - Magic of Skyrim.esp
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

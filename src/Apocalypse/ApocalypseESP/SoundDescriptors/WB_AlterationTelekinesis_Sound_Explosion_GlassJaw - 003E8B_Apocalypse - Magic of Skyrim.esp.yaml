@@ -1,0 +1,13 @@
+FormKey: 003E8B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Sound_Explosion_GlassJaw
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\DRS\DRS_Bone_Falmer_Gate_Open_01.wav
+- Data\Sound\FX\DRS\DRS_Bone_Falmer_Gate_Open_02.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 4
+Priority: 128
+Variance: 3

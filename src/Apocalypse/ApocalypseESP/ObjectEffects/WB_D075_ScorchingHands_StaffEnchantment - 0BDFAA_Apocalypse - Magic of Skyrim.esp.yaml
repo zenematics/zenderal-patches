@@ -1,0 +1,17 @@
+FormKey: 0BDFAA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D075_ScorchingHands_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Scorching Hands
+EnchantmentCost: 142
+CastType: Concentration
+EnchantmentAmount: 142
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 1.5
+Effects:
+- BaseEffect: 0BDFA2:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 80
+    Area: 3
+    Duration: 1

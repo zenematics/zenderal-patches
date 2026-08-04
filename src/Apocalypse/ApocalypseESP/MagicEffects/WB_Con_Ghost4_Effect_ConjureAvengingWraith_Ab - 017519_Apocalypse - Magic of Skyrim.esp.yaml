@@ -1,0 +1,62 @@
+FormKey: 017519:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Ghost4_Effect_ConjureAvengingWraith_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicSetActorAlphaScript
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: AlphaValue
+      Data: 0.1
+    - MutagenObjectType: ScriptBoolProperty
+      Name: DontFadeBack
+      Data: True
+  - Name: WB_FXAvengingWraith_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Global_Health
+      Object: 01751D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Global_Level
+      Object: 017520:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Global_Magicka
+      Object: 01751E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Global_Mult
+      Object: 017AAF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Global_Stamina
+      Object: 01751F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationUndead_VFX_EyesFemale
+      Object: 017AB0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DefaultHealth
+      Data: 50
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_DefaultLevel
+      Data: 2
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DefaultMagicka
+      Data: 100
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DefaultStamina
+      Data: 50
+Name:
+  TargetLanguage: English
+  Value: Avenging Wraith - FX
+Flags:
+- NoDuration
+- FXPersist
+- NoDeathDispel
+HitShader: 017521:Apocalypse - Magic of Skyrim.esp
+EnchantShader: 017521:Apocalypse - Magic of Skyrim.esp
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+HitEffectArt: 017522:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

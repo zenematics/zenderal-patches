@@ -1,0 +1,27 @@
+FormKey: 0BA39C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead2_Effect_ConjureDeadeyeCaptain_SplashSpell
+Name:
+  TargetLanguage: English
+  Value: Conjure Deadeye Captain
+MenuDisplayObject: 11F238:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoHitEffect
+MagicSkill: Conjuration
+MinimumSkillLevel: 25
+SpellmakingArea: 6
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 0B782A:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

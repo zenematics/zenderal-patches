@@ -1,0 +1,18 @@
+FormKey: 0059B1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Beam_WarpTheFlesh
+Model:
+  File: ApocNew\AlterationBaleful_Beam_WarpTheFlesh.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 5000
+Light: 0059B2:Apocalypse - Magic of Skyrim.esp
+Explosion: 10A292:Skyrim.esm
+Sound: 005448:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 1
+Lifetime: 0.6
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''
+SoundLevel: 1

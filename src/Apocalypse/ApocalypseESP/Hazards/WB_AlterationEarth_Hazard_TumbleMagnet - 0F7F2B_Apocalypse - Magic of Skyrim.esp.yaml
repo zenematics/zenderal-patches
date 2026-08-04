@@ -1,0 +1,19 @@
+FormKey: 0F7F2B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Hazard_TumbleMagnet
+ObjectBounds:
+  First: -239, -257, -14
+  Second: 259, 240, 1372
+Name:
+  TargetLanguage: English
+  Value: Tumble Magnet Hazard
+Model:
+  File: ApocNew\AlterationEarth_Hazard_TumbleMagnet.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 50
+TargetInterval: 0.4
+Flags:
+- InheritDurationFromSpawnSpell
+- DropToGround
+Spell: 0F7F30:Apocalypse - Magic of Skyrim.esp
+Sound: 0A6EBC:Apocalypse - Magic of Skyrim.esp

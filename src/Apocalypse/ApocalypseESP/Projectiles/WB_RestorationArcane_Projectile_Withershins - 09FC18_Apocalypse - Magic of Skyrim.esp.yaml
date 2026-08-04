@@ -1,0 +1,19 @@
+FormKey: 09FC18:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Projectile_Withershins
+ObjectBounds:
+  First: -444, -492, -38
+  Second: 340, 392, 47
+Model:
+  File: ApocNew\RestorationArcane_Projectile_Withershins.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1400
+Range: 10000
+Light: 12081D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+ConeSpread: 0.01
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

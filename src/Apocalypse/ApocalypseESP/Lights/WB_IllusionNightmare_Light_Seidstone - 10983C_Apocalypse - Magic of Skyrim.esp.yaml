@@ -1,0 +1,13 @@
+FormKey: 10983C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Light_Seidstone
+Time: -1
+Radius: 300
+Color: '#00473FAB'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 2

@@ -1,0 +1,17 @@
+FormKey: 00C6AA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Explosion_LocateObject
+ObjectBounds:
+  First: -5, -5, -5
+  Second: 5, 5, 5
+Model:
+  File: ApocNew\AlterationAlt_Explosion_DetonateLock.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 006FAD:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 022AD2:Apocalypse - Magic of Skyrim.esp
+Radius: 4200
+ISRadius: 250
+VerticalOffsetMult: 0.9
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

@@ -1,0 +1,118 @@
+FormKey: 08ACB4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Conjuration_Package_ConjureDremoraMentor_InCombat
+Flags:
+- PreferredSpeed
+- IgnoreCombat
+- NoCombatAlert
+Type: Package
+PreferredSpeed: Jog
+Unknown: 101
+InteruptFlags:
+- RandomConversations
+- ReactionToPlayerActions
+- 0x400
+- 0x800
+- 0x1000
+- 0x2000
+- 0x4000
+- 0x8000
+Unknown2: 4
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+IdleAnimations:
+  Type: RunInSequence
+  TimerSetting: 15
+  Animations:
+  - 0B240A:Skyrim.esm
+PackageTemplate: 03EAB8:Skyrim.esm
+DataInputVersion: 29
+Data:
+- Key: 24
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Type: SingleRef
+    Target:
+      MutagenObjectType: PackageTargetLinkedReference
+- Key: 3
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 150
+- Key: 7
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 150
+- Key: 8
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 500
+- Key: 26
+  Value:
+    MutagenObjectType: PackageDataLocation
+    Location:
+      Target:
+        MutagenObjectType: LocationFallback
+        Type: NearEditorLocation
+      Radius: 512
+- Key: 35
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Type: SingleRef
+    Target:
+      MutagenObjectType: PackageTargetSelf
+- Key: 37
+  Value:
+    MutagenObjectType: PackageDataLocation
+    Location:
+      Target:
+        MutagenObjectType: LocationKeyword
+      Radius: 300
+- Key: 46
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 512
+- Key: 47
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 768
+- Key: 52
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Type: SingleRef
+    Target:
+      MutagenObjectType: PackageTargetLinkedReference
+      Keyword: 0AA90E:Skyrim.esm
+- Key: 67
+  Value:
+    MutagenObjectType: PackageDataBool
+    Data: True
+- Key: 69
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 64
+- Key: 71
+  Value:
+    MutagenObjectType: PackageDataBool
+- Key: 73
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 100
+- Key: 80
+  Value:
+    MutagenObjectType: PackageDataBool
+- Key: 82
+  Value:
+    MutagenObjectType: PackageDataBool
+    Data: True
+XnamMarker: 0x19
+OnBegin:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnEnd:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnChange:
+  Topics:
+  - MutagenObjectType: TopicReference

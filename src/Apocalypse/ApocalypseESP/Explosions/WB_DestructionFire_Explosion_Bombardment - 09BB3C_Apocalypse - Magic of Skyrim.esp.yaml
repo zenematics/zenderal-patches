@@ -1,0 +1,20 @@
+FormKey: 09BB3C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_Bombardment
+ObjectBounds:
+  First: -275, -275, -23
+  Second: 275, 275, 243
+Model:
+  File: ApocNew\DestructionFire_Explosion_Carbonize.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 10FBE8:Skyrim.esm
+Sound1: 10E052:Skyrim.esm
+ImpactDataSet: 0D07C2:Skyrim.esm
+PlacedObject: 09BB35:Apocalypse - Magic of Skyrim.esp
+Force: 256
+Radius: 256
+ISRadius: 512
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

@@ -1,0 +1,7 @@
+FormKey: 082F5B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_SpellTwine_Message
+Description:
+  TargetLanguage: English
+  Value: Spell %.0f/%.0f entwined with magical effect.
+INAM: 0x00000000
+DisplayTime: 1

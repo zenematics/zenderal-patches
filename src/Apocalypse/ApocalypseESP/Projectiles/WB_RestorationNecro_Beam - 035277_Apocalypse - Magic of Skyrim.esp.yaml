@@ -1,0 +1,21 @@
+FormKey: 035277:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Beam
+ObjectBounds:
+  First: -26, -37, -27
+  Second: 27, 542, 9
+Model:
+  File: ApocNew\RestorationNecro_Beam.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 10000
+Range: 2000
+Light: 11D1A2:Apocalypse - Magic of Skyrim.esp
+Sound: 015469:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.4
+CollisionRadius: 10
+Lifetime: 0.75
+RelaunchInterval: 0.001
+MuzzleFlashModel: ''
+SoundLevel: 2

@@ -1,0 +1,16 @@
+FormKey: 085009:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: WB_DeepStorage_Container
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Value: Deep Storage
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+MajorFlags:
+- NavMeshGenerationBoundingBox

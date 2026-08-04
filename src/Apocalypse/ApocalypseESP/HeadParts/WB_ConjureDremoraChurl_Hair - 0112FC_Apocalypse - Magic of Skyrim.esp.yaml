@@ -1,0 +1,19 @@
+FormKey: 0112FC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDremoraChurl_Hair
+Name:
+  TargetLanguage: English
+  Value: WB_DremoraChurl_Hair
+Model:
+  File: Actors\Character\Character Assets\Hair\MaleDremoraHair02.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Male
+Type: Hair
+ExtraParts:
+- 109DFD:Skyrim.esm
+- 0C8251:Skyrim.esm
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\MaleDremoraHair02.tri
+ValidRaces: 0A8027:Skyrim.esm

@@ -1,0 +1,14 @@
+FormKey: 0B31EB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Concentration_Crackle_Proc
+Type: Standard
+Category: 09F254:Skyrim.esm
+SoundFiles:
+- fx\mag\shock\mag_shock_concentration_fire_lpm.wav
+OutputModel: 0E322C:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 7.49

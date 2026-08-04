@@ -1,0 +1,10 @@
+FormKey: 018AEA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_ConjurationGhosts_OathboundGuardian
+ObjectBounds:
+  First: -21, -21, -6
+  Second: 22, 22, 6
+Model:
+  File: ApocNew\ConjurationGhosts_Inv_Honorbound.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

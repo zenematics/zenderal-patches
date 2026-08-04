@@ -1,0 +1,20 @@
+FormKey: 00BBC2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_Release_CowMoo
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_01.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_02.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_03.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_04.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_05.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_06.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_07.wav
+- Data\Sound\FX\NPC\Dragon\FlightRoar\NPC_Dragon_FlightRoar_08.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 15
+Priority: 128
+StaticAttenuation: 2.2

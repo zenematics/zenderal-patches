@@ -1,0 +1,52 @@
+FormKey: 096A15:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_TempDmg5_Effect_Wyrd_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Wyrd_Proc_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DamageFraction
+      Data: 0.2
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DamageMultCap
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionBlue_FormList_Wyrd
+      Object: 096A13:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Wyrd
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01B648:Apocalypse - Magic of Skyrim.esp
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 020D2D:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 30
+MagicSkill: Illusion
+HitShader: 05E21E:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+HitEffectArt: 099005:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 020241:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Health reduced for <dur> seconds due to magical fear.

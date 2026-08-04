@@ -1,0 +1,12 @@
+FormKey: 01DC31:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Restoration_Sound_Charge_200
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_Charge_300.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 4.85

@@ -1,0 +1,15 @@
+FormKey: 0BB978:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C050_SummoningRune_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Summoning Rune
+EnchantmentCost: 198
+CastType: FireAndForget
+EnchantmentAmount: 198
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 124962:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 1

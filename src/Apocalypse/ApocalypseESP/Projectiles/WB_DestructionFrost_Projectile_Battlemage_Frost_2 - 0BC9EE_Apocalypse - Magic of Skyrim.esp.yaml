@@ -1,0 +1,16 @@
+FormKey: 0BC9EE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_Battlemage_Frost_2
+Model:
+  File: ApocNew\DestructionFrost_Projectile_DiamondDust.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1536
+Range: 768
+Light: 10FBF0:Skyrim.esm
+Sound: 08B22F:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 5
+CollisionRadius: 4
+RelaunchInterval: 0.125
+MuzzleFlashModel: ''
+SoundLevel: 1

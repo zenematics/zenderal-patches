@@ -1,0 +1,10 @@
+FormKey: 11BBD4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationChaos_Light_Hands
+Time: -1
+Radius: 32
+Color: '#000166FE'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.1

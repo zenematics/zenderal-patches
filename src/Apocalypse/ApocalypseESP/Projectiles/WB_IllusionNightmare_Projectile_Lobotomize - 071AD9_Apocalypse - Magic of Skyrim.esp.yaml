@@ -1,0 +1,19 @@
+FormKey: 071AD9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Projectile_Lobotomize
+ObjectBounds:
+  First: -56, -57, 0
+  Second: 56, 67, 0
+Model:
+  File: ApocNew\IllusionNightmare_Projectile_Lobotomize.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1750
+Range: 10000
+Light: 11C6B2:Apocalypse - Magic of Skyrim.esp
+Sound: 016F9D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

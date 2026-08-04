@@ -1,0 +1,62 @@
+FormKey: 13AE9A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost2_Effect_CreepingCold
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CreepingCold_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D025_CreepingCold_Spell
+      Object: 0279BA:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateDelay
+      Data: 6
+Name:
+  TargetLanguage: English
+  Value: Creeping Cold
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+BaseCost: 1.55
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 25
+TaperCurve: 2
+TaperDuration: 0.1
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 0279B1:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 020BF5:Skyrim.esm
+ImpactData: 018A2E:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Release
+  Sound: 03EAC6:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 03E5CB:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> frost damage per second to Health and Stamina.

@@ -1,0 +1,46 @@
+FormKey: 00856F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff2_Effect_ReynosFins_Swim
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_AlmalexiasGrace_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_WeightDelta
+      Data: 0.01
+Name:
+  TargetLanguage: English
+  Value: Fins of Kilé - Invisible
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 008570:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoArea
+- HideInUI
+- PowerAffectsDuration
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 2
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+  Association: 008570:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+SkillUsageMultiplier: 0.06
+DualCastScale: 1
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 00856E:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 006A26:Apocalypse - Magic of Skyrim.esp
+- Type: Release
+  Sound: 0FDA54:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

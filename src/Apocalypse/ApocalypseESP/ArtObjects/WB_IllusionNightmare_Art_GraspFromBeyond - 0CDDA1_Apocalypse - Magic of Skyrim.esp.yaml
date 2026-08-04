@@ -1,0 +1,10 @@
+FormKey: 0CDDA1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Art_GraspFromBeyond
+ObjectBounds:
+  First: -32, -40, -16
+  Second: 31, 26, 7
+Model:
+  File: ApocNew\IllusionNightmare_Art_GraspFromBeyond.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

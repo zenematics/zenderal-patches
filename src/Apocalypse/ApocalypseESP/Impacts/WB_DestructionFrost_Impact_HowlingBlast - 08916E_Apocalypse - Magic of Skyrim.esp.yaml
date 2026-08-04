@@ -1,0 +1,28 @@
+FormKey: 08916E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Impact_HowlingBlast
+Model:
+  File: ApocNew\DestructionFrost_Impact_HowlingBlast.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Normal
+Decal:
+  MinWidth: 150
+  MaxWidth: 200
+  MinHeight: 150
+  MaxHeight: 200
+  Depth: 32
+  Shininess: 300
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00B5DEE1'
+TextureSet: 018A2D:Skyrim.esm
+Sound1: 03E5CC:Skyrim.esm
+Hazard: 0130F5:Skyrim.esm

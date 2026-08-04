@@ -1,0 +1,44 @@
+FormKey: 0B0BCA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_X100_Wizardfire_Effect
+Name:
+  TargetLanguage: English
+  Value: Wizardfire
+MenuDisplayObject: 05C712:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 05C71D:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 2.5
+MagicSkill: Destruction
+ResistValue: ResistMagic
+CastingLight: 05C719:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 25
+SpellmakingCastingTime: 4
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 05C718:Apocalypse - Magic of Skyrim.esp
+Explosion: 05C716:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 05C71C:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+ImageSpaceModifier: 05C71B:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 000D6A:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 02A505:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Devastating blast of raw magicka that deals <mag> points of magic damage in a large area but can hit the caster.

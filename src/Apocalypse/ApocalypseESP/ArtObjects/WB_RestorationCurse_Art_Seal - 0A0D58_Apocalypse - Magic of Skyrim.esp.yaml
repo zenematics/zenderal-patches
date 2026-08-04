@@ -1,0 +1,10 @@
+FormKey: 0A0D58:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationCurse_Art_Seal
+ObjectBounds:
+  First: -79, -77, -78
+  Second: 80, 77, 81
+Model:
+  File: ApocNew\RestorationCurse_Art_Seal.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

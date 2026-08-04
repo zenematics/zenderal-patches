@@ -1,0 +1,9 @@
+FormKey: 11F232:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Hands_Big
+ObjectBounds:
+  First: -11, -11, -8
+  Second: 11, 11, 7
+Model:
+  File: ApocNew\ConjurationAtronach_Hands_Big.nif
+  Data: 0x020000000000000000000000
+Type: []

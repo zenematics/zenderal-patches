@@ -1,0 +1,25 @@
+FormKey: 086B2E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Spell_Transcendence
+Name:
+  TargetLanguage: English
+  Value: Transcendence
+MenuDisplayObject: 12081F:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1264
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 2
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 152BDF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 20
+- BaseEffect: 152BE0:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 20

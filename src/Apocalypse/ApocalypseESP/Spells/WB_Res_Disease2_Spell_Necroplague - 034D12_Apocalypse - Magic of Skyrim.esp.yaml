@@ -1,0 +1,20 @@
+FormKey: 034D12:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Disease2_Spell_Necroplague
+Name:
+  TargetLanguage: English
+  Value: Necroplague
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 103
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C7:Skyrim.esm
+Effects:
+- BaseEffect: 034D0D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 9
+    Duration: 30

@@ -1,0 +1,69 @@
+FormKey: 012369:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead3_Effect_ConjureLich
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_LichStatCost_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureLich_Global_Cost
+      Object: 01B649:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Conjure Lich
+MenuDisplayObject: 11F238:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 02482B:Skyrim.esm
+- 01B648:Apocalypse - Magic of Skyrim.esp
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- SnapToNavmesh
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 34
+MagicSkill: Conjuration
+CastingLight: 11F7B5:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 011301:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetLocation
+CastingArt: 11F239:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11F23A:Apocalypse - Magic of Skyrim.esp
+ImpactData: 03A1E9:Skyrim.esm
+SkillUsageMultiplier: 0.75
+DualCastScale: 1
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Summons a Lich for <dur> seconds. Costs <Global=WB_Conjuration_ConjureLich_Global_Cost> points of charge from an equipped enchanted weapon to cast.
+Conditions:
+- MutagenObjectType: ConditionGlobal
+  CompareOperator: GreaterThanOrEqualTo
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Target
+    ActorValue: LeftItemCharge
+  ComparisonValue: 01B649:Apocalypse - Magic of Skyrim.esp
+- MutagenObjectType: ConditionGlobal
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Target
+    ActorValue: RightItemCharge
+  ComparisonValue: 01B649:Apocalypse - Magic of Skyrim.esp

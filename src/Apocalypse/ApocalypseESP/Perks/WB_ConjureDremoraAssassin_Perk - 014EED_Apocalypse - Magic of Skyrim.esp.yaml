@@ -1,0 +1,17 @@
+FormKey: 014EED:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDremoraAssassin_Perk
+Name:
+  TargetLanguage: English
+  Value: Black Arrows
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Priority: 70
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 014EF2:Apocalypse - Magic of Skyrim.esp

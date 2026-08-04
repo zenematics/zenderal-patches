@@ -1,0 +1,18 @@
+FormKey: 012361:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Xivilai3_Spell_ConjureXivilaiSorcerer_Ab
+Name:
+  TargetLanguage: English
+  Value: Xivilai Sorcerer - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 012360:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1

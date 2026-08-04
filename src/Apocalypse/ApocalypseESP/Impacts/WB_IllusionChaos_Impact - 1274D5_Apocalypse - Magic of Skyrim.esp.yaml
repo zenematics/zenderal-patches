@@ -1,0 +1,26 @@
+FormKey: 1274D5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionChaos_Impact
+Model:
+  File: ApocNew\IllusionChaos_Impact.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Normal
+Decal:
+  MinWidth: 64
+  MaxWidth: 85
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  Shininess: 4
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00FFFFFF'
+Sound1: 020245:Apocalypse - Magic of Skyrim.esp

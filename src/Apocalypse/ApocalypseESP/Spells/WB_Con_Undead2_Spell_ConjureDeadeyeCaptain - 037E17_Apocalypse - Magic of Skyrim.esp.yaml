@@ -1,0 +1,22 @@
+FormKey: 037E17:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead2_Spell_ConjureDeadeyeCaptain
+Name:
+  TargetLanguage: English
+  Value: Conjure Deadeye Captain
+MenuDisplayObject: 11F238:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 172
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 0B7822:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

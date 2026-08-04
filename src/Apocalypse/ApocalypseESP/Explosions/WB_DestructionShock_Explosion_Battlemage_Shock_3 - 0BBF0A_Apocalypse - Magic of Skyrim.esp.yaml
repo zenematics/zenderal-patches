@@ -1,0 +1,13 @@
+FormKey: 0BBF0A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Explosion_Battlemage_Shock_3
+Model:
+  File: ApocNew\DestructionShock_Explosion_Discharge.nif
+  Data: 0x020000000000000000000000
+Sound1: 02D06D:Apocalypse - Magic of Skyrim.esp
+Force: 96
+Radius: 256
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

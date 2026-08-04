@@ -1,0 +1,17 @@
+FormKey: 0BA3A0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Light_Bloodstar
+Model:
+  File: ApocNew\RestorationHeal_Static_SoaringHeart.nif
+  Data: 0x020000000000000000000000
+Time: -1
+Radius: 240
+Color: '#00C98B81'
+Flags:
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FlickerIntensityAmplitude: 0.5
+FlickerMovementAmplitude: 0.5
+FadeValue: 1

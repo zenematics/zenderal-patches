@@ -1,0 +1,26 @@
+FormKey: 08FDF3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Effect_ConjureWeepingDaedra_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshadersonendscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX01
+      Object: 0EA8FF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDuration
+      Data: 0.1
+Name:
+  TargetLanguage: English
+  Value: Weeping Daedra - FX
+Flags:
+- NoDuration
+- FXPersist
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

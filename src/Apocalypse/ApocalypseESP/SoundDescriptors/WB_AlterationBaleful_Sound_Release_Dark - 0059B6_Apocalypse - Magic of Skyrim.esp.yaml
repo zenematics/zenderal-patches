@@ -1,0 +1,14 @@
+FormKey: 0059B6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_Release_Dark
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Perk\ShadowWarrior\MAG_Perk_ShadowWarrior_Fire_2D_01.wav
+- Data\Sound\FX\MAG\Perk\ShadowWarrior\MAG_Perk_ShadowWarrior_Fire_2D_02.wav
+- Data\Sound\FX\MAG\Perk\ShadowWarrior\MAG_Perk_ShadowWarrior_Fire_2D_03.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 75
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 0.88

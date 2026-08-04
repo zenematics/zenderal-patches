@@ -1,0 +1,12 @@
+FormKey: 02E0CD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionCantrip_Sound_Explosion_ArcaneBurst
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_AlduinDeath_Explosion_A_2D.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 6.61

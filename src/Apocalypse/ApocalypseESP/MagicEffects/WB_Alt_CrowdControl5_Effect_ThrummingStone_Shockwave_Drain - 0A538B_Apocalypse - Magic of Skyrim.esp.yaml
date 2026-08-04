@@ -1,0 +1,45 @@
+FormKey: 0A538B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl5_Effect_ThrummingStone_Shockwave_Drain
+Name:
+  TargetLanguage: English
+  Value: Thrumming Stone - Drain Magic Resist
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0A538C:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- HideInUI
+- PowerAffectsDuration
+BaseCost: 25
+MagicSkill: Alteration
+TaperWeight: 1
+HitShader: 00A082:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 40
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: ResistMagic
+  Association: 0A538C:Apocalypse - Magic of Skyrim.esp
+Explosion: 07FE7C:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+Sounds:
+- Type: Release
+  Sound: 00A07D:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1

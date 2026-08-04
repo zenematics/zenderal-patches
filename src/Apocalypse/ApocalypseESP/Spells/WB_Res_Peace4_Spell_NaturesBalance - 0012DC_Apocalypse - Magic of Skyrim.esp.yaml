@@ -1,0 +1,20 @@
+FormKey: 0012DC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Peace4_Spell_NaturesBalance
+Name:
+  TargetLanguage: English
+  Value: Nature's Balance
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 750
+Flags:
+- NoDualCastModification
+ChargeTime: 2
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 0012D6:Apocalypse - Magic of Skyrim.esp
+  Data: {}

@@ -1,0 +1,9 @@
+FormKey: 05C71C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionWizardfire_Hands
+ObjectBounds:
+  First: -4, -32, -32
+  Second: 15, 32, 32
+Model:
+  File: ApocNew\DestructionWizardfire_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

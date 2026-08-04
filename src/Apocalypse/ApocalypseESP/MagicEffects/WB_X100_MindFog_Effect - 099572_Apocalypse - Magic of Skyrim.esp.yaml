@@ -1,0 +1,56 @@
+FormKey: 099572:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_X100_MindFog_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_InterruptSpam_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.2
+Name:
+  TargetLanguage: English
+  Value: Mind Fog
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 099577:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 0.5
+MagicSkill: Illusion
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 1
+HitShader: 00D0DC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 1
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: MagickaRateMult
+  Association: 099577:Apocalypse - Magic of Skyrim.esp
+Projectile: 085575:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 099573:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11C6C3:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 08196C:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 074096:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Prevents the target from casting spells or regenerating Magicka for <dur> seconds. Bypasses spell absorption.

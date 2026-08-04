@@ -1,0 +1,10 @@
+FormKey: 0BBF04:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Portal_Summon
+ObjectBounds:
+  First: -189, -61, -12
+  Second: 189, 292, 344
+Model:
+  File: ApocNew\ConjurationDwemer_Portal_Summon.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

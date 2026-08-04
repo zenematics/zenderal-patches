@@ -1,0 +1,21 @@
+FormKey: 0128F2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Spell_ConjureCraftlord_Ab
+Name:
+  TargetLanguage: English
+  Value: Craftlord - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 0128EE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+- BaseEffect: 0B219D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1000

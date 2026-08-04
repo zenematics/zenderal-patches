@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalFloat
+FormKey: 043CF5:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Restoration_DustToDust_Global_XP
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 1

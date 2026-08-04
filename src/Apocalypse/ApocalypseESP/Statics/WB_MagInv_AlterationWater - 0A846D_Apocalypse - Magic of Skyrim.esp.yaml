@@ -1,0 +1,10 @@
+FormKey: 0A846D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_AlterationWater
+ObjectBounds:
+  First: -21, -21, -6
+  Second: 22, 22, 5
+Model:
+  File: ApocNew\AlterationWater_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

@@ -1,0 +1,24 @@
+FormKey: 02435A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Bombardment
+ObjectBounds:
+  First: -55, -196, -20
+  Second: 55, 51, 19
+Model:
+  File: ApocNew\DestructionFire_Projectile_Bombardment.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 750
+Range: 7500
+Light: 01CBB3:Skyrim.esm
+Sound: 000D69:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashDuration: 0.5
+FadeDuration: 0.6
+ImpactForce: 11
+CollisionRadius: 12
+Lifetime: 0.4
+RelaunchInterval: 0.35
+MuzzleFlashModel: Effects\ImpactEffects\FireballImpact01.nif
+TextureFilesHashes: 0x020000000000000000000000

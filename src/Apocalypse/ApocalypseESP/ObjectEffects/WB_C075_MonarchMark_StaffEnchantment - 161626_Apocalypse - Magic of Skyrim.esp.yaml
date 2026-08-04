@@ -1,0 +1,15 @@
+FormKey: 161626:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C075_MonarchMark_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Monarch Mark
+EnchantmentCost: 300
+CastType: FireAndForget
+EnchantmentAmount: 300
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 161620:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

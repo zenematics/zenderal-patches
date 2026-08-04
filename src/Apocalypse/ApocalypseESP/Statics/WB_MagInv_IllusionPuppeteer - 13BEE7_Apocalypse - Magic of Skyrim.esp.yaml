@@ -1,0 +1,10 @@
+FormKey: 13BEE7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_IllusionPuppeteer
+ObjectBounds:
+  First: -195, -251, -140
+  Second: 195, 251, 215
+Model:
+  File: ApocNew\IllusionPuppeteer_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

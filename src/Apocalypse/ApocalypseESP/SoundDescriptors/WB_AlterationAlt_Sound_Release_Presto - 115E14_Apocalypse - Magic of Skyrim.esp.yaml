@@ -1,0 +1,15 @@
+FormKey: 115E14:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_Release_Presto
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_01.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_02.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_03.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: -20
+PercentFrequencyVariance: 9
+Priority: 128
+Variance: 3
+StaticAttenuation: 7.93

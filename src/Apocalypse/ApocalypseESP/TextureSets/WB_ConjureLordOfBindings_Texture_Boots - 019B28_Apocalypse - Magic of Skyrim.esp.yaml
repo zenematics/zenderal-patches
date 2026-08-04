@@ -1,0 +1,8 @@
+FormKey: 019B28:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureLordOfBindings_Texture_Boots
+ObjectBounds:
+  First: -8, -30, -20
+  Second: 7, 29, 19
+Diffuse: ApocNew\Other_Model\LordOfBindings_Boots.dds
+NormalOrGloss: clothes\yarlclothes03\YarlBoots03M_n.dds
+Flags: []

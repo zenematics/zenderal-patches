@@ -1,0 +1,10 @@
+FormKey: 0A8F3D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationParalysis_Light_Hazard_Chronosphere
+Time: -1
+Radius: 250
+Color: '#00AEDA94'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1

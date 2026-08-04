@@ -1,0 +1,13 @@
+FormKey: 00E747:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDetonate_Sound_Explosion_Blast
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\FireStorm\MAG_Destruction_FireStorm_Impact.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+  RumbleValues: 160
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 3.08

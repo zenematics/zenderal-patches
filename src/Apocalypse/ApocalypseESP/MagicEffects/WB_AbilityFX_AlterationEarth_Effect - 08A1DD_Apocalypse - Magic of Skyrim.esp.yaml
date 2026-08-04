@@ -1,0 +1,20 @@
+FormKey: 08A1DD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AbilityFX_AlterationEarth_Effect
+Name:
+  TargetLanguage: English
+  Value: EarthBodyArtHolder
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- FXPersist
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastingArt: 00A084:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 08A1DC:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

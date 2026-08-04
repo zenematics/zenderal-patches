@@ -1,0 +1,44 @@
+FormKey: 0923F5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff3_Effect_ThunderingHooves_Visuals
+Name:
+  TargetLanguage: English
+  Value: Alteration Glow Visuals
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+HitShader: 0735E6:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 00649E:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

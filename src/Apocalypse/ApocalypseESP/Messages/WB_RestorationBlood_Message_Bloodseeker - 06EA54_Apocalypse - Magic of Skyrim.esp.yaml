@@ -1,0 +1,7 @@
+FormKey: 06EA54:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Message_Bloodseeker
+Description:
+  TargetLanguage: English
+  Value: The bloodseeker deals %.0f damage!
+INAM: 0x00000000
+DisplayTime: 6

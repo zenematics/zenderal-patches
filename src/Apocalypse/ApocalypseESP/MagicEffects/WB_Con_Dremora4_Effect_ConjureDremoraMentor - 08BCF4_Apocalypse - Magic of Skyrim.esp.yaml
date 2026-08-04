@@ -1,0 +1,46 @@
+FormKey: 08BCF4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Effect_ConjureDremoraMentor
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Mentor
+MenuDisplayObject: 0A6459:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 024823:Skyrim.esm
+- 037E14:Apocalypse - Magic of Skyrim.esp
+- 08ACAC:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+Flags:
+- SnapToNavmesh
+- NoMagnitude
+- FXPersist
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 56
+MagicSkill: Conjuration
+CastingLight: 03BA90:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 1
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: SpawnScriptedRef
+CastType: FireAndForget
+TargetType: TargetLocation
+CastingArt: 044F56:Skyrim.esm
+HitEffectArt: 03F811:Skyrim.esm
+ImpactData: 03A1E9:Skyrim.esm
+DualCastScale: 1
+EquipAbility: 08BCFA:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Choose a magic school and summon a Dremora Mentor for <dur> seconds. It does not fight, but offers training in the chosen school and the school improves <20>% faster.

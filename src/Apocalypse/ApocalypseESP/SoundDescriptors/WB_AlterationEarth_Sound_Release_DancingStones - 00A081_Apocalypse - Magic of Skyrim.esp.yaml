@@ -1,0 +1,12 @@
+FormKey: 00A081:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Sound_Release_DancingStones
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\AMB_RumbleShakeGreybeards_01.wav
+- Data\Sound\FX\AMB\AMB_RumbleShakeGreybeards_02.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 6.17

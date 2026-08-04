@@ -1,0 +1,20 @@
+FormKey: 0BC481:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Beam_Battlemage_Fire_2
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+- PassThroughSmallTransparent
+Type: Flame
+Speed: 10000
+Range: 256
+Light: 10FBEC:Skyrim.esm
+Explosion: 0439C0:Skyrim.esm
+MuzzleFlashDuration: 3
+FadeDuration: 10
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: Effects\ImpactEffects\FireballImpact01.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 1

@@ -1,0 +1,18 @@
+FormKey: 00AB6C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Beam_Invisible_DetonateLock
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 500
+Light: 002E24:Apocalypse - Magic of Skyrim.esp
+Explosion: 10A292:Skyrim.esm
+Sound: 002E22:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 1
+Lifetime: 0.75
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''
+SoundLevel: 1

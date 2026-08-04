@@ -1,0 +1,12 @@
+FormKey: 0BDFA1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_ScorchingHands
+Model:
+  File: Magic\FireBallExp01.nif
+  Data: 0x020000000000000000000000
+Sound1: 0BDFA9:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 0BDFA5:Apocalypse - Magic of Skyrim.esp
+Force: 64
+ISRadius: 128
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

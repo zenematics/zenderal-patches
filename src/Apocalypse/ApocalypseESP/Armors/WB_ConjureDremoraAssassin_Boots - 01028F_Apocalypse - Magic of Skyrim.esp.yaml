@@ -1,0 +1,34 @@
+FormKey: 01028F:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureDremoraAssassin_Boots
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Valkynaz Archer's Boots
+WorldModel:
+  Male:
+    Model:
+      File: Armor\Daedric\DaedricBootsGO.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Feet
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBD4:Skyrim.esm
+- 06C0ED:Skyrim.esm
+- 08F959:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 01028E:Apocalypse - Magic of Skyrim.esp
+Value: 666
+Weight: 10
+ArmorRating: 15
+MajorFlags:
+- NonPlayable

@@ -1,0 +1,22 @@
+FormKey: 0BBEE9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureCraftlord_Beard
+Name:
+  TargetLanguage: English
+  Value: HumanBeard39
+Model:
+  File: Actors\Character\Character Assets\Beards\HumanBeardLong04.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Male
+Type: FacialHair
+ExtraParts:
+- 0CDB81:Skyrim.esm
+Parts:
+- PartType: RaceMorph
+  FileName: Actors\Character\Character Assets\Beards\HumanBeardLong04Races.tri
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Beards\HumanBeardLong04.tri
+- PartType: ChargenMorph
+  FileName: Actors\Character\Character Assets\Beards\HumanBeardLong04Chargen.tri
+ValidRaces: 0BBEE8:Apocalypse - Magic of Skyrim.esp

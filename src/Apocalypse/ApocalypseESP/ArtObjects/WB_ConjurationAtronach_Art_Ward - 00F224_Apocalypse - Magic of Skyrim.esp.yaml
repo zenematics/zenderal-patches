@@ -1,0 +1,10 @@
+FormKey: 00F224:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Art_Ward
+ObjectBounds:
+  First: -109, -48, -107
+  Second: 109, 107, 137
+Model:
+  File: ApocNew\ConjurationAtronach_Art_Ward.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

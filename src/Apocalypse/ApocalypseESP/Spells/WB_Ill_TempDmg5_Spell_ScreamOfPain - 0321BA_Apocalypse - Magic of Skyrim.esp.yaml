@@ -1,0 +1,27 @@
+FormKey: 0321BA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_TempDmg5_Spell_ScreamOfPain
+Name:
+  TargetLanguage: English
+  Value: Scream of Pain
+MenuDisplayObject: 11D198:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1607
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoDualCastModification
+ChargeTime: 2.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C6:Skyrim.esm
+Effects:
+- BaseEffect: 0321C0:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 20
+    Duration: 20
+- BaseEffect: 0321B5:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 20
+    Duration: 20

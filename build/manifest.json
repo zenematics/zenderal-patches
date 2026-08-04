@@ -1,5 +1,5 @@
 {
-  "$comment": "Single source of truth for the CI/local build. Each release lists the Spriggit YAML folders to deserialize and where the built .esp lands inside the release (FOMOD) tree. 'dest' paths must match the source= attributes in that release's fomod/ModuleConfig.xml (verified by build/build.ps1 -CheckFomod). Paths are repo-relative, and every patch's sources live under src/<PatchName>/. Optional per-release keys: 'scripts' {from,to} bulk-copies committed .pex; 'allowUnreferencedPlugins' silences the warning about a plugin the FOMOD never installs. Optional per-plugin key: 'scripts' [{from,to}] copies individual .pex. Add releases with the /mod-new-plugin skill. An empty 'releases' array is valid - the build reports 'nothing to build' and succeeds, so the repo stays green before the first patch exists.",
+  "$comment": "Single source of truth for the CI/local build. Each release lists the Spriggit YAML folders to deserialize and where the built .esp lands inside the release (FOMOD) tree. 'dest' paths must match the source= attributes in that release's fomod/ModuleConfig.xml (verified by build/build.ps1 -CheckFomod). Paths are repo-relative, and every patch's sources live under src/<PatchName>/. Optional per-release keys: 'scripts' {from,to} bulk-copies committed .pex; 'allowUnreferencedPlugins' silences the warning about a plugin the FOMOD never installs; 'fomod': false ships a plain archive with no installer (right for a replacement plugin, where the archive is just the .esp) - build/staging/<name>/fomod/ must then not exist. Optional per-plugin key: 'scripts' [{from,to}] copies individual .pex. Add releases with the /mod-new-plugin skill. An empty 'releases' array is valid - the build reports 'nothing to build' and succeeds, so the repo stays green before the first patch exists.",
   "releases": [
     {
       "name": "Zenderal - Relentless Sword",
@@ -19,6 +19,17 @@
         {
           "yamlSource": "src/SkipToTamingTheWaves/SkipToTamingTheWavesESP",
           "dest": "Zenderal - Skip To Taming The Waves.esp"
+        }
+      ]
+    },
+    {
+      "name": "Apocalypse - Enderal Patch",
+      "archiveName": "Apocalypse - Enderal Patch",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/Apocalypse/ApocalypseESP",
+          "dest": "Apocalypse - Magic of Skyrim.esp"
         }
       ]
     }

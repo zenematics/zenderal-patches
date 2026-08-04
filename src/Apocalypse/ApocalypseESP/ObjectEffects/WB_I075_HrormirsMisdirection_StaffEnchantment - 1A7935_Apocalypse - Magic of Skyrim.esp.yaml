@@ -1,0 +1,15 @@
+FormKey: 1A7935:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I075_HrormirsMisdirection_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Veil of Misdirection
+EnchantmentCost: 301
+CastType: FireAndForget
+EnchantmentAmount: 301
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 15B846:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

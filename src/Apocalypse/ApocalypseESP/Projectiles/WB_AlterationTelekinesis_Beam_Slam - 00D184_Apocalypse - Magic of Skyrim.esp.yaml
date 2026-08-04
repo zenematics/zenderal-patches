@@ -1,0 +1,16 @@
+FormKey: 00D184:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Beam_Slam
+Model:
+  File: ApocNew\AlterationTelekinesis_Beam_Lift.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 4000
+Light: 002E28:Apocalypse - Magic of Skyrim.esp
+Sound: 005F2E:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.1
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

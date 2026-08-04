@@ -1,0 +1,196 @@
+FormKey: 13798C:Skyrim.esm
+EditorID: _00E_SpellBooksLootA
+Version2: 13
+ChanceNone: 0.3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 02A426:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 031E11:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 044F09:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 044F13:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 048323:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04D007:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04DC92:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04DC93:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04DF91:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 051529:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0672AA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0672AB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0725EF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 085662:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0E426B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0E426D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F7692:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F769A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 112679:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 118052:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A510:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11C38C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13572B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137449:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137987:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 4
+    Reference: 135728:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 4
+    Reference: 01E8ED:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 4
+    Reference: 01F0D7:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 4
+    Reference: 01FEBA:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 11C38E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 01E8CA:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 01E8DF:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 01EFCD:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 01FE1B:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 6
+    Reference: 08564B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 7
+    Reference: 04DC94:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 7
+    Reference: 08564A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 7
+    Reference: 137454:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E71:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E71:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E71:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1C1E71:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1

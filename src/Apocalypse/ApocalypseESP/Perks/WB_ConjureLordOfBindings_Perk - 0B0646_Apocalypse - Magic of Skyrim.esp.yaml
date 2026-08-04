@@ -1,0 +1,17 @@
+FormKey: 0B0646:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureLordOfBindings_Perk
+Name:
+  TargetLanguage: English
+  Value: Legions of Fire
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 150
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Value: 50

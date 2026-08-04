@@ -1,0 +1,16 @@
+FormKey: 115E1F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEMP_Sound_Release
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\shock\impact\MAG_Shock_Impact_03.wav
+- fx\mag\shock\impact\MAG_Shock_Impact_02.wav
+- fx\mag\shock\impact\MAG_Shock_Impact_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 7
+Priority: 128
+Variance: 6
+StaticAttenuation: 3.96

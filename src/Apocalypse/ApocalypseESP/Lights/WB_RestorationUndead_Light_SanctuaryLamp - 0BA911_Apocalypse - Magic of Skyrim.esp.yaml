@@ -1,0 +1,23 @@
+FormKey: 0BA911:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 65536
+EditorID: WB_RestorationUndead_Light_SanctuaryLamp
+SkyrimMajorRecordFlags:
+- 0x10000
+ObjectBounds:
+  First: -81, -84, -15
+  Second: 79, 84, 475
+Model:
+  File: ApocNew\RestorationUndead_Static_SanctuaryLamp.nif
+  Data: 0x020000000000000000000000
+Time: -1
+Radius: 1024
+Color: '#00D3DFF1'
+Flags:
+- Dynamic
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 3
+MajorFlags:
+- RandomAnimStart

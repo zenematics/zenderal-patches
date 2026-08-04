@@ -1,0 +1,37 @@
+FormKey: 0A538D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl5_Effect_ThrummingStone_Shockwave_Stagger
+Name:
+  TargetLanguage: English
+  Value: Thrumming Stone - Stagger
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- HideInUI
+MagicSkill: Alteration
+TaperWeight: 1
+HitShader: 00A082:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 40
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Explosion: 07FE7C:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+DualCastScale: 1.1
+Sounds:
+- Type: Release
+  Sound: 00A07D:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1

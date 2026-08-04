@@ -1,0 +1,11 @@
+FormKey: 116E54:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Sound_Release_Dragonskin
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_PowerRacial_Dragonskin_Fire_2D.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 70
+Priority: 128
+StaticAttenuation: 4.85

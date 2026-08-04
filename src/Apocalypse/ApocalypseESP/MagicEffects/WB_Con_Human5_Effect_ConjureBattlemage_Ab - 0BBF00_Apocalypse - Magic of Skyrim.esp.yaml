@@ -1,0 +1,83 @@
+FormKey: 0BBF00:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureBattlemage_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Battlemage_Spell_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_BaseStats
+      Data: 250
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Element
+      Object: 0BCF5A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Element_Max
+      Object: 0BCF5B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_DamageBonusPct
+      Object: 0BCF52:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_Health
+      Object: 0BDF98:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_Magicka
+      Object: 0BDF99:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureBattlemage_Global_Upgrade_SpellBonusPct
+      Object: 0BDF97:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_ConjurationDwemer_VFX_Battlemage
+      Objects:
+      - Name: ''
+        Object: 0BCF56:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BCF55:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BBF03:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BCF56:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BCF55:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BBF03:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BCF56:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BCF55:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BBF03:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_Spell
+      Objects:
+      - Name: ''
+        Object: 0BC9E9:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BC47B:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BBEFD:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BC483:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BC47F:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BBF08:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BC473:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BC477:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 0BBF0D:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Battlemage - FX
+Flags:
+- NoDuration
+- NoDeathDispel
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

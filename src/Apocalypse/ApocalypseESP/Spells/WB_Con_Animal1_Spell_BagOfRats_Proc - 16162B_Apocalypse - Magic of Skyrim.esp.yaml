@@ -1,0 +1,23 @@
+FormKey: 16162B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Animal1_Spell_BagOfRats_Proc
+Name:
+  TargetLanguage: English
+  Value: Bag of Rats
+MenuDisplayObject: 11F229:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F42:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 16
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0F2CA7:Skyrim.esm
+Effects:
+- BaseEffect: 16162A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

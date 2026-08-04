@@ -1,0 +1,27 @@
+FormKey: 11DC80:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationPeace_Impact
+Model:
+  File: ApocNew\RestorationPeace_Impact.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Normal
+Decal:
+  MinWidth: 40
+  MaxWidth: 60
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  Shininess: 4
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#0097C581'
+TextureSet: 02B95A:Skyrim.esm
+Sound1: 01DC32:Apocalypse - Magic of Skyrim.esp

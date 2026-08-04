@@ -1,0 +1,24 @@
+FormKey: 044D44:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Blood4_Spell_BloodBoil
+Name:
+  TargetLanguage: English
+  Value: Blood Boil
+MenuDisplayObject: 11D19D:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 68
+Flags:
+- AreaEffectIgnoresLOS
+- NoAbsorbOrReflect
+ChargeTime: 1.5
+CastType: Concentration
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 0BFAB4:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+- BaseEffect: 0BFAB6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25

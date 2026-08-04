@@ -1,0 +1,7 @@
+FormKey: 1124BA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_IncendiaryFlow_Base
+Model:
+  File: ApocNew\DestructionFire_Hazard_IncendiaryFlow_Base.nif
+  Data: 0x020000000000000000000000
+NodeIndex: 112
+Flags: MasterParticleSystem

@@ -1,0 +1,20 @@
+FormKey: 08453A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Hazard_DropZone
+ObjectBounds:
+  First: -84, -84, -2
+  Second: 84, 84, 48
+Name:
+  TargetLanguage: English
+  Value: Drop Zone Hazard
+Model:
+  File: ApocNew\AlterationTelekinesis_Hazard_DropZone.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 16
+Lifetime: 20
+TargetInterval: 0.1
+Flags:
+- AffectsPlayerOnly
+Spell: 08453C:Apocalypse - Magic of Skyrim.esp
+Light: 0A8F3A:Apocalypse - Magic of Skyrim.esp
+Sound: 006A27:Apocalypse - Magic of Skyrim.esp

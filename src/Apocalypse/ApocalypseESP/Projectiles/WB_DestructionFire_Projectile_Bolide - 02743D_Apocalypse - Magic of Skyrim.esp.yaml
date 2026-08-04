@@ -1,0 +1,21 @@
+FormKey: 02743D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Bolide
+ObjectBounds:
+  First: -92, -284, -19
+  Second: 92, 85, 18
+Model:
+  File: ApocNew\DestructionFire_Projectile_Bolide.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 2250
+Range: 10000
+Light: 01CBB3:Skyrim.esm
+Sound: 026ECA:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.6
+ImpactForce: 4
+CollisionRadius: 1
+Lifetime: 0.4
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

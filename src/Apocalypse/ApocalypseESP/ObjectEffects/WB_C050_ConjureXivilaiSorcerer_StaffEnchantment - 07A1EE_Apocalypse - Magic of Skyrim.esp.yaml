@@ -1,0 +1,15 @@
+FormKey: 07A1EE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C050_ConjureXivilaiSorcerer_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Conjure Xivilai Sorcerer
+EnchantmentCost: 229
+CastType: FireAndForget
+EnchantmentAmount: 229
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 1228A7:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

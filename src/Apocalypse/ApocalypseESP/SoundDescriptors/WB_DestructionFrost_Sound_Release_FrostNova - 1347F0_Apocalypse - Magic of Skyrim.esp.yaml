@@ -1,0 +1,13 @@
+FormKey: 1347F0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Release_FrostNova
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\icicle\fire\mag_icicle_fire_2d.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: -40
+Priority: 128
+StaticAttenuation: 2.64

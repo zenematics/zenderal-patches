@@ -1,0 +1,13 @@
+FormKey: 097A46:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Sound_Hazard_TalonsOfNirn
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\AMB_RumbleShake_01.wav
+- Data\Sound\FX\AMB\AMB_RumbleShake_02.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 5.73

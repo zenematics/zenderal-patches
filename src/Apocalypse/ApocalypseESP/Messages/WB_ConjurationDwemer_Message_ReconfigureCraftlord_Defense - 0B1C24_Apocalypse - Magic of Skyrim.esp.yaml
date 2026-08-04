@@ -1,0 +1,64 @@
+FormKey: 0B1C24:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Defense
+Description:
+  TargetLanguage: English
+  Value: >-
+    Unspent Points: %.0f
+
+
+    Bonus Armor: %.0f
+
+    Bonus Magic Resistance: %.0f%%
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Armor +50 (-1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Magic Resistance +25% (-2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 2
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C26:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 100
+- Text:
+    TargetLanguage: English
+    Value: Armor -50 (+1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C25:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: -500
+- Text:
+    TargetLanguage: English
+    Value: Magic Resistance -25% (+2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C26:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: -100
+- Text:
+    TargetLanguage: English
+    Value: Ok

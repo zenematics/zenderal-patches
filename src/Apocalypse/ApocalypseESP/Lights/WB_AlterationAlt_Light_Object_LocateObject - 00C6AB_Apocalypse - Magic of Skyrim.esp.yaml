@@ -1,0 +1,13 @@
+FormKey: 00C6AB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Light_Object_LocateObject
+Time: -1
+Radius: 512
+Color: '#0081F060'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.2

@@ -1,0 +1,23 @@
+FormKey: 0421DB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_TwilightZone_IS
+Hdr:
+  EyeAdaptSpeed: 35
+  BloomBlurRadius: 7
+  BloomThreshold: 0.4
+  BloomScale: 3
+  ReceiveBloomThreshold: 2
+  White: 1
+  SunlightScale: 1
+  SkyScale: 0.05
+  EyeAdaptStrength: 7
+Cinematic:
+  Saturation: 0.15
+  Brightness: 1
+  Contrast: 1.15
+Tint:
+  Amount: 0.2
+  Color: '#0095AAAA'
+DepthOfField:
+  Strength: 0.6
+  Distance: 1500
+  Range: 4000

@@ -1,0 +1,20 @@
+FormKey: 001870:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Explosion_ShockNova_2C
+ObjectBounds:
+  First: -116, -116, -23
+  Second: 116, 116, 43
+Model:
+  File: ApocNew\DestructionShock_Explosion_ThunderNova2C.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 001869:Apocalypse - Magic of Skyrim.esp
+Sound1: 00185D:Apocalypse - Magic of Skyrim.esp
+Sound2: 00185C:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 0D1E63:Apocalypse - Magic of Skyrim.esp
+Force: 512
+Radius: 149
+ISRadius: 7000
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

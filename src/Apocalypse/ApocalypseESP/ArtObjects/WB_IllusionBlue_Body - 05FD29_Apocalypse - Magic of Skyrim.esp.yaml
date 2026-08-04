@@ -1,0 +1,10 @@
+FormKey: 05FD29:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Body
+ObjectBounds:
+  First: -222, -196, -166
+  Second: 222, 196, 181
+Model:
+  File: ApocNew\IllusionBlue_Body.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

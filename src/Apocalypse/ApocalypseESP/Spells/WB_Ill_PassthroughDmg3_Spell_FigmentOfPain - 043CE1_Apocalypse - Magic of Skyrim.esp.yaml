@@ -1,0 +1,20 @@
+FormKey: 043CE1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_PassthroughDmg3_Spell_FigmentOfPain
+Name:
+  TargetLanguage: English
+  Value: Figment of Pain
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 219
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 750
+HalfCostPerk: 0C44C4:Skyrim.esm
+Effects:
+- BaseEffect: 052547:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 20

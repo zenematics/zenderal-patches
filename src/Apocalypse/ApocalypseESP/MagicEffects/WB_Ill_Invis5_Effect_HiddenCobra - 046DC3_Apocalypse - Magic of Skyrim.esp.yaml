@@ -1,0 +1,70 @@
+FormKey: 046DC3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis5_Effect_HiddenCobra
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_HiddenCobra_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionNightmare_Imod_HiddenCobra
+      Object: 051FE4:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionNightmare_Marker_Script_HiddenCobra
+      Object: 1132D6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I100_HiddenCobra_Spell
+      Object: 046DC1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_TicksNotInCombat
+      Data: 10
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.5
+Name:
+  TargetLanguage: English
+  Value: Hidden Cobra
+MenuDisplayObject: 11CC26:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 020D2D:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+BaseCost: 96
+MagicSkill: Illusion
+CastingLight: 11C6AA:Apocalypse - Magic of Skyrim.esp
+HitShader: 051FE3:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 11C6A9:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 0207B5:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 1430EF:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Curses a target for <dur> seconds. The curse reduces Health to <1> if the target leaves combat for <5> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

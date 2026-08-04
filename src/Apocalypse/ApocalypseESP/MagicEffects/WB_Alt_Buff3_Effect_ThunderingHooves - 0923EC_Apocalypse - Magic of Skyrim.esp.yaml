@@ -1,0 +1,40 @@
+FormKey: 0923EC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff3_Effect_ThunderingHooves
+Name:
+  TargetLanguage: English
+  Value: Thundering Hooves
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+BaseCost: 0.15
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 0923ED:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 01E012:Skyrim.esm
+HitEffectArt: 0923EF:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 00649E:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: For <dur> seconds, your mount is <mag>% faster, regenerates Stamina and can swim upwards to run on water. Nearby allies riding a mount within <mag> feet also benefit.

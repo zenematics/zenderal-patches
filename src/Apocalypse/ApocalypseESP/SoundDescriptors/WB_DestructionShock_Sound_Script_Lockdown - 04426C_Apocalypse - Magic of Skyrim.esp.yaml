@@ -1,0 +1,15 @@
+FormKey: 04426C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Script_Lockdown
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\DwarvenSphere\Death\NPC_DwarvenSphere_Death_01.wav
+- Data\Sound\FX\NPC\DwarvenSphere\Death\NPC_DwarvenSphere_Death_02.wav
+- Data\Sound\FX\NPC\DwarvenSphere\Death\NPC_DwarvenSphere_Death_03.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 3
+Priority: 128
+StaticAttenuation: 1.76

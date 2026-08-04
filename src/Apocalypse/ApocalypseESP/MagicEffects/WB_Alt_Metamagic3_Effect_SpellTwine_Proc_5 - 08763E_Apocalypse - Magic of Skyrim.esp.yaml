@@ -1,0 +1,33 @@
+FormKey: 08763E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_Proc_5
+Name:
+  TargetLanguage: English
+  Value: Feather
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 08763F:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoArea
+- NoHitEffect
+BaseCost: 0.2
+MagicSkill: Alteration
+TaperWeight: 1
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: CarryWeight
+  Association: 08763F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Carry weight increased by <mag> for <dur> seconds.

@@ -1,0 +1,18 @@
+FormKey: 00CC1B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic4_Spell_KnowledgeIsPower_Power
+Name:
+  TargetLanguage: English
+  Value: The Power of Knowledge
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Power
+CastType: FireAndForget
+Effects:
+- BaseEffect: 00CC1E:Apocalypse - Magic of Skyrim.esp
+  Data: {}

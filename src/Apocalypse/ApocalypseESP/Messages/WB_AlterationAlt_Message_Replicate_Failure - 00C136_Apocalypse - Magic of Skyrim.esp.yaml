@@ -1,0 +1,7 @@
+FormKey: 00C136:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_Replicate_Failure
+Description:
+  TargetLanguage: English
+  Value: Item too expensive to replicate.
+INAM: 0x00000000
+DisplayTime: 2

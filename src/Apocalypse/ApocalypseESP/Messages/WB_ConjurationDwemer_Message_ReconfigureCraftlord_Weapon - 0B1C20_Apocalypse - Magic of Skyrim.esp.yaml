@@ -1,0 +1,58 @@
+FormKey: 0B1C20:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Weapon
+Description:
+  TargetLanguage: English
+  Value: >-
+    Unspent Points: %.0f
+
+
+    Attack Damage Modifier: %.0f%%
+
+    Power Attack Damage Modifier: %.0f%%
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Attack Damage +25% (-2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 2
+- Text:
+    TargetLanguage: English
+    Value: Power Attack Damage +25% (-1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Attack Damage -25% (+2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C1E:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 0.25
+- Text:
+    TargetLanguage: English
+    Value: Power Attack Damage -25% (+1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C1F:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 0.25
+- Text:
+    TargetLanguage: English
+    Value: Ok

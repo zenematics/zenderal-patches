@@ -1,0 +1,59 @@
+FormKey: 0AE5BA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl4_Effect_Entomb_Panic
+Name:
+  TargetLanguage: English
+  Value: Entomb - Panic
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 002E1C:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+MagicSkill: Alteration
+CastingLight: 00A5E8:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 2.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Confidence
+  Type: Demoralize
+Projectile: 00B63F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 00A084:Apocalypse - Magic of Skyrim.esp
+ImpactData: 00AB5C:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+ImageSpaceModifier: 0AAA33:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 00A07D:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 035D59:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInSceneConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 0AE5B9:Apocalypse - Magic of Skyrim.esp

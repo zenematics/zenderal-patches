@@ -1,0 +1,23 @@
+FormKey: 0137BE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Spell_FingersOfTheMountain
+Name:
+  TargetLanguage: English
+  Value: Fingers of the Mountain
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 648
+Flags:
+- AreaEffectIgnoresLOS
+- NoDualCastModification
+ChargeTime: 1
+CastType: FireAndForget
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 14365B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 120
+    Area: 40
+    Duration: 30

@@ -1,0 +1,432 @@
+FormKey: 04013A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_SkyUI_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_MCMQuest_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Kyrgar
+      Object: 04013A:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    - MutagenObjectType: ScriptStringProperty
+      Name: ModName
+      Data: Apocalypse Spells
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_ThrummingStone_Format_Delay
+      Data: '{0} Sec/Pulse'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_ThrummingStone_Global_Delay
+      Object: 0A6EC1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_ThrummingStone_Highlight_Delay
+      Data: The rate at which the Thrumming Stone spell emits its shockwave pulses.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_ThrummingStone_Setting_Delay
+      Data: Thrumming Stone
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_TranasasReversal_Global_XP
+      Object: 098FF9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_TranasasReversal_Highlight_XP
+      Data: The amount of experience granted by the Shalidor's Mirror spell per point of Magicka or Stamina transferred.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_TranasasReversal_Setting_XP
+      Data: Tranasa's Reversal
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_Undermine_Format_Mult
+      Data: '{0}% Heavy Stagger'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_Undermine_Global_Mult
+      Object: 098FFC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_Undermine_Global_XP
+      Object: 098FFB:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_Undermine_Highlight_Mult
+      Data: The chance that the Undermine spell causes the target to stagger for an increased length of time.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_Undermine_Highlight_XP
+      Data: The amount of experience granted by the Undermine spell each time it staggers an attacker.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_Undermine_Setting_Mult
+      Data: Undermine
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_Undermine_Setting_XP
+      Data: Undermine
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Alteration_Wither_Setting_Race
+      Data: Wither Decrepifies Targets
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_AtronachMark_Global_XP
+      Object: 03BA29:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_AtronachMark_Highlight_XP
+      Data: The amount of experience granted by the Atronach Mark spell when it triggers.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_AtronachMark_Setting_XP
+      Data: Atronach Mark
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Format_Mult
+      Data: Stats {0}% Killer
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Global_Mult
+      Object: 017AAF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Highlight_Mult
+      Data: The percentage of the killer's stats inherited by the next Avenging Wraith summoned. Should an Avenging Wraith die of natural causes, it defaults to 50 Health, Magicka and Stamina.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureAvengingWraith_Setting_Mult
+      Data: Avenging Wraith
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureDremoraAssassin_Format_Health
+      Data: Mark {0} Health
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureDremoraAssassin_Global_Health
+      Object: 01A60D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureDremoraAssassin_Highlight_Health
+      Data: A Dremora Assassin will curse targets below this amount of Health with Death Mark, temporarily reducing their Health to 1.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureDremoraAssassin_Setting_Health
+      Data: Dremora Assassin
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureLich_Format_Cost
+      Data: Costs {0} Charge
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureLich_Global_Cost
+      Object: 01B649:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureLich_Global_Cost_DualCast
+      Object: 01B64A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureLich_Highlight_Cost
+      Data: The amount of weapon charge required to summon a Lich.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Conjuration_ConjureLich_Setting_Cost
+      Data: Lich
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_Shockbloom_Format_Percentage
+      Data: Dmg {0}% Health
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Destruction_Shockbloom_Global_Percentage
+      Object: 02283F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Destruction_Shockbloom_Global_XP
+      Object: 03996F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_Shockbloom_Highlight_Percentage
+      Data: The percentage of each target's current Health dealt as damage by the Shockbloom spell. The target also loses Magicka equal to half this percentage of its current Magicka.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_Shockbloom_Highlight_XP
+      Data: The amount of experience granted by the Shockbloom spell per point of damage dealt.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_Shockbloom_Setting_Percentage
+      Data: Shockbloom
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_Shockbloom_Setting_XP
+      Data: Shockbloom
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_ShockScythe_Format_Threshold
+      Data: '{0} Hit Threshold'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Destruction_ShockScythe_Global_Threshold
+      Object: 024E48:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_ShockScythe_Highlight_Threshold
+      Data: The minimum number of targets affected by Shock Scythe to trigger the bonus damage.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Destruction_ShockScythe_Setting_Threshold
+      Data: Shock Scythe
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_General_Format_XP
+      Data: '{2}x'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_General_Global_XP
+      Object: 043CEF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_General_Highlight_Repopulate
+      Data: This option first cleans up spell vendor inventories and drop lists by removing all Apocalypse tomes, scrolls and staves, then repopulates those lists with the latest Apocalypse items. Use this option when upgrading from an older version of Apocalypse and certain spells are missing.\nThis will not affect other mods that modify leveled lists UNLESS they do so through scripting, in which case it will remove those changes. Please note that spell vendors require 48 hours to restock.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_General_Highlight_XP
+      Data: Multiplier for the experience granted by spells with variable experience rewards (for instance, instant death spells that grant experience based on the remaining Health of the target). These experience rewards are not affected by mods that change experience gain. This setting also affects the spells below.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_General_Setting_Repopulate
+      Data: Repopulate Leveled Lists
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_General_Setting_XP
+      Data: Scripted Experience Gain
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Alteration
+      Data: Alteration Balance
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Conjuration
+      Data: Conjuration Balance
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Destruction
+      Data: Destruction Balance
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Experience
+      Data: Experience Gain Modifiers
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Features
+      Data: Features
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Illusion
+      Data: Illusion Balance
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Restoration
+      Data: Restoration Balance
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Header_Troubleshooting
+      Data: Troubleshooting
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_CloakOfMimicry_Format_XP
+      Data: '{0} Points'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_CloakOfMimicry_Global_XP
+      Object: 030C1F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_CloakOfMimicry_Highlight_XP
+      Data: The amount of experience granted by the Mimic's Cloak spell per spell copied.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_CloakOfMimicry_Setting_XP
+      Data: Mimic's Cloak
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Counterspell_Format_Percentage
+      Data: '{0}% Magicka Loss'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_Counterspell_Global_Percentage
+      Object: 0207BD:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Counterspell_Highlight_Percentage
+      Data: The percentage of a target's current Magicka drained when its spell is interrupted by a Counterspell spell.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Counterspell_Setting_Percentage
+      Data: Counterspell
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_EmpathicAgony_Global_XP
+      Object: 0321BD:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_EmpathicAgony_Highlight_XP
+      Data: The amount of experience granted by the Empathic Agony spell per point of damage dealt.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_EmpathicAgony_Setting_XP
+      Data: Empathic Agony
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_Global_AllowNNPC
+      Object: 040BEF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_HarrowingDirge_Format_Percentage
+      Data: '{0}% Max Health'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_HarrowingDirge_Global_Percentage
+      Object: 020D36:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_HarrowingDirge_Global_XP
+      Object: 030C19:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_HarrowingDirge_Highlight_Percentage
+      Data: The amount of damage dealt by Harrowing Dirge as a percentage of each target's maximum Health when a target dies.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_HarrowingDirge_Highlight_XP
+      Data: The amount of experience granted by the Harrowing Dirge spell per point of damage dealt.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_HarrowingDirge_Setting_Percentage
+      Data: Harrowing Dirge
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_HarrowingDirge_Setting_XP
+      Data: Harrowing Dirge
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Highlight_AllowNNPC
+      Data: Allows spells that control other actors (Mind Control, Mirror Entity) to affect targets of any race. Non-humanoid races may randomly become invisible or immobile or fail to attack. But if you want to try it anyway, enable this option.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Lobotomize_Format_Mult
+      Data: Dmg {0}% Magicka Lost
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_Lobotomize_Global_Mult
+      Object: 073B52:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_Lobotomize_Global_XP
+      Object: 071AD2:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Lobotomize_Highlight_Mult
+      Data: The amount of damage dealt by Lobotomize when the target loses Magicka.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Lobotomize_Highlight_XP
+      Data: The amount of experience granted by the Lobotomize spell per point of damage dealt.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Lobotomize_Setting_Mult
+      Data: Lobotomize
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Lobotomize_Setting_XP
+      Data: Lobotomize
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_MagickaVoid_Global_XP
+      Object: 071AD5:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_MagickaVoid_Highlight_XP
+      Data: The amount of experience granted by the Magicka Void spell per point of damage dealt.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_MagickaVoid_Setting_XP
+      Data: Magicka Void
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_PaleMoon_Format_Drain
+      Data: Struck -{0} Magicka
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_PaleMoon_Global_Drain
+      Object: 032C8F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_PaleMoon_Highlight_Drain
+      Data: The amount of Magicka drained when a target affected by Pale Moon is struck by an attack. When the target runs out of Magicka, Pale Moon is dispelled.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_PaleMoon_Setting_Drain
+      Data: Pale Moon
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_ScreamOfPain_Global_XP
+      Object: 0321B9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_ScreamOfPain_Highlight_XP
+      Data: The amount of experience granted by the Scream of Pain spell per point of temporary Health loss.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_ScreamOfPain_Setting_XP
+      Data: Scream of Pain
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Illusion_Setting_AllowNNPC
+      Data: Mind Control Spells can affect Any Target
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_InitialDelay
+      Data: 0.1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_PopulateLists_Done
+      Object: 080964:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_PopulateLists_Wait
+      Object: 08A1E0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_DestinationLitem_List_Books
+      Object: 08F880:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_DestinationLitem_List_Scrolls
+      Object: 08F881:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_DestinationLitem_List_Staves
+      Object: 08F882:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_OriginFormlist_List_Books
+      Object: 08F883:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_OriginFormlist_List_Scrolls
+      Object: 08F884:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_OriginFormlist_List_Staves
+      Object: 08F885:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bleedout_Format_Threshold
+      Data: '{0}% Max Health Lost'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Bleedout_Global_Threshold
+      Object: 01FCD4:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bleedout_Highlight_Threshold
+      Data: The amount of Health the target must lose during the course of a Welling Blood spell to trigger the instant death effect.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bleedout_Setting_Threshold
+      Data: Welling Blood
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bloodseeker_Format_Mult
+      Data: '{0}% Dmg/Heal'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Bloodseeker_Global_Mult
+      Object: 071AD7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Bloodseeker_Global_XP
+      Object: 071AD6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bloodseeker_Highlight_Mult
+      Data: The percentage of Health the target has lost or gained while Bloodseeker is in flight that is applied as damage or healing when it hits the target.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bloodseeker_Highlight_XP
+      Data: The amount of experience granted by the Bloodseeker spell per point of damage or healing.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bloodseeker_Setting_Mult
+      Data: Bloodseeker
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_Bloodseeker_Setting_XP
+      Data: Bloodseeker
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_CullingRune_Format_Threshold
+      Data: '{0} LVL DIFF'
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_CullingRune_Global_Threshold
+      Object: 03527A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_CullingRune_Global_XP
+      Object: 035279:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_CullingRune_Highlight_Threshold
+      Data: When the target of a Culling Rune spell is this many levels below the caster, the target instantly dies.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_CullingRune_Highlight_XP
+      Data: The amount of experience granted by the Culling Rune spell per point of Health of the targets that fall victim to its instant death.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_CullingRune_Setting_Threshold
+      Data: Culling Rune
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_CullingRune_Setting_XP
+      Data: Culling Rune
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_FingerOfDeath_Format_Percentage
+      Data: Self Dmg {0}%
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_FingerOfDeath_Global_Percentage
+      Object: 01E196:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_FingerOfDeath_Highlight_Percentage
+      Data: The percentage of a target's Health dealt as damage to the caster of Finger of Death.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_FingerOfDeath_Setting_Percentage
+      Data: Finger of Death
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_KingsHeart_Global_EnableCraftingSkills
+      Object: 0BA90A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_KingsHeart_Highlight_EnableCraftingSkills
+      Data: By default, the King's Heart spell improves all skills except crafting skills. Use this option to allow it to improve crafting skills as well.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Restoration_KingsHeart_Setting_EnableCraftingSkills
+      Data: King's Heart Improves Crafting Skills
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_SkyUI_Message_Repopulate
+      Object: 089712:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Vendor_Highlight_EnableKyrgar
+      Data: Apocalypse features scripting to dynamically populate the inventories of spell vendors and drop lists. If this script fails for any reason, use this option to spawn a backup vendor at the Lady Stone. Kyrgar the Hidden sells all spells you meet the skill level requirements for. This could be considered cheating and is immersion breaking, so this option is disabled by default.
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Vendor_Setting_EnableKyrgar
+      Data: Spawn Backup Vendor
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 04013A:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+    Scripts:
+    - Name: SKI_PlayerLoadGameAlias
+Name:
+  TargetLanguage: English
+  Value: SkyUI Menu Quest
+Flags:
+- StartGameEnabled
+- 0x10
+Filter: ApocNew\
+NextAliasID: 2
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: Kyrgar
+  Flags: []
+  ForcedReference: 041153:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null

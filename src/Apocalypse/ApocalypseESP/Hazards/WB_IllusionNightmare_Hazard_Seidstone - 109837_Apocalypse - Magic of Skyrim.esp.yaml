@@ -1,0 +1,20 @@
+FormKey: 109837:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Hazard_Seidstone
+ObjectBounds:
+  First: -318, -353, -248
+  Second: 318, 353, 321
+Name:
+  TargetLanguage: English
+  Value: Seidstone Hazard
+Model:
+  File: ApocNew\IllusionNightmare_Hazard_Seidstone_Ground.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 10
+TargetInterval: 0.3
+Flags:
+- InheritDurationFromSpawnSpell
+- DropToGround
+Spell: 109839:Apocalypse - Magic of Skyrim.esp
+Light: 10983C:Apocalypse - Magic of Skyrim.esp
+Sound: 03F2DF:Skyrim.esm

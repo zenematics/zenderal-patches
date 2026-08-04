@@ -1,0 +1,23 @@
+FormKey: 0112F3:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureGoldenSaint_Hair
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: WB_ConjureGoldenSaint
+Model:
+  File: Actors\Character\Character Assets\Hair\Female\Hair02.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Female
+Type: Hair
+ExtraParts:
+- 010D83:Apocalypse - Magic of Skyrim.esp
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\Female\Hair02.tri
+Color: 0A0439:Skyrim.esm
+ValidRaces: 0A8027:Skyrim.esm
+MajorFlags:
+- NonPlayable

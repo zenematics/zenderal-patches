@@ -1,0 +1,60 @@
+FormKey: 02BAB6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire2_Effect_DragonsTeeth_Hazard
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Char_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D025_Char_Spell
+      Object: 02B548:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Bonfire of the Damned
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 5
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 0140EC:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012E84:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+CastingArt: 01B211:Skyrim.esm
+ImpactData: 01C2AF:Skyrim.esm
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03C8FB:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Taking <mag> fire damage per second. On death, the ground burns for <mag> damage per second.

@@ -1,0 +1,45 @@
+FormKey: 0159DA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead5_Effect_ConjureNetherLich_DiseaseBolt
+Name:
+  TargetLanguage: English
+  Value: Disease Bolt
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 012E65:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2
+MagicSkill: Restoration
+ResistValue: ResistDisease
+CastingLight: 11D1AB:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 1
+HitShader: 10CC64:Skyrim.esm
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 11D1A1:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11D19F:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11D1A4:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015465:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 116E57:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> disease damage per second for <dur> seconds.

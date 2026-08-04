@@ -1,0 +1,10 @@
+FormKey: 00A083:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_AlterationEarth
+ObjectBounds:
+  First: -49, -38, -73
+  Second: 49, 56, 0
+Model:
+  File: ApocNew\AlterationEarth_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

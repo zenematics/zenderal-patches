@@ -1,0 +1,14 @@
+FormKey: 07A224:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R025_SlayLiving_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Slay Living
+EnchantmentCost: 95
+CastType: FireAndForget
+EnchantmentAmount: 95
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 003E0B:Apocalypse - Magic of Skyrim.esp
+  Data: {}

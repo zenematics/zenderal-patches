@@ -1,0 +1,7 @@
+FormKey: 0DEEEE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Message_FingerOfDeath
+Description:
+  TargetLanguage: English
+  Value: You take %.0f damage!
+INAM: 0x00000000
+DisplayTime: 6

@@ -1,0 +1,12 @@
+FormKey: 12494E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionGreen_Impact_Rune
+Model:
+  File: Magic\IllusionImpact01.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+AngleThreshold: 80
+PlacementRadius: 5
+SoundLevel: Normal
+NoDecalData: True
+TextureSet: 12F175:Apocalypse - Magic of Skyrim.esp
+Sound1: 0639A5:Skyrim.esm

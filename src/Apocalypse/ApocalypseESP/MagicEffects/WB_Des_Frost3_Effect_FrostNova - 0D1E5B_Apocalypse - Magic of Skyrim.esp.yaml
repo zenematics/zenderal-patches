@@ -1,0 +1,49 @@
+FormKey: 0D1E5B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost3_Effect_FrostNova
+Name:
+  TargetLanguage: English
+  Value: Frost Nova
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 044D4E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 3.25
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingArea: 25
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Explosion: 1347E9:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SecondActorValue: Stamina
+CastingArt: 020BF5:Skyrim.esm
+SkillUsageMultiplier: 0.8
+DualCastArt: 0D1E60:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+ImageSpaceModifier: 10FBF1:Skyrim.esm
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Charge
+  Sound: 03EDD5:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 1347F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Radial frost explosion that deals <mag> damage to Health and Stamina. Closer targets take up to x<2> damage.

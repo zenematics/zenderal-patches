@@ -1,0 +1,256 @@
+FormKey: 13798D:Skyrim.esm
+EditorID: _00E_SpellBooksLootB
+Version2: 15
+ChanceNone: 0.3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01EFCD:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 05BB22:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 08565B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 085663:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 0F7695:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 11A6BF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 11A6BF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 11C392:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 12E151:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 135730:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 01E8D9:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 01E8E0:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 01E8EE:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 01EFDB:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 01FEAF:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 11
+    Reference: 085657:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 11
+    Reference: 11A50F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 11
+    Reference: 11C390:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 11
+    Reference: 01FE1D:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 12
+    Reference: 085661:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 12
+    Reference: 11C387:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 12
+    Reference: 1377AF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 12
+    Reference: 13797E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 12
+    Reference: 137983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 12
+    Reference: 137988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 12
+    Reference: 144795:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 13
+    Reference: 13744A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 13
+    Reference: 137455:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 14
+    Reference: 144796:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 14
+    Reference: 01F0D8:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 08565A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 08565F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 085660:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 0F7691:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 0F7693:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 0F7699:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 129137:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 135727:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 13572A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 1377A9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 15
+    Reference: 01FEBB:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 16
+    Reference: 12E149:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 16
+    Reference: 137794:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 17
+    Reference: 12E131:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 17
+    Reference: 12E135:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 17
+    Reference: 12E139:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 17
+    Reference: 12E176:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 17
+    Reference: 13744B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 17
+    Reference: 144797:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 18
+    Reference: 12E14D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 18
+    Reference: 12E16B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 19
+    Reference: 1377B4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 12E152:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 01FEB0:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 1C1E72:Apocalypse - Magic of Skyrim.esp
+    Count: 1

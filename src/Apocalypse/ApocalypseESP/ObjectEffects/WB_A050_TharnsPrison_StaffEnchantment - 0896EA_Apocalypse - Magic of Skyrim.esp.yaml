@@ -1,0 +1,16 @@
+FormKey: 0896EA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A050_TharnsPrison_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Girathû's Prison
+EnchantmentCost: 190
+CastType: FireAndForget
+EnchantmentAmount: 190
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0AD56C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.35
+    Duration: 10

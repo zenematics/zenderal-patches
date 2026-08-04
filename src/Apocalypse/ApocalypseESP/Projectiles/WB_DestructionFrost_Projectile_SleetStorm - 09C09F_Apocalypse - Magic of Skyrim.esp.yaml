@@ -1,0 +1,19 @@
+FormKey: 09C09F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_SleetStorm
+ObjectBounds:
+  First: -46, -40, -8
+  Second: 46, 58, 15
+Model:
+  File: ApocNew\DestructionFrost_Projectile_SleetStorm.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2500
+Range: 4500
+Light: 10FBF0:Skyrim.esm
+Sound: 09CB75:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 7
+CollisionRadius: 8
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

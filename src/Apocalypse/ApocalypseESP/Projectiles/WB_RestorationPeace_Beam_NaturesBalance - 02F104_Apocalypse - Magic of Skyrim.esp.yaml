@@ -1,0 +1,22 @@
+FormKey: 02F104:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationPeace_Beam_NaturesBalance
+ObjectBounds:
+  First: -22, -2, -32
+  Second: 19, 512, 28
+Model:
+  File: ApocNew\RestorationPeace_Beam_Equalize.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 4000
+Light: 12D0FF:Apocalypse - Magic of Skyrim.esp
+TracerChance: 1
+Explosion: 0D13E8:Skyrim.esm
+Sound: 058E2E:Skyrim.esm
+FadeDuration: 0.3
+ImpactForce: 12
+ConeSpread: 2
+CollisionRadius: 54
+Lifetime: 0.55
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''

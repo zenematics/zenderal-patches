@@ -1,0 +1,7 @@
+FormKey: 088116:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Art_ConjureKyrkrim_FlameTrail
+Model:
+  File: ApocNew\ConjurationAtronach_Art_ConjureKyrkrim.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

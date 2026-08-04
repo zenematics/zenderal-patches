@@ -1,0 +1,19 @@
+FormKey: 08BCFA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Spell_ConjureDremoraMentor_AbFX
+Name:
+  TargetLanguage: English
+  Value: Dremora Mentor - Equipped Spell
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 08BCF6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1

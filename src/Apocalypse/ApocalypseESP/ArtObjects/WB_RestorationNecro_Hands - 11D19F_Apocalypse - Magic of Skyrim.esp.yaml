@@ -1,0 +1,9 @@
+FormKey: 11D19F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Hands
+ObjectBounds:
+  First: 0, -11, -11
+  Second: 4, 15, 11
+Model:
+  File: ApocNew\RestorationNecro_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

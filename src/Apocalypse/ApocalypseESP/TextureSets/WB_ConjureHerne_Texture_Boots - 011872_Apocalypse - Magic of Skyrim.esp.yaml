@@ -1,0 +1,8 @@
+FormKey: 011872:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureHerne_Texture_Boots
+ObjectBounds:
+  First: -8, -30, -20
+  Second: 7, 29, 19
+Diffuse: ApocNew\Other_Model\Herne_Boots.dds
+NormalOrGloss: clothes\bandit\BanditBootsM_n.dds
+Flags: []

@@ -1,0 +1,12 @@
+FormKey: 07F3A4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_FXS_HighPitched
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\DA16\QST_DA16_Dreamstate_LP.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 18.5

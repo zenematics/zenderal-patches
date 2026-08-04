@@ -1,0 +1,15 @@
+FormKey: 002E22:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_Projectile_LightBeam
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_01.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_02.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_03.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 70
+PercentFrequencyVariance: 9
+Priority: 128
+Variance: 1
+StaticAttenuation: 5.73

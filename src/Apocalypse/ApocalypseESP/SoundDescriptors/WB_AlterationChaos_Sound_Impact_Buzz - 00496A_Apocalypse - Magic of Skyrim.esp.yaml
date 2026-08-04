@@ -1,0 +1,13 @@
+FormKey: 00496A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationChaos_Sound_Impact_Buzz
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Witchlight\NPC_Witchlight_Death_01.wav
+OutputModel: 0D78B4:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 1
+StaticAttenuation: 3.08

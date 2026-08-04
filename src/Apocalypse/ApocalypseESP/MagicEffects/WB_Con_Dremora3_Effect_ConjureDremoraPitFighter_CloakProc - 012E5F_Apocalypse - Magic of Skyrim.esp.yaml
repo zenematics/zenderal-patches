@@ -1,0 +1,51 @@
+FormKey: 012E5F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora3_Effect_ConjureDremoraPitFighter_CloakProc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_DremoraBerserker_Battlefury_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Amount
+      Data: 0.25
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Stat
+      Data: AttackDamageMult
+Name:
+  TargetLanguage: English
+  Value: Battlefury
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 08811E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoHitEvent
+- NoArea
+- NoHitEffect
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 04BE35:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: The Pit Fighter gains <mag>% increased attack damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

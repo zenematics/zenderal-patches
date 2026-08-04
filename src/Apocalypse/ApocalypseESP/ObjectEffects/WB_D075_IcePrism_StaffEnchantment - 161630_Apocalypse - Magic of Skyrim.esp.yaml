@@ -1,0 +1,24 @@
+FormKey: 161630:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D075_IcePrism_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Ice Prism
+EnchantmentCost: 133
+CastType: Concentration
+EnchantmentAmount: 133
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 1.5
+Effects:
+- BaseEffect: 15E73D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Area: 25
+    Duration: 1
+- BaseEffect: 0B729D:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 1
+- BaseEffect: 0F3934:Skyrim.esm
+  Data:
+    Duration: 1

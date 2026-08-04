@@ -1,0 +1,60 @@
+FormKey: 082451:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Disease5_Effect_LifesFinale
+Name:
+  TargetLanguage: English
+  Value: Life's Finale
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- ADA001:Update.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3
+MagicSkill: Restoration
+ResistValue: ResistDisease
+CastingLight: 11D1AB:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 35
+SpellmakingCastingTime: 2.2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Explosion: 084519:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11D19F:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 06EA51:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+EquipAbility: 1259C8:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015464:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 1132C7:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Corrupts nearby living targets and the caster for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

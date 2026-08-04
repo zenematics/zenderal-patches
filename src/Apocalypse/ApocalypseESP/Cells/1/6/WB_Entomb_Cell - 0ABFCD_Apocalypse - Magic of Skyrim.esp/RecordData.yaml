@@ -1,0 +1,376 @@
+FormKey: 0ABFCD:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Entomb_Cell
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Entombed
+Flags:
+- IsInteriorCell
+- PublicArea
+Lighting:
+  AmbientColor: '#00808080'
+  DirectionalColor: '#00000000'
+  FogNearColor: '#00000000'
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#005C6B7B'
+    DirectionalXMinus: '#004B6B70'
+    DirectionalYPlus: '#00547076'
+    DirectionalYMinus: '#00546576'
+    DirectionalZPlus: '#00283235'
+    DirectionalZMinus: '#007FA3B6'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+LightingTemplate: 0EF2C5:Skyrim.esm
+WaterHeight: 0
+Owner: 000007:Skyrim.esm
+AcousticSpace: 01989F:Skyrim.esm
+Music: 04DA92:Skyrim.esm
+ImageSpace: 09F363:Skyrim.esm
+NavigationMeshes:
+- FormKey: 0ABFDE:Apocalypse - Magic of Skyrim.esp
+  IsCompressed: True
+  MajorRecordFlagsRaw: 262144
+  SkyrimMajorRecordFlags:
+  - Compressed
+  Data:
+    Parent:
+      MutagenObjectType: CellNavmeshParent
+      Parent: 0ABFCD:Apocalypse - Magic of Skyrim.esp
+    Vertices:
+    - -64, 384, 87.64746
+    - 119.48343, 360.1538, 89.359314
+    - 13.3806305, 98.32352, 30.783752
+    - 324.9191, 218.25546, 61.544983
+    - 49.64421, -57.086136, 29.317505
+    - 373.23407, -63.200623, 88.8219
+    - 283.6397, -269.5221, 138.04974
+    - 137.02716, -325.32416, 88.94269
+    - -147.28198, -368.93842, 67.82062
+    - -277.3083, -234.47334, 56.733093
+    - -342.1527, 35.053986, 81.67847
+    - 357.1291, 30.618073, 79.72959
+    - 341.02408, 124.43677, 70.63729
+    - 42.257446, -339.86224, 81.902
+    - -320.5379, -54.788467, 73.36334
+    - -298.9231, -144.63092, 65.04822
+    - -203.07635, 209.527, 84.662964
+    Triangles:
+    - Vertices: 2, 14, 15
+      EdgeLink_0_1: 14
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 9
+      Flags:
+      - Found
+      CoverFlags: 17088
+      IsCover: True
+    - Vertices: 2, 1, 0
+      EdgeLink_0_1: 3
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 16
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 2, 4, 3
+      EdgeLink_0_1: 8
+      EdgeLink_1_2: 10
+      EdgeLink_2_0: 3
+      Flags:
+      - Found
+    - Vertices: 2, 3, 1
+      EdgeLink_0_1: 2
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 1
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 4, 6, 5
+      EdgeLink_0_1: 12
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 11
+      Flags:
+      - Found
+      CoverFlags: 16832
+      IsCover: True
+    - Vertices: 4, 11, 12
+      EdgeLink_0_1: 11
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 10
+      Flags:
+      - Found
+      CoverFlags: 17280
+      IsCover: True
+    - Vertices: 13, 7, 4
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 12
+      EdgeLink_2_0: 13
+      Flags:
+      - Found
+      CoverFlags: 16394
+      IsCover: True
+    - Vertices: 8, 4, 9
+      EdgeLink_0_1: 13
+      EdgeLink_1_2: 8
+      EdgeLink_2_0: -1
+      Flags:
+      - Found
+    - Vertices: 2, 9, 4
+      EdgeLink_0_1: 9
+      EdgeLink_1_2: 7
+      EdgeLink_2_0: 2
+      Flags:
+      - Found
+    - Vertices: 15, 9, 2
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 8
+      Flags:
+      - Found
+      CoverFlags: 16394
+      IsCover: True
+    - Vertices: 12, 3, 4
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 2
+      EdgeLink_2_0: 5
+      Flags:
+      - Found
+      CoverFlags: 16396
+      IsCover: True
+    - Vertices: 4, 5, 11
+      EdgeLink_0_1: 4
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 5
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 4, 7, 6
+      EdgeLink_0_1: 6
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 4
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    - Vertices: 4, 8, 13
+      EdgeLink_0_1: 7
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 6
+      Flags:
+      - Found
+      CoverFlags: 17216
+      IsCover: True
+    - Vertices: 2, 10, 14
+      EdgeLink_0_1: 15
+      EdgeLink_1_2: -1
+      Flags:
+      - Found
+      CoverFlags: 16960
+      IsCover: True
+    - Vertices: 16, 10, 2
+      EdgeLink_0_1: -1
+      EdgeLink_1_2: 14
+      EdgeLink_2_0: 16
+      Flags:
+      - Found
+      CoverFlags: 16389
+      IsCover: True
+    - Vertices: 2, 0, 16
+      EdgeLink_0_1: 1
+      EdgeLink_1_2: -1
+      EdgeLink_2_0: 15
+      Flags:
+      - Found
+      CoverFlags: 17344
+      IsCover: True
+    NavmeshGridDivisor: 2
+    MaxDistanceX: 357.6934
+    MaxDistanceY: 376.4692
+    Min: -342.1527, -368.93842, 29.317505
+    Max: 373.23407, 384, 138.04974
+    NavmeshGrid: 0x0600000000000700080009000D000E000A0000000200040005000600070008000A000B000C000D00090000000000010002000300080009000E000F00100007000000010002000300050008000A000B00
+  MajorFlags:
+  - 0x40000
+Persistent:
+- MutagenObjectType: PlacedObject
+  FormKey: 0ABFDA:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 000034:Skyrim.esm
+  Placement: {}
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C0:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 00003B:Skyrim.esm
+  Placement:
+    Position: 0, 0, 2000
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C1:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AE5BE:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: 0, 0, 800
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C2:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AE5BE:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -200, 0, 800
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C3:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AE5BE:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -400, 0, 800
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C4:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AE5BE:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -600, 0, 800
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C5:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AE5BE:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -800, 0, 800
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C6:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AD577:Apocalypse - Magic of Skyrim.esp
+  LinkedReferences:
+  - Reference: 0AE5C1:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: 0, 0, 1200
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C7:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AD577:Apocalypse - Magic of Skyrim.esp
+  LinkedReferences:
+  - Reference: 0AE5C2:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -200, 0, 1200
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C8:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AD577:Apocalypse - Magic of Skyrim.esp
+  LinkedReferences:
+  - Reference: 0AE5C3:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -400, 0, 1200
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5C9:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073742848
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x40000000
+  Base: 0AD577:Apocalypse - Magic of Skyrim.esp
+  LinkedReferences:
+  - Reference: 0AE5C4:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -600, 0, 1200
+- MutagenObjectType: PlacedObject
+  FormKey: 0AE5CA:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 0AD577:Apocalypse - Magic of Skyrim.esp
+  LinkedReferences:
+  - Reference: 0AE5C5:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -800, 0, 1200
+- MutagenObjectType: PlacedObject
+  FormKey: 0B5D16:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073744896
+  EditorID: WB_CyclonicRift_0
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - InitiallyDisabled
+  - 0x40000000
+  Base: 0B5D11:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -1000, 500, 1000
+- MutagenObjectType: PlacedObject
+  FormKey: 0B5D18:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 1073744896
+  EditorID: WB_CyclonicRift_1
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - InitiallyDisabled
+  - 0x40000000
+  Base: 0B5D24:Apocalypse - Magic of Skyrim.esp
+  Placement:
+    Position: -1200, 500, 1000
+- MutagenObjectType: PlacedObject
+  FormKey: 0E377C:Apocalypse - Magic of Skyrim.esp
+  MajorRecordFlagsRaw: 33555456
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - 0x2000000
+  Base: 085009:Apocalypse - Magic of Skyrim.esp
+  IsIgnoredBySandbox: True
+  Placement:
+    Position: 6.77184, -3.713595, -164.9242
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 0ABFD9:Apocalypse - Magic of Skyrim.esp
+  Base: 045510:Skyrim.esm
+  Placement:
+    Position: -256, 256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0ABFDB:Apocalypse - Magic of Skyrim.esp
+  Base: 045512:Skyrim.esm
+  Placement:
+    Position: -256, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0ABFDC:Apocalypse - Magic of Skyrim.esp
+  Base: 045514:Skyrim.esm
+  Placement:
+    Position: 256, -256, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 0ABFDD:Apocalypse - Magic of Skyrim.esp
+  Base: 045516:Skyrim.esm
+  Placement:
+    Position: 256, 256, 0
+MajorFlags:
+- 0x40000

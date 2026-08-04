@@ -1,0 +1,15 @@
+FormKey: 1A7930:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I000_SilveryBarbs_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Silvery Barbs
+EnchantmentCost: 42
+CastType: FireAndForget
+EnchantmentAmount: 42
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 15B83F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 20

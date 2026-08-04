@@ -1,0 +1,43 @@
+FormKey: 142B7D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost2_Effect_Fracture_Proc
+Name:
+  TargetLanguage: English
+  Value: Fracture - Fracturing Blast
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 02592F:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 01B648:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 12.5
+MagicSkill: Destruction
+ResistValue: ResistFrost
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 25
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+CastType: FireAndForget
+TargetType: Touch
+SecondActorValue: Stamina
+ImpactData: 018A2E:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 142B7D:Apocalypse - Magic of Skyrim.esp

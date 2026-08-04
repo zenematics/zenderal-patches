@@ -1,0 +1,13 @@
+FormKey: 000D68:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Buff_Sound
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- fx\fx\fire\fx_fire_campfire_lp.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 30
+Priority: 128
+StaticAttenuation: 9.69

@@ -1,0 +1,15 @@
+FormKey: 07A230:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A075_DetonateLock_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Detonate Lock
+EnchantmentCost: 595
+CastType: FireAndForget
+EnchantmentAmount: 595
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 2
+Effects:
+- BaseEffect: 00AB60:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 40

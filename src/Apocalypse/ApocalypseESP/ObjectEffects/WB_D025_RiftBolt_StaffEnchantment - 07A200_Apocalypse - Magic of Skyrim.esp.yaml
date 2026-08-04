@@ -1,0 +1,18 @@
+FormKey: 07A200:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D025_RiftBolt_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Rift Bolt
+EnchantmentCost: 56
+CastType: FireAndForget
+EnchantmentAmount: 56
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0253BE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+- BaseEffect: 076116:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.35

@@ -1,0 +1,10 @@
+FormKey: 00857B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Art_WarpTheFlesh
+ObjectBounds:
+  First: -170, 25, 0
+  Second: 172, 260, 348
+Model:
+  File: ApocNew\AlterationBaleful_Art_WarpTheFlesh.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

@@ -1,0 +1,13 @@
+FormKey: 008577:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_FXS_CrushArmor_2
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\OBJ\SawMill\OBJ_SawMill_Run_LPM.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+PercentFrequencyShift: 90
+Priority: 128
+StaticAttenuation: 9.25

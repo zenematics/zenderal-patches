@@ -1,0 +1,16 @@
+FormKey: 042191:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_TwilightZone_Static_Fire
+SkyrimMajorRecordFlags:
+- 0x4000000
+ObjectBounds:
+  First: -57, -44, -88
+  Second: 136, 37, 178
+Model:
+  File: ApocNew\TwilightZone_Fire.nif
+  Data: 0x020000000000000000000000
+Flags:
+- OnLocalMap
+LoopingSound: 03EDC5:Skyrim.esm
+MajorFlags:
+- NavMeshGenerationFilter

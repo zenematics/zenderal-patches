@@ -1,0 +1,12 @@
+FormKey: 02D5E6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Hazard_Twister_1
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\KagrenzelWind\AMB_Kagrenzel_Wind_Shaft_LPM.wav
+OutputModel: 0ABF1A:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 40
+Priority: 96
+StaticAttenuation: 7.49

@@ -1,0 +1,11 @@
+FormKey: 0B8DCE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationCurse_Sound_Release_Quiet
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_PowerRacial_DarkElfAncestorsWrath_Fire_2D.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 12.33

@@ -1,0 +1,58 @@
+FormKey: 0B1C21:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ReconfigureCraftlord_Magic
+Description:
+  TargetLanguage: English
+  Value: >-
+    Unspent Points: %.0f
+
+
+    Spell Damage Modifier: %.0f%%
+
+    Spell Burn Duration Modifier: %.0f%%
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Spell Damage +25% (-2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 2
+- Text:
+    TargetLanguage: English
+    Value: Spell Burn Duration +25% (-1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C19:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Spell Damage -25% (+2)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C22:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 0.25
+- Text:
+    TargetLanguage: English
+    Value: Spell Burn Duration -25% (+1)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B1C23:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 0.25
+- Text:
+    TargetLanguage: English
+    Value: Ok

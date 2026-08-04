@@ -1,0 +1,28 @@
+FormKey: 0D08CD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D050_FrostNova_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Frost Nova
+EnchantmentCost: 136
+CastType: FireAndForget
+EnchantmentAmount: 136
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0D1E5B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+    Area: 25
+- BaseEffect: 0D1E5C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Area: 15
+- BaseEffect: 0D1E5E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Area: 8
+- BaseEffect: 1347ED:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Area: 25
+    Duration: 3

@@ -1,0 +1,12 @@
+FormKey: 07F3A3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_Hazard_Chronosphere
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\TG09\QST_TG09_Beam_Abilities_Column_01_LPM.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 30
+Priority: 128
+StaticAttenuation: 13.22

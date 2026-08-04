@@ -1,0 +1,19 @@
+FormKey: 124ED8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Explosion
+ObjectBounds:
+  First: -222, -196, -98
+  Second: 222, 196, 98
+Model:
+  File: ApocNew\AlterationTelekinesis_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 003E80:Apocalypse - Magic of Skyrim.esp
+Sound1: 003E81:Apocalypse - Magic of Skyrim.esp
+Sound2: 03C8FC:Skyrim.esm
+Force: 8
+Radius: 128
+ISRadius: 1024
+VerticalOffsetMult: -10
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

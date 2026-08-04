@@ -1,0 +1,80 @@
+FormKey: 0F7F2F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl4_Effect_TumbleMagnet_Hazard
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_MagneticAnomaly_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationEarth_Hazard_MagneticAnomaly
+      Object: 0F7F2B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationTelekinesis_Marker_Effect_Slam
+      Object: 0038FE:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DispelDelay
+      Data: 0.25
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_SeekRange
+      Data: 2048
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Speed
+      Data: 2000
+Name:
+  TargetLanguage: English
+  Value: Magnetic Force
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- NoHitEvent
+- NoArea
+- FXPersist
+- HideInUI
+BaseCost: 200
+MagicSkill: Alteration
+HitShader: 00AB5A:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+TargetType: Touch
+HitEffectArt: 0AAA32:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetRandomPercentConditionData
+  ComparisonValue: 10
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 0D5B8B:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0172AC:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 035D59:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsFlyingConditionData

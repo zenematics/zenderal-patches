@@ -1,0 +1,12 @@
+FormKey: 006F99:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationPeace_FXS_Twinkles
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_Kagrenzel_Light_Orb_Spin_LPM.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 27.31

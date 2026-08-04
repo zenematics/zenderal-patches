@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalShort
+FormKey: 08BCF8:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Conjuration_ConjureDremoraMentor_Global_WhichMentor
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 20

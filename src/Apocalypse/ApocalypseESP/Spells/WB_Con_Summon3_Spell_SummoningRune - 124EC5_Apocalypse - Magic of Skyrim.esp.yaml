@@ -1,0 +1,22 @@
+FormKey: 124EC5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Summon3_Spell_SummoningRune
+Name:
+  TargetLanguage: English
+  Value: Summoning Rune
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 198
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 150
+HalfCostPerk: 0C44BC:Skyrim.esm
+Effects:
+- BaseEffect: 124962:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 1

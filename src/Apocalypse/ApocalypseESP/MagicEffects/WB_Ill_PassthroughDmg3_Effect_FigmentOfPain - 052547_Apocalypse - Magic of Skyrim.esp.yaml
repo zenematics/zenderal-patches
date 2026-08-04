@@ -1,0 +1,75 @@
+FormKey: 052547:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_PassthroughDmg3_Effect_FigmentOfPain
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Figment_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusoryEntity_Faction
+      Object: 0668E6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_LevelMod
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I050_FigmentOfPain_Spell_Ab
+      Object: 05254F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.2
+Name:
+  TargetLanguage: English
+  Value: Figment of Pain
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- Painless
+BaseCost: 102.5
+MagicSkill: Illusion
+CastingLight: 11CC2E:Apocalypse - Magic of Skyrim.esp
+HitShader: 05254C:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 11CC2D:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 115E1C:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Creates an immobile illusion linked to the target for <dur> seconds. Damage felt by either is felt by both.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: A00666:Update.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 035D59:Skyrim.esm

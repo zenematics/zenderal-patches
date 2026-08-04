@@ -1,0 +1,17 @@
+FormKey: 02F66A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Explosion_InfiniteLight
+ObjectBounds:
+  First: -275, -275, -23
+  Second: 275, 275, 243
+Model:
+  File: ApocNew\RestorationHeal_Explosion_InfiniteLight.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 02F66B:Apocalypse - Magic of Skyrim.esp
+Sound1: 03F361:Skyrim.esm
+Force: 64
+Radius: 149
+ISRadius: 7000
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

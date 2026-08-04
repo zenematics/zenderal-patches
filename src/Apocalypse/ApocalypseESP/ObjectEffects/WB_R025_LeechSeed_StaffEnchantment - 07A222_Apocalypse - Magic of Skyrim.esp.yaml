@@ -1,0 +1,28 @@
+FormKey: 07A222:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R025_LeechSeed_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Leech Seed
+EnchantmentCost: 58
+CastType: FireAndForget
+EnchantmentAmount: 58
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0803EB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 10
+- BaseEffect: 13E4FA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 10
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetActorValuePercentConditionData
+      RunOnType: Target
+      ActorValue: Health
+    ComparisonValue: 1

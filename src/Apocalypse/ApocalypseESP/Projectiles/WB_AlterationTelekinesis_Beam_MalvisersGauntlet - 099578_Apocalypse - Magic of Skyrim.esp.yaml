@@ -1,0 +1,18 @@
+FormKey: 099578:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Beam_MalvisersGauntlet
+Model:
+  File: ApocNew\AlterationTelekinesis_Beam.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 384
+Light: 002E28:Apocalypse - Magic of Skyrim.esp
+Explosion: 10A292:Skyrim.esm
+Sound: 002E21:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 1
+Lifetime: 0.75
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''
+SoundLevel: 1

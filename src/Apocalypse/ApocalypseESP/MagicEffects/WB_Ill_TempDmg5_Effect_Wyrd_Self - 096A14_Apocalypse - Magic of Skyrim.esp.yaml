@@ -1,0 +1,57 @@
+FormKey: 096A14:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_TempDmg5_Effect_Wyrd_Self
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Wyrd_Self_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionBlue_FormList_Wyrd
+      Object: 096A13:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionNightmare_Marker_Script_Haunt
+      Object: 085B0D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I100_Wyrd_Spell_PC
+      Object: 096A16:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateDelay
+      Data: 0.5
+Name:
+  TargetLanguage: English
+  Value: Wyrd
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 020D2D:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+MagicSkill: Illusion
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+HitShader: 05E21E:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 2.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 05AC1D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 021804:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+EquipAbility: 05FD2B:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E10:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: The hand of fate chooses a random nearby target. It takes <20>% of its current Health for each nearby target as temporary damage that wears off after <dur> seconds.

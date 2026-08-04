@@ -1,0 +1,26 @@
+FormKey: 01CBF7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Effect_ConjureDremoraHonorGuard_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshadersonendscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX01
+      Object: 0EA8FF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDuration
+      Data: 0.1
+Name:
+  TargetLanguage: English
+  Value: Dremora Honor Guard - FX
+Flags:
+- NoDuration
+- FXPersist
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 0133D4:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

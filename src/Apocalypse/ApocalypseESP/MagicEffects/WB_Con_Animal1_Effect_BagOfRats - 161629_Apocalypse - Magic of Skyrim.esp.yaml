@@ -1,0 +1,60 @@
+FormKey: 161629:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Animal1_Effect_BagOfRats
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_SpellRepeater_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_MagicEffect
+      Object: 16162A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_RepeatMax
+      Data: 3
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Spell
+      Object: 16162B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Bag of Rats
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 12.5
+MagicSkill: Conjuration
+CastingLight: 11F7B7:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 11F228:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 056B75:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 016F8E:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Resummons when killed, up to <3> times within <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

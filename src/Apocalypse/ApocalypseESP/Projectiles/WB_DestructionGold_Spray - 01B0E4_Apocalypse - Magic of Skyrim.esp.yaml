@@ -1,0 +1,21 @@
+FormKey: 01B0E4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionGold_Spray
+ObjectBounds:
+  First: -24, -4, 0
+  Second: 24, 36, 0
+Model:
+  File: ApocNew\DestructionGold_Spray.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Flame
+Speed: 1000
+Range: 768
+Light: 01B0E3:Apocalypse - Magic of Skyrim.esp
+Sound: 000D69:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 2
+ImpactForce: 5
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

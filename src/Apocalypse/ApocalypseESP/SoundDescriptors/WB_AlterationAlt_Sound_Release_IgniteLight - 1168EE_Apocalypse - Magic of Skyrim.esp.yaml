@@ -1,0 +1,13 @@
+FormKey: 1168EE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_Release_IgniteLight
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\light\mag_light_fire.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: -35
+Priority: 128
+StaticAttenuation: 6.61

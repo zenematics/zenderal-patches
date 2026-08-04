@@ -1,0 +1,20 @@
+FormKey: 1238E6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Hazard_CircleOfTheMoons
+ObjectBounds:
+  First: -138, -84, -7
+  Second: 138, 84, 147
+Name:
+  TargetLanguage: English
+  Value: Circle of the Moons Hazard
+Model:
+  File: ApocNew\RestorationArcane_Hazard2.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 12
+Lifetime: 30
+TargetInterval: 0.2
+Flags:
+- InheritDurationFromSpawnSpell
+Spell: 1238E4:Apocalypse - Magic of Skyrim.esp
+Light: 1238E7:Apocalypse - Magic of Skyrim.esp
+Sound: 056623:Skyrim.esm

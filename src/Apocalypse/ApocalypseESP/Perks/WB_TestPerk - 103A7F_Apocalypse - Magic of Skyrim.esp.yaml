@@ -1,0 +1,21 @@
+FormKey: 103A7F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_TestPerk
+Name:
+  TargetLanguage: English
+  Value: TEST PERK ILLD
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModSpellCost
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 0
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModSpellDuration
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 5

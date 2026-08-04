@@ -1,0 +1,18 @@
+FormKey: 10013C:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureKyrkrim_Skin
+SkyrimMajorRecordFlags:
+- NotPlayable
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 100046:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 100141:Apocalypse - Magic of Skyrim.esp
+MajorFlags:
+- NonPlayable

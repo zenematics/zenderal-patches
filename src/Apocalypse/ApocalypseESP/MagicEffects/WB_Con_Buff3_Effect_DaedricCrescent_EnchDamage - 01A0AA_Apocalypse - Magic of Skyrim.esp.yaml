@@ -1,0 +1,29 @@
+FormKey: 01A0AA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Buff3_Effect_DaedricCrescent_EnchDamage
+Name:
+  TargetLanguage: English
+  Value: Entropic Crescent - Damage
+MenuDisplayObject: 10AB43:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.5
+ResistValue: ResistMagic
+TaperWeight: 0.2
+EnchantShader: 069CE8:Skyrim.esm
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Inflicts <mag> magic damage to a target.

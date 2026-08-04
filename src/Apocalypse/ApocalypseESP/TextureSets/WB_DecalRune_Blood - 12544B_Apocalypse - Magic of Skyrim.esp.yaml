@@ -1,0 +1,23 @@
+FormKey: 12544B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DecalRune_Blood
+Diffuse: ApocNew\Rune_SurfaceBlood.dds
+NormalOrGloss: Effects\RuneFrost01_n.dds
+GlowOrDetailMap: Effects\RuneFrost01.dds
+Decal:
+  MinWidth: 169
+  MaxWidth: 169
+  MinHeight: 169
+  MaxHeight: 169
+  Depth: 64
+  Shininess: 500
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaTesting
+  - NoSubtextures
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00FFFFFF'
+Flags: []

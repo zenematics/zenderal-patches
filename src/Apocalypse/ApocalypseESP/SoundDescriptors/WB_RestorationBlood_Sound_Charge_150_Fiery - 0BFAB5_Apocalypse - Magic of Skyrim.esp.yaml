@@ -1,0 +1,13 @@
+FormKey: 0BFAB5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Sound_Charge_150_Fiery
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\MAG_Destruction_Fire_Charge_300.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 90
+PercentFrequencyVariance: 1
+Priority: 128
+StaticAttenuation: 6.61

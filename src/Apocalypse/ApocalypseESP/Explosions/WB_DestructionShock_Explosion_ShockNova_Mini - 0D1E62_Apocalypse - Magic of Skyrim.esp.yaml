@@ -1,0 +1,12 @@
+FormKey: 0D1E62:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Explosion_ShockNova_Mini
+Model:
+  File: Magic\ExplosionShockMass01.nif
+  Data: 0x020000000000000000000000
+Sound2: 03F20D:Skyrim.esm
+Force: 128
+Radius: 96
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

@@ -1,0 +1,34 @@
+FormKey: 149F83:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Curse2_Effect_AtronachMark_Proc
+Name:
+  TargetLanguage: English
+  Value: Atronach Pulse
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 1
+MagicSkill: Conjuration
+ResistValue: ResistMagic
+HitShader: 149F80:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingArea: 15
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 11F234:Apocalypse - Magic of Skyrim.esp
+Explosion: 16161F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+SkillUsageMultiplier: 0.8
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 1168F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> magic damage.

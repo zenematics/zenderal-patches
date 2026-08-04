@@ -1,0 +1,39 @@
+FormKey: 0870CD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff5_Effect_SothasMaelstrom_Visuals
+Name:
+  TargetLanguage: English
+  Value: Thaumaturgic Maelstrom - Visual
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- NoRecast
+- PowerAffectsDuration
+MagicSkill: Alteration
+CastingLight: 0059B3:Apocalypse - Magic of Skyrim.esp
+HitShader: 00D6F3:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 0059B7:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 0059B6:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

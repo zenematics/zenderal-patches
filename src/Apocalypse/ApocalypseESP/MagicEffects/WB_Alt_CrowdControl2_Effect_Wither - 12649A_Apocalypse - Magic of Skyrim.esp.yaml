@@ -1,0 +1,66 @@
+FormKey: 12649A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl2_Effect_Wither
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Wither_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_A025_Wither_Spell_StackingDebuff_PC
+      Object: 083FCB:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_StackMax
+      Data: 10
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Wither
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 007519:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 5
+MagicSkill: Alteration
+CastingLight: 0059B3:Apocalypse - Magic of Skyrim.esp
+HitShader: 126499:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 00751A:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 0059B7:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0059BA:Apocalypse - Magic of Skyrim.esp
+ImpactData: 0059B9:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 0059B6:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Reduces movement speed and attack damage by <mag>% per second, up to <50>%. Lasts <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

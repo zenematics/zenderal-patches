@@ -1,0 +1,15 @@
+FormKey: 115E15:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Sound_Impact
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DA09_LightBeamOff_02.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOff_03.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOff_01.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 9
+Priority: 128
+Variance: 3
+StaticAttenuation: 5.73

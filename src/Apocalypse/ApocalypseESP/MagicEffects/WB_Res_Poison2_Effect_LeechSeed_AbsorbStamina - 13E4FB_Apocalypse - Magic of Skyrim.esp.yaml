@@ -1,0 +1,79 @@
+FormKey: 13E4FB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Poison2_Effect_LeechSeed_AbsorbStamina
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_LeechSeed_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_LeechSeed_Global_HealKill
+      Object: 02F103:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationPeace_Imod_LeechSeed
+      Object: 13E4FC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Stat
+      Data: Stamina
+Name:
+  TargetLanguage: English
+  Value: Leech Seed - Stamina
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 13E505:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Restoration
+ResistValue: PoisonResist
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+  Type: Absorb
+Projectile: 13E501:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 13E503:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds:
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: PoisonResist
+  ComparisonValue: 100

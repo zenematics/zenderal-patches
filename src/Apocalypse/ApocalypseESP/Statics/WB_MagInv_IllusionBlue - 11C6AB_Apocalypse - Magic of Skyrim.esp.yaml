@@ -1,0 +1,10 @@
+FormKey: 11C6AB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_IllusionBlue
+ObjectBounds:
+  First: -70, -76, -21
+  Second: 70, 78, 20
+Model:
+  File: ApocNew\IllusionBlue_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

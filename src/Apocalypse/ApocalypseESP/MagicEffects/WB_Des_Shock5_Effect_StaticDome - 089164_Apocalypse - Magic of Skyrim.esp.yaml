@@ -1,0 +1,49 @@
+FormKey: 089164:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Effect_StaticDome
+Name:
+  TargetLanguage: English
+  Value: Static Dome
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+- Painless
+BaseCost: 20
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 0592D9:Skyrim.esm
+HitShader: 057C67:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingArea: 12
+SpellmakingCastingTime: 3
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 08F316:Apocalypse - Magic of Skyrim.esp
+Explosion: 08915D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Magicka
+CastingArt: 05B1BD:Skyrim.esm
+ImpactData: 059ED9:Skyrim.esm
+DualCastScale: 1.1
+ImageSpaceModifier: 0A9D93:Skyrim.esm
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 073FD9:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 0253C4:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Shock globe that does <mag> shock damage to Health and Magicka and causes <50>% weakness to shock.

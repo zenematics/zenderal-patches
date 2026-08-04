@@ -1,0 +1,121 @@
+FormKey: 0A94A1:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: WB_Alteration_Chest
+SkyrimMajorRecordFlags:
+- 0x8000000
+Name:
+  TargetLanguage: English
+  Value: Apocalypse Chest of Alteration
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 03C517:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C518:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C519:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C51A:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C51B:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C51C:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C51D:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C51E:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C51F:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C520:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C521:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C522:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C523:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C524:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C525:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C526:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C527:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C528:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C529:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C52B:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C52C:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C52D:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C52E:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C52F:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C530:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03F65B:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 047E25:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 05F257:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 089703:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 089704:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 089705:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 0AF0A8:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 161613:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 0AF0A9:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 1A1B72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+Flags:
+- Respawns
+MajorFlags:
+- NavMeshGenerationBoundingBox

@@ -1,0 +1,11 @@
+FormKey: 058657:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionGreen_Sound_Buff_CompellingWhispers
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\VOC\Shout\FX\AuraWhisper\VOC_Shout_FX_AuraWhisper_A.wav
+OutputModel: 0ABF1A:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 3.08

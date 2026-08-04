@@ -1,0 +1,22 @@
+FormKey: 05ECEE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CombatTrick5_Spell_Battletide
+Name:
+  TargetLanguage: English
+  Value: Battletide
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 705
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 2
+CastType: FireAndForget
+HalfCostPerk: 0C44BA:Skyrim.esm
+Effects:
+- BaseEffect: 05F256:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 80
+    Area: 25
+    Duration: 30

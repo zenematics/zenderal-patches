@@ -1,0 +1,48 @@
+FormKey: 00C0A9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Dispel1_Effect_DispelMagic
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_DispelMagic_Script
+Name:
+  TargetLanguage: English
+  Value: Dispel Magic
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Detrimental
+- NoDuration
+- NoMagnitude
+- Painless
+- NoDeathDispel
+BaseCost: 55
+MagicSkill: Illusion
+CastingLight: 11CC2E:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 1
+HitShader: 033CC2:Apocalypse - Magic of Skyrim.esp
+SpellmakingArea: 40
+SpellmakingCastingTime: 1
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 03838D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11CC2D:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11CC2F:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1.1
+ImageSpaceModifier: 00CB79:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 08196C:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 115E0B:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Dispels all magical effects (except diseases) on friends and foes.

@@ -1,0 +1,11 @@
+FormKey: 116E56:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Sound_Release_Big
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Vampire\MAG_Vampire_Sunlight_02.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 10.57

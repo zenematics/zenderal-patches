@@ -1,0 +1,26 @@
+FormKey: 01235D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora3_Effect_ConjureDremoraPitFighter_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshadersonendscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX01
+      Object: 0EA8FF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDuration
+      Data: 0.1
+Name:
+  TargetLanguage: English
+  Value: Dremora Pit Fighter - FX
+Flags:
+- NoDuration
+- FXPersist
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

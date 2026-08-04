@@ -1,0 +1,23 @@
+FormKey: 0803F2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl2_Spell_PerilousPath
+Name:
+  TargetLanguage: English
+  Value: Perilous Path
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 80
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 0F2184:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

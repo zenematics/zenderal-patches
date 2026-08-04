@@ -1,0 +1,20 @@
+FormKey: 06D4AC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_ForbiddenSun_2
+ObjectBounds:
+  First: -673, -648, -429
+  Second: 627, 670, 64
+Model:
+  File: ApocNew\DestructionFire_Projectile_ForbiddenSun.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1200
+Range: 7500
+Light: 09EE7C:Skyrim.esm
+Explosion: 10FBE9:Skyrim.esm
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 20
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

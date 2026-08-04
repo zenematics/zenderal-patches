@@ -1,0 +1,15 @@
+FormKey: 07A1E8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C025_ConjureCatTotem_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Conjure Cat Totem
+EnchantmentCost: 161
+CastType: FireAndForget
+EnchantmentAmount: 161
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0B21A6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

@@ -1,0 +1,17 @@
+FormKey: 008575:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_FXS_IllusoryFlames
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\fx\fire\body\FX_Fire_Body_04_LP.wav
+- fx\fx\fire\body\FX_Fire_Body_03_LP.wav
+- fx\fx\fire\body\FX_Fire_Body_02_LP.wav
+- fx\fx\fire\body\FX_Fire_Body_01_LP.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 13.22

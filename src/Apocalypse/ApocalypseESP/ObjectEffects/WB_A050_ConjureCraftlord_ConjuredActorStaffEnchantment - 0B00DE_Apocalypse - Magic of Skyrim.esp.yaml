@@ -1,0 +1,17 @@
+FormKey: 0B00DE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A050_ConjureCraftlord_ConjuredActorStaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Technobolt
+EnchantmentCost: 100
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 100
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 2
+Effects:
+- BaseEffect: 0B00DD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 75

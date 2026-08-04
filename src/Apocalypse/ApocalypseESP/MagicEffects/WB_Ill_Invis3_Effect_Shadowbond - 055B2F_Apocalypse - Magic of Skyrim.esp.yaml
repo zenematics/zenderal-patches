@@ -1,0 +1,82 @@
+FormKey: 055B2F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis3_Effect_Shadowbond
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_InvisProcTeleport_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicInvisibility
+      Object: 01EA6F:Skyrim.esm
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_CheckLocation
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_CheckRate
+      Data: 0.2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_Imod_GhostwalkReturn
+      Object: 0207BC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_Marker_Script_GhostwalkReturn
+      Object: 0207BF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionShadow_VFX_GhostwalkReturn
+      Object: 0207C1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I050_Shadowbond_Spell_Proc
+      Object: 055B32:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_TriggerVFXDur
+      Data: 3
+Name:
+  TargetLanguage: English
+  Value: Shadowbond
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 85
+MagicSkill: Illusion
+CastingLight: 11CC2E:Apocalypse - Magic of Skyrim.esp
+HitShader: 055B30:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 11CC2D:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11CC2F:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.1
+DualCastScale: 1
+ImageSpaceModifier: 0207BA:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 000D66:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Caster and target gain invisibility for <dur> seconds. When the invisibility is broken, the caster and target swap places.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

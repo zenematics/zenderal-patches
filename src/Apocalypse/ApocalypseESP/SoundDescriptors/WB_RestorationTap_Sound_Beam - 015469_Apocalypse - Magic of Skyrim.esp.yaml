@@ -1,0 +1,15 @@
+FormKey: 015469:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationTap_Sound_Beam
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_01.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_02.wav
+- Data\Sound\FX\QST\QST_DA09_LightBeamOn_03.wav
+OutputModel: 0E32BF:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 40
+PercentFrequencyVariance: 9
+Priority: 128
+Variance: 1
+StaticAttenuation: 9.25

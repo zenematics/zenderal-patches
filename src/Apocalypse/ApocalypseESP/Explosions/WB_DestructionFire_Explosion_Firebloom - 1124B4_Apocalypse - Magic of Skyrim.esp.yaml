@@ -1,0 +1,17 @@
+FormKey: 1124B4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_Firebloom
+Model:
+  File: Magic\FireBallExpSmall01.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 0439C1:Skyrim.esm
+Sound1: 03C8FC:Skyrim.esm
+ImpactDataSet: 015C7B:Skyrim.esm
+PlacedObject: 106B26:Apocalypse - Magic of Skyrim.esp
+Force: 256
+Radius: 320
+ISRadius: 600
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

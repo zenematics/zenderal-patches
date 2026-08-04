@@ -1,0 +1,16 @@
+FormKey: 07A21C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I075_EmpathicAgony_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Empathic Agony
+EnchantmentCost: 366
+CastType: FireAndForget
+EnchantmentAmount: 366
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0321BC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 10
+    Duration: 45

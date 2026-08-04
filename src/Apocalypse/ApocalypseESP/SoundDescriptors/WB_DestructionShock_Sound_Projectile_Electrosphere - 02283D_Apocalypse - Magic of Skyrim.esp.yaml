@@ -1,0 +1,14 @@
+FormKey: 02283D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Projectile_Electrosphere
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- fx\mag\shock\mag_shock_concentration_fire_lpm.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 2.64

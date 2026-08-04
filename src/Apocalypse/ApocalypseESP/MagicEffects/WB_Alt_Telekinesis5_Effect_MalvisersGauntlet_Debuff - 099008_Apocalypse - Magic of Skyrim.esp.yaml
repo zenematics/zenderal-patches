@@ -1,0 +1,54 @@
+FormKey: 099008:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Telekinesis5_Effect_MalvisersGauntlet_Debuff
+Name:
+  TargetLanguage: English
+  Value: Telekinetic Gauntlet
+MenuDisplayObject: 1097CB:Skyrim.esm
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 007519:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- PowerAffectsDuration
+MagicSkill: Alteration
+CastingLight: 02016B:Skyrim.esm
+TaperWeight: 1
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 2.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistMagic
+Projectile: 099578:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 02016C:Skyrim.esm
+ImpactData: 11BBC7:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 053A5E:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Causes <mag>% weakness to magic for the duration.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0172AC:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

@@ -1,0 +1,16 @@
+FormKey: 013EAC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora3_Effect_ConjureDremoraPitFighter_Ab_Cloak
+Name:
+  TargetLanguage: English
+  Value: Dremora Pit Fighter - FX - Cloak
+Flags:
+- NoDuration
+- FXPersist
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 012E62:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,23 @@
+FormKey: 07A1FA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D000_Hailstone_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Hailstone
+EnchantmentCost: 31
+CastType: FireAndForget
+EnchantmentAmount: 31
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0B2C7F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+- BaseEffect: 0B374E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Area: 10
+- BaseEffect: 0B729F:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 3

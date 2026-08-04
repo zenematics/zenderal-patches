@@ -1,0 +1,22 @@
+FormKey: 0FADFC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Projectile_Thunderstone
+Model:
+  File: ApocNew\DestructionShock_Projectile_Thunderstone.nif
+  Data: 0x020000000000000000000000
+Flags:
+- AltTrigger
+Type: Missile
+Gravity: 1.5
+Speed: 768
+Range: 1024
+Light: 056ACA:Skyrim.esm
+Sound: 058E2E:Skyrim.esm
+FadeDuration: 0.5
+ImpactForce: 15
+ConeSpread: 0.01
+CollisionRadius: 15
+Lifetime: 5
+RelaunchInterval: 0.25
+CollisionLayer: 088769:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 1

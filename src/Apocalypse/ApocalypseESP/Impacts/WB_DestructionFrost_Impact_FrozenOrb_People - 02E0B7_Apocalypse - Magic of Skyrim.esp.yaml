@@ -1,0 +1,29 @@
+FormKey: 02E0B7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Impact_FrozenOrb_People
+Model:
+  File: Magic\IcicleImpactACTOR01.nif
+  Data: 0x020000000000000000000000
+Duration: 4
+Orientation: ProjectileVector
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Normal
+Decal:
+  MinWidth: 25
+  MaxWidth: 35
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  Shininess: 300
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00FFFFFF'
+TextureSet: 018A2D:Skyrim.esm
+Sound1: 03C835:Skyrim.esm
+Hazard: 0130F5:Skyrim.esm

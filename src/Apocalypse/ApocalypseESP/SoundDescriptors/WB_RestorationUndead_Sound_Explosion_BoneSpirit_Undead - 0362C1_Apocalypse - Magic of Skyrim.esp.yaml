@@ -1,0 +1,12 @@
+FormKey: 0362C1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Sound_Explosion_BoneSpirit_Undead
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_BaneOfTheDead_Explosion.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 70
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 4.41

@@ -1,0 +1,21 @@
+FormKey: 11DC7E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Beam
+ObjectBounds:
+  First: -26, -37, -27
+  Second: 27, 542, 9
+Model:
+  File: ApocNew\RestorationBlood_Beam.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 10000
+Range: 4000
+Light: 0A8F39:Apocalypse - Magic of Skyrim.esp
+Sound: 03E5E4:Skyrim.esm
+FadeDuration: 0.4
+CollisionRadius: 10
+Lifetime: 0.6
+RelaunchInterval: 0.001
+MuzzleFlashModel: ''
+SoundLevel: 1

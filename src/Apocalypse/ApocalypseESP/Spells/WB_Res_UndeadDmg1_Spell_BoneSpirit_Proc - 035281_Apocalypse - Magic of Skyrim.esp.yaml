@@ -1,0 +1,23 @@
+FormKey: 035281:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_UndeadDmg1_Spell_BoneSpirit_Proc
+Name:
+  TargetLanguage: English
+  Value: Bone Spirit - Ashes to Ashes
+MenuDisplayObject: 1097CA:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 55
+Flags:
+- AreaEffectIgnoresLOS
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Touch
+HalfCostPerk: 0F2CAA:Skyrim.esm
+Effects:
+- BaseEffect: 03527F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Area: 15

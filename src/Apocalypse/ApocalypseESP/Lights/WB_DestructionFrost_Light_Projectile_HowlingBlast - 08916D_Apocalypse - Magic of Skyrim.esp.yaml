@@ -1,0 +1,10 @@
+FormKey: 08916D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Light_Projectile_HowlingBlast
+Time: -1
+Radius: 400
+Color: '#0098BEDE'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1

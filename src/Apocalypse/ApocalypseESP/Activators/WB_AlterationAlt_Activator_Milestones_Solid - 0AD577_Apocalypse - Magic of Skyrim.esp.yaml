@@ -1,0 +1,33 @@
+FormKey: 0AD577:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 100663296
+EditorID: WB_AlterationAlt_Activator_Milestones_Solid
+SkyrimMajorRecordFlags:
+- 0x2000000
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Milestone_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FXS_CreatedObject
+      Object: 0735E7:Apocalypse - Magic of Skyrim.esp
+ObjectBounds:
+  First: -18, -16, -16
+  Second: 16, 16, 98
+Name:
+  TargetLanguage: English
+  Value: Milestone
+Model:
+  File: ApocNew\AlterationAlt_Static_Milestones_Solid.nif
+  Data: 0x020000000000000000000000
+  AlternateTextures:
+  - Name: NorHitchPost01:0
+    NewTexture: 101F4C:Skyrim.esm
+MarkerColor: '#00CC4C33'
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: Activate
+Flags: []
+MajorFlags:
+- Obstacle
+- NavMeshGenerationFilter

@@ -1,0 +1,17 @@
+FormKey: 1C1E59:Apocalypse - Magic of Skyrim.esp
+VersionControl: 13506
+EditorID: WB_Res_Buff4_Spell_TreeRings_Layer04_AbFortifyHealth
+Name:
+  TargetLanguage: English
+  Value: Tree Rings Fortify Health 04
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 98
+Type: Ability
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 1C1E4C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15

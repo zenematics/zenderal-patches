@@ -1,0 +1,49 @@
+FormKey: 13E4FD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Poison2_Spell_LeechSeed
+Name:
+  TargetLanguage: English
+  Value: Leech Seed
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 58
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C7:Skyrim.esm
+Effects:
+- BaseEffect: 0803EB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 10
+- BaseEffect: 13E4FA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 10
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetActorValuePercentConditionData
+      RunOnType: Target
+      ActorValue: Health
+    ComparisonValue: 1
+- BaseEffect: 13E4FB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 10
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetActorValuePercentConditionData
+      RunOnType: Target
+      ActorValue: Health
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0581F9:Skyrim.esm
+    ComparisonValue: 1

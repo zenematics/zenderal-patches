@@ -1,0 +1,11 @@
+FormKey: 11F242:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationUnsummon_Sound_Explosion_Racial
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_PowerRacial_Pacify_Fire_2D.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 3.96

@@ -1,0 +1,52 @@
+FormKey: 1347ED:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_FrostSlowArea
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_FrostSlow_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_SpeedDelta
+      Data: -50
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_WeightDelta
+      Data: -0.01
+Name:
+  TargetLanguage: English
+  Value: Apocalypse Frost Slow
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 0B729E:Skyrim.esm
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- FXPersist
+- HideInUI
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+TaperWeight: 1
+SpellmakingArea: 25
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Release
+  Sound: 03F2EB:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 03E5CB:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

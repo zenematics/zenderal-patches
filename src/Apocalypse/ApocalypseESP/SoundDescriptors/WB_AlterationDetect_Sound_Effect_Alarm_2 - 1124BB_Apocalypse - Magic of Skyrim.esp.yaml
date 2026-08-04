@@ -1,0 +1,13 @@
+FormKey: 1124BB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationDetect_Sound_Effect_Alarm_2
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Generic\ImpactDistant\MAG_Generic_Projectile_Impact_Distant_01.wav
+OutputModel: 017464:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 6.61

@@ -1,0 +1,11 @@
+FormKey: 115E1C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Sound_Teleport
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\TG05\QST_TG05_Karliah_Vanish_01.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 4.85

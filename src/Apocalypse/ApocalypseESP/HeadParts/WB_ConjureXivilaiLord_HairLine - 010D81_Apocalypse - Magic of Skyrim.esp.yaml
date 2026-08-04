@@ -1,0 +1,22 @@
+FormKey: 010D81:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureXivilaiLord_HairLine
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: WB_XivilaiLord_HairLine
+Model:
+  File: Actors\Character\Character Assets\Hair\MaleDremoraHair01_hairline.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Male
+- IsExtraPart
+Type: Misc
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\MaleDremoraHair01_hairline.tri
+Color: 0829D1:Skyrim.esm
+ValidRaces: 0A8027:Skyrim.esm
+MajorFlags:
+- NonPlayable

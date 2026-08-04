@@ -1,0 +1,182 @@
+FormKey: 0B0644:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Con_Xivilai_Actor_ConjureLordOfBindings_PC
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FXunsommonSCRIPT
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AtronachUnsummonDeathFXS
+      Object: 0EA8FF:Skyrim.esm
+  - Name: WB_MinionSpellScaling_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_BaseLevel
+      Data: 30
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - Summonable
+  - LoopedScript
+  - LoopedAudio
+  MagickaOffset: 853
+  StaminaOffset: 53
+  Level:
+    MutagenObjectType: PcLevelMult
+    LevelMult: 1
+  CalcMinLevel: 30
+  CalcMaxLevel: 45
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: -91
+Voice: 01F1D5:Skyrim.esm
+Race: 0131F0:Skyrim.esm
+ActorEffect:
+- 019B22:Apocalypse - Magic of Skyrim.esp
+CombatOverridePackageList: 0B0645:Apocalypse - Magic of Skyrim.esp
+Perks:
+- Perk: 012357:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0B0646:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 155AAC:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Foolhardy
+  EnergyLevel: 100
+  Assistance: HelpsFriendsAndAllies
+Keywords:
+- 013797:Skyrim.esm
+Class: 019B32:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Lord of Bindings
+ShortName:
+  TargetLanguage: English
+  Value: Kehothar
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 68
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 69
+  - Key: Conjuration
+    Value: 86
+  - Key: Destruction
+    Value: 51
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 33
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 200
+  Magicka: 1000
+  Stamina: 200
+  GearedUpWeapons: 1
+HeadParts:
+- 010D74:Apocalypse - Magic of Skyrim.esp
+HairColor: 0A0436:Skyrim.esm
+CombatStyle: 0B0647:Apocalypse - Magic of Skyrim.esp
+NAM5: 255
+Height: 1.15
+SoundLevel: Normal
+DefaultOutfit: 019B1E:Apocalypse - Magic of Skyrim.esp
+DefaultPackageList: 021E81:Skyrim.esm
+HeadTexture: 01938E:Skyrim.esm
+TextureLighting: '#00A6B8E6'
+FaceMorph:
+  NoseLongVsShort: 0.02
+  NoseUpVsDown: 0.34
+  JawUpVsDown: -1
+  JawNarrowVsWide: 0.7
+  CheeksUpVsDown: 1
+  CheeksForwardVsBack: -0.5
+  EyesUpVsDown: -0.1
+  EyesInVsOut: -0.2
+  BrowsUpVsDown: -0.8
+  BrowsForwardVsBack: 1
+  LipsUpVsDown: 1
+  LipsInVsOut: -0.3
+  ChinNarrowVsWide: 0.8
+  ChinUpVsDown: -0.2
+  ChinUnderbiteVsOverbite: 0.4
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 11
+  Eyes: 16
+  Mouth: 14
+TintLayers:
+- Index: 1
+  Color: '#00A6B8E6'
+  InterpolationValue: 1
+  Preset: -1
+MajorFlags:
+- 0x40000

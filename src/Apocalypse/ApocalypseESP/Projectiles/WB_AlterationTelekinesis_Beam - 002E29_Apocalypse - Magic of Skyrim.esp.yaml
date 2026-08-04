@@ -1,0 +1,21 @@
+FormKey: 002E29:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Beam
+ObjectBounds:
+  First: -40, -11, -32
+  Second: 39, 512, 28
+Model:
+  File: ApocNew\AlterationTelekinesis_Beam.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 5000
+Light: 002E28:Apocalypse - Magic of Skyrim.esp
+Explosion: 10A292:Skyrim.esm
+Sound: 002E21:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 1
+Lifetime: 0.75
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''
+SoundLevel: 1

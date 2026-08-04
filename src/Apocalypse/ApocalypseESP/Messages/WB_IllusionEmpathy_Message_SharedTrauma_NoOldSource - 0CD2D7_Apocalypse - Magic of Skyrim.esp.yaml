@@ -1,0 +1,9 @@
+FormKey: 0CD2D7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Message_SharedTrauma_NoOldSource
+Description:
+  TargetLanguage: English
+  Value: No previous target exists.
+INAM: 0x00000000
+Flags:
+- AutoDisplay
+DisplayTime: 2

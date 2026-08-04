@@ -1,0 +1,20 @@
+FormKey: 140AFF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_SoulTrap2_Spell_SoulCloak_CloakProc
+Name:
+  TargetLanguage: English
+  Value: Soul Cloak - Scanner
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 3
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: Concentration
+TargetType: Aimed
+Effects:
+- BaseEffect: 140AFE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 5

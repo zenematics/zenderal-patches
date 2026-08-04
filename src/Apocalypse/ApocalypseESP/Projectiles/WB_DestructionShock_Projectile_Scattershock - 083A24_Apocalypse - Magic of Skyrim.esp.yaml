@@ -1,0 +1,24 @@
+FormKey: 083A24:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Projectile_Scattershock
+ObjectBounds:
+  First: -36, -29, -13
+  Second: 36, 34, 12
+Model:
+  File: ApocNew\DestructionShock_Projectile_Scattershock.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+Type: Missile
+Gravity: -0.1
+Speed: 650
+Range: 650
+Light: 056ACA:Skyrim.esm
+Sound: 03F205:Skyrim.esm
+MuzzleFlashDuration: 0.5
+FadeDuration: 0.5
+ImpactForce: 7
+CollisionRadius: 3
+RelaunchInterval: 0.225
+MuzzleFlashModel: Magic\ImpactShock03.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 1

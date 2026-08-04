@@ -1,0 +1,14 @@
+FormKey: 0A5394:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Explosion_ThrummingStone_2C
+Model:
+  File: Effects\FXdustBurstTiny.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 07FE7F:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 0A5393:Apocalypse - Magic of Skyrim.esp
+Force: 128
+Radius: 512
+ISRadius: 768
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

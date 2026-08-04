@@ -1,0 +1,17 @@
+FormKey: 0865C3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Explosion_InfiniteLight_Chain
+ObjectBounds:
+  First: -275, -275, -23
+  Second: 275, 275, 243
+Model:
+  File: ApocNew\RestorationHeal_Explosion_InfiniteLight.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 02F66B:Apocalypse - Magic of Skyrim.esp
+Sound1: 03C8FC:Skyrim.esm
+ImpactDataSet: 033CD6:Apocalypse - Magic of Skyrim.esp
+Radius: 128
+ISRadius: 360
+Flags:
+- 0x1
+- Chain
+SoundLevel: Normal

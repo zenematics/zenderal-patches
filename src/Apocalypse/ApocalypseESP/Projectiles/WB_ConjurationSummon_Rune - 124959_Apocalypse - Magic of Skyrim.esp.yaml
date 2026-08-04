@@ -1,0 +1,23 @@
+FormKey: 124959:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSummon_Rune
+ObjectBounds:
+  First: -77, -83, -3
+  Second: 77, 83, 42
+Model:
+  File: ApocNew\ConjurationSummon_Rune.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- AltTrigger
+Type: Lobber
+Speed: 1000
+Range: 10000
+ExplosionAltTriggerProximity: 75
+Explosion: 125445:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 50
+RelaunchInterval: 0.25
+DecalData: 125444:Apocalypse - Magic of Skyrim.esp
+CollisionLayer: 100F2F:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 1

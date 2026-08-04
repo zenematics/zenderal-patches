@@ -1,0 +1,18 @@
+FormKey: 0BBEEA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureCraftlord_Hair
+Name:
+  TargetLanguage: English
+  Value: HairMaleElf09
+Model:
+  File: Actors\Character\Character Assets\Hair\Elf\Male\Hair09.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Male
+Type: Hair
+ExtraParts:
+- 0EC264:Skyrim.esm
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\Elf\Male\ElfHair09.tri
+ValidRaces: 0BBEE8:Apocalypse - Magic of Skyrim.esp

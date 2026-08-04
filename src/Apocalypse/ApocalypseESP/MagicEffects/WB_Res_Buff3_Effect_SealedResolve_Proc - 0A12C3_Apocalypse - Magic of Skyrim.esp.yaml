@@ -1,0 +1,36 @@
+FormKey: 0A12C3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff3_Effect_SealedResolve_Proc
+Name:
+  TargetLanguage: English
+  Value: Resolve Unsealed
+MenuDisplayObject: 082458:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 0A12C4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsDuration
+BaseCost: 1.5
+MagicSkill: Restoration
+HitShader: 0A12C9:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+HitEffectArt: 0A12C2:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1.15
+DualCastScale: 1
+PerkToApply: 0A1838:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Type: Release
+  Sound: 1168F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

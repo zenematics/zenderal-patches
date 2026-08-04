@@ -1,0 +1,24 @@
+FormKey: 024E49:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock3_Spell_Scattershock_NPC
+Name:
+  TargetLanguage: English
+  Value: Scattershock
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 36
+ChargeTime: 2.5
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C0:Skyrim.esm
+Effects:
+- BaseEffect: 09CB6E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+    Duration: 1
+- BaseEffect: 0F3F0C:Skyrim.esm
+  Data:
+    Magnitude: 200
+    Duration: 1

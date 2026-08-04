@@ -1,0 +1,32 @@
+FormKey: 02D069:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_PerkImpactStaggerPushFFContact
+Name:
+  TargetLanguage: English
+  Value: Contact Perk Impact Stagger
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- HideInUI
+BaseCost: 0.001
+TaperWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: EffectWasDualCastConditionData
+    RunOnType: Target
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Target
+    Perk: 0153D2:Skyrim.esm
+  ComparisonValue: 1

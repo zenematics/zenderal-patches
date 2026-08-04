@@ -1,0 +1,14 @@
+FormKey: 02F66C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Sound_Projectile_InfiniteLight
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_Concentration_Fire_LPM.wav
+OutputModel: 07F80C:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+PercentFrequencyShift: 25
+Priority: 128
+StaticAttenuation: 1.32

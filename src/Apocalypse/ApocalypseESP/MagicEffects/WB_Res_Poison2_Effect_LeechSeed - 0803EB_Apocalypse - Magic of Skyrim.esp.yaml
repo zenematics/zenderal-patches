@@ -1,0 +1,75 @@
+FormKey: 0803EB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Poison2_Effect_LeechSeed
+Name:
+  TargetLanguage: English
+  Value: Leech Seed
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 13E504:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 01CEB0:Skyrim.esm
+- ADA001:Update.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Restoration
+ResistValue: PoisonResist
+CastingLight: 11D716:Apocalypse - Magic of Skyrim.esp
+HitShader: 13E507:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 13E501:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11D717:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 13E506:Apocalypse - Magic of Skyrim.esp
+ImpactData: 13E503:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Infests a living target with a poison spore for <dur> seconds. When the caster falls below full Health, the spore absorbs <mag> points of Health per second.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: PoisonResist
+  ComparisonValue: 100

@@ -1,0 +1,70 @@
+FormKey: 08095C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_NewManager_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_NewManager_Quest_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MGRitual04
+      Object: 0CD987:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MGRitual05
+      Object: 0D0755:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MGRitualAltBook
+      Object: 0FDE73:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MGRitualRestBook
+      Object: 0FDE76:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_MGRitualBooks
+      Objects:
+      - Name: ''
+        Object: 118983:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 118984:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 118985:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 118986:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 118987:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_QBooks_Spell_Ab
+      Object: 080961:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptBoolListProperty
+      Name: WB_QuestDone
+      Data:
+      - False
+      - False
+      - False
+      - False
+      - False
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_VendorChest
+      Objects:
+      - Name: ''
+        Object: 098BAC:Skyrim.esm
+      - Name: ''
+        Object: 098BA7:Skyrim.esm
+      - Name: ''
+        Object: 098BA6:Skyrim.esm
+      - Name: ''
+        Object: 098B9F:Skyrim.esm
+      - Name: ''
+        Object: 098BA5:Skyrim.esm
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Name:
+  TargetLanguage: English
+  Value: New Manager Quest
+Flags:
+- StartGameEnabled
+- 0x10
+Filter: ApocNew\
+NextAliasID: 0

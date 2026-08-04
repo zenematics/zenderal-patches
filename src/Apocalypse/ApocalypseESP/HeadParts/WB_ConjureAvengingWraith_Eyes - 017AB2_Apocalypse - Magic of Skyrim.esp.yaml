@@ -1,0 +1,15 @@
+FormKey: 017AB2:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureAvengingWraith_Eyes
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: WB_AvengingWraith_Eyes
+Flags:
+- Female
+Type: Eyes
+TextureSet: 04024D:Skyrim.esm
+ValidRaces: 0D3E9E:Skyrim.esm
+MajorFlags:
+- NonPlayable

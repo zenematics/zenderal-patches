@@ -1,0 +1,98 @@
+FormKey: 10F5D5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost5_Effect_Twister
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_IceTempest_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_D100_IceTempest_EffectUp
+      Object: 1124AC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_DeltaCenterHeight
+      Data: 21
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_DeltaPolarD
+      Data: 15
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_DeltaRadius
+      Data: 6
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionFrost_Explosion_Tornado
+      Object: 02E0C5:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionFrost_Imod_Tornado
+      Object: 02D5E4:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_StartCenterHeight
+      Data: 128
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_StartPolarD
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_StartRadius
+      Data: 30
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.1
+Name:
+  TargetLanguage: English
+  Value: Twister
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 01CEAE:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 044D4E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 11.5
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 11E1F8:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 042854:Skyrim.esm
+ImpactData: 10F5D6:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+ImageSpaceModifier: 10FBF1:Skyrim.esm
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Charge
+  Sound: 0FDBB4:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 03EA7B:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Creates a tornado at the target location. A direct hit sucks up a target, dealing <mag> frost damage for <dur> seconds. Nearby targets take half damage. Only works outdoors.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0172AC:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInInteriorConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsFlyingConditionData

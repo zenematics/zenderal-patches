@@ -1,0 +1,13 @@
+FormKey: 016F8B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Sound_Buff
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Dragon\FlightRoar\Distant\NPC_Dragon_FlightRoar_Distant_02.wav
+OutputModel: 07EDCA:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 1.32

@@ -1,0 +1,19 @@
+FormKey: 0B8DCC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_UndeadDmg5_Spell_MeridiasWrath_EQ
+Name:
+  TargetLanguage: English
+  Value: Starstorm
+MenuDisplayObject: 1097CA:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 95
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 0B8DCB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 1

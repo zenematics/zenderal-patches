@@ -1,0 +1,36 @@
+FormKey: 0A5903:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_LocateObject_3_Door_Quest
+Name:
+  TargetLanguage: English
+  Value: Locate Object - Door
+Flags:
+- AllowRepeatedStages
+Priority: 34
+Filter: WB\
+NextAliasID: 2
+Aliases:
+- Name: WB_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Object
+  Flags:
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsObjectTypeConditionData
+      FormType: Door
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetDestroyedConditionData
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      UseAliases: True
+    ComparisonValue: 4267
+  VoiceTypes: Null

@@ -1,0 +1,41 @@
+FormKey: 02F66E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal5_Spell_InfiniteLight
+Name:
+  TargetLanguage: English
+  Value: Infinite Light
+MenuDisplayObject: 0A0E7D:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 140
+Flags:
+- AreaEffectIgnoresLOS
+- NoDualCastModification
+ChargeTime: 3
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 082452:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 150
+    Area: 60
+    Duration: 1
+- BaseEffect: 02F66D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 150
+    Area: 60
+    Duration: 1
+- BaseEffect: 082453:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 150
+    Area: 60
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Target
+      Perk: 0581F9:Skyrim.esm
+    ComparisonValue: 1

@@ -1,0 +1,13 @@
+FormKey: 07C2D0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Light_Hazard_StaticDome
+Time: -1
+Radius: 256
+Color: '#00A49CEB'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 3.75

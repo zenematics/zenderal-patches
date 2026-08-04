@@ -1,0 +1,28 @@
+FormKey: 03DB2A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D050_IceShiv_Book
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Ice Shiv'
+Model:
+  File: Clutter\Books\SpellTomeDestructionLowPoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face'$HandwrittenFont'><font size='40'><p align='center'>
+
+    IceShiv
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 024B44:Apocalypse - Magic of Skyrim.esp
+Value: 210
+Weight: 1
+InventoryArt: 02FBB5:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,28 @@
+FormKey: 03D048:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C025_ConjureCatTotem_Book
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Conjure Cat Totem'
+Model:
+  File: Clutter\Books\SpellTomeConjurationLowPoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face'$HandwrittenFont'><font size='40'><p align='center'>
+
+    Conjure Cat Totem
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 027144:Apocalypse - Magic of Skyrim.esp
+Value: 85
+Weight: 1
+InventoryArt: 02FBB6:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

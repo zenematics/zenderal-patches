@@ -1,0 +1,9 @@
+FormKey: 02EB9B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArcane_Hands_ChannelEnergies
+ObjectBounds:
+  First: -13, -13, -1
+  Second: 13, 13, 0
+Model:
+  File: ApocNew\RestorationArcane_Hands_ChannelEnergies.nif
+  Data: 0x020000000000000000000000
+Type: []

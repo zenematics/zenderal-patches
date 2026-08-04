@@ -1,0 +1,22 @@
+FormKey: 017A8E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Ghost4_Spell_ConjureAvengingWraith
+Name:
+  TargetLanguage: English
+  Value: Conjure Avenging Wraith
+MenuDisplayObject: 11F238:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 351
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BD:Skyrim.esm
+Effects:
+- BaseEffect: 017524:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

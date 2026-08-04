@@ -1,0 +1,13 @@
+FormKey: 002E28:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Light_Projectile
+Time: -1
+Radius: 350
+Color: '#00F09D60'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.2

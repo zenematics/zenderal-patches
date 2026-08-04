@@ -1,0 +1,25 @@
+FormKey: 0279B1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Beam_CreepingCold
+ObjectBounds:
+  First: -26, -37, -27
+  Second: 27, 542, 9
+Model:
+  File: ApocNew\DestructionFrost_Beam_CreepingCold.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+Type: Beam
+Speed: 20000
+Range: 800
+Light: 0DC20C:Skyrim.esm
+Explosion: 10A292:Skyrim.esm
+Sound: 001865:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashDuration: 1.5
+FadeDuration: 0.4
+ImpactForce: 5
+CollisionRadius: 1
+Lifetime: 0.7
+RelaunchInterval: 0.1
+MuzzleFlashModel: Effects\ImpactEffects\ImpactFrostSmall01.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 1

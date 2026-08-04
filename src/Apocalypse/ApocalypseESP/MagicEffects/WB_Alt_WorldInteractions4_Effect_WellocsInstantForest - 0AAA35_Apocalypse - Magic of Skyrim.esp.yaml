@@ -1,0 +1,44 @@
+FormKey: 0AAA35:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions4_Effect_WellocsInstantForest
+Name:
+  TargetLanguage: English
+  Value: Instant Forest
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- SnapToNavmesh
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoHitEffect
+BaseCost: 60
+MagicSkill: Alteration
+CastingLight: 01E013:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 3
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 0AAA36:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: TargetLocation
+CastingArt: 01E012:Skyrim.esm
+ImpactData: 015C7B:Skyrim.esm
+SkillUsageMultiplier: 0.015
+DualCastScale: 1.1
+ImageSpaceModifier: 124ED9:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Release
+  Sound: 00A07D:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 002E21:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Concentrate to raise a row of trees where the caster points. They block passage, but the caster can destroy them.

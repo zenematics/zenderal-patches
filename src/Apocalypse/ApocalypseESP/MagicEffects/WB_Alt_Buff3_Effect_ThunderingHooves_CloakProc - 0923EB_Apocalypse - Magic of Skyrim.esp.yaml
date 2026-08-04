@@ -1,0 +1,66 @@
+FormKey: 0923EB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff3_Effect_ThunderingHooves_CloakProc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_NoHorse_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_StaminaHeal
+      Data: 50
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_WeightDelta
+      Data: 0.01
+Name:
+  TargetLanguage: English
+  Value: Thundering Hooves
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 007519:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+BaseCost: 0.5
+MagicSkill: Alteration
+HitShader: 092961:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: SpeedMult
+  Type: DualValueModifier
+Projectile: 012FCF:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: WaterWalking
+HitEffectArt: 006496:Apocalypse - Magic of Skyrim.esp
+ImpactData: 026113:Skyrim.esm
+SkillUsageMultiplier: 0.01
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: This mount moves <mag>% faster, regenerates Stamina and can run on water.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 026110:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsBeingRiddenConditionData
+  ComparisonValue: 1

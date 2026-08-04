@@ -1,0 +1,37 @@
+FormKey: 085B00:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Simulacrum5_Effect_PullFromEternity_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicSetActorAlphaScript
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: AlphaValue
+      Data: 0.25
+    - MutagenObjectType: ScriptBoolProperty
+      Name: DontFadeBack
+      Data: True
+    - MutagenObjectType: ScriptBoolProperty
+      Name: FadeToAlpha
+Name:
+  TargetLanguage: English
+  Value: Pull From Eternity - FX
+MenuDisplayObject: 11CC26:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- A00666:Update.esm
+Flags:
+- NoDuration
+- FXPersist
+- NoDeathDispel
+HitShader: 085AFF:Apocalypse - Magic of Skyrim.esp
+EnchantShader: 085AFF:Apocalypse - Magic of Skyrim.esp
+SecondActorValueWeight: 0.25
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: DamageResist
+  Type: DualValueModifier
+SecondActorValue: ResistMagic
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

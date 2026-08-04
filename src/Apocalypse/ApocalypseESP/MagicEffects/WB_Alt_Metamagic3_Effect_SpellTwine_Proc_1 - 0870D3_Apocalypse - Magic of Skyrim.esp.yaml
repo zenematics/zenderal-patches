@@ -1,0 +1,40 @@
+FormKey: 0870D3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_Proc_1
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CarryWeight_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_WeightDelta
+      Data: 0.01
+Name:
+  TargetLanguage: English
+  Value: Haste
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0870D6:Apocalypse - Magic of Skyrim.esp
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoArea
+- NoHitEffect
+BaseCost: 0.75
+MagicSkill: Alteration
+TaperWeight: 1
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+  Association: 0870D6:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Movement speed increased by <mag>% for <dur> seconds.

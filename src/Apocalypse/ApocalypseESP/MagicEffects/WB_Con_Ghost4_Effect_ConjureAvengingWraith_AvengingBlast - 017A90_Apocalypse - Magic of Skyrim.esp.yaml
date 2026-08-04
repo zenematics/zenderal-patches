@@ -1,0 +1,47 @@
+FormKey: 017A90:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Ghost4_Effect_ConjureAvengingWraith_AvengingBlast
+Name:
+  TargetLanguage: English
+  Value: Avenging Blast
+MenuDisplayObject: 11F237:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 012E65:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 0.4
+MagicSkill: Destruction
+ResistValue: ResistMagic
+CastingLight: 11F7B5:Apocalypse - Magic of Skyrim.esp
+TaperWeight: 0.3
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 017AAE:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11F233:Apocalypse - Magic of Skyrim.esp
+ImpactData: 017AAD:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03C8FB:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

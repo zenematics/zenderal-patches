@@ -1,0 +1,15 @@
+FormKey: 000D6F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationWater_Sound_Ready_1
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_02_LP.wav
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_01_LP.wav
+OutputModel: 0ABEF3:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 10
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 11.45

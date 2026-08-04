@@ -1,0 +1,73 @@
+FormKey: 0F217F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Simulacrum4_Effect_FoldIntoEther_MirrorEntity
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_EvilTwinAtTarget_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicAllegianceFaction
+      Object: 09E0C9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_Global_IsControlling
+      Object: 041152:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusoryEntity_Faction
+      Object: 0668E6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: WB_LevelMod
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_Retaliate
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I050_EvilTwin_Spell_Ab
+      Object: 0EF2B3:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.5
+Name:
+  TargetLanguage: English
+  Value: Fold Into Ether
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207BB:Apocalypse - Magic of Skyrim.esp
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- Painless
+BaseCost: 60
+MagicSkill: Illusion
+CastingLight: 01CC8D:Apocalypse - Magic of Skyrim.esp
+HitShader: 08A1D9:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Fame
+Projectile: 085575:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11C6A8:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 085B05:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 074096:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Interrupts target spellcaster. If a spell is interrupted, manifests an illusion of the target for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 0EF2B1:Apocalypse - Magic of Skyrim.esp
+  ComparisonValue: 1

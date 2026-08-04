@@ -1,0 +1,45 @@
+FormKey: 012E6A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Effect_ConjureDremoraChampion_Perk
+VirtualMachineAdapter:
+  Scripts:
+  - Name: voicepusheffectscript
+    Properties:
+    - MutagenObjectType: ScriptIntProperty
+      Name: PushForce
+      Data: 11
+Name:
+  TargetLanguage: English
+  Value: Blowout
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 012E6B:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+MagicSkill: Destruction
+HitShader: 004404:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 06EBC8:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+HitEffectArt: 11BBD6:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 03C8FB:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Target takes <mag> damage and is blown away.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0172AC:Skyrim.esm

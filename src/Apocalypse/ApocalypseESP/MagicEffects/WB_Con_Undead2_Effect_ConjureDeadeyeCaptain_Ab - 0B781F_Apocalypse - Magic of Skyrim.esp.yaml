@@ -1,0 +1,18 @@
+FormKey: 0B781F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead2_Effect_ConjureDeadeyeCaptain_Ab
+Name:
+  TargetLanguage: English
+  Value: Deadeye Captain - FX
+Flags:
+- NoDuration
+- FXPersist
+- NoDeathDispel
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+HitEffectArt: 0B781E:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

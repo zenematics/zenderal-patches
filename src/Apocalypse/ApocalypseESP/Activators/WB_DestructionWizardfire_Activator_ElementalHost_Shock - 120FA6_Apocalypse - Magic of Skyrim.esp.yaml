@@ -1,0 +1,18 @@
+FormKey: 120FA6:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67109376
+EditorID: WB_DestructionWizardfire_Activator_ElementalHost_Shock
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x4000000
+ObjectBounds:
+  First: -121, -125, -5
+  Second: 118, 126, 0
+Model:
+  File: ApocNew\DestructionWizardfire_Static_ElementalHost_Shock.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#008F32CD'
+LoopingSound: 03F2C6:Skyrim.esm
+Flags: []
+MajorFlags:
+- HiddenFromLocalMap
+- NavMeshGenerationFilter

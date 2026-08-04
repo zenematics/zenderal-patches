@@ -1,0 +1,10 @@
+FormKey: 006496:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Art_Longstride
+ObjectBounds:
+  First: -10, -71, -1
+  Second: 11, 10, 73
+Model:
+  File: ApocNew\AlterationAlt_Art_Longstride.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

@@ -1,0 +1,43 @@
+FormKey: 08915E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Effect_StaticDome_Hazard
+Name:
+  TargetLanguage: English
+  Value: Static Dome
+MenuDisplayObject: 12081F:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01CEAF:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 20
+MagicSkill: Destruction
+ResistValue: ResistShock
+HitShader: 057C67:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+SecondActorValue: Magicka
+ImpactData: 038B05:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Shocked for <mag> damage per second.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

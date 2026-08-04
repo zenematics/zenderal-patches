@@ -1,0 +1,37 @@
+FormKey: 14515B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis5_Effect_Shroudwalk_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_InvisFix_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I000_InvisFix_Spell_Ab_PC
+      Object: 0CB7E1:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Shroudwalk Invisibility
+MenuDisplayObject: 11C6AB:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01EA6F:Skyrim.esm
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+- HideInUI
+BaseCost: 5
+MagicSkill: Illusion
+HitShader: 02DF92:Skyrim.esm
+MinimumSkillLevel: 100
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Invisibility
+  Type: Invisibility
+CastType: FireAndForget
+SkillUsageMultiplier: 0.25
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

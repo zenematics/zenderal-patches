@@ -1,0 +1,16 @@
+FormKey: 0BBF06:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Beam_Battlemage_Shock_2
+Model:
+  File: ApocNew\DestructionShock_Projectile_RideTheLightning.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 20000
+Range: 512
+Light: 056ACA:Skyrim.esm
+Sound: 058E2E:Skyrim.esm
+FadeDuration: 0.1
+ImpactForce: 8
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

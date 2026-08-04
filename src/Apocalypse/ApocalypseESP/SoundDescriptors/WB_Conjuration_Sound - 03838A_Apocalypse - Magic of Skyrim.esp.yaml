@@ -1,0 +1,10 @@
+FormKey: 03838A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Conjuration_Sound
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_Hermaeus_Portal_Open.wav
+OutputModel: 0ABEF3:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128
+StaticAttenuation: 3.08

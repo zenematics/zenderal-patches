@@ -1,0 +1,13 @@
+FormKey: 000D62:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Projectile
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mgk\firebolt\projectile\MGK_Firebolt_Projectile_02.wav
+- fx\mgk\firebolt\projectile\MGK_Firebolt_Projectile_01.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 20
+PercentFrequencyVariance: 3
+Priority: 128

@@ -1,0 +1,7 @@
+FormKey: 0735E9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_FabricateObject_Fail
+Description:
+  TargetLanguage: English
+  Value: Cannot fabricate object in obstructed space.
+INAM: 0x00000000
+DisplayTime: 1

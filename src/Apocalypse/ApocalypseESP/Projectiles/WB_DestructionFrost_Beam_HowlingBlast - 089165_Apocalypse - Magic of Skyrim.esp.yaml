@@ -1,0 +1,21 @@
+FormKey: 089165:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Beam_HowlingBlast
+ObjectBounds:
+  First: -758, -1428, -324
+  Second: 743, 1428, 1177
+Model:
+  File: ApocNew\DestructionFrost_Beam_HowlingBlast.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 1000
+Range: 1000
+Light: 08916D:Apocalypse - Magic of Skyrim.esp
+Sound: 089166:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 1.5
+ImpactForce: 100
+CollisionRadius: 30
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

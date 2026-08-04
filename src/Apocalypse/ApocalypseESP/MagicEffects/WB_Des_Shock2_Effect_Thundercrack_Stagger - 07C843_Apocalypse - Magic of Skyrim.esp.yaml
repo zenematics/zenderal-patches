@@ -1,0 +1,43 @@
+FormKey: 07C843:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock2_Effect_Thundercrack_Stagger
+Name:
+  TargetLanguage: English
+  Value: Thunderstruck
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- NoArea
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 057C68:Skyrim.esm
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Projectile: 07C83D:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 058E9B:Skyrim.esm
+DualCastScale: 1
+ImageSpaceModifier: 07C83E:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 03F20C:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 07C837:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValuePercentConditionData
+    ActorValue: Health
+  ComparisonValue: 0.35

@@ -1,0 +1,41 @@
+FormKey: 09E669:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff4_Effect_TreeRings
+Name:
+  TargetLanguage: English
+  Value: Tree Rings
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 01CEB0:Skyrim.esm
+- 09F69E:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 5
+MagicSkill: Restoration
+CastingLight: 11D716:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 11D717:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 09F69B:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+PerkToApply: 1C1E67:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 0829C7:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Caster receives <10> layers of tough plant skin, each increasing maximum Health by <15> points. Layers gradually fall off over the course of <dur> seconds.

@@ -1,0 +1,17 @@
+FormKey: 00C142:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_AlterationAlt_Static_LocateObject
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+ObjectBounds:
+  First: -32768, -32768, -32768
+  Second: 32767, 32767, 32767
+Model:
+  File: apocnew\alterationalt_static_locateobject.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

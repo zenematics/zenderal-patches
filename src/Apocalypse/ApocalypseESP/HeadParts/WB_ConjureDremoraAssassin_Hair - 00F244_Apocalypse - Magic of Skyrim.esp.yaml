@@ -1,0 +1,15 @@
+FormKey: 00F244:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDremoraAssassin_Hair
+Name:
+  TargetLanguage: English
+  Value: WB_DremoraAssassin_Hair
+Flags:
+- Playable
+- Female
+Type: Hair
+ExtraParts:
+- 010D83:Apocalypse - Magic of Skyrim.esp
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Hair\MaleHumanOldHair01.tri
+ValidRaces: 0A8027:Skyrim.esm

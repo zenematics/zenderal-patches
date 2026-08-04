@@ -1,0 +1,73 @@
+FormKey: 0BB963:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_TempDmg3_Effect_IllusoryPyre
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MagicImodOnPlayerHitScript
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fImodStrength
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OnStartImodFX
+      Object: 072010:Apocalypse - Magic of Skyrim.esp
+  - Name: WB_IllusoryHit_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Mult
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: Illusory Pyre
+MenuDisplayObject: 11CC26:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- 020D2D:Apocalypse - Magic of Skyrim.esp
+- 0CE86A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- Painless
+- NoDeathDispel
+BaseCost: 90
+MagicSkill: Illusion
+CastingLight: 11C6B2:Apocalypse - Magic of Skyrim.esp
+HitShader: 03682C:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+  Association: 0CE86A:Apocalypse - Magic of Skyrim.esp
+Projectile: 057B8F:Apocalypse - Magic of Skyrim.esp
+Explosion: 0BB965:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 11C6A9:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.4
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E0B:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Illusory explosion deals <25>% of their current Health as temporary damage that wears off after <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

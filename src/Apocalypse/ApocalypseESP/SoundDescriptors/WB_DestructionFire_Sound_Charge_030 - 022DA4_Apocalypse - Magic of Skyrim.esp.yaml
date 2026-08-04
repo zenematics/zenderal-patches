@@ -1,0 +1,12 @@
+FormKey: 022DA4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Charge_030
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mgk\firebolt\mgk_firebolt_01_charge.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 66
+Priority: 128
+StaticAttenuation: 7.49

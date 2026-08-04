@@ -1,0 +1,23 @@
+FormKey: 098FF8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl3_Effect_Undermine_Proc
+Name:
+  TargetLanguage: English
+  Value: Undermine
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Detrimental
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+TaperWeight: 1
+HitShader: 00AB5A:Apocalypse - Magic of Skyrim.esp
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Staggers and drains <mag> points of Stamina.

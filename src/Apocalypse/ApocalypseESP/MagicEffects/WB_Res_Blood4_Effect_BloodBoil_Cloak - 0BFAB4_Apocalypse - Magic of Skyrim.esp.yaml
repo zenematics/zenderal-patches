@@ -1,0 +1,41 @@
+FormKey: 0BFAB4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Blood4_Effect_BloodBoil_Cloak
+Name:
+  TargetLanguage: English
+  Value: Blood Boil
+MenuDisplayObject: 11D19D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+BaseCost: 3.5
+MagicSkill: Restoration
+CastingLight: 0069CF:Apocalypse - Magic of Skyrim.esp
+HitShader: 0BAE83:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 1.5
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 0BFAB2:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+CastingArt: 00E69A:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0BAE7F:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 0BFAB5:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 02E0CC:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 12029C:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Concentrate to summon whirling blood that harms foes within <mag> feet and the caster.

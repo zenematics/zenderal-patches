@@ -1,0 +1,73 @@
+FormKey: 0ABFE0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl4_Effect_Entomb
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Entomb_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_EntombStatus_Global
+      Object: 0AE5B9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Entomb_Quest
+      Object: 0ABFDF:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Entomb
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 002E1C:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- NoDuration
+- NoArea
+MagicSkill: Alteration
+CastingLight: 00A5E8:Apocalypse - Magic of Skyrim.esp
+HitShader: 00AB5A:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 2.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Projectile: 00B63F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 00A084:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 00857B:Apocalypse - Magic of Skyrim.esp
+ImpactData: 00AB5C:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+ImageSpaceModifier: 0AAA33:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 00A07D:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Buries a target permanently, or frees a buried target. Only one victim may be buried at a time.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 035D59:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInSceneConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 0AE5B9:Apocalypse - Magic of Skyrim.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm

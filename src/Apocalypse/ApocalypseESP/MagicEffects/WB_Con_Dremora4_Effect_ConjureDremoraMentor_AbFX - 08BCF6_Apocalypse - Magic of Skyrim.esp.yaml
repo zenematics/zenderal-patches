@@ -1,0 +1,44 @@
+FormKey: 08BCF6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Effect_ConjureDremoraMentor_AbFX
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_DremoraMentor_Picker_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_IsMentor
+      Object: 08ACAC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationDaedric_ConjureDremoraMentor_Message_WhichMentor
+      Object: 08BCF9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_S_Mentor
+      Objects:
+      - Name: ''
+        Object: 08BCFC:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 08BD02:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 08BD04:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 08BD06:Apocalypse - Magic of Skyrim.esp
+      - Name: ''
+        Object: 08BD08:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Mentor
+MenuDisplayObject: 0A6459:Skyrim.esm
+Flags:
+- NoDuration
+- FXPersist
+- HideInUI
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+HitEffectArt: 11F246:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

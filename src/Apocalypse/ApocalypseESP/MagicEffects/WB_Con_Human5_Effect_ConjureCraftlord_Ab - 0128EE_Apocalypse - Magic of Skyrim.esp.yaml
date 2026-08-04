@@ -1,0 +1,55 @@
+FormKey: 0128EE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureCraftlord_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshadersonendscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX01
+      Object: 0EA8FF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDuration
+      Data: 0.1
+  - Name: WB_CraftlordStats_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_Armor
+      Object: 0B1C25:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_AttackMult
+      Object: 0B1C1E:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_HealthMult
+      Object: 0B1C1B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_LifeDrainMult
+      Object: 0B1C23:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_MagickaMult
+      Object: 0B1C1C:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_MagicResist
+      Object: 0B1C26:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_PowerAttackMult
+      Object: 0B1C1F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_SpellMult
+      Object: 0B1C22:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureCraftlord_Global_StaminaMult
+      Object: 0B1C1D:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Craftlord - FX
+Flags:
+- NoDuration
+- FXPersist
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

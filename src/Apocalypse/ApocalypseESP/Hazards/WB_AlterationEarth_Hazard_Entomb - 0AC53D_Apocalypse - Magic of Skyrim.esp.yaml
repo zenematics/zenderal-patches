@@ -1,0 +1,17 @@
+FormKey: 0AC53D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Hazard_Entomb
+ObjectBounds:
+  First: -340, -455, 2
+  Second: 321, 408, 614
+Name:
+  TargetLanguage: English
+  Value: Entomb Hazard
+Model:
+  File: ApocNew\AlterationEarth_Hazard_TharnsImmurement.nif
+  Data: 0x020000000000000000000000
+Radius: 4
+Lifetime: 180
+TargetInterval: 0.1
+Flags:
+- DropToGround
+Sound: 03C8F5:Skyrim.esm

@@ -1,0 +1,125 @@
+FormKey: 0378AB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Command4_Effect_MindControl
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_MindControl_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: InvisibleNPC
+      Object: 071E6B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicCharmFaction
+      Object: 08F3E8:Skyrim.esm
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_AggroIfKill
+      Data: True
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_CheckEquippedRate
+      Data: 0.25
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_DisableCaster
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_Global_IsControlling
+      Object: 041152:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionPuppeteer_Imod_PullTheirStringsEnd
+      Object: 0378AC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionPuppeteer_Imod_PullTheirStringsLoop
+      Object: 0378AD:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_ImodStrength
+      Data: 0.5
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IsDisableAI
+      Object: 052AB4:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Mind Control
+MenuDisplayObject: 13BEE7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03732D:Apocalypse - Magic of Skyrim.esp
+- 078098:Skyrim.esm
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+- ADA005:Update.esm
+Flags:
+- Recover
+- Detrimental
+- DispelWithKeywords
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- Painless
+- NoDeathDispel
+BaseCost: 140
+MagicSkill: Illusion
+CastingLight: 11C6AA:Apocalypse - Magic of Skyrim.esp
+HitShader: 13BEE8:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 037E20:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 13BEE6:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 13BEE5:Apocalypse - Magic of Skyrim.esp
+ImpactData: 13BEE1:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 08196C:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 081971:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Take control of a humanoid for <dur> seconds. In combat, the target will fight back when attacked. The caster cannot act, but can cast spells. Sheathe to cancel.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    RunOnType: Target
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013794:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 0131F0:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 040BEF:Apocalypse - Magic of Skyrim.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThanOrEqualTo
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 041152:Apocalypse - Magic of Skyrim.esp

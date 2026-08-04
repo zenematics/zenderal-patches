@@ -1,0 +1,15 @@
+FormKey: 0F5D9B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Ghost4_Spell_OathboundGuardian_Ab
+Name:
+  TargetLanguage: English
+  Value: Oathbound Guardian - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 0F5D9A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1

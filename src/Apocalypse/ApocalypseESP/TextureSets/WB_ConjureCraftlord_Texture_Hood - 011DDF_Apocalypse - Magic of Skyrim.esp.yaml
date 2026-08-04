@@ -1,0 +1,8 @@
+FormKey: 011DDF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureCraftlord_Texture_Hood
+ObjectBounds:
+  First: -8, -30, -20
+  Second: 7, 29, 19
+Diffuse: ApocNew\Other_Model\Radac_Hood.dds
+NormalOrGloss: Clothes\Warlock\hood_n.dds
+Flags: []

@@ -1,0 +1,11 @@
+FormKey: 11F24A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationReanimate_Sound_Explosion_Steel
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Nightingale\MAG_Nightingale_Strife_Fire_2D.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 4.41

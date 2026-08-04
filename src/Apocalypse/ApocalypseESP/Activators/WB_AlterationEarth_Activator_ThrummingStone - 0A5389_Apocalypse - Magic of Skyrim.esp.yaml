@@ -1,0 +1,15 @@
+FormKey: 0A5389:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_AlterationEarth_Activator_ThrummingStone
+SkyrimMajorRecordFlags:
+- 0x4000000
+ObjectBounds:
+  First: -39, -35, 23
+  Second: 32, 38, 167
+Model:
+  File: apocnew\alterationearth_static_thrummingstone.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

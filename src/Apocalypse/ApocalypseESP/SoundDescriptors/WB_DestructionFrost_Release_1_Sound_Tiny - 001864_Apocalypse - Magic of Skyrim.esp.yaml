@@ -1,0 +1,17 @@
+FormKey: 001864:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Release_1_Sound_Tiny
+Type: Standard
+Category: 07F80B:Skyrim.esm
+AlternateSoundFor: 10FD65:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\WPN\Impact\Blade\Ice\WPN_Impact_Blade_Ice_01.wav
+- \Data\Sound\FX\WPN\Impact\Blade\Ice\WPN_Impact_Blade_Ice_02.wav
+- \Data\Sound\FX\WPN\Impact\Blade\Ice\WPN_Impact_Blade_Ice_03.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 2
+PercentFrequencyVariance: 13
+Priority: 64
+Variance: 3
+StaticAttenuation: 7.05

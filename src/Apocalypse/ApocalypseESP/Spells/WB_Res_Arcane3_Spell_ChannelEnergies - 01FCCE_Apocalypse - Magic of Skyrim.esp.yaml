@@ -1,0 +1,21 @@
+FormKey: 01FCCE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Arcane3_Spell_ChannelEnergies
+Name:
+  TargetLanguage: English
+  Value: Channel Energies
+MenuDisplayObject: 12081F:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F42:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 300
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C8:Skyrim.esm
+Effects:
+- BaseEffect: 01FCCC:Apocalypse - Magic of Skyrim.esp
+  Data: {}

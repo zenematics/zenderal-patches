@@ -1,0 +1,15 @@
+FormKey: 07A1F2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C075_ConjureDremoraHonorGuard_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Honor Guard
+EnchantmentCost: 380
+CastType: FireAndForget
+EnchantmentAmount: 380
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0128EC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

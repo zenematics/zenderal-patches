@@ -1,0 +1,17 @@
+FormKey: 108620:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_ShatteringCrystal
+ObjectBounds:
+  First: -12, -12, 0
+  Second: 12, 12, 8
+Model:
+  File: Magic\MAGIceSpikeVolleyExplosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 04408A:Skyrim.esm
+Sound1: 02592A:Apocalypse - Magic of Skyrim.esp
+Sound2: 02592A:Apocalypse - Magic of Skyrim.esp
+Force: 768
+Radius: 256
+ISRadius: 1024
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

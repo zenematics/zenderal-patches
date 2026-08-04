@@ -1,0 +1,65 @@
+FormKey: 15B84D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Disease4_Effect_SerpentsScale_Self
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ContinuousDamage_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_DamagePerSecond
+      Data: 10
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_ResistType
+      Data: DiseaseResist
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.25
+  - Name: WB_Thorns_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ThornsSpell
+      Object: 15E717:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Serpent's Scale
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+- ADA001:Update.esm
+Flags:
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 20
+MagicSkill: Restoration
+CastingLight: 11D1AB:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 11D19F:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 06EA51:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015465:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 116E57:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Take <10> disease damage per second for <dur> seconds. Whenever the caster blocks a melee attack, the attacker takes <mag> disease damage per second.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm

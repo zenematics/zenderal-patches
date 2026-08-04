@@ -1,0 +1,36 @@
+FormKey: 00DBD6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Command4_Effect_EnslaveTheWeak_Power
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_EnslaveTheWeak_Power_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_EnslaveTheWeak_Quest
+      Object: 00DBCB:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Execute Slave
+MenuDisplayObject: 13BEE7:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+MagicSkill: Illusion
+CastingLight: 13BEE3:Apocalypse - Magic of Skyrim.esp
+HitShader: 037E1D:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 13BEE6:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+ImageSpaceModifier: 0378AC:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 08196D:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Kills your slave.

@@ -1,0 +1,55 @@
+FormKey: 14515E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis5_Effect_Shroudwalk
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Shroudwalk_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicInvisibility
+      Object: 01EA6F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Illusion_Shroudwalk_Global_BreakCount
+      Object: 0207B7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_I100_Shroudwalk_Spell
+      Object: 14515C:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: Shroudwalk
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0806E1:Skyrim.esm
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+BaseCost: 120
+MagicSkill: Illusion
+CastingLight: 11CC2E:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 11CC2D:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.2
+DualCastScale: 1
+EquipAbility: 12E6A2:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 0207BA:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 087588:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 115E12:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: You are invisible for <dur> seconds. When performing an action that breaks invisibility, you immediately regain invisibility, up to <Global=WB_Illusion_Shroudwalk_Global_BreakCount> times.

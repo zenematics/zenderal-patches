@@ -1,0 +1,25 @@
+FormKey: 0A7427:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MothWingMirror_Perk_Attack
+Name:
+  TargetLanguage: English
+  Value: Moth-Wing Steel
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 219
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.25

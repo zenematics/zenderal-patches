@@ -1,0 +1,16 @@
+FormKey: 000D69:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Projectile_Embers
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_01_LP.wav
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_02_LP.wav
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_03_LP.wav
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_04_LP.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 7
+Priority: 128
+StaticAttenuation: 1.32

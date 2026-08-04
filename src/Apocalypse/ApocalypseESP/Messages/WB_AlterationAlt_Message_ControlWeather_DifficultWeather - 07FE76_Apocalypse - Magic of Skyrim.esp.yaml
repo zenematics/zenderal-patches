@@ -1,0 +1,7 @@
+FormKey: 07FE76:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_ControlWeather_DifficultWeather
+Description:
+  TargetLanguage: English
+  Value: The weather resists your spell, but eventually yields.
+INAM: 0x00000000
+DisplayTime: 2

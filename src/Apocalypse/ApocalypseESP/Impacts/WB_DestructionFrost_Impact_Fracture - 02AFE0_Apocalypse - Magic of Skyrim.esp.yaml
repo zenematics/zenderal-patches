@@ -1,0 +1,12 @@
+FormKey: 02AFE0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Impact_Fracture
+Model:
+  File: Effects\ImpactEffects\ImpactFrost01.nif
+  Data: 0x020000000000000000000000
+Duration: 3
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Normal
+NoDecalData: True
+TextureSet: 018A2D:Skyrim.esm
+Sound1: 03E5CC:Skyrim.esm

@@ -1,0 +1,18 @@
+FormKey: 083A28:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Projectile_Scattershock_old
+Model:
+  File: ApocNew\DestructionShock_Projectile_Thunderwave.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 1250
+Range: 2500
+Light: 12D0FC:Apocalypse - Magic of Skyrim.esp
+Sound: 02283D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 6
+ConeSpread: 40
+CollisionRadius: 4
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

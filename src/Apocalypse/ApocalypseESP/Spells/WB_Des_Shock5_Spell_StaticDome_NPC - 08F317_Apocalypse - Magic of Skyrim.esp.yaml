@@ -1,0 +1,22 @@
+FormKey: 08F317:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Spell_StaticDome_NPC
+Name:
+  TargetLanguage: English
+  Value: Static Dome
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 689
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 3
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 089164:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 25
+    Area: 12

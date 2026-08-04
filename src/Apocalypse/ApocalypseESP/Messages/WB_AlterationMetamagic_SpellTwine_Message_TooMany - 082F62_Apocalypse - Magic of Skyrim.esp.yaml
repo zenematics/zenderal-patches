@@ -1,0 +1,7 @@
+FormKey: 082F62:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_SpellTwine_Message_TooMany
+Description:
+  TargetLanguage: English
+  Value: Already entwined %.0f spells, cannot entwine more spells.
+INAM: 0x00000000
+DisplayTime: 1

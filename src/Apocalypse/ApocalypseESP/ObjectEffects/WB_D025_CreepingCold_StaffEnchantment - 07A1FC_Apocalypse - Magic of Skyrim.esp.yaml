@@ -1,0 +1,22 @@
+FormKey: 07A1FC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D025_CreepingCold_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Creeping Cold
+EnchantmentCost: 19
+CastType: Concentration
+EnchantmentAmount: 19
+TargetType: Aimed
+EnchantType: StaffEnchantment
+Effects:
+- BaseEffect: 13AE9A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10
+    Duration: 1
+- BaseEffect: 0279BF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 60
+- BaseEffect: 0B729D:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 3

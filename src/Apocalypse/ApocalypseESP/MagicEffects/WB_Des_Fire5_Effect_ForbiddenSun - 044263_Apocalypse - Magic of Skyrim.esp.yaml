@@ -1,0 +1,50 @@
+FormKey: 044263:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire5_Effect_ForbiddenSun
+Name:
+  TargetLanguage: English
+  Value: Forbidden Sun
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01CEAD:Skyrim.esm
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3.85
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 0D4887:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingArea: 30
+SpellmakingCastingTime: 5
+TaperCurve: 2
+TaperDuration: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 06D4AC:Apocalypse - Magic of Skyrim.esp
+Explosion: 06CF45:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 089F26:Skyrim.esm
+ImpactData: 0D07C2:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 000D6C:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000D63:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Giant ball of elemental fire that deals <mag> points of damage in a wide area on impact.

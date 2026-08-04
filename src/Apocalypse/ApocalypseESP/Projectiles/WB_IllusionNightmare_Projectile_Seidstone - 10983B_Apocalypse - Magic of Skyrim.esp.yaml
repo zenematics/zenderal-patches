@@ -1,0 +1,20 @@
+FormKey: 10983B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Projectile_Seidstone
+ObjectBounds:
+  First: -84, -88, -9
+  Second: 84, 88, 119
+Model:
+  File: ApocNew\IllusionNightmare_Projectile_Seidstone.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 1
+Speed: 512
+Range: 1024
+Light: 11C6B2:Apocalypse - Magic of Skyrim.esp
+Sound: 016F9D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 8
+ImpactForce: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

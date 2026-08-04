@@ -1,0 +1,14 @@
+FormKey: 020D34:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Script_ReaveKill
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\Kill\Slash\NPC_Kill_Slash_01.wav
+- Data\Sound\FX\NPC\Kill\Slash\NPC_Kill_Slash_02.wav
+- Data\Sound\FX\NPC\Kill\Slash\NPC_Kill_Slash_03.wav
+OutputModel: 0E32BF:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 70
+PercentFrequencyVariance: 20
+Priority: 128
+StaticAttenuation: 8.37

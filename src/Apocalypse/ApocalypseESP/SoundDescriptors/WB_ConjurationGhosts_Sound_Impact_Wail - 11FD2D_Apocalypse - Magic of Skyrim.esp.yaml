@@ -1,0 +1,11 @@
+FormKey: 11FD2D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationGhosts_Sound_Impact_Wail
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\PowerRacial\MAG_PowerRacial_Histskin_01_2D.wav
+OutputModel: 07F80C:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 6.61

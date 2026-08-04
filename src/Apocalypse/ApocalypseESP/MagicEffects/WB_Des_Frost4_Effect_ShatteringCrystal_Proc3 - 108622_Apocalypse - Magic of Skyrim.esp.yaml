@@ -1,0 +1,50 @@
+FormKey: 108622:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost4_Effect_ShatteringCrystal_Proc3
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_PushAtLowHealth_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_HealthThreshold
+      Data: 0.3
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_PushForce
+      Data: 8
+    - MutagenObjectType: ScriptBoolProperty
+      Name: WB_PushFromCaster
+Name:
+  TargetLanguage: English
+  Value: Crystal Shatter - Small
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 0.5
+MagicSkill: Destruction
+ResistValue: ResistFrost
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Explosion: 108620:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SecondActorValue: Stamina
+ImpactData: 0D6C64:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

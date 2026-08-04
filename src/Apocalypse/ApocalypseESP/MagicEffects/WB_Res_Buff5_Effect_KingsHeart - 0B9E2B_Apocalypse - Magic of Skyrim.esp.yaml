@@ -1,0 +1,77 @@
+FormKey: 0B9E2B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Effect_KingsHeart
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_FollowsPlayerAndBuff_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Buff
+      Object: 0BA3A2:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Light
+      Object: 0B9E2C:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Lost
+      Object: 0B9E2D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_RangeCutoff
+      Data: 20
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_RangeLimit
+      Data: 100
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Speed
+      Data: 175
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_StartHeight
+      Data: 96
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: King's Heart
+MenuDisplayObject: 11D1A7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 01CEB0:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- PowerAffectsDuration
+BaseCost: 4.5
+MagicSkill: Restoration
+CastingLight: 11D1AC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 11D1A5:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11D1A6:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1.5
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 1168F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: A holy spark slowly follows the caster for <dur> seconds. When it is nearby, it fortifies most skills by <15>% and heals <mag> points per second.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

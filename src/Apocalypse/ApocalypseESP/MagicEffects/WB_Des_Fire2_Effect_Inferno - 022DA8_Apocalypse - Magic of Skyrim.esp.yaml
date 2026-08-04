@@ -1,0 +1,76 @@
+FormKey: 022DA8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire2_Effect_Inferno
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MagicImodBasicScript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: bPlayerOnly
+      Data: True
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fImodStrength
+      Data: 0.75
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ImodFX
+      Object: 023DF6:Apocalypse - Magic of Skyrim.esp
+  - Name: WB_EQDualCast_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_EQSpell
+      Object: 022DA6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_SelfSpell
+      Object: 022DAB:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.5
+  - Name: WB_ShakeCamera_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Duration
+      Data: 3
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Strength
+      Data: 0.5
+Name:
+  TargetLanguage: English
+  Value: Inferno
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 00B63E:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01CEAD:Skyrim.esm
+- 0806E1:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- PowerAffectsDuration
+BaseCost: 2
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 089F27:Skyrim.esm
+HitShader: 023DF4:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 089F26:Skyrim.esm
+HitEffectArt: 022DA9:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.06
+DualCastScale: 1
+EquipAbility: 080E34:Skyrim.esm
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 000D6A:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Attunes the caster to fire, equipping the Ember Bolt spell for up to <dur> seconds. It deals <mag> fire damage.

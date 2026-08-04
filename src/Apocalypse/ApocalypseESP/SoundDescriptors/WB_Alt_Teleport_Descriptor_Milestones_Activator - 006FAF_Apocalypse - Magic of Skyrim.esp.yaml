@@ -1,0 +1,13 @@
+FormKey: 006FAF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Teleport_Descriptor_Milestones_Activator
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_Hermaeus_Portal_LPM.wav
+OutputModel: 100FAE:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 13.22

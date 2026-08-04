@@ -1,0 +1,61 @@
+FormKey: 0B8DCB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_UndeadDmg5_Effect_MeridiasWrath_EQ
+Name:
+  TargetLanguage: English
+  Value: Starstorm
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 0.6
+MagicSkill: Restoration
+CastingLight: 04C6DC:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 0E7557:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 2.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 09EBD3:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+CastingArt: 04BE33:Skyrim.esm
+ImpactData: 04C6DA:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 023DF7:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 03E958:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> points of damage per second to undead.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+  ComparisonValue: 1

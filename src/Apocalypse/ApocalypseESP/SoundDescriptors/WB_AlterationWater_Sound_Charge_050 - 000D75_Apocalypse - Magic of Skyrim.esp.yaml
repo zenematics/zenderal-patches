@@ -1,0 +1,14 @@
+FormKey: 000D75:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationWater_Sound_Charge_050
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\PHY\Water\PHY_Water_H_01.wav
+- Data\Sound\FX\PHY\Water\PHY_Water_H_02.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 6
+Priority: 128
+Variance: 4
+StaticAttenuation: 5.73

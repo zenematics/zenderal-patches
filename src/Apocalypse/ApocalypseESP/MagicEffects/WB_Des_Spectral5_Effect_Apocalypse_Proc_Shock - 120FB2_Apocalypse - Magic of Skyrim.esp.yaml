@@ -1,0 +1,44 @@
+FormKey: 120FB2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Spectral5_Effect_Apocalypse_Proc_Shock
+Name:
+  TargetLanguage: English
+  Value: Sparks
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 01CEAF:Skyrim.esm
+- 10F5D4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1.95
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 057C68:Skyrim.esm
+HitShader: 057C67:Skyrim.esm
+MinimumSkillLevel: 100
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 034190:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: Magicka
+CastingArt: 058E9B:Skyrim.esm
+ImpactData: 038B05:Skyrim.esm
+SkillUsageMultiplier: 1.4
+DualCastScale: 1
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Release
+  Sound: 03F206:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 03F205:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Lightning that does <mag> points of shock damage to Health and Magicka per second.

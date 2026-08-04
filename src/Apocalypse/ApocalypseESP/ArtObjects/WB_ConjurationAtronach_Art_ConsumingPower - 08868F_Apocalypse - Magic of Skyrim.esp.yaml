@@ -1,0 +1,10 @@
+FormKey: 08868F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Art_ConsumingPower
+ObjectBounds:
+  First: -110, -108, -145
+  Second: 110, 108, 158
+Model:
+  File: ApocNew\ConjurationAtronach_Art_ConsumingPower.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

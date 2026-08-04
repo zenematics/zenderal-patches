@@ -1,0 +1,61 @@
+FormKey: 13DA15:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff4_Spell_TreeRings_NPC
+Name:
+  TargetLanguage: English
+  Value: Tree Rings
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 329
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 09E669:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 30
+- BaseEffect: 09F69C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 27
+- BaseEffect: 09F6A7:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 24
+- BaseEffect: 09F6A8:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 21
+- BaseEffect: 09F6A9:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 18
+- BaseEffect: 09F6AA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 15
+- BaseEffect: 09F6AB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 12
+- BaseEffect: 09F6AC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 9
+- BaseEffect: 09F6AD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 6
+- BaseEffect: 09F6AE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 3
+- BaseEffect: 09F6AF:Apocalypse - Magic of Skyrim.esp
+  Data: {}

@@ -1,0 +1,162 @@
+FormKey: 011868:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 537133056
+EditorID: WB_Con_Undead_Actor_ConjureNetherLich
+SkyrimMajorRecordFlags:
+- Compressed
+- 0x20000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FXunsommonSCRIPT
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AtronachUnsummonDeathFXS
+      Object: 0EA8FF:Skyrim.esm
+  - Name: WB_MinionSpellScaling_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_BaseLevel
+      Data: 30
+ObjectBounds:
+  First: -26, -18, 0
+  Second: 26, 18, 149
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - Summonable
+  - DoesNotBleed
+  - BleedoutOverride
+  MagickaOffset: 257
+  Level:
+    MutagenObjectType: PcLevelMult
+    LevelMult: 1
+  CalcMinLevel: 30
+  CalcMaxLevel: 45
+  SpeedMultiplier: 100
+  HealthOffset: -92
+Voice: 01F1D4:Skyrim.esm
+Race: 01545D:Apocalypse - Magic of Skyrim.esp
+ActorEffect:
+- 0128F0:Apocalypse - Magic of Skyrim.esp
+- 01545F:Apocalypse - Magic of Skyrim.esp
+- 0159DB:Apocalypse - Magic of Skyrim.esp
+- 0159DD:Apocalypse - Magic of Skyrim.esp
+AttackRace: 0131EF:Skyrim.esm
+Perks:
+- Perk: 012357:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 014EF5:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 155AAC:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Keywords:
+- 013796:Skyrim.esm
+Class: 01CE14:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Nether Lich
+ShortName:
+  TargetLanguage: English
+  Value: Llathasa
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 76
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 57
+  - Key: Conjuration
+    Value: 78
+  - Key: Destruction
+    Value: 57
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 79
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 200
+  Magicka: 500
+  Stamina: 50
+  GearedUpWeapons: 1
+CombatStyle: 0BB365:Skyrim.esm
+NAM5: 255
+Height: 1.2
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 0BFB2A:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000
+- BleedoutOverride

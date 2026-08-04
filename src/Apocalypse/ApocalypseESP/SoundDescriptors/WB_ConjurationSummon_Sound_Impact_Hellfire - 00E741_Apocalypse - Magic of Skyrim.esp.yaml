@@ -1,0 +1,13 @@
+FormKey: 00E741:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSummon_Sound_Impact_Hellfire
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mgk\firebolt\impact\MGK_Firebolt_Impact_01.wav
+OutputModel: 0D78B4:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 4.41

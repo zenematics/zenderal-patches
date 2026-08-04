@@ -1,0 +1,7 @@
+FormKey: 00C137:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_Replicate_Success
+Description:
+  TargetLanguage: English
+  Value: Item replicated for %.0f Gold.
+INAM: 0x00000000
+DisplayTime: 2

@@ -1,0 +1,11 @@
+FormKey: 03838B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Sound_Explosion_Vanish
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\TG05\QST_TG05_Transition_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 6.61

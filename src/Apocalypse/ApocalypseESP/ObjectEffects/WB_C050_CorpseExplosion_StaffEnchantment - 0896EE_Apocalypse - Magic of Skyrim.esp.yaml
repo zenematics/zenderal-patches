@@ -1,0 +1,14 @@
+FormKey: 0896EE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C050_CorpseExplosion_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Corpse Explosion
+EnchantmentCost: 175
+CastType: FireAndForget
+EnchantmentAmount: 175
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 1212EA:Apocalypse - Magic of Skyrim.esp
+  Data: {}

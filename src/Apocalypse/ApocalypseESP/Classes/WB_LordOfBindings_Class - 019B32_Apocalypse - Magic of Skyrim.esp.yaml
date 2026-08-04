@@ -1,0 +1,56 @@
+FormKey: 019B32:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_LordOfBindings_Class
+Name:
+  TargetLanguage: English
+  Value: Lord of Bindings
+Description:
+  TargetLanguage: English
+  Value: ''
+Unknown: -131072
+Teaches: 0
+MaxTrainingLevel: 100
+SkillWeights:
+- Key: OneHanded
+  Value: 3
+- Key: TwoHanded
+  Value: 0
+- Key: Archery
+  Value: 0
+- Key: Block
+  Value: 0
+- Key: Smithing
+  Value: 0
+- Key: HeavyArmor
+  Value: 0
+- Key: LightArmor
+  Value: 0
+- Key: Pickpocket
+  Value: 0
+- Key: Lockpicking
+  Value: 0
+- Key: Sneak
+  Value: 0
+- Key: Alchemy
+  Value: 0
+- Key: Speech
+  Value: 0
+- Key: Alteration
+  Value: 3
+- Key: Conjuration
+  Value: 4
+- Key: Destruction
+  Value: 2
+- Key: Illusion
+  Value: 0
+- Key: Restoration
+  Value: 1
+- Key: Enchanting
+  Value: 0
+BleedoutDefault: 0.1
+StatWeights:
+- Key: Health
+  Value: 2
+- Key: Magicka
+  Value: 2
+- Key: Stamina
+  Value: 2

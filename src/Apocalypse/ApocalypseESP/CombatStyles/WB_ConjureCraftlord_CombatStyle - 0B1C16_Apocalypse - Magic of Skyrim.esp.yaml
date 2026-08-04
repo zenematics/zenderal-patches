@@ -1,0 +1,38 @@
+FormKey: 0B1C16:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureCraftlord_CombatStyle
+OffensiveMult: 0.9
+DefensiveMult: 0.85
+GroupOffensiveMult: 0.64
+EquipmentScoreMultMelee: 10
+EquipmentScoreMultMagic: 10
+EquipmentScoreMultRanged: 1
+EquipmentScoreMultShout: 1
+EquipmentScoreMultUnarmed: 1
+EquipmentScoreMultStaff: 5
+AvoidThreatChance: 0.2
+Melee:
+  AttackStaggeredMult: 6.5
+  PowerAttackStaggeredMult: 6.5
+  PowerAttackBlockingMult: 4
+  BashMult: 1
+  BashRecoilMult: 1
+  BashAttackMult: 1
+  BashPowerAttackMult: 1
+  SpecialAttackMult: 0.1
+CloseRange:
+  CircleMult: 0.3
+  FallbackMult: 0.7
+  FlankDistance: 0.2
+  StalkTime: 0.2
+LongRangeStrafeMult: 0.35
+Flight:
+  HoverChance: 0.33
+  DiveBombChance: 1
+  GroundAttackChance: 0.5
+  HoverTime: 0.5
+  GroundAttackTime: 0.5
+  PerchAttackChance: 0.5
+  PerchAttackTime: 0.5
+  FlyingAttackChance: 0.75
+Flags:
+- Dueling

@@ -1,0 +1,13 @@
+FormKey: 0A3DF5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Destruction_LoadScreen
+Description:
+  TargetLanguage: English
+  Value: The discipline of Elementalism offers the master an arsenal of devastating elemental spells such as Volcano and Tornado.
+LoadingScreenNif: 036F5C:Skyrim.esm
+InitialScale: 2.5
+InitialRotation: 0, -15, 0
+RotationOffsetConstraints:
+  Min: -180
+  Max: 180
+InitialTranslationOffset: -10, 0, -15
+CameraPath: Cameras\LSCameraPanZoomInSmall.nif

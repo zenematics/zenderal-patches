@@ -1,0 +1,11 @@
+FormKey: 048902:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Sound_Script_BloodForBlood
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_Halldir_Cairn_Fade.wav
+OutputModel: 017464:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 90
+Priority: 128
+StaticAttenuation: 4.41

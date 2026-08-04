@@ -1,0 +1,12 @@
+FormKey: 016FA2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Sound_Concentration_FleshOfMyFlesh
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\DA02\QST_DA02_Shrine_Activate_01_LPM.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 70
+Priority: 128
+StaticAttenuation: 1.76

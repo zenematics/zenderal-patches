@@ -1,0 +1,19 @@
+FormKey: 003E76:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_AlterationAlt_MiscItem_Lodesphere
+SkyrimMajorRecordFlags:
+- NotPlayable
+ObjectBounds:
+  First: -57, -54, -51
+  Second: 57, 60, 51
+Name:
+  TargetLanguage: English
+  Value: Lodesphere
+Model:
+  File: ApocNew\AlterationAlt_MiscItem_Lodesphere.nif
+  Data: 0x020000000000000000000000
+Keywords:
+- 003E7C:Apocalypse - Magic of Skyrim.esp
+Weight: 2000
+MajorFlags:
+- NonPlayable

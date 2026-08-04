@@ -1,0 +1,37 @@
+FormKey: 0B5D1E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Effect_CyclonicRift_Damage
+Name:
+  TargetLanguage: English
+  Value: Cyclonic Rift - Shock Damage
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 0B5D1F:Apocalypse - Magic of Skyrim.esp
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 30
+MagicSkill: Destruction
+ResistValue: ResistShock
+HitShader: 057C67:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+  Association: 0B5D1F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

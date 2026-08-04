@@ -1,0 +1,18 @@
+FormKey: 09F136:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationSun_Projectile_Dawnfire
+ObjectBounds:
+  First: -450, -399, -123
+  Second: 456, 405, 43
+Model:
+  File: ApocNew\RestorationSun_Projectile_Dawnfire.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1250
+Range: 4000
+Light: 01CBB3:Skyrim.esm
+Sound: 1168F0:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

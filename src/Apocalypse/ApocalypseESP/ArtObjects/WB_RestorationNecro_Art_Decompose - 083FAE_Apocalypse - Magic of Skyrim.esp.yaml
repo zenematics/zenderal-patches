@@ -1,0 +1,10 @@
+FormKey: 083FAE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Art_Decompose
+ObjectBounds:
+  First: -32768, -32768, -32768
+  Second: 32767, 32767, 32767
+Model:
+  File: ApocNew\RestorationNecro_Art_Decompose.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

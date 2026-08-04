@@ -1,0 +1,13 @@
+FormKey: 00ECB7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionHellfire_Sound_Impact_Fwoosh
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\VOC\Shout\Projectile\FireBreath\VOC_Shout_Projectile_FireBreath_01.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 40
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 3.08

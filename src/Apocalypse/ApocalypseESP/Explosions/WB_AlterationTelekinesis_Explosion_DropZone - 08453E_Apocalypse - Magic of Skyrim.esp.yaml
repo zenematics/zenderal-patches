@@ -1,0 +1,18 @@
+FormKey: 08453E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Explosion_DropZone
+ObjectBounds:
+  First: -222, -196, -23
+  Second: 222, 196, 74
+Model:
+  File: ApocNew\AlterationTelekinesis_Explosion_DropZone.nif
+  Data: 0x020000000000000000000000
+Sound1: 003E8B:Apocalypse - Magic of Skyrim.esp
+Sound2: 03C8FC:Skyrim.esm
+PlacedObject: 084542:Apocalypse - Magic of Skyrim.esp
+Radius: 250
+VerticalOffsetMult: -10
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

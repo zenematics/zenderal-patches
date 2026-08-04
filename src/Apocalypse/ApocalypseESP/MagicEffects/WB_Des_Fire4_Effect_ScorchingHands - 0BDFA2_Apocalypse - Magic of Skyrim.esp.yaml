@@ -1,0 +1,60 @@
+FormKey: 0BDFA2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire4_Effect_ScorchingHands
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MG01FireEffectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MG01
+      Object: 01F251:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Scorching Hands
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1.15
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 089F27:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 3
+SpellmakingCastingTime: 1.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 0BDFA0:Apocalypse - Magic of Skyrim.esp
+Explosion: 0BDFA1:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+CastingArt: 01B211:Skyrim.esm
+ImpactData: 026113:Skyrim.esm
+SkillUsageMultiplier: 0.75
+DualCastScale: 1
+ImageSpaceModifier: 10FBEB:Skyrim.esm
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000D63:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 000D69:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Blasts targets in melee range, dealing <mag> points of fire damage per second.

@@ -1,0 +1,17 @@
+FormKey: 012209:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Hazard_CircleOfDeath
+ObjectBounds:
+  First: -138, -84, -7
+  Second: 138, 84, 147
+Name:
+  TargetLanguage: English
+  Value: Circle of Death Hazard
+Model:
+  File: ApocNew\RestorationNecro_Hazard.nif
+  Data: 0x020000000000000000000000
+Radius: 12
+Lifetime: 30
+TargetInterval: 0.2
+Spell: 01220A:Apocalypse - Magic of Skyrim.esp
+Light: 11D712:Apocalypse - Magic of Skyrim.esp
+Sound: 056623:Skyrim.esm

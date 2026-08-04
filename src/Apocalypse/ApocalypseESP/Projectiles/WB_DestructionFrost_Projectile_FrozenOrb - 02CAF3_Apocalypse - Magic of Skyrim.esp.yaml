@@ -1,0 +1,17 @@
+FormKey: 02CAF3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_FrozenOrb
+ObjectBounds:
+  First: -17, -74, -17
+  Second: 17, 117, 17
+Model:
+  File: Magic\IceProjectile02.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2500
+Range: 2500
+Light: 10FBF0:Skyrim.esm
+FadeDuration: 0.5
+CollisionRadius: 15
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

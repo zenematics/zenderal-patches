@@ -1,0 +1,71 @@
+FormKey: 0B1C34:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureCraftlord_Perk
+Name:
+  TargetLanguage: English
+  Value: Craftlord
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0B1C35:Apocalypse - Magic of Skyrim.esp
+      ComparisonValue: 1
+  EntryPoint: ModSpellCost
+  PerkConditionTabCount: 2
+  Value: 50
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 1
+  EntryPoint: ModPowerAttackStamina
+  PerkConditionTabCount: 2
+  Value: 50
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 2
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Value: 75
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 48
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0B1C35:Apocalypse - Magic of Skyrim.esp
+      ComparisonValue: 1
+  EntryPoint: ModSpellDuration
+  PerkConditionTabCount: 3
+  ActorValue: Variable03
+  Value: 1
+  Modification: MultiplyAVMult
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 49
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0B1C35:Apocalypse - Magic of Skyrim.esp
+      ComparisonValue: 1
+  EntryPoint: ModSpellMagnitude
+  PerkConditionTabCount: 3
+  ActorValue: Variable02
+  Value: 1
+  Modification: MultiplyAVMult
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 50
+  EntryPoint: ModPowerAttackDamage
+  PerkConditionTabCount: 3
+  ActorValue: Variable01
+  Value: 1
+  Modification: MultiplyAVMult

@@ -1,0 +1,16 @@
+FormKey: 0133D1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureHerne_Perk
+Name:
+  TargetLanguage: English
+  Value: Spirit Wolfpack
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Value: 3

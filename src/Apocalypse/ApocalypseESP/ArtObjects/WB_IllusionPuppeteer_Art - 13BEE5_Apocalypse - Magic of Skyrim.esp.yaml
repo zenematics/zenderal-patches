@@ -1,0 +1,10 @@
+FormKey: 13BEE5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionPuppeteer_Art
+ObjectBounds:
+  First: -62, -81, -51
+  Second: 62, 97, 59
+Model:
+  File: ApocNew\IllusionPuppeteer_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

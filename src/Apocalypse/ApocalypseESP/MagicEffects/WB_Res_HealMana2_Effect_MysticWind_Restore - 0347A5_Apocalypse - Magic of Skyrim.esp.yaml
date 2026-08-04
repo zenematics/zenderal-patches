@@ -1,0 +1,43 @@
+FormKey: 0347A5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_HealMana2_Effect_MysticWind_Restore
+Name:
+  TargetLanguage: English
+  Value: Mystic Wind - Regeneration
+MenuDisplayObject: 11D19C:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01B648:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 03479E:Apocalypse - Magic of Skyrim.esp
+- 0B782B:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoArea
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- Painless
+- NoDeathDispel
+BaseCost: 10
+MagicSkill: Restoration
+CastingLight: 04E224:Skyrim.esm
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Magicka
+  Association: 0B782B:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 04E222:Skyrim.esm
+SkillUsageMultiplier: 0.2
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 115E1B:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

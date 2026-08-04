@@ -1,0 +1,36 @@
+FormKey: 0AD008:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 100663296
+EditorID: WB_AlterationAlt_Activator_WellocsInstantForest_Tree_3
+SkyrimMajorRecordFlags:
+- 0x2000000
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_PathOfPillars_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FXS_CreatedObject
+      Object: 0735E7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Duration
+      Data: 30
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Sound
+      Object: 091E85:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Tree
+Model:
+  File: ApocNew\AlterationAlt_Static_NaturalBarrier_Tree_3.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: Destroy
+Flags: []
+MajorFlags:
+- Obstacle
+- NavMeshGenerationFilter

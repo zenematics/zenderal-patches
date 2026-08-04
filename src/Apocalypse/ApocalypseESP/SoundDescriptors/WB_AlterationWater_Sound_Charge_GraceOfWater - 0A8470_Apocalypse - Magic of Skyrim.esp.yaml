@@ -1,0 +1,15 @@
+FormKey: 0A8470:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationWater_Sound_Charge_GraceOfWater
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_02_LP.wav
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_01_LP.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 20.7

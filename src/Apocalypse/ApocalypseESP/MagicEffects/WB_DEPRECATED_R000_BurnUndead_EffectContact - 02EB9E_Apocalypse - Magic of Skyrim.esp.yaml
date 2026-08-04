@@ -1,0 +1,72 @@
+FormKey: 02EB9E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DEPRECATED_R000_BurnUndead_EffectContact
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_BurnUndead_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicRestoreHealth
+      Object: 01CEB0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_R000_BurnUndead_Spell
+      Object: 02EB9F:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Burn Undead
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 14
+MagicSkill: Restoration
+CastingLight: 04C6DC:Skyrim.esm
+HitShader: 0E7557:Skyrim.esm
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+CastingArt: 04BE33:Skyrim.esm
+HitEffectArt: 04BE34:Skyrim.esm
+SkillUsageMultiplier: 0.05
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 116E55:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Undead takes <mag> damage for <dur> seconds. When affected by a healing spell, this spell is cast twice again.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 1052A3:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+  ComparisonValue: 1

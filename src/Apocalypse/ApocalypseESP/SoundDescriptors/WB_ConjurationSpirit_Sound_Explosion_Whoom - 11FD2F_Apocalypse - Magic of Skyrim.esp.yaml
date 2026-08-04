@@ -1,0 +1,11 @@
+FormKey: 11FD2F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSpirit_Sound_Explosion_Whoom
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\DA02\QST_DA02_Bubble_Activate_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: -30
+Priority: 128
+StaticAttenuation: 1.32

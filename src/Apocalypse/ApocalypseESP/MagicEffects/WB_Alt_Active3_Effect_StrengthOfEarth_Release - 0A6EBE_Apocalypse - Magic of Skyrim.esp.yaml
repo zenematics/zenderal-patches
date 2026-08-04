@@ -1,0 +1,35 @@
+FormKey: 0A6EBE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Active3_Effect_StrengthOfEarth_Release
+Name:
+  TargetLanguage: English
+  Value: Rolling Tremor
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+BaseCost: 40
+MagicSkill: Alteration
+TaperWeight: 1
+MinimumSkillLevel: 50
+SpellmakingArea: 12
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Explosion: 0A6EBD:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+ImpactData: 00AB5C:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+Sounds:
+- Type: Release
+  Sound: 00A07D:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: When you stop concentrating on Strength of the Earth, staggers nearby enemies.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1

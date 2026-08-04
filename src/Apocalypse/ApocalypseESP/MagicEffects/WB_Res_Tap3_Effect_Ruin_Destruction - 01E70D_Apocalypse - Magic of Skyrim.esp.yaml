@@ -1,0 +1,42 @@
+FormKey: 01E70D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Tap3_Effect_Ruin_Destruction
+Name:
+  TargetLanguage: English
+  Value: Ruin - Destruction
+MenuDisplayObject: 11D1A7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01546A:Apocalypse - Magic of Skyrim.esp
+- 0B7D92:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- HideInUI
+- PowerAffectsMagnitude
+MagicSkill: Restoration
+ResistValue: ResistMagic
+CastingLight: 11D1AC:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Destruction
+  Association: 0B7D92:Apocalypse - Magic of Skyrim.esp
+Projectile: 11D1A8:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11D1A5:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11D714:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015465:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 120819:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

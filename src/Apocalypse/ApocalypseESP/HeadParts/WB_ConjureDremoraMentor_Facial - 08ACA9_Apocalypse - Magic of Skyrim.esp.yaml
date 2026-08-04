@@ -1,0 +1,22 @@
+FormKey: 08ACA9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDremoraMentor_Facial
+Name:
+  TargetLanguage: English
+  Value: WB_DremoraMentor_Facial
+Model:
+  File: Actors\Character\Character Assets\Beards\HumanBeardMedium03.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Male
+Type: FacialHair
+ExtraParts:
+- 0CDB7B:Skyrim.esm
+Parts:
+- PartType: RaceMorph
+  FileName: Actors\Character\Character Assets\Beards\HumanBeardMedium03Races.tri
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\Beards\HumanBeardMedium03.tri
+- PartType: ChargenMorph
+  FileName: Actors\Character\Character Assets\Beards\HumanBeardMedium03Chargen.tri
+ValidRaces: 0A8027:Skyrim.esm

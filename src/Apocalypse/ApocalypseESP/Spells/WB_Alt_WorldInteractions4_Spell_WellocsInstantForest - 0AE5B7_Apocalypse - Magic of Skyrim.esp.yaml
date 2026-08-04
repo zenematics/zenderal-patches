@@ -1,0 +1,25 @@
+FormKey: 0AE5B7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions4_Spell_WellocsInstantForest
+Name:
+  TargetLanguage: English
+  Value: Instant Forest
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 60
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: Concentration
+TargetType: TargetLocation
+Range: 60
+HalfCostPerk: 0C44B9:Skyrim.esm
+Effects:
+- BaseEffect: 0AAA35:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 3

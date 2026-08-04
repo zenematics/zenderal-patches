@@ -1,0 +1,17 @@
+FormKey: 078172:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_Shivers
+ObjectBounds:
+  First: -34, 0, -34
+  Second: 34, 13, 34
+Model:
+  File: ApocNew\DestructionFrost_Projectile_Shivers.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1250
+Range: 3125
+Light: 0786DB:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

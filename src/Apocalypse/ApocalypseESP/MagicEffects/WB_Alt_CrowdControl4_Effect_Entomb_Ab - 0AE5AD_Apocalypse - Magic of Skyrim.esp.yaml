@@ -1,0 +1,28 @@
+FormKey: 0AE5AD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl4_Effect_Entomb_Ab
+Name:
+  TargetLanguage: English
+  Value: Entomb Active
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoHitEffect
+- NoDeathDispel
+MagicSkill: Alteration
+MinimumSkillLevel: 75
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: A victim has been entombed. Cast the spell again to free the victim.

@@ -1,0 +1,57 @@
+FormKey: 097A4E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl5_Effect_TalonsOfNirn_Hazard
+Name:
+  TargetLanguage: English
+  Value: Talons of Vyn
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- HideInUI
+BaseCost: 2
+MagicSkill: Alteration
+HitShader: 00AB5A:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+Projectile: 00B63F:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 00AB5C:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsStaggeredConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 097A55:Apocalypse - Magic of Skyrim.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetFlyingStateConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 0D5B8B:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0172AC:Skyrim.esm

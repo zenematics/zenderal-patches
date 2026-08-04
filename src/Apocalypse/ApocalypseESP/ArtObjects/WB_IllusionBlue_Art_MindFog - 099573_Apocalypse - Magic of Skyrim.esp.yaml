@@ -1,0 +1,10 @@
+FormKey: 099573:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Art_MindFog
+ObjectBounds:
+  First: -62, -370, -256
+  Second: 62, 410, 296
+Model:
+  File: ApocNew\IllusionBlue_Art_MindFog.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

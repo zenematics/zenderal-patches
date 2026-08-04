@@ -1,0 +1,13 @@
+FormKey: 0B628C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Sound_Activator_CyclonicRift
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\mag\cloak\mag_cloakshock_lp.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 30
+Priority: 128
+StaticAttenuation: 0.88

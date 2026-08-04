@@ -1,0 +1,10 @@
+FormKey: 11CC27:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Art
+ObjectBounds:
+  First: -156, -47, -165
+  Second: 156, 64, 196
+Model:
+  File: ApocNew\IllusionNightmare_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

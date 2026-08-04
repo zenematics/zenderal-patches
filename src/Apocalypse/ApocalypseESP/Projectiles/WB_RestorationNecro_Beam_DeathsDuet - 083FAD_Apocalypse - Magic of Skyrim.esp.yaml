@@ -1,0 +1,21 @@
+FormKey: 083FAD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Beam_DeathsDuet
+ObjectBounds:
+  First: -16, -11, -32
+  Second: 15, 512, 28
+Model:
+  File: ApocNew\RestorationNecro_Beam_DeathsDuet.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 10000
+Range: 2500
+Light: 11D1A2:Apocalypse - Magic of Skyrim.esp
+Sound: 005F2E:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.4
+CollisionRadius: 10
+Lifetime: 0.75
+RelaunchInterval: 0.001
+MuzzleFlashModel: ''
+SoundLevel: 2

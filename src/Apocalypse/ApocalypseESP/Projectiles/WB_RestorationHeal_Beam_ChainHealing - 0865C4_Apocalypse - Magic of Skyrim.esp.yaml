@@ -1,0 +1,19 @@
+FormKey: 0865C4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Beam_ChainHealing
+Model:
+  File: ApocNew\RestorationHeal_Beam_ChainHeal.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 4000
+Light: 02F669:Apocalypse - Magic of Skyrim.esp
+Explosion: 02F66A:Apocalypse - Magic of Skyrim.esp
+Sound: 02F66C:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.3
+CollisionRadius: 1
+Lifetime: 0.4
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

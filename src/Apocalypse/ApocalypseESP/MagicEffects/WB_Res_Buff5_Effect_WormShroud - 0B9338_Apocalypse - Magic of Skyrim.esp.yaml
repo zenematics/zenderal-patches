@@ -1,0 +1,42 @@
+FormKey: 0B9338:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Effect_WormShroud
+Name:
+  TargetLanguage: English
+  Value: Worm Shroud
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- FXPersist
+- PowerAffectsMagnitude
+- Painless
+BaseCost: 3.5
+MagicSkill: Restoration
+CastingLight: 11D1AB:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 2
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 0B9342:Apocalypse - Magic of Skyrim.esp
+Projectile: 12494A:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11D19F:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0959DA:Apocalypse - Magic of Skyrim.esp
+ImpactData: 124952:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+EquipAbility: 1259C8:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015464:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 116E57:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: For <dur> seconds, destroys corpses within <mag> feet, improving Restoration spells by <5>% for <30> seconds. This effect refreshes and stacks up to <10> times.

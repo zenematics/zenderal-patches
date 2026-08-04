@@ -1,0 +1,33 @@
+FormKey: 0B5D19:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67109376
+EditorID: WB_DestructionShock_Activator_CyclonicRift_Spawner
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CyclonicRift_Spawner_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_CyclonicRift_0
+      Object: 0B5D16:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_CyclonicRift_1
+      Object: 0B5D18:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Destruction_CyclonicRift_Global_RiftID
+      Object: 0B5D1A:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D100_CyclonicRift_Spell_SelfDuration_PC
+      Object: 0B5D26:Apocalypse - Magic of Skyrim.esp
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- HiddenFromLocalMap
+- NavMeshGenerationFilter

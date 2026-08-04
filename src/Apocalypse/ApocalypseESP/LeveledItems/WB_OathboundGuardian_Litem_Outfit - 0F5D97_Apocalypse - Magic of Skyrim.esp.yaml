@@ -1,0 +1,13 @@
+FormKey: 0F5D97:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_OathboundGuardian_Litem_Outfit
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 01C5DF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0ABF3B:Skyrim.esm
+    Count: 1

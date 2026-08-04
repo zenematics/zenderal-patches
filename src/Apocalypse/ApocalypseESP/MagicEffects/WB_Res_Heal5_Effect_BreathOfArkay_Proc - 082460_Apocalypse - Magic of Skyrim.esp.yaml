@@ -1,0 +1,47 @@
+FormKey: 082460:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal5_Effect_BreathOfArkay_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: SayOnHitByMagicEffectScript
+    Properties:
+    - MutagenObjectType: ScriptIntProperty
+      Name: AllowForTeammate
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GameDaysPassed
+      Object: 000039:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TopicToSay
+      Object: 0AB87F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WICastNonHostileTimer
+      Object: 0E0CDC:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Breath of Tyr - Proc
+MenuDisplayObject: 0A0E7D:Skyrim.esm
+Keywords:
+- 01CEB0:Skyrim.esm
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- NoArea
+- FXPersist
+BaseCost: 1.25
+MagicSkill: Restoration
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+HitEffectArt: 12B05B:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+Sounds:
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

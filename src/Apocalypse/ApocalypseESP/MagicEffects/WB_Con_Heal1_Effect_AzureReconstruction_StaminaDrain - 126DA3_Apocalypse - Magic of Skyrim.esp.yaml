@@ -1,0 +1,59 @@
+FormKey: 126DA3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Heal1_Effect_AzureReconstruction_StaminaDrain
+Name:
+  TargetLanguage: English
+  Value: Azure Reconstruction - Stamina Drain
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01CEB0:Skyrim.esm
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Detrimental
+- NoHitEvent
+- HideInUI
+- PowerAffectsMagnitude
+- NoHitEffect
+MagicSkill: Conjuration
+CastingLight: 03BA90:Skyrim.esm
+TaperWeight: 1
+SpellmakingCastingTime: 0.5
+TaperDuration: 0.3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+Projectile: 012FDC:Skyrim.esm
+CastType: Concentration
+TargetType: TargetActor
+CastingArt: 0510CF:Skyrim.esm
+DualCastScale: 1
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 056B75:Skyrim.esm
+- Type: Release
+  Sound: 088693:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 016FA2:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThan
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Target
+    ActorValue: Stamina
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetActorValuePercentConditionData
+    ActorValue: Health
+  ComparisonValue: 1

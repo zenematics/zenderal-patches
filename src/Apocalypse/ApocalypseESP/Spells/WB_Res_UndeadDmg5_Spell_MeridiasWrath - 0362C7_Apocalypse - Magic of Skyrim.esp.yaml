@@ -1,0 +1,23 @@
+FormKey: 0362C7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_UndeadDmg5_Spell_MeridiasWrath
+Name:
+  TargetLanguage: English
+  Value: Malphas' Wrath
+MenuDisplayObject: 1097CA:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1194
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 3
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 0B8DCA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 30

@@ -1,0 +1,14 @@
+FormKey: 116E57:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Sound_Release
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_TurnUndead_Fire_2D.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 70
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 7.93

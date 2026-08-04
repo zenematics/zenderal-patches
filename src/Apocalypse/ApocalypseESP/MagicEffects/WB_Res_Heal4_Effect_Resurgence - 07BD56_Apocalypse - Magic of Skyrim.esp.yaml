@@ -1,0 +1,40 @@
+FormKey: 07BD56:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal4_Effect_Resurgence
+Name:
+  TargetLanguage: English
+  Value: Resurgence
+MenuDisplayObject: 0A0E7D:Skyrim.esm
+Keywords:
+- 01CEB0:Skyrim.esm
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 0A9B1E:Skyrim.esm
+Flags:
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 10
+MagicSkill: Restoration
+CastingLight: 10CDC8:Skyrim.esm
+HitShader: 012FD9:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+CastingArt: 01C859:Skyrim.esm
+HitEffectArt: 03F810:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

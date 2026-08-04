@@ -1,0 +1,21 @@
+FormKey: 00CC14:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions2_Spell_RaiseWall
+Name:
+  TargetLanguage: English
+  Value: Raise Wall
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 8
+Flags:
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: Concentration
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 09852E:Apocalypse - Magic of Skyrim.esp
+  Data: {}
+- BaseEffect: 09852F:Apocalypse - Magic of Skyrim.esp
+  Data: {}

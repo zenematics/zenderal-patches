@@ -1,0 +1,17 @@
+FormKey: 07A210:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D075_Bombardment_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Bombardment
+EnchantmentCost: 125
+CastType: Concentration
+EnchantmentAmount: 125
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 1.5
+Effects:
+- BaseEffect: 09B5CF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Area: 8
+    Duration: 1

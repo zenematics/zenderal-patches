@@ -1,0 +1,13 @@
+FormKey: 08C29A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Light_Hands_FingersOfTheMountain
+Time: -1
+Radius: 40
+Color: '#0078E9C5'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 2

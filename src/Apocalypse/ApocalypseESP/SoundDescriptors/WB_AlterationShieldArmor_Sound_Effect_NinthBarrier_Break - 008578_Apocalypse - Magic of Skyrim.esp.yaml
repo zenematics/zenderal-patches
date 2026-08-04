@@ -1,0 +1,13 @@
+FormKey: 008578:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationShieldArmor_Sound_Effect_NinthBarrier_Break
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\wardtest\mag_wardtest_break.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 34
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 3.08

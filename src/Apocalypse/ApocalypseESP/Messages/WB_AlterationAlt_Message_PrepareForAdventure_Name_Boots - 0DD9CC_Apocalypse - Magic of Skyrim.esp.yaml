@@ -1,0 +1,10 @@
+FormKey: 0DD9CC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_PrepareForAdventure_Name_Boots
+Description:
+  TargetLanguage: English
+  Value: ''
+Name:
+  TargetLanguage: English
+  Value: <Alias=Player>'s Fabricated Boots
+INAM: 0x00000000
+DisplayTime: 2

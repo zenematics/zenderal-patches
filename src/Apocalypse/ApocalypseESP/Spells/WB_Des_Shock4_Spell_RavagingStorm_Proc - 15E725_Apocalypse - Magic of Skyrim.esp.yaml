@@ -1,0 +1,25 @@
+FormKey: 15E725:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock4_Spell_RavagingStorm_Proc
+Name:
+  TargetLanguage: English
+  Value: Ravaging Storm
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 53
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 999
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 15E724:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+- BaseEffect: 06B9B2:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 200
+    Duration: 1

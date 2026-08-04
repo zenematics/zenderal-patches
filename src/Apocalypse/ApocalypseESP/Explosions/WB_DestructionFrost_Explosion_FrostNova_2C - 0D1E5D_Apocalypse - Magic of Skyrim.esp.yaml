@@ -1,0 +1,19 @@
+FormKey: 0D1E5D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_FrostNova_2C
+Model:
+  File: ApocNew\DestructionFrost_Explosion_FrostNova.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 04408A:Skyrim.esm
+Sound1: 03EDD8:Skyrim.esm
+Sound2: 00E747:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 018A2E:Skyrim.esm
+PlacedObject: 0D1E5F:Apocalypse - Magic of Skyrim.esp
+Force: 192
+Radius: 320
+ISRadius: 1024
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

@@ -1,0 +1,11 @@
+FormKey: 02E0B4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Impact_IcicleQuiet
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\icicle\impact\MAG_Icicle_Impact.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+Priority: 128
+StaticAttenuation: 10.13

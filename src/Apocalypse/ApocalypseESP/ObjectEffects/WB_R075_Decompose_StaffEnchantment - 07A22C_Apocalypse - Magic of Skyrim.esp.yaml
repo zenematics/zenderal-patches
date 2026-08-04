@@ -1,0 +1,16 @@
+FormKey: 07A22C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R075_Decompose_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Decompose
+EnchantmentCost: 311
+CastType: FireAndForget
+EnchantmentAmount: 311
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 095F3F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10
+    Duration: 60

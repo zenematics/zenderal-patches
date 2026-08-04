@@ -1,0 +1,26 @@
+FormKey: 1124B1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Spell_FingersOfTheMountain_Proc
+Name:
+  TargetLanguage: English
+  Value: Fingers of the Mountain - Lightning Strike
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 774
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 9999
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 1124AF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 120
+    Area: 5
+- BaseEffect: 06B9B2:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 200
+    Duration: 1

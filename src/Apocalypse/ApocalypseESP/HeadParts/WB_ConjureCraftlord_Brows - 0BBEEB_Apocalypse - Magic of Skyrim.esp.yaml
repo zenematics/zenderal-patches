@@ -1,0 +1,21 @@
+FormKey: 0BBEEB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureCraftlord_Brows
+Name:
+  TargetLanguage: English
+  Value: BrowsMaleHumanoid07
+Model:
+  File: Actors\Character\Character Assets\FaceParts\MaleBrows.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Male
+Type: Eyebrows
+Parts:
+- PartType: RaceMorph
+  FileName: Actors\Character\Character Assets\FaceParts\MaleHeadBrowsRaces.tri
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\FaceParts\MaleHeadBrows.tri
+- PartType: ChargenMorph
+  FileName: Actors\Character\Character Assets\FaceParts\MaleHeadBrowsCharGen.tri
+TextureSet: 0C71DE:Skyrim.esm
+ValidRaces: 0BBEE8:Apocalypse - Magic of Skyrim.esp

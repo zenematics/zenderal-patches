@@ -1,0 +1,13 @@
+FormKey: 000D72:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationWater_Sound_FXS_FlowingRiver
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\amb\water\exterior\amb_water_stream_01_lp.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 30
+Priority: 128
+StaticAttenuation: 11.01

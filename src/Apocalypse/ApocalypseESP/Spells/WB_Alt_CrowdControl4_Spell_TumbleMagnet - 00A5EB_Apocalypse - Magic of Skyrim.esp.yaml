@@ -1,0 +1,22 @@
+FormKey: 00A5EB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl4_Spell_TumbleMagnet
+Name:
+  TargetLanguage: English
+  Value: Tumble Magnet
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 321
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 3.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44B9:Skyrim.esm
+Effects:
+- BaseEffect: 0F7F2A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 20

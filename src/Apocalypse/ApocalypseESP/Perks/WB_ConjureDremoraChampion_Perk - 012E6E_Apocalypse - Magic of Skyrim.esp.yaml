@@ -1,0 +1,50 @@
+FormKey: 012E6E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDremoraChampion_Perk
+Name:
+  TargetLanguage: English
+  Value: Blowout
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 50
+  EntryPoint: ModPowerAttackStamina
+  PerkConditionTabCount: 2
+  Value: 50
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Priority: 150
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E8:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E6:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E7:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E5:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 012E6C:Apocalypse - Magic of Skyrim.esp

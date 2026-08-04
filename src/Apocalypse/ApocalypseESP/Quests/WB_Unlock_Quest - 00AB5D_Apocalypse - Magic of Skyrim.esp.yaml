@@ -1,0 +1,103 @@
+FormKey: 00AB5D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Unlock_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: QF_WB_Unlock_Quest_0100AB5D
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Unlock_Activator
+      Object: 00AB5D:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Unlock_Door
+      Object: 00AB5D:Apocalypse - Magic of Skyrim.esp
+      Alias: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Unlock_Player
+      Object: 00AB5D:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Explosion
+      Object: 00AB6B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FormList_DetonateLock_H
+      Object: 00AB63:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_FXS
+      Object: 0735E7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_DetonateLock_Failure
+      Object: 00AB5F:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_DetonateLock_Success
+      Object: 00AB5E:Apocalypse - Magic of Skyrim.esp
+  FileName: QF_WB_Unlock_Quest_0100AB5D
+  Fragments:
+  - Unknown2: 1
+    ScriptName: QF_WB_Unlock_Quest_0100AB5D
+    FragmentName: Fragment_0
+Name:
+  TargetLanguage: English
+  Value: Unlock Quest
+Flags:
+- AllowRepeatedStages
+Filter: ApocNew\
+Stages:
+- Flags:
+  - StartUpStage
+  LogEntries:
+  - Flags: []
+NextAliasID: 3
+Aliases:
+- Name: WB_Unlock_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Unlock_Activator
+  Flags:
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsIDConditionData
+      Object: 00857A:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+  VoiceTypes: Null
+- ID: 2
+  Name: WB_Unlock_Door
+  Flags: []
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      UseAliases: True
+      Target: 1
+    ComparisonValue: 128
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetIsObjectTypeConditionData
+      FormType: Door
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsObjectTypeConditionData
+      FormType: Container
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetLockedConditionData
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThanOrEqualTo
+    Data:
+      MutagenObjectType: GetLockLevelConditionData
+    ComparisonValue: 100
+  VoiceTypes: Null

@@ -1,0 +1,20 @@
+FormKey: 06A925:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Kyrgar_Faction
+Name:
+  TargetLanguage: English
+  Value: Kyrgar Services
+Flags:
+- Vendor
+- CanBeOwner
+CrimeValues:
+  Arrest: True
+  AttackOnSight: True
+VendorBuySellList: 0937A1:Skyrim.esm
+MerchantContainer: 08A1DB:Apocalypse - Magic of Skyrim.esp
+VendorValues:
+  EndHour: 24
+  Radius: 1000
+VendorLocation:
+  Target:
+    MutagenObjectType: LocationFallback
+    Type: NearSelf

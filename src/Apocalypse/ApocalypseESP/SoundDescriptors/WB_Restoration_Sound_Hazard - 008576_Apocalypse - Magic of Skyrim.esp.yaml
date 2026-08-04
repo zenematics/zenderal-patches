@@ -1,0 +1,13 @@
+FormKey: 008576:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Restoration_Sound_Hazard
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- fx\amb\rumble\amb_rumble_a_lp.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  Loop: Loop
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 12.78

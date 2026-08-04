@@ -1,0 +1,10 @@
+FormKey: 11CC26:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_IllusionNightmare
+ObjectBounds:
+  First: -92, -108, -15
+  Second: 93, 110, 15
+Model:
+  File: ApocNew\IllusionNightmare_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

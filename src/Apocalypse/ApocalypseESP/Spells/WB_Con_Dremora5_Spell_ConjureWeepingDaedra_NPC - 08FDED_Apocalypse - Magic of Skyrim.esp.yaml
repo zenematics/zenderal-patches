@@ -1,0 +1,22 @@
+FormKey: 08FDED:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_Spell_ConjureWeepingDaedra_NPC
+Name:
+  TargetLanguage: English
+  Value: Conjure Weeping Daedra
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 584
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 2
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BE:Skyrim.esm
+Effects:
+- BaseEffect: 08FDF6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 120

@@ -1,0 +1,46 @@
+FormKey: 0D1E5C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost3_Effect_FrostNova_Centre01
+Name:
+  TargetLanguage: English
+  Value: Frost Nova - Centre 15
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283A:Apocalypse - Magic of Skyrim.esp
+- 044D4E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- HideInUI
+- PowerAffectsMagnitude
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingArea: 15
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Explosion: 1347E9:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SecondActorValue: Stamina
+CastingArt: 020BF5:Skyrim.esm
+DualCastScale: 1
+ImageSpaceModifier: 10FBF1:Skyrim.esm
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Charge
+  Sound: 03EDD5:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 1347F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

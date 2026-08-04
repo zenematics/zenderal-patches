@@ -1,0 +1,22 @@
+FormKey: 08BD02:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Spell_ConjureDremoraMentor_Con
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Mentor
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 627
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 240
+HalfCostPerk: 0C44BD:Skyrim.esm
+Effects:
+- BaseEffect: 08ACAB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 90

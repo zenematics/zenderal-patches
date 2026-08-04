@@ -1,0 +1,21 @@
+FormKey: 07FE71:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_ControlWeather
+Description:
+  TargetLanguage: English
+  Value: Which weather do you want to summon?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Clear
+- Text:
+    TargetLanguage: English
+    Value: Clouds
+- Text:
+    TargetLanguage: English
+    Value: Rain
+- Text:
+    TargetLanguage: English
+    Value: Snow

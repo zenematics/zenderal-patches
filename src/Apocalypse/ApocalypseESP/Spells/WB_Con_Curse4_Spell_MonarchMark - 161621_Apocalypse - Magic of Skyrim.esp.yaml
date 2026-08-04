@@ -1,0 +1,19 @@
+FormKey: 161621:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Curse4_Spell_MonarchMark
+Name:
+  TargetLanguage: English
+  Value: Monarch Mark
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 300
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44BD:Skyrim.esm
+Effects:
+- BaseEffect: 161620:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

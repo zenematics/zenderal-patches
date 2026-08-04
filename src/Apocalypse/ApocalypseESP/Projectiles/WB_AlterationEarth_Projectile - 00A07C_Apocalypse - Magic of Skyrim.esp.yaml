@@ -1,0 +1,22 @@
+FormKey: 00A07C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Projectile
+ObjectBounds:
+  First: -29, -412, -27
+  Second: 29, 26, 24
+Model:
+  File: ApocNew\AlterationEarth_Projectile.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+Type: Missile
+Gravity: 0.25
+Speed: 1100
+Range: 2500
+Sound: 00A07F:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashDuration: 0.5
+FadeDuration: 0.5
+CollisionRadius: 15
+RelaunchInterval: 0.25
+MuzzleFlashModel: Effects\FXdartMuzzleDust.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 2

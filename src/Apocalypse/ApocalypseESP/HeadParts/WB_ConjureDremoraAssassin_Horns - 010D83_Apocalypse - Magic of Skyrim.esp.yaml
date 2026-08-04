@@ -1,0 +1,14 @@
+FormKey: 010D83:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDremoraAssassin_Horns
+Name:
+  TargetLanguage: English
+  Value: WB_DremoraAssassin_Horns
+Model:
+  File: Actors\Character\Character Assets\Hair\MaleDremoraHair01_horns.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Female
+- IsExtraPart
+Type: Misc
+ValidRaces: 0A8027:Skyrim.esm

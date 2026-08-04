@@ -1,0 +1,35 @@
+FormKey: 02A226:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Effect_ConjureHerne_SpiritWolfpack
+Name:
+  TargetLanguage: English
+  Value: Conjure Spirit Wolfpack
+Keywords:
+- 1091CF:Skyrim.esm
+Flags:
+- SnapToNavmesh
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 3
+MagicSkill: Conjuration
+CastingLight: 11F7B7:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 02A78B:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 11F228:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 014EEC:Apocalypse - Magic of Skyrim.esp
+ImpactData: 03A1E9:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds:
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Summons a Spirit Wolf for <dur> seconds.

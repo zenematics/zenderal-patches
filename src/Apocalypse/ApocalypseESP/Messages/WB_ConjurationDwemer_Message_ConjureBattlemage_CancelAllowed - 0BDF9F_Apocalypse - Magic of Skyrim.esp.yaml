@@ -1,0 +1,136 @@
+FormKey: 0BDF9F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ConjureBattlemage_CancelAllowed
+Description:
+  TargetLanguage: English
+  Value: >-
+    Pay for the training of your summoned Battlemages by purchasing upgrades and unlocks.
+
+
+    Current cost of upgrades: %.0f/%.0f Gold
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Upgrades...
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF98:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 250
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF99:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 500
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BCF52:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 200
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF97:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 50
+- Text:
+    TargetLanguage: English
+    Value: Unlock Expert Spells (250000 Gold)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BCF5B:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 8
+- Text:
+    TargetLanguage: English
+    Value: Ok
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF98:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 250
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF99:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 500
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BCF52:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 200
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF97:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 50
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BCF5B:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 8
+- Text:
+    TargetLanguage: English
+    Value: None Available
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF98:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 250
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF99:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 500
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BCF52:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 200
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF97:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 50
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BCF5B:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 8
+- Text:
+    TargetLanguage: English
+    Value: Cancel

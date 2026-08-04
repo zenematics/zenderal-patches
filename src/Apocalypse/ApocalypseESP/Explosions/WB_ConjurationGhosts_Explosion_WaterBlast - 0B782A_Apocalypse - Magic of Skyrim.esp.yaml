@@ -1,0 +1,20 @@
+FormKey: 0B782A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationGhosts_Explosion_WaterBlast
+ObjectBounds:
+  First: -147, -149, -1
+  Second: 148, 146, 29
+Name:
+  TargetLanguage: English
+  Value: Deadeye Dredge
+Model:
+  File: ApocNew\ConjurationGhosts_Explosion_WaterBlast.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 00D6F1:Apocalypse - Magic of Skyrim.esp
+Sound1: 0BA39B:Apocalypse - Magic of Skyrim.esp
+Sound2: 0BA39A:Apocalypse - Magic of Skyrim.esp
+Radius: 256
+ISRadius: 384
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+SoundLevel: Normal

@@ -1,0 +1,12 @@
+FormKey: 001861:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_Sound
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\FrostbiteDragon\MAG_Destruction_FrostbiteDragon_Fire_LPM.wav
+OutputModel: 0ABEF3:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+  RumbleValues: 1
+Priority: 128

@@ -1,0 +1,26 @@
+FormKey: 0128E3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Spell_ConjureHerne_Ab
+Name:
+  TargetLanguage: English
+  Value: Herne - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 0128E1:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+- BaseEffect: 015F54:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: NotEqualTo
+    Data:
+      MutagenObjectType: GetCombatStateConditionData

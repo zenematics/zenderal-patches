@@ -1,0 +1,10 @@
+FormKey: 0AAA32:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Art_StrengthOfEarth
+ObjectBounds:
+  First: -34, -29, -56
+  Second: 37, 42, 56
+Model:
+  File: ApocNew\AlterationEarth_Art_StrengthOfEarth.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

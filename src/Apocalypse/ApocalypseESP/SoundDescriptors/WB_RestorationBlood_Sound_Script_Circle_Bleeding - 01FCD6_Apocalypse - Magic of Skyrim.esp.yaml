@@ -1,0 +1,10 @@
+FormKey: 01FCD6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Sound_Script_Circle_Bleeding
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\C03\QST_C03_Werewolf_Blood_Gush_01.wav
+OutputModel: 0E32BF:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 20
+Priority: 128

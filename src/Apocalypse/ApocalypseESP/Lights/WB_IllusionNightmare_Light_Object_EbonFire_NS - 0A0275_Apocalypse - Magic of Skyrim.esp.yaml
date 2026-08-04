@@ -1,0 +1,23 @@
+FormKey: 0A0275:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 65536
+EditorID: WB_IllusionNightmare_Light_Object_EbonFire_NS
+SkyrimMajorRecordFlags:
+- 0x10000
+ObjectBounds:
+  First: -38, -40, -74
+  Second: 38, 40, 48
+Time: -1
+Radius: 448
+Color: '#003CBBE6'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 0.6666667
+FlickerIntensityAmplitude: 0.6
+FlickerMovementAmplitude: 8
+FadeValue: 1.5
+MajorFlags:
+- RandomAnimStart

@@ -1,0 +1,10 @@
+FormKey: 006FAC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Art_MarkAndRecall
+ObjectBounds:
+  First: -104, -36, -118
+  Second: 105, 43, 132
+Model:
+  File: ApocNew\AlterationAlt_Art_MarkAndRecall.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

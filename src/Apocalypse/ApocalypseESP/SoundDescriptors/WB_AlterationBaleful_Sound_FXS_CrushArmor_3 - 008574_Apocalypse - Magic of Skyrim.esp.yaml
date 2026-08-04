@@ -1,0 +1,15 @@
+FormKey: 008574:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Sound_FXS_CrushArmor_3
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\OBJ\DwemerPipeFan\OBJ_DwemerPipeFan_02_LP.wav
+- Data\Sound\FX\OBJ\DwemerPipeFan\OBJ_DwemerPipeFan_01_LP.wav
+- Data\Sound\FX\OBJ\DwemerPipeFan\OBJ_DwemerPipeFan_03_LP.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 11.01

@@ -1,0 +1,15 @@
+FormKey: 098529:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554432
+EditorID: WB_AlterationAlt_MovableStatic_RaiseWall
+SkyrimMajorRecordFlags:
+- 0x2000000
+ObjectBounds:
+  First: -717, -51, 0
+  Second: 753, 51, 262
+Model:
+  File: ApocNew\AlterationAlt_Static_RaiseWall.nif
+  Data: 0x020000000000000000000000
+Flags:
+- OnLocalMap
+MajorFlags:
+- Obstacle

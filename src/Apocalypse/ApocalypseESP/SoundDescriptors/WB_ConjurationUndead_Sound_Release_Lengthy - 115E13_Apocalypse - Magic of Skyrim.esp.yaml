@@ -1,0 +1,11 @@
+FormKey: 115E13:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationUndead_Sound_Release_Lengthy
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\DA02\QST_DA02_Bubble_Activate_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: -30
+Priority: 128
+StaticAttenuation: 4.41

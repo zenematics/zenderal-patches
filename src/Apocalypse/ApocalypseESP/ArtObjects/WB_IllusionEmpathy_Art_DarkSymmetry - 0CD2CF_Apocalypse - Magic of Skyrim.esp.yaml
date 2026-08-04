@@ -1,0 +1,10 @@
+FormKey: 0CD2CF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionEmpathy_Art_DarkSymmetry
+ObjectBounds:
+  First: -32, -40, 19
+  Second: 31, 26, 43
+Model:
+  File: ApocNew\IllusionEmpathy_Art_DarkSymmetry.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

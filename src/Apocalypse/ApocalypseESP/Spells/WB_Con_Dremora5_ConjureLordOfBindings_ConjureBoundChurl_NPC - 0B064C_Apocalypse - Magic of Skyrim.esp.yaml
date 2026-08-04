@@ -1,0 +1,23 @@
+FormKey: 0B064C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora5_ConjureLordOfBindings_ConjureBoundChurl_NPC
+Name:
+  TargetLanguage: English
+  Value: Conjure Bound Churl
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 50
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 0B064B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 20

@@ -1,0 +1,19 @@
+FormKey: 00BBB7:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_AlterationMetamagic_MiscItem_Spellstone
+SkyrimMajorRecordFlags:
+- NotPlayable
+ObjectBounds:
+  First: -2, -8, -3
+  Second: 2, 10, 2
+Name:
+  TargetLanguage: English
+  Value: Spellstone
+Model:
+  File: ApocNew\AlterationMetamagic_Static_Spellstone.nif
+  Data: 0x020000000000000000000000
+Keywords:
+- 00BBB8:Apocalypse - Magic of Skyrim.esp
+Weight: 0.5
+MajorFlags:
+- NonPlayable

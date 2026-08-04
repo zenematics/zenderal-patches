@@ -1,0 +1,7 @@
+FormKey: 07156C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Message_BloodseekerHeal
+Description:
+  TargetLanguage: English
+  Value: The bloodseeker heals %.0f points!
+INAM: 0x00000000
+DisplayTime: 6

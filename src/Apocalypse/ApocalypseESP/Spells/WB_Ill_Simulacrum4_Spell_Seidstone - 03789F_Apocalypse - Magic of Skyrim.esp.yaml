@@ -1,0 +1,21 @@
+FormKey: 03789F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Simulacrum4_Spell_Seidstone
+Name:
+  TargetLanguage: English
+  Value: Seidstone
+MenuDisplayObject: 11CC26:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 344
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C5:Skyrim.esm
+Effects:
+- BaseEffect: 109836:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 40

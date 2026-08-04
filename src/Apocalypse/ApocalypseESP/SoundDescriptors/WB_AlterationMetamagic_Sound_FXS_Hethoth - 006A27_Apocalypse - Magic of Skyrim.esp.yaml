@@ -1,0 +1,12 @@
+FormKey: 006A27:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_Sound_FXS_Hethoth
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\AMB_DarkBrotherhoodDoor_LP.wav
+OutputModel: 0F11FD:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: 70
+Priority: 128
+StaticAttenuation: 9.69

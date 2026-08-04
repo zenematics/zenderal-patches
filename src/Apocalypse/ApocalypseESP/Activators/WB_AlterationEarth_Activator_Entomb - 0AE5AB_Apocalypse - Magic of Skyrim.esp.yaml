@@ -1,0 +1,22 @@
+FormKey: 0AE5AB:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: WB_AlterationEarth_Activator_Entomb
+SkyrimMajorRecordFlags:
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Entomb_Activator_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Alteration_EntombStatus_Global
+      Object: 0AE5B9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Entomb_Quest
+      Object: 0ABFDF:Apocalypse - Magic of Skyrim.esp
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

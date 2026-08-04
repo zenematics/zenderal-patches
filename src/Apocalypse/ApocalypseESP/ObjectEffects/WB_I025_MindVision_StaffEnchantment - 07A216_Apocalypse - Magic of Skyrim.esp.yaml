@@ -1,0 +1,15 @@
+FormKey: 07A216:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I025_MindVision_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Mind Vision
+EnchantmentCost: 90
+CastType: FireAndForget
+EnchantmentAmount: 90
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 1
+Effects:
+- BaseEffect: 0378A6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

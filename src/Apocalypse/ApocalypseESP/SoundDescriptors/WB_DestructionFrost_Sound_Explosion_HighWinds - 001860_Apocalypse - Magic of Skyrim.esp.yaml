@@ -1,0 +1,11 @@
+FormKey: 001860:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Explosion_HighWinds
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\VOC\Shout\FX\Frostbreath\VOC_Shout_FX_FrostBreath_C_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 6.61

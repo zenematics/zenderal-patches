@@ -1,0 +1,56 @@
+FormKey: 085008:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_WorldInteractions4_Effect_DeepStorage
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_DeepStorage_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationEarth_Explosion_DeepStorage
+      Object: 08500B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DeepStorage
+      Object: 0E377C:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Deep Storage
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+- 0806E1:Skyrim.esm
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+BaseCost: 325
+MagicSkill: Alteration
+CastingLight: 00A5E8:Apocalypse - Magic of Skyrim.esp
+HitShader: 00A082:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 4
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 00A084:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.06
+DualCastScale: 1
+EquipAbility: 08A1DE:Apocalypse - Magic of Skyrim.esp
+ImageSpaceModifier: 07FE7F:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0803F8:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 006A26:Apocalypse - Magic of Skyrim.esp
+- Type: Release
+  Sound: 07FE7D:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Grants access to an infinite underground storage space.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1

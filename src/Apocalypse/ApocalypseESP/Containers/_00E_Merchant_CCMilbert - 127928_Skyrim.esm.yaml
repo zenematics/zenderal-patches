@@ -1,0 +1,314 @@
+FormKey: 127928:Skyrim.esm
+MajorRecordFlagsRaw: 134217728
+EditorID: _00E_Merchant_CCMilbert
+Version2: 8
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Chest
+  - Language: Japanese
+    String: 箱
+  - Language: Spanish
+    String: Cofre
+  - Language: Polish
+    String: Kufer
+  - Language: Italian
+    String: Baule
+  - Language: Korean
+    String: 상자
+  - Language: French
+    String: Coffre
+  - Language: Chinese
+    String: 箱子
+  - Language: German
+    String: Truhe
+  - Language: Russian
+    String: Сундук
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 530
+- Item:
+    Item: 0028C5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028D9:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 01F8B1:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 031ACC:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 031ACE:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 033A64:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 033A66:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 034CDF:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 0375D2:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0375D6:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 039941:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 039942:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 03F86A:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 03F86B:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05BB24:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 07542A:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 075433:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07B2F8:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 082454:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 082455:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 082458:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 082459:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 085614:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 085615:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 085616:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 085618:Skyrim.esm
+    Count: 6
+- Item:
+    Item: 085619:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 08561A:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 085624:Skyrim.esm
+    Count: 6
+- Item:
+    Item: 085625:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 085626:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 085641:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 085643:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 08591E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 08591F:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0905A8:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0905A9:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0905AA:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0D8EAF:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0E75F3:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0E75F4:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7622:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0E7623:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7626:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0E7627:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0E7628:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7629:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E762A:Skyrim.esm
+    Count: 6
+- Item:
+    Item: 0E762B:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0E762C:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E762E:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0E762F:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0E7630:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7631:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7632:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0E7633:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7634:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7635:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E7636:Skyrim.esm
+    Count: 7
+- Item:
+    Item: 0E7637:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0EAB75:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0F857B:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10A860:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 118209:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 11820A:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 11A52C:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 12970F:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 129710:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 129711:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 136D1E:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 137A06:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 148ABD:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 148ABE:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 01E8FC:Enderal - Forgotten Stories.esm
+    Count: 2
+- Item:
+    Item: 0302DE:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 03C517:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C518:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 089703:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 089706:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 16162F:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03D042:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 089709:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB1F:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB20:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03E5FD:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 08970C:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 15B845:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03EB7B:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03EB7C:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 08970F:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+Flags:
+- Respawns
+Weight: 20
+MajorFlags:
+- NavMeshGenerationBoundingBox

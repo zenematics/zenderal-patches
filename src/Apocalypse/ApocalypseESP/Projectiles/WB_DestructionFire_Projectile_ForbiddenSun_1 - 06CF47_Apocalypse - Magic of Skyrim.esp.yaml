@@ -1,0 +1,24 @@
+FormKey: 06CF47:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_ForbiddenSun_1
+ObjectBounds:
+  First: -673, -648, -429
+  Second: 627, 670, 64
+Model:
+  File: ApocNew\DestructionFire_Projectile_ForbiddenSun.nif
+  Data: 0x020000000000000000000000
+Flags:
+- AltTrigger
+Type: Missile
+Speed: 1200
+Range: 7800
+Light: 10FBEC:Skyrim.esm
+ExplosionAltTriggerProximity: 150
+Explosion: 10FBE9:Skyrim.esm
+Sound: 000D69:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 32
+CollisionRadius: 15
+Lifetime: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

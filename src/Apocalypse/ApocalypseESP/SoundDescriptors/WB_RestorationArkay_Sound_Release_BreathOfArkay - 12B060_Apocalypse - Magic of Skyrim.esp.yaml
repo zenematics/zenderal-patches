@@ -1,0 +1,14 @@
+FormKey: 12B060:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArkay_Sound_Release_BreathOfArkay
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_FF_Fire.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 1
+PercentFrequencyShift: -30
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 3.08

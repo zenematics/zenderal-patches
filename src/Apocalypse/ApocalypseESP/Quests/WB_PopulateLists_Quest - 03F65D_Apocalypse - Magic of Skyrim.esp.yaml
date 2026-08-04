@@ -1,0 +1,43 @@
+FormKey: 03F65D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_PopulateLists_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_PopulateLists_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_InitialDelay
+      Data: 60
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_PopulateLists_Done
+      Object: 080964:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_DestinationLitem_List_Books
+      Object: 118981:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_DestinationLitem_List_Scrolls
+      Object: 11BBC1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_DestinationLitem_List_Staves
+      Object: 07A1C8:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_OriginFormlist_List_Books
+      Object: 11BBC0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_OriginFormlist_List_Scrolls
+      Object: 11BBC2:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Quest_Populate_OriginFormlist_List_Staves
+      Object: 07A1C9:Apocalypse - Magic of Skyrim.esp
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Name:
+  TargetLanguage: English
+  Value: Populate Vendor Containers
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+Filter: ApocNew\
+NextAliasID: 0

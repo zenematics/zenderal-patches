@@ -1,0 +1,22 @@
+FormKey: 07A232:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A075_Entomb_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Entomb
+EnchantmentCost: 475
+CastType: FireAndForget
+EnchantmentAmount: 475
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 2.5
+Effects:
+- BaseEffect: 0AE5AE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 10
+- BaseEffect: 0ABFE0:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10
+- BaseEffect: 0AE5BA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 5

@@ -1,0 +1,20 @@
+FormKey: 0F2185:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Projectile_PerilousPath
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Cone
+Speed: 512
+Range: 1024
+Explosion: 10A292:Skyrim.esm
+FadeDuration: 0.5
+ImpactForce: 10
+ConeSpread: 0.1
+CollisionRadius: 1
+Lifetime: 0.75
+RelaunchInterval: 0.1
+CollisionLayer: 100F2F:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 2

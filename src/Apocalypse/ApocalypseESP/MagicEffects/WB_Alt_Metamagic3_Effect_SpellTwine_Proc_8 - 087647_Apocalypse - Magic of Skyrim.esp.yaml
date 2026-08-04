@@ -1,0 +1,30 @@
+FormKey: 087647:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_Proc_8
+Name:
+  TargetLanguage: English
+  Value: Crystal
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 087648:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoArea
+- NoHitEffect
+BaseCost: 0.75
+MagicSkill: Alteration
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: ResistMagic
+  Association: 087648:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Magic resistance increased by <mag>% for <dur> seconds.

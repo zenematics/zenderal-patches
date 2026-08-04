@@ -1,0 +1,14 @@
+FormKey: 034D0B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Release_Drown
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Alteration\MAG_Alteration_Waterbreathing_Fire_2D.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 3
+Priority: 128
+StaticAttenuation: 1.32

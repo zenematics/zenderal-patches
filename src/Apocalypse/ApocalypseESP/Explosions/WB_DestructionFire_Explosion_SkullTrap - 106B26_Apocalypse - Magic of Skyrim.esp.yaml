@@ -1,0 +1,17 @@
+FormKey: 106B26:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Explosion_SkullTrap
+Model:
+  File: Effects\OilTrapExplosion01.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 10605A:Apocalypse - Magic of Skyrim.esp
+Sound1: 10E052:Skyrim.esm
+Sound2: 02518F:Skyrim.esm
+Force: 200
+Damage: 1
+Radius: 512
+ISRadius: 768
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

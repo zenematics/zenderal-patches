@@ -1,0 +1,22 @@
+FormKey: 012359:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora2_Spell_ConjureDremoraChurl_NPC
+Name:
+  TargetLanguage: English
+  Value: Conjure Dremora Churl
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 157
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 012358:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60

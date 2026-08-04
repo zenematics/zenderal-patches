@@ -1,0 +1,12 @@
+FormKey: 089168:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Fire_HowlingBlast_D
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\FrostbiteDragon\MAG_Destruction_FrostbiteDragon_Fire_LPM.wav
+OutputModel: 0B4249:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+Priority: 128

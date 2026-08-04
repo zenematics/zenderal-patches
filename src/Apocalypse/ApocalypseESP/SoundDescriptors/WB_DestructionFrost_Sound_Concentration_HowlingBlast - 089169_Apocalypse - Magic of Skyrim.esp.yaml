@@ -1,0 +1,14 @@
+FormKey: 089169:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Concentration_HowlingBlast
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- fx\mag\frostbite\mag_frostbite_fire_lpm.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+PercentFrequencyShift: 40
+Priority: 128
+StaticAttenuation: 0.44

@@ -1,0 +1,16 @@
+FormKey: 0B934C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Activator_WormShroud_AshPile
+ObjectBounds:
+  First: -67, -71, -1
+  Second: 69, 68, 15
+Name:
+  TargetLanguage: English
+  Value: Dust Pile
+Model:
+  File: ApocNew\RestorationNecro_Static_WormShroud_AshPile.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: Search
+Flags: []

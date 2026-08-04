@@ -1,0 +1,21 @@
+FormKey: 02743E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Meltdown
+ObjectBounds:
+  First: -73, -216, -18
+  Second: 73, 68, 19
+Model:
+  File: ApocNew\DestructionFire_Projectile_Meltdown.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 1850
+Range: 2200
+Light: 01CBB3:Skyrim.esm
+Sound: 026ECA:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.6
+ImpactForce: 4
+CollisionRadius: 10
+Lifetime: 0.4
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

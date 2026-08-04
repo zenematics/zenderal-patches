@@ -1,0 +1,27 @@
+FormKey: 0A4EF7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_PassthroughDmg4_Spell_EmpathicAgony
+Name:
+  TargetLanguage: English
+  Value: Empathic Agony
+MenuDisplayObject: 11D198:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 366
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C5:Skyrim.esm
+Effects:
+- BaseEffect: 0321BF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 10
+    Duration: 45
+- BaseEffect: 0321BC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 10
+    Duration: 45

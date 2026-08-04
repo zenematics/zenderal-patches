@@ -1,0 +1,15 @@
+FormKey: 07A220:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I075_MindControl_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Mind Control
+EnchantmentCost: 468
+CastType: FireAndForget
+EnchantmentAmount: 468
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 1
+Effects:
+- BaseEffect: 0378AB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

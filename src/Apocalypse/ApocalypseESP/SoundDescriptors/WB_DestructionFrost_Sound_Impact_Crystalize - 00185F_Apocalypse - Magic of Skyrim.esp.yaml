@@ -1,0 +1,13 @@
+FormKey: 00185F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Sound_Impact_Crystalize
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\NPC\AtronachFrost\Death\NPC_AtronachFrost_Death_01.wav
+OutputModel: 07F80C:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 3
+Priority: 128
+StaticAttenuation: 3.08

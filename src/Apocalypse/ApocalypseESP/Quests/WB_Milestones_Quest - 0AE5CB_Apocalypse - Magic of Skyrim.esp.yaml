@@ -1,0 +1,300 @@
+FormKey: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Milestones_Quest
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    Scripts:
+    - Name: WB_MilestonesRef_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Alteration_Milestones_Global_InUse
+        Object: 0AE5D2:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_FabricateObject
+        Object: 00C145:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_MarkAndRecall
+        Object: 08797C:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Message_Milestones_Nr
+        Object: 0AEB3D:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_Collapse
+        Object: 00E1CE:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_MarkAndRecall
+        Object: 12545B:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectListProperty
+        Name: WB_OtherMilestone
+        Objects:
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 2
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 3
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 4
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 5
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Spawner
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 0
+  - Property:
+      Name: ''
+      Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+      Alias: 2
+    Scripts:
+    - Name: WB_MilestonesRef_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Alteration_Milestones_Global_InUse
+        Object: 0AE5D3:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_FabricateObject
+        Object: 00C145:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_MarkAndRecall
+        Object: 08797C:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Message_Milestones_Nr
+        Object: 0AEB3E:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_Collapse
+        Object: 00E1CE:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_MarkAndRecall
+        Object: 12545B:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectListProperty
+        Name: WB_OtherMilestone
+        Objects:
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 1
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 3
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 4
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 5
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Spawner
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 0
+  - Property:
+      Name: ''
+      Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+      Alias: 3
+    Scripts:
+    - Name: WB_MilestonesRef_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Alteration_Milestones_Global_InUse
+        Object: 0AE5D4:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_FabricateObject
+        Object: 00C145:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_MarkAndRecall
+        Object: 08797C:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Message_Milestones_Nr
+        Object: 0AEB3F:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_Collapse
+        Object: 00E1CE:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_MarkAndRecall
+        Object: 12545B:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectListProperty
+        Name: WB_OtherMilestone
+        Objects:
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 1
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 2
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 4
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 5
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Spawner
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 0
+  - Property:
+      Name: ''
+      Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+      Alias: 4
+    Scripts:
+    - Name: WB_MilestonesRef_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Alteration_Milestones_Global_InUse
+        Object: 0AE5D5:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_FabricateObject
+        Object: 00C145:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_MarkAndRecall
+        Object: 08797C:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Message_Milestones_Nr
+        Object: 0AEB40:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_Collapse
+        Object: 00E1CE:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_MarkAndRecall
+        Object: 12545B:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectListProperty
+        Name: WB_OtherMilestone
+        Objects:
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 1
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 2
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 3
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 5
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Spawner
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 0
+  - Property:
+      Name: ''
+      Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+      Alias: 5
+    Scripts:
+    - Name: WB_MilestonesRef_Script
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Alteration_Milestones_Global_InUse
+        Object: 0AE5D6:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_FabricateObject
+        Object: 00C145:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Explosion_MarkAndRecall
+        Object: 08797C:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_Message_Milestones_Nr
+        Object: 0AEB41:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_Collapse
+        Object: 00E1CE:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_AlterationAlt_VFX_MarkAndRecall
+        Object: 12545B:Apocalypse - Magic of Skyrim.esp
+      - MutagenObjectType: ScriptObjectListProperty
+        Name: WB_OtherMilestone
+        Objects:
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 1
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 2
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 3
+        - Name: ''
+          Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+          Alias: 4
+      - MutagenObjectType: ScriptObjectProperty
+        Name: WB_Spawner
+        Object: 0AE5CB:Apocalypse - Magic of Skyrim.esp
+        Alias: 0
+Name:
+  TargetLanguage: English
+  Value: Milestones
+Flags:
+- StartGameEnabled
+- AllowRepeatedStages
+- 0x10
+Priority: 89
+Filter: WB\
+NextAliasID: 11
+Aliases:
+- Name: WB_Spawner
+  Flags: []
+  ForcedReference: 0AE5C0:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Milestone1
+  Flags:
+  - UsesStoredText
+  ForcedReference: 0AE5C6:Apocalypse - Magic of Skyrim.esp
+  DisplayName: 0AE5CD:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 2
+  Name: WB_Milestone2
+  Flags:
+  - UsesStoredText
+  ForcedReference: 0AE5C7:Apocalypse - Magic of Skyrim.esp
+  DisplayName: 0AE5CE:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 3
+  Name: WB_Milestone3
+  Flags:
+  - UsesStoredText
+  ForcedReference: 0AE5C8:Apocalypse - Magic of Skyrim.esp
+  DisplayName: 0AE5CF:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 4
+  Name: WB_Milestone4
+  Flags:
+  - UsesStoredText
+  ForcedReference: 0AE5C9:Apocalypse - Magic of Skyrim.esp
+  DisplayName: 0AE5D0:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 5
+  Name: WB_Milestone5
+  Flags:
+  - UsesStoredText
+  ForcedReference: 0AE5CA:Apocalypse - Magic of Skyrim.esp
+  DisplayName: 0AE5D1:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 6
+  Name: WB_MilestoneGlow1
+  Flags: []
+  ForcedReference: 0AE5C1:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 7
+  Name: WB_MilestoneGlow2
+  Flags: []
+  ForcedReference: 0AE5C2:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 8
+  Name: WB_MilestoneGlow3
+  Flags: []
+  ForcedReference: 0AE5C3:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 9
+  Name: WB_MilestoneGlow4
+  Flags: []
+  ForcedReference: 0AE5C4:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null
+- ID: 10
+  Name: WB_MilestoneGlow5
+  Flags: []
+  ForcedReference: 0AE5C5:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null

@@ -1,0 +1,12 @@
+FormKey: 0A6EBC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Sound_FXS_StrengthOfEarth
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\Ustengrav\QST_Ustengrav_Rumble_2D_LPM.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 4.85

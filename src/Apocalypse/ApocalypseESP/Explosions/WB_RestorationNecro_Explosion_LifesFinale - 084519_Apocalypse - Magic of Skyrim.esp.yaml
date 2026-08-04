@@ -1,0 +1,19 @@
+FormKey: 084519:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Explosion_LifesFinale
+ObjectBounds:
+  First: -203, -161, -6
+  Second: 202, 161, 34
+Model:
+  File: ApocNew\RestorationNecro_Explosion_LifesFinale.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 11D711:Apocalypse - Magic of Skyrim.esp
+Sound1: 116E55:Apocalypse - Magic of Skyrim.esp
+Force: 32
+Radius: 256
+ISRadius: 1024
+VerticalOffsetMult: 0.4
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

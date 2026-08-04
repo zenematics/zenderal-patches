@@ -1,0 +1,10 @@
+FormKey: 11F23D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Art_PowerOfTheMaster
+ObjectBounds:
+  First: -325, -138, -395
+  Second: 314, 209, 470
+Model:
+  File: ApocNew\ConjurationAtronach_Art_PowerOfTheMaster.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

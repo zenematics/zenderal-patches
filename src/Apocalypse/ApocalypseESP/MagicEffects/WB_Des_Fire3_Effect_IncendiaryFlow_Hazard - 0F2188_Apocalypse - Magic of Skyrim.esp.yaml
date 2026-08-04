@@ -1,0 +1,41 @@
+FormKey: 0F2188:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire3_Effect_IncendiaryFlow_Hazard
+Name:
+  TargetLanguage: English
+  Value: Incendiary Flow
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 20
+MagicSkill: Destruction
+ResistValue: ResistFire
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Lava deals <mag> fire damage per second. Targets on fire take extra damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

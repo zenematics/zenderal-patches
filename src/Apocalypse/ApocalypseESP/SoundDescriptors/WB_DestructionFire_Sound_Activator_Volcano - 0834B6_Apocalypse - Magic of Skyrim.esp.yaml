@@ -1,0 +1,15 @@
+FormKey: 0834B6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Activator_Volcano
+Type: Standard
+Category: 09F254:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_01_LP.wav
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_02_LP.wav
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_03_LP.wav
+- Data\Sound\FX\FX\Fire\GiantCampfire\FX_Fire_Giant_Campfire_04_LP.wav
+OutputModel: 0ABEF3:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: -25
+PercentFrequencyVariance: 7
+Priority: 128

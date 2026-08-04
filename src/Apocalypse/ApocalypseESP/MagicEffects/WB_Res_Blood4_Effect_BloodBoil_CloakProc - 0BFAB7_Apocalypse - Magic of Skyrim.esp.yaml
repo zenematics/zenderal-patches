@@ -1,0 +1,44 @@
+FormKey: 0BFAB7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Blood4_Effect_BloodBoil_CloakProc
+Name:
+  TargetLanguage: English
+  Value: Blood Boil
+MenuDisplayObject: 11D19D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 035278:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- 0BFAB8:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3
+MagicSkill: Restoration
+ResistValue: ResistMagic
+HitShader: 0BFAC0:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+  Association: 0BFAB8:Apocalypse - Magic of Skyrim.esp
+Projectile: 012FCF:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+SkillUsageMultiplier: 0.75
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

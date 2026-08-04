@@ -1,0 +1,17 @@
+FormKey: 04274A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Projectile_RazorWind
+ObjectBounds:
+  First: -8, -22, -1
+  Second: 9, 91, 1
+Model:
+  File: ApocNew\AlterationTelekinesis_Projectile_RazorWind.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2200
+Range: 4500
+FadeDuration: 5
+ImpactForce: 24
+CollisionRadius: 1.5
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

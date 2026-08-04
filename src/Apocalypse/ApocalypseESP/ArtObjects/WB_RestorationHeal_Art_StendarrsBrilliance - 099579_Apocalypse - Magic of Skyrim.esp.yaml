@@ -1,0 +1,10 @@
+FormKey: 099579:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Art_StendarrsBrilliance
+ObjectBounds:
+  First: 0, -39, -26
+  Second: 0, 43, 31
+Model:
+  File: ApocNew\RestorationHeal_Art_StendarrsBrilliance.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

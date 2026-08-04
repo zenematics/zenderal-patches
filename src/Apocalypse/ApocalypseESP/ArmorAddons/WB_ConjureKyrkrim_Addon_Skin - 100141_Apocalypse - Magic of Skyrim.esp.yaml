@@ -1,0 +1,23 @@
+FormKey: 100141:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureKyrkrim_Addon_Skin
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 01320A:Skyrim.esm
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 17
+WorldModel:
+  Male:
+    File: ApocNew\ConjurationAtronach_ConjureKyrkrim_MD.nif
+    Data: 0x020000000000000000000000
+AdditionalRaces:
+- 106C10:Skyrim.esm
+- 100046:Apocalypse - Magic of Skyrim.esp
+FootstepSound: 0DCE9D:Skyrim.esm

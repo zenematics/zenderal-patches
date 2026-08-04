@@ -1,0 +1,37 @@
+FormKey: 0133D2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Dremora4_Effect_ConjureDremoraHonorGuard_CloakProc
+Name:
+  TargetLanguage: English
+  Value: I Walk Behind None
+MenuDisplayObject: 0A6459:Skyrim.esm
+Keywords:
+- 08811E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- Detrimental
+- NoHitEvent
+- NoArea
+- FXPersist
+- Painless
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistMagic
+Projectile: 04BE35:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+HitEffectArt: 126DA6:Apocalypse - Magic of Skyrim.esp
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: The Dremora Honor Guard reduces the magic resistance of nearby enemies by <mag>%.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

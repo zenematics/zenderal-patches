@@ -1,0 +1,38 @@
+FormKey: 0B98BE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Effect_WormShroud_Proc_2
+Name:
+  TargetLanguage: English
+  Value: Worm Shroud - 2
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+- 0064A4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+MagicSkill: Restoration
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+PerkToApply: 0B934E:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Type: Release
+  Sound: 11DC83:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 0B98BD:Apocalypse - Magic of Skyrim.esp
+  ComparisonValue: 1

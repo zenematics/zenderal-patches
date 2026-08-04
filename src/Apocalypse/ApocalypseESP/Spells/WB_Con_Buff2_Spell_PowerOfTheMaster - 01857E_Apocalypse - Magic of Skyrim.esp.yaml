@@ -1,0 +1,23 @@
+FormKey: 01857E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Buff2_Spell_PowerOfTheMaster
+Name:
+  TargetLanguage: English
+  Value: Power of the Master
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F42:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 185
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 016F97:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 100

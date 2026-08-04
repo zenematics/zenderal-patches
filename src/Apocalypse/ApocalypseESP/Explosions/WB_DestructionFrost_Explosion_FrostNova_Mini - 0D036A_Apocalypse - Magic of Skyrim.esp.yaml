@@ -1,0 +1,15 @@
+FormKey: 0D036A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_FrostNova_Mini
+Model:
+  File: Magic\ExplosionFrost01.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 04408A:Skyrim.esm
+Sound1: 03EDD8:Skyrim.esm
+ImpactDataSet: 018A2E:Skyrim.esm
+Force: 96
+Radius: 144
+ISRadius: 384
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

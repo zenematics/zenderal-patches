@@ -1,0 +1,17 @@
+FormKey: 0A1DA2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DefyDeath_Quest
+Name:
+  TargetLanguage: English
+  Value: Defy Death
+Flags:
+- AllowRepeatedStages
+Priority: 70
+Filter: WB\
+NextAliasID: 1
+Aliases:
+- Name: WB_Target
+  Flags:
+  - Optional
+  - Essential
+  - AllowReserved
+  VoiceTypes: Null

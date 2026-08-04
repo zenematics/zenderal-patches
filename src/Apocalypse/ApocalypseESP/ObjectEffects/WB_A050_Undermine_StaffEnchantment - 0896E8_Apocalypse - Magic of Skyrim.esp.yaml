@@ -1,0 +1,15 @@
+FormKey: 0896E8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A050_Undermine_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Undermine
+EnchantmentCost: 167
+CastType: FireAndForget
+EnchantmentAmount: 167
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 098A93:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

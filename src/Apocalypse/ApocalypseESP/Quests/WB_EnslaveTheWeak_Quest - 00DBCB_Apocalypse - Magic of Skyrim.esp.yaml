@@ -1,0 +1,86 @@
+FormKey: 00DBCB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_EnslaveTheWeak_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: QF_WBA_Dominate_Quest_0200DBCB
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WBA_Dominate_Player
+      Object: 00DBCB:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WBA_Dominate_Target
+      Object: 00DBCB:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicAllegianceFaction
+      Object: 09E0C9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionPuppeteer_Imod_PullTheirStringsEnd
+      Object: 0378AC:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WBA_Ab_I075_Obedience_Spell_PC
+      Object: 00DBD1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WBA_IllusionPuppeteer_Message_Obedience
+      Object: 00DBD4:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WBA_IllusionPuppeteer_Message_ObedienceRelease
+      Object: 00DBD9:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WBA_S_I075_Obedience_Spell_PC
+      Object: 00DBD7:Apocalypse - Magic of Skyrim.esp
+  FileName: QF_WBA_Dominate_Quest_0200DBCB
+  Fragments:
+  - Unknown2: 1
+    ScriptName: QF_WBA_Dominate_Quest_0200DBCB
+    FragmentName: Fragment_0
+  - Stage: 200
+    Unknown2: 1
+    ScriptName: QF_WBA_Dominate_Quest_0200DBCB
+    FragmentName: Fragment_1
+Name:
+  TargetLanguage: English
+  Value: Enslave the Weak
+Flags:
+- AllowRepeatedStages
+Priority: 2
+Filter: WB\
+Stages:
+- Flags:
+  - StartUpStage
+  LogEntries:
+  - Flags: []
+- Index: 200
+  Flags:
+  - ShutDownStage
+  LogEntries:
+  - Flags: []
+NextAliasID: 2
+Aliases:
+- Name: WBA_Dominate_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: WBA_Dominate_Target
+  Flags:
+  - MatchingRefInLoadedArea
+  - StoresText
+  - MatchingRefClosest
+  - UsesStoredText
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 00DBCC:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+  DisplayName: 00DBCD:Apocalypse - Magic of Skyrim.esp
+  Spells:
+  - 00DBD1:Apocalypse - Magic of Skyrim.esp
+  PackageData:
+  - 00DBD3:Apocalypse - Magic of Skyrim.esp
+  VoiceTypes: Null

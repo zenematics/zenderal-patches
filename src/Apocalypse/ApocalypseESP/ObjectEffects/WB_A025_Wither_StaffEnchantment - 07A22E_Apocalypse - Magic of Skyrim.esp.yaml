@@ -1,0 +1,16 @@
+FormKey: 07A22E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A025_Wither_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Wither
+EnchantmentCost: 62
+CastType: FireAndForget
+EnchantmentAmount: 62
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 12649A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 20

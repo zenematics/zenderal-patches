@@ -1,0 +1,17 @@
+FormKey: 02CAE8:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_DestructionFrost_Static_FrozenOrb
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+ObjectBounds:
+  First: -75, -84, -70
+  Second: 75, 84, 70
+Model:
+  File: ApocNew\DestructionFrost_Static_FrozenOrb.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

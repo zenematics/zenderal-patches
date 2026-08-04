@@ -1,0 +1,11 @@
+FormKey: 115E11:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Restoration_Sound_Explosion_LowSwish
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_AlduinDeath_Explosion_B_2D.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: -15
+Priority: 128
+StaticAttenuation: 4.41

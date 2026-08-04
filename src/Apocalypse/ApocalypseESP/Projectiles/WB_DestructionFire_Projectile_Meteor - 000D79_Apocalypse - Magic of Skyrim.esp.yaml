@@ -1,0 +1,21 @@
+FormKey: 000D79:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Meteor
+ObjectBounds:
+  First: -99, -659, -102
+  Second: 100, 115, 97
+Model:
+  File: ApocNew\DestructionFire_Projectile_Meteor.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 1000
+Range: 10000
+Light: 09EE7C:Skyrim.esm
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 8
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

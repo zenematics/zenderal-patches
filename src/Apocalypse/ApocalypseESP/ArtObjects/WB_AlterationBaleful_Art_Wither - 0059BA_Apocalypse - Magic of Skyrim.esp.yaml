@@ -1,0 +1,10 @@
+FormKey: 0059BA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationBaleful_Art_Wither
+ObjectBounds:
+  First: -78, -24, -99
+  Second: 79, 39, 119
+Model:
+  File: ApocNew\AlterationBaleful_Art_Wither.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

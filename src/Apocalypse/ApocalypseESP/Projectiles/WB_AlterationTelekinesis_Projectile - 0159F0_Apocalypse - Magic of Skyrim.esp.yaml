@@ -1,0 +1,20 @@
+FormKey: 0159F0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationTelekinesis_Projectile
+Model:
+  File: ApocNew\AlterationTelekinesis_Projectile.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Speed: 2000
+Range: 5000
+Light: 002E28:Apocalypse - Magic of Skyrim.esp
+Explosion: 10A292:Skyrim.esm
+Sound: 002E21:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 12
+Lifetime: 0.75
+RelaunchInterval: 0.1
+MuzzleFlashModel: ''
+SoundLevel: 1

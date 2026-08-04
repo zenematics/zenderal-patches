@@ -1,0 +1,39 @@
+FormKey: 11E0A0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DEPRECATED_R100_Godform_Effect_NewStep02
+Name:
+  TargetLanguage: English
+  Value: Godform - Magicka Rate - Step 02
+MenuDisplayObject: 12081F:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 11E09C:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsDuration
+MagicSkill: Restoration
+CastingLight: 12081E:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 2
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: MagickaRate
+  Association: 11E09C:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+CastingArt: 120820:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+ImageSpaceModifier: 054B08:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015464:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 015466:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''

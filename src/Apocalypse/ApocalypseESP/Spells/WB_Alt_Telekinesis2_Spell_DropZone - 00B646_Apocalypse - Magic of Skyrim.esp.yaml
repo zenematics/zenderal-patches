@@ -1,0 +1,25 @@
+FormKey: 00B646:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Telekinesis2_Spell_DropZone
+Name:
+  TargetLanguage: English
+  Value: Drop Zone
+MenuDisplayObject: 1097CB:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 50
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 5000
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 08453F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 12

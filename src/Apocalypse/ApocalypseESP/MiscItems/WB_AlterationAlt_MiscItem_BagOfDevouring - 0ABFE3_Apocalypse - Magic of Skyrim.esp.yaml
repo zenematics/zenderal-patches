@@ -1,0 +1,31 @@
+FormKey: 0ABFE3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_MiscItem_BagOfDevouring
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_RevertPrison_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_A050_LocateObject_Spell_PC
+      Object: 00C143:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_VFX_Collapse
+      Object: 00E1CE:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationBaleful_Marker_Explosion_Subsonic
+      Object: 0ABFE1:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Victim
+      Object: 0ABFDF:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+ObjectBounds:
+  First: -8, -9, 0
+  Second: 9, 8, 22
+Name:
+  TargetLanguage: English
+  Value: Bag of Devouring
+Model:
+  File: ApocNew\AlterationAlt_Inv_BagOfDevouring.nif
+  Data: 0x020000000000000000000000

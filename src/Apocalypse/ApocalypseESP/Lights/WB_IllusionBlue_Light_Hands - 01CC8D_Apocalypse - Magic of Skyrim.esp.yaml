@@ -1,0 +1,10 @@
+FormKey: 01CC8D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Light_Hands
+Time: -1
+Radius: 32
+Color: '#008AA4FD'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.1

@@ -1,0 +1,25 @@
+FormKey: 0F218D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_IncendiaryFlow
+ObjectBounds:
+  First: -107, -116, -66
+  Second: 108, 60, 57
+Model:
+  File: ApocNew\DestructionFire_Projectile_IncendiaryFlow.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+- PassThroughSmallTransparent
+Type: Cone
+Speed: 384
+Range: 1024
+Explosion: 0BDFA1:Apocalypse - Magic of Skyrim.esp
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+MuzzleFlashDuration: 2
+FadeDuration: 10
+ConeSpread: 5
+CollisionRadius: 5
+RelaunchInterval: 0.15
+CollisionLayer: 08878A:Skyrim.esm
+MuzzleFlashModel: Effects\ImpactEffects\FireballImpact01.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 2

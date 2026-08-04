@@ -1,0 +1,26 @@
+FormKey: 002878:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock4_Spell_LightningStrike
+Name:
+  TargetLanguage: English
+  Value: Lightning Strike
+MenuDisplayObject: 09FA64:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 361
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 125
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 0FADFD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 60
+- BaseEffect: 100BA6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 200
+    Duration: 1

@@ -1,0 +1,15 @@
+FormKey: 002E1F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_Release_TharnsPrison
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\YngolLightMotes\QST_Yngol_Light_Mote_Bounce_02.wav
+- Data\Sound\FX\QST\YngolLightMotes\QST_Yngol_Light_Mote_Bounce_03.wav
+- Data\Sound\FX\QST\YngolLightMotes\QST_Yngol_Light_Mote_Bounce_04.wav
+- Data\Sound\FX\QST\YngolLightMotes\QST_Yngol_Light_Mote_Bounce_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 10
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 7.05

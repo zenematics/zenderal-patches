@@ -1,0 +1,10 @@
+FormKey: 11DC84:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Art
+ObjectBounds:
+  First: -78, -20, -103
+  Second: 79, 39, 115
+Model:
+  File: ApocNew\RestorationNecro_Art.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

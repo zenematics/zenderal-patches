@@ -1,0 +1,6 @@
+FormKey: 09EBCC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Decompose_Debris
+Models:
+- Percentage: 100
+  ModelFilename: ApocNew\RestorationPeace_Debris_Overgrowth.nif
+  TextureFileHashes: 0x020000000000000000000000

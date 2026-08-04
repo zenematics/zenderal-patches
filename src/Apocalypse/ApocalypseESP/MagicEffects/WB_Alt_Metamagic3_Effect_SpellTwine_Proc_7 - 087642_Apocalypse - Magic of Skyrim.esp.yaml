@@ -1,0 +1,26 @@
+FormKey: 087642:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_Proc_7
+Name:
+  TargetLanguage: English
+  Value: Nova
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoDuration
+- NoArea
+BaseCost: 0.75
+MagicSkill: Alteration
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 08764E:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Damages nearby targets in a <mag> foot radius.

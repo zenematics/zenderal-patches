@@ -1,0 +1,10 @@
+FormKey: 0A799B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationWater_Art_GraceOfWater_Proc
+ObjectBounds:
+  First: -6, -3, -4
+  Second: 6, 8, 7
+Model:
+  File: ApocNew\AlterationWater_Art_GraceOfWater_Proc.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

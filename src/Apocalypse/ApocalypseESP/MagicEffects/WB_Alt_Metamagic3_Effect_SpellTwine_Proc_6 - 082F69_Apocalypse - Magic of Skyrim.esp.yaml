@@ -1,0 +1,29 @@
+FormKey: 082F69:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Metamagic3_Effect_SpellTwine_Proc_6
+Name:
+  TargetLanguage: English
+  Value: Rock
+MenuDisplayObject: 006A1D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- NoHitEffect
+BaseCost: 30
+MagicSkill: Alteration
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+SkillUsageMultiplier: 1
+DualCastScale: 1
+PerkToApply: 082F68:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Reduces incoming weapon damage by <15>% for <dur> seconds.

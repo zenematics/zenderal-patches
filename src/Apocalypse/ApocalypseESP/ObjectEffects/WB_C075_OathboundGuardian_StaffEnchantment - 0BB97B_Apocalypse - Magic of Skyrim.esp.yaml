@@ -1,0 +1,17 @@
+FormKey: 0BB97B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C075_OathboundGuardian_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Oathbound Guardian
+EnchantmentCost: 423
+CastType: FireAndForget
+EnchantmentAmount: 423
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 018AE6:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 60
+- BaseEffect: 019051:Apocalypse - Magic of Skyrim.esp
+  Data: {}

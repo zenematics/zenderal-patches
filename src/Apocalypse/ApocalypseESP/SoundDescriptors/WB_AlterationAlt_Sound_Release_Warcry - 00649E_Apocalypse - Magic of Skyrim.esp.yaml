@@ -1,0 +1,11 @@
+FormKey: 00649E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_Release_Warcry
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\UI\UI_StartNewGame.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+Priority: 128
+StaticAttenuation: 11.01

@@ -1,0 +1,23 @@
+FormKey: 127FA7:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_PassthroughDmg3_Spell_BloodForBlood
+Name:
+  TargetLanguage: English
+  Value: Blood for Blood
+MenuDisplayObject: 11D198:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 170
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 10
+HalfCostPerk: 0C44C4:Skyrim.esm
+Effects:
+- BaseEffect: 0488FF:Apocalypse - Magic of Skyrim.esp
+  Data: {}

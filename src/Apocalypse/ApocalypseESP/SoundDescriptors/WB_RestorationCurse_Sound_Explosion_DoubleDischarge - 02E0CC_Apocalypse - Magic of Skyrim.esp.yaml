@@ -1,0 +1,12 @@
+FormKey: 02E0CC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationCurse_Sound_Explosion_DoubleDischarge
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\AtronachFlame\DeathExplosion\NPC_AtronachFlame_DeathExplosion2D.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+PercentFrequencyVariance: 3
+Priority: 128
+StaticAttenuation: 3.08

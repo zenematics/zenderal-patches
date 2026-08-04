@@ -1,0 +1,18 @@
+FormKey: 090366:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDaedric_Beam_ConjureWeepingDaedra
+Model:
+  File: Magic\AbsorbBeam01.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Flame
+Speed: 20000
+Range: 384
+Light: 0ABEFE:Skyrim.esm
+Sound: 058E2E:Skyrim.esm
+FadeDuration: 0.1
+ImpactForce: 5
+CollisionRadius: 10
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,20 @@
+FormKey: 02E0BA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Flamestrike
+ObjectBounds:
+  First: -40, -95, -12
+  Second: 40, 50, 13
+Model:
+  File: ApocNew\DestructionFire_Projectile_Flamestrike.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 2400
+Range: 10000
+Light: 10FBEC:Skyrim.esm
+Explosion: 10FBE9:Skyrim.esm
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 10
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

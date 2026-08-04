@@ -1,0 +1,26 @@
+FormKey: 100069:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Daedric5_Effect_ConjureKyrkrim_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ConjureKyrkrim_Ab_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_C100_ConjureKyrkrim_Spell_AbFlameTrail_PC
+      Object: 100026:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Kyrkrim - FX
+MenuDisplayObject: 0A6459:Skyrim.esm
+Flags:
+- NoDuration
+- NoArea
+BaseCost: 1
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 100023:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

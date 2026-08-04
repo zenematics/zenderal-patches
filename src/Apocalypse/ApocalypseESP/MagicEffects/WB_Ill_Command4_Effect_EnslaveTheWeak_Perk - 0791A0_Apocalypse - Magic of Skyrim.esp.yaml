@@ -1,0 +1,118 @@
+FormKey: 0791A0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Command4_Effect_EnslaveTheWeak_Perk
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_EnslaveTheWeak_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: RRR_Wait
+      Data: 0.25
+    - MutagenObjectType: ScriptFloatProperty
+      Name: RRR_Wait2
+      Data: 3
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_EnslaveTheWeak_Quest
+      Object: 00DBCB:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IllusionPuppeteer_Message_EnslaveTheWeakFail
+      Object: 00DBD5:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Enslave the Weak - Master of the Mind
+MenuDisplayObject: 13BEE7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 078098:Skyrim.esm
+- 0207B6:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- HideInUI
+- Painless
+- NoDeathDispel
+MagicSkill: Illusion
+CastingLight: 13BEE3:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Projectile: 13BEE2:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 13BEE6:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 13BEE5:Apocalypse - Magic of Skyrim.esp
+ImpactData: 13BEE1:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 0207B5:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 08196D:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValuePercentConditionData
+    ActorValue: Health
+  ComparisonValue: 0.2
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetPlayerTeammateConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Target
+    Perk: 059B76:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013798:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+  ComparisonValue: 1

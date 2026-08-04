@@ -1,0 +1,15 @@
+FormKey: 0BB972:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_C025_AtronachMark_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Atronach Mark
+EnchantmentCost: 75
+CastType: FireAndForget
+EnchantmentAmount: 75
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 02CD79:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10

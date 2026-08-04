@@ -1,0 +1,23 @@
+FormKey: 09C607:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Projectile_ChargedBlast
+ObjectBounds:
+  First: -11, -2, -32
+  Second: 9, 512, 28
+Model:
+  File: ApocNew\DestructionShock_Projectile_ChargedBlast.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Missile
+Gravity: -0.25
+Speed: 20000
+Range: 2500
+Light: 12D0FC:Apocalypse - Magic of Skyrim.esp
+Sound: 02283D:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.4
+ImpactForce: 6
+ConeSpread: 9.8
+CollisionRadius: 10
+Lifetime: 0.2
+RelaunchInterval: 0.125
+MuzzleFlashModel: ''

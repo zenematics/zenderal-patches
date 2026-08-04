@@ -1,0 +1,95 @@
+FormKey: 00003C:Skyrim.esm
+MajorRecordFlagsRaw: 524288
+EditorID: MQP01Home
+Version2: 3
+SkyrimMajorRecordFlags:
+- CantWait
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Home, Sweet Home
+  - Language: Japanese
+    String: ああ、愛しの我が家
+  - Language: Spanish
+    String: Hogar dulce hogar
+  - Language: Polish
+    String: Mój Kochany Dom
+  - Language: Italian
+    String: Casa Dolce Casa
+  - Language: Korean
+    String: 즐거운 우리집
+  - Language: French
+    String: Chez moi
+  - Language: Chinese
+    String: 家，甜蜜的家
+  - Language: German
+    String: Trautes Heim, Glück allein
+  - Language: Russian
+    String: Дом, милый дом
+Location: 04BBEE:Skyrim.esm
+Parent:
+  Worldspace: 001D3C:Skyrim.esm
+  Flags:
+  - UseMapData
+Climate: 000812:Skyrim.esm
+Water: 000018:Skyrim.esm
+LodWater: 000018:Skyrim.esm
+LodWaterHeight: 0
+LandDefaults:
+  DefaultLandHeight: -2048
+  DefaultWaterHeight: -2000
+WorldMapOffsetScale: 1
+WorldMapCellOffset: -240582.4, 34000, 100000.16
+DistantLodMultiplier: 0.25
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -4, -22
+ObjectBoundsMax: 33, 8
+Music: 044A6E:Skyrim.esm
+TopCell:
+  FormKey: 000D74:Skyrim.esm
+  MajorRecordFlagsRaw: 1024
+  Version2: 4
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Flags:
+  - HasWater
+  Grid:
+    Flags: -1254349568
+  OcclusionData: 0x03000000000000000000000000000000000000000000000000000000000000000000000000000000000080010000000000000001880000000000000000000000040000C102370020AEFFAF01D83B0009FC3FF60B0C100000000000000000000004000041010300000000000000000000000000000000000000000000000000001E73F9FFFE3F001BACBFFEFBFA030000FCEB6F0000F09FF9EDFF7F0000101C00FE63C70024F055F02E3000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  WaterHeight: -2.1474836E+09
+  Persistent:
+  - MutagenObjectType: PlacedNpc
+    FormKey: 041153:Apocalypse - Magic of Skyrim.esp
+    MajorRecordFlagsRaw: 3072
+    SkyrimMajorRecordFlags:
+    - 0x400
+    - InitiallyDisabled
+    Base: 0698FA:Apocalypse - Magic of Skyrim.esp
+    Placement:
+      Position: -32896, -56384, 783.19135
+    MajorFlags:
+    - Persistent
+    - InitiallyDisabled
+  - MutagenObjectType: PlacedObject
+    FormKey: 08500A:Apocalypse - Magic of Skyrim.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 085009:Apocalypse - Magic of Skyrim.esp
+    Placement:
+      Position: -32900.582, -56404.16, 100
+  - MutagenObjectType: PlacedObject
+    FormKey: 08A1DB:Apocalypse - Magic of Skyrim.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 06C982:Apocalypse - Magic of Skyrim.esp
+    Placement:
+      Position: -32876.39, -56399.996, -150
+  MajorFlags:
+  - Persistent
+MajorFlags:
+- CanNotWait

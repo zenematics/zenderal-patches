@@ -1,0 +1,27 @@
+FormKey: 100026:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Daedric5_Spell_ConjureKyrkrim_AbFlameTrail
+Name:
+  TargetLanguage: English
+  Value: Kyrkrim - FX - Visuals
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 10
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 10006A:Apocalypse - Magic of Skyrim.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsBeingRiddenConditionData
+      RunOnType: Target
+    ComparisonValue: 1
+- BaseEffect: 100068:Apocalypse - Magic of Skyrim.esp
+  Data: {}

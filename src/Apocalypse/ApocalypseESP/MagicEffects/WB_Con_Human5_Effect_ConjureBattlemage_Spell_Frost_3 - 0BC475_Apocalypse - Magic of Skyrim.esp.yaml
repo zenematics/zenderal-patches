@@ -1,0 +1,47 @@
+FormKey: 0BC475:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureBattlemage_Spell_Frost_3
+Name:
+  TargetLanguage: English
+  Value: Winter's Wrath
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01CEAE:Skyrim.esm
+- 02283A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 1.5
+MagicSkill: Destruction
+ResistValue: ResistFrost
+CastingLight: 032DAA:Skyrim.esm
+HitShader: 01F03A:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 7
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 0BC476:Apocalypse - Magic of Skyrim.esp
+Explosion: 0BCF5D:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: Stamina
+CastingArt: 020BF5:Skyrim.esm
+ImpactData: 0D6C64:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.25
+Sounds:
+- Sound: 03E5E3:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 09CB75:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 00185F:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Massive frost explosions that deal <mag> points of frost damage to Health and Stamina in a large radius.

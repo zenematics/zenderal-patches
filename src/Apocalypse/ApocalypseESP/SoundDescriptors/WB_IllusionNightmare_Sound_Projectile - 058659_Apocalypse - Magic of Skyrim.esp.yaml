@@ -1,0 +1,13 @@
+FormKey: 058659:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Projectile
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\QST\QST_WordWall_Glow_LP.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 50
+Priority: 128
+StaticAttenuation: 7.05

@@ -1,0 +1,18 @@
+FormKey: 085B01:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Simulacrum5_Spell_PullFromEternity_Ab
+Name:
+  TargetLanguage: English
+  Value: Pull From Eternity - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 085B00:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100

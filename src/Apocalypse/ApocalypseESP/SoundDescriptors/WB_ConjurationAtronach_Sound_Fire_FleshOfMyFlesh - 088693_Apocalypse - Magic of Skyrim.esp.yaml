@@ -1,0 +1,12 @@
+FormKey: 088693:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Sound_Fire_FleshOfMyFlesh
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_Concentration_Fire_2D.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: -23
+Priority: 128
+StaticAttenuation: 7.05

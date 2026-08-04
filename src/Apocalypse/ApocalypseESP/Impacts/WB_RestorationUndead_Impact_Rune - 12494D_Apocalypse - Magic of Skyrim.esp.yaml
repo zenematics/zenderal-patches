@@ -1,0 +1,12 @@
+FormKey: 12494D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Impact_Rune
+Model:
+  File: Magic\TurnUnImpact01.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+AngleThreshold: 80
+PlacementRadius: 5
+SoundLevel: Normal
+NoDecalData: True
+TextureSet: 124ED5:Apocalypse - Magic of Skyrim.esp
+Sound1: 0639A5:Skyrim.esm

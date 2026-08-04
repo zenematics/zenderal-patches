@@ -1,0 +1,65 @@
+FormKey: 15E72E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Fire4_Effect_HotPotato
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MG01FireEffectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MG01
+      Object: 01F251:Skyrim.esm
+  - Name: WB_HotPotato_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Proc
+      Object: 15E72B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_SeekRange
+      Data: 2133
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Sound
+      Object: 01C23C:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Hot Potato
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- 01CEAD:Skyrim.esm
+- 022DA5:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 50
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 01CBB3:Skyrim.esm
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 07816E:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 01B211:Skyrim.esm
+ImpactData: 01C2AF:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000D65:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Chaotic fire deals <mag> damage for <dur> seconds, then jumps to a random target within <100> feet (including the caster) up to <5> times.

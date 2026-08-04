@@ -1,0 +1,16 @@
+FormKey: 0668E6:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusoryEntity_Faction
+Name:
+  TargetLanguage: English
+  Value: Illusory Entity
+CrimeValues:
+  Arrest: True
+  AttackOnSight: True
+VendorBuySellList: 0937A1:Skyrim.esm
+VendorValues:
+  EndHour: 24
+  Radius: 1000
+VendorLocation:
+  Target:
+    MutagenObjectType: LocationFallback
+    Type: NearSelf

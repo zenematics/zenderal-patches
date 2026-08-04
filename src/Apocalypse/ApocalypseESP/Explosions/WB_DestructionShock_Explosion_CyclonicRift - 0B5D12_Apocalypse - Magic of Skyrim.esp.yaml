@@ -1,0 +1,20 @@
+FormKey: 0B5D12:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Explosion_CyclonicRift
+ObjectBounds:
+  First: -235, -235, -26
+  Second: 235, 235, 223
+Model:
+  File: ApocNew\DestructionShock_Explosion_Discharge.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 02283C:Apocalypse - Magic of Skyrim.esp
+Sound1: 02D06D:Apocalypse - Magic of Skyrim.esp
+Sound2: 00185C:Apocalypse - Magic of Skyrim.esp
+PlacedObject: 0B5D19:Apocalypse - Magic of Skyrim.esp
+Force: 96
+Radius: 256
+ISRadius: 2048
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

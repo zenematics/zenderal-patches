@@ -1,0 +1,38 @@
+FormKey: 10861F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost4_Effect_ShatteringCrystal_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_ShatteringCrystal_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: Height
+      Data: 10
+    - MutagenObjectType: ScriptFloatProperty
+      Name: Scale
+      Data: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionFrost_Activator_ShatteringCrystal
+      Object: 10861D:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D100_ShatteringCrystal_Spell_Explosion
+      Object: 108623:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Shattering Crystal Active
+MenuDisplayObject: 09DB72:Skyrim.esm
+Flags:
+- Recover
+- NoDuration
+- NoMagnitude
+- NoArea
+MagicSkill: Destruction
+MinimumSkillLevel: 75
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: A Shattering Crystal exists in the world. Cast the spell again to detonate it.

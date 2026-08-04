@@ -1,0 +1,19 @@
+FormKey: 0378AE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Command4_Spell_MindControl
+Name:
+  TargetLanguage: English
+  Value: Mind Control
+MenuDisplayObject: 13BEE7:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 468
+ChargeTime: 1
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C5:Skyrim.esm
+Effects:
+- BaseEffect: 0378AB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

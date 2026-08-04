@@ -1,0 +1,20 @@
+FormKey: 085575:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Beam
+Model:
+  File: ApocNew\IllusionBlue_Beam.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 5000
+Light: 11C6B4:Apocalypse - Magic of Skyrim.esp
+Explosion: 10A292:Skyrim.esm
+Sound: 0AC037:Skyrim.esm
+FadeDuration: 0.1
+ImpactForce: 10
+CollisionRadius: 10
+Lifetime: 0.35
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,17 @@
+FormKey: 0B7827:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureDeadeyeCaptain_Quest
+Name:
+  TargetLanguage: English
+  Value: Conjure Deadeye Captain
+Flags:
+- AllowRepeatedStages
+Priority: 56
+Filter: WB\
+NextAliasID: 1
+Aliases:
+- Name: WB_Corpse
+  Flags:
+  - Optional
+  - AllowDead
+  - AllowReserved
+  VoiceTypes: Null

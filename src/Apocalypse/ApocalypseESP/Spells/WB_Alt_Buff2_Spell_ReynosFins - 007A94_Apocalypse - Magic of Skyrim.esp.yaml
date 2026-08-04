@@ -1,0 +1,30 @@
+FormKey: 007A94:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_Buff2_Spell_ReynosFins
+Name:
+  TargetLanguage: English
+  Value: Fins of Kilé
+MenuDisplayObject: 004405:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 113
+ChargeTime: 2
+CastType: FireAndForget
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 007A96:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 60
+- BaseEffect: 00856F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 60
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: NotEqualTo
+    Data:
+      MutagenObjectType: IsSwimmingConditionData
+- BaseEffect: 0923F5:Apocalypse - Magic of Skyrim.esp
+  Data: {}

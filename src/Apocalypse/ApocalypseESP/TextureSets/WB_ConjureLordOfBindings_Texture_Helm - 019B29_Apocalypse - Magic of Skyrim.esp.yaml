@@ -1,0 +1,8 @@
+FormKey: 019B29:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureLordOfBindings_Texture_Helm
+ObjectBounds:
+  First: -8, -30, -20
+  Second: 7, 29, 19
+Diffuse: ApocNew\Other_Model\LordOfBindings_Helm.dds
+NormalOrGloss: clothes\weddingdress\wreath_n.dds
+Flags: []

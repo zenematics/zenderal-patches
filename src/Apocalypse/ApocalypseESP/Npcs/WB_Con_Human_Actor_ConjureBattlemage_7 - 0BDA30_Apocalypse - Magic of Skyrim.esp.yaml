@@ -1,0 +1,178 @@
+FormKey: 0BDA30:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Con_Human_Actor_ConjureBattlemage_7
+SkyrimMajorRecordFlags:
+- Compressed
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - Summonable
+  MagickaOffset: -60
+  StaminaOffset: 50
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 40
+  CalcMinLevel: 7
+  CalcMaxLevel: 45
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: -125
+Voice: 01F1D3:Skyrim.esm
+Race: 013748:Skyrim.esm
+ActorEffect:
+- 0BBF01:Apocalypse - Magic of Skyrim.esp
+AttackRace: 0131F0:Skyrim.esm
+Perks:
+- Perk: 012357:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0BDF95:Apocalypse - Magic of Skyrim.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 0BBF05:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Brave
+  EnergyLevel: 75
+  Responsibility: NoCrime
+  Mood: Angry
+  Assistance: HelpsFriendsAndAllies
+Class: 01E7D0:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Kiléan Expert Battlemage
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 25
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 20
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 73
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 78
+  - Key: Conjuration
+    Value: 44
+  - Key: Destruction
+    Value: 100
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 100
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 250
+  Magicka: 250
+  Stamina: 100
+HeadParts:
+- 02425C:Skyrim.esm
+- 0513F7:Skyrim.esm
+- 0C3CE2:Skyrim.esm
+- 0C7259:Skyrim.esm
+HairColor: 0A0434:Skyrim.esm
+CombatStyle: 0BD4C6:Apocalypse - Magic of Skyrim.esp
+NAM5: 255
+Height: 1.15
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 0BBEF1:Apocalypse - Magic of Skyrim.esp
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00513D35'
+FaceMorph:
+  NoseLongVsShort: -0.39999998
+  NoseUpVsDown: 0.39999998
+  JawUpVsDown: -0.22000003
+  JawForwardVsBack: 0.39999998
+  CheeksUpVsDown: 0.39999998
+  CheeksForwardVsBack: -0.39999998
+  EyesUpVsDown: -0.22000003
+  BrowsUpVsDown: -0.74
+  BrowsInVsOut: -0.3
+  BrowsForwardVsBack: 0.39999998
+  LipsUpVsDown: 0.39999998
+  LipsInVsOut: -0.52
+  ChinNarrowVsWide: -0.39999998
+  ChinUpVsDown: -0.19999999
+  ChinUnderbiteVsOverbite: -0.100000024
+  EyesForwardVsBack: 0.39999998
+FaceParts:
+  Mouth: 12
+TintLayers:
+- Index: 1
+  Color: '#00513D35'
+  InterpolationValue: 1
+  Preset: 76
+- Index: 65
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 383
+- Index: 66
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 407
+- Index: 67
+  Color: '#00FDFDFD'
+  InterpolationValue: 0.69
+  Preset: 434
+MajorFlags:
+- 0x40000

@@ -1,0 +1,15 @@
+FormKey: 0896F4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R025_WellingBlood_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Welling Blood
+EnchantmentCost: 70
+CastType: FireAndForget
+EnchantmentAmount: 70
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 01FCD2:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 8

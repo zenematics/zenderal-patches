@@ -1,0 +1,27 @@
+FormKey: 0F7F2C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Impact_MagneticAnomaly
+Model:
+  File: Effects\ImpactEffects\FXDragonTakeoffDust.nif
+  Data: 0x020000000000000000000000
+Duration: 1
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Normal
+Decal:
+  MinWidth: 64
+  MaxWidth: 85
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaBlending
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00FFFFFF'
+Sound1: 00A07E:Apocalypse - Magic of Skyrim.esp
+Sound2: 03EA95:Skyrim.esm
+Hazard: 0F7F2B:Apocalypse - Magic of Skyrim.esp

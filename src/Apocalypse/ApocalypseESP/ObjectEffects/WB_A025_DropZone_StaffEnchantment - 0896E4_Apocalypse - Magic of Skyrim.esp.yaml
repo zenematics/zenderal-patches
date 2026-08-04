@@ -1,0 +1,15 @@
+FormKey: 0896E4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A025_DropZone_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Drop Zone
+EnchantmentCost: 50
+CastType: FireAndForget
+EnchantmentAmount: 50
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 08453F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 12

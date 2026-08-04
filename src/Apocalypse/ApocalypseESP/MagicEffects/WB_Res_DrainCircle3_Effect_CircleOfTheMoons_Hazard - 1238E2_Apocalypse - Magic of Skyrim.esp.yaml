@@ -1,0 +1,43 @@
+FormKey: 1238E2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_DrainCircle3_Effect_CircleOfTheMoons_Hazard
+Name:
+  TargetLanguage: English
+  Value: Circle of the Moons
+MenuDisplayObject: 12081F:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03479E:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 50
+MagicSkill: Restoration
+ResistValue: ResistMagic
+HitShader: 1238E3:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+  Type: Absorb
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 0.2
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

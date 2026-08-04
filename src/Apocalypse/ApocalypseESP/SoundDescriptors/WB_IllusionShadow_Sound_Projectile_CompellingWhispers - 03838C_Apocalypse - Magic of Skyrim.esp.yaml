@@ -1,0 +1,11 @@
+FormKey: 03838C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Sound_Projectile_CompellingWhispers
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\TG05\QST_TG05_Unconscious_LP.wav
+OutputModel: 07EDCA:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+Priority: 128
+StaticAttenuation: 28.19

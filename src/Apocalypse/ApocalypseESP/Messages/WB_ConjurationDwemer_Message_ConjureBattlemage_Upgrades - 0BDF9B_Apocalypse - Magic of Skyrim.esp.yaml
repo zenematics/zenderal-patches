@@ -1,0 +1,62 @@
+FormKey: 0BDF9B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDwemer_Message_ConjureBattlemage_Upgrades
+Description:
+  TargetLanguage: English
+  Value: >-
+    Current cost of upgrades: %.0f/%.0f Gold
+
+
+    Health: +%.0f/250
+
+    Magicka: +%.0f/500
+
+    Weapon Damage: +%.0f/200%%
+
+    Spell Damage: +%.0f/50%%
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Health +25 (5000 Gold)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF98:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 250
+- Text:
+    TargetLanguage: English
+    Value: Magicka +50 (5000 Gold)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF99:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 500
+- Text:
+    TargetLanguage: English
+    Value: Weapon Damage +20% (5000 Gold)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BCF52:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 200
+- Text:
+    TargetLanguage: English
+    Value: Spell Damage +5% (5000 Gold)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0BDF97:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 50
+- Text:
+    TargetLanguage: English
+    Value: Ok

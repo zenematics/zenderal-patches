@@ -1,0 +1,16 @@
+FormKey: 07A20A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D050_Scattershock_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Scattershock
+EnchantmentCost: 36
+CastType: Concentration
+EnchantmentAmount: 36
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 2.5
+Effects:
+- BaseEffect: 09CB6E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+    Duration: 1

@@ -1,0 +1,10 @@
+FormKey: 07156B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Static_Bloodseeker
+ObjectBounds:
+  First: -92, -108, -24
+  Second: 93, 110, 15
+Model:
+  File: ApocNew\RestorationBlood_Object.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

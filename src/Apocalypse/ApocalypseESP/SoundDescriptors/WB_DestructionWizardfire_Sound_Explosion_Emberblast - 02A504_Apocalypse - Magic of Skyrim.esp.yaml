@@ -1,0 +1,13 @@
+FormKey: 02A504:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionWizardfire_Sound_Explosion_Emberblast
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Destruction\FireStorm\MAG_Destruction_FireStorm_Impact.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+  RumbleValues: 160
+PercentFrequencyShift: 90
+Priority: 128
+StaticAttenuation: 4.85

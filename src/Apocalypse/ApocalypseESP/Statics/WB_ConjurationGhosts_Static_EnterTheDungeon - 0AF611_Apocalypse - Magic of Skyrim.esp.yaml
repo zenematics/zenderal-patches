@@ -1,0 +1,17 @@
+FormKey: 0AF611:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 33554944
+EditorID: WB_ConjurationGhosts_Static_EnterTheDungeon
+SkyrimMajorRecordFlags:
+- 0x200
+- 0x2000000
+ObjectBounds:
+  First: -162, -110, -336
+  Second: 158, 110, 336
+Model:
+  File: ApocNew\ConjurationGhosts_Static_TharnsGibbet_EnterTheDungeon.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- HiddenFromLocalMap
+- Obstacle

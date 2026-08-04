@@ -1,0 +1,31 @@
+FormKey: 082483:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Heal1_Spell_WildHealing
+Name:
+  TargetLanguage: English
+  Value: Wild Healing
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 80
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0F2CAA:Skyrim.esm
+Effects:
+- BaseEffect: 086054:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 40
+- BaseEffect: 04250E:Skyrim.esm
+  Data:
+    Magnitude: 40
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0581F9:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 11A4B6:Skyrim.esm
+  Data:
+    Magnitude: 5
+    Duration: 1

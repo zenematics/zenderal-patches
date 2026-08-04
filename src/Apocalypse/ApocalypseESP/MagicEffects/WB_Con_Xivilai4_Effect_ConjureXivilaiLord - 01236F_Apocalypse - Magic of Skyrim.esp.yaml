@@ -1,0 +1,51 @@
+FormKey: 01236F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Xivilai4_Effect_ConjureXivilaiLord
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_XivilaiLord_Self_New_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Conjuration_ConjureXivilaiLord_Global_MagickaLoss
+      Object: 07AD21:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Conjure Xivilai Lord
+MenuDisplayObject: 0A6459:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 024823:Skyrim.esm
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- SnapToNavmesh
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 48
+MagicSkill: Conjuration
+CastingLight: 03BA90:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 0107F5:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetLocation
+CastingArt: 03CDFC:Skyrim.esm
+HitEffectArt: 03F811:Skyrim.esm
+ImpactData: 03A1E9:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+ImageSpaceModifier: 06F79B:Skyrim.esm
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Summons a Xivilai Lord for <dur> seconds. When summoned, drains all Magicka and has <200>% of this amount. It casts a deadly bolt that costs <150> Magicka.

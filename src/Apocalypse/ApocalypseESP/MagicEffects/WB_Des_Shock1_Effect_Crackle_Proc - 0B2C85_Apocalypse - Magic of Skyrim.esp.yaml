@@ -1,0 +1,40 @@
+FormKey: 0B2C85:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock1_Effect_Crackle_Proc
+Name:
+  TargetLanguage: English
+  Value: Happy Cloud Strike
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 057C68:Skyrim.esm
+HitShader: 057C67:Skyrim.esm
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 0B2C80:Apocalypse - Magic of Skyrim.esp
+CastType: Concentration
+TargetType: Aimed
+SecondActorValue: Magicka
+CastingArt: 058E9B:Skyrim.esm
+ImpactData: 0B2C87:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+Sounds:
+- Type: ConcentrationCastLoop
+  Sound: 0B31EB:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> points of shock damage to Health and Magicka.

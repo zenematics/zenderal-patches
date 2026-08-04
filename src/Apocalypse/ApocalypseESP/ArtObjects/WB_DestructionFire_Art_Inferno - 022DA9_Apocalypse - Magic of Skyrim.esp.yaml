@@ -1,0 +1,10 @@
+FormKey: 022DA9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Art_Inferno
+ObjectBounds:
+  First: -42, -44, 2
+  Second: 42, 44, 91
+Model:
+  File: ApocNew\DestructionFire_Art_Inferno_2.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

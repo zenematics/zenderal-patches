@@ -1,0 +1,46 @@
+FormKey: 0FADFD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock4_Effect_LightningStrike
+Name:
+  TargetLanguage: English
+  Value: Lightning Strike
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 0A9B1F:Skyrim.esm
+- 044D4E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 4
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 057C68:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+CastType: FireAndForget
+TargetType: TargetLocation
+SecondActorValue: Magicka
+CastingArt: 058E9B:Skyrim.esm
+SkillUsageMultiplier: 0.65
+DualCastScale: 1.1
+ImageSpaceModifier: 0A9D93:Skyrim.esm
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 03F20C:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 115E21:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Lightning strikes the target location, dealing <mag> shock damage to Health and Magicka.

@@ -1,0 +1,64 @@
+FormKey: 016F8D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Buff1_Effect_ConsumingPower
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_PowerOverwhelming_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_ConjurationAtronach_Imod_PowerOverwhelmingDeath
+      Object: 016F90:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_ShakeDuration
+      Data: 2
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_ShakeStrength
+      Data: 0.5
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_ShakeStrengthFalloff
+      Data: 1000
+Name:
+  TargetLanguage: English
+  Value: Consuming Power - Boost
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 016F8F:Apocalypse - Magic of Skyrim.esp
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsDuration
+MagicSkill: Conjuration
+CastingLight: 11F7B6:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: AttackDamageMult
+  Association: 016F8F:Apocalypse - Magic of Skyrim.esp
+Projectile: 11F234:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11F232:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 08868F:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1
+ImageSpaceModifier: 016F90:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 056B75:Skyrim.esm
+- Type: Ready
+  Sound: 076560:Skyrim.esm
+- Type: Release
+  Sound: 016F8E:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+  ComparisonValue: 1

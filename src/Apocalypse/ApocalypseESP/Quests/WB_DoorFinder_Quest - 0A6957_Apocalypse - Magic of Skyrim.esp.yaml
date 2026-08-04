@@ -1,0 +1,83 @@
+FormKey: 0A6957:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DoorFinder_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: QF_WB_DoorFinder_Quest_010A6957
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Activator
+      Object: 0A6957:Apocalypse - Magic of Skyrim.esp
+      Alias: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Door
+      Object: 0A6957:Apocalypse - Magic of Skyrim.esp
+      Alias: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Alias_WB_Player
+      Object: 0A6957:Apocalypse - Magic of Skyrim.esp
+      Alias: 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_AlterationAlt_Message_DoorToAnywhere
+      Object: 0A5E82:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: WB_Door
+      Objects:
+      - Name: ''
+        Object: 0A6954:Apocalypse - Magic of Skyrim.esp
+        Alias: 0
+      - Name: ''
+        Object: 0A6954:Apocalypse - Magic of Skyrim.esp
+        Alias: 1
+  FileName: QF_WB_DoorFinder_Quest_010A6957
+  Fragments:
+  - Unknown2: 1
+    ScriptName: QF_WB_DoorFinder_Quest_010A6957
+    FragmentName: Fragment_0
+Name:
+  TargetLanguage: English
+  Value: Door Quest
+Flags:
+- AllowRepeatedStages
+Filter: WB\
+Stages:
+- Flags:
+  - StartUpStage
+  LogEntries:
+  - Flags: []
+NextAliasID: 3
+Aliases:
+- Name: WB_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 2
+  Name: WB_Activator
+  Flags:
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsIDConditionData
+      Object: 0A6955:Apocalypse - Magic of Skyrim.esp
+    ComparisonValue: 1
+  VoiceTypes: Null
+- ID: 1
+  Name: WB_Door
+  Flags:
+  - MatchingRefInLoadedArea
+  - MatchingRefClosest
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetIsObjectTypeConditionData
+      FormType: Door
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetDistanceConditionData
+      UseAliases: True
+      Target: 2
+    ComparisonValue: 128
+  VoiceTypes: Null

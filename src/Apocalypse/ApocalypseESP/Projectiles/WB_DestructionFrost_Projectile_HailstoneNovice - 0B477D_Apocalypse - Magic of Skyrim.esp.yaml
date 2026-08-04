@@ -1,0 +1,19 @@
+FormKey: 0B477D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_HailstoneNovice
+ObjectBounds:
+  First: -34, 0, -34
+  Second: 34, 13, 34
+Model:
+  File: ApocNew\DestructionFrost_Projectile_IcePrism.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1500
+Range: 2250
+Light: 10FBF0:Skyrim.esm
+Sound: 02AFDF:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 5
+CollisionRadius: 8
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,100 @@
+FormKey: 01FCD2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Blood2_Effect_WellingBlood
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Bleedout_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BloodDecalPlaceExplosion
+      Object: 0F3A8C:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_AllDeathSpells_Global_XP
+      Object: 043CEF:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Bleedout_Global_Threshold
+      Object: 01FCD4:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Bleedout_Global_XP
+      Object: 043CF0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_FXS_Bleedout_Death
+      Object: 01FCD3:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Imod_Bleedout
+      Object: 01FCD5:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_RestorationBlood_Marker_Script_Bleedout
+      Object: 01FCD7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: Welling Blood
+MenuDisplayObject: 11D19D:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoMagnitude
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+BaseCost: 90
+MagicSkill: Restoration
+CastingLight: 0069CF:Apocalypse - Magic of Skyrim.esp
+HitShader: 0C0023:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 11DC7E:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 00E69A:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 01FCD1:Apocalypse - Magic of Skyrim.esp
+ImpactData: 074798:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 1168F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Curses a living target. If the target loses at least <Global=WB_Restoration_WellingBlood_Global_Threshold>% of its maximum Health within <dur> seconds, it dies.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

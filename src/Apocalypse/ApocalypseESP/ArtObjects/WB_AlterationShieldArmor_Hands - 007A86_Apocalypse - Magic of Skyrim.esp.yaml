@@ -1,0 +1,9 @@
+FormKey: 007A86:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationShieldArmor_Hands
+ObjectBounds:
+  First: -4, -6, -6
+  Second: 4, 6, 6
+Model:
+  File: ApocNew\AlterationShieldArmor_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

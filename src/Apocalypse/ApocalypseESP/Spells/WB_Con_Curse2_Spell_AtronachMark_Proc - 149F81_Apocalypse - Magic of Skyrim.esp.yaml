@@ -1,0 +1,26 @@
+FormKey: 149F81:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Curse2_Spell_AtronachMark_Proc
+Name:
+  TargetLanguage: English
+  Value: Atronach Mark
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 42
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 9999
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 149F83:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+    Area: 15

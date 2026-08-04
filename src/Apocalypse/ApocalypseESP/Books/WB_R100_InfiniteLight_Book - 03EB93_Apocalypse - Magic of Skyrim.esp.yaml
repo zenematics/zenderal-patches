@@ -1,0 +1,28 @@
+FormKey: 03EB93:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R100_InfiniteLight_Book
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Infinite Light'
+Model:
+  File: Clutter\Books\SpellTomeRestorationLowPoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face'$HandwrittenFont'><font size='40'><p align='center'>
+
+    Infinite Light
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 02F66E:Apocalypse - Magic of Skyrim.esp
+Value: 485
+Weight: 1
+InventoryArt: 02FBB7:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

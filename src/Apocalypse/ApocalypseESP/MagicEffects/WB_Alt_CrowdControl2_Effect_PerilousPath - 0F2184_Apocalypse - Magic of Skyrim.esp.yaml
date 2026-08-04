@@ -1,0 +1,42 @@
+FormKey: 0F2184:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl2_Effect_PerilousPath
+Name:
+  TargetLanguage: English
+  Value: Perilous Path
+MenuDisplayObject: 00A083:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 03C52A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 80
+MagicSkill: Alteration
+CastingLight: 00A5E8:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 0F2185:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 00A084:Apocalypse - Magic of Skyrim.esp
+ImpactData: 0E9519:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.25
+DualCastScale: 1.1
+ImageSpaceModifier: 0AAA33:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 0FDA53:Skyrim.esm
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 00A081:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Lay down a spike barrier that lasts <dur> seconds and randomly staggers enemies moving through the spikes.

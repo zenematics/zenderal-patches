@@ -1,0 +1,7 @@
+FormKey: 0CF897:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Message_StendarrsEmbrace
+Description:
+  TargetLanguage: English
+  Value: Health +%.0f
+INAM: 0x00000000
+DisplayTime: 6

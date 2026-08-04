@@ -1,0 +1,48 @@
+FormKey: 0159F1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Human5_Effect_ConjureRadac_TechBlastCrit
+Name:
+  TargetLanguage: English
+  Value: Tech Blast - Critical Hit
+MenuDisplayObject: 1097CB:Skyrim.esm
+Keywords:
+- 0059B8:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+MagicSkill: Alteration
+ResistValue: ResistMagic
+CastingLight: 02016B:Skyrim.esm
+HitShader: 004404:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingArea: 5
+SpellmakingCastingTime: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 0159F0:Apocalypse - Magic of Skyrim.esp
+Explosion: 015F53:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 02016C:Skyrim.esm
+HitEffectArt: 11BBD7:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11BBC7:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 000D6B:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 0FDA52:Skyrim.esm
+- Type: Release
+  Sound: 053A5E:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: If the target is levitating, deals <mag> bonus damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 002E1C:Apocalypse - Magic of Skyrim.esp
+  ComparisonValue: 1

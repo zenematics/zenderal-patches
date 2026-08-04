@@ -1,0 +1,49 @@
+FormKey: 0B2C77:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock1_Effect_Crackle
+Name:
+  TargetLanguage: English
+  Value: Crackle
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 01CEAF:Skyrim.esm
+- 02283B:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.5
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 057C68:Skyrim.esm
+HitShader: 0D22FC:Skyrim.esm
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 07816B:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Magicka
+CastingArt: 058E9B:Skyrim.esm
+ImpactData: 059ED9:Skyrim.esm
+SkillUsageMultiplier: 0.8
+DualCastScale: 1.1
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 03F20C:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 078174:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Does <mag> damage to Health and Magicka.

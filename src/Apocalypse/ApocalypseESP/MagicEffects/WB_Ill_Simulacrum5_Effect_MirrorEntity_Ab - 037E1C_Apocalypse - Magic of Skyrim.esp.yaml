@@ -1,0 +1,22 @@
+FormKey: 037E1C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Simulacrum5_Effect_MirrorEntity_Ab
+Name:
+  TargetLanguage: English
+  Value: Mirror Entity - FX
+MenuDisplayObject: 13BEE7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- A00666:Update.esm
+Flags:
+- NoDuration
+- FXPersist
+- NoDeathDispel
+HitShader: 037E1D:Apocalypse - Magic of Skyrim.esp
+EnchantShader: 037E1D:Apocalypse - Magic of Skyrim.esp
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: AttackDamageMult
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

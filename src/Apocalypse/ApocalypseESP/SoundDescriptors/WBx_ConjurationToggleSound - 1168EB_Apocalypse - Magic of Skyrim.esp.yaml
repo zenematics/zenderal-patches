@@ -1,0 +1,10 @@
+FormKey: 1168EB:Apocalypse - Magic of Skyrim.esp
+EditorID: WBx_ConjurationToggleSound
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Conjure\BoundWeapon\MAG_Conjure_BoundWeapon_Appear_01.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+Priority: 128

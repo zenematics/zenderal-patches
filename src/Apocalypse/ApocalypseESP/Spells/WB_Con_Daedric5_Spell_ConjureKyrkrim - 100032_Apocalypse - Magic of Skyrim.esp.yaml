@@ -1,0 +1,22 @@
+FormKey: 100032:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Daedric5_Spell_ConjureKyrkrim
+Name:
+  TargetLanguage: English
+  Value: Conjure Kyrkrim
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 720
+Flags:
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 24
+HalfCostPerk: 0C44BE:Skyrim.esm
+Effects:
+- BaseEffect: 10006B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 180

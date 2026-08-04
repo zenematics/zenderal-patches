@@ -1,0 +1,10 @@
+FormKey: 0AE5CC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_Milestones_Name
+Description:
+  TargetLanguage: English
+  Value: ''
+Name:
+  TargetLanguage: English
+  Value: <Alias=Player>'s Milestone
+INAM: 0x00000000
+DisplayTime: 2

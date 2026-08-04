@@ -1,0 +1,16 @@
+FormKey: 07A208:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D050_IncendiaryFlow_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Incendiary Flow
+EnchantmentCost: 134
+CastType: FireAndForget
+EnchantmentAmount: 134
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0F218B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 20
+    Duration: 10

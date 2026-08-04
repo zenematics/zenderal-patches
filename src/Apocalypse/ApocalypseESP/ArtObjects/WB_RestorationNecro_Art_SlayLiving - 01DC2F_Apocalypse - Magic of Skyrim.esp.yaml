@@ -1,0 +1,10 @@
+FormKey: 01DC2F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationNecro_Art_SlayLiving
+ObjectBounds:
+  First: -170, 25, 0
+  Second: 172, 260, 348
+Model:
+  File: ApocNew\RestorationNecro_Art_SlayLiving.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

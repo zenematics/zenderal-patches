@@ -1,0 +1,14 @@
+FormKey: 0BA39B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationGhosts_Sound_Explosion_Splash_1
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\PHY\Water\PHY_Water_M_01.wav
+- Data\Sound\FX\PHY\Water\PHY_Water_M_02.wav
+OutputModel: 109AC9:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 10
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 1
+StaticAttenuation: 1.32

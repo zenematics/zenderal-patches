@@ -1,0 +1,12 @@
+FormKey: 020245:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Illusion_Sound_Impact_Generic
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Generic\Impact\MAG_Generic_Projectile_Impact_01.wav
+OutputModel: 07F80C:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 3.08

@@ -1,0 +1,22 @@
+FormKey: 0DD9CF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_PrepareForAdventure_Litem_Staff
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 10E4F5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03521E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 03525C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 18
+    Reference: 0EDDD2:Skyrim.esm
+    Count: 1

@@ -1,0 +1,44 @@
+FormKey: 01E708:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Tap3_Effect_Ruin
+Name:
+  TargetLanguage: English
+  Value: Ruin
+MenuDisplayObject: 11D1A7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01546A:Apocalypse - Magic of Skyrim.esp
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 0.5
+MagicSkill: Restoration
+ResistValue: ResistMagic
+CastingLight: 11D1AC:Apocalypse - Magic of Skyrim.esp
+HitShader: 11D71A:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 11D1A8:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 11D1A5:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11D1A6:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11D714:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.4
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015465:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 120819:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Weakens an enemy, reducing all skills by <mag> points for <dur> seconds.

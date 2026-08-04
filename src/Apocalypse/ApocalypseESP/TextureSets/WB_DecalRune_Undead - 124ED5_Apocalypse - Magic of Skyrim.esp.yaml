@@ -1,0 +1,26 @@
+FormKey: 124ED5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DecalRune_Undead
+ObjectBounds:
+  First: -8, -30, -20
+  Second: 7, 29, 19
+Diffuse: ApocNew\Rune_SurfaceUndead.dds
+NormalOrGloss: Effects\RuneFrost01_n.dds
+GlowOrDetailMap: Effects\RuneFrost01.dds
+Decal:
+  MinWidth: 169
+  MaxWidth: 169
+  MinHeight: 169
+  MaxHeight: 169
+  Depth: 64
+  Shininess: 500
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - AlphaTesting
+  - NoSubtextures
+  - 0x10
+  - 0x20
+  - 0x40
+  Unknown: 127
+  Color: '#00FFFFFF'
+Flags: []

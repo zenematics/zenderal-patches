@@ -1,0 +1,9 @@
+FormKey: 11D717:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationPeace_Hands
+ObjectBounds:
+  First: -10, -10, -7
+  Second: 10, 10, 6
+Model:
+  File: ApocNew\RestorationPeace_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

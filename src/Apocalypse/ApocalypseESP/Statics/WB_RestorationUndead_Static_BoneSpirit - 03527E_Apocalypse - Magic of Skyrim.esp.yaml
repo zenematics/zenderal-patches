@@ -1,0 +1,10 @@
+FormKey: 03527E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Static_BoneSpirit
+ObjectBounds:
+  First: -154, -138, -193
+  Second: 154, 128, 384
+Model:
+  File: ApocNew\RestorationUndead_Static_BoneSpirit.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

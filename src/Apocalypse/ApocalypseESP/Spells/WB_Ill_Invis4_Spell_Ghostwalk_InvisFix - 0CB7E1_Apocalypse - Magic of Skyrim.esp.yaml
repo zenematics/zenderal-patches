@@ -1,0 +1,17 @@
+FormKey: 0CB7E1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis4_Spell_Ghostwalk_InvisFix
+Name:
+  TargetLanguage: English
+  Value: Eye Fix
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 0CB7E0:Apocalypse - Magic of Skyrim.esp
+  Data: {}

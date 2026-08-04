@@ -1,0 +1,60 @@
+FormKey: 0D82B9:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureDremoraAssassin_Weapon_Enchanted
+SkyrimMajorRecordFlags:
+- NotPlayable
+ObjectBounds:
+  First: -15, -57, 0
+  Second: 14, 57, 3
+Name:
+  TargetLanguage: English
+  Value: Valkynaz' Bow
+Model:
+  File: ApocNew\Other_Model\ConjurationDaedric_Bow_ValkynazArcher.nif
+  Data: 0x020000000000000000000000
+EquipmentType: 013F45:Skyrim.esm
+AlternateBlockMaterial: 0774B6:Skyrim.esm
+Keywords:
+- 01E71F:Skyrim.esm
+- 01E715:Skyrim.esm
+- 08F958:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 0193B9:Skyrim.esm
+FirstPersonModel: 0D7533:Skyrim.esm
+AttackFailSound: 03C730:Skyrim.esm
+EquipSound: 03D78C:Skyrim.esm
+UnequipSound: 03D882:Skyrim.esm
+BasicStats:
+  Value: 666
+  Weight: 18
+  Damage: 25
+Data:
+  AnimationType: Bow
+  Unused: 0x000000
+  Speed: 0.5
+  Reach: 1
+  Flags:
+  - CantDrop
+  - NonPlayable
+  NumProjectiles: 1
+  RangeMin: 500
+  RangeMax: 2000
+  AnimationAttackMult: 1
+  Unknown2: 1065353216
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: Archery
+Critical:
+  Damage: 9
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Silent
+Template: 140018:Apocalypse - Magic of Skyrim.esp
+MajorFlags:
+- NonPlayable

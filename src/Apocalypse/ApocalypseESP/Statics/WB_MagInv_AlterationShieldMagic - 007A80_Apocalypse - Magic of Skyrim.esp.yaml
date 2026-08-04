@@ -1,0 +1,10 @@
+FormKey: 007A80:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_MagInv_AlterationShieldMagic
+ObjectBounds:
+  First: -92, -108, -15
+  Second: 93, 110, 24
+Model:
+  File: ApocNew\AlterationShieldMagic_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

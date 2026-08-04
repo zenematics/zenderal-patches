@@ -1,0 +1,33 @@
+FormKey: 03F659:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A075_Entomb_Scroll
+Name:
+  TargetLanguage: English
+  Value: Scroll of Entomb
+Keywords:
+- 0A0E57:Skyrim.esm
+MenuDisplayObject: 076E8F:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Model:
+  File: Clutter\Common\Scroll03.nif
+  Data: 0x020000000000000000000000
+Value: 125
+Weight: 0.5
+BaseCost: 475
+Flags:
+- AreaEffectIgnoresLOS
+CastType: 3
+TargetType: Aimed
+Effects:
+- BaseEffect: 0AE5AE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Area: 10
+- BaseEffect: 0ABFE0:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 10
+- BaseEffect: 0AE5BA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 5

@@ -1,0 +1,14 @@
+FormKey: 00F231:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureXivilaiSorcerer_Horns
+Name:
+  TargetLanguage: English
+  Value: WB_XivilaiSorcerer_Horns
+Model:
+  File: ApocNew\AlienSlof_Model\XivilaiHorns.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Playable
+- Male
+- IsExtraPart
+Type: Misc
+ValidRaces: 0A8027:Skyrim.esm

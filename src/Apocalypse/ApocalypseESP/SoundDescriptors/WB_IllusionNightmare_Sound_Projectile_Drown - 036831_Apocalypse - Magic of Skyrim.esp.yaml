@@ -1,0 +1,12 @@
+FormKey: 036831:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Projectile_Drown
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\AMB_Underwater_2D_LPM.wav
+OutputModel: 07EDCA:Skyrim.esm
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 11.01

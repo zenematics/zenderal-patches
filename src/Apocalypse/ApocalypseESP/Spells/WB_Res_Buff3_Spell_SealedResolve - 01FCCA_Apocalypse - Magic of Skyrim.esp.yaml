@@ -1,0 +1,18 @@
+FormKey: 01FCCA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff3_Spell_SealedResolve
+Name:
+  TargetLanguage: English
+  Value: Sealed Resolve
+MenuDisplayObject: 082458:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 156
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C8:Skyrim.esm
+Effects:
+- BaseEffect: 0A0D59:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 15

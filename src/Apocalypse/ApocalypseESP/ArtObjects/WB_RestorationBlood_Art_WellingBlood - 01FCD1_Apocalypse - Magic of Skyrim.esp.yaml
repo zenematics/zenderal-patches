@@ -1,0 +1,10 @@
+FormKey: 01FCD1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationBlood_Art_WellingBlood
+ObjectBounds:
+  First: 0, -24, -17
+  Second: 0, 27, 19
+Model:
+  File: ApocNew\RestorationBlood_Art_WellingBlood.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

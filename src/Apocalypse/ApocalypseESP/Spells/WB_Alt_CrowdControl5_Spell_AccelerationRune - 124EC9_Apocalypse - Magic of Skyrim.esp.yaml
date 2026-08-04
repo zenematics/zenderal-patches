@@ -1,0 +1,21 @@
+FormKey: 124EC9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl5_Spell_AccelerationRune
+Name:
+  TargetLanguage: English
+  Value: Acceleration Rune
+MenuDisplayObject: 1097CB:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1250
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 3
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 20
+HalfCostPerk: 0C44BA:Skyrim.esm
+Effects:
+- BaseEffect: 124955:Apocalypse - Magic of Skyrim.esp
+  Data: {}

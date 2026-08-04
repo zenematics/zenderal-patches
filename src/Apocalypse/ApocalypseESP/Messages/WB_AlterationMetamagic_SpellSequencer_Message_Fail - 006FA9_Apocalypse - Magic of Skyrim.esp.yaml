@@ -1,0 +1,7 @@
+FormKey: 006FA9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationMetamagic_SpellSequencer_Message_Fail
+Description:
+  TargetLanguage: English
+  Value: This spell cannot be stored.
+INAM: 0x00000000
+DisplayTime: 1

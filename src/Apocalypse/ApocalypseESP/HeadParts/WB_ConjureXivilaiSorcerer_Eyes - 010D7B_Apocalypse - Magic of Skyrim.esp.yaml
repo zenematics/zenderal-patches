@@ -1,0 +1,23 @@
+FormKey: 010D7B:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 4
+EditorID: WB_ConjureXivilaiSorcerer_Eyes
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: WB_XivilaiSorcerer_Eyes
+Model:
+  File: Actors\Character\Character Assets\EyesMale.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Male
+Type: Eyes
+Parts:
+- PartType: Tri
+  FileName: Actors\Character\Character Assets\EyesMale.tri
+- PartType: ChargenMorph
+  FileName: Actors\Character\Character Assets\EyesMaleCharGen.tri
+TextureSet: 010D7C:Apocalypse - Magic of Skyrim.esp
+ValidRaces: 0A8027:Skyrim.esm
+MajorFlags:
+- NonPlayable

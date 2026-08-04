@@ -1,0 +1,33 @@
+FormKey: 0421AA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_TwilightZone_Template
+AmbientColor: '#00101B1B'
+DirectionalColor: '#00182227'
+FogNearColor: '#00142227'
+FogNear: 750
+FogFar: 2500
+DirectionalRotationXY: 270
+DirectionalRotationZ: 240
+DirectionalFade: 1
+FogClipDistance: 13000
+FogPower: 0.7
+AmbientColors:
+  DirectionalXPlus: '#00000000'
+  DirectionalXMinus: '#00000000'
+  DirectionalYPlus: '#00000000'
+  DirectionalYMinus: '#00000000'
+  DirectionalZPlus: '#00000000'
+  DirectionalZMinus: '#00000000'
+  Specular: '#004B6361'
+FogFarColor: '#00142227'
+FogMax: 1
+LightFadeStartDistance: 3000
+LightFadeEndDistance: 4000
+DirectionalAmbientColors:
+  DirectionalXPlus: '#00111B1C'
+  DirectionalXMinus: '#000E1B19'
+  DirectionalYPlus: '#00101C1B'
+  DirectionalYMinus: '#0010191B'
+  DirectionalZPlus: '#00070C0C'
+  DirectionalZMinus: '#00182929'
+  Specular: '#00000000'
+  Scale: 1

@@ -1,0 +1,20 @@
+FormKey: 0E6647:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Test2
+Model:
+  File: ApocNew\DestructionFire_Projectile_Emberbolt.nif
+  Data: 0x020000000000000000000000
+Type: Cone
+Speed: 512
+Range: 3096
+Light: 01CBB3:Skyrim.esm
+Explosion: 012EB5:Skyrim.esm
+Sound: 03E5E4:Skyrim.esm
+FadeDuration: 0.5
+ImpactForce: 1.5
+ConeSpread: 7.5
+CollisionRadius: 6
+Lifetime: 10
+RelaunchInterval: 0.15
+CollisionLayer: 100F2F:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 1

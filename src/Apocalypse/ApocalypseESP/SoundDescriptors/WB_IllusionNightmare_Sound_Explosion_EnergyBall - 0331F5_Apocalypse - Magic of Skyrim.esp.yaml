@@ -1,0 +1,11 @@
+FormKey: 0331F5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionNightmare_Sound_Explosion_EnergyBall
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\FX\Explosion\Catapult\FX_Explosion_Catapult_Near_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 4.85

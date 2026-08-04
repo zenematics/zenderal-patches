@@ -1,0 +1,18 @@
+FormKey: 09EBD3:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Projectile_MeridiasWrath
+ObjectBounds:
+  First: -148, -148, -28
+  Second: 148, 148, 20
+Model:
+  File: ApocNew\RestorationUndead_Projectile_MeridiasWrath.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Speed: 1250
+Range: 4000
+Light: 0B98C1:Apocalypse - Magic of Skyrim.esp
+Sound: 0B8DCE:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 10
+RelaunchInterval: 0.2
+MuzzleFlashModel: ''
+SoundLevel: 1

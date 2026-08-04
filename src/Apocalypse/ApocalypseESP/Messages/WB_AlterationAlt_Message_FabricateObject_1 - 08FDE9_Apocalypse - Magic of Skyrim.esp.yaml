@@ -1,0 +1,21 @@
+FormKey: 08FDE9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_FabricateObject_1
+Description:
+  TargetLanguage: English
+  Value: Fabricate which object?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Bridge
+- Text:
+    TargetLanguage: English
+    Value: Bed
+- Text:
+    TargetLanguage: English
+    Value: Chair
+- Text:
+    TargetLanguage: English
+    Value: Choose Crafting Furniture...

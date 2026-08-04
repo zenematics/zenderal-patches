@@ -1,0 +1,37 @@
+FormKey: 0BA3A1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Effect_KingsHeart_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Sound_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Sound
+      Object: 0ABFE1:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: King's Heart
+MenuDisplayObject: 11D1A7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01CEB0:Skyrim.esm
+Flags:
+- NoHitEvent
+- NoDuration
+- NoArea
+- FXPersist
+MagicSkill: Restoration
+HitShader: 0BB3E9:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+HitEffectArt: 0BA916:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.5
+PerkToApply: 0BA909:Apocalypse - Magic of Skyrim.esp
+CastingSoundLevel: Silent
+Sounds:
+- Type: Release
+  Sound: 13DA18:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Most skills fortified by <15>% and restoring <mag> points of Health per second.

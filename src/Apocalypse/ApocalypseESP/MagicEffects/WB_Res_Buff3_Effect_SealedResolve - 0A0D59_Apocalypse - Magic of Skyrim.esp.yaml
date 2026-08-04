@@ -1,0 +1,62 @@
+FormKey: 0A0D59:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff3_Effect_SealedResolve
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_Seal_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_Mult
+      Data: 0.5
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Restoration_Imod_Seal
+      Object: 0A12C6:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_Sealed_Spell
+      Object: 0A12C7:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_Sound
+      Object: 06EA53:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: WB_Stat
+      Data: health
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_UpdateRate
+      Data: 0.2
+Name:
+  TargetLanguage: English
+  Value: Sealed Resolve
+MenuDisplayObject: 082458:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 0A12C5:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Recover
+- DispelWithKeywords
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 100
+MagicSkill: Restoration
+CastingLight: 0069CF:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 11D199:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 0A0D58:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+ImageSpaceModifier: 0A12C6:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 1168F0:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Places a seal upon the caster for <dur> seconds. Losing <50>% of your current Health unlocks the seal, halving incoming damage for its remaining duration.

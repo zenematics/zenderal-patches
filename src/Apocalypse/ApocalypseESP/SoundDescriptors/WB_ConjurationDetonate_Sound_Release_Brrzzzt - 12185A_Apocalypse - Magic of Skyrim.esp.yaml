@@ -1,0 +1,11 @@
+FormKey: 12185A:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationDetonate_Sound_Release_Brrzzzt
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Conjure\BoundWeapon\MAG_Conjure_BoundWeapon_Appear_01.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 60
+Priority: 128
+StaticAttenuation: 7.49

@@ -1,0 +1,12 @@
+FormKey: 00E743:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationUnsummon_Sound_Impact_Generic
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\MAG\Generic\Impact\MAG_Generic_Projectile_Impact_01.wav
+OutputModel: 07E5DC:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 85
+Priority: 128
+StaticAttenuation: 3.08

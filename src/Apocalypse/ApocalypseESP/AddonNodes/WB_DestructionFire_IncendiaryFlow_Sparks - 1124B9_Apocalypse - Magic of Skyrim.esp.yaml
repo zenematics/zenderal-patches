@@ -1,0 +1,7 @@
+FormKey: 1124B9:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_IncendiaryFlow_Sparks
+Model:
+  File: ApocNew\DestructionFire_Hazard_IncendiaryFlow_Sparks.nif
+  Data: 0x020000000000000000000000
+NodeIndex: 113
+Flags: MasterParticleSystem

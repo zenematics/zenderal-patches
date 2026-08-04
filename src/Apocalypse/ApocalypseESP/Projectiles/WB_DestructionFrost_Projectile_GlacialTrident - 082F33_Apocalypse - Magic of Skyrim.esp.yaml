@@ -1,0 +1,19 @@
+FormKey: 082F33:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Projectile_GlacialTrident
+ObjectBounds:
+  First: -28, -7, -28
+  Second: 28, 107, 28
+Model:
+  File: ApocNew\DestructionFrost_Projectile_GlacialTrident.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.2
+Speed: 1000
+Range: 3500
+Light: 10FBF0:Skyrim.esm
+Sound: 0279B0:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+CollisionRadius: 8
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

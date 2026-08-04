@@ -1,0 +1,10 @@
+FormKey: 00B644:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Art_Battletide
+ObjectBounds:
+  First: -107, -29, -114
+  Second: 96, 91, 118
+Model:
+  File: ApocNew\AlterationAlt_Art_Battletide.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

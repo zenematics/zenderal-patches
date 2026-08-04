@@ -1,0 +1,18 @@
+FormKey: 008001:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_FXS_LootMagnet_Metal
+Type: Standard
+Category: 07F80B:Skyrim.esm
+AlternateSoundFor: 10FD65:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\WPN\Impact\Blade\2Hand\Metal\WPN_Impact_Blade2Hand_Metal_02.wav
+- Data\Sound\FX\WPN\Impact\Blade\2Hand\Metal\WPN_Impact_Blade2Hand_Metal_03.wav
+- Data\Sound\FX\WPN\Impact\Blade\2Hand\Metal\WPN_Impact_Blade2Hand_Metal_01.wav
+OutputModel: 100FAE:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 83
+PercentFrequencyShift: 70
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 2
+StaticAttenuation: 6.61

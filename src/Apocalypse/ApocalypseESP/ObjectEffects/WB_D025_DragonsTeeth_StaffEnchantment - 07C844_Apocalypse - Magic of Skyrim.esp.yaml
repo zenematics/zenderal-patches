@@ -1,0 +1,20 @@
+FormKey: 07C844:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D025_DragonsTeeth_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Dragon's Teeth
+EnchantmentCost: 50
+CastType: FireAndForget
+EnchantmentAmount: 50
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 07BD5E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 4
+- BaseEffect: 07BD5F:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 15
+    Duration: 4

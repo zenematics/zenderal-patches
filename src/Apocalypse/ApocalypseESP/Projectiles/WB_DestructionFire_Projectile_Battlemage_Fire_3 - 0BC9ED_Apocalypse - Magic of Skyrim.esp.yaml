@@ -1,0 +1,19 @@
+FormKey: 0BC9ED:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Battlemage_Fire_3
+Model:
+  File: ApocNew\DestructionFire_Projectile_Volcano.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.25
+Speed: 1024
+Range: 1024
+Light: 01CBB3:Skyrim.esm
+Sound: 03C8FB:Skyrim.esm
+MuzzleFlashDuration: 3
+FadeDuration: 0.5
+ImpactForce: 8
+CollisionRadius: 6
+RelaunchInterval: 0.2
+MuzzleFlashModel: Effects\ImpactEffects\FireballImpact01.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 1

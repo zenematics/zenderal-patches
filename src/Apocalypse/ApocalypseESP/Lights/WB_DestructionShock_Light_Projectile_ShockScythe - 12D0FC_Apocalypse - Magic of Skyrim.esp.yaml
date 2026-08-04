@@ -1,0 +1,12 @@
+FormKey: 12D0FC:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Light_Projectile_ShockScythe
+Time: -1
+Radius: 500
+Color: '#0091B8DF'
+Flags:
+- Dynamic
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.25

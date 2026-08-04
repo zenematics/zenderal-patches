@@ -1,0 +1,22 @@
+FormKey: 07A206:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D050_IceShiv_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Ice Shiv
+EnchantmentCost: 140
+CastType: FireAndForget
+EnchantmentAmount: 140
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 020A5B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+- BaseEffect: 024B41:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 60
+- BaseEffect: 0B729F:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 3

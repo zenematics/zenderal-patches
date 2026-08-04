@@ -1,0 +1,10 @@
+FormKey: 0CD2CD:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionGreen_Art_GrimCommand
+ObjectBounds:
+  First: -37, -48, 3
+  Second: 37, 31, 65
+Model:
+  File: ApocNew\IllusionGreen_Art_GrimCommand.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

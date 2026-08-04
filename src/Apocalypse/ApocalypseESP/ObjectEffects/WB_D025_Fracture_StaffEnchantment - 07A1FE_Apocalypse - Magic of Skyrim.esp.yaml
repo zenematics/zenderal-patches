@@ -1,0 +1,23 @@
+FormKey: 07A1FE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D025_Fracture_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Fracture
+EnchantmentCost: 54
+CastType: FireAndForget
+EnchantmentAmount: 54
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 00E121:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 5
+    Duration: 3
+- BaseEffect: 142B82:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 35
+- BaseEffect: 0B729F:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 3

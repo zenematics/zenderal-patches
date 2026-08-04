@@ -1,0 +1,21 @@
+FormKey: 05AC1D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionBlue_Explosion
+ObjectBounds:
+  First: -222, -196, -98
+  Second: 222, 196, 98
+Model:
+  File: ApocNew\IllusionBlue_Explosion.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 127A3C:Apocalypse - Magic of Skyrim.esp
+Sound1: 02D06D:Apocalypse - Magic of Skyrim.esp
+Sound2: 020D2C:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 11C6C3:Apocalypse - Magic of Skyrim.esp
+Force: 6
+Radius: 320
+ISRadius: 512
+VerticalOffsetMult: 0.6
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

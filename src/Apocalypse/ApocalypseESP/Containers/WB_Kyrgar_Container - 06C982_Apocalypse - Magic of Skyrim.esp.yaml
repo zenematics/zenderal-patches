@@ -1,0 +1,100 @@
+FormKey: 06C982:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: WB_Kyrgar_Container
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Value: Chest
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 10C1CC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 072AEC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10F64E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10F64F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10F650:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10F651:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10F652:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A297D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A297E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A297F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2980:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2981:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A298C:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A298D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A298E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A298F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2990:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2982:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2983:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2984:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2985:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A2986:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0FDE77:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0FDE78:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0FDE79:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0FDE7A:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0FDE7C:Skyrim.esm
+    Count: 1
+Flags:
+- Respawns
+MajorFlags:
+- NavMeshGenerationBoundingBox

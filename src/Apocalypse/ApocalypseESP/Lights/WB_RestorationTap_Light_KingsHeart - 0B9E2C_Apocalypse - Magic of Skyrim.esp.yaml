@@ -1,0 +1,21 @@
+FormKey: 0B9E2C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationTap_Light_KingsHeart
+ObjectBounds:
+  First: -80, -83, -5
+  Second: 79, 84, 0
+Model:
+  File: ApocNew\RestorationTap_Static_KingsHeart.nif
+  Data: 0x020000000000000000000000
+Time: -1
+Radius: 240
+Color: '#00C8AF82'
+Flags:
+- Dynamic
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FlickerIntensityAmplitude: 0.5
+FlickerMovementAmplitude: 0.5
+FadeValue: 1.5

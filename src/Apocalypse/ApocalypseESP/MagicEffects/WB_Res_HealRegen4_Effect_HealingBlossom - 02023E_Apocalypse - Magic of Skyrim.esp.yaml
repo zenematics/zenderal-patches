@@ -1,0 +1,40 @@
+FormKey: 02023E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_HealRegen4_Effect_HealingBlossom
+Name:
+  TargetLanguage: English
+  Value: Healing Blossom
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01CEB0:Skyrim.esm
+- 01FCC4:Apocalypse - Magic of Skyrim.esp
+Flags:
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+BaseCost: 4
+MagicSkill: Restoration
+CastingLight: 11D716:Apocalypse - Magic of Skyrim.esp
+HitShader: 020243:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+CastingArt: 11D717:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 124944:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.9
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: The blossom heals the caster <mag> points per second.

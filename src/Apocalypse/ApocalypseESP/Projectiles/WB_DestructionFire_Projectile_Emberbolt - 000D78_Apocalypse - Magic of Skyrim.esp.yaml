@@ -1,0 +1,20 @@
+FormKey: 000D78:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Projectile_Emberbolt
+ObjectBounds:
+  First: -51, -117, -8
+  Second: 51, 47, 7
+Model:
+  File: ApocNew\DestructionFire_Projectile_Emberbolt.nif
+  Data: 0x020000000000000000000000
+Type: Missile
+Gravity: 0.66
+Speed: 2500
+Range: 10000
+Light: 01CBB3:Skyrim.esm
+Sound: 000D62:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 1.5
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,37 @@
+FormKey: 095F42:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Necro4_Effect_Decompose_CloakProc
+Name:
+  TargetLanguage: English
+  Value: Life from Death
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- NoHitEvent
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- Painless
+- NoDeathDispel
+TaperWeight: 0.3
+HitShader: 09E103:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 75
+TaperCurve: 2
+TaperDuration: 0.1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: Absorb
+Projectile: 012FCF:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+ImpactData: 015C7B:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Transfers <mag> Health per second from the decomposing target to you.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

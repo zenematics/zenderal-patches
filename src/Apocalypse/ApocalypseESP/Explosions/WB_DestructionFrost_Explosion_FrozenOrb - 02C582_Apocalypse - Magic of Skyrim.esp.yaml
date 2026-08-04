@@ -1,0 +1,13 @@
+FormKey: 02C582:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Explosion_FrozenOrb
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+PlacedObject: 02C583:Apocalypse - Magic of Skyrim.esp
+Radius: 100
+ISRadius: 60
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap
+- NoControllerVibration
+SoundLevel: Silent

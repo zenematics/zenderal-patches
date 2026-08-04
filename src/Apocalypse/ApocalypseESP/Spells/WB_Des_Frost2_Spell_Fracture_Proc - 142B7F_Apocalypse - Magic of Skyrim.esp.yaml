@@ -1,0 +1,22 @@
+FormKey: 142B7F:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost2_Spell_Fracture_Proc
+Name:
+  TargetLanguage: English
+  Value: Fracture
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 49
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 142B7D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 35
+    Duration: 1
+- BaseEffect: 142B81:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.5
+    Duration: 1

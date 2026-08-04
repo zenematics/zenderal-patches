@@ -1,0 +1,7 @@
+FormKey: 06D4AF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionWizardfire_MPS
+Model:
+  File: ApocNew\DestructionWizardfire_MPS.nif
+  Data: 0x020000000000000000000000
+NodeIndex: 109
+Flags: MasterParticleSystem

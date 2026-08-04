@@ -1,0 +1,92 @@
+FormKey: 14365B:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Shock5_Effect_FingersOfTheMountain
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WB_CallLightningNew_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: crAtronachCloakShockDmg
+      Object: 06445D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LightningCloakDmg
+      Object: 02B392:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicDamageShock
+      Object: 01CEAF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_ChanceOfThunder
+      Data: 0.1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionShock_Marker_CallLightning_Thunder1
+      Object: 0137C0:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_DestructionShock_Marker_CallLightning_Thunder2
+      Object: 01FF7B:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_IsFingerProc
+      Object: 024E40:Apocalypse - Magic of Skyrim.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_RandomDelayMax
+      Data: 0.5
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WB_RandomDelayMin
+      Data: 0.2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WB_S_D100_FingersOfTheMountain_Spell_LightningStrike_PC
+      Object: 1124B1:Apocalypse - Magic of Skyrim.esp
+Name:
+  TargetLanguage: English
+  Value: Fingers of the Mountain
+MenuDisplayObject: 09FA64:Skyrim.esm
+Keywords:
+- 01CEAF:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+- 022839:Apocalypse - Magic of Skyrim.esp
+- 02283B:Apocalypse - Magic of Skyrim.esp
+- 044D4E:Apocalypse - Magic of Skyrim.esp
+- 024E40:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 1
+MagicSkill: Destruction
+ResistValue: ResistShock
+CastingLight: 08C29A:Apocalypse - Magic of Skyrim.esp
+HitShader: 0248C9:Apocalypse - Magic of Skyrim.esp
+MinimumSkillLevel: 100
+SpellmakingArea: 40
+SpellmakingCastingTime: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 08C299:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+ImageSpaceModifier: 024E41:Apocalypse - Magic of Skyrim.esp
+Sounds:
+- Sound: 03F208:Skyrim.esm
+- Type: Charge
+  Sound: 03F20C:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 0012F1:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Electrifies nearby opponents for <dur> seconds. When hit by a shock spell, lightning strikes for <mag> damage to Health and Magicka. Only works outdoors.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsActorConditionData
+  ComparisonValue: 1

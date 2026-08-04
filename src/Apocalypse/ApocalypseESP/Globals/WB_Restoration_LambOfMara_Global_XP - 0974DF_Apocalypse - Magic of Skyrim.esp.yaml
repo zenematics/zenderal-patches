@@ -1,0 +1,9 @@
+MutagenObjectType: GlobalFloat
+FormKey: 0974DF:Apocalypse - Magic of Skyrim.esp
+MajorRecordFlagsRaw: 64
+EditorID: WB_Restoration_LambOfMara_Global_XP
+SkyrimMajorRecordFlags:
+- 0x40
+MajorFlags:
+- Constant
+Data: 0.5

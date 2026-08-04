@@ -1,0 +1,7 @@
+FormKey: 010D7C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjureXivilaiSorcerer_Texture_Eyes
+Diffuse: Actors\Character\Eyes\EyeHighElf.dds
+NormalOrGloss: Actors\Character\Eyes\EyeBrown_n.dds
+EnvironmentMaskOrSubsurfaceTint: Actors\Character\Eyes\EyeEnvironmentMask_M.dds
+Environment: Cubemaps\EyeCubeMap.dds
+Flags: []

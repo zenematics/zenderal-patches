@@ -1,0 +1,18 @@
+FormKey: 07C846:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D025_Thundercrack_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Thundercrack
+EnchantmentCost: 43
+CastType: FireAndForget
+EnchantmentAmount: 43
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 07C83A:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 40
+- BaseEffect: 07C843:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 0.5

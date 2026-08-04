@@ -1,0 +1,21 @@
+FormKey: 0B0BD0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Spirit5_Spell_ConjureBearTotem_Ab
+Name:
+  TargetLanguage: English
+  Value: Voice of Old - FX
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 0B0BCF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1
+- BaseEffect: 0B0BDD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 1

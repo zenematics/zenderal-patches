@@ -1,0 +1,14 @@
+FormKey: 0829ED:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationArkay_Sound_Concentration_BreathOfArkay
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_Concentration_Fire_LPM.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: EnvelopeFast
+  RumbleValues: 1
+PercentFrequencyShift: 40
+Priority: 128
+StaticAttenuation: 7.05

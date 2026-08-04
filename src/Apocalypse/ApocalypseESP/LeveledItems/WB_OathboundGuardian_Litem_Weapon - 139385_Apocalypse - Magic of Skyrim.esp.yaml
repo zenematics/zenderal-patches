@@ -1,0 +1,41 @@
+FormKey: 139385:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_OathboundGuardian_Litem_Weapon
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 013841:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0135B8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10FAF9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 20
+- Data:
+    Level: 1
+    Reference: 10E0DE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10E0E1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10FAFB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1

@@ -1,0 +1,10 @@
+FormKey: 0A12D4:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationUndead_Art_MeridiasWrath
+ObjectBounds:
+  First: -143, -140, -133
+  Second: 143, 140, 149
+Model:
+  File: ApocNew\RestorationUndead_Art_MeridiasWrath.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

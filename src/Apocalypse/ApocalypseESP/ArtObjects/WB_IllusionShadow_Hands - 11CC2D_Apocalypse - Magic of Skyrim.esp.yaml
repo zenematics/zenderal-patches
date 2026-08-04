@@ -1,0 +1,9 @@
+FormKey: 11CC2D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_IllusionShadow_Hands
+ObjectBounds:
+  First: -3, -15, -16
+  Second: 4, 15, 16
+Model:
+  File: ApocNew\IllusionShadow_Hands.nif
+  Data: 0x020000000000000000000000
+Type: []

@@ -1,0 +1,16 @@
+FormKey: 097A52:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Explosion_TalonsOfNirn_Rupture
+ObjectBounds:
+  First: -28, -27, -14
+  Second: 29, 29, -1
+Model:
+  File: Effects\FXdustBurstTiny.nif
+  Data: 0x020000000000000000000000
+Sound1: 097A53:Apocalypse - Magic of Skyrim.esp
+ImpactDataSet: 03F819:Skyrim.esm
+Force: 256
+Radius: 256
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap

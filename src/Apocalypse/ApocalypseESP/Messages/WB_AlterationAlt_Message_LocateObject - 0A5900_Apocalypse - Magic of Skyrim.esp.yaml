@@ -1,0 +1,39 @@
+FormKey: 0A5900:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Message_LocateObject
+Description:
+  TargetLanguage: English
+  Value: Which object do you want to locate?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Ore Vein
+- Text:
+    TargetLanguage: English
+    Value: Gold
+- Text:
+    TargetLanguage: English
+    Value: Container
+- Text:
+    TargetLanguage: English
+    Value: Door
+- Text:
+    TargetLanguage: English
+    Value: Key
+- Text:
+    TargetLanguage: English
+    Value: Soul Gem
+- Text:
+    TargetLanguage: English
+    Value: Written Text
+- Text:
+    TargetLanguage: English
+    Value: Potion
+- Text:
+    TargetLanguage: English
+    Value: Mineral
+- Text:
+    TargetLanguage: English
+    Value: Equipment

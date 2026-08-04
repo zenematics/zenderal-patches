@@ -1,0 +1,30 @@
+FormKey: 15E73E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Des_Frost4_Spell_IcePrism_NPC
+Name:
+  TargetLanguage: English
+  Value: Ice Prism
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 133
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 1.5
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 15E73D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 50
+    Area: 25
+    Duration: 1
+- BaseEffect: 0B729D:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 1
+- BaseEffect: 0F3934:Skyrim.esm
+  Data:
+    Duration: 1

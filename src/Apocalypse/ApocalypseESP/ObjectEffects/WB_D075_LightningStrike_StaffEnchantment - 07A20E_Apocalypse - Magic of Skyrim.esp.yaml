@@ -1,0 +1,15 @@
+FormKey: 07A20E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_D075_LightningStrike_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Lightning Strike
+EnchantmentCost: 361
+CastType: FireAndForget
+EnchantmentAmount: 361
+TargetType: TargetLocation
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0FADFD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 60

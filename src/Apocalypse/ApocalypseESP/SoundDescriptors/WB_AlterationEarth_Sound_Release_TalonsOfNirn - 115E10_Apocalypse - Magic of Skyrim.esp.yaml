@@ -1,0 +1,11 @@
+FormKey: 115E10:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationEarth_Sound_Release_TalonsOfNirn
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\QST_AlduinDeath_Explosion_A_2D.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 70
+Priority: 128
+StaticAttenuation: 7.05

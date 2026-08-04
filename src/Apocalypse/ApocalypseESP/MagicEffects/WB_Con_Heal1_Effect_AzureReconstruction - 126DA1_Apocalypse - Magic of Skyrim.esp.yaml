@@ -1,0 +1,68 @@
+FormKey: 126DA1:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Heal1_Effect_AzureReconstruction
+VirtualMachineAdapter:
+  Scripts:
+  - Name: SayOnHitByMagicEffectScript
+    Properties:
+    - MutagenObjectType: ScriptIntProperty
+      Name: AllowForTeammate
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GameDaysPassed
+      Object: 000039:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TopicToSay
+      Object: 0AB884:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WICastNonHostileTimer
+      Object: 0E0CDC:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Azure Reconstruction
+MenuDisplayObject: 11F236:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01CEB0:Skyrim.esm
+- 037E14:Apocalypse - Magic of Skyrim.esp
+Flags:
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 0.25
+MagicSkill: Conjuration
+CastingLight: 03BA90:Skyrim.esm
+TaperWeight: 1
+SpellmakingCastingTime: 0.5
+TaperDuration: 0.3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012FDC:Skyrim.esm
+CastType: Concentration
+TargetType: TargetActor
+CastingArt: 0510CF:Skyrim.esm
+HitEffectArt: 088690:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 056B75:Skyrim.esm
+- Type: Release
+  Sound: 088693:Apocalypse - Magic of Skyrim.esp
+- Type: ConcentrationCastLoop
+  Sound: 016FA2:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Heal a conjured minion <mag> points per second.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetActorValuePercentConditionData
+    ActorValue: Health
+  ComparisonValue: 1

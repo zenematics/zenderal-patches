@@ -1,0 +1,50 @@
+FormKey: 0B933E:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_Buff5_Spell_WormShroud_Corpse
+Name:
+  TargetLanguage: English
+  Value: Worm Shroud
+MenuDisplayObject: 11D19E:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 200
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+Effects:
+- BaseEffect: 0B933C:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B9340:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B98BE:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B98BD:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B98BC:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B98BB:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B98BA:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B98B9:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B9356:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B934D:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30
+- BaseEffect: 0B98BF:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 30

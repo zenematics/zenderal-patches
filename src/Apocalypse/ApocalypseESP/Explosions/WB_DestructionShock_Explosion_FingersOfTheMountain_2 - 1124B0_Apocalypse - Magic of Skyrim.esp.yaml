@@ -1,0 +1,18 @@
+FormKey: 1124B0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionShock_Explosion_FingersOfTheMountain_2
+Model:
+  File: ApocNew\DestructionShock_Explosion_FingerOfTheMountain.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 024E42:Apocalypse - Magic of Skyrim.esp
+Sound1: 00234D:Apocalypse - Magic of Skyrim.esp
+Sound2: 03F20D:Skyrim.esm
+ImpactDataSet: 059ED9:Skyrim.esm
+PlacedObject: 1124AE:Apocalypse - Magic of Skyrim.esp
+Force: 128
+Radius: 64
+ISRadius: 128
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

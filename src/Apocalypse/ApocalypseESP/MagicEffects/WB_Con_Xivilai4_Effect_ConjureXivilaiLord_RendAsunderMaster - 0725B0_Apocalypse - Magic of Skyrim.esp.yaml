@@ -1,0 +1,47 @@
+FormKey: 0725B0:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Xivilai4_Effect_ConjureXivilaiLord_RendAsunderMaster
+Name:
+  TargetLanguage: English
+  Value: Rend Asunder - Daedric Mind
+MenuDisplayObject: 0059B0:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 012E65:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- HideInUI
+- PowerAffectsDuration
+MagicSkill: Destruction
+ResistValue: ResistMagic
+CastingLight: 00ECBD:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 0059B1:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 00ECBA:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 00857B:Apocalypse - Magic of Skyrim.esp
+ImpactData: 0059B9:Apocalypse - Magic of Skyrim.esp
+DualCastScale: 1.1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 0059B6:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    RunOnType: Target
+    Keyword: 037E15:Apocalypse - Magic of Skyrim.esp
+  ComparisonValue: 1

@@ -1,0 +1,45 @@
+FormKey: 05F74D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Res_HealRegen4_Spell_HealingBlossom
+Name:
+  TargetLanguage: English
+  Value: Healing Blossom
+MenuDisplayObject: 11D718:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 361
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 05F74B:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 10
+- BaseEffect: 02023E:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+    Duration: 20
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 05F74B:Apocalypse - Magic of Skyrim.esp
+- BaseEffect: 06DF78:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 30
+    Duration: 20
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0581F9:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 05F74B:Apocalypse - Magic of Skyrim.esp
+- BaseEffect: 11A4B6:Skyrim.esm
+  Data:
+    Magnitude: 8
+    Duration: 1

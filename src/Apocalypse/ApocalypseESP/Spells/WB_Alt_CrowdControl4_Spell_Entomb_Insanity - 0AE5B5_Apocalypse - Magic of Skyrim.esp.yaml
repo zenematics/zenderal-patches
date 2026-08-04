@@ -1,0 +1,21 @@
+FormKey: 0AE5B5:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Alt_CrowdControl4_Spell_Entomb_Insanity
+Name:
+  TargetLanguage: English
+  Value: Entomb Insanity
+MenuDisplayObject: 0A59AE:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 3185
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+Effects:
+- BaseEffect: 0AE5B4:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 100
+    Duration: 60

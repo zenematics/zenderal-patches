@@ -1,0 +1,13 @@
+FormKey: 0B0BDA:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationSummon_Explosion_BearTotem
+Model:
+  File: ApocNew\ConjurationSummon_Explosion.nif
+  Data: 0x020000000000000000000000
+Sound1: 00E741:Apocalypse - Magic of Skyrim.esp
+Radius: 144
+VerticalOffsetMult: 0.6
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Silent

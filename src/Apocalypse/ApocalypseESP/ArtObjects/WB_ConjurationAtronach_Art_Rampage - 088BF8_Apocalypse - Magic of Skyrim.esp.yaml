@@ -1,0 +1,10 @@
+FormKey: 088BF8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_ConjurationAtronach_Art_Rampage
+ObjectBounds:
+  First: -107, -107, -145
+  Second: 107, 107, 158
+Model:
+  File: ApocNew\ConjurationAtronach_Art_Rampage.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

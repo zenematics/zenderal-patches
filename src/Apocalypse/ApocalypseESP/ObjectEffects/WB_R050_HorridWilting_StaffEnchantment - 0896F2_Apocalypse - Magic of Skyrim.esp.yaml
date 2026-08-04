@@ -1,0 +1,17 @@
+FormKey: 0896F2:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_R050_HorridWilting_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Horrid Wilting
+EnchantmentCost: 130
+CastType: FireAndForget
+EnchantmentAmount: 130
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 1
+Effects:
+- BaseEffect: 012213:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Magnitude: 12
+    Area: 20
+    Duration: 10

@@ -1,0 +1,82 @@
+FormKey: 140AFE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_SoulTrap2_Effect_SoulCloak_CloakProc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicsoultrapfxscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CasterFXS
+      Object: 054224:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CasterVFX
+      Object: 0531B1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TargetFXS
+      Object: 054223:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TargetVFX
+      Object: 0531AF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TrapImod
+      Object: 054225:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TrapSoundFX
+      Object: 056AC6:Skyrim.esm
+  - Name: SayOnHitByMagicEffectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GameDaysPassed
+      Object: 000039:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TopicToSay
+      Object: 0AB884:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WICastNonHostileTimer
+      Object: 0E0CDC:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Soul Cloak - Scanner
+MenuDisplayObject: 1097CD:Skyrim.esm
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- FXPersist
+BaseCost: 3
+MagicSkill: Conjuration
+CastingLight: 03BA90:Skyrim.esm
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 04BE35:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+CastingArt: 0510CF:Skyrim.esm
+HitEffectArt: 0506D6:Skyrim.esm
+ImpactData: 04C6DA:Skyrim.esm
+SkillUsageMultiplier: 0.06
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsEssentialConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsCommandedActorConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 103AD2:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

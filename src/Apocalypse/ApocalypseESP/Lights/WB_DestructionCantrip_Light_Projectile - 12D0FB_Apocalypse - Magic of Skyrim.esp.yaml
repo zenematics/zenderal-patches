@@ -1,0 +1,12 @@
+FormKey: 12D0FB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionCantrip_Light_Projectile
+Time: -1
+Radius: 350
+Color: '#00CF81AE'
+Flags:
+- Dynamic
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 1.5

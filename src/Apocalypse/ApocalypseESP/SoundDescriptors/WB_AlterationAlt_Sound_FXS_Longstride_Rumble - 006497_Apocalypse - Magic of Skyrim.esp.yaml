@@ -1,0 +1,13 @@
+FormKey: 006497:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_AlterationAlt_Sound_FXS_Longstride_Rumble
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\AtronachStorm\NPC_AtronachStorm_Conscious_LP.wav
+OutputModel: 06CB4F:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 40
+Priority: 128
+StaticAttenuation: 16.74

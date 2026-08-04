@@ -1,0 +1,20 @@
+FormKey: 055B32:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Ill_Invis3_Spell_Shadowbond_Proc
+Name:
+  TargetLanguage: English
+  Value: Shadowbond
+MenuDisplayObject: 11CC31:Apocalypse - Magic of Skyrim.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C4:Skyrim.esm
+Effects:
+- BaseEffect: 055B31:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 600

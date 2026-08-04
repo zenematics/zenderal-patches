@@ -1,0 +1,16 @@
+FormKey: 0263FB:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFire_Sound_Activator_Volcano_Fountain
+Type: Standard
+Category: 071E63:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\FX\Fire\FX_Fire_Large_01_LP.wav
+- Data\Sound\FX\FX\Fire\FX_Fire_Large_02_LP.wav
+- Data\Sound\FX\FX\Fire\FX_Fire_Large_03_LP.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: -25
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 0.88

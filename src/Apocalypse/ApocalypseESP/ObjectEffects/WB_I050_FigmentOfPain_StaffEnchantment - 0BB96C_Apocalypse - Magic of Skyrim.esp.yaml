@@ -1,0 +1,15 @@
+FormKey: 0BB96C:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_I050_FigmentOfPain_StaffEnchantment
+Name:
+  TargetLanguage: English
+  Value: Figment of Pain
+EnchantmentCost: 219
+CastType: FireAndForget
+EnchantmentAmount: 219
+TargetType: TargetActor
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 052547:Apocalypse - Magic of Skyrim.esp
+  Data:
+    Duration: 20

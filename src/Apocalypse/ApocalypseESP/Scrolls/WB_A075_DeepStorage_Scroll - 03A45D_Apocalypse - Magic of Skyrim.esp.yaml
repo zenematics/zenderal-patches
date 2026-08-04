@@ -1,0 +1,23 @@
+FormKey: 03A45D:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_A075_DeepStorage_Scroll
+Name:
+  TargetLanguage: English
+  Value: Scroll of Deep Storage
+Keywords:
+- 0A0E57:Skyrim.esm
+MenuDisplayObject: 076E8F:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Model:
+  File: Clutter\Common\Scroll01.nif
+  Data: 0x020000000000000000000000
+Value: 125
+Weight: 0.5
+BaseCost: 325
+ChargeTime: 4
+CastType: 3
+Effects:
+- BaseEffect: 085008:Apocalypse - Magic of Skyrim.esp
+  Data: {}

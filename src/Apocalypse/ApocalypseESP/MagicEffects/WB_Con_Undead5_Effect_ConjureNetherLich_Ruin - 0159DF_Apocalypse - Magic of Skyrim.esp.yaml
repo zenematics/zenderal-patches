@@ -1,0 +1,58 @@
+FormKey: 0159DF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_Con_Undead5_Effect_ConjureNetherLich_Ruin
+Name:
+  TargetLanguage: English
+  Value: Atrophy
+MenuDisplayObject: 11D1A7:Apocalypse - Magic of Skyrim.esp
+Keywords:
+- 01546A:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 24
+MagicSkill: Restoration
+CastingLight: 11D1AC:Apocalypse - Magic of Skyrim.esp
+HitShader: 0164B9:Apocalypse - Magic of Skyrim.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+Projectile: 111D07:Apocalypse - Magic of Skyrim.esp
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 11D1A5:Apocalypse - Magic of Skyrim.esp
+HitEffectArt: 11D1A6:Apocalypse - Magic of Skyrim.esp
+ImpactData: 11D714:Apocalypse - Magic of Skyrim.esp
+SkillUsageMultiplier: 0.1
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 015465:Apocalypse - Magic of Skyrim.esp
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 120819:Apocalypse - Magic of Skyrim.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> damage and reduces skill levels by <mag> for <dur> seconds. This effect stacks.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

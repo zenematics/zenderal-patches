@@ -1,0 +1,18 @@
+FormKey: 11E1E8:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_DestructionFrost_Beam_Fracture
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 2000
+Light: 0DC20C:Skyrim.esm
+Sound: 001864:Apocalypse - Magic of Skyrim.esp
+FadeDuration: 0.5
+ImpactForce: 6
+CollisionRadius: 1
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

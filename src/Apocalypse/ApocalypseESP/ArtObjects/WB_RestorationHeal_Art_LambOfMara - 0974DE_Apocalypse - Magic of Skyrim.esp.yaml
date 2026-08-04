@@ -1,0 +1,10 @@
+FormKey: 0974DE:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_RestorationHeal_Art_LambOfMara
+ObjectBounds:
+  First: 0, -28, -19
+  Second: 0, 31, 22
+Model:
+  File: ApocNew\RestorationHeal_Art_LambOfMara.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting
