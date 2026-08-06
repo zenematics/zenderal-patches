@@ -1,0 +1,10 @@
+FormKey: 000800:Zenderal - Relentless Sword.esp
+EditorID: JS_1stPersonRelentlessSword
+ObjectBounds:
+  First: -8, -13, -1
+  Second: 8, 70, 1
+Model:
+  File: johnskyrim\relentless\relentless.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

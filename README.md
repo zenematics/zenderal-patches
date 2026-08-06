@@ -307,6 +307,28 @@ itself the signal to give it a FOMOD.
   Riverville Temple, and blacksmiths who deal in blueprints stock it from level 30. One copy unlocks
   all six swords. They temper at a sharpening wheel and dismantle back into shadowsteel at a smelter.
 
+### `Zenderal - Relentless Sword Zen`
+
+**Install this archive *instead of* the one above — never both.** Both contain a plugin called
+`Zenderal - Relentless Sword.esp`; this one's copy carries eight blades rather than six. Pick the
+archive that matches the build of johnskyrim's mod you own:
+
+| You have | Install |
+|---|---|
+| the Nexus build (CORE branch) | `Zenderal - Relentless Sword.7z` |
+| the Patreon **ZEN** build | `Zenderal - Relentless Sword Zen.7z` |
+
+- **The ZEN build is Patreon-only and is a rebuild of the whole mod**, so it goes in *instead of*
+  the Nexus download. Disable `Relentless Sword SE - Johnskyrim.esp` as before. Its installer's
+  only choices are Fire/Ice/Zen glow intensity, all asset-only; 2K and 4K are interchangeable.
+- Everything from the six-blade release is present and unchanged, plus johnskyrim's *Zen* design —
+  black handle, gold runes — as a longsword and a greatsword. The same single blueprint unlocks all
+  eight.
+- The Zen pair costs **one Diamond** on top of the base recipe. Otherwise identical: Handicraft 50,
+  any forge, shadowsteel stats, tempers at a sharpening wheel, dismantles at a smelter.
+- **Switching later is safe.** The six original swords keep their FormIDs across both archives, so
+  swapping one for the other leaves blades already in your inventory or in a save intact.
+
 ### `Zenderal - Skip To Taming The Waves`
 
 - **DO NOT INSTALL ALONGSIDE *Skip Intro SE*.** Both mods repoint Enderal's game-start marker and

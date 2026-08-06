@@ -1,0 +1,60 @@
+FormKey: 015282:Skyrim.esm
+EditorID: FlusshaimTemple
+Version2: 1
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Riverville, Temple
+  - Language: Japanese
+    String: 'リバーヴィル: 聖堂'
+  - Language: Spanish
+    String: Villarrío, Templo
+  - Language: Polish
+    String: Rzeczny Gród, Świątynia
+  - Language: Italian
+    String: Riverville - Tempio
+  - Language: Korean
+    String: 리버빌, 신전
+  - Language: French
+    String: Riveville - Temple
+  - Language: Chinese
+    String: 河城，神殿
+  - Language: German
+    String: Flusshaim, Tempel
+  - Language: Russian
+    String: Речное, Храм
+Flags:
+- IsInteriorCell
+- PublicArea
+Lighting:
+  AmbientColor: '#0028241A'
+  DirectionalColor: '#00475863'
+  FogNearColor: '#004E4436'
+  FogFar: 5000
+  DirectionalRotationZ: 90
+  FogPower: 1.75
+  AmbientColors:
+    DirectionalXPlus: '#002C241B'
+    DirectionalXMinus: '#00232418'
+    DirectionalYPlus: '#0028251A'
+    DirectionalYMinus: '#0028221A'
+    DirectionalZPlus: '#0013110B'
+    DirectionalZMinus: '#003C3628'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00B6E9FA'
+  FogMax: 1
+LightingTemplate: 0C0C75:Skyrim.esm
+WaterHeight: 0
+Location: 14FFCC:Skyrim.esm
+AcousticSpace: 0FF495:Skyrim.esm
+Music: 03785C:Skyrim.esm
+ImageSpace: 0A2687:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000827:Zenderal - Relentless Sword.esp
+  Base: 000826:Zenderal - Relentless Sword.esp
+  Placement:
+    Position: 2394.7634, 1198.1769, -1483.8273
+    Rotation: 0, -0, 3.1800003

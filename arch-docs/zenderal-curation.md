@@ -62,6 +62,19 @@ if it needed none.
 |---|---|---|---|---|
 | [Relentless Sword SE](https://www.nexusmods.com/skyrimspecialedition/mods/114022) — johnskyrim | 1.0 | A craftable high-tier longsword in 1H and 2H, in Enderal's own dark-metal register. Small (34 records); overrides only two existing records — the Riverville Temple cell and one blueprint vendor list. | **RelentlessSword** | **Install for meshes/textures only — its own `.esp` must be disabled.** Install the **CORE** (runed) branch; the fire/ice glow intensity stays johnskyrim's FOMOD choice and is asset-only. The shipped plugin cannot load or function in Enderal on four counts, all fixed in the patch — see below. |
 
+| Relentless Sword SE — **ZEN build** (johnskyrim, Patreon) | 2024-03-15 | The same sword with a black handle and gold runes, as a seventh design. Ships johnskyrim's whole mod rebuilt, so it *replaces* the Nexus download rather than sitting alongside it. | **RelentlessSwordZen** | **Install in place of the Nexus build**, for meshes/textures only — its own `.esp` must be disabled. Then install the **`Zenderal - Relentless Sword Zen`** archive *instead of* the plain one: both ship a plugin called `Zenderal - Relentless Sword.esp`, and the ZEN archive's copy carries all eight blades. **Never install both.** Its installer has no NoRune branch and no damage branch; the only choices are Fire/Ice/**Zen** glow intensity, all asset-only. 2K and 4K downloads ship identical plugins and meshes. |
+
+**The ZEN build is a superset, and its six shared blades are unchanged where it matters**
+(verified 2026-08-06): same FormIDs, same model paths, same stats. It differs only in display names
+(`Relentless Ice` → `Relentless - Ice`) and a couple of animation flags — neither of which reaches
+the game, because our patch supplies those six records and johnskyrim's plugin is disabled. Its
+CORE meshes are re-exports (~390 KB vs ~750 KB) but sit at the same paths and reference the same
+textures, so `Zenderal - Relentless Sword.esp` works against it unchanged. Its Zen recipes gate on
+the Skyforge (`0F46CE`) and the Companions global (`0F46D1`), neither of which exists in Enderal —
+the same defect as the base mod, fixed the same way. Its one extra ingredient, `063B47`, **does**
+exist in Enderal as `GemDiamond` ("Diamond", 280 gold, used by two of Enderal's own recipes), so it
+was kept.
+
 **Why Relentless Sword needed a conversion rather than a patch** (all verified against
 `reference/base/`, 2026-08-01):
 
@@ -243,6 +256,12 @@ tell you.
 | Position | Plugin | Must load after | Because |
 |---|---|---|---|
 | last | `Zenderal - Relentless Sword.esp` | anything editing `FlusshaimTemple` (`015282`) or `_00ETraderCraftingPlansC` (`148ABE`) | It overrides both to place and stock the crafting blueprint. A mod that edits the Riverville Temple cell and loads after it will drop the blueprint from the shelf — the vendor entry is the fallback, but the hand-placed copy is the intended find. |
+
+> The **ZEN** release is the *same plugin filename* carrying two extra swords, so it occupies the
+> same load-order slot and inherits the same rule. It is an either/or with the row above, never an
+> addition — see the ZEN row in the mod table. It needs the Patreon build of johnskyrim's mod for
+> `relentless_zen.nif`; installed against the Nexus build, its two Zen blades are invisible while
+> the other six work normally.
 
 **Patches from this repo load last**, after everything they forward, or they are not forwarding
 anything. See `enderal-record-patterns.md` §0.1.

@@ -1,0 +1,23 @@
+FormKey: 000826:Zenderal - Relentless Sword.esp
+EditorID: JS_CraftingPlan_RelentlessSword
+Version2: 1
+ObjectBounds:
+  First: -12, -17, 0
+  Second: 12, 17, 1
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: 'Blueprint: Relentless Sword (Handicraft 50)'
+Model:
+  File: Enderal\books\Craftingplans\Craftingplan.nif
+  Data: 0x020000000000000000000000
+  AlternateTextures:
+  - Name: TG_WallRubbingBlank01:3
+    NewTexture: 09D079:Skyrim.esm
+Keywords:
+- 0914E9:Skyrim.esm
+- 0914EE:Skyrim.esm
+- 0493B5:Skyrim.esm
+Value: 150
+Weight: 0.1
