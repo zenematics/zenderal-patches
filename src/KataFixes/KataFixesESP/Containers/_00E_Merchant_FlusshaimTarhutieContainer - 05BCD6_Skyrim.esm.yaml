@@ -1,0 +1,269 @@
+FormKey: 05BCD6:Skyrim.esm
+MajorRecordFlagsRaw: 134217728
+EditorID: _00E_Merchant_FlusshaimTarhutieContainer
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Value: Chest
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 580
+- Item:
+    Item: 0028C5:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0028C8:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0028D9:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028E5:Skyrim.esm
+    Count: 12
+- Item:
+    Item: 012FDF:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 012FE7:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 012FEA:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 012FEB:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0134AA:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 016C1B:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 019E3B:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 019E3D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 019E41:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 019E43:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 01B3BD:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 02E4E2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E3:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E4:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E6:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 032E80:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 034CDD:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 034CDF:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 034D22:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 03AD63:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 03AD66:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0458DB:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 045C28:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 04C97E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 04C980:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 04DA22:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 04DA24:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 063B43:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 06717F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0672D6:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 077376:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07B2F8:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07C980:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07C981:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07C982:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07E8C1:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 084E64:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0854FE:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 085668:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0889A2:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 08A51F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0905A8:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0905AA:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 09151B:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 09BAF8:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A9195:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0BB956:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E2617:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E4F0C:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0F11C0:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0F76D8:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 0FEC69:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 118209:Skyrim.esm
+    Count: 6
+- Item:
+    Item: 11820A:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 1379FF:Skyrim.esm
+    Count: 6
+- Item:
+    Item: 02F090:Enderal - Forgotten Stories.esm
+    Count: 2
+- Item:
+    Item: 02F091:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 02F092:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 02F093:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 0302F7:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 00089E:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 001EA0:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 00A02E:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00A030:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00A032:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00A031:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00A033:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F794:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7C4:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7C5:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7D0:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7CF:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7D1:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7D2:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7D3:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 00F7D4:KataPUMBSpellPack.esp
+    Count: 1
+- Item:
+    Item: 010458:KataPUMBSpellPack.esp
+    Count: 1
+Flags:
+- Respawns
+Weight: 20
+MajorFlags:
+- NavMeshGenerationBoundingBox

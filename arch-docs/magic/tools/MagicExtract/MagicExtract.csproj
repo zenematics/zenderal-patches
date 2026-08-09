@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- net9.0: this machine has 9.0.x and 10.0.x runtimes but NO 8.0; Mutagen 0.54.4 ships net9.0. -->
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- Lockfile committed: NuGet lists ancient 7.1.0/23.4.0 packages AFTER 0.54.4 in its version
+         index. A floating restore that picked one of those would fail in confusing ways
+         (no EnderalSE, netstandard2.1). Keep the pin + lock. -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- READ-ONLY tool. This Mutagen version must never be used to WRITE a plugin in this repo:
+         plugin authoring goes through pinned Spriggit 0.40.0 (see CLAUDE.md). -->
+    <PackageReference Include="Mutagen.Bethesda.Skyrim" Version="[0.54.4]" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="golden.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,455 @@
+FormKey: 1447A2:Skyrim.esm
+EditorID: _00E_SpellBooksLootC
+ChanceNone: 0.15
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 04325B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04325C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 044E6B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F768F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F7690:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F7694:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F7697:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F769B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A50D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A50E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A50F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E133:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E137:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E13B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E14A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E14E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E153:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E16C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E16D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E16F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E170:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E177:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E17A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E17B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 134823:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 135726:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 135729:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13572C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13572D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137457:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137458:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1376C7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137795:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13779F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1377A0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1377A5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1377B3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137939:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13793A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13797F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137980:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137984:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137985:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13798A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1379DE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1379E1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1379E2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13E3CC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 144798:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 144799:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 14479A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 14479F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1447A0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1447A1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 14485A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E8DA:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E8DB:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E8E2:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E8F0:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01EFCD:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01EFD6:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01EFDF:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01F0D9:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01F0DA:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01FE1E:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01FE1F:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01FEB1:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01FEBC:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02F288:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02F28A:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02F2A3:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02F2A4:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00615D:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00615E:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 006160:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 006172:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 006178:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00617C:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 006181:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 006190:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 006194:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0061BA:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0061C1:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0061C2:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0061CA:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0061E1:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0061E2:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00ACAC:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00D23C:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0142EF:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0142F3:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0142F7:KataPUMBSpellPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0008A7:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0008AD:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001CE6:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001CE7:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001D0C:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001E42:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001E45:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EAE:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0083FF:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 008402:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00081B:EGO - KataPUMB Spell Package.esp
+    Count: 1
+- Data:
+    Level: 18
+    Reference: 1C1E73:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 1C1E74:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 18
+    Reference: 1C1E73:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 18
+    Reference: 1C1E73:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 1C1E74:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 1C1E74:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 18
+    Reference: 1C1E73:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 1C1E74:Apocalypse - Magic of Skyrim.esp
+    Count: 1

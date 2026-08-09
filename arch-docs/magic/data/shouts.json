@@ -1,0 +1,4017 @@
+{
+  "schemaVersion": 1,
+  "recordType": "SHOU",
+  "records": [
+    {
+      "formKey": "001470:KataHiddenPowers.esp",
+      "editorId": "Kata_P01_FireBomb",
+      "name": "Lava Bomb",
+      "description": "Throw a bomb which triggers a fire explosion upon impact, deals damage and reduces armor.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "001471:KataHiddenPowers.esp",
+            "editorId": "Kata_P01_FireBomb01",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "001476:KataHiddenPowers.esp",
+            "editorId": "Kata_P01_SP_FireBomb_I",
+            "name": "Lava Bomb"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "001472:KataHiddenPowers.esp",
+            "editorId": "Kata_P01_FireBomb02",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "00147B:KataHiddenPowers.esp",
+            "editorId": "Kata_P01_SP_FireBomb_II",
+            "name": "Lava Bomb"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "001473:KataHiddenPowers.esp",
+            "editorId": "Kata_P01_FireBomb03",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "00147D:KataHiddenPowers.esp",
+            "editorId": "Kata_P01_SP_FireBomb_III",
+            "name": "Lava Bomb"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "KataHiddenPowers.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "EGO SE - KataPUMB Hidden Powers.esp",
+        "winnerLoadOrderIndex": 144,
+        "chain": [
+          "KataHiddenPowers.esp",
+          "EGO SE - KataPUMB Hidden Powers.esp"
+        ],
+        "changedFields": [
+          "name",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "001E53:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionGulFireBreathDUPLICATE001",
+      "name": "Fire Breath",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "020E17:Skyrim.esm",
+            "editorId": "WordYol",
+            "name": "Yol"
+          },
+          "spell": {
+            "formKey": "001E54:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "XionGulFireBreath",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 22
+        },
+        {
+          "word": {
+            "formKey": "020E18:Skyrim.esm",
+            "editorId": "WordToor",
+            "name": "T8r"
+          },
+          "spell": {
+            "formKey": "001E54:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "XionGulFireBreath",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 22
+        },
+        {
+          "word": {
+            "formKey": "020E19:Skyrim.esm",
+            "editorId": "WordShul",
+            "name": "Shul"
+          },
+          "spell": {
+            "formKey": "001E54:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "XionGulFireBreath",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 22
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "002C91:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "_00E_DwarvenCenturionSteamBreath02",
+      "name": "Steam Breath",
+      "wordsOfPower": [
+        {
+          "spell": {
+            "formKey": "002C92:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "crDwarvenCenturionSteamBreath50",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 35
+        },
+        {
+          "spell": {
+            "formKey": "002C92:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "crDwarvenCenturionSteamBreath50",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 35
+        },
+        {
+          "spell": {
+            "formKey": "002C92:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "crDwarvenCenturionSteamBreath50",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 35
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "002E10:KataHiddenPowers.esp",
+      "editorId": "Kata_P02_BecomeEthereal",
+      "name": "Spirit Realm",
+      "description": "Enter the realm of spirits and become unable to attack and immune to all damage. ",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "00219B:KataHiddenPowers.esp",
+            "editorId": "Kata_P02_Ethereal01",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "002E0B:KataHiddenPowers.esp",
+            "editorId": "Kata_P02_SP_BecomeEthereal_I",
+            "name": "Spirit Realm"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "00219A:KataHiddenPowers.esp",
+            "editorId": "Kata_P02_Ethereal02",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "002E0C:KataHiddenPowers.esp",
+            "editorId": "Kata_P02_SP_BecomeEthereal_II",
+            "name": "Spirit Realm"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "00219C:KataHiddenPowers.esp",
+            "editorId": "Kata_P02_Ethereal03",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "002E0E:KataHiddenPowers.esp",
+            "editorId": "Kata_P02_SP_BecomeEthereal_III",
+            "name": "Spirit Realm"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "KataHiddenPowers.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "EGO SE - KataPUMB Hidden Powers.esp",
+        "winnerLoadOrderIndex": 144,
+        "chain": [
+          "KataHiddenPowers.esp",
+          "EGO SE - KataPUMB Hidden Powers.esp"
+        ],
+        "changedFields": [
+          "name",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "002E3C:KataHiddenPowers.esp",
+      "editorId": "Kata_P03_HammerTheGap",
+      "name": "Brute Force",
+      "description": "Your attacks release your unstoppable might staggering your opponents. Your power attacks overwhelm your enemies, knocking them back.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "002E38:KataHiddenPowers.esp",
+            "editorId": "Kata_P03_HG01",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "002E33:KataHiddenPowers.esp",
+            "editorId": "Kata_P03_SP_HammerTheGap_I",
+            "name": "Brute Force"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "002E3A:KataHiddenPowers.esp",
+            "editorId": "Kata_P03_HG02",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "002E34:KataHiddenPowers.esp",
+            "editorId": "Kata_P03_SP_HammerTheGap_II",
+            "name": "Brute Force"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "002E3B:KataHiddenPowers.esp",
+            "editorId": "Kata_P03_HG03",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "002E36:KataHiddenPowers.esp",
+            "editorId": "Kata_P03_SP_HammerTheGap_III",
+            "name": "Brute Force"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "KataHiddenPowers.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "EGO SE - KataPUMB Hidden Powers.esp",
+        "winnerLoadOrderIndex": 144,
+        "chain": [
+          "KataHiddenPowers.esp",
+          "EGO SE - KataPUMB Hidden Powers.esp"
+        ],
+        "changedFields": [
+          "name",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "006036:KataHiddenPowers.esp",
+      "editorId": "Kata_P04_SmokeCurtain",
+      "name": "Smoke Curtain",
+      "description": "End all combat and become invisible for a short duration.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "006033:KataHiddenPowers.esp",
+            "editorId": "Kata_P04_SC01",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006023:KataHiddenPowers.esp",
+            "editorId": "Kata_P04_SP_SmokeCurtain_I",
+            "name": "Smoke Curtain I"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "006034:KataHiddenPowers.esp",
+            "editorId": "Kata_P04_SC02",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006028:KataHiddenPowers.esp",
+            "editorId": "Kata_P04_SP_SmokeCurtain_II",
+            "name": "Smoke Curtain II"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "006035:KataHiddenPowers.esp",
+            "editorId": "Kata_P04_SC03",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "00602A:KataHiddenPowers.esp",
+            "editorId": "Kata_P04_SP_SmokeCurtain_III",
+            "name": "Smoke Curtain III"
+          },
+          "recoveryTime": 15
+        }
+      ],
+      "provenance": {
+        "definedIn": "KataHiddenPowers.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "KataHiddenPowers.esp",
+        "winnerLoadOrderIndex": 122,
+        "chain": [
+          "KataHiddenPowers.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "006CB5:KataHiddenPowers.esp",
+      "editorId": "Kata_P05_ArcaneExploit",
+      "name": "Arcane Exploit",
+      "description": "Overflow yourself with power taking damage but boosting your magic resistance and outgoing spell damage.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "006CB7:KataHiddenPowers.esp",
+            "editorId": "Kata_P05_AE01",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CB0:KataHiddenPowers.esp",
+            "editorId": "Kata_P05_SP_ArcaneExploit_I",
+            "name": "Arcane Exploit I"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "006CB8:KataHiddenPowers.esp",
+            "editorId": "Kata_P05_AE02",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CB1:KataHiddenPowers.esp",
+            "editorId": "Kata_P05_SP_ArcaneExploit_II",
+            "name": "Arcane Exploit II"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "006CB9:KataHiddenPowers.esp",
+            "editorId": "Kata_P05_AE03",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CB3:KataHiddenPowers.esp",
+            "editorId": "Kata_P05_SP_ArcaneExploit_III",
+            "name": "Arcane Exploit III"
+          },
+          "recoveryTime": 15
+        }
+      ],
+      "provenance": {
+        "definedIn": "KataHiddenPowers.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "KataHiddenPowers.esp",
+        "winnerLoadOrderIndex": 122,
+        "chain": [
+          "KataHiddenPowers.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "006CDC:KataHiddenPowers.esp",
+      "editorId": "Kata_P06_DarkArena",
+      "name": "Dark Arena",
+      "description": "Create an impenetrable barrier around yourself. Inside the cage you deal more physical damage and receive less physical damage.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "006CD8:KataHiddenPowers.esp",
+            "editorId": "Kata_P06_DA01",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CD3:KataHiddenPowers.esp",
+            "editorId": "Kata_P06_SP_DarkArena_I",
+            "name": "Dark Arena"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "006CDA:KataHiddenPowers.esp",
+            "editorId": "Kata_P06_DA02",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CD4:KataHiddenPowers.esp",
+            "editorId": "Kata_P06_SP_DarkArena_II",
+            "name": "Dark Arena"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "006CDB:KataHiddenPowers.esp",
+            "editorId": "Kata_P06_DA03",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CD6:KataHiddenPowers.esp",
+            "editorId": "Kata_P06_SP_DarkArena_III",
+            "name": "Dark Arena"
+          },
+          "recoveryTime": 15
+        }
+      ],
+      "provenance": {
+        "definedIn": "KataHiddenPowers.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "EGO SE - KataPUMB Hidden Powers.esp",
+        "winnerLoadOrderIndex": 144,
+        "chain": [
+          "KataHiddenPowers.esp",
+          "EGO SE - KataPUMB Hidden Powers.esp"
+        ],
+        "changedFields": [
+          "description"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "006CFE:KataHiddenPowers.esp",
+      "editorId": "Kata_P07_GrapplingHook",
+      "name": "Grappling Hook",
+      "description": "Throw a hook to your aimed target dealing physical damage and pulling it towards you.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "006CFA:KataHiddenPowers.esp",
+            "editorId": "Kata_P07_Hook01",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CF5:KataHiddenPowers.esp",
+            "editorId": "Kata_P07_SP_Hook_I",
+            "name": "Hook"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "006CFC:KataHiddenPowers.esp",
+            "editorId": "Kata_P07_Hook02",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CF6:KataHiddenPowers.esp",
+            "editorId": "Kata_P07_SP_Hook_II",
+            "name": "Hook"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "006CFD:KataHiddenPowers.esp",
+            "editorId": "Kata_P07_Hook03",
+            "name": "FF"
+          },
+          "spell": {
+            "formKey": "006CF8:KataHiddenPowers.esp",
+            "editorId": "Kata_P07_SP_Hook_III",
+            "name": "Hook"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "KataHiddenPowers.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "EGO SE - KataPUMB Hidden Powers.esp",
+        "winnerLoadOrderIndex": 144,
+        "chain": [
+          "KataHiddenPowers.esp",
+          "EGO SE - KataPUMB Hidden Powers.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "008408:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "_00E_MyradPoisonBreathShoutBounty",
+      "name": "Poison Breath",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "149752:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoison03",
+            "name": "Poisonous Breath"
+          },
+          "recoveryTime": 12
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "149752:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoison03",
+            "name": "Poisonous Breath"
+          },
+          "recoveryTime": 12
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "149752:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoison03",
+            "name": "Poisonous Breath"
+          },
+          "recoveryTime": 12
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "013E07:Skyrim.esm",
+      "editorId": "_00E_A2_PrimalForce",
+      "name": "Archaic Might",
+      "description": "Unleashes a shockwave which does a massive amount of physical damage. Staggered enemies take additional damage.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "05653C:Skyrim.esm",
+            "editorId": "_00E_A2_PrimalForceWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "013F3A:Skyrim.esm",
+            "editorId": "_00E_A2_PrimalForceSP",
+            "name": "Archaic Might"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "05653B:Skyrim.esm",
+            "editorId": "_00E_A2_PrimalForceWord02",
+            "name": "Gr4"
+          },
+          "spell": {
+            "formKey": "013F3A:Skyrim.esm",
+            "editorId": "_00E_A2_PrimalForceSP",
+            "name": "Archaic Might"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "05653A:Skyrim.esm",
+            "editorId": "_00E_A2_PrimalForceWord03",
+            "name": "D4"
+          },
+          "spell": {
+            "formKey": "013F3A:Skyrim.esm",
+            "editorId": "_00E_A2_PrimalForceSP",
+            "name": "Archaic Might"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "016CF0:Skyrim.esm",
+      "editorId": "DragonUnrelentingForceShout",
+      "name": "Dragon Unrelenting Force",
+      "description": "Staggers targets and knocks over loose objects.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "016D45:Skyrim.esm",
+            "editorId": "DragonVoiceUnrelentingForce",
+            "name": "Unrelenting Force - Fus Ro Da"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "016D45:Skyrim.esm",
+            "editorId": "DragonVoiceUnrelentingForce",
+            "name": "Unrelenting Force - Fus Ro Da"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "016D45:Skyrim.esm",
+            "editorId": "DragonVoiceUnrelentingForce",
+            "name": "Unrelenting Force - Fus Ro Da"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "01CABF:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A3_Book_Mage_PsionicDart",
+      "name": "Psionic Stinger",
+      "description": "Drives an enemy up to a certain level mad for a short period of time. ",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "01CABC:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_A3_Mage_PsionicDart_Word_01",
+            "name": "Su"
+          },
+          "spell": {
+            "formKey": "044799:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Mage_PsionicDartSP"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "01CABD:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_A3_Mage_PsionicDart_Word_02",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "044799:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Mage_PsionicDartSP"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "01CABE:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_A3_Mage_PsionicDart_Word_03",
+            "name": "D4"
+          },
+          "spell": {
+            "formKey": "044799:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Mage_PsionicDartSP"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "01E93E:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_Phasmalist_A1_SummonApparationShout",
+      "name": "Summon Apparition",
+      "description": "Summons the apparition bound to your talisman. If it is already summoned it is instead unsummoned.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "01E93F:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_SummonApparation1",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "01F1BF:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A1_SummonApparationCastSP",
+            "name": "Summon Apparition"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "01E940:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_SummonApparation2",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "01F1BF:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A1_SummonApparationCastSP",
+            "name": "Summon Apparition"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "01E941:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_SummonApparation3",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "01F1BF:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A1_SummonApparationCastSP",
+            "name": "Summon Apparition"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal - Forgotten Stories.esm",
+        "winnerLoadOrderIndex": 5,
+        "chain": [
+          "Enderal - Forgotten Stories.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "01E97C:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A0_Phasmalist_TapestryOfSouls",
+      "name": "Tapestry of Souls",
+      "description": "Allows you to see souls if the unlocked tier of Tapestry of Souls is high enough. Pay attention to the whispering noise to find them.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "01E979:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_SeeSouls1",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "01E976:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A0_TapestryOfSoulsSP",
+            "name": "Net of Souls"
+          },
+          "recoveryTime": 60
+        },
+        {
+          "word": {
+            "formKey": "01E97A:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_SeeSouls2",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "01E976:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A0_TapestryOfSoulsSP",
+            "name": "Net of Souls"
+          },
+          "recoveryTime": 60
+        },
+        {
+          "word": {
+            "formKey": "01E97B:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_SeeSouls3",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "01E976:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A0_TapestryOfSoulsSP",
+            "name": "Net of Souls"
+          },
+          "recoveryTime": 60
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "name",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "01E983:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A2_Phasmalist_TransmuteShout",
+      "name": "Transmute",
+      "description": "Allows you to extract ectoplasm from killed undead enemies and soul stones from normal corpses.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "01E980:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_Transmute1",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "01E984:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A2_TransmuteSP",
+            "name": "Transmute"
+          },
+          "recoveryTime": 300
+        },
+        {
+          "word": {
+            "formKey": "01E981:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_Transmute2",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "01E984:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A2_TransmuteSP",
+            "name": "Transmute"
+          },
+          "recoveryTime": 150
+        },
+        {
+          "word": {
+            "formKey": "01E982:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_Transmute3",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "01E984:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A2_TransmuteSP",
+            "name": "Transmute"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "01EC77:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_Phasmalist_A3_MoveApparationToPlayerShout",
+      "name": "Call Apparition",
+      "description": "Teleports your currently summoned apparition to you.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "01EC78:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_MoveApparationToPlayer1",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "01EC76:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A3_MoveApparationToPlayer",
+            "name": "Call Apparition"
+          },
+          "recoveryTime": 0
+        },
+        {
+          "word": {
+            "formKey": "01EC79:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_MoveApparationToPlayer2",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "01EC76:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A3_MoveApparationToPlayer",
+            "name": "Call Apparition"
+          },
+          "recoveryTime": 0
+        },
+        {
+          "word": {
+            "formKey": "01EC7A:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Phasmalist_MoveApparationToPlayer3",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "01EC76:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Phasmalist_A3_MoveApparationToPlayer",
+            "name": "Call Apparition"
+          },
+          "recoveryTime": 0
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal - Forgotten Stories.esm",
+        "winnerLoadOrderIndex": 5,
+        "chain": [
+          "Enderal - Forgotten Stories.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "024101:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A3_TharaelFireShout",
+      "name": "Unleashed Fury",
+      "description": "Inflicts entropy damage to enemies in front of you.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02E53F:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_NQR05_TharaelWord_01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "024102:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_TharaelFireBreathSP",
+            "name": "Entropic Fire"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "02E540:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_NQR05_TharaelWord_02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "024102:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_TharaelFireBreathSP",
+            "name": "Entropic Fire"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "02E541:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_NQR05_TharaelWord_03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "024102:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_TharaelFireBreathSP",
+            "name": "Entropic Fire"
+          },
+          "recoveryTime": 75
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0252C0:Skyrim.esm",
+      "editorId": "DragonFireBreathShout01",
+      "name": "Fire Breath",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "0252C2:Skyrim.esm",
+            "editorId": "VoiceDragonFire01",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "0252C2:Skyrim.esm",
+            "editorId": "VoiceDragonFire01",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "0252C2:Skyrim.esm",
+            "editorId": "VoiceDragonFire01",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "029B9F:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A1_Theriantrophist_TransformBack",
+      "name": "Transform Back",
+      "description": "Transform back into a human form.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "029BA0:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_TransformBack_Word01",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02E750:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_TransformBack",
+            "name": "Transform Back"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "029BA1:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_TransformBack_Word02",
+            "name": "Wan"
+          },
+          "spell": {
+            "formKey": "02E750:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_TransformBack",
+            "name": "Transform Back"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "029BA2:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_TransformBack_Word03",
+            "name": "Deln"
+          },
+          "spell": {
+            "formKey": "02E750:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_TransformBack",
+            "name": "Transform Back"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal - Forgotten Stories.esm",
+        "winnerLoadOrderIndex": 5,
+        "chain": [
+          "Enderal - Forgotten Stories.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "02EA97:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A2_Theriantrophist_Laboratory",
+      "name": "Portable Laboratory",
+      "description": "Allows you to use a portable alchemy laboratory on your travels.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02EA91:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Laboratory_Word01",
+            "name": "La"
+          },
+          "spell": {
+            "formKey": "02EA96:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_SummonLaboratorySpell",
+            "name": "Laboratory"
+          },
+          "recoveryTime": 160
+        },
+        {
+          "word": {
+            "formKey": "02EA92:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Laboratory_Word02",
+            "name": "Bor"
+          },
+          "spell": {
+            "formKey": "02EA96:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_SummonLaboratorySpell",
+            "name": "Laboratory"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "02EA93:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Laboratory_Word03",
+            "name": "Buh"
+          },
+          "spell": {
+            "formKey": "02EA96:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_SummonLaboratorySpell",
+            "name": "Laboratory"
+          },
+          "recoveryTime": 3
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "02EA9F:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A3_Theriantrophist_Howl",
+      "name": "Call of the Hunt",
+      "description": "Emit a terrifying howl which damages nearby enemies.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02EAAB:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Howl_Word01",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02EAB2:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Theriantrophist_HowlSP",
+            "name": "Call of the Hunt"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "02EAAC:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Howl_Word02",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02EAB2:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Theriantrophist_HowlSP",
+            "name": "Call of the Hunt"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "02EAAD:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Howl_Word03",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02EAB2:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A3_Theriantrophist_HowlSP",
+            "name": "Call of the Hunt"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "02EAA0:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A4_Theriantrophist_Detoxification",
+      "name": "Detoxification",
+      "description": "Unleashes all chymica in a deadly poison cloud",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02EAB0:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Detoxification_Word01",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02EAC4:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A4_Theriantrophist_DetoxificationSP",
+            "name": "Detoxification"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "02EAAF:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Detoxification_Word02",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02EAC4:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A4_Theriantrophist_DetoxificationSP",
+            "name": "Detoxification"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "02EAAE:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_Detoxification_Word03",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02EAC4:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_A4_Theriantrophist_DetoxificationSP",
+            "name": "Detoxification"
+          },
+          "recoveryTime": 90
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "02EFD8:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_A0_Theriantrophist_ToggleDetectLife",
+      "name": "Switch Instinct",
+      "description": "You activate or deactivate the memory \u0022Instinct\u0022.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02EFD9:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_ToggleDetectLife_Word01",
+            "name": "Ver"
+          },
+          "spell": {
+            "formKey": "02EFD7:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_ToggleDetectLife",
+            "name": "Switch Instinct"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "02EFDA:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_ToggleDetectLife_Word02",
+            "name": "Wan"
+          },
+          "spell": {
+            "formKey": "02EFD7:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_ToggleDetectLife",
+            "name": "Switch Instinct"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "02EFDB:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Theriantrophist_ToggleDetectLife_Word03",
+            "name": "Deln"
+          },
+          "spell": {
+            "formKey": "02EFD7:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Theriantrophist_ToggleDetectLife",
+            "name": "Switch Instinct"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal - Forgotten Stories.esm",
+        "winnerLoadOrderIndex": 5,
+        "chain": [
+          "Enderal - Forgotten Stories.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "02F19A:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_Affinity_ScourgeOfTheWilds_Titan",
+      "name": "Colossus",
+      "description": "For a short period of time you grow into a behemoth with increased resistances, Stamina and Health.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02F19B:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_ScourgeOfTheWilds_Titan_Word01",
+            "name": "Ti"
+          },
+          "spell": {
+            "formKey": "02F19E:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_ScourgeOfTheWilds_TitanSP",
+            "name": "Colossus"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "02F19C:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_ScourgeOfTheWilds_Titan_Word02",
+            "name": "Ta"
+          },
+          "spell": {
+            "formKey": "02F19E:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_ScourgeOfTheWilds_TitanSP",
+            "name": "Colossus"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "02F19D:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_ScourgeOfTheWilds_Titan_Word03",
+            "name": "Nen"
+          },
+          "spell": {
+            "formKey": "02F19E:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_ScourgeOfTheWilds_TitanSP",
+            "name": "Colossus"
+          },
+          "recoveryTime": 110
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower",
+          "description"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "02F1AD:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_Affinity_Soulcaller_TransformApparation",
+      "name": "United Souls",
+      "description": "Your apparition transforms into a werewolf for a limited amount of time.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02F1AA:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_Soulcaller_TransformApparation_Word01",
+            "name": "Er"
+          },
+          "spell": {
+            "formKey": "02F1A9:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_Soulcaller_TransformApparationSP",
+            "name": "United Souls"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "02F1AB:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_Soulcaller_TransformApparation_Word02",
+            "name": "schei"
+          },
+          "spell": {
+            "formKey": "02F1A9:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_Soulcaller_TransformApparationSP",
+            "name": "United Souls"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "02F1AC:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_Soulcaller_TransformApparation_Word03",
+            "name": "nung"
+          },
+          "spell": {
+            "formKey": "02F1A9:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_Soulcaller_TransformApparationSP",
+            "name": "United Souls"
+          },
+          "recoveryTime": 110
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "02F395:Enderal - Forgotten Stories.esm",
+      "editorId": "_00E_Affinity_Ravager_EldritchFeast",
+      "name": "Massaker",
+      "description": "Absorbs Health with every hit in wolf form for a short period of time.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "02F392:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_Ravager_EldritchFeast_Word01",
+            "name": "Ti"
+          },
+          "spell": {
+            "formKey": "02F390:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_Ravager_EldritchFeastSP",
+            "name": "Feast"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "02F393:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_Ravager_EldritchFeast_Word02",
+            "name": "Ti"
+          },
+          "spell": {
+            "formKey": "02F390:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_Ravager_EldritchFeastSP",
+            "name": "Feast"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "02F394:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_Affinity_Ravager_EldritchFeast_Word03",
+            "name": "Ti"
+          },
+          "spell": {
+            "formKey": "02F390:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_Affinity_Ravager_EldritchFeastSP",
+            "name": "Feast"
+          },
+          "recoveryTime": 110
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal - Forgotten Stories.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Bug Fixes.esp",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "name",
+          "wordsOfPower",
+          "description"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0399D9:Skyrim.esm",
+      "editorId": "_00E_A2_Ghostwalk",
+      "name": "Ghostwalk",
+      "description": "You teleport yourself forward unnoticed. You become invisble for a short period of time and have an increased critical hit chance.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0399DE:Skyrim.esm",
+            "editorId": "_00E_A2_GhostwalkWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "02E8ED:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_A2_Ghostwalk_NewSP",
+            "name": "Ghostwalk"
+          },
+          "recoveryTime": 50
+        },
+        {
+          "word": {
+            "formKey": "0399DF:Skyrim.esm",
+            "editorId": "_00E_A2_GhostwalkWord02",
+            "name": "Gr4"
+          },
+          "spell": {
+            "formKey": "02E8ED:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_A2_Ghostwalk_NewSP",
+            "name": "Ghostwalk"
+          },
+          "recoveryTime": 45
+        },
+        {
+          "word": {
+            "formKey": "0399E0:Skyrim.esm",
+            "editorId": "_00E_A2_GhostwalkWord03",
+            "name": "Dun"
+          },
+          "spell": {
+            "formKey": "02E8ED:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_FS_A2_Ghostwalk_NewSP",
+            "name": "Ghostwalk"
+          },
+          "recoveryTime": 40
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "03A473:Skyrim.esm",
+      "editorId": "_00E_A2_EyeOfTheStorm",
+      "name": "Eye of the Storm",
+      "description": "Your extraordinary focus allows you to perceive time differently for some seconds.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "03A46A:Skyrim.esm",
+            "editorId": "_00E_A2_EyeOfTheStormWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "03A472:Skyrim.esm",
+            "editorId": "_00E_A2_EyeOfTheStormSP",
+            "name": "Eye of the Storm"
+          },
+          "recoveryTime": 140
+        },
+        {
+          "word": {
+            "formKey": "03A46B:Skyrim.esm",
+            "editorId": "_00E_A2_EyeOfTheStormWord02",
+            "name": "Gr4"
+          },
+          "spell": {
+            "formKey": "03A472:Skyrim.esm",
+            "editorId": "_00E_A2_EyeOfTheStormSP",
+            "name": "Eye of the Storm"
+          },
+          "recoveryTime": 140
+        },
+        {
+          "word": {
+            "formKey": "03A46C:Skyrim.esm",
+            "editorId": "_00E_A2_EyeOfTheStormWord03",
+            "name": "Dun"
+          },
+          "spell": {
+            "formKey": "03A472:Skyrim.esm",
+            "editorId": "_00E_A2_EyeOfTheStormSP",
+            "name": "Eye of the Storm"
+          },
+          "recoveryTime": 140
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "03C60C:Skyrim.esm",
+      "editorId": "_00E_A1_DevourSoul",
+      "name": "Devour Soul",
+      "description": "Absorbs Health, on higher tiers also Mana and Stamina, from a fallen enemy.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "03C60D:Skyrim.esm",
+            "editorId": "_00E_A1_DevourSoulWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "03C60B:Skyrim.esm",
+            "editorId": "_00E_A1_DevourSoulSP",
+            "name": "Seele verschlingen"
+          },
+          "recoveryTime": 10
+        },
+        {
+          "word": {
+            "formKey": "03C60E:Skyrim.esm",
+            "editorId": "_00E_A1_DevourSoulWord02",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "03C60B:Skyrim.esm",
+            "editorId": "_00E_A1_DevourSoulSP",
+            "name": "Seele verschlingen"
+          },
+          "recoveryTime": 10
+        },
+        {
+          "word": {
+            "formKey": "03C60F:Skyrim.esm",
+            "editorId": "_00E_A1_DevourSoulWord03",
+            "name": "D4"
+          },
+          "spell": {
+            "formKey": "03C60B:Skyrim.esm",
+            "editorId": "_00E_A1_DevourSoulSP",
+            "name": "Seele verschlingen"
+          },
+          "recoveryTime": 10
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "03C6B3:Skyrim.esm",
+      "editorId": "_00E_A1_Flashpowder",
+      "name": "Flash Powder",
+      "description": "Blinds your enemies so you can hide again. Blinded enemies cannot be attacked.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "03C6B6:Skyrim.esm",
+            "editorId": "_00E_A1_FlashpowderWord01",
+            "name": "Dun"
+          },
+          "spell": {
+            "formKey": "0F8625:Skyrim.esm",
+            "editorId": "_00E_A1_FlashpowderSP",
+            "name": "Blitzpulver"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "03C6B5:Skyrim.esm",
+            "editorId": "_00E_A1_FlashpowderWord02",
+            "name": "Gr4"
+          },
+          "spell": {
+            "formKey": "0F8625:Skyrim.esm",
+            "editorId": "_00E_A1_FlashpowderSP",
+            "name": "Blitzpulver"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "03C6B4:Skyrim.esm",
+            "editorId": "_00E_A1_FlashpowderWord03",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "0F8625:Skyrim.esm",
+            "editorId": "_00E_A1_FlashpowderSP",
+            "name": "Blitzpulver"
+          },
+          "recoveryTime": 90
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "03C6BD:Skyrim.esm",
+      "editorId": "_00E_A1_Invisibility",
+      "name": "Psionic Veil",
+      "description": "Warps you in a spectral veil for a short period of time which makes you invisible.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "03C6BA:Skyrim.esm",
+            "editorId": "_00E_A1_InvisibilityWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "03C6BE:Skyrim.esm",
+            "editorId": "_00E_A1_InvisibilitySP",
+            "name": "Spectral Veil"
+          },
+          "recoveryTime": 90
+        },
+        {
+          "word": {
+            "formKey": "03C6BB:Skyrim.esm",
+            "editorId": "_00E_A1_InvisibilityWord02",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "03C6BE:Skyrim.esm",
+            "editorId": "_00E_A1_InvisibilitySP",
+            "name": "Spectral Veil"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "03C6BC:Skyrim.esm",
+            "editorId": "_00E_A1_InvisibilityWord03",
+            "name": "D4"
+          },
+          "spell": {
+            "formKey": "03C6BE:Skyrim.esm",
+            "editorId": "_00E_A1_InvisibilitySP",
+            "name": "Spectral Veil"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "03C6CF:Skyrim.esm",
+      "editorId": "_00E_A1_Rift",
+      "name": "Dimension Rift",
+      "description": "Incapacitates an enemy for a short period of time, absorbs their Mana and Stamina in batches and deals them the total absorbed energy as damage when the effect ends.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "03C6D0:Skyrim.esm",
+            "editorId": "_00E_A1_RiftWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "03C75B:Skyrim.esm",
+            "editorId": "_00E_A1_RiftSP",
+            "name": "Dimension Rift"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "03C6D2:Skyrim.esm",
+            "editorId": "_00E_A1_RiftWord02",
+            "name": "Grah"
+          },
+          "spell": {
+            "formKey": "03C75B:Skyrim.esm",
+            "editorId": "_00E_A1_RiftSP",
+            "name": "Dimension Rift"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "03C6D1:Skyrim.esm",
+            "editorId": "_00E_A1_RiftWord03",
+            "name": "Frul"
+          },
+          "spell": {
+            "formKey": "03C75B:Skyrim.esm",
+            "editorId": "_00E_A1_RiftSP",
+            "name": "Dimension Rift"
+          },
+          "recoveryTime": 110
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "03C78A:Skyrim.esm",
+      "editorId": "_00E_A1_ArcticWind",
+      "name": "Arctic Wind",
+      "description": "Launches a cone of frost which freezes weaker or equal enemies. Frozen enemies may shatter.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "03C78B:Skyrim.esm",
+            "editorId": "_00E_A1_ArcticWindWord01",
+            "name": "Hun"
+          },
+          "spell": {
+            "formKey": "03C790:Skyrim.esm",
+            "editorId": "_00E_A1_ArcticWindSP",
+            "name": "Arctic Wind"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "03C78D:Skyrim.esm",
+            "editorId": "_00E_A1_ArcticWindWord02",
+            "name": "Fus"
+          },
+          "spell": {
+            "formKey": "03C790:Skyrim.esm",
+            "editorId": "_00E_A1_ArcticWindSP",
+            "name": "Arctic Wind"
+          },
+          "recoveryTime": 90
+        },
+        {
+          "word": {
+            "formKey": "03C78E:Skyrim.esm",
+            "editorId": "_00E_A1_ArcticWindWord03",
+            "name": "Aus"
+          },
+          "spell": {
+            "formKey": "03C790:Skyrim.esm",
+            "editorId": "_00E_A1_ArcticWindSP",
+            "name": "Arctic Wind"
+          },
+          "recoveryTime": 80
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "03F9EA:Skyrim.esm",
+      "editorId": "FireBreathShout",
+      "name": "Fire Breath",
+      "description": "Inhale air, exhale flame, and behold the Thu\u0027um as inferno.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "020E17:Skyrim.esm",
+            "editorId": "WordYol",
+            "name": "Yol"
+          },
+          "spell": {
+            "formKey": "03F9EB:Skyrim.esm",
+            "editorId": "VoiceFireBreath1",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 30
+        },
+        {
+          "word": {
+            "formKey": "020E18:Skyrim.esm",
+            "editorId": "WordToor",
+            "name": "T8r"
+          },
+          "spell": {
+            "formKey": "03F9EC:Skyrim.esm",
+            "editorId": "VoiceFireBreath2",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 50
+        },
+        {
+          "word": {
+            "formKey": "020E19:Skyrim.esm",
+            "editorId": "WordShul",
+            "name": "Shul"
+          },
+          "spell": {
+            "formKey": "03F9ED:Skyrim.esm",
+            "editorId": "VoiceFireBreath3",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "043A12:Skyrim.esm",
+      "editorId": "_00E_A3_Book_Rogue_FrostBomb",
+      "name": "Glacial Bomb",
+      "description": "Throw a bomb which triggers an ice explosion upon impact, deals damage and freezes enemies that can be shattered.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "043A18:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Rogue_FrostBombWord01",
+            "name": "Slen"
+          },
+          "spell": {
+            "formKey": "043A0B:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Rogue_FrostBombCastSP",
+            "name": "Glacial Bomb"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "043A1D:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Rogue_FrostBombWord02",
+            "name": "Su"
+          },
+          "spell": {
+            "formKey": "043A0B:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Rogue_FrostBombCastSP",
+            "name": "Glacial Bomb"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "043A1E:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Rogue_FrostBombWord03",
+            "name": "Strun"
+          },
+          "spell": {
+            "formKey": "043A0B:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Rogue_FrostBombCastSP",
+            "name": "Glacial Bomb"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "043FDE:Skyrim.esm",
+      "editorId": "_00E_A3_Book_Warrior_Onslaught",
+      "name": "Onslaught",
+      "description": "Charge at your enemies, deal them a bit of damage and stagger them.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "05C275:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Warrior_Onslaught_Word_01",
+            "name": "Su"
+          },
+          "spell": {
+            "formKey": "03345A:Skyrim.esm",
+            "editorId": "_00E_A1_Onslaught_SP_Short",
+            "name": "Onslaught"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "05C278:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Warrior_Onslaught_Word_02",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "03729A:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Warrior_Onslaught_SP_Medium",
+            "name": "Onslaught"
+          },
+          "recoveryTime": 75
+        },
+        {
+          "word": {
+            "formKey": "05C27B:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Warrior_Onslaught_Word_03",
+            "name": "D4"
+          },
+          "spell": {
+            "formKey": "03729B:Skyrim.esm",
+            "editorId": "_00E_FS_A3_Warrior_Onslaught_SP_Long",
+            "name": "Onslaught"
+          },
+          "recoveryTime": 70
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "047FA7:Skyrim.esm",
+      "editorId": "_00E_DwarvenCenturionSteamBreath01",
+      "name": "Steam Breath",
+      "wordsOfPower": [
+        {
+          "spell": {
+            "formKey": "10E754:Skyrim.esm",
+            "editorId": "crDwarvenCenturionSteamBreath30",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 40
+        },
+        {
+          "spell": {
+            "formKey": "10E754:Skyrim.esm",
+            "editorId": "crDwarvenCenturionSteamBreath30",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 40
+        },
+        {
+          "spell": {
+            "formKey": "10E754:Skyrim.esm",
+            "editorId": "crDwarvenCenturionSteamBreath30",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 40
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "047FA8:Skyrim.esm",
+      "editorId": "_00E_DwarvenCenturionSteamBreath03",
+      "name": "Steam Breath",
+      "wordsOfPower": [
+        {
+          "spell": {
+            "formKey": "090355:Skyrim.esm",
+            "editorId": "crDwarvenCenturionSteamBreath60",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 30
+        },
+        {
+          "spell": {
+            "formKey": "090355:Skyrim.esm",
+            "editorId": "crDwarvenCenturionSteamBreath60",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 30
+        },
+        {
+          "spell": {
+            "formKey": "090355:Skyrim.esm",
+            "editorId": "crDwarvenCenturionSteamBreath60",
+            "name": "Steam breath"
+          },
+          "recoveryTime": 30
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "04DBA5:Skyrim.esm",
+      "editorId": "DragonFireBallShout01",
+      "name": "Fire Ball",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "0742CE:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall01",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "0742CE:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall01",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "0742CE:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall01",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0549B2:Skyrim.esm",
+      "editorId": "DragonFrostBreathShout02",
+      "name": "Frost Breath",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "0549B3:Skyrim.esm",
+            "editorId": "VoiceDragonFrost02",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "0549B3:Skyrim.esm",
+            "editorId": "VoiceDragonFrost02",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "0549B3:Skyrim.esm",
+            "editorId": "VoiceDragonFrost02",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "05C231:Skyrim.esm",
+      "editorId": "_00E_Class_Meditate",
+      "name": "Meditation",
+      "description": "Meditate to unlock new memories and thus make yourself stronger.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "05C270:Skyrim.esm",
+            "editorId": "_00E_Class_ClassMenuWord",
+            "name": "Din"
+          },
+          "spell": {
+            "formKey": "05C244:Skyrim.esm",
+            "editorId": "_00E_Class_OpenClassMenuSpell"
+          },
+          "recoveryTime": 3
+        },
+        {
+          "word": {
+            "formKey": "05C270:Skyrim.esm",
+            "editorId": "_00E_Class_ClassMenuWord",
+            "name": "Din"
+          },
+          "spell": {
+            "formKey": "05C244:Skyrim.esm",
+            "editorId": "_00E_Class_OpenClassMenuSpell"
+          },
+          "recoveryTime": 3
+        },
+        {
+          "word": {
+            "formKey": "05C270:Skyrim.esm",
+            "editorId": "_00E_Class_ClassMenuWord",
+            "name": "Din"
+          },
+          "spell": {
+            "formKey": "05C244:Skyrim.esm",
+            "editorId": "_00E_Class_OpenClassMenuSpell"
+          },
+          "recoveryTime": 3
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "05C232:Skyrim.esm",
+      "editorId": "_00E_A1_Shadowtongueoil",
+      "name": "Shadowtongue Oil",
+      "description": "Throw a bottle of Shadowtongue Oil which leaves behind a slippery oil puddle at the place the bottle hits.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "05C26F:Skyrim.esm",
+            "editorId": "_00E_A1_ShadowtongueOilWord01",
+            "name": "Slen"
+          },
+          "spell": {
+            "formKey": "136DA8:Skyrim.esm",
+            "editorId": "_00E_A1_ShadowtongueOilCastSP",
+            "name": "Snake Tongue Oil"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "05C273:Skyrim.esm",
+            "editorId": "_00E_A1_ShadowtongueOilWord02",
+            "name": "Su"
+          },
+          "spell": {
+            "formKey": "136DA8:Skyrim.esm",
+            "editorId": "_00E_A1_ShadowtongueOilCastSP",
+            "name": "Snake Tongue Oil"
+          },
+          "recoveryTime": 90
+        },
+        {
+          "word": {
+            "formKey": "05C277:Skyrim.esm",
+            "editorId": "_00E_A1_ShadowtongueOilWord03",
+            "name": "Strun"
+          },
+          "spell": {
+            "formKey": "136DA8:Skyrim.esm",
+            "editorId": "_00E_A1_ShadowtongueOilCastSP",
+            "name": "Snake Tongue Oil"
+          },
+          "recoveryTime": 80
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "name",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "05C233:Skyrim.esm",
+      "editorId": "_00E_A1_Firearrow",
+      "name": "Fire Arrow",
+      "description": "Creates fire arrows in your quiver which can set your target on fire.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "05C274:Skyrim.esm",
+            "editorId": "_00E_A1_FirearrowWord01",
+            "name": "Bah"
+          },
+          "spell": {
+            "formKey": "05C24D:Skyrim.esm",
+            "editorId": "_00E_A1_FireArrowSP",
+            "name": "Fire Arrow"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "05C279:Skyrim.esm",
+            "editorId": "_00E_A1_FirearrowWord02",
+            "name": "Dah"
+          },
+          "spell": {
+            "formKey": "05C24D:Skyrim.esm",
+            "editorId": "_00E_A1_FireArrowSP",
+            "name": "Fire Arrow"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "05C27A:Skyrim.esm",
+            "editorId": "_00E_A1_FirearrowWord03",
+            "name": "Din"
+          },
+          "spell": {
+            "formKey": "05C24D:Skyrim.esm",
+            "editorId": "_00E_A1_FireArrowSP",
+            "name": "Fire Arrow"
+          },
+          "recoveryTime": 110
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "05D16B:Skyrim.esm",
+      "editorId": "FrostBreathShout",
+      "name": "Frost Breath",
+      "description": "Your breath is winter, you Thu\u0027um a blizzard.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "05D16C:Skyrim.esm",
+            "editorId": "WordFo",
+            "name": "Fo"
+          },
+          "spell": {
+            "formKey": "05D172:Skyrim.esm",
+            "editorId": "VoiceFrostBreath1",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 30
+        },
+        {
+          "word": {
+            "formKey": "05D16D:Skyrim.esm",
+            "editorId": "WordKrah",
+            "name": "Kr4"
+          },
+          "spell": {
+            "formKey": "05D173:Skyrim.esm",
+            "editorId": "VoiceFrostBreath2",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 50
+        },
+        {
+          "word": {
+            "formKey": "05D16E:Skyrim.esm",
+            "editorId": "WordDiin",
+            "name": "D3n"
+          },
+          "spell": {
+            "formKey": "05D174:Skyrim.esm",
+            "editorId": "VoiceFrostBreath3",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "066832:Skyrim.esm",
+      "editorId": "_00E_A1_SkaraggStance",
+      "name": "Skaraggian Stance",
+      "description": "Increases damage and power of your blows and shield bashes, but also the damage you take yourself.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "066844:Skyrim.esm",
+            "editorId": "_00E_A1_SkaraggStanceWord01",
+            "name": "Klo"
+          },
+          "spell": {
+            "formKey": "067221:Skyrim.esm",
+            "editorId": "_00E_A1_SkaraggStanceSP",
+            "name": "Skaraggian Stance"
+          },
+          "recoveryTime": 4
+        },
+        {
+          "word": {
+            "formKey": "066843:Skyrim.esm",
+            "editorId": "_00E_A1_SkaraggStanceWord02",
+            "name": "Mir"
+          },
+          "spell": {
+            "formKey": "067221:Skyrim.esm",
+            "editorId": "_00E_A1_SkaraggStanceSP",
+            "name": "Skaraggian Stance"
+          },
+          "recoveryTime": 4
+        },
+        {
+          "word": {
+            "formKey": "06684E:Skyrim.esm",
+            "editorId": "_00E_A1_SkaraggStanceWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "067221:Skyrim.esm",
+            "editorId": "_00E_A1_SkaraggStanceSP",
+            "name": "Skaraggian Stance"
+          },
+          "recoveryTime": 4
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "066834:Skyrim.esm",
+      "editorId": "_00E_A1_QyraiStance",
+      "name": "Qyranian Stance",
+      "description": "Increases attack and movement speed but decreases blocking. Furthermore enemies have a higher critical hit chance.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "066854:Skyrim.esm",
+            "editorId": "_00E_A1_QyraiStanceWord01",
+            "name": "Klo"
+          },
+          "spell": {
+            "formKey": "0F865A:Skyrim.esm",
+            "editorId": "_00E_A1_QyraiStanceSP",
+            "name": "Qyranian Stance"
+          },
+          "recoveryTime": 4
+        },
+        {
+          "word": {
+            "formKey": "066841:Skyrim.esm",
+            "editorId": "_00E_A1_QyraiStanceWord02",
+            "name": "Mir"
+          },
+          "spell": {
+            "formKey": "0F865A:Skyrim.esm",
+            "editorId": "_00E_A1_QyraiStanceSP",
+            "name": "Qyranian Stance"
+          },
+          "recoveryTime": 4
+        },
+        {
+          "word": {
+            "formKey": "06684D:Skyrim.esm",
+            "editorId": "_00E_A1_QyraiStanceWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "0F865A:Skyrim.esm",
+            "editorId": "_00E_A1_QyraiStanceSP",
+            "name": "Qyranian Stance"
+          },
+          "recoveryTime": 4
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "066836:Skyrim.esm",
+      "editorId": "_00E_A2_DanceOfBlades",
+      "name": "Blade Dance",
+      "description": "If you can land 5 hits within 15 seconds after using this talent, the last hit does massive damage.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "066850:Skyrim.esm",
+            "editorId": "_00E_A2_DanceOfBladesWord01",
+            "name": "Klo"
+          },
+          "spell": {
+            "formKey": "067208:Skyrim.esm",
+            "editorId": "_00E_A2_DanceOfBladesSP",
+            "name": "Blade Dance"
+          },
+          "recoveryTime": 80
+        },
+        {
+          "word": {
+            "formKey": "066851:Skyrim.esm",
+            "editorId": "_00E_A2_DanceOfBladesWord02",
+            "name": "Mir"
+          },
+          "spell": {
+            "formKey": "067208:Skyrim.esm",
+            "editorId": "_00E_A2_DanceOfBladesSP",
+            "name": "Blade Dance"
+          },
+          "recoveryTime": 70
+        },
+        {
+          "word": {
+            "formKey": "066852:Skyrim.esm",
+            "editorId": "_00E_A2_DanceOfBladesWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "067208:Skyrim.esm",
+            "editorId": "_00E_A2_DanceOfBladesSP",
+            "name": "Blade Dance"
+          },
+          "recoveryTime": 60
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "066837:Skyrim.esm",
+      "editorId": "_00E_A2_Starlingdummy",
+      "name": "Starling Dummy",
+      "description": "Throw a mechanical spider which attracts enemies to itself, then explodes and makes them prone to damage.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "06684C:Skyrim.esm",
+            "editorId": "_00E_A2_StarlingdummyWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "06953B:Skyrim.esm",
+            "editorId": "_00E_A2_StarlingdummySP",
+            "name": "Starling Dummy"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "06684A:Skyrim.esm",
+            "editorId": "_00E_A2_StarlingdummyWord02",
+            "name": "D4"
+          },
+          "spell": {
+            "formKey": "06953B:Skyrim.esm",
+            "editorId": "_00E_A2_StarlingdummySP",
+            "name": "Starling Dummy"
+          },
+          "recoveryTime": 95
+        },
+        {
+          "word": {
+            "formKey": "066840:Skyrim.esm",
+            "editorId": "_00E_A2_StarlingdummyWord03",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "06953B:Skyrim.esm",
+            "editorId": "_00E_A2_StarlingdummySP",
+            "name": "Starling Dummy"
+          },
+          "recoveryTime": 90
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "066838:Skyrim.esm",
+      "editorId": "_00E_A2_IronMaiden",
+      "name": "Iron Maiden",
+      "description": "For a short period of time all melee damage you take is thrown back to your enemies.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "06683B:Skyrim.esm",
+            "editorId": "_00E_A2_IronMaidenWord01",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "06720B:Skyrim.esm",
+            "editorId": "_00E_A2_IronMaidenSP",
+            "name": "Iron Maiden"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "06683C:Skyrim.esm",
+            "editorId": "_00E_A2_IronMaidenWord02",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "06720B:Skyrim.esm",
+            "editorId": "_00E_A2_IronMaidenSP",
+            "name": "Iron Maiden"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "06683D:Skyrim.esm",
+            "editorId": "_00E_A2_IronMaidenWord03",
+            "name": "Frul"
+          },
+          "spell": {
+            "formKey": "06720B:Skyrim.esm",
+            "editorId": "_00E_A2_IronMaidenSP",
+            "name": "Iron Maiden"
+          },
+          "recoveryTime": 90
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "066839:Skyrim.esm",
+      "editorId": "_00E_A1_Rocksolid",
+      "name": "Rocksolid",
+      "description": "For a short moment you hardly receive any damage.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "06683F:Skyrim.esm",
+            "editorId": "_00E_A1_RocksoliWord01",
+            "name": "Klo"
+          },
+          "spell": {
+            "formKey": "067225:Skyrim.esm",
+            "editorId": "_00E_A1_RocksolidSP",
+            "name": "Rocksolid"
+          },
+          "recoveryTime": 130
+        },
+        {
+          "word": {
+            "formKey": "066847:Skyrim.esm",
+            "editorId": "_00E_A1_RocksoliWord02",
+            "name": "Mir"
+          },
+          "spell": {
+            "formKey": "067225:Skyrim.esm",
+            "editorId": "_00E_A1_RocksolidSP",
+            "name": "Rocksolid"
+          },
+          "recoveryTime": 130
+        },
+        {
+          "word": {
+            "formKey": "06683E:Skyrim.esm",
+            "editorId": "_00E_A1_RocksoliWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "067225:Skyrim.esm",
+            "editorId": "_00E_A1_RocksolidSP",
+            "name": "Rocksolid"
+          },
+          "recoveryTime": 130
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "06954F:Skyrim.esm",
+      "editorId": "_00E_A2_EldritchBlood",
+      "name": "Entropic Blood",
+      "description": "Turns an enemy for a short period of time into your slave. Their damage is greatly raised and their death triggers an explosion.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "069501:Skyrim.esm",
+            "editorId": "_00E_A2_EldritchBloodWord01",
+            "name": "Hun"
+          },
+          "spell": {
+            "formKey": "06953A:Skyrim.esm",
+            "editorId": "_00E_A2_EldritchBloodSP",
+            "name": "Entropic Blood"
+          },
+          "recoveryTime": 140
+        },
+        {
+          "word": {
+            "formKey": "069502:Skyrim.esm",
+            "editorId": "_00E_A2_EldritchBloodWord02",
+            "name": "Dah"
+          },
+          "spell": {
+            "formKey": "06953A:Skyrim.esm",
+            "editorId": "_00E_A2_EldritchBloodSP",
+            "name": "Entropic Blood"
+          },
+          "recoveryTime": 140
+        },
+        {
+          "word": {
+            "formKey": "069500:Skyrim.esm",
+            "editorId": "_00E_A2_EldritchBloodWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "06953A:Skyrim.esm",
+            "editorId": "_00E_A2_EldritchBloodSP",
+            "name": "Entropic Blood"
+          },
+          "recoveryTime": 140
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "070981:Skyrim.esm",
+      "editorId": "DisarmShout",
+      "name": "Disarm",
+      "description": "Shout defies steel, as you rip the weapon from an opponent\u0027s grasp.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "05FB95:Skyrim.esm",
+            "editorId": "WordZun",
+            "name": "Zun"
+          },
+          "spell": {
+            "formKey": "08BB27:Skyrim.esm",
+            "editorId": "VoiceDisarm1",
+            "name": "Disarm"
+          },
+          "recoveryTime": 30
+        },
+        {
+          "word": {
+            "formKey": "05FB96:Skyrim.esm",
+            "editorId": "WordHaal",
+            "name": "H1l"
+          },
+          "spell": {
+            "formKey": "08BB28:Skyrim.esm",
+            "editorId": "VoiceDisarm2",
+            "name": "Disarm"
+          },
+          "recoveryTime": 35
+        },
+        {
+          "word": {
+            "formKey": "05FB97:Skyrim.esm",
+            "editorId": "WordViik",
+            "name": "V3k"
+          },
+          "spell": {
+            "formKey": "08BB29:Skyrim.esm",
+            "editorId": "VoiceDisarm3",
+            "name": "Disarm"
+          },
+          "recoveryTime": 40
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "07FB41:Skyrim.esm",
+      "editorId": "_00E_A0_SteelTempest",
+      "name": "Tempest",
+      "description": "Increases your weapon damage for a short period of time.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "07FB69:Skyrim.esm",
+            "editorId": "_00E_A0_SteelTempestWord01",
+            "name": "Klo"
+          },
+          "spell": {
+            "formKey": "07FB46:Skyrim.esm",
+            "editorId": "_00E_A0_SteelTempestSP",
+            "name": "Tempest"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "07FB6B:Skyrim.esm",
+            "editorId": "_00E_A0_SteelTempestWord02",
+            "name": "Mir"
+          },
+          "spell": {
+            "formKey": "07FB46:Skyrim.esm",
+            "editorId": "_00E_A0_SteelTempestSP",
+            "name": "Tempest"
+          },
+          "recoveryTime": 105
+        },
+        {
+          "word": {
+            "formKey": "07FB65:Skyrim.esm",
+            "editorId": "_00E_A0_SteelTempestWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "07FB46:Skyrim.esm",
+            "editorId": "_00E_A0_SteelTempestSP",
+            "name": "Tempest"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "07FB42:Skyrim.esm",
+      "editorId": "_00E_A0_Focus",
+      "name": "Focus",
+      "description": "Lowers the Mana costs of all spells for a short period of time.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "07FB67:Skyrim.esm",
+            "editorId": "_00E_A0_FocusWord01",
+            "name": "Klo"
+          },
+          "spell": {
+            "formKey": "07FB48:Skyrim.esm",
+            "editorId": "_00E_A0_FocusSP",
+            "name": "Focus"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "07FB6A:Skyrim.esm",
+            "editorId": "_00E_A0_FocusWord02",
+            "name": "Mir"
+          },
+          "spell": {
+            "formKey": "07FB48:Skyrim.esm",
+            "editorId": "_00E_A0_FocusSP",
+            "name": "Focus"
+          },
+          "recoveryTime": 105
+        },
+        {
+          "word": {
+            "formKey": "07FB68:Skyrim.esm",
+            "editorId": "_00E_A0_FocusWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "07FB48:Skyrim.esm",
+            "editorId": "_00E_A0_FocusSP",
+            "name": "Focus"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "07FB43:Skyrim.esm",
+      "editorId": "_00E_A0_ShadowOfTheWind",
+      "name": "Shadow of the Wind",
+      "description": "You are moving much more silently for a short period of time and do additional damage with sneak attacks.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "07FB6D:Skyrim.esm",
+            "editorId": "_00E_A0_ShadowOfTheWindWord01",
+            "name": "Klo"
+          },
+          "spell": {
+            "formKey": "07FB4B:Skyrim.esm",
+            "editorId": "_00E_A0_ShadowOfTheWindSP",
+            "name": "Shadow of the Wind"
+          },
+          "recoveryTime": 110
+        },
+        {
+          "word": {
+            "formKey": "07FB6C:Skyrim.esm",
+            "editorId": "_00E_A0_ShadowOfTheWindWord02",
+            "name": "Mir"
+          },
+          "spell": {
+            "formKey": "07FB4B:Skyrim.esm",
+            "editorId": "_00E_A0_ShadowOfTheWindSP",
+            "name": "Shadow of the Wind"
+          },
+          "recoveryTime": 105
+        },
+        {
+          "word": {
+            "formKey": "07FB64:Skyrim.esm",
+            "editorId": "_00E_A0_ShadowOfTheWindWord03",
+            "name": "Ran"
+          },
+          "spell": {
+            "formKey": "07FB4B:Skyrim.esm",
+            "editorId": "_00E_A0_ShadowOfTheWindSP",
+            "name": "Shadow of the Wind"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "name",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "09DE93:Skyrim.esm",
+      "editorId": "UnrelentingForceShoutDraugr",
+      "name": "Unrelenting Force",
+      "description": "Staggers targets and knocks over loose objects.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "013E09:Skyrim.esm",
+            "editorId": "VoiceUnrelentingForce1",
+            "name": "Unrelenting Force - Fus"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "013F39:Skyrim.esm",
+            "editorId": "VoiceUnrelentingForce2",
+            "name": "Unrelenting Force - Fus Ro"
+          },
+          "recoveryTime": 15
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "013F39:Skyrim.esm",
+            "editorId": "VoiceUnrelentingForce2",
+            "name": "Unrelenting Force - Fus Ro"
+          },
+          "recoveryTime": 15
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0B6E5F:Skyrim.esm",
+      "editorId": "_00E_A2_WellOfLife",
+      "name": "Well of Life",
+      "description": "If you would die while this spell is in effect your Health will be restored instantly and enemies around you are pushed back.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0B6E5C:Skyrim.esm",
+            "editorId": "_00E_A2_WellOfLifeWord01",
+            "name": "Bah"
+          },
+          "spell": {
+            "formKey": "0B6E54:Skyrim.esm",
+            "editorId": "_00E_A2_WellOfLifeSP",
+            "name": "Well of Life"
+          },
+          "recoveryTime": 300
+        },
+        {
+          "word": {
+            "formKey": "0B6E5D:Skyrim.esm",
+            "editorId": "_00E_A2_WellOfLifeWord02",
+            "name": "Dah"
+          },
+          "spell": {
+            "formKey": "0B6E54:Skyrim.esm",
+            "editorId": "_00E_A2_WellOfLifeSP",
+            "name": "Well of Life"
+          },
+          "recoveryTime": 300
+        },
+        {
+          "word": {
+            "formKey": "0B6E5E:Skyrim.esm",
+            "editorId": "_00E_A2_WellOfLifeWord03",
+            "name": "Din"
+          },
+          "spell": {
+            "formKey": "0B6E54:Skyrim.esm",
+            "editorId": "_00E_A2_WellOfLifeSP",
+            "name": "Well of Life"
+          },
+          "recoveryTime": 300
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0BE5E4:EAM SE - Enderal Apothecarii Monastery.esp",
+      "editorId": "DragonFrostBreathShoutAncientOne",
+      "name": "Frost Breath",
+      "wordsOfPower": [
+        {
+          "spell": {
+            "formKey": "0BE5E3:EAM SE - Enderal Apothecarii Monastery.esp",
+            "editorId": "VoiceDragonFrostAncientOne",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 8
+        },
+        {
+          "spell": {
+            "formKey": "0BE5E3:EAM SE - Enderal Apothecarii Monastery.esp",
+            "editorId": "VoiceDragonFrostAncientOne",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 8
+        },
+        {
+          "spell": {
+            "formKey": "0BE5E3:EAM SE - Enderal Apothecarii Monastery.esp",
+            "editorId": "VoiceDragonFrostAncientOne",
+            "name": "Frost Breath"
+          },
+          "recoveryTime": 8
+        }
+      ],
+      "provenance": {
+        "definedIn": "EAM SE - Enderal Apothecarii Monastery.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "EAM SE - Enderal Apothecarii Monastery.esp",
+        "winnerLoadOrderIndex": 88,
+        "chain": [
+          "EAM SE - Enderal Apothecarii Monastery.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "10C4DF:Skyrim.esm",
+      "editorId": "DragonFireBallShout05",
+      "name": "Fire Breath",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "10C4DD:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall05",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "10C4DD:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall05",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "10C4DD:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall05",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "10C4E0:Skyrim.esm",
+      "editorId": "DragonFireBreathShout05",
+      "name": "Fire Breath",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "10C4DB:Skyrim.esm",
+            "editorId": "VoiceDragonFire05",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "10C4DB:Skyrim.esm",
+            "editorId": "VoiceDragonFire05",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "10C4DB:Skyrim.esm",
+            "editorId": "VoiceDragonFire05",
+            "name": "Fire Breath"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "10D1BA:Skyrim.esm",
+      "editorId": "_00E_A2_Shocknova",
+      "name": "Shock Nova",
+      "description": "Unleashes a wave of electric energy around you that staggers your enemies and hits them with thunder shortly after.",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "111E24:Skyrim.esm",
+            "editorId": "_00E_A2_SkyfallWord01",
+            "name": "Su"
+          },
+          "spell": {
+            "formKey": "111E23:Skyrim.esm",
+            "editorId": "_00E_A2_ShocknovaSP",
+            "name": "Shock Nova"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "111E25:Skyrim.esm",
+            "editorId": "_00E_A2_SkyfallWord02",
+            "name": "4"
+          },
+          "spell": {
+            "formKey": "111E23:Skyrim.esm",
+            "editorId": "_00E_A2_ShocknovaSP",
+            "name": "Shock Nova"
+          },
+          "recoveryTime": 100
+        },
+        {
+          "word": {
+            "formKey": "111E26:Skyrim.esm",
+            "editorId": "_00E_A2_SkyfallWord03",
+            "name": "D4"
+          },
+          "spell": {
+            "formKey": "111E23:Skyrim.esm",
+            "editorId": "_00E_A2_ShocknovaSP",
+            "name": "Shock Nova"
+          },
+          "recoveryTime": 100
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "editorId",
+          "description",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "13B5E6:Skyrim.esm",
+      "editorId": "_00E_MQ13c_SteelbirdShockShout",
+      "name": "Stahlvogel Schock",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "13B5EE:Skyrim.esm",
+            "editorId": "VoiceDragonShock",
+            "name": "Storm"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "13B5EE:Skyrim.esm",
+            "editorId": "VoiceDragonShock",
+            "name": "Storm"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "13B5EE:Skyrim.esm",
+            "editorId": "VoiceDragonShock",
+            "name": "Storm"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "14852C:Skyrim.esm",
+      "editorId": "_00E_MQ16_HighOnesDragonShout",
+      "name": "Fireball",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "10C4DD:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall05",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "10C4DD:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall05",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "10C4DD:Skyrim.esm",
+            "editorId": "VoiceDragonFireBall05",
+            "name": "Fire Ball"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "14974F:Skyrim.esm",
+      "editorId": "_00E_MyradPoisonBreathShout",
+      "name": "Poison Breath",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "149752:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoison03",
+            "name": "Poisonous Breath"
+          },
+          "recoveryTime": 6
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "149752:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoison03",
+            "name": "Poisonous Breath"
+          },
+          "recoveryTime": 6
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "149752:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoison03",
+            "name": "Poisonous Breath"
+          },
+          "recoveryTime": 6
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "name",
+          "wordsOfPower"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "149756:Skyrim.esm",
+      "editorId": "_00E_MyradPoisonBallShout",
+      "name": "Poison Cloud",
+      "wordsOfPower": [
+        {
+          "word": {
+            "formKey": "0252C3:Skyrim.esm",
+            "editorId": "WordDragonFire01",
+            "name": "Tier I"
+          },
+          "spell": {
+            "formKey": "149755:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoisonBall03",
+            "name": "Poison Cloud"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C4:Skyrim.esm",
+            "editorId": "WordDragonFire02",
+            "name": "Tier II"
+          },
+          "spell": {
+            "formKey": "149755:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoisonBall03",
+            "name": "Poison Cloud"
+          },
+          "recoveryTime": 5
+        },
+        {
+          "word": {
+            "formKey": "0252C5:Skyrim.esm",
+            "editorId": "WordDragonFire03",
+            "name": "Tier III"
+          },
+          "spell": {
+            "formKey": "149755:Skyrim.esm",
+            "editorId": "_00E_VoiceMyradPoisonBall03",
+            "name": "Poison Cloud"
+          },
+          "recoveryTime": 5
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "name"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    }
+  ]
+}

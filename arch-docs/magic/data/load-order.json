@@ -1,0 +1,2242 @@
+{
+  "schemaVersion": 1,
+  "requiresBees": true,
+  "pluginsRequiringBees": 67,
+  "plugins": [
+    {
+      "name": "Skyrim.esm",
+      "index": 0,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Stock game/Data"
+    },
+    {
+      "name": "Update.esm",
+      "index": 1,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Stock game/Data"
+    },
+    {
+      "name": "Dawnguard.esm",
+      "index": 2,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Restoration forms ID to make compatibility mods"
+    },
+    {
+      "name": "HearthFires.esm",
+      "index": 3,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Restoration forms ID to make compatibility mods"
+    },
+    {
+      "name": "Dragonborn.esm",
+      "index": 4,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Restoration forms ID to make compatibility mods"
+    },
+    {
+      "name": "Enderal - Forgotten Stories.esm",
+      "index": 5,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Stock game/Data"
+    },
+    {
+      "name": "kcf.esm",
+      "index": 6,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Keyword Compatibility Framework"
+    },
+    {
+      "name": "SmoothCam.esl",
+      "index": 7,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "SmoothCam"
+    },
+    {
+      "name": "High Poly Head.esm",
+      "index": 8,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "High Poly Head SE"
+    },
+    {
+      "name": "Expressive Facegen Morphs.esl",
+      "index": 9,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EFM SE - Racemenu plugin"
+    },
+    {
+      "name": "1FalconerArmor.esl",
+      "index": 10,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Guard Armor Replacer Falconer"
+    },
+    {
+      "name": "Dismembering Framework.esm",
+      "index": 11,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dismembering Framework"
+    },
+    {
+      "name": "OCPA.esl",
+      "index": 12,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "One Click Power Attack NG"
+    },
+    {
+      "name": "OCF.esp",
+      "index": 13,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Object Categorization Framework"
+    },
+    {
+      "name": "(SGC) NASC.esl",
+      "index": 14,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "(SGC) Normal Attack Stamina Consumption - NASC"
+    },
+    {
+      "name": "NoSillyPhysicsDamage.esl",
+      "index": 15,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "No Silly Physics Damage - Carts Pots Bones etc"
+    },
+    {
+      "name": "SCSI-ACTbfco-Main.esp",
+      "index": 16,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "BFCO - Attack Behavior Framework 3.100.5"
+    },
+    {
+      "name": "True Coconut Palms.esp",
+      "index": 17,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "True Coconut Palms"
+    },
+    {
+      "name": "TrueHUD.esl",
+      "index": 18,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "TrueHUD - HUD Additions"
+    },
+    {
+      "name": "SGEyebrows.esp",
+      "index": 19,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "SG Female Eyebrows for High Poly Head"
+    },
+    {
+      "name": "SkyUI_SE.esp",
+      "index": 20,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "SkyUI"
+    },
+    {
+      "name": "KataPUMBSpellPack.esp",
+      "index": 21,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "KataPUMB Spell Package"
+    },
+    {
+      "name": "Enderal SE - Bug Fixes.esp",
+      "index": 22,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - Bug Fixes"
+    },
+    {
+      "name": "HPP - Vaermina\u0027s Torpor.esp",
+      "index": 23,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "High Poly Project"
+    },
+    {
+      "name": "SMIM-SE-Merged-All.esp",
+      "index": 24,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Static Mesh Improvement Mod"
+    },
+    {
+      "name": "Embers XD.esp",
+      "index": 25,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Embers XD"
+    },
+    {
+      "name": "Embers XD - Fire Magick Add-On.esp",
+      "index": 26,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Embers XD"
+    },
+    {
+      "name": "GDOS - Splendid Mechanized Dwemer Door.esp",
+      "index": 27,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Glorious Doors of Skyrim (GDOS)"
+    },
+    {
+      "name": "DeadlySpellImpacts.esp",
+      "index": 28,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Deadly Spell Impacts"
+    },
+    {
+      "name": "Kanjs Chaurus Staff.esp",
+      "index": 29,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Kanjs - Chaurus eggs and staff - 4k - 2k - 1k - New Meshes - Animated Textures"
+    },
+    {
+      "name": "mnWallbasketsSE.esp",
+      "index": 30,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Hotfix1cForDesaturated"
+    },
+    {
+      "name": "dD - Enhanced Blood Main.esp",
+      "index": 31,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enhanced Blood Textures Enderal SE"
+    },
+    {
+      "name": "dD-Larger Drips.esp",
+      "index": 32,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enhanced Blood Textures Enderal SE"
+    },
+    {
+      "name": "MCMHelper.esp",
+      "index": 33,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "MCM Helper"
+    },
+    {
+      "name": "CBBE.esp",
+      "index": 34,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Caliente\u0027s Beautiful Bodies Enhancer -CBBE-"
+    },
+    {
+      "name": "RaceMenuMorphsCBBE.esp",
+      "index": 35,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Caliente\u0027s Beautiful Bodies Enhancer -CBBE-"
+    },
+    {
+      "name": "Pretty Enderal Clothing.esp",
+      "index": 36,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Enderal Clothing"
+    },
+    {
+      "name": "Seasonal Aspen Trees.esp",
+      "index": 37,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Seasonal Aspen Trees"
+    },
+    {
+      "name": "Seasonal Aspen Trees of Enderal_Summer.esp",
+      "index": 38,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Seasonal Aspen Trees of Enderal"
+    },
+    {
+      "name": "Seasonal Aspen Trees of Enderal_Autumn.esp",
+      "index": 39,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Seasonal Aspen Trees of Enderal"
+    },
+    {
+      "name": "Seasonal Aspen Trees of Enderal_Spring.esp",
+      "index": 40,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Seasonal Aspen Trees of Enderal"
+    },
+    {
+      "name": "Seasonal Aspen Trees of Enderal_Winter.esp",
+      "index": 41,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Seasonal Aspen Trees of Enderal"
+    },
+    {
+      "name": "XPMSE.esp",
+      "index": 42,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "XP32 Maximum Skeleton Special Extended"
+    },
+    {
+      "name": "Keytrace.esp",
+      "index": 43,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "PaulMix\u0027s dTry Key Utils extend"
+    },
+    {
+      "name": "Stances - Dynamic Weapon Movesets SE.esp",
+      "index": 44,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Stances - Dynamic Animation Sets"
+    },
+    {
+      "name": "Precision.esp",
+      "index": 45,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Precision"
+    },
+    {
+      "name": "Draw Fix - Move Equip Animation Fix.esp",
+      "index": 46,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Draw Fix - Move Equip Animation Fix"
+    },
+    {
+      "name": "Dynamic Sprint.esp",
+      "index": 47,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dynamic Sprint"
+    },
+    {
+      "name": "S3DRocks.esp",
+      "index": 48,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Skyrim 3D Rocks"
+    },
+    {
+      "name": "Enderal SE - Gameplay Overhaul.esp",
+      "index": 49,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - Enderal Gameplay Overhaul"
+    },
+    {
+      "name": "SFO_SkinFeatureOverlays.esp",
+      "index": 50,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "SkFO - Skin Feature Overlays - 2K"
+    },
+    {
+      "name": "BnP - Skinfix.esp",
+      "index": 51,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "BnP female skin (Replacer\u002BPlayer version)"
+    },
+    {
+      "name": "Pocky Punk\u0027s Make Up Addon_females.esp",
+      "index": 52,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Pocky\u0027s 4k human female makeup"
+    },
+    {
+      "name": "Lamenthia\u0027s Marks of Beauty.esp",
+      "index": 53,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Lamenthia\u0027s Marks of Beauty"
+    },
+    {
+      "name": "AdditionalEyesByFia.esp",
+      "index": 54,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Fia\u0027s Eyes - a replacer and addon"
+    },
+    {
+      "name": "Koralina\u0027s Makeup Tweaks.esp",
+      "index": 55,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Koralina\u0027s Makeup Tweaks - 4k 2k"
+    },
+    {
+      "name": "koralinas_freckles_moles.esp",
+      "index": 56,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Koralina\u0027s Freckles and Moles - 4k 2k"
+    },
+    {
+      "name": "UntarnishedUI_Subtitle.esp",
+      "index": 57,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Vel\u0027dun Enderal SE test1"
+    },
+    {
+      "name": "RaceMenu.esp",
+      "index": 58,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "RaceMenu"
+    },
+    {
+      "name": "RaceMenuPlugin.esp",
+      "index": 59,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "RaceMenu"
+    },
+    {
+      "name": "HappyLittleTrees.esp",
+      "index": 60,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Happy Little Trees"
+    },
+    {
+      "name": "Bridges of Enderal.esp",
+      "index": 61,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Bridges of Enderal"
+    },
+    {
+      "name": "EPPIimprovedlacations.esp",
+      "index": 62,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EPPI Improved Locations"
+    },
+    {
+      "name": "Last Watch Overhaul.esp",
+      "index": 63,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ark\u0027s Last Watch - SevEnderal"
+    },
+    {
+      "name": "Wellwatch Redone.esp",
+      "index": 64,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Wellwatch Redone - CORE"
+    },
+    {
+      "name": "TerrainHelper.esp",
+      "index": 65,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Terrain Helper"
+    },
+    {
+      "name": "SkyParkour.esp",
+      "index": 66,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "SkyParkour V3 - Parkour Framework"
+    },
+    {
+      "name": "Old Watermill - Neo Enderal.esp",
+      "index": 67,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "The Old Watermill - Neo Enderal"
+    },
+    {
+      "name": "Old Watermill - Eppi Improved Locations Patch.esp",
+      "index": 68,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "The Old Watermill - EPPI Improved Locations Patch"
+    },
+    {
+      "name": "ENB Light.esp",
+      "index": 69,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "ENB Light"
+    },
+    {
+      "name": "TrueDirectionalMovement.esp",
+      "index": 70,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "True Directional Movement - Modernized Third Person Gameplay"
+    },
+    {
+      "name": "Beards of Power.esp",
+      "index": 71,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Beards of Power"
+    },
+    {
+      "name": "Brows.esp",
+      "index": 72,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Hvergelmir\u0027s Aesthetics - Brows"
+    },
+    {
+      "name": "TheEyesOfBeauty.esp",
+      "index": 73,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "The Eyes Of Beauty SSE"
+    },
+    {
+      "name": "ObiWarpaintsTattoos.esp",
+      "index": 74,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Obi\u0027s Warpaints 2K"
+    },
+    {
+      "name": "RutahWarpaints.esp",
+      "index": 75,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rutah\u0027s Warpaint"
+    },
+    {
+      "name": "The Eyes Of Beauty - Elves Edition.esp",
+      "index": 76,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "The Eyes of Beauty SE - Elves Edition"
+    },
+    {
+      "name": "_Fuse00_AdventurerArmor.esp",
+      "index": 77,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Adventurer HDT-SMP Armor"
+    },
+    {
+      "name": "1FalconerArmor.esp",
+      "index": 78,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Guard Armor Replacer Falconer"
+    },
+    {
+      "name": "GuardArmorReplacerFalconer.esp",
+      "index": 79,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Guard Armor Replacer Falconer"
+    },
+    {
+      "name": "Particle Patch for ENB.esp",
+      "index": 80,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Particle Patch"
+    },
+    {
+      "name": "Grievous Rose Multicolor.esp",
+      "index": 81,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Grievous Rose (3BA SMP)"
+    },
+    {
+      "name": "Grievous Rose Enderal Integration Multicolor.esp",
+      "index": 82,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Grievous Rose Enderal Integration SPID"
+    },
+    {
+      "name": "kco_stw.esp",
+      "index": 83,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Stewards of Skyrim - New Clothing for Stewards"
+    },
+    {
+      "name": "kco_stw_Enderal.esp",
+      "index": 84,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Stewards of Skyrim Enderal Integration SPID"
+    },
+    {
+      "name": "NPCsUsePotions.esp",
+      "index": 85,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "NPCs Use Potions"
+    },
+    {
+      "name": "KataPUMB_SpellPackage.esp",
+      "index": 86,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "KataPUMB Magic Package"
+    },
+    {
+      "name": "Bank of Ark SE.esp",
+      "index": 87,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Bank of Ark SE"
+    },
+    {
+      "name": "EAM SE - Enderal Apothecarii Monastery.esp",
+      "index": 88,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EAM SE - Enderal Apothecarii Monastery"
+    },
+    {
+      "name": "TaberuAnimation.esp",
+      "index": 89,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Eating Animations and Sounds SE"
+    },
+    {
+      "name": "Bears of the North.esp",
+      "index": 90,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Bears of the North"
+    },
+    {
+      "name": "xxOpenSpells.esp",
+      "index": 91,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Spelltomes for Ondusi\u0027s Key (Open Lock Spell)"
+    },
+    {
+      "name": "Ark Marketplace house exterior addon.esp",
+      "index": 92,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "House at the Marketplace - Exterior Add-on"
+    },
+    {
+      "name": "EPPIareadividerandconnectors.esp",
+      "index": 93,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EPPI Obstacles and Shortcuts"
+    },
+    {
+      "name": "EPPIduneville.esp",
+      "index": 94,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EPPI Duneville"
+    },
+    {
+      "name": "EPPIfogville.esp",
+      "index": 95,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EPPI Fogville"
+    },
+    {
+      "name": "EPPIriverville.esp",
+      "index": 96,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EPPI Riverville"
+    },
+    {
+      "name": "World Map Fix.esp",
+      "index": 97,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "ENB World Map Fix"
+    },
+    {
+      "name": "Seaview Lodge SE.esp",
+      "index": 98,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Seaview Lodge SE"
+    },
+    {
+      "name": "No Arcane fewer for Health Potions.esp",
+      "index": 99,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Visual consistency for Less silly potions"
+    },
+    {
+      "name": "LTG_ChildOverhaul.esp",
+      "index": 100,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Children Overhaul - Appearance and Clothing Replacer"
+    },
+    {
+      "name": "Next-Gen Decapitations.esp",
+      "index": 101,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Next-Gen Decapitations"
+    },
+    {
+      "name": "man_DaedricShrines_Enderal.esp",
+      "index": 102,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Mandragorasprouts\u0027 Statues for Enderal"
+    },
+    {
+      "name": "House Cats of Enderal - Mihail Monsters and Creatures.esp",
+      "index": 103,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "House Cats of Enderal - Mihail Monsters and Animals"
+    },
+    {
+      "name": "Wendigo creature mod.esp",
+      "index": 104,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Wendigo Creature Mod Enderal SE(Vatyrs Replacer)"
+    },
+    {
+      "name": "WendigoReplacerAlt.esp",
+      "index": 105,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Wendigo Creature Mod Enderal SE(Vatyrs Replacer)"
+    },
+    {
+      "name": "KS Hairdo\u0027s.esp",
+      "index": 106,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "KS Hairdos SSE"
+    },
+    {
+      "name": "Beards.esp",
+      "index": 107,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Hvergelmir\u0027s Aesthetics - Beards"
+    },
+    {
+      "name": "Fluffworks.esp",
+      "index": 108,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Fluffworks (Fluffy Animals)"
+    },
+    {
+      "name": "evgCLAMBER.esp",
+      "index": 109,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EVG CLAMBER - Slope Animations"
+    },
+    {
+      "name": "Pretty Factions Armory.esp",
+      "index": 110,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Factions Armory"
+    },
+    {
+      "name": "Pretty Unique Sets.esp",
+      "index": 111,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Unique Sets"
+    },
+    {
+      "name": "Zenderal - Enemy Potions.esp",
+      "index": 112,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Zenderal - Enemy Potions"
+    },
+    {
+      "name": "Pretty Semi-Unique Armory.esp",
+      "index": 113,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Semi-Unique Armory"
+    },
+    {
+      "name": "Pretty Mages Armory.esp",
+      "index": 114,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Mages Armory"
+    },
+    {
+      "name": "Pretty Common Armory.esp",
+      "index": 115,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Common Armory"
+    },
+    {
+      "name": "Pretty Enderal Armory - Fixes.esp",
+      "index": 116,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Pretty Enderal Armory - Fixes"
+    },
+    {
+      "name": "Pretty Unique Armory.esp",
+      "index": 117,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Unique Armory"
+    },
+    {
+      "name": "Pretty Pyrean Armory.esp",
+      "index": 118,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Pyrean Armory"
+    },
+    {
+      "name": "Pretty Holy Order Armory.esp",
+      "index": 119,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Holy Order Armory"
+    },
+    {
+      "name": "Pretty Holy Order Grandmaster Armory.esp",
+      "index": 120,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Holy Order Grandmaster Armory"
+    },
+    {
+      "name": "KataPUMBAffinities.esp",
+      "index": 121,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "KataPUMB New Affinities"
+    },
+    {
+      "name": "KataHiddenPowers.esp",
+      "index": 122,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "KataPUMB Hidden Powers"
+    },
+    {
+      "name": "Apocalypse - Magic of Skyrim.esp",
+      "index": 123,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Apocalypse - Enderal Patch"
+    },
+    {
+      "name": "Unique Amulet Replacer.esp",
+      "index": 124,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Unique Amulets and Masks (Ancient and Qalians Last Smile) SE"
+    },
+    {
+      "name": "Unique Amulets and Masks Fixes.esp",
+      "index": 125,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Unique Amulets and Masks SE Fixes"
+    },
+    {
+      "name": "DF - Official Creature Pack.esp",
+      "index": 126,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "DF - Official Creature Asset Pack"
+    },
+    {
+      "name": "Enderal SE - NPC Pathing Fixes (Whisperwood).esp",
+      "index": 127,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "NPC Pathing Fixes (Whisperwood)"
+    },
+    {
+      "name": "Enderal SE - NPC Pathing Fixes (Heartland).esp",
+      "index": 128,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "NPC Pathing Fixes (Heartland)"
+    },
+    {
+      "name": "Enderal SE - NPC Pathing Fixes (Sun Coast).esp",
+      "index": 129,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "NPC Pathing Fixes (Suncoast)"
+    },
+    {
+      "name": "EGO SE - Ice Claw (1 carry capacity).esp",
+      "index": 130,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - Ice Claw buff"
+    },
+    {
+      "name": "EGO SE - Increased Carry Weight.esp",
+      "index": 131,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Unique Amulets and Masks.esp",
+      "index": 132,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - Unique Amulets and Masks"
+    },
+    {
+      "name": "MythicalGiantsReplacer.esp",
+      "index": 133,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Mythical Giants Replacer for Enderal"
+    },
+    {
+      "name": "EGO SE - Secure Chests.esp",
+      "index": 134,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Reduced Enemy Damage.esp",
+      "index": 135,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Quest Shader.esp",
+      "index": 136,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Psionic affects Constructs.esp",
+      "index": 137,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Faster Level Up.esp",
+      "index": 138,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Apparition Regeneration.esp",
+      "index": 139,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Relationship Messages.esp",
+      "index": 140,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - Higher Starting Skills.esp",
+      "index": 141,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO - KataPUMB Spell Package.esp",
+      "index": 142,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - KataPUMB Spell Package"
+    },
+    {
+      "name": "EGO SE - Increased Food Health Regeneration.esp",
+      "index": 143,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - KataPUMB Hidden Powers.esp",
+      "index": 144,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - KataPUMB Hidden Powers"
+    },
+    {
+      "name": "EGO SE - KataPUMB New Affinities.esp",
+      "index": 145,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - KataPUMB New Affinities"
+    },
+    {
+      "name": "EGO SE - Priests Cure Diseases.esp",
+      "index": 146,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Official EGO SE Patches"
+    },
+    {
+      "name": "EGO SE - KataPUMB Spells - Emberlord sells all spells.esp",
+      "index": 147,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - Emberlord sells all spells"
+    },
+    {
+      "name": "EGO SE - Bears of the North.esp",
+      "index": 148,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - Bears of the North"
+    },
+    {
+      "name": "EVGConditionalIdles.esp",
+      "index": 149,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EVG Conditional Idles"
+    },
+    {
+      "name": "DynamicBlockHit.esp",
+      "index": 150,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dynamic Block Hit"
+    },
+    {
+      "name": "scar-adxp-patch.esp",
+      "index": 151,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "SCAR - Skyrim Combos AI Revolution"
+    },
+    {
+      "name": "SprintFixes.esp",
+      "index": 152,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Sprint Draw And Sheath Fixes"
+    },
+    {
+      "name": "Better Help.esp",
+      "index": 153,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Better Help Menu"
+    },
+    {
+      "name": "Easy Console Commands.esp",
+      "index": 154,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Easy Console Commands"
+    },
+    {
+      "name": "SRP Bug Fixes Enderal.esp",
+      "index": 155,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "SRP Bug fixes"
+    },
+    {
+      "name": "SNRP Parallax Fix.esp",
+      "index": 156,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "SRP Enderal - Parallax Material Fix"
+    },
+    {
+      "name": "NB-Scars.esp",
+      "index": 157,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Northborn Scars for High Poly Head"
+    },
+    {
+      "name": "Zenderal - Faster Sprint.esp",
+      "index": 158,
+      "enabled": true,
+      "headerVersion": 1,
+      "source": "Zenderal - Faster Sprint"
+    },
+    {
+      "name": "Wellwatch Redone - Bridges of Enderal Patch.esp",
+      "index": 159,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Wellwatch Redone - Bridges of Enderal Patch"
+    },
+    {
+      "name": "Wellwatch Redone - EPPI Improved Locations Patch.esp",
+      "index": 160,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Wellwatch Redone - EPPI Improved Locations Patch"
+    },
+    {
+      "name": "Wellwatch Redone - EPPI Obstacles Patch.esp",
+      "index": 161,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Wellwatch Redone - EPPI Obstacles Patch"
+    },
+    {
+      "name": "Pretty Enderal Backpacks.esp",
+      "index": 162,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Pretty Enderal Backpacks"
+    },
+    {
+      "name": "Leveling Redone.esp",
+      "index": 163,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Leveling Redone (No Skillbooks)"
+    },
+    {
+      "name": "EGO SE - Leveling Redone.esp",
+      "index": 164,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Leveling Redone (No Skillbooks)"
+    },
+    {
+      "name": "Wellwatch Manor SE.esp",
+      "index": 165,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Wellwatch Manor SE"
+    },
+    {
+      "name": "Wellwatch Redone - Wellwatch Manor Patch.esp",
+      "index": 166,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Wellwatch Redone - Wellwatch Manor Patch"
+    },
+    {
+      "name": "TrueStormsSE.esp",
+      "index": 167,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - True Storms"
+    },
+    {
+      "name": "Smart_NPC_Potions.esp",
+      "index": 168,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Smart NPC Potions - Enemies Use Potions and Poisons"
+    },
+    {
+      "name": "Enderal SE - Smart NPC Potions.esp",
+      "index": 169,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - Smart NPC Potions - Enemies Use Potions and Poisons"
+    },
+    {
+      "name": "EnderalPlayerUpperhouse.esp",
+      "index": 170,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal - Nobles Quarter Player home redone SE"
+    },
+    {
+      "name": "Noble Quarter Home Fixes.esp",
+      "index": 171,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Noble Quarter Player Home Fixes (and EGO patch)"
+    },
+    {
+      "name": "EAS - Enderal Patch.esp",
+      "index": 172,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Eating Animations and Sounds SE - Enderal"
+    },
+    {
+      "name": "Quieter Ark Temple.esp",
+      "index": 173,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Quieter Sun Temple Water"
+    },
+    {
+      "name": "BowRapidCombo.esp",
+      "index": 174,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Bow Rapid Combo V3"
+    },
+    {
+      "name": "Bow Rapid Combo Balance.esp",
+      "index": 175,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Bow Rapid Combo v3 - Complete Balance and Integration Patch"
+    },
+    {
+      "name": "Bow Charge Plus.esp",
+      "index": 176,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Bow Charge Plus"
+    },
+    {
+      "name": "HotKeySkill.esp",
+      "index": 177,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Hot Key Skill"
+    },
+    {
+      "name": "I4IconAddon.esp",
+      "index": 178,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Inventory Interface Information Injector"
+    },
+    {
+      "name": "Forts of Enderal.esp",
+      "index": 179,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Forts of Enderal"
+    },
+    {
+      "name": "Ships of the First Vassals.esp",
+      "index": 180,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ships of the First Vassals"
+    },
+    {
+      "name": "Ships of the First Vassals - EPPI IPL Addon.esp",
+      "index": 181,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Addon - Eppi Improved Locations"
+    },
+    {
+      "name": "Temple of Malphas - Neo Enderal.esp",
+      "index": 182,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "The Temple of Malphas - Neo Enderal"
+    },
+    {
+      "name": "Landscape Fixes - Neo Enderal.esp",
+      "index": 183,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Landscape Fixes - Neo Enderal"
+    },
+    {
+      "name": "Rhalata Temple.esp",
+      "index": 184,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "The Rhalata Temple - Neo Enderal"
+    },
+    {
+      "name": "Castle Bleakstar.esp",
+      "index": 185,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Castle Bleakstar - Neo Enderal"
+    },
+    {
+      "name": "Enderal_Occlusioned_Apothecarii_Monastery.esp",
+      "index": 186,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Occlusioned Series"
+    },
+    {
+      "name": "Enderal_Occlusioned_Dungeons.esp",
+      "index": 187,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Occlusioned Series"
+    },
+    {
+      "name": "Northern Watchtower.esp",
+      "index": 188,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "The Northern Watchtower - Neo Enderal"
+    },
+    {
+      "name": "Nordic Winds.esp",
+      "index": 189,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Nordic Winds - Enderal Edition"
+    },
+    {
+      "name": "WildwoodEchoes.esp",
+      "index": 190,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Vynwood Echoes"
+    },
+    {
+      "name": "Duneville Supply Ship.esp",
+      "index": 191,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "The Duneville Supply Ship - Neo Enderal"
+    },
+    {
+      "name": "Akropolis_Camping.esp",
+      "index": 192,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Akropolis Campsite - EnderalSE"
+    },
+    {
+      "name": "Enderal SE - Diverse Weathers.esp",
+      "index": 193,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Diverse Weather"
+    },
+    {
+      "name": "Diverse Weather - True Storms.esp",
+      "index": 194,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - True Storms"
+    },
+    {
+      "name": "Enderal Remastered Armory - Firm Leather.esp",
+      "index": 195,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Remastered Armory Part 1 - Standard Armory"
+    },
+    {
+      "name": "Enderal Remastered Armory - Fine Leather.esp",
+      "index": 196,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Remastered Armory Part 1 - Standard Armory"
+    },
+    {
+      "name": "Enderal Remastered Armory - Heavy Leather.esp",
+      "index": 197,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Remastered Armory Part 1 - Standard Armory"
+    },
+    {
+      "name": "Enderal Remastered Armory - Leather.esp",
+      "index": 198,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Remastered Armory Part 1 - Standard Armory"
+    },
+    {
+      "name": "Enderal Remastered Armory - Thief.esp",
+      "index": 199,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Remastered Armory Part 1 - Standard Armory"
+    },
+    {
+      "name": "EGO SE - Dark Souls Movement and Stamina.esp",
+      "index": 200,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - Intense Dark Souls Style Overhaul"
+    },
+    {
+      "name": "Enderal Fluffworks - Cow.esp",
+      "index": 201,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Fluffworks Cow Fix For Enderal"
+    },
+    {
+      "name": "Flufworks Goat Domestic.esp",
+      "index": 202,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Fluffworks Domestic goat fix"
+    },
+    {
+      "name": "DF - Official Humanoid Pack.esp",
+      "index": 203,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "DF - Official Humanoid Asset Pack"
+    },
+    {
+      "name": "Dynamic Impact - Slash Effects X-01EBT.esp",
+      "index": 204,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dynamic Impact - Slash Effects X"
+    },
+    {
+      "name": "Dynamic Impact - Slash Effects X.esp",
+      "index": 205,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dynamic Impact - Slash Effects X"
+    },
+    {
+      "name": "ArkCityGateConsistencyPatch.esp",
+      "index": 206,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Ark City Gate Consistency Patch and Fixes"
+    },
+    {
+      "name": "Last Watch - EPPI Obstacles Patch.esp",
+      "index": 207,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ark\u0027s Last Watch - EPPI Obstacles Patch"
+    },
+    {
+      "name": "Last Watch - EPPI Improved Locations Patch.esp",
+      "index": 208,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ark\u0027s Last Watch - EPPI Improved Locations Patch"
+    },
+    {
+      "name": "BetterThirdPersonSelection.esp",
+      "index": 209,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Better Third Person Selection - BTPS"
+    },
+    {
+      "name": "Castle Bleakstar - EGO Patch.esp",
+      "index": 210,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Castle Bleakstar - EGO Patch"
+    },
+    {
+      "name": "Enemies can\u0027t block while exhausted - Dual Wield Parrying.esp",
+      "index": 211,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Enemies Can\u0027t Block While Exhausted"
+    },
+    {
+      "name": "Deflection.esp",
+      "index": 212,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Deflection - Dynamic Combat Overhaul"
+    },
+    {
+      "name": "DustEffectsSSE.esp",
+      "index": 213,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dust Effects by HHaleyy"
+    },
+    {
+      "name": "EGO SE - No Gold Weight.esp",
+      "index": 214,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - No Gold Weight"
+    },
+    {
+      "name": "Enderal - Arp.esp",
+      "index": 215,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Arp"
+    },
+    {
+      "name": "FlyingCrowsSSE.esp",
+      "index": 216,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - Flying Crows"
+    },
+    {
+      "name": "FEC.esp",
+      "index": 217,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Frozen Electrocuted Combustion"
+    },
+    {
+      "name": "Enderal SE - FEC.esp",
+      "index": 218,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - FEC"
+    },
+    {
+      "name": "Immersive Death Cycle.esp",
+      "index": 219,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Immersive Death Cycle"
+    },
+    {
+      "name": "Enderal SE - Immersive Death Cycle.esp",
+      "index": 220,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Enderal SE - Immersive Death Cycle"
+    },
+    {
+      "name": "Enderal - One Moon.esp",
+      "index": 221,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Enderal - One Moon Only"
+    },
+    {
+      "name": "ImmersiveInteractions.esp",
+      "index": 222,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Immersive Interactions - Animated Actions"
+    },
+    {
+      "name": "Enderal SE - Immersive Interactions.esp",
+      "index": 223,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - Immersive Interactions"
+    },
+    {
+      "name": "Fixed body collision.esp",
+      "index": 224,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Fixed body collision"
+    },
+    {
+      "name": "ICRFixes.esp",
+      "index": 225,
+      "enabled": false,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Icy Cave Remaster"
+    },
+    {
+      "name": "Frost Meshes Patch.esp",
+      "index": 226,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Arctic - Frost Effects Redux"
+    },
+    {
+      "name": "mihailirongolem.esp",
+      "index": 227,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Iron Golem -Mihail Monsters and Animals (SE-AE)"
+    },
+    {
+      "name": "LessDrunkenBee.esp",
+      "index": 228,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Less Drunken Bee - Riverville (Flusshaim) Tavern Overhaul"
+    },
+    {
+      "name": "LessDrunkenBee - Enderal 2.1.1.esp",
+      "index": 229,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Less Drunken Bee - Enderal v2.1.1 Patch"
+    },
+    {
+      "name": "WadeInWater.esp",
+      "index": 230,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Loki\u0027s Wade In Water"
+    },
+    {
+      "name": "LessDrunkenBee-EPPIRiverville-Patch.esp",
+      "index": 231,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Less Drunken Bee - EPPI Riverville Patch"
+    },
+    {
+      "name": "Mushroom Light Fix.esp",
+      "index": 232,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Mushroom Light Fix"
+    },
+    {
+      "name": "NoNPCLoadDoorFade.esp",
+      "index": 233,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "No Load Door NPC Fade"
+    },
+    {
+      "name": "dD-No Spinning Death Animation Merged.esp",
+      "index": 234,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "No Spinning Death Animation SE"
+    },
+    {
+      "name": "Creature Replacer.esp",
+      "index": 235,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "No more Skyrim-looking Creatures (now including lost ones)"
+    },
+    {
+      "name": "Undead Creatures Replacer.esp",
+      "index": 236,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Kolapon\u0027s Undead Creatures Replacer"
+    },
+    {
+      "name": "Enderal SE - Half Starling.esp",
+      "index": 237,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Playable Half Starling Race"
+    },
+    {
+      "name": "EGO SE - Half Starling.esp",
+      "index": 238,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Playable Half Starling Race"
+    },
+    {
+      "name": "Dynamic Things Alternative.esp",
+      "index": 239,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dynamic Things Alternative - Base Object Swapper"
+    },
+    {
+      "name": "Enderal SE - Dynamic Things Alternative.esp",
+      "index": 240,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal SE - Dynamic Things Alternative"
+    },
+    {
+      "name": "Dynamic Activation Key.esp",
+      "index": 241,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dynamic Activation Key"
+    },
+    {
+      "name": "Ark Northern Gate Overhaul.esp",
+      "index": 242,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ark North Gate Overhaul - SevEnderal"
+    },
+    {
+      "name": "EVE - SevEnderal.esp",
+      "index": 243,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "EVE - Enderal Vistas Enhanced - SevEnderal"
+    },
+    {
+      "name": "EVE - SevEnderal - Landscape Fixes Patch.esp",
+      "index": 244,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "EVE - SevEnderal - Landscape Fixes Patch"
+    },
+    {
+      "name": "Ark Bridge Overhaul.esp",
+      "index": 245,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ark City Bridge - Core"
+    },
+    {
+      "name": "Ark Bridge Overhaul - EPPI Improved Locations Patch.esp",
+      "index": 246,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ark Bridge Overhaul - EPPI Locations Patch"
+    },
+    {
+      "name": "Ark Bridge Overhaul - Landscape Fixes Patch.esp",
+      "index": 247,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Ark Bridge Overhaul - Landscape Fixes Patch"
+    },
+    {
+      "name": "No Compass In Dialogue.esp",
+      "index": 248,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "No Compass In Dialogue"
+    },
+    {
+      "name": "Weapon Stats Viewer.esp",
+      "index": 249,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Weapon Stat Viewer V2"
+    },
+    {
+      "name": "Audio Overhaul Skyrim.esp",
+      "index": 250,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Audio Overhaul for Skyrim (4.1.2)"
+    },
+    {
+      "name": "AOS_EBT Patch.esp",
+      "index": 251,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Audio Overhaul for Skyrim (4.1.2)"
+    },
+    {
+      "name": "Audio Overhaul - Enderal patch.esp",
+      "index": 252,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Audio Overhaul for Skyrim SE - Enderal Patch"
+    },
+    {
+      "name": "EldenParry.esp",
+      "index": 253,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Elden Parry"
+    },
+    {
+      "name": "Dynamic Dodge Shot.esp",
+      "index": 254,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Dynamic Dodge Shot"
+    },
+    {
+      "name": "FNIS.esp",
+      "index": 255,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Zenderal Nemesis Output"
+    },
+    {
+      "name": "ForHonorBFCO.esp",
+      "index": 256,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "For Honor in Skyrim BFCO"
+    },
+    {
+      "name": "SCSI-DodgeShot-BFpatch.esp",
+      "index": 257,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "BFCO - Attack Behavior Framework 3.100.5"
+    },
+    {
+      "name": "LTG_NecklaceUpdate.esp",
+      "index": 258,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Black Stone Necklace Replacer - Amulet of Articulation Replacer"
+    },
+    {
+      "name": "Dust Pit Revised.esp",
+      "index": 259,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Dust Pit Revised - Revised (Fixes Tweaks and Enhancements)"
+    },
+    {
+      "name": "Enderal - Donkey.esp",
+      "index": 260,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Donkey (Whirlwind and Dagaric)"
+    },
+    {
+      "name": "EGO SE - Donkey.esp",
+      "index": 261,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "EGO SE - Donkey"
+    },
+    {
+      "name": "Enderal SE - Stealth Overhaul.esp",
+      "index": 262,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Stealth Overhaul (All Languages)"
+    },
+    {
+      "name": "Immersive Replacements.esp",
+      "index": 263,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Immersive Replacements"
+    },
+    {
+      "name": "Slightly Less Intense Sandstorms.esp",
+      "index": 264,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Intense Sandstorms"
+    },
+    {
+      "name": "JS Knapsacks SE.esp",
+      "index": 265,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "JS Knapsacks SE"
+    },
+    {
+      "name": "JorrvaskrRugReplacerA.esp",
+      "index": 266,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Kurmai\u0027s Jorrvaskr Rug Replacer"
+    },
+    {
+      "name": "JorrvaskrRugReplacerB.esp",
+      "index": 267,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Kurmai\u0027s Jorrvaskr Rug Replacer"
+    },
+    {
+      "name": "OreIngotsFadingsignal.esp",
+      "index": 268,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Metallurgy - Ingots Ore and Veins HD"
+    },
+    {
+      "name": "Myths and Legends VI - The Forgotten One.esp",
+      "index": 269,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Myths and Legends VI - The Forgotten One"
+    },
+    {
+      "name": "Racemenu - Character Creation Natural Light.esp",
+      "index": 270,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Racemenu - Improved Character Light"
+    },
+    {
+      "name": "Rally\u0027s Crates.esp",
+      "index": 271,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rally\u0027s Crates"
+    },
+    {
+      "name": "Regional Debuffs.esp",
+      "index": 272,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Regional Debuffs"
+    },
+    {
+      "name": "Reverb and Ambiance Overhaul - Enderal.esp",
+      "index": 273,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Reverb and Ambiance Overhaul - Audio and Sound Enhancer (Enderal SSE)"
+    },
+    {
+      "name": "NPCs Take Cover.esp",
+      "index": 274,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "NPCs Take Cover - Smarter Anti-Cheese AI"
+    },
+    {
+      "name": "Enderal SE - NPCs Take Cover.esp",
+      "index": 275,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Enderal SE - NPCs Take Cover"
+    },
+    {
+      "name": "Sanguine Symphony.esp",
+      "index": 276,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Sanguine Symphony"
+    },
+    {
+      "name": "talkToSummons.esp",
+      "index": 277,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Simply Order Summons"
+    },
+    {
+      "name": "SporesWhisperwoodLeavesGoldenforst.esp",
+      "index": 278,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Spores of Whisperwood and Leaves of Goldenforst - A Particle Replacer Mod"
+    },
+    {
+      "name": "Ducks_and_Swans.esp",
+      "index": 279,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "The Quackening - More Cute Ducks and Swans"
+    },
+    {
+      "name": "Unique Statues - Rhalata Temple.esp",
+      "index": 280,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Unique Statues Series - Rhalata Temple"
+    },
+    {
+      "name": "Obsidian Weathers.esp",
+      "index": 281,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Obsidian Weathers for Enderal"
+    },
+    {
+      "name": "Obsidian Weathers - Enderal.esp",
+      "index": 282,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Obsidian Weathers for Enderal"
+    },
+    {
+      "name": "WadeInWaterRedone.esp",
+      "index": 283,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Wade In Water Redone"
+    },
+    {
+      "name": "QuickLight.esp",
+      "index": 284,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Quick Light SE"
+    },
+    {
+      "name": "DF - Xtudo Creature Pack - Canidae - A Wolf Replacer.esp",
+      "index": 285,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "DF - Creatures by Xtudo - Canidae Fluff AF"
+    },
+    {
+      "name": "Enderal SE - Canidae Wolves.esp",
+      "index": 286,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "Canidae - A Wolf Replacer"
+    },
+    {
+      "name": "Rumble - Jumping - AOS Patch.esp",
+      "index": 287,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Audio Overhaul for Skyrim (4.1.2)"
+    },
+    {
+      "name": "Rumble - Swimming - AOS Patch.esp",
+      "index": 288,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Audio Overhaul for Skyrim (4.1.2)"
+    },
+    {
+      "name": "Rumble - Swimming.esp",
+      "index": 289,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rumble Additions"
+    },
+    {
+      "name": "Rumble - Crafting - AOS Patch.esp",
+      "index": 290,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Audio Overhaul for Skyrim (4.1.2)"
+    },
+    {
+      "name": "TrueStormsSE_AOS.esp",
+      "index": 291,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Audio Overhaul for Skyrim (4.1.2)"
+    },
+    {
+      "name": "Rumble - Beasts.esp",
+      "index": 292,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rumble Additions"
+    },
+    {
+      "name": "Rumble - Crafting.esp",
+      "index": 293,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rumble Additions"
+    },
+    {
+      "name": "Rumble - Items.esp",
+      "index": 294,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rumble Additions"
+    },
+    {
+      "name": "Rumble - Jumping.esp",
+      "index": 295,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rumble Additions"
+    },
+    {
+      "name": "Rumble - UI.esp",
+      "index": 296,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rumble Additions"
+    },
+    {
+      "name": "Rumble - Weapons - AOS Patch.esp",
+      "index": 297,
+      "enabled": false,
+      "headerVersion": 1.7,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Audio Overhaul for Skyrim (4.1.2)"
+    },
+    {
+      "name": "Rumble - Weapons.esp",
+      "index": 298,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Rumble Additions"
+    },
+    {
+      "name": "AmnesiaShrine.esp",
+      "index": 299,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "AmnesiaShrine_v3.7_sse"
+    },
+    {
+      "name": "AmnesiaShrine KataPUMBA Affinities BSA loader.esp",
+      "index": 300,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Enderal Amnesia Shrine (Skill - Stat - Memory reset) - EnderalSE"
+    },
+    {
+      "name": "Zenderal - Magic Patches.esp",
+      "index": 301,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Zenderal - Magic Patches"
+    },
+    {
+      "name": "Water for ENB - Waterfalls Add-On.esp",
+      "index": 302,
+      "enabled": false,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "exclusionReason": "disabled in plugins.txt",
+      "source": "Water for ENB - Particle Waterfalls"
+    },
+    {
+      "name": "Water for ENB for Enderal.esp",
+      "index": 303,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Water for ENB"
+    },
+    {
+      "name": "Occlusion.esp",
+      "index": 304,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "DynDOLOD_Output"
+    },
+    {
+      "name": "DynDOLOD.esp",
+      "index": 305,
+      "enabled": true,
+      "headerVersion": 1.71,
+      "needsBees": true,
+      "source": "DynDOLOD_Output"
+    },
+    {
+      "name": "Zenderal - Skip To Taming The Waves.esp",
+      "index": 306,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Zenderal - Skip To Taming The Waves"
+    }
+  ]
+}

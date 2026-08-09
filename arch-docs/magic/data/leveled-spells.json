@@ -1,0 +1,637 @@
+{
+  "schemaVersion": 1,
+  "recordType": "LVSP",
+  "records": [
+    {
+      "formKey": "001E95:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionElementalSpell_26",
+      "chanceNone": 0,
+      "flags": [
+        "CalculateFromAllLevelsLessThanOrEqualPlayer",
+        "CalculateForEachItemInCount"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "095DFD:Skyrim.esm",
+            "editorId": "NPCFrostbite02",
+            "name": "Frostbite"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0118:Skyrim.esm",
+            "editorId": "NPCIceSpike02",
+            "name": "Ice Spike"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0118:Skyrim.esm",
+            "editorId": "NPCIceSpike02",
+            "name": "Ice Spike"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0119:Skyrim.esm",
+            "editorId": "NPCFirebolt02",
+            "name": "Firebolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0119:Skyrim.esm",
+            "editorId": "NPCFirebolt02",
+            "name": "Firebolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0D93F3:Skyrim.esm",
+            "editorId": "NPCLightningBolt02",
+            "name": "Lightning Bolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0D93F3:Skyrim.esm",
+            "editorId": "NPCLightningBolt02",
+            "name": "Lightning Bolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E93:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCFlames2",
+            "name": "Flames"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E94:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCSparks2",
+            "name": "Sparks"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "001E96:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionElementalSpell_26_All",
+      "chanceNone": 0,
+      "flags": [
+        "UseAllSpells"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E95:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "XionElementalSpell_26"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001ECF:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "XionElementalSpell_26_50none"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "001E98:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionElementalSpell_30_All",
+      "chanceNone": 0,
+      "flags": [
+        "UseAllSpells"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E99:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "XionElementalSpell_30"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001ECE:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "XionElementalSpell_30_50none"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "001E99:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionElementalSpell_30",
+      "chanceNone": 0,
+      "flags": [
+        "CalculateFromAllLevelsLessThanOrEqualPlayer",
+        "CalculateForEachItemInCount"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "01C789:Skyrim.esm",
+            "editorId": "NPCFireball",
+            "name": "Fireball"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "14479C:Skyrim.esm",
+            "editorId": "_28E_SpellWallOfFlames",
+            "name": "Wall of Flames"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "14479D:Skyrim.esm",
+            "editorId": "_28E_SpellWallOfFrost",
+            "name": "Wall of Frost"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "14479E:Skyrim.esm",
+            "editorId": "_28E_SpellWallOfLightning",
+            "name": "Wall of LIghtning"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "000845:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCChainLightning",
+            "name": "Chain Lightning"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001D66:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCIceSpike03",
+            "name": "Ice Spike"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E1D:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCFirebolt03",
+            "name": "Firebolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E91:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCLightningBolt03",
+            "name": "Lightning Bolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E92:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCIceStorm30E",
+            "name": "Ice Storm"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "001ECE:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionElementalSpell_30_50none",
+      "chanceNone": 15,
+      "flags": [
+        "CalculateFromAllLevelsLessThanOrEqualPlayer",
+        "CalculateForEachItemInCount"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "01C789:Skyrim.esm",
+            "editorId": "NPCFireball",
+            "name": "Fireball"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "14479C:Skyrim.esm",
+            "editorId": "_28E_SpellWallOfFlames",
+            "name": "Wall of Flames"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "14479D:Skyrim.esm",
+            "editorId": "_28E_SpellWallOfFrost",
+            "name": "Wall of Frost"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "14479E:Skyrim.esm",
+            "editorId": "_28E_SpellWallOfLightning",
+            "name": "Wall of LIghtning"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "000845:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCChainLightning",
+            "name": "Chain Lightning"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001D66:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCIceSpike03",
+            "name": "Ice Spike"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E1D:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCFirebolt03",
+            "name": "Firebolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E91:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCLightningBolt03",
+            "name": "Lightning Bolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E92:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCIceStorm30E",
+            "name": "Ice Storm"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "001ECF:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionElementalSpell_26_50none",
+      "chanceNone": 50,
+      "flags": [
+        "CalculateFromAllLevelsLessThanOrEqualPlayer",
+        "CalculateForEachItemInCount"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "095DFD:Skyrim.esm",
+            "editorId": "NPCFrostbite02",
+            "name": "Frostbite"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0118:Skyrim.esm",
+            "editorId": "NPCIceSpike02",
+            "name": "Ice Spike"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0118:Skyrim.esm",
+            "editorId": "NPCIceSpike02",
+            "name": "Ice Spike"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0119:Skyrim.esm",
+            "editorId": "NPCFirebolt02",
+            "name": "Firebolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0119:Skyrim.esm",
+            "editorId": "NPCFirebolt02",
+            "name": "Firebolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0D93F3:Skyrim.esm",
+            "editorId": "NPCLightningBolt02",
+            "name": "Lightning Bolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0D93F3:Skyrim.esm",
+            "editorId": "NPCLightningBolt02",
+            "name": "Lightning Bolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E93:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCFlames2",
+            "name": "Flames"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001E94:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCSparks2",
+            "name": "Sparks"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "001F60:Enderal SE - Gameplay Overhaul.esp",
+      "editorId": "XionSummonSpells_30",
+      "chanceNone": 0,
+      "flags": [
+        "CalculateFromAllLevelsLessThanOrEqualPlayer",
+        "CalculateForEachItemInCount"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0BB967:Skyrim.esm",
+            "editorId": "NPCXionConjureFireElemental",
+            "name": "Conjure Fire Elemental"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "000846:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCXionConjureIceElemental",
+            "name": "Conjure Ice Elemental"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001F53:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCXionConjureSoilElemental",
+            "name": "Conjure Soil Elemental"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "001F61:Enderal SE - Gameplay Overhaul.esp",
+            "editorId": "NPCXionConjureMudElemental",
+            "name": "Conjure Mud Elemental"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Enderal SE - Gameplay Overhaul.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 49,
+        "chain": [
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "047FAE:Skyrim.esm",
+      "editorId": "_26E_SpellListLongRange",
+      "chanceNone": 0,
+      "flags": [
+        "CalculateFromAllLevelsLessThanOrEqualPlayer"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "012FD0:Skyrim.esm",
+            "editorId": "NPCFirebolt",
+            "name": "Firebolt"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "0C0118:Skyrim.esm",
+            "editorId": "NPCIceSpike02",
+            "name": "Ice Spike"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "048031:Skyrim.esm",
+      "editorId": "_26E_SpellListShortRange",
+      "chanceNone": 0,
+      "flags": [
+        "CalculateFromAllLevelsLessThanOrEqualPlayer"
+      ],
+      "entries": [
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "048000:Skyrim.esm",
+            "editorId": "_16E_SpellFlameBite_NPC",
+            "name": "Flame Bite (Rank III)"
+          },
+          "count": 1
+        },
+        {
+          "level": 1,
+          "spell": {
+            "formKey": "04801A:Skyrim.esm",
+            "editorId": "_16E_SpellIceBreath_NPC",
+            "name": "Ice Breath (Rank III)"
+          },
+          "count": 1
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Skyrim.esm",
+        "winnerLoadOrderIndex": 0,
+        "chain": [
+          "Skyrim.esm"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Kata Fixes.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Author: Zenderal
+  Description: Kata-related fixes for the Zenderal list. Currently merges the magic vendor chests so KataPUMB's staves, Apocalypse's tomes and xxOpenSpells' books all survive the Leveling Redone overrides.
+  Stats:
+    Version: 1.7
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: KataPUMBSpellPack.esp
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: xxOpenSpells.esp
+    FileSize: 0
+  - Master: Apocalypse - Magic of Skyrim.esp
+    FileSize: 0
+  - Master: EGO SE - KataPUMB Spells - Emberlord sells all spells.esp
+    FileSize: 0
+  - Master: EGO SE - Leveling Redone.esp
+    FileSize: 0
+  INTV: 1

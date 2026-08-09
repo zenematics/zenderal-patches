@@ -25,6 +25,31 @@
       ]
     },
     {
+      "$comment": "All magic compatibility/balance patches for the list in ONE plugin. Currently: Apocalypse cost-ladder repricing (175 player-spell overrides, ManualCostCalc + hand BaseCost onto the EGO ladder). Regenerate the overrides with src/MagicPatches/tools/01-apocalypse-cost-ladder.ps1; the pricing table it applies is committed next to it.",
+      "name": "Zenderal - Magic Patches",
+      "archiveName": "Zenderal - Magic Patches",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/MagicPatches/MagicPatchesESP",
+          "dest": "Zenderal - Magic Patches.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Kata-related fixes. (1) The magic-vendor chest merge - Funkentanz/Torius/Tarhutie overridden with EGO SE - Leveling Redone's winning version plus every loser's re-appended stock (Kata's 15 staves, Apocalypse's 45/39 tomes, xxOpenSpells' 4 books, the Emberlord patch's 5 entries); regenerate with src/KataFixes/tools/01-merge-vendor-chests.py; MUST load after EGO SE - Leveling Redone.esp (mastered, so the engine enforces it). (2) The recompiled Kata_Enderal_SpellPackageAddToLLists.pex (absorbed from the retired 'Zenderal - No Kata Debug Prompt' release): kills the debug prompt AND stops injecting the 29 spell lines duplicated between the two Kata packs; the mod folder MUST sort so it wins the loose-script file conflict with 'KataPUMB Magic Package'.",
+      "name": "Zenderal - Kata Fixes",
+      "archiveName": "Zenderal - Kata Fixes",
+      "fomod": false,
+      "scripts": { "from": "src/KataFixes/Scripts/compiled", "to": "Scripts" },
+      "plugins": [
+        {
+          "yamlSource": "src/KataFixes/KataFixesESP",
+          "dest": "Zenderal - Kata Fixes.esp"
+        }
+      ]
+    },
+    {
       "name": "Zenderal - Skip To Taming The Waves",
       "archiveName": "Zenderal - Skip To Taming The Waves",
       "fomod": false,

@@ -1,0 +1,839 @@
+Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Enchantment Amount,Charge Time,Arcane Fever,Winner Overwrite
+073328:Skyrim.esm,TrapFireRune,,Enchantment,FireAndForget,Touch,2575,2575,0,,Enderal SE - Gameplay Overhaul.esp
+10A27E:Skyrim.esm,TrapFrostRune,,Enchantment,FireAndForget,Touch,3433,3433,0,,Enderal SE - Gameplay Overhaul.esp
+10A27F:Skyrim.esm,TrapLightningRune,,Enchantment,FireAndForget,Touch,4293,4293,0,,Enderal SE - Gameplay Overhaul.esp
+002C89:Enderal SE - Gameplay Overhaul.esp,EnchWeaponAbsorbStaminaSanguine,Absorb Health,Enchantment,FireAndForget,Touch,14,14,0,,Enderal SE - Gameplay Overhaul.esp
+02A49E:Enderal - Forgotten Stories.esm,_04E_30_Unique_YerosLastWords_Ench,Absorb Health,Enchantment,FireAndForget,Touch,44,44,0,,Enderal SE - Gameplay Overhaul.esp
+0432F0:Skyrim.esm,_04E_35_Unique_KilrasRedemption_Ench,Absorb Health,Enchantment,FireAndForget,Touch,237,237,0,,Skyrim.esm
+0AA145:Skyrim.esm,EnchWeaponAbsorbHealth02,Absorb Health,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+0AA15A:Skyrim.esm,EnchWeaponAbsorbHealth03,Absorb Health,Enchantment,FireAndForget,Touch,22,22,0,,Enderal SE - Gameplay Overhaul.esp
+0AA15B:Skyrim.esm,EnchWeaponAbsorbHealth04,Absorb Health,Enchantment,FireAndForget,Touch,44,44,0,,Enderal SE - Gameplay Overhaul.esp
+0AA15C:Skyrim.esm,EnchWeaponAbsorbHealth05,Absorb Health,Enchantment,FireAndForget,Touch,48,48,0,,Skyrim.esm
+0AA15D:Skyrim.esm,EnchWeaponAbsorbHealth06,Absorb Health,Enchantment,FireAndForget,Touch,62,62,0,,Skyrim.esm
+10FB91:Skyrim.esm,EnchWeaponAbsorbHealthBase,Absorb Health,Enchantment,FireAndForget,Touch,22,22,0,,Enderal SE - Gameplay Overhaul.esp
+0AA158:Skyrim.esm,EnchWeaponAbsorbMagicka02,Absorb Mana,Enchantment,FireAndForget,Touch,7,7,0,,Skyrim.esm
+0AA15E:Skyrim.esm,EnchWeaponAbsorbMagicka03,Absorb Mana,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
+0AA15F:Skyrim.esm,EnchWeaponAbsorbMagicka04,Absorb Mana,Enchantment,FireAndForget,Touch,25,25,0,,Enderal SE - Gameplay Overhaul.esp
+0AA160:Skyrim.esm,EnchWeaponAbsorbMagicka05,Absorb Mana,Enchantment,FireAndForget,Touch,32,32,0,,Skyrim.esm
+0AA161:Skyrim.esm,EnchWeaponAbsorbMagicka06,Absorb Mana,Enchantment,FireAndForget,Touch,37,37,0,,Enderal SE - Gameplay Overhaul.esp
+10FB9D:Skyrim.esm,EnchWeaponAbsorbMagickaBase,Absorb Mana,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
+0AA159:Skyrim.esm,EnchWeaponAbsorbStamina02,Absorb Stamina,Enchantment,FireAndForget,Touch,8,8,0,,Skyrim.esm
+0AA162:Skyrim.esm,EnchWeaponAbsorbStamina03,Absorb Stamina,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
+0AA163:Skyrim.esm,EnchWeaponAbsorbStamina04,Absorb Stamina,Enchantment,FireAndForget,Touch,24,24,0,,Skyrim.esm
+0AA164:Skyrim.esm,EnchWeaponAbsorbStamina05,Absorb Stamina,Enchantment,FireAndForget,Touch,34,34,0,,Skyrim.esm
+0AA165:Skyrim.esm,EnchWeaponAbsorbStamina06,Absorb Stamina,Enchantment,FireAndForget,Touch,39,39,0,,Enderal SE - Gameplay Overhaul.esp
+10FB92:Skyrim.esm,EnchWeaponAbsorbStaminaBase,Absorb Stamina,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
+13CB05:Skyrim.esm,_03E_25_AmuletOfMagicWind_Ench,Amulet of Magic Wind,Enchantment,ConstantEffect,Self,157,157,0,,Skyrim.esm
+02F3F5:Enderal - Forgotten Stories.esm,_02E_15_Unique_AmuletOfTheMeadowSpiritsEnch,Amulet of the Meadow Spirits,Enchantment,ConstantEffect,Self,550,550,0,,Enderal SE - Gameplay Overhaul.esp
+001D08:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Bannfluch,Anathema,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+002257:KataPUMB_SpellPackage.esp,Kata_BookEnch_Alteration,Arcane Discipline,Enchantment,ConstantEffect,Self,0,0,0,,KataPUMB_SpellPackage.esp
+002260:KataPUMB_SpellPackage.esp,Kata_BookEnch_Restoration,Arcane Light,Enchantment,ConstantEffect,Self,0,0,0,,KataPUMB_SpellPackage.esp
+00225E:KataPUMB_SpellPackage.esp,Kata_BookEnch_Illusion,Arcane Manipulation,Enchantment,ConstantEffect,Self,0,0,0,,KataPUMB_SpellPackage.esp
+00225C:KataPUMB_SpellPackage.esp,Kata_BookEnch_Destruction,Arcane Rage,Enchantment,ConstantEffect,Self,0,0,0,,KataPUMB_SpellPackage.esp
+002258:KataPUMB_SpellPackage.esp,Kata_BookEnch_All,Arcane Sensibility,Enchantment,ConstantEffect,Self,0,0,0,,KataPUMB_SpellPackage.esp
+00225A:KataPUMB_SpellPackage.esp,Kata_BookEnch_Conjuration,Arcane Soul,Enchantment,ConstantEffect,Self,0,0,0,,KataPUMB_SpellPackage.esp
+0773C4:Skyrim.esm,_00E_EnchSpecialBackpack,Arcanist's Backpack,Enchantment,ConstantEffect,Self,935,935,0,,Enderal SE - Gameplay Overhaul.esp
+033472:Skyrim.esm,_00E_A1_OnslaughtExpEnch,Archaic Force,Enchantment,FireAndForget,Touch,62,62,0,,Skyrim.esm
+0F8651:Skyrim.esm,_00E_A2_PrimalForceExtraDMGEnch,Archaic Force,Enchantment,FireAndForget,Touch,344,344,0,,Skyrim.esm
+02F236:Enderal - Forgotten Stories.esm,_05E_FS_ArvheldiinsHeartEnch,Arveldhiin's Heart,Enchantment,ConstantEffect,Self,296,296,0,,Enderal SE - Gameplay Overhaul.esp
+0364A6:Skyrim.esm,_05E_40_LSet_Ashwarrior_Boots_Ench,Ash Warrior,Enchantment,ConstantEffect,Self,901,901,0,,Enderal SE - Gameplay Overhaul.esp
+0364A7:Skyrim.esm,_05E_40_LSet_Ashwarrior_Cuirass_Ench,Ash Warrior,Enchantment,ConstantEffect,Self,1025,1025,0,,Enderal SE - Gameplay Overhaul.esp
+0364A8:Skyrim.esm,_05E_40_LSet_Ashwarrior_Helmet_Ench,Ash Warrior,Enchantment,ConstantEffect,Self,969,969,0,,Enderal SE - Gameplay Overhaul.esp
+0364A9:Skyrim.esm,_05E_40_LSet_Ashwarrior_Gauntlets_Ench,Ash Warrior,Enchantment,ConstantEffect,Self,638,638,0,,Enderal SE - Gameplay Overhaul.esp
+10FB93:Skyrim.esm,EnchWeaponBanishBase,Banish,Enchantment,FireAndForget,Touch,113,113,0,,Skyrim.esm
+00572A:KataPUMB_SpellPackage.esp,Kata_BlackMageSet_Ench_Gloves,Black Mage Gloves,Enchantment,ConstantEffect,Self,464,464,0,,KataPUMB_SpellPackage.esp
+00572C:KataPUMB_SpellPackage.esp,Kata_BlackMageSet_Ench_Hood,Black Mage Hood,Enchantment,ConstantEffect,Self,402,402,0,,KataPUMB_SpellPackage.esp
+00572E:KataPUMB_SpellPackage.esp,Kata_BlackMageSet_Ench_Robes,Black Mage Robes,Enchantment,ConstantEffect,Self,1489,1489,0,,KataPUMB_SpellPackage.esp
+005726:KataPUMB_SpellPackage.esp,Kata_BlackMageSet_Ench_Shoes,Black Mage Shoes,Enchantment,ConstantEffect,Self,564,564,0,,KataPUMB_SpellPackage.esp
+0AD488:Skyrim.esm,EnchArmorResistShock03,Blitzschaden widerstehen,Enchantment,ConstantEffect,Self,578,578,0,,Enderal SE - Gameplay Overhaul.esp
+015AA6:Skyrim.esm,_01E_05_Unique_BloodNeedle_Ench,Blood Needle,Enchantment,FireAndForget,Touch,2,2,0,,Enderal - Forgotten Stories.esm
+000854:FEC.esp,FEC_EnchBloodSpray,Blood Spray,Enchantment,FireAndForget,Touch,0,0,0,,FEC.esp
+0C5BE2:Skyrim.esm,BoundBattleaxeEnchantment,Bound Battleaxe FX,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+0C5BE3:Skyrim.esm,BoundBowEnchantment,Bound Bow FX,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+02F454:Enderal - Forgotten Stories.esm,_00E_BoundDaggerEnchantment,Bound Dagger FX,Enchantment,FireAndForget,Touch,0,0,0,,Enderal - Forgotten Stories.esm
+069CE7:Skyrim.esm,BoundSwordEnchantment,Bound Sword FX,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+02A4B6:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_BowOfTheIshyian,Bow of the Ishyian,Enchantment,FireAndForget,Touch,39,49,0,,Enderal SE - Gameplay Overhaul.esp
+02EF65:Enderal - Forgotten Stories.esm,_50E_HSet_SkybreakerCuirassEnch,Bulwark of the Skybreaker,Enchantment,ConstantEffect,Self,619,619,0,,Enderal SE - Gameplay Overhaul.esp
+06722A:Skyrim.esm,_00E_A1_FireArrowEnchantment,Burning,Enchantment,FireAndForget,Touch,3,3,0,,Skyrim.esm
+0E605F:Skyrim.esm,TrapDweFlamePillarEnch01,Burning,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+0EA53D:Skyrim.esm,TrapFallingOilLampEnch01,Burning,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A2D2:Skyrim.esm,TrapDweFlamePillarEnch02,Burning,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A2D3:Skyrim.esm,TrapDweFlamePillarEnch03,Burning,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A2D4:Skyrim.esm,TrapDweFlamePillarEnch04,Burning,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A2D5:Skyrim.esm,TrapDweFlamePillarEnch05,Burning,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A2D6:Skyrim.esm,TrapDweFlamePillarEnch06,Burning,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+143324:Skyrim.esm,_00E_A1_FireArrowWayfarerEnch,Burning,Enchantment,FireAndForget,Touch,17,17,0,,Skyrim.esm
+0098C2:KataPUMB_SpellPackage.esp,Kata_BookEnch_LightningBook,Call of Lightning,Enchantment,ConstantEffect,Self,3,3,0,,KataPUMB_SpellPackage.esp
+02EAB6:Enderal - Forgotten Stories.esm,_00E_A3_Theriantrophist_HowlEnch,Call of the Hunt,Enchantment,FireAndForget,Touch,1,1,0,,Enderal - Forgotten Stories.esm
+001CDF:Enderal SE - Gameplay Overhaul.esp,XionRuneCalmExplosion,Calm,Enchantment,FireAndForget,Touch,122,122,0,,Enderal SE - Gameplay Overhaul.esp
+02F3BD:Enderal - Forgotten Stories.esm,_00E_FS_Mystical_CanonadeEnch,Cannonade (Fire),Enchantment,FireAndForget,Touch,665,665,0,,Enderal - Forgotten Stories.esm
+075400:Skyrim.esm,_00E_A2_ChaosruneFireEnch,Chaos (Feuer),Enchantment,FireAndForget,Touch,665,665,0,,Skyrim.esm
+0753FA:Skyrim.esm,_00E_A2_ChaosruneFrostEnch,Chaos (Frost),Enchantment,FireAndForget,Touch,37,37,0,,Skyrim.esm
+0753FB:Skyrim.esm,_00E_A2_ChaosruneShockEnch,Chaos (Shock),Enchantment,FireAndForget,Touch,38,38,0,,Skyrim.esm
+0AAC3D:EAM SE - Enderal Apothecarii Monastery.esp,EnchWeaponFireDamage_EAMfireicelight,Chaos Damage,Enchantment,FireAndForget,Touch,155,155,0,,EAM SE - Enderal Apothecarii Monastery.esp
+085A78:Skyrim.esm,_02E_13_CircletOfShadows_Ench,Circlet of Shadows,Enchantment,ConstantEffect,Self,205,205,0,,Enderal SE - Gameplay Overhaul.esp
+02E7FE:Enderal - Forgotten Stories.esm,_00E_FS_Theriantrophist_Claws_Ench,Claws,Enchantment,FireAndForget,Touch,4,4,0,,Enderal - Forgotten Stories.esm
+13F35F:Skyrim.esm,_03E_25_HSet_FallenOne_Gloves_Ench,Claws of the Fallen,Enchantment,ConstantEffect,Self,397,397,0,,Enderal SE - Gameplay Overhaul.esp
+02F241:Enderal - Forgotten Stories.esm,_03E_FS_CloakOfHalfLight_Ench,Cloak of Twilight,Enchantment,ConstantEffect,Self,391,391,0,,Enderal - Forgotten Stories.esm
+01EB49:Enderal - Forgotten Stories.esm,_06E_50_Unique_BloodmoonCoat_Ench,Coat of the Bloodmoon,Enchantment,ConstantEffect,Self,561,561,0,,Enderal - Forgotten Stories.esm
+053FD9:Skyrim.esm,_02E_10_HSet_BonejudgeHelmet_Ench,Cold Glance of the Rat Catcher,Enchantment,ConstantEffect,Self,239,239,0,,Skyrim.esm
+01FE9B:Enderal - Forgotten Stories.esm,_00E_EnchSpecialBackpackC,Companion of the Snow Nomad,Enchantment,ConstantEffect,Self,1015,1015,0,,Enderal SE - Gameplay Overhaul.esp
+032DFF:Skyrim.esm,_01E_05_DaggerOfDespairAndAmbush_Ench,Critical Hit Chance,Enchantment,FireAndForget,Touch,12,125,0,,Skyrim.esm
+044A69:Skyrim.esm,_03E_27_DaggerOfRighteousAmbush_Ench,Critical Hit Chance,Enchantment,FireAndForget,Touch,12,125,0,,Skyrim.esm
+046FC3:Skyrim.esm,_00E_EnchWeaponCrit_BaseEnch,Critical Hit Chance,Enchantment,FireAndForget,Touch,17,17,0,,Skyrim.esm
+05B453:Skyrim.esm,EnchWeaponMagickaDamage01,Damage Mana,Enchantment,FireAndForget,Touch,4,4,0,,Skyrim.esm
+05B454:Skyrim.esm,EnchWeaponMagickaDamage02,Damage Mana,Enchantment,FireAndForget,Touch,8,8,0,,Skyrim.esm
+05B455:Skyrim.esm,EnchWeaponMagickaDamage03,Damage Mana,Enchantment,FireAndForget,Touch,15,15,0,,Skyrim.esm
+05B456:Skyrim.esm,EnchWeaponMagickaDamage04,Damage Mana,Enchantment,FireAndForget,Touch,21,21,0,,Skyrim.esm
+05B457:Skyrim.esm,EnchWeaponMagickaDamage05,Damage Mana,Enchantment,FireAndForget,Touch,33,33,0,,Skyrim.esm
+05B458:Skyrim.esm,EnchWeaponMagickaDamage06,Damage Mana,Enchantment,FireAndForget,Touch,39,39,0,,Skyrim.esm
+10FB97:Skyrim.esm,EnchWeaponMagickaDamageBase,Damage Mana,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
+05B459:Skyrim.esm,EnchWeaponStaminaDamage01,Damage Stamina,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
+05B45A:Skyrim.esm,EnchWeaponStaminaDamage02,Damage Stamina,Enchantment,FireAndForget,Touch,29,29,0,,Skyrim.esm
+05B45B:Skyrim.esm,EnchWeaponStaminaDamage03,Damage Stamina,Enchantment,FireAndForget,Touch,33,33,0,,Skyrim.esm
+05B45C:Skyrim.esm,EnchWeaponStaminaDamage04,Damage Stamina,Enchantment,FireAndForget,Touch,40,40,0,,Skyrim.esm
+05B45D:Skyrim.esm,EnchWeaponStaminaDamage05,Damage Stamina,Enchantment,FireAndForget,Touch,51,51,0,,Skyrim.esm
+05B45E:Skyrim.esm,EnchWeaponStaminaDamage06,Damage Stamina,Enchantment,FireAndForget,Touch,63,63,0,,Skyrim.esm
+10FB9B:Skyrim.esm,EnchWeaponStaminaDamageBase,Damage Stamina,Enchantment,FireAndForget,Touch,18,18,0,,Skyrim.esm
+025044:Skyrim.esm,_00E_A2_SynergyEldritchBloodSkyfallDMGEnch,Death Cry (Synergy Effect),Enchantment,FireAndForget,Touch,31,31,0,,Skyrim.esm
+001F1E:Enderal SE - Gameplay Overhaul.esp,_00E_OorbayaAreaAttackDMG2,Dimension Rift,Enchantment,FireAndForget,Touch,665,665,0,,Enderal SE - Gameplay Overhaul.esp
+0963A3:Skyrim.esm,_00E_OorbayaAreaAttackDMG,Dimension Rift,Enchantment,FireAndForget,Touch,665,665,0,,Enderal SE - Gameplay Overhaul.esp
+02319D:Skyrim.esm,_00E_A2_PrimalForceSynergyDMGEnch,Dimensional Rift (Synergy Effect),Enchantment,FireAndForget,Touch,31,31,0,,Skyrim.esm
+02F18F:Enderal - Forgotten Stories.esm,_00E_FS_Affinity_Druid_FrostnovaEnch,Druid Storm,Enchantment,FireAndForget,Touch,5,5,0,,Enderal SE - Gameplay Overhaul.esp
+10FAF0:Skyrim.esm,_04E_30_Unique_PetrifiedSaber_Ench,Ebony Blade Enchantment,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+13F361:Skyrim.esm,_03E_25_HSet_FallenOne_Boots_Ench,Echo of the Fallen,Enchantment,ConstantEffect,Self,477,477,0,,Skyrim.esm
+148A1A:Skyrim.esm,_40E_MSet_WandererBootsEnch,Echo of the Wandering Mage,Enchantment,ConstantEffect,Self,782,782,0,,Enderal SE - Gameplay Overhaul.esp
+02C594:Skyrim.esm,VoiceEnchElementalFury,Elemental Fury,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+0432A9:Skyrim.esm,01E_09VerschlissenesElementaristendiademEnch,Elementalist Circlet,Enchantment,ConstantEffect,Self,327,327,0,,Enderal SE - Gameplay Overhaul.esp
+01A0A8:Apocalypse - Magic of Skyrim.esp,WB_C050_DaedricCrescent_SummonedWeaponEnchantment,Entropic Crescent,Enchantment,FireAndForget,Touch,1000,1000,0,,Apocalypse - Magic of Skyrim.esp
+001E9E:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Totensturm,Entropic Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
+01EB4B:Enderal - Forgotten Stories.esm,_02E_15_Unique_Epicura_Ench,Epicura,Enchantment,FireAndForget,Touch,23,23,0,,Enderal - Forgotten Stories.esm
+1130C7:Skyrim.esm,_00E_A2_EyeOfTheStormFailsaveEnch,Eye of the Storm,Enchantment,FireAndForget,Touch,665,665,0,,Skyrim.esm
+13F358:Skyrim.esm,_02E_15_LSet_CallOfNorthHelmet_Ench,Eyes of the North,Enchantment,ConstantEffect,Self,884,884,0,,Enderal SE - Gameplay Overhaul.esp
+01FE07:Enderal - Forgotten Stories.esm,_00E_FS_NQ05_AmulettEnch,Family Hoofbeat's Amulet,Enchantment,ConstantEffect,Self,423,423,0,,Enderal - Forgotten Stories.esm
+001CE0:Enderal SE - Gameplay Overhaul.esp,XionRuneFearExplosion,Fear,Enchantment,FireAndForget,Touch,122,122,0,,Enderal SE - Gameplay Overhaul.esp
+105250:Skyrim.esm,EnchRobesFortifyMagickaRate02,Festigen Manaregeneration,Enchantment,ConstantEffect,Self,50,577,0,,Enderal SE - Gameplay Overhaul.esp
+02EF6A:Enderal - Forgotten Stories.esm,_06E_50_LSet_VenturerGloves_Ench,Fingers of the Venturer,Enchantment,ConstantEffect,Self,381,381,0,,Enderal SE - Gameplay Overhaul.esp
+001DD6:Enderal SE - Gameplay Overhaul.esp,XionFireNova,Fire Damage,Enchantment,FireAndForget,Touch,15,15,0,,Enderal SE - Gameplay Overhaul.esp
+024C28:Enderal - Forgotten Stories.esm,_03E_25_Unique_ShadowsEdge_Ench,Fire Damage,Enchantment,FireAndForget,Touch,4,4,0,,Enderal SE - Gameplay Overhaul.esp
+045C2A:Skyrim.esm,EnchWeaponFireDamage02,Fire Damage,Enchantment,FireAndForget,Touch,8,8,0,,Skyrim.esm
+045C2C:Skyrim.esm,EnchWeaponFireDamage03,Fire Damage,Enchantment,FireAndForget,Touch,13,13,0,,Enderal SE - Gameplay Overhaul.esp
+045C2D:Skyrim.esm,EnchWeaponFireDamage04,Fire Damage,Enchantment,FireAndForget,Touch,19,19,0,,Skyrim.esm
+045C30:Skyrim.esm,EnchWeaponFireDamage05,Fire Damage,Enchantment,FireAndForget,Touch,24,24,0,,Skyrim.esm
+045C35:Skyrim.esm,EnchWeaponFireDamage06,Fire Damage,Enchantment,FireAndForget,Touch,37,37,0,,Skyrim.esm
+049BB7:Skyrim.esm,EnchWeaponFireDamage01,Fire Damage,Enchantment,FireAndForget,Touch,5,5,0,,Skyrim.esm
+101BDF:Skyrim.esm,crAtronachExplosionFireDamage,Fire Damage,Enchantment,FireAndForget,Touch,15,15,0,,Enderal SE - Gameplay Overhaul.esp
+10A26D:Skyrim.esm,TrapExplosiveGasEnch01,Fire Damage,Enchantment,FireAndForget,Touch,9,9,0,,Enderal SE - Gameplay Overhaul.esp
+10FB95:Skyrim.esm,EnchWeaponFireDamageBase,Fire Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+14970C:Skyrim.esm,_00E_MQ17_SC07_LemmingExpEnch,Fire Damage,Enchantment,FireAndForget,Touch,11,11,0,,Enderal SE - Gameplay Overhaul.esp
+0432DA:Skyrim.esm,_15E_RingDerFeuerresistenz_Ench,Fire Resistance,Enchantment,ConstantEffect,Self,716,716,0,,Enderal SE - Gameplay Overhaul.esp
+10E4AF:Skyrim.esm,dunCGTrapFireTriggerEnch01,FireDamage,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+13F356:Skyrim.esm,_02E_15_LSet_CallOfNorthGauntlets_Ench,Fists of the North,Enchantment,ConstantEffect,Self,610,610,0,,Skyrim.esm
+02EF66:Enderal - Forgotten Stories.esm,_06E_50_HSet_SkybreakerGauntlets_Ench,Fists of the Skybreaker,Enchantment,ConstantEffect,Self,456,456,0,,Enderal - Forgotten Stories.esm
+053FDD:Skyrim.esm,_02E_10_LSet_VagabundGloves_Ench,Fists of the Swashbuckler,Enchantment,ConstantEffect,Self,169,169,0,,Skyrim.esm
+053FE3:Skyrim.esm,_02E_10_MSet_EnigmaticNomadBoots_Ench,Footfalls of the Mysterious Nomad,Enchantment,ConstantEffect,Self,257,257,0,,Skyrim.esm
+053FE0:Skyrim.esm,_02E_10_LSet_VagabundBoots_Ench,Footprints of the Vagrant,Enchantment,ConstantEffect,Self,210,210,0,,Enderal SE - Gameplay Overhaul.esp
+08B65B:Skyrim.esm,EnchArmorFortifyAlchemy01,Fortify Alchemy,Enchantment,ConstantEffect,Self,261,261,0,,Skyrim.esm
+08B65D:Skyrim.esm,EnchArmorFortifyAlchemy02,Fortify Alchemy,Enchantment,ConstantEffect,Self,334,334,0,,Skyrim.esm
+08B65E:Skyrim.esm,EnchArmorFortifyAlchemy03,Fortify Alchemy,Enchantment,ConstantEffect,Self,383,383,0,,Skyrim.esm
+08B65F:Skyrim.esm,EnchArmorFortifyAlchemy04,Fortify Alchemy,Enchantment,ConstantEffect,Self,458,458,0,,Skyrim.esm
+08B660:Skyrim.esm,EnchArmorFortifyAlchemy05,Fortify Alchemy,Enchantment,ConstantEffect,Self,509,509,0,,Skyrim.esm
+08B661:Skyrim.esm,EnchArmorFortifyAlchemy06,Fortify Alchemy,Enchantment,ConstantEffect,Self,586,586,0,,Skyrim.esm
+10FB70:Skyrim.esm,EnchArmorFortifyAlchemyBase,Fortify Alchemy,Enchantment,ConstantEffect,Self,214,214,0,,Skyrim.esm
+0432C2:Skyrim.esm,_02E_11_FineLeatherGauntletsOfPrecision_Ench,Fortify Archery,Enchantment,ConstantEffect,Self,264,264,0,,Skyrim.esm
+0432C3:Skyrim.esm,_15E_RingDesAdlerauges_Ench,Fortify Archery,Enchantment,ConstantEffect,Self,264,264,0,,Enderal SE - Gameplay Overhaul.esp
+04D9DF:Skyrim.esm,01E_03EnchAmulettBogen_Ench,Fortify Archery,Enchantment,ConstantEffect,Self,206,206,0,,Enderal SE - Gameplay Overhaul.esp
+06728D:Skyrim.esm,_05E_RingDerPraezesion_Ench,Fortify Archery,Enchantment,ConstantEffect,Self,206,206,0,,Enderal SE - Gameplay Overhaul.esp
+07A113:Skyrim.esm,EnchArmorFortifyMarksman01,Fortify Archery,Enchantment,ConstantEffect,Self,206,206,0,,Skyrim.esm
+0AD46F:Skyrim.esm,EnchArmorFortifyMarksman02,Fortify Archery,Enchantment,ConstantEffect,Self,264,264,0,,Skyrim.esm
+0AD470:Skyrim.esm,EnchArmorFortifyMarksman03,Fortify Archery,Enchantment,ConstantEffect,Self,382,382,0,,Skyrim.esm
+0BE00C:Skyrim.esm,EnchArmorFortifyMarksman04,Fortify Archery,Enchantment,ConstantEffect,Self,566,566,0,,Skyrim.esm
+0BE00D:Skyrim.esm,EnchArmorFortifyMarksman05,Fortify Archery,Enchantment,ConstantEffect,Self,660,660,0,,Skyrim.esm
+0BE00E:Skyrim.esm,EnchArmorFortifyMarksman06,Fortify Archery,Enchantment,ConstantEffect,Self,788,788,0,,Skyrim.esm
+10FB7E:Skyrim.esm,EnchArmorFortifyMarksmanBase,Fortify Archery,Enchantment,ConstantEffect,Self,293,293,0,,Enderal SE - Gameplay Overhaul.esp
+13CB0B:Skyrim.esm,_03E_25_AmuletOfTheBraveHunter_Ench,Fortify Archery,Enchantment,ConstantEffect,Self,382,382,0,,Skyrim.esm
+10A06B:Skyrim.esm,EnchArmorFortifyUnarmed01,Fortify Bare-handed,Enchantment,ConstantEffect,Self,188,188,0,,Skyrim.esm
+10FB88:Skyrim.esm,EnchArmorFortifyUnarmedBase,Fortify Bare-handed,Enchantment,ConstantEffect,Self,88,88,0,,Skyrim.esm
+044866:Skyrim.esm,EnchArmorFortifySpeechcraftBase_02,Fortify Barter,Enchantment,ConstantEffect,Self,493,493,0,,Enderal SE - Gameplay Overhaul.esp
+048504:Skyrim.esm,EnchArmorFortifyPersuasionBase,Fortify Barter,Enchantment,ConstantEffect,Self,433,433,0,,Enderal SE - Gameplay Overhaul.esp
+07A119:Skyrim.esm,EnchArmorFortifySpeechcraft01,Fortify Barter,Enchantment,ConstantEffect,Self,331,331,0,,Skyrim.esm
+0AD47B:Skyrim.esm,EnchArmorFortifySpeechcraft02,Fortify Barter,Enchantment,ConstantEffect,Self,545,545,0,,Skyrim.esm
+0AD47C:Skyrim.esm,EnchArmorFortifySpeechcraft03,Fortify Barter,Enchantment,ConstantEffect,Self,710,710,0,,Skyrim.esm
+0BE01E:Skyrim.esm,EnchArmorFortifySpeechcraft04,Fortify Barter,Enchantment,ConstantEffect,Self,823,823,0,,Skyrim.esm
+0BE01F:Skyrim.esm,EnchArmorFortifySpeechcraft05,Fortify Barter,Enchantment,ConstantEffect,Self,937,937,0,,Skyrim.esm
+0BE020:Skyrim.esm,EnchArmorFortifySpeechcraft06,Fortify Barter,Enchantment,ConstantEffect,Self,1052,1052,0,,Skyrim.esm
+10FB84:Skyrim.esm,EnchArmorFortifySpeechcraftBase,Fortify Barter,Enchantment,ConstantEffect,Self,384,384,0,,Enderal SE - Gameplay Overhaul.esp
+064929:Skyrim.esm,DBEnchantJester,Fortify Barter and One-Handed,Enchantment,ConstantEffect,Self,152,152,0,,Skyrim.esm
+0432AF:Skyrim.esm,_03E_25_MassiveShieldOfTheRighteousRampart_Ench,Fortify Block,Enchantment,ConstantEffect,Self,377,377,0,,Enderal SE - Gameplay Overhaul.esp
+04D9E0:Skyrim.esm,_01E_03_BronzeNecklaceOfDefense_Ench,Fortify Block,Enchantment,ConstantEffect,Self,119,119,0,,Skyrim.esm
+067291:Skyrim.esm,_05E_RingDesLegionaers_Ench,Fortify Block,Enchantment,ConstantEffect,Self,119,119,0,,Enderal SE - Gameplay Overhaul.esp
+0725F3:Skyrim.esm,_01E_07_SteelHelmetOfTheBulwark_Ench,Fortify Block,Enchantment,ConstantEffect,Self,119,119,0,,Skyrim.esm
+0BEDD0:Skyrim.esm,_02E_15_RingOfBastion_Ench,Fortify Block,Enchantment,ConstantEffect,Self,195,195,0,,Skyrim.esm
+103D9D:Skyrim.esm,_02E_10_NecklaceOfBulwark_Ench,Fortify Block,Enchantment,ConstantEffect,Self,195,195,0,,Enderal SE - Gameplay Overhaul.esp
+13CB0A:Skyrim.esm,_03E_25_AmuletOfTheMightyBulwark_Ench,Fortify Block,Enchantment,ConstantEffect,Self,295,295,0,,Enderal SE - Gameplay Overhaul.esp
+07A108:Skyrim.esm,EnchArmorFortifyBlock01,Fortify Blocking,Enchantment,ConstantEffect,Self,119,119,0,,Skyrim.esm
+0AD4A1:Skyrim.esm,EnchArmorFortifyBlock02,Fortify Blocking,Enchantment,ConstantEffect,Self,195,195,0,,Skyrim.esm
+0AD4A2:Skyrim.esm,EnchArmorFortifyBlock03,Fortify Blocking,Enchantment,ConstantEffect,Self,295,295,0,,Skyrim.esm
+0BE034:Skyrim.esm,EnchArmorFortifyBlock04,Fortify Blocking,Enchantment,ConstantEffect,Self,377,377,0,,Skyrim.esm
+0BE035:Skyrim.esm,EnchArmorFortifyBlock05,Fortify Blocking,Enchantment,ConstantEffect,Self,482,482,0,,Skyrim.esm
+0BE036:Skyrim.esm,EnchArmorFortifyBlock06,Fortify Blocking,Enchantment,ConstantEffect,Self,590,590,0,,Skyrim.esm
+10FB72:Skyrim.esm,EnchArmorFortifyBlockBase,Fortify Blocking,Enchantment,ConstantEffect,Self,215,215,0,,Enderal SE - Gameplay Overhaul.esp
+0462A6:Skyrim.esm,_00E_Backpack_HugeBackpack_Ench,Fortify Carry Weight,Enchantment,ConstantEffect,Self,451,451,0,,Skyrim.esm
+0773C1:Skyrim.esm,_00E_EnchSmallBackpack,Fortify Carry Weight,Enchantment,ConstantEffect,Self,20,20,0,,Enderal SE - Gameplay Overhaul.esp
+0773C2:Skyrim.esm,_00E_EnchMediumBackpack,Fortify Carry Weight,Enchantment,ConstantEffect,Self,50,50,0,,Enderal SE - Gameplay Overhaul.esp
+0773C3:Skyrim.esm,_00E_EnchLargeBackpack,Fortify Carry Weight,Enchantment,ConstantEffect,Self,90,90,0,,Enderal SE - Gameplay Overhaul.esp
+0773CC:Skyrim.esm,_00E_EnchSpaciousBackpack,Fortify Carry Weight,Enchantment,ConstantEffect,Self,140,140,0,,Enderal SE - Gameplay Overhaul.esp
+07A109:Skyrim.esm,EnchArmorFortifyCarry01,Fortify Carry Weight,Enchantment,ConstantEffect,Self,689,689,0,,Skyrim.esm
+0AD44C:Skyrim.esm,EnchArmorFortifyCarry02,Fortify Carry Weight,Enchantment,ConstantEffect,Self,843,843,0,,Skyrim.esm
+0AD44D:Skyrim.esm,EnchArmorFortifyCarry03,Fortify Carry Weight,Enchantment,ConstantEffect,Self,998,998,0,,Skyrim.esm
+0AD44E:Skyrim.esm,EnchArmorFortifyCarry04,Fortify Carry Weight,Enchantment,ConstantEffect,Self,1156,1156,0,,Skyrim.esm
+0AD44F:Skyrim.esm,EnchArmorFortifyCarry05,Fortify Carry Weight,Enchantment,ConstantEffect,Self,1316,1316,0,,Skyrim.esm
+0AD450:Skyrim.esm,EnchArmorFortifyCarry06,Fortify Carry Weight,Enchantment,ConstantEffect,Self,1478,1478,0,,Skyrim.esm
+103DA3:Skyrim.esm,02E_10EnchAmulettDerLeichtfuessigkeitit_Ench,Fortify Carry Weight,Enchantment,ConstantEffect,Self,148,148,0,,Enderal SE - Gameplay Overhaul.esp
+10FB73:Skyrim.esm,EnchArmorFortifyCarryBase,Fortify Carry Weight,Enchantment,ConstantEffect,Self,393,393,0,,Skyrim.esm
+0AD45A:Skyrim.esm,EnchArmorFortifyDestruction04,Fortify Elementalism,Enchantment,ConstantEffect,Self,701,701,0,,Skyrim.esm
+0AD45B:Skyrim.esm,EnchArmorFortifyDestruction05,Fortify Elementalism,Enchantment,ConstantEffect,Self,779,779,0,,Skyrim.esm
+0AD45C:Skyrim.esm,EnchArmorFortifyDestruction06,Fortify Elementalism,Enchantment,ConstantEffect,Self,896,896,0,,Skyrim.esm
+104D6B:Skyrim.esm,EnchRobesFortifyDestruction01,Fortify Elementalism,Enchantment,ConstantEffect,Self,20,1076,0,,Skyrim.esm
+104D80:Skyrim.esm,EnchRobesFortifyDestruction02,Fortify Elementalism,Enchantment,ConstantEffect,Self,50,1376,0,,Skyrim.esm
+104D81:Skyrim.esm,EnchRobesFortifyDestruction03,Fortify Elementalism,Enchantment,ConstantEffect,Self,75,1579,0,,Skyrim.esm
+104D82:Skyrim.esm,EnchRobesFortifyDestruction04,Fortify Elementalism,Enchantment,ConstantEffect,Self,100,1888,0,,Skyrim.esm
+104D83:Skyrim.esm,EnchRobesFortifyDestruction05,Fortify Elementalism,Enchantment,ConstantEffect,Self,150,2097,0,,Skyrim.esm
+104D84:Skyrim.esm,EnchRobesFortifyDestruction06,Fortify Elementalism,Enchantment,ConstantEffect,Self,200,2414,0,,Skyrim.esm
+10E305:Skyrim.esm,EnchRobesCollegeDestruction01,Fortify Elementalism,Enchantment,ConstantEffect,Self,205,205,0,,Skyrim.esm
+10E306:Skyrim.esm,EnchRobesCollegeDestruction02,Fortify Elementalism,Enchantment,ConstantEffect,Self,344,344,0,,Skyrim.esm
+10E308:Skyrim.esm,EnchRobesCollegeDestruction04,Fortify Elementalism,Enchantment,ConstantEffect,Self,637,637,0,,Skyrim.esm
+10E309:Skyrim.esm,EnchRobesCollegeDestruction05,Fortify Elementalism,Enchantment,ConstantEffect,Self,789,789,0,,Skyrim.esm
+0432A6:Skyrim.esm,_05E_RingDesElementarlehrlings_Ench,Fortify Elementarism,Enchantment,ConstantEffect,Self,327,327,0,,Enderal SE - Gameplay Overhaul.esp
+07A10B:Skyrim.esm,EnchArmorFortifyDestruction01,Fortify Elementarism,Enchantment,ConstantEffect,Self,327,327,0,,Enderal SE - Gameplay Overhaul.esp
+0AD458:Skyrim.esm,EnchArmorFortifyDestruction02,Fortify Elementarism,Enchantment,ConstantEffect,Self,400,400,0,,Enderal SE - Gameplay Overhaul.esp
+0AD459:Skyrim.esm,EnchArmorFortifyDestruction03,Fortify Elementarism,Enchantment,ConstantEffect,Self,586,586,0,,Enderal SE - Gameplay Overhaul.esp
+0BEDD2:Skyrim.esm,_15E_RingDesElementaristen_Ench,Fortify Elementarism,Enchantment,ConstantEffect,Self,400,400,0,,Enderal SE - Gameplay Overhaul.esp
+0D9442:Skyrim.esm,03E_25UniDiademDerEisernenFlamme_Ench,Fortify Elementarism,Enchantment,ConstantEffect,Self,400,400,0,,Enderal SE - Gameplay Overhaul.esp
+0DAC85:Skyrim.esm,_01E_05KappeDesElementaristen_Ench,Fortify Elementarism,Enchantment,ConstantEffect,Self,327,327,0,,Enderal SE - Gameplay Overhaul.esp
+10E307:Skyrim.esm,EnchRobesCollegeDestruction03,Fortify Elementarism,Enchantment,ConstantEffect,Self,489,489,0,,Enderal SE - Gameplay Overhaul.esp
+10FB75:Skyrim.esm,EnchArmorFortifyDestructionBase,Fortify Elementarism,Enchantment,ConstantEffect,Self,327,327,0,,Enderal SE - Gameplay Overhaul.esp
+13777F:Skyrim.esm,_25E_RingDesElementarexperten_Ench,Fortify Elementarism,Enchantment,ConstantEffect,Self,586,586,0,,Enderal SE - Gameplay Overhaul.esp
+01D606:Skyrim.esm,01E_10UNIRobeDerInnerenFlamme_Ench,Fortify Elementarism & Mana Regeneration,Enchantment,ConstantEffect,Self,205,205,0,,Enderal SE - Gameplay Overhaul.esp
+10EAD3:Skyrim.esm,EnchRobesDestructionBase,Fortify Elementarism & Mana Regeneration,Enchantment,ConstantEffect,Self,297,297,0,,Enderal SE - Gameplay Overhaul.esp
+07A10A:Skyrim.esm,EnchArmorFortifyConjuration01,Fortify Entropy,Enchantment,ConstantEffect,Self,314,314,0,,Skyrim.esm
+0AD453:Skyrim.esm,EnchArmorFortifyConjuration02,Fortify Entropy,Enchantment,ConstantEffect,Self,455,455,0,,Skyrim.esm
+0AD454:Skyrim.esm,EnchArmorFortifyConjuration03,Fortify Entropy,Enchantment,ConstantEffect,Self,564,564,0,,Skyrim.esm
+0AD455:Skyrim.esm,EnchArmorFortifyConjuration04,Fortify Entropy,Enchantment,ConstantEffect,Self,674,674,0,,Skyrim.esm
+0AD456:Skyrim.esm,EnchArmorFortifyConjuration05,Fortify Entropy,Enchantment,ConstantEffect,Self,749,749,0,,Skyrim.esm
+0AD457:Skyrim.esm,EnchArmorFortifyConjuration06,Fortify Entropy,Enchantment,ConstantEffect,Self,862,862,0,,Skyrim.esm
+0BEDD1:Skyrim.esm,_15E_RingDerSinistra_Ench,Fortify Entropy,Enchantment,ConstantEffect,Self,455,455,0,,Enderal SE - Gameplay Overhaul.esp
+103D9F:Skyrim.esm,02E_10EnchAmulettDesEntropiers_Ench,Fortify Entropy,Enchantment,ConstantEffect,Self,455,455,0,,Enderal SE - Gameplay Overhaul.esp
+104D6C:Skyrim.esm,EnchRobesFortifyConjuration01,Fortify Entropy,Enchantment,ConstantEffect,Self,20,1061,0,,Skyrim.esm
+104D7B:Skyrim.esm,EnchRobesFortifyConjuration02,Fortify Entropy,Enchantment,ConstantEffect,Self,50,1356,0,,Skyrim.esm
+104D7C:Skyrim.esm,EnchRobesFortifyConjuration03,Fortify Entropy,Enchantment,ConstantEffect,Self,75,1557,0,,Skyrim.esm
+104D7D:Skyrim.esm,EnchRobesFortifyConjuration04,Fortify Entropy,Enchantment,ConstantEffect,Self,100,1862,0,,Skyrim.esm
+104D7E:Skyrim.esm,EnchRobesFortifyConjuration05,Fortify Entropy,Enchantment,ConstantEffect,Self,150,2067,0,,Skyrim.esm
+104D7F:Skyrim.esm,EnchRobesFortifyConjuration06,Fortify Entropy,Enchantment,ConstantEffect,Self,200,2380,0,,Skyrim.esm
+10E300:Skyrim.esm,EnchRobesCollegeConjuration01,Fortify Entropy,Enchantment,ConstantEffect,Self,199,199,0,,Enderal SE - Gameplay Overhaul.esp
+10E301:Skyrim.esm,EnchRobesCollegeConjuration02,Fortify Entropy,Enchantment,ConstantEffect,Self,289,289,0,,Enderal SE - Gameplay Overhaul.esp
+10E302:Skyrim.esm,EnchRobesCollegeConjuration03,Fortify Entropy,Enchantment,ConstantEffect,Self,428,428,0,,Enderal SE - Gameplay Overhaul.esp
+10E303:Skyrim.esm,EnchRobesCollegeConjuration04,Fortify Entropy,Enchantment,ConstantEffect,Self,571,571,0,,Skyrim.esm
+10E304:Skyrim.esm,EnchRobesCollegeConjuration05,Fortify Entropy,Enchantment,ConstantEffect,Self,717,717,0,,Skyrim.esm
+10FB74:Skyrim.esm,EnchArmorFortifyConjurationBase,Fortify Entropy,Enchantment,ConstantEffect,Self,314,314,0,,Enderal SE - Gameplay Overhaul.esp
+137781:Skyrim.esm,_25E_RingDesSchattenmagiers_Ench,Fortify Entropy,Enchantment,ConstantEffect,Self,455,455,0,,Enderal SE - Gameplay Overhaul.esp
+13CB08:Skyrim.esm,03E_25EnchAmulettDesEntropiemagiers_Ench,Fortify Entropy,Enchantment,ConstantEffect,Self,564,564,0,,Enderal SE - Gameplay Overhaul.esp
+0432EC:Skyrim.esm,02E_EntropierobeDesChaos_Ench,Fortify Entropy & Mana Regeneration,Enchantment,ConstantEffect,Self,307,307,0,,Enderal SE - Gameplay Overhaul.esp
+091ECA:Skyrim.esm,_03E_30Entropierobe_Ench,Fortify Entropy & Mana Regeneration,Enchantment,ConstantEffect,Self,381,381,0,,Enderal SE - Gameplay Overhaul.esp
+10EAD2:Skyrim.esm,EnchRobesConjurationBase,Fortify Entropy & Mana Regeneration,Enchantment,ConstantEffect,Self,289,289,0,,Enderal SE - Gameplay Overhaul.esp
+02A49C:Enderal - Forgotten Stories.esm,_03E_25_Unique_DalMaraksPunishment_Ench,Fortify Handicraft,Enchantment,ConstantEffect,Self,541,541,0,,Enderal - Forgotten Stories.esm
+0432CE:Skyrim.esm,_02E_15_RingOfTheSmith_Ench,Fortify Handicraft,Enchantment,ConstantEffect,Self,369,369,0,,Skyrim.esm
+07A117:Skyrim.esm,EnchArmorFortifySmithing01,Fortify Handicraft,Enchantment,ConstantEffect,Self,369,369,0,,Skyrim.esm
+0AD477:Skyrim.esm,EnchArmorFortifySmithing02,Fortify Handicraft,Enchantment,ConstantEffect,Self,471,471,0,,Skyrim.esm
+0AD478:Skyrim.esm,EnchArmorFortifySmithing03,Fortify Handicraft,Enchantment,ConstantEffect,Self,541,541,0,,Skyrim.esm
+0BE018:Skyrim.esm,EnchArmorFortifySmithing04,Fortify Handicraft,Enchantment,ConstantEffect,Self,647,647,0,,Skyrim.esm
+0BE019:Skyrim.esm,EnchArmorFortifySmithing05,Fortify Handicraft,Enchantment,ConstantEffect,Self,719,719,0,,Skyrim.esm
+0BE01A:Skyrim.esm,EnchArmorFortifySmithing06,Fortify Handicraft,Enchantment,ConstantEffect,Self,827,827,0,,Skyrim.esm
+10FB82:Skyrim.esm,EnchArmorFortifySmithingBase,Fortify Handicraft,Enchantment,ConstantEffect,Self,302,302,0,,Skyrim.esm
+014F8B:Skyrim.esm,_01E_03_IronCuirassOfVigor_Ench,Fortify Health,Enchantment,ConstantEffect,Self,94,94,0,,Skyrim.esm
+0432B1:Skyrim.esm,_01E_03_BronzeNecklaceOfConstitution_Ench,Fortify Health,Enchantment,ConstantEffect,Self,94,94,0,,Skyrim.esm
+0432B3:Skyrim.esm,_02E_14_RuneShieldOfLife_Ench,Fortify Health,Enchantment,ConstantEffect,Self,136,136,0,,Skyrim.esm
+0432B5:Skyrim.esm,_02E_10_AmuletOfTheWarrior_Ench,Fortify Health,Enchantment,ConstantEffect,Self,136,136,0,,Skyrim.esm
+0432B6:Skyrim.esm,_35E_RingDergewaltigenLebensenergie_Ench,Fortify Health,Enchantment,ConstantEffect,Self,202,202,0,,Enderal SE - Gameplay Overhaul.esp
+0432B7:Skyrim.esm,_03E_28_AeternaShieldOfResistance_Ench,Fortify Health,Enchantment,ConstantEffect,Self,202,202,0,,Skyrim.esm
+049509:Skyrim.esm,EnchArmorFortifyHealth01,Fortify Health,Enchantment,ConstantEffect,Self,94,94,0,,Skyrim.esm
+0AD461:Skyrim.esm,EnchArmorFortifyHealth02,Fortify Health,Enchantment,ConstantEffect,Self,136,136,0,,Skyrim.esm
+0AD462:Skyrim.esm,EnchArmorFortifyHealth03,Fortify Health,Enchantment,ConstantEffect,Self,169,169,0,,Skyrim.esm
+0BDFFC:Skyrim.esm,EnchArmorFortifyHealth04,Fortify Health,Enchantment,ConstantEffect,Self,202,202,0,,Skyrim.esm
+0BDFFD:Skyrim.esm,EnchArmorFortifyHealth05,Fortify Health,Enchantment,ConstantEffect,Self,236,236,0,,Skyrim.esm
+0BDFFE:Skyrim.esm,EnchArmorFortifyHealth06,Fortify Health,Enchantment,ConstantEffect,Self,247,247,0,,Skyrim.esm
+10FB77:Skyrim.esm,EnchArmorFortifyHealthBase,Fortify Health,Enchantment,ConstantEffect,Self,94,94,0,,Skyrim.esm
+13777C:Skyrim.esm,_25E_RingDerMaechtigenLebensenergie_Ench,Fortify Health,Enchantment,ConstantEffect,Self,169,169,0,,Enderal SE - Gameplay Overhaul.esp
+13CB09:Skyrim.esm,_03E_25_AmuletOfMightyConstitution_Ench,Fortify Health,Enchantment,ConstantEffect,Self,169,169,0,,Skyrim.esm
+0432B0:Skyrim.esm,03E_24WegestreuenhandschuheDerRegeneration_Ench,Fortify Health Regeneration,Enchantment,ConstantEffect,Self,251,251,0,,Enderal SE - Gameplay Overhaul.esp
+07A10D:Skyrim.esm,EnchArmorFortifyHealRate04,Fortify Health Regeneration,Enchantment,ConstantEffect,Self,539,539,0,,Skyrim.esm
+0AD45F:Skyrim.esm,EnchArmorFortifyHealRate05,Fortify Health Regeneration,Enchantment,ConstantEffect,Self,843,843,0,,Skyrim.esm
+0AD460:Skyrim.esm,EnchArmorFortifyHealRate03,Fortify Health Regeneration,Enchantment,ConstantEffect,Self,251,251,0,,Skyrim.esm
+0AD493:Skyrim.esm,EnchArmorFortifyHealRate06,Fortify Health Regeneration,Enchantment,ConstantEffect,Self,998,998,0,,Skyrim.esm
+10CF26:Skyrim.esm,EnchArmorFortifyHealRate01,Fortify Health Regeneration,Enchantment,ConstantEffect,Self,251,251,0,,Skyrim.esm
+10FB76:Skyrim.esm,EnchArmorFortifyHealRateBase,Fortify Health Regeneration,Enchantment,ConstantEffect,Self,364,364,0,,Skyrim.esm
+0432B8:Skyrim.esm,_25E_RingDesTurms_UNUSED,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,361,361,0,,Enderal SE - Gameplay Overhaul.esp
+06728E:Skyrim.esm,_05E_RingDesBeschuetzers_Ench,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,136,136,0,,Enderal SE - Gameplay Overhaul.esp
+07A10E:Skyrim.esm,EnchArmorFortifyHeavyArmor01,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,136,136,0,,Skyrim.esm
+0AD463:Skyrim.esm,EnchArmorFortifyHeavyArmor02,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,246,246,0,,Skyrim.esm
+0AD464:Skyrim.esm,EnchArmorFortifyHeavyArmor03,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,361,361,0,,Skyrim.esm
+0BDFFF:Skyrim.esm,EnchArmorFortifyHeavyArmor04,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,431,431,0,,Skyrim.esm
+0BE000:Skyrim.esm,EnchArmorFortifyHeavyArmor05,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,479,479,0,,Skyrim.esm
+0BE001:Skyrim.esm,EnchArmorFortifyHeavyArmor06,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,551,551,0,,Skyrim.esm
+10FB78:Skyrim.esm,EnchArmorFortifyHeavyArmorBase,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,201,201,0,,Skyrim.esm
+137783:Skyrim.esm,_25E_RingDesBollwerks_Ench,Fortify Heavy Armor,Enchantment,ConstantEffect,Self,361,361,0,,Enderal SE - Gameplay Overhaul.esp
+07A110:Skyrim.esm,EnchArmorFortifyLightArmor01,Fortify Light Armor,Enchantment,ConstantEffect,Self,137,137,0,,Skyrim.esm
+0AD467:Skyrim.esm,EnchArmorFortifyLightArmor02,Fortify Light Armor,Enchantment,ConstantEffect,Self,215,215,0,,Skyrim.esm
+0AD468:Skyrim.esm,EnchArmorFortifyLightArmor03,Fortify Light Armor,Enchantment,ConstantEffect,Self,315,315,0,,Skyrim.esm
+0BE005:Skyrim.esm,EnchArmorFortifyLightArmor04,Fortify Light Armor,Enchantment,ConstantEffect,Self,377,377,0,,Skyrim.esm
+0BE006:Skyrim.esm,EnchArmorFortifyLightArmor05,Fortify Light Armor,Enchantment,ConstantEffect,Self,419,419,0,,Skyrim.esm
+0BE007:Skyrim.esm,EnchArmorFortifyLightArmor06,Fortify Light Armor,Enchantment,ConstantEffect,Self,482,482,0,,Skyrim.esm
+0BEDD7:Skyrim.esm,_02E_15_RingOfTheVagrant_Ench,Fortify Light Armor,Enchantment,ConstantEffect,Self,215,215,0,,Skyrim.esm
+10FB7A:Skyrim.esm,EnchArmorFortifyLightArmorBase,Fortify Light Armor,Enchantment,ConstantEffect,Self,176,176,0,,Skyrim.esm
+0432CA:Skyrim.esm,_05E_RingDesLichtpaten_Ench,Fortify Light Magic,Enchantment,ConstantEffect,Self,199,199,0,,Enderal SE - Gameplay Overhaul.esp
+0432CB:Skyrim.esm,03E_30UniDiademDerLichtmagie_Ench,Fortify Light Magic,Enchantment,ConstantEffect,Self,361,361,0,,Enderal SE - Gameplay Overhaul.esp
+0432CC:Skyrim.esm,_15E_RingDesLichtmagiers_Ench,Fortify Light Magic,Enchantment,ConstantEffect,Self,361,361,0,,Enderal SE - Gameplay Overhaul.esp
+0432CD:Skyrim.esm,_25E_RingDesMaechtigenLichtmagiers_Ench,Fortify Light Magic,Enchantment,ConstantEffect,Self,462,462,0,,Enderal SE - Gameplay Overhaul.esp
+053FD3:Skyrim.esm,01E_04_RaddledMageCirclet_Ench,Fortify Light Magic,Enchantment,ConstantEffect,Self,80,80,0,,Enderal SE - Gameplay Overhaul.esp
+06728C:Skyrim.esm,_05E_RingDerLaeuterung_Ench,Fortify Light Magic,Enchantment,ConstantEffect,Self,199,199,0,,Enderal SE - Gameplay Overhaul.esp
+07A116:Skyrim.esm,EnchArmorFortifyRestoration01,Fortify Light Magic,Enchantment,ConstantEffect,Self,199,199,0,,Skyrim.esm
+0AD475:Skyrim.esm,EnchArmorFortifyRestoration02,Fortify Light Magic,Enchantment,ConstantEffect,Self,361,361,0,,Skyrim.esm
+0AD476:Skyrim.esm,EnchArmorFortifyRestoration03,Fortify Light Magic,Enchantment,ConstantEffect,Self,462,462,0,,Skyrim.esm
+0BE015:Skyrim.esm,EnchArmorFortifyRestoration04,Fortify Light Magic,Enchantment,ConstantEffect,Self,634,634,0,,Skyrim.esm
+0BE016:Skyrim.esm,EnchArmorFortifyRestoration05,Fortify Light Magic,Enchantment,ConstantEffect,Self,704,704,0,,Skyrim.esm
+0BE017:Skyrim.esm,EnchArmorFortifyRestoration06,Fortify Light Magic,Enchantment,ConstantEffect,Self,810,810,0,,Skyrim.esm
+104D6F:Skyrim.esm,EnchRobesFortifyRestoration01,Fortify Light Magic,Enchantment,ConstantEffect,Self,20,1015,0,,Skyrim.esm
+104D70:Skyrim.esm,EnchRobesFortifyRestoration02,Fortify Light Magic,Enchantment,ConstantEffect,Self,50,1297,0,,Skyrim.esm
+104D71:Skyrim.esm,EnchRobesFortifyRestoration03,Fortify Light Magic,Enchantment,ConstantEffect,Self,75,1489,0,,Skyrim.esm
+104D72:Skyrim.esm,EnchRobesFortifyRestoration04,Fortify Light Magic,Enchantment,ConstantEffect,Self,100,1781,0,,Skyrim.esm
+104D73:Skyrim.esm,EnchRobesFortifyRestoration05,Fortify Light Magic,Enchantment,ConstantEffect,Self,150,1977,0,,Skyrim.esm
+104D74:Skyrim.esm,EnchRobesFortifyRestoration06,Fortify Light Magic,Enchantment,ConstantEffect,Self,200,2276,0,,Skyrim.esm
+10E30C:Skyrim.esm,EnchRobesCollegeRestoration01,Fortify Light Magic,Enchantment,ConstantEffect,Self,193,193,0,,Enderal SE - Gameplay Overhaul.esp
+10E30D:Skyrim.esm,EnchRobesCollegeRestoration02,Fortify Light Magic,Enchantment,ConstantEffect,Self,325,325,0,,Skyrim.esm
+10E30E:Skyrim.esm,EnchRobesCollegeRestoration03,Fortify Light Magic,Enchantment,ConstantEffect,Self,601,601,0,,Enderal SE - Gameplay Overhaul.esp
+10E30F:Skyrim.esm,EnchRobesCollegeRestoration04,Fortify Light Magic,Enchantment,ConstantEffect,Self,696,696,0,,Skyrim.esm
+10E310:Skyrim.esm,EnchRobesCollegeRestoration05,Fortify Light Magic,Enchantment,ConstantEffect,Self,841,841,0,,Skyrim.esm
+10FB81:Skyrim.esm,EnchArmorFortifyRestorationBase,Fortify Light Magic,Enchantment,ConstantEffect,Self,295,295,0,,Enderal SE - Gameplay Overhaul.esp
+103DA0:Skyrim.esm,02E_10EnchAmulettDesPaters_Ench,Fortify Light Magic & Mana,Enchantment,ConstantEffect,Self,170,170,0,,Enderal SE - Gameplay Overhaul.esp
+10EAD5:Skyrim.esm,EnchRobesRestorationBase,Fortify Light Magic & Mana Regeneration,Enchantment,ConstantEffect,Self,280,280,0,,Enderal SE - Gameplay Overhaul.esp
+0432BA:Skyrim.esm,_02E_10_AmuletOfDexterity_Ench,Fortify Lockpicking,Enchantment,ConstantEffect,Self,196,196,0,,Skyrim.esm
+067290:Skyrim.esm,_05E_RingDesFeingefuehls_Ench,Fortify Lockpicking,Enchantment,ConstantEffect,Self,125,125,0,,Enderal SE - Gameplay Overhaul.esp
+07A111:Skyrim.esm,EnchArmorFortifyLockpicking01,Fortify Lockpicking,Enchantment,ConstantEffect,Self,125,125,0,,Skyrim.esm
+0AD469:Skyrim.esm,EnchArmorFortifyLockpicking02,Fortify Lockpicking,Enchantment,ConstantEffect,Self,196,196,0,,Skyrim.esm
+0AD46A:Skyrim.esm,EnchArmorFortifyLockpicking03,Fortify Lockpicking,Enchantment,ConstantEffect,Self,269,269,0,,Skyrim.esm
+0BE008:Skyrim.esm,EnchArmorFortifyLockpicking04,Fortify Lockpicking,Enchantment,ConstantEffect,Self,344,344,0,,Skyrim.esm
+0BE009:Skyrim.esm,EnchArmorFortifyLockpicking05,Fortify Lockpicking,Enchantment,ConstantEffect,Self,499,499,0,,Skyrim.esm
+0BE00A:Skyrim.esm,EnchArmorFortifyLockpicking06,Fortify Lockpicking,Enchantment,ConstantEffect,Self,578,578,0,,Skyrim.esm
+10FB7B:Skyrim.esm,EnchArmorFortifyLockpickingBase,Fortify Lockpicking,Enchantment,ConstantEffect,Self,211,211,0,,Skyrim.esm
+0432BB:Skyrim.esm,_01E_09_CircletOfTheMagicWind_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,59,59,0,,Skyrim.esm
+0432BC:Skyrim.esm,_05E_RingMagieerfuellt_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,59,59,0,,Enderal SE - Gameplay Overhaul.esp
+0432BE:Skyrim.esm,01E_03EnchAmulettMana_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,107,107,0,,Enderal SE - Gameplay Overhaul.esp
+0432BF:Skyrim.esm,_03E_26_WildMageHoodOfMagic_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,157,157,0,,Skyrim.esm
+0432C0:Skyrim.esm,_25E_RingDesGewaltigenManas_UNUSED,Fortify Mana,Enchantment,ConstantEffect,Self,209,209,0,,Enderal SE - Gameplay Overhaul.esp
+049508:Skyrim.esm,EnchArmorFortifyMagicka01,Fortify Mana,Enchantment,ConstantEffect,Self,59,59,0,,Skyrim.esm
+0AD46B:Skyrim.esm,EnchArmorFortifyMagicka02,Fortify Mana,Enchantment,ConstantEffect,Self,107,107,0,,Skyrim.esm
+0AD46C:Skyrim.esm,EnchArmorFortifyMagicka03,Fortify Mana,Enchantment,ConstantEffect,Self,157,157,0,,Skyrim.esm
+0B7A31:Skyrim.esm,EnchArmorFortifyMagicka04,Fortify Mana,Enchantment,ConstantEffect,Self,209,209,0,,Skyrim.esm
+0B7A32:Skyrim.esm,EnchArmorFortifyMagicka05,Fortify Mana,Enchantment,ConstantEffect,Self,262,262,0,,Skyrim.esm
+0B7A33:Skyrim.esm,EnchArmorFortifyMagicka06,Fortify Mana,Enchantment,ConstantEffect,Self,295,295,0,,Skyrim.esm
+103D9E:Skyrim.esm,02E_10EnchAmulettDesWissenslt_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,361,361,0,,Enderal SE - Gameplay Overhaul.esp
+10FB7C:Skyrim.esm,EnchArmorFortifyMagickaBase,Fortify Mana,Enchantment,ConstantEffect,Self,107,107,0,,Skyrim.esm
+13777D:Skyrim.esm,_25E_RingDesMaechtigenManas_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,157,157,0,,Enderal SE - Gameplay Overhaul.esp
+13EB77:Skyrim.esm,_00E_Order_ArcanistRobe_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,249,249,0,,Skyrim.esm
+13EB78:Skyrim.esm,_00E_Order_ArcanistHood_Ench,Fortify Mana,Enchantment,ConstantEffect,Self,152,152,0,,Skyrim.esm
+00087B:Enderal SE - Gameplay Overhaul.esp,XionEnchRobes7%,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,25,25,0,,Enderal SE - Gameplay Overhaul.esp
+0432E9:Skyrim.esm,03E_27KappeDesMagiesturms_Ench,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+0432EA:Skyrim.esm,03E_26FeineWildmagierrobeDerRegeneration_Ench,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+0432EE:Skyrim.esm,_03E_28AeternahandschuheDerMagiewinde_Ench,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,30,30,0,,Enderal SE - Gameplay Overhaul.esp
+07A112:Skyrim.esm,EnchArmorFortifyMagickaRate04,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,30,30,0,,Skyrim.esm
+0AD46D:Skyrim.esm,EnchArmorFortifyMagickaRate05,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,39,39,0,,Skyrim.esm
+0AD46E:Skyrim.esm,EnchArmorFortifyMagickaRate03,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,22,22,0,,Skyrim.esm
+0BE00B:Skyrim.esm,EnchArmorFortifyMagickaRate06,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,68,68,0,,Skyrim.esm
+0FE498:Skyrim.esm,02E_20Magiestromrobe_Ench,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+103D9C:Skyrim.esm,02E_10EnchAmulettDerTiefenkonzentrationlt_Ench,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,22,22,0,,Enderal SE - Gameplay Overhaul.esp
+104D8F:Skyrim.esm,EnchRobesFortifyMagickaRate03,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,75,792,0,,Skyrim.esm
+104D90:Skyrim.esm,EnchRobesFortifyMagickaRate04,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,100,1012,0,,Skyrim.esm
+104D91:Skyrim.esm,EnchRobesFortifyMagickaRate05,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,150,1237,0,,Skyrim.esm
+10E30B:Skyrim.esm,EnchRobesCollegeMagickaRate01,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,25,25,0,,Enderal SE - Gameplay Overhaul.esp
+10E311:Skyrim.esm,EnchRobesCollegeMagickaRate02,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,39,39,0,,Enderal SE - Gameplay Overhaul.esp
+10E312:Skyrim.esm,EnchRobesCollegeMagickaRate03,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,53,53,0,,Enderal SE - Gameplay Overhaul.esp
+10E313:Skyrim.esm,EnchRobesCollegeMagickaRate04,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,68,68,0,,Skyrim.esm
+10E314:Skyrim.esm,EnchRobesCollegeMagickaRate05,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,68,68,0,,Skyrim.esm
+10FB7D:Skyrim.esm,EnchArmorFortifyMagickaRateBase,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,25,25,0,,Enderal SE - Gameplay Overhaul.esp
+11A4D0:Skyrim.esm,_06E_MagieerfuellteRobeForged_Ench,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+137782:Skyrim.esm,_25E_RingDesArkanisten_Ench,Fortify Mana Regeneration,Enchantment,ConstantEffect,Self,22,22,0,,Enderal SE - Gameplay Overhaul.esp
+027CEF:Skyrim.esm,01E_05UNIWehrrobe_Ench,Fortify Mana Regeneration & Armor,Enchantment,ConstantEffect,Self,25,25,0,,Enderal SE - Gameplay Overhaul.esp
+0432AC:Skyrim.esm,03E_30UniDiademDerManipulation_Ench,Fortify Mentalism,Enchantment,ConstantEffect,Self,76,76,0,,Enderal SE - Gameplay Overhaul.esp
+0432AD:Skyrim.esm,03E_25EnchAmulettDesMentalisten_Ench,Fortify Mentalism,Enchantment,ConstantEffect,Self,473,473,0,,Enderal SE - Gameplay Overhaul.esp
+07A107:Skyrim.esm,EnchArmorFortifyAlteration01,Fortify Mentalism,Enchantment,ConstantEffect,Self,235,235,0,,Skyrim.esm
+0AD49F:Skyrim.esm,EnchArmorFortifyAlteration02,Fortify Mentalism,Enchantment,ConstantEffect,Self,323,323,0,,Skyrim.esm
+0AD4A0:Skyrim.esm,EnchArmorFortifyAlteration03,Fortify Mentalism,Enchantment,ConstantEffect,Self,473,473,0,,Skyrim.esm
+0BE037:Skyrim.esm,EnchArmorFortifyAlteration04,Fortify Mentalism,Enchantment,ConstantEffect,Self,566,566,0,,Skyrim.esm
+0BE038:Skyrim.esm,EnchArmorFortifyAlteration05,Fortify Mentalism,Enchantment,ConstantEffect,Self,629,629,0,,Skyrim.esm
+0BE039:Skyrim.esm,EnchArmorFortifyAlteration06,Fortify Mentalism,Enchantment,ConstantEffect,Self,724,724,0,,Skyrim.esm
+0BEDD6:Skyrim.esm,_15E_RingDesThaunmaturlogen_Ench,Fortify Mentalism,Enchantment,ConstantEffect,Self,323,323,0,,Enderal SE - Gameplay Overhaul.esp
+104D6D:Skyrim.esm,EnchRobesFortifyAlteration01,Fortify Mentalism,Enchantment,ConstantEffect,Self,20,923,0,,Skyrim.esm
+104D76:Skyrim.esm,EnchRobesFortifyAlteration02,Fortify Mentalism,Enchantment,ConstantEffect,Self,50,1179,0,,Skyrim.esm
+104D77:Skyrim.esm,EnchRobesFortifyAlteration03,Fortify Mentalism,Enchantment,ConstantEffect,Self,75,1354,0,,Skyrim.esm
+104D78:Skyrim.esm,EnchRobesFortifyAlteration04,Fortify Mentalism,Enchantment,ConstantEffect,Self,100,1619,0,,Skyrim.esm
+104D79:Skyrim.esm,EnchRobesFortifyAlteration05,Fortify Mentalism,Enchantment,ConstantEffect,Self,150,1798,0,,Skyrim.esm
+104D7A:Skyrim.esm,EnchRobesFortifyAlteration06,Fortify Mentalism,Enchantment,ConstantEffect,Self,200,2069,0,,Skyrim.esm
+10E2FB:Skyrim.esm,EnchRobesCollegeAlteration01,Fortify Mentalism,Enchantment,ConstantEffect,Self,176,176,0,,Skyrim.esm
+10E2FC:Skyrim.esm,EnchRobesCollegeAlteration02,Fortify Mentalism,Enchantment,ConstantEffect,Self,255,255,0,,Skyrim.esm
+10E2FD:Skyrim.esm,EnchRobesCollegeAlteration03,Fortify Mentalism,Enchantment,ConstantEffect,Self,419,419,0,,Skyrim.esm
+10E2FE:Skyrim.esm,EnchRobesCollegeAlteration04,Fortify Mentalism,Enchantment,ConstantEffect,Self,546,546,0,,Skyrim.esm
+10E2FF:Skyrim.esm,EnchRobesCollegeAlteration05,Fortify Mentalism,Enchantment,ConstantEffect,Self,633,633,0,,Skyrim.esm
+10FB71:Skyrim.esm,EnchArmorFortifyAlterationBase,Fortify Mentalism,Enchantment,ConstantEffect,Self,264,264,0,,Enderal SE - Gameplay Overhaul.esp
+1181CE:Skyrim.esm,_02E_17_FocusCirclet_Ench,Fortify Mentalism,Enchantment,ConstantEffect,Self,150,150,0,,Skyrim.esm
+137780:Skyrim.esm,_25E_RingDerVeraenderung_Ench,Fortify Mentalism,Enchantment,ConstantEffect,Self,473,473,0,,Enderal SE - Gameplay Overhaul.esp
+0C011E:Skyrim.esm,02E_14Mentalistenrobe_Ench,Fortify Mentalism & Mana Regeneration,Enchantment,ConstantEffect,Self,255,255,0,,Enderal SE - Gameplay Overhaul.esp
+10EAD1:Skyrim.esm,EnchRobesAlterationBase,Fortify Mentalism & Mana Regeneration,Enchantment,ConstantEffect,Self,255,255,0,,Enderal SE - Gameplay Overhaul.esp
+0432C5:Skyrim.esm,_05E_RingDesFechters_Ench,Fortify One-Handed,Enchantment,ConstantEffect,Self,187,187,0,,Enderal SE - Gameplay Overhaul.esp
+0432C6:Skyrim.esm,_15E_RingDesHueters_Ench,Fortify One-Handed,Enchantment,ConstantEffect,Self,307,307,0,,Enderal SE - Gameplay Overhaul.esp
+10FB7F:Skyrim.esm,EnchArmorFortifyOneHandedBase,Fortify One-Handed,Enchantment,ConstantEffect,Self,307,307,0,,Enderal SE - Gameplay Overhaul.esp
+137784:Skyrim.esm,_25E_RingDesKlingenmeisters_Ench,Fortify One-Handed,Enchantment,ConstantEffect,Self,432,432,0,,Enderal SE - Gameplay Overhaul.esp
+018547:Skyrim.esm,_01E_04_Unique_ToturerGauntlets_Ench,Fortify One-handed,Enchantment,ConstantEffect,Self,187,187,0,,Skyrim.esm
+0432C7:Skyrim.esm,_05E_45_Unique_ShieldOfTheDestroyer_Ench,Fortify One-handed,Enchantment,ConstantEffect,Self,432,432,0,,Skyrim.esm
+0432C8:Skyrim.esm,_03E_24_ShieldOfTheRighteousFencer_Ench,Fortify One-handed,Enchantment,ConstantEffect,Self,432,432,0,,Skyrim.esm
+0432C9:Skyrim.esm,_03E_24_HelmetOfTheRighteousLansquenet_Ench,Fortify One-handed,Enchantment,ConstantEffect,Self,432,432,0,,Skyrim.esm
+07A114:Skyrim.esm,EnchArmorFortifyOneHanded01,Fortify One-handed,Enchantment,ConstantEffect,Self,187,187,0,,Skyrim.esm
+0AD471:Skyrim.esm,EnchArmorFortifyOneHanded02,Fortify One-handed,Enchantment,ConstantEffect,Self,307,307,0,,Skyrim.esm
+0AD472:Skyrim.esm,EnchArmorFortifyOneHanded03,Fortify One-handed,Enchantment,ConstantEffect,Self,432,432,0,,Skyrim.esm
+0BE00F:Skyrim.esm,EnchArmorFortifyOneHanded04,Fortify One-handed,Enchantment,ConstantEffect,Self,528,528,0,,Skyrim.esm
+0BE010:Skyrim.esm,EnchArmorFortifyOneHanded05,Fortify One-handed,Enchantment,ConstantEffect,Self,659,659,0,,Skyrim.esm
+0BE011:Skyrim.esm,EnchArmorFortifyOneHanded06,Fortify One-handed,Enchantment,ConstantEffect,Self,792,792,0,,Skyrim.esm
+13777E:Skyrim.esm,_25E_RingDesMaechtigenGauners_Ench,Fortify Pickpocket,Enchantment,ConstantEffect,Self,379,379,0,,Enderal SE - Gameplay Overhaul.esp
+0432B9:Skyrim.esm,_15E_RingDerHeimtuecke_Ench,Fortify Psionics,Enchantment,ConstantEffect,Self,289,289,0,,Enderal SE - Gameplay Overhaul.esp
+07A10F:Skyrim.esm,EnchArmorFortifyIllusion01,Fortify Psionics,Enchantment,ConstantEffect,Self,195,195,0,,Skyrim.esm
+0AD465:Skyrim.esm,EnchArmorFortifyIllusion02,Fortify Psionics,Enchantment,ConstantEffect,Self,289,289,0,,Skyrim.esm
+0AD466:Skyrim.esm,EnchArmorFortifyIllusion03,Fortify Psionics,Enchantment,ConstantEffect,Self,419,419,0,,Skyrim.esm
+0BE002:Skyrim.esm,EnchArmorFortifyIllusion04,Fortify Psionics,Enchantment,ConstantEffect,Self,620,620,0,,Enderal SE - Gameplay Overhaul.esp
+0BE003:Skyrim.esm,EnchArmorFortifyIllusion05,Fortify Psionics,Enchantment,ConstantEffect,Self,689,689,0,,Skyrim.esm
+0BE004:Skyrim.esm,EnchArmorFortifyIllusion06,Fortify Psionics,Enchantment,ConstantEffect,Self,793,793,0,,Skyrim.esm
+104D8A:Skyrim.esm,EnchRobesFortifyIllusion02,Fortify Psionics,Enchantment,ConstantEffect,Self,50,1238,0,,Skyrim.esm
+104D8B:Skyrim.esm,EnchRobesFortifyIllusion03,Fortify Psionics,Enchantment,ConstantEffect,Self,75,1421,0,,Skyrim.esm
+104D8C:Skyrim.esm,EnchRobesFortifyIllusion04,Fortify Psionics,Enchantment,ConstantEffect,Self,100,1700,0,,Skyrim.esm
+104D8D:Skyrim.esm,EnchRobesFortifyIllusion05,Fortify Psionics,Enchantment,ConstantEffect,Self,150,1888,0,,Skyrim.esm
+104D8E:Skyrim.esm,EnchRobesFortifyIllusion06,Fortify Psionics,Enchantment,ConstantEffect,Self,200,2173,0,,Skyrim.esm
+10E30A:Skyrim.esm,EnchRobesCollegeIllusion01,Fortify Psionics,Enchantment,ConstantEffect,Self,182,182,0,,Skyrim.esm
+10E315:Skyrim.esm,EnchRobesCollegeIllusion02,Fortify Psionics,Enchantment,ConstantEffect,Self,263,263,0,,Skyrim.esm
+10E316:Skyrim.esm,EnchRobesCollegeIllusion03,Fortify Psionics,Enchantment,ConstantEffect,Self,390,390,0,,Skyrim.esm
+10E317:Skyrim.esm,EnchRobesCollegeIllusion04,Fortify Psionics,Enchantment,ConstantEffect,Self,609,609,0,,Skyrim.esm
+10E318:Skyrim.esm,EnchRobesCollegeIllusion05,Fortify Psionics,Enchantment,ConstantEffect,Self,699,699,0,,Skyrim.esm
+10FB79:Skyrim.esm,EnchArmorFortifyIllusionBase,Fortify Psionics,Enchantment,ConstantEffect,Self,289,289,0,,Enderal SE - Gameplay Overhaul.esp
+1447C5:Skyrim.esm,_25E_RingDerTaeuschung_Ench,Fortify Psionics,Enchantment,ConstantEffect,Self,289,289,0,,Enderal SE - Gameplay Overhaul.esp
+104D75:Skyrim.esm,EnchRobesFortifyIllusion01,Fortify Psionics & Mana Regeneration,Enchantment,ConstantEffect,Self,20,969,0,,Enderal SE - Gameplay Overhaul.esp
+10EAD4:Skyrim.esm,EnchRobesIllusionBase,Fortify Psionics & Mana Regeneration,Enchantment,ConstantEffect,Self,263,263,0,,Enderal SE - Gameplay Overhaul.esp
+0F6905:Skyrim.esm,EnchArmorArticulation01,Fortify Rhetoric,Enchantment,ConstantEffect,Self,566,566,0,,Skyrim.esm
+0F6907:Skyrim.esm,EnchArmorArticulation02,Fortify Rhetoric,Enchantment,ConstantEffect,Self,692,692,0,,Skyrim.esm
+0F6908:Skyrim.esm,EnchArmorArticulation03,Fortify Rhetoric,Enchantment,ConstantEffect,Self,884,884,0,,Skyrim.esm
+0F6909:Skyrim.esm,EnchArmorArticulation04,Fortify Rhetoric,Enchantment,ConstantEffect,Self,766,766,0,,Skyrim.esm
+0F690A:Skyrim.esm,EnchArmorArticulation05,Fortify Rhetoric,Enchantment,ConstantEffect,Self,1214,1214,0,,Skyrim.esm
+0F690B:Skyrim.esm,EnchArmorArticulation06,Fortify Rhetoric,Enchantment,ConstantEffect,Self,1348,1348,0,,Skyrim.esm
+0F690C:Skyrim.esm,EnchArmorArticulation07,Fortify Rhetoric,Enchantment,ConstantEffect,Self,1552,1552,0,,Skyrim.esm
+10FB6F:Skyrim.esm,EnchArmorArticulationBase,Fortify Rhetoric,Enchantment,ConstantEffect,Self,566,566,0,,Skyrim.esm
+07A115:Skyrim.esm,EnchArmorFortifyPickpocket01,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,216,216,0,,Skyrim.esm
+0AD473:Skyrim.esm,EnchArmorFortifyPickpocket02,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,296,296,0,,Skyrim.esm
+0AD474:Skyrim.esm,EnchArmorFortifyPickpocket03,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,379,379,0,,Skyrim.esm
+0BE012:Skyrim.esm,EnchArmorFortifyPickpocket04,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,463,463,0,,Skyrim.esm
+0BE013:Skyrim.esm,EnchArmorFortifyPickpocket05,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,549,549,0,,Skyrim.esm
+0BE014:Skyrim.esm,EnchArmorFortifyPickpocket06,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,636,636,0,,Skyrim.esm
+0BEDD3:Skyrim.esm,_02E_15_RingOfTheRogue_Ench,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,216,216,0,,Skyrim.esm
+10FB80:Skyrim.esm,EnchArmorFortifyPickpocketBase,Fortify Sleight of Hand,Enchantment,ConstantEffect,Self,232,232,0,,Skyrim.esm
+02A022:Skyrim.esm,01E_07UNISchattenhaut_Ench,Fortify Sneak,Enchantment,ConstantEffect,Self,156,156,0,,Enderal SE - Gameplay Overhaul.esp
+0432D0:Skyrim.esm,_02E_15_RingOfMightyConcealment_Ench,Fortify Sneak,Enchantment,ConstantEffect,Self,615,615,0,,Skyrim.esm
+0432D1:Skyrim.esm,_04E_30_BootsOfConcealment_Ench,Fortify Sneak,Enchantment,ConstantEffect,Self,902,902,0,,Skyrim.esm
+04D9DE:Skyrim.esm,_01E_03_BronzeNecklaceOfTheHighwayman_Ench,Fortify Sneak,Enchantment,ConstantEffect,Self,340,340,0,,Skyrim.esm
+067289:Skyrim.esm,_25E_RingDesSchattens_Ench,Fortify Sneak,Enchantment,ConstantEffect,Self,902,902,0,,Enderal SE - Gameplay Overhaul.esp
+07A118:Skyrim.esm,EnchArmorFortifySneak01,Fortify Sneak,Enchantment,ConstantEffect,Self,340,340,0,,Skyrim.esm
+0AD479:Skyrim.esm,EnchArmorFortifySneak02,Fortify Sneak,Enchantment,ConstantEffect,Self,615,615,0,,Skyrim.esm
+0AD47A:Skyrim.esm,EnchArmorFortifySneak03,Fortify Sneak,Enchantment,ConstantEffect,Self,902,902,0,,Skyrim.esm
+0BE01B:Skyrim.esm,EnchArmorFortifySneak04,Fortify Sneak,Enchantment,ConstantEffect,Self,1138,1138,0,,Skyrim.esm
+0BE01C:Skyrim.esm,EnchArmorFortifySneak05,Fortify Sneak,Enchantment,ConstantEffect,Self,1379,1379,0,,Skyrim.esm
+0BE01D:Skyrim.esm,EnchArmorFortifySneak06,Fortify Sneak,Enchantment,ConstantEffect,Self,1501,1501,0,,Skyrim.esm
+103DA1:Skyrim.esm,02E_10EnchAmulettDesTaeuschersIt_Ench,Fortify Sneak,Enchantment,ConstantEffect,Self,289,289,0,,Enderal SE - Gameplay Overhaul.esp
+10FB83:Skyrim.esm,EnchArmorFortifySneakBase,Fortify Sneak,Enchantment,ConstantEffect,Self,559,559,0,,Enderal SE - Gameplay Overhaul.esp
+13CB06:Skyrim.esm,_03E_25_AmuletOfConcealment_Ench,Fortify Sneak,Enchantment,ConstantEffect,Self,902,902,0,,Skyrim.esm
+0398A9:Skyrim.esm,_01E_03_RingOfStamina_Ench,Fortify Stamina,Enchantment,ConstantEffect,Self,75,75,0,,Skyrim.esm
+0432D6:Skyrim.esm,_35E_RingDerGewaltigenAusdauer_Ench,Fortify Stamina,Enchantment,ConstantEffect,Self,234,234,0,,Enderal SE - Gameplay Overhaul.esp
+0432D7:Skyrim.esm,_03E_24_BootsOfTheRighteousMorningAir_Ench,Fortify Stamina,Enchantment,ConstantEffect,Self,234,234,0,,Skyrim.esm
+04950A:Skyrim.esm,EnchArmorFortifyStamina01,Fortify Stamina,Enchantment,ConstantEffect,Self,75,75,0,,Skyrim.esm
+0AD47D:Skyrim.esm,EnchArmorFortifyStamina02,Fortify Stamina,Enchantment,ConstantEffect,Self,135,135,0,,Skyrim.esm
+0AD47E:Skyrim.esm,EnchArmorFortifyStamina03,Fortify Stamina,Enchantment,ConstantEffect,Self,197,197,0,,Skyrim.esm
+0BE021:Skyrim.esm,EnchArmorFortifyStamina04,Fortify Stamina,Enchantment,ConstantEffect,Self,234,234,0,,Skyrim.esm
+0BE022:Skyrim.esm,EnchArmorFortifyStamina05,Fortify Stamina,Enchantment,ConstantEffect,Self,299,299,0,,Skyrim.esm
+0BE023:Skyrim.esm,EnchArmorFortifyStamina06,Fortify Stamina,Enchantment,ConstantEffect,Self,347,347,0,,Skyrim.esm
+10FB85:Skyrim.esm,EnchArmorFortifyStaminaBase,Fortify Stamina,Enchantment,ConstantEffect,Self,126,126,0,,Skyrim.esm
+13777B:Skyrim.esm,_25E_RingDerMaechtigenAusdauer_Ench,Fortify Stamina,Enchantment,ConstantEffect,Self,197,197,0,,Enderal SE - Gameplay Overhaul.esp
+07A11A:Skyrim.esm,EnchArmorFortifyStaminaRate04,Fortify Stamina Regeneration,Enchantment,ConstantEffect,Self,269,269,0,,Skyrim.esm
+0AD47F:Skyrim.esm,EnchArmorFortifyStaminaRate05,Fortify Stamina Regeneration,Enchantment,ConstantEffect,Self,421,421,0,,Skyrim.esm
+0AD480:Skyrim.esm,EnchArmorFortifyStaminaRate03,Fortify Stamina Regeneration,Enchantment,ConstantEffect,Self,196,196,0,,Skyrim.esm
+0BE024:Skyrim.esm,EnchArmorFortifyStaminaRate06,Fortify Stamina Regeneration,Enchantment,ConstantEffect,Self,578,578,0,,Skyrim.esm
+10FB86:Skyrim.esm,EnchArmorFortifyStaminaRateBase,Fortify Stamina Regeneration,Enchantment,ConstantEffect,Self,211,211,0,,Skyrim.esm
+06728F:Skyrim.esm,_05E_RingDesFaehrtenlesers_Ench,Fortify Stealth,Enchantment,ConstantEffect,Self,340,340,0,,Enderal SE - Gameplay Overhaul.esp
+0432D8:Skyrim.esm,_05E_RingDesBerserkers_Ench,Fortify Two-Handed,Enchantment,ConstantEffect,Self,187,187,0,,Enderal SE - Gameplay Overhaul.esp
+10FB87:Skyrim.esm,EnchArmorFortifyTwoHandedBase,Fortify Two-Handed,Enchantment,ConstantEffect,Self,496,496,0,,Enderal SE - Gameplay Overhaul.esp
+137785:Skyrim.esm,_25E_RingDerBrachialitaet_Ench,Fortify Two-Handed,Enchantment,ConstantEffect,Self,496,496,0,,Enderal SE - Gameplay Overhaul.esp
+07A11B:Skyrim.esm,EnchArmorFortifyTwoHanded01,Fortify Two-handed,Enchantment,ConstantEffect,Self,187,187,0,,Skyrim.esm
+0AD481:Skyrim.esm,EnchArmorFortifyTwoHanded02,Fortify Two-handed,Enchantment,ConstantEffect,Self,338,338,0,,Skyrim.esm
+0AD482:Skyrim.esm,EnchArmorFortifyTwoHanded03,Fortify Two-handed,Enchantment,ConstantEffect,Self,496,496,0,,Skyrim.esm
+0BE025:Skyrim.esm,EnchArmorFortifyTwoHanded04,Fortify Two-handed,Enchantment,ConstantEffect,Self,659,659,0,,Skyrim.esm
+0BE026:Skyrim.esm,EnchArmorFortifyTwoHanded05,Fortify Two-handed,Enchantment,ConstantEffect,Self,825,825,0,,Skyrim.esm
+0BE027:Skyrim.esm,EnchArmorFortifyTwoHanded06,Fortify Two-handed,Enchantment,ConstantEffect,Self,961,961,0,,Skyrim.esm
+001F14:Enderal SE - Gameplay Overhaul.esp,EnchWeaponFrostDamageColdNight,Frost Damage,Enchantment,FireAndForget,Touch,7,7,0,,Enderal SE - Gameplay Overhaul.esp
+024BD5:Enderal - Forgotten Stories.esm,_04E_35_FS_WintersEdge_Ench,Frost Damage,Enchantment,FireAndForget,Touch,7,7,0,,Enderal SE - Gameplay Overhaul.esp
+02A49D:Enderal - Forgotten Stories.esm,_02E_15_Unique_SkaiNuasHeads_Ench,Frost Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+045C36:Skyrim.esm,EnchWeaponFrostDamage01,Frost Damage,Enchantment,FireAndForget,Touch,5,5,0,,Enderal SE - Gameplay Overhaul.esp
+045C37:Skyrim.esm,EnchWeaponFrostDamage02,Frost Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+045C39:Skyrim.esm,EnchWeaponFrostDamage03,Frost Damage,Enchantment,FireAndForget,Touch,15,15,0,,Enderal SE - Gameplay Overhaul.esp
+045D4B:Skyrim.esm,EnchUniqueWeapon_SelnaBlackWidow,Frost Damage,Enchantment,FireAndForget,Touch,18,18,0,,Enderal SE - Gameplay Overhaul.esp
+045D56:Skyrim.esm,EnchWeaponFrostDamage05,Frost Damage,Enchantment,FireAndForget,Touch,23,23,0,,Skyrim.esm
+045D58:Skyrim.esm,EnchWeaponFrostDamage06,Frost Damage,Enchantment,FireAndForget,Touch,26,26,0,,Skyrim.esm
+10FB96:Skyrim.esm,EnchWeaponFrostDamageBase,Frost Damage,Enchantment,FireAndForget,Touch,9,9,0,,Enderal SE - Gameplay Overhaul.esp
+01D603:Skyrim.esm,01E_08UNIHelmDerInnerenKaelte_Ench,Frost Resistance,Enchantment,ConstantEffect,Self,300,300,0,,Enderal SE - Gameplay Overhaul.esp
+0432DC:Skyrim.esm,_15E_RingDerFrostresistenz_Ench,Frost Resistance,Enchantment,ConstantEffect,Self,400,400,0,,Enderal SE - Gameplay Overhaul.esp
+0432DD:Skyrim.esm,_03E_28_AeternaShieldOfFrostResistance_Ench,Frost Resistance,Enchantment,ConstantEffect,Self,549,549,0,,Skyrim.esm
+0432DE:Skyrim.esm,_04E_35_RingOfMightyFrostResistance_Ench,Frost Resistance,Enchantment,ConstantEffect,Self,549,549,0,,Skyrim.esm
+000801:_Fuse00_AdventurerArmor.esp,_Fuse00_BackPCarry,Fuse00 BackPCarry,Enchantment,ConstantEffect,Self,0,0,0,,_Fuse00_AdventurerArmor.esp
+053FE2:Skyrim.esm,_02E_10_MSet_EnigmaticNomadCuirass_Ench,Garb of the Mysterious Nomad,Enchantment,ConstantEffect,Self,283,283,0,,Skyrim.esm
+043A8A:Skyrim.esm,_00E_FS_A3_Rogue_FrostbombEnch,Glacial Bomb,Enchantment,FireAndForget,Touch,665,665,0,,Enderal SE - Gameplay Overhaul.esp
+053FDE:Skyrim.esm,_02E_10_LSet_VagabundHood_Ench,Glance of the Swashbuckler,Enchantment,ConstantEffect,Self,282,282,0,,Skyrim.esm
+053FDA:Skyrim.esm,_02E_10_HSet_BonejudgeGauntlets_Ench,Grasp of the Rat Catcher,Enchantment,ConstantEffect,Self,189,189,0,,Skyrim.esm
+02F27E:Enderal - Forgotten Stories.esm,_00E_FS_Entropy_CorpseExplosionEnchantment,Grave Curse (Damage),Enchantment,FireAndForget,Touch,665,665,0,,Enderal - Forgotten Stories.esm
+148A19:Skyrim.esm,_05E_40_MSet_WandererGloves_Ench,Hand of the Wandering Mage,Enchantment,ConstantEffect,Self,1056,1056,0,,Enderal SE - Gameplay Overhaul.esp
+13F355:Skyrim.esm,_02E_15_LSet_CallOfNorthCuirass_Ench,Heart of the North,Enchantment,ConstantEffect,Self,398,398,0,,Enderal SE - Gameplay Overhaul.esp
+053FDF:Skyrim.esm,_02E_10_LSet_VagabundCuirassLight_Ench,Heart of the Vagrant,Enchantment,ConstantEffect,Self,224,224,0,,Enderal SE - Gameplay Overhaul.esp
+02EF68:Enderal - Forgotten Stories.esm,_06E_50_LSet_VenturerArmor_Ench,Heart of the Venturer,Enchantment,ConstantEffect,Self,950,950,0,,Enderal SE - Gameplay Overhaul.esp
+02EF6B:Enderal - Forgotten Stories.esm,_06E_50_LSet_VenturerHat_Ench,Hood of the Venturer,Enchantment,ConstantEffect,Self,836,836,0,,Enderal - Forgotten Stories.esm
+025043:Skyrim.esm,_00E_A2_SynergyRiftImplosionDMGEnch,Implosion (Synergy Effect),Enchantment,FireAndForget,Touch,31,31,0,,Skyrim.esm
+02F103:Enderal - Forgotten Stories.esm,_01E_FS_ShapeshifterAmulett_Ench,Increase Transformation Duration,Enchantment,ConstantEffect,Self,98,98,0,,Enderal - Forgotten Stories.esm
+02F104:Enderal - Forgotten Stories.esm,_02E_FS_ShapeshifterAmulett_Ench,Increase Transformation Duration,Enchantment,ConstantEffect,Self,172,172,0,,Enderal - Forgotten Stories.esm
+02F105:Enderal - Forgotten Stories.esm,_03E_FS_ShapeshifterAmulett_Ench,Increase Transformation Duration,Enchantment,ConstantEffect,Self,249,249,0,,Enderal - Forgotten Stories.esm
+02F106:Enderal - Forgotten Stories.esm,_04E_FS_ShapeshifterAmulett_Ench,Increase Transformation Duration,Enchantment,ConstantEffect,Self,329,329,0,,Enderal - Forgotten Stories.esm
+02F107:Enderal - Forgotten Stories.esm,05E_FS_Theriantrophist_ShapeshiftersAmulett,Increase Transformation Duration,Enchantment,ConstantEffect,Self,369,369,0,,Enderal SE - Gameplay Overhaul.esp
+02F108:Enderal - Forgotten Stories.esm,_06E_FS_ShapeshifterAmulett_Ench,Increase Transformation Duration,Enchantment,ConstantEffect,Self,134,134,0,,Enderal - Forgotten Stories.esm
+02F413:Enderal - Forgotten Stories.esm,_00E_FS_ShapeshifterAmulet_BaseEnch,Increase Transformation Duration,Enchantment,ConstantEffect,Self,451,451,0,,Enderal - Forgotten Stories.esm
+02EF6F:Enderal - Forgotten Stories.esm,_06E_50_MSet_InodanGauntlets_Ench,Inodan's Judging Hand,Enchantment,ConstantEffect,Self,564,564,0,,Enderal - Forgotten Stories.esm
+02EF6E:Enderal - Forgotten Stories.esm,_50E_MSet_InodanCuirassEnch,Inodan's Legacy,Enchantment,ConstantEffect,Self,543,543,0,,Enderal SE - Gameplay Overhaul.esp
+02EF6C:Enderal - Forgotten Stories.esm,_06E_50_MSet_InodanBoots_Ench,Inodan's Traces,Enchantment,ConstantEffect,Self,811,811,0,,Enderal - Forgotten Stories.esm
+02EF70:Enderal - Forgotten Stories.esm,_06E_50_MSet_InodanHood_Ench,Inodan's Watching Eye,Enchantment,ConstantEffect,Self,667,667,0,,Enderal - Forgotten Stories.esm
+02EF6D:Enderal - Forgotten Stories.esm,_06E_50_MSet_InodanCape_Ench,Inodan's Wings,Enchantment,ConstantEffect,Self,806,806,0,,Enderal - Forgotten Stories.esm
+017362:Skyrim.esm,_00E_MQ07a_Enemy_BattlemageBoss_Robe_Ench,Kampfmagierrobe,Enchantment,ConstantEffect,Self,3161,3161,0,,Enderal SE - Gameplay Overhaul.esp
+02F32C:Enderal - Forgotten Stories.esm,_02E_FS_AmuletKarek_Ench,Karek's Charm,Enchantment,ConstantEffect,Self,222,222,0,,Enderal - Forgotten Stories.esm
+01EB4D:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_BlueIslandsThorn,Kiléan Shortsword,Enchantment,FireAndForget,Touch,12,60,0,,Enderal SE - Gameplay Overhaul.esp
+001479:KataHiddenPowers.esp,Kata_FireBombEnch,Lava Bomb,Enchantment,FireAndForget,Touch,0,0,0,,EGO SE - KataPUMB Hidden Powers.esp
+01EB4C:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_LeafDancersBow,Leaf Dancer's Bow,Enchantment,FireAndForget,Touch,34,34,0,,Enderal SE - Gameplay Overhaul.esp
+001F8C:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Light3,Light Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
+001F8F:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Light_Base,Light Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
+001F95:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Light2,Light Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
+05B46E:Skyrim.esm,EnchUniqueWeapon_Lightbringer,Lightbringer,Enchantment,FireAndForget,Touch,59,59,0,,Enderal SE - Gameplay Overhaul.esp
+0432DF:Skyrim.esm,02E_10FeinstahlhelmDesMagiewiderstands_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,373,373,0,,Enderal SE - Gameplay Overhaul.esp
+0432E0:Skyrim.esm,02E_10EnchAmulettDerMagieresistenz_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,373,373,0,,Enderal SE - Gameplay Overhaul.esp
+0432E1:Skyrim.esm,_02E_14_RuneShieldOfSpellBreaking_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,373,373,0,,Enderal SE - Gameplay Overhaul.esp
+0432E2:Skyrim.esm,_03E_24_CuirassOfTheRighteousKeeper_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,428,428,0,,Enderal SE - Gameplay Overhaul.esp
+10FB8D:Skyrim.esm,EnchArmorResistMagicBase,Magic Resistance,Enchantment,ConstantEffect,Self,187,187,0,,Enderal SE - Gameplay Overhaul.esp
+13777A:Skyrim.esm,_25E_RingDesMagiewiderstands_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,239,239,0,,Enderal SE - Gameplay Overhaul.esp
+13CB07:Skyrim.esm,03E_25EnchAmulettDesMagiewiderstandslt_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,187,187,0,,Enderal SE - Gameplay Overhaul.esp
+001CFA:Enderal SE - Gameplay Overhaul.esp,XionWispExplosionDUPLICATE001,Mana schädigen,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+13F35E:Skyrim.esm,_03E_25_HSet_FallenOne_Helmet_Ench,Mask of the Fallen,Enchantment,ConstantEffect,Self,615,615,0,,Skyrim.esm
+02E4E3:Enderal - Forgotten Stories.esm,_00E_FS_NQR05_EnchFatherMask,Mask of the Father,Enchantment,ConstantEffect,Self,1465,1465,0,,Enderal - Forgotten Stories.esm
+01EB4E:Enderal - Forgotten Stories.esm,_05E_45_Unique_Moonwind_Ench,Moonwind,Enchantment,FireAndForget,Touch,19,19,0,,Enderal - Forgotten Stories.esm
+01EB73:Enderal - Forgotten Stories.esm,_05E_40_Unique_MoralasBlessing_Ench,Morala's Blessing,Enchantment,ConstantEffect,Self,755,755,0,,Enderal SE - Gameplay Overhaul.esp
+12E18C:Skyrim.esm,_02E_15_MSet_MageNemesisSetHelmet_Ench,Nemesis Circlet,Enchantment,ConstantEffect,Self,472,472,0,,Enderal SE - Gameplay Overhaul.esp
+12E18D:Skyrim.esm,_02E_15_MSet_MageNemesisSetRobe_Ench,Nemesis Garb,Enchantment,ConstantEffect,Self,556,556,0,,Enderal SE - Gameplay Overhaul.esp
+12E18B:Skyrim.esm,_02E_15_MSet_MageNemesisSetGloves_Ench,Nemesis Gauntlets,Enchantment,ConstantEffect,Self,595,595,0,,Skyrim.esm
+12E18A:Skyrim.esm,_02E_15_MSet_MageNemesisSetBoots_Ench,Nemesis Shoes,Enchantment,ConstantEffect,Self,493,493,0,,Skyrim.esm
+053FE4:Skyrim.esm,_02E_10_MSet_EnigmaticNomadAmulett_Ench,Nimbus of the Mysterious Nomad,Enchantment,ConstantEffect,Self,9,9,0,,Skyrim.esm
+01EFE6:Enderal - Forgotten Stories.esm,_60E_FS_Mystical_PanaceaEnch,Panacea,Enchantment,FireAndForget,Touch,72,72,0,,Enderal - Forgotten Stories.esm
+05B466:Skyrim.esm,EnchWeaponFear02,Panic,Enchantment,FireAndForget,Touch,11,11,0,,Enderal SE - Gameplay Overhaul.esp
+05B467:Skyrim.esm,EnchWeaponFear03,Panic,Enchantment,FireAndForget,Touch,16,16,0,,Enderal SE - Gameplay Overhaul.esp
+05B468:Skyrim.esm,EnchWeaponFear04,Panic,Enchantment,FireAndForget,Touch,22,22,0,,Enderal SE - Gameplay Overhaul.esp
+05B469:Skyrim.esm,EnchWeaponFear05,Panic,Enchantment,FireAndForget,Touch,28,28,0,,Enderal SE - Gameplay Overhaul.esp
+05B46A:Skyrim.esm,EnchWeaponFear06,Panic,Enchantment,FireAndForget,Touch,36,36,0,,Enderal SE - Gameplay Overhaul.esp
+0FBFF7:Skyrim.esm,EnchWeaponFear01,Panic,Enchantment,FireAndForget,Touch,7,7,0,,Enderal SE - Gameplay Overhaul.esp
+10FB94:Skyrim.esm,EnchWeaponFearBase,Panic,Enchantment,FireAndForget,Touch,7,7,0,,Enderal SE - Gameplay Overhaul.esp
+0ACBBA:Skyrim.esm,EnchUniqueWeapon_Qalian,Paralyze,Enchantment,FireAndForget,Touch,34,34,0,,Enderal SE - Gameplay Overhaul.esp
+0ACBBB:Skyrim.esm,EnchWeaponParalysis05,Paralyze,Enchantment,FireAndForget,Touch,72,72,0,,Skyrim.esm
+0ACBBC:Skyrim.esm,EnchWeaponParalysis06,Paralyze,Enchantment,FireAndForget,Touch,114,114,0,,Skyrim.esm
+10FB98:Skyrim.esm,EnchWeaponParalysisBase,Paralyze,Enchantment,FireAndForget,Touch,34,34,0,,Skyrim.esm
+13F4E8:Skyrim.esm,_03E_25_LSet_PathfindersGauntlets_Ench,Pathfinder,Enchantment,ConstantEffect,Self,475,475,0,,Enderal SE - Gameplay Overhaul.esp
+13F4E9:Skyrim.esm,_03E_25_LSet_PathfindersCuirass_Ench,Pathfinder,Enchantment,ConstantEffect,Self,772,772,0,,Enderal SE - Gameplay Overhaul.esp
+13F4EA:Skyrim.esm,_03E_25_LSet_PathfindersBoots_Ench,Pathfinder,Enchantment,ConstantEffect,Self,699,699,0,,Enderal SE - Gameplay Overhaul.esp
+13F4EB:Skyrim.esm,_03E_25_LSet_PathfinderHood_Ench,Pathfinder,Enchantment,ConstantEffect,Self,870,870,0,,Enderal SE - Gameplay Overhaul.esp
+001F72:Enderal SE - Gameplay Overhaul.esp,EnchWeaponPoisonDamage02,Poison Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+001F77:Enderal SE - Gameplay Overhaul.esp,EnchWeaponPoisonDamage03,Poison Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+02F314:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_StachelBlaueInsel,Poison Damage,Enchantment,FireAndForget,Touch,12,60,0,,Enderal SE - Gameplay Overhaul.esp
+02F5A2:Enderal - Forgotten Stories.esm,_00E_PoisonWeap_Base_Ench,Poison Damage,Enchantment,FireAndForget,Touch,12,60,0,,Enderal SE - Gameplay Overhaul.esp
+101932:Skyrim.esm,TrapDartPoisonWeapEnch01,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+1098BA:Skyrim.esm,TrapDartPoisonWeapEnch02,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+1098C2:Skyrim.esm,TrapDartPoisonWeapEnch03,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+1098C3:Skyrim.esm,TrapDartPoisonWeapEnch04,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+1098C4:Skyrim.esm,TrapDartPoisonWeapEnch05,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+1098C5:Skyrim.esm,TrapDartPoisonWeapEnch06,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A25D:Skyrim.esm,TrapDartPoisonWeapEnchDwe01,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A25E:Skyrim.esm,TrapDartPoisonWeapEnchDwe02,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A25F:Skyrim.esm,TrapDartPoisonWeapEnchDwe03,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A260:Skyrim.esm,TrapDartPoisonWeapEnchDwe04,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A261:Skyrim.esm,TrapDartPoisonWeapEnchDwe05,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A262:Skyrim.esm,TrapDartPoisonWeapEnchDwe06,Poison Damage,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+0A0370:Skyrim.esm,TrapPoisonGasEnch01,Poison Gas,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A268:Skyrim.esm,TrapPoisonGasEnch02,Poison Gas,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A269:Skyrim.esm,TrapPoisonGasEnch03,Poison Gas,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A26A:Skyrim.esm,TrapPoisonGasEnch04,Poison Gas,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A26B:Skyrim.esm,TrapPoisonGasEnch05,Poison Gas,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+10A26C:Skyrim.esm,TrapPoisonGasEnch06,Poison Gas,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+0D9B55:Skyrim.esm,_00E_ExplosiveBarrelEXP_Enchantment,Powder Barrel (Explosion),Enchantment,FireAndForget,Touch,665,665,0,,Skyrim.esm
+0240C4:Enderal - Forgotten Stories.esm,_00E_FS_Psychosis_BaseEnch,Psychosis,Enchantment,FireAndForget,Touch,13,13,0,,Enderal - Forgotten Stories.esm
+02A4B1:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_SwordOfTheMesmer,Psychosis,Enchantment,FireAndForget,Touch,13,13,0,,Enderal SE - Gameplay Overhaul.esp
+02A4B2:Enderal - Forgotten Stories.esm,_02E_19_Unique_MesmersBow_Ench,Psychosis,Enchantment,FireAndForget,Touch,5,5,0,,Enderal - Forgotten Stories.esm
+0432F6:Skyrim.esm,_04E_30_Unique_QaliansLastSmile_Ench,Qalian's Last Smile,Enchantment,ConstantEffect,Self,132,132,0,,Enderal - Forgotten Stories.esm
+02A01F:Skyrim.esm,_02E_11_RaddledMageCirclet_Ench,Raddled Mage Circlet,Enchantment,ConstantEffect,Self,80,80,0,,Skyrim.esm
+001F87:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_RedSun,Red Sun,Enchantment,FireAndForget,Touch,20,20,0,,Enderal SE - Gameplay Overhaul.esp
+08850B:Skyrim.esm,_00E_MQ13a_NarathzulsEmblem_Ench,Reduce Cooldown,Enchantment,ConstantEffect,Self,5,5,0,,Skyrim.esm
+13F4F1:Skyrim.esm,_03E_25_MSet_TribunalRobes_Ench,Regalia of the Tribunal,Enchantment,ConstantEffect,Self,1012,1012,0,,Skyrim.esm
+13F4F2:Skyrim.esm,_03E_25_MSet_TribunalGloves_Ench,Regalia of the Tribunal,Enchantment,ConstantEffect,Self,1150,1150,0,,Enderal SE - Gameplay Overhaul.esp
+13F4F3:Skyrim.esm,_03E_25_MSet_TribunalHood_Ench,Regalia of the Tribunal,Enchantment,ConstantEffect,Self,1219,1219,0,,Skyrim.esm
+13F4F4:Skyrim.esm,_25E_MSet_TribunalBoots02Ench,Regalia of the Tribunal,Enchantment,ConstantEffect,Self,714,714,0,,Enderal SE - Gameplay Overhaul.esp
+100E62:Skyrim.esm,EnchArmorResistDisease01,Resist Disease,Enchantment,ConstantEffect,Self,118,118,0,,Skyrim.esm
+100E63:Skyrim.esm,EnchArmorResistDisease02,Resist Disease,Enchantment,ConstantEffect,Self,253,253,0,,Skyrim.esm
+10FB8A:Skyrim.esm,EnchArmorResistDiseaseBase,Resist Disease,Enchantment,ConstantEffect,Self,55,55,0,,Skyrim.esm
+0432DB:Skyrim.esm,_04E_35_RingOfMightyFireResistance_Ench,Resist Fire,Enchantment,ConstantEffect,Self,983,983,0,,Skyrim.esm
+04950B:Skyrim.esm,EnchArmorResistFire01,Resist Fire,Enchantment,ConstantEffect,Self,176,176,0,,Skyrim.esm
+0AD483:Skyrim.esm,EnchArmorResistFire02,Resist Fire,Enchantment,ConstantEffect,Self,379,379,0,,Skyrim.esm
+0AD484:Skyrim.esm,EnchArmorResistFire03,Resist Fire,Enchantment,ConstantEffect,Self,520,520,0,,Skyrim.esm
+0BE028:Skyrim.esm,EnchArmorResistFire04,Resist Fire,Enchantment,ConstantEffect,Self,665,665,0,,Skyrim.esm
+0BE029:Skyrim.esm,EnchArmorResistFire05,Resist Fire,Enchantment,ConstantEffect,Self,813,813,0,,Skyrim.esm
+0BE02A:Skyrim.esm,EnchArmorResistFire06,Resist Fire,Enchantment,ConstantEffect,Self,963,963,0,,Skyrim.esm
+10FB8B:Skyrim.esm,EnchArmorResistFireBase,Resist Fire,Enchantment,ConstantEffect,Self,176,176,0,,Skyrim.esm
+04950C:Skyrim.esm,EnchArmorResistFrost01,Resist Frost,Enchantment,ConstantEffect,Self,186,186,0,,Skyrim.esm
+0AD485:Skyrim.esm,EnchArmorResistFrost02,Resist Frost,Enchantment,ConstantEffect,Self,400,400,0,,Skyrim.esm
+0AD486:Skyrim.esm,EnchArmorResistFrost03,Resist Frost,Enchantment,ConstantEffect,Self,549,549,0,,Skyrim.esm
+0BE02B:Skyrim.esm,EnchArmorResistFrost04,Resist Frost,Enchantment,ConstantEffect,Self,702,702,0,,Skyrim.esm
+0BE02C:Skyrim.esm,EnchArmorResistFrost05,Resist Frost,Enchantment,ConstantEffect,Self,858,858,0,,Skyrim.esm
+0BE02D:Skyrim.esm,EnchArmorResistFrost06,Resist Frost,Enchantment,ConstantEffect,Self,1017,1017,0,,Skyrim.esm
+10FB8C:Skyrim.esm,EnchArmorResistFrostBase,Resist Frost,Enchantment,ConstantEffect,Self,186,186,0,,Skyrim.esm
+0FC05B:Skyrim.esm,EnchArmorResistMagic01,Resist Magic,Enchantment,ConstantEffect,Self,187,187,0,,Skyrim.esm
+0FC05C:Skyrim.esm,EnchArmorResistMagic02,Resist Magic,Enchantment,ConstantEffect,Self,292,292,0,,Skyrim.esm
+0FC05D:Skyrim.esm,EnchArmorResistMagic03,Resist Magic,Enchantment,ConstantEffect,Self,373,373,0,,Skyrim.esm
+0FC05E:Skyrim.esm,EnchArmorResistMagic04,Resist Magic,Enchantment,ConstantEffect,Self,428,428,0,,Skyrim.esm
+0FC05F:Skyrim.esm,EnchArmorResistMagic05,Resist Magic,Enchantment,ConstantEffect,Self,512,512,0,,Skyrim.esm
+0FC060:Skyrim.esm,EnchArmorResistMagic06,Resist Magic,Enchantment,ConstantEffect,Self,569,569,0,,Skyrim.esm
+001D64:Enderal SE - Gameplay Overhaul.esp,_15E_Giftresistenz2,Resist Poison,Enchantment,ConstantEffect,Self,300,300,0,,Enderal SE - Gameplay Overhaul.esp
+001D65:Enderal SE - Gameplay Overhaul.esp,_35E_Giftresistenz2,Resist Poison,Enchantment,ConstantEffect,Self,420,420,0,,Enderal SE - Gameplay Overhaul.esp
+100E5D:Skyrim.esm,EnchArmorResistPoison01,Resist Poison,Enchantment,ConstantEffect,Self,147,147,0,,Skyrim.esm
+100E5E:Skyrim.esm,EnchArmorResistPoison02,Resist Poison,Enchantment,ConstantEffect,Self,316,316,0,,Skyrim.esm
+10FB8E:Skyrim.esm,EnchArmorResistPoisonBase,Resist Poison,Enchantment,ConstantEffect,Self,39,39,0,,Skyrim.esm
+04950D:Skyrim.esm,EnchArmorResistShock01,Resist Shock,Enchantment,ConstantEffect,Self,196,196,0,,Skyrim.esm
+0AD487:Skyrim.esm,EnchArmorResistShock02,Resist Shock,Enchantment,ConstantEffect,Self,421,421,0,,Skyrim.esm
+0BE02E:Skyrim.esm,EnchArmorResistShock04,Resist Shock,Enchantment,ConstantEffect,Self,739,739,0,,Skyrim.esm
+0BE02F:Skyrim.esm,EnchArmorResistShock05,Resist Shock,Enchantment,ConstantEffect,Self,903,903,0,,Skyrim.esm
+0BE030:Skyrim.esm,EnchArmorResistShock06,Resist Shock,Enchantment,ConstantEffect,Self,1070,1070,0,,Skyrim.esm
+10FB8F:Skyrim.esm,EnchArmorResistShockBase,Resist Shock,Enchantment,ConstantEffect,Self,196,196,0,,Skyrim.esm
+040B26:Skyrim.esm,_00E_NQG07_Mael_AmuletEnch,Rhodas' Amulet,Enchantment,ConstantEffect,Self,81,81,0,,Enderal SE - Gameplay Overhaul.esp
+01EB44:Enderal - Forgotten Stories.esm,_04E_30_LSet_ScarlettNightsGauntlets_Ench,Scarlet Night' Touch,Enchantment,ConstantEffect,Self,213,213,0,,Enderal - Forgotten Stories.esm
+01EB41:Enderal - Forgotten Stories.esm,_04E_30_LSet_ScarlettNightsHood_Ench,Scarlet Night's Eye,Enchantment,ConstantEffect,Self,526,526,0,,Enderal - Forgotten Stories.esm
+01EB43:Enderal - Forgotten Stories.esm,_04E_30_LSet_ScarlettNightsCuirass_Ench,Scarlet Night's Soul,Enchantment,ConstantEffect,Self,515,515,0,,Enderal - Forgotten Stories.esm
+01EB42:Enderal - Forgotten Stories.esm,_04E_30_LSet_ScarlettNightsBoots_Ench,Scarlet Night's Trail,Enchantment,ConstantEffect,Self,246,246,0,,Enderal - Forgotten Stories.esm
+12E182:Skyrim.esm,_02E_15_HSet_SelnasBastion_Ench,Selna's Bastion,Enchantment,ConstantEffect,Self,359,359,0,,Skyrim.esm
+12E181:Skyrim.esm,_02E_15_HSet_SelnasFist_Ench,Selna's Fists,Enchantment,ConstantEffect,Self,401,401,0,,Skyrim.esm
+12E17F:Skyrim.esm,_02E_15_HSet_SelnasMarch_Ench,Selna's March,Enchantment,ConstantEffect,Self,293,293,0,,Skyrim.esm
+12E180:Skyrim.esm,_02E_15_HSet_SelnasVizor_Ench,Selna's Ventail,Enchantment,ConstantEffect,Self,373,373,0,,Skyrim.esm
+12E183:Skyrim.esm,_02E_15_HSet_SelnasWings_Ench,Selna's Wings,Enchantment,ConstantEffect,Self,75,75,0,,Skyrim.esm
+01FE9A:Enderal - Forgotten Stories.esm,_00E_EnchBackpackSevenThings,Seven Things,Enchantment,ConstantEffect,Self,940,940,0,,Enderal SE - Gameplay Overhaul.esp
+0438AA:Skyrim.esm,_01E_04_Unique_ShadowFinger_Ench,Shadow Finger,Enchantment,ConstantEffect,Self,362,362,0,,Enderal SE - Gameplay Overhaul.esp
+148A1C:Skyrim.esm,_40E_MSet_WandererCircletEnch,Shadow of the Wandering Mage,Enchantment,ConstantEffect,Self,1409,1409,0,,Enderal SE - Gameplay Overhaul.esp
+04D9DD:Skyrim.esm,01E_03EnchAmulettZerstoerung_Ench,Shadowy Necklace,Enchantment,ConstantEffect,Self,327,327,0,,Enderal SE - Gameplay Overhaul.esp
+02F227:Enderal - Forgotten Stories.esm,_02E_FS_Theriantrophist_ClawBracers_Ench,Sharper Claws,Enchantment,ConstantEffect,Self,29,29,0,,Enderal - Forgotten Stories.esm
+02F228:Enderal - Forgotten Stories.esm,_01E_FS_Theriantrophist_ClawBracers_Ench,Sharper Claws,Enchantment,ConstantEffect,Self,16,16,0,,Enderal - Forgotten Stories.esm
+02F229:Enderal - Forgotten Stories.esm,_03E_FS_Theriantrophist_ClawBracers_Ench,Sharper Claws,Enchantment,ConstantEffect,Self,42,42,0,,Enderal - Forgotten Stories.esm
+02F22A:Enderal - Forgotten Stories.esm,_04E_FS_Theriantrophist_ClawBracers_Ench,Sharper Claws,Enchantment,ConstantEffect,Self,56,56,0,,Enderal - Forgotten Stories.esm
+02F22B:Enderal - Forgotten Stories.esm,_05E_FS_Theriantrophist_ClawBracers_Ench,Sharper Claws,Enchantment,ConstantEffect,Self,69,69,0,,Enderal - Forgotten Stories.esm
+02F414:Enderal - Forgotten Stories.esm,_00E_FS_Theriantrophist_ClawBracers_BaseEnch,Sharper Claws,Enchantment,ConstantEffect,Self,29,29,0,,Enderal SE - Gameplay Overhaul.esp
+067229:Skyrim.esm,_00E_A2_EldritchBloodEnchantment,Shatter Soul,Enchantment,FireAndForget,Touch,665,665,0,,Skyrim.esm
+01EB48:Enderal - Forgotten Stories.esm,_03E_25_Unique_KileanKingsGuardShield_Ench,Shield of the Kiléan Royal Guard,Enchantment,ConstantEffect,Self,331,331,0,,Enderal - Forgotten Stories.esm
+045D59:Skyrim.esm,EnchWeaponShockDamage01,Shock Damage,Enchantment,FireAndForget,Touch,6,6,0,,Enderal SE - Gameplay Overhaul.esp
+045D97:Skyrim.esm,EnchWeaponShockDamage02,Shock Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+045F6F:Skyrim.esm,EnchWeaponShockDamage03,Shock Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
+045F89:Skyrim.esm,EnchWeaponShockDamage04,Shock Damage,Enchantment,FireAndForget,Touch,21,21,0,,Skyrim.esm
+045F8D:Skyrim.esm,EnchWeaponShockDamage05,Shock Damage,Enchantment,FireAndForget,Touch,26,26,0,,Skyrim.esm
+045F9E:Skyrim.esm,EnchWeaponShockDamage06,Shock Damage,Enchantment,FireAndForget,Touch,30,30,0,,Skyrim.esm
+10CBE0:Skyrim.esm,EnchDwarvenSpiderShockDamage,Shock Damage,Enchantment,FireAndForget,Touch,1,1,0,,Enderal SE - Gameplay Overhaul.esp
+10FB99:Skyrim.esm,EnchWeaponShockDamageBase,Shock Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
+024153:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_SouleatersMace,Shock Damage and Soul Trap,Enchantment,FireAndForget,Touch,12,12,0,,Enderal SE - Gameplay Overhaul.esp
+0252A6:Skyrim.esm,_00E_A2_SkyfallNovaEnch,Shock Nova,Enchantment,FireAndForget,Touch,38,38,0,,Skyrim.esm
+0432D9:Skyrim.esm,03E_24WegestreuenstiefelDesBerserkers_Ench,Shock Resistance,Enchantment,ConstantEffect,Self,496,496,0,,Enderal SE - Gameplay Overhaul.esp
+0432E3:Skyrim.esm,_15E_RingDerBlitzresistenz_Ench,Shock Resistance,Enchantment,ConstantEffect,Self,421,421,0,,Enderal SE - Gameplay Overhaul.esp
+0432E4:Skyrim.esm,_04E_35_RingOfMightyShockResistance_Ench,Shock Resistance,Enchantment,ConstantEffect,Self,578,578,0,,Skyrim.esm
+13F360:Skyrim.esm,_03E_25_HSet_FallenOne_Cuirass_Ench,Shroud of the Fallen,Enchantment,ConstantEffect,Self,566,566,0,,Skyrim.esm
+092A77:Skyrim.esm,EnchArmorMuffle,Silent Feet,Enchantment,ConstantEffect,Self,105,105,0,,Skyrim.esm
+10FB89:Skyrim.esm,EnchArmorMuffleBase,Silent Feet,Enchantment,ConstantEffect,Self,105,105,0,,Skyrim.esm
+053FDC:Skyrim.esm,_10E_HSet_BonejudgeBootsEnch,Silent Step of the Rat Catcher,Enchantment,ConstantEffect,Self,216,216,0,,Enderal SE - Gameplay Overhaul.esp
+12E35C:Skyrim.esm,02E_15DiademDerMagieregenerationEnch,Silver Sapphire Circlet of Magicregeneration,Enchantment,ConstantEffect,Self,0,0,0,,Enderal SE - Gameplay Overhaul.esp
+14A991:Skyrim.esm,_05E_40_HSet_SkaraggCuirass_Ench,Skaragg Cuirass,Enchantment,ConstantEffect,Self,969,969,0,,Enderal SE - Gameplay Overhaul.esp
+14A990:Skyrim.esm,_05E_40_HSet_SkaraggGauntlets_Ench,Skaragg Gauntlets,Enchantment,ConstantEffect,Self,737,737,0,,Skyrim.esm
+14A98F:Skyrim.esm,_05E_40_HSet_SkaraggHelmet_Ench,Skaragg Helmet,Enchantment,ConstantEffect,Self,823,823,0,,Skyrim.esm
+14A992:Skyrim.esm,_05E_40_HSet_SkaraggBoots_Ench,Skaragg Shoes,Enchantment,ConstantEffect,Self,831,831,0,,Skyrim.esm
+053FDB:Skyrim.esm,_02E_10_HSet_BonejudgeCuirassRetexture_Ench,Skin of the Rat Catcher,Enchantment,ConstantEffect,Self,73,73,0,,Enderal SE - Gameplay Overhaul.esp
+0B72A2:Skyrim.esm,SlowFrostRune,Slow,Enchantment,FireAndForget,Touch,231,231,0,,Enderal SE - Gameplay Overhaul.esp
+088509:Skyrim.esm,_04E_30_Unique_SongOfTheWinter_Ench,Song of the Winter (Enchantment),Enchantment,ConstantEffect,Self,153,153,0,,Skyrim.esm
+01EB47:Enderal - Forgotten Stories.esm,_07E_60_Unique_SorrowsVisage_Ench,Sorrow's Visage,Enchantment,ConstantEffect,Self,1489,1489,0,,Enderal SE - Gameplay Overhaul.esp
+05B45F:Skyrim.esm,EnchWeaponSoulTrap01,Soul Trap,Enchantment,FireAndForget,Touch,6,6,0,,Skyrim.esm
+05B460:Skyrim.esm,EnchWeaponSoulTrap02,Soul Trap,Enchantment,FireAndForget,Touch,11,11,0,,Skyrim.esm
+05B461:Skyrim.esm,EnchWeaponSoulTrap03,Soul Trap,Enchantment,FireAndForget,Touch,16,16,0,,Skyrim.esm
+05B462:Skyrim.esm,EnchWeaponSoulTrap04,Soul Trap,Enchantment,FireAndForget,Touch,25,25,0,,Skyrim.esm
+05B463:Skyrim.esm,EnchWeaponSoulTrap05,Soul Trap,Enchantment,FireAndForget,Touch,39,39,0,,Skyrim.esm
+05B464:Skyrim.esm,EnchWeaponSoulTrap06,Soul Trap,Enchantment,FireAndForget,Touch,53,53,0,,Skyrim.esm
+10FB9A:Skyrim.esm,EnchWeaponSoulTrapBase,Soul Trap,Enchantment,FireAndForget,Touch,9,9,0,,Skyrim.esm
+148A18:Skyrim.esm,_40E_MSet_WandererTunicEnch,Soul of the Wandering Mage,Enchantment,ConstantEffect,Self,804,804,0,,Enderal SE - Gameplay Overhaul.esp
+0C51F7:Skyrim.esm,_03E_25_Unique_TheSpellBreaker_Ench,Spellbreaker,Enchantment,ConstantEffect,Self,169,169,0,,Skyrim.esm
+072674:Skyrim.esm,EnchStagger,Stagger,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+0EEFBF:Skyrim.esm,_00E_A2_StarlingdummyDebuffEnch,Starling Dummy,Enchantment,FireAndForget,Touch,665,665,0,,Skyrim.esm
+0432B4:Skyrim.esm,_02E_19_StarlingHelmetOfTheMasterSmith_Ench,Starling Helmet of the Master Smith,Enchantment,ConstantEffect,Self,607,607,0,,Skyrim.esm
+02F23E:Enderal - Forgotten Stories.esm,_01E_FS_Phasmalist_SummonersRing_Ench,Strengthen Apparition,Enchantment,ConstantEffect,Self,42,42,0,,Enderal SE - Gameplay Overhaul.esp
+02F247:Enderal - Forgotten Stories.esm,_02E_FS_Phasmalist_SummonersRing_Ench,Strengthen Apparition,Enchantment,ConstantEffect,Self,69,69,0,,Enderal SE - Gameplay Overhaul.esp
+02F248:Enderal - Forgotten Stories.esm,03E_FS_Phasmalist_SummonersRingEnch,Strengthen Apparition,Enchantment,ConstantEffect,Self,84,84,0,,Enderal SE - Gameplay Overhaul.esp
+02F249:Enderal - Forgotten Stories.esm,04E_FS_Phasmalist_SummonersRingEnch,Strengthen Apparition,Enchantment,ConstantEffect,Self,120,120,0,,Enderal SE - Gameplay Overhaul.esp
+02F24A:Enderal - Forgotten Stories.esm,05E_FS_Phasmalist_SummonersRingEnch,Strengthen Apparition,Enchantment,ConstantEffect,Self,172,172,0,,Enderal SE - Gameplay Overhaul.esp
+02F415:Enderal - Forgotten Stories.esm,_00E_FS_Phasmalist_SummonersRing_EnchBase,Strengthen Apparition,Enchantment,ConstantEffect,Self,62,62,0,,Enderal SE - Gameplay Overhaul.esp
+13F357:Skyrim.esm,_02E_15_LSet_CallOfNorthBoots_Ench,Traces of the North,Enchantment,ConstantEffect,Self,725,725,0,,Enderal SE - Gameplay Overhaul.esp
+02EF69:Enderal - Forgotten Stories.esm,_06E_50_LSet_VenturerBoots_Ench,Traces of the Venturer,Enchantment,ConstantEffect,Self,639,639,0,,Enderal - Forgotten Stories.esm
+05B46C:Skyrim.esm,EnchWeaponTurnUndead01,Turn Undead,Enchantment,FireAndForget,Touch,23,23,0,,Skyrim.esm
+05B46D:Skyrim.esm,EnchWeaponTurnUndead02,Turn Undead,Enchantment,FireAndForget,Touch,36,36,0,,Skyrim.esm
+05B46F:Skyrim.esm,EnchWeaponTurnUndead04,Turn Undead,Enchantment,FireAndForget,Touch,80,80,0,,Skyrim.esm
+05B470:Skyrim.esm,EnchWeaponTurnUndead05,Turn Undead,Enchantment,FireAndForget,Touch,91,91,0,,Skyrim.esm
+0BF3F5:Skyrim.esm,EnchWeaponTurnUndead06,Turn Undead,Enchantment,FireAndForget,Touch,117,117,0,,Skyrim.esm
+10FB9C:Skyrim.esm,EnchWeaponTurnUndeadBase,Turn Undead,Enchantment,FireAndForget,Touch,23,23,0,,Skyrim.esm
+024933:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_RalysRyx,Unholy Axe,Enchantment,FireAndForget,Touch,12,60,0,,Enderal SE - Gameplay Overhaul.esp
+01FE9D:Enderal - Forgotten Stories.esm,_00E_EnchBackpackVagabondsSac,Vagabond's Sack,Enchantment,ConstantEffect,Self,799,799,0,,Enderal SE - Gameplay Overhaul.esp
+00E802:Dawnguard.esm,DLC1nVampireBloodMagicRingEruditeEnch,Vampire Mage,Enchantment,ConstantEffect,Self,802,802,0,,Dawnguard.esm
+053FE1:Skyrim.esm,_02E_10_MSet_EnigmaticNomadHood_Ench,Veil of the Mysterious Nomad,Enchantment,ConstantEffect,Self,131,131,0,,Skyrim.esm
+02EF67:Enderal - Forgotten Stories.esm,_06E_50_HSet_SkybreakerHelmet_Ench,Ventail of the Skybreaker,Enchantment,ConstantEffect,Self,983,983,0,,Enderal - Forgotten Stories.esm
+092A76:Skyrim.esm,EnchArmorWaterbreathing,Water Breathing,Enchantment,ConstantEffect,Self,100,100,0,,Skyrim.esm
+10FB90:Skyrim.esm,EnchArmorWaterbreathingBase,Water Breathing,Enchantment,ConstantEffect,Self,100,100,0,,Skyrim.esm
+029B7A:Enderal - Forgotten Stories.esm,_00E_FS_NQ02_Amulett_Ench,Wayfarer's Luck,Enchantment,ConstantEffect,Self,457,457,0,,Enderal - Forgotten Stories.esm
+02EF64:Enderal - Forgotten Stories.esm,_06E_50_HSet_SkybreakerBoots_Ench,Wings of the Skybreaker,Enchantment,ConstantEffect,Self,353,353,0,,Enderal SE - Gameplay Overhaul.esp
+02E3BA:Enderal - Forgotten Stories.esm,_05E_40_StaffOfTheFather_Ench,Absorb Health,StaffEnchantment,Concentration,Aimed,29,29,0,,Enderal - Forgotten Stories.esm
+0365C5:Skyrim.esm,_00E_EnchAbsorbHealthStaff02,Absorb Health,StaffEnchantment,Concentration,Aimed,38,38,0.5,,Enderal SE - Gameplay Overhaul.esp
+06728A:Skyrim.esm,_00E_EnchAbsorbHealthStaff01,Absorb Health,StaffEnchantment,Concentration,Aimed,30,30,1,,Enderal SE - Gameplay Overhaul.esp
+0BB972:Apocalypse - Magic of Skyrim.esp,WB_C025_AtronachMark_StaffEnchantment,Atronach Mark,StaffEnchantment,FireAndForget,Aimed,75,75,0.5,,Apocalypse - Magic of Skyrim.esp
+0896EC:Apocalypse - Magic of Skyrim.esp,WB_C000_AzureReconstruction_StaffEnchantment,Azure Reconstruction,StaffEnchantment,Concentration,TargetActor,3,3,0.5,,Apocalypse - Magic of Skyrim.esp
+0896F0:Apocalypse - Magic of Skyrim.esp,WB_D000_Blaze_StaffEnchantment,Blaze,StaffEnchantment,FireAndForget,Aimed,31,31,0.5,,Apocalypse - Magic of Skyrim.esp
+00A02A:KataPUMBSpellPack.esp,Kata_Staf_Mentalism_Blink,Blink,StaffEnchantment,FireAndForget,Aimed,22,22,0.5,,KataPUMBSpellPack.esp
+07A202:Apocalypse - Magic of Skyrim.esp,WB_D050_Bolide_StaffEnchantment,Bolide,StaffEnchantment,FireAndForget,Aimed,134,134,0.5,,Apocalypse - Magic of Skyrim.esp
+00F7BB:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_Bombardment,Bombardment,StaffEnchantment,Concentration,Aimed,8,8,0.6,,KataPUMBSpellPack.esp
+07A210:Apocalypse - Magic of Skyrim.esp,WB_D075_Bombardment_StaffEnchantment,Bombardment,StaffEnchantment,Concentration,Aimed,125,125,1.5,,Apocalypse - Magic of Skyrim.esp
+029B5C:Skyrim.esm,StaffEnchChainLightning,Chain Lightning,StaffEnchantment,FireAndForget,Aimed,122,122,0.5,,Skyrim.esm
+07A218:Apocalypse - Magic of Skyrim.esp,WB_I050_CompellingWhispers_StaffEnchantment,Compelling Whispers,StaffEnchantment,Concentration,Aimed,23,23,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1E4:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureAvengingWraith_StaffEnchantment,Conjure Avenging Wraith,StaffEnchantment,FireAndForget,TargetLocation,351,351,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1E8:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureCatTotem_StaffEnchantment,Conjure Cat Totem,StaffEnchantment,FireAndForget,TargetLocation,161,161,0.5,,Apocalypse - Magic of Skyrim.esp
+0BB975:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureDeadeyeCaptain_StaffEnchantment,Conjure Deadeye Captain,StaffEnchantment,FireAndForget,TargetLocation,172,172,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1F0:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureDremoraChampion_StaffEnchantment,Conjure Dremora Champion,StaffEnchantment,FireAndForget,TargetLocation,366,366,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1E6:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureDremoraChurl_StaffEnchantment,Conjure Dremora Churl,StaffEnchantment,FireAndForget,TargetLocation,157,157,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1F2:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureDremoraHonorGuard_StaffEnchantment,Conjure Dremora Honor Guard,StaffEnchantment,FireAndForget,TargetLocation,380,380,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1E9:Apocalypse - Magic of Skyrim.esp,WB_C050_ConjureDremoraPitFighter_StaffEnchantment,Conjure Dremora Pit Fighter,StaffEnchantment,FireAndForget,TargetLocation,229,229,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1F4:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureHerne_StaffEnchantment,Conjure Herne,StaffEnchantment,FireAndForget,TargetLocation,394,394,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1F6:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureXivilaiLord_StaffEnchantment,Conjure Xivilai Lord,StaffEnchantment,FireAndForget,TargetLocation,344,344,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1EE:Apocalypse - Magic of Skyrim.esp,WB_C050_ConjureXivilaiSorcerer_StaffEnchantment,Conjure Xivilai Sorcerer,StaffEnchantment,FireAndForget,TargetLocation,229,229,0.5,,Apocalypse - Magic of Skyrim.esp
+0896EE:Apocalypse - Magic of Skyrim.esp,WB_C050_CorpseExplosion_StaffEnchantment,Corpse Explosion,StaffEnchantment,FireAndForget,Aimed,175,175,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1F8:Apocalypse - Magic of Skyrim.esp,WB_D000_Crackle_StaffEnchantment,Crackle,StaffEnchantment,FireAndForget,Aimed,31,31,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1FC:Apocalypse - Magic of Skyrim.esp,WB_D025_CreepingCold_StaffEnchantment,Creeping Cold,StaffEnchantment,Concentration,Aimed,19,19,0,,Apocalypse - Magic of Skyrim.esp
+00F7BE:KataPUMBSpellPack.esp,Kata_Staf_Entropy_Curse,Curse,StaffEnchantment,FireAndForget,Aimed,12,12,0.5,,EGO - KataPUMB Spell Package.esp
+07A211:Apocalypse - Magic of Skyrim.esp,WB_I025_CurseOfTheSilent_StaffEnchantment,Curse of the Silent,StaffEnchantment,FireAndForget,Aimed,98,98,0.5,,Apocalypse - Magic of Skyrim.esp
+00A026:KataPUMBSpellPack.esp,Kata_Staf_Entropy_DeathBeam,Death Beam,StaffEnchantment,Concentration,Aimed,4,4,0.3,,KataPUMBSpellPack.esp
+07A22C:Apocalypse - Magic of Skyrim.esp,WB_R075_Decompose_StaffEnchantment,Decompose,StaffEnchantment,FireAndForget,Aimed,311,311,0.5,,Apocalypse - Magic of Skyrim.esp
+07A230:Apocalypse - Magic of Skyrim.esp,WB_A075_DetonateLock_StaffEnchantment,Detonate Lock,StaffEnchantment,FireAndForget,Aimed,595,595,2,,Apocalypse - Magic of Skyrim.esp
+07C844:Apocalypse - Magic of Skyrim.esp,WB_D025_DragonsTeeth_StaffEnchantment,Dragon's Teeth,StaffEnchantment,FireAndForget,Aimed,50,50,0.5,,Apocalypse - Magic of Skyrim.esp
+003911:Enderal SE - Gameplay Overhaul.esp,StaffEnchFear,Dread,StaffEnchantment,FireAndForget,Aimed,154,154,1,,Enderal SE - Gameplay Overhaul.esp
+0896E4:Apocalypse - Magic of Skyrim.esp,WB_A025_DropZone_StaffEnchantment,Drop Zone,StaffEnchantment,FireAndForget,TargetLocation,50,50,0.5,,Apocalypse - Magic of Skyrim.esp
+1A7938:Apocalypse - Magic of Skyrim.esp,WB_R050_DustInTheClockwork_StaffEnchantment,Dust in the Clockwork,StaffEnchantment,FireAndForget,Aimed,176,176,0.5,,Apocalypse - Magic of Skyrim.esp
+010457:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_Electrocution,Electrocution,StaffEnchantment,Concentration,Aimed,14,14,0.6,,KataPUMBSpellPack.esp
+00A028:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_ElectroSphere,Electrosphere,StaffEnchantment,FireAndForget,Aimed,15,15,0.5,,KataPUMBSpellPack.esp
+07A204:Apocalypse - Magic of Skyrim.esp,WB_D050_Electrosphere_StaffEnchantment,Electrosphere,StaffEnchantment,FireAndForget,Aimed,131,131,0.5,,Apocalypse - Magic of Skyrim.esp
+00F7BC:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_ElectroStorm,Electrostorm,StaffEnchantment,Concentration,Aimed,8,8,0.6,,KataPUMBSpellPack.esp
+07A21C:Apocalypse - Magic of Skyrim.esp,WB_I075_EmpathicAgony_StaffEnchantment,Empathic Agony,StaffEnchantment,FireAndForget,Aimed,366,366,0.5,,Apocalypse - Magic of Skyrim.esp
+07A232:Apocalypse - Magic of Skyrim.esp,WB_A075_Entomb_StaffEnchantment,Entomb,StaffEnchantment,FireAndForget,Aimed,475,475,2.5,,Apocalypse - Magic of Skyrim.esp
+0773C0:Skyrim.esm,_00E_StaffEnchEldritchBlast,Entropic Blast,StaffEnchantment,Concentration,Aimed,12,12,0.5,,Enderal SE - Gameplay Overhaul.esp
+14897A:Skyrim.esm,_00E_StaffEnchEldritchBreath,Entropic Breath,StaffEnchantment,Concentration,Aimed,2,2,0,,Enderal SE - Gameplay Overhaul.esp
+0BB96C:Apocalypse - Magic of Skyrim.esp,WB_I050_FigmentOfPain_StaffEnchantment,Figment of Pain,StaffEnchantment,FireAndForget,TargetActor,219,219,0.5,,Apocalypse - Magic of Skyrim.esp
+07A226:Apocalypse - Magic of Skyrim.esp,WB_R050_FingerOfDeath_StaffEnchantment,Finger of Death,StaffEnchantment,FireAndForget,TargetActor,160,160,0.5,,Apocalypse - Magic of Skyrim.esp
+0B62DD:Skyrim.esm,StaffEnchFireRune,Fire Rune,StaffEnchantment,FireAndForget,TargetLocation,173,173,0.5,,Skyrim.esm
+029B59:Skyrim.esm,StaffEnchFireball,Fireball,StaffEnchantment,FireAndForget,Aimed,115,115,0.5,,Enderal SE - Gameplay Overhaul.esp
+12E1D4:Skyrim.esm,StaffEnchFireball2,Fireball,StaffEnchantment,FireAndForget,Aimed,207,207,0.5,,Enderal SE - Gameplay Overhaul.esp
+001CF0:Enderal SE - Gameplay Overhaul.esp,StaffEnchFirebolt40,Firebolt,StaffEnchantment,FireAndForget,Aimed,67,67,0.5,,Enderal SE - Gameplay Overhaul.esp
+04C6CB:Skyrim.esm,StaffEnchFirebolt,Firebolt,StaffEnchantment,FireAndForget,Aimed,41,41,0.5,,Skyrim.esm
+001D9E:Enderal SE - Gameplay Overhaul.esp,StaffEnchFlamesDunwar2,Flames,StaffEnchantment,Concentration,Aimed,1,1,0,,Enderal SE - Gameplay Overhaul.esp
+04DEDA:Skyrim.esm,StaffEnchFlames,Flames,StaffEnchantment,Concentration,Aimed,3,3,0.5,,Enderal SE - Gameplay Overhaul.esp
+07A1FE:Apocalypse - Magic of Skyrim.esp,WB_D025_Fracture_StaffEnchantment,Fracture,StaffEnchantment,FireAndForget,Aimed,54,54,0.5,,Apocalypse - Magic of Skyrim.esp
+0D08CD:Apocalypse - Magic of Skyrim.esp,WB_D050_FrostNova_StaffEnchantment,Frost Nova,StaffEnchantment,FireAndForget,Self,136,136,0.5,,Apocalypse - Magic of Skyrim.esp
+029B5B:Skyrim.esm,StaffEnchFrostbite,Frostbite,StaffEnchantment,Concentration,Aimed,9,9,0.5,,Enderal SE - Gameplay Overhaul.esp
+1A792C:Apocalypse - Magic of Skyrim.esp,WB_C050_Gank_StaffEnchantment,Gank,StaffEnchantment,FireAndForget,Aimed,250,250,0.5,,Apocalypse - Magic of Skyrim.esp
+0896EA:Apocalypse - Magic of Skyrim.esp,WB_A050_TharnsPrison_StaffEnchantment,Girathû's Prison,StaffEnchantment,FireAndForget,Aimed,190,190,0.5,,Apocalypse - Magic of Skyrim.esp
+07A1FA:Apocalypse - Magic of Skyrim.esp,WB_D000_Hailstone_StaffEnchantment,Hailstone,StaffEnchantment,FireAndForget,Aimed,31,31,0.5,,Apocalypse - Magic of Skyrim.esp
+002C94:Enderal SE - Gameplay Overhaul.esp,StaffEnchHealOtherGreater,Heal Other,StaffEnchantment,FireAndForget,TargetActor,20,20,0.5,1,Enderal SE - Gameplay Overhaul.esp
+029B6E:Skyrim.esm,StaffEnchHealOther,Heal Other,StaffEnchantment,FireAndForget,TargetActor,10,10,0.5,1,Enderal SE - Gameplay Overhaul.esp
+00F7C0:KataPUMBSpellPack.esp,Kata_Staf_LightMagic_HolyCross,Holy Cross,StaffEnchantment,FireAndForget,Aimed,22,22,0.6,,KataPUMBSpellPack.esp
+00A025:KataPUMBSpellPack.esp,Kata_Staf_LightMagic_HolyRay,Holy Ray,StaffEnchantment,Concentration,Aimed,4,4,0.3,,KataPUMBSpellPack.esp
+00F7C1:KataPUMBSpellPack.esp,Kata_Staf_LightMagic_HolyBall,Holy Sun Burst,StaffEnchantment,FireAndForget,Aimed,18,18,0.8,,EGO - KataPUMB Spell Package.esp
+0896F2:Apocalypse - Magic of Skyrim.esp,WB_R050_HorridWilting_StaffEnchantment,Horrid Wilting,StaffEnchantment,FireAndForget,Aimed,130,130,1,,Apocalypse - Magic of Skyrim.esp
+161630:Apocalypse - Magic of Skyrim.esp,WB_D075_IcePrism_StaffEnchantment,Ice Prism,StaffEnchantment,Concentration,Aimed,133,133,1.5,,Apocalypse - Magic of Skyrim.esp
+07A206:Apocalypse - Magic of Skyrim.esp,WB_D050_IceShiv_StaffEnchantment,Ice Shiv,StaffEnchantment,FireAndForget,Aimed,140,140,0.5,,Apocalypse - Magic of Skyrim.esp
+001CF1:Enderal SE - Gameplay Overhaul.esp,StaffEnchIceSpike40,Ice Spike,StaffEnchantment,FireAndForget,Aimed,64,64,0.5,,Enderal SE - Gameplay Overhaul.esp
+04DED7:Skyrim.esm,StaffEnchIceSpike,Ice Spike,StaffEnchantment,FireAndForget,Aimed,48,48,0.5,,Enderal SE - Gameplay Overhaul.esp
+001F47:Enderal SE - Gameplay Overhaul.esp,StaffEnchIceStorm2,Ice Storm,StaffEnchantment,FireAndForget,Aimed,95,95,0.5,,Enderal SE - Gameplay Overhaul.esp
+029B5A:Skyrim.esm,StaffEnchIceStorm,Ice Storm,StaffEnchantment,FireAndForget,Aimed,95,95,0.5,,Enderal SE - Gameplay Overhaul.esp
+00F7BD:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_IcicleStorm,Icicle Storm,StaffEnchantment,Concentration,Aimed,8,8,0.6,,KataPUMBSpellPack.esp
+07A214:Apocalypse - Magic of Skyrim.esp,WB_I025_IllusoryFlames_StaffEnchantment,Illusory Flames,StaffEnchantment,Concentration,Aimed,19,19,0.5,,Apocalypse - Magic of Skyrim.esp
+0BB966:Apocalypse - Magic of Skyrim.esp,WB_I050_IllusoryPyre_StaffEnchantment,Illusory Pyre,StaffEnchantment,FireAndForget,TargetActor,140,140,0.5,,Apocalypse - Magic of Skyrim.esp
+07A208:Apocalypse - Magic of Skyrim.esp,WB_D050_IncendiaryFlow_StaffEnchantment,Incendiary Flow,StaffEnchantment,FireAndForget,Aimed,134,134,0.5,,Apocalypse - Magic of Skyrim.esp
+0432FD:Skyrim.esm,EnchUniqueWeapon_IrlandasGrace,Irlanda's Grace,StaffEnchantment,FireAndForget,Aimed,450,450,0.5,,Enderal SE - Gameplay Overhaul.esp
+0974E0:Apocalypse - Magic of Skyrim.esp,WB_R025_LambOfMara_StaffEnchantment,Lamb of Irlanda,StaffEnchantment,FireAndForget,Aimed,83,83,0.5,,Apocalypse - Magic of Skyrim.esp
+07A222:Apocalypse - Magic of Skyrim.esp,WB_R025_LeechSeed_StaffEnchantment,Leech Seed,StaffEnchantment,FireAndForget,Aimed,58,58,0.5,,Apocalypse - Magic of Skyrim.esp
+001CF2:Enderal SE - Gameplay Overhaul.esp,StaffEnchLightningBolt40,Lightning Bolt,StaffEnchantment,FireAndForget,Aimed,70,70,0.5,,Enderal SE - Gameplay Overhaul.esp
+04DED9:Skyrim.esm,StaffEnchLightningBolt,Lightning Bolt,StaffEnchantment,FireAndForget,Aimed,655,655,0.5,,Enderal SE - Gameplay Overhaul.esp
+07A20E:Apocalypse - Magic of Skyrim.esp,WB_D075_LightningStrike_StaffEnchantment,Lightning Strike,StaffEnchantment,FireAndForget,TargetLocation,361,361,0.5,,Apocalypse - Magic of Skyrim.esp
+04DEDD:Skyrim.esm,StaffEnchMagelight,Magelight,StaffEnchantment,FireAndForget,Aimed,14,14,0.5,,Skyrim.esm
+07A220:Apocalypse - Magic of Skyrim.esp,WB_I075_MindControl_StaffEnchantment,Mind Control,StaffEnchantment,FireAndForget,Aimed,468,468,1,,Apocalypse - Magic of Skyrim.esp
+07A216:Apocalypse - Magic of Skyrim.esp,WB_I025_MindVision_StaffEnchantment,Mind Vision,StaffEnchantment,FireAndForget,TargetActor,90,90,1,,Apocalypse - Magic of Skyrim.esp
+161626:Apocalypse - Magic of Skyrim.esp,WB_C075_MonarchMark_StaffEnchantment,Monarch Mark,StaffEnchantment,FireAndForget,Aimed,300,300,0.5,,Apocalypse - Magic of Skyrim.esp
+07A228:Apocalypse - Magic of Skyrim.esp,WB_R075_NaturesBalance_StaffEnchantment,Nature's Balance,StaffEnchantment,FireAndForget,Aimed,405,405,2,,Apocalypse - Magic of Skyrim.esp
+0BB96A:Apocalypse - Magic of Skyrim.esp,WB_R025_Necroplague_StaffEnchantment,Necroplague,StaffEnchantment,FireAndForget,Aimed,103,103,0.5,,Apocalypse - Magic of Skyrim.esp
+0BB97B:Apocalypse - Magic of Skyrim.esp,WB_C075_OathboundGuardian_StaffEnchantment,Oathbound Guardian,StaffEnchantment,FireAndForget,TargetActor,423,423,0.5,,Apocalypse - Magic of Skyrim.esp
+0896F6:Apocalypse - Magic of Skyrim.esp,WB_I000_PaleShadow_StaffEnchantment,Pale Shadow,StaffEnchantment,FireAndForget,Aimed,40,40,0.5,,Apocalypse - Magic of Skyrim.esp
+029B4A:Skyrim.esm,StaffEnchParalyze,Paralysis,StaffEnchantment,FireAndForget,Aimed,450,450,0.5,,Skyrim.esm
+0803F5:Apocalypse - Magic of Skyrim.esp,WB_A025_PerilousPath_StaffEnchantment,Perilous Path,StaffEnchantment,FireAndForget,Aimed,80,80,0.5,,Apocalypse - Magic of Skyrim.esp
+00F7C2:KataPUMBSpellPack.esp,Kata_Staf_Mentalism_Petrify,Petrify,StaffEnchantment,FireAndForget,Aimed,44,44,0.5,,KataPUMBSpellPack.esp
+1A793C:Apocalypse - Magic of Skyrim.esp,WB_R075_PoisonedChalice_StaffEnchantment,Poisoned Chalice,StaffEnchantment,FireAndForget,Aimed,251,251,0.5,,Apocalypse - Magic of Skyrim.esp
+029B53:Skyrim.esm,StaffEnchRevenant,Reanimate,StaffEnchantment,FireAndForget,Aimed,72,72,1.25,,Enderal SE - Gameplay Overhaul.esp
+091FFD:Skyrim.esm,StaffEnchRevenant2,Reanimate,StaffEnchantment,FireAndForget,Aimed,174,174,1.25,,Enderal SE - Gameplay Overhaul.esp
+07A200:Apocalypse - Magic of Skyrim.esp,WB_D025_RiftBolt_StaffEnchantment,Rift Bolt,StaffEnchantment,FireAndForget,Aimed,56,56,0.5,,Apocalypse - Magic of Skyrim.esp
+07A22A:Apocalypse - Magic of Skyrim.esp,WB_R050_Ruin_StaffEnchantment,Ruin,StaffEnchantment,FireAndForget,Aimed,151,151,0.5,,Apocalypse - Magic of Skyrim.esp
+07A20A:Apocalypse - Magic of Skyrim.esp,WB_D050_Scattershock_StaffEnchantment,Scattershock,StaffEnchantment,Concentration,Aimed,36,36,2.5,,Apocalypse - Magic of Skyrim.esp
+0BDFAA:Apocalypse - Magic of Skyrim.esp,WB_D075_ScorchingHands_StaffEnchantment,Scorching Hands,StaffEnchantment,Concentration,Aimed,142,142,1.5,,Apocalypse - Magic of Skyrim.esp
+07A21E:Apocalypse - Magic of Skyrim.esp,WB_I075_Seidstone_StaffEnchantment,Seidstone,StaffEnchantment,FireAndForget,Aimed,344,344,0.5,,Apocalypse - Magic of Skyrim.esp
+07A21A:Apocalypse - Magic of Skyrim.esp,WB_I050_Shadowbond_StaffEnchantment,Shadowbond,StaffEnchantment,FireAndForget,TargetActor,182,182,0.5,,Apocalypse - Magic of Skyrim.esp
+00A02B:KataPUMBSpellPack.esp,Kata_Staf_Psionics_Shatter,Shatter,StaffEnchantment,FireAndForget,Aimed,16,16,0.5,,KataPUMBSpellPack.esp
+0D08CF:Apocalypse - Magic of Skyrim.esp,WB_D075_ShockNova_StaffEnchantment,Shock Nova,StaffEnchantment,FireAndForget,Self,375,375,0.5,,Apocalypse - Magic of Skyrim.esp
+1A7930:Apocalypse - Magic of Skyrim.esp,WB_I000_SilveryBarbs_StaffEnchantment,Silvery Barbs,StaffEnchantment,FireAndForget,Aimed,42,42,0.5,,Apocalypse - Magic of Skyrim.esp
+07A224:Apocalypse - Magic of Skyrim.esp,WB_R025_SlayLiving_StaffEnchantment,Slay Living,StaffEnchantment,FireAndForget,TargetActor,95,95,0.5,,Apocalypse - Magic of Skyrim.esp
+07A20B:Apocalypse - Magic of Skyrim.esp,WB_D075_SleetStorm_StaffEnchantment,Sleet Storm,StaffEnchantment,Concentration,Aimed,117,117,1.5,,Apocalypse - Magic of Skyrim.esp
+0B62DC:Skyrim.esm,StaffEnchSoulTrap,Soul Trap,StaffEnchantment,FireAndForget,TargetActor,107,107,0.5,,Enderal SE - Gameplay Overhaul.esp
+12E2E5:Skyrim.esm,StaffEnchSparks3,Spark,StaffEnchantment,Concentration,Aimed,25,25,0,,Skyrim.esm
+0083E4:Enderal SE - Gameplay Overhaul.esp,StaffEnchSparks,Sparks,StaffEnchantment,Concentration,Aimed,11,11,0.5,,Enderal SE - Gameplay Overhaul.esp
+04DEDC:Skyrim.esm,StaffEnchSparks2,Sparks,StaffEnchantment,Concentration,Aimed,11,11,0,,Enderal SE - Gameplay Overhaul.esp
+0B62DB:Skyrim.esm,StaffEnchConjureAtronachFlame,Summon Fire Elemental,StaffEnchantment,FireAndForget,TargetLocation,75,75,3,,Enderal SE - Gameplay Overhaul.esp
+00F7BF:KataPUMBSpellPack.esp,Kata_Staf_Entropy_SummonLostone,Summon Lost One,StaffEnchantment,FireAndForget,TargetLocation,40,40,0.3,,KataPUMBSpellPack.esp
+13570D:Skyrim.esm,StaffEnchConjureOrbayer,Summon Oorbâya,StaffEnchantment,FireAndForget,TargetLocation,138,138,3,,Enderal SE - Gameplay Overhaul.esp
+00F7C6:KataPUMBSpellPack.esp,Kata_Staf_Entropy_SummonSpirit,Summon Spirit,StaffEnchantment,FireAndForget,TargetLocation,53,53,3,,EGO - KataPUMB Spell Package.esp
+02F0E2:Enderal - Forgotten Stories.esm,StaffEnchConjureVatyr,Summon Vatyr,StaffEnchantment,FireAndForget,TargetLocation,107,107,3,,Enderal SE - Gameplay Overhaul.esp
+0BB978:Apocalypse - Magic of Skyrim.esp,WB_C050_SummoningRune_StaffEnchantment,Summoning Rune,StaffEnchantment,FireAndForget,TargetLocation,198,198,0.5,,Apocalypse - Magic of Skyrim.esp
+0159E9:Apocalypse - Magic of Skyrim.esp,WB_A050_TechBlast_ConjuredActorStaffEnchantment,Tech Blast,StaffEnchantment,FireAndForget,Aimed,115,115,2,,Apocalypse - Magic of Skyrim.esp
+0B00DE:Apocalypse - Magic of Skyrim.esp,WB_A050_ConjureCraftlord_ConjuredActorStaffEnchantment,Technobolt,StaffEnchantment,FireAndForget,Aimed,100,100,2,,Apocalypse - Magic of Skyrim.esp
+07C846:Apocalypse - Magic of Skyrim.esp,WB_D025_Thundercrack_StaffEnchantment,Thundercrack,StaffEnchantment,FireAndForget,Aimed,43,43,0.5,,Apocalypse - Magic of Skyrim.esp
+029B72:Skyrim.esm,StaffEnchTurnGreaterUndead,Turn Greater Undead,StaffEnchantment,FireAndForget,Aimed,154,154,1,,Enderal SE - Gameplay Overhaul.esp
+0896E8:Apocalypse - Magic of Skyrim.esp,WB_A050_Undermine_StaffEnchantment,Undermine,StaffEnchantment,FireAndForget,Aimed,167,167,0.5,,Apocalypse - Magic of Skyrim.esp
+1A7935:Apocalypse - Magic of Skyrim.esp,WB_I075_HrormirsMisdirection_StaffEnchantment,Veil of Misdirection,StaffEnchantment,FireAndForget,TargetActor,301,301,0.5,,Apocalypse - Magic of Skyrim.esp
+029B5D:Skyrim.esm,StaffEnchWallOfFlames,Wall Of Flames,StaffEnchantment,Concentration,Aimed,45,118,0,,Enderal SE - Gameplay Overhaul.esp
+029B5E:Skyrim.esm,StaffEnchWallOfFrost,Wall Of Frost,StaffEnchantment,Concentration,Aimed,45,100,0,,Enderal SE - Gameplay Overhaul.esp
+029B5F:Skyrim.esm,StaffEnchWallOfStorms,Wall Of Storms,StaffEnchantment,Concentration,Aimed,45,86,0,,Enderal SE - Gameplay Overhaul.esp
+0896F4:Apocalypse - Magic of Skyrim.esp,WB_R025_WellingBlood_StaffEnchantment,Welling Blood,StaffEnchantment,FireAndForget,Aimed,70,70,0.5,,Apocalypse - Magic of Skyrim.esp
+07A22E:Apocalypse - Magic of Skyrim.esp,WB_A025_Wither_StaffEnchantment,Wither,StaffEnchantment,FireAndForget,Aimed,62,62,0.5,,Apocalypse - Magic of Skyrim.esp

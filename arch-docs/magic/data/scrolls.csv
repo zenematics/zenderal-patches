@@ -1,0 +1,181 @@
+Form Key,Editor Id,Name,Cast Type,Target Type,Base Cost,Computed Auto Cost,Charge Time,Arcane Fever,Value,Weight,Winner Overwrite
+0F04BB:Skyrim.esm,_00E_PowderMineFireballscroll,Confiscated Scroll,Scroll,Aimed,28,25,0.5,,0,0.2,Enderal SE - Gameplay Overhaul.esp
+03A9C5:Apocalypse - Magic of Skyrim.esp,WB_A100_AccelerationRune_Scroll,Scroll of Acceleration Rune,Scroll,TargetLocation,1250,1250,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03A449:Apocalypse - Magic of Skyrim.esp,WB_A000_Alarm_Scroll,Scroll of Alarm,Scroll,Self,76,76,0.5,,15,0.5,Apocalypse - Magic of Skyrim.esp
+039ED9:Apocalypse - Magic of Skyrim.esp,WB_D100_ApocalypseNew_Scroll,Scroll of Apocalypse,Scroll,Aimed,800,800,2.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA26:Apocalypse - Magic of Skyrim.esp,WB_C025_AtronachMark_Scroll,Scroll of Atronach Mark,Scroll,Aimed,75,75,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+0388F8:Apocalypse - Magic of Skyrim.esp,WB_I025_Backlash_Scroll,Scroll of Backlash,ConstantEffect,Aimed,25,25,0.2,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03BFAB:Apocalypse - Magic of Skyrim.esp,WB_C100_BanishLiving_Scroll,Scroll of Banish Living,Scroll,TargetActor,1573,1573,5.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+05F258:Apocalypse - Magic of Skyrim.esp,WB_A100_Battletide_Scroll,Scroll of Battletide,Scroll,Self,705,705,2,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0896D6:Apocalypse - Magic of Skyrim.esp,WB_D000_Blaze_Scroll,Scroll of Blaze,Scroll,Aimed,31,31,0,,15,0.5,Apocalypse - Magic of Skyrim.esp
+038905:Apocalypse - Magic of Skyrim.esp,WB_I050_BloodForBlood_Scroll,Scroll of Blood For Blood,ConstantEffect,TargetActor,170,170,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+04839A:Apocalypse - Magic of Skyrim.esp,WB_R100_Bloodseeker_Scroll,Scroll of Bloodseeker,Scroll,Aimed,602,602,0.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0393FE:Apocalypse - Magic of Skyrim.esp,WB_D050_Bolide_Scroll,Scroll of Bolide,Scroll,Aimed,134,134,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03AF31:Apocalypse - Magic of Skyrim.esp,WB_R000_BoneSpirit_Scroll,Scroll of Bone Spirit,Scroll,Aimed,50,50,0.5,,15,0.5,Apocalypse - Magic of Skyrim.esp
+0905A9:Skyrim.esm,01E_RolleKerzenlicht,Scroll of Candle Light,Scroll,Self,21,77,0.5,,10,0.2,Enderal SE - Gameplay Overhaul.esp
+0905A6:Skyrim.esm,01E_RolleKettenblitz,Scroll of Chain Lightning,Scroll,Aimed,105,101,0.5,,33,0.2,Enderal SE - Gameplay Overhaul.esp
+067915:Apocalypse - Magic of Skyrim.esp,WB_R050_ChannelEnergies_Scroll,Scroll of Channel Energies,Scroll,Aimed,200,200,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03B4B8:Apocalypse - Magic of Skyrim.esp,WB_R100_CircleOfDeath_Scroll,Scroll of Circle of Death,Scroll,Self,688,688,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03AF33:Apocalypse - Magic of Skyrim.esp,WB_R000_CircleOfStrength_Scroll,Scroll of Circle of Strength,Scroll,Self,60,60,0.5,,15,0.5,Apocalypse - Magic of Skyrim.esp
+03AF41:Apocalypse - Magic of Skyrim.esp,WB_R050_CircleOfTheMoons_Scroll,Scroll of Circle of the Moons,Scroll,Self,131,131,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03BA22:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureAvengingWraith_Scroll,Scroll of Conjure Avenging Wraith,Scroll,TargetLocation,351,351,0,,125,0.5,Apocalypse - Magic of Skyrim.esp
+0896DC:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureBattlemage_Scroll,Scroll of Conjure Battlemage,Scroll,TargetLocation,1201,1201,0,,250,0.5,Apocalypse - Magic of Skyrim.esp
+047E29:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureBearTotem_Scroll,Scroll of Conjure Bear Totem,Scroll,TargetLocation,1484,1484,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA2E:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureCatTotem_Scroll,Scroll of Conjure Cat Totem,Scroll,TargetLocation,161,161,0,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03BFB1:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureCraftlord_Scroll,Scroll of Conjure Craftlord,Scroll,TargetLocation,1321,1321,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA2D:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureDeadeyeCaptain_Scroll,Scroll of Conjure Deadeye Captain,Scroll,TargetLocation,172,172,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03BFAC:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureDremoraAssassin_Scroll,Scroll of Conjure Dremora Assassin,Scroll,TargetLocation,1201,1201,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA3D:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureDremoraChampion_Scroll,Scroll of Conjure Dremora Champion,Scroll,TargetLocation,366,366,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03BA2B:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureDremoraChurl_Scroll,Scroll of Conjure Dremora Churl,Scroll,TargetLocation,157,157,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03BA41:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureHerne_Scroll,Scroll of Conjure Dremora Herne,Scroll,TargetLocation,394,394,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03BA3F:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureDremoraHonorGuard_Scroll,Scroll of Conjure Dremora Honor Guard,Scroll,TargetLocation,380,380,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03BA47:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureDremoraMentor_Scroll,Scroll of Conjure Dremora Mentor,Scroll,TargetLocation,627,627,3,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03BA31:Apocalypse - Magic of Skyrim.esp,WB_C050_ConjureDremoraPitFighter_Scroll,Scroll of Conjure Dremora Pit Fighter,Scroll,TargetLocation,229,229,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+088681:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureKyrkrim_Scroll,Scroll of Conjure Kyrkrim,Scroll,TargetLocation,720,720,0.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA33:Apocalypse - Magic of Skyrim.esp,WB_C050_ConjureLich_Scroll,Scroll of Conjure Lich,Scroll,TargetLocation,244,244,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+066E4F:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureLordOfBindings_Scroll,Scroll of Conjure Lord of Bindings,Scroll,TargetLocation,1261,1261,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BFAF:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureNetherLich_Scroll,Scroll of Conjure Nether Lich,Scroll,TargetLocation,1441,1441,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+05F25A:Apocalypse - Magic of Skyrim.esp,WB_C100_ConjureWeepingDaedra_Scroll,Scroll of Conjure Weeping Daedra,Scroll,TargetLocation,584,584,2,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA43:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureXivilaiLord_Scroll,Scroll of Conjure Xivilai Lord,Scroll,TargetLocation,344,344,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03BA35:Apocalypse - Magic of Skyrim.esp,WB_C050_ConjureXivilaiSorcerer_Scroll,Scroll of Conjure Xivilai Sorcerer,Scroll,TargetLocation,229,229,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03BA24:Apocalypse - Magic of Skyrim.esp,WB_C000_ConsumingPower_Scroll,Scroll of Consuming Power,Scroll,Aimed,103,103,0.5,,15,0.5,Apocalypse - Magic of Skyrim.esp
+085572:Apocalypse - Magic of Skyrim.esp,WB_A100_ControlWeather_Scroll,Scroll of Control Weather,Scroll,Self,1250,1250,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA38:Apocalypse - Magic of Skyrim.esp,WB_C050_CorpseExplosion_Scroll,Scroll of Corpse Explosion,Scroll,Aimed,175,175,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+038E8D:Apocalypse - Magic of Skyrim.esp,WB_D000_Crackle_Scroll,Scroll of Crackle,Scroll,Aimed,31,31,0.5,,15,0.5,Apocalypse - Magic of Skyrim.esp
+0388F3:Apocalypse - Magic of Skyrim.esp,WB_I025_CurseOfTheSilent_Scroll,Scroll of Curse of the Silent,Scroll,Aimed,98,98,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+039EE1:Apocalypse - Magic of Skyrim.esp,WB_D100_CyclonicRift_Scroll,Scroll of Cyclonic Rift,Scroll,Aimed,633,633,2.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+095F45:Apocalypse - Magic of Skyrim.esp,WB_R075_Decompose_Scroll,Scroll of Decompose,Scroll,Aimed,311,311,0,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03A45D:Apocalypse - Magic of Skyrim.esp,WB_A075_DeepStorage_Scroll,Scroll of Deep Storage,Scroll,Self,325,325,4,,125,0.5,Apocalypse - Magic of Skyrim.esp
+08D952:Skyrim.esm,_00E_MQ11c_DetectLifeScroll,Scroll of Detect Life,FireAndForget,Self,3528,3528,0.5,,500,0.2,Enderal SE - Gameplay Overhaul.esp
+03A9C1:Apocalypse - Magic of Skyrim.esp,WB_A075_DetonateLock_Scroll,Scroll of Detonate Lock,Scroll,Aimed,595,595,2,,125,0.5,Apocalypse - Magic of Skyrim.esp
+0388F0:Apocalypse - Magic of Skyrim.esp,WB_I000_DispelMagic_Scroll,Scroll of Dispel Magic,Scroll,Self,55,55,1,,15,0.5,Apocalypse - Magic of Skyrim.esp
+0393F4:Apocalypse - Magic of Skyrim.esp,WB_D025_DragonsTeeth_Scroll,Scroll of Dragon's Teeth,Scroll,Aimed,50,50,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03A44D:Apocalypse - Magic of Skyrim.esp,WB_A025_DropZone_Scroll,Scroll of Drop Zone,Scroll,TargetLocation,50,50,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03B4BC:Apocalypse - Magic of Skyrim.esp,WB_R100_DustToDust_Scroll,Scroll of Dust To Dust,Scroll,Self,1250,1250,2,,250,0.5,Apocalypse - Magic of Skyrim.esp
+1A7922:Apocalypse - Magic of Skyrim.esp,WB_R050_DustInTheClockwork_Scroll,Scroll of Dust in the Clockwork,Scroll,Aimed,176,176,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+039400:Apocalypse - Magic of Skyrim.esp,WB_D050_Electrosphere_Scroll,Scroll of Electrosphere,Scroll,Aimed,131,131,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03890D:Apocalypse - Magic of Skyrim.esp,WB_I075_EmpathicAgony_Scroll,Scroll of Empathic Agony,ConstantEffect,Aimed,366,366,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+038911:Apocalypse - Magic of Skyrim.esp,WB_I075_EnslaveTheWeak_Scroll,Scroll of Enslave the Weak,ConstantEffect,Aimed,650,650,3,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03F659:Apocalypse - Magic of Skyrim.esp,WB_A075_Entomb_Scroll,Scroll of Entomb,Scroll,Aimed,475,475,0,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03BA37:Apocalypse - Magic of Skyrim.esp,WB_C050_DaedricCrescent_Scroll,Scroll of Entropic Crescent,Scroll,TargetActor,276,276,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+11A04C:Apocalypse - Magic of Skyrim.esp,WB_X000_EraseSpell_Scroll,Scroll of Erase Spell,Scroll,Self,0,0,0,,45,0.5,Apocalypse - Magic of Skyrim.esp
+09957C:Apocalypse - Magic of Skyrim.esp,WB_X100_StendarrsEmbrace_Scroll,Scroll of Erodan's Embrace,Scroll,Self,717,719,0,20,500,0.5,Apocalypse - Magic of Skyrim.esp
+03A9CB:Apocalypse - Magic of Skyrim.esp,WB_A100_HethothsGrimoire_Scroll,Scroll of Eventuality Grimoire,Scroll,Self,719,719,0,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03A9C3:Apocalypse - Magic of Skyrim.esp,WB_A075_FabricateObject_Scroll,Scroll of Fabricate Object,Scroll,Self,615,615,3,,125,0.5,Apocalypse - Magic of Skyrim.esp
+038902:Apocalypse - Magic of Skyrim.esp,WB_I050_FigmentOfPain_Scroll,Scroll of Figment of Pain,ConstantEffect,TargetActor,219,219,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03AF43:Apocalypse - Magic of Skyrim.esp,WB_R050_FingerOfDeath_Scroll,Scroll of Finger of Death,Scroll,TargetActor,160,160,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+039EDB:Apocalypse - Magic of Skyrim.esp,WB_D100_FingersOfTheMountain_Scroll,Scroll of Fingers of the Mountain,Scroll,Self,648,648,1,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03A451:Apocalypse - Magic of Skyrim.esp,WB_A025_ReynosFins_Scroll,Scroll of Fins of Kilé,Scroll,Self,113,113,2,,30,0.5,Apocalypse - Magic of Skyrim.esp
+014CB4:Skyrim.esm,01E_RolleFeuerball,Scroll of Fireball,Scroll,Aimed,62,62,0.5,,28,0.2,Enderal SE - Gameplay Overhaul.esp
+001CC5:Enderal SE - Gameplay Overhaul.esp,XionRolleFeuerpfeil2,Scroll of Firebolt,Scroll,Aimed,27,37,0.5,,23,0.2,Enderal SE - Gameplay Overhaul.esp
+039EDD:Apocalypse - Magic of Skyrim.esp,WB_D100_Flamestrike_Scroll,Scroll of Flamestrike,Scroll,Self,664,664,2.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0458DB:Skyrim.esm,01E_RolleWohltat,Scroll of Flash Heal (Cheap),Scroll,Self,50,42,0.5,1.5,32,0.2,Enderal SE - Gameplay Overhaul.esp
+0D941D:Skyrim.esm,02E_RolleWohltat,Scroll of Flash Heal (Standard),Scroll,Self,108,90,0.5,1.5,75,0.2,Enderal SE - Gameplay Overhaul.esp
+0668E9:Apocalypse - Magic of Skyrim.esp,WB_D100_ForbiddenSun_Scroll,Scroll of Forbidden Sun,Scroll,Aimed,610,610,5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0393F6:Apocalypse - Magic of Skyrim.esp,WB_D025_Fracture_Scroll,Scroll of Fracture,Scroll,Aimed,54,54,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+039402:Apocalypse - Magic of Skyrim.esp,WB_D050_FrostNova_Scroll,Scroll of Frost Nova,Scroll,Self,136,136,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+039EDF:Apocalypse - Magic of Skyrim.esp,WB_D100_FrozenOrb_Scroll,Scroll of Frozen Orb,Scroll,TargetLocation,680,680,1.6,,250,0.5,Apocalypse - Magic of Skyrim.esp
+1A791C:Apocalypse - Magic of Skyrim.esp,WB_C050_Gank_Scroll,Scroll of Gank,Scroll,Aimed,250,250,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+0388F2:Apocalypse - Magic of Skyrim.esp,WB_I075_Ghostwalk_Scroll,Scroll of Ghostwalk,Scroll,Self,450,450,0.5,,10,0.5,Apocalypse - Magic of Skyrim.esp
+03A45B:Apocalypse - Magic of Skyrim.esp,WB_A050_TharnsPrison_Scroll,Scroll of Girathû's Prison,Scroll,Aimed,190,190,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03A44B:Apocalypse - Magic of Skyrim.esp,WB_X100_Gravisphere_Scroll,Scroll of Gravisphere,Scroll,Aimed,2153,2153,0,,500,0.5,Apocalypse - Magic of Skyrim.esp
+0393F2:Apocalypse - Magic of Skyrim.esp,WB_D000_Hailstone_Scroll,Scroll of Hailstone,Scroll,Aimed,31,31,0,,15,0.5,Apocalypse - Magic of Skyrim.esp
+03891B:Apocalypse - Magic of Skyrim.esp,WB_I100_HarrowingDirge_Scroll,Scroll of Harrowing Dirge,ConstantEffect,Aimed,643,643,0,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03B4B4:Apocalypse - Magic of Skyrim.esp,WB_R075_HealingBlossom_Scroll,Scroll of Healing Blossom,Scroll,Self,361,361,0.5,8,125,0.5,Apocalypse - Magic of Skyrim.esp
+047E2B:Apocalypse - Magic of Skyrim.esp,WB_I100_HiddenCobra_Scroll,Scroll of Hidden Cobra,ConstantEffect,TargetActor,689,689,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03AF45:Apocalypse - Magic of Skyrim.esp,WB_R050_HorridWilting_Scroll,Scroll of Horrid Wilting,Scroll,Aimed,130,130,1,,60,0.5,Apocalypse - Magic of Skyrim.esp
+10A85F:Skyrim.esm,_02_RolleHysterie,Scroll of Hysteria,Scroll,Self,866,494,3,,400,0.2,Enderal SE - Gameplay Overhaul.esp
+039404:Apocalypse - Magic of Skyrim.esp,WB_D050_IceShiv_Scroll,Scroll of Ice Shiv,Scroll,Aimed,140,140,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+01D18D:Skyrim.esm,01E_RolleEispfeil,Scroll of Ice Spike,Scroll,Aimed,23,25,0.5,,18,0.2,Enderal SE - Gameplay Overhaul.esp
+038907:Apocalypse - Magic of Skyrim.esp,WB_I050_IllusoryPyre_Scroll,Scroll of Illusory Pyre,ConstantEffect,TargetActor,140,140,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+10C708:Apocalypse - Magic of Skyrim.esp,WB_D050_IncendiaryFlow_Scroll,Scroll of Incendiary Flow,Scroll,Aimed,134,134,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03B4BE:Apocalypse - Magic of Skyrim.esp,WB_R100_KingsHeart_Scroll,Scroll of King's Heart,Scroll,Self,635,636,0.5,12,250,0.5,Apocalypse - Magic of Skyrim.esp
+0668E7:Apocalypse - Magic of Skyrim.esp,WB_A075_KnowledgeIsPower_Scroll,Scroll of Knowledge is Power,Scroll,Self,475,475,0,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03AF37:Apocalypse - Magic of Skyrim.esp,WB_R025_LambOfMara_Scroll,Scroll of Lamb of Irlanda,Scroll,Aimed,83,83,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03E617:Apocalypse - Magic of Skyrim.esp,WB_I100_LastWord_Scroll,Scroll of Last Word,ConstantEffect,Aimed,150,150,0.2,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03AF39:Apocalypse - Magic of Skyrim.esp,WB_R025_LeechSeed_Scroll,Scroll of Leech Seed,Scroll,Aimed,58,58,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03B4B6:Apocalypse - Magic of Skyrim.esp,WB_R100_LifesFinale_Scroll,Scroll of Life's Finale,Scroll,Self,1019,1019,2.2,,250,0.5,Apocalypse - Magic of Skyrim.esp
+04C97E:Skyrim.esm,01E_RolleArkanrune,Scroll of Lightning Rune,Scroll,TargetLocation,117,124,0.5,,30,0.2,Enderal SE - Gameplay Overhaul.esp
+03996D:Apocalypse - Magic of Skyrim.esp,WB_D075_LightningStrike_Scroll,Scroll of Lightning Strike,Scroll,TargetLocation,361,361,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03A459:Apocalypse - Magic of Skyrim.esp,WB_A050_LocateObject_Scroll,Scroll of Locate Object,Scroll,Self,214,214,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+04C97F:Skyrim.esm,01E_Magielicht,Scroll of Mage Light,Scroll,Aimed,180,141,0.5,,10,0.2,Enderal SE - Gameplay Overhaul.esp
+0905AA:Skyrim.esm,01E_RolleUnlock2,Scroll of Magic Key (Adept),Scroll,Aimed,0,0,0.5,,30,0.2,Enderal SE - Gameplay Overhaul.esp
+0905A8:Skyrim.esm,01E_RolleUnlock1,Scroll of Magic Key (Apprentice),Scroll,Aimed,0,0,0.5,,14,0.2,Enderal SE - Gameplay Overhaul.esp
+0F857B:Skyrim.esm,01E_RolleUnlock3,Scroll of Magic Key (Expert),Scroll,Aimed,0,0,0.5,,65,0.2,Enderal SE - Gameplay Overhaul.esp
+0F857A:Skyrim.esm,01E_RolleUnlock4,Scroll of Magic Key (Master),Scroll,Aimed,0,0,0.5,,140,0.2,Enderal SE - Gameplay Overhaul.esp
+038917:Apocalypse - Magic of Skyrim.esp,WB_I100_MagickaVoid_Scroll,Scroll of Magicka Void,ConstantEffect,Aimed,725,725,5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0AF0A6:Apocalypse - Magic of Skyrim.esp,WB_A100_Milestones_Scroll,Scroll of Milestones,Scroll,TargetLocation,1400,1400,0,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03890B:Apocalypse - Magic of Skyrim.esp,WB_I075_MimicsCloak_Scroll,Scroll of Mimic's Cloak,ConstantEffect,Self,435,435,0,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03890F:Apocalypse - Magic of Skyrim.esp,WB_I075_MindControl_Scroll,Scroll of Mind Control,ConstantEffect,Aimed,468,468,1,,125,0.5,Apocalypse - Magic of Skyrim.esp
+099574:Apocalypse - Magic of Skyrim.esp,WB_X100_MindFog_Scroll,Scroll of Mind Fog,Scroll,Aimed,2138,2138,1,,500,0.5,Apocalypse - Magic of Skyrim.esp
+0388FA:Apocalypse - Magic of Skyrim.esp,WB_I025_MindVision_Scroll,Scroll of Mind Vision,ConstantEffect,TargetActor,90,90,1,,30,0.5,Apocalypse - Magic of Skyrim.esp
+038919:Apocalypse - Magic of Skyrim.esp,WB_I100_MirrorEntity_Scroll,Scroll of Mirror Entity,ConstantEffect,Aimed,857,857,1,,250,0.5,Apocalypse - Magic of Skyrim.esp
+1644FF:Apocalypse - Magic of Skyrim.esp,WB_C075_MonarchMark_Scroll,Scroll of Monarch Mark,Scroll,Aimed,300,300,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+1A791E:Apocalypse - Magic of Skyrim.esp,WB_D050_Multivortex_Scroll,Scroll of Multivortex,Scroll,Self,200,200,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03AF3B:Apocalypse - Magic of Skyrim.esp,WB_R025_MysticWind_Scroll,Scroll of Mystic Wind,Scroll,Self,98,58,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03B4B2:Apocalypse - Magic of Skyrim.esp,WB_R075_NaturesBalance_Scroll,Scroll of Nature's Balance,Scroll,Aimed,750,750,2,,125,0.5,Apocalypse - Magic of Skyrim.esp
+03AF3D:Apocalypse - Magic of Skyrim.esp,WB_R025_Necroplague_Scroll,Scroll of Necroplague,Scroll,Aimed,103,103,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+0905A7:Skyrim.esm,_01E_RolleEichenhaut,Scroll of Oakflesh,Scroll,Self,48,132,0.5,,25,0.2,Enderal SE - Gameplay Overhaul.esp
+03BA45:Apocalypse - Magic of Skyrim.esp,WB_C075_OathboundGuardian_Scroll,Scroll of Oathbound Guardian,Scroll,TargetActor,423,423,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+085B0F:Apocalypse - Magic of Skyrim.esp,WB_I000_PaleShadow_Scroll,Scroll of Pale Shadow,Scroll,Aimed,40,40,0.5,,15,0.5,Apocalypse - Magic of Skyrim.esp
+032E7A:Skyrim.esm,_02E_RolleLaehmung,Scroll of Paralyze,Scroll,Aimed,76,76,0.5,,80,0.2,Enderal SE - Gameplay Overhaul.esp
+03A44F:Apocalypse - Magic of Skyrim.esp,WB_A025_PerilousPath_Scroll,Scroll of Perilous Path,Scroll,Aimed,80,80,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+1A7924:Apocalypse - Magic of Skyrim.esp,WB_R075_PoisonedChalice_Scroll,Scroll of Poisoned Chalice,Scroll,Aimed,251,251,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+08811C:Apocalypse - Magic of Skyrim.esp,WB_C025_PowerOfTheMaster_Scroll,Scroll of Power of the Master,Scroll,Self,185,185,0,,30,0.5,Apocalypse - Magic of Skyrim.esp
+084A8C:Apocalypse - Magic of Skyrim.esp,WB_A000_PrepareForAdventure_Scroll,Scroll of Prepare for Adventure,Scroll,Self,84,84,0,,15,0.5,Apocalypse - Magic of Skyrim.esp
+0896DE:Apocalypse - Magic of Skyrim.esp,WB_I100_PullFromEternity_Scroll,Scroll of Pull From Eternity,ConstantEffect,Aimed,689,689,4.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03AF4B:Apocalypse - Magic of Skyrim.esp,WB_R075_Resurgence_Scroll,Scroll of Resurgence,Scroll,Self,421,421,0.5,4,125,0.5,Apocalypse - Magic of Skyrim.esp
+0393FC:Apocalypse - Magic of Skyrim.esp,WB_D025_RiftBolt_Scroll,Scroll of Rift Bolt,Scroll,Aimed,56,56,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+0B7DA0:Apocalypse - Magic of Skyrim.esp,WB_R050_Ruin_Scroll,Scroll of Ruin,Scroll,Aimed,151,151,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+038E7F:Apocalypse - Magic of Skyrim.esp,WB_I100_ScreamOfPain_Scroll,Scroll of Scream of Pain,ConstantEffect,Self,1607,1607,2.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03AF49:Apocalypse - Magic of Skyrim.esp,WB_R050_SealedResolve_Scroll,Scroll of Sealed Resolve,Scroll,Self,156,156,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+038913:Apocalypse - Magic of Skyrim.esp,WB_I075_Seidstone_Scroll,Scroll of Seidstone,ConstantEffect,Aimed,344,344,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+038909:Apocalypse - Magic of Skyrim.esp,WB_I050_Shadowbond_Scroll,Scroll of Shadowbond,ConstantEffect,TargetActor,182,182,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+0388F5:Apocalypse - Magic of Skyrim.esp,WB_I025_SharedTrauma_Scroll,Scroll of Shared Trauma,Scroll,Aimed,65,65,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+039970:Apocalypse - Magic of Skyrim.esp,WB_D075_ShockNova_Scroll,Scroll of Shock Nova,Scroll,Self,375,375,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+038E81:Apocalypse - Magic of Skyrim.esp,WB_I100_Shroudwalk_Scroll,Scroll of Shroudwalk,ConstantEffect,Self,1345,1345,3.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+1A792A:Apocalypse - Magic of Skyrim.esp,WB_I000_SilveryBarbs_Scroll,Scroll of Silvery Barbs,Scroll,Aimed,42,42,0.5,,15,0.5,Apocalypse - Magic of Skyrim.esp
+09900A:Apocalypse - Magic of Skyrim.esp,WB_X100_OblivionUnbound_Scroll,Scroll of Sinistra Unbound,Scroll,Aimed,2438,2438,2,,500,0.5,Apocalypse - Magic of Skyrim.esp
+03AF3F:Apocalypse - Magic of Skyrim.esp,WB_R025_SlayLiving_Scroll,Scroll of Slay Living,Scroll,TargetActor,95,95,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+1A7920:Apocalypse - Magic of Skyrim.esp,WB_I050_SleepingDogs_Scroll,Scroll of Sleeping Dogs,ConstantEffect,Aimed,290,290,0.5,,60,0.5,Apocalypse - Magic of Skyrim.esp
+03BA27:Apocalypse - Magic of Skyrim.esp,WB_C025_SoulCloak_Scroll,Scroll of Soul Cloak,Scroll,Self,141,141,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+01F8B1:Skyrim.esm,01E_RolleSeelenfalle,Scroll of Soul Trap,Scroll,TargetActor,30,32,0.5,,13,0.2,Enderal SE - Gameplay Overhaul.esp
+0896E0:Apocalypse - Magic of Skyrim.esp,WB_I100_SpectralWarband_Scroll,Scroll of Spectral Warband,ConstantEffect,Self,1256,1256,0,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0896DA:Apocalypse - Magic of Skyrim.esp,WB_D100_StaticDome_Scroll,Scroll of Static Dome,Scroll,Aimed,689,689,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03BA3B:Apocalypse - Magic of Skyrim.esp,WB_C050_SummoningRune_Scroll,Scroll of Summoning Rune,Scroll,TargetLocation,198,198,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+047E27:Apocalypse - Magic of Skyrim.esp,WB_A100_TalonsOfNirn_Scroll,Scroll of Talons of Vyn,Scroll,Self,621,621,3.8,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03A9C7:Apocalypse - Magic of Skyrim.esp,WB_A100_MalvisersGauntlet_Scroll,Scroll of Telekinetic Gauntlet,Scroll,Aimed,591,591,2.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0388FC:Apocalypse - Magic of Skyrim.esp,WB_I025_Thoughtsteal_Scroll,Scroll of Thoughtsteal,ConstantEffect,Aimed,100,100,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+03A9CD:Apocalypse - Magic of Skyrim.esp,WB_A100_ThrummingStone_Scroll,Scroll of Thrumming Stone,Scroll,TargetLocation,640,640,0,,250,0.5,Apocalypse - Magic of Skyrim.esp
+0393FA:Apocalypse - Magic of Skyrim.esp,WB_D025_Thundercrack_Scroll,Scroll of Thundercrack,Scroll,Aimed,43,43,0,,30,0.5,Apocalypse - Magic of Skyrim.esp
+083FAB:Apocalypse - Magic of Skyrim.esp,WB_R100_Transcendence_Scroll,Scroll of Transcendence,Scroll,Self,1264,1264,2,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03AF47:Apocalypse - Magic of Skyrim.esp,WB_R075_TreeRings_Scroll,Scroll of Tree Rings,Scroll,Self,329,329,0,,125,0.5,Apocalypse - Magic of Skyrim.esp
+039EE3:Apocalypse - Magic of Skyrim.esp,WB_D100_Twister_Scroll,Scroll of Twister,Scroll,Aimed,665,665,0,,250,0.5,Apocalypse - Magic of Skyrim.esp
+03A457:Apocalypse - Magic of Skyrim.esp,WB_A050_Undermine_Scroll,Scroll of Undermine,Scroll,Aimed,167,167,0,,60,0.5,Apocalypse - Magic of Skyrim.esp
+038915:Apocalypse - Magic of Skyrim.esp,WB_I075_Vanish_Scroll,Scroll of Vanish,ConstantEffect,Self,560,680,3,,125,0.5,Apocalypse - Magic of Skyrim.esp
+1A7928:Apocalypse - Magic of Skyrim.esp,WB_I075_HrormirsMisdirection_Scroll,Scroll of Veil of Misdirection,Scroll,TargetActor,301,301,0.5,,10,0.5,Apocalypse - Magic of Skyrim.esp
+0896D8:Apocalypse - Magic of Skyrim.esp,WB_D100_Volcano_Scroll,Scroll of Volcano,Scroll,TargetLocation,636,636,2.5,,250,0.5,Apocalypse - Magic of Skyrim.esp
+02A04B:Skyrim.esm,01E_RolleWasseratmung,Scroll of Water Breathing,Scroll,Self,40,222,0.5,,20,0.2,Enderal SE - Gameplay Overhaul.esp
+03AF35:Apocalypse - Magic of Skyrim.esp,WB_R025_WellingBlood_Scroll,Scroll of Welling Blood,Scroll,Aimed,51,51,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+0896E2:Apocalypse - Magic of Skyrim.esp,WB_R000_WildHealing_Scroll,Scroll of Wild Healing,Scroll,Self,80,80,0.5,2.5,15,0.5,Apocalypse - Magic of Skyrim.esp
+1A7926:Apocalypse - Magic of Skyrim.esp,WB_R075_Willpower_Scroll,Scroll of Willpower,Scroll,Self,120,120,0.5,,125,0.5,Apocalypse - Magic of Skyrim.esp
+001CC6:Enderal SE - Gameplay Overhaul.esp,XionFrostCloak,Scroll of Winter Skin,Scroll,Self,126,316,0.5,,40,0.2,Enderal SE - Gameplay Overhaul.esp
+03A453:Apocalypse - Magic of Skyrim.esp,WB_A025_Wither_Scroll,Scroll of Wither,Scroll,Aimed,62,62,0.5,,30,0.5,Apocalypse - Magic of Skyrim.esp
+05D1E4:Apocalypse - Magic of Skyrim.esp,WB_X100_Wizardfire_Scroll,Scroll of Wizardfire,Scroll,Aimed,1820,1820,0,,500,0.5,Apocalypse - Magic of Skyrim.esp
+03B4BA:Apocalypse - Magic of Skyrim.esp,WB_R100_WormShroud_Scroll,Scroll of Worm Shroud,Scroll,Self,1453,1453,2,,250,0.5,Apocalypse - Magic of Skyrim.esp
+05F25C:Apocalypse - Magic of Skyrim.esp,WB_I100_Wyrd_Scroll,Scroll of Wyrd,ConstantEffect,Self,1100,1100,3,,250,0.5,Apocalypse - Magic of Skyrim.esp
+04C97D:Skyrim.esm,01E_RolleUntotebannen,Scroll of the Light Herald,Scroll,Self,360,563,3,,30,0.2,Enderal SE - Gameplay Overhaul.esp
+1370A5:Skyrim.esm,_01E_TeleportrolleKurmaiCave,Scroll: Teleport in Kurmai's Cave,Scroll,Self,0,0,3,,50,0.2,Enderal SE - Gameplay Overhaul.esp
+0EAB75:Skyrim.esm,_01E_TeleportrolleArk,Scroll: Teleport to Ark,Scroll,Self,0,0,3,,45,0.2,Enderal SE - Gameplay Overhaul.esp
+136D1E:Skyrim.esm,_01E_TeleportrolleDuenenhaim,Scroll: Teleport to Duneville,Scroll,Self,0,0,3,,45,0.2,Enderal SE - Gameplay Overhaul.esp
+10A860:Skyrim.esm,_01E_TeleportrolleNebelhaim,Scroll: Teleport to Fogville,Scroll,Self,0,0,3,,45,0.2,Enderal SE - Gameplay Overhaul.esp
+0375D6:Skyrim.esm,_01E_TeleportrolleSchneefelstaverne,Scroll: Teleport to Frostcliff Tavern,Scroll,Self,0,0,3,,45,0.2,Enderal SE - Gameplay Overhaul.esp
+0375D2:Skyrim.esm,_01E_TeleportrolleNordwindlager,Scroll: Teleport to Northwind Camp,Scroll,Self,0,0,3,,45,0.2,Enderal SE - Gameplay Overhaul.esp
+07B2F8:Skyrim.esm,_01E_TeleportrolleFlusshaim,Scroll: Teleport to Riverville,Scroll,Self,0,0,3,,40,0.2,Enderal SE - Gameplay Overhaul.esp
+15031F:Skyrim.esm,_01E_TeleportrolleUnknownPlace,Scroll: Teleport to a Strange Place,Scroll,Self,0,0,3,,50,0.2,Enderal SE - Gameplay Overhaul.esp
+12970F:Skyrim.esm,_01E_TeleportrolleBauenkueste,Scroll: Teleport to the Farmers Coast,Scroll,Self,0,0,3,,40,0.2,Enderal SE - Gameplay Overhaul.esp
+129711:Skyrim.esm,_01E_TeleportrolleHerzlandGrenze,Scroll: Teleport to the Heartland's Border,Scroll,Self,0,0,3,,40,0.2,Enderal SE - Gameplay Overhaul.esp
+129710:Skyrim.esm,_01E_TeleportrolleHerzlandNord,Scroll: Teleport to the Northern Heartland,Scroll,Self,0,0,3,,40,0.2,Enderal SE - Gameplay Overhaul.esp
+0F9101:Skyrim.esm,_01E_TeleportrolleSonnentempel,Scroll: Teleport to the Sun Temple,Scroll,Self,0,0,3,,45,0.2,Enderal SE - Gameplay Overhaul.esp
+02E68E:Enderal - Forgotten Stories.esm,_01E_FS_TeleportrolleRhalataTemple,Scroll: Teleport to the Temple of the Rhalâta,Scroll,Self,0,0,3,,40,0.2,Enderal SE - Gameplay Overhaul.esp
+01E8FC:Enderal - Forgotten Stories.esm,_01E_FS_TeleportrolleUnterstadt,"Scroll: Teleport to the Undercity, Barracks",Scroll,Self,0,0,3,,40,0.2,Enderal SE - Gameplay Overhaul.esp

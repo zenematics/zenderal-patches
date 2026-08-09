@@ -1,0 +1,706 @@
+Form Key,Editor Id,Name,School,Type,Cast Type,Target Type,Base Cost,Computed Auto Cost,Charge Time,Arcane Fever,Winner Overwrite,Taught By
+023316:Apocalypse - Magic of Skyrim.esp,WB_Des_Spectral5_Spell_Apocalypse,Apocalypse,Elementalism,Spell,FireAndForget,Aimed,138,800,0,,Zenderal - Magic Patches.esp,WB_D100_Apocalypse_Book
+085594:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire1_Spell_Blaze_NPC,Blaze,Elementalism,Spell,FireAndForget,Aimed,17,31,0,,Zenderal - Magic Patches.esp,WB_D000_Blaze_Book
+01DA27:Skyrim.esm,_01E_Blitz,Blazing Spark (Rank I),Elementalism,Spell,FireAndForget,Aimed,19,29,0.7,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookBlazingSpark
+08564E:Skyrim.esm,_10E_Blitz,Blazing Spark (Rank II),Elementalism,Spell,FireAndForget,Aimed,31,52,0.7,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookBlazingSpark
+12E145:Skyrim.esm,_18E_Blitz,Blazing Spark (Rank III),Elementalism,Spell,FireAndForget,Aimed,43,77,0.7,,Enderal SE - Gameplay Overhaul.esp,_18E_SpellBookBlazingSpark
+12E146:Skyrim.esm,_28E_Blitz,Blazing Spark (Rank IV),Elementalism,Spell,FireAndForget,Aimed,56,269,0.7,,Enderal SE - Gameplay Overhaul.esp,_28E_SpellBookBlazingSpark
+12E147:Skyrim.esm,_38E_Blitz,Blazing Spark (Rank V),Elementalism,Spell,FireAndForget,Aimed,70,355,0.7,,Enderal SE - Gameplay Overhaul.esp,_38E_SpellBookBlazingSpark
+12E148:Skyrim.esm,_48E_Blitz,Blazing Spark (Rank VI),Elementalism,Spell,FireAndForget,Aimed,85,461,0.7,,Enderal SE - Gameplay Overhaul.esp,_48E_SpellBookBlazingSpark
+0294CD:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire3_Spell_Bolide_NPC,Bolide,Elementalism,Spell,FireAndForget,Aimed,59,134,0.5,,Zenderal - Magic Patches.esp,WB_D050_Bolide_Book
+0294D4:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire4_Spell_Bombardment_NPC,Bombardment,Elementalism,Spell,Concentration,Aimed,40,125,1.5,,Zenderal - Magic Patches.esp,WB_D075_Bombardment_Book
+00481A:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_Bombardment_1,Bombardment (Rank I),Elementalism,Spell,Concentration,Aimed,21,48,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_50_Bombardment
+00481B:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_Bombardment_2,Bombardment (Rank II),Elementalism,Spell,Concentration,Aimed,35,87,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_75_Bombardment
+00481D:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_Bombardment_3,Bombardment (Rank III),Elementalism,Spell,Concentration,Aimed,48,131,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_99_Bombardment
+085650:Skyrim.esm,_14E_Kettenblitz,Chain Lightning (Rank I),Elementalism,Spell,FireAndForget,Aimed,58,142,1,,Enderal SE - Gameplay Overhaul.esp,_14E_SpellBookChainLightning
+12E15B:Skyrim.esm,_34E_Kettenblitz,Chain Lightning (Rank II),Elementalism,Spell,FireAndForget,Aimed,81,219,1,,Enderal SE - Gameplay Overhaul.esp,_34E_SpellBookChainLightning
+12E15E:Skyrim.esm,_54E_Kettenblitz,Chain Lightning (Rank III),Elementalism,Spell,FireAndForget,Aimed,107,312,1,,Enderal SE - Gameplay Overhaul.esp,_54E_SpellBookChainLightning
+0142D2:KataPUMBSpellPack.esp,Kata_S_Elementalism_00_ChillingTouch_1,Chilling Touch (Rank I),Elementalism,Spell,FireAndForget,Aimed,13,15,0.3,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_00_ChillingTouch
+0142D3:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_ChillingTouch_2,Chilling Touch (Rank II),Elementalism,Spell,FireAndForget,Aimed,19,24,0.3,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_25_ChillingTouch
+0142D8:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_ChillingTouch_3,Chilling Touch (Rank III),Elementalism,Spell,FireAndForget,Aimed,26,36,0.3,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_50_ChillingTouch
+0142D9:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_ChillingTouch_4,Chilling Touch (Rank IV),Elementalism,Spell,FireAndForget,Aimed,37,57,0.3,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_75_ChillingTouch
+0142DA:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_ChillingTouch_5,Chilling Touch (Rank V),Elementalism,Spell,FireAndForget,Aimed,50,84,0.3,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_99_ChillingTouch
+109653:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock1_Spell_Crackle_NPC,Crackle,Elementalism,Spell,FireAndForget,Aimed,17,31,0,,Zenderal - Magic Patches.esp,WB_D000_Crackle_Book
+0279BD:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost2_Spell_CreepingCold_NPC,Creeping Cold,Elementalism,Spell,Concentration,Aimed,16,19,0,,Zenderal - Magic Patches.esp,WB_D025_CreepingCold_Book
+02D068:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock5_Spell_CyclonicRift,Cyclonic Rift,Elementalism,Spell,FireAndForget,Aimed,109,633,0,,Zenderal - Magic Patches.esp,WB_D100_CyclonicRift_Book
+024361:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire2_Spell_DragonsTeeth_NPC,Dragon's Teeth,Elementalism,Spell,FireAndForget,Aimed,32,50,0.5,,Zenderal - Magic Patches.esp,WB_D025_DragonsTeeth_Book
+00F7DB:KataPUMBSpellPack.esp,Kata_S_Elementalism_00_Electrocution_1,Electrocution (Rank I),Elementalism,Spell,Concentration,Aimed,14,13,0.3,,KataPUMBSpellPack.esp,Kata_B_Elementalism_00_Electrocution
+00F7DC:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_Electrocution_2,Electrocution (Rank II),Elementalism,Spell,Concentration,Aimed,16,20,0.3,,KataPUMBSpellPack.esp,Kata_B_Elementalism_25_Electrocution
+00F7DE:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_Electrocution_3,Electrocution (Rank III),Elementalism,Spell,Concentration,Aimed,33,46,0.3,,KataPUMBSpellPack.esp,Kata_B_Elementalism_50_Electrocution
+00F7DF:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_Electrocution_4,Electrocution (Rank IV),Elementalism,Spell,Concentration,Aimed,46,64,0.3,,KataPUMBSpellPack.esp,Kata_B_Elementalism_75_Electrocution
+00F7E1:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_Electrocution_5,Electrocution (Rank V),Elementalism,Spell,Concentration,Aimed,53,93,0.3,,KataPUMBSpellPack.esp,Kata_B_Elementalism_99_Electrocution
+001879:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock3_Spell_Electrosphere_NPC,Electrosphere,Elementalism,Spell,FireAndForget,Aimed,57,131,0.5,,Zenderal - Magic Patches.esp,WB_D050_Electrosphere_Book
+00482A:KataPUMBSpellPack.esp,Kata_S_Elementalism_00_Electrosphere_1,Electrosphere (Rank I),Elementalism,Spell,FireAndForget,Aimed,21,28,0.5,,KataPUMBSpellPack.esp,Kata_B_Elementalism_00_Electrosphere_1
+00482B:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_Electrosphere_2,Electrosphere (Rank II),Elementalism,Spell,FireAndForget,Aimed,35,52,0.5,,KataPUMBSpellPack.esp,Kata_B_Elementalism_25_Electrosphere
+00482D:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_Electrosphere_3,Electrosphere (Rank III),Elementalism,Spell,FireAndForget,Aimed,33,69,0.5,,KataPUMBSpellPack.esp,Kata_B_Elementalism_50_Electrosphere
+00482F:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_Electrosphere_4,Electrosphere (Rank IV),Elementalism,Spell,FireAndForget,Aimed,55,86,0.5,,KataPUMBSpellPack.esp,Kata_B_Elementalism_75_Electrosphere
+004831:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_Electrosphere_5,Electrosphere (Rank V),Elementalism,Spell,FireAndForget,Aimed,66,104,0.5,,KataPUMBSpellPack.esp,Kata_B_Elementalism_99_Electrosphere_5
+004833:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_Electrosphere_6,Electrosphere (Rank VI),Elementalism,Spell,FireAndForget,Aimed,78,124,0.5,,KataPUMBSpellPack.esp,Kata_B_Elementalism_99_Electrosphere_6
+004835:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_ElectroStorm_1,Electrosphere Storm (Rank I),Elementalism,Spell,Concentration,Aimed,21,28,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_50_Electrostorm
+004837:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_ElectroStorm_2,Electrosphere Storm (Rank II),Elementalism,Spell,Concentration,Aimed,35,52,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_75_Electrostorm
+004839:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_ElectroStorm_3,Electrosphere Storm (Rank III),Elementalism,Spell,Concentration,Aimed,45,79,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_99_Electrostorm
+0142CC:KataPUMBSpellPack.esp,Kata_S_Elementalism_00_FieryTouch_1,Fiery Touch (Rank I),Elementalism,Spell,FireAndForget,Aimed,14,19,0.4,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_00_FieryTouch
+0142CD:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_FieryTouch_2,Fiery Touch (Rank II),Elementalism,Spell,FireAndForget,Aimed,22,31,0.4,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_25_FieryTouch
+0142CE:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_FieryTouch_3,Fiery Touch (Rank III),Elementalism,Spell,FireAndForget,Aimed,31,46,0.4,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_50_FieryTouch
+0142CF:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_FieryTouch_4,Fiery Touch (Rank IV),Elementalism,Spell,FireAndForget,Aimed,43,72,0.4,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_75_FieryTouch
+0142D1:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_FieryTouch_5,Fiery Touch (Rank V),Elementalism,Spell,FireAndForget,Aimed,58,289,0.4,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_99_FieryTouch
+0137BE:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock5_Spell_FingersOfTheMountain,Fingers of the Mountain,Elementalism,Spell,FireAndForget,Self,112,648,1,,Zenderal - Magic Patches.esp,WB_D100_FingersOfTheMountain_Book
+119BD4:Skyrim.esm,XionSpellCloakFire,Fire Cloak,Elementalism,Spell,FireAndForget,Self,122,353,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookCloakFire
+032A23:Skyrim.esm,_00E_MQ04_FeuerloescherSpell,Fire Extinguisher,Elementalism,Spell,Concentration,Aimed,3,1,0,,Enderal SE - Gameplay Overhaul.esp,_00E_SpellBookFireExtinguisherMQ04
+004800:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_FireNova_1,Fire Nova (Rank I),Elementalism,Spell,FireAndForget,Self,25,14,0.725,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_25_FireNova_A
+00B35E:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FireNova_I,Fire Nova (Rank I),Elementalism,Spell,FireAndForget,Self,10,1,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FireNova_I
+004801:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_FireNova_2,Fire Nova (Rank II),Elementalism,Spell,FireAndForget,Self,36,21,0.725,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_50_FireNova_B
+00B35F:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FireNova_II,Fire Nova (Rank II),Elementalism,Spell,FireAndForget,Self,25,2,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FireNova_II
+004803:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_FireNova_3,Fire Nova (Rank III),Elementalism,Spell,FireAndForget,Self,49,30,0.725,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_75_FireNova_C
+00B363:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FireNova_III,Fire Nova (Rank III),Elementalism,Spell,FireAndForget,Self,43,3,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FireNova_III
+004805:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_FireNova_4,Fire Nova (Rank IV),Elementalism,Spell,FireAndForget,Self,66,42,0.725,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_99_FireNova_D
+00B361:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FireNova_IV,Fire Nova (Rank IV),Elementalism,Spell,FireAndForget,Self,66,5,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FireNova_IV
+14478F:Skyrim.esm,_15E_Feuerrune,Fire Rune (Rank I),Elementalism,Spell,FireAndForget,TargetLocation,50,90,1.1,,Enderal SE - Gameplay Overhaul.esp,_15E_SpellBookFireRune
+144790:Skyrim.esm,_30E_Feuerrune,Fire Rune (Rank II),Elementalism,Spell,FireAndForget,TargetLocation,80,168,1.1,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookFireRune
+085651:Skyrim.esm,_14E_Feuerball,Fireball (Rank I),Elementalism,Spell,FireAndForget,Aimed,48,98,0.8,,Enderal SE - Gameplay Overhaul.esp,_14E_SpellBookFireBall
+12E157:Skyrim.esm,_34E_Feuerball,Fireball (Rank II),Elementalism,Spell,FireAndForget,Aimed,68,152,0.8,,Enderal SE - Gameplay Overhaul.esp,_34E_SpellBookFireBall
+12E159:Skyrim.esm,_54E_Feuerball,Fireball (Rank III),Elementalism,Spell,FireAndForget,Aimed,90,219,0.8,,Enderal SE - Gameplay Overhaul.esp,_54E_SpellBookFireBall
+03F74F:Skyrim.esm,_01E_Feuerblitz,Firebolt (Rank I),Elementalism,Spell,FireAndForget,Aimed,17,20,0.6,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookFireBolt
+085608:Skyrim.esm,_10E_Feuerblitz,Firebolt (Rank II),Elementalism,Spell,FireAndForget,Aimed,26,34,0.6,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookFireBolt
+12E13D:Skyrim.esm,_18E_Feuerblitz,Firebolt (Rank III),Elementalism,Spell,FireAndForget,Aimed,36,50,0.6,,Enderal SE - Gameplay Overhaul.esp,_18E_SpellBookFireBolt
+12E13E:Skyrim.esm,_28E_Feuerblitz,Firebolt (Rank IV),Elementalism,Spell,FireAndForget,Aimed,46,186,0.6,,Enderal SE - Gameplay Overhaul.esp,_28E_SpellBookFireBolt
+12E13F:Skyrim.esm,_38E_Feuerblitz,Firebolt (Rank V),Elementalism,Spell,FireAndForget,Aimed,57,242,0.6,,Enderal SE - Gameplay Overhaul.esp,_38E_SpellBookFireBolt
+12E140:Skyrim.esm,_48E_Feuerblitz,Firebolt (Rank VI),Elementalism,Spell,FireAndForget,Aimed,68,310,0.6,,Enderal SE - Gameplay Overhaul.esp,_48E_SpellBookFireBolt
+015A80:Skyrim.esm,_01E_FlameBite,Flame Bite (Rank I),Elementalism,Spell,Concentration,Aimed,8,6,0.75,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookFlameBite
+12E125:Skyrim.esm,_16E_FlameBite,Flame Bite (Rank II),Elementalism,Spell,Concentration,Aimed,18,17,0.75,,Enderal SE - Gameplay Overhaul.esp,_16E_SpellBookFlamebite
+12E12C:Skyrim.esm,_32E_FlameBite,Flame Bite (Rank III),Elementalism,Spell,Concentration,Aimed,32,33,0.75,,Enderal SE - Gameplay Overhaul.esp,_32E_SpellBookFlamebite
+02E0C0:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire5_Spell_Flamestrike,Flamestrike,Elementalism,Spell,FireAndForget,Self,114,664,0,,Zenderal - Magic Patches.esp,WB_D100_Flamestrike_Book
+044264:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire5_Spell_ForbiddenSun,Forbidden Sun,Elementalism,Spell,FireAndForget,Aimed,105,610,0,,Zenderal - Magic Patches.esp,WB_D100_ForbiddenSun_Book
+0279C0:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost2_Spell_Fracture_NPC,Fracture,Elementalism,Spell,FireAndForget,Aimed,35,54,0,,Zenderal - Magic Patches.esp,WB_D025_Fracture_Book
+1347EE:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost3_Spell_FrostNova,Frost Nova,Elementalism,Spell,FireAndForget,Self,59,136,0.5,,Zenderal - Magic Patches.esp,WB_D050_FrostNova_Book
+004807:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_FrostNova_1,Frost Nova (Rank I),Elementalism,Spell,FireAndForget,Self,22,10,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_25_FrostNova_A
+00B365:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FrostNova_I,Frost Nova (Rank I),Elementalism,Spell,FireAndForget,Self,10,19,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FrostNova_I
+004809:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_FrostNova_2,Frost Nova (Rank II),Elementalism,Spell,FireAndForget,Self,31,15,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_50_FrostNova_B
+00B367:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FrostNova_II,Frost Nova (Rank II),Elementalism,Spell,FireAndForget,Self,22,30,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FrostNova_II
+00480B:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_FrostNova_3,Frost Nova (Rank III),Elementalism,Spell,FireAndForget,Self,42,21,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_75_FrostNova_C
+00B369:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FrostNova_III,Frost Nova (Rank III),Elementalism,Spell,FireAndForget,Self,43,46,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FrostNova_III
+00480D:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_FrostNova_4,Frost Nova (Rank IV),Elementalism,Spell,FireAndForget,Self,56,30,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_99_FrostNova_D
+00B36B:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_FrostNova_IV,Frost Nova (Rank IV),Elementalism,Spell,FireAndForget,Self,66,73,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_FrostNova_IV
+144791:Skyrim.esm,_12E_Frostrune,Frost Rune (Rank I),Elementalism,Spell,FireAndForget,TargetLocation,44,75,1.1,,Enderal SE - Gameplay Overhaul.esp,_12E_SpellBookFrostRune
+144792:Skyrim.esm,_27E_Frostrune,Frost Rune (Rank II),Elementalism,Spell,FireAndForget,TargetLocation,70,146,1.1,,Enderal SE - Gameplay Overhaul.esp,_27E_SpellBookFrostRune
+085652:Skyrim.esm,_14E_Frostwind,Frostwind (Rank I),Elementalism,Spell,FireAndForget,Aimed,40,83,0.65,,Enderal SE - Gameplay Overhaul.esp,_14E_SpellBookFrostwind
+12E15F:Skyrim.esm,_34E_Frostwind,Frostwind (Rank II),Elementalism,Spell,FireAndForget,Aimed,58,133,0.65,,Enderal SE - Gameplay Overhaul.esp,_34E_SpellBookFrostwind
+12E161:Skyrim.esm,_54E_Frostwind,Frostwind (Rank III),Elementalism,Spell,FireAndForget,Aimed,78,197,0.65,,Enderal SE - Gameplay Overhaul.esp,_54E_SpellBookFrostwind
+020A58:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost5_Spell_FrozenOrb,Frozen Orb,Elementalism,Spell,FireAndForget,TargetLocation,117,680,0,,Zenderal - Magic Patches.esp,WB_D100_FrozenOrb_Book
+051890:Skyrim.esm,_01E_Erdung,Grounding (Rank I),Elementalism,Spell,Concentration,Aimed,11,9,0.8,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookGrounding
+12E127:Skyrim.esm,_16E_Erdung,Grounding (Rank II),Elementalism,Spell,Concentration,Aimed,24,22,0.8,,Enderal SE - Gameplay Overhaul.esp,_16E_SpellBookGrounding
+12E12D:Skyrim.esm,_32E_Erdung,Grounding (Rank III),Elementalism,Spell,Concentration,Aimed,41,42,0.8,,Enderal SE - Gameplay Overhaul.esp,_32E_SpellBookGrounding
+02E634:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost1_Spell_Hailstone_NPC,Hailstone,Elementalism,Spell,FireAndForget,Aimed,17,31,0,,Zenderal - Magic Patches.esp,WB_D000_Hailstone_Book
+15E72F:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire4_Spell_HotPotato_NPC,Hot Potato,Elementalism,Spell,FireAndForget,Aimed,72,293,0.5,,Zenderal - Magic Patches.esp,WB_D075_HotPotato_Book
+083A2C:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost5_Spell_HowlingBlast,Howling Blast,Elementalism,Spell,Concentration,Aimed,43,88,0,,Zenderal - Magic Patches.esp,WB_D100_HowlingBlast_Book
+015A82:Skyrim.esm,_01E_Frostbite,Ice Breath (Rank I),Elementalism,Spell,Concentration,Aimed,7,5,0.7,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookIceBreath
+12E126:Skyrim.esm,_16E_Frostbite,Ice Breath (Rank II),Elementalism,Spell,Concentration,Aimed,16,13,0.7,,Enderal SE - Gameplay Overhaul.esp,_16E_SpellBookIceBreath
+12E12B:Skyrim.esm,_32E_Frostbite,Ice Breath (Rank III),Elementalism,Spell,Concentration,Aimed,28,25,0.7,,Enderal SE - Gameplay Overhaul.esp,_32E_SpellBookIceBreath
+15E73E:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost4_Spell_IcePrism_NPC,Ice Prism,Elementalism,Spell,Concentration,Aimed,42,133,1.5,,Zenderal - Magic Patches.esp,WB_D075_IcePrism_Book
+024B44:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost3_Spell_IceShiv_NPC,Ice Shiv,Elementalism,Spell,FireAndForget,Aimed,61,140,0.5,,Zenderal - Magic Patches.esp,WB_D050_IceShiv_Book
+067294:Skyrim.esm,_01E_Eispfeil,Ice Spike (Rank I),Elementalism,Spell,FireAndForget,Aimed,15,16,0.5,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookIceSpike
+08564F:Skyrim.esm,_10E_Eispfeil,Ice Spike (Rank II),Elementalism,Spell,FireAndForget,Aimed,22,30,0.5,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookIceSpike
+12E141:Skyrim.esm,_18E_Eispfeil,Ice Spike (Rank III),Elementalism,Spell,FireAndForget,Aimed,30,45,0.5,,Enderal SE - Gameplay Overhaul.esp,_18E_SpellBookIceSpike
+12E142:Skyrim.esm,_28E_Eispfeil,Ice Spike (Rank IV),Elementalism,Spell,FireAndForget,Aimed,39,157,0.5,,Enderal SE - Gameplay Overhaul.esp,_28E_SpellBookIceSpike
+12E143:Skyrim.esm,_38E_Eispfeil,Ice Spike (Rank V),Elementalism,Spell,FireAndForget,Aimed,49,208,0.5,,Enderal SE - Gameplay Overhaul.esp,_38E_SpellBookIceSpike
+12E144:Skyrim.esm,_48E_Eispfeil,Ice Spike (Rank VI),Elementalism,Spell,FireAndForget,Aimed,59,269,0.5,,Enderal SE - Gameplay Overhaul.esp,_48E_SpellBookIceSpike
+004821:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_IcicleStorm_1,Icicle Storm (Rank I),Elementalism,Spell,Concentration,Aimed,20,35,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_50_IcicleStorm
+004822:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_IcicleStorm_2,Icicle Storm (Rank II),Elementalism,Spell,Concentration,Aimed,26,46,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_75_IcicleStorm
+004824:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_IcicleStorm_3,Icicle Storm (Rank III),Elementalism,Spell,Concentration,Aimed,40,79,0.6,,KataPUMBSpellPack.esp,Kata_B_Elementalism_99_IcicleStorm
+085910:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire3_Spell_IncendiaryFlow_NPC,Incendiary Flow,Elementalism,Spell,FireAndForget,Aimed,59,134,0.5,,Zenderal - Magic Patches.esp,WB_D050_IncendiaryFlow_Book
+022DAB:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire2_Spell_Inferno,Inferno,Elementalism,Spell,FireAndForget,Self,116,180,3,,Zenderal - Magic Patches.esp,WB_D025_Inferno_Book
+03AEA3:Skyrim.esm,XionSpellCloakLightning,Lightning Cowl,Elementalism,Spell,FireAndForget,Self,148,331,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookCloakLightning
+144793:Skyrim.esm,_18E_Blitzrune,Lightning Rune (Rank I),Elementalism,Spell,FireAndForget,TargetLocation,60,140,1.1,,Enderal SE - Gameplay Overhaul.esp,_18E_SpellBookLightningRune
+144794:Skyrim.esm,_35E_Blitzrune,Lightning Rune (Rank II),Elementalism,Spell,FireAndForget,TargetLocation,96,266,1.1,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookLightningRune
+002878:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock4_Spell_LightningStrike,Lightning Strike,Elementalism,Spell,FireAndForget,TargetLocation,89,361,0.5,,Zenderal - Magic Patches.esp,WB_D075_LightningStrike_Book
+1A4A4A:Apocalypse - Magic of Skyrim.esp,WB_Des_Spectral3_Spell_Multivortex,Multivortex,Elementalism,Spell,FireAndForget,Self,87,200,0.5,,Zenderal - Magic Patches.esp,WB_D050_Multivortex_Book
+00086A:Enderal SE - Gameplay Overhaul.esp,XionSpellPoisonTouchUNUSED,Poisonous Touch,Elementalism,Spell,FireAndForget,TargetActor,73,11,0.5,,Enderal SE - Gameplay Overhaul.esp,XionPoisonSpray
+15E728:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock4_Spell_RavagingStorm,Ravaging Storm,Elementalism,Spell,FireAndForget,Self,106,431,0.5,,Zenderal - Magic Patches.esp,WB_D075_RavagingStorm_Book
+0253C2:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock2_Spell_RiftBolt_NPC,Rift Bolt,Elementalism,Spell,FireAndForget,Aimed,36,56,0.5,,Zenderal - Magic Patches.esp,WB_D025_RiftBolt_Book
+024E49:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock3_Spell_Scattershock_NPC,Scattershock,Elementalism,Spell,Concentration,Aimed,29,36,2.5,,Zenderal - Magic Patches.esp,WB_D050_Scattershock_Book
+02388C:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire4_Spell_ScorchingHands_NPC,Scorching Hands,Elementalism,Spell,Concentration,Aimed,45,142,1.5,,Zenderal - Magic Patches.esp,WB_D075_ScorchingHands_Book
+108627:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost4_Spell_ShatteringCrystal,Shattering Crystal,Elementalism,Spell,FireAndForget,Self,157,638,2.5,,Zenderal - Magic Patches.esp,WB_D075_ShatteringCrystal_Book
+00186D:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock4_Spell_ShockNova,Shock Nova,Elementalism,Spell,FireAndForget,Self,93,375,0.5,,Zenderal - Magic Patches.esp,WB_D075_ShockNova_Book
+004812:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_ShockNova_1,Shock Nova (Rank I),Elementalism,Spell,FireAndForget,Self,31,13,0.85,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_25_ShockNova_A
+00B36D:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_ShockNova_I,Shock Nova (Rank I),Elementalism,Spell,FireAndForget,Self,10,1,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_ShockNova_I
+004811:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_ShockNova_2,Shock Nova (Rank II),Elementalism,Spell,FireAndForget,Self,44,20,0.85,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_50_ShockNova_B
+00B36F:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_ShockNova_II,Shock Nova (Rank II),Elementalism,Spell,FireAndForget,Self,25,2,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_ShockNova_II
+004814:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_ShockNova_3,Shock Nova (Rank III),Elementalism,Spell,FireAndForget,Self,59,29,0.85,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_75_ShockNova_C
+00B371:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_ShockNova_III,Shock Nova (Rank III),Elementalism,Spell,FireAndForget,Self,43,3,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_ShockNova_III
+004816:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_ShockNova_4,Shock Nova (Rank IV),Elementalism,Spell,FireAndForget,Self,79,40,0.85,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_99_ShockNova_D
+00B373:KataPUMB_SpellPackage.esp,Kata_Spell_Nova_ShockNova_IV,Shock Nova (Rank IV),Elementalism,Spell,FireAndForget,Self,66,5,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Nova_ShockNova_IV
+027F2E:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost4_Spell_SleetStorm_NPC,Sleet Storm,Elementalism,Spell,Concentration,Aimed,37,117,0,,Zenderal - Magic Patches.esp,WB_D075_SleetStorm_Book
+083A22:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock5_Spell_StaticDome,Static Dome,Elementalism,Spell,FireAndForget,Aimed,119,689,0,,Zenderal - Magic Patches.esp,WB_D100_StaticDome_Book
+0142DB:KataPUMBSpellPack.esp,Kata_S_Elementalism_00_StaticTouch_1,Static Touch (Rank I),Elementalism,Spell,FireAndForget,Aimed,16,27,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_00_StaticTouch
+0142E1:KataPUMBSpellPack.esp,Kata_S_Elementalism_25_StaticTouch_1,Static Touch (Rank II),Elementalism,Spell,FireAndForget,Aimed,26,48,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_25_StaticTouch
+0142E2:KataPUMBSpellPack.esp,Kata_S_Elementalism_50_StaticTouch_1,Static Touch (Rank III),Elementalism,Spell,FireAndForget,Aimed,37,72,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_50_StaticTouch
+0142E3:KataPUMBSpellPack.esp,Kata_S_Elementalism_75_StaticTouch_4,Static Touch (Rank IV),Elementalism,Spell,FireAndForget,Aimed,54,115,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_75_StaticTouch
+0142E4:KataPUMBSpellPack.esp,Kata_S_Elementalism_99_StaticTouch_5,Static Touch (Rank V),Elementalism,Spell,FireAndForget,Aimed,72,170,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Elementalism_99_StaticTouch
+07C83B:Apocalypse - Magic of Skyrim.esp,WB_Des_Shock2_Spell_Thundercrack_NPC,Thundercrack,Elementalism,Spell,FireAndForget,Aimed,28,43,0.5,,Zenderal - Magic Patches.esp,WB_D025_Thundercrack_Book
+02D5DB:Apocalypse - Magic of Skyrim.esp,WB_Des_Frost5_Spell_Twister,Twister,Elementalism,Spell,FireAndForget,Aimed,115,665,0,,Zenderal - Magic Patches.esp,WB_D100_Twister_Book
+04733C:Apocalypse - Magic of Skyrim.esp,WB_Des_Fire5_Spell_Volcano,Volcano,Elementalism,Spell,FireAndForget,TargetLocation,110,636,0,,Zenderal - Magic Patches.esp,WB_D100_Volcano_Book
+14479C:Skyrim.esm,_28E_SpellWallOfFlames,Wall of Flames,Elementalism,Spell,Concentration,Aimed,47,309,0.85,,Enderal SE - Gameplay Overhaul.esp,_28E_SpellBookWallOfFlames
+14479D:Skyrim.esm,_28E_SpellWallOfFrost,Wall of Frost,Elementalism,Spell,Concentration,Aimed,42,270,0.8,,Enderal SE - Gameplay Overhaul.esp,_28E_SpellBookWallOfFrost
+14479E:Skyrim.esm,_28E_SpellWallOfLightning,Wall of LIghtning,Elementalism,Spell,Concentration,Aimed,61,484,0.9,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookWallOfLightning
+119BD3:Skyrim.esm,XionSpellCloakIce,Winter Skin,Elementalism,Spell,FireAndForget,Self,108,386,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookCloakIce
+02CD7E:Apocalypse - Magic of Skyrim.esp,WB_Con_Curse2_Spell_AtronachMark,Atronach Mark,Entropy,Spell,FireAndForget,Aimed,48,75,0.5,,Zenderal - Magic Patches.esp,WB_C025_AtronachMark_Book
+088694:Apocalypse - Magic of Skyrim.esp,WB_Con_Heal1_Spell_AzureReconstruction,Azure Reconstruction,Entropy,Spell,Concentration,TargetActor,5,3,0.5,,Zenderal - Magic Patches.esp,WB_C000_AzureReconstruction_Book
+16162D:Apocalypse - Magic of Skyrim.esp,WB_Con_Animal1_Spell_BagOfRats,Bag of Rats,Entropy,Spell,FireAndForget,Self,31,57,0.5,,Zenderal - Magic Patches.esp,WB_C000_BagOfRats_Book
+0083E9:Enderal SE - Gameplay Overhaul.esp,XionSpellBanish,Banish (Rank I),Entropy,Spell,FireAndForget,Aimed,24,37674,0.5,,Enderal SE - Gameplay Overhaul.esp,XionBanish1
+0083ED:Enderal SE - Gameplay Overhaul.esp,XionSpellBanish2,Banish (Rank II),Entropy,Spell,FireAndForget,Aimed,35,37674,0.5,,Enderal SE - Gameplay Overhaul.esp,XionBanish2
+0083EE:Enderal SE - Gameplay Overhaul.esp,XionSpellBanish3,Banish (Rank III),Entropy,Spell,FireAndForget,Aimed,50,37674,0.5,,Enderal SE - Gameplay Overhaul.esp,XionBanish3
+092B91:Apocalypse - Magic of Skyrim.esp,WB_Con_Banish5_Spell_BanishLiving,Banish Living,Entropy,Spell,FireAndForget,TargetActor,271,1573,5.5,,Zenderal - Magic Patches.esp,WB_C100_BanishLiving_Book
+02F29E:Enderal - Forgotten Stories.esm,_25E_FS_BoneSpirit,Chaos Nova (Rank I),Entropy,Spell,FireAndForget,Aimed,48,62,0.85,,Enderal SE - Gameplay Overhaul.esp,_25E_FS_Spell_BoneSpirit
+02F29F:Enderal - Forgotten Stories.esm,_40E_FS_BoneSpirit,Chaos Nova (Rank II),Entropy,Spell,FireAndForget,Aimed,68,96,0.85,,Enderal SE - Gameplay Overhaul.esp,_40E_FS_Spell_BoneSpirit
+02F2A0:Enderal - Forgotten Stories.esm,_54E_FS_BoneSpirit,Chaos Nova (Rank III),Entropy,Spell,FireAndForget,Aimed,90,138,0.85,,Enderal SE - Gameplay Overhaul.esp,_50E_FS_Spell_BoneSpirit
+017A8E:Apocalypse - Magic of Skyrim.esp,WB_Con_Ghost4_Spell_ConjureAvengingWraith,Conjure Avenging Wraith,Entropy,Spell,FireAndForget,TargetLocation,87,351,0.5,,Zenderal - Magic Patches.esp,WB_C075_ConjureAvengingWraith_Book
+08868C:Apocalypse - Magic of Skyrim.esp,WB_Con_Human5_Spell_ConjureBattlemage,Conjure Battlemage,Entropy,Spell,FireAndForget,TargetLocation,207,1201,3,,Zenderal - Magic Patches.esp,WB_C100_ConjureBattlemage_Book
+04734D:Apocalypse - Magic of Skyrim.esp,WB_Con_Spirit5_Spell_ConjureBearTotem,Conjure Bear Totem,Entropy,Spell,FireAndForget,TargetLocation,256,1484,0,,Zenderal - Magic Patches.esp,WB_C100_ConjureBearTotem_Book
+027144:Apocalypse - Magic of Skyrim.esp,WB_Con_Spirit2_Spell_ConjureCatTotem,Conjure Cat Totem,Entropy,Spell,FireAndForget,TargetLocation,104,161,0,,Zenderal - Magic Patches.esp,WB_C025_ConjureCatTotem_Book
+123E5B:Apocalypse - Magic of Skyrim.esp,WB_Con_Human5_Spell_ConjureCraftlord,Conjure Craftlord,Entropy,Spell,FireAndForget,TargetLocation,228,1321,3,,Zenderal - Magic Patches.esp,WB_C100_ConjureCraftlord_Book
+037E17:Apocalypse - Magic of Skyrim.esp,WB_Con_Undead2_Spell_ConjureDeadeyeCaptain,Conjure Deadeye Captain,Entropy,Spell,FireAndForget,TargetLocation,111,172,0.5,,Zenderal - Magic Patches.esp,WB_C025_ConjureDeadeyeCaptain_Book
+0128F7:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora5_Spell_ConjureDremoraAssassin_NPC,Conjure Dremora Assassin,Entropy,Spell,FireAndForget,TargetLocation,207,1201,0,,Zenderal - Magic Patches.esp,WB_C100_ConjureDremoraAssassin_Book
+0128DF:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora4_Spell_ConjureDremoraChampion_NPC,Conjure Dremora Champion,Entropy,Spell,FireAndForget,TargetLocation,90,366,0.5,,Zenderal - Magic Patches.esp,WB_C075_ConjureDremoraChampion_Book
+012359:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora2_Spell_ConjureDremoraChurl_NPC,Conjure Dremora Churl,Entropy,Spell,FireAndForget,TargetLocation,101,157,0.5,,Zenderal - Magic Patches.esp,WB_C025_ConjureDremoraChurl_Book
+0133D6:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora4_Spell_ConjureDremoraHonorGuard_NPC,Conjure Dremora Honor Guard,Entropy,Spell,FireAndForget,TargetLocation,94,380,0.5,,Zenderal - Magic Patches.esp,WB_C075_ConjureDremoraHonorGuard_Book
+0C64B1:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora4_Spell_ConjureDremoraMentor,Conjure Dremora Mentor,Entropy,Spell,FireAndForget,TargetLocation,155,627,3,,Zenderal - Magic Patches.esp,WB_C075_ConjureDremoraMentor_Book
+012364:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora3_Spell_ConjureDremoraPitFighter_NPC,Conjure Dremora Pit Fighter,Entropy,Spell,FireAndForget,TargetLocation,100,229,0,,Zenderal - Magic Patches.esp,WB_C050_ConjureDremoraPitFighter_Book
+0128E8:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora4_Spell_ConjureHerne_NPC,Conjure Herne,Entropy,Spell,FireAndForget,TargetLocation,97,394,0.5,,Zenderal - Magic Patches.esp,WB_C075_ConjureHerne_Book
+100032:Apocalypse - Magic of Skyrim.esp,WB_Con_Daedric5_Spell_ConjureKyrkrim,Conjure Kyrkrim,Entropy,Spell,FireAndForget,TargetLocation,124,720,0.5,,Zenderal - Magic Patches.esp,WB_C100_ConjureKyrkrim_Book
+01236A:Apocalypse - Magic of Skyrim.esp,WB_Con_Undead3_Spell_ConjureLich,Conjure Lich,Entropy,Spell,FireAndForget,TargetLocation,107,244,0.5,,Zenderal - Magic Patches.esp,WB_C050_ConjureLich_Book
+019B2D:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora5_Spell_ConjureLordOfBindings_NPC,Conjure Lord of Bindings,Entropy,Spell,FireAndForget,TargetLocation,217,1261,3,,Zenderal - Magic Patches.esp,WB_C100_ConjureLordOfBindings_Book
+0128FA:Apocalypse - Magic of Skyrim.esp,WB_Con_Undead5_Spell_ConjureNetherLich,Conjure Nether Lich,Entropy,Spell,FireAndForget,TargetLocation,248,1441,0.5,,Zenderal - Magic Patches.esp,WB_C100_ConjureNetherLich_Book
+08FDED:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora5_Spell_ConjureWeepingDaedra_NPC,Conjure Weeping Daedra,Entropy,Spell,FireAndForget,TargetLocation,101,584,2,,Zenderal - Magic Patches.esp,WB_C100_ConjureWeepingDaedra_Book
+012370:Apocalypse - Magic of Skyrim.esp,WB_Con_Xivilai4_Spell_ConjureXivilaiLord_NPC,Conjure Xivilai Lord,Entropy,Spell,FireAndForget,TargetLocation,85,344,0,,Zenderal - Magic Patches.esp,WB_C075_ConjureXivilaiLord_Book
+1228A8:Apocalypse - Magic of Skyrim.esp,WB_Con_Xivilai3_Spell_ConjureXivilaiSorcerer_NPC,Conjure Xivilai Sorcerer,Entropy,Spell,FireAndForget,TargetLocation,100,229,0.5,,Zenderal - Magic Patches.esp,WB_C050_ConjureXivilaiSorcerer_Book
+016F92:Apocalypse - Magic of Skyrim.esp,WB_Con_Buff1_Spell_ConsumingPower,Consuming Power,Entropy,Spell,FireAndForget,Aimed,55,103,0.5,,Zenderal - Magic Patches.esp,WB_C000_ConsumingPower_Book
+1212EB:Apocalypse - Magic of Skyrim.esp,WB_Con_Corpse3_Spell_CorpseExplosion,Corpse Explosion,Entropy,Spell,FireAndForget,Aimed,76,175,0.5,,Zenderal - Magic Patches.esp,WB_C050_CorpseExplosion_Book
+00F4F3:KataPUMB_SpellPackage.esp,Kata_Spell_Curse_I,Curse (Rank I),Entropy,Spell,FireAndForget,Aimed,45,145,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Curse_I
+00F4F4:KataPUMB_SpellPackage.esp,Kata_Spell_Curse_II,Curse (Rank II),Entropy,Spell,FireAndForget,Aimed,105,586,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Curse_II
+00F4F6:KataPUMB_SpellPackage.esp,Kata_Spell_Curse_III,Curse (Rank III),Entropy,Spell,FireAndForget,Aimed,220,5471,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Curse_III
+002E72:KataPUMBSpellPack.esp,Kata_S_Entropy_75_Curse_4,Curse (Rank IV),Entropy,Spell,FireAndForget,Aimed,44,1820,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_75_Curse_4
+002E6D:KataPUMBSpellPack.esp,Kata_S_Entropy_00_Curse_1,Curse of Fragility (Rank I),Entropy,Spell,FireAndForget,Aimed,17,3237,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_00_Curse_1_A
+002E6E:KataPUMBSpellPack.esp,Kata_S_Entropy_25_Curse_2,Curse of Fragility (Rank II),Entropy,Spell,FireAndForget,Aimed,28,4413,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_25_Curse_B
+002E70:KataPUMBSpellPack.esp,Kata_S_Entropy_50_Curse_3,Curse of Fragility (Rank III),Entropy,Spell,FireAndForget,Aimed,40,5618,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_50_Curse_C
+002E74:KataPUMBSpellPack.esp,Kata_S_Entropy_75_Curse_5,Curse of Fragility (Rank IV),Entropy,Spell,FireAndForget,Aimed,53,6848,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_75_Curse_5_C
+002E76:KataPUMBSpellPack.esp,Kata_S_Entropy_99_Curse_6,Curse of Fragility (Rank V),Entropy,Spell,FireAndForget,Aimed,67,8097,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_99_Curse_6_D; Kata_B_Entropy_99_DeathBeam_6
+002E3D:KataPUMBSpellPack.esp,Kata_S_Entropy_00_DeathBeam_1,Death Beam (Rank I),Entropy,Spell,Concentration,Aimed,6,0,0.9,,KataPUMBSpellPack.esp,Kata_B_Entropy_00_DeathBeam_1
+003CA2:KataPUMB_SpellPackage.esp,Kata_Spell_DeathBeam_I,Death Beam (Rank I),Entropy,Spell,Concentration,Aimed,4,6,0.4,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathBeam_I
+002E3E:KataPUMBSpellPack.esp,Kata_S_Entropy_25_DeathBeam_2,Death Beam (Rank II),Entropy,Spell,Concentration,Aimed,12,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_25_DeathBeam
+003CA4:KataPUMB_SpellPackage.esp,Kata_Spell_DeathBeam_II,Death Beam (Rank II),Entropy,Spell,Concentration,Aimed,8,12,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathBeam_II
+002E40:KataPUMBSpellPack.esp,Kata_S_Entropy_50_DeathBeam_3,Death Beam (Rank III),Entropy,Spell,Concentration,Aimed,19,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_50_DeathBeam
+003CA5:KataPUMB_SpellPackage.esp,Kata_Spell_DeathBeam_III,Death Beam (Rank III),Entropy,Spell,Concentration,Aimed,12,25,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathBeam_III
+002E42:KataPUMBSpellPack.esp,Kata_S_Entropy_75_DeathBeam_4,Death Beam (Rank IV),Entropy,Spell,Concentration,Aimed,29,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_75_DeathBeam_4
+003CA7:KataPUMB_SpellPackage.esp,Kata_Spell_DeathBeam_IV,Death Beam (Rank IV),Entropy,Spell,Concentration,Aimed,22,42,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathBeam_IV
+002E44:KataPUMBSpellPack.esp,Kata_S_Entropy_75_DeathBeam_5,Death Beam (Rank V),Entropy,Spell,Concentration,Aimed,38,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_75_DeathBeam_5
+003CA8:KataPUMB_SpellPackage.esp,Kata_Spell_DeathBeam_V,Death Beam (Rank V),Entropy,Spell,Concentration,Aimed,30,66,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathBeam_V
+003CA9:KataPUMB_SpellPackage.esp,Kata_Spell_DeathBeam_VI,Death Beam (Rank VI),Entropy,Spell,Concentration,Aimed,48,117,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathBeam_VI
+01550F:Skyrim.esm,_01E_EldritchBreath,Death Breath (Rank I),Entropy,Spell,Concentration,Aimed,7,10,0.9,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookDeathBreath
+11C389:Skyrim.esm,_10E_EldritchBreath,Death Breath (Rank II),Entropy,Spell,Concentration,Aimed,16,26,0.9,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookDeathBreath
+13798E:Skyrim.esm,_20E_EldritchBreath,Death Breath (Rank III),Entropy,Spell,Concentration,Aimed,28,50,0.9,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookDeathBreath
+11C38A:Skyrim.esm,_05E_EldritchBolt,Death Spark (Rank I),Entropy,Spell,FireAndForget,Aimed,15,36,0.7,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookDeathSpark
+11C38B:Skyrim.esm,_10E_EldritchBolt,Death Spark (Rank II),Entropy,Spell,FireAndForget,Aimed,22,56,0.7,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookDeathSpark
+1379DA:Skyrim.esm,_20E_EldritchBolt,Death Spark (Rank III),Entropy,Spell,FireAndForget,Aimed,30,80,0.7,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookDeathSpark
+1379DB:Skyrim.esm,_30E_EldritchBolt,Death Spark (Rank IV),Entropy,Spell,FireAndForget,Aimed,39,109,0.7,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookDeathSpark
+1379DD:Skyrim.esm,_40E_EldritchBolt,Death Spark (Rank V),Entropy,Spell,FireAndForget,Aimed,49,143,0.7,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookDeathSpark
+1379DC:Skyrim.esm,_49E_EldritchBolt,Death Spark (Rank VI),Entropy,Spell,FireAndForget,Aimed,60,184,0.7,,Enderal SE - Gameplay Overhaul.esp,_48E_SpellBookDeathSpark
+1379E5:Skyrim.esm,_60E_XionSpellDeathStorm,Deathstorm (Mystical),Entropy,Spell,Concentration,Aimed,94,282,2,,Enderal SE - Gameplay Overhaul.esp,_50E_SpellBookDeathStorm
+003B2C:KataPUMBSpellPack.esp,Kata_S_Entropy_50_EntropicMantle_1,Entropic Aura (Rank I),Entropy,Spell,FireAndForget,Self,105,3566,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_50_EntropicMantle_B
+003B2D:KataPUMBSpellPack.esp,Kata_S_Entropy_75_EntropicMantle_2,Entropic Aura (Rank II),Entropy,Spell,FireAndForget,Self,140,5571,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_75_EntropicMantle_C
+003B2F:KataPUMBSpellPack.esp,Kata_S_Entropy_99_EntropicMantle_3,Entropic Aura (Rank III),Entropy,Spell,FireAndForget,Self,185,7645,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_99_EntropicMantle_D
+01A0A4:Apocalypse - Magic of Skyrim.esp,WB_Con_Buff3_Spell_DaedricCrescent,Entropic Crescent,Entropy,Spell,FireAndForget,TargetActor,121,276,0.5,,Zenderal - Magic Patches.esp,WB_C050_DaedricCrescent_Book
+1A1B79:Apocalypse - Magic of Skyrim.esp,WB_Con_Summon3_Spell_Gank,Gank,Entropy,Spell,FireAndForget,Aimed,109,250,0.5,,Zenderal - Magic Patches.esp,WB_C050_Gank_Book
+02F283:Enderal - Forgotten Stories.esm,_25E_FS_CorpseExplosion,Grave Curse (Rank I),Entropy,Spell,FireAndForget,Aimed,48,20,0.5,,Enderal SE - Gameplay Overhaul.esp,_25E_FS_Spell_CorpseExplosion
+02F284:Enderal - Forgotten Stories.esm,_35E_FS_CorpseExplosion,Grave Curse (Rank II),Entropy,Spell,FireAndForget,Aimed,66,144,0.5,,Enderal SE - Gameplay Overhaul.esp,_35E_FS_Spell_CorpseExplosion
+02F285:Enderal - Forgotten Stories.esm,_50E_FS_CorpseExplosion,Grave Curse (Rank III),Entropy,Spell,FireAndForget,Aimed,85,395,0.5,,Enderal SE - Gameplay Overhaul.esp,_50E_FS_Spell_CorpseExplosion
+161621:Apocalypse - Magic of Skyrim.esp,WB_Con_Curse4_Spell_MonarchMark,Monarch Mark,Entropy,Spell,FireAndForget,Aimed,74,300,0.5,,Zenderal - Magic Patches.esp,WB_C075_MonarchMark_Book
+016F95:Apocalypse - Magic of Skyrim.esp,WB_Con_Corpse5_Spell_Necrowitch,Necrowitch,Entropy,Spell,FireAndForget,Self,117,677,5,,Zenderal - Magic Patches.esp,WB_C100_Necrowitch_Book
+018AE7:Apocalypse - Magic of Skyrim.esp,WB_Con_Ghost4_Spell_OathboundGuardian,Oathbound Guardian,Entropy,Spell,FireAndForget,TargetActor,104,423,0.5,,Zenderal - Magic Patches.esp,WB_C075_OathboundGuardian_Book
+01857E:Apocalypse - Magic of Skyrim.esp,WB_Con_Buff2_Spell_PowerOfTheMaster,Power of the Master,Entropy,Spell,FireAndForget,Self,119,185,0.5,,Zenderal - Magic Patches.esp,WB_C025_PowerOfTheMaster_Book
+1377AA:Skyrim.esm,_10E_Wiederbeleben,Revive (Rank I),Entropy,Spell,FireAndForget,Aimed,49,261,1.25,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookRevive
+1377AB:Skyrim.esm,_17E_Wiederbeleben,Revive (Rank II),Entropy,Spell,FireAndForget,Aimed,74,310,1.25,,Enderal SE - Gameplay Overhaul.esp,_17E_SpellBookRevive
+1377AC:Skyrim.esm,_27E_Wiederbeleben,Revive (Rank III),Entropy,Spell,FireAndForget,Aimed,102,353,1.25,,Enderal SE - Gameplay Overhaul.esp,_27E_SpellBookRevive
+1377AD:Skyrim.esm,_37E_Wiederbeleben,Revive (Rank IV),Entropy,Spell,FireAndForget,Aimed,135,554,1.25,,Enderal SE - Gameplay Overhaul.esp,_37E_SpellBookRevive
+1377AE:Skyrim.esm,_47E_Wiederbeleben,Revive (Rank V),Entropy,Spell,FireAndForget,Aimed,176,768,1.25,,Enderal SE - Gameplay Overhaul.esp,_47E_SpellBookRevive
+00717D:KataPUMB_SpellPackage.esp,Kata_Spell_CowlOfDeath,Ritual of the Damned,Entropy,Spell,FireAndForget,Self,200,3,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_RitualOfTheDamned
+003B14:KataPUMBSpellPack.esp,Kata_S_Entropy_99_RitualOfTheDamned,Ritual of the damned,Entropy,Spell,FireAndForget,Self,150,0,3,,KataPUMBSpellPack.esp,Kata_B_Entropy_99_RitualOfTheDamned
+161619:Apocalypse - Magic of Skyrim.esp,WB_Con_Dremora4_Spell_SixDemonBag,Six Demon Bag,Entropy,Spell,FireAndForget,Self,97,394,0,,Zenderal - Magic Patches.esp,WB_C075_SixDemonBag_Book
+140B03:Apocalypse - Magic of Skyrim.esp,WB_Con_SoulTrap2_Spell_SoulCloak,Soul Cloak,Entropy,Spell,FireAndForget,Self,91,141,0.5,,Zenderal - Magic Patches.esp,WB_C025_SoulCloak_Book
+003B17:KataPUMBSpellPack.esp,Kata_S_Entropy_75_SoulCloak_1,Soul Cloak (Rank I),Entropy,Spell,FireAndForget,Self,88,1065,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_75_SoulCloak
+003B1B:KataPUMBSpellPack.esp,Kata_S_Entropy_99_SoulCloak_2,Soul Cloak (Rank II),Entropy,Spell,FireAndForget,Self,180,20948,3,,KataPUMBSpellPack.esp,Kata_B_Entropy_99_SoulCloak
+1377A8:Skyrim.esm,_15E_Seelenfalle,Soul Trap (Rang II),Entropy,Spell,FireAndForget,TargetActor,63,50,0.3,,Enderal SE - Gameplay Overhaul.esp,_15E_SpellBookSoulTrap
+067295:Skyrim.esm,_05E_Seelenfalle,Soul Trap (Rank I),Entropy,Spell,FireAndForget,TargetActor,33,8,0.5,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookSoulTrap
+11C383:Skyrim.esm,_07E_SpellSummonSkeleton,Summon Ancestor,Entropy,Spell,FireAndForget,TargetLocation,84,147,3,,Enderal SE - Gameplay Overhaul.esp,_07E_SpellBookSummonSkeleton
+01C90F:Enderal - Forgotten Stories.esm,_00E_FS_SummonSpiritPigletSP,Summon Cuthbert,Entropy,Spell,FireAndForget,TargetLocation,75,147,3,,Enderal SE - Gameplay Overhaul.esp,_25E_SpellBookSummonGhostPiglet
+013630:KataPUMBSpellPack.esp,Kata_S_Entropy_00_Summon_Demon_1,Summon Demon (Rank I): Demon Spawn,Entropy,Spell,FireAndForget,TargetLocation,75,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_00_Summon_Demon_1
+013631:KataPUMBSpellPack.esp,Kata_S_Entropy_25_Summon_Demon_2,Summon Demon (Rank II): Bailwoga,Entropy,Spell,FireAndForget,TargetLocation,88,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_25_Summon_Demon_2
+013633:KataPUMBSpellPack.esp,Kata_S_Entropy_50_Summon_Demon_3,Summon Demon (Rank III): Krill,Entropy,Spell,FireAndForget,TargetLocation,96,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_50_Summon_Demon_3
+013635:KataPUMBSpellPack.esp,Kata_S_Entropy_75_Summon_Demon_4,Summon Demon (Rank IV): Abyssal Horror,Entropy,Spell,FireAndForget,TargetLocation,118,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_75_Summon_Demon_4
+013637:KataPUMBSpellPack.esp,Kata_S_Entropy_99_Summon_Demon_5,Summon Demon (Rank V): Shoggoth,Entropy,Spell,FireAndForget,TargetLocation,168,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_99_Summon_Demon_5
+137933:Skyrim.esm,_24E_SpellSummonElementalWolf,Summon Elemental Wolf,Entropy,Spell,FireAndForget,TargetLocation,150,168,3,,Enderal SE - Gameplay Overhaul.esp,_24E_SpellBookSummonElementalWolf
+137447:Skyrim.esm,_16E_SpellSummonFireElemental,Summon Fire Elemental (Rank I),Entropy,Spell,FireAndForget,TargetLocation,118,147,3,,Enderal SE - Gameplay Overhaul.esp,_16E_SpellBookSummonFireElemental
+137936:Skyrim.esm,_39E_SpellSummonFireElemental,Summon Fire Elemental (Rank II),Entropy,Spell,FireAndForget,TargetLocation,205,168,3,,Enderal SE - Gameplay Overhaul.esp,_39E_SpellBookSummonFireElemental
+137446:Skyrim.esm,_12E_SpellSummonIceElemental,Summon Frost Elemental (Rank I),Entropy,Spell,FireAndForget,TargetLocation,118,147,3,,Enderal SE - Gameplay Overhaul.esp,_12E_SpellBookSummonIceElemental
+137935:Skyrim.esm,_36E_SpellSummonIceElemental,Summon Frost Elemental (Rank II),Entropy,Spell,FireAndForget,TargetLocation,205,168,3,,Enderal SE - Gameplay Overhaul.esp,_36E_SpellBookSummonIceElemental
+0E426A:Skyrim.esm,_08E_SpellSummonGhostlyBlackBear,Summon Ghostly Black Bear,Entropy,Spell,FireAndForget,TargetLocation,110,147,3,,Enderal SE - Gameplay Overhaul.esp,_08E_SpellbookSummonGhostlyBlackBear
+002E84:KataPUMBSpellPack.esp,Kata_S_Entropy_00_Summon_Spirit_Horse_1,Summon Ghostly Horse,Entropy,Spell,FireAndForget,TargetLocation,65,632,3,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_25_Summon_Spirit_Horse_1_A
+002E86:KataPUMBSpellPack.esp,Kata_S_Entropy_00_Summon_Spirit_2,Summon Ghostly Spider,Entropy,Spell,FireAndForget,TargetLocation,70,147,3,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_25_Summon_Spirit_2_A
+002E90:KataPUMBSpellPack.esp,Kata_S_Entropy_75_Summon_Spirit_7,Summon Ghostly Vatyr,Entropy,Spell,FireAndForget,TargetLocation,185,168,3,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_75_Summon_Spirit_7_C
+00081A:EGO - KataPUMB Spell Package.esp,Kata_S_Entropy_00_Summon_Spirit_Horse_2,Summon Ghostly War Horse,Entropy,Spell,FireAndForget,TargetLocation,170,1355,3,,EGO - KataPUMB Spell Package.esp,Kata_B_Entropy_25_Summon_Spirit_Horse_2_C
+086B0D:Skyrim.esm,_05E_SpellSummonGhostlyWolf,Summon Ghostly Wolf,Entropy,Spell,FireAndForget,TargetLocation,70,147,3,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookSummonGhostlyWolf
+010F56:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_LostOne_I_Warrior,Summon Lost One (Rank I) - Warrior,Entropy,Spell,FireAndForget,TargetLocation,65,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_LostOne_I
+002E78:KataPUMBSpellPack.esp,Kata_S_Entropy_00_Summon_LostOne_1,Summon Lost One (Rank I): Warrior,Entropy,Spell,FireAndForget,TargetLocation,75,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_00_Summon_LostOne1_W
+010F54:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_LostOne_II_Archer,Summon Lost One (Rank II) - Archer,Entropy,Spell,FireAndForget,TargetLocation,95,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_LostOne_II
+002E7A:KataPUMBSpellPack.esp,Kata_S_Entropy_00_Summon_LostOne_2,Summon Lost One (Rank II): Archer,Entropy,Spell,FireAndForget,TargetLocation,75,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_00_Summon_LostOne2_A
+002E7C:KataPUMBSpellPack.esp,Kata_S_Entropy_25_Summon_LostOne_3,Summon Lost One (Rank II): Mage,Entropy,Spell,FireAndForget,TargetLocation,88,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_25_Summon_LostOne_3
+010F52:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_LostOne_III_Mage,Summon Lost One (Rank III) - Mage,Entropy,Spell,FireAndForget,TargetLocation,120,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_LostOne_III
+002E7E:KataPUMBSpellPack.esp,Kata_S_Entropy_50_Summon_LostOne_4,Summon Lost One (Rank III): Knight,Entropy,Spell,FireAndForget,TargetLocation,110,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_50_Summon_LostOne_4
+010F50:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_LostOne_IV_Knight,Summon Lost One (Rank IV) - Knight,Entropy,Spell,FireAndForget,TargetLocation,140,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_LostOne_IV
+002E80:KataPUMBSpellPack.esp,Kata_S_Entropy_75_Summon_LostOne_5,Summon Lost One (Rank IV): Lich,Entropy,Spell,FireAndForget,TargetLocation,180,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_75_Summon_LostOne_5
+00F4E9:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_LostOne_V_Lich,Summon Lost One (Rank V) - Lich,Entropy,Spell,FireAndForget,TargetLocation,165,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_LostOne_V
+002E82:KataPUMBSpellPack.esp,Kata_S_Entropy_99_Summon_LostOne_6,Summon Lost One (Rank V): Grotesque,Entropy,Spell,FireAndForget,TargetLocation,230,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Entropy_99_Summon_LostOne_6
+010F4E:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_LostOne_VI_Grotesque,Summon Lost One (Rank VI) - Grotesque,Entropy,Spell,FireAndForget,TargetLocation,180,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_LostOne_VI
+11C382:Skyrim.esm,_10E_SpellSummonMudElemental,Summon Mud Elemental (Rank I),Entropy,Spell,FireAndForget,TargetLocation,118,147,3,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookSummonMudElemental
+137934:Skyrim.esm,_33E_SpellSummonMudElemental,Summon Mud Elemental (Rank II),Entropy,Spell,FireAndForget,TargetLocation,205,168,3,,Enderal SE - Gameplay Overhaul.esp,_33E_SpellBookSummonMudElemental
+137979:Skyrim.esm,_01E_MystischeSchlachtaxt,Summon Mystic Battleaxe (Rank I),Entropy,Spell,FireAndForget,Self,42,25,0.75,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookBoundBattleAxe1
+13797A:Skyrim.esm,_10E_MystischeSchlachtaxt,Summon Mystic Battleaxe (Rank II),Entropy,Spell,FireAndForget,Self,61,25,0.75,,Enderal SE - Gameplay Overhaul.esp,_12E_SpellBookBoundBattleAxe2
+13797B:Skyrim.esm,_20E_MystischeSchlachtaxt,Summon Mystic Battleaxe (Rank III),Entropy,Spell,FireAndForget,Self,88,25,0.75,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookBoundBattleAxe3
+13797C:Skyrim.esm,_30E_MystischeSchlachtaxt,Summon Mystic Battleaxe (Rank IV),Entropy,Spell,FireAndForget,Self,126,25,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookBoundBattleAxe4
+13797D:Skyrim.esm,_40E_MystischeSchlachtaxt,Summon Mystic Battleaxe (Rank V),Entropy,Spell,FireAndForget,Self,176,25,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookBoundBattleAxe5
+137974:Skyrim.esm,_01E_MystischerBogen,Summon Mystic Bow (Rank I),Entropy,Spell,FireAndForget,Self,42,31,0.75,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookBoundBow1
+137975:Skyrim.esm,_10E_MystischerBogen,Summon Mystic Bow (Rank II),Entropy,Spell,FireAndForget,Self,61,31,0.75,,Enderal SE - Gameplay Overhaul.esp,_12E_SpellBookBoundBow2
+137976:Skyrim.esm,_20E_MystischerBogen,Summon Mystic Bow (Rank III),Entropy,Spell,FireAndForget,Self,88,31,0.75,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookBoundBow3
+137977:Skyrim.esm,_30E_MystischerBogen,Summon Mystic Bow (Rank IV),Entropy,Spell,FireAndForget,Self,126,31,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookBoundBow4
+137978:Skyrim.esm,_40E_MystischerBogen,Summon Mystic Bow (Rank V),Entropy,Spell,FireAndForget,Self,176,31,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookBoundBow5
+04320A:Skyrim.esm,_01E_SpellBoundDagger1,Summon Mystic Dagger (Rank I),Entropy,Spell,FireAndForget,Self,38,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookBoundDagger1
+043255:Skyrim.esm,_12E_SpellBoundDagger2,Summon Mystic Dagger (Rank II),Entropy,Spell,FireAndForget,Self,55,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_12E_SpellBookBoundDagger2
+043256:Skyrim.esm,_20E_SpellBoundDagger3,Summon Mystic Dagger (Rank III),Entropy,Spell,FireAndForget,Self,80,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookBoundDagger3
+043257:Skyrim.esm,_30E_SpellBoundDagger4,Summon Mystic Dagger (Rank IV),Entropy,Spell,FireAndForget,Self,114,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookBoundDagger4
+043258:Skyrim.esm,_40E_SpellBoundDagger5,Summon Mystic Dagger (Rank V),Entropy,Spell,FireAndForget,Self,160,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookBoundDagger5
+086B0B:Skyrim.esm,_01E_MystischesSchwert,Summon Mystic Sword (Rank I),Entropy,Spell,FireAndForget,Self,40,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookBoundSword1
+137970:Skyrim.esm,_10E_MystischesSchwert,Summon Mystic Sword (Rank II),Entropy,Spell,FireAndForget,Self,58,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_12E_SpellBookBoundSword2
+137971:Skyrim.esm,_20E_MystischesSchwert,Summon Mystic Sword (Rank III),Entropy,Spell,FireAndForget,Self,84,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookBoundSword3
+137972:Skyrim.esm,_30E_MystischesSchwert,Summon Mystic Sword (Rank IV),Entropy,Spell,FireAndForget,Self,120,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookBoundSword4
+137973:Skyrim.esm,_40E_MystischesSchwert,Summon Mystic Sword (Rank V),Entropy,Spell,FireAndForget,Self,168,14,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookBoundSword5
+1377B0:Skyrim.esm,_30E_SpellSummonOorbaya,Summon Oorbâya (Rank I),Entropy,Spell,FireAndForget,TargetLocation,190,112,3,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellbookSummonOorbaya
+137938:Skyrim.esm,_50E_SpellSummonOorbaya,Summon Oorbâya (Rank II),Entropy,Spell,FireAndForget,TargetLocation,260,629,3,,Enderal SE - Gameplay Overhaul.esp,_50E_SpellBookSummonOorbaya
+02E3B1:Enderal - Forgotten Stories.esm,_12E_FS_SummonPandaSP,Summon Panda,Entropy,Spell,FireAndForget,TargetLocation,112,147,3,,Enderal SE - Gameplay Overhaul.esp,_30E_FS_SpellbookSummonPanda
+1376C3:Skyrim.esm,_20E_SpellSummonSoilElemental,Summon Soil Elemental (Rank I),Entropy,Spell,FireAndForget,TargetLocation,131,147,3,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookSummonSoilElemental
+137937:Skyrim.esm,_43E_SpellSummonSoilElemental,Summon Soil Elemental (Rank II),Entropy,Spell,FireAndForget,TargetLocation,223,168,3,,Enderal SE - Gameplay Overhaul.esp,_43E_SpellBookSummonSoilElemental
+010F3F:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_I_Horse,Summon Spirit (Rank I) - Horse,Entropy,Spell,FireAndForget,TargetLocation,40,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_I
+01020F:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_II_Spider,Summon Spirit (Rank II) - Spider,Entropy,Spell,FireAndForget,TargetLocation,60,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_II
+010F40:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_III_PusBeetle,Summon Spirit (Rank III) - Pus Beetle,Entropy,Spell,FireAndForget,TargetLocation,80,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_III
+010F42:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_IV_Leopard,Summon Spirit (Rank IV) - Leopard,Entropy,Spell,FireAndForget,TargetLocation,110,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_IV
+010F4C:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_X_Anestor,Summon Spirit (Rank IX) - Titan,Entropy,Spell,FireAndForget,TargetLocation,200,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_X
+010F44:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_V_Lion,Summon Spirit (Rank V) - Lion,Entropy,Spell,FireAndForget,TargetLocation,120,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_V
+010F46:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_VI_Troll,Summon Spirit (Rank VI) - Troll,Entropy,Spell,FireAndForget,TargetLocation,130,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_VI
+010F48:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_VII_Vatyr,Summon Spirit (Rank VII) - Vatyr,Entropy,Spell,FireAndForget,TargetLocation,150,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_VII
+010F4A:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Spirit_VIII_Anestor,Summon Spirit (Rank VIII) - Ancestor,Entropy,Spell,FireAndForget,TargetLocation,180,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_Summon_Spirit_VIII
+010F5C:KataPUMB_SpellPackage.esp,Kata_Spell_Summon_Elemental_Wood,Summon Wood Elemental (Rank I),Entropy,Spell,FireAndForget,TargetLocation,105,230,0.5,,KataPUMB_SpellPackage.esp,Kata_Spellbook_SummonElementalWood
+124EC5:Apocalypse - Magic of Skyrim.esp,WB_Con_Summon3_Spell_SummoningRune,Summoning Rune,Entropy,Spell,FireAndForget,TargetLocation,87,198,0.5,,Zenderal - Magic Patches.esp,WB_C050_SummoningRune_Book
+00D230:KataPUMBSpellPack.esp,Kata_S_LightMagic_25_Aegis_1,Aegis (Rank I),Light Magic,Spell,FireAndForget,Self,50,1,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_25_Aegis_1_A
+00D237:KataPUMBSpellPack.esp,Kata_S_LightMagic_50_Aegis_2,Aegis (Rank II),Light Magic,Spell,FireAndForget,Self,88,1,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_50_Aegis_2_B
+00D233:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_Aegis_3,Aegis (Rank III),Light Magic,Spell,FireAndForget,Self,126,1,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_75_Aegis_3_C
+00D235:KataPUMBSpellPack.esp,Kata_S_LightMagic_99_Aegis_4,Aegis (Rank IV),Light Magic,Spell,FireAndForget,Self,164,1,0.6,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_99_Aegis_4_D
+0F858F:Skyrim.esm,_01E_SpellBlessingOfLife,Blessing of Life (Rank I),Light Magic,Spell,FireAndForget,Self,67,3242,0.75,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellbookSegenDesLebens
+0F8581:Skyrim.esm,_15E_SpellBlessingOfLife,Blessing of Life (Rank II),Light Magic,Spell,FireAndForget,Self,92,6474,0.75,,Enderal SE - Gameplay Overhaul.esp,_15E_SpellbookSegenDesLebens
+0F8582:Skyrim.esm,_30E_SpellBlessingOfLife,Blessing of Life (Rank III),Light Magic,Spell,FireAndForget,Self,123,12191,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookBlessingOfLife
+12E169:Skyrim.esm,_40E_SpellBlessingOfLife,Blessing of Life (Rank IV),Light Magic,Spell,FireAndForget,Self,160,19219,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellbookSegenDesLebens
+04623D:Skyrim.esm,_50E_SpellBlessingOfLife,Blessing of Life (Rank V),Light Magic,Spell,FireAndForget,Self,206,27574,0.75,,Enderal SE - Gameplay Overhaul.esp,_50E_SpellBookBlessingOfLife
+044D44:Apocalypse - Magic of Skyrim.esp,WB_Res_Blood4_Spell_BloodBoil,Blood Boil,Light Magic,Spell,Concentration,Self,22,68,1.5,,Zenderal - Magic Patches.esp,WB_R075_BloodBoil_Book
+048398:Apocalypse - Magic of Skyrim.esp,WB_Res_Blood5_Spell_Bloodseeker,Bloodseeker,Light Magic,Spell,FireAndForget,Aimed,104,602,0.5,,Zenderal - Magic Patches.esp,WB_R100_Bloodseeker_Book
+03527C:Apocalypse - Magic of Skyrim.esp,WB_Res_UndeadDmg1_Spell_BoneSpirit,Bone Spirit,Light Magic,Spell,FireAndForget,Aimed,27,50,0.5,,Zenderal - Magic Patches.esp,WB_R000_BoneSpirit_Book
+03B82E:Skyrim.esm,_05E_Wohltat,Boon (Rank I),Light Magic,Spell,Concentration,Self,8,9,0.85,0.25,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookBoon
+056A24:Skyrim.esm,_10E_Wohltatunused,Boon (Rank II),Light Magic,Spell,Concentration,Self,14,10,0.85,0.25,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookBoon
+12E162:Skyrim.esm,_17E_Wohltat,Boon (Rank II),Light Magic,Spell,Concentration,Self,13,15,0.85,0.25,Enderal SE - Gameplay Overhaul.esp,_17E_SpellBookBoon
+12E163:Skyrim.esm,_24E_Wohltat,Boon (Rank III),Light Magic,Spell,Concentration,Self,21,24,0.85,0.25,Enderal SE - Gameplay Overhaul.esp,_24E_SpellBookBoon
+12E164:Skyrim.esm,_32E_Wohltat,Boon (Rank IV),Light Magic,Spell,Concentration,Self,31,37,0.85,0.25,Enderal SE - Gameplay Overhaul.esp,_32E_SpellBookBoon
+12E165:Skyrim.esm,_40E_Wohltat,Boon (Rank V),Light Magic,Spell,Concentration,Self,43,54,0.85,0.25,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookBoon
+12B063:Apocalypse - Magic of Skyrim.esp,WB_Res_Heal5_Spell_BreathOfArkay,Breath of Tyr,Light Magic,Spell,Concentration,Self,43,88,1,,Zenderal - Magic Patches.esp,WB_R100_BreathOfArkay_Book
+01FCCE:Apocalypse - Magic of Skyrim.esp,WB_Res_Arcane3_Spell_ChannelEnergies,Channel Energies,Light Magic,Spell,FireAndForget,Aimed,87,200,0,,Zenderal - Magic Patches.esp,WB_R050_ChannelEnergies_Book
+01220F:Apocalypse - Magic of Skyrim.esp,WB_Res_Necro5_Spell_CircleOfDeath,Circle of Death,Light Magic,Spell,FireAndForget,Self,118,688,3,,Zenderal - Magic Patches.esp,WB_R100_CircleOfDeath_Book
+04DC91:Skyrim.esm,_05E_Schutzzirkel,Circle of Protection (Rank I),Light Magic,Spell,FireAndForget,Self,35,29,1,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookCircleOfProtection
+135735:Skyrim.esm,_10E_Schutzzirkel,Circle of Protection (Rank II),Light Magic,Spell,FireAndForget,Self,48,74,1,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookCircleOfProtection
+135734:Skyrim.esm,_20E_Schutzzirkel,Circle of Protection (Rank III),Light Magic,Spell,FireAndForget,Self,63,156,1,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookCircleOfProtection
+135733:Skyrim.esm,_30E_Schutzzirkel,Circle of Protection (Rank IV),Light Magic,Spell,FireAndForget,Self,81,287,1,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookCircleOfProtection
+036A05:Apocalypse - Magic of Skyrim.esp,WB_Res_DrainCircle1_Spell_CircleOfStrength,Circle of Strength,Light Magic,Spell,FireAndForget,Self,32,60,0.5,,Zenderal - Magic Patches.esp,WB_R000_CircleOfStrength_Book
+111CFB:Apocalypse - Magic of Skyrim.esp,WB_Res_DrainCircle3_Spell_CircleOfTheMoons,Circle of the Moons,Light Magic,Spell,FireAndForget,Self,57,131,0.5,,Zenderal - Magic Patches.esp,WB_R050_CircleOfTheMoons_Book
+01F1FB:Apocalypse - Magic of Skyrim.esp,WB_Res_Necro4_Spell_Decompose,Decompose,Light Magic,Spell,FireAndForget,Aimed,77,311,0.5,,Zenderal - Magic Patches.esp,WB_R075_Decompose_Book
+11122C:Apocalypse - Magic of Skyrim.esp,WB_Res_UndeadDmg5_Spell_DustToDust,Dust To Dust,Light Magic,Spell,FireAndForget,Self,215,1250,2,,Zenderal - Magic Patches.esp,WB_R100_DustToDust_Book
+1A4A46:Apocalypse - Magic of Skyrim.esp,WB_Res_Peace3_Spell_DustInTheClockwork,Dust in the Clockwork,Light Magic,Spell,FireAndForget,Aimed,77,176,0,,Zenderal - Magic Patches.esp,WB_R050_DustInTheClockwork_Book
+01FEAB:Enderal - Forgotten Stories.esm,_10E_Elixir,Elixir (Rank I),Light Magic,Spell,FireAndForget,Aimed,54,0,0.75,,Enderal SE - Gameplay Overhaul.esp,_10E_FS_SpellElixir
+01FEAC:Enderal - Forgotten Stories.esm,_20E_Elixir,Elixir (Rank II),Light Magic,Spell,FireAndForget,Aimed,93,0,0.75,,Enderal SE - Gameplay Overhaul.esp,_20E_FS_SpellElixir
+01FEAD:Enderal - Forgotten Stories.esm,_30E_Elixir,Elixir (Rank III),Light Magic,Spell,FireAndForget,Aimed,123,0,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_FS_SpellElixir
+01FEAE:Enderal - Forgotten Stories.esm,_40E_Elixir,Elixir (Rank IV),Light Magic,Spell,FireAndForget,Aimed,160,0,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_FS_SpellElixir
+035452:Apocalypse - Magic of Skyrim.esp,WB_Res_Necro3_Spell_FingerOfDeath,Finger of Death,Light Magic,Spell,FireAndForget,TargetActor,70,160,0.5,,Zenderal - Magic Patches.esp,WB_R050_FingerOfDeath_Book
+0E7677:Skyrim.esm,_07E_Blitzheilung,Flash Heal (Rank I),Light Magic,Spell,FireAndForget,Self,30,29,0.2,1.5,Enderal SE - Gameplay Overhaul.esp,_07E_SpellBookFlashHeal
+0F8580:Skyrim.esm,_14E_Blitzheilung,Flash Heal (Rank II),Light Magic,Spell,FireAndForget,Self,45,47,0.2,1.5,Enderal SE - Gameplay Overhaul.esp,_14E_SpellBookFlashHeal
+12E166:Skyrim.esm,_22E_Blitzheilung,Flash Heal (Rank III),Light Magic,Spell,FireAndForget,Self,67,61,0.2,1.5,Enderal SE - Gameplay Overhaul.esp,_22E_SpellBookFlashHeal
+12E167:Skyrim.esm,_32E_Blitzheilung,Flash Heal (Rank IV),Light Magic,Spell,FireAndForget,Self,93,91,0.2,1.5,Enderal SE - Gameplay Overhaul.esp,_32E_SpellBookFlashHeal
+12E168:Skyrim.esm,_55E_Blitzheilung,Flash Heal (Rank V),Light Magic,Spell,FireAndForget,Self,124,127,0.2,1.5,Enderal SE - Gameplay Overhaul.esp,_55E_SpellBookFlashHeal
+0008A3:Enderal SE - Gameplay Overhaul.esp,XionSpellHealAura1,Healing Aura (Rank I),Light Magic,Spell,FireAndForget,Self,85,6680,0.75,,Enderal SE - Gameplay Overhaul.esp,XionHealAura1
+0008A4:Enderal SE - Gameplay Overhaul.esp,XionSpellHealAura2,Healing Aura (Rank II),Light Magic,Spell,FireAndForget,Self,125,22370,0.75,,Enderal SE - Gameplay Overhaul.esp,XionHealAuraDUPLICATE003
+05F74D:Apocalypse - Magic of Skyrim.esp,WB_Res_HealRegen4_Spell_HealingBlossom,Healing Blossom,Light Magic,Spell,FireAndForget,Self,89,361,0.5,8,Zenderal - Magic Patches.esp,WB_R075_HealingBlossom_Book
+00ACA7:KataPUMBSpellPack.esp,Kata_S_LightMagic_50_HolyAura_1,Holy Aura (Rank I),Light Magic,Spell,FireAndForget,Self,96,199,0.5,,KataPUMBSpellPack.esp,Kata_B_LightMagic_50_HolyAura_1
+00ACA9:KataPUMBSpellPack.esp,Kata_S_LightMagic_99_HolyAura_3,Holy Aura (Rank III),Light Magic,Spell,FireAndForget,Self,258,1003,3,,KataPUMBSpellPack.esp,Kata_B_LightMagic_99_HolyAura_3
+00484D:KataPUMBSpellPack.esp,Kata_S_LightMagic_00_HolyCross_1,Holy Cross (Rank I),Light Magic,Spell,FireAndForget,Aimed,21,107,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_00_HolyCross
+005737:KataPUMB_SpellPackage.esp,Kata_Spell_HolyCross_I,Holy Cross (Rank I),Light Magic,Spell,FireAndForget,Aimed,45,13,1,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyCross_I
+00484F:KataPUMBSpellPack.esp,Kata_S_LightMagic_25_HolyCross_2,Holy Cross (Rank II),Light Magic,Spell,FireAndForget,Aimed,35,204,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_25_HolyCross
+005738:KataPUMB_SpellPackage.esp,Kata_Spell_HolyCross_II,Holy Cross (Rank II),Light Magic,Spell,FireAndForget,Aimed,65,22,1,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyCross_II
+004851:KataPUMBSpellPack.esp,Kata_S_LightMagic_50_HolyCross_3,Holy Cross (Rank III),Light Magic,Spell,FireAndForget,Aimed,43,264,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_50_HolyCross
+00573A:KataPUMB_SpellPackage.esp,Kata_Spell_HolyCross_III,Holy Cross (Rank III),Light Magic,Spell,FireAndForget,Aimed,105,32,1,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyCross_III
+004853:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_HolyCross_4,Holy Cross (Rank IV),Light Magic,Spell,FireAndForget,Aimed,55,312,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_75_HolyCross_4
+004855:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_HolyCross_5,Holy Cross (Rank V),Light Magic,Spell,FireAndForget,Aimed,66,378,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_75_HolyCross_5
+004857:KataPUMBSpellPack.esp,Kata_S_LightMagic_99_HolyCross_6,Holy Cross (Rank VI),Light Magic,Spell,FireAndForget,Aimed,78,542,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_99_HolyCross
+003C94:KataPUMB_SpellPackage.esp,Kata_Spell_HolyRay_I,Holy Ray (Rank I),Light Magic,Spell,Concentration,Aimed,11,38,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyRay_I
+004842:KataPUMBSpellPack.esp,Kata_S_LightMagic_00_HolyRay_1,Holy Ray (Rank I),Light Magic,Spell,Concentration,Aimed,9,9,0,,KataPUMBSpellPack.esp,Kata_B_LightMagic_00_HolyRay
+003C9B:KataPUMB_SpellPackage.esp,Kata_Spell_HolyRay_II,Holy Ray (Rank II),Light Magic,Spell,Concentration,Aimed,16,77,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyRay_II
+004843:KataPUMBSpellPack.esp,Kata_S_LightMagic_00_HolyRay_2,Holy Ray (Rank II),Light Magic,Spell,Concentration,Aimed,14,17,0,,KataPUMBSpellPack.esp,Kata_B_LightMagic_00_HolyRay_2
+003C9C:KataPUMB_SpellPackage.esp,Kata_Spell_HolyRay_III,Holy Ray (Rank III),Light Magic,Spell,Concentration,Aimed,25,127,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyRay_III
+004845:KataPUMBSpellPack.esp,Kata_S_LightMagic_25_HolyRay_3,Holy Ray (Rank III),Light Magic,Spell,Concentration,Aimed,20,29,0,,KataPUMBSpellPack.esp,Kata_B_LightMagic_25_HolyRay_3
+003C9E:KataPUMB_SpellPackage.esp,Kata_Spell_HolyRay_IV,Holy Ray (Rank IV),Light Magic,Spell,Concentration,Aimed,35,176,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyRay_IV
+004847:KataPUMBSpellPack.esp,Kata_S_LightMagic_50_HolyRay_4,Holy Ray (Rank IV),Light Magic,Spell,Concentration,Aimed,29,50,0,,KataPUMBSpellPack.esp,Kata_B_LightMagic_50_HolyRay
+003CA1:KataPUMB_SpellPackage.esp,Kata_Spell_HolyRay_V,Holy Ray (Rank V),Light Magic,Spell,Concentration,Aimed,50,324,0.3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_HolyRay_V
+004849:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_HolyRay_5,Holy Ray (Rank V),Light Magic,Spell,Concentration,Aimed,36,67,0,,KataPUMBSpellPack.esp,Kata_B_LightMagic_75_HolyRay
+00484B:KataPUMBSpellPack.esp,Kata_S_LightMagic_99_HolyRay_6,Holy Ray (Rank VI),Light Magic,Spell,Concentration,Aimed,40,87,0,,KataPUMBSpellPack.esp,Kata_B_LightMagic_99_HolyRay
+00D240:KataPUMBSpellPack.esp,Kata_S_LightMagic_25_HolySmite_1,Holy Smite (Rank I),Light Magic,Spell,FireAndForget,Self,21,23,0.8,,KataPUMBSpellPack.esp,Kata_B_LightMagic_25_HolySmite_1
+00D241:KataPUMBSpellPack.esp,Kata_S_LightMagic_50_HolySmite_2,Holy Smite (Rank II),Light Magic,Spell,FireAndForget,Self,32,42,0.8,,KataPUMBSpellPack.esp,Kata_B_LightMagic_50_HolySmite_2
+00D243:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_HolySmite_3,Holy Smite (Rank III),Light Magic,Spell,FireAndForget,Self,68,57,0.8,,KataPUMBSpellPack.esp,Kata_B_LightMagic_75_HolySmite_3
+00D245:KataPUMBSpellPack.esp,Kata_S_LightMagic_99_HolySmite_4,Holy Smite (Rank IV),Light Magic,Spell,FireAndForget,Self,89,91,0.8,,KataPUMBSpellPack.esp,Kata_B_LightMagic_99_HolySmite_4
+001CC9:Enderal SE - Gameplay Overhaul.esp,XionSpellLightbeam1,Holy Sun Beam (Rank I),Light Magic,Spell,FireAndForget,Aimed,27,5,0.6,,EGO - KataPUMB Spell Package.esp,XionLichtstrahlDUPLICATE002
+001D0A:Enderal SE - Gameplay Overhaul.esp,XionSpellLightbeam2,Holy Sun Beam (Rank II),Light Magic,Spell,FireAndForget,Aimed,41,8,0.6,,EGO - KataPUMB Spell Package.esp,XionLichtstrahlDUPLICATE003
+001E43:Enderal SE - Gameplay Overhaul.esp,XionSpellLightbeam3,Holy Sun Beam (Rank III),Light Magic,Spell,FireAndForget,Aimed,58,13,0.6,,EGO - KataPUMB Spell Package.esp,XionLichtstrahlDUPLICATE004
+006AE7:Enderal SE - Gameplay Overhaul.esp,XionSpellLightbeam4,Holy Sun Beam (Rank IV),Light Magic,Spell,FireAndForget,Aimed,79,18,0.6,,EGO - KataPUMB Spell Package.esp,XionLichtstrahlDUPLICATE005
+0054CC:KataPUMBSpellPack.esp,Kata_S_LightMagic_00_HolyBall_1,Holy Sun Burst (Rank I),Light Magic,Spell,FireAndForget,Aimed,17,23,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_00_HolyBall_1
+0054CF:KataPUMBSpellPack.esp,Kata_S_LightMagic_50_HolyBall_3,Holy Sun Burst (Rank I),Light Magic,Spell,FireAndForget,Aimed,50,63,0.8,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_50_HolyBall_C
+0054CD:KataPUMBSpellPack.esp,Kata_S_LightMagic_25_HolyBall_2,Holy Sun Burst (Rank II),Light Magic,Spell,FireAndForget,Aimed,27,41,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_25_HolyBall_2
+0054D3:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_HolyBall_5,Holy Sun Burst (Rank II),Light Magic,Spell,FireAndForget,Aimed,71,98,0.8,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_75_HolyBall_5_C
+0054D5:KataPUMBSpellPack.esp,Kata_S_LightMagic_99_HolyBall_6,Holy Sun Burst (Rank III),Light Magic,Spell,FireAndForget,Aimed,94,142,0.8,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_99_HolyBall_D
+0054D1:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_HolyBall_4,Holy Sun Burst (Rank IV),Light Magic,Spell,FireAndForget,Aimed,45,89,0.6,,KataPUMBSpellPack.esp,Kata_B_LightMagic_75_HolyBall_4
+00ACA8:KataPUMBSpellPack.esp,Kata_S_LightMagic_75_HolyAura_2,Holy Veil,Light Magic,Spell,FireAndForget,Self,134,353,0.75,,EGO - KataPUMB Spell Package.esp,Kata_B_LightMagic_75_HolyAura_2_C
+012214:Apocalypse - Magic of Skyrim.esp,WB_Res_Disease3_Spell_HorridWilting,Horrid Wilting,Light Magic,Spell,FireAndForget,Aimed,57,130,1,,Zenderal - Magic Patches.esp,WB_R050_HorridWilting_Book
+02F66E:Apocalypse - Magic of Skyrim.esp,WB_Res_Heal5_Spell_InfiniteLight,Infinite Light,Light Magic,Spell,Concentration,Aimed,68,140,3,,Zenderal - Magic Patches.esp,WB_R100_InfiniteLight_Book
+033CCA:Apocalypse - Magic of Skyrim.esp,WB_Res_Buff5_Spell_KingsHeart,King's Heart,Light Magic,Spell,FireAndForget,Self,110,635,0.5,5,Zenderal - Magic Patches.esp,WB_R100_KingsHeart_Book
+036A03:Apocalypse - Magic of Skyrim.esp,WB_Res_HealCurse2_Spell_LambOfMara,Lamb of Irlanda,Light Magic,Spell,FireAndForget,Aimed,54,83,0.5,,Zenderal - Magic Patches.esp,WB_R025_LambOfMara_Book
+13E4FD:Apocalypse - Magic of Skyrim.esp,WB_Res_Poison2_Spell_LeechSeed,Leech Seed,Light Magic,Spell,FireAndForget,Aimed,37,58,0.5,,Zenderal - Magic Patches.esp,WB_R025_LeechSeed_Book
+112DEE:Skyrim.esm,_01E_Lebensabsorbtion,Life Absorption (Rank I),Light Magic,Spell,Concentration,Aimed,7,3,0.9,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookLifeAbsorption
+12E172:Skyrim.esm,_16E_Lebensabsorbtion,Life Absorption (Rank II),Light Magic,Spell,Concentration,Aimed,16,9,0.9,,Enderal SE - Gameplay Overhaul.esp,_16E_SpellBookLifeAbsorption
+12E173:Skyrim.esm,_22E_Lebensabsorbtion,Life Absorption (Rank III),Light Magic,Spell,Concentration,Aimed,31,19,0.9,,Enderal SE - Gameplay Overhaul.esp,_22E_SpellBookLifeAbsorption
+083FA8:Apocalypse - Magic of Skyrim.esp,WB_Res_Disease5_Spell_LifesFinale,Life's Finale,Light Magic,Spell,FireAndForget,Self,175,1019,2.2,,Zenderal - Magic Patches.esp,WB_R100_LifesFinale_Book
+0362C7:Apocalypse - Magic of Skyrim.esp,WB_Res_UndeadDmg5_Spell_MeridiasWrath,Malphas' Wrath,Light Magic,Spell,FireAndForget,Self,206,1194,3,,Zenderal - Magic Patches.esp,WB_R100_MeridiasWrath_Book
+0E8B77:Apocalypse - Magic of Skyrim.esp,WB_Res_HealMana2_Spell_MysticWind,Mystic Wind,Light Magic,Spell,FireAndForget,Self,37,58,0,,Zenderal - Magic Patches.esp,WB_R025_MysticWind_Book
+0012DC:Apocalypse - Magic of Skyrim.esp,WB_Res_Peace4_Spell_NaturesBalance,Nature's Balance,Light Magic,Spell,FireAndForget,Aimed,185,750,2,,Zenderal - Magic Patches.esp,WB_R075_NaturesBalance_Book
+034D12:Apocalypse - Magic of Skyrim.esp,WB_Res_Disease2_Spell_Necroplague,Necroplague,Light Magic,Spell,FireAndForget,Aimed,66,103,0.5,,Zenderal - Magic Patches.esp,WB_R025_Necroplague_Book
+15E721:Apocalypse - Magic of Skyrim.esp,WB_Res_HealCurse4_Spell_PoisonedChalice,Poisoned Chalice,Light Magic,Spell,FireAndForget,Aimed,62,251,0.5,,Zenderal - Magic Patches.esp,WB_R075_PoisonedChalice_Book
+002238:KataPUMB_SpellPackage.esp,Kata_Spell_RecitalOfErodan,Recital of Erodan,Light Magic,Spell,FireAndForget,Self,100,100,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_RecitalOfErodan
+0008A8:Enderal SE - Gameplay Overhaul.esp,XionSpellPoisonResistance1,Resistance against Poison (Rank I),Light Magic,Spell,FireAndForget,Self,66,1776,0.75,,Enderal SE - Gameplay Overhaul.esp,XionPoisonResistance1
+0008A9:Enderal SE - Gameplay Overhaul.esp,XionSpellPoisonResistance2,Resistance against Poison (Rank II),Light Magic,Spell,FireAndForget,Self,105,3116,0.75,,Enderal SE - Gameplay Overhaul.esp,XionPoisonResistanceDUPLICATE003
+01E701:Apocalypse - Magic of Skyrim.esp,WB_Res_Heal4_Spell_Resurgence_NPC,Resurgence,Light Magic,Spell,FireAndForget,Self,104,421,0.5,4,Zenderal - Magic Patches.esp,WB_R075_Resurgence_Book
+0159D8:Apocalypse - Magic of Skyrim.esp,WB_Res_Tap3_Spell_Ruin,Ruin,Light Magic,Spell,FireAndForget,Aimed,66,151,0.5,,Zenderal - Magic Patches.esp,WB_R050_Ruin_Book
+01FCCA:Apocalypse - Magic of Skyrim.esp,WB_Res_Buff3_Spell_SealedResolve,Sealed Resolve,Light Magic,Spell,FireAndForget,Self,68,156,0.5,,Zenderal - Magic Patches.esp,WB_R050_SealedResolve_Book
+01F0D3:Enderal - Forgotten Stories.esm,_07E_SecondBreath,Second Breath (Rank I),Light Magic,Spell,FireAndForget,TargetActor,30,19,0.5,1,Enderal SE - Gameplay Overhaul.esp,_07E_FS_SpellSecondBreath
+01F0D5:Enderal - Forgotten Stories.esm,_14E_SecondBreath,Second Breath (Rank II),Light Magic,Spell,FireAndForget,TargetActor,45,31,0.5,1,Enderal SE - Gameplay Overhaul.esp,_14E_FS_SpellSecondBreath
+01F0D4:Enderal - Forgotten Stories.esm,_22E_SecondBreath,Second Breath (Rank III),Light Magic,Spell,FireAndForget,TargetActor,67,50,0.5,1,Enderal SE - Gameplay Overhaul.esp,_22E_FS_SpellSecondBreath
+01F0D6:Enderal - Forgotten Stories.esm,_32E_SecondBreath,Second Breath (Rank IV),Light Magic,Spell,FireAndForget,TargetActor,93,74,0.5,1,Enderal SE - Gameplay Overhaul.esp,_32E_FS_SpellSecondBreath
+01F0D2:Enderal - Forgotten Stories.esm,_55E_SecondBreath,Second Breath (Rank V),Light Magic,Spell,FireAndForget,TargetActor,124,103,0.5,1,Enderal SE - Gameplay Overhaul.esp,_55E_FS_SpellSecondBreath
+15E71A:Apocalypse - Magic of Skyrim.esp,WB_Res_Disease4_Spell_SerpentsScale,Serpent's Scale,Light Magic,Spell,FireAndForget,Self,97,393,0.5,,Zenderal - Magic Patches.esp,WB_R075_SerpentsScale_Book
+003E0F:Apocalypse - Magic of Skyrim.esp,WB_Res_Necro2_Spell_SlayLiving,Slay Living,Light Magic,Spell,FireAndForget,TargetActor,61,95,0.5,,Zenderal - Magic Patches.esp,WB_R025_SlayLiving_Book
+086B2E:Apocalypse - Magic of Skyrim.esp,WB_Res_Buff5_Spell_Transcendence,Transcendence,Light Magic,Spell,FireAndForget,Self,218,1264,2,,Zenderal - Magic Patches.esp,WB_R100_Transcendence_Book
+13DA15:Apocalypse - Magic of Skyrim.esp,WB_Res_Buff4_Spell_TreeRings_NPC,Tree Rings,Light Magic,Spell,FireAndForget,Self,81,329,0.5,,Zenderal - Magic Patches.esp,WB_R075_TreeRings_Book
+135732:Skyrim.esm,_05E_SpellTurnUndead,Turn Undead (Rank I),Light Magic,Spell,FireAndForget,Aimed,27,46,0.5,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookTurnUndead
+135731:Skyrim.esm,_15E_SpellTurnUndead,Turn Undead (Rank II),Light Magic,Spell,FireAndForget,Aimed,46,115,0.5,,Enderal SE - Gameplay Overhaul.esp,_15E_SpellBookTurnUndead
+13572F:Skyrim.esm,_25E_SpellTurnUndead,Turn Undead (Rank III),Light Magic,Spell,FireAndForget,Aimed,69,175,0.5,,Enderal SE - Gameplay Overhaul.esp,_25E_SpellBookTurnUndead
+13572E:Skyrim.esm,_35E_SpellTurnUndead,Turn Undead (Rank IV),Light Magic,Spell,FireAndForget,Aimed,98,253,0.5,,Enderal SE - Gameplay Overhaul.esp,_35E_SpellBookTurnUndead
+01FCD9:Apocalypse - Magic of Skyrim.esp,WB_Res_Blood2_Spell_WellingBlood,Welling Blood,Light Magic,Spell,FireAndForget,Aimed,45,70,0.5,,Zenderal - Magic Patches.esp,WB_R025_WellingBlood_Book
+082483:Apocalypse - Magic of Skyrim.esp,WB_Res_Heal1_Spell_WildHealing,Wild Healing,Light Magic,Spell,FireAndForget,Self,43,80,0.5,1.5,Zenderal - Magic Patches.esp,WB_R000_WildHealing_Book
+15E71D:Apocalypse - Magic of Skyrim.esp,WB_Res_Arcane4_Spell_Willpower,Willpower,Light Magic,Spell,FireAndForget,Self,30,120,0.5,,Zenderal - Magic Patches.esp,WB_R075_Willpower_Book
+12CB8D:Apocalypse - Magic of Skyrim.esp,WB_Res_Buff5_Spell_WormShroud,Worm Shroud,Light Magic,Spell,FireAndForget,Self,250,1453,2,,Zenderal - Magic Patches.esp,WB_R100_WormShroud_Book
+124EC9:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl5_Spell_AccelerationRune,Acceleration Rune,Mentalism,Spell,FireAndForget,TargetLocation,215,1250,3,,Zenderal - Magic Patches.esp,WB_A100_AccelerationRune_Book
+0064A2:Apocalypse - Magic of Skyrim.esp,WB_Alt_Detection1_Spell_Alarm,Alarm,Mentalism,Spell,FireAndForget,Self,41,76,0,,Zenderal - Magic Patches.esp,WB_A000_Alarm_Book
+002E23:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_Flesh_Aquamarine_1,Aquamarine Body (Rank I),Mentalism,Spell,FireAndForget,Self,24,266,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_Flesh_Aquamarine
+002E25:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Flesh_Aquamarine_2,Aquamarine Body (Rank II),Mentalism,Spell,FireAndForget,Self,40,631,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_Flesh_Aquamarine
+002E29:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Flesh_Aquamarine_4,Aquamarine Body (Rank IV),Mentalism,Spell,FireAndForget,Self,99,1353,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Flesh_Aquamarine
+002E2B:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Flesh_Aquamarine_5,Aquamarine Body (Rank V),Mentalism,Spell,FireAndForget,Self,120,2720,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_99_Flesh_Aquamarine
+002E27:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Flesh_Aquamarine_3,Aquamarine body (Rank III),Mentalism,Spell,FireAndForget,Self,70,935,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_Flesh_Aquamarine
+006FA6:Apocalypse - Magic of Skyrim.esp,WB_Alt_Metamagic2_Spell_OcatosRecital,Baledor's Recital,Mentalism,Spell,FireAndForget,Self,129,200,3,,Zenderal - Magic Patches.esp,WB_A025_OcatosRecital_Book
+05ECEE:Apocalypse - Magic of Skyrim.esp,WB_Alt_CombatTrick5_Spell_Battletide,Battletide,Mentalism,Spell,FireAndForget,Self,121,705,2,,Zenderal - Magic Patches.esp,WB_A100_Battletide_Book
+002E1A:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_Flesh_Beryl_1,Beryl Body (Rank I),Mentalism,Spell,FireAndForget,Self,24,266,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_Flesh_Beryl
+002E1B:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Flesh_Beryl_2,Beryl Body (Rank II),Mentalism,Spell,FireAndForget,Self,40,631,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_Flesh_Beryl
+002E1F:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Flesh_Beryl_4,Beryl Body (Rank IV),Mentalism,Spell,FireAndForget,Self,99,1353,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Flesh_Beryl
+002E21:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Flesh_Beryl_5,Beryl Body (Rank V),Mentalism,Spell,FireAndForget,Self,120,2720,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_99_Flesh_Beryl
+002E1D:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Flesh_Beryl_3,Beryl body (Rank III),Mentalism,Spell,FireAndForget,Self,70,935,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_Flesh_Beryl
+005744:KataPUMB_SpellPackage.esp,Kata_Spell_Teleport,Blink,Mentalism,Spell,FireAndForget,Aimed,70,70,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Teleport
+00210F:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_Blink_1,Blink (Rank I),Mentalism,Spell,FireAndForget,TargetLocation,21,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_Blink_1
+002112:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Blink_3,Blink (Rank I),Mentalism,Spell,FireAndForget,Aimed,70,0,0.1,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_50_Blink_B
+002110:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Blink_2,Blink (Rank II),Mentalism,Spell,FireAndForget,TargetLocation,35,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_Blink_2
+002114:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Blink_4,Blink (Rank II),Mentalism,Spell,FireAndForget,Aimed,90,0,0.1,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_75_Blink_C
+002116:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Blink_5,Blink (Rank III),Mentalism,Spell,FireAndForget,Aimed,110,0,0.1,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_99_Blink_D
+04DC90:Skyrim.esm,_01E_Magierlicht,Candlelight (Rank I),Mentalism,Spell,FireAndForget,Self,20,77,0.75,,Enderal SE - Gameplay Overhaul.esp,_00E_SpellKerzenlicht
+085656:Skyrim.esm,_15E_Magierlicht,Candlelight (Rank II),Mentalism,Spell,FireAndForget,Self,40,121,0.75,,Enderal SE - Gameplay Overhaul.esp,_15E_SpellKerzenlicht
+0F858A:Skyrim.esm,_30E_Magierlicht,Candlelight (Rank III),Mentalism,Spell,FireAndForget,Self,61,166,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellKerzenlicht
+0F858B:Skyrim.esm,_40E_Magierlicht,Candlelight (Rank IV),Mentalism,Spell,FireAndForget,Self,85,259,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellKerzenlicht
+084A9C:Apocalypse - Magic of Skyrim.esp,WB_Alt_WorldInteractions5_Spell_ControlWeather,Control Weather,Mentalism,Spell,FireAndForget,Self,215,1250,3,,Zenderal - Magic Patches.esp,WB_A100_ControlWeather_Book
+003907:Apocalypse - Magic of Skyrim.esp,WB_Alt_WorldInteractions4_Spell_DeepStorage,Deep Storage,Mentalism,Spell,FireAndForget,Self,80,325,4,,Zenderal - Magic Patches.esp,WB_A075_DeepStorage_Book
+04831E:Skyrim.esm,_00E_SpellDetectDead,Detect Dead,Mentalism,Spell,Concentration,Self,11,120,0.5,,Enderal SE - Gameplay Overhaul.esp,_00E_SpellBookDetectDead
+04D004:Skyrim.esm,_00E_SpellDetectLife,Detect Life,Mentalism,Spell,Concentration,Self,11,100,0.5,,Enderal SE - Gameplay Overhaul.esp,_00E_SpellBookDetectLife
+00AB69:Apocalypse - Magic of Skyrim.esp,WB_Alt_Unlock4_Spell_DetonateLock,Detonate Lock,Mentalism,Spell,FireAndForget,Aimed,147,595,2,,Zenderal - Magic Patches.esp,WB_A075_DetonateLock_Book
+002DF8:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_DimensionalPocket,Dimensional Pocket,Mentalism,Spell,FireAndForget,Self,55,0,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_DimensionalPocket
+03F74E:Skyrim.esm,_01E_Goetterschild,Divine Shield (Rank I),Mentalism,Spell,FireAndForget,Self,55,643,0.75,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookDivineShield
+085653:Skyrim.esm,_12E_Goetterschild,Divine Shield (Rank II),Mentalism,Spell,FireAndForget,Self,70,1142,0.75,,Enderal SE - Gameplay Overhaul.esp,_12E_SpellBookDivineShield
+0F8586:Skyrim.esm,_20E_Goetterschild,Divine Shield (Rank III),Mentalism,Spell,FireAndForget,Self,87,1687,0.75,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookDivineShield
+0F8585:Skyrim.esm,_30E_Goetterschild,Divine Shield (Rank IV),Mentalism,Spell,FireAndForget,Self,107,2449,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookDivineShield
+0F8584:Skyrim.esm,_40E_Goetterschild,Divine Shield (Rank V),Mentalism,Spell,FireAndForget,Self,132,3349,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookDivineShield
+0F8583:Skyrim.esm,_50E_Goetterschild,Divine Shield (Rank VI),Mentalism,Spell,FireAndForget,Self,160,4533,0.75,,Enderal SE - Gameplay Overhaul.esp,_50E_SpellBookDivineShield
+00B646:Apocalypse - Magic of Skyrim.esp,WB_Alt_Telekinesis2_Spell_DropZone,Drop Zone,Mentalism,Spell,FireAndForget,TargetLocation,32,50,0.5,,Zenderal - Magic Patches.esp,WB_A025_DropZone_Book
+002126:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_Shield_Fire_1,Elemental shield: Fire (Rank I),Mentalism,Spell,FireAndForget,Self,22,22,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_Shield_Fire
+002128:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Shield_Fire_2,Elemental shield: Fire (Rank II),Mentalism,Spell,FireAndForget,Self,28,48,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_Shield_Fire
+00212A:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Shield_Fire_3,Elemental shield: Fire (Rank III),Mentalism,Spell,FireAndForget,Self,38,75,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_Shield_Fire
+00212C:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Shield_Fire_4,Elemental shield: Fire (Rank IV),Mentalism,Spell,FireAndForget,Self,46,132,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Shield_Fire_4
+00212E:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Shield_Fire_5,Elemental shield: Fire (Rank V),Mentalism,Spell,FireAndForget,Self,55,207,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Shield_Fire_5
+002130:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Shield_Fire_6,Elemental shield: Fire (Rank VI),Mentalism,Spell,FireAndForget,Self,78,284,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_99_Shield_Fire
+002132:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_Shield_Frost_1,Elemental shield: Frost (Rank I),Mentalism,Spell,FireAndForget,Self,22,22,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_Shield_Frost
+002134:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Shield_Frost_2,Elemental shield: Frost (Rank II),Mentalism,Spell,FireAndForget,Self,28,48,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_Shield_Frost
+002136:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Shield_Frost_3,Elemental shield: Frost (Rank III),Mentalism,Spell,FireAndForget,Self,38,75,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_Shield_Forst
+002138:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Shield_Frost_4,Elemental shield: Frost (Rank IV),Mentalism,Spell,FireAndForget,Self,46,132,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Shield_Forst_4
+00213A:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Shield_Frost_5,Elemental shield: Frost (Rank V),Mentalism,Spell,FireAndForget,Self,55,207,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Shield_Forst_5
+00213C:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Shield_Frost_6,Elemental shield: Frost (Rank VI),Mentalism,Spell,FireAndForget,Self,78,284,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_99_Shield_Forst
+00213E:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_Shield_Shock_1,Elemental shield: Shock (Rank I),Mentalism,Spell,FireAndForget,Self,22,22,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_Shield_Shock
+002140:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Shield_Shock_2,Elemental shield: Shock (Rank II),Mentalism,Spell,FireAndForget,Self,28,48,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_Shield_Shock
+002142:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Shield_Shock_3,Elemental shield: Shock (Rank III),Mentalism,Spell,FireAndForget,Self,38,75,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_Shield_Shock
+002144:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Shield_Shock_4,Elemental shield: Shock (Rank IV),Mentalism,Spell,FireAndForget,Self,46,132,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Shield_Shock_4
+002146:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Shield_Shock_5,Elemental shield: Shock (Rank V),Mentalism,Spell,FireAndForget,Self,55,207,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Shield_Shock_5
+002148:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Shield_Shock_6,Elemental shield: Shock (Rank VI),Mentalism,Spell,FireAndForget,Self,78,284,0.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_99_Shield_Shock
+002DD4:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_MaximizeMagic_2,Empower Magic (Rank I),Mentalism,Spell,FireAndForget,Self,35,67,1.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_25_MaximizeMagic_A
+002DD6:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_MaximizeMagic_3,Empower Magic (Rank II),Mentalism,Spell,FireAndForget,Self,50,67,1.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_50_MaximizeMagic_B
+002DDA:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_MaximizeMagic_5,Empower Magic (Rank III),Mentalism,Spell,FireAndForget,Self,70,67,1.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_75_MaximizeMagic_5_C
+002DDC:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_MaximizeMagic_6,Empower Magic (Rank IV),Mentalism,Spell,FireAndForget,Self,95,67,1.6,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_99_MaximizeMagic_D
+04581C:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl4_Spell_Entomb,Entomb,Mentalism,Spell,FireAndForget,Aimed,117,475,2.5,,Zenderal - Magic Patches.esp,WB_A075_Entomb_Book
+03F74C:Skyrim.esm,_05E_SpellEquilibrium,Equilibrium (Rank I),Mentalism,Spell,Concentration,Self,1,38,0,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookEquilibrium
+0F8589:Skyrim.esm,_14E_Equilibirum,Equilibrium (Rank II),Mentalism,Spell,Concentration,Self,1,60,0,,Enderal SE - Gameplay Overhaul.esp,_14E_SpellBookEquilibrium
+0F8588:Skyrim.esm,_28E_Equilibirum,Equilibrium (Rank III),Mentalism,Spell,Concentration,Self,1,99,0,,Enderal SE - Gameplay Overhaul.esp,_28E_SpellBookEquilibrium
+1A1B71:Apocalypse - Magic of Skyrim.esp,WB_Alt_Metamagic3_Spell_MedorasMemory,Esara's Memory,Mentalism,Spell,FireAndForget,Self,131,300,0,,Zenderal - Magic Patches.esp,WB_A050_MedorasMemory_Book
+01FEB6:Enderal - Forgotten Stories.esm,_05E_FS_EssenceGift,Essence Gift (Rank I),Mentalism,Spell,FireAndForget,Self,18,2,0.3,,Enderal SE - Gameplay Overhaul.esp,_05E_FS_Spell_EssenceGift
+01FEB7:Enderal - Forgotten Stories.esm,_15E_FS_EssenceGift,Essence Gift (Rank II),Mentalism,Spell,FireAndForget,Self,32,3,0.3,,Enderal SE - Gameplay Overhaul.esp,_15E_FS_Spell_EssenceGift
+01FEB8:Enderal - Forgotten Stories.esm,_25E_FS_EssenceGift,Essence Gift (Rank III),Mentalism,Spell,FireAndForget,Self,50,6,0.3,,Enderal SE - Gameplay Overhaul.esp,_25E_FS_Spell_EssenceGift
+01FEB9:Enderal - Forgotten Stories.esm,_45E_FS_EssenceGift,Essence Gift (Rank IV),Mentalism,Spell,FireAndForget,Self,72,9,0.3,,Enderal SE - Gameplay Overhaul.esp,_45E_FS_Spell_EssenceGift
+00C13D:Apocalypse - Magic of Skyrim.esp,WB_Alt_Metamagic5_Spell_HethothsGrimoire,Eventuality Grimoire,Mentalism,Spell,FireAndForget,Self,124,719,3,,Zenderal - Magic Patches.esp,WB_A100_HethothsGrimoire_Book
+003902:Apocalypse - Magic of Skyrim.esp,WB_Alt_WorldInteractions4_Spell_FabricateObject,Fabricate Object,Mentalism,Spell,FireAndForget,Self,152,615,3,,Zenderal - Magic Patches.esp,WB_A075_FabricateObject_Book
+007A94:Apocalypse - Magic of Skyrim.esp,WB_Alt_Buff2_Spell_ReynosFins,Fins of Kilé,Mentalism,Spell,FireAndForget,Self,73,113,2,,Zenderal - Magic Patches.esp,WB_A025_ReynosFins_Book
+0049E1:KataPUMB_SpellPackage.esp,Kata_Spell_FireShield_I,Fire Shield (Rank I),Mentalism,Spell,FireAndForget,Self,22,81,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FireShield_I
+0049E4:KataPUMB_SpellPackage.esp,Kata_Spell_FireShield_II,Fire Shield (Rank II),Mentalism,Spell,FireAndForget,Self,38,150,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FireShield_II
+0049E2:KataPUMB_SpellPackage.esp,Kata_Spell_FireShield_III,Fire Shield (Rank III),Mentalism,Spell,FireAndForget,Self,55,222,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FireShield_III
+0049E3:KataPUMB_SpellPackage.esp,Kata_Spell_FireShield_IV,Fire Shield (Rank IV),Mentalism,Spell,FireAndForget,Self,68,411,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FireShield_IV
+0049E8:KataPUMB_SpellPackage.esp,Kata_Spell_FireShield_V,Fire Shield (Rank V),Mentalism,Spell,FireAndForget,Self,168,609,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FireShield_V
+00C097:KataPUMB_SpellPackage.esp,Kata_Spell_MasterTelekinesis,Force Grab,Mentalism,Spell,Concentration,Self,100,170,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MasterTelekinesis
+0049EA:KataPUMB_SpellPackage.esp,Kata_Spell_FrostShield_I,Frost Shield (Rank I),Mentalism,Spell,FireAndForget,Self,22,81,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FrostShield_I
+0049EC:KataPUMB_SpellPackage.esp,Kata_Spell_FrostShield_II,Frost Shield (Rank II),Mentalism,Spell,FireAndForget,Self,38,150,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FrostShield_II
+0049EE:KataPUMB_SpellPackage.esp,Kata_Spell_FrostShield_III,Frost Shield (Rank III),Mentalism,Spell,FireAndForget,Self,55,222,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FrostShield_III
+0049F0:KataPUMB_SpellPackage.esp,Kata_Spell_FrostShield_IV,Frost Shield (Rank IV),Mentalism,Spell,FireAndForget,Self,68,411,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FrostShield_IV
+0049F2:KataPUMB_SpellPackage.esp,Kata_Spell_FrostShield_V,Frost Shield (Rank V),Mentalism,Spell,FireAndForget,Self,168,609,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_FrostShield_V
+002E25:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl3_Spell_TharnsPrison,Girathû's Prison,Mentalism,Spell,FireAndForget,Aimed,83,190,0,,Zenderal - Magic Patches.esp,WB_A050_TharnsPrison_Book
+0AAF9E:Apocalypse - Magic of Skyrim.esp,WB_Alt_Active4_Spell_GraceOfWater,Grace of Water,Mentalism,Spell,Concentration,Self,8,25,2,,Zenderal - Magic Patches.esp,WB_A075_GraceOfWater_Book
+002E2D:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_Flesh_Heliodor_1,Heliodor Body (Rank I),Mentalism,Spell,FireAndForget,Self,24,266,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_Flesh_Heliodor
+002E2F:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Flesh_Heliodor_2,Heliodor Body (Rank II),Mentalism,Spell,FireAndForget,Self,40,631,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_Flesh_Heliodor
+002E33:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Flesh_Heliodor_4,Heliodor Body (Rank IV),Mentalism,Spell,FireAndForget,Self,99,1353,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_Flesh_Heliodor
+002E35:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Flesh_Heliodor_5,Heliodor Body (Rank V),Mentalism,Spell,FireAndForget,Self,120,2720,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_99_Flesh_Heliodor
+002E31:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Flesh_Heliodor_3,Heliodor body (Rank III),Mentalism,Spell,FireAndForget,Self,70,935,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_Flesh_Heliodor
+0AE5B7:Apocalypse - Magic of Skyrim.esp,WB_Alt_WorldInteractions4_Spell_WellocsInstantForest,Instant Forest,Mentalism,Spell,Concentration,TargetLocation,19,60,0.5,,Zenderal - Magic Patches.esp,WB_A075_WellocsInstantForest_Book
+001EAB:Enderal SE - Gameplay Overhaul.esp,XionSpellKineticBlast,Kinetic Blast,Mentalism,Spell,FireAndForget,Aimed,105,13,0.75,,Enderal SE - Gameplay Overhaul.esp,XionKineticBlastDUPLICATE001
+00CC16:Apocalypse - Magic of Skyrim.esp,WB_Alt_Metamagic4_Spell_KnowledgeIsPower,Knowledge is Power,Mentalism,Spell,FireAndForget,Self,117,475,3,,Zenderal - Magic Patches.esp,WB_A075_KnowledgeIsPower_Book
+002124:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_LightbornRecital_3,Lightborn Recital (Mystical),Mentalism,Spell,FireAndForget,Self,135,0,1,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_99_LightBornRecital_D
+001518:KataPUMB_SpellPackage.esp,Kata_Spell_LightBornRecital_I,Lightborn Recital (Rank I),Mentalism,Spell,FireAndForget,Self,80,80,2.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_LightbornRecital_I
+002120:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_LightbornRecital_1,Lightborn Recital (Rank I),Mentalism,Spell,FireAndForget,Self,31,0,1.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_LightBornRecital
+001519:KataPUMB_SpellPackage.esp,Kata_Spell_LightBornRecital_II,Lightborn Recital (Rank II),Mentalism,Spell,FireAndForget,Self,110,110,2,,KataPUMB_SpellPackage.esp,Kata_SpellBook_LightbornRecital_II
+002122:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_LightbornRecital_2,Lightborn Recital (Rank II),Mentalism,Spell,FireAndForget,Self,44,0,1.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_LightBornRecital
+00222C:KataPUMB_SpellPackage.esp,Kata_Spell_LightBornRecital_III,Lightborn Recital (Rank III),Mentalism,Spell,FireAndForget,Self,180,180,1.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_LightbornRecital_III
+00C143:Apocalypse - Magic of Skyrim.esp,WB_Alt_WorldInteractions3_Spell_LocateObject,Locate Object,Mentalism,Spell,FireAndForget,Self,94,214,3,,Zenderal - Magic Patches.esp,WB_A050_LocateObject_Book
+00541E:Apocalypse - Magic of Skyrim.esp,WB_Alt_Active1_Spell_Longstride,Longstride,Mentalism,Spell,Concentration,Self,11,13,0.6,,Zenderal - Magic Patches.esp,WB_A000_Longstride_Book
+000861:Enderal SE - Gameplay Overhaul.esp,XionSpellRealMagelight1,Magelight (Rank I),Mentalism,Spell,FireAndForget,Aimed,25,141,0.5,,Enderal SE - Gameplay Overhaul.esp,XionMagierlicht1
+000862:Enderal SE - Gameplay Overhaul.esp,XionSpellRealMagelight2,Magelight (Rank II),Mentalism,Spell,FireAndForget,Aimed,50,247,0.5,,Enderal SE - Gameplay Overhaul.esp,XionMagierlicht2
+001D67:Enderal SE - Gameplay Overhaul.esp,XionSpellRealMagelight3,Magelight (Rank III),Mentalism,Spell,FireAndForget,Aimed,76,358,0.5,,Enderal SE - Gameplay Overhaul.esp,XionMagierlicht3
+001E40:Enderal SE - Gameplay Overhaul.esp,XionSpellRealMagelight4,Magelight (Rank IV),Mentalism,Spell,FireAndForget,Aimed,106,589,0.5,,Enderal SE - Gameplay Overhaul.esp,XionMagierlicht4
+002DDE:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Unlock_1,Magic Key (Rank I),Mentalism,Spell,FireAndForget,Aimed,100,0,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_50_Unlock_B
+002DE0:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Unlock_2,Magic Key (Rank II),Mentalism,Spell,FireAndForget,Aimed,145,0,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_75_Unlock_C
+002DE2:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Unlock_3,Magic Key (Rank III),Mentalism,Spell,FireAndForget,Aimed,200,0,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_99_Unlock_D
+002DD3:KataPUMBSpellPack.esp,Kata_S_Mentalism_00_MaximizeMagic_1,Maximize Magic (Rank I),Mentalism,Spell,FireAndForget,Self,25,542,1.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_00_MaximizeMagic
+002DD8:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_MaximizeMagic_4,Maximize Magic (Rank IV),Mentalism,Spell,FireAndForget,Self,75,3184,1.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_MaximizeMagic_4
+0A59D5:Apocalypse - Magic of Skyrim.esp,WB_Alt_Teleport5_Spell_Milestones,Milestones,Mentalism,Spell,FireAndForget,TargetLocation,241,1400,4,,Zenderal - Magic Patches.esp,WB_A100_Milestones_Book
+000800:xxOpenSpells.esp,xx_OpenLockAdept,Ondusi's Key (Adept),Mentalism,Spell,FireAndForget,Aimed,40,0,1,,xxOpenSpells.esp,xx_SpellBookOpen2
+000801:xxOpenSpells.esp,xx_OpenLockApprentice,Ondusi's Key (Apprentice),Mentalism,Spell,FireAndForget,Aimed,24,0,1,,xxOpenSpells.esp,xx_SpellBookOpen1
+000802:xxOpenSpells.esp,xx_OpenLockExpert,Ondusi's Key (Expert),Mentalism,Spell,FireAndForget,Aimed,70,0,1,,xxOpenSpells.esp,xx_SpellBookOpen3
+000803:xxOpenSpells.esp,xx_OpenLockMaster,Ondusi's Key (Master),Mentalism,Spell,FireAndForget,Aimed,99,0,1,,xxOpenSpells.esp,xx_SpellBookOpen4
+1377A3:Skyrim.esm,_18E_Paralysieren,Paralyze (Rank I),Mentalism,Spell,FireAndForget,Aimed,105,35,0.75,,Enderal SE - Gameplay Overhaul.esp,_18E_SpellBookParalyze
+1377A4:Skyrim.esm,_30E_Paralysieren,Paralyze (Rank II),Mentalism,Spell,FireAndForget,Aimed,180,164,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookParalyze
+0803F2:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl2_Spell_PerilousPath,Perilous Path,Mentalism,Spell,FireAndForget,Aimed,52,80,0.5,,Zenderal - Magic Patches.esp,WB_A025_PerilousPath_Book
+002118:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_Petrify_1,Petrifying Touch (Rank I),Mentalism,Spell,FireAndForget,TargetActor,50,0,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_25_Petrify_A
+00211A:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_Petrify_2,Petrifying Touch (Rank II),Mentalism,Spell,FireAndForget,TargetActor,75,0,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_50_Petrify_B
+00211C:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_Petrify_3,Petrifying Touch (Rank III),Mentalism,Spell,FireAndForget,TargetActor,110,0,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_75_Petrify_C
+00211E:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_Petrify_4,Petrifying Touch (Rank IV),Mentalism,Spell,FireAndForget,TargetActor,155,0,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Mentalism_99_Petrify_D
+007FFD:Apocalypse - Magic of Skyrim.esp,WB_Alt_Buff1_Spell_PrepareForAdventure,Prepare for Adventure,Mentalism,Spell,FireAndForget,Self,45,84,3,,Zenderal - Magic Patches.esp,WB_A000_PrepareForAdventure_Book
+085610:Skyrim.esm,_08E_Magieschutz,Protection from Magic (Rank I),Mentalism,Spell,FireAndForget,Self,80,415,0.75,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookProtectionFromMagic
+135737:Skyrim.esm,_19E_Magieschutz,Protection from Magic (Rank II),Mentalism,Spell,FireAndForget,Self,125,951,0.75,,Enderal SE - Gameplay Overhaul.esp,_15E_SpellBookProtectionFromMagic
+135736:Skyrim.esm,_30E_Magieschutz,Protection from Magic (Rank III),Mentalism,Spell,FireAndForget,Self,176,1776,0.75,,Enderal SE - Gameplay Overhaul.esp,_25E_SpellBookProtectionFromMagic
+002150:KataPUMBSpellPack.esp,Kata_S_Mentalism_25_QuickMarch_1,Quick March (Rank I),Mentalism,Spell,FireAndForget,Self,23,716,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_25_QuickMarch
+002151:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_QuickMarch_2,Quick March (Rank II),Mentalism,Spell,FireAndForget,Self,41,1536,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_QuickMarch
+002153:KataPUMBSpellPack.esp,Kata_S_Mentalism_75_QuickMarch_3,Quick March (Rank III),Mentalism,Spell,FireAndForget,Self,75,3292,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_75_QuickMarch
+002155:KataPUMBSpellPack.esp,Kata_S_Mentalism_99_QuickMarch_4,Quick March (Rank IV),Mentalism,Spell,FireAndForget,Self,98,9021,0.5,,KataPUMBSpellPack.esp,Kata_B_Mentalism_99_QuickMarch
+00CC14:Apocalypse - Magic of Skyrim.esp,WB_Alt_WorldInteractions2_Spell_RaiseWall,Raise Wall,Mentalism,Spell,Concentration,Self,7,8,0.5,,Zenderal - Magic Patches.esp,WB_A025_RaiseWall_Book
+002232:KataPUMB_SpellPackage.esp,Kata_Spell_RecitalOfMana,Recital of Mana (Rank I),Mentalism,Spell,FireAndForget,Self,90,90,2,,KataPUMB_SpellPackage.esp,Kata_SpellBook_ManaRecital_I
+00214D:KataPUMBSpellPack.esp,Kata_S_Mentalism_50_RecitalOfMana,Recital of mana (Rank I),Mentalism,Spell,FireAndForget,Self,50,0,1.6,,KataPUMBSpellPack.esp,Kata_B_Mentalism_50_RecitalOfMana
+001E39:Enderal SE - Gameplay Overhaul.esp,XionSpellFeatherfall,Safe Fall,Mentalism,Spell,FireAndForget,Self,80,33,0.75,,Enderal SE - Gameplay Overhaul.esp,XionFeatherfallDUPLICATE001
+01EFCC:Enderal - Forgotten Stories.esm,_05E_FS_SaldrinsTouch,Saldrin's Touch,Mentalism,Spell,FireAndForget,Aimed,92,11,1.5,,Enderal SE - Gameplay Overhaul.esp,_05E_FS_Spell_SaldrinsTouch
+0049F4:KataPUMB_SpellPackage.esp,Kata_Spell_ShockShield_I,Shock Shield (Rank I),Mentalism,Spell,FireAndForget,Self,22,81,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_ShockShield_I
+0049F6:KataPUMB_SpellPackage.esp,Kata_Spell_ShockShield_II,Shock Shield (Rank II),Mentalism,Spell,FireAndForget,Self,38,150,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_ShockShield_II
+0049FB:KataPUMB_SpellPackage.esp,Kata_Spell_ShockShield_III,Shock Shield (Rank III),Mentalism,Spell,FireAndForget,Self,55,222,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_ShockShield_III
+0049F8:KataPUMB_SpellPackage.esp,Kata_Spell_ShockShield_IV,Shock Shield (Rank IV),Mentalism,Spell,FireAndForget,Self,68,411,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_ShockShield_IV
+00570C:KataPUMB_SpellPackage.esp,Kata_Spell_ShockShield_V,Shock Shield (Rank V),Mentalism,Spell,FireAndForget,Self,168,609,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_ShockShield_V
+01EFD2:Enderal - Forgotten Stories.esm,_10E_FS_SpectralChestSP,Spectral Chest (Rank I),Mentalism,Spell,FireAndForget,Self,75,234,1,,Enderal SE - Gameplay Overhaul.esp,_10E_FS_Spell_SpectralChest
+01EFD4:Enderal - Forgotten Stories.esm,_30E_FS_SpectralChestSP,Spectral Chest (Rank II),Mentalism,Spell,FireAndForget,Self,110,502,1,,Enderal SE - Gameplay Overhaul.esp,_30E_FS_Spell_SpectralChest
+01EFD5:Enderal - Forgotten Stories.esm,_45E_FS_SpectralChestSP,Spectral Chest (Rank III),Mentalism,Spell,FireAndForget,Self,162,978,1,,Enderal SE - Gameplay Overhaul.esp,_45E_FS_Spell_SpectralChest
+161610:Apocalypse - Magic of Skyrim.esp,WB_Alt_Metamagic4_Spell_SilmanesSpellSentinel,Spell Sentinel,Mentalism,Spell,FireAndForget,Self,99,400,3,,Zenderal - Magic Patches.esp,WB_A075_SilmanesSpellSentinel_Book
+006A30:Apocalypse - Magic of Skyrim.esp,WB_Alt_Metamagic3_Spell_SpellTwine,Spell Twine,Mentalism,Spell,FireAndForget,Self,55,125,3,,Zenderal - Magic Patches.esp,WB_A050_SpellTwine_Book
+085607:Skyrim.esm,_01E_SpellSpellWard,Spell Ward (Rank I),Mentalism,Spell,Concentration,Self,6,117,0,,Enderal SE - Gameplay Overhaul.esp,_01E_SpellBookSpellWard
+085654:Skyrim.esm,_10E_SpellSpellWard,Spell Ward (Rank II),Mentalism,Spell,Concentration,Self,11,172,0,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookSpellWard
+085655:Skyrim.esm,_20E_SpellSpellWard,Spell Ward (Rank III),Mentalism,Spell,Concentration,Self,17,247,0,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookSpellWard
+0F858C:Skyrim.esm,_30E_SpellSpellWard,Spell Ward (Rank IV),Mentalism,Spell,Concentration,Self,24,362,0,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookSpellWard
+0F858E:Skyrim.esm,_40E_SpellSpellWard,Spell Ward (Rank V),Mentalism,Spell,Concentration,Self,32,496,0,,Enderal SE - Gameplay Overhaul.esp,_40E_SpellBookSpellWard
+0F858D:Skyrim.esm,_50E_SpellSpellWard,Spell Ward (Rank VI),Mentalism,Spell,Concentration,Self,41,654,0,,Enderal SE - Gameplay Overhaul.esp,_50E_SpellBookSpellWard
+0083E6:Enderal SE - Gameplay Overhaul.esp,XionSpellDuration,Stable Spellwork (Rank I),Mentalism,Spell,FireAndForget,Self,60,903,0.75,,Enderal SE - Gameplay Overhaul.esp,XionDuration1
+0083EB:Enderal SE - Gameplay Overhaul.esp,XionSpellDuration2,Stable Spellwork (Rank II),Mentalism,Spell,FireAndForget,Self,100,1411,0.75,,Enderal SE - Gameplay Overhaul.esp,XionDuration2
+0083F9:Enderal SE - Gameplay Overhaul.esp,XionSpellDuration3,Stable Spellwork (Rank III),Mentalism,Spell,FireAndForget,Self,145,1936,0.75,,Enderal SE - Gameplay Overhaul.esp,XionDuration3
+00D6F5:Apocalypse - Magic of Skyrim.esp,WB_Alt_Active3_Spell_StrengthOfEarth,Strength of Earth,Mentalism,Spell,Concentration,Self,32,40,2,,Zenderal - Magic Patches.esp,WB_A050_StrengthOfEarth_Book
+07FE79:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl5_Spell_TalonsOfNirn,Talons of Vyn,Mentalism,Spell,FireAndForget,Self,107,621,3.8,,Zenderal - Magic Patches.esp,WB_A100_TalonsOfNirn_Book
+01A4CC:Skyrim.esm,_10E_SpellTelekinesis,Telekinesis,Mentalism,Spell,Concentration,Self,10,170,0,,Skyrim.esm,_10E_SpellBookTelekinesis
+002E2A:Apocalypse - Magic of Skyrim.esp,WB_Alt_Telekinesis5_Spell_MalvisersGauntlet,Telekinetic Gauntlet,Mentalism,Spell,FireAndForget,Aimed,102,591,2.5,,Zenderal - Magic Patches.esp,WB_A100_MalvisersGauntlet_Book
+086B60:Apocalypse - Magic of Skyrim.esp,WB_Alt_Buff5_Spell_SothasMaelstrom,Thaumaturgic Maelstrom,Mentalism,Spell,FireAndForget,Self,107,622,0.5,,Zenderal - Magic Patches.esp,WB_A100_SothasMaelstrom_Book
+124EC7:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl5_Spell_ThrummingStone,Thrumming Stone,Mentalism,Spell,FireAndForget,TargetLocation,110,640,3.5,,Zenderal - Magic Patches.esp,WB_A100_ThrummingStone_Book
+007A8C:Apocalypse - Magic of Skyrim.esp,WB_Alt_Buff3_Spell_ThunderingHooves,Thundering Hooves,Mentalism,Spell,FireAndForget,Self,66,151,0,,Zenderal - Magic Patches.esp,WB_A050_ThunderingHooves_Book
+00A5EB:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl4_Spell_TumbleMagnet,Tumble Magnet,Mentalism,Spell,FireAndForget,Aimed,79,321,3.5,,Zenderal - Magic Patches.esp,WB_A075_TumbleMagnet_Book
+002E31:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl3_Spell_Undermine,Undermine,Mentalism,Spell,FireAndForget,Aimed,73,167,0,,Zenderal - Magic Patches.esp,WB_A050_Undermine_Book
+08560B:Skyrim.esm,_10E_Wasseratmung,Water Breathing (Rank I),Mentalism,Spell,FireAndForget,Self,55,103,0.75,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookWaterBreathing
+08560C:Skyrim.esm,_20E_Wasseratmung,Water Breathing (Rank II),Mentalism,Spell,FireAndForget,Self,87,6226,0.75,,Enderal SE - Gameplay Overhaul.esp,_20E_SpellBookWaterBreathing
+0083F1:Enderal SE - Gameplay Overhaul.esp,_30E_Wasseratmung,Water Breathing (Rank III),Mentalism,Spell,FireAndForget,Self,87,20451,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookWaterBreathing
+001CCA:Enderal SE - Gameplay Overhaul.esp,XionSpellWaterwalk,Waterwalking,Mentalism,Spell,Concentration,Self,6,10,0.1,,Enderal SE - Gameplay Overhaul.esp,XionWaterwalkDUPLICATE001
+005F2B:Apocalypse - Magic of Skyrim.esp,WB_Alt_Buff5_Spell_WindRunning,Wind Running,Mentalism,Spell,FireAndForget,Self,130,753,0,,Zenderal - Magic Patches.esp,WB_A100_WindRunning_Book
+12649C:Apocalypse - Magic of Skyrim.esp,WB_Alt_CrowdControl2_Spell_Wither,Wither,Mentalism,Spell,FireAndForget,Aimed,40,62,0,,Zenderal - Magic Patches.esp,WB_A025_Wither_Book
+1132DA:Apocalypse - Magic of Skyrim.esp,WB_Ill_Antimage2_Spell_Backlash,Backlash,Psionics,Spell,FireAndForget,Aimed,16,25,0.2,,Zenderal - Magic Patches.esp,WB_I025_Backlash_Book
+127FA7:Apocalypse - Magic of Skyrim.esp,WB_Ill_PassthroughDmg3_Spell_BloodForBlood,Blood for Blood,Psionics,Spell,FireAndForget,TargetActor,74,170,0.5,,Zenderal - Magic Patches.esp,WB_I050_BloodForBlood_Book
+0047EF:KataPUMBSpellPack.esp,Kata_S_Psionics_75_ChaoticAura_1,Chaotic Aura (Rank I),Psionics,Spell,FireAndForget,Self,96,794,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_75_ChaoticAura
+0047F0:KataPUMBSpellPack.esp,Kata_S_Psionics_99_ChaoticAura_2,Chaotic Aura (Rank II),Psionics,Spell,FireAndForget,Self,210,4663,1.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_99_ChaoticAura
+118051:Skyrim.esm,_00E_SpellClairvoyance,Clairvoyance,Psionics,Spell,Concentration,Self,15,25,0,,Skyrim.esm,_00E_SpellBookClairvoyance
+058655:Apocalypse - Magic of Skyrim.esp,WB_Ill_Command3_Spell_CompellingWhispers,Compelling Whispers,Psionics,Spell,Concentration,Aimed,19,23,0.5,,Zenderal - Magic Patches.esp,WB_I050_CompellingWhispers_Book
+06FF28:Skyrim.esm,_30E_FS_Overstrain,Counter (Rank I),Psionics,Spell,FireAndForget,Aimed,45,31,0.5,,Enderal SE - Gameplay Overhaul.esp,_30E_FS_Spell_Overstrain
+06FF1B:Skyrim.esm,_48E_FS_Overstrain,Counter (Rank II),Psionics,Spell,FireAndForget,Aimed,65,37,0.5,,Enderal SE - Gameplay Overhaul.esp,_48E_FS_Spell_Overstrain
+06FF1C:Skyrim.esm,_54E_FS_Overstrain,Counter (Rank III),Psionics,Spell,FireAndForget,Aimed,88,45,0.5,,Enderal SE - Gameplay Overhaul.esp,_54E_FS_Spell_Overstrain
+001CCE:Enderal SE - Gameplay Overhaul.esp,XionSpellSummonIllu,Create Illusion,Psionics,Spell,FireAndForget,TargetLocation,53,50,0.5,,Enderal SE - Gameplay Overhaul.esp,XionIllusion
+017509:Apocalypse - Magic of Skyrim.esp,WB_Ill_Antimage2_Spell_CurseOfTheSilent,Curse of the Silent,Psionics,Spell,FireAndForget,Aimed,63,98,0.5,,Zenderal - Magic Patches.esp,WB_I025_CurseOfTheSilent_Book
+0047A7:KataPUMBSpellPack.esp,Kata_S_Psionics_75_DeathMantle_1,Death Mantle (Rank I),Psionics,Spell,FireAndForget,Self,96,794,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_75_DeathMantle
+0098D3:KataPUMB_SpellPackage.esp,Kata_Spell_FearCloak_I,Death Mantle (Rank I),Psionics,Spell,FireAndForget,Self,80,353,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathMantle_I
+0047A8:KataPUMBSpellPack.esp,Kata_S_Psionics_99_DeathMantle_2,Death Mantle (Rank II),Psionics,Spell,FireAndForget,Self,210,4663,1.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_99_DeathMantle
+0098D4:KataPUMB_SpellPackage.esp,Kata_Spell_FearCloak_II,Death Mantle (Rank II),Psionics,Spell,FireAndForget,Self,196,968,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_DeathMantle_II
+00BB25:Apocalypse - Magic of Skyrim.esp,WB_Ill_Dispel1_Spell_DispelMagic,Dispel Magic,Psionics,Spell,FireAndForget,Self,29,55,1,,Zenderal - Magic Patches.esp,WB_I000_DispelMagic_Book
+0047D0:KataPUMBSpellPack.esp,Kata_S_Psionics_00_Diversion_1,Diversion (Rank I),Psionics,Spell,FireAndForget,Aimed,31,23578,0,,KataPUMBSpellPack.esp,Kata_B_Psionics_00_Diversion_1
+0047D1:KataPUMBSpellPack.esp,Kata_S_Psionics_25_Diversion_2,Diversion (Rank II),Psionics,Spell,FireAndForget,Aimed,44,47078,0,,KataPUMBSpellPack.esp,Kata_B_Psionics_25_Diversion
+0047D3:KataPUMBSpellPack.esp,Kata_S_Psionics_50_Diversion_3,Diversion (Rank III),Psionics,Spell,FireAndForget,Aimed,76,82578,0,,KataPUMBSpellPack.esp,Kata_B_Psionics_50_Diversion
+0047D5:KataPUMBSpellPack.esp,Kata_S_Psionics_75_Diversion_4,Diversion (Rank IV),Psionics,Spell,FireAndForget,Aimed,115,138482,0,,KataPUMBSpellPack.esp,Kata_B_Psionics_75_Diversion
+0047D7:KataPUMBSpellPack.esp,Kata_S_Psionics_99_Diversion_5,Diversion (Rank V),Psionics,Spell,FireAndForget,Aimed,218,216320,0,,KataPUMBSpellPack.esp,Kata_B_Psionics_99_Diversion
+01FE0C:Enderal - Forgotten Stories.esm,_07E_FS_Dreameater,Dreameater (Rank I),Psionics,Spell,FireAndForget,Aimed,21,32,0.6,,Enderal SE - Gameplay Overhaul.esp,_07E_FS_Spell_Dreameater
+01FE16:Enderal - Forgotten Stories.esm,_14E_FS_Dreameater,Dreameater (Rank II),Psionics,Spell,FireAndForget,Aimed,34,54,0.6,,Enderal SE - Gameplay Overhaul.esp,_14E_FS_Spell_Dreameater
+01FE17:Enderal - Forgotten Stories.esm,_24E_FS_Dreameater,Dreameater (Rank III),Psionics,Spell,FireAndForget,Aimed,47,78,0.6,,Enderal SE - Gameplay Overhaul.esp,_24E_FS_Spell_Dreameater
+01FE18:Enderal - Forgotten Stories.esm,_34E_FS_Dreameater,Dreameater (Rank IV),Psionics,Spell,FireAndForget,Aimed,61,106,0.6,,Enderal SE - Gameplay Overhaul.esp,_34E_FS_Spell_Dreameater
+01FE19:Enderal - Forgotten Stories.esm,_44E_FS_Dreameater,Dreameater (Rank V),Psionics,Spell,FireAndForget,Aimed,76,138,0.6,,Enderal SE - Gameplay Overhaul.esp,_44E_FS_Spell_Dreameater
+01FE1C:Enderal - Forgotten Stories.esm,_54E_FS_Dreameater,Dreameater (Rank VI),Psionics,Spell,FireAndForget,Aimed,92,176,0.6,,Enderal SE - Gameplay Overhaul.esp,_54E_FS_Spell_Dreameater
+0A4EF7:Apocalypse - Magic of Skyrim.esp,WB_Ill_PassthroughDmg4_Spell_EmpathicAgony,Empathic Agony,Psionics,Spell,FireAndForget,Aimed,90,366,0.5,,Zenderal - Magic Patches.esp,WB_I075_EmpathicAgony_Book
+0306AC:Apocalypse - Magic of Skyrim.esp,WB_Ill_Command4_Spell_EnslaveTheWeak,Enslave the Weak,Psionics,Spell,FireAndForget,Aimed,160,650,3,,Zenderal - Magic Patches.esp,WB_I075_EnslaveTheWeak_Book
+037332:Apocalypse - Magic of Skyrim.esp,WB_Ill_Simulacrum3_Spell_EvilTwin,Evil Twin,Psionics,Spell,Concentration,Self,27,33,3,,Zenderal - Magic Patches.esp,WB_I050_EvilTwin_Book
+043CE1:Apocalypse - Magic of Skyrim.esp,WB_Ill_PassthroughDmg3_Spell_FigmentOfPain,Figment of Pain,Psionics,Spell,FireAndForget,TargetActor,96,219,0.5,,Zenderal - Magic Patches.esp,WB_I050_FigmentOfPain_Book
+15B849:Apocalypse - Magic of Skyrim.esp,WB_Ill_Simulacrum4_Spell_FoldIntoEther,Fold Into Ether,Psionics,Spell,FireAndForget,Aimed,147,275,0.2,,Zenderal - Magic Patches.esp,WB_I075_FoldIntoEther_Book
+00AAE8:Apocalypse - Magic of Skyrim.esp,WB_Ill_Invis4_Spell_Ghostwalk,Ghostwalk,Psionics,Spell,FireAndForget,Self,111,450,0.5,,Zenderal - Magic Patches.esp,WB_I075_Ghostwalk_Book
+0C74EA:Apocalypse - Magic of Skyrim.esp,WB_Ill_PassthroughDmg5_Spell_HarrowingDirge,Harrowing Dirge,Psionics,Spell,FireAndForget,Aimed,111,643,3,,Zenderal - Magic Patches.esp,WB_I100_HarrowingDirge_Book
+046DC4:Apocalypse - Magic of Skyrim.esp,WB_Ill_Invis5_Spell_HiddenCobra,Hidden Cobra,Psionics,Spell,FireAndForget,TargetActor,119,689,3,,Zenderal - Magic Patches.esp,WB_I100_HiddenCobra_Book
+03682F:Apocalypse - Magic of Skyrim.esp,WB_Ill_TempDmg2_Spell_IllusoryFlames,Illusory Flames,Psionics,Spell,Concentration,Aimed,16,19,0.5,,Zenderal - Magic Patches.esp,WB_I025_IllusoryFlames_Book
+032C8B:Apocalypse - Magic of Skyrim.esp,WB_Ill_TempDmg3_Spell_IllusoryPyre,Illusory Pyre,Psionics,Spell,FireAndForget,TargetActor,61,140,0.5,,Zenderal - Magic Patches.esp,WB_I050_IllusoryPyre_Book
+0047BA:KataPUMBSpellPack.esp,Kata_S_Psionics_50_Inspire_1,Inspiring Aura (Rank I),Psionics,Spell,FireAndForget,Self,105,2658,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Psionics_50_Inspire_B
+0047B8:KataPUMBSpellPack.esp,Kata_S_Psionics_75_Inspire_2,Inspiring Aura (Rank II),Psionics,Spell,FireAndForget,Self,140,4153,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Psionics_75_Inspire_C
+0047B7:KataPUMBSpellPack.esp,Kata_S_Psionics_99_Inspire_3,Inspiring Aura (Rank III),Psionics,Spell,FireAndForget,Self,185,5699,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Psionics_99_Inspire_D
+0416BF:Apocalypse - Magic of Skyrim.esp,WB_Ill_Antimage5_Spell_LastWord,Last Word,Psionics,Spell,FireAndForget,Aimed,26,150,0.2,,Zenderal - Magic Patches.esp,WB_I100_LastWord_Book
+00B5B7:Apocalypse - Magic of Skyrim.esp,WB_Ill_Damage5_Spell_MagickaVoid,Magicka Void,Psionics,Spell,FireAndForget,Aimed,125,725,5,,Zenderal - Magic Patches.esp,WB_I100_MagickaVoid_Book
+00B341:KataPUMB_SpellPackage.esp,Kata_Spell_Mantra_II_Concealment,Mantra of Concealment,Psionics,Spell,FireAndForget,Self,50,2653,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Mantra_II_Concealment
+00B343:KataPUMB_SpellPackage.esp,Kata_Spell_Mantra_IV_Concentration,Mantra of Concentration,Psionics,Spell,FireAndForget,Self,180,1237,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Mantra_IV_Concentration
+00B340:KataPUMB_SpellPackage.esp,Kata_Spell_Mantra_I_Distraction,Mantra of Distraction,Psionics,Spell,FireAndForget,Self,35,2653,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Mantra_I_Distraction
+00B347:KataPUMB_SpellPackage.esp,Kata_Spell_Mantra_III_Pain_I,Mantra of Pain (One Handed),Psionics,Spell,FireAndForget,Self,80,2653,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Mantra_III_Pain_I
+00B345:KataPUMB_SpellPackage.esp,Kata_Spell_Mantra_III_Pain_II,Mantra of Pain (Two Handed),Psionics,Spell,FireAndForget,Self,80,2653,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Mantra_III_Pain_II
+00B349:KataPUMB_SpellPackage.esp,Kata_Spell_Mantra_IV_Resolve,Mantra of Resolve,Psionics,Spell,FireAndForget,Self,180,1237,3,,KataPUMB_SpellPackage.esp,Kata_SpellBook_Mantra_IV_Resolve
+01EFDD:Enderal - Forgotten Stories.esm,_25E_FS_Mesmerize,Mesmerize,Psionics,Spell,FireAndForget,Aimed,110,395,0.75,,Enderal SE - Gameplay Overhaul.esp,_25E_FS_Spell_Mesmerize
+01EFDA:Enderal - Forgotten Stories.esm,_10E_FS_Mesmerize,Mesmerize (Rank I),Psionics,Spell,FireAndForget,Aimed,75,309,0.75,,Enderal SE - Gameplay Overhaul.esp,_10E_FS_Spell_Mesmerize
+01EFDE:Enderal - Forgotten Stories.esm,_40E_FS_Mesmerize,Mesmerize (Rank III),Psionics,Spell,FireAndForget,Aimed,165,1162,0.75,,Enderal SE - Gameplay Overhaul.esp,_40E_FS_Spell_Mesmerize
+1274CF:Apocalypse - Magic of Skyrim.esp,WB_Ill_Antimage4_Spell_MimicsCloak,Mimic's Cloak,Psionics,Spell,FireAndForget,Self,107,435,0.5,,Zenderal - Magic Patches.esp,WB_I075_MimicsCloak_Book
+0378AE:Apocalypse - Magic of Skyrim.esp,WB_Ill_Command4_Spell_MindControl,Mind Control,Psionics,Spell,FireAndForget,Aimed,116,468,1,,Zenderal - Magic Patches.esp,WB_I075_MindControl_Book
+0378A9:Apocalypse - Magic of Skyrim.esp,WB_Ill_Vision2_Spell_MindVision,Mind Vision,Psionics,Spell,FireAndForget,TargetActor,58,90,1,,Zenderal - Magic Patches.esp,WB_I025_MindVision_Book
+00A613:KataPUMB_SpellPackage.esp,Kata_Spell_MindWrack_I,Mind Wrack (Rank I),Psionics,Spell,FireAndForget,Aimed,35,12,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MindWrack_I
+00A614:KataPUMB_SpellPackage.esp,Kata_Spell_MindWrack_II,Mind Wrack (Rank II),Psionics,Spell,FireAndForget,Aimed,35,23,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MindWrack_II
+00A620:KataPUMB_SpellPackage.esp,Kata_Spell_MindWrack_III,Mind Wrack (Rank III),Psionics,Spell,FireAndForget,Aimed,75,43,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MindWrack_III
+00A61D:KataPUMB_SpellPackage.esp,Kata_Spell_MindWrack_IV,Mind Wrack (Rank IV),Psionics,Spell,FireAndForget,Aimed,100,68,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MindWrack_IV
+00A61A:KataPUMB_SpellPackage.esp,Kata_Spell_MindWrack_V,Mind Wrack (Rank V),Psionics,Spell,FireAndForget,Aimed,130,79,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MindWrack_V
+00A624:KataPUMB_SpellPackage.esp,Kata_Spell_MindWrack_VI,Mind Wrack (Rank VI),Psionics,Spell,FireAndForget,Aimed,150,119,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MindWrack_VI
+00A61F:KataPUMB_SpellPackage.esp,Kata_Spell_MindWrack_VII,Mind Wrack (Rank VII),Psionics,Spell,FireAndForget,Aimed,200,154,0.5,,KataPUMB_SpellPackage.esp,Kata_SpellBook_MindWrack_VII
+0047BF:KataPUMBSpellPack.esp,Kata_S_Psionics_00_Shatter_1,Mind wrack (Rank I),Psionics,Spell,FireAndForget,Aimed,16,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_00_Shatter
+0047C2:KataPUMBSpellPack.esp,Kata_S_Psionics_25_Shatter_2,Mind wrack (Rank II),Psionics,Spell,FireAndForget,Aimed,25,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_25_Shatter
+0047C3:KataPUMBSpellPack.esp,Kata_S_Psionics_50_Shatter_3,Mind wrack (Rank III),Psionics,Spell,FireAndForget,Aimed,34,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_50_Shatter
+0047C4:KataPUMBSpellPack.esp,Kata_S_Psionics_75_Shatter_4,Mind wrack (Rank IV),Psionics,Spell,FireAndForget,Aimed,42,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_75_Shatter_4
+0047C6:KataPUMBSpellPack.esp,Kata_S_Psionics_75_Shatter_5,Mind wrack (Rank V),Psionics,Spell,FireAndForget,Aimed,58,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_75_Shatter_5
+0047C7:KataPUMBSpellPack.esp,Kata_S_Psionics_99_Shatter_6,Mind wrack (Rank VI),Psionics,Spell,FireAndForget,Aimed,76,0,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_99_Shatter
+037E1A:Apocalypse - Magic of Skyrim.esp,WB_Ill_Simulacrum5_Spell_MirrorEntity,Mirror Entity,Psionics,Spell,FireAndForget,Aimed,148,857,1,,Zenderal - Magic Patches.esp,WB_I100_MirrorEntity_Book
+000875:Enderal SE - Gameplay Overhaul.esp,XionSpellNightEye,Night Eye,Psionics,Spell,FireAndForget,Self,59,15,0.5,,Enderal SE - Gameplay Overhaul.esp,XionNightVision
+000878:Enderal SE - Gameplay Overhaul.esp,XionSpellNightmare,Nightmare,Psionics,Spell,FireAndForget,TargetActor,73,1116,0.5,,Enderal SE - Gameplay Overhaul.esp,XionNightmareDUPLICATE001
+08558A:Apocalypse - Magic of Skyrim.esp,WB_Ill_Simulacrum1_Spell_PaleShadow,Pale Shadow,Psionics,Spell,FireAndForget,Aimed,21,40,0.5,,Zenderal - Magic Patches.esp,WB_I000_PaleShadow_Book
+119BD7:Skyrim.esm,_00E_Panik,Panic (Rank I),Psionics,Spell,FireAndForget,Aimed,26,26,0.5,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookPanic
+13744E:Skyrim.esm,_13E_Panik,Panic (Rank II),Psionics,Spell,FireAndForget,Aimed,42,63,0.5,,Enderal SE - Gameplay Overhaul.esp,_13E_SpellBookPanic
+137450:Skyrim.esm,_25E_Panik,Panic (Rank III),Psionics,Spell,FireAndForget,Aimed,62,116,0.5,,Enderal SE - Gameplay Overhaul.esp,_24E_SpellBookPanic
+137451:Skyrim.esm,_30E_Panik,Panic (Rank IV),Psionics,Spell,FireAndForget,Aimed,83,188,0.5,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookPanic
+137452:Skyrim.esm,_37E_Panik,Panic (Rank V),Psionics,Spell,FireAndForget,Aimed,105,273,0.5,,Enderal SE - Gameplay Overhaul.esp,_37E_SpellBookPanic
+137453:Skyrim.esm,_42E_Panik,Panic (Rank VI),Psionics,Spell,FireAndForget,Aimed,127,371,0.5,,Enderal SE - Gameplay Overhaul.esp,_42E_SpellBookPanic
+001CCD:Enderal SE - Gameplay Overhaul.esp,XionSpellRuneFear,Panic Rune,Psionics,Spell,FireAndForget,TargetLocation,100,0,1.1,,Enderal SE - Gameplay Overhaul.esp,XionFearRune
+0047E0:KataPUMBSpellPack.esp,Kata_S_Psionics_50_PhaseRetreat_1,Phase Retreat (Rank I),Psionics,Spell,FireAndForget,Self,66,156,0.8,,KataPUMBSpellPack.esp,Kata_B_Psionics_50_PhaseRetreat
+0047E2:KataPUMBSpellPack.esp,Kata_S_Psionics_75_PhaseRetreat_2,Phase Retreat (Rank I),Psionics,Spell,FireAndForget,Self,125,46,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Psionics_75_PhaseRetreat_C
+0047E4:KataPUMBSpellPack.esp,Kata_S_Psionics_99_PhaseRetreat_3,Phase Retreat (Rank II),Psionics,Spell,FireAndForget,Self,175,100,0.5,,EGO - KataPUMB Spell Package.esp,Kata_B_Psionics_99_PhaseRetreat_D
+06FF26:Skyrim.esm,_30E_FS_PsionicPush,Psionic Push (Rank I),Psionics,Spell,FireAndForget,Aimed,48,204,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_FS_Spell_PsionicPush
+06FF1E:Skyrim.esm,_48E_FS_PsionicPush,Psionic Push (Rank II),Psionics,Spell,FireAndForget,Aimed,68,329,0.75,,Enderal SE - Gameplay Overhaul.esp,_48E_FS_Spell_PsionicPush
+01E8DE:Enderal - Forgotten Stories.esm,_54E_FS_PsionicPush,Psionic Push (Rank III),Psionics,Spell,FireAndForget,Aimed,90,489,0.75,,Enderal SE - Gameplay Overhaul.esp,_54E_FS_Spell_PsionicPush
+01E8C9:Enderal - Forgotten Stories.esm,_05E_FS_Psychose,Psychosis (Rank I),Psionics,Spell,FireAndForget,Aimed,17,12,0.3,,Enderal SE - Gameplay Overhaul.esp,_05E_FS_Spell_Psychose
+01E8D4:Enderal - Forgotten Stories.esm,_15E_FS_Psychose,Psychosis (Rank II),Psionics,Spell,FireAndForget,Aimed,26,18,0.3,,Enderal SE - Gameplay Overhaul.esp,_15E_FS_Spell_Psychose
+01E8D5:Enderal - Forgotten Stories.esm,_24E_FS_Psychose,Psychosis (Rank III),Psionics,Spell,FireAndForget,Aimed,36,26,0.3,,Enderal SE - Gameplay Overhaul.esp,_24E_FS_Spell_Psychose
+01E8D6:Enderal - Forgotten Stories.esm,_30E_FS_Psychose,Psychosis (Rank IV),Psionics,Spell,FireAndForget,Aimed,46,36,0.3,,Enderal SE - Gameplay Overhaul.esp,_30E_FS_Spell_Psychose
+01E8D7:Enderal - Forgotten Stories.esm,_48E_FS_Psychose,Psychosis (Rank V),Psionics,Spell,FireAndForget,Aimed,57,48,0.3,,Enderal SE - Gameplay Overhaul.esp,_48E_FS_Spell_Psychose
+01E8D8:Enderal - Forgotten Stories.esm,_54E_FS_Psychose,Psychosis (Rank VI),Psionics,Spell,FireAndForget,Aimed,68,62,0.3,,Enderal SE - Gameplay Overhaul.esp,_54E_FS_Spell_Psychose
+085B03:Apocalypse - Magic of Skyrim.esp,WB_Ill_Simulacrum5_Spell_PullFromEternity,Pull From Eternity,Psionics,Spell,FireAndForget,Aimed,119,689,4.5,,Zenderal - Magic Patches.esp,WB_I100_PullFromEternity_Book
+0321BA:Apocalypse - Magic of Skyrim.esp,WB_Ill_TempDmg5_Spell_ScreamOfPain,Scream of Pain,Psionics,Spell,FireAndForget,Self,277,1607,2.5,,Zenderal - Magic Patches.esp,WB_I100_ScreamOfPain_Book
+03789F:Apocalypse - Magic of Skyrim.esp,WB_Ill_Simulacrum4_Spell_Seidstone,Seidstone,Psionics,Spell,FireAndForget,Aimed,85,344,0,,Zenderal - Magic Patches.esp,WB_I075_Seidstone_Book
+031C4D:Apocalypse - Magic of Skyrim.esp,WB_Ill_Invis3_Spell_Shadowbond,Shadowbond,Psionics,Spell,FireAndForget,TargetActor,80,182,0.5,,Zenderal - Magic Patches.esp,WB_I050_Shadowbond_Book
+00C0AC:Apocalypse - Magic of Skyrim.esp,WB_Ill_PassthroughDmg2_Spell_SharedTrauma,Shared Trauma,Psionics,Spell,FireAndForget,Aimed,42,65,0.5,,Zenderal - Magic Patches.esp,WB_I025_SharedTrauma_Book
+0DD94B:Apocalypse - Magic of Skyrim.esp,WB_Ill_Invis5_Spell_Shroudwalk,Shroudwalk,Psionics,Spell,FireAndForget,Self,232,1345,3.5,,Zenderal - Magic Patches.esp,WB_I100_Shroudwalk_Book
+137787:Skyrim.esm,_15E_Lautlos,Silence (Rank I),Psionics,Spell,FireAndForget,Self,58,20,0.75,,Enderal SE - Gameplay Overhaul.esp,_15E_SpellBookSilence
+137793:Skyrim.esm,_30E_Lautlos,Silence (Rank II),Psionics,Spell,FireAndForget,Self,94,309,0.75,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookSilence
+15B843:Apocalypse - Magic of Skyrim.esp,WB_Ill_Antimage1_Spell_SilveryBarbs,Silvery Barbs,Psionics,Spell,FireAndForget,Aimed,22,42,0.5,,Zenderal - Magic Patches.esp,WB_I000_SilveryBarbs_Book
+1A4A50:Apocalypse - Magic of Skyrim.esp,WB_Ill_Antimage3_Spell_SleepingDogs,Sleeping Dogs,Psionics,Spell,FireAndForget,Aimed,127,290,0.5,,Zenderal - Magic Patches.esp,WB_I050_SleepingDogs_Book
+137796:Skyrim.esm,_05E_Erzeurnen,Soothe (Rank I),Psionics,Spell,FireAndForget,Aimed,28,24,0.5,,Enderal SE - Gameplay Overhaul.esp,_05E_SpellBookProvoke
+137797:Skyrim.esm,_10E_Erzeurnen,Soothe (Rank II),Psionics,Spell,FireAndForget,Aimed,46,62,0.5,,Enderal SE - Gameplay Overhaul.esp,_10E_SpellBookProvoke
+137798:Skyrim.esm,_17E_Erzeurnen,Soothe (Rank III),Psionics,Spell,FireAndForget,Aimed,68,119,0.5,,Enderal SE - Gameplay Overhaul.esp,_17E_SpellBookProvoke
+137799:Skyrim.esm,_25E_Erzeurnen,Soothe (Rank IV),Psionics,Spell,FireAndForget,Aimed,91,200,0.5,,Enderal SE - Gameplay Overhaul.esp,_25E_SpellBookProvoke
+13779A:Skyrim.esm,_30E_Erzeurnen,Soothe (Rank V),Psionics,Spell,FireAndForget,Aimed,115,299,0.5,,Enderal SE - Gameplay Overhaul.esp,_30E_SpellBookProvoke
+13779B:Skyrim.esm,_37E_Erzeurnen,Soothe (Rank VI),Psionics,Spell,FireAndForget,Aimed,139,417,0.5,,Enderal SE - Gameplay Overhaul.esp,_37E_SpellBookProvoke
+001CCC:Enderal SE - Gameplay Overhaul.esp,XionSpellRuneCalm,Soothing Rune,Psionics,Spell,FireAndForget,TargetLocation,105,0,1.1,,Enderal SE - Gameplay Overhaul.esp,XionCharmRune
+085579:Apocalypse - Magic of Skyrim.esp,WB_Ill_Simulacrum5_Spell_SpectralWarband,Spectral Warband,Psionics,Spell,FireAndForget,Self,216,1256,3,,Zenderal - Magic Patches.esp,WB_I100_SpectralWarband_Book
+002E88:KataPUMBSpellPack.esp,Kata_S_Psionics_25_Summon_Spirit_3_,Summon Spirit (Rank II): Pus Beetle,Psionics,Spell,FireAndForget,TargetLocation,79,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_25_Summon_Spirit_3
+002E8A:KataPUMBSpellPack.esp,Kata_S_Psionics_50_Summon_Spirit_4,Summon Spirit (Rank III): Leopard,Psionics,Spell,FireAndForget,TargetLocation,96,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_50_Summon_Spirit_4
+002E8C:KataPUMBSpellPack.esp,Kata_S_Psionics_50_Summon_Spirit_5,Summon Spirit (Rank III): Lion,Psionics,Spell,FireAndForget,TargetLocation,106,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_50_Summon_Spirit_5
+002E8E:KataPUMBSpellPack.esp,Kata_S_Psionics_75_Summon_Spirit_6_,Summon Spirit (Rank IV): Troll,Psionics,Spell,FireAndForget,TargetLocation,118,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_75_Summon_Spirit_6
+002E92:KataPUMBSpellPack.esp,Kata_S_Psionics_99_Summon_Spirit_8,Summon Spirit (Rank V): Mammoth,Psionics,Spell,FireAndForget,TargetLocation,168,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_99_Summon_Spirit_8
+002E94:KataPUMBSpellPack.esp,Kata_S_Psionics_99_Summon_Spirit_9,Summon Spirit (Rank VI): Colossus,Psionics,Spell,FireAndForget,TargetLocation,210,360,0.5,,KataPUMBSpellPack.esp,Kata_B_Psionics_99_Summon_Spirit_9
+00BB22:Apocalypse - Magic of Skyrim.esp,WB_Ill_Antimage2_Spell_Thoughtsteal,Thoughtsteal,Psionics,Spell,FireAndForget,Aimed,64,100,0.5,,Zenderal - Magic Patches.esp,WB_I025_Thoughtsteal_Book
+001CCB:Enderal SE - Gameplay Overhaul.esp,XionSpellSilenceUNUSED,Unstable Thoughts,Psionics,Spell,FireAndForget,Aimed,63,0,0.5,,Enderal SE - Gameplay Overhaul.esp,XionSilence
+037E24:Apocalypse - Magic of Skyrim.esp,WB_Ill_Invis4_Spell_Vanish,Vanish,Psionics,Spell,FireAndForget,Self,168,680,3,,Zenderal - Magic Patches.esp,WB_I075_Vanish_Book
+15B847:Apocalypse - Magic of Skyrim.esp,WB_Ill_Invis4_Spell_HrormirsMisdirection,Veil of Misdirection,Psionics,Spell,FireAndForget,TargetActor,74,301,0.5,,Zenderal - Magic Patches.esp,WB_I075_HrormirsMisdirection_Book
+05E21C:Apocalypse - Magic of Skyrim.esp,WB_Ill_TempDmg5_Spell_Wyrd,Wyrd,Psionics,Spell,FireAndForget,Self,189,1100,3,,Zenderal - Magic Patches.esp,WB_I100_Wyrd_Book
+03C5F5:Skyrim.esm,_00E_Teleport_MarkSpell,Mark,,LesserPower,FireAndForget,Self,100,0,3,,Enderal SE - Gameplay Overhaul.esp,_00E_SpellBookTeleportMark
+03C5F6:Skyrim.esm,_00E_Teleport_ReturnSpell,Return,,LesserPower,FireAndForget,Self,125,0,3,,Enderal SE - Gameplay Overhaul.esp,_00E_SpellBookTeleportReturn

@@ -63,6 +63,8 @@ Thumbs.db
 # !src/<PatchName>/Scripts/compiled/*.pex
 !src/SkipToTamingTheWaves/Scripts/compiled/
 !src/SkipToTamingTheWaves/Scripts/compiled/*.pex
+!src/KataFixes/Scripts/compiled/
+!src/KataFixes/Scripts/compiled/*.pex
 
 # Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
 # lookups. Large, regenerated locally from each machine's own copy, never committed.
@@ -71,3 +73,11 @@ Thumbs.db
 # FormKey cache built by arch-docs/EGO/tools/ego_report.py from /reference/ — ~13 MB, derived,
 # rebuild with `python arch-docs/EGO/tools/ego_report.py index`.
 /arch-docs/EGO/tools/.ego_index.json
+
+# MagicExtract (arch-docs/magic/): build output, and the fat per-chain provenance dump.
+# The dataset JSON/CSV/MD in arch-docs/magic/ IS committed — only these derived pieces are not.
+/arch-docs/magic/tools/MagicExtract/bin/
+/arch-docs/magic/tools/MagicExtract/obj/
+/arch-docs/magic/data/.provenance.json
+
+/zenderal/

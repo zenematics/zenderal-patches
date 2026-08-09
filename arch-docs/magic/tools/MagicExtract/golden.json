@@ -1,0 +1,29 @@
+{
+  "_comment": "Hand-verified fixtures asserted against the emitted JSON on every run. Each covers one risk; see arch-docs/magic/README.md.",
+  "fixtures": [
+    { "_why": "override resolution + EGO renames the EditorID",
+      "dataset": "spells", "formKey": "01C789:Skyrim.esm", "field": "editorId", "op": "eq", "value": "NPCFireball" },
+    { "_why": "EGO's manual base cost wins over base Enderal's 133",
+      "dataset": "spells", "formKey": "01C789:Skyrim.esm", "field": "cost.baseCost", "op": "eq", "value": 38 },
+    { "_why": "EGO CLEARED HalfCostPerk (null, not inherited) — the Spriggit-YAML-omits-defaults trap",
+      "dataset": "spells", "formKey": "01C789:Skyrim.esm", "field": "halfCostPerk", "op": "null" },
+    { "_why": "winner attribution",
+      "dataset": "spells", "formKey": "01C789:Skyrim.esm", "field": "provenance.winner", "op": "eq", "value": "Enderal SE - Gameplay Overhaul.esp" },
+    { "_why": "REAL drift detection: EGO changes SteelTempest durations 7/11/15 → 10/13/16 but keeps stored BaseCost 334; live auto-cost is 400",
+      "dataset": "spells", "formKey": "07FB46:Skyrim.esm", "field": "cost.computedAutoCost", "op": "eq", "value": 400 },
+    { "_why": "the +66 drift EGO introduced without recomputing",
+      "dataset": "spells", "formKey": "07FB46:Skyrim.esm", "field": "cost.costDrift", "op": "eq", "value": 66 },
+    { "_why": "cost formula magnitude branch: (1,3)/(2,4)/(3,5) at MGEF BaseCost 600, untouched by any override",
+      "dataset": "spells", "formKey": "03C790:Skyrim.esm", "field": "cost.computedAutoCost", "op": "eq", "value": 1565 },
+    { "_why": "GMST fMagicCasterSkillCostMult: winner is EGO with 1.1 (base Enderal says 0.5)",
+      "dataset": "game-settings", "formKey": "0F1E59:Skyrim.esm", "field": "value", "op": "eq", "value": 1.1 },
+    { "_why": "BSA-embedded strings: Dismembering Framework.esm is Localized, ships no loose Strings, only its BSA — this name resolving proves the BSA lookup path",
+      "dataset": "spells", "formKey": "000809:Dismembering Framework.esm", "field": "name", "op": "eq", "value": "Dismember Slow Time Effect" },
+    { "_why": "a record overridden by a HEDR-1.71 plugin: it DOES win (BEES loads it) and is flagged",
+      "dataset": "spells", "formKey": "000899:BowRapidCombo.esp", "field": "provenance.winner", "op": "eq", "value": "Bow Rapid Combo Balance.esp" },
+    { "_why": "…and the BEES dependency is visible per record",
+      "dataset": "spells", "formKey": "000899:BowRapidCombo.esp", "field": "provenance.winnerNeedsBees", "op": "eq", "value": true },
+    { "_why": "third-party new-record path (KataPUMB defines its own FormID space)",
+      "dataset": "spells", "formKey": "0020FB:KataPUMBSpellPack.esp", "field": "provenance.isNewRecord", "op": "eq", "value": true }
+  ]
+}

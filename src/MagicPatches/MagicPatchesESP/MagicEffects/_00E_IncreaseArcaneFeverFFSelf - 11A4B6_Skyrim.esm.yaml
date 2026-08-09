@@ -1,0 +1,52 @@
+FormKey: 11A4B6:Skyrim.esm
+EditorID: _00E_IncreaseArcaneFeverFFSelf
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArkanistenfieberBlitzheilungSCN
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_ArkanistenfieberIMOD
+      Object: 103755:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Class_Thaumaturge_P07_MentalExpert
+      Object: 069D07:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_IncreaseArcaneFeverM
+      Object: 02F10B:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Player_sArcaneFeverIncreased
+      Object: 036F95:Skyrim.esm
+    - MutagenObjectType: ScriptBoolProperty
+      Name: bVisuals
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Arcane Fever
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 0A9B1E:Skyrim.esm
+Flags:
+- Detrimental
+BaseCost: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01C859:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 057C61:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 03E958:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Worsens your Arcane Fever by <mag>%.

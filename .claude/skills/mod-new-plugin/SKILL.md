@@ -58,8 +58,10 @@ them as records appear. Do not scaffold empty ones.
 ## Steps
 
 1. **Write `src/<PatchName>/<PatchName>ESP/RecordData.yaml`.** Fill `ModKey`, the ESL flag, and the
-   masters from the answers above. `GameRelease` is **`EnderalSE`**. Set a real `Stats.Version` —
-   SSE Wrye Bash rejects `0.85`-style versions, so use `1.0` or similar:
+   masters from the answers above. `GameRelease` is **`EnderalSE`**. `Stats.Version` **is the HEDR
+   header-version float, not a mod version — it must be `1.7`.** (`1.0` builds fine and produced a
+   HEDR-1.0 plugin once; `1.71` is invisible to Enderal's 1.5.97 engine. Every shipped patch here
+   is 1.7.):
 
    ```yaml
    SpriggitSource:
@@ -72,7 +74,7 @@ them as records appear. Do not scaffold empty ones.
      - Small                      # omit this list entirely if not ESL-flagged
      Author: <author>
      Stats:
-       Version: 1.0
+       Version: 1.7
      MasterReferences:
      - Master: Skyrim.esm
        FileSize: 0

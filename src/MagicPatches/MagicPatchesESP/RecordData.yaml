@@ -1,0 +1,28 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Magic Patches.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Author: Zenderal
+  Description: Magic compatibility and balance patches for the Zenderal list. Currently reprices Apocalypse - Magic of Skyrim player spells onto the EGO cost ladder.
+  Stats:
+    Version: 1.7
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: KataPUMBSpellPack.esp
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Apocalypse - Magic of Skyrim.esp
+    FileSize: 0
+  - Master: EGO - KataPUMB Spell Package.esp
+    FileSize: 0
+  INTV: 1
