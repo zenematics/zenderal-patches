@@ -1,8 +1,8 @@
-FormKey: 000800:Zenderal - Skip To Taming The Waves.esp
-EditorID: ZP_SkipTTW
+FormKey: 000800:Zenderal - Skip The Prologue.esp
+EditorID: ZP_SkipProlog
 VirtualMachineAdapter:
   Scripts:
-  - Name: ZP_SkipTTW_Functions
+  - Name: ZP_SkipProlog_Functions
     Properties:
     - MutagenObjectType: ScriptObjectProperty
       Name: _00E_Class_ClassMenuWord
@@ -25,9 +25,6 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: _00E_MQP03_MagicFeverSpell
       Object: 02506B:Skyrim.esm
-    - MutagenObjectType: ScriptObjectProperty
-      Name: _00E_MQ04_FeuerloescherSpell
-      Object: 032A23:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
       Name: _00E_Music_Special_Act1Theme
       Object: 0BEB42:Skyrim.esm
@@ -53,14 +50,8 @@ VirtualMachineAdapter:
       Name: MQ01
       Object: 02EBA0:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
-      Name: MQ02
-      Object: 02EBA1:Skyrim.esm
-    - MutagenObjectType: ScriptObjectProperty
-      Name: MQ03
-      Object: 02B251:Skyrim.esm
-    - MutagenObjectType: ScriptObjectProperty
-      Name: MQ04
-      Object: 02EBA2:Skyrim.esm
+      Name: MQ02_D0_PlayersWakeUpmarker02
+      Object: 0C41D9:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
       Name: NordRace
       Object: 033899:Skyrim.esm
@@ -71,15 +62,9 @@ VirtualMachineAdapter:
       Name: PlayerREF
       Object: 000014:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
-      Name: RedguardRace
-      Object: 033898:Skyrim.esm
-    - MutagenObjectType: ScriptObjectProperty
       Name: TalentPoints
       Object: 05BCFA:Skyrim.esm
-    - MutagenObjectType: ScriptObjectProperty
-      Name: ZP_SkipTTW_sClassChoice
-      Object: 000803:Zenderal - Skip To Taming The Waves.esp
-Filter: ZP_SkipTTW\
+Filter: ZP_SkipProlog\
 Stages:
 - Index: 5
   Flags:

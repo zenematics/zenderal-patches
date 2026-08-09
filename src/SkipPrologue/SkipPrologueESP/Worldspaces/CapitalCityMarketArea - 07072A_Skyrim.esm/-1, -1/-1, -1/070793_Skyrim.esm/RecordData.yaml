@@ -10,8 +10,8 @@ Regions:
 Location: 0A1A12:Skyrim.esm
 Temporary:
 - MutagenObjectType: PlacedObject
-  FormKey: 000802:Zenderal - Skip To Taming The Waves.esp
-  Base: 000801:Zenderal - Skip To Taming The Waves.esp
+  FormKey: 000802:Zenderal - Skip The Prologue.esp
+  Base: 000801:Zenderal - Skip The Prologue.esp
   Primitive:
     Bounds: 200, 200, 200
     Color: '#00CC4C33'

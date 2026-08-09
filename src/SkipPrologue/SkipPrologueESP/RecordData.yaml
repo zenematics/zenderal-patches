@@ -1,7 +1,7 @@
 SpriggitSource:
   PackageName: Spriggit.Yaml.Skyrim
   Version: 0.40
-ModKey: Zenderal - Skip To Taming The Waves.esp
+ModKey: Zenderal - Skip The Prologue.esp
 GameRelease: EnderalSE
 ModHeader:
   Flags:
@@ -10,9 +10,9 @@ ModHeader:
     Version: 1.7
   Author: Zenderal
   Description: >-
-    Starts a new game with the main quest advanced to the end of "Taming the Waves" (MQ04).
-    Runs character creation, then completes MQ01-MQ04 and grants the rewards they hand out.
-    Supersedes Skip Intro SE - do not install both.
+    Skips Enderal's prologue. Runs character creation, then starts you awake at Jespar's camp
+    the morning after the shipwreck, with "The Void" (MQ02) running and the Arcane Fever in
+    play. Supersedes Skip Intro SE - do not install both.
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0

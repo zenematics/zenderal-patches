@@ -1,5 +1,5 @@
-Scriptname ZP_SkipTTW_Trigger extends ObjectReference
-{Zenderal - Skip To Taming The Waves. Fires once on a brand-new game and deletes itself.
+Scriptname ZP_SkipProlog_Trigger extends ObjectReference
+{Zenderal - Skip The Prologue. Fires once on a brand-new game and deletes itself.
  Shape copied from Davipb's SkipIntro_Trigger, which is the proven archetype for this.}
 
 Event OnTriggerEnter(ObjectReference akActionRef)
@@ -21,5 +21,5 @@ ObjectReference Property PlayerREF Auto
 ; Typed so we can call BeginSkip() directly. SkipIntro used a stage fragment for this; calling
 ; the function keeps the quest record free of QF fragment plumbing, which is awkward to
 ; hand-author in Spriggit YAML.
-ZP_SkipTTW_Functions Property SkipQuest Auto
+ZP_SkipProlog_Functions Property SkipQuest Auto
 Quest Property MQ01 Auto

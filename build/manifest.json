@@ -50,14 +50,15 @@
       ]
     },
     {
-      "name": "Zenderal - Skip To Taming The Waves",
-      "archiveName": "Zenderal - Skip To Taming The Waves",
+      "$comment": "New-game-only. Skips the prologue and starts the player awake at Jespar's camp with MQ02 'The Void' running; the whole skip is MQ01.SetStage(130), whose own fragment does the handoff. Mutually exclusive with Skip Intro SE.",
+      "name": "Zenderal - Skip The Prologue",
+      "archiveName": "Zenderal - Skip The Prologue",
       "fomod": false,
-      "scripts": { "from": "src/SkipToTamingTheWaves/Scripts/compiled", "to": "Scripts" },
+      "scripts": { "from": "src/SkipPrologue/Scripts/compiled", "to": "Scripts" },
       "plugins": [
         {
-          "yamlSource": "src/SkipToTamingTheWaves/SkipToTamingTheWavesESP",
-          "dest": "Zenderal - Skip To Taming The Waves.esp"
+          "yamlSource": "src/SkipPrologue/SkipPrologueESP",
+          "dest": "Zenderal - Skip The Prologue.esp"
         }
       ]
     },

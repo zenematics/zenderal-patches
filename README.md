@@ -329,16 +329,19 @@ archive that matches the build of johnskyrim's mod you own:
 - **Switching later is safe.** The six original swords keep their FormIDs across both archives, so
   swapping one for the other leaves blades already in your inventory or in a save intact.
 
-### `Zenderal - Skip To Taming The Waves`
+### `Zenderal - Skip The Prologue`
 
 - **DO NOT INSTALL ALONGSIDE *Skip Intro SE*.** Both mods repoint Enderal's game-start marker and
   place their own start trigger. This mod replaces it — disable Skip Intro SE first.
-- Start a new game and you get character creation as normal, then begin in Ark with the main quest
-  advanced to the end of *"Taming the Waves"* (MQ04). MQ01–MQ04 are completed in order, so Enderal's
-  own quest scripts hand out their EP, gold and teleport scrolls, and the prologue's Arcane Fever is
-  cleared exactly as Lishari's ritual would.
-- The MQ02 dream normally decides your class, so the mod **asks instead** — Warrior, Mage or Rogue —
-  and gives you that class's starting skillbooks.
+- Start a new game and you get character creation as normal, then **wake up in Jespar's camp the
+  morning after the shipwreck** — the point Enderal itself puts you at once *"A New Beginning"*
+  (MQ01) is over. The childhood dream, the ship, the near-death vision, the ravine and the dam are
+  all behind you; *"A New Beginning"* shows as completed in your journal.
+- You start with the memory point, learning point, meditation and rags the prologue gives you, and
+  with the **Arcane Fever already at 15**, exactly as if you had walked there. *"The Void"* (MQ02)
+  is running, and *"Arcane Fever"* (NQ41) appears the moment you first talk to Jespar.
+- **Your class is still chosen in-game.** Enderal decides it during the MQ02 conversations with
+  Jespar, which you now play normally, so the mod does not ask and does not pre-empt it.
 - **Existing saves are unaffected:** the trigger checks that the main quest has not started and
   deletes itself either way.
 
