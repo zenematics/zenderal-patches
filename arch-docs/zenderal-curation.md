@@ -227,6 +227,8 @@ Living's `BanishTargetFXActivator` so the banish has no visual effect. The patch
 dangling reference of its own. Guessing replacements would be inventing mechanisms, so they are left
 and recorded here instead.
 
+| *(original tuning, not a conversion)* | — | Sprint speed felt sluggish for both the player and NPCs. | **FasterSprint** → `Zenderal - Faster Sprint.esp` | Global (player + NPC) sprint speed boost, overriding EGO's sprint values directly. Overrides `NPC_Sprinting_MT`/`AIControlledNPC_Sprinting_MT` (`ForwardWalk`/`ForwardRun` only). **Must load after `Enderal SE - Gameplay Overhaul.esp`.** |
+
 ### Modern visuals
 
 | Mod | Version | Why | Patch | Notes |

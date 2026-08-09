@@ -60,6 +60,17 @@
           "dest": "Zenderal - Skip To Taming The Waves.esp"
         }
       ]
+    },
+    {
+      "name": "Zenderal - Faster Sprint",
+      "archiveName": "Zenderal - Faster Sprint",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/FasterSprint/FasterSprintESP",
+          "dest": "Zenderal - Faster Sprint.esp"
+        }
+      ]
     }
   ]
 }

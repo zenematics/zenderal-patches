@@ -1,0 +1,14 @@
+FormKey: 034D9C:Skyrim.esm
+EditorID: NPC_Sprinting_MT
+Name: NPCSprinting
+ForwardWalk: 528
+ForwardRun: 528
+BackWalk: 238.35
+BackRun: 238.35
+RotateInPlaceWalk: 90.00003
+RotateInPlaceRun: 90.00003
+RotateWhileMovingRun: 90.00003
+AnimationChangeThresholds:
+  Directional: 3.4028235E+38
+  MovementSpeed: 3.4028235E+38
+  RotationSpeed: 3.4028235E+38

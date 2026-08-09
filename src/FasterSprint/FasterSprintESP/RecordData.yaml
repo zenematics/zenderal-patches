@@ -1,0 +1,18 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Faster Sprint.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.0
+  Author: Zenderal
+  Description: >-
+    Increases sprint speed (player and NPCs) by 80% over EGO - Enderal Gameplay Overhaul's
+    current values. Must load after EGO SE - Gameplay Overhaul.esp.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

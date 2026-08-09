@@ -1,0 +1,11 @@
+FormKey: 0F3469:Skyrim.esm
+EditorID: AIControlledNPC_Sprinting_MT
+Name: AIControlledNPCSprinting
+ForwardWalk: 540
+ForwardRun: 540
+BackWalk: 243.756
+BackRun: 243.756
+AnimationChangeThresholds:
+  Directional: 3.4028235E+38
+  MovementSpeed: 3.4028235E+38
+  RotationSpeed: 3.4028235E+38
