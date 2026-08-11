@@ -17,12 +17,25 @@ the master's stock - forwarding those would revert the winner's balance work (gu
 Leveling Redone trims heavily: it cuts Milbert from 91 entries to 33. Get this filter wrong
 and a "restore the lost stock" patch quietly undoes a rebalance mod.
 
+COLLATERAL vs DELIBERATE - the discriminator, and the whole reason this tool is worth running.
+A dropped entry is only a BUG if the winner **does not master the loser**. A plugin cannot make
+a decision about records it cannot see: Leveling Redone masters Skyrim/FS/EGO only, so when it
+overrode seven merchant chests it had no idea Apocalypse's 160 tomes, Kata's staves or
+xxOpenSpells' books were ever there - they were collateral. But it DOES master EGO, so when its
+Gaboff chest drops EGO's two Gaboff-priced learning books and substitutes the standard cheaper
+ones, that is the mod doing its job. Same for its stripping ~25 Lehrbuch/Handwerksbuch skill
+books off Adlerauge and the Blacksmith: it is a LEVELING overhaul, and those are leveling items.
+
+Reporting both classes as "lost stock" is how this tool nearly caused a patch that would have
+fought a rebalance mod. Only the collateral class is listed by default.
+
 WHAT IT CANNOT SEE. Only what is serialized under reference/mods/. The list carries 300+
 plugins; a conflict from one nobody has decompiled will not appear here. A silent report
-means "none among the trees present", not "none".
+means "none among the trees present", not "none". It also cannot tell a substitution from a
+deletion within the collateral class - always read the two records before patching.
 
 Usage:  python src/KataFixes/tools/00-audit-vendor-conflicts.py [--all]
-        --all also lists conflicts already handled by a Zenderal patch.
+        --all also lists deliberate drops and conflicts a Zenderal patch already handles.
 """
 import json
 import os
@@ -69,7 +82,7 @@ def load_order():
 
 
 def plugin_roots():
-    """{plugin name: serialized tree root} for every plugin under reference/mods/."""
+    """{plugin name: (tree root, {declared masters, lowercased})} for reference/mods/."""
     roots = {}
     for dirpath, _, files in os.walk(REF):
         if "RecordData.yaml" not in files:
@@ -77,7 +90,8 @@ def plugin_roots():
         text = open(os.path.join(dirpath, "RecordData.yaml"), encoding="utf-8", newline="").read()
         m = re.search(r"^ModKey: ([^\r\n]+?)\r?$", text, re.M)
         if m:
-            roots[m.group(1)] = dirpath
+            masters = {x.lower() for x in re.findall(r"^  - Master: ([^\r\n]+?)\r?$", text, re.M)}
+            roots[m.group(1)] = (dirpath, masters)
     return roots
 
 
@@ -94,7 +108,7 @@ def main():
 
     # (type, record filename) -> {plugin: path}
     records = {}
-    for plugin, root in roots.items():
+    for plugin, (root, _) in roots.items():
         if plugin.lower() not in order:
             continue
         for rtype in LIST_TYPES:
@@ -127,30 +141,35 @@ def main():
             if not lost:
                 continue
             hexid = re.search(r" - ([0-9A-F]{6})_", fn)
-            skip = (rtype, fn) in ours or (hexid and hexid.group(1) in DELIBERATE)
+            # The winner declared the loser as a master, so it SAW these entries and chose to
+            # drop or substitute them. That is the mod working, not a conflict to repair.
+            deliberate = loser.lower() in roots[winner][1]
+            why = ("deliberate: winner masters the loser" if deliberate
+                   else DELIBERATE.get(hexid.group(1) if hexid else ""))
+            skip = (rtype, fn) in ours or why is not None
             if skip:
                 handled += 1
                 if not show_all:
                     continue
-            findings.append((rtype, fn, loser, winner, len(lost), skip))
+            findings.append((rtype, fn, loser, winner, len(lost), skip, why))
 
     if not findings:
-        print(f"no unhandled conflicts across {len(records)} records"
-              f" ({handled} already covered by a Zenderal patch)")
+        print(f"no collateral stock loss across {len(records)} records"
+              f" ({handled} deliberate or already patched)")
         return
     print(f"{'TYPE':<14} {'RECORD':<46} {'LOST BY':<34} {'DELETED BY':<30} N")
-    for rtype, fn, loser, winner, n, done in sorted(findings, key=lambda r: -r[4]):
-        hexid = re.search(r" - ([0-9A-F]{6})_", fn)
-        mark = ""
-        if done:
-            why = DELIBERATE.get(hexid.group(1) if hexid else "")
-            mark = f"  [deliberate: {why}]" if why else "  [already patched]"
+    for rtype, fn, loser, winner, n, done, why in sorted(findings, key=lambda r: -r[4]):
+        mark = ("  [%s]" % (why or "already patched")) if done else ""
         print(f"{rtype:<14} {fn.split(' - ')[0][:45]:<46} {loser[:33]:<34} {winner[:29]:<30} {n}{mark}")
-    print(f"\n{sum(n for *_, n, done in findings if not done)} entries lost across"
-          f" {len({(t, f) for t, f, _, _, _, d in findings if not d})} records."
-          " Each is stock the player can never obtain.")
-    print("Fix by overriding the record with the WINNER's version plus the losers' own entries -"
-          " see src/KataFixes/tools/01-merge-vendor-chests.py.")
+    open_n = sum(n for *_, n, done, _ in findings if not done)
+    if open_n:
+        print(f"\n{open_n} entries lost across"
+              f" {len({(t, f) for t, f, _, _, _, d, _ in findings if not d})} records."
+              " The winner does not master the loser, so it never saw these - collateral, not"
+              " a decision. Each is stock the player can never obtain.")
+        print("Fix by overriding the record with the WINNER's version plus the losers' own"
+              " entries - see src/KataFixes/tools/01-merge-vendor-chests.py."
+              " Read both records first: a substitution is not a deletion.")
 
 
 if __name__ == "__main__":

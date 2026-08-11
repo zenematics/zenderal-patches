@@ -621,12 +621,9 @@ version from **EGO's** YAML file, not the master's.
 ### A LIST-SHAPED record is replaced wholesale, so a late override silently deletes stock
 
 **[verified 2026-08-11]** This is the single most productive bug class found in this list so far —
-**230 entries across 13 records**, every one installed, enabled and unobtainable. 214 across seven
-merchant chests are now restored by `Zenderal - Kata Fixes.esp`, 10 more sit in a test container
-nobody sees (deliberately left), and **6 across 5 records are still open** — EGO's own two Gaboff
-learning books, a silver arrow at two smiths, and `_60E_XionFireNovaMythic` in a leveled list and on
-the NQ29 boss. Read this before authoring any patch that touches a vendor chest, an NPC inventory
-or a leveled list.
+**214 entries across seven merchant chests**, every one installed, enabled and unobtainable, all
+now restored by `Zenderal - Kata Fixes.esp`. Read this before authoring any patch that touches a
+vendor chest, an NPC inventory or a leveled list.
 
 The engine does not merge a Container's `Items:`, an NPC's inventory or a LeveledItem's `Entries:`.
 **The last plugin to override the record supplies the entire list.** So when mod A adds 45 spell
@@ -649,11 +646,28 @@ python src/KataFixes/tools/00-audit-vendor-conflicts.py        # read-only; --al
 
 It reads the live load order from the MO2 profile, walks every serialized plugin under
 `reference/mods/`, and reports each list-shaped record where a later plugin drops an earlier one's
-entries — filtering out what a Zenderal patch already covers. It only sees what is serialized, so a
-silent report means "none among the trees present", **not** "none": decompile the mod first if you
-are patching near it.
+entries — filtering out deliberate drops (see below) and what a Zenderal patch already covers.
+**It currently reports the list clean: no collateral stock loss across 1837 records.** It only sees
+what is serialized, so a silent report means "none among the trees present", **not** "none":
+decompile the mod first if you are patching near it.
 
-Two things to get right when fixing one, both of which are easy to get backwards:
+> **COLLATERAL vs DELIBERATE — check this before calling anything a bug.** A dropped entry is only
+> a defect if **the winner does not declare the loser as a master.** A plugin cannot make a decision
+> about records it cannot see. Leveling Redone masters only `Skyrim.esm`, FS and EGO, so it had no
+> idea Apocalypse's tomes or Kata's staves were ever in those seven chests — pure collateral. But it
+> *does* master EGO, so its Gaboff chest dropping EGO's two Gaboff-priced learning books and
+> substituting the standard cheaper ones (`00775E` at 265g for `00840A` at 400g, base Enderal's
+> `0CE135` for `00840B`) is the mod doing its job — as is stripping ~25 `_00E_Lehrbuch*` /
+> `_00E_Handwerksbuch*` skill books off Adlerauge and the Blacksmith. It is a **leveling** overhaul
+> and those are leveling items. Likewise `EGO - KataPUMB Spell Package.esp` swapping
+> `_60E_XionFireNovaMythic` for its own `_60E_XionRecitalMythic`.
+>
+> **[verified 2026-08-11]** All five of those read as "lost stock" on a naive entry diff and all five
+> are correct behaviour; the auditor's first version reported them and nearly bought a patch that
+> would have fought a rebalance mod. And note the second trap inside the collateral class: a
+> **substitution is not a deletion** — compare entry counts and read both records before patching.
+
+Two more things to get right when fixing a genuine one, both easy to get backwards:
 
 1. **Start from the WINNER's record, not the master's.** The winner's trims and value changes are
    deliberate balance work and must be forwarded.
