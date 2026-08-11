@@ -1,0 +1,163 @@
+FormKey: 13824A:Skyrim.esm
+EditorID: _00E_Merchant_UC_Barnabas
+ObjectBounds:
+  First: -48, -23, 0
+  Second: 48, 26, 49
+Name:
+  TargetLanguage: English
+  Value: Chest
+Model:
+  File: Clutter\Upperclass\UpperChest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 715
+- Item:
+    Item: 020B4E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E3:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E6:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4F3:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05ACDB:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 05ACE4:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0672A6:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0672A8:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0672D6:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 071CF3:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 0773ED:Skyrim.esm
+    Count: 18
+- Item:
+    Item: 07B898:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07B8C7:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 08A520:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0905A2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0A19FE:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0BFA34:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0BFA35:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0F76D8:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 10E670:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 118209:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 11820A:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 13745B:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 13745C:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 13745D:Skyrim.esm
+    Count: 6
+- Item:
+    Item: 1379FF:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 137A05:Skyrim.esm
+    Count: 25
+- Item:
+    Item: 137A06:Skyrim.esm
+    Count: 10
+- Item:
+    Item: 148ABD:Skyrim.esm
+    Count: 10
+- Item:
+    Item: 030302:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 03C522:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 1A1B72:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C523:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C51F:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C524:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C521:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03C520:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03D04A:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03D04D:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03D04C:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 1A1B7B:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03D04E:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB27:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB28:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB29:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB2A:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB2B:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 1A4A52:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+- Item:
+    Item: 03DB2C:Apocalypse - Magic of Skyrim.esp
+    Count: 1
+Weight: 30

@@ -81,3 +81,7 @@ Thumbs.db
 /arch-docs/magic/data/.provenance.json
 
 /zenderal/
+
+# Python bytecode from the src/*/tools generators.
+__pycache__/
+*.pyc

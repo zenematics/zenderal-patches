@@ -7,7 +7,7 @@ ModHeader:
   Flags:
   - Small
   Author: Zenderal
-  Description: Kata-related fixes for the Zenderal list. Currently merges the magic vendor chests so KataPUMB's staves, Apocalypse's tomes and xxOpenSpells' books all survive the Leveling Redone overrides.
+  Description: Kata-related fixes for the Zenderal list. Merges all seven contested magic vendor chests so KataPUMB's staves, Apocalypse's 160 tomes and xxOpenSpells' books all survive the Leveling Redone overrides, and stocks Tarhutie in Riverville with Apocalypse's 15 novice spell tomes.
   Stats:
     Version: 1.7
   MasterReferences:

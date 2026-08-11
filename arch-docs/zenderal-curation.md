@@ -131,7 +131,17 @@ literally nothing**:
    named merchant chests**, tiered by the gold each carries — Emberlord and Fireflash `102AD5` (1800,
    Master), Torius Flameling `118050` (1430, Expert), Barnabas `13824A` (1050, Adept A/C/D), Ora
    Stonehand `0F9320` (980, Adept I/R), Maxus Tabbakus `022BF2` (620, Apprentice), Milbert Foxhand
-   `127928` (530, Novice). Every tome is buyable at exactly one shop.
+   `127928` (530, Novice). Every tome is buyable at exactly one shop — except the 15 novice ones,
+   which `Zenderal - Kata Fixes.esp` also sells at **Tarhutie in Riverville**, since Milbert is in
+   Ark and Riverville is the town a level-1 player is actually standing in.
+
+   > **All six of those chests lose to `EGO SE - Leveling Redone.esp`** (load order 166 vs
+   > Apocalypse's 125), which carries none of Apocalypse's stock — so out of the box **all 160
+   > vendor tomes are unobtainable**, verified 2026-08-11 against the serialized trees.
+   > `Zenderal - Kata Fixes.esp` repairs all six plus Tarhutie: 214 entries restored across seven
+   > chests, and `src/KataFixes/tools/00-audit-vendor-conflicts.py` reports the set clean. The
+   > remaining 15 Apocalypse tomes (`WB_C*` Daedra and Dwemer summons) have no vendor **by design** —
+   > the Enderal port cut those spells.
 
    World loot stays random and keeps the leveled-list route: the tomes and all 130 scrolls are still
    injected into `_00E_SpellBooksLootA–D` and `00E_ScrollsLowChance` via the six sublists
@@ -143,6 +153,10 @@ literally nothing**:
    > after it and does not master it, so a claimed chest drops them. Because the set is identical at
    > all three, **Tarhutie is left unclaimed** and all 15 stay buyable there; that is why the
    > Apprentice tier sits with Maxus Tabbakus (620 gold) rather than Tarhutie (630).
+   >
+   > That reasoning is Apocalypse's, and it no longer binds us: `Zenderal - Kata Fixes.esp` masters
+   > `KataPUMBSpellPack.esp` and re-appends the 15 staves explicitly, so Tarhutie can now carry
+   > Apocalypse stock without costing anything. Its novice tomes were added there for that reason.
 
    **Prices were Skyrim's too.** Apocalypse costs its tomes on vanilla's ladder (~50/175/330/700/1300
    novice→master), and **Enderal's entire spell-tome range is 20–350** — two exceptions in the whole
