@@ -1,8 +1,8 @@
 FormKey: 034D9C:Skyrim.esm
 EditorID: NPC_Sprinting_MT
 Name: NPCSprinting
-ForwardWalk: 528
-ForwardRun: 528
+ForwardWalk: 844.9188
+ForwardRun: 844.9188
 BackWalk: 238.35
 BackRun: 238.35
 RotateInPlaceWalk: 90.00003

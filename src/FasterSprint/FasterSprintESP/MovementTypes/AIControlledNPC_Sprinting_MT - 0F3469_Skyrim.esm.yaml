@@ -1,8 +1,8 @@
 FormKey: 0F3469:Skyrim.esm
 EditorID: AIControlledNPC_Sprinting_MT
 Name: AIControlledNPCSprinting
-ForwardWalk: 540
-ForwardRun: 540
+ForwardWalk: 864.1215
+ForwardRun: 864.1215
 BackWalk: 243.756
 BackRun: 243.756
 AnimationChangeThresholds:
