@@ -175,11 +175,13 @@ src/                       # EVERY patch lives here — one folder per patch
     Scripts/source/*.psc   # Papyrus source — COMMITTED
     Scripts/compiled/*.pex # COMMITTED via a .gitignore exception (CI can't compile Papyrus)
     tools/*.ps1            # only for REPLACEMENT releases — the generators that rebuild the tree
+    spid/*_DISTR.ini       # SPID configs — COMMITTED; shipped via the manifest's "files" key
 build/                     # build.ps1 + manifest.json (+ a committed FOMOD tree per release that has
                            #   one - none currently do; releases carry "fomod": false)
 arch-docs/                 # patch-authoring guide, curation docs, generated build report
 arch-docs/magic/           # GENERATED magic dataset: every SPEL/MGEF/ENCH/SCRL/ALCH/SHOU/GMST with
                            #   load-order-WINNING values + provenance; /magic-extract regenerates it
+arch-docs/tools/           # third-party tool docs: SPID reference + its Enderal guide
 reference/base/            # gitignored — Enderal/vanilla decompiles + script source, LOOKUP ONLY
 reference/mods/            # gitignored — third-party list mods, serialized for lookup
 reference/mods/EGO/        #   `-- EGO's .esp + its loose scripts; documented in arch-docs/EGO/
@@ -228,6 +230,33 @@ papyrus-source/            # gitignored — spare slot for unpacked .psc trees (
 >
 > This shape carries an obligation the others don't: it redistributes a **modified copy of someone
 > else's script**, so check the author's permissions and credit them in the source header.
+
+> **A fourth shape: the SPID CONFIG release — no plugin, no script, one `.ini`.** **[verified
+> 2026-08-13]** *Spell Perk Item Distributor* 7.3.2 is in the list, and a fix that only needs to hand
+> a spell/perk/keyword/outfit to a set of NPCs is a text file, not a plugin. `build/manifest.json`
+> carries it with `"plugins": []`, `"fomod": false` and a **`"files"`** block:
+>
+> ```json
+> "files": [ { "from": "src/<PatchName>/spid/Zenderal - <Name>_DISTR.ini", "to": "" } ]
+> ```
+>
+> `"to": ""` is the **archive root** and it has to be, because SPID scans the Data folder with a
+> *non-recursive* `directory_iterator` — a config one folder down is never seen and nothing warns.
+> Three rules:
+> 1. **Prefix the shipped filename `Zenderal - `.** Two mods shipping the same `_DISTR.ini` name are
+>    an ordinary MO2 file conflict and only the winner deploys, silently. This list already has one:
+>    10 `_DISTR.ini` on disk, `9 matching inis found` in the log.
+> 2. **Write it pre-sanitised** — `~` not ` - `, no spaces around `|` or `,`, `0x` FormIDs with no
+>    leading zeros. SPID rewrites any config it has to normalise, in place, inside the deployed mod
+>    folder, so the committed and deployed copies otherwise drift.
+> 3. **Verify with `Registered X/Y` in `po3_SpellPerkItemDistributor.log`, not by launching.** Every
+>    unresolvable filter is skipped per entry and logged, never surfaced in game — Enderal currently
+>    registers **198/318** of the list's keyword entries.
+>
+> Full detail in [`arch-docs/tools/spid.md`](arch-docs/tools/spid.md) and
+> [`spid-in-enderal.md`](arch-docs/tools/spid-in-enderal.md). Read the second one before porting a
+> Skyrim config: faction, NPC and location filters almost never survive, and `NordRace` resolves in
+> Enderal to **Half Arazealean**.
 
 `src/` is the only place patch content goes, and it holds as many patches as the list needs. Each
 gets its own `src/<PatchName>/` folder and its own `build/manifest.json` release entry; the
@@ -586,6 +615,8 @@ different repo.
 | `arch-docs/enderal-record-patterns.md` | Record shapes that build clean and do nothing in-game |
 | `arch-docs/zenderal-curation.md` | What is actually in the list and why |
 | **[`arch-docs/magic/`](arch-docs/magic/)** | **The actual in-game value of every magic record** — load-order-winning SPEL/MGEF/ENCH/SCRL/ALCH/SHOU/GMST as JSON/CSV, with override chains, per-field diffs and recomputed spell costs. Start any magic-rebalance work here; regenerate with the `magic-extract` skill |
+| [`arch-docs/tools/spid.md`](arch-docs/tools/spid.md) | **SPID reference** — `_DISTR.ini` grammar and runtime behaviour for 7.3.x, rebuilt from upstream source. Corrects three things powerof3's [Nexus article](https://www.nexusmods.com/skyrimspecialedition/articles/6617) gets wrong |
+| **[`arch-docs/tools/spid-in-enderal.md`](arch-docs/tools/spid-in-enderal.md)** | **SPID in Enderal** — what a ported `_DISTR.ini` silently loses and why. Read before installing or authoring one: the list currently registers only **198/318** keyword entries |
 
 Per pillar: combat patches start at [`arch-docs/enderal/combat.md`](arch-docs/enderal/combat.md),
 visuals at [`visuals-and-world.md`](arch-docs/enderal/visuals-and-world.md), and anything touching

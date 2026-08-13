@@ -9,6 +9,7 @@
     1. verifies the committed build/staging/<release>/fomod/ exists (does not touch it)
     2. deserializes each plugin's YAML -> <release>/<dest>.esp via the Spriggit CLI (overwriting any stale copy)
     3. copies the release's committed compiled .pex into its Scripts/ folder (overwriting any stale copy)
+    3b. copies any committed loose files (e.g. a SPID _DISTR.ini) named by the release's "files" key
     4. compresses build/staging/<release>/ -> build/dist/<archiveName>.7z
   Then writes a markdown build report to arch-docs/build-report.md.
 
@@ -106,7 +107,7 @@ function Format-Size {
 }
 
 function Write-Report {
-    param($Path, $Plugins, $Archives, $Scripts)
+    param($Path, $Plugins, $Archives, $Scripts, $Files)
     # Resolve the commit for the report header. Must not throw: a brand-new clone of this template
     # has no commits yet, and `git rev-parse HEAD` then writes to stderr, which $ErrorActionPreference
     # = 'Stop' would otherwise promote into a terminating NativeCommandError and fail the build.
@@ -163,6 +164,14 @@ function Write-Report {
     [void]$sb.AppendLine('')
     foreach ($s in $Scripts) { [void]$sb.AppendLine("- $s") }
     [void]$sb.AppendLine('')
+    # Only emit the loose-files section when a release actually ships one, so the report of a
+    # plugins-and-scripts-only build is byte-identical to what it was before this key existed.
+    if (@($Files).Count -gt 0) {
+        [void]$sb.AppendLine("## Loose files - $(@($Files).Count)")
+        [void]$sb.AppendLine('')
+        foreach ($f in $Files) { [void]$sb.AppendLine("- $f") }
+        [void]$sb.AppendLine('')
+    }
     New-Item -ItemType Directory -Force (Split-Path -Parent $Path) | Out-Null
     # Write UTF-8 *without* a BOM explicitly. `Set-Content -Encoding UTF8` means BOM on Windows
     # PowerShell 5.1 but no BOM on pwsh 7, so this file would flip encoding depending on whether it
@@ -309,6 +318,7 @@ New-Item -ItemType Directory -Force $distAbs    | Out-Null
 $reportPlugins = @()
 $reportArchives = @()
 $scriptFiles = @()
+$looseFiles = @()
 
 foreach ($rel in $releases) {
     Write-Host "`n=== Release: $($rel.name) ===" -ForegroundColor Cyan
@@ -391,6 +401,46 @@ foreach ($rel in $releases) {
         Write-Host "  copied $($pex.Count) .pex -> $($rel.scripts.to)/"
     }
 
+    # 3b. copy committed loose files (a SPID _DISTR.ini, a readme, an MCM config...)
+    #
+    #     "files": [ { "from": "src/<Patch>/spid/Zenderal - X_DISTR.ini", "to": "" } ]
+    #
+    #     'to' is a folder INSIDE the archive; "" (or absent) means the archive root, which is where
+    #     a _DISTR.ini has to land - SPID scans Data\ with a NON-recursive directory_iterator, so a
+    #     config in a subfolder is never found. 'from' may name a single file or a folder (whose
+    #     contents are copied, recursively).
+    if ($rel.PSObject.Properties.Name -contains 'files' -and $rel.files) {
+        foreach ($f in $rel.files) {
+            $fFrom = Join-Path $RepoRoot $f.from
+            if (-not (Test-Path $fFrom)) {
+                throw "Release file missing: $fFrom (release '$($rel.name)', manifest key 'files'). Commit it or fix the path."
+            }
+            $fSub = ''
+            if ($f.PSObject.Properties.Name -contains 'to' -and $f.to) { $fSub = $f.to }
+            $fTo = $stageDir
+            if ($fSub) {
+                $fTo = Join-Path $stageDir $fSub
+                New-Item -ItemType Directory -Force $fTo | Out-Null
+            }
+            if (Test-Path $fFrom -PathType Container) {
+                $copied = @(Get-ChildItem $fFrom -File -Recurse)
+                if ($copied.Count -eq 0) { throw "Release file folder is empty: $fFrom (release '$($rel.name)')." }
+                Copy-Item (Join-Path $fFrom '*') $fTo -Recurse -Force
+                $names = $copied.Name
+            } else {
+                Copy-Item $fFrom $fTo -Force
+                $names = @(Split-Path -Leaf $fFrom)
+            }
+            # Accumulate, never assign - see the identical note in the .pex block above.
+            $looseFiles = @($looseFiles + ($names | ForEach-Object {
+                if ($fSub) { "$($fSub.Replace('\','/'))/$_" } else { $_ }
+            })) | Sort-Object -Unique
+            foreach ($n in $names) {
+                Write-Host "  + file $n -> $(if ($fSub) { "$fSub/" } else { '<root>' })"
+            }
+        }
+    }
+
     # 4. archive
     $archivePath = Join-Path $distAbs ("{0}.7z" -f $rel.archiveName)
     Remove-Item $archivePath -Force -ErrorAction SilentlyContinue
@@ -409,5 +459,5 @@ foreach ($rel in $releases) {
     }
 }
 
-Write-Report -Path (Join-Path $RepoRoot $Report) -Plugins $reportPlugins -Archives $reportArchives -Scripts $scriptFiles
+Write-Report -Path (Join-Path $RepoRoot $Report) -Plugins $reportPlugins -Archives $reportArchives -Scripts $scriptFiles -Files $looseFiles
 Write-Host "`nBuild complete. Archives in $ArchiveDir, report at $Report." -ForegroundColor Green
