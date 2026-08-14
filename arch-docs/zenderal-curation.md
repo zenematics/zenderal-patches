@@ -246,10 +246,15 @@ and recorded here instead.
 
 #### NPC Potions
 
-A **SPID config-only release** — no plugin, no script, one `_DISTR.ini` at the archive root. 16
-`Item =` lines hand Enderal's three restore-consumable lines plus Ambrosia to every `ActorTypeNPC`
-humanoid, level-banded onto Enderal's own `1 / 10 / 18 / 28 / 38` ladder (the bands
-`_00ETraderPotion10/20/30` and the `_01E_`…`_48E_` prefixes already use).
+A **SPID config-only release** — no plugin, no script, one `_DISTR.ini` at the archive root. 15
+`Item =` lines hand Enderal's three restore-consumable lines to every `ActorTypeNPC` humanoid,
+level-banded onto Enderal's own `1 / 10 / 18 / 28 / 38` ladder (the bands
+`_00ETraderPotion10/20/30` and the `_01E_`…`_48E_` prefixes already use), and one `DeathItem =`
+line drops Ambrosia as loot.
+
+> **This release does not work out of the box.** It requires one setting changed in *NPCs Use
+> Potions* — see [Required third-party settings](#required-third-party-settings). Without it the
+> Ambrosia line silently does nothing.
 
 | Line | FormIDs (`:Skyrim.esm`, tier order) | Chance | Count |
 |---|---|---|---|
@@ -260,17 +265,8 @@ humanoid, level-banded onto Enderal's own `1 / 10 / 18 / 28 / 38` ladder (the ba
 
 Traits `-S/-C/-D` exclude summons, children and StartsDead props.
 
-> **Ambrosia depends on a setting in another mod.** *NPCs Use Potions* ships
-> `[Removal] RemoveItemsOnDeath = true / ChanceToRemoveItem = 90 / MaxItemsLeftAfterRemoval = 2`,
-> which culls every corpse's alchemy items to at most two survivors. A single-count item never wins
-> that against the six potions above it: at chance **100**, on **every humanoid base in the game**,
-> Ambrosia reached **zero** corpses, and switching to `DeathItem =` did not help either because NUP
-> strips on a worker thread that runs after every `TESDeathEvent` hook. **Set NUP's
-> `RemoveItemsOnDeath = false`** (or loosen it hard) or this line does nothing, with no error
-> anywhere. **[verified in-game 2026-08-14]** Full write-up in `CLAUDE.md`.
->
-> Note the side effect of turning it off: the potion lines above are no longer culled either, so
-> corpses now keep everything they were given rather than at most two items.
+Counts are `1` rather than `1-2` because disabling NUP's corpse-culling (below) also removed the
+thing that was trimming potion piles; three potions per NPC is the compensation for that.
 
 Four things worth not rediscovering:
 
@@ -295,11 +291,18 @@ Four things worth not rediscovering:
   exactly as configured — 22 of 182 bases, 12.1% — but ~16 of those 22 were townsfolk (Ulla
   Featherdance, Marius Vonderfull, farmers, four City Guard bases), because `ActorTypeNPC` is mostly
   civilians. A fight is only 5–10 distinct enemy bases, so `0.88^8 ≈ 36%` of encounters yield none.
-  Raised to 30. The three potion lines never showed this because five tiers at 45–55 mean almost
-  every base wins something. **The diagnosis is `grep -a "Registered .*/" po3_SpellPerkItemDistributor.log`
-  plus a count of the `[📦]` lines — not another play session.** NPCs were *not* drinking the
-  Ambrosia: its effect `1037EC` is a `Script` archetype with no restore-actor-value, so neither the
-  vanilla AI nor `NPCs Use Potions` (which classifies by magic effect) will touch it.
+  The three potion lines never showed this because five tiers at 45–55 mean almost every base wins
+  something. **The diagnosis is `grep -a "Registered .*/" po3_SpellPerkItemDistributor.log` plus a
+  count of the `[📦]` lines — not another play session.**
+
+  Ambrosia was raised 12 → 30 on this reasoning, and **that was treating the wrong variable** — it
+  changed nothing, because the item was being *removed after distribution* (see the NUP setting
+  below), not failing to be distributed. Ruling out NPCs drinking it was correct as far as it went
+  (effect `1037EC` is a `Script` archetype with no restore-actor-value, so neither the vanilla AI nor
+  NUP's effect-based classifier will make an NPC consume it) but ruling out one consumer is not the
+  same as finding the remover. The lesson that generalises: **when a distribution looks broken, prove
+  delivery and survival separately** — a clean SPID log establishes only the first. Ambrosia is now a
+  `DeathItem =` at chance 10, which also rolls per corpse and sidesteps the per-base problem entirely.
 
 ### Modern visuals
 
@@ -341,6 +344,58 @@ tell you.
 **Patches from this repo load last**, after everything they forward, or they are not forwarding
 anything. See `enderal-record-patterns.md` §0.1.
 
+## Required third-party settings
+
+Settings **inside other mods** that a Zenderal patch depends on. These are not in this repo and not
+in any archive it builds — they live in a third-party mod's own config, so a fresh install of the
+list will have the vendor default unless the list's build sets it. **Every row here is a silent
+failure if missed**: the patch installs, its plugin or config registers cleanly, and the feature
+simply does not happen.
+
+| Mod | File | Setting | Must be | Default | Needed by |
+|---|---|---|---|---|---|
+| NPCs Use Potions | `SKSE\Plugins\NPCsUsePotions.ini` → `[Removal]` | `RemoveItemsOnDeath` | **`false`** | `true` | **NpcPotions** — the Ambrosia `DeathItem` |
+
+### NPCs Use Potions — `RemoveItemsOnDeath`
+
+**[verified in-game 2026-08-14]** NUP ships:
+
+```ini
+[Removal]
+RemoveItemsOnDeath = true
+ChanceToRemoveItem = 90
+MaxItemsLeftAfterRemoval = 2
+```
+
+Every dying NPC has its alchemy items culled — each faces a **90% removal roll** and at most **two
+survive** — and NUP does this on a worker thread (`Started RemoveItemsHandler`,
+`[TESDeathEvent] Removed item {}`), so it runs *after* anything else hooked to `TESDeathEvent`.
+
+A single-count item cannot win that against the potions distributed alongside it. Delivered at
+chance **100** to **every humanoid base in the game**, Ambrosia reached **zero** corpses. Switching
+from `Item =` to `DeathItem =` did not rescue it either — the SPID log showed `[💀][📦]` delivering
+to all four test corpses and the loot was still empty. Only `RemoveItemsOnDeath = false` made it
+appear, on every corpse, immediately.
+
+**Two ways to set it**, both writing the same file:
+
+1. **In-game MCM** — NPCs Use Potions → Removal → uncheck *"Remove items from NPCs after they died"*.
+   Authoritative, and survives NUP rewriting the ini.
+2. **Edit the ini with the game closed.** NUP reads it at load.
+
+**Side effect, and it is not small.** Turning this off stops NUP trimming *everything*, not just
+Ambrosia — corpses now keep every potion they were given rather than at most two. `NpcPotions`
+compensates by distributing count `1` per line instead of `1-2` (three potions per NPC, not six). If
+you would rather keep the trimming, the alternative is `RemoveItemsOnDeath = true` with
+`ChanceToRemoveItem` near `50` and `MaxItemsLeftAfterRemoval` near `4`, and the Ambrosia chance
+raised from 10 to roughly 20 — **an untested suggestion, not a measured one.**
+
+> **Open packaging question.** This setting has no home in the repo: `NPCsUsePotions.ini` is
+> third-party runtime config living under the gitignored `/zenderal/` tree. Before the list ships to
+> anyone else it needs to be either baked into whichever mod folder supplies NUP's config in the
+> Wabbajack build, or called out as a post-install step in the list's own documentation. Until then,
+> the Ambrosia line works on this machine and nowhere else.
+
 ## Known conversion hazards
 
 Running list of things that have bitten a Skyrim→Enderal conversion. Add to it as they come up; each
@@ -354,6 +409,7 @@ entry saves someone a test cycle.
 | Second copy of SkyUI | UI breakage, MCM oddities | Enderal already ships `SkyUI_SE.esp` |
 | Skyrim ENB/weather preset | Washed-out lighting; **broken cutscene fades** | Run one story cutscene before signing off |
 | Perks added to vanilla trees | Mod appears to do nothing | Enderal draws its own talent menu |
+| A mod that strips or replaces NPC inventories | Your distributed item never reaches the player, while the distributor's own log says it worked | Prove **delivery** and **survival** separately. See [Required third-party settings](#required-third-party-settings) |
 
 ## Release process
 
