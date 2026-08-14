@@ -11,6 +11,10 @@
 # Papyrus source is text. Let git normalize it; the CK tolerates either line ending.
 *.psc text
 
+# SPID rewrites a _DISTR.ini in place when it has to sanitize one, and writes CRLF.
+# Pin CRLF so the committed copy stays byte-identical to the deployed copy.
+*.ini text eol=crlf
+
 # Never let git mangle binaries (these are gitignored anyway, belt-and-suspenders).
 *.esp binary
 *.esm binary

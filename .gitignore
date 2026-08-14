@@ -38,6 +38,10 @@ Thumbs.db
 # rules below. Only the packed archives are ignored here.
 /build/dist/
 
+# ...except loose files copied in by the manifest's "files" key (e.g. a SPID _DISTR.ini), which are
+# DERIVED — the source of truth is src/<PatchName>/. Unlike .esp/.pex they have no extension rule.
+/build/staging/**/*.ini
+
 # Bethesda archives — large binaries, never commit. Extract scripts with bsa-extract.
 *.bsa
 *.ba2

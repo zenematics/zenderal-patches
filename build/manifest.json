@@ -72,6 +72,16 @@
           "dest": "Zenderal - Faster Sprint.esp"
         }
       ]
+    },
+    {
+      "$comment": "SPID config only - no plugin, no script, one _DISTR.ini at the archive root. Distributes Enderal's restore-health/mana/stamina potions and Ambrosia to humanoid NPCs, level-banded. Supersedes 'Zenderal - Enemy Potions.esp' - disable that mod, or bandits, Lost Ones and FS humans get potions from both.",
+      "name": "Zenderal - NPC Potions",
+      "archiveName": "Zenderal - NPC Potions",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        { "from": "src/NpcPotions/spid/Zenderal - NPC Potions_DISTR.ini", "to": "" }
+      ]
     }
   ]
 }
