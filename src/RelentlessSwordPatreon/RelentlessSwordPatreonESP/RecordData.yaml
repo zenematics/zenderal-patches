@@ -11,9 +11,8 @@ ModHeader:
   Author: johnskyrim
   Description: >-
     Relentless Sword SE by johnskyrim, converted for Enderal: Forgotten Stories SE by Zenderal.
-    ZEN edition - eight blades, including the Patreon-only Zen design. Requires johnskyrim's
-    ZEN build installed for its meshes and textures; disable its own .esp. Do not install
-    alongside the six-blade version of this patch; they are the same plugin.
+    Eight blades, including the Patreon-only Zen design. Requires johnskyrim's Patreon ZEN
+    build installed for its meshes and textures; disable its own .esp.
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0

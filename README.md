@@ -291,43 +291,25 @@ mod page**, because there is no installer to display them. Keep this section and
 description in sync; if a patch's requirements ever grow past what a description can carry, that is
 itself the signal to give it a FOMOD.
 
-### `Zenderal - Relentless Sword`
+### `Zenderal - Relentless Sword Patreon`
 
-- **Requires johnskyrim's *Relentless Sword SE*, installed separately** for its meshes and textures.
-  Pick the **CORE (runed)** branch and whichever fire/ice glow intensity you prefer in *his*
-  installer. The **NoRune** branch is not covered — it ships different meshes (`runeless.nif`) and
-  only two weapons.
-- **Any texture resolution works.** 1K, 2K and 4K ship identical plugins and identical meshes and
-  differ only in the texture files, so there is nothing to match on this side.
+- **Requires johnskyrim's Patreon *ZEN* build of *Relentless Sword SE*, installed separately** for
+  its meshes and textures. The ZEN download is a rebuild of the whole mod rather than an add-on, so
+  it goes in *instead of* the free Nexus download, not alongside it. Its installer's only choices
+  are Fire/Ice/Zen glow intensity, all asset-only; 2K and 4K are interchangeable. **The free
+  six-blade Nexus build is not supported** — that release was retired on 2026-08-16.
 - **Then DISABLE `Relentless Sword SE - Johnskyrim.esp`.** It masters the Skyrim DLC, which Enderal
   does not load, and its recipes are gated on the Skyforge — it cannot work here. This plugin
   replaces it.
-- **To forge the swords you need Handicraft 50 *and* the blueprint**, exactly like Enderal's own
+- **Eight blades**: a longsword and a greatsword, each in plain, Fire and Ice, plus johnskyrim's
+  Patreon-only *Zen* design — black handle, gold runes — as a longsword and a greatsword.
+- **To forge them you need Handicraft 50 *and* the blueprint**, exactly like Enderal's own
   shadowsteel weapons. *"Blueprint: Relentless Sword (Handicraft 50)"* sits on the noble shelf in
   Riverville Temple, and blacksmiths who deal in blueprints stock it from level 30. One copy unlocks
-  all six swords. They temper at a sharpening wheel and dismantle back into shadowsteel at a smelter.
-
-### `Zenderal - Relentless Sword Zen`
-
-**Install this archive *instead of* the one above — never both.** Both contain a plugin called
-`Zenderal - Relentless Sword.esp`; this one's copy carries eight blades rather than six. Pick the
-archive that matches the build of johnskyrim's mod you own:
-
-| You have | Install |
-|---|---|
-| the Nexus build (CORE branch) | `Zenderal - Relentless Sword.7z` |
-| the Patreon **ZEN** build | `Zenderal - Relentless Sword Zen.7z` |
-
-- **The ZEN build is Patreon-only and is a rebuild of the whole mod**, so it goes in *instead of*
-  the Nexus download. Disable `Relentless Sword SE - Johnskyrim.esp` as before. Its installer's
-  only choices are Fire/Ice/Zen glow intensity, all asset-only; 2K and 4K are interchangeable.
-- Everything from the six-blade release is present and unchanged, plus johnskyrim's *Zen* design —
-  black handle, gold runes — as a longsword and a greatsword. The same single blueprint unlocks all
-  eight.
-- The Zen pair costs **one Diamond** on top of the base recipe. Otherwise identical: Handicraft 50,
-  any forge, shadowsteel stats, tempers at a sharpening wheel, dismantles at a smelter.
-- **Switching later is safe.** The six original swords keep their FormIDs across both archives, so
-  swapping one for the other leaves blades already in your inventory or in a save intact.
+  all eight swords. They temper at a sharpening wheel and dismantle back into shadowsteel at a
+  smelter. The Zen pair costs **one Diamond** on top of the base recipe; otherwise the recipes match.
+- The plugin is still called `Zenderal - Relentless Sword.esp` — the release was renamed, the
+  plugin deliberately was not, so blades already in a save keep their FormIDs.
 
 ### `Zenderal - Skip The Prologue`
 

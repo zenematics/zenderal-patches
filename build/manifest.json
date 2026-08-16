@@ -2,24 +2,13 @@
   "$comment": "Single source of truth for the CI/local build. Each release lists the Spriggit YAML folders to deserialize and where the built .esp lands inside the release (FOMOD) tree. 'dest' paths must match the source= attributes in that release's fomod/ModuleConfig.xml (verified by build/build.ps1 -CheckFomod). Paths are repo-relative, and every patch's sources live under src/<PatchName>/. Optional per-release keys: 'scripts' {from,to} bulk-copies committed .pex; 'allowUnreferencedPlugins' silences the warning about a plugin the FOMOD never installs; 'fomod': false ships a plain archive with no installer - the right shape whenever the install has nothing to ask (a single .esp with no options, e.g. a replacement plugin), and build/staging/<name>/fomod/ must then not exist. 'files' [{from,to}] copies committed loose files (a file or a whole folder) into the archive, where to='' means the ARCHIVE ROOT - that is how a SPID _DISTR.ini ships, since SPID scans the Data folder non-recursively and never sees a config in a subfolder; combine it with 'plugins': [] for a config-only release. Optional per-plugin key: 'scripts' [{from,to}] copies individual .pex. Add releases with the /mod-new-plugin skill. An empty 'releases' array is valid - the build reports 'nothing to build' and succeeds, so the repo stays green before the first patch exists.",
   "releases": [
     {
-      "name": "Zenderal - Relentless Sword",
-      "archiveName": "Zenderal - Relentless Sword",
+      "$comment": "Targets johnskyrim's Patreon 'ZEN' build of Relentless Sword - eight blades, 43 records. The plugin filename stays 'Zenderal - Relentless Sword.esp' (not renamed with the release) so blades already in a save keep their FormIDs. The free six-blade Nexus build is no longer supported: its tree was removed 2026-08-16, along with the generator that derived this one from it - this folder is now hand-edited source of truth.",
+      "name": "Zenderal - Relentless Sword Patreon",
+      "archiveName": "Zenderal - Relentless Sword Patreon",
       "fomod": false,
       "plugins": [
         {
-          "yamlSource": "src/RelentlessSword/RelentlessSwordESP",
-          "dest": "Zenderal - Relentless Sword.esp"
-        }
-      ]
-    },
-    {
-      "$comment": "ZEN edition: a SUPERSET of the release above, shipped under the SAME plugin filename so the two are mutually exclusive - install whichever matches the build of johnskyrim's mod you own. Regenerate its YAML with src/RelentlessSwordZen/tools/build-zen-tree.ps1 after ANY change to src/RelentlessSword/.",
-      "name": "Zenderal - Relentless Sword Zen",
-      "archiveName": "Zenderal - Relentless Sword Zen",
-      "fomod": false,
-      "plugins": [
-        {
-          "yamlSource": "src/RelentlessSwordZen/RelentlessSwordZenESP",
+          "yamlSource": "src/RelentlessSwordPatreon/RelentlessSwordPatreonESP",
           "dest": "Zenderal - Relentless Sword.esp"
         }
       ]

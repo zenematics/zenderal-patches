@@ -60,16 +60,14 @@ if it needed none.
 
 | Mod | Version | Why | Patch | Notes |
 |---|---|---|---|---|
-| [Relentless Sword SE](https://www.nexusmods.com/skyrimspecialedition/mods/114022) — johnskyrim | 1.0 | A craftable high-tier longsword in 1H and 2H, in Enderal's own dark-metal register. Small (34 records); overrides only two existing records — the Riverville Temple cell and one blueprint vendor list. | **RelentlessSword** | **Install for meshes/textures only — its own `.esp` must be disabled.** Install the **CORE** (runed) branch; the fire/ice glow intensity stays johnskyrim's FOMOD choice and is asset-only. The shipped plugin cannot load or function in Enderal on four counts, all fixed in the patch — see below. |
-
+| [Relentless Sword SE](https://www.nexusmods.com/skyrimspecialedition/mods/114022) — johnskyrim, **Patreon ZEN build** | 2024-03-15 | A craftable high-tier longsword and greatsword in Enderal's own dark-metal register, in plain/Fire/Ice plus the Patreon-only *Zen* design (black handle, gold runes) — eight blades. Small (43 records); overrides only two existing records — the Riverville Temple cell and one blueprint vendor list. | **RelentlessSwordPatreon** | **Install for meshes/textures only — its own `.esp` must be disabled.** The ZEN download is johnskyrim's whole mod rebuilt, so it *replaces* the free Nexus download rather than sitting alongside it; its installer has no NoRune branch and no damage branch, the only choices being Fire/Ice/**Zen** glow intensity, all asset-only, and 2K and 4K ship identical plugins and meshes. **The free six-blade Nexus build is no longer supported** — that release and its `src/RelentlessSword/` tree were removed on 2026-08-16. The shipped plugin cannot load or function in Enderal on four counts, all fixed in the patch — see below. |
 | [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — EnaiSiaion | 9.45 (Enderal rebuild) | 175 book-taught player spells, 35 per school, filling out Enderal's spell rosters. Installed as two mod folders: the original (assets) + "Apocalypse - Enderal Patch" (the [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) rebuild of its `.esp` at HEDR 1.70 with Enderal distribution/pricing/fever). | **MagicPatches** | The rebuild made it *load and distribute*; **`Zenderal - Magic Patches.esp` makes it *balanced*** — its magicka costs kept Skyrim's scale, 4–7× EGO's ladder (FF tier medians 393/720 vs EGO's 97/124 at expert/master). The patch overrides all 175 book-taught player spells with `ManualCostCalc` + repriced `BaseCost` onto EGO's per-tier medians. Regenerate via `src/MagicPatches/tools/`. Its vendor-chest stock is restored by **KataFixes** (`Zenderal - Kata Fixes.esp`) — the real winner of those chests turned out to be `EGO SE - Leveling Redone.esp`, which was silently wiping Apocalypse's tomes, Kata's staves and xxOpenSpells' books from Funkentanz/Torius/Tarhutie. Pack-2 Kata duplication resolved in **KataFixes**: its recompiled distribution script no longer injects the 29 spell lines both Kata packs ship (pack 1's EGO-rebalanced copies remain the obtainable ones; pack 2 keeps its unique spells). New games only — the injection quest is RunOnce. |
-| Relentless Sword SE — **ZEN build** (johnskyrim, Patreon) | 2024-03-15 | The same sword with a black handle and gold runes, as a seventh design. Ships johnskyrim's whole mod rebuilt, so it *replaces* the Nexus download rather than sitting alongside it. | **RelentlessSwordZen** | **Install in place of the Nexus build**, for meshes/textures only — its own `.esp` must be disabled. Then install the **`Zenderal - Relentless Sword Zen`** archive *instead of* the plain one: both ship a plugin called `Zenderal - Relentless Sword.esp`, and the ZEN archive's copy carries all eight blades. **Never install both.** Its installer has no NoRune branch and no damage branch; the only choices are Fire/Ice/**Zen** glow intensity, all asset-only. 2K and 4K downloads ship identical plugins and meshes. |
 
-**The ZEN build is a superset, and its six shared blades are unchanged where it matters**
-(verified 2026-08-06): same FormIDs, same model paths, same stats. It differs only in display names
-(`Relentless Ice` → `Relentless - Ice`) and a couple of animation flags — neither of which reaches
-the game, because our patch supplies those six records and johnskyrim's plugin is disabled. Its
-CORE meshes are re-exports (~390 KB vs ~750 KB) but sit at the same paths and reference the same
+**The ZEN build is a superset of the Nexus one, and its six shared blades are unchanged where it
+matters** (verified 2026-08-06): same FormIDs, same model paths, same stats. It differs only in
+display names (`Relentless Ice` → `Relentless - Ice`) and a couple of animation flags — neither of
+which reaches the game, because our patch supplies those six records and johnskyrim's plugin is
+disabled. Its CORE meshes are re-exports (~390 KB vs ~750 KB) but sit at the same paths and reference the same
 textures, so `Zenderal - Relentless Sword.esp` works against it unchanged. Its Zen recipes gate on
 the Skyforge (`0F46CE`) and the Companions global (`0F46D1`), neither of which exists in Enderal —
 the same defect as the base mod, fixed the same way. Its one extra ingredient, `063B47`, **does**
@@ -90,7 +88,7 @@ was kept.
    possession of a blueprint. The blueprint —
    `JS_CraftingPlan_RelentlessSword`, *"Blueprint: Relentless Sword (Handicraft 50)"* — is a
    `MiscItem` built from Enderal's `_00E_CraftingPlan_04E_SwordOfTheRighteousPathForged`, and one
-   copy unlocks all six swords. It has two sources:
+   copy unlocks all eight swords. It has two sources:
    - hand-placed on the noble shelf (`13476D`) in **Riverville Temple** (`FlusshaimTemple`), which
      is the only cell this patch overrides;
    - added at Level 30 to **`_00ETraderCraftingPlansC`** (`148ABE`), the vendor tier its Handicraft-50
