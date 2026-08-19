@@ -40,7 +40,11 @@ Thumbs.db
 
 # ...except loose files copied in by the manifest's "files" key (e.g. a SPID _DISTR.ini), which are
 # DERIVED — the source of truth is src/<PatchName>/. Unlike .esp/.pex they have no extension rule.
+# Add one line per extension a "files" block copies, or the staged copy gets committed alongside
+# the src/ original and the two drift.
 /build/staging/**/*.ini
+/build/staging/**/*.txt
+/build/staging/**/*.psc
 
 # Bethesda archives — large binaries, never commit. Extract scripts with bsa-extract.
 *.bsa
@@ -69,6 +73,8 @@ Thumbs.db
 !src/SkipPrologue/Scripts/compiled/*.pex
 !src/KataFixes/Scripts/compiled/
 !src/KataFixes/Scripts/compiled/*.pex
+!src/ControllerTweaks/Scripts/compiled/
+!src/ControllerTweaks/Scripts/compiled/*.pex
 
 # Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
 # lookups. Large, regenerated locally from each machine's own copy, never committed.

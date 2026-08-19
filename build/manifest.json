@@ -63,6 +63,19 @@
       ]
     },
     {
+      "$comment": "No plugin - three file overrides that adapt the Complete Controller Setup stack to Enderal, and MUST WIN the file conflict against their source mods (sort this above 'Complete Controller Setup' and 'Dear Diary Dark Mode'). (1) controlmap.txt: CCS 5.3.5's, with the Quick Stats gamepad combo (B+DpadUp, 0x2000+0x0001) unbound to 0xff - it opened Skyrim's vanilla perk starfield, which Enderal never uses. (2) interface/skyui/config.txt: forked from DEAR DIARY DARK MODE's copy, not SkyUI's, because Dear Diary's wins the conflict; [Input] gamepad sort bindings moved off the buttons CCS uses for equip/drop (prevColumn 274->280 LT, nextColumn 275->281 RT, sortOrder 272->273 R3), so RB-equip and L3-drop stop re-sorting the item list. (3) _00E_Game_SkillmenuSC.pex: SureAI's script recompiled with four '; ZP' additions binding B+DpadUp to open the Hero Menu and B to close it - NO Property added/removed/renamed (verified by diffing .pex string tables against a pristine build), so the host plugin's VMAD still binds. The chord lives HERE and not in Gamepad++ because Gamepad++ goes inert while any menu is open, so nothing it binds can ever CLOSE a menu; it also stores its bindings in the save, which a distributed list cannot rely on. Do NOT also ship a Gamepad++ preset emitting 'H' on the same chord - both would fire and the menu would toggle shut instantly. Requires: Complete Controller Setup 99978, Gamepad++ 27007, Auto Input Switch 54309 v1.1.2 (the SE build - the current main file is AE-only and silently fails on 1.5.97), plus bGamepadEnable=1 in EnderalPrefs.ini's [MAIN] section. Full setup in arch-docs/zenderal-controller-setup.md. Credit: SureAI, for _00E_Game_SkillmenuSC.",
+      "name": "Zenderal - Controller Tweaks",
+      "archiveName": "Zenderal - Controller Tweaks",
+      "fomod": false,
+      "plugins": [],
+      "scripts": { "from": "src/ControllerTweaks/Scripts/compiled", "to": "Scripts" },
+      "files": [
+        { "from": "src/ControllerTweaks/Interface", "to": "Interface" },
+        { "from": "src/ControllerTweaks/Scripts/source", "to": "Scripts/Source" },
+        { "from": "src/ControllerTweaks/readme.txt", "to": "" }
+      ]
+    },
+    {
       "$comment": "SPID config only - no plugin, no script, one _DISTR.ini at the archive root. Distributes Enderal's restore-health/mana/stamina potions and Ambrosia to humanoid NPCs, level-banded. Supersedes 'Zenderal - Enemy Potions.esp' - disable that mod, or bandits, Lost Ones and FS humans get potions from both.",
       "name": "Zenderal - NPC Potions",
       "archiveName": "Zenderal - NPC Potions",

@@ -402,6 +402,7 @@ Each patch's own ESL block. Overrides are not listed — they consume nothing.
 | `SkipPrologue` → `Zenderal - Skip The Prologue.esp` | `0x800–0x802` | `800` Quest `ZP_SkipProlog`, `801` Activator `ZP_SkipProlog_StartTrigger`, `802` its placed trigger ref in Ark market cell `070793`. Overrides `MQ101 03372B` (alias 183 `StartMarkerRef` → `TeleportMarker_ArkMarket 0EAB74`) and forwards FS's `CapitalCityMarketArea 07072A` header — neither costs anything from the block. Lands the player awake at Jespar's camp with `MQ02` *"The Void"* running; see the note below the table for the mechanism |
 | `FasterSprint` → `Zenderal - Faster Sprint.esp` | none (overrides only) | Global (player + NPC) sprint speed +20% on top of EGO's current values — overrides `NPC_Sprinting_MT` (`034D9C:Skyrim.esm`, `ForwardWalk`/`ForwardRun` 440→528) and `AIControlledNPC_Sprinting_MT` (`0F3469:Skyrim.esm`, 450→540). `BackWalk`/`BackRun`/rotation fields left untouched. Master: `Skyrim.esm` only (no EGO FormKey is referenced, only its record is overridden — but this plugin **must load after** `Enderal SE - Gameplay Overhaul.esp` in-game to win the conflict; declaring it as a master isn't required since no FormLink to it exists). See `arch-docs/zenderal-curation.md`. |
 | `NpcPotions` → `Zenderal - NPC Potions_DISTR.ini` | _(none — SPID config, no plugin)_ | **The repo's first worked example of the fourth release shape** (`"plugins": []` + a `files` block, `"to": ""`). 16 `Item =` lines distributing Enderal's three restore-consumable lines plus Ambrosia to `ActorTypeNPC` humanoids, level-banded `1/9`, `10/17`, `18/27`, `28/37`, `38` — the same 10/18/28/38 ladder as `_00ETraderPotion10/20/30`. Health `_NNE_Genesungstrank` (`0028C8`, `0028C5`, `0028C6`, `0028C7`, `0028C9` — **non-monotonic, do not sort**) at chance 55; mana `_NNE_Manatrank` (`0028DB`, `019E3B`, `090892`, `09B6CB`, `1037F7`) and stamina `_NNE_Morgenlufttrank` (`0028DE`, `085668`, `09B6CA`, `1037F5`, `1037F6`) at 45; **all count `1`** — cut from `1-2` once NUP's corpse-stripping was turned off, since nothing trims the piles any more. Ambrosia `_00E_Ambrosia 0FEC69` is a **`DeathItem =`**, count 1, chance 10 — see the NUP note below for why it is not an `Item =`. Traits `-S/-C/-D` exclude summons, children and StartsDead props. For the `Item =` lines, **chance is rolled per BASE NPC record, not per corpse, and it is all-or-nothing** — win and every instance of that base carries the item, lose and none ever do. A single low-chance line therefore reads as "never drops": Ambrosia at 12 hit 22 of 182 bases exactly as configured, but ~16 of those were townsfolk, leaving a typical fight (5–10 distinct enemy bases) a ~36% chance of yielding none. **[verified in-game 2026-08-13]** Budget per-base, not per-kill, and remember `ActorTypeNPC` is mostly civilians. **`DeathItem =` rolls per CORPSE instead**, which is the fix for that whole class of problem whenever the item is meant as loot rather than as something the NPC uses **`Morgenlufttrank` is the restore-stamina line** — `_NNE_Ausdauertrank` is *fortify* stamina and has only 2 tiers in base Enderal (a 3rd is EGO's new `0008C0`), so it is the wrong record. **Supersedes `Zenderal - Enemy Potions.esp`** — an untracked mod at MO2 priority 24 with no source in this repo, which banded the same three lines into the `_00E_MOB_Bandit` / `DeathItemDraugr` / `_00E_FS_DeathItem_Human` death-item lists; disable it or those NPCs draw from both. Unlike death items, SPID puts these in the base NPC's *live* container, so `Smart NPC Potions` and `NPCs Use Potions` will make enemies drink them — that is intentional (modern combat pillar), not a side effect. **`NPCs Use Potions` STRIPS EVERY CORPSE and will silently eat a distributed item — see the section below; this release depends on its `RemoveItemsOnDeath` being off** |
+| `ControllerTweaks` → *(no plugin — three file overrides)* | _(none)_ | **The repo's first release that ships NO plugin but DOES ship a script**, and its first fork of an **Enderal** script rather than a third-party one. Adapts the Complete Controller Setup stack to Enderal, and **must sort above `Complete Controller Setup` and `Dear Diary Dark Mode`** to win the file conflicts. (1) `Interface\Controls\PC\controlmap.txt` — CCS 5.3.5's, `Quick Stats` gamepad combo (B+DpadUp, `0x2000+0x0001`) unbound to `0xff`; it opened Skyrim's vanilla perk starfield, a UI Enderal never uses. (2) `interface\skyui\config.txt` — forked from **Dear Diary Dark Mode's** copy (its wins over SkyUI's), `[Input]` gamepad sort bindings moved off CCS's equip/drop buttons: `prevColumn` 274→280 (LT), `nextColumn` 275→281 (RT), `sortOrder` 272→273 (R3), so RB-equip and L3-drop stop re-sorting the item list. (3) `Scripts\_00E_Game_SkillmenuSC.pex` — SureAI's script recompiled with four `; ZP` additions binding **B + D-pad-Up → open Hero Menu, B → close**; see the controller gotcha below for why the chord cannot live in Gamepad++. Setup, required Nexus files and the `bGamepadEnable` INI trap are in [`arch-docs/zenderal-controller-setup.md`](arch-docs/zenderal-controller-setup.md). **Credit SureAI on any mod page** — this redistributes a modified copy of their script |
 
 > ### `NPCs Use Potions` STRIPS EVERY CORPSE — it will silently eat anything you distribute
 >
@@ -1103,6 +1104,51 @@ These are **engine-hardcoded** FormIDs — Bethesda's own code depends on them, 
   rebase conflict in `CLAUDE.md`. Use the Edit tool for surgical text changes, or `git checkout` the
   file and redo them; if you must script it, read and write with an explicit
   `[System.Text.UTF8Encoding]::new($false)` rather than the `-Encoding utf8` shorthand.
+- **`bGamepadEnable` lives in `[MAIN]` of `EnderalPrefs.ini`, not `[Controls]` — and the list ships
+  it `=0`.** **[verified in-game 2026-08-16]** The launcher-style `[Controls]` placement is ignored;
+  the game-written INI puts the setting in `[MAIN]` (next to `bSaveOn*`/`bCrosshairEnabled`), and
+  only a value there takes effect. Bethesda's INI reader is section-scoped, so a right-named key in
+  the wrong section fails silently. Three companion facts from the same diagnosis: (1) the **live**
+  INI is the MO2 profile's copy (`profiles/<profile>/EnderalPrefs.ini`, `LocalSettings=true`), and it
+  wins even through PrivateProfileRedirector — proven by A/B: Documents=0 + profile=1 → pad works;
+  (2) engine 1.5.97 is one-input-at-a-time (gamepad mode locks out the mouse and vice versa) — the
+  *Auto Input Switch* SKSE mod is the switcher, and its current Nexus build is AE-only, rejected by
+  SKSE 2.0.20 as `does not appear to be an SKSE plugin` (no `SKSEPlugin_Query` export — the quick
+  binary test for any DLL); a 1.5.97 build exists in the mod's old files / the mod-166519 backport;
+  (3) an XInput pad's health is testable outside the game — poll `XInputGetState` slot 0 from
+  PowerShell before blaming the game. Controller stack in the list: Complete Controller Setup's
+  `controlmap.txt` wins the 3-way conflict (over Gamepad++ and Modern Toggle Walk-Run Fix), and its
+  eight required mods are all present. Two follow-up fixes live as in-place edits that a mod
+  reinstall reverts: CCS's controlmap has `Quick Stats`' gamepad combo (B+DpadUp) unbound → `0xff`
+  (it opened Skyrim's vanilla perk starfield, which Enderal never uses), and **SkyUI's gamepad sort
+  bindings are NOT in any MCM — they live in `interface\skyui\config.txt`, whose winning copy is
+  Dear Diary Dark Mode's**, edited to CCS's scheme (prevColumn 274→280 LT, nextColumn 275→281 RT,
+  sortOrder 272→273 R3) so RB-equip and L3-drop stop re-sorting the item list. Third file in that
+  mod: a recompile of **SureAI's `_00E_Game_SkillmenuSC`** binding **B + D-pad-Up → Hero Menu, B →
+  close** (four `; ZP`-marked additions: `ZP_iGamepadModifier` 277/B, `ZP_iGamepadOpenKey` 266/D-pad
+  Up, a held-flag, an `OnKeyUp` event, two `RegisterForKey` calls, and the chord in the existing
+  `OnKeyDown`). **A GAMEPAD CHORD MUST LIVE IN A SCRIPT THAT STAYS REGISTERED — do not route one
+  through Gamepad++.** **[verified in-game 2026-08-16, the expensive way]** Gamepad++ *can* emulate
+  a keyboard key on a combo (`Input.HoldKey`) and it works in gameplay, but it **goes inert while
+  any menu is open**, so nothing it binds can ever *close* a menu — the Hero Menu could only be
+  shut with Esc. (Its `OnMenuOpen` guard `if !MenuName == "FavoritesMenu"` *looks* like a
+  precedence bug that would keep it live; the observed behaviour says otherwise, so trust the
+  test.) Two further reasons the script is the right home: Gamepad++ **stores its bindings IN THE
+  SAVE**, reloading its `.gppd` only via MCM → Info → "Reset to Defaults" — so editing that file
+  changes nothing in an existing save, and a distributed list would need every user to press it —
+  and the script route needs no MCM step at all. If you ever do edit a `.gppd`, note its JSON order
+  is **[single, double, triple, LONG press] per D-pad direction**, not the Papyrus array's index
+  order (`i*4 + iMultiTap`) — read `gpp_mcm_combo_one.psc`'s `saveData()` first. Enderal's other
+  script hotkeys (Meditate, Phasmalist teleport, Horseflute) are listed in `_00e_enderalmcm.psc`
+  and can take the same treatment; **`_00E_Game_SkillmenuSC` compiles clean from SureAI's source**
+  with the standard three-tree `-i` order, and `UIExtensions`/`UIListMenu` are already inside
+  `reference/base/EnderalScripts`. Note there is **no free gamepad button** left in this layout to
+  bind Enderal's MCM hero-menu key to instead: X is Wheeler's `toggleWheel`, LT is Dual Wield
+  Parrying, and the four D-pad long-presses are Stances (`[ ] ; '` = 26/27/39/40). Also: CCS ships
+  its own `gpp_keyhandler.pex`/`gpp_mcm_*.pex` that **override Gamepad++'s** — diffing the `.pex`
+  string tables shows the only change is the version-nag `Debug.MessageBox` calls stripped, so
+  Gamepad++'s `.psc` source is still accurate for reading. **`.pex` is BIG-ENDIAN** — a
+  little-endian string-table reader fails immediately.
 - **`E - Update.bsa` loads last and wins.** When a record or asset doesn't look like the one you
   found in `E - Meshes.bsa`, check `E - Update.bsa` before concluding your patch is wrong.
 - **Don't give a patch you author a DLC master** — there is nothing in the stubs to reference. But
