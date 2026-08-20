@@ -705,10 +705,29 @@ mods are installed, both enabled, the merchant exists and has plenty of stock, a
 simply not in the game. No log line, no missing master, nothing to notice.
 
 **`EGO SE - Leveling Redone.esp` is the list's second dominant conflict source, after EGO itself.**
-It sits at load order **166** — far later than the content mods — and overrides **50 containers**,
+It sits at load order **138** — far later than the content mods — and overrides **50 containers**,
 carrying none of any earlier mod's additions. It cost this list 160 Apocalypse spell tomes across
-seven merchant chests (Apocalypse loads at 125), plus Kata's staves and xxOpenSpells' books.
+seven merchant chests, plus Kata's staves and xxOpenSpells' books.
 `Zenderal - Kata Fixes.esp` now repairs all seven. Treat any record it touches as contested.
+
+> **The load order MOVED under this analysis once already — re-read `loadorder.txt`, don't trust
+> numbers written here.** **[verified 2026-08-20]** The 2026-08-11 audit saw Apocalypse at 125 and
+> Leveling Redone at 166; the live Alpha 0.3 profile now has Leveling Redone at **138** and
+> Apocalypse at **291** — the order *flipped*, so on any chest a Zenderal patch does not override,
+> **Apocalypse's base-derived container records now win**, reverting EGO's and Leveling Redone's
+> chest work. That is exactly how the "Ora Stonehand sells deprecated *Fire Ball*/*Chain Lightning*
+> tomes" bug report happened: the rebuilt Apocalypse's Funkentanz/Torius/Steinschlag chest overrides
+> were copied from **base Enderal's** records, which directly stock `_05E_SpellBookFireBall 08564A`
+> and `_05E_SpellBookChainLightning 04DC94` — tomes teaching spells EGO renamed `*unused` with the
+> "no longer used in the Gameplay Overhaul" description (EGO deliberately dropped both from its own
+> chest overrides and never overrides those two Book records, so they keep the base "Fire Ball"
+> spaced name). The seven-chest Kata Fixes merge already covers all three chests — but the bug
+> shipped anyway because the **deployed `Zenderal - Kata Fixes.esp` was a stale 2026-08-09
+> three-chest build** (no Steinschlag override): Gabrielle (Funkentanz, covered since the first
+> build) looked fine while Ora (Steinschlag, added 2026-08-11) stayed broken. The auditor audits the
+> *serialized source*, not the deployed binary, so it reports clean over a stale deploy — after any
+> chest-merge change, verify the deployed `.esp` actually contains the new override (guardrail 7:
+> `grep -c CCSteinschlag <esp>` is enough).
 
 **Run the auditor rather than remembering this:**
 
