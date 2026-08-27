@@ -1,0 +1,25 @@
+FormKey: 22E322:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_C025_ConjureTempleGrim
+Name:
+  TargetLanguage: English
+  Value: Conjure Temple Grim
+MenuDisplayObject: 1C3CBA:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 99
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 23342B:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 60
+- BaseEffect: 26AF87:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 60

@@ -1,0 +1,35 @@
+FormKey: 1E742B:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_R075_Spell_Aura_3
+Name:
+  TargetLanguage: English
+  Value: Aura of Thorns
+MenuDisplayObject: 1CDEBE:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 37
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: Concentration
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 1F6764:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 50
+    Area: 30
+    Duration: 1
+- BaseEffect: 1F6768:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 50
+    Duration: 1
+- BaseEffect: 1F676A:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 100
+    Duration: 1
+- BaseEffect: 1FB86E:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1

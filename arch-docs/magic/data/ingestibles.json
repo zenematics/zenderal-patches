@@ -3,6 +3,284 @@
   "recordType": "ALCH",
   "records": [
     {
+      "formKey": "000042:Biggie Traits.esp",
+      "editorId": "Traits_CookedSkeeverTail",
+      "name": "Cooked Skeever Tail",
+      "value": 4,
+      "weight": 0.2,
+      "flags": [
+        "NoAutoCalc",
+        "FoodItem"
+      ],
+      "addictionChance": 0,
+      "keywords": [
+        {
+          "formKey": "08CDEA:Skyrim.esm",
+          "editorId": "VendorItemFood"
+        }
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "0F33CC:Skyrim.esm",
+            "editorId": "FoodRestoreStamina",
+            "name": "Restore Stamina"
+          },
+          "magnitude": 30,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 31,
+          "archetype": "ValueModifier",
+          "actorValue": "Stamina"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Biggie Traits.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Biggie Traits.esp",
+        "winnerLoadOrderIndex": 316,
+        "chain": [
+          "Biggie Traits.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "00007F:Biggie Traits.esp",
+      "editorId": "Traits_LifebloomEssence",
+      "name": "Lifebloom Essence",
+      "value": 671,
+      "weight": 0.5,
+      "addictionChance": 0,
+      "keywords": [
+        {
+          "formKey": "08CDEC:Skyrim.esm",
+          "editorId": "VendorItemPotion"
+        }
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "03EB06:Skyrim.esm",
+            "editorId": "AlchFortifyHealRate",
+            "name": "Fortify Health Regeneration"
+          },
+          "magnitude": 400,
+          "area": 0,
+          "duration": 60,
+          "effectCost": 5853,
+          "archetype": "PeakValueModifier",
+          "actorValue": "HealRateMult"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "073F2D:Skyrim.esm",
+            "editorId": "AlchWeaknessFire",
+            "name": "Weakness to Fire"
+          },
+          "magnitude": 20,
+          "area": 0,
+          "duration": 300,
+          "effectCost": 1421,
+          "archetype": "PeakValueModifier",
+          "actorValue": "ResistFire"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Biggie Traits.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Biggie Traits.esp",
+        "winnerLoadOrderIndex": 316,
+        "chain": [
+          "Biggie Traits.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0000CE:Biggie Traits.esp",
+      "editorId": "Traits_BlankSlatePotion",
+      "name": "Potion of Blank Slate",
+      "value": 2000,
+      "weight": 0.5,
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "addictionChance": 0,
+      "keywords": [
+        {
+          "formKey": "08CDEC:Skyrim.esm",
+          "editorId": "VendorItemPotion"
+        }
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "0000D1:Biggie Traits.esp",
+            "editorId": "Traits_BlankSlateEffect",
+            "name": "Blank Slate"
+          },
+          "magnitude": 0,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 0,
+          "archetype": "Script"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Biggie Traits.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Biggie Traits.esp",
+        "winnerLoadOrderIndex": 316,
+        "chain": [
+          "Biggie Traits.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0000CF:Biggie Traits.esp",
+      "editorId": "Traits_HiddenPotentialPotion",
+      "name": "Elixir of Hidden Potential",
+      "value": 2000,
+      "weight": 0.5,
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "addictionChance": 0,
+      "keywords": [
+        {
+          "formKey": "08CDEC:Skyrim.esm",
+          "editorId": "VendorItemPotion"
+        }
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "0000D0:Biggie Traits.esp",
+            "editorId": "Traits_HiddenPotentialEffect",
+            "name": "Hidden Potential"
+          },
+          "magnitude": 0,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 0,
+          "archetype": "Script"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Biggie Traits.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Biggie Traits.esp",
+        "winnerLoadOrderIndex": 316,
+        "chain": [
+          "Biggie Traits.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0000D2:Biggie Traits.esp",
+      "editorId": "Traits_HiddenPotentialPotion_0",
+      "name": "Elixir of Hidden Potential",
+      "value": 0,
+      "weight": 0.5,
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "addictionChance": 0,
+      "keywords": [
+        {
+          "formKey": "08CDEC:Skyrim.esm",
+          "editorId": "VendorItemPotion"
+        }
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "0000D0:Biggie Traits.esp",
+            "editorId": "Traits_HiddenPotentialEffect",
+            "name": "Hidden Potential"
+          },
+          "magnitude": 0,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 0,
+          "archetype": "Script"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Biggie Traits.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Biggie Traits.esp",
+        "winnerLoadOrderIndex": 316,
+        "chain": [
+          "Biggie Traits.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0000D3:Biggie Traits.esp",
+      "editorId": "Traits_BlankSlatePotion_0",
+      "name": "Potion of Blank Slate",
+      "value": 0,
+      "weight": 0.5,
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "addictionChance": 0,
+      "keywords": [
+        {
+          "formKey": "08CDEC:Skyrim.esm",
+          "editorId": "VendorItemPotion"
+        }
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "0000D1:Biggie Traits.esp",
+            "editorId": "Traits_BlankSlateEffect",
+            "name": "Blank Slate"
+          },
+          "magnitude": 0,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 0,
+          "archetype": "Script"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Biggie Traits.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Biggie Traits.esp",
+        "winnerLoadOrderIndex": 316,
+        "chain": [
+          "Biggie Traits.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
       "formKey": "000800:Smart_NPC_Potions.esp",
       "editorId": "NPCPotion_Fear",
       "name": "Potion of Quick Escape",
@@ -106,7 +384,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Smart_NPC_Potions.esp",
-        "winnerLoadOrderIndex": 168,
+        "winnerLoadOrderIndex": 140,
         "chain": [
           "Smart_NPC_Potions.esp"
         ],
@@ -152,7 +430,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -198,7 +476,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -244,7 +522,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -290,7 +568,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -336,7 +614,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -372,7 +650,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Smart NPC Potions.esp",
-        "winnerLoadOrderIndex": 169,
+        "winnerLoadOrderIndex": 141,
         "chain": [
           "Smart_NPC_Potions.esp",
           "Enderal SE - Smart NPC Potions.esp"
@@ -425,7 +703,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -471,7 +749,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -517,7 +795,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -563,7 +841,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -609,7 +887,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -655,7 +933,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -701,7 +979,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -747,7 +1025,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -787,7 +1065,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Dynamic Things Alternative.esp",
-        "winnerLoadOrderIndex": 239,
+        "winnerLoadOrderIndex": 200,
         "chain": [
           "Dynamic Things Alternative.esp"
         ],
@@ -833,7 +1111,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -879,7 +1157,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -925,7 +1203,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -971,7 +1249,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1017,7 +1295,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1063,7 +1341,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1109,7 +1387,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1155,7 +1433,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1201,7 +1479,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1246,7 +1524,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1291,7 +1569,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1336,7 +1614,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1381,7 +1659,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1426,7 +1704,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1471,7 +1749,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1516,7 +1794,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1561,7 +1839,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1606,7 +1884,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1651,7 +1929,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1696,7 +1974,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1741,7 +2019,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1786,7 +2064,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1831,7 +2109,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1876,7 +2154,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1921,7 +2199,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -1966,7 +2244,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2011,7 +2289,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2056,7 +2334,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2101,7 +2379,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2146,7 +2424,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2191,7 +2469,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2236,7 +2514,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2281,7 +2559,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2326,7 +2604,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2372,7 +2650,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -2423,7 +2701,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -2474,7 +2752,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -2524,7 +2802,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2570,7 +2848,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2614,7 +2892,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -2659,7 +2937,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 99,
+        "winnerLoadOrderIndex": 93,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
@@ -2707,7 +2985,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 99,
+        "winnerLoadOrderIndex": 93,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
@@ -2755,7 +3033,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 99,
+        "winnerLoadOrderIndex": 93,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
@@ -2803,7 +3081,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 99,
+        "winnerLoadOrderIndex": 93,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
@@ -2851,7 +3129,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 99,
+        "winnerLoadOrderIndex": 93,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
@@ -2900,7 +3178,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -2964,7 +3242,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -3028,7 +3306,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -3094,7 +3372,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -3140,7 +3418,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -3186,7 +3464,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3237,7 +3515,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3288,7 +3566,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3340,7 +3618,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3391,7 +3669,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3442,7 +3720,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3521,7 +3799,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -3567,7 +3845,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 122,
+        "winnerLoadOrderIndex": 267,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3613,7 +3891,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 122,
+        "winnerLoadOrderIndex": 267,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3659,7 +3937,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 122,
+        "winnerLoadOrderIndex": 267,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3705,7 +3983,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 122,
+        "winnerLoadOrderIndex": 267,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3751,7 +4029,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 122,
+        "winnerLoadOrderIndex": 267,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3797,7 +4075,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 122,
+        "winnerLoadOrderIndex": 267,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3843,7 +4121,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3894,7 +4172,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3945,7 +4223,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3996,7 +4274,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4047,7 +4325,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4098,7 +4376,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 268,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4149,7 +4427,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -4195,7 +4473,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -4241,7 +4519,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -4327,7 +4605,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4377,7 +4655,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4443,7 +4721,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4505,7 +4783,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4569,7 +4847,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4618,7 +4896,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4710,7 +4988,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -4773,7 +5051,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4824,7 +5102,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4875,7 +5153,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4927,7 +5205,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -4977,7 +5255,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5030,7 +5308,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5080,7 +5358,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5133,7 +5411,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5186,7 +5464,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5237,7 +5515,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5357,7 +5635,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5411,7 +5689,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5501,7 +5779,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal - Forgotten Stories.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5551,7 +5829,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal - Forgotten Stories.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5601,7 +5879,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal - Forgotten Stories.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5652,7 +5930,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal - Forgotten Stories.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5703,7 +5981,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal - Forgotten Stories.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -5767,7 +6045,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -7747,7 +8025,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -7825,7 +8103,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -7874,7 +8152,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -7924,7 +8202,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -7974,7 +8252,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8025,7 +8303,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8077,7 +8355,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8131,7 +8409,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8184,7 +8462,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8234,7 +8512,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8287,7 +8565,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8353,7 +8631,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8450,7 +8728,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8499,7 +8777,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8549,7 +8827,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8599,7 +8877,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8649,7 +8927,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8699,7 +8977,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8749,7 +9027,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8798,7 +9076,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8847,7 +9125,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8896,7 +9174,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8945,7 +9223,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -8994,7 +9272,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9043,7 +9321,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9092,7 +9370,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9142,7 +9420,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9192,7 +9470,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9243,7 +9521,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9308,7 +9586,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9375,7 +9653,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9426,7 +9704,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9476,7 +9754,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9526,7 +9804,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9576,7 +9854,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9628,7 +9906,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9680,7 +9958,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9745,7 +10023,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9794,7 +10072,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9845,7 +10123,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9896,7 +10174,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -9942,7 +10220,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10006,7 +10284,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Immersive Replacements.esp",
-        "winnerLoadOrderIndex": 263,
+        "winnerLoadOrderIndex": 262,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -10104,7 +10382,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10174,7 +10452,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10258,7 +10536,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10308,7 +10586,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10358,7 +10636,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10410,7 +10688,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10461,7 +10739,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10512,7 +10790,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10562,7 +10840,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10626,7 +10904,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10691,7 +10969,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10755,7 +11033,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10806,7 +11084,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10857,7 +11135,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10927,7 +11205,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -10992,7 +11270,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11057,7 +11335,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11127,7 +11405,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11192,7 +11470,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11257,7 +11535,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11323,7 +11601,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11401,7 +11679,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -11479,7 +11757,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -11545,7 +11823,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11609,7 +11887,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11674,7 +11952,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11740,7 +12018,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11805,7 +12083,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11870,7 +12148,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11920,7 +12198,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -11985,7 +12263,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12065,7 +12343,7 @@
         "isNewRecord": false,
         "isInjected": true,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
         ],
@@ -12125,7 +12403,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12191,7 +12469,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12240,7 +12518,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12290,7 +12568,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12356,7 +12634,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Immersive Replacements.esp",
-        "winnerLoadOrderIndex": 263,
+        "winnerLoadOrderIndex": 262,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -12405,7 +12683,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Immersive Replacements.esp",
-        "winnerLoadOrderIndex": 263,
+        "winnerLoadOrderIndex": 262,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -12452,7 +12730,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12502,7 +12780,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12552,7 +12830,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12603,7 +12881,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12655,7 +12933,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12707,7 +12985,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12758,7 +13036,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12811,7 +13089,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12862,7 +13140,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12912,7 +13190,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -12982,7 +13260,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13046,7 +13324,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13114,7 +13392,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13178,7 +13456,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "EAS - Enderal Patch.esp"
@@ -13247,7 +13525,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13297,7 +13575,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13363,7 +13641,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13427,7 +13705,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13484,7 +13762,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "ImmersiveInteractions.esp",
-        "winnerLoadOrderIndex": 222,
+        "winnerLoadOrderIndex": 185,
         "chain": [
           "ImmersiveInteractions.esp"
         ],
@@ -13529,7 +13807,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13595,7 +13873,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13644,7 +13922,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13694,7 +13972,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13744,7 +14022,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13794,7 +14072,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13844,7 +14122,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13893,7 +14171,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13942,7 +14220,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -13991,7 +14269,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14040,7 +14318,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14090,7 +14368,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14140,7 +14418,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14190,7 +14468,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14240,7 +14518,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14290,7 +14568,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14340,7 +14618,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14390,7 +14668,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14440,7 +14718,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14489,7 +14767,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14538,7 +14816,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14587,7 +14865,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14636,7 +14914,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14685,7 +14963,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14734,7 +15012,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14783,7 +15061,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14845,7 +15123,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14896,7 +15174,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14945,7 +15223,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -14994,7 +15272,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15043,7 +15321,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15107,7 +15385,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15171,7 +15449,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15236,7 +15514,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15286,7 +15564,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15357,7 +15635,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -15464,7 +15742,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15515,7 +15793,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15568,7 +15846,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15634,7 +15912,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15714,7 +15992,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15792,7 +16070,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -15855,7 +16133,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -15918,7 +16196,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16002,7 +16280,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -16053,7 +16331,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16103,7 +16381,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16227,7 +16505,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16305,7 +16583,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16386,7 +16664,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -16450,7 +16728,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -16529,7 +16807,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16579,7 +16857,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16643,7 +16921,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16692,7 +16970,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16746,7 +17024,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16798,7 +17076,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16847,7 +17125,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16896,7 +17174,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16945,7 +17223,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -16994,7 +17272,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17043,7 +17321,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17092,7 +17370,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17141,7 +17419,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17190,7 +17468,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17239,7 +17517,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17288,7 +17566,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17337,7 +17615,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17386,7 +17664,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17435,7 +17713,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17484,7 +17762,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17533,7 +17811,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17582,7 +17860,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17631,7 +17909,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17680,7 +17958,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17729,7 +18007,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17778,7 +18056,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17827,7 +18105,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17876,7 +18154,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17925,7 +18203,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -17974,7 +18252,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18023,7 +18301,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18072,7 +18350,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18121,7 +18399,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18170,7 +18448,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18220,7 +18498,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18271,7 +18549,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18349,7 +18627,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18428,7 +18706,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18493,7 +18771,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18557,7 +18835,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18621,7 +18899,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18700,7 +18978,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18778,7 +19056,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18856,7 +19134,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -18934,7 +19212,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19012,7 +19290,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19062,7 +19340,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19126,7 +19404,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19191,7 +19469,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19255,7 +19533,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19320,7 +19598,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19418,7 +19696,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "EAS - Enderal Patch.esp"
@@ -19468,7 +19746,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19520,7 +19798,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19572,7 +19850,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19623,7 +19901,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19674,7 +19952,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19725,7 +20003,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19776,7 +20054,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19827,7 +20105,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19878,7 +20156,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19931,7 +20209,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -19983,7 +20261,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20035,7 +20313,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20086,7 +20364,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20178,7 +20456,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20228,7 +20506,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20279,7 +20557,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20377,7 +20655,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20429,7 +20707,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20480,7 +20758,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 49,
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp"
@@ -20574,7 +20852,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 172,
+        "winnerLoadOrderIndex": 144,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -20582,6 +20860,59 @@
         ],
         "changedFields": [
           "effects"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "2844D3:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Healing_Potion_Goodberry",
+      "name": "Goodberry",
+      "value": 50,
+      "weight": 0,
+      "flags": [
+        "NoAutoCalc",
+        "FoodItem"
+      ],
+      "addictionChance": 0,
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "28E6DC:Triumvirate - Mage Archetypes.esp",
+            "editorId": "TVR_Druid_Healing_Effect_Goodberry",
+            "name": "Restore Health and Magicka"
+          },
+          "magnitude": 200,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 0,
+          "archetype": "DualValueModifier",
+          "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "0AE722:Skyrim.esm",
+            "editorId": "AlchCureDisease",
+            "name": "Cure Disease"
+          },
+          "magnitude": 40,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 780,
+          "archetype": "CureDisease"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Triumvirate - Mage Archetypes.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Triumvirate - Mage Archetypes.esp",
+        "winnerLoadOrderIndex": 318,
+        "chain": [
+          "Triumvirate - Mage Archetypes.esp"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -20625,7 +20956,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "TaberuAnimation.esp",
-        "winnerLoadOrderIndex": 89,
+        "winnerLoadOrderIndex": 84,
         "chain": [
           "TaberuAnimation.esp"
         ],

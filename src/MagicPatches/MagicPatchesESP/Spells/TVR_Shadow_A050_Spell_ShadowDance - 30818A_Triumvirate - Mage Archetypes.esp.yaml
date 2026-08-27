@@ -1,0 +1,19 @@
+FormKey: 30818A:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_A050_Spell_ShadowDance
+Name:
+  TargetLanguage: English
+  Value: Shadow Dance
+MenuDisplayObject: 2FDF85:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 98
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+HalfCostPerk: 0C44B8:Skyrim.esm
+Effects:
+- BaseEffect: 308189:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 60

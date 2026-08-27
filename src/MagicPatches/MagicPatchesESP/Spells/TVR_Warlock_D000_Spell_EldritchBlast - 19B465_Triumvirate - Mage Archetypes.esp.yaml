@@ -1,0 +1,30 @@
+FormKey: 19B465:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_D000_Spell_EldritchBlast
+Name:
+  TargetLanguage: English
+  Value: Eldritch Blast
+MenuDisplayObject: 19B45E:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 21
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0F2CA8:Skyrim.esm
+Effects:
+- BaseEffect: 19B464:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 20
+    Duration: 1
+- BaseEffect: 19B46E:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 1000
+    Duration: 5
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.25

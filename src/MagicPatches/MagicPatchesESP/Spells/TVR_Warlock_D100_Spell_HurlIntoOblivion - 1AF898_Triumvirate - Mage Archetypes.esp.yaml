@@ -1,0 +1,36 @@
+FormKey: 1AF898:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_D100_Spell_HurlIntoOblivion
+Name:
+  TargetLanguage: English
+  Value: Hurl Into Sinistra
+MenuDisplayObject: 19B45E:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 130
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoDualCastModification
+ChargeTime: 5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 100
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 1AF897:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 60
+    Area: 50
+    Duration: 5
+- BaseEffect: 1AF89C:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 99
+    Area: 50
+- BaseEffect: 1B49A3:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 1000
+    Area: 50
+    Duration: 5

@@ -7,7 +7,7 @@ ModHeader:
   Flags:
   - Small
   Author: Zenderal
-  Description: Kata-related fixes for the Zenderal list. Merges all seven contested magic vendor chests so KataPUMB's staves, Apocalypse's 160 tomes and xxOpenSpells' books all survive the Leveling Redone overrides, and stocks Tarhutie in Riverville with Apocalypse's 15 novice spell tomes.
+  Description: Kata-related fixes for the Zenderal list. Merges the three contested magic vendor chests so KataPUMB's staves, xxOpenSpells' books and the Emberlord patch's stock all survive each other, on Leveling Redone's rebalanced records. Also ships the deduplicated Kata spell-package script.
   Stats:
     Version: 1.7
   MasterReferences:
@@ -22,8 +22,6 @@ ModHeader:
   - Master: Enderal SE - Gameplay Overhaul.esp
     FileSize: 0
   - Master: xxOpenSpells.esp
-    FileSize: 0
-  - Master: Apocalypse - Magic of Skyrim.esp
     FileSize: 0
   - Master: EGO SE - KataPUMB Spells - Emberlord sells all spells.esp
     FileSize: 0

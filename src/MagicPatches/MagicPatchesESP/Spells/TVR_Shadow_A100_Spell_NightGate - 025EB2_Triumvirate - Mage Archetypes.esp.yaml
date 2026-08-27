@@ -1,0 +1,26 @@
+FormKey: 025EB2:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_A100_Spell_NightGate
+Name:
+  TargetLanguage: English
+  Value: Night Gate
+MenuDisplayObject: 2FDF85:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 126
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 3
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 100
+HalfCostPerk: 0C44BA:Skyrim.esm
+Effects:
+- BaseEffect: 009254:Triumvirate - Mage Archetypes.esp
+  Data:
+    Area: 3

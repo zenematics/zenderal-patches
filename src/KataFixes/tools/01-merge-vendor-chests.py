@@ -1,41 +1,45 @@
 #!/usr/bin/env python3
 """Merge the contested magic-vendor chests for Zenderal - Kata Fixes.esp.
 
-Four mods add stock to the same seven merchant chests and the last loader wins whole:
-KataPUMBSpellPack (15 staves), Apocalypse - Magic of Skyrim (14-45 spell tomes per
-chest, 160 in total), xxOpenSpells (4 books), and the EGO SE Emberlord patch (5
-entries). The actual winner of all seven in the list is EGO SE - Leveling Redone
-(load order 166, vs Apocalypse's 125), which carries NONE of them - so all of that
-stock is silently dead in game.
+Three mods add stock to the same three merchant chests and the last loader wins whole:
+KataPUMBSpellPack (15 staves), xxOpenSpells (4 books), and the EGO SE Emberlord patch
+(5 entries). Whatever the current load order makes the raw winner, the list's intended
+resolution is EGO SE - Leveling Redone's BALANCE plus everyone's CONTENT:
 
-The seven are every container Leveling Redone overrides that anyone else adds stock to;
-that set was swept, not guessed, and it is complete as of 2026-08-11 for the mods we
-have serialized under reference/mods/.
+  - Leveling Redone's record is the base. Its trims are deliberate leveling work (it
+    cuts Funkentanz's spell books from EGO's 79 entries to 62), and every other
+    overrider of these chests derives from EGO's lineage WITHOUT mastering Leveling
+    Redone - their reverts of its trims are collateral, not decisions. Verified
+    2026-08-27: the 18 base spell-book entries Emberlord "restores" at Funkentanz
+    trace base -> FS -> EGO -> Emberlord with LR alone trimming them.
+  - Each loser's OWN additions are re-appended. An addition is an Items entry whose
+    FormKey suffix is the loser's own plugin - the same definition an xEdit conflict
+    view would use. (Emberlord's 18 base-book carries are NOT additions by this rule,
+    and that is correct: they are LR's trim seen through an older lineage.)
 
-This builds one override per chest: the WINNER's record copied verbatim (its trims and
-gold changes are deliberate and must be forwarded - guardrail 5), with every loser's
-additions re-appended. Additions are DERIVED, not hardcoded: an addition is an Items
-entry in the loser's version of the chest whose FormKey suffix is the loser's own
-plugin - the same definition an xEdit conflict view would use.
+This plugin loads after every one of them, so the merge wins regardless of how the
+upstream order shuffles - it moved once already (2026-08-20, the Kata block jumped
+above Leveling Redone) without changing what the correct merged record is.
 
-A second, separate stage adds CURATED stock - entries no upstream mod ever put in that
-chest, which we place there as a list decision. Currently one: Apocalypse's 15 novice
-spell tomes at Tarhutie in Riverville. Apocalypse hosts its novice tier at Milbert in
-Ark only, and Riverville is where a level-1 player actually is, so its spell merchant
-sold no novice Apocalypse magic at all. These are DERIVED too - lifted verbatim from
-Apocalypse's own Milbert chest and cross-checked against the WB_<school>000_ tome
-naming - so an Apocalypse update that changes the novice set flows through.
+HISTORY: until 2026-08-27 this merged SEVEN chests, because Apocalypse - Magic of
+Skyrim overrode six of them directly (160 tomes). Its v1.2.0 Enderal Patch moved all
+vendor stock into Enderal's <Merchant>_CustomMerchandise hook lists and no longer
+touches any container, so its four exclusive chests (Milbert 127928, Maxus 022BF2,
+Barnabas 13824A, Ora 0F9320) are uncontested again and their overrides were DELETED -
+keeping them would have double-stocked the tomes (chest entries + hook entries). The
+CURATION stage (Apocalypse's 15 novice tomes copied to Tarhutie) went with it: the
+hooks now sell every tome deterministically at exactly one shop, and upstream moved
+the whole Apprentice tier to Tarhutie in Riverville, which covers the original
+level-1-player rationale.
 
 Chest 0465BB (_00E_Test_Container_Weapons) is deliberately NOT touched: it is a TEST
 container players never see, and its winner (the EGO - KataPUMB Spell Package patch)
-can keep its 5-stave version. Which means: before this patch, the staves' only
-surviving location in the whole list was a test chest - they were 100% dead in game.
+can keep its 5-stave version.
 
 Inputs: the serialized reference trees (regenerate with /spriggit-decompile-reference):
-  reference/mods/LevelingRedoneEGO   (EGO SE - Leveling Redone.esp - the winner)
+  reference/mods/LevelingRedoneEGO   (EGO SE - Leveling Redone.esp - the balance base)
   reference/mods/KataPUMB            (KataPUMBSpellPack.esp)
-  reference/mods/Apocalypse          (Apocalypse - Magic of Skyrim.esp)
-  reference/mods/xxOpenSpells        (xxOpenSpells.esp)
+  reference/mods/xxOpenSpells       (xxOpenSpells.esp)
   reference/mods/KataEmberlord       (EGO SE - KataPUMB Spells - Emberlord sells all spells.esp)
 
 Output: src/KataFixes/KataFixesESP/Containers/*.yaml. Asserts every count.
@@ -54,76 +58,36 @@ WINNER_TREE = "LevelingRedoneEGO"
 MERGES = {
     "102AD5": [  # _00E_Merchant_CCFunkentanz - Emberlord & Fireflash, Ark
         ("KataPUMB", "KataPUMBSpellPack.esp", 15),
-        ("Apocalypse", "Apocalypse - Magic of Skyrim.esp", 45),
         ("xxOpenSpells", "xxOpenSpells.esp", 4),
         ("KataEmberlord", "EGO SE - KataPUMB Spells - Emberlord sells all spells.esp", 5),
     ],
     "118050": [  # _00E_Merchant_STTurious - Torius, Sun Temple
         ("KataPUMB", "KataPUMBSpellPack.esp", 15),
-        ("Apocalypse", "Apocalypse - Magic of Skyrim.esp", 39),
     ],
     "05BCD6": [  # _00E_Merchant_FlusshaimTarhutieContainer - Tarhutie, Riverville
         ("KataPUMB", "KataPUMBSpellPack.esp", 15),
     ],
-    "127928": [  # _00E_Merchant_CCMilbert - Milbert Foxhand, Ark (Apocalypse's novice tier)
-        ("Apocalypse", "Apocalypse - Magic of Skyrim.esp", 15),
-    ],
-    "022BF2": [  # _00E_Merchant_MaxusTabbakus02 - Duneville (Apocalypse's apprentice tier)
-        ("Apocalypse", "Apocalypse - Magic of Skyrim.esp", 28),
-    ],
-    "13824A": [  # _00E_Merchant_UC_Barnabas - Undercity (Apocalypse's adept Alt/Conj/Destr)
-        ("Apocalypse", "Apocalypse - Magic of Skyrim.esp", 19),
-    ],
-    "0F9320": [  # _00E_Merchant_CCSteinschlag - Ora Stonehand, Ark (adept Illus/Restor)
-        ("Apocalypse", "Apocalypse - Magic of Skyrim.esp", 14),
-    ],
+}
+
+# Chests this plugin used to override and MUST NOT any more (see HISTORY above). The
+# generator deletes a stale output file for these and fails if one reappears upstream.
+RETIRED = {
+    "127928": "_00E_Merchant_CCMilbert",
+    "022BF2": "_00E_Merchant_MaxusTabbakus02",
+    "13824A": "_00E_Merchant_UC_Barnabas",
+    "0F9320": "_00E_Merchant_CCSteinschlag",
 }
 
 # Curated stock: chest hex -> [(source tree, source chest hex, selector name, expected count)].
 # Unlike MERGES these entries were never in the destination chest under any plugin - we are
-# choosing to sell them there. The source chest is only the place we copy the entry block from.
-CURATION = {
-    "05BCD6": [  # Tarhutie, Riverville - first town, first spell merchant a new player meets
-        ("Apocalypse", "127928", "apocalypse_novice_tomes", 15),  # 127928 = Milbert, Ark
-    ],
-}
+# choosing to sell them there. Empty since 2026-08-27 (see HISTORY above); the machinery
+# stays because it is the shape a future list decision would use.
+CURATION = {}
 
 ENTRY_RE = re.compile(
     r"- Item:\r?\n    Item: ([0-9A-Fa-f]{6}:[^\r\n]+)\r?\n(?:    Count: [^\r\n]+\r?\n)?")
 
-# Apocalypse book EditorIDs encode school letter + minimum skill level: WB_D000_Blaze_Book is
-# Destruction at skill 0. 000 is the novice tier; 025/050/075/100 are the tiers above it.
-APO_BOOK_RE = re.compile(r"^WB_(?P<school>[ACDIR])(?P<tier>\d{3})_")
-
-
-def apocalypse_novice_tomes():
-    """FormKeys of every Apocalypse spell tome whose spell is novice tier (skill 0).
-
-    Read off the Books folder rather than listed here, so an Apocalypse update that adds or
-    retires a novice tome changes this set instead of silently disagreeing with it.
-    """
-    d = os.path.join(REF, "Apocalypse", "Books")
-    if not os.path.isdir(d):
-        sys.exit(f"missing reference tree: {d} - run /spriggit-decompile-reference")
-    found, per_school = {}, {}
-    for fn in os.listdir(d):
-        m = APO_BOOK_RE.match(fn)
-        if not m or m.group("tier") != "000":
-            continue
-        fk = re.search(r"^FormKey: ([0-9A-Fa-f]{6}:[^\r\n]+?)\r?$",
-                       open(os.path.join(d, fn), encoding="utf-8", newline="").read(), re.M)
-        if not fk:
-            sys.exit(f"no FormKey in {fn} - Spriggit shape drift")
-        found[fk.group(1)] = fn
-        per_school[m.group("school")] = per_school.get(m.group("school"), 0) + 1
-    # Apocalypse ships 3 novice tomes in each of the five schools. A school missing from this
-    # tally means the naming convention drifted and the selector is quietly under-selecting.
-    if sorted(per_school) != ["A", "C", "D", "I", "R"]:
-        sys.exit(f"novice tomes: expected all five schools, got {sorted(per_school)}")
-    return found
-
-
-SELECTORS = {"apocalypse_novice_tomes": apocalypse_novice_tomes}
+SELECTORS = {}
 
 
 def find_chest(tree, hexid):
@@ -143,6 +107,25 @@ def entries(text):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
+
+    # Guard the HISTORY invariant: the Apocalypse Enderal Patch must stay out of the chest
+    # war. If a future version overrides containers again, this merge table is stale.
+    apo_containers = os.path.join(REF, "Apocalypse", "Containers")
+    if os.path.isdir(apo_containers):
+        overridden = [fn for fn in os.listdir(apo_containers)
+                      if not fn.endswith("_Apocalypse - Magic of Skyrim.esp.yaml")]
+        if overridden:
+            sys.exit("reference/mods/Apocalypse overrides foreign Containers again - it "
+                     "re-entered the chest war; re-derive MERGES (and check for double-stock "
+                     f"vs its hooks): {overridden}")
+
+    # Retired chests: their overrides double-stock now. Delete stale output.
+    for hexid, editorid in RETIRED.items():
+        stale = [fn for fn in os.listdir(OUT) if f" - {hexid}_Skyrim.esm.yaml" in fn]
+        for fn in stale:
+            os.remove(os.path.join(OUT, fn))
+            print(f"{hexid}: removed retired override {fn}")
+
     for hexid, losers in MERGES.items():
         wpath = find_chest(WINNER_TREE, hexid)
         wtext = open(wpath, encoding="utf-8", newline="").read()

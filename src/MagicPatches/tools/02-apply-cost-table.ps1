@@ -23,9 +23,11 @@ if (-not (Test-Path $tablePath)) { throw "pricing table missing - run 01-build-c
 $table = (Get-Content $tablePath -Raw -Encoding UTF8 | ConvertFrom-Json).spells
 if (-not $table -or $table.Count -lt 100) { throw "pricing table suspiciously small ($($table.Count) entries)" }
 
-# fresh output dir so removed table entries do not leave stale overrides behind
-if (Test-Path $outSpells) { Remove-Item -Recurse -Force $outSpells -Confirm:$false }
+# fresh output for THIS mod's overrides only, so removed table entries do not leave stale
+# overrides behind. The Spells folder is shared with the Triumvirate overrides (05/06/07) -
+# delete only files whose FormKey suffix is Apocalypse's, never the whole folder.
 New-Item -ItemType Directory -Force $outSpells | Out-Null
+Get-ChildItem $outSpells -Filter '*_Apocalypse - Magic of Skyrim.esp.yaml' | Remove-Item -Force -Confirm:$false
 
 $refFiles = Get-ChildItem $refSpells -Filter '*.yaml'
 $byHex = @{}

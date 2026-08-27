@@ -1,0 +1,30 @@
+FormKey: 3A013E:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shaman_A025_Spell_StaveFerocity
+Name:
+  TargetLanguage: English
+  Value: Stave of Ferocity
+MenuDisplayObject: 1E741E:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 70
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 41EC9A:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 60
+- BaseEffect: 41EC99:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 30
+    Duration: 60
+- BaseEffect: 41EC97:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 150
+- BaseEffect: 41ECA3:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 25

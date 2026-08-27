@@ -1,0 +1,31 @@
+FormKey: 1AF89A:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_D050_Spell_WitchBolt
+Name:
+  TargetLanguage: English
+  Value: Witch Bolt
+MenuDisplayObject: 19B45E:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 76
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C0:Skyrim.esm
+Effects:
+- BaseEffect: 1BEBB6:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 3
+    Duration: 60
+- BaseEffect: 19B46E:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 1000
+    Duration: 60
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.25

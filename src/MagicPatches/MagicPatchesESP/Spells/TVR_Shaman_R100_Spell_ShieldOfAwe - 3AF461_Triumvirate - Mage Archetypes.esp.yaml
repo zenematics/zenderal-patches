@@ -1,0 +1,21 @@
+FormKey: 3AF461:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shaman_R100_Spell_ShieldOfAwe
+Name:
+  TargetLanguage: English
+  Value: Shield of Awe
+MenuDisplayObject: 36D6A8:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 117
+Flags:
+- ManualCostCalc
+- NoDualCastModification
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 3E1F56:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 100
+    Duration: 60

@@ -5,19 +5,19 @@ Load-order-winning values for every magic record in the installed Zenderal modli
 
 ## BEES dependency
 
-**67 enabled plugins have HEDR 1.71** and load only because *Backported Extended ESL Support* is installed. Records whose winner is one of them carry `winnerNeedsBees: true`. Remove BEES and this dataset is wrong for all of them with no error anywhere.
+**74 enabled plugins have HEDR 1.71** and load only because *Backported Extended ESL Support* is installed. Records whose winner is one of them carry `winnerNeedsBees: true`. Remove BEES and this dataset is wrong for all of them with no error anywhere.
 
-Runtime corroboration: the BEES log reports **69** plugins emulated (log written 2026-08-09 16:31).
+Runtime corroboration: the BEES log reports **76** plugins emulated (log written 2026-08-27 19:59).
 
 ## Datasets
 
 | Dataset | Winning records | With overrides | New (non-master) |
 |---|---:|---:|---:|
-| `spells.json` (SPEL) | 2350 | 879 | 1209 |
-| `magic-effects.json` (MGEF) | 2780 | 489 | 1496 |
-| `enchantments.json` (ENCH) | 838 | 275 | 128 |
+| `spells.json` (SPEL) | 2723 | 971 | 1507 |
+| `magic-effects.json` (MGEF) | 3406 | 500 | 2122 |
+| `enchantments.json` (ENCH) | 870 | 275 | 160 |
 | `scrolls.json` (SCRL) | 180 | 34 | 146 |
-| `ingestibles.json` (ALCH) | 400 | 270 | 82 |
+| `ingestibles.json` (ALCH) | 407 | 270 | 89 |
 | `shouts.json` (SHOU) | 66 | 40 | 11 |
 | `leveled-spells.json` (LVSP) | 9 | 0 | 7 |
 | `game-settings.json` (GMST) | 1709 | 123 | 53 |
@@ -31,13 +31,16 @@ Plugins ranked by how many overridden magic records they end up winning:
 | Enderal SE - Gameplay Overhaul.esp | 1469 |
 | Zenderal - Magic Patches.esp | 176 |
 | EGO - KataPUMB Spell Package.esp | 149 |
+| Triumvirate - Mage Archetypes.esp | 75 |
 | EGO SE - KataPUMB Hidden Powers.esp | 63 |
 | EGO SE - KataPUMB New Affinities.esp | 37 |
 | EGO SE - Psionic affects Constructs.esp | 36 |
+| For Honor Balance Patch.esp | 24 |
 | Enderal - Forgotten Stories.esm | 17 |
 | EAS - Enderal Patch.esp | 15 |
 | No Arcane fewer for Health Potions.esp | 5 |
 | Enderal SE - Smart NPC Potions.esp | 4 |
+| For Honor Reforged - Removed Effects Patch.esp | 4 |
 | Immersive Replacements.esp | 3 |
 | EGO SE - Half Starling.esp | 2 |
 | Bow Rapid Combo Balance.esp | 2 |
@@ -45,22 +48,19 @@ Plugins ranked by how many overridden magic records they end up winning:
 | EGO SE - Apparition Regeneration.esp | 1 |
 | EGO SE - Priests Cure Diseases.esp | 1 |
 | Enderal SE - Immersive Death Cycle.esp | 1 |
-| WadeInWaterRedone.esp | 1 |
-| EGO SE - Increased Food Health Regeneration.esp | 1 |
-| Enderal SE - Bug Fixes.esp | 1 |
 
 ## Spells by school
 
 | School (Enderal name) | Actor value | Winning spells |
 |---|---|---:|
-| (none) | — | 823 |
-| Elementalism | Destruction | 573 |
-| Entropy | Conjuration | 295 |
-| Mentalism | Alteration | 246 |
-| Psionics | Illusion | 206 |
-| Light Magic | Restoration | 205 |
+| (none) | — | 1054 |
+| Elementalism | Destruction | 609 |
+| Entropy | Conjuration | 310 |
+| Mentalism | Alteration | 285 |
+| Light Magic | Restoration | 236 |
+| Psionics | Illusion | 226 |
+| Block | Block | 2 |
 | MarksmanModifier | MarksmanModifier | 1 |
-| HeavyArmor | HeavyArmor | 1 |
 
 ## Cost model
 

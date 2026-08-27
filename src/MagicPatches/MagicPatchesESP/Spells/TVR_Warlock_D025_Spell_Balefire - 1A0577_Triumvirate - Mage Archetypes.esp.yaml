@@ -1,0 +1,29 @@
+FormKey: 1A0577:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_D025_Spell_Balefire
+Name:
+  TargetLanguage: English
+  Value: Balefire
+MenuDisplayObject: 1A057F:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 31
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 20
+HalfCostPerk: 0C44BF:Skyrim.esm
+Effects:
+- BaseEffect: 1A0580:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 15
+    Duration: 1
+- BaseEffect: 1AF894:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 2
+    Duration: 10
+- BaseEffect: 1A568B:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 10

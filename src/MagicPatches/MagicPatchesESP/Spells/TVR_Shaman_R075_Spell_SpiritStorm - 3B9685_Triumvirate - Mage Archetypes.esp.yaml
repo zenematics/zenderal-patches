@@ -1,0 +1,25 @@
+FormKey: 3B9685:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shaman_R075_Spell_SpiritStorm
+Name:
+  TargetLanguage: English
+  Value: Spirit Storm
+MenuDisplayObject: 3DCE41:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 37
+Flags:
+- ManualCostCalc
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 3C89DC:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 60
+    Duration: 1
+- BaseEffect: 3DCE47:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 60
+    Duration: 1

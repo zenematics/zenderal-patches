@@ -61,7 +61,8 @@ if it needed none.
 | Mod | Version | Why | Patch | Notes |
 |---|---|---|---|---|
 | [Relentless Sword SE](https://www.nexusmods.com/skyrimspecialedition/mods/114022) — johnskyrim, **Patreon ZEN build** | 2024-03-15 | A craftable high-tier longsword and greatsword in Enderal's own dark-metal register, in plain/Fire/Ice plus the Patreon-only *Zen* design (black handle, gold runes) — eight blades. Small (43 records); overrides only two existing records — the Riverville Temple cell and one blueprint vendor list. | **RelentlessSwordPatreon** | **Install for meshes/textures only — its own `.esp` must be disabled.** The ZEN download is johnskyrim's whole mod rebuilt, so it *replaces* the free Nexus download rather than sitting alongside it; its installer has no NoRune branch and no damage branch, the only choices being Fire/Ice/**Zen** glow intensity, all asset-only, and 2K and 4K ship identical plugins and meshes. **The free six-blade Nexus build is no longer supported** — that release and its `src/RelentlessSword/` tree were removed on 2026-08-16. The shipped plugin cannot load or function in Enderal on four counts, all fixed in the patch — see below. |
-| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — EnaiSiaion | 9.45 (Enderal rebuild) | 175 book-taught player spells, 35 per school, filling out Enderal's spell rosters. Installed as two mod folders: the original (assets) + "Apocalypse - Enderal Patch" (the [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) rebuild of its `.esp` at HEDR 1.70 with Enderal distribution/pricing/fever). | **MagicPatches** | The rebuild made it *load and distribute*; **`Zenderal - Magic Patches.esp` makes it *balanced*** — its magicka costs kept Skyrim's scale, 4–7× EGO's ladder (FF tier medians 393/720 vs EGO's 97/124 at expert/master). The patch overrides all 175 book-taught player spells with `ManualCostCalc` + repriced `BaseCost` onto EGO's per-tier medians. Regenerate via `src/MagicPatches/tools/`. Its vendor-chest stock is restored by **KataFixes** (`Zenderal - Kata Fixes.esp`) — the real winner of those chests turned out to be `EGO SE - Leveling Redone.esp`, which was silently wiping Apocalypse's tomes, Kata's staves and xxOpenSpells' books from Funkentanz/Torius/Tarhutie. Pack-2 Kata duplication resolved in **KataFixes**: its recompiled distribution script no longer injects the 29 spell lines both Kata packs ship (pack 1's EGO-rebalanced copies remain the obtainable ones; pack 2 keeps its unique spells). New games only — the injection quest is RunOnce. |
+| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — EnaiSiaion | 10.3.0 + Enderal Patch v1.2.0 (2026-08-27) | 175 book-taught player spells, 35 per school, filling out Enderal's spell rosters. Installed as two mod folders: the original (assets) + "Apocalypse - Enderal Patch" (the [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) rebuild of its `.esp` at HEDR 1.70 with Enderal distribution/pricing/fever). | **MagicPatches** | The rebuild made it *load and distribute*; **`Zenderal - Magic Patches.esp` makes it *balanced*** — its magicka costs kept Skyrim's scale, 4–7× EGO's ladder (FF tier medians 393/720 vs EGO's 97/124 at expert/master). The patch overrides all 175 book-taught player spells with `ManualCostCalc` + repriced `BaseCost` onto EGO's per-tier medians. Regenerate via `src/MagicPatches/tools/`. Since v1.2.0 its vendor stock rides the `<Merchant>_CustomMerchandise` hooks, so it is out of the chest war and **KataFixes** no longer restores its tomes; the surviving KataFixes duty is keeping the hook entry alive in the three chests it still merges. Pack-2 Kata duplication resolved in **KataFixes**: its recompiled distribution script no longer injects the 29 spell lines both Kata packs ship (pack 1's EGO-rebalanced copies remain the obtainable ones; pack 2 keeps its unique spells). New games only — the injection quest is RunOnce. |
+| [Triumvirate — Mage Archetypes](https://www.nexusmods.com/skyrimspecialedition/mods/39170) — EnaiSiaion | 1.8.0 + Enderal Conversion v1.0.0 (2026-08-27) | 75 spells across five mage archetypes (Druid, Shadow Mage, Warlock, Cleric, Shaman) — flavourful kits Enderal's rosters have nothing like. Installed as two mod folders: the original (two BSAs of assets) + "Triumvirate - Enderal Patch" (the [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) conversion: distribution rebuilt onto ten `_CustomMerchandise` hooks, DLC masters removed, tomes repriced, Tamriel renamed out). | **MagicPatches** | The conversion deliberately ships Enai's spell costs untouched, and they run up to **~10× EGO's ladder** (FF tier live medians 46/82/168/356/1207 vs EGO's 30/53/76/97/124). `Zenderal - Magic Patches.esp` overrides all 75 book-taught spells with `ManualCostCalc` + repriced `BaseCost` (tools `05`/`06`), and adds the Arcane Fever tax the conversion left out to its three self-heals (tool `07`): Aura of Vigor gets EGO's Boon fever block verbatim, Mass Immortality 5, Spirit of the Sun 10. **Magic Patches now masters Triumvirate, so it must load after it.** Its `dgintimidate*` brawl-stub overwrite (same Brawl Bugs Patch defect as Apocalypse's) is fixed by the conversion shipping SureAI's stubs loose — the patch mod folder must win that file conflict. |
 
 **The ZEN build is a superset of the Nexus one, and its six shared blades are unchanged where it
 matters** (verified 2026-08-06): same FormIDs, same model paths, same stats. It differs only in
@@ -106,7 +107,7 @@ including the **temper** recipes, whose `HasPerk 05218E` condition resolves here
 `_00E_Class_Phasmalist_P04_B_ArcaneSmith` ("You can improve enchanted armors and weapons"), which
 means exactly what johnskyrim intended it to mean.
 
-| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — Enai Siaion | 10.2.3 | 373 spells across all five schools; the standard answer to Enderal's thin mage offering. Enderal keeps all five vanilla magic ActorValues, so the spells themselves need no mechanical conversion. | **`Apocalypse - Enderal Patch`**, released from [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) | **Replaces `Apocalypse - Magic of Skyrim.esp`.** Install Enai's mod for its two BSAs, then let the conversion overwrite the plugin. Apocalypse ships at `HEDR` form version **1.71**, which Enderal's 1.5.97 engine silently refuses to load, so a patch is impossible — the plugin itself is rebuilt at 1.70. Delete any old `Zenderal - Apocalypse.esp`. |
+| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — Enai Siaion | 10.3.0 (Enderal Patch v1.2.0, 2026-08-27) | 373 spells across all five schools; the standard answer to Enderal's thin mage offering. Enderal keeps all five vanilla magic ActorValues, so the spells themselves need no mechanical conversion. | **`Apocalypse - Enderal Patch`**, released from [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) | **Replaces `Apocalypse - Magic of Skyrim.esp`.** Install Enai's mod for its two BSAs, then let the conversion overwrite the plugin. Apocalypse ships at `HEDR` form version **1.71**, which Enderal's 1.5.97 engine silently refuses to load, so a patch is impossible — the plugin itself is rebuilt at 1.70. Delete any old `Zenderal - Apocalypse.esp`. Since v1.2.0 its vendor stock goes through the six `<Merchant>_CustomMerchandise` hook lists instead of overriding merchant chests, and the Apprentice tier moved from Maxus Tabbakus back to Tarhutie in Riverville. |
 
 > **This conversion is not built in this repo.** Being a replacement plugin rather than a patch, it
 > lives in [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) and is useful to any
@@ -125,36 +126,35 @@ literally nothing**:
 
    Re-homing them into Enderal's leveled lists was tried first and **is not enough**: a list is
    rolled per draw, so which tomes a shop had stayed random, and after two rounds of weighting most
-   of the 160 were still purchasable nowhere. So the 160 tomes are now written **directly into six
-   named merchant chests**, tiered by the gold each carries — Emberlord and Fireflash `102AD5` (1800,
-   Master), Torius Flameling `118050` (1430, Expert), Barnabas `13824A` (1050, Adept A/C/D), Ora
-   Stonehand `0F9320` (980, Adept I/R), Maxus Tabbakus `022BF2` (620, Apprentice), Milbert Foxhand
-   `127928` (530, Novice). Every tome is buyable at exactly one shop — except the 15 novice ones,
-   which `Zenderal - Kata Fixes.esp` also sells at **Tarhutie in Riverville**, since Milbert is in
-   Ark and Riverville is the town a level-1 player is actually standing in.
+   of the 160 were still purchasable nowhere. So every tome is stocked by a **named merchant,
+   deterministically**, tiered by the gold each carries — Emberlord and Fireflash (Master), Torius
+   Flameling (Expert), Barnabas (Adept A/C/D), Ora Stonehand (Adept I/R), Tarhutie in Riverville
+   (Apprentice), Milbert Foxhand (Novice). Every tome is buyable at exactly one shop. The 15 cut
+   `WB_C*` Daedra/Dwemer summons have no vendor **by design**.
 
-   > **All six of those chests lose to `EGO SE - Leveling Redone.esp`** (load order 166 vs
-   > Apocalypse's 125), which carries none of Apocalypse's stock — so out of the box **all 160
-   > vendor tomes are unobtainable**, verified 2026-08-11 against the serialized trees.
-   > `Zenderal - Kata Fixes.esp` repairs all six plus Tarhutie: 214 entries restored across seven
-   > chests, and `src/KataFixes/tools/00-audit-vendor-conflicts.py` reports the set clean. The
-   > remaining 15 Apocalypse tomes (`WB_C*` Daedra and Dwemer summons) have no vendor **by design** —
-   > the Enderal port cut those spells.
+   > **How the stock is delivered changed in v1.2.0 (2026-08-27).** v1.1 wrote the tomes directly
+   > into the six merchant chests, which put Apocalypse in the chest-override war — all six lost to
+   > `EGO SE - Leveling Redone.esp` in the original order (verified 2026-08-11), then *won* after
+   > the 2026-08-20 load-order flip, reverting LR's rebalance and re-selling deprecated base tomes.
+   > `Zenderal - Kata Fixes.esp` spent two weeks as a seven-chest merge cleaning that up. v1.2.0
+   > exits the war entirely: the stock now goes through **SureAI's own `<Merchant>_CustomMerchandise`
+   > hook lists** — an empty extension-point LVLI Enderal ships inside every one of its 67 merchant
+   > chests — so no merchant record is overridden at all. Kata Fixes shrank back to the three
+   > genuinely contested chests (Kata staves / xxOpenSpells / Emberlord), and its overrides of those
+   > **must keep the hook entry in the chest** or Apocalypse's stock dies at that shop (asserted in
+   > the generator). `src/KataFixes/tools/00-audit-vendor-conflicts.py` reports the set clean.
 
    World loot stays random and keeps the leveled-list route: the tomes and all 130 scrolls are still
    injected into `_00E_SpellBooksLootA–D` and `00E_ScrollsLowChance` via the six sublists
    (`ZP_Apoc_Tomes_R000`–`R100`, `ZP_Apoc_Scrolls`), every existing entry untouched. The four
    `_00ETraderSpellBooksLevel*` overrides were **deleted** once the vendors carried the real thing.
 
-   > **`KataPUMBSpellPack.esp` conflict.** It adds the same 15 staves to three of Enderal's spell
-   > merchants — Funkentanz, Turious and Tarhutie — and those are their only vendor. Apocalypse loads
-   > after it and does not master it, so a claimed chest drops them. Because the set is identical at
-   > all three, **Tarhutie is left unclaimed** and all 15 stay buyable there; that is why the
-   > Apprentice tier sits with Maxus Tabbakus (620 gold) rather than Tarhutie (630).
-   >
-   > That reasoning is Apocalypse's, and it no longer binds us: `Zenderal - Kata Fixes.esp` masters
-   > `KataPUMBSpellPack.esp` and re-appends the 15 staves explicitly, so Tarhutie can now carry
-   > Apocalypse stock without costing anything. Its novice tomes were added there for that reason.
+   > **`KataPUMBSpellPack.esp` conflict — resolved by the hooks.** v1.1 had to leave Tarhutie's
+   > chest unclaimed so Kata's 15 staves survived somewhere, which pushed the Apprentice tier to
+   > Maxus Tabbakus in Duneville, and `Zenderal - Kata Fixes.esp` compensated by copying the novice
+   > tomes to Tarhutie. All three workarounds are gone: the hooks touch no chest, the Apprentice
+   > tier is back at Tarhutie (the town a level-1 player is actually in), and the Kata Fixes
+   > curation stage was retired with it — upstream now sells every tome at exactly one shop.
 
    **Prices were Skyrim's too.** Apocalypse costs its tomes on vanilla's ladder (~50/175/330/700/1300
    novice→master), and **Enderal's entire spell-tome range is 20–350** — two exceptions in the whole

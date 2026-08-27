@@ -1,0 +1,24 @@
+FormKey: 27F3B8:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_R050_Spell_SpiritOfThornbriar
+Name:
+  TargetLanguage: English
+  Value: Spirit of Thornbriar
+MenuDisplayObject: 27F3BB:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 65
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+HalfCostPerk: 0C44C8:Skyrim.esm
+Effects:
+- BaseEffect: 2844CA:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 1
+    Duration: 60
+- BaseEffect: 2844CF:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 30
+    Duration: 60

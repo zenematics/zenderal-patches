@@ -1,0 +1,24 @@
+FormKey: 28E6E9:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_A000_Spell_Druidcraft
+Name:
+  TargetLanguage: English
+  Value: Druidcraft
+MenuDisplayObject: 191249:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 26
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 40
+HalfCostPerk: 0F2CA6:Skyrim.esm
+Effects:
+- BaseEffect: 2ACD21:Triumvirate - Mage Archetypes.esp
+  Data: {}

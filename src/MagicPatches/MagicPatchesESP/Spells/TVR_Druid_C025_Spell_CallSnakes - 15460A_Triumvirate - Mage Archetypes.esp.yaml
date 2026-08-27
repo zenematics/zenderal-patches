@@ -1,0 +1,42 @@
+FormKey: 15460A:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_C025_Spell_CallSnakes
+Name:
+  TargetLanguage: English
+  Value: Call Rattlesnakes
+MenuDisplayObject: 14F4DC:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 20
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: Concentration
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 02A226:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 154602:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 154603:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 154604:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 154609:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 154608:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 154607:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 154606:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1

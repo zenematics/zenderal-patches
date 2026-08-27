@@ -1,0 +1,29 @@
+FormKey: 205A8F:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_D000_Spell_SolarRay
+Name:
+  TargetLanguage: English
+  Value: Solar Ray
+MenuDisplayObject: 205A7A:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 12
+Flags:
+- ManualCostCalc
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0F2CA8:Skyrim.esm
+Effects:
+- BaseEffect: 20AB9D:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 6
+    Duration: 1
+- BaseEffect: 20AB9F:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 6
+    Duration: 1
+- BaseEffect: 0F392F:Skyrim.esm
+  Data:
+    Magnitude: 99
+    Duration: 10
