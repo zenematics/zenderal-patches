@@ -13,7 +13,7 @@ Runtime corroboration: the BEES log reports **76** plugins emulated (log written
 
 | Dataset | Winning records | With overrides | New (non-master) |
 |---|---:|---:|---:|
-| `spells.json` (SPEL) | 2723 | 971 | 1507 |
+| `spells.json` (SPEL) | 2723 | 971 | 1582 |
 | `magic-effects.json` (MGEF) | 3406 | 500 | 2122 |
 | `enchantments.json` (ENCH) | 870 | 275 | 160 |
 | `scrolls.json` (SCRL) | 180 | 34 | 146 |
@@ -29,9 +29,8 @@ Plugins ranked by how many overridden magic records they end up winning:
 | Plugin | Conflicted records won |
 |---|---:|
 | Enderal SE - Gameplay Overhaul.esp | 1469 |
-| Zenderal - Magic Patches.esp | 176 |
+| Zenderal - Magic Patches.esp | 251 |
 | EGO - KataPUMB Spell Package.esp | 149 |
-| Triumvirate - Mage Archetypes.esp | 75 |
 | EGO SE - KataPUMB Hidden Powers.esp | 63 |
 | EGO SE - KataPUMB New Affinities.esp | 37 |
 | EGO SE - Psionic affects Constructs.esp | 36 |
@@ -48,6 +47,7 @@ Plugins ranked by how many overridden magic records they end up winning:
 | EGO SE - Apparition Regeneration.esp | 1 |
 | EGO SE - Priests Cure Diseases.esp | 1 |
 | Enderal SE - Immersive Death Cycle.esp | 1 |
+| WadeInWaterRedone.esp | 1 |
 
 ## Spells by school
 

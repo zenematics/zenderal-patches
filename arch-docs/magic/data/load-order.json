@@ -2115,29 +2115,22 @@
       "source": "Apocalypse - Enderal Patch"
     },
     {
-      "name": "Zenderal - Kata Fixes.esp",
+      "name": "Triumvirate - Mage Archetypes.esp",
       "index": 290,
       "enabled": true,
       "headerVersion": 1.7,
-      "source": "Zenderal - Kata Fixes"
-    },
-    {
-      "name": "Zenderal - Magic Patches.esp",
-      "index": 291,
-      "enabled": true,
-      "headerVersion": 1.7,
-      "source": "Zenderal - Magic Patches"
+      "source": "Triumvirate - Enderal Patch"
     },
     {
       "name": "For Honor in Skyrim.esp",
-      "index": 292,
+      "index": 291,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "For Honor in Skyrim"
     },
     {
       "name": "For Honor Balance Patch.esp",
-      "index": 293,
+      "index": 292,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2145,7 +2138,7 @@
     },
     {
       "name": "Reforged Directional Combat.esp",
-      "index": 294,
+      "index": 293,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2153,7 +2146,7 @@
     },
     {
       "name": "For Honor Reforged - Removed Effects Patch.esp",
-      "index": 295,
+      "index": 294,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2161,28 +2154,28 @@
     },
     {
       "name": "Bears of the North.esp",
-      "index": 296,
+      "index": 295,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Bears of the North"
     },
     {
       "name": "EGO SE - Bears of the North.esp",
-      "index": 297,
+      "index": 296,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "EGO SE - Bears of the North"
     },
     {
       "name": "EVGConditionalIdles.esp",
-      "index": 298,
+      "index": 297,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "EVG Conditional Idles"
     },
     {
       "name": "Fluffworks - Dismembering Framework Patch.esp",
-      "index": 299,
+      "index": 298,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2190,28 +2183,28 @@
     },
     {
       "name": "Embers XD.esp",
-      "index": 300,
+      "index": 299,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Embers XD"
     },
     {
       "name": "Embers XD - Fire Magick Add-On.esp",
-      "index": 301,
+      "index": 300,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Embers XD"
     },
     {
       "name": "Water for ENB for Enderal.esp",
-      "index": 302,
+      "index": 301,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Water for ENB"
     },
     {
       "name": "Water for ENB - Waterfalls Add-On.esp",
-      "index": 303,
+      "index": 302,
       "enabled": false,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2220,14 +2213,14 @@
     },
     {
       "name": "Dynamic Sprint.esp",
-      "index": 304,
+      "index": 303,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Dynamic Sprint"
     },
     {
       "name": "Chocolate Poise - Reforged.esp",
-      "index": 305,
+      "index": 304,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2235,28 +2228,28 @@
     },
     {
       "name": "ChocolatePoise - Enderal.esp",
-      "index": 306,
+      "index": 305,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "1_Chocolate Poise - Enderal Patch"
     },
     {
       "name": "Zenderal - Faster Sprint.esp",
-      "index": 307,
+      "index": 306,
       "enabled": true,
       "headerVersion": 1,
       "source": "Zenderal - Faster Sprint"
     },
     {
       "name": "BowRapidCombo.esp",
-      "index": 308,
+      "index": 307,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Bow Rapid Combo V3"
     },
     {
       "name": "Bow Rapid Combo Balance.esp",
-      "index": 309,
+      "index": 308,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2264,21 +2257,21 @@
     },
     {
       "name": "Zenderal - Bow Rapid Combo Balance.esp",
-      "index": 310,
+      "index": 309,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Zenderal - Bow Rapid Combo Balance"
     },
     {
       "name": "Dynamic Dodge Shot.esp",
-      "index": 311,
+      "index": 310,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Dynamic Dodge Shot"
     },
     {
       "name": "Occlusion.esp",
-      "index": 312,
+      "index": 311,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2286,7 +2279,7 @@
     },
     {
       "name": "DynDOLOD.esp",
-      "index": 313,
+      "index": 312,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2294,14 +2287,14 @@
     },
     {
       "name": "Gamepad\u002B\u002B.esp",
-      "index": 314,
+      "index": 313,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Gamepad\u002B\u002B"
     },
     {
       "name": "b612.esp",
-      "index": 315,
+      "index": 314,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
@@ -2309,25 +2302,32 @@
     },
     {
       "name": "Biggie Traits.esp",
-      "index": 316,
+      "index": 315,
       "enabled": true,
       "headerVersion": 1.7,
       "source": "Biggie Traits - Enderal Conversion"
     },
     {
       "name": "Zen Traits.esp",
-      "index": 317,
+      "index": 316,
       "enabled": true,
       "headerVersion": 1.71,
       "needsBees": true,
       "source": "Zen Traits"
     },
     {
-      "name": "Triumvirate - Mage Archetypes.esp",
+      "name": "Zenderal - Kata Fixes.esp",
+      "index": 317,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Zenderal - Kata Fixes"
+    },
+    {
+      "name": "Zenderal - Magic Patches.esp",
       "index": 318,
       "enabled": true,
       "headerVersion": 1.7,
-      "source": "Triumvirate - Enderal Patch"
+      "source": "Zenderal - Magic Patches"
     },
     {
       "name": "Skip Intro SE.esp",
