@@ -75,6 +75,8 @@ Thumbs.db
 !src/KataFixes/Scripts/compiled/*.pex
 !src/ControllerTweaks/Scripts/compiled/
 !src/ControllerTweaks/Scripts/compiled/*.pex
+!src/BrawlFixes/Scripts/compiled/
+!src/BrawlFixes/Scripts/compiled/*.pex
 
 # Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
 # lookups. Large, regenerated locally from each machine's own copy, never committed.

@@ -30,7 +30,10 @@
       "name": "Zenderal - Kata Fixes",
       "archiveName": "Zenderal - Kata Fixes",
       "fomod": false,
-      "scripts": { "from": "src/KataFixes/Scripts/compiled", "to": "Scripts" },
+      "scripts": {
+        "from": "src/KataFixes/Scripts/compiled",
+        "to": "Scripts"
+      },
       "plugins": [
         {
           "yamlSource": "src/KataFixes/KataFixesESP",
@@ -43,7 +46,10 @@
       "name": "Zenderal - Skip The Prologue",
       "archiveName": "Zenderal - Skip The Prologue",
       "fomod": false,
-      "scripts": { "from": "src/SkipPrologue/Scripts/compiled", "to": "Scripts" },
+      "scripts": {
+        "from": "src/SkipPrologue/Scripts/compiled",
+        "to": "Scripts"
+      },
       "plugins": [
         {
           "yamlSource": "src/SkipPrologue/SkipPrologueESP",
@@ -68,11 +74,44 @@
       "archiveName": "Zenderal - Controller Tweaks",
       "fomod": false,
       "plugins": [],
-      "scripts": { "from": "src/ControllerTweaks/Scripts/compiled", "to": "Scripts" },
+      "scripts": {
+        "from": "src/ControllerTweaks/Scripts/compiled",
+        "to": "Scripts"
+      },
       "files": [
-        { "from": "src/ControllerTweaks/Interface", "to": "Interface" },
-        { "from": "src/ControllerTweaks/Scripts/source", "to": "Scripts/Source" },
-        { "from": "src/ControllerTweaks/readme.txt", "to": "" }
+        {
+          "from": "src/ControllerTweaks/Interface",
+          "to": "Interface"
+        },
+        {
+          "from": "src/ControllerTweaks/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/ControllerTweaks/readme.txt",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "Script only - no plugin. Forks BOTH of SureAI's brawl scripts. ROOT CAUSE: an Enderal brawl is won by an AI PACKAGE on the opponent alias, DGForceGreetAfterBleedoutPackage 108B54, which requires GetStageDone(11A493,20)==0, IsBleedingOut==0, GetStage(11A493)>=15 AND GetStage(11A493)<100. The opponent bleeds out (stage 15), StopCombat runs, the engine stands her back up AT FULL HEALTH - that recovery is CORRECT AND REQUIRED - and the package then force-greets the player; that conversation is the win. But both scripts' OnMagicEffectApply answer an incoming magic effect with SetStage(150) - the alias script on any HOSTILE effect landed by the player, the player script on ANY effect at all from a non-player caster - and 150 is >=100, so the victory forcegreet is locked out permanently. Beside an animation-driven combat framework that trips on the first punch: For Honor Reforged's UNARMED move-set (and a brawl is unarmed by definition) casts LimbStrikes 0008AE via Payload Interpreter, carrying 'Poise Damage Non Blocking' 00089F and 'Stamina Damage' 00089E, both Hostile; its parry system casts 'Weapon Parry Poise Damage' 000892->0005F5 (Hostile) through the ReforgedParryController perk SPID gives every actor at 100%. Third person only because Behavior Data Injector registers For Honor's events on the shared 'Actors' behaviour project - the first-person graph has none. For Honor in Skyrim alone is fine: its unarmed hit casts SP_Impact_Fist 00082D->000823, NOT Hostile. FIX: gate both handlers on MagicEffect.GetAssociatedSkill() being one of the five schools - Enderal's own offensive effects all carry a MagicSkill, combat-framework markers carry none (verified: zero across For Honor in Skyrim + Reforged, 482 across base Enderal). DO NOT add SetStage(200) to OnEnterBleedout: 200 is also >=100, so it kills the same forcegreet and its fragment AllowBleedoutDialogue(False)s and Stop()s the quest - that was shipped once here and made the brawl unwinnable on its own. NO Property added/removed/renamed - the quest VMAD binds UnarmedWeapon, DGIntimidateFaction, Opponent and OpponentFriend by name. Fixes NQ12 (Silia Foxhand), NQ_G_04 (Duul), FS_NQ06 (Darius Kupferhammer) and the EnvironmentScene01 drunk. A brawl ALREADY at stage 150 needs 'setstage 11A493 15' once. Nothing else in the list ships either script loose, so no sort position is required. Credit: SureAI.",
+      "name": "Zenderal - Brawl Fixes",
+      "archiveName": "Zenderal - Brawl Fixes",
+      "fomod": false,
+      "plugins": [],
+      "scripts": {
+        "from": "src/BrawlFixes/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "files": [
+        {
+          "from": "src/BrawlFixes/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/BrawlFixes/readme.txt",
+          "to": ""
+        }
       ]
     },
     {
@@ -82,7 +121,10 @@
       "fomod": false,
       "plugins": [],
       "files": [
-        { "from": "src/NpcPotions/spid/Zenderal - NPC Potions_DISTR.ini", "to": "" }
+        {
+          "from": "src/NpcPotions/spid/Zenderal - NPC Potions_DISTR.ini",
+          "to": ""
+        }
       ]
     }
   ]
