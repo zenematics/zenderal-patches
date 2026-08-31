@@ -1,0 +1,22 @@
+FormKey: 0E7636:Skyrim.esm
+EditorID: _00E_HandwerksbuchSpeechcraftTo25
+ObjectBounds:
+  First: -6, -9, 0
+  Second: 6, 8, 1
+Name:
+  TargetLanguage: English
+  Value: 'Crafting Book: Rhetoric, Apprentice'
+Keywords:
+- 031ACD:Skyrim.esm
+Model:
+  File: Clutter\Books\JournalLowPoly01.nif
+  Data: 0x020000000000000000000000
+Weight: 0.1
+Value: 10
+Flags:
+- NoAutoCalc
+- FoodItem
+ConsumeSound: 07EA3A:Skyrim.esm
+Effects:
+- BaseEffect: 000801:Zenderal - Learning Books Grant Learning Points.esp
+  Data: {}

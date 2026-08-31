@@ -1,0 +1,19 @@
+FormKey: 08561E:Skyrim.esm
+EditorID: _00E_LehrbuchIllusionTo75
+Name:
+  TargetLanguage: English
+  Value: 'Learning Book: Psionics, Expert'
+Keywords:
+- 001FB7:Enderal SE - Gameplay Overhaul.esp
+Model:
+  File: Clutter\Books\JournalLowPoly01.nif
+  Data: 0x020000000000000000000000
+Weight: 0.1
+Value: 75
+Flags:
+- NoAutoCalc
+- FoodItem
+ConsumeSound: 07EA3A:Skyrim.esm
+Effects:
+- BaseEffect: 000800:Zenderal - Learning Books Grant Learning Points.esp
+  Data: {}

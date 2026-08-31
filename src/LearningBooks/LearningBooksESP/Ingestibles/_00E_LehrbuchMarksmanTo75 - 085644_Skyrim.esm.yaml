@@ -1,0 +1,19 @@
+FormKey: 085644:Skyrim.esm
+EditorID: _00E_LehrbuchMarksmanTo75
+Name:
+  TargetLanguage: English
+  Value: 'Learning Book: Marksman, Expert'
+Keywords:
+- 031ACD:Skyrim.esm
+Model:
+  File: Clutter\Books\JournalLowPoly01.nif
+  Data: 0x020000000000000000000000
+Weight: 0.1
+Value: 75
+Flags:
+- NoAutoCalc
+- FoodItem
+ConsumeSound: 07EA3A:Skyrim.esm
+Effects:
+- BaseEffect: 000800:Zenderal - Learning Books Grant Learning Points.esp
+  Data: {}

@@ -126,6 +126,22 @@
           "to": ""
         }
       ]
+    },
+    {
+      "$comment": "All 72 EGO learning/crafting book overrides (built verbatim from reference/mods/EGO by src/LearningBooks/tools/01-generate-book-overrides.py - never hand-edit Ingestibles/), redirected to two new grant MGEFs (0x800/0x801) + a new Crafting Points message (0x802): each book GRANTS 1 point of its currency instead of spending one to raise a skill (EGO SE - Leveling Redone supplies the skill-raising path). Masters EGO (8 Entropy/Psionics books carry its LehrbuchForbidden 001FB7 keyword), which also forces load-after-EGO so the redirect wins. MEMORY books (_00E_Erinnerungsbuch) and the Plus2 grant books deliberately untouched. This plugin OWNS the 72 ALCH records - no other Zenderal plugin may override them.",
+      "name": "Zenderal - Learning Books Grant Learning Points",
+      "archiveName": "Zenderal - Learning Books Grant Learning Points",
+      "fomod": false,
+      "scripts": {
+        "from": "src/LearningBooks/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "plugins": [
+        {
+          "yamlSource": "src/LearningBooks/LearningBooksESP",
+          "dest": "Zenderal - Learning Books Grant Learning Points.esp"
+        }
+      ]
     }
   ]
 }
