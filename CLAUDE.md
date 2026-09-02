@@ -69,6 +69,25 @@ confirmed by compiling real Enderal scripts (`_00E_TalentLibrary`, `_00E_Game_Ta
 > package ships `tools/net10.0` only), failing with a `DotnetToolSettings.xml was not found` error
 > that never mentions .NET.
 
+## Knowledge base (oculory-rag) — search it before answering
+
+If the `oculory-rag` MCP tools are available, use them **before** answering from memory and
+before grepping `reference/` by hand:
+
+- **`search`** — the written knowledge base: engine behaviour, record patterns, SPID, Spriggit
+  and Mutagen workflow, third-party mod analyses, prior art and design notes.
+- **`game_search` / `game_read`** — the decompiled game files themselves: ~331k records and
+  ~19k Papyrus scripts, looked up by EditorID, FormID, FormKey or in-game name. Prefer these
+  over walking `reference/` by hand; they are indexed and answer in milliseconds.
+- Pass `game="enderal"` for this repo. Enderal ships a MODIFIED `Skyrim.esm`, so a
+  vanilla-Skyrim answer is often the wrong one.
+
+Cite the doc id or FormKey a claim rests on, and keep the `[verified]` / `[community]` /
+`[unverified]` marks honest — retrieved text is evidence, not proof.
+
+These tools are an optional local index. If they are not present, work in this repo exactly as
+before: nothing here depends on them.
+
 ## Enderal ground truth
 
 Everything in this section was read off the installed game, not recalled. Re-verify with the same
