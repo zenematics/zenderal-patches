@@ -54,7 +54,7 @@ if it needed none.
 
 | Mod | Version | Why | Patch | Notes |
 |---|---|---|---|---|
-| _(none recorded yet)_ | | | | |
+| *(original Enderal bug, no third-party mod involved)* | — | Boarding the Ark Myrad dropped the player off the platform edge before the mount animation finished, then had it fly straight into the mountain wall behind Ark. Confirmed present with every other mod-conflict cause ruled out (exhaustive FormID scan of the whole modlist, checked twice). | **ArkMyradPlatformFix** → `Zenderal - Ark Myrad Platform Fix.esp` | One-record override: repositions reference `02F0B5:Enderal - Forgotten Stories.esm` (the actual takeoff marker, reached via the FS-only `_00E_FS_MyradTakeOffMarker` keyword on `Ark_MyradRef`'s FS override — **not** `Ark_MyradRef`'s own placement or the base-game `_00E_MyradStartPosition` marker, both of which are dead ends) toward the platform's east edge, giving the Myrad's westward-facing neck clearance before it runs off the platform's short axis. Master: `Skyrim.esm` + `Enderal - Forgotten Stories.esm`. See the `ArkMyradPlatformFix` postmortem in `CLAUDE.md`'s Allocations-in-use section for the full investigation — worth reading before touching any other Myrad-adjacent record, since this cost an entire session to a wrong-layer FormKey lookup. |
 
 ### Modern combat
 

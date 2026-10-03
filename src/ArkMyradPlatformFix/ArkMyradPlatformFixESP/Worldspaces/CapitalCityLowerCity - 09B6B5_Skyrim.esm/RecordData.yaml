@@ -1,0 +1,65 @@
+FormKey: 09B6B5:Skyrim.esm
+EditorID: CapitalCityLowerCity
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Ark, South Quarter
+  - Language: Japanese
+    String: 'アーク: 南地区'
+  - Language: Spanish
+    String: Ark, Barrio Sur
+  - Language: Polish
+    String: Arka, Dzielnica Południowa
+  - Language: Italian
+    String: Ark - Quartiere Meridionale
+  - Language: Korean
+    String: 아크, 남쪽 구역
+  - Language: French
+    String: Ark - Quartier sud
+  - Language: Chinese
+    String: 方舟城，南区
+  - Language: German
+    String: Ark, Südviertel
+  - Language: Russian
+    String: Арк, Южный квартал
+Location: 0A1A12:Skyrim.esm
+Parent:
+  Worldspace: 001D3C:Skyrim.esm
+  Flags:
+  - UseLandData
+  - UseLodData
+  - UseMapData
+  - UseWaterData
+  - UseClimateData
+  - UseSkyCell
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -5, -6
+ObjectBoundsMax: 1, 1
+Music: 0B3671:Skyrim.esm
+TopCell:
+  FormKey: 09B6FA:Skyrim.esm
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Flags:
+  - HasWater
+  Grid:
+    Flags: -1254349568
+  WaterHeight: 3.4028235E+38
+  Persistent:
+  - MutagenObjectType: PlacedObject
+    FormKey: 02F0B5:Enderal - Forgotten Stories.esm
+    MajorRecordFlagsRaw: 1024
+    Version2: 1
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -5661.6074, -13948.2950, 2838.9507
+      Rotation: 0, -0, 4.7124

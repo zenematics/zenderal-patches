@@ -374,6 +374,7 @@ Each patch's own ESL block. Overrides are not listed — they consume nothing.
 | `SkipToTamingTheWaves` → `Zenderal - Skip To Taming The Waves.esp` | `0x800–0x803` | `800` Quest `ZP_SkipTTW`, `801` Activator `ZP_SkipTTW_StartTrigger`, `802` its placed trigger ref in Ark market cell `070793`, `803` Message `ZP_SkipTTW_sClassChoice`. Overrides `MQ101 03372B` (alias 183 `StartMarkerRef` → `TeleportMarker_ArkMarket 0EAB74`) and forwards FS's `CapitalCityMarketArea 07072A` header — neither costs anything from the block. **No `MQP01PrologStart` override**: `QF_MQ101_0003372B.Fragment_332` only does `MoveTo(StartMarkerRef)`, and nothing else starts the prologue — `MQP01` is started by the trigger inside `MQP01Home`, which a player spawning in Ark never reaches. SkipIntro disables that trigger defensively; it is not needed |
 | `FasterSprint` → `Zenderal - Faster Sprint.esp` | none (overrides only) | Global (player + NPC) sprint speed **+92.03%** on top of EGO's current values (five stacked bumps, each applied to the current live value: +20% shipped, then +15%, +10%, +15%, +10% — 1.2 × 1.15 × 1.10 × 1.15 × 1.10 = 1.92027× overall) — overrides `NPC_Sprinting_MT` (`034D9C:Skyrim.esm`, `ForwardWalk`/`ForwardRun` 440→**844.9188**) and `AIControlledNPC_Sprinting_MT` (`0F3469:Skyrim.esm`, 450→**864.1215**). `BackWalk`/`BackRun`/rotation fields left untouched. Plus a **sprint stamina drain -50%**: overrides GMST `fSprintStaminaDrainMult` (`02DD35:Skyrim.esm`, EGO's `4` → `2`; base Enderal was `7`, so this is 50% of EGO's *current* value, matching this patch's "on top of EGO" convention). Confirmed only EGO touches this GMST anywhere in the active load order (grepped every `.esp`/`.esm` in the modlist for the string), so no other patch's value is being reverted. `fSprintStaminaWeightMult`/`fSprintStaminaWeightBase` left untouched — halving the leading `DrainMult` factor already scales total drain by 50% uniformly regardless of carry weight, no need to touch the weight-scaling GMSTs too. Master: `Skyrim.esm` only (no EGO FormKey is referenced, only its record is overridden — but this plugin **must load after both** `Enderal SE - Gameplay Overhaul.esp` **and** `Dynamic Sprint.esp` in-game to win the conflict on both — see below; declaring either as a master isn't required since no FormLink to either exists). See `arch-docs/zenderal-curation.md`. **Note:** `RecordData.yaml`'s `ModHeader.Description` says "by 80%" — that's stale/wrong, the actual sprint-speed ratio everywhere is 1.92027× (+92.03%); not corrected, flag if touching that file next. This value is now within one further +10% stack of doubling the original shipped speed — worth confirming with the user whether more increments are actually wanted or whether this has drifted past a comfortable gameplay pace; each increment so far has been a direct explicit request, not an assumption.
 | `MCODirectionalPowerAttacks` → `Zenderal - MCO Directional Power Attacks.esp` | none (overrides only) | MCO/ADXP setups only. Overrides `PowerAttackLeft 019B22`, `PowerAttackBackward 019B23` and `PowerAttackRight 019B24` (all `:Skyrim.esm`), setting `AnimationEvent` to `attackPowerStartInPlace`. That is the same one-field change `Attack_MCO.esp` makes to `PowerAttackForward 019B25`; every other subrecord is byte-identical to `Skyrim.esm` (verified by subrecord diff). Why: Attack MCO-DXP's Nemesis patch reroutes only the standing power-attack state (`Weap_DefaultAttackPower_MSG`/`AttackPowerInPlace`) into `MCO_PowerAttack`, so vanilla side/back power-attack events played Enderal's own animations and never reached For Honor Reforged's DMK-gated (`DirecionalCycleMoveset` 3/7/5) OAR submods. No other plugin in the list overrides these three idles. Left-hand variants (`0E3F38`/`39`/`3A`) deliberately untouched. **Also** overrides the three sprint power-attack idles `AttackRightPowerForwardSprinting 0EC3CC`, `…2HWForwardSprinting 0EC3CE`, `…2HMForwardSprinting 0EC3CF` (copied from the winning `Update.esm` versions), removing only their `HasPerk CriticalCharge 0CB406` / `GreatCriticalCharge 0CB407` condition; `IsSprinting` and the weapon-type checks stay. Why: in the merged ADXP graph, `MCO_SprintPowerAttack` (which FHR's "Sprint Attacks" submods replace) is entered **only** by `attackPowerStart_Sprint` (and the 2HM/2HW sprint events), and on MCO the only sender is these vanilla idles. Nothing in Enderal or EGO grants those perks, so FHR's sprint attack was unreachable. On BFCO it worked because BFCO's own `0_ScriptIdle_PowerattackSP` sends the event with no perk check. No other plugin overrides these idles. The perk check ran on the subject actor, so NPCs can now trigger these sprint idles too. Masters: `Skyrim.esm` + `Update.esm` (the sprint idles' parent `000991:Update.esm`). |
+| `ArkMyradPlatformFix` → `Zenderal - Ark Myrad Platform Fix.esp` | none (overrides only) | Fixes the Ark Myrad boarding sequence dropping the player off the platform edge before the mount animation completes. Single override: reference `02F0B5:Enderal - Forgotten Stories.esm` (a plain XMarker), repositioned toward the platform's east edge so the Myrad's westward-facing neck (rotation `270°` exactly) has room before running off the platform's short axis. Verified against the cell's real navmesh (point-in-triangle, not just vertex proximity), and confirmed by matching an in-game `getangle z` reading of `270.00°` to this record's exact vanilla rotation (`4.7124` rad). Master: `Skyrim.esm` + `Enderal - Forgotten Stories.esm` (the marker's defining master). See the FS-override postmortem below — read it before touching any Myrad-adjacent record again. |
 >
 > **THE ACTUAL ROOT CAUSE of "sprint speed changes don't show up in-game," found 2026-08-12 after an
 > extensive false-trail investigation: a THIRD mod, `Dynamic Sprint.esp`, overrides the exact same two
@@ -449,6 +450,42 @@ Each patch's own ESL block. Overrides are not listed — they consume nothing.
 > timestamp against the rebuild's** — this is exactly what the `mod-deploy` skill exists to make
 > impossible (it copies from `dist/` and verifies the destination), so prefer it over manual install
 > for anything under active iteration.
+
+>
+> **POSTMORTEM, 2026-08-31: an entire debugging session was spent editing the wrong record because
+> the winning override lived in `Enderal - Forgotten Stories.esm`, not the `Skyrim.esm` layer this
+> repo's own reference docs pointed at first.** The Ark Myrad NPC reference (`Ark_MyradRef`,
+> `09C522:Skyrim.esm`) has TWO separate FormKey definitions in `reference/base/`: one in
+> `reference/base/Skyrim/Worldspaces/...` (the base layer) and a completely different one in
+> `reference/base/EnderalFS/Worldspaces/...` (FS's override) — different `LinkedReferences`,
+> different `Placement`. Every edit this session made to the base-layer version's fields (Position,
+> Rotation — six separate attempts, three different records) produced **zero** in-game effect,
+> because the live game was reading FS's override the whole time, which links to a *different*
+> reference entirely (`02F0B5:Enderal - Forgotten Stories.esm`, reached via a keyword,
+> `_00E_FS_MyradTakeOffMarker` `02F0B6`, that only exists on the FS-layer copy of the record).
+>
+> **How this was finally caught:** the in-game console's own reference-info panel names the winning
+> plugin directly — `prid <formid>` in-game shows `Ref last changed by: <plugin>` — and it said
+> `Enderal - Forgotten Stories.esm`, not `Skyrim.esm`. That single field ended a session's worth of
+> guessing. **Read that field before trusting any FormKey lookup against `reference/base/Skyrim/` for
+> a record FS is known to touch** (recall: 28.7% of FS's own records override base Enderal — see
+> "Master order" above) — grep `reference/base/EnderalFS/` for the same FormKey FIRST, or at minimum
+> in parallel, never only the base layer, whenever a record's edits aren't taking visible effect and
+> the record belongs to an NPC, quest alias, or anything else FS is likely to have touched.
+>
+> **Two further mechanism notes, in case a similar animation-adjacent bug shows up elsewhere:**
+> 1. An actor's *own* placed Position/Rotation can be entirely irrelevant to where it actually
+>    appears if a linked marker (found via `GetLinkedRef(keyword)`) drives the behavior instead —
+>    console `getpos`/`getangle` on the actor itself will keep reporting the marker's values
+>    regardless of what the actor's own record says, which looks exactly like "my edit did nothing"
+>    but is actually "I edited the wrong record." Don't conclude a lever is broken until you've
+>    confirmed via console which record's values are actually live.
+> 2. A creature's `ObjectBounds` (on its base NPC/creature record) can legitimately exceed a small
+>    platform's own footprint — the Myrad's ~5m nose-to-tail half-length is longer than this
+>    platform's forward clearance in every direction. The fix isn't finding a position where the
+>    *whole body* fits (impossible here), it's biasing the pivot so the *mount point* (near the
+>    front, not the full length) lands on solid ground and letting the tail hang off the back, where
+>    nothing needs footing.
 
 > **When a mod has two mutually exclusive upstream builds, ship two ARCHIVES of ONE ModKey — not
 > two plugins.** **[verified 2026-08-06]** johnskyrim's Relentless Sword exists as a free Nexus
