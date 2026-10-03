@@ -95,6 +95,18 @@
           "dest": "Zenderal - MCO Directional Power Attacks.esp"
         }
       ]
+    },
+    {
+      "$comment": "Pretty Enderal Armory x EGO. The 11 Pretty * plugins load after EGO and were authored against vanilla Enderal, so ~140 armour/weapon/ammo/NPC records lose EGO's stats, prices, weights, armour types, keywords, enchantments and NPC perks (plus Enderal SE - Bug Fixes values and AOS footsteps). Each override = the in-game winner's record (Pretty's meshes/armatures/outfits) with those gameplay fields forwarded. GENERATED - regenerate with src/PrettyArmoryEGO/tools/01-build-override-chains.py then 02-merge-pretty-ego.py; never hand-edit the record folders. Masters every Pretty plugin it overrides, so the engine enforces load-after.",
+      "name": "Zenderal - Pretty Armory EGO Patch",
+      "archiveName": "Zenderal - Pretty Armory EGO Patch",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/PrettyArmoryEGO/PrettyArmoryEGOESP",
+          "dest": "Zenderal - Pretty Armory EGO Patch.esp"
+        }
+      ]
     }
   ]
 }

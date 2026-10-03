@@ -1,0 +1,169 @@
+FormKey: 01ADF1:Skyrim.esm
+EditorID: _00E_MC_Tealor
+Configuration:
+  Flags:
+  - Essential
+  - DoesntAffectStealthMeter
+  - IsGhost
+  MagickaOffset: 500
+  StaminaOffset: 400
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 35
+  SpeedMultiplier: 140
+  DispositionBase: 35
+  HealthOffset: 600
+Factions:
+- Faction: 039BD7:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 047DBC:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0F76BD:Skyrim.esm
+  Fluff: 0x000000
+Voice: 0CE2C9:Skyrim.esm
+Race: 013744:Skyrim.esm
+Perks:
+- Perk: 001D2E:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001D60:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001DBB:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 13B5F4:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 148993:Skyrim.esm
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Tealor Arantheal
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 5
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 5
+  - Key: Illusion
+    Value: 5
+  - Key: Restoration
+    Value: 5
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 50
+  - Key: TwoHanded
+    Value: 50
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 30
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 30
+  - Key: LightArmor
+    Value: 30
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 1
+  Magicka: 36879
+  Stamina: 31
+  GearedUpWeapons: 1
+HeadParts:
+- 099D60:Skyrim.esm
+- 0C716E:Skyrim.esm
+- 0D2E82:Skyrim.esm
+- 0E4DD3:Skyrim.esm
+HairColor: 0A0437:Skyrim.esm
+CombatStyle: 086F4F:Skyrim.esm
+NAM5: 255
+Height: 1.015
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 000811:Pretty Holy Order Grandmaster Armory.esp
+HeadTexture: 09F0CD:Skyrim.esm
+TextureLighting: '#00A7867A'
+FaceMorph:
+  NoseLongVsShort: 0.2
+  NoseUpVsDown: -0.2
+  JawNarrowVsWide: 0.9
+  CheeksForwardVsBack: 0.7
+  BrowsUpVsDown: -0.76
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 9
+  Unknown: 4294967295
+  Eyes: 9
+TintLayers:
+- Index: 1
+  Color: '#00A7867A'
+  InterpolationValue: 1
+  Preset: 63
+- Index: 2
+  Color: '#002F2013'
+  InterpolationValue: 1
+  Preset: 78
+- Index: 3
+  Color: '#00500901'
+  InterpolationValue: 0.5
+  Preset: 82

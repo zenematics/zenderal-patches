@@ -1,0 +1,24 @@
+FormKey: 05BB23:Skyrim.esm
+EditorID: _07E_05_SharpSteelArrow
+ObjectBounds:
+  First: -6, -59, -3
+  Second: 7, 0, 3
+Name:
+  TargetLanguage: English
+  Value: Sharp Steel Arrow
+Model:
+  File: Weapons\Steel\steelarrow_sharp.nif
+  Data: 0x020000000000000000000000
+PickUpSound: 03E7B7:Skyrim.esm
+PutDownSound: 03E877:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Keywords:
+- 0917E7:Skyrim.esm
+Projectile: 15033E:Skyrim.esm
+Flags:
+- NonBolt
+Damage: 6
+Value: 4
+Weight: 0.1

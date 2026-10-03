@@ -1,0 +1,44 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Pretty Armory EGO Patch.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Author: Zenderal
+  Description: Pretty Enderal Armory x EGO. Keeps every Pretty mesh, armature and outfit while forwarding EGO stats, prices, weights, armour types, keywords and NPC perks (plus Enderal SE - Bug Fixes and Audio Overhaul footsteps) that the Pretty plugins revert.
+  Stats:
+    Version: 1.7
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Pretty Common Armory.esp
+    FileSize: 0
+  - Master: Pretty Enderal Armory - Fixes.esp
+    FileSize: 0
+  - Master: Pretty Pyrean Armory.esp
+    FileSize: 0
+  - Master: Pretty Semi-Unique Armory.esp
+    FileSize: 0
+  - Master: Pretty Unique Armory.esp
+    FileSize: 0
+  - Master: Enderal Remastered Armory - Heavy Leather.esp
+    FileSize: 0
+  - Master: Pretty Enderal Clothing.esp
+    FileSize: 0
+  - Master: Pretty Mages Armory.esp
+    FileSize: 0
+  - Master: Pretty Factions Armory.esp
+    FileSize: 0
+  - Master: Pretty Holy Order Armory.esp
+    FileSize: 0
+  - Master: Pretty Holy Order Grandmaster Armory.esp
+    FileSize: 0
+  INTV: 1

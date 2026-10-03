@@ -234,7 +234,7 @@ and recorded here instead.
 
 | Mod | Version | Why | Patch | Notes |
 |---|---|---|---|---|
-| _(none recorded yet)_ | | | | |
+| Pretty Enderal Armory set (11 plugins: Common, Semi-Unique, Unique, Mages, Factions, Pyrean, Holy Order, Holy Order Grandmaster, Clothing, Backpacks, Armory - Fixes) + 5 asset-only parts (Aeterna, Companions, Righteous Path, Rune, Starling) | — | Modern visuals for Enderal's own armour, weapons and clothing. | **PrettyArmoryEGO** → `Zenderal - Pretty Armory EGO Patch.esp` | The 11 plugins load after EGO and were authored against vanilla Enderal, so 140 of the 144 records they share with EGO silently reverted EGO's armour ratings, weapon damage/crit/speed, prices, weights, enchantments, armour types (EGO's robes-as-Clothing came back as light armour) and keywords — and on Tealor and four MQ07a Pyrean soldiers, EGO's perks/skills/combat styles. They also reverted 12 Enderal SE - Bug Fixes values and AOS footsteps on 2 boots. The patch (141 generated overrides) keeps every Pretty mesh/armature/outfit and forwards those gameplay fields; it also replaces 3 Pretty Unique weapon descriptions that ship as mis-encoded Russian. Visual replacers Pretty already beats (Unique Amulet Replacer, Guard Armor Replacer Falconer) are deliberately left losing — the look is unchanged. The asset-only parts carry no plugin and need no patch. `Pretty Unique Sets` ships its own older `Pretty Pyrean Armory.esp`, overwritten by the `Pretty Pyrean Armory` mod folder. Verified build, not yet verified in game. |
 
 ### Rejected
 
