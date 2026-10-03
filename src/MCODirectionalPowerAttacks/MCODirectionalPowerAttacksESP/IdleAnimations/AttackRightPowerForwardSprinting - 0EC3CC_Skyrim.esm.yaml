@@ -1,0 +1,25 @@
+FormKey: 0EC3CC:Skyrim.esm
+EditorID: AttackRightPowerForwardSprinting
+Version2: 2
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsSprintingConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+    ItemSource: Right
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThanOrEqualTo
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+    ItemSource: Right
+  ComparisonValue: 4
+AnimationEvent: attackPowerStart_Sprint
+RelatedIdles:
+- 000991:Update.esm
+- 0EC3CE:Skyrim.esm
+AnimationGroupSection: 66

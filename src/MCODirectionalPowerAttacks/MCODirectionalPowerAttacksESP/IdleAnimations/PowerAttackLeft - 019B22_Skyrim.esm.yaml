@@ -1,0 +1,13 @@
+FormKey: 019B22:Skyrim.esm
+EditorID: PowerAttackLeft
+Version2: 2
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetMovementDirectionConditionData
+  ComparisonValue: 4
+Filename: Actors\Character\Behaviors\0_Master.hkx
+AnimationEvent: attackPowerStartInPlace
+RelatedIdles:
+- 0E8456:Skyrim.esm
+- 019B23:Skyrim.esm

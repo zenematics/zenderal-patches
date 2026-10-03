@@ -71,6 +71,18 @@
           "dest": "Zenderal - Faster Sprint.esp"
         }
       ]
+    },
+    {
+      "$comment": "MCO/ADXP setups only. Attack MCO-DXP's Nemesis patch reroutes only the standing power-attack state into MCO_PowerAttack, and Attack_MCO.esp only redirects PowerAttackForward (019B25) to attackPowerStartInPlace. PowerAttackLeft/Backward/Right (019B22/23/24) still fire vanilla attackPowerStartLeft/Backward/Right, so side/back power attacks play Enderal's vanilla animations and For Honor Reforged's DMK-gated directional power attacks never trigger. This overrides those three idles with attackPowerStartInPlace - the same one-field change Attack_MCO makes to 019B25 - every other field verbatim. Only Skyrim.esm defines these records in the list. Also drops the vanilla Critical Charge/Great Critical Charge HasPerk condition from the sprint power-attack idles 0EC3CC/0EC3CE/0EC3CF (Update.esm winners), the only senders of attackPowerStart_Sprint on MCO - nothing in Enderal grants those perks, so FHR's MCO_SprintPowerAttack was unreachable. Do NOT install with BFCO.",
+      "name": "Zenderal - MCO Directional Power Attacks",
+      "archiveName": "Zenderal - MCO Directional Power Attacks",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/MCODirectionalPowerAttacks/MCODirectionalPowerAttacksESP",
+          "dest": "Zenderal - MCO Directional Power Attacks.esp"
+        }
+      ]
     }
   ]
 }

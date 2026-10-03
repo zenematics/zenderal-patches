@@ -1,0 +1,23 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - MCO Directional Power Attacks.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Author: Zenderal
+  Stats:
+    Version: 1.7
+  Description: >-
+    Routes left, right and backward power attacks into MCO's power attack (attackPowerStartInPlace),
+    as Attack_MCO.esp already does for forward, so For Honor Reforged's DMK-directional power
+    attacks play instead of Enderal's vanilla ones (019B22, 019B23, 019B24). Also drops the vanilla
+    Critical Charge perk requirement from the three sprint power-attack idles (0EC3CC, 0EC3CE,
+    0EC3CF), which nothing in Enderal grants, so sprint power attacks reach MCO_SprintPowerAttack.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  INTV: 1
