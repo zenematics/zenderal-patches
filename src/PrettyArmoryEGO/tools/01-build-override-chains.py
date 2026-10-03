@@ -22,6 +22,8 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 OUT = os.path.join(ROOT, "reference", "mods", "Pretty", "_chains.json")
 TYPES = {b"ARMO", b"WEAP", b"AMMO", b"ARMA", b"OUTF", b"NPC_", b"STAT", b"PROJ"}
 BASE = ["Skyrim.esm", "Update.esm", "Enderal - Forgotten Stories.esm"]
+# The patch itself is skipped: once enabled it would otherwise become every chain's winner.
+SELF = "Zenderal - Pretty Armory EGO Patch.esp"
 
 
 def tools():
@@ -100,7 +102,7 @@ def main():
     order = list(BASE)
     for l in open(os.path.join(prof, "plugins.txt"), encoding="utf-8"):
         l = l.strip()
-        if l.startswith("*") and l[1:] not in order:
+        if l.startswith("*") and l[1:] not in order and l[1:] != SELF:
             order.append(l[1:])
     chain = {}
     missing = []
