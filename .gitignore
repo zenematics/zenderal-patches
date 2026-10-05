@@ -45,6 +45,7 @@ Thumbs.db
 /build/staging/**/*.ini
 /build/staging/**/*.txt
 /build/staging/**/*.psc
+/build/staging/**/*.json
 
 # Bethesda archives — large binaries, never commit. Extract scripts with bsa-extract.
 *.bsa
