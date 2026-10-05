@@ -76,6 +76,18 @@
       ]
     },
     {
+      "$comment": "32 bushes (0AC865) in Riverville (FlusshaimMittelweg, FlusshaimZentrum) on top of EPPI Riverville, plus one edited EPPI reference (002207). Originally a Creation Kit plugin that lived only in MO2's overwrite folder (HEDR 1.71, not ESL, FormIDs 0x146D-0x2D68); brought into the repo at HEDR 1.70 as an ESL with all 32 new references renumbered into 0x800-0x81F in their original order.",
+      "name": "Zenderal - RiverBush",
+      "archiveName": "Zenderal - RiverBush",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/RiverBush/RiverBushESP",
+          "dest": "Zenderal - RiverBush.esp"
+        }
+      ]
+    },
+    {
       "$comment": "Playable Half Starling Race makes WoodElfRace (Enderal's NPC Starling race, shared by every NPC Starling) playable; its EGO version loads after EGO SE - Dark Souls Style Movement and Stamina and MORE Unique Races and reverts the race to EGO's flat 50/50/90 + 0.1/6.3/3. Overrides it with a 'might and magic' profile sized against that mod's four races: 75/75/60, regen 0.3/8/20 (2nd-best HP and MP regen, low stamina regen). Record otherwise verbatim from EGO SE - Half Starling.esp, which is mastered (content-unused) to force load-after.",
       "name": "Zenderal - Half Starling DS Races",
       "archiveName": "Zenderal - Half Starling DS Races",
