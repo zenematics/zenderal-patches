@@ -1,0 +1,14 @@
+FormKey: 13155C:Skyrim.esm
+EditorID: _00E_AMBWaterfallSmallLPSD_attenuated
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- fx\amb\water\exterior\waterfall\small\AMB_Water_Waterfall_Small_02_LP.wav
+- fx\amb\water\exterior\waterfall\small\AMB_Water_Waterfall_Small_01_LP.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 11.29

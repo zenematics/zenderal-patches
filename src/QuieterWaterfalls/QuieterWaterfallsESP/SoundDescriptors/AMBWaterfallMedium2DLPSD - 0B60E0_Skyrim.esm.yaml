@@ -1,0 +1,13 @@
+FormKey: 0B60E0:Skyrim.esm
+EditorID: AMBWaterfallMedium2DLPSD
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- data\sound\fx\amb\water\exterior\waterfall\medium\amb_waterfall_medium_01_2d_lp.wav
+OutputModel: 0ABF1A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 14

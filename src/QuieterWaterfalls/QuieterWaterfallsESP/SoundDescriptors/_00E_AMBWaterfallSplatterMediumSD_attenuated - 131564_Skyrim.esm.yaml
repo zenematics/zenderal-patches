@@ -1,0 +1,15 @@
+FormKey: 131564:Skyrim.esm
+EditorID: _00E_AMBWaterfallSplatterMediumSD_attenuated
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_02_LP.wav
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_01_LP.wav
+OutputModel: 13157E:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyShift: 20
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 11.29

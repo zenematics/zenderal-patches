@@ -1,0 +1,11 @@
+FormKey: 13156E:Skyrim.esm
+EditorID: _00E_amb_water_waterfall_large_03_LPSD_INHOUSE_EQ_01
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- data\sound\FX\amb\water\exterior\waterfall\large\_00E_amb_water_waterfall_large_03_lp_(INHOUSE_EQ)_01.wav
+OutputModel: 13157F:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+Priority: 128
+StaticAttenuation: 11.29

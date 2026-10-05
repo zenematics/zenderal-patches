@@ -1,0 +1,15 @@
+FormKey: 13155F:Skyrim.esm
+EditorID: _00E_AMBWaterfallLargeLPSD_Sonnentempel
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- fx\amb\water\exterior\waterfall\large\AMB_Water_Waterfall_Large_02_LP.wav
+- fx\amb\water\exterior\waterfall\large\AMB_Water_Waterfall_Large_01_LP.wav
+- data\sound\fx\amb\water\exterior\waterfall\large\amb_water_waterfall_large_03_lp.wav
+OutputModel: 13157C:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 9
