@@ -1,0 +1,54 @@
+FormKey: 000806:Zenderal - Chocolate Poise Enderal Fix.esp
+EditorID: ArmorDaedricCuirass
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 02EF51:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 02EF56:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E0D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Levelsystem
+      Object: 010AA2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -31, -26, 0
+  Second: 31, 29, 27
+Name:
+  TargetLanguage: English
+  Value: (Set of the Skybreaker) Bulwark of the Skybreaker
+ObjectEffect: 02EF65:Enderal - Forgotten Stories.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\Immersive Armors\Paladin\pallychest_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBD8:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 033EB6:Skyrim.esm
+Value: 640
+Weight: 38
+ArmorRating: 72.8
