@@ -76,6 +76,18 @@
       ]
     },
     {
+      "$comment": "Dynamic Dodge Shot never triggered: its BowDodge idle sits beside BowLeftAttack under NonMountedCombatLeft, competing with three other idles for the first-child slot, so a strafing right-click entered BowLeftAttack (bow equipped), found BowZoom refusing (DDS limits zoom to standing/forward) and did nothing. Moves BowDodge inside BowLeftAttack as its first child and chains BowZoom after it. Conditions untouched.",
+      "name": "Zenderal - Dynamic Dodge Shot Fix",
+      "archiveName": "Zenderal - Dynamic Dodge Shot Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/DynamicDodgeShotFix/DynamicDodgeShotFixESP",
+          "dest": "Zenderal - Dynamic Dodge Shot Fix.esp"
+        }
+      ]
+    },
+    {
       "$comment": "Dynamic Dodge: attack-cancel dodges play the normal step dodge instead of the on-the-spot sway. No plugin - 20 OAR user.json files disabling Dynamic Dodge's IsAttacking submods 70210-70244 (each = the author's config.json + disabled: true), so they fall through to 70110-70144. TK Dodge RE's EnableDodgeAttackCancel stays on. Regenerate with src/DynamicDodgeNoSway/tools/01-disable-sway-submods.py.",
       "name": "Zenderal - Dynamic Dodge No Sway",
       "archiveName": "Zenderal - Dynamic Dodge No Sway",
