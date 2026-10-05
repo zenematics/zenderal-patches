@@ -1,0 +1,24 @@
+FormKey: 01EB4E:Enderal - Forgotten Stories.esm
+EditorID: _05E_45_Unique_Moonwind_Ench
+Version2: 3
+Name:
+  TargetLanguage: English
+  Value: Moonwind
+EnchantmentCost: 19
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 19
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 04605B:Skyrim.esm
+  Data:
+    Magnitude: 20
+- BaseEffect: 04605C:Skyrim.esm
+  Data:
+    Magnitude: 10
+    Duration: 1
+- BaseEffect: 0B72A0:Skyrim.esm
+  Data:
+    Duration: 3

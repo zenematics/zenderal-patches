@@ -1,0 +1,21 @@
+FormKey: 0432F0:Skyrim.esm
+EditorID: _04E_35_Unique_KilrasRedemption_Ench
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Absorb Health
+EnchantmentCost: 102
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 237
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB91:Skyrim.esm
+Effects:
+- BaseEffect: 0AA155:Skyrim.esm
+  Data:
+    Magnitude: 10
+- BaseEffect: 04605A:Skyrim.esm
+  Data:
+    Magnitude: 6

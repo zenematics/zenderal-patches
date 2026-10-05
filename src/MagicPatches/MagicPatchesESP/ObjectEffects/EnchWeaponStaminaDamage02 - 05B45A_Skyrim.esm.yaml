@@ -1,0 +1,18 @@
+FormKey: 05B45A:Skyrim.esm
+EditorID: EnchWeaponStaminaDamage02
+Version2: 8
+Name:
+  TargetLanguage: English
+  Value: Damage Stamina
+EnchantmentCost: 29
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 29
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB9B:Skyrim.esm
+Effects:
+- BaseEffect: 05B450:Skyrim.esm
+  Data:
+    Magnitude: 30

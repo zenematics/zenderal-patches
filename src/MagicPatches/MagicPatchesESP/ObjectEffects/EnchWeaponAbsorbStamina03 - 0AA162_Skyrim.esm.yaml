@@ -1,0 +1,19 @@
+FormKey: 0AA162:Skyrim.esm
+EditorID: EnchWeaponAbsorbStamina03
+Version2: 9
+Name:
+  TargetLanguage: English
+  Value: Absorb Stamina
+EnchantmentCost: 8
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 14
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB92:Skyrim.esm
+Effects:
+- BaseEffect: 0AA157:Skyrim.esm
+  Data:
+    Magnitude: 14
+    Duration: 1

@@ -1,0 +1,22 @@
+FormKey: 05B46E:Skyrim.esm
+EditorID: EnchUniqueWeapon_Lightbringer
+Name:
+  TargetLanguage: English
+  Value: Lightbringer
+EnchantmentCost: 19
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 59
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB9C:Skyrim.esm
+Effects:
+- BaseEffect: 05B46B:Skyrim.esm
+  Data:
+    Magnitude: 21
+    Duration: 10
+- BaseEffect: 001E9D:Enderal SE - Gameplay Overhaul.esp
+  Data:
+    Magnitude: 14
+    Duration: 1

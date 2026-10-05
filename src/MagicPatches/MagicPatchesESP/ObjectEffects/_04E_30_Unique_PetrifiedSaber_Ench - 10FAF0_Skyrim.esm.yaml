@@ -1,0 +1,14 @@
+FormKey: 10FAF0:Skyrim.esm
+EditorID: _04E_30_Unique_PetrifiedSaber_Ench
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Ebony Blade Enchantment
+CastType: FireAndForget
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 10FAF1:Skyrim.esm
+  Data:
+    Magnitude: 36
+    Duration: 1
