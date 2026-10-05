@@ -1,0 +1,19 @@
+FormKey: 0AA158:Skyrim.esm
+EditorID: EnchWeaponAbsorbMagicka02
+Version2: 12
+Name:
+  TargetLanguage: English
+  Value: Absorb Mana
+EnchantmentCost: 4
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 7
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB9D:Skyrim.esm
+Effects:
+- BaseEffect: 0AA156:Skyrim.esm
+  Data:
+    Magnitude: 8
+    Duration: 1

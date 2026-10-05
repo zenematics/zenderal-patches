@@ -1,0 +1,21 @@
+FormKey: 045D4B:Skyrim.esm
+EditorID: EnchUniqueWeapon_SelnaBlackWidow
+Name:
+  TargetLanguage: English
+  Value: Frost Damage
+EnchantmentCost: 18
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 18
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB96:Skyrim.esm
+Effects:
+- BaseEffect: 001E8E:Enderal SE - Gameplay Overhaul.esp
+  Data:
+    Magnitude: 26
+- BaseEffect: 0B72A0:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 5

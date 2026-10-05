@@ -7,7 +7,7 @@ ModHeader:
   Flags:
   - Small
   Author: Zenderal
-  Description: Magic compatibility and balance patches for the Zenderal list. Reprices Apocalypse - Magic of Skyrim and Triumvirate - Mage Archetypes player spells onto the EGO cost ladder, and taxes Triumvirate's self-heals with Arcane Fever.
+  Description: Magic compatibility and balance patches for the Zenderal list. Reprices Apocalypse - Magic of Skyrim and Triumvirate - Mage Archetypes player spells onto the EGO cost ladder, taxes Triumvirate's self-heals with Arcane Fever, and doubles the damage/absorb strength of weapon enchantments (charge per hit unchanged).
   Stats:
     Version: 1.7
   MasterReferences:

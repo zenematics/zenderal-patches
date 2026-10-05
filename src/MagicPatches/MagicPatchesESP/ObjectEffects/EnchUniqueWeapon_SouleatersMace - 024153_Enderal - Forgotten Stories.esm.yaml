@@ -1,0 +1,22 @@
+FormKey: 024153:Enderal - Forgotten Stories.esm
+EditorID: EnchUniqueWeapon_SouleatersMace
+Name:
+  TargetLanguage: English
+  Value: Shock Damage and Soul Trap
+EnchantmentCost: 11
+Flags:
+- NoAutoCalc
+- ExtendDurationOnRecast
+CastType: FireAndForget
+EnchantmentAmount: 12
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB9A:Skyrim.esm
+Effects:
+- BaseEffect: 04605C:Skyrim.esm
+  Data:
+    Magnitude: 10
+    Duration: 1
+- BaseEffect: 05B452:Skyrim.esm
+  Data:
+    Duration: 3
