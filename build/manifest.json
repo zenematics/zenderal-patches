@@ -58,6 +58,24 @@
       ]
     },
     {
+      "$comment": "Chocolate Poise - Reforged scales all poise damage against reference items it fetches by VANILLA EditorID (IronDagger, DaedricWarhammer, ArmorHide/DaedricGauntlets, ArmorHide/DaedricShield, ArmorDaedricCuirass/Helmet/Boots). None exist in Enderal, so every lookup was NULL and every hit dealt 0 poise. Adds 9 unplaced new records with exactly those EditorIDs, copied from their Enderal equivalents. Also ships ZenCPRFactionFix.dll (NetScriptFramework plugin, source in src/ChocolatePoiseEnderal/NetScriptPlugin/, compiled DLL committed because CI cannot build against the local NSF install): CPR looks up its ForceFullBodyStagger faction at vanilla 0x10CED7, which in Enderal is a placed REFR, and then AddToFaction(null) on every poise break crashes the game; the DLL points that field at ChocolatePoise - Enderal.esp 0x800 at main menu. Requires .NET Script Framework and the Chocolate Poise Enderal Patch. Regenerate with src/ChocolatePoiseEnderal/tools/01-build-reference-items.py.",
+      "name": "Zenderal - Chocolate Poise Enderal Fix",
+      "archiveName": "Zenderal - Chocolate Poise Enderal Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/ChocolatePoiseEnderal/ChocolatePoiseEnderalESP",
+          "dest": "Zenderal - Chocolate Poise Enderal Fix.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/ChocolatePoiseEnderal/NetScriptPlugin/compiled/ZenCPRFactionFix.dll",
+          "to": "NetScriptFramework/Plugins"
+        }
+      ]
+    },
+    {
       "$comment": "Dynamic Dodge: attack-cancel dodges play the normal step dodge instead of the on-the-spot sway. No plugin - 20 OAR user.json files disabling Dynamic Dodge's IsAttacking submods 70210-70244 (each = the author's config.json + disabled: true), so they fall through to 70110-70144. TK Dodge RE's EnableDodgeAttackCancel stays on. Regenerate with src/DynamicDodgeNoSway/tools/01-disable-sway-submods.py.",
       "name": "Zenderal - Dynamic Dodge No Sway",
       "archiveName": "Zenderal - Dynamic Dodge No Sway",

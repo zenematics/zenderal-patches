@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>ZenCPRFactionFix</AssemblyName>
+    <RootNamespace>ZenCPRFactionFix</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Version>1.0.0</Version>
+    <NsfDir>E:\Zenderal\mods\.NET Script Framework\NetScriptFramework</NsfDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NetScriptFramework">
+      <HintPath>$(NsfDir)\NetScriptFramework.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="NetScriptFramework.SkyrimSE">
+      <HintPath>$(NsfDir)\NetScriptFramework.SkyrimSE.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

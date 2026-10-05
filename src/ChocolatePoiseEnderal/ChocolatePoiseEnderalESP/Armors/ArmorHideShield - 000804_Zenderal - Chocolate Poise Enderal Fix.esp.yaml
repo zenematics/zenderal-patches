@@ -1,0 +1,40 @@
+FormKey: 000804:Zenderal - Chocolate Poise Enderal Fix.esp
+MajorRecordFlagsRaw: 64
+EditorID: ArmorHideShield
+SkyrimMajorRecordFlags:
+- 0x40
+ObjectBounds:
+  First: -25, -25, -8
+  Second: 25, 25, 1
+Name:
+  TargetLanguage: English
+  Value: Leather Shield
+WorldModel:
+  Male:
+    Model:
+      File: Armor\Hide\HideShield.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Shield
+  ActsLike44: True
+EquipmentType: 0141E8:Skyrim.esm
+BashImpactDataSet: 0183FB:Skyrim.esm
+AlternateBlockMaterial: 016978:Skyrim.esm
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBDB:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0965B2:Skyrim.esm
+- 0008D0:Enderal SE - Gameplay Overhaul.esp
+- 06BBD3:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 01C166:Skyrim.esm
+Value: 10
+Weight: 3
+ArmorRating: 6.3
+MajorFlags:
+- Shield
