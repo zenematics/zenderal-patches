@@ -1,0 +1,28 @@
+FormKey: 001EA7:Skyrim.esm
+EditorID: FlusshaimMittelweg
+Flags:
+- HasWater
+Grid:
+  Point: -21, -6
+  Flags: 944912896
+WaterHeight: 3.4028235E+38
+Regions:
+- 03A604:Skyrim.esm
+- 03A47B:Skyrim.esm
+- 037B8B:Skyrim.esm
+Location: 032706:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000806:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85573.86, -20613.027, 752.7306
+    Rotation: -0.4500002, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00080E:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85524.695, -20530.291, 784.99756
+    Rotation: -0.4500002, 0, 2.3561945
