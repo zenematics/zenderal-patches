@@ -76,6 +76,25 @@
       ]
     },
     {
+      "$comment": "Re-applies the save-based MCM settings of legacy SkyUI menus (and the few MCM Helper options wired to globals) once per save, 30 s after load: 25 globals across 8 mods plus 4 script properties (QuickLoot IE, Dynamic Things, NASC). Values captured from the curator's save by decoding the .ess and diffing against shipped defaults; data/settings.json -> tools/01-generate-applier.py -> ZEN_SettingsApplier.psc. Every global is checked by plugin + EditorID and every property write goes through a cast, so a missing or changed mod is skipped, never written blindly. File-based settings ship separately in the curator's 'Zenderal - Settings' MO2 mod.",
+      "name": "Zenderal - Settings Applier",
+      "archiveName": "Zenderal - Settings Applier",
+      "fomod": false,
+      "scripts": { "from": "src/SettingsApplier/Scripts/compiled", "to": "Scripts" },
+      "plugins": [
+        {
+          "yamlSource": "src/SettingsApplier/SettingsApplierESP",
+          "dest": "Zenderal - Settings Applier.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/SettingsApplier/Scripts/source",
+          "to": "Scripts/Source"
+        }
+      ]
+    },
+    {
       "$comment": "32 bushes (0AC865) in Riverville (FlusshaimMittelweg, FlusshaimZentrum) on top of EPPI Riverville, plus one edited EPPI reference (002207). Originally a Creation Kit plugin that lived only in MO2's overwrite folder (HEDR 1.71, not ESL, FormIDs 0x146D-0x2D68); brought into the repo at HEDR 1.70 as an ESL with all 32 new references renumbered into 0x800-0x81F in their original order.",
       "name": "Zenderal - RiverBush",
       "archiveName": "Zenderal - RiverBush",

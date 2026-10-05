@@ -1,0 +1,10 @@
+FormKey: 000800:Zenderal - Settings Applier.esp
+EditorID: ZEN_SettingsApplierQuest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_SettingsApplier
+  FileName: ''
+Flags:
+- StartGameEnabled
+- RunOnce
+NextAliasID: 0
