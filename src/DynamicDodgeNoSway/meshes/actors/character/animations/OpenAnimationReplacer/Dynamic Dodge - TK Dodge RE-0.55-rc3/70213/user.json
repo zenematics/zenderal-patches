@@ -1,0 +1,60 @@
+{
+    "name": "70213",
+    "priority": 70213,
+    "keepRandomResultsOnLoop": true,
+    "conditions": [
+        {
+            "condition": "OR",
+            "requiredVersion": "1.0.0.0",
+            "Conditions": [
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "negated": true,
+                    "Value A": {
+                        "form": {
+                            "pluginName": "TrueDirectionalMovement.esp",
+                            "formID": "807"
+                        }
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "value": 1.0
+                    }
+                },
+                {
+                    "condition": "HasMagicEffect",
+                    "requiredVersion": "1.0.0.0",
+                    "Magic effect": {
+                        "pluginName": "TrueDirectionalMovement.esp",
+                        "formID": "804"
+                    },
+                    "Active effects only": false
+                }
+            ]
+        },
+        {
+            "condition": "IsAttacking",
+            "requiredVersion": "1.0.0.0"
+        },
+        {
+            "condition": "HasMagicEffect",
+            "requiredVersion": "1.0.0.0",
+            "Magic effect": {
+                "pluginName": "Keytrace.esp",
+                "formID": "803"
+            },
+            "Active effects only": false
+        },
+        {
+            "condition": "HasMagicEffect",
+            "requiredVersion": "1.0.0.0",
+            "Magic effect": {
+                "pluginName": "Keytrace.esp",
+                "formID": "802"
+            },
+            "Active effects only": false
+        }
+    ],
+    "disabled": true
+}

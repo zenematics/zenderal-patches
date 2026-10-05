@@ -58,6 +58,19 @@
       ]
     },
     {
+      "$comment": "Dynamic Dodge: attack-cancel dodges play the normal step dodge instead of the on-the-spot sway. No plugin - 20 OAR user.json files disabling Dynamic Dodge's IsAttacking submods 70210-70244 (each = the author's config.json + disabled: true), so they fall through to 70110-70144. TK Dodge RE's EnableDodgeAttackCancel stays on. Regenerate with src/DynamicDodgeNoSway/tools/01-disable-sway-submods.py.",
+      "name": "Zenderal - Dynamic Dodge No Sway",
+      "archiveName": "Zenderal - Dynamic Dodge No Sway",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/DynamicDodgeNoSway/meshes",
+          "to": "meshes"
+        }
+      ]
+    },
+    {
       "$comment": "Waterfall/rapids sounds -6 dB (72 SoundDescriptor overrides, StaticAttenuation +6 on the live winner - mostly Reverb and Ambiance Overhaul - Enderal, which made many of them louder). Regenerate with src/QuieterWaterfalls/tools/01-quieter-waterfalls.py. Masters RAO, so the engine enforces load-after.",
       "name": "Zenderal - Quieter Waterfalls",
       "archiveName": "Zenderal - Quieter Waterfalls",

@@ -1,0 +1,48 @@
+{
+    "name": "70240",
+    "priority": 70240,
+    "keepRandomResultsOnLoop": true,
+    "conditions": [
+        {
+            "condition": "IsWeaponDrawn",
+            "requiredVersion": "1.0.0.0"
+        },
+        {
+            "condition": "IsAttacking",
+            "requiredVersion": "1.0.0.0"
+        },
+        {
+            "condition": "IsInCombat",
+            "requiredVersion": "1.0.0.0"
+        },
+        {
+            "condition": "OR",
+            "requiredVersion": "1.0.0.0",
+            "Conditions": [
+                {
+                    "condition": "IsEquippedHasKeyword",
+                    "requiredVersion": "1.0.0.0",
+                    "Keyword": {
+                        "form": {
+                            "pluginName": "SkyrimSpearMechanic.esp",
+                            "formID": "D4C9"
+                        }
+                    },
+                    "Left hand": false
+                },
+                {
+                    "condition": "IsEquippedHasKeyword",
+                    "requiredVersion": "1.0.0.0",
+                    "Keyword": {
+                        "form": {
+                            "pluginName": "Smooth Weapon.esm",
+                            "formID": "80B"
+                        }
+                    },
+                    "Left hand": false
+                }
+            ]
+        }
+    ],
+    "disabled": true
+}
