@@ -76,6 +76,18 @@
       ]
     },
     {
+      "$comment": "Playable Half Starling Race makes WoodElfRace (Enderal's NPC Starling race, shared by every NPC Starling) playable; its EGO version loads after EGO SE - Dark Souls Style Movement and Stamina and MORE Unique Races and reverts the race to EGO's flat 50/50/90 + 0.1/6.3/3. Overrides it with a 'might and magic' profile sized against that mod's four races: 75/75/60, regen 0.3/8/20 (2nd-best HP and MP regen, low stamina regen). Record otherwise verbatim from EGO SE - Half Starling.esp, which is mastered (content-unused) to force load-after.",
+      "name": "Zenderal - Half Starling DS Races",
+      "archiveName": "Zenderal - Half Starling DS Races",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/HalfStarlingDS/HalfStarlingDSESP",
+          "dest": "Zenderal - Half Starling DS Races.esp"
+        }
+      ]
+    },
+    {
       "$comment": "Dynamic Dodge Shot never triggered: its BowDodge idle sits beside BowLeftAttack under NonMountedCombatLeft, competing with three other idles for the first-child slot, so a strafing right-click entered BowLeftAttack (bow equipped), found BowZoom refusing (DDS limits zoom to standing/forward) and did nothing. Moves BowDodge inside BowLeftAttack as its first child and chains BowZoom after it. Conditions untouched.",
       "name": "Zenderal - Dynamic Dodge Shot Fix",
       "archiveName": "Zenderal - Dynamic Dodge Shot Fix",

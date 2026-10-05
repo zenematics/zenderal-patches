@@ -1,0 +1,23 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Half Starling DS Races.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Gives the playable Half Starling a "might and magic" profile in line with EGO SE - Dark
+    Souls Style Movement and Stamina and MORE Unique Races: 75/75/60 health/magicka/stamina,
+    regen 0.3/8/20.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal SE - Half Starling.esp
+    FileSize: 0
+  - Master: EGO SE - Half Starling.esp
+    FileSize: 0
+  INTV: 1
