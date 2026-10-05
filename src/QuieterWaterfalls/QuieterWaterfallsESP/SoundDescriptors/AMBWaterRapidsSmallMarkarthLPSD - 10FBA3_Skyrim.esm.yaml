@@ -1,0 +1,15 @@
+FormKey: 10FBA3:Skyrim.esm
+EditorID: AMBWaterRapidsSmallMarkarthLPSD
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- data\sound\fx\amb\water\exterior\amb_water_rapids_small_01_lp.wav
+- data\sound\fx\amb\water\exterior\amb_water_rapids_small_02_lp.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 10
+Priority: 128
+Variance: 2
+StaticAttenuation: 19

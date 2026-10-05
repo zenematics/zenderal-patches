@@ -1,0 +1,13 @@
+FormKey: 02ECF6:Enderal - Forgotten Stories.esm
+EditorID: AMBWaterfallMediumDistantQuietLPSD
+Type: Standard
+Category: 09F254:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\AMB\Water\Exterior\Waterfall\Medium\AMB_Waterfall_Medium_01_Distant_LP.wav
+OutputModel: 0B6464:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 24.06

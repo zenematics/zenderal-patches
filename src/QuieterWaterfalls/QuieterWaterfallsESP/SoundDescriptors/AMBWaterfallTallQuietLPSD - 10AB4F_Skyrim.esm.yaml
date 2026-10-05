@@ -1,0 +1,13 @@
+FormKey: 10AB4F:Skyrim.esm
+EditorID: AMBWaterfallTallQuietLPSD
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- data\sound\fx\amb\water\exterior\waterfall\amb_waterfall_tall_lp.wav
+OutputModel: 0FE240:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 6
+Priority: 128
+StaticAttenuation: 14

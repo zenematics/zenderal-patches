@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Quieter Waterfalls.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Turns every waterfall and rapids sound down by 6 dB, on top of Reverb and Ambiance
+    Overhaul - Enderal (which made many of them louder). Must load after RAO (mastered).
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Reverb and Ambiance Overhaul - Enderal.esp
+    FileSize: 0
+  INTV: 1

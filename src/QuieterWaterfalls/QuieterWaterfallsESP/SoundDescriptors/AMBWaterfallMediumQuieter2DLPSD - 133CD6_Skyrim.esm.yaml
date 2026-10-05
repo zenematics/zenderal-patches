@@ -1,0 +1,13 @@
+FormKey: 133CD6:Skyrim.esm
+EditorID: AMBWaterfallMediumQuieter2DLPSD
+Type: Standard
+Category: 0F23BB:Skyrim.esm
+SoundFiles:
+- data\sound\FX\amb\water\exterior\waterfall\medium\amb_waterfall_medium_01_2d_lp.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 17.01
