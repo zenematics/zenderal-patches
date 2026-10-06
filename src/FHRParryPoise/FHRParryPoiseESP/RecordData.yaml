@@ -1,0 +1,20 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - FHR Parry Poise.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Makes For Honor Reforged's parry stagger under Chocolate Poise - Reforged: weapon
+    parry poise damage 20 -> 60, shield parry 5 -> 40.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: For Honor Balance Patch.esp
+    FileSize: 0
+  INTV: 1

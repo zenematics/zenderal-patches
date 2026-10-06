@@ -76,6 +76,18 @@
       ]
     },
     {
+      "$comment": "For Honor Reforged's parry deals poise damage (Variable01, which Chocolate Poise - Reforged counts at x1) but only 20 (weapon) / 5 (shield) - under Chocolate Poise's 25%-of-pool stagger threshold on a 100+ human pool, so the enemy never staggers, FHR's Parry Knockdown never plays and the Parry Followup never unlocks. Overrides the two spells (For Honor Balance Patch.esp 000892 / 0005F7) to 60 / 40. Masters the Balance Patch, so the engine enforces load-after.",
+      "name": "Zenderal - FHR Parry Poise",
+      "archiveName": "Zenderal - FHR Parry Poise",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/FHRParryPoise/FHRParryPoiseESP",
+          "dest": "Zenderal - FHR Parry Poise.esp"
+        }
+      ]
+    },
+    {
       "$comment": "Re-applies the save-based MCM settings of legacy SkyUI menus (and the few MCM Helper options wired to globals) once per save, 30 s after load: 25 globals across 8 mods plus 4 script properties (QuickLoot IE, Dynamic Things, NASC). Values captured from the curator's save by decoding the .ess and diffing against shipped defaults; data/settings.json -> tools/01-generate-applier.py -> ZEN_SettingsApplier.psc. Every global is checked by plugin + EditorID and every property write goes through a cast, so a missing or changed mod is skipped, never written blindly. File-based settings ship separately in the curator's 'Zenderal - Settings' MO2 mod.",
       "name": "Zenderal - Settings Applier",
       "archiveName": "Zenderal - Settings Applier",
