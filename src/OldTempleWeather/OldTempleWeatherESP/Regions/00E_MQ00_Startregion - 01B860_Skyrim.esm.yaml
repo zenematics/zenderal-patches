@@ -1,0 +1,79 @@
+FormKey: 01B860:Skyrim.esm
+EditorID: 00E_MQ00_Startregion
+MapColor: '#0043828F'
+Worldspace: 01AC7D:Skyrim.esm
+RegionAreas:
+- EdgeFallOff: 1024
+  RegionPointListData:
+  - -12825.365, 29542.525
+  - 21467.164, 29309.242
+  - 22633.578, -22712.758
+  - -14691.626, -23645.889
+  - -15624.756, 28609.395
+Weather:
+  Priority: 50
+  Weathers:
+  - Weather: 021311:Skyrim.esm
+    Chance: 100
+Land:
+  Priority: 50
+Sounds:
+  Priority: 50
+  Music: 10486D:Skyrim.esm
+  Sounds:
+  - Sound: 0509E4:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 0.2
+  - Sound: 0D206D:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 0.7
+  - Sound: 0509CE:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 0.1
+  - Sound: 0509D0:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 0.06
+  - Sound: 0509D2:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 0.04
+  - Sound: 0509D4:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 0.1
+  - Sound: 0D206D:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 0.7
+  - Sound: 0D4044:Skyrim.esm
+    Flags:
+    - Pleasant
+    - Cloudy
+    - Rainy
+    - Snowy
+    Chance: 1
