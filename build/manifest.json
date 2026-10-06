@@ -100,6 +100,19 @@
       ]
     },
     {
+      "$comment": "No plugin - one SKSE DLL. Baka Hero Menu (shad0wshayd3, Nexus enderalspecialedition/1121, GPL-3.0 + modding exception) ported from libxse CommonLibSSE (1.6.x+/Enderal 2.1.x) to CommonLibSSE-NG for Enderal SE 2.0.12 / SSE 1.5.97: click a skill in the Hero Menu to spend a Learning/Crafting Point on it. Port changes, all marked ZP in src/BakaHeroMenu/src: the Hero Menu is registered as '00E_heromenu' here, not 'CustomMenu'; class/affinity read from _00E_Game_SkillmenuSC on Levelsystem 010AA2 (2.1's _00E_AffinityControl/01597B:FS do not exist); null guards for the missing BakaHeroMenu.esp MCM quest (crashed on save load); Zenderal defaults = no gold cost, no gold readout. Build with src/BakaHeroMenu/build.cmd (VS 2026 Build Tools' bundled CMake/Ninja/vcpkg; CommonLibSSE-NG ng branch cloned to src/BakaHeroMenu/lib/CommonLibNG); compiled DLL committed because CI cannot build it. GPL: the modified source in src/BakaHeroMenu/ must stay published alongside the DLL.",
+      "name": "Zenderal - Baka Hero Menu SE",
+      "archiveName": "Zenderal - Baka Hero Menu SE",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/BakaHeroMenu/compiled/BakaHeroMenu.dll",
+          "to": "SKSE/Plugins"
+        }
+      ]
+    },
+    {
       "$comment": "Re-applies the save-based MCM settings of legacy SkyUI menus (and the few MCM Helper options wired to globals) once per save, 30 s after load: 25 globals across 8 mods plus 4 script properties (QuickLoot IE, Dynamic Things, NASC). Values captured from the curator's save by decoding the .ess and diffing against shipped defaults; data/settings.json -> tools/01-generate-applier.py -> ZEN_SettingsApplier.psc. Every global is checked by plugin + EditorID and every property write goes through a cast, so a missing or changed mod is skipped, never written blindly. File-based settings ship separately in the curator's 'Zenderal - Settings' MO2 mod.",
       "name": "Zenderal - Settings Applier",
       "archiveName": "Zenderal - Settings Applier",
