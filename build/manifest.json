@@ -88,6 +88,18 @@
       ]
     },
     {
+      "$comment": "Obsidian Weathers - Enderal.esp overrides the Old Temple beach region 00E_MQ00_Startregion 01B860 and swaps Enderal's _00E_EnderalRainLight 021311 for Skyrim's SkyrimOvercastRainTU 10A242 (odd night lighting; Steamin ENB maps it to its generic rain profile instead of !_Enderal_RainLight), and, not mastering RAO, reverts RAO's region sound chances. Override = RAO's record verbatim. Masters Obsidian Weathers - Enderal.esp to force load-after.",
+      "name": "Zenderal - Old Temple Weather",
+      "archiveName": "Zenderal - Old Temple Weather",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/OldTempleWeather/OldTempleWeatherESP",
+          "dest": "Zenderal - Old Temple Weather.esp"
+        }
+      ]
+    },
+    {
       "$comment": "Re-applies the save-based MCM settings of legacy SkyUI menus (and the few MCM Helper options wired to globals) once per save, 30 s after load: 25 globals across 8 mods plus 4 script properties (QuickLoot IE, Dynamic Things, NASC). Values captured from the curator's save by decoding the .ess and diffing against shipped defaults; data/settings.json -> tools/01-generate-applier.py -> ZEN_SettingsApplier.psc. Every global is checked by plugin + EditorID and every property write goes through a cast, so a missing or changed mod is skipped, never written blindly. File-based settings ship separately in the curator's 'Zenderal - Settings' MO2 mod.",
       "name": "Zenderal - Settings Applier",
       "archiveName": "Zenderal - Settings Applier",
