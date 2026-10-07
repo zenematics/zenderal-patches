@@ -134,6 +134,21 @@ Event OnUpdate()
 	Else
 		skipped += 1
 	EndIf
+	If SetG("Smart_NPC_Potions.esp", 0x806, "NPCpotion_ChanceGlobal", 10.0)
+		applied += 1
+	Else
+		skipped += 1
+	EndIf
+	If SetG("Smart_NPC_Potions.esp", 0x807, "NPCpotion_MaxPotion", 1.0)
+		applied += 1
+	Else
+		skipped += 1
+	EndIf
+	If SetG("Smart_NPC_Potions.esp", 0x809, "NPCpotion_DropPotion", 50.0)
+		applied += 1
+	Else
+		skipped += 1
+	EndIf
 	QuickLootIEMCM q_QuickLootIEMCM = Game.GetFormFromFile(0x1, "QuickLootIE.esp") as QuickLootIEMCM
 	If q_QuickLootIEMCM
 		q_QuickLootIEMCM.QLIE_ShowInCombat = False
