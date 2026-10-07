@@ -1,5 +1,5 @@
 {
- "_comment": "Save-based MCM settings captured from save 'Starling 1' (Save7, 2026-10-05) by decoding the save's global-variable table and Papyrus script data, then diffing against each plugin's / script's shipped defaults. Auto-detected flags (Nemesis/MCO/TrueHUD detection, init markers, live state), Obsidian Weathers' seasonal values, and everything already shipped as files in 'Zenderal - Settings' are deliberately excluded.",
+ "_comment": "Save-based MCM settings captured from save 'Starling 1' (Save7, 2026-10-05) by decoding the save's global-variable table and Papyrus script data, then diffing against each plugin's / script's shipped defaults. Auto-detected flags (Nemesis/MCO/TrueHUD detection, init markers, live state), Obsidian Weathers' seasonal values, and everything already shipped as files in 'Zenderal - Settings' are deliberately excluded. Smart NPC Potions' three changed sliders were captured later from 'Starling 1' Save22 (2026-10-07); its three NPC-type toggles were at their defaults.",
  "source_save": "Starling 1 / Save7_40581CA0_..._20261005170209",
  "globals": [
   {
@@ -151,6 +151,24 @@
    "formid": 2090,
    "edid": "aaaPowerShot",
    "value": 1.0
+  },
+  {
+   "plugin": "Smart_NPC_Potions.esp",
+   "formid": 2054,
+   "edid": "NPCpotion_ChanceGlobal",
+   "value": 10.0
+  },
+  {
+   "plugin": "Smart_NPC_Potions.esp",
+   "formid": 2055,
+   "edid": "NPCpotion_MaxPotion",
+   "value": 1.0
+  },
+  {
+   "plugin": "Smart_NPC_Potions.esp",
+   "formid": 2057,
+   "edid": "NPCpotion_DropPotion",
+   "value": 50.0
   }
  ],
  "properties": [
