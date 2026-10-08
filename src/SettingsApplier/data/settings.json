@@ -204,5 +204,14 @@
    "type": "Int",
    "value": 1
   }
- ]
+ ],
+ "swift_potion": {
+  "_comment": "Swift Potion Reborn keeps its auto-use and hotkey settings as JContainers objects in the save. Its MCM can export them (Save Settings) to JCUser/SwiftPotion/*.json; these are the curator's exports of 2026-10-05 (hotkeys: Left=Restore Health, Up=Restore Mana, Right=Restore Stamina; auto-use off). The applier loads them exactly as the MCM's Load Settings buttons do.",
+  "plugin": "SwiftPotion.esp",
+  "formid": 3426,
+  "script": "_AP_Main",
+  "dir": "SKSE/Plugins/Zenderal Settings Applier/SwiftPotion",
+  "auto": "AutoData.json",
+  "hotkey": "HotkeyData.json"
+ }
 }

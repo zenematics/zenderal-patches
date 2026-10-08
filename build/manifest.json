@@ -128,6 +128,10 @@
         {
           "from": "src/SettingsApplier/Scripts/source",
           "to": "Scripts/Source"
+        },
+        {
+          "from": "src/SettingsApplier/data/SwiftPotion",
+          "to": "SKSE/Plugins/Zenderal Settings Applier/SwiftPotion"
         }
       ]
     },
