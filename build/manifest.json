@@ -126,6 +126,27 @@
           "to": ""
         }
       ]
+    },
+    {
+      "$comment": "Script only - no plugin. Forks Zen Traits' _00e_ambrosiaeffect (shazdeh/Zen-Traits main @ 1ae67a8, MIT), which itself replaces SureAI's copy in E - Misc.bsa. Upstream reads the Ambrosia magnitude from the Variable08 actor value, which nothing in Enderal or the list ever writes, so Ambrosia reduced Arcane Fever by 0 while still playing the flash, sound and notification. FIX (one line, '; ZP'): fMagnitude = Self.GetMagnitude(), which is where SureAI's original reads it (_00E_Ambrosia 0FEC69 -> _00E_AlchReduceArcaneFever 1037EC, magnitude 20 base / 15 under EGO). GetAmbrosiaMod (Purified Blood) and ModFever (clamp at 0) unchanged. Upstream issue: shazdeh/Zen-Traits#2. MUST sort ABOVE 'Zen Traits' in modlist.txt to win the loose-script conflict. Retire once upstream ships the fix. Credit: Shazdeh, SureAI.",
+      "name": "Zenderal - Zen Traits Fixes",
+      "archiveName": "Zenderal - Zen Traits Fixes",
+      "fomod": false,
+      "plugins": [],
+      "scripts": {
+        "from": "src/ZenTraitsFixes/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "files": [
+        {
+          "from": "src/ZenTraitsFixes/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/ZenTraitsFixes/readme.txt",
+          "to": ""
+        }
+      ]
     }
   ]
 }
