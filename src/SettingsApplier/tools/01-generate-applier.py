@@ -76,6 +76,44 @@ for (plugin, formid, script), props in by_script.items():
     lines.append(f"\t\tskipped += {len(props)}")
     lines.append("\tEndIf")
 
+# Swift Potion Reborn: its settings are JContainers objects, not globals. Load the shipped exports
+# exactly as its MCM "Load Settings" buttons do (_AP_ConfigSkyUIScript): assign PotionData, unregister
+# hotkeys 1-12, assign HotkeyData, re-register each KeyCode. Requires its OnInit (modInstall) to have
+# built HotkeyData first, so a zero HotkeyData means JContainers is not working: skip.
+sp = DATA.get("swift_potion")
+if sp:
+    var, s = "q_" + sp["script"], sp["script"]
+    lines += [
+        f'\t{s} {var} = Game.GetFormFromFile(0x{sp["formid"]:X}, "{esc(sp["plugin"])}") as {s}',
+        f'\tString spAutoPath = FindFile("{sp["dir"]}/{sp["auto"]}")',
+        f'\tString spKeysPath = FindFile("{sp["dir"]}/{sp["hotkey"]}")',
+        f"\tIf {var} && {var}.HotkeyData && spAutoPath != \"\" && spKeysPath != \"\"",
+        "\t\tInt spAuto = JValue.readFromFile(spAutoPath)",
+        "\t\tInt spKeys = JValue.readFromFile(spKeysPath)",
+        "\t\tIf JValue.isMap(spAuto) && JValue.isMap(spKeys) && JMap.hasKey(spKeys, \"1\")",
+        f"\t\t\t{var}.PotionData = spAuto",
+        "\t\t\tInt k = 1",
+        "\t\t\tWhile k < 13",
+        f"\t\t\t\t{var}.SetHotkey(k as String, 0)",
+        "\t\t\t\tk += 1",
+        "\t\t\tEndWhile",
+        f"\t\t\t{var}.HotkeyData = spKeys",
+        "\t\t\tk = 1",
+        "\t\t\tWhile k < 13",
+        f"\t\t\t\t{var}.SetHotkey(k as String, JMap.getInt(JMap.getObj(spKeys, k as String), \"KeyCode\"))",
+        "\t\t\t\tk += 1",
+        "\t\t\tEndWhile",
+        "\t\t\tapplied += 2",
+        "\t\tElse",
+        '\t\t\tDebug.Trace("[Zenderal Settings Applier] skipped Swift Potion: exported settings did not parse")',
+        "\t\t\tskipped += 2",
+        "\t\tEndIf",
+        "\tElse",
+        f'\t\tDebug.Trace("[Zenderal Settings Applier] skipped Swift Potion: {esc(sp["plugin"])} not loaded, not initialised, or settings files not found")',
+        "\t\tskipped += 2",
+        "\tEndIf",
+    ]
+
 lines += [
     '\tDebug.Trace("[Zenderal Settings Applier] applied " + applied + ", skipped " + skipped)',
     "\tStop()",
@@ -96,6 +134,20 @@ lines += [
     "EndFunction",
     "",
 ]
+if sp:
+    # JContainers does not document what a relative path is relative to, so try the game root
+    # ("Data/...") first, then the Data folder itself
+    lines += [
+        "String Function FindFile(String relPath)",
+        '\tIf JContainers.fileExistsAtPath("Data/" + relPath)',
+        '\t\tReturn "Data/" + relPath',
+        "\tElseIf JContainers.fileExistsAtPath(relPath)",
+        "\t\tReturn relPath",
+        "\tEndIf",
+        '\tReturn ""',
+        "EndFunction",
+        "",
+    ]
 os.makedirs(os.path.dirname(SRC), exist_ok=True)
 open(SRC, "w", encoding="utf-8", newline="\r\n").write("\n".join(lines))
 
@@ -107,4 +159,12 @@ for (plugin, formid, script), props in by_script.items():
     for p in props:
         stub.append(f'{p["type"]} Property {p["property"]} Auto')
     open(os.path.join(STUBS, script + ".psc"), "w", encoding="utf-8", newline="\r\n").write("\n".join(stub) + "\n")
+if sp:
+    stub = [f'Scriptname {sp["script"]} extends Quest Hidden',
+            f'{{COMPILE-ONLY STUB of {sp["plugin"]}\'s {sp["script"]}. Not shipped.}}',
+            "Int Property PotionData Auto",
+            "Int Property HotkeyData Auto",
+            "Function SetHotkey(String iHotkey, Int newKeyCode)",
+            "EndFunction"]
+    open(os.path.join(STUBS, sp["script"] + ".psc"), "w", encoding="utf-8", newline="\r\n").write("\n".join(stub) + "\n")
 print(f"wrote {SRC}: {len(DATA['globals'])} globals, {len(DATA['properties'])} properties; {len(by_script)} stubs")

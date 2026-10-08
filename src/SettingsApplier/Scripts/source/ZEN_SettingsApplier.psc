@@ -175,6 +175,34 @@ Event OnUpdate()
 		Debug.Trace("[Zenderal Settings Applier] skipped nasc_mcm in (SGC) NASC.esl: not found or script changed")
 		skipped += 1
 	EndIf
+	_AP_Main q__AP_Main = Game.GetFormFromFile(0xD62, "SwiftPotion.esp") as _AP_Main
+	String spAutoPath = FindFile("SKSE/Plugins/Zenderal Settings Applier/SwiftPotion/AutoData.json")
+	String spKeysPath = FindFile("SKSE/Plugins/Zenderal Settings Applier/SwiftPotion/HotkeyData.json")
+	If q__AP_Main && q__AP_Main.HotkeyData && spAutoPath != "" && spKeysPath != ""
+		Int spAuto = JValue.readFromFile(spAutoPath)
+		Int spKeys = JValue.readFromFile(spKeysPath)
+		If JValue.isMap(spAuto) && JValue.isMap(spKeys) && JMap.hasKey(spKeys, "1")
+			q__AP_Main.PotionData = spAuto
+			Int k = 1
+			While k < 13
+				q__AP_Main.SetHotkey(k as String, 0)
+				k += 1
+			EndWhile
+			q__AP_Main.HotkeyData = spKeys
+			k = 1
+			While k < 13
+				q__AP_Main.SetHotkey(k as String, JMap.getInt(JMap.getObj(spKeys, k as String), "KeyCode"))
+				k += 1
+			EndWhile
+			applied += 2
+		Else
+			Debug.Trace("[Zenderal Settings Applier] skipped Swift Potion: exported settings did not parse")
+			skipped += 2
+		EndIf
+	Else
+		Debug.Trace("[Zenderal Settings Applier] skipped Swift Potion: SwiftPotion.esp not loaded, not initialised, or settings files not found")
+		skipped += 2
+	EndIf
 	Debug.Trace("[Zenderal Settings Applier] applied " + applied + ", skipped " + skipped)
 	Stop()
 EndEvent
@@ -191,4 +219,13 @@ Bool Function SetG(String plugin, Int id, String edid, Float value)
 	EndIf
 	g.SetValue(value)
 	Return True
+EndFunction
+
+String Function FindFile(String relPath)
+	If JContainers.fileExistsAtPath("Data/" + relPath)
+		Return "Data/" + relPath
+	ElseIf JContainers.fileExistsAtPath(relPath)
+		Return relPath
+	EndIf
+	Return ""
 EndFunction
