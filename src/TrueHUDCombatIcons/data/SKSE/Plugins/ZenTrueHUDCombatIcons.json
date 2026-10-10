@@ -1,0 +1,52 @@
+{
+    "_comment": "Zenderal TrueHUD Combat Icons. Re-read on every save load, so layout values can be tuned without restarting. Sizes are in TrueHUD info-bar units (the bar scales with distance, so do these). Each rule names an icon .swf and the symbol it exports (the same name as the SIF label in For Honor Reforged's configs - the .swf has an empty stage). Rules are checked top to bottom per slot; the first match is shown. A rule matches when the actor has an active effect for every 'all' term and none for any 'none' term. A term is {\"effect\": \"<plugin>|<id>\"} (that magic effect) or {\"keyword\": \"<plugin>|<id>\"} (any magic effect with that keyword). Conditions copied from For Honor Reforged's SIF configs.",
+
+    "requireHostile": true,
+    "requireInCombat": true,
+
+    "layout": {
+        "gap": 4.0,
+        "arrowSize": 22.0,
+        "circleRadius": 12.0,
+        "circleIconSize": 18.0,
+        "circleAlwaysVisible": true,
+        "circleFillColor": "0x000000",
+        "circleFillAlpha": 55,
+        "circleLineColor": "0xC8B88A",
+        "circleLineAlpha": 90,
+        "circleLineThickness": 1.5,
+        "offsetY": 0.0
+    },
+
+    "left": [
+        { "source": "DirectionalArrows/leftBoth.swf", "symbol": "leftBoth",
+          "all": [ { "effect": "Reforged Directional Combat.esp|0x802" }, { "effect": "Reforged Directional Combat.esp|0x805" } ] },
+        { "source": "DirectionalArrows/leftHeavy.swf", "symbol": "leftHeavy",
+          "all": [ { "effect": "Reforged Directional Combat.esp|0x802" } ] },
+        { "source": "DirectionalArrows/leftLight.swf", "symbol": "leftLight",
+          "all": [ { "effect": "Reforged Directional Combat.esp|0x805" } ] }
+    ],
+
+    "right": [
+        { "source": "DirectionalArrows/rightBoth.swf", "symbol": "rightBoth",
+          "all": [ { "keyword": "Reforged Directional Combat.esp|0x80F" }, { "keyword": "Reforged Directional Combat.esp|0x809" } ] },
+        { "source": "DirectionalArrows/rightHeavy.swf", "symbol": "rightHeavy",
+          "all": [ { "keyword": "Reforged Directional Combat.esp|0x809" } ] },
+        { "source": "DirectionalArrows/rightLight.swf", "symbol": "rightLight",
+          "all": [ { "keyword": "Reforged Directional Combat.esp|0x80F" } ] }
+    ],
+
+    "circle": [
+        { "source": "KnockdownCooldownIcons/unstable.swf", "symbol": "Unstable",
+          "all": [ { "effect": "For Honor Balance Patch.esp|0x816" } ],
+          "none": [ { "effect": "For Honor in Skyrim.esp|0x801" } ] },
+        { "source": "KnockdownCooldownIcons/staggerKnockdownCooldown.swf", "symbol": "StaggerKnockdownCooldown",
+          "any": [ { "effect": "For Honor in Skyrim.esp|0x801" }, { "effect": "For Honor Balance Patch.esp|0x81B" } ] },
+        { "source": "KnockdownCooldownIcons/parryKnockdownCooldown.swf", "symbol": "ParryKnockdownCooldown",
+          "any": [ { "effect": "For Honor Balance Patch.esp|0x86E" }, { "effect": "For Honor Balance Patch.esp|0x86F" } ] },
+        { "source": "KnockdownCooldownIcons/shieldFlipCooldown.swf", "symbol": "ShieldFlipCooldown",
+          "any": [ { "effect": "For Honor Balance Patch.esp|0x60E" }, { "effect": "For Honor Balance Patch.esp|0x608" } ] },
+        { "source": "KnockdownCooldownIcons/blockSlideCooldown.swf", "symbol": "BlockSlideCooldown",
+          "any": [ { "effect": "For Honor Balance Patch.esp|0x8BC" }, { "effect": "For Honor Balance Patch.esp|0x87A" } ] }
+    ]
+}
