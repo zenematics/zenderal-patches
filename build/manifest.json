@@ -265,6 +265,23 @@
           "to": ""
         }
       ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL + configs. Draws For Honor Reforged's status icons inside TrueHUD's floating info bars: incoming-attack arrows either side of the bar, one priority icon (unstable > stagger/parry/shield-flip/block-slide knockdown cooldowns) in a circle on the bar's right end. Attaches child clips to TrueHUD's own info-bar movie clip (_root.TrueHUD.TrueHUD_MainVisibilityWidgets.<actor handle>) so they inherit its position, scale and fade; icon art is whichever FHR icon .swf wins (currently Vel'dun's replacer). Ships empty-rule copies of FHR's eleven SKSE/Plugins/SIF/*.json so SIF stops drawing the same icons above heads - must sort ABOVE For Honor Reforged. Rules/layout in SKSE/Plugins/ZenTrueHUDCombatIcons.json, re-read on every save load. Build with src/TrueHUDCombatIcons/build.cmd (shares BakaHeroMenu's CommonLibSSE-NG clone); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - TrueHUD Combat Icons",
+      "archiveName": "Zenderal - TrueHUD Combat Icons",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/TrueHUDCombatIcons/compiled/ZenTrueHUDCombatIcons.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/TrueHUDCombatIcons/data",
+          "to": ""
+        }
+      ]
     }
   ]
 }
