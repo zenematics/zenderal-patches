@@ -7,6 +7,9 @@
     "layout": {
         "gap": 4.0,
         "arrowSize": 22.0,
+        "statusStyle": "inline",
+        "statusIconSize": 22.0,
+        "reserveRightArrowSlot": false,
         "circleRadius": 12.0,
         "circleIconSize": 18.0,
         "circleAlwaysVisible": true,

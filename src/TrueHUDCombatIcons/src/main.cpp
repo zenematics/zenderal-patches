@@ -3,7 +3,9 @@
 // Draws For Honor Reforged's status icons INSIDE TrueHUD's floating info bars instead of as
 // Status Indicator Framework icons above the actor's head:
 //   - the incoming-attack direction arrow on the matching side of the bar (left / right),
-//   - one priority icon (unstable, then the knockdown cooldowns) in a circle on the bar's right end.
+//   - one priority icon (unstable, then the knockdown cooldowns) on the right: by default inline,
+//     after the right arrow (or next to the bar when no right attack is incoming); with
+//     "statusStyle": "circle" inside a drawn circle on the bar's right end instead.
 //
 // How it attaches: TrueHUD (1.1.9) creates each actor's info bar with
 //   _root.TrueHUD.TrueHUD_MainVisibilityWidgets.attachMovie("TrueHUD_InfoBar", <actor handle>, ...)
@@ -47,6 +49,9 @@ namespace
 	{
 		double       gap{ 4.0 };
 		double       arrowSize{ 22.0 };
+		bool         statusInCircle{ false };  // "statusStyle": "inline" (default) | "circle"
+		double       statusIconSize{ 22.0 };   // inline mode
+		bool         reserveRightArrowSlot{ false };  // inline: keep the arrow's gap even when no arrow shows
 		double       circleRadius{ 12.0 };
 		double       circleIconSize{ 18.0 };
 		bool         circleAlwaysVisible{ true };
@@ -154,6 +159,9 @@ namespace
 				auto& o = cfg.layout;
 				o.gap = l.value("gap", o.gap);
 				o.arrowSize = l.value("arrowSize", o.arrowSize);
+				o.statusInCircle = l.value("statusStyle", std::string{ "inline" }) == "circle";
+				o.statusIconSize = l.value("statusIconSize", o.statusIconSize);
+				o.reserveRightArrowSlot = l.value("reserveRightArrowSlot", o.reserveRightArrowSlot);
 				o.circleRadius = l.value("circleRadius", o.circleRadius);
 				o.circleIconSize = l.value("circleIconSize", o.circleIconSize);
 				o.circleAlwaysVisible = l.value("circleAlwaysVisible", o.circleAlwaysVisible);
@@ -326,7 +334,7 @@ namespace
 		if (!NewClip(a_root, kSlotNames[a_slot], holder)) {
 			return;
 		}
-		if (a_slot == kCircle) {
+		if (a_slot == kCircle && g_config.layout.statusInCircle) {
 			RE::GFxValue circle;
 			if (NewClip(holder, "bg", circle)) {
 				DrawCircle(circle, g_config.layout);
@@ -458,19 +466,38 @@ namespace
 		}
 
 		double rightEdge = hb.xMax;
-		if (root.GetMember(kSlotNames[kCircle], &circle) && circle.IsDisplayObject()) {
-			const bool any = ShowSlot(circle, kCircle, MatchSlot(effects, cfg.slots[kCircle]), l.circleIconSize);
-			const bool show = any || l.circleAlwaysVisible;
-			SetVisible(circle, show);
-			if (show) {
-				SetPos(circle, rightEdge + l.gap + l.circleRadius, cy);
-				rightEdge += l.gap + 2.0 * l.circleRadius;
-			}
-		}
+		const bool haveRight = root.GetMember(kSlotNames[kRight], &right) && right.IsDisplayObject();
+		const bool haveStatus = root.GetMember(kSlotNames[kCircle], &circle) && circle.IsDisplayObject();
 
-		if (root.GetMember(kSlotNames[kRight], &right) && right.IsDisplayObject()) {
-			ShowSlot(right, kRight, MatchSlot(effects, cfg.slots[kRight]), l.arrowSize);
-			SetPos(right, rightEdge + l.gap + l.arrowSize / 2.0, cy);
+		if (l.statusInCircle) {
+			// [bar] (status) [right arrow]
+			if (haveStatus) {
+				const bool any = ShowSlot(circle, kCircle, MatchSlot(effects, cfg.slots[kCircle]), l.circleIconSize);
+				const bool show = any || l.circleAlwaysVisible;
+				SetVisible(circle, show);
+				if (show) {
+					SetPos(circle, rightEdge + l.gap + l.circleRadius, cy);
+					rightEdge += l.gap + 2.0 * l.circleRadius;
+				}
+			}
+			if (haveRight) {
+				ShowSlot(right, kRight, MatchSlot(effects, cfg.slots[kRight]), l.arrowSize);
+				SetPos(right, rightEdge + l.gap + l.arrowSize / 2.0, cy);
+			}
+		} else {
+			// [bar] [right arrow] [status]: the arrow always takes the spot next to the bar; the
+			// status icon follows it, or moves up to the bar when no right attack is incoming.
+			if (haveRight) {
+				const bool shown = ShowSlot(right, kRight, MatchSlot(effects, cfg.slots[kRight]), l.arrowSize);
+				SetPos(right, rightEdge + l.gap + l.arrowSize / 2.0, cy);
+				if (shown || l.reserveRightArrowSlot) {
+					rightEdge += l.gap + l.arrowSize;
+				}
+			}
+			if (haveStatus) {
+				ShowSlot(circle, kCircle, MatchSlot(effects, cfg.slots[kCircle]), l.statusIconSize);
+				SetPos(circle, rightEdge + l.gap + l.statusIconSize / 2.0, cy);
+			}
 		}
 	}
 
