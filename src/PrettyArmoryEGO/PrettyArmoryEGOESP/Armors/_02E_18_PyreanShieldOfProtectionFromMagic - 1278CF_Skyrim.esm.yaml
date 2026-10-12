@@ -1,0 +1,38 @@
+FormKey: 1278CF:Skyrim.esm
+MajorRecordFlagsRaw: 64
+EditorID: _02E_18_PyreanShieldOfProtectionFromMagic
+SkyrimMajorRecordFlags:
+- 0x40
+Name:
+  TargetLanguage: English
+  Value: Pyrean Shield of Protection from Magic
+ObjectEffect: 0FC05D:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Weapons\Blades\BladesShield_alt.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Shield
+  ActsLike44: True
+EquipmentType: 0141E8:Skyrim.esm
+BashImpactDataSet: 0183FE:Skyrim.esm
+AlternateBlockMaterial: 016979:Skyrim.esm
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD3:Skyrim.esm
+- 06BBE5:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0965B2:Skyrim.esm
+- 0008D0:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00080A:Pretty Semi-Unique Armory.esp
+Value: 85
+Weight: 5
+ArmorRating: 18.45
+MajorFlags:
+- Shield

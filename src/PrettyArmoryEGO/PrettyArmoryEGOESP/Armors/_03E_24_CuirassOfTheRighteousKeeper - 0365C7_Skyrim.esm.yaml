@@ -1,0 +1,35 @@
+FormKey: 0365C7:Skyrim.esm
+EditorID: _03E_24_CuirassOfTheRighteousKeeper
+Name:
+  TargetLanguage: English
+  Value: Cuirass of the Righteous Keeper
+ObjectEffect: 0432E2:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Armor\Ebony\Alt\M\CuirassGND.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: Armor\Ebony\Alt\M\CuirassGND.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBD8:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000817:Pretty Semi-Unique Armory.esp
+Value: 251
+Weight: 38
+ArmorRating: 48.41

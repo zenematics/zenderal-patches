@@ -1,0 +1,54 @@
+FormKey: 1296B5:Skyrim.esm
+EditorID: _03E_20_KeeperBowOfArcaneWrath
+ObjectBounds:
+  First: -14, -57, -2
+  Second: 6, 57, 2
+Name:
+  TargetLanguage: English
+  Value: Keeper Bow of Arcane Wrath
+Model:
+  File: Enderal\weapons\bows\magickfury.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 045D97:Skyrim.esm
+EnchantmentAmount: 900
+EquipmentType: 013F45:Skyrim.esm
+BlockBashImpact: 0193C6:Skyrim.esm
+AlternateBlockMaterial: 0774B6:Skyrim.esm
+Keywords:
+- 01E715:Skyrim.esm
+- 01E717:Skyrim.esm
+- 08F958:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 0193B9:Skyrim.esm
+FirstPersonModel: 00080C:Pretty Unique Armory.esp
+AttackFailSound: 03C730:Skyrim.esm
+EquipSound: 03D78C:Skyrim.esm
+UnequipSound: 03D882:Skyrim.esm
+BasicStats:
+  Value: 150
+  Weight: 7
+  Damage: 15
+Data:
+  AnimationType: Bow
+  Unused: 0x000000
+  Speed: 0.9
+  Reach: 1
+  Flags:
+  - NPCsUseAmmo
+  BaseVATStoHitChance: 5
+  NumProjectiles: 1
+  RangeMin: 500
+  RangeMax: 2000
+  AnimationAttackMult: 1
+  Unknown2: 1084227584
+  Unknown3: 0x000000000000000000000000
+  Skill: Archery
+Critical:
+  Damage: 11
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Silent

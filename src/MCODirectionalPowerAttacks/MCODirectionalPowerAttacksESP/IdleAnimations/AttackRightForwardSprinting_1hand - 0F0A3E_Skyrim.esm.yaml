@@ -1,0 +1,25 @@
+FormKey: 0F0A3E:Skyrim.esm
+EditorID: AttackRightForwardSprinting_1hand
+Version2: 5
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsSprintingConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+    ItemSource: Right
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThanOrEqualTo
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+    ItemSource: Right
+  ComparisonValue: 4
+AnimationEvent: attackStartSprint
+RelatedIdles:
+- 000990:Update.esm
+- Null
+AnimationGroupSection: 66

@@ -1,0 +1,40 @@
+FormKey: 023238:Skyrim.esm
+MajorRecordFlagsRaw: 64
+EditorID: _03E_24_ShieldOfTheRighteousFencer
+SkyrimMajorRecordFlags:
+- 0x40
+ObjectBounds:
+  First: -23, -35, -9
+  Second: 23, 27, 2
+Name:
+  TargetLanguage: English
+  Value: Shield of the Righteous Fencer
+ObjectEffect: 0432C8:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Weapons\Ebony\EbonyShield_alt.nif
+BodyTemplate:
+  FirstPersonFlags:
+  - Shield
+  ArmorType: HeavyArmor
+  ActsLike44: True
+EquipmentType: 0141E8:Skyrim.esm
+BashImpactDataSet: 0183FE:Skyrim.esm
+AlternateBlockMaterial: 016979:Skyrim.esm
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD8:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0965B2:Skyrim.esm
+- 0008CF:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000811:Pretty Semi-Unique Armory.esp
+Value: 192
+Weight: 14
+ArmorRating: 44.4
+MajorFlags:
+- Shield

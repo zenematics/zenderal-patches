@@ -1,0 +1,51 @@
+FormKey: 0C0E18:Skyrim.esm
+EditorID: _01E_02_IronClaymoreColdNight
+ObjectBounds:
+  First: -10, -23, -23
+  Second: 10, 86, 86
+Name:
+  TargetLanguage: English
+  Value: Cold Night
+Model:
+  File: Enderal\weapons\coldnight.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 001F14:Enderal SE - Gameplay Overhaul.esp
+EnchantmentAmount: 500
+EquipmentType: 013F45:Skyrim.esm
+BlockBashImpact: 0183FF:Skyrim.esm
+AlternateBlockMaterial: 097786:Skyrim.esm
+Keywords:
+- 01E718:Skyrim.esm
+- 06727B:Skyrim.esm
+- 06D931:Skyrim.esm
+- 08F958:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 0949D5:Skyrim.esm
+FirstPersonModel: 000810:Pretty Unique Armory.esp
+AttackFailSound: 0E4CAC:Skyrim.esm
+EquipSound: 03C8A9:Skyrim.esm
+UnequipSound: 03C8AA:Skyrim.esm
+BasicStats:
+  Value: 25
+  Weight: 13
+  Damage: 7
+Data:
+  AnimationType: TwoHandSword
+  Unused: 0x000000
+  Speed: 0.7
+  Reach: 1.3
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1067869798
+  Unknown3: 0x000000000000000000000000
+  Skill: TwoHanded
+  Stagger: 1.1
+Critical:
+  Damage: 3
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Loud

@@ -1,0 +1,37 @@
+FormKey: 0030D3:Skyrim.esm
+EditorID: _01E_05_IronCuirass
+ObjectBounds:
+  First: -25, -16, 0
+  Second: 24, 16, 14
+Name:
+  TargetLanguage: English
+  Value: Iron Cuirass
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\Iron Armor\Defunkt\m\CuirassSleevesGND.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: Enderal\armor\Iron Armor\Defunkt\m\CuirassSleevesGND.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBE3:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 012E48:Skyrim.esm
+Value: 35
+Weight: 20
+ArmorRating: 34.32

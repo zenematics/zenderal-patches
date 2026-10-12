@@ -1,0 +1,32 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Ark Myrad Platform Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Fixes the Ark Myrad boarding sequence dropping the player off the platform edge before
+    the mount animation completes. CONFIRMED WORKING in-game 2026-08-31.
+    Repositions the actual Ark Myrad takeoff marker: reference 02F0B5:Enderal - Forgotten
+    Stories.esm (a plain XMarker, base 000034), linked from Ark_MyradRef via the
+    "_00E_FS_MyradTakeOffMarker" keyword (02F0B6) - present only on the Forgotten Stories
+    OVERRIDE of Ark_MyradRef, not the base Skyrim.esm layer (Ark_MyradRef's own placement,
+    and the base-game "_00E_MyradStartPosition" marker 09C521, are both red herrings - see
+    CLAUDE.md's Allocations-in-use postmortem for the full investigation). Shifts the pivot
+    toward the platform's east edge to give the Myrad's westward-facing neck (rotation 270
+    deg = due west) clearance before running off the platform's short axis; verified via
+    point-in-triangle testing against the cell's real navmesh, not just vertex proximity.
+    Rotation is left untouched at the vanilla value (4.7124 rad = 270 deg exactly - the fact
+    that this matched an in-game getangle reading letter for letter is what finally confirmed
+    this record, and not the two decoys, is the one the game actually reads).
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  INTV: 1

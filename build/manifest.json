@@ -319,6 +319,42 @@
           "to": ""
         }
       ]
+    },
+    {
+      "$comment": "Single placed-ref override, CONFIRMED WORKING in-game. Fixes the Ark Myrad boarding sequence dropping the player off the platform edge before the mount animation completes. Repositions reference 02F0B5:Enderal - Forgotten Stories.esm (a plain XMarker) toward the platform's east edge, giving the Myrad's westward-facing neck room before running off the platform's short axis. This is the ACTUAL takeoff marker - reached via keyword _00E_FS_MyradTakeOffMarker (02F0B6) on the Forgotten Stories OVERRIDE of Ark_MyradRef, not the base Skyrim.esm layer. See CLAUDE.md's Allocations-in-use postmortem for the full investigation; the short version is that Ark_MyradRef's own placement (09C522) and the base-game '_00E_MyradStartPosition' marker (09C521) are both red herrings that this repo spent an entire session editing before finding the real record.",
+      "name": "Zenderal - Ark Myrad Platform Fix",
+      "archiveName": "Zenderal - Ark Myrad Platform Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/ArkMyradPlatformFix/ArkMyradPlatformFixESP",
+          "dest": "Zenderal - Ark Myrad Platform Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "MCO/ADXP setups only. Attack MCO-DXP's Nemesis patch reroutes only the standing power-attack state into MCO_PowerAttack, and Attack_MCO.esp only redirects PowerAttackForward (019B25) to attackPowerStartInPlace. PowerAttackLeft/Backward/Right (019B22/23/24) still fire vanilla attackPowerStartLeft/Backward/Right, so side/back power attacks play Enderal's vanilla animations and For Honor Reforged's DMK-gated directional power attacks never trigger. This overrides those three idles with attackPowerStartInPlace - the same one-field change Attack_MCO makes to 019B25 - every other field verbatim. Only Skyrim.esm defines these records in the list. Also drops the vanilla Critical Charge/Great Critical Charge HasPerk condition from the sprint power-attack idles 0EC3CC/0EC3CE/0EC3CF (Update.esm winners), the only senders of attackPowerStart_Sprint on MCO - nothing in Enderal grants those perks, so FHR's MCO_SprintPowerAttack was unreachable. Same for the sprint light-attack idles 0F0A3E/1038BF (attackStartSprint -> MCO_SprintAttack); Attack_MCO.esp's own perk-free Attack_Sprint did not fire in game. Do NOT install with BFCO.",
+      "name": "Zenderal - MCO Directional Power Attacks",
+      "archiveName": "Zenderal - MCO Directional Power Attacks",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/MCODirectionalPowerAttacks/MCODirectionalPowerAttacksESP",
+          "dest": "Zenderal - MCO Directional Power Attacks.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Pretty Enderal Armory x EGO. The 11 Pretty * plugins load after EGO and were authored against vanilla Enderal, so ~140 armour/weapon/ammo/NPC records lose EGO's stats, prices, weights, armour types, keywords, enchantments and NPC perks (plus Enderal SE - Bug Fixes values and AOS footsteps). Each override = the in-game winner's record (Pretty's meshes/armatures/outfits) with those gameplay fields forwarded. GENERATED - regenerate with src/PrettyArmoryEGO/tools/01-build-override-chains.py then 02-merge-pretty-ego.py; never hand-edit the record folders. Masters every Pretty plugin it overrides, so the engine enforces load-after.",
+      "name": "Zenderal - Pretty Armory EGO Patch",
+      "archiveName": "Zenderal - Pretty Armory EGO Patch",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/PrettyArmoryEGO/PrettyArmoryEGOESP",
+          "dest": "Zenderal - Pretty Armory EGO Patch.esp"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+FormKey: 019B24:Skyrim.esm
+EditorID: PowerAttackRight
+Version2: 2
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetMovementDirectionConditionData
+  ComparisonValue: 2
+AnimationEvent: attackPowerStartInPlace
+RelatedIdles:
+- 0E8456:Skyrim.esm
+- 019B25:Skyrim.esm

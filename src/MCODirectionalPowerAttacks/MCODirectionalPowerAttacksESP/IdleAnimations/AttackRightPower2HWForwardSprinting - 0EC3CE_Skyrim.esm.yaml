@@ -1,0 +1,18 @@
+FormKey: 0EC3CE:Skyrim.esm
+EditorID: AttackRightPower2HWForwardSprinting
+Version2: 2
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsSprintingConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+    ItemSource: Right
+  ComparisonValue: 6
+AnimationEvent: attackPowerStart_2HWSprint
+RelatedIdles:
+- 000991:Update.esm
+- 0EC3CF:Skyrim.esm
+AnimationGroupSection: 66

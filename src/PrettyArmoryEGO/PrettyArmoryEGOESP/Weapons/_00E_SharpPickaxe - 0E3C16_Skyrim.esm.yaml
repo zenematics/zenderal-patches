@@ -1,0 +1,52 @@
+FormKey: 0E3C16:Skyrim.esm
+EditorID: _00E_SharpPickaxe
+ObjectBounds:
+  First: -13, -46, -4
+  Second: 31, -2, 1
+Name:
+  TargetLanguage: English
+  Value: Sharp Pickaxe
+Model:
+  File: Clutter\Common\PickAxe01.nif
+  Data: 0x020000000000000000000000
+EquipmentType: 013F44:Skyrim.esm
+BlockBashImpact: 0193C8:Skyrim.esm
+AlternateBlockMaterial: 0774C0:Skyrim.esm
+Keywords:
+- 01E712:Skyrim.esm
+- 01E718:Skyrim.esm
+- 06727B:Skyrim.esm
+- 08F958:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 0193B8:Skyrim.esm
+FirstPersonModel: 000814:Pretty Common Armory.esp
+AttackFailSound: 03F209:Skyrim.esm
+EquipSound: 03DDB7:Skyrim.esm
+UnequipSound: 03DDB8:Skyrim.esm
+BasicStats:
+  Value: 10
+  Weight: 6
+  Damage: 4
+Data:
+  AnimationType: OneHandAxe
+  Unused: 0x000000
+  Speed: 0.9
+  Reach: 0.95
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1056964608
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: OneHanded
+  Stagger: 0.85
+Critical:
+  Damage: 3
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Normal

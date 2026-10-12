@@ -1,0 +1,41 @@
+FormKey: 02A023:Skyrim.esm
+MajorRecordFlagsRaw: 64
+EditorID: _01E_07_Unique_ShadowSkin
+SkyrimMajorRecordFlags:
+- 0x40
+ObjectBounds:
+  First: -22, -22, -6
+  Second: 22, 22, 2
+Name:
+  TargetLanguage: English
+  Value: Shadow Skin
+ObjectEffect: 02A022:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Armor\Hide\hideshield_unique.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Shield
+  ActsLike44: True
+EquipmentType: 0141E8:Skyrim.esm
+BashImpactDataSet: 0183FB:Skyrim.esm
+AlternateBlockMaterial: 016978:Skyrim.esm
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD3:Skyrim.esm
+- 06BBDD:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0965B2:Skyrim.esm
+- 0008D0:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000802:Pretty Unique Armory.esp
+Value: 30
+Weight: 4
+ArmorRating: 7.65
+MajorFlags:
+- Shield
