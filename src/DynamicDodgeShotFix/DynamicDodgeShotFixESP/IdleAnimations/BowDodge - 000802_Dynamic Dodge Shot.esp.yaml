@@ -1,0 +1,35 @@
+FormKey: 000802:Dynamic Dodge Shot.esp
+EditorID: BowDodge
+FormVersion: 30
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+  ComparisonValue: 7
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetAttackStateConditionData
+  ComparisonValue: 9
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetAttackStateConditionData
+  ComparisonValue: 10
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: GetMovementDirectionConditionData
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: GetMovementDirectionConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsPC1stPersonConditionData
+Filename: Actors\Character\Behaviors\0_Master.hkx
+AnimationEvent: IdleReadElderScrollLonger
+RelatedIdles:
+- 09753B:Skyrim.esm
+- Null

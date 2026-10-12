@@ -1,0 +1,12 @@
+FormKey: 03E48C:Skyrim.esm
+EditorID: AMBWaterfallLargeDistant70002DLPSD
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- \Data\Sound\FX\AMB\Water\Exterior\Waterfall\AMB_Water_Waterfall_Distant_2DLP.wav
+OutputModel: 08F3E4:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  Loop: Loop
+Priority: 128
+StaticAttenuation: 21

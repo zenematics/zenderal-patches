@@ -1,0 +1,12 @@
+{
+    "name": "70210",
+    "priority": 70210,
+    "keepRandomResultsOnLoop": true,
+    "conditions": [
+        {
+            "condition": "IsAttacking",
+            "requiredVersion": "1.0.0.0"
+        }
+    ],
+    "disabled": true
+}

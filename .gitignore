@@ -45,6 +45,8 @@ Thumbs.db
 /build/staging/**/*.ini
 /build/staging/**/*.txt
 /build/staging/**/*.psc
+/build/staging/**/*.json
+/build/staging/**/*.dll
 
 # Bethesda archives — large binaries, never commit. Extract scripts with bsa-extract.
 *.bsa
@@ -81,6 +83,8 @@ Thumbs.db
 !src/LearningBooks/Scripts/compiled/*.pex
 !src/ZenTraitsFixes/Scripts/compiled/
 !src/ZenTraitsFixes/Scripts/compiled/*.pex
+!src/SettingsApplier/Scripts/compiled/
+!src/SettingsApplier/Scripts/compiled/*.pex
 
 # Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
 # lookups. Large, regenerated locally from each machine's own copy, never committed.
@@ -101,3 +105,7 @@ Thumbs.db
 # Python bytecode from the src/*/tools generators.
 __pycache__/
 *.pyc
+
+# NetScriptFramework plugin build output (source is committed; ship the built DLL via the manifest)
+/src/*/NetScriptPlugin/bin/
+/src/*/NetScriptPlugin/obj/

@@ -1,0 +1,98 @@
+{
+  "1": {
+    "Best": 0,
+    "Effect": "Restore Health",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 203,
+    "Poison": 0
+  },
+  "10": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "11": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "12": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "2": {
+    "Best": 0,
+    "Effect": "Restore Mana",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 200,
+    "Poison": 0
+  },
+  "3": {
+    "Best": 0,
+    "Effect": "Restore Stamina",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 205,
+    "Poison": 0
+  },
+  "4": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "5": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "6": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "7": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "8": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  },
+  "9": {
+    "Best": 0,
+    "Effect": "",
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "KeyCode": 0,
+    "Poison": 0
+  }
+}

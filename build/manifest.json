@@ -14,7 +14,7 @@
       ]
     },
     {
-      "$comment": "All magic compatibility/balance patches for the list in ONE plugin. Currently: Apocalypse cost-ladder repricing (175 player-spell overrides, ManualCostCalc + hand BaseCost onto the EGO ladder). Regenerate the overrides with src/MagicPatches/tools/01-apocalypse-cost-ladder.ps1; the pricing table it applies is committed next to it.",
+      "$comment": "All magic compatibility/balance patches for the list in ONE plugin. Currently: Apocalypse cost-ladder repricing (175 player-spell overrides, ManualCostCalc + hand BaseCost onto the EGO ladder); weapon-enchantment x2 (30 ENCH overrides, regenerate with src/MagicPatches/tools/08-scale-weapon-enchants.py). Regenerate the overrides with src/MagicPatches/tools/01-apocalypse-cost-ladder.ps1; the pricing table it applies is committed next to it.",
       "name": "Zenderal - Magic Patches",
       "archiveName": "Zenderal - Magic Patches",
       "fomod": false,
@@ -54,6 +54,145 @@
         {
           "yamlSource": "src/SkipPrologue/SkipPrologueESP",
           "dest": "Zenderal - Skip The Prologue.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Chocolate Poise - Reforged scales all poise damage against reference items it fetches by VANILLA EditorID (IronDagger, DaedricWarhammer, ArmorHide/DaedricGauntlets, ArmorHide/DaedricShield, ArmorDaedricCuirass/Helmet/Boots). None exist in Enderal, so every lookup was NULL and every hit dealt 0 poise. Adds 9 unplaced new records with exactly those EditorIDs, copied from their Enderal equivalents. Also ships ZenCPRFactionFix.dll (NetScriptFramework plugin, source in src/ChocolatePoiseEnderal/NetScriptPlugin/, compiled DLL committed because CI cannot build against the local NSF install): CPR looks up its ForceFullBodyStagger faction at vanilla 0x10CED7, which in Enderal is a placed REFR, and then AddToFaction(null) on every poise break crashes the game; the DLL points that field at ChocolatePoise - Enderal.esp 0x800 at main menu. Requires .NET Script Framework and the Chocolate Poise Enderal Patch. Regenerate with src/ChocolatePoiseEnderal/tools/01-build-reference-items.py.",
+      "name": "Zenderal - Chocolate Poise Enderal Fix",
+      "archiveName": "Zenderal - Chocolate Poise Enderal Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/ChocolatePoiseEnderal/ChocolatePoiseEnderalESP",
+          "dest": "Zenderal - Chocolate Poise Enderal Fix.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/ChocolatePoiseEnderal/NetScriptPlugin/compiled/ZenCPRFactionFix.dll",
+          "to": "NetScriptFramework/Plugins"
+        }
+      ]
+    },
+    {
+      "$comment": "For Honor Reforged's parry deals poise damage (Variable01, which Chocolate Poise - Reforged counts at x1) but only 20 (weapon) / 5 (shield) - under Chocolate Poise's 25%-of-pool stagger threshold on a 100+ human pool, so the enemy never staggers, FHR's Parry Knockdown never plays and the Parry Followup never unlocks. Overrides the two spells (For Honor Balance Patch.esp 000892 / 0005F7) to 60 / 40. Masters the Balance Patch, so the engine enforces load-after.",
+      "name": "Zenderal - FHR Parry Poise",
+      "archiveName": "Zenderal - FHR Parry Poise",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/FHRParryPoise/FHRParryPoiseESP",
+          "dest": "Zenderal - FHR Parry Poise.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Obsidian Weathers - Enderal.esp overrides the Old Temple beach region 00E_MQ00_Startregion 01B860 and swaps Enderal's _00E_EnderalRainLight 021311 for Skyrim's SkyrimOvercastRainTU 10A242 (odd night lighting; Steamin ENB maps it to its generic rain profile instead of !_Enderal_RainLight), and, not mastering RAO, reverts RAO's region sound chances. Override = RAO's record verbatim. Masters Obsidian Weathers - Enderal.esp to force load-after.",
+      "name": "Zenderal - Old Temple Weather",
+      "archiveName": "Zenderal - Old Temple Weather",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/OldTempleWeather/OldTempleWeatherESP",
+          "dest": "Zenderal - Old Temple Weather.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. Baka Hero Menu (shad0wshayd3, Nexus enderalspecialedition/1121, GPL-3.0 + modding exception) ported from libxse CommonLibSSE (1.6.x+/Enderal 2.1.x) to CommonLibSSE-NG for Enderal SE 2.0.12 / SSE 1.5.97: click a skill in the Hero Menu to spend a Learning/Crafting Point on it. Port changes, all marked ZP in src/BakaHeroMenu/src: the Hero Menu is registered as '00E_heromenu' here, not 'CustomMenu'; class/affinity read from _00E_Game_SkillmenuSC on Levelsystem 010AA2 (2.1's _00E_AffinityControl/01597B:FS do not exist); null guards for the missing BakaHeroMenu.esp MCM quest (crashed on save load); Zenderal defaults = no gold cost, no gold readout. Build with src/BakaHeroMenu/build.cmd (VS 2026 Build Tools' bundled CMake/Ninja/vcpkg; CommonLibSSE-NG ng branch cloned to src/BakaHeroMenu/lib/CommonLibNG); compiled DLL committed because CI cannot build it. GPL: the modified source in src/BakaHeroMenu/ must stay published alongside the DLL.",
+      "name": "Zenderal - Baka Hero Menu SE",
+      "archiveName": "Zenderal - Baka Hero Menu SE",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/BakaHeroMenu/compiled/BakaHeroMenu.dll",
+          "to": "SKSE/Plugins"
+        }
+      ]
+    },
+    {
+      "$comment": "Re-applies the save-based MCM settings of legacy SkyUI menus (and the few MCM Helper options wired to globals) once per save, 30 s after load: 25 globals across 8 mods plus 4 script properties (QuickLoot IE, Dynamic Things, NASC). Values captured from the curator's save by decoding the .ess and diffing against shipped defaults; data/settings.json -> tools/01-generate-applier.py -> ZEN_SettingsApplier.psc. Every global is checked by plugin + EditorID and every property write goes through a cast, so a missing or changed mod is skipped, never written blindly. File-based settings ship separately in the curator's 'Zenderal - Settings' MO2 mod.",
+      "name": "Zenderal - Settings Applier",
+      "archiveName": "Zenderal - Settings Applier",
+      "fomod": false,
+      "scripts": { "from": "src/SettingsApplier/Scripts/compiled", "to": "Scripts" },
+      "plugins": [
+        {
+          "yamlSource": "src/SettingsApplier/SettingsApplierESP",
+          "dest": "Zenderal - Settings Applier.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/SettingsApplier/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/SettingsApplier/data/SwiftPotion",
+          "to": "SKSE/Plugins/Zenderal Settings Applier/SwiftPotion"
+        }
+      ]
+    },
+    {
+      "$comment": "32 bushes (0AC865) in Riverville (FlusshaimMittelweg, FlusshaimZentrum) on top of EPPI Riverville, plus one edited EPPI reference (002207). Originally a Creation Kit plugin that lived only in MO2's overwrite folder (HEDR 1.71, not ESL, FormIDs 0x146D-0x2D68); brought into the repo at HEDR 1.70 as an ESL with all 32 new references renumbered into 0x800-0x81F in their original order.",
+      "name": "Zenderal - RiverBush",
+      "archiveName": "Zenderal - RiverBush",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/RiverBush/RiverBushESP",
+          "dest": "Zenderal - RiverBush.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Playable Half Starling Race makes WoodElfRace (Enderal's NPC Starling race, shared by every NPC Starling) playable; its EGO version loads after EGO SE - Dark Souls Style Movement and Stamina and MORE Unique Races and reverts the race to EGO's flat 50/50/90 + 0.1/6.3/3. Overrides it with a 'might and magic' profile sized against that mod's four races: 75/75/60, regen 0.3/8/20 (2nd-best HP and MP regen, low stamina regen). Record otherwise verbatim from EGO SE - Half Starling.esp, which is mastered (content-unused) to force load-after.",
+      "name": "Zenderal - Half Starling DS Races",
+      "archiveName": "Zenderal - Half Starling DS Races",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/HalfStarlingDS/HalfStarlingDSESP",
+          "dest": "Zenderal - Half Starling DS Races.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Dynamic Dodge Shot never triggered: its BowDodge idle sits beside BowLeftAttack under NonMountedCombatLeft, competing with three other idles for the first-child slot, so a strafing right-click entered BowLeftAttack (bow equipped), found BowZoom refusing (DDS limits zoom to standing/forward) and did nothing. Moves BowDodge inside BowLeftAttack as its first child and chains BowZoom after it. Conditions untouched.",
+      "name": "Zenderal - Dynamic Dodge Shot Fix",
+      "archiveName": "Zenderal - Dynamic Dodge Shot Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/DynamicDodgeShotFix/DynamicDodgeShotFixESP",
+          "dest": "Zenderal - Dynamic Dodge Shot Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Dynamic Dodge: attack-cancel dodges play the normal step dodge instead of the on-the-spot sway. No plugin - 20 OAR user.json files disabling Dynamic Dodge's IsAttacking submods 70210-70244 (each = the author's config.json + disabled: true), so they fall through to 70110-70144. TK Dodge RE's EnableDodgeAttackCancel stays on. Regenerate with src/DynamicDodgeNoSway/tools/01-disable-sway-submods.py.",
+      "name": "Zenderal - Dynamic Dodge No Sway",
+      "archiveName": "Zenderal - Dynamic Dodge No Sway",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/DynamicDodgeNoSway/meshes",
+          "to": "meshes"
+        }
+      ]
+    },
+    {
+      "$comment": "Waterfall/rapids sounds -6 dB (72 SoundDescriptor overrides, StaticAttenuation +6 on the live winner - mostly Reverb and Ambiance Overhaul - Enderal, which made many of them louder). Regenerate with src/QuieterWaterfalls/tools/01-quieter-waterfalls.py. Masters RAO, so the engine enforces load-after.",
+      "name": "Zenderal - Quieter Waterfalls",
+      "archiveName": "Zenderal - Quieter Waterfalls",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/QuieterWaterfalls/QuieterWaterfallsESP",
+          "dest": "Zenderal - Quieter Waterfalls.esp"
         }
       ]
     },
@@ -123,6 +262,23 @@
       "files": [
         {
           "from": "src/NpcPotions/spid/Zenderal - NPC Potions_DISTR.ini",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL + configs. Draws For Honor Reforged's status icons inside TrueHUD's floating info bars: incoming-attack arrows either side of the bar, one priority icon (unstable > stagger/parry/shield-flip/block-slide knockdown cooldowns) in a circle on the bar's right end. Attaches child clips to TrueHUD's own info-bar movie clip (_root.TrueHUD.TrueHUD_MainVisibilityWidgets.<actor handle>) so they inherit its position, scale and fade; icon art is whichever FHR icon .swf wins (currently Vel'dun's replacer). Ships empty-rule copies of FHR's eleven SKSE/Plugins/SIF/*.json so SIF stops drawing the same icons above heads - must sort ABOVE For Honor Reforged. Rules/layout in SKSE/Plugins/ZenTrueHUDCombatIcons.json, re-read on every save load. Build with src/TrueHUDCombatIcons/build.cmd (shares BakaHeroMenu's CommonLibSSE-NG clone); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - TrueHUD Combat Icons",
+      "archiveName": "Zenderal - TrueHUD Combat Icons",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/TrueHUDCombatIcons/compiled/ZenTrueHUDCombatIcons.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/TrueHUDCombatIcons/data",
           "to": ""
         }
       ]

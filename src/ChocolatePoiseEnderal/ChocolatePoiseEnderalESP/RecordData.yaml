@@ -1,0 +1,23 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Chocolate Poise Enderal Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Makes Chocolate Poise - Reforged work in Enderal: adds the vanilla-EditorID reference
+    weapons and armor it scales poise against (IronDagger, DaedricWarhammer, ...), copied
+    from their Enderal equivalents. Unplaced and unlisted; never appear in game.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  INTV: 1

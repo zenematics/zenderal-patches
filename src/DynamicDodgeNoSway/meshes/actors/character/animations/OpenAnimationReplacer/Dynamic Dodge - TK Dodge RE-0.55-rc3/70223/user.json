@@ -1,0 +1,140 @@
+{
+    "name": "70223",
+    "priority": 70223,
+    "keepRandomResultsOnLoop": true,
+    "conditions": [
+        {
+            "condition": "OR",
+            "requiredVersion": "1.0.0.0",
+            "Conditions": [
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "negated": true,
+                    "Value A": {
+                        "form": {
+                            "pluginName": "TrueDirectionalMovement.esp",
+                            "formID": "807"
+                        }
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "value": 1.0
+                    }
+                },
+                {
+                    "condition": "HasMagicEffect",
+                    "requiredVersion": "1.0.0.0",
+                    "Magic effect": {
+                        "pluginName": "TrueDirectionalMovement.esp",
+                        "formID": "804"
+                    },
+                    "Active effects only": false
+                }
+            ]
+        },
+        {
+            "condition": "IsAttacking",
+            "requiredVersion": "1.0.0.0"
+        },
+        {
+            "condition": "HasMagicEffect",
+            "requiredVersion": "1.0.0.0",
+            "Magic effect": {
+                "pluginName": "Keytrace.esp",
+                "formID": "803"
+            },
+            "Active effects only": false
+        },
+        {
+            "condition": "HasMagicEffect",
+            "requiredVersion": "1.0.0.0",
+            "Magic effect": {
+                "pluginName": "Keytrace.esp",
+                "formID": "802"
+            },
+            "Active effects only": false
+        },
+        {
+            "condition": "IsEquippedType",
+            "requiredVersion": "1.0.0.0",
+            "Type": {
+                "value": 5.0
+            },
+            "Left hand": false
+        },
+        {
+            "condition": "IsEquippedHasKeyword",
+            "requiredVersion": "1.0.0.0",
+            "negated": true,
+            "Keyword": {
+                "form": {
+                    "pluginName": "NewArmoury.esp",
+                    "formID": "E457E"
+                }
+            },
+            "Left hand": false
+        },
+        {
+            "condition": "IsEquippedHasKeyword",
+            "requiredVersion": "1.0.0.0",
+            "negated": true,
+            "Keyword": {
+                "form": {
+                    "pluginName": "Smooth Weapon.esm",
+                    "formID": "801"
+                }
+            },
+            "Left hand": false
+        },
+        {
+            "condition": "IsEquippedHasKeyword",
+            "requiredVersion": "1.0.0.0",
+            "negated": true,
+            "Keyword": {
+                "form": {
+                    "pluginName": "SkyrimSpearMechanic.esp",
+                    "formID": "D62"
+                }
+            },
+            "Left hand": false
+        },
+        {
+            "condition": "IsEquippedHasKeyword",
+            "requiredVersion": "1.0.0.0",
+            "negated": true,
+            "Keyword": {
+                "form": {
+                    "pluginName": "Smooth Weapon.esm",
+                    "formID": "80A"
+                }
+            },
+            "Left hand": false
+        },
+        {
+            "condition": "IsEquippedHasKeyword",
+            "requiredVersion": "1.0.0.0",
+            "negated": true,
+            "Keyword": {
+                "form": {
+                    "pluginName": "Smooth Weapon.esm",
+                    "formID": "804"
+                }
+            },
+            "Left hand": false
+        },
+        {
+            "condition": "IsEquippedHasKeyword",
+            "requiredVersion": "1.0.0.0",
+            "negated": true,
+            "Keyword": {
+                "form": {
+                    "pluginName": "NewArmoury.esp",
+                    "formID": "E4581"
+                }
+            },
+            "Left hand": false
+        }
+    ],
+    "disabled": true
+}

@@ -1,0 +1,55 @@
+FormKey: 000803:Zenderal - Chocolate Poise Enderal Fix.esp
+EditorID: ArmorDaedricGauntlets
+Version2: 11
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 02EF51:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 02EF56:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E0D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Levelsystem
+      Object: 010AA2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -13, -12, -7
+  Second: 11, 13, 7
+Name:
+  TargetLanguage: English
+  Value: (Set of the Skybreaker) Fists of the Skybreaker
+ObjectEffect: 02EF66:Enderal - Forgotten Stories.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\Immersive Armors\Paladin\gauntletsm_gnd.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Hands
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 06C0EF:Skyrim.esm
+- 08F959:Skyrim.esm
+- 06BBD8:Skyrim.esm
+- 02C178:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 033EB8:Skyrim.esm
+Value: 125
+Weight: 9
+ArmorRating: 37.04

@@ -1,0 +1,235 @@
+FormKey: 001EB1:Skyrim.esm
+EditorID: FlusshaimZentrum
+Flags:
+- HasWater
+Grid:
+  Point: -21, -5
+  Flags: 944912896
+WaterHeight: 3.4028235E+38
+Regions:
+- 03A47B:Skyrim.esm
+- 03A604:Skyrim.esm
+- 037B8B:Skyrim.esm
+Location: 032706:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 002207:EPPIriverville.esp
+  Base: 0B8A6F:Skyrim.esm
+  Scale: 1.41
+  LocationReference: 032706:Skyrim.esm
+  Placement:
+    Position: -85392.13, -20264.838, 1184.0896
+    Rotation: 0, 0, 5.443189
+- MutagenObjectType: PlacedObject
+  FormKey: 000800:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85391.27, -20345.688, 876.8968
+    Rotation: -0.4500002, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000801:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85292.99, -20219.318, 966.6515
+    Rotation: -0.4500002, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000802:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85182.24, -20063.469, 1033.7518
+    Rotation: -0.4500002, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000803:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85086.586, -19942.936, 1093.8832
+    Rotation: -0.4500002, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000804:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -84952.06, -19796.93, 1160.9551
+    Rotation: -0.4500002, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000805:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85473.92, -20469.258, 809.66296
+    Rotation: -0.4500002, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000807:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -84998.72, -19836.934, 1136.9542
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000808:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85047.84, -19892.96, 1116.2006
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000809:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85134.3, -20009.352, 1067.4727
+    Rotation: -0.4500002, 0, 3.1415927
+- MutagenObjectType: PlacedObject
+  FormKey: 00080A:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85219.2, -20116.367, 1004.31055
+    Rotation: -0.4500002, 0, 4.712389
+- MutagenObjectType: PlacedObject
+  FormKey: 00080B:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85262.11, -20180.111, 985.3223
+    Rotation: -0.4500002, 0, 4.712389
+- MutagenObjectType: PlacedObject
+  FormKey: 00080C:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85331.7, -20258.11, 927.7721
+    Rotation: -0.4500002, 0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 00080D:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85441.945, -20398.639, 850.9086
+    Rotation: -0.4500002, 0, 2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 00080F:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85067.31, -20065.076, 1051.1106
+    Rotation: -0.4500002, 0, 3.1415927
+- MutagenObjectType: PlacedObject
+  FormKey: 000810:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85334.32, -19652.674, 1108.7322
+    Rotation: -0.4500002, 0, 5.497787
+- MutagenObjectType: PlacedObject
+  FormKey: 000811:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85401.47, -19761.96, 1067.3925
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000812:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85423.766, -19814.934, 1027.7906
+    Rotation: -0.4500002, 0, 4.712389
+- MutagenObjectType: PlacedObject
+  FormKey: 000813:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85494.11, -19765.986, 1022.3159
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000814:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85457.96, -19863.182, 1004.33844
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000815:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85504.94, -19933.014, 969.67816
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000816:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85561.54, -20006.973, 928.34534
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000817:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85612.78, -20091.201, 901.8075
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000818:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85690.57, -20126.445, 872.27844
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 000819:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85706.41, -20210.27, 836.97327
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 00081A:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85642.016, -20157.988, 874.01495
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 00081B:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85744.7, -20271.73, 805.9389
+    Rotation: -0.4500002, 0, 5.4977875
+- MutagenObjectType: PlacedObject
+  FormKey: 00081C:Zenderal - RiverBush.esp
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85786.32, -20338.55, 765.266
+    Rotation: -0.4500002, 0, 4.712389
+- MutagenObjectType: PlacedObject
+  FormKey: 00081D:Zenderal - RiverBush.esp
+  VersionControl: 13599
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85259.25, -19570.803, 1144.2958
+    Rotation: -0.4500002, 0, 5.497787
+- MutagenObjectType: PlacedObject
+  FormKey: 00081E:Zenderal - RiverBush.esp
+  VersionControl: 13599
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -85335.516, -19698.734, 1102.4437
+    Rotation: -0.4500002, 0, -2.3561945
+- MutagenObjectType: PlacedObject
+  FormKey: 00081F:Zenderal - RiverBush.esp
+  VersionControl: 13599
+  Base: 0AC865:Skyrim.esm
+  Scale: 0.84
+  Placement:
+    Position: -84920.42, -19762.643, 1150.7225
+    Rotation: -0.4500002, 0, -2.3561945

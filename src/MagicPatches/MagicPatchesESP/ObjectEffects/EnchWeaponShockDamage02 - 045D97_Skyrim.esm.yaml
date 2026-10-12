@@ -1,0 +1,18 @@
+FormKey: 045D97:Skyrim.esm
+EditorID: EnchWeaponShockDamage02
+Name:
+  TargetLanguage: English
+  Value: Shock Damage
+EnchantmentCost: 9
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 10
+TargetType: Touch
+EnchantType: Enchantment
+BaseEnchantment: 10FB99:Skyrim.esm
+Effects:
+- BaseEffect: 04605C:Skyrim.esm
+  Data:
+    Magnitude: 16
+    Duration: 1

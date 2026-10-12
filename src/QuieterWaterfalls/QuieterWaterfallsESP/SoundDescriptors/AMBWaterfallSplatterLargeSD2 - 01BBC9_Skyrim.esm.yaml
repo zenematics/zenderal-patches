@@ -1,0 +1,16 @@
+FormKey: 01BBC9:Skyrim.esm
+EditorID: AMBWaterfallSplatterLargeSD2
+Version2: 2
+Type: Standard
+Category: 0F23BB:Skyrim.esm
+SoundFiles:
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_02_LP.wav
+- fx\amb\water\exterior\waterfallsplatter\large\AMB_WaterfallSplatter_Large_01_LP.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 1
+StaticAttenuation: 17.89

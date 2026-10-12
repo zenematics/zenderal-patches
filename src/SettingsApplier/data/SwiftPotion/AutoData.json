@@ -1,0 +1,47 @@
+{
+  "Health": {
+    "Best": 0,
+    "CombatOnly": 1,
+    "Effect": "Restore Health",
+    "Enabled": 0,
+    "FoodDelay": 0.5,
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "FoodTimer": 0.0,
+    "FoodUsed": 0,
+    "PotionDelay": 2.5,
+    "PotionTimer": 0.0,
+    "PotionUsed": 0,
+    "Threshold": 50.0
+  },
+  "magicka": {
+    "Best": 0,
+    "CombatOnly": 1,
+    "Effect": "Restore Mana",
+    "Enabled": 0,
+    "FoodDelay": 0.5,
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "FoodTimer": 0.0,
+    "FoodUsed": 0,
+    "PotionDelay": 2.5,
+    "PotionTimer": 0.0,
+    "PotionUsed": 0,
+    "Threshold": 50.0
+  },
+  "stamina": {
+    "Best": 0,
+    "CombatOnly": 1,
+    "Effect": "Restore Stamina",
+    "Enabled": 0,
+    "FoodDelay": 0.5,
+    "FoodEnabled": 0,
+    "FoodFirst": 0,
+    "FoodTimer": 0.0,
+    "FoodUsed": 0,
+    "PotionDelay": 2.5,
+    "PotionTimer": 0.0,
+    "PotionUsed": 0,
+    "Threshold": 50.0
+  }
+}

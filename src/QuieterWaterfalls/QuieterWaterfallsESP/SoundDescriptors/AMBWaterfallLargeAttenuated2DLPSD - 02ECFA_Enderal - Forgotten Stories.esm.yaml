@@ -1,0 +1,15 @@
+FormKey: 02ECFA:Enderal - Forgotten Stories.esm
+EditorID: AMBWaterfallLargeAttenuated2DLPSD
+Type: Standard
+Category: 02ED11:Enderal - Forgotten Stories.esm
+SoundFiles:
+- data\sound\FX\amb\water\exterior\waterfall\large\amb_water_waterfall_large_2d_01_lp.wav
+- data\sound\FX\amb\water\exterior\waterfall\large\amb_water_waterfall_large_2d_02_lp.wav
+- data\sound\FX\amb\water\exterior\waterfall\large\amb_water_waterfall_large_2d_03_lp.wav
+OutputModel: 0E363A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  Loop: Loop
+PercentFrequencyVariance: 8
+Priority: 128
+StaticAttenuation: 25.82

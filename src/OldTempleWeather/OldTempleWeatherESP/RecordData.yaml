@@ -1,0 +1,21 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Old Temple Weather.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Restores Enderal's own light rain to the Old Temple beach region (Obsidian Weathers
+    swapped it for a Skyrim rain weather) and forwards Reverb and Ambiance Overhaul's
+    region sounds, which Obsidian also reverted. Must load after Obsidian Weathers - Enderal.esp (mastered).
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Obsidian Weathers - Enderal.esp
+    FileSize: 0
+  INTV: 1

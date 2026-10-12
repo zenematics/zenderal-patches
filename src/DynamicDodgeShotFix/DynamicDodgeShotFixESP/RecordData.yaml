@@ -1,0 +1,20 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Dynamic Dodge Shot Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Makes Dynamic Dodge Shot trigger: moves its BowDodge idle inside BowLeftAttack, ahead
+    of BowZoom, so a strafing right-click with a bow reaches it.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Dynamic Dodge Shot.esp
+    FileSize: 0
+  INTV: 1

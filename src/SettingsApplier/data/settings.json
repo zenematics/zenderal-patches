@@ -1,0 +1,217 @@
+{
+ "_comment": "Save-based MCM settings captured from save 'Starling 1' (Save7, 2026-10-05) by decoding the save's global-variable table and Papyrus script data, then diffing against each plugin's / script's shipped defaults. Auto-detected flags (Nemesis/MCO/TrueHUD detection, init markers, live state), Obsidian Weathers' seasonal values, and everything already shipped as files in 'Zenderal - Settings' are deliberately excluded. Smart NPC Potions' three changed sliders were captured later from 'Starling 1' Save22 (2026-10-07); its three NPC-type toggles were at their defaults.",
+ "source_save": "Starling 1 / Save7_40581CA0_..._20261005170209",
+ "globals": [
+  {
+   "plugin": "Dismembering Framework.esm",
+   "formid": 2086,
+   "edid": "DF_Features_PlayerEffect_SlowTimeSound_GV",
+   "value": 0.0
+  },
+  {
+   "plugin": "Dismembering Framework.esm",
+   "formid": 2092,
+   "edid": "DF_Features_Misc_LimbCleanUpDelay_GV",
+   "value": 4.0
+  },
+  {
+   "plugin": "Dismembering Framework.esm",
+   "formid": 2117,
+   "edid": "DF_Cond_WeapType_OneHandSword_PowerAttackChance_GV",
+   "value": 1.0
+  },
+  {
+   "plugin": "Dismembering Framework.esm",
+   "formid": 2121,
+   "edid": "DF_Cond_WeapType_OneHandSword_Impulse_GV",
+   "value": 15.0
+  },
+  {
+   "plugin": "Dismembering Framework.esm",
+   "formid": 2190,
+   "edid": "DF_Features_BloodSpray_Mode_GV",
+   "value": -1.0
+  },
+  {
+   "plugin": "(SGC) NASC.esl",
+   "formid": 2048,
+   "edid": "Staminacostglobal",
+   "value": 1.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2088,
+   "edid": "FEC_SoulAbsorbPCToggle",
+   "value": 1.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2090,
+   "edid": "FEC_FrostModesCr",
+   "value": 1.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2110,
+   "edid": "FEC_PoisonOpacityColor",
+   "value": 0.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2135,
+   "edid": "FEC_FireModes",
+   "value": 2.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2136,
+   "edid": "FEC_FrostModes",
+   "value": 2.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2137,
+   "edid": "FEC_ShockModes",
+   "value": 2.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2218,
+   "edid": "FEC_DrainModes",
+   "value": 1.0
+  },
+  {
+   "plugin": "FEC.esp",
+   "formid": 2290,
+   "edid": "FEC_FireModesCr",
+   "value": 2.0
+  },
+  {
+   "plugin": "ImmersiveInteractions.esp",
+   "formid": 1432916,
+   "edid": "AR_Wait",
+   "value": 0.0
+  },
+  {
+   "plugin": "Immersive Equipping Animations.esp",
+   "formid": 3441,
+   "edid": "F_EnableAnimation",
+   "value": 0.0
+  },
+  {
+   "plugin": "Helmet Toggle 2.esp",
+   "formid": 2057,
+   "edid": "HT_EnableHelmet",
+   "value": 1.0
+  },
+  {
+   "plugin": "Helmet Toggle 2.esp",
+   "formid": 2058,
+   "edid": "HT_EnableHood",
+   "value": 1.0
+  },
+  {
+   "plugin": "Helmet Toggle 2.esp",
+   "formid": 2072,
+   "edid": "HT_HotkeyType",
+   "value": 2.0
+  },
+  {
+   "plugin": "Helmet Toggle 2.esp",
+   "formid": 2114,
+   "edid": "HT_EnableUnequip",
+   "value": 1.0
+  },
+  {
+   "plugin": "Helmet Toggle 2.esp",
+   "formid": 2122,
+   "edid": "HT_EnableMask",
+   "value": 1.0
+  },
+  {
+   "plugin": "Helmet Toggle 2.esp",
+   "formid": 2123,
+   "edid": "HT_EnableHat",
+   "value": 1.0
+  },
+  {
+   "plugin": "EVGConditionalIdles.esp",
+   "formid": 2052,
+   "edid": "EVGCI15_HeadacheThreshold",
+   "value": 0.33
+  },
+  {
+   "plugin": "EVGConditionalIdles.esp",
+   "formid": 3437,
+   "edid": "EVGCI14_NPCInjured",
+   "value": 1.0
+  },
+  {
+   "plugin": "Bow Charge Plus.esp",
+   "formid": 2090,
+   "edid": "aaaPowerShot",
+   "value": 1.0
+  },
+  {
+   "plugin": "Smart_NPC_Potions.esp",
+   "formid": 2054,
+   "edid": "NPCpotion_ChanceGlobal",
+   "value": 10.0
+  },
+  {
+   "plugin": "Smart_NPC_Potions.esp",
+   "formid": 2055,
+   "edid": "NPCpotion_MaxPotion",
+   "value": 1.0
+  },
+  {
+   "plugin": "Smart_NPC_Potions.esp",
+   "formid": 2057,
+   "edid": "NPCpotion_DropPotion",
+   "value": 50.0
+  }
+ ],
+ "properties": [
+  {
+   "plugin": "QuickLootIE.esp",
+   "formid": 1,
+   "script": "QuickLootIEMCM",
+   "property": "QLIE_ShowInCombat",
+   "type": "Bool",
+   "value": false
+  },
+  {
+   "plugin": "Dynamic Things Alternative.esp",
+   "formid": 2048,
+   "script": "dtaQuestScript",
+   "property": "targetsEnabled",
+   "type": "Bool",
+   "value": true
+  },
+  {
+   "plugin": "Dynamic Things Alternative.esp",
+   "formid": 2048,
+   "script": "dtaQuestScript",
+   "property": "targetsMultiplier",
+   "type": "Float",
+   "value": 0.5
+  },
+  {
+   "plugin": "(SGC) NASC.esl",
+   "formid": 2051,
+   "script": "nasc_mcm",
+   "property": "staminacostproperty",
+   "type": "Int",
+   "value": 1
+  }
+ ],
+ "swift_potion": {
+  "_comment": "Swift Potion Reborn keeps its auto-use and hotkey settings as JContainers objects in the save. Its MCM can export them (Save Settings) to JCUser/SwiftPotion/*.json; these are the curator's exports of 2026-10-05 (hotkeys: Left=Restore Health, Up=Restore Mana, Right=Restore Stamina; auto-use off). The applier loads them exactly as the MCM's Load Settings buttons do.",
+  "plugin": "SwiftPotion.esp",
+  "formid": 3426,
+  "script": "_AP_Main",
+  "dir": "SKSE/Plugins/Zenderal Settings Applier/SwiftPotion",
+  "auto": "AutoData.json",
+  "hotkey": "HotkeyData.json"
+ }
+}
