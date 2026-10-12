@@ -60,16 +60,15 @@ if it needed none.
 
 | Mod | Version | Why | Patch | Notes |
 |---|---|---|---|---|
-| [Relentless Sword SE](https://www.nexusmods.com/skyrimspecialedition/mods/114022) — johnskyrim | 1.0 | A craftable high-tier longsword in 1H and 2H, in Enderal's own dark-metal register. Small (34 records); overrides only two existing records — the Riverville Temple cell and one blueprint vendor list. | **RelentlessSword** | **Install for meshes/textures only — its own `.esp` must be disabled.** Install the **CORE** (runed) branch; the fire/ice glow intensity stays johnskyrim's FOMOD choice and is asset-only. The shipped plugin cannot load or function in Enderal on four counts, all fixed in the patch — see below. |
+| [Relentless Sword SE](https://www.nexusmods.com/skyrimspecialedition/mods/114022) — johnskyrim, **Patreon ZEN build** | 2024-03-15 | A craftable high-tier longsword and greatsword in Enderal's own dark-metal register, in plain/Fire/Ice plus the Patreon-only *Zen* design (black handle, gold runes) — eight blades. Small (43 records); overrides only two existing records — the Riverville Temple cell and one blueprint vendor list. | **RelentlessSwordPatreon** | **Install for meshes/textures only — its own `.esp` must be disabled.** The ZEN download is johnskyrim's whole mod rebuilt, so it *replaces* the free Nexus download rather than sitting alongside it; its installer has no NoRune branch and no damage branch, the only choices being Fire/Ice/**Zen** glow intensity, all asset-only, and 2K and 4K ship identical plugins and meshes. **The free six-blade Nexus build is no longer supported** — that release and its `src/RelentlessSword/` tree were removed on 2026-08-16. The shipped plugin cannot load or function in Enderal on four counts, all fixed in the patch — see below. |
+| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — EnaiSiaion | 10.3.0 + Enderal Patch v1.2.0 (2026-08-27) | 175 book-taught player spells, 35 per school, filling out Enderal's spell rosters. Installed as two mod folders: the original (assets) + "Apocalypse - Enderal Patch" (the [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) rebuild of its `.esp` at HEDR 1.70 with Enderal distribution/pricing/fever). | **MagicPatches** | The rebuild made it *load and distribute*; **`Zenderal - Magic Patches.esp` makes it *balanced*** — its magicka costs kept Skyrim's scale, 4–7× EGO's ladder (FF tier medians 393/720 vs EGO's 97/124 at expert/master). The patch overrides all 175 book-taught player spells with `ManualCostCalc` + repriced `BaseCost` onto EGO's per-tier medians. Regenerate via `src/MagicPatches/tools/`. Since v1.2.0 its vendor stock rides the `<Merchant>_CustomMerchandise` hooks, so it is out of the chest war and **KataFixes** no longer restores its tomes; the surviving KataFixes duty is keeping the hook entry alive in the three chests it still merges. Pack-2 Kata duplication resolved in **KataFixes**: its recompiled distribution script no longer injects the 29 spell lines both Kata packs ship (pack 1's EGO-rebalanced copies remain the obtainable ones; pack 2 keeps its unique spells). New games only — the injection quest is RunOnce. |
+| [Triumvirate — Mage Archetypes](https://www.nexusmods.com/skyrimspecialedition/mods/39170) — EnaiSiaion | 1.8.0 + Enderal Conversion v1.0.0 (2026-08-27) | 75 spells across five mage archetypes (Druid, Shadow Mage, Warlock, Cleric, Shaman) — flavourful kits Enderal's rosters have nothing like. Installed as two mod folders: the original (two BSAs of assets) + "Triumvirate - Enderal Patch" (the [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) conversion: distribution rebuilt onto ten `_CustomMerchandise` hooks, DLC masters removed, tomes repriced, Tamriel renamed out). | **MagicPatches** | The conversion deliberately ships Enai's spell costs untouched, and they run up to **~10× EGO's ladder** (FF tier live medians 46/82/168/356/1207 vs EGO's 30/53/76/97/124). `Zenderal - Magic Patches.esp` overrides all 75 book-taught spells with `ManualCostCalc` + repriced `BaseCost` (tools `05`/`06`), and adds the Arcane Fever tax the conversion left out to its three self-heals (tool `07`): Aura of Vigor gets EGO's Boon fever block verbatim, Mass Immortality 5, Spirit of the Sun 10. **Magic Patches now masters Triumvirate, so it must load after it.** Its `dgintimidate*` brawl-stub overwrite (same Brawl Bugs Patch defect as Apocalypse's) is fixed by the conversion shipping SureAI's stubs loose — the patch mod folder must win that file conflict. |
 
-| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — EnaiSiaion | 9.45 (Enderal rebuild) | 175 book-taught player spells, 35 per school, filling out Enderal's spell rosters. Installed as two mod folders: the original (assets) + "Apocalypse - Enderal Patch" (the [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) rebuild of its `.esp` at HEDR 1.70 with Enderal distribution/pricing/fever). | **MagicPatches** | The rebuild made it *load and distribute*; **`Zenderal - Magic Patches.esp` makes it *balanced*** — its magicka costs kept Skyrim's scale, 4–7× EGO's ladder (FF tier medians 393/720 vs EGO's 97/124 at expert/master). The patch overrides all 175 book-taught player spells with `ManualCostCalc` + repriced `BaseCost` onto EGO's per-tier medians. Regenerate via `src/MagicPatches/tools/`. Its vendor-chest stock is restored by **KataFixes** (`Zenderal - Kata Fixes.esp`) — the real winner of those chests turned out to be `EGO SE - Leveling Redone.esp`, which was silently wiping Apocalypse's tomes, Kata's staves and xxOpenSpells' books from Funkentanz/Torius/Tarhutie. Pack-2 Kata duplication resolved in **KataFixes**: its recompiled distribution script no longer injects the 29 spell lines both Kata packs ship (pack 1's EGO-rebalanced copies remain the obtainable ones; pack 2 keeps its unique spells). New games only — the injection quest is RunOnce. |
-| Relentless Sword SE — **ZEN build** (johnskyrim, Patreon) | 2024-03-15 | The same sword with a black handle and gold runes, as a seventh design. Ships johnskyrim's whole mod rebuilt, so it *replaces* the Nexus download rather than sitting alongside it. | **RelentlessSwordZen** | **Install in place of the Nexus build**, for meshes/textures only — its own `.esp` must be disabled. Then install the **`Zenderal - Relentless Sword Zen`** archive *instead of* the plain one: both ship a plugin called `Zenderal - Relentless Sword.esp`, and the ZEN archive's copy carries all eight blades. **Never install both.** Its installer has no NoRune branch and no damage branch; the only choices are Fire/Ice/**Zen** glow intensity, all asset-only. 2K and 4K downloads ship identical plugins and meshes. |
-
-**The ZEN build is a superset, and its six shared blades are unchanged where it matters**
-(verified 2026-08-06): same FormIDs, same model paths, same stats. It differs only in display names
-(`Relentless Ice` → `Relentless - Ice`) and a couple of animation flags — neither of which reaches
-the game, because our patch supplies those six records and johnskyrim's plugin is disabled. Its
-CORE meshes are re-exports (~390 KB vs ~750 KB) but sit at the same paths and reference the same
+**The ZEN build is a superset of the Nexus one, and its six shared blades are unchanged where it
+matters** (verified 2026-08-06): same FormIDs, same model paths, same stats. It differs only in
+display names (`Relentless Ice` → `Relentless - Ice`) and a couple of animation flags — neither of
+which reaches the game, because our patch supplies those six records and johnskyrim's plugin is
+disabled. Its CORE meshes are re-exports (~390 KB vs ~750 KB) but sit at the same paths and reference the same
 textures, so `Zenderal - Relentless Sword.esp` works against it unchanged. Its Zen recipes gate on
 the Skyforge (`0F46CE`) and the Companions global (`0F46D1`), neither of which exists in Enderal —
 the same defect as the base mod, fixed the same way. Its one extra ingredient, `063B47`, **does**
@@ -90,7 +89,7 @@ was kept.
    possession of a blueprint. The blueprint —
    `JS_CraftingPlan_RelentlessSword`, *"Blueprint: Relentless Sword (Handicraft 50)"* — is a
    `MiscItem` built from Enderal's `_00E_CraftingPlan_04E_SwordOfTheRighteousPathForged`, and one
-   copy unlocks all six swords. It has two sources:
+   copy unlocks all eight swords. It has two sources:
    - hand-placed on the noble shelf (`13476D`) in **Riverville Temple** (`FlusshaimTemple`), which
      is the only cell this patch overrides;
    - added at Level 30 to **`_00ETraderCraftingPlansC`** (`148ABE`), the vendor tier its Handicraft-50
@@ -108,7 +107,7 @@ including the **temper** recipes, whose `HasPerk 05218E` condition resolves here
 `_00E_Class_Phasmalist_P04_B_ArcaneSmith` ("You can improve enchanted armors and weapons"), which
 means exactly what johnskyrim intended it to mean.
 
-| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — Enai Siaion | 10.2.3 | 373 spells across all five schools; the standard answer to Enderal's thin mage offering. Enderal keeps all five vanilla magic ActorValues, so the spells themselves need no mechanical conversion. | **`Apocalypse - Enderal Patch`**, released from [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) | **Replaces `Apocalypse - Magic of Skyrim.esp`.** Install Enai's mod for its two BSAs, then let the conversion overwrite the plugin. Apocalypse ships at `HEDR` form version **1.71**, which Enderal's 1.5.97 engine silently refuses to load, so a patch is impossible — the plugin itself is rebuilt at 1.70. Delete any old `Zenderal - Apocalypse.esp`. |
+| [Apocalypse — Magic of Skyrim](https://www.nexusmods.com/skyrimspecialedition/mods/1090) — Enai Siaion | 10.3.0 (Enderal Patch v1.2.0, 2026-08-27) | 373 spells across all five schools; the standard answer to Enderal's thin mage offering. Enderal keeps all five vanilla magic ActorValues, so the spells themselves need no mechanical conversion. | **`Apocalypse - Enderal Patch`**, released from [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) | **Replaces `Apocalypse - Magic of Skyrim.esp`.** Install Enai's mod for its two BSAs, then let the conversion overwrite the plugin. Apocalypse ships at `HEDR` form version **1.71**, which Enderal's 1.5.97 engine silently refuses to load, so a patch is impossible — the plugin itself is rebuilt at 1.70. Delete any old `Zenderal - Apocalypse.esp`. Since v1.2.0 its vendor stock goes through the six `<Merchant>_CustomMerchandise` hook lists instead of overriding merchant chests, and the Apprentice tier moved from Maxus Tabbakus back to Tarhutie in Riverville. |
 
 > **This conversion is not built in this repo.** Being a replacement plugin rather than a patch, it
 > lives in [`enderal-mods`](https://github.com/whisperdealer/enderal-mods) and is useful to any
@@ -127,22 +126,35 @@ literally nothing**:
 
    Re-homing them into Enderal's leveled lists was tried first and **is not enough**: a list is
    rolled per draw, so which tomes a shop had stayed random, and after two rounds of weighting most
-   of the 160 were still purchasable nowhere. So the 160 tomes are now written **directly into six
-   named merchant chests**, tiered by the gold each carries — Emberlord and Fireflash `102AD5` (1800,
-   Master), Torius Flameling `118050` (1430, Expert), Barnabas `13824A` (1050, Adept A/C/D), Ora
-   Stonehand `0F9320` (980, Adept I/R), Maxus Tabbakus `022BF2` (620, Apprentice), Milbert Foxhand
-   `127928` (530, Novice). Every tome is buyable at exactly one shop.
+   of the 160 were still purchasable nowhere. So every tome is stocked by a **named merchant,
+   deterministically**, tiered by the gold each carries — Emberlord and Fireflash (Master), Torius
+   Flameling (Expert), Barnabas (Adept A/C/D), Ora Stonehand (Adept I/R), Tarhutie in Riverville
+   (Apprentice), Milbert Foxhand (Novice). Every tome is buyable at exactly one shop. The 15 cut
+   `WB_C*` Daedra/Dwemer summons have no vendor **by design**.
+
+   > **How the stock is delivered changed in v1.2.0 (2026-08-27).** v1.1 wrote the tomes directly
+   > into the six merchant chests, which put Apocalypse in the chest-override war — all six lost to
+   > `EGO SE - Leveling Redone.esp` in the original order (verified 2026-08-11), then *won* after
+   > the 2026-08-20 load-order flip, reverting LR's rebalance and re-selling deprecated base tomes.
+   > `Zenderal - Kata Fixes.esp` spent two weeks as a seven-chest merge cleaning that up. v1.2.0
+   > exits the war entirely: the stock now goes through **SureAI's own `<Merchant>_CustomMerchandise`
+   > hook lists** — an empty extension-point LVLI Enderal ships inside every one of its 67 merchant
+   > chests — so no merchant record is overridden at all. Kata Fixes shrank back to the three
+   > genuinely contested chests (Kata staves / xxOpenSpells / Emberlord), and its overrides of those
+   > **must keep the hook entry in the chest** or Apocalypse's stock dies at that shop (asserted in
+   > the generator). `src/KataFixes/tools/00-audit-vendor-conflicts.py` reports the set clean.
 
    World loot stays random and keeps the leveled-list route: the tomes and all 130 scrolls are still
    injected into `_00E_SpellBooksLootA–D` and `00E_ScrollsLowChance` via the six sublists
    (`ZP_Apoc_Tomes_R000`–`R100`, `ZP_Apoc_Scrolls`), every existing entry untouched. The four
    `_00ETraderSpellBooksLevel*` overrides were **deleted** once the vendors carried the real thing.
 
-   > **`KataPUMBSpellPack.esp` conflict.** It adds the same 15 staves to three of Enderal's spell
-   > merchants — Funkentanz, Turious and Tarhutie — and those are their only vendor. Apocalypse loads
-   > after it and does not master it, so a claimed chest drops them. Because the set is identical at
-   > all three, **Tarhutie is left unclaimed** and all 15 stay buyable there; that is why the
-   > Apprentice tier sits with Maxus Tabbakus (620 gold) rather than Tarhutie (630).
+   > **`KataPUMBSpellPack.esp` conflict — resolved by the hooks.** v1.1 had to leave Tarhutie's
+   > chest unclaimed so Kata's 15 staves survived somewhere, which pushed the Apprentice tier to
+   > Maxus Tabbakus in Duneville, and `Zenderal - Kata Fixes.esp` compensated by copying the novice
+   > tomes to Tarhutie. All three workarounds are gone: the hooks touch no chest, the Apprentice
+   > tier is back at Tarhutie (the town a level-1 player is actually in), and the Kata Fixes
+   > curation stage was retired with it — upstream now sells every tome at exactly one shop.
 
    **Prices were Skyrim's too.** Apocalypse costs its tomes on vanilla's ladder (~50/175/330/700/1300
    novice→master), and **Enderal's entire spell-tome range is 20–350** — two exceptions in the whole
@@ -228,6 +240,68 @@ dangling reference of its own. Guessing replacements would be inventing mechanis
 and recorded here instead.
 
 | *(original tuning, not a conversion)* | — | Sprint speed felt sluggish for both the player and NPCs, and stamina ran out too fast to sprint anywhere useful. | **FasterSprint** → `Zenderal - Faster Sprint.esp` | Global (player + NPC) sprint speed boost (+92.03%) plus a sprint stamina drain cut (-50%), overriding EGO's current values directly. Overrides `NPC_Sprinting_MT`/`AIControlledNPC_Sprinting_MT` (`ForwardWalk`/`ForwardRun` only) and GMST `fSprintStaminaDrainMult`. **Must load after both `Enderal SE - Gameplay Overhaul.esp` AND `Dynamic Sprint.esp`** — the latter overrides the same two movement-type records, and losing that conflict silently reverts this patch's speed boost with no error (confirmed the real cause of a long "boost isn't showing up" investigation). **The sprint-speed portion also requires `Sprint Sneak Movement Speed Fix` (SKSE) with `WieldingMovementTypeFixes=true`** to reach armed/weapon-drawn sprint — without it, a vanilla behavior-graph bug reads `NPC_Default_MT` instead while a weapon is out (sheathed sprint, and the stamina-drain cut, are unaffected by this and always apply in full). See the `FasterSprint` notes in `CLAUDE.md` for the full mechanism and how both were confirmed. |
+| *(original tuning, not a conversion)* | — | `Smart NPC Potions` and `NPCs Use Potions` are both in the list, but Enderal's humanoid NPCs carry almost no consumables, so neither had anything to act on. | **NpcPotions** → `Zenderal - NPC Potions_DISTR.ini` | SPID config, no plugin. See below. |
+| *(supports EGO SE - Leveling Redone)* | — | Leveling Redone provides the list's way to *spend* learning/crafting points, leaving the books' vanilla behaviour (spend 1 point → +1 skill) redundant. | **LearningBooks** → `Zenderal - Learning Books Grant Learning Points.esp` | Inverts all 72 book records: each Learning Book now **grants** +1 Learning Point (`Lernpunkte 031ACB`) and each Crafting Book +1 Crafting Point (`Handwerkspunkte 085A79`) when read, with a "You received…" notification. Overrides are EGO's records verbatim (prices/names kept) with only the consume effect swapped to two new grant MGEFs; regenerate with `src/LearningBooks/tools/01-generate-book-overrides.py`. **Memory books (`_00E_Erinnerungsbuch`) and the `+2` grant books untouched — Memory Points are a separate currency.** Masters EGO (8 Entropy/Psionics books carry its `LehrbuchForbidden` keyword), which also forces load-after-EGO. |
+
+#### NPC Potions
+
+A **SPID config-only release** — no plugin, no script, one `_DISTR.ini` at the archive root. 15
+`Item =` lines hand Enderal's three restore-consumable lines to every `ActorTypeNPC` humanoid,
+level-banded onto Enderal's own `1 / 10 / 18 / 28 / 38` ladder (the bands
+`_00ETraderPotion10/20/30` and the `_01E_`…`_48E_` prefixes already use), and one `DeathItem =`
+line drops Ambrosia as loot.
+
+> **This release does not work out of the box.** It requires one setting changed in *NPCs Use
+> Potions* — see [Required third-party settings](#required-third-party-settings). Without it the
+> Ambrosia line silently does nothing.
+
+| Line | FormIDs (`:Skyrim.esm`, tier order) | Chance | Count |
+|---|---|---|---|
+| Health `_NNE_Genesungstrank` | `0028C8` `0028C5` `0028C6` `0028C7` `0028C9` | 55 | 1 |
+| Mana `_NNE_Manatrank` | `0028DB` `019E3B` `090892` `09B6CB` `1037F7` | 45 | 1 |
+| Stamina `_NNE_Morgenlufttrank` | `0028DE` `085668` `09B6CA` `1037F5` `1037F6` | 45 | 1 |
+| Ambrosia `_00E_Ambrosia` (**`DeathItem =`**) | `0FEC69` (no level band) | 10 | 1 |
+
+Traits `-S/-C/-D` exclude summons, children and StartsDead props.
+
+Counts are `1` rather than `1-2` because disabling NUP's corpse-culling (below) also removed the
+thing that was trimming potion piles; three potions per NPC is the compensation for that.
+
+Four things worth not rediscovering:
+
+- **The restore-stamina line is `Morgenlufttrank` ("Morning Air Potion"), not `Ausdauertrank`.**
+  `_NNE_Ausdauertrank` is *fortify* stamina, and base Enderal ships only two tiers of it (`019E43`,
+  `11A52F`); the third, `03E_Ausdauertrank 0008C0`, is a record EGO adds. Health tier FormIDs are
+  also **non-monotonic** — `0028C8` is tier 1 and `0028C5` is tier 2. Both are easy to get wrong from
+  the German EditorIDs alone and neither fails loudly.
+- **This supersedes `Zenderal - Enemy Potions.esp`**, an untracked mod sitting at MO2 priority 24
+  with no source in this repo, which banded the same three potion lines into the `_00E_MOB_Bandit`,
+  `DeathItemDraugr` and `_00E_FS_DeathItem_Human` death-item leveled lists (via `ZEN_LItemPotion*`
+  sublists). **Disable it** — otherwise bandits, the Lost Ones and FS humans draw from both sources.
+- **Enemies will drink these, and that is the point.** SPID's `Item` adds to the base NPC's *live*
+  container, not to a death item, so the two potion-AI mods finally have stock to use. Expect a real
+  difficulty increase. It also means each base NPC is stamped `SPID_Processed` once per session, so
+  the level band is evaluated against whichever actor of that base loads first — exact for Enderal's
+  fixed-level NPCs, player-tracking for PC-level-mult ones, which is why the bands are wide.
+- **Budget `Chance` per BASE NPC RECORD, not per corpse — and expect it all-or-nothing.**
+  **[verified in-game 2026-08-13]** SPID rolls once per base and adds to that base's container, so a
+  base that wins gives the item to *every* instance of itself and one that loses never gives it at
+  all. Ambrosia shipped at 12 and read as "never drops" over ~50 kills. The log showed it working
+  exactly as configured — 22 of 182 bases, 12.1% — but ~16 of those 22 were townsfolk (Ulla
+  Featherdance, Marius Vonderfull, farmers, four City Guard bases), because `ActorTypeNPC` is mostly
+  civilians. A fight is only 5–10 distinct enemy bases, so `0.88^8 ≈ 36%` of encounters yield none.
+  The three potion lines never showed this because five tiers at 45–55 mean almost every base wins
+  something. **The diagnosis is `grep -a "Registered .*/" po3_SpellPerkItemDistributor.log` plus a
+  count of the `[📦]` lines — not another play session.**
+
+  Ambrosia was raised 12 → 30 on this reasoning, and **that was treating the wrong variable** — it
+  changed nothing, because the item was being *removed after distribution* (see the NUP setting
+  below), not failing to be distributed. Ruling out NPCs drinking it was correct as far as it went
+  (effect `1037EC` is a `Script` archetype with no restore-actor-value, so neither the vanilla AI nor
+  NUP's effect-based classifier will make an NPC consume it) but ruling out one consumer is not the
+  same as finding the remover. The lesson that generalises: **when a distribution looks broken, prove
+  delivery and survival separately** — a clean SPID log establishes only the first. Ambrosia is now a
+  `DeathItem =` at chance 10, which also rolls per corpse and sidesteps the per-base problem entirely.
 
 ### Modern visuals
 
@@ -269,6 +343,58 @@ tell you.
 **Patches from this repo load last**, after everything they forward, or they are not forwarding
 anything. See `enderal-record-patterns.md` §0.1.
 
+## Required third-party settings
+
+Settings **inside other mods** that a Zenderal patch depends on. These are not in this repo and not
+in any archive it builds — they live in a third-party mod's own config, so a fresh install of the
+list will have the vendor default unless the list's build sets it. **Every row here is a silent
+failure if missed**: the patch installs, its plugin or config registers cleanly, and the feature
+simply does not happen.
+
+| Mod | File | Setting | Must be | Default | Needed by |
+|---|---|---|---|---|---|
+| NPCs Use Potions | `SKSE\Plugins\NPCsUsePotions.ini` → `[Removal]` | `RemoveItemsOnDeath` | **`false`** | `true` | **NpcPotions** — the Ambrosia `DeathItem` |
+
+### NPCs Use Potions — `RemoveItemsOnDeath`
+
+**[verified in-game 2026-08-14]** NUP ships:
+
+```ini
+[Removal]
+RemoveItemsOnDeath = true
+ChanceToRemoveItem = 90
+MaxItemsLeftAfterRemoval = 2
+```
+
+Every dying NPC has its alchemy items culled — each faces a **90% removal roll** and at most **two
+survive** — and NUP does this on a worker thread (`Started RemoveItemsHandler`,
+`[TESDeathEvent] Removed item {}`), so it runs *after* anything else hooked to `TESDeathEvent`.
+
+A single-count item cannot win that against the potions distributed alongside it. Delivered at
+chance **100** to **every humanoid base in the game**, Ambrosia reached **zero** corpses. Switching
+from `Item =` to `DeathItem =` did not rescue it either — the SPID log showed `[💀][📦]` delivering
+to all four test corpses and the loot was still empty. Only `RemoveItemsOnDeath = false` made it
+appear, on every corpse, immediately.
+
+**Two ways to set it**, both writing the same file:
+
+1. **In-game MCM** — NPCs Use Potions → Removal → uncheck *"Remove items from NPCs after they died"*.
+   Authoritative, and survives NUP rewriting the ini.
+2. **Edit the ini with the game closed.** NUP reads it at load.
+
+**Side effect, and it is not small.** Turning this off stops NUP trimming *everything*, not just
+Ambrosia — corpses now keep every potion they were given rather than at most two. `NpcPotions`
+compensates by distributing count `1` per line instead of `1-2` (three potions per NPC, not six). If
+you would rather keep the trimming, the alternative is `RemoveItemsOnDeath = true` with
+`ChanceToRemoveItem` near `50` and `MaxItemsLeftAfterRemoval` near `4`, and the Ambrosia chance
+raised from 10 to roughly 20 — **an untested suggestion, not a measured one.**
+
+> **Open packaging question.** This setting has no home in the repo: `NPCsUsePotions.ini` is
+> third-party runtime config living under the gitignored `/zenderal/` tree. Before the list ships to
+> anyone else it needs to be either baked into whichever mod folder supplies NUP's config in the
+> Wabbajack build, or called out as a post-install step in the list's own documentation. Until then,
+> the Ambrosia line works on this machine and nowhere else.
+
 ## Known conversion hazards
 
 Running list of things that have bitten a Skyrim→Enderal conversion. Add to it as they come up; each
@@ -282,6 +408,7 @@ entry saves someone a test cycle.
 | Second copy of SkyUI | UI breakage, MCM oddities | Enderal already ships `SkyUI_SE.esp` |
 | Skyrim ENB/weather preset | Washed-out lighting; **broken cutscene fades** | Run one story cutscene before signing off |
 | Perks added to vanilla trees | Mod appears to do nothing | Enderal draws its own talent menu |
+| A mod that strips or replaces NPC inventories | Your distributed item never reaches the player, while the distributor's own log says it worked | Prove **delivery** and **survival** separately. See [Required third-party settings](#required-third-party-settings) |
 
 ## Release process
 

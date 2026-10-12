@@ -1,0 +1,23 @@
+FormKey: 330A2E:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_D100_Spell_DrainingMist
+Name:
+  TargetLanguage: English
+  Value: Draining Mist
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 95
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 3
+CastType: FireAndForget
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 330A2D:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 20
+    Duration: 60

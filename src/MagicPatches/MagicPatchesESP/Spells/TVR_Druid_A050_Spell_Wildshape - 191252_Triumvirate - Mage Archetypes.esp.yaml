@@ -1,0 +1,54 @@
+FormKey: 191252:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_A050_Spell_Wildshape
+Name:
+  TargetLanguage: English
+  Value: Wildshape
+MenuDisplayObject: 191249:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 67
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+HalfCostPerk: 0C44B8:Skyrim.esm
+Effects:
+- BaseEffect: 29DA05:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 60
+- BaseEffect: 29DA04:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 500
+    Duration: 60
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsInCombatConditionData
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsRunningConditionData
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: IsSprintingConditionData
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasKeywordConditionData
+      Keyword: 29DA0D:Triumvirate - Mage Archetypes.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: HasKeywordConditionData
+      Keyword: 013794:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasKeywordConditionData
+      Keyword: 29DA0D:Triumvirate - Mage Archetypes.esp
+    ComparisonValue: 1

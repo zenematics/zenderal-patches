@@ -1,0 +1,23 @@
+FormKey: 000801:Zenderal - Skip The Prologue.esp
+EditorID: ZP_SkipProlog_StartTrigger
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_SkipProlog_Trigger
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQ01
+      Object: 02EBA0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerREF
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkipQuest
+      Object: 000800:Zenderal - Skip The Prologue.esp
+ObjectBounds:
+  First: -100, -100, -100
+  Second: 100, 100, 100
+Name:
+  TargetLanguage: English
+  Value: '[Zenderal] Skip The Prologue Trigger'
+MarkerColor: '#00CC4C33'
+Flags: []

@@ -1,0 +1,28 @@
+FormKey: 3727BF:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_I000_Spell_GatherShadows
+Name:
+  TargetLanguage: English
+  Value: Gather Shadows
+MenuDisplayObject: 381AEB:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 33
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+HalfCostPerk: 0F2CA9:Skyrim.esm
+Effects:
+- BaseEffect: 395F0E:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 60
+- BaseEffect: 395F13:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 60
+  Conditions:
+  - MutagenObjectType: ConditionGlobal
+    CompareOperator: LessThanOrEqualTo
+    Data:
+      MutagenObjectType: GetLightLevelConditionData
+    ComparisonValue: 395F10:Triumvirate - Mage Archetypes.esp

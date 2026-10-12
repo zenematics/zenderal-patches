@@ -1,0 +1,26 @@
+FormKey: 1D2FF0:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_I050_Spell_SpiritGuardian
+Name:
+  TargetLanguage: English
+  Value: Spirit Guardian
+MenuDisplayObject: 1D2FF8:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 111
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44C4:Skyrim.esm
+Effects:
+- BaseEffect: 46FD5A:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 1D2FEF:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 36000
+- BaseEffect: 46FD5B:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 10

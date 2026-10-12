@@ -7,7 +7,7 @@ ModHeader:
   Flags:
   - Small
   Author: Zenderal
-  Description: Magic compatibility and balance patches for the Zenderal list. Currently reprices Apocalypse - Magic of Skyrim player spells onto the EGO cost ladder.
+  Description: Magic compatibility and balance patches for the Zenderal list. Reprices Apocalypse - Magic of Skyrim and Triumvirate - Mage Archetypes player spells onto the EGO cost ladder, and taxes Triumvirate's self-heals with Arcane Fever.
   Stats:
     Version: 1.7
   MasterReferences:
@@ -24,5 +24,7 @@ ModHeader:
   - Master: Apocalypse - Magic of Skyrim.esp
     FileSize: 0
   - Master: EGO - KataPUMB Spell Package.esp
+    FileSize: 0
+  - Master: Triumvirate - Mage Archetypes.esp
     FileSize: 0
   INTV: 1

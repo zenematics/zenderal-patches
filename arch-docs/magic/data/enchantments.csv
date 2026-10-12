@@ -105,6 +105,7 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 148A1A:Skyrim.esm,_40E_MSet_WandererBootsEnch,Echo of the Wandering Mage,Enchantment,ConstantEffect,Self,782,782,0,,Enderal SE - Gameplay Overhaul.esp
 02C594:Skyrim.esm,VoiceEnchElementalFury,Elemental Fury,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
 0432A9:Skyrim.esm,01E_09VerschlissenesElementaristendiademEnch,Elementalist Circlet,Enchantment,ConstantEffect,Self,327,327,0,,Enderal SE - Gameplay Overhaul.esp
+000812:For Honor in Skyrim.esp,OB_EnchArt,EnchA_Weapon,Enchantment,FireAndForget,Touch,0,0,0,,For Honor in Skyrim.esp
 01A0A8:Apocalypse - Magic of Skyrim.esp,WB_C050_DaedricCrescent_SummonedWeaponEnchantment,Entropic Crescent,Enchantment,FireAndForget,Touch,1000,1000,0,,Apocalypse - Magic of Skyrim.esp
 001E9E:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Totensturm,Entropic Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
 01EB4B:Enderal - Forgotten Stories.esm,_02E_15_Unique_Epicura_Ench,Epicura,Enchantment,FireAndForget,Touch,23,23,0,,Enderal - Forgotten Stories.esm
@@ -717,12 +718,15 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 06728A:Skyrim.esm,_00E_EnchAbsorbHealthStaff01,Absorb Health,StaffEnchantment,Concentration,Aimed,30,30,1,,Enderal SE - Gameplay Overhaul.esp
 0BB972:Apocalypse - Magic of Skyrim.esp,WB_C025_AtronachMark_StaffEnchantment,Atronach Mark,StaffEnchantment,FireAndForget,Aimed,75,75,0.5,,Apocalypse - Magic of Skyrim.esp
 0896EC:Apocalypse - Magic of Skyrim.esp,WB_C000_AzureReconstruction_StaffEnchantment,Azure Reconstruction,StaffEnchantment,Concentration,TargetActor,3,3,0.5,,Apocalypse - Magic of Skyrim.esp
+419B34:Triumvirate - Mage Archetypes.esp,TVR_Warlock_D025_StaffEnchantment_Balefire,Balefire,StaffEnchantment,FireAndForget,TargetActor,47,47,0.5,,Triumvirate - Mage Archetypes.esp
 0896F0:Apocalypse - Magic of Skyrim.esp,WB_D000_Blaze_StaffEnchantment,Blaze,StaffEnchantment,FireAndForget,Aimed,31,31,0.5,,Apocalypse - Magic of Skyrim.esp
 00A02A:KataPUMBSpellPack.esp,Kata_Staf_Mentalism_Blink,Blink,StaffEnchantment,FireAndForget,Aimed,22,22,0.5,,KataPUMBSpellPack.esp
 07A202:Apocalypse - Magic of Skyrim.esp,WB_D050_Bolide_StaffEnchantment,Bolide,StaffEnchantment,FireAndForget,Aimed,134,134,0.5,,Apocalypse - Magic of Skyrim.esp
 00F7BB:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_Bombardment,Bombardment,StaffEnchantment,Concentration,Aimed,8,8,0.6,,KataPUMBSpellPack.esp
 07A210:Apocalypse - Magic of Skyrim.esp,WB_D075_Bombardment_StaffEnchantment,Bombardment,StaffEnchantment,Concentration,Aimed,125,125,1.5,,Apocalypse - Magic of Skyrim.esp
+41EC8B:Triumvirate - Mage Archetypes.esp,TVR_Druid_R075_StaffEnchantment_BrambleGrowth,Bramble Growth,StaffEnchantment,Concentration,Aimed,62,62,0.5,,Triumvirate - Mage Archetypes.esp
 029B5C:Skyrim.esm,StaffEnchChainLightning,Chain Lightning,StaffEnchantment,FireAndForget,Aimed,122,122,0.5,,Skyrim.esm
+419B38:Triumvirate - Mage Archetypes.esp,TVR_Warlock_D075_StaffEnchantment_Cloudkill,Cloudkill,StaffEnchantment,FireAndForget,TargetLocation,323,323,0.5,,Triumvirate - Mage Archetypes.esp
 07A218:Apocalypse - Magic of Skyrim.esp,WB_I050_CompellingWhispers_StaffEnchantment,Compelling Whispers,StaffEnchantment,Concentration,Aimed,23,23,0.5,,Apocalypse - Magic of Skyrim.esp
 07A1E4:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureAvengingWraith_StaffEnchantment,Conjure Avenging Wraith,StaffEnchantment,FireAndForget,TargetLocation,351,351,0.5,,Apocalypse - Magic of Skyrim.esp
 07A1E8:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureCatTotem_StaffEnchantment,Conjure Cat Totem,StaffEnchantment,FireAndForget,TargetLocation,161,161,0.5,,Apocalypse - Magic of Skyrim.esp
@@ -731,21 +735,32 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 07A1E6:Apocalypse - Magic of Skyrim.esp,WB_C025_ConjureDremoraChurl_StaffEnchantment,Conjure Dremora Churl,StaffEnchantment,FireAndForget,TargetLocation,157,157,0.5,,Apocalypse - Magic of Skyrim.esp
 07A1F2:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureDremoraHonorGuard_StaffEnchantment,Conjure Dremora Honor Guard,StaffEnchantment,FireAndForget,TargetLocation,380,380,0.5,,Apocalypse - Magic of Skyrim.esp
 07A1E9:Apocalypse - Magic of Skyrim.esp,WB_C050_ConjureDremoraPitFighter_StaffEnchantment,Conjure Dremora Pit Fighter,StaffEnchantment,FireAndForget,TargetLocation,229,229,0.5,,Apocalypse - Magic of Skyrim.esp
+419B2A:Triumvirate - Mage Archetypes.esp,TVR_Warlock_C000_StaffEnchantment_ConjureGremlin,Conjure Gremlin,StaffEnchantment,FireAndForget,Self,43,43,0.5,,Triumvirate - Mage Archetypes.esp
 07A1F4:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureHerne_StaffEnchantment,Conjure Herne,StaffEnchantment,FireAndForget,TargetLocation,394,394,0.5,,Apocalypse - Magic of Skyrim.esp
+419B30:Triumvirate - Mage Archetypes.esp,TVR_Warlock_C075_StaffEnchantment_ConjureMagister,Conjure Magister,StaffEnchantment,FireAndForget,Self,183,183,0.5,,Triumvirate - Mage Archetypes.esp
+419B2E:Triumvirate - Mage Archetypes.esp,TVR_Warlock_C050_StaffEnchantment_ConjureRavagor,Conjure Ravagor,StaffEnchantment,FireAndForget,Self,114,114,0.5,,Triumvirate - Mage Archetypes.esp
+419B2C:Triumvirate - Mage Archetypes.esp,TVR_Warlock_C025_StaffEnchantment_ConjureTempleGrim,Conjure Temple Grim,StaffEnchantment,FireAndForget,Self,76,76,0.5,,Triumvirate - Mage Archetypes.esp
 07A1F6:Apocalypse - Magic of Skyrim.esp,WB_C075_ConjureXivilaiLord_StaffEnchantment,Conjure Xivilai Lord,StaffEnchantment,FireAndForget,TargetLocation,344,344,0.5,,Apocalypse - Magic of Skyrim.esp
 07A1EE:Apocalypse - Magic of Skyrim.esp,WB_C050_ConjureXivilaiSorcerer_StaffEnchantment,Conjure Xivilai Sorcerer,StaffEnchantment,FireAndForget,TargetLocation,229,229,0.5,,Apocalypse - Magic of Skyrim.esp
 0896EE:Apocalypse - Magic of Skyrim.esp,WB_C050_CorpseExplosion_StaffEnchantment,Corpse Explosion,StaffEnchantment,FireAndForget,Aimed,175,175,0.5,,Apocalypse - Magic of Skyrim.esp
 07A1F8:Apocalypse - Magic of Skyrim.esp,WB_D000_Crackle_StaffEnchantment,Crackle,StaffEnchantment,FireAndForget,Aimed,31,31,0.5,,Apocalypse - Magic of Skyrim.esp
+4149F4:Triumvirate - Mage Archetypes.esp,TVR_Shaman_C075_StaffEnchantment_CreateEarthTotem,Create Earth Totem,StaffEnchantment,FireAndForget,TargetLocation,278,278,0.5,,Triumvirate - Mage Archetypes.esp
+4149F2:Triumvirate - Mage Archetypes.esp,TVR_Shaman_C025_StaffEnchantment_CreateTreeTotem,Create Tree Totem,StaffEnchantment,FireAndForget,TargetLocation,90,90,0.5,,Triumvirate - Mage Archetypes.esp
+4149F0:Triumvirate - Mage Archetypes.esp,TVR_Shaman_C000_StaffEnchantment_CreateWaterTotem,Create Water Totem,StaffEnchantment,FireAndForget,TargetLocation,63,63,0.5,,Triumvirate - Mage Archetypes.esp
 07A1FC:Apocalypse - Magic of Skyrim.esp,WB_D025_CreepingCold_StaffEnchantment,Creeping Cold,StaffEnchantment,Concentration,Aimed,19,19,0,,Apocalypse - Magic of Skyrim.esp
 00F7BE:KataPUMBSpellPack.esp,Kata_Staf_Entropy_Curse,Curse,StaffEnchantment,FireAndForget,Aimed,12,12,0.5,,EGO - KataPUMB Spell Package.esp
 07A211:Apocalypse - Magic of Skyrim.esp,WB_I025_CurseOfTheSilent_StaffEnchantment,Curse of the Silent,StaffEnchantment,FireAndForget,Aimed,98,98,0.5,,Apocalypse - Magic of Skyrim.esp
+419B15:Triumvirate - Mage Archetypes.esp,TVR_Shadow_I025_StaffEnchantment_Darkness,Darkness,StaffEnchantment,FireAndForget,Aimed,66,66,0.5,,Triumvirate - Mage Archetypes.esp
 00A026:KataPUMBSpellPack.esp,Kata_Staf_Entropy_DeathBeam,Death Beam,StaffEnchantment,Concentration,Aimed,4,4,0.3,,KataPUMBSpellPack.esp
 07A22C:Apocalypse - Magic of Skyrim.esp,WB_R075_Decompose_StaffEnchantment,Decompose,StaffEnchantment,FireAndForget,Aimed,311,311,0.5,,Apocalypse - Magic of Skyrim.esp
 07A230:Apocalypse - Magic of Skyrim.esp,WB_A075_DetonateLock_StaffEnchantment,Detonate Lock,StaffEnchantment,FireAndForget,Aimed,595,595,2,,Apocalypse - Magic of Skyrim.esp
 07C844:Apocalypse - Magic of Skyrim.esp,WB_D025_DragonsTeeth_StaffEnchantment,Dragon's Teeth,StaffEnchantment,FireAndForget,Aimed,50,50,0.5,,Apocalypse - Magic of Skyrim.esp
+419B13:Triumvirate - Mage Archetypes.esp,TVR_Shadow_D000_StaffEnchantment_DrainingTouch,Draining Touch,StaffEnchantment,FireAndForget,Aimed,30,30,0.5,,Triumvirate - Mage Archetypes.esp
 003911:Enderal SE - Gameplay Overhaul.esp,StaffEnchFear,Dread,StaffEnchantment,FireAndForget,Aimed,154,154,1,,Enderal SE - Gameplay Overhaul.esp
 0896E4:Apocalypse - Magic of Skyrim.esp,WB_A025_DropZone_StaffEnchantment,Drop Zone,StaffEnchantment,FireAndForget,TargetLocation,50,50,0.5,,Apocalypse - Magic of Skyrim.esp
+41EC8D:Triumvirate - Mage Archetypes.esp,TVR_Druid_A000_StaffEnchantment_Druidcraft,Druidcraft,StaffEnchantment,FireAndForget,TargetActor,40,40,0.5,,Triumvirate - Mage Archetypes.esp
 1A7938:Apocalypse - Magic of Skyrim.esp,WB_R050_DustInTheClockwork_StaffEnchantment,Dust in the Clockwork,StaffEnchantment,FireAndForget,Aimed,176,176,0.5,,Apocalypse - Magic of Skyrim.esp
+419B32:Triumvirate - Mage Archetypes.esp,TVR_Warlock_D000_StaffEnchantment_EldritchBlast,Eldritch Blast,StaffEnchantment,FireAndForget,Aimed,32,32,0.5,,Triumvirate - Mage Archetypes.esp
 010457:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_Electrocution,Electrocution,StaffEnchantment,Concentration,Aimed,14,14,0.6,,KataPUMBSpellPack.esp
 00A028:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_ElectroSphere,Electrosphere,StaffEnchantment,FireAndForget,Aimed,15,15,0.5,,KataPUMBSpellPack.esp
 07A204:Apocalypse - Magic of Skyrim.esp,WB_D050_Electrosphere_StaffEnchantment,Electrosphere,StaffEnchantment,FireAndForget,Aimed,131,131,0.5,,Apocalypse - Magic of Skyrim.esp
@@ -754,6 +769,7 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 07A232:Apocalypse - Magic of Skyrim.esp,WB_A075_Entomb_StaffEnchantment,Entomb,StaffEnchantment,FireAndForget,Aimed,475,475,2.5,,Apocalypse - Magic of Skyrim.esp
 0773C0:Skyrim.esm,_00E_StaffEnchEldritchBlast,Entropic Blast,StaffEnchantment,Concentration,Aimed,12,12,0.5,,Enderal SE - Gameplay Overhaul.esp
 14897A:Skyrim.esm,_00E_StaffEnchEldritchBreath,Entropic Breath,StaffEnchantment,Concentration,Aimed,2,2,0,,Enderal SE - Gameplay Overhaul.esp
+41EC60:Triumvirate - Mage Archetypes.esp,TVR_Cleric_I025_StaffEnchantment_Exile,Exile,StaffEnchantment,FireAndForget,Aimed,98,98,0.5,,Triumvirate - Mage Archetypes.esp
 0BB96C:Apocalypse - Magic of Skyrim.esp,WB_I050_FigmentOfPain_StaffEnchantment,Figment of Pain,StaffEnchantment,FireAndForget,TargetActor,219,219,0.5,,Apocalypse - Magic of Skyrim.esp
 07A226:Apocalypse - Magic of Skyrim.esp,WB_R050_FingerOfDeath_StaffEnchantment,Finger of Death,StaffEnchantment,FireAndForget,TargetActor,160,160,0.5,,Apocalypse - Magic of Skyrim.esp
 0B62DD:Skyrim.esm,StaffEnchFireRune,Fire Rune,StaffEnchantment,FireAndForget,TargetLocation,173,173,0.5,,Skyrim.esm
@@ -761,9 +777,11 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 12E1D4:Skyrim.esm,StaffEnchFireball2,Fireball,StaffEnchantment,FireAndForget,Aimed,207,207,0.5,,Enderal SE - Gameplay Overhaul.esp
 001CF0:Enderal SE - Gameplay Overhaul.esp,StaffEnchFirebolt40,Firebolt,StaffEnchantment,FireAndForget,Aimed,67,67,0.5,,Enderal SE - Gameplay Overhaul.esp
 04C6CB:Skyrim.esm,StaffEnchFirebolt,Firebolt,StaffEnchantment,FireAndForget,Aimed,41,41,0.5,,Skyrim.esm
+4149EE:Triumvirate - Mage Archetypes.esp,TVR_Shaman_A050_StaffEnchantment_Fissure,Fissure,StaffEnchantment,FireAndForget,Aimed,234,234,0.5,,Triumvirate - Mage Archetypes.esp
 001D9E:Enderal SE - Gameplay Overhaul.esp,StaffEnchFlamesDunwar2,Flames,StaffEnchantment,Concentration,Aimed,1,1,0,,Enderal SE - Gameplay Overhaul.esp
 04DEDA:Skyrim.esm,StaffEnchFlames,Flames,StaffEnchantment,Concentration,Aimed,3,3,0.5,,Enderal SE - Gameplay Overhaul.esp
 07A1FE:Apocalypse - Magic of Skyrim.esp,WB_D025_Fracture_StaffEnchantment,Fracture,StaffEnchantment,FireAndForget,Aimed,54,54,0.5,,Apocalypse - Magic of Skyrim.esp
+419B3C:Triumvirate - Mage Archetypes.esp,TVR_Warlock_I025_StaffEnchantment_Frailty,Frailty,StaffEnchantment,FireAndForget,TargetLocation,82,82,0.5,,Triumvirate - Mage Archetypes.esp
 0D08CD:Apocalypse - Magic of Skyrim.esp,WB_D050_FrostNova_StaffEnchantment,Frost Nova,StaffEnchantment,FireAndForget,Self,136,136,0.5,,Apocalypse - Magic of Skyrim.esp
 029B5B:Skyrim.esm,StaffEnchFrostbite,Frostbite,StaffEnchantment,Concentration,Aimed,9,9,0.5,,Enderal SE - Gameplay Overhaul.esp
 1A792C:Apocalypse - Magic of Skyrim.esp,WB_C050_Gank_StaffEnchantment,Gank,StaffEnchantment,FireAndForget,Aimed,250,250,0.5,,Apocalypse - Magic of Skyrim.esp
@@ -784,10 +802,14 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 00F7BD:KataPUMBSpellPack.esp,Kata_Staf_Elementalism_IcicleStorm,Icicle Storm,StaffEnchantment,Concentration,Aimed,8,8,0.6,,KataPUMBSpellPack.esp
 07A214:Apocalypse - Magic of Skyrim.esp,WB_I025_IllusoryFlames_StaffEnchantment,Illusory Flames,StaffEnchantment,Concentration,Aimed,19,19,0.5,,Apocalypse - Magic of Skyrim.esp
 0BB966:Apocalypse - Magic of Skyrim.esp,WB_I050_IllusoryPyre_StaffEnchantment,Illusory Pyre,StaffEnchantment,FireAndForget,TargetActor,140,140,0.5,,Apocalypse - Magic of Skyrim.esp
+41EC8F:Triumvirate - Mage Archetypes.esp,TVR_Druid_A075_StaffEnchantment_ImpenetrableGrove,Impenetrable Grove,StaffEnchantment,Concentration,Aimed,55,55,0.5,,Triumvirate - Mage Archetypes.esp
 07A208:Apocalypse - Magic of Skyrim.esp,WB_D050_IncendiaryFlow_StaffEnchantment,Incendiary Flow,StaffEnchantment,FireAndForget,Aimed,134,134,0.5,,Apocalypse - Magic of Skyrim.esp
 0432FD:Skyrim.esm,EnchUniqueWeapon_IrlandasGrace,Irlanda's Grace,StaffEnchantment,FireAndForget,Aimed,450,450,0.5,,Enderal SE - Gameplay Overhaul.esp
+419B3E:Triumvirate - Mage Archetypes.esp,TVR_Warlock_I050_StaffEnchantment_IronMaiden,Iron Maiden,StaffEnchantment,FireAndForget,TargetLocation,144,144,0.5,,Triumvirate - Mage Archetypes.esp
 0974E0:Apocalypse - Magic of Skyrim.esp,WB_R025_LambOfMara_StaffEnchantment,Lamb of Irlanda,StaffEnchantment,FireAndForget,Aimed,83,83,0.5,,Apocalypse - Magic of Skyrim.esp
+260D64:Triumvirate - Mage Archetypes.esp,TVR_Demon_Enchantment_ConjureOathbreaker,Leech Bolt,StaffEnchantment,FireAndForget,Aimed,9,9,0.5,,Triumvirate - Mage Archetypes.esp
 07A222:Apocalypse - Magic of Skyrim.esp,WB_R025_LeechSeed_StaffEnchantment,Leech Seed,StaffEnchantment,FireAndForget,Aimed,58,58,0.5,,Apocalypse - Magic of Skyrim.esp
+419B40:Triumvirate - Mage Archetypes.esp,TVR_Warlock_I075_StaffEnchantment_LifeTap,Life Tap,StaffEnchantment,FireAndForget,TargetLocation,387,387,0.5,,Triumvirate - Mage Archetypes.esp
 001CF2:Enderal SE - Gameplay Overhaul.esp,StaffEnchLightningBolt40,Lightning Bolt,StaffEnchantment,FireAndForget,Aimed,70,70,0.5,,Enderal SE - Gameplay Overhaul.esp
 04DED9:Skyrim.esm,StaffEnchLightningBolt,Lightning Bolt,StaffEnchantment,FireAndForget,Aimed,655,655,0.5,,Enderal SE - Gameplay Overhaul.esp
 07A20E:Apocalypse - Magic of Skyrim.esp,WB_D075_LightningStrike_StaffEnchantment,Lightning Strike,StaffEnchantment,FireAndForget,TargetLocation,361,361,0.5,,Apocalypse - Magic of Skyrim.esp
@@ -798,11 +820,14 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 07A228:Apocalypse - Magic of Skyrim.esp,WB_R075_NaturesBalance_StaffEnchantment,Nature's Balance,StaffEnchantment,FireAndForget,Aimed,405,405,2,,Apocalypse - Magic of Skyrim.esp
 0BB96A:Apocalypse - Magic of Skyrim.esp,WB_R025_Necroplague_StaffEnchantment,Necroplague,StaffEnchantment,FireAndForget,Aimed,103,103,0.5,,Apocalypse - Magic of Skyrim.esp
 0BB97B:Apocalypse - Magic of Skyrim.esp,WB_C075_OathboundGuardian_StaffEnchantment,Oathbound Guardian,StaffEnchantment,FireAndForget,TargetActor,423,423,0.5,,Apocalypse - Magic of Skyrim.esp
+41EC62:Triumvirate - Mage Archetypes.esp,TVR_Cleric_I075_StaffEnchantment_Obedience,Obedience,StaffEnchantment,FireAndForget,Aimed,355,355,0.5,,Triumvirate - Mage Archetypes.esp
 0896F6:Apocalypse - Magic of Skyrim.esp,WB_I000_PaleShadow_StaffEnchantment,Pale Shadow,StaffEnchantment,FireAndForget,Aimed,40,40,0.5,,Apocalypse - Magic of Skyrim.esp
 029B4A:Skyrim.esm,StaffEnchParalyze,Paralysis,StaffEnchantment,FireAndForget,Aimed,450,450,0.5,,Skyrim.esm
+41EC8A:Triumvirate - Mage Archetypes.esp,TVR_Druid_R025_StaffEnchantment_ParasiticGrowth,Parasitic Growth,StaffEnchantment,FireAndForget,Aimed,62,62,0.5,,Triumvirate - Mage Archetypes.esp
 0803F5:Apocalypse - Magic of Skyrim.esp,WB_A025_PerilousPath_StaffEnchantment,Perilous Path,StaffEnchantment,FireAndForget,Aimed,80,80,0.5,,Apocalypse - Magic of Skyrim.esp
 00F7C2:KataPUMBSpellPack.esp,Kata_Staf_Mentalism_Petrify,Petrify,StaffEnchantment,FireAndForget,Aimed,44,44,0.5,,KataPUMBSpellPack.esp
 1A793C:Apocalypse - Magic of Skyrim.esp,WB_R075_PoisonedChalice_StaffEnchantment,Poisoned Chalice,StaffEnchantment,FireAndForget,Aimed,251,251,0.5,,Apocalypse - Magic of Skyrim.esp
+419B0F:Triumvirate - Mage Archetypes.esp,TVR_Shadow_A075_StaffEnchantment_PullThroughShadows,Pull Through Shadows,StaffEnchantment,FireAndForget,TargetLocation,285,285,0.5,,Triumvirate - Mage Archetypes.esp
 029B53:Skyrim.esm,StaffEnchRevenant,Reanimate,StaffEnchantment,FireAndForget,Aimed,72,72,1.25,,Enderal SE - Gameplay Overhaul.esp
 091FFD:Skyrim.esm,StaffEnchRevenant2,Reanimate,StaffEnchantment,FireAndForget,Aimed,174,174,1.25,,Enderal SE - Gameplay Overhaul.esp
 07A200:Apocalypse - Magic of Skyrim.esp,WB_D025_RiftBolt_StaffEnchantment,Rift Bolt,StaffEnchantment,FireAndForget,Aimed,56,56,0.5,,Apocalypse - Magic of Skyrim.esp
@@ -816,10 +841,15 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 1A7930:Apocalypse - Magic of Skyrim.esp,WB_I000_SilveryBarbs_StaffEnchantment,Silvery Barbs,StaffEnchantment,FireAndForget,Aimed,42,42,0.5,,Apocalypse - Magic of Skyrim.esp
 07A224:Apocalypse - Magic of Skyrim.esp,WB_R025_SlayLiving_StaffEnchantment,Slay Living,StaffEnchantment,FireAndForget,TargetActor,95,95,0.5,,Apocalypse - Magic of Skyrim.esp
 07A20B:Apocalypse - Magic of Skyrim.esp,WB_D075_SleetStorm_StaffEnchantment,Sleet Storm,StaffEnchantment,Concentration,Aimed,117,117,1.5,,Apocalypse - Magic of Skyrim.esp
+41EC5D:Triumvirate - Mage Archetypes.esp,TVR_Cleric_D000_StaffEnchantment_SolarRay,Solar Ray,StaffEnchantment,Concentration,Aimed,14,14,0.5,,Triumvirate - Mage Archetypes.esp
 0B62DC:Skyrim.esm,StaffEnchSoulTrap,Soul Trap,StaffEnchantment,FireAndForget,TargetActor,107,107,0.5,,Enderal SE - Gameplay Overhaul.esp
 12E2E5:Skyrim.esm,StaffEnchSparks3,Spark,StaffEnchantment,Concentration,Aimed,25,25,0,,Skyrim.esm
 0083E4:Enderal SE - Gameplay Overhaul.esp,StaffEnchSparks,Sparks,StaffEnchantment,Concentration,Aimed,11,11,0.5,,Enderal SE - Gameplay Overhaul.esp
 04DEDC:Skyrim.esm,StaffEnchSparks2,Sparks,StaffEnchantment,Concentration,Aimed,11,11,0,,Enderal SE - Gameplay Overhaul.esp
+4149F6:Triumvirate - Mage Archetypes.esp,TVR_Shaman_R025_StaffEnchantment_SpiritFire,Spirit Fire,StaffEnchantment,FireAndForget,Aimed,117,117,0.5,,Triumvirate - Mage Archetypes.esp
+4149F8:Triumvirate - Mage Archetypes.esp,TVR_Shaman_R075_StaffEnchantment_SpiritStorm,Spirit Storm,StaffEnchantment,Concentration,Aimed,54,54,0.5,,Triumvirate - Mage Archetypes.esp
+419B11:Triumvirate - Mage Archetypes.esp,TVR_Shadow_A025_StaffEnchantment_StepThroughShadows,Step Through Shadows,StaffEnchantment,FireAndForget,Aimed,63,63,0.5,,Triumvirate - Mage Archetypes.esp
+41EC5F:Triumvirate - Mage Archetypes.esp,TVR_Cleric_I000_StaffEnchantment_Suggestion,Suggestion,StaffEnchantment,FireAndForget,Aimed,42,42,0.5,,Triumvirate - Mage Archetypes.esp
 0B62DB:Skyrim.esm,StaffEnchConjureAtronachFlame,Summon Fire Elemental,StaffEnchantment,FireAndForget,TargetLocation,75,75,3,,Enderal SE - Gameplay Overhaul.esp
 00F7BF:KataPUMBSpellPack.esp,Kata_Staf_Entropy_SummonLostone,Summon Lost One,StaffEnchantment,FireAndForget,TargetLocation,40,40,0.3,,KataPUMBSpellPack.esp
 13570D:Skyrim.esm,StaffEnchConjureOrbayer,Summon Oorbâya,StaffEnchantment,FireAndForget,TargetLocation,138,138,3,,Enderal SE - Gameplay Overhaul.esp
@@ -835,5 +865,7 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 029B5D:Skyrim.esm,StaffEnchWallOfFlames,Wall Of Flames,StaffEnchantment,Concentration,Aimed,45,118,0,,Enderal SE - Gameplay Overhaul.esp
 029B5E:Skyrim.esm,StaffEnchWallOfFrost,Wall Of Frost,StaffEnchantment,Concentration,Aimed,45,100,0,,Enderal SE - Gameplay Overhaul.esp
 029B5F:Skyrim.esm,StaffEnchWallOfStorms,Wall Of Storms,StaffEnchantment,Concentration,Aimed,45,86,0,,Enderal SE - Gameplay Overhaul.esp
+419B3A:Triumvirate - Mage Archetypes.esp,TVR_Warlock_I000_StaffEnchantment_Weaken,Weaken,StaffEnchantment,FireAndForget,TargetLocation,50,50,0.5,,Triumvirate - Mage Archetypes.esp
 0896F4:Apocalypse - Magic of Skyrim.esp,WB_R025_WellingBlood_StaffEnchantment,Welling Blood,StaffEnchantment,FireAndForget,Aimed,70,70,0.5,,Apocalypse - Magic of Skyrim.esp
+419B35:Triumvirate - Mage Archetypes.esp,TVR_Warlock_D050_StaffEnchantment_WitchBolt,Witch Bolt,StaffEnchantment,FireAndForget,Aimed,168,168,0.5,,Triumvirate - Mage Archetypes.esp
 07A22E:Apocalypse - Magic of Skyrim.esp,WB_A025_Wither_StaffEnchantment,Wither,StaffEnchantment,FireAndForget,Aimed,62,62,0.5,,Apocalypse - Magic of Skyrim.esp

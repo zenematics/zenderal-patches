@@ -1,0 +1,33 @@
+FormKey: 1E7427:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_R025_Spell_Aura_1
+Name:
+  TargetLanguage: English
+  Value: Aura of Might
+MenuDisplayObject: 1CDEBE:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 12
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 3
+CastType: Concentration
+HalfCostPerk: 0C44C7:Skyrim.esm
+Effects:
+- BaseEffect: 1E7425:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 40
+    Area: 30
+    Duration: 1
+- BaseEffect: 1F1656:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 40
+    Duration: 1
+- BaseEffect: 200979:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 20
+    Duration: 1

@@ -1,0 +1,22 @@
+FormKey: 1D8106:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_I075_Spell_Obedience
+Name:
+  TargetLanguage: English
+  Value: Obedience
+MenuDisplayObject: 1CDEE2:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 97
+Flags:
+- ManualCostCalc
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C5:Skyrim.esm
+Effects:
+- BaseEffect: 1D3002:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 24
+    Duration: 60

@@ -38,6 +38,14 @@ Thumbs.db
 # rules below. Only the packed archives are ignored here.
 /build/dist/
 
+# ...except loose files copied in by the manifest's "files" key (e.g. a SPID _DISTR.ini), which are
+# DERIVED — the source of truth is src/<PatchName>/. Unlike .esp/.pex they have no extension rule.
+# Add one line per extension a "files" block copies, or the staged copy gets committed alongside
+# the src/ original and the two drift.
+/build/staging/**/*.ini
+/build/staging/**/*.txt
+/build/staging/**/*.psc
+
 # Bethesda archives — large binaries, never commit. Extract scripts with bsa-extract.
 *.bsa
 *.ba2
@@ -61,10 +69,16 @@ Thumbs.db
 # Add one pair of lines per script-shipping patch (the /mod-new-plugin skill does this for you):
 # !src/<PatchName>/Scripts/compiled/
 # !src/<PatchName>/Scripts/compiled/*.pex
-!src/SkipToTamingTheWaves/Scripts/compiled/
-!src/SkipToTamingTheWaves/Scripts/compiled/*.pex
+!src/SkipPrologue/Scripts/compiled/
+!src/SkipPrologue/Scripts/compiled/*.pex
 !src/KataFixes/Scripts/compiled/
 !src/KataFixes/Scripts/compiled/*.pex
+!src/ControllerTweaks/Scripts/compiled/
+!src/ControllerTweaks/Scripts/compiled/*.pex
+!src/BrawlFixes/Scripts/compiled/
+!src/BrawlFixes/Scripts/compiled/*.pex
+!src/LearningBooks/Scripts/compiled/
+!src/LearningBooks/Scripts/compiled/*.pex
 
 # Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
 # lookups. Large, regenerated locally from each machine's own copy, never committed.
@@ -81,3 +95,7 @@ Thumbs.db
 /arch-docs/magic/data/.provenance.json
 
 /zenderal/
+
+# Python bytecode from the src/*/tools generators.
+__pycache__/
+*.pyc

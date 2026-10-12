@@ -1,0 +1,27 @@
+FormKey: 363496:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shaman_R000_Spell_RunesOpportunity
+Name:
+  TargetLanguage: English
+  Value: Visions of Opportunity
+MenuDisplayObject: 36D6A8:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 43
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+HalfCostPerk: 0F2CAA:Skyrim.esm
+Effects:
+- BaseEffect: 36D6B6:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 40
+    Duration: 240
+- BaseEffect: 36D6AE:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 150
+- BaseEffect: 42DFBD:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 25

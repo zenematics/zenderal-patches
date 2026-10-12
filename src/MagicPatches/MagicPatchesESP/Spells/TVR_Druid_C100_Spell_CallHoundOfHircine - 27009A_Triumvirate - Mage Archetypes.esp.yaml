@@ -1,0 +1,30 @@
+FormKey: 27009A:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_C100_Spell_CallHoundOfHircine
+Name:
+  TargetLanguage: English
+  Value: Call the Glacier Hound
+MenuDisplayObject: 14F4DC:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 43
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: Concentration
+HalfCostPerk: 0C44BE:Skyrim.esm
+Effects:
+- BaseEffect: 27009C:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 2BC051:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 2BC052:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 2BC053:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1

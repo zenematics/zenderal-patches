@@ -1,0 +1,26 @@
+FormKey: 21EFFF:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_I075_Spell_LifeTap
+Name:
+  TargetLanguage: English
+  Value: Life Tap
+MenuDisplayObject: 21F001:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 105
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 100
+HalfCostPerk: 0C44C5:Skyrim.esm
+Effects:
+- BaseEffect: 21EFFD:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 40
+    Area: 40
+    Duration: 30

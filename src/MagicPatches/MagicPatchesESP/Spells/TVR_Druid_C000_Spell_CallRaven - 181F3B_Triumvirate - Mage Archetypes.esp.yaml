@@ -1,0 +1,31 @@
+FormKey: 181F3B:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_C000_Spell_CallRaven
+Name:
+  TargetLanguage: English
+  Value: Call Raven
+MenuDisplayObject: 14F4DC:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 5
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: Concentration
+HalfCostPerk: 0F2CA7:Skyrim.esm
+Effects:
+- BaseEffect: 15460C:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 16391B:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 2BC049:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1
+- BaseEffect: 2BC04A:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1

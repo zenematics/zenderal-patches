@@ -1,0 +1,34 @@
+FormKey: 30D2A7:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_A025_Spell_StepThroughShadows
+Name:
+  TargetLanguage: English
+  Value: Step Through Shadows
+MenuDisplayObject: 2FDF85:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 41
+Flags:
+- ManualCostCalc
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 30D2A5:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 30D2AB:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 30D2AC:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 30D2AD:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 30D2A9:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 100
+    Duration: 10
+- BaseEffect: 326823:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 326825:Triumvirate - Mage Archetypes.esp
+  Data: {}

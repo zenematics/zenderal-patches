@@ -53,6 +53,173 @@
   },
   "perks": [
     {
+      "formKey": "000006:Biggie Traits.esp",
+      "editorId": "Traits_LightFootPerkPos",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00000A:Biggie Traits.esp",
+      "editorId": "Traits_UnboundHandsPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000011:Biggie Traits.esp",
+      "editorId": "Traits_HoarderPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000013:Biggie Traits.esp",
+      "editorId": "Traits_JackofAllSpellsPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000015:Biggie Traits.esp",
+      "editorId": "Traits_FastShotPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000016:Biggie Traits.esp",
+      "editorId": "Traits_DisciplinedPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000019:Biggie Traits.esp",
+      "editorId": "Traits_KingofWormsPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00001B:Biggie Traits.esp",
+      "editorId": "Traits_GamblerPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00001E:Biggie Traits.esp",
+      "editorId": "Traits_AdrenalineRushPerkNeg",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00001F:Biggie Traits.esp",
+      "editorId": "Traits_OldFashionedPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000020:Biggie Traits.esp",
+      "editorId": "Traits_BaneoftheWickedPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000021:Biggie Traits.esp",
+      "editorId": "Traits_DefilerPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000024:Biggie Traits.esp",
+      "editorId": "Traits_SoulReaverPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000026:Biggie Traits.esp",
+      "editorId": "Traits_PacifistPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000028:Biggie Traits.esp",
+      "editorId": "Traits_BadNaturedPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00002A:Biggie Traits.esp",
+      "editorId": "Traits_RagePerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00002B:Biggie Traits.esp",
+      "editorId": "Traits_FocusedPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00002E:Biggie Traits.esp",
+      "editorId": "Traits_GluttonPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000031:Biggie Traits.esp",
+      "editorId": "Traits_WitcherPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000059:Biggie Traits.esp",
+      "editorId": "Traits_ElementalConduitPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000060:Biggie Traits.esp",
+      "editorId": "Traits_GiantkinPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00006F:Biggie Traits.esp",
+      "editorId": "Traits_AnglerPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000073:Biggie Traits.esp",
+      "editorId": "Traits_NosferatuPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00007D:Biggie Traits.esp",
+      "editorId": "Traits_DruidPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00008A:Biggie Traits.esp",
+      "editorId": "Traits_GamblerStackingBuffPerk01",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00008B:Biggie Traits.esp",
+      "editorId": "Traits_GamblerStackingBuffPerk02",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00008C:Biggie Traits.esp",
+      "editorId": "Traits_GamblerStackingBuffPerk03",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00008D:Biggie Traits.esp",
+      "editorId": "Traits_GamblerStackingBuffPerk04",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00008E:Biggie Traits.esp",
+      "editorId": "Traits_GamblerStackingBuffPerk05",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "0000D6:Biggie Traits.esp",
+      "editorId": "Traits_IntrovertPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "0000E0:Biggie Traits.esp",
+      "editorId": "Traits_GollumPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000602:For Honor Balance Patch.esp",
+      "editorId": "Reforged On Hit Effects",
+      "name": "Reforged Directional Attack Controller",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "000606:For Honor Balance Patch.esp",
+      "editorId": "Black Prior",
+      "name": "Black Prior",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
       "formKey": "000800:EGO SE - KataPUMB New Affinities.esp",
       "editorId": "XionDragonHunter",
       "name": "Dragon Hunter",
@@ -100,6 +267,17 @@
       "winner": "Bow Rapid Combo Balance.esp"
     },
     {
+      "formKey": "000807:Reforged Directional Combat.esp",
+      "editorId": "ReforgedDirectionalCombatPassives",
+      "name": "Reforged Directional Combat Passives",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
+      "formKey": "000807:Zen Traits.esp",
+      "editorId": "ZenTraits_NightFeverDayPERK",
+      "winner": "Zen Traits.esp"
+    },
+    {
       "formKey": "000808:Bow Rapid Combo Balance.esp",
       "editorId": "Sprint Attack Damage",
       "name": "Sprint Attack Damage",
@@ -127,9 +305,19 @@
       "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
+      "formKey": "00080D:Biggie Traits.esp",
+      "editorId": "Traits_AuNaturelPerk",
+      "winner": "Biggie Traits.esp"
+    },
+    {
       "formKey": "00080E:EGO - KataPUMB Spell Package.esp",
       "editorId": "XionVatyrBonus",
       "winner": "EGO - KataPUMB Spell Package.esp"
+    },
+    {
+      "formKey": "00080E:Zen Traits.esp",
+      "editorId": "ZenTraits_ArcaneAddictPERK",
+      "winner": "Zen Traits.esp"
     },
     {
       "formKey": "000810:Deflection.esp",
@@ -150,16 +338,58 @@
       "winner": "Deflection.esp"
     },
     {
+      "formKey": "000812:Zen Traits.esp",
+      "editorId": "ZenTraits_AeternaVeinsPERK",
+      "winner": "Zen Traits.esp"
+    },
+    {
       "formKey": "000813:Deflection.esp",
       "editorId": "FL_BlockPerk",
       "name": "FL_BlockPerk",
       "winner": "Deflection.esp"
     },
     {
+      "formKey": "000817:Reforged Directional Combat.esp",
+      "editorId": "ReforgedDirectionalCombatActives",
+      "name": "Reforged Directional Combat Actives",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
+      "formKey": "000817:Zen Traits.esp",
+      "editorId": "ZenTraits_CleansedSoulPERK",
+      "winner": "Zen Traits.esp"
+    },
+    {
+      "formKey": "000819:For Honor in Skyrim.esp",
+      "editorId": "StaggerResistance",
+      "name": "Stagger Resistance",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "00081B:Zen Traits.esp",
+      "editorId": "ZenTraits_LightbornPERK",
+      "winner": "Zen Traits.esp"
+    },
+    {
+      "formKey": "00081E:Zen Traits.esp",
+      "editorId": "ZenTraits_TwilightDisciplePERK",
+      "winner": "Zen Traits.esp"
+    },
+    {
       "formKey": "00081F:Enderal SE - Gameplay Overhaul.esp",
       "editorId": "XionManaTweaks",
       "name": "Elementarism",
       "winner": "Enderal SE - Gameplay Overhaul.esp"
+    },
+    {
+      "formKey": "000820:Zen Traits.esp",
+      "editorId": "ZenTraits_BeaconPERK",
+      "winner": "Zen Traits.esp"
+    },
+    {
+      "formKey": "000826:Zen Traits.esp",
+      "editorId": "ZenTraits_RadiantSoulPERK",
+      "winner": "Zen Traits.esp"
     },
     {
       "formKey": "000828:Enderal SE - Gameplay Overhaul.esp",
@@ -186,6 +416,24 @@
       "winner": "Enderal SE - Gameplay Overhaul.esp"
     },
     {
+      "formKey": "00082C:Reforged Directional Combat.esp",
+      "editorId": "ReforgedEnemyDirectionalDispels",
+      "name": "Reforged Enemy Directional Dispels",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
+      "formKey": "000847:For Honor in Skyrim.esp",
+      "editorId": "AttackDetection",
+      "name": "Attack Detection",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "00084A:For Honor in Skyrim.esp",
+      "editorId": "StaggerHit",
+      "name": "Stagger Hit",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
       "formKey": "00084F:SCSI-ACTbfco-Main.esp",
       "editorId": "scsi_isGrsPerksInstall",
       "name": "[/patch for TEST/]",
@@ -202,9 +450,45 @@
       "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
+      "formKey": "000866:For Honor in Skyrim.esp",
+      "editorId": "ParryAttackDamage",
+      "name": "Extra Damage",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "000876:For Honor Balance Patch.esp",
+      "editorId": "ReforgedParryController",
+      "name": "Reforged Parry Controller",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "00087A:For Honor in Skyrim.esp",
+      "editorId": "MeleeDamage",
+      "name": "Melee Damage Immunity",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "00087B:For Honor in Skyrim.esp",
+      "editorId": "OnHit",
+      "name": "On Hit",
+      "winner": "For Honor in Skyrim.esp"
+    },
+    {
+      "formKey": "00088D:For Honor Balance Patch.esp",
+      "editorId": "DirectionalBlocking",
+      "name": "Directional Blocking",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
       "formKey": "00088D:SCSI-ACTbfco-Main.esp",
       "editorId": "scsi_perk_bp03",
       "winner": "SCSI-ACTbfco-Main.esp"
+    },
+    {
+      "formKey": "00088E:For Honor Balance Patch.esp",
+      "editorId": "ReforgedFollowupController",
+      "name": "Reforged Followup Controller",
+      "winner": "For Honor Balance Patch.esp"
     },
     {
       "formKey": "00088E:SCSI-ACTbfco-Main.esp",
@@ -215,6 +499,12 @@
       "formKey": "00088F:SCSI-ACTbfco-Main.esp",
       "editorId": "scsi_perk_bp05",
       "winner": "SCSI-ACTbfco-Main.esp"
+    },
+    {
+      "formKey": "000890:For Honor Balance Patch.esp",
+      "editorId": "ReforgedDirectionalAttackController",
+      "name": "Reforged Directional Attack Controller",
+      "winner": "For Honor Balance Patch.esp"
     },
     {
       "formKey": "000890:SCSI-ACTbfco-Main.esp",
@@ -247,7 +537,13 @@
       "formKey": "00089A:BowRapidCombo.esp",
       "editorId": "Rapid Shot Damage",
       "name": "Rapid Shot Damage",
-      "winner": "Bow Rapid Combo Balance.esp"
+      "winner": "Zenderal - Bow Rapid Combo Balance.esp"
+    },
+    {
+      "formKey": "0008A6:For Honor Balance Patch.esp",
+      "editorId": "Hype Up",
+      "name": "Hype Up",
+      "winner": "For Honor Balance Patch.esp"
     },
     {
       "formKey": "0008A6:SCSI-ACTbfco-Main.esp",
@@ -276,12 +572,6 @@
       "editorId": "bfco_ACTattackSpecial",
       "name": "[/AttackCombE/]",
       "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "000D7B:ForHonorBFCO.esp",
-      "editorId": "FHBFCO_HyperArmorPerk",
-      "name": "For Honor - Hyper Armor",
-      "winner": "ForHonorBFCO.esp"
     },
     {
       "formKey": "000F41:Deflection.esp",
@@ -1161,6 +1451,12 @@
       "winner": "Apocalypse - Magic of Skyrim.esp"
     },
     {
+      "formKey": "0133D1:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Demon_Perk_ConjureRavagor",
+      "name": "Ravagor Cap",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "0142F9:KataPUMBSpellPack.esp",
       "editorId": "Kata_IllusionsDamageNerf",
       "winner": "KataPUMBSpellPack.esp"
@@ -1562,6 +1858,12 @@
       "editorId": "WB_ConjureHerne_Perk_SpiritWolfpack",
       "name": "Spirit Wolfpack Damage",
       "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "02A78F:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Manager_Perk",
+      "name": "Built In Perk",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "02EA8F:Enderal - Forgotten Stories.esm",
@@ -3639,10 +3941,22 @@
       "winner": "Skyrim.esm"
     },
     {
+      "formKey": "1545FF:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Perk_CallSnakes",
+      "name": "Rattlesnake Poison Scaling",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "155AAC:Apocalypse - Magic of Skyrim.esp",
       "editorId": "WB_Con_Any_Perk_MinionSpellScaling",
       "name": "Minion Spell Scaling",
       "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "181F3A:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Perk_ExtraDamageTaken",
+      "name": "Extra Damage Taken",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "1C1E67:Apocalypse - Magic of Skyrim.esp",
@@ -3703,9 +4017,91 @@
       "editorId": "WB_TreeRings_Perk_Layer10",
       "name": "Fortify Health",
       "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "242737:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Demon_Perk_ConjureTempleGrim",
+      "name": "Temple Grim Mana Scaling",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "242738:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Demon_Perk_MinionWeakness",
+      "name": "Minion Damage Buffs and Nerfs",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "260D6B:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Demon_Perk_ConjureOathbreaker",
+      "name": "Oathbreaker Ult Mana Cost",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "2B6F30:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Verdant_Perk_ForceOfNature",
+      "name": "Force of Nature Damage",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "395F0F:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Shadows_Perk_GatherShadows",
+      "name": "Gather Shadows",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3B4566:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Totem_Perk_Fylgja_Caster",
+      "name": "Fylgja Defense",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3E706B:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Totem_Perk_LevelScaling",
+      "name": "Totem Level Scaling",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     }
   ],
   "keywords": [
+    {
+      "formKey": "000002:QuickLootIE.esp",
+      "editorId": "QuickLootIE_Exclude",
+      "winner": "QuickLootIE.esp"
+    },
+    {
+      "formKey": "000064:Biggie Traits.esp",
+      "editorId": "Traits_Witcher_ExcludePotion",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "000075:Biggie Traits.esp",
+      "editorId": "Traits_FoodTypeDrink",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00007B:Biggie Traits.esp",
+      "editorId": "Traits_DruidicSpell",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "0000E7:Biggie Traits.esp",
+      "editorId": "Traits_GollumWeaponHeavy",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "0005F4:For Honor Balance Patch.esp",
+      "editorId": "UnstableNPCTiming",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "0005F6:For Honor Balance Patch.esp",
+      "editorId": "ParryPoiseDamageScaling",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
+      "formKey": "000797:Biggie Traits.esp",
+      "editorId": "Traits_GollumFood",
+      "winner": "Biggie Traits.esp"
+    },
     {
       "formKey": "000800:Enderal SE - Bug Fixes.esp",
       "editorId": "XionPsionicDamageWithDuration",
@@ -3777,6 +4173,11 @@
       "winner": "kcf.esm"
     },
     {
+      "formKey": "000806:Biggie Traits.esp",
+      "editorId": "Traits_AuNaturelScalingEffect",
+      "winner": "Biggie Traits.esp"
+    },
+    {
       "formKey": "000806:OCF.esp",
       "editorId": "OCF_WeapTypeShiv1H",
       "winner": "OCF.esp"
@@ -3822,6 +4223,11 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000809:Reforged Directional Combat.esp",
+      "editorId": "RightHeavy",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
       "formKey": "000809:kcf.esm",
       "editorId": "WeapTypeWhip",
       "winner": "kcf.esm"
@@ -3840,6 +4246,11 @@
       "formKey": "00080A:kcf.esm",
       "editorId": "WeapTypeKatana",
       "winner": "kcf.esm"
+    },
+    {
+      "formKey": "00080B:Biggie Traits.esp",
+      "editorId": "Traits_GluttonFoodItem",
+      "winner": "Biggie Traits.esp"
     },
     {
       "formKey": "00080B:Dynamic Sprint.esp",
@@ -3867,9 +4278,19 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "00080C:Reforged Directional Combat.esp",
+      "editorId": "LeftHeavy",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
       "formKey": "00080C:kcf.esm",
       "editorId": "WeapTypeTwinblade",
       "winner": "kcf.esm"
+    },
+    {
+      "formKey": "00080D:Chocolate Poise - Reforged.esp",
+      "editorId": "BHR_Effect_Key",
+      "winner": "Chocolate Poise - Reforged.esp"
     },
     {
       "formKey": "00080D:Dynamic Sprint.esp",
@@ -3880,6 +4301,11 @@
       "formKey": "00080D:OCF.esp",
       "editorId": "OCF_WeapTypeLightsaber1H_2Blade",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "00080D:Reforged Directional Combat.esp",
+      "editorId": "BackHeavy",
+      "winner": "Reforged Directional Combat.esp"
     },
     {
       "formKey": "00080D:kcf.esm",
@@ -3902,6 +4328,11 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "00080F:Reforged Directional Combat.esp",
+      "editorId": "RightLight",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
       "formKey": "00080F:kcf.esm",
       "editorId": "ArmorShieldLarge",
       "winner": "kcf.esm"
@@ -3917,9 +4348,24 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000810:Reforged Directional Combat.esp",
+      "editorId": "LeftLight",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
       "formKey": "000811:OCF.esp",
       "editorId": "OCF_WeapTypeTwinblade1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000811:Reforged Directional Combat.esp",
+      "editorId": "BackLight",
+      "winner": "Reforged Directional Combat.esp"
+    },
+    {
+      "formKey": "000811:Smooth Moveset.esp",
+      "editorId": "kw_start",
+      "winner": "Smooth Moveset.esp"
     },
     {
       "formKey": "000812:OCF.esp",
@@ -3927,14 +4373,29 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000812:Smooth Moveset.esp",
+      "editorId": "kw_loop",
+      "winner": "Smooth Moveset.esp"
+    },
+    {
       "formKey": "000813:OCF.esp",
       "editorId": "OCF_WeapTypeCrescent1H",
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000813:Smooth Moveset.esp",
+      "editorId": "kw_move",
+      "winner": "Smooth Moveset.esp"
+    },
+    {
       "formKey": "000814:OCF.esp",
       "editorId": "OCF_WeapTypeHandBlade1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000814:Smooth Moveset.esp",
+      "editorId": "kw_combat",
+      "winner": "Smooth Moveset.esp"
     },
     {
       "formKey": "000815:OCF.esp",
@@ -3945,6 +4406,11 @@
       "formKey": "000816:OCF.esp",
       "editorId": "OCF_WeapTypePickaxe1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000817:Helmet Toggle 2.esp",
+      "editorId": "HT_ArmorHood",
+      "winner": "Helmet Toggle 2.esp"
     },
     {
       "formKey": "000817:OCF.esp",
@@ -3960,6 +4426,11 @@
       "formKey": "000819:OCF.esp",
       "editorId": "OCF_WeapTypeWarpick1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000819:Smooth Moveset.esp",
+      "editorId": "kw_caze",
+      "winner": "Smooth Moveset.esp"
     },
     {
       "formKey": "00081A:OCF.esp",
@@ -3997,9 +4468,19 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000820:Smooth Moveset.esp",
+      "editorId": "kw_sheath",
+      "winner": "Smooth Moveset.esp"
+    },
+    {
       "formKey": "000821:OCF.esp",
       "editorId": "OCF_WeapTypeMace1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000821:Smooth Moveset.esp",
+      "editorId": "kw_sheath idle",
+      "winner": "Smooth Moveset.esp"
     },
     {
       "formKey": "000822:OCF.esp",
@@ -4027,6 +4508,11 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000826:Smooth Moveset.esp",
+      "editorId": "kw_non-combat",
+      "winner": "Smooth Moveset.esp"
+    },
+    {
       "formKey": "000827:OCF.esp",
       "editorId": "OCF_WeapTypeHalberd1H",
       "winner": "OCF.esp"
@@ -4047,6 +4533,16 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "00082B:Biggie Traits.esp",
+      "editorId": "Traits_OldFashionWeapon",
+      "winner": "Biggie Traits.esp"
+    },
+    {
+      "formKey": "00082B:Helmet Toggle 2.esp",
+      "editorId": "HT_IgnoreHeadgear",
+      "winner": "Helmet Toggle 2.esp"
+    },
+    {
       "formKey": "00082B:OCF.esp",
       "editorId": "OCF_WeapTypeSpear1H",
       "winner": "OCF.esp"
@@ -4057,9 +4553,19 @@
       "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
+      "formKey": "00082C:Biggie Traits.esp",
+      "editorId": "Traits_OldFashionArmor",
+      "winner": "Biggie Traits.esp"
+    },
+    {
       "formKey": "00082C:OCF.esp",
       "editorId": "OCF_WeapTypeTrident1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "00082D:Helmet Toggle 2.esp",
+      "editorId": "HT_ArmorMask",
+      "winner": "Helmet Toggle 2.esp"
     },
     {
       "formKey": "00082D:OCF.esp",
@@ -4075,6 +4581,11 @@
       "formKey": "00082F:OCF.esp",
       "editorId": "OCF_WeapTypeLightsaber2H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "00082F:Smooth Moveset.esp",
+      "editorId": "kw_Combat_loop",
+      "winner": "Smooth Moveset.esp"
     },
     {
       "formKey": "000830:OCF.esp",
@@ -4115,6 +4626,11 @@
       "formKey": "000837:OCF.esp",
       "editorId": "OCF_WeapTypeBattleaxe2H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000837:Reforged Directional Combat.esp",
+      "editorId": "DispelScaling",
+      "winner": "Reforged Directional Combat.esp"
     },
     {
       "formKey": "000838:OCF.esp",
@@ -4177,6 +4693,11 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000844:For Honor in Skyrim.esp",
+      "editorId": "KW_Time",
+      "winner": "For Honor in Skyrim.esp"
+    },
+    {
       "formKey": "000844:OCF.esp",
       "editorId": "OCF_WeapTypeHalberd2H",
       "winner": "OCF.esp"
@@ -4185,6 +4706,11 @@
       "formKey": "000845:OCF.esp",
       "editorId": "OCF_WeapTypeWarscythe2H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000846:For Honor in Skyrim.esp",
+      "editorId": "KW_Attacking",
+      "winner": "For Honor in Skyrim.esp"
     },
     {
       "formKey": "000846:OCF.esp",
@@ -4200,6 +4726,11 @@
       "formKey": "000847:SCSI-ACTbfco-Main.esp",
       "editorId": "scsi_isWeaponManaX",
       "winner": "SCSI-ACTbfco-Main.esp"
+    },
+    {
+      "formKey": "000848:For Honor in Skyrim.esp",
+      "editorId": "KW_Block",
+      "winner": "For Honor in Skyrim.esp"
     },
     {
       "formKey": "000848:OCF.esp",
@@ -4275,6 +4806,11 @@
       "formKey": "000854:OCF.esp",
       "editorId": "OCF_WeapTypeGun1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000855:Helmet Toggle 2.esp",
+      "editorId": "HT_EquipHeadgearHere",
+      "winner": "Helmet Toggle 2.esp"
     },
     {
       "formKey": "000855:OCF.esp",
@@ -4362,9 +4898,19 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "000866:For Honor Balance Patch.esp",
+      "editorId": "FH_heavyarmorshield",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
       "formKey": "000866:OCF.esp",
       "editorId": "OCF_WeapMelee",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000867:For Honor Balance Patch.esp",
+      "editorId": "FH_lightarmorshield",
+      "winner": "For Honor Balance Patch.esp"
     },
     {
       "formKey": "000867:OCF.esp",
@@ -4457,6 +5003,11 @@
       "winner": "BowRapidCombo.esp"
     },
     {
+      "formKey": "000873:Helmet Toggle 2.esp",
+      "editorId": "HT_UnequipHeadgearHere",
+      "winner": "Helmet Toggle 2.esp"
+    },
+    {
       "formKey": "000873:OCF.esp",
       "editorId": "OCF_AmmoTypeGreatarrow",
       "winner": "OCF.esp"
@@ -4465,6 +5016,11 @@
       "formKey": "000874:BowRapidCombo.esp",
       "editorId": "SecondaryGlass",
       "winner": "BowRapidCombo.esp"
+    },
+    {
+      "formKey": "000874:Helmet Toggle 2.esp",
+      "editorId": "HT_ApplyWorkaround",
+      "winner": "Helmet Toggle 2.esp"
     },
     {
       "formKey": "000874:OCF.esp",
@@ -4485,6 +5041,11 @@
       "formKey": "000876:BowRapidCombo.esp",
       "editorId": "SecondaryDaedric",
       "winner": "BowRapidCombo.esp"
+    },
+    {
+      "formKey": "000876:Helmet Toggle 2.esp",
+      "editorId": "HT_ArmorVisor",
+      "winner": "Helmet Toggle 2.esp"
     },
     {
       "formKey": "000876:OCF.esp",
@@ -4527,6 +5088,11 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "00087B:Helmet Toggle 2.esp",
+      "editorId": "HT_ArmorHelmetAlt",
+      "winner": "Helmet Toggle 2.esp"
+    },
+    {
       "formKey": "00087B:OCF.esp",
       "editorId": "OCF_WeapTypeMassiveAxe2H",
       "winner": "OCF.esp"
@@ -4540,6 +5106,11 @@
       "formKey": "00087D:OCF.esp",
       "editorId": "OCF_WeapTypeFlail1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "00087E:Helmet Toggle 2.esp",
+      "editorId": "HT_ArmorFaceMask",
+      "winner": "Helmet Toggle 2.esp"
     },
     {
       "formKey": "00087E:OCF.esp",
@@ -4580,6 +5151,11 @@
       "formKey": "000885:OCF.esp",
       "editorId": "OCF_WeapBlunt1H",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000886:For Honor Balance Patch.esp",
+      "editorId": "Directional",
+      "winner": "For Honor Balance Patch.esp"
     },
     {
       "formKey": "000886:OCF.esp",
@@ -4670,6 +5246,11 @@
       "formKey": "000894:SCSI-ACTbfco-Main.esp",
       "editorId": "scsi_isShadowDoDgeTime",
       "winner": "SCSI-ACTbfco-Main.esp"
+    },
+    {
+      "formKey": "000895:For Honor Balance Patch.esp",
+      "editorId": "ParryDurationScaling",
+      "winner": "For Honor Balance Patch.esp"
     },
     {
       "formKey": "000895:OCF.esp",
@@ -4767,6 +5348,11 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "0008AB:For Honor Balance Patch.esp",
+      "editorId": "ShieldAttackEffects",
+      "winner": "For Honor Balance Patch.esp"
+    },
+    {
       "formKey": "0008B5:FEC.esp",
       "editorId": "FEC_NoDeathEffects",
       "winner": "FEC.esp"
@@ -4847,6 +5433,11 @@
       "winner": "FEC.esp"
     },
     {
+      "formKey": "000935:Biggie Traits.esp",
+      "editorId": "Traits_FishyFood",
+      "winner": "Biggie Traits.esp"
+    },
+    {
       "formKey": "000997:Update.esm",
       "editorId": "DA15WabbajackExcludedKeyword",
       "winner": "OCF.esp"
@@ -4900,6 +5491,16 @@
       "formKey": "0009C0:Update.esm",
       "editorId": "ArmorMaterialBlades",
       "winner": "OCF.esp"
+    },
+    {
+      "formKey": "000A5C:Helmet Toggle 2.esp",
+      "editorId": "HT_DontManageThisItem",
+      "winner": "Helmet Toggle 2.esp"
+    },
+    {
+      "formKey": "000B2F:Biggie Traits.esp",
+      "editorId": "Traits_WoodenStaff",
+      "winner": "Biggie Traits.esp"
     },
     {
       "formKey": "000D44:Deflection.esp",
@@ -10087,6 +10688,11 @@
       "winner": "Skyrim.esm"
     },
     {
+      "formKey": "14F4F4:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Diviner_Keyword",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "14FC35:TaberuAnimation.esp",
       "editorId": "aaTaberumonoIsRawPheasantChicken",
       "winner": "TaberuAnimation.esp"
@@ -10095,6 +10701,21 @@
       "formKey": "150384:Skyrim.esm",
       "editorId": "LostOneGiant",
       "winner": "Skyrim.esm"
+    },
+    {
+      "formKey": "1545FC:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Diviner_Keyword_Curse",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1545FE:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Keyword_CallSnakes_Proc",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "154600:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Keyword_IsCallingSpell",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "154D3C:TaberuAnimation.esp",
@@ -10112,6 +10733,21 @@
       "winner": "TaberuAnimation.esp"
     },
     {
+      "formKey": "163914:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Keyword_CallRaven_Ruin_OneHanded",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "163915:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Keyword_CallRaven_Ruin_TwoHanded",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "163916:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Keyword_CallRaven_Ruin_Archery",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "16E252:TaberuAnimation.esp",
       "editorId": "aaTaberumonoIsRawRabbitLeg",
       "winner": "TaberuAnimation.esp"
@@ -10127,9 +10763,184 @@
       "winner": "TaberuAnimation.esp"
     },
     {
+      "formKey": "181F43:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Demon_Keywoird",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "191251:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Verdant_Keyword_Wildshape",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "19B468:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Keyword_IsBalefireSpell",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "19B46F:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Keyword_Branded",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "19B474:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Keyword_Empowered",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "19BB69:TaberuAnimation.esp",
       "editorId": "aa_EAAS",
       "winner": "TaberuAnimation.esp"
+    },
+    {
+      "formKey": "1A568C:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Hellfire_Keyword_MinionWeakness",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1BEBB7:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Keyword_Branded_ExcludeShort",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1BEBB8:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Keyword_Branded_ExcludeMedium",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1CDEC6:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Ancestors_Keyword_Conversion",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1CDEEB:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Controller_Keyword_Suggestion",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1D2FFC:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Ancestors_Keyword_SpiritGuardian",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1D8105:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Ancestors_Keyword_IronMaiden",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1E7426:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Auras_Keyword_AuraOfVigor",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC52F:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_MassImmortality",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC53C:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_00",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC543:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_01",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC544:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_02",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC545:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_03",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC546:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_04",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC547:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_05",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC548:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_06",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC549:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_07",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC54A:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_08",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC54B:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_09",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC54C:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_10",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC54D:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_11",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC54E:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_12",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC54F:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_13",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC550:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_14",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC551:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_15",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC552:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_16",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1EC553:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Glory_Keyword_Skill_17",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1F6761:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Auras_Keyword_Aura_2",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1F6769:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Auras_Keyword_Aura_3",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1FB872:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Auras_Keyword_Blind",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "1FC045:TaberuAnimation.esp",
@@ -10137,9 +10948,49 @@
       "winner": "TaberuAnimation.esp"
     },
     {
+      "formKey": "20AB9E:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Holy_Keyword_SunfireDamage",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "20ABA1:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Holy_Keyword_Cloak",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "20ABA2:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Holy_Keyword_CloakDesc",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "21EFFE:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Hex_Keyword_IsCurse",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "23342A:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Demon_Keyword_IsDemon",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "24783C:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Keyword_IsCreature",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "24D08F:TaberuAnimation.esp",
       "editorId": "aaOsaradeRabbitHaunch",
       "winner": "TaberuAnimation.esp"
+    },
+    {
+      "formKey": "260D63:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Oath_Keyword_IsLeechBolt",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "260D68:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Oath_Keyword_IsReverseGravity",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "26B6BF:TaberuAnimation.esp",
@@ -10152,14 +11003,104 @@
       "winner": "TaberuAnimation.esp"
     },
     {
+      "formKey": "2751A4:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Primal_Keyword_MarkOfHircine",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "27F3BF:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Spirits_Keyword_IsSpiritCloakEffect",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "27F3C1:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Spirits_Keyword_IsSelfEffect",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "2844D1:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Toxic_Keyword_IsPoison",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "2844D7:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Healing_Keyword_Goodberry",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "29DA0D:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Verdant_Keyword_Wildshape_Race",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "2B6F37:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Verdant_Keyword_ForceOfNature_PowerAttack",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "2B6F38:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Verdant_Keyword_ForceOfNature",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "2E99FA:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Walk_Keyword_NightGate",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "30D2AA:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Walk_Keyword_StepThroughShadows",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "317AF9:TaberuAnimation.esp",
       "editorId": "aaTaberumonoIsCocktails",
       "winner": "TaberuAnimation.esp"
     },
     {
+      "formKey": "31C5B7:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Shadows_Keyword_IsGatherShadowsAddsDuration",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "326822:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Walk_Keyword_ArmorDrainEffects",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "326829:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Walk_Keyword_PullThroughShadows",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "330A38:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Rift_Keyword_ManaScaling",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "330A46:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Any_Keyword_NoCost",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "330FFD:TaberuAnimation.esp",
       "editorId": "aaTaberumonoIsSuitou",
       "winner": "TaberuAnimation.esp"
+    },
+    {
+      "formKey": "335B4A:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Shadow_Keyword_StrikesBuff",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "33FD5D:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Rift_Keyword_DrainingTouch_Health",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "33FD63:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Rift_Keyword_DrainingTouch_Magicka",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "35470B:TaberuAnimation.esp",
@@ -10297,6 +11238,96 @@
       "winner": "TaberuAnimation.esp"
     },
     {
+      "formKey": "3685A5:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Totem_Keyword_IsControlledActor",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "36D6AC:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Senua_Keyword_Cloak",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3727CE:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Possess_Keyword_Ethereal",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3778D6:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Violence_Keyword_SpiritPossession_Rally",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "381AE3:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Rift_Keyword_IsBeingDrained",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "386BFC:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Any_Keyword_FractionalCost",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "38BD01:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Shadows_Keyword_IsGatherShadowsAddsMagnitude",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3A0138:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Elemental_Keyword_ControlFlames_Buff",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3B9677:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Totem_Keyword_IsDispelEffect",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3DCE45:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Geist_Keyword_IsGeistDrain",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3DCE48:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Geist_Keyword_IsGeistDamage",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3E1F5B:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Senua_Keyword_Aegishjalmur",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3E706A:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Totem_Keyword_LevelScaling",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "4005D0:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Senua_Keyword_VisionProc",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "4056D2:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Violence_Keyword_BountifulHunt_Rally",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "40F8E8:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Veil_Keyword_Farsight",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "41EC9B:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Violence_Keyword_CloakDesc",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "4C0D5F:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Shaman_Keyword_Cloak",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "777771:Update.esm",
       "editorId": "OCF_WeapTypeJavelin1H",
       "winner": "OCF.esp"
@@ -10355,31 +11386,6 @@
       "formKey": "900015:Update.esm",
       "editorId": "USKPArmorMaterialLinwe",
       "winner": "Audio Overhaul Skyrim.esp"
-    },
-    {
-      "formKey": "A00105:Update.esm",
-      "editorId": "MAG_MagicInfluenceSimulacrum",
-      "winner": "Apocalypse - Magic of Skyrim.esp"
-    },
-    {
-      "formKey": "A00106:Update.esm",
-      "editorId": "MAG_MagicSummonDremora",
-      "winner": "Apocalypse - Magic of Skyrim.esp"
-    },
-    {
-      "formKey": "A00108:Update.esm",
-      "editorId": "MAG_MagicCounterspell",
-      "winner": "Apocalypse - Magic of Skyrim.esp"
-    },
-    {
-      "formKey": "A00170:Update.esm",
-      "editorId": "MAG_MagicAlarm",
-      "winner": "Apocalypse - Magic of Skyrim.esp"
-    },
-    {
-      "formKey": "A00666:Update.esm",
-      "editorId": "MAG_MagicIsSimulacrum",
-      "winner": "Apocalypse - Magic of Skyrim.esp"
     },
     {
       "formKey": "ADA001:Update.esm",
@@ -11947,6 +12953,41 @@
       "winner": "OCF.esp"
     },
     {
+      "formKey": "DEAD03:Update.esm",
+      "editorId": "Futhark_InjectedKeyword_MagicEffect_IllusoryDamage",
+      "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "DEAD05:Update.esm",
+      "editorId": "Futhark_InjectedKeyword_MagicEffect_TharnsPrison",
+      "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "DEAD07:Update.esm",
+      "editorId": "Futhark_InjectedKeyword_MagicEffect_Simulacrum",
+      "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "DEAD08:Update.esm",
+      "editorId": "Futhark_InjectedKeyword_MagicEffect_OwnerIsSimulacrum",
+      "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "DEAD09:Update.esm",
+      "editorId": "Futhark_InjectedKeyword_MagicEffect_SummonDremora",
+      "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "DEAD10:Update.esm",
+      "editorId": "Futhark_InjectedKeyword_MagicEffect_Counterspell",
+      "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "DEAD11:Update.esm",
+      "editorId": "Futhark_InjectedKeyword_MagicEffect_Alarm",
+      "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
       "formKey": "E814F1:Update.esm",
       "editorId": "ClothingBracelet",
       "winner": "OCF.esp"
@@ -12039,9 +13080,19 @@
       "winner": "Dismembering Framework.esm"
     },
     {
+      "formKey": "00080F:For Honor in Skyrim.esp",
+      "editorId": "Fake_Projectile",
+      "winner": "For Honor in Skyrim.esp"
+    },
+    {
       "formKey": "000810:Dismembering Framework.esm",
       "editorId": "DF_DismemberBloodSprayTrace_Projectile",
       "winner": "Dismembering Framework.esm"
+    },
+    {
+      "formKey": "000813:For Honor in Skyrim.esp",
+      "editorId": "Dust_GenImpact",
+      "winner": "For Honor in Skyrim.esp"
     },
     {
       "formKey": "000814:EGO - KataPUMB Spell Package.esp",
@@ -12437,6 +13488,11 @@
       "winner": "Apocalypse - Magic of Skyrim.esp"
     },
     {
+      "formKey": "00ECB5:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Hellfire_Projectile_Touch",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "0110C7:KataPUMBSpellPack.esp",
       "editorId": "Kata_ElectrocutionConAim",
       "winner": "KataPUMBSpellPack.esp"
@@ -12505,7 +13561,7 @@
     {
       "formKey": "016CD0:Skyrim.esm",
       "editorId": "DragonFireboltStormProjectile",
-      "winner": "Skyrim.esm"
+      "winner": "Embers XD - Fire Magick Add-On.esp"
     },
     {
       "formKey": "016CD1:Skyrim.esm",
@@ -12556,6 +13612,11 @@
       "formKey": "01B0DF:Apocalypse - Magic of Skyrim.esp",
       "editorId": "WB_DestructionGold_Projectile",
       "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "01B0DF:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Oath_Projectile",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "01B0E4:Apocalypse - Magic of Skyrim.esp",
@@ -12743,6 +13804,11 @@
       "formKey": "035277:Apocalypse - Magic of Skyrim.esp",
       "editorId": "WB_RestorationNecro_Beam",
       "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "035277:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Toxic_Beam",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     },
     {
       "formKey": "035D5B:Apocalypse - Magic of Skyrim.esp",
@@ -13569,7 +14635,7 @@
     {
       "formKey": "0D4888:Skyrim.esm",
       "editorId": "FireboltStormProjectileSlow01",
-      "winner": "Skyrim.esm"
+      "winner": "Embers XD - Fire Magick Add-On.esp"
     },
     {
       "formKey": "0D561B:Skyrim.esm",
@@ -13611,6 +14677,11 @@
       "formKey": "0E6647:Apocalypse - Magic of Skyrim.esp",
       "editorId": "WB_DestructionFire_Projectile_Test2",
       "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "0E7720:Skyrim.esm",
+      "editorId": "FireboltStormProjectileAlduinDeath",
+      "winner": "Embers XD - Fire Magick Add-On.esp"
     },
     {
       "formKey": "0EA7EC:Skyrim.esm",
@@ -13946,6 +15017,11 @@
       "winner": "Apocalypse - Magic of Skyrim.esp"
     },
     {
+      "formKey": "13BEE2:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Controller_Projectile",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
       "formKey": "13E501:Apocalypse - Magic of Skyrim.esp",
       "editorId": "WB_RestorationPeace_Beam_LeechSeed",
       "winner": "Apocalypse - Magic of Skyrim.esp"
@@ -14021,6 +15097,66 @@
       "formKey": "15E72D:Apocalypse - Magic of Skyrim.esp",
       "editorId": "WB_DestructionFire_Projectile_HotPotato",
       "winner": "Apocalypse - Magic of Skyrim.esp"
+    },
+    {
+      "formKey": "19B45F:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Projectile_EldritchBlast",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1B49AA:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Projectile_Immolation_old",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1BEBAE:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Projectile_ScytheOfDagon",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "1BEBB4:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Balefire_Projectile_WitchBolt",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "20AB9C:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Holy_Beam_SolarRay",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "260D6D:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Hellfire_Projectile_ReverseGravity",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "2A2B15:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Verdant_Projectile_InvisibleConc",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "30D2A0:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Walk_Beam",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3A0134:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Elemental_Projectile_ControlFlames",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3A524E:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Violence_Beam",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3DCE42:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Geist_Projectile",
+      "winner": "Triumvirate - Mage Archetypes.esp"
+    },
+    {
+      "formKey": "3F6393:Triumvirate - Mage Archetypes.esp",
+      "editorId": "TVR_Violence_Projectile_Fissure",
+      "winner": "Triumvirate - Mage Archetypes.esp"
     }
   ],
   "equipTypes": [

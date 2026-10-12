@@ -1,0 +1,21 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Skip The Prologue.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Skips Enderal's prologue. Runs character creation, then starts you awake at Jespar's camp
+    the morning after the shipwreck, with "The Void" (MQ02) running and the Arcane Fever in
+    play. Supersedes Skip Intro SE - do not install both.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  INTV: 1

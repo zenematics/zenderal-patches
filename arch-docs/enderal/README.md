@@ -14,6 +14,9 @@ assume it.
 | [`visuals-and-world.md`](visuals-and-world.md) | Weathers, imagespaces, lighting templates, climates, worldspaces — and why ENB presets don't transfer |
 | [`crafting-alchemy-economy.md`](crafting-alchemy-economy.md) | Crafting benches, 1859 recipes, Arcane Fever, the potion economy |
 | [`scripting-and-actorvalues.md`](scripting-and-actorvalues.md) | Script architecture, the `_00E_` convention, **repurposed vanilla ActorValues**, key controller quests |
+| [`factions.md`](factions.md) | The 335+96 faction records, why the lore factions (Rhalâta, Holy Order) mostly don't exist as records, crime/vendor factions, the German↔English glossary |
+| [`bestiary.md`](bestiary.md) | Enemy families and how to classify them, the `_NNE_` tier system, per-actor XP, the boss roster — and why nothing scales to the player |
+| [`world-and-dungeons.md`](world-and-dungeons.md) | The 22 real regions, the abandoned Location/EncounterZone systems, interior-cell conventions, and the full map-marker dungeon census |
 
 ## How these were written
 
@@ -49,3 +52,5 @@ If you read nothing else:
 4. **Enderal overrides 55 vanilla script names**, and all 55 genuinely differ. Compile order matters.
 5. **Lighting is wholly replaced** — 147 weathers, 339 imagespaces, 60 lighting templates, and its
    own climates. Skyrim ENB presets are a starting point, not a drop-in.
+6. **Nothing scales to the player** — zero LeveledNpc records, every NPC at a fixed level, and only
+   2 encounter zones (neither carries a level). Dungeons are hand-levelled. **[verified]**

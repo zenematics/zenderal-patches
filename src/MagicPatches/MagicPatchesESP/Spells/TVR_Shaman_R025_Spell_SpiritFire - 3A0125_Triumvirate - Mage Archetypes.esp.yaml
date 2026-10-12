@@ -1,0 +1,24 @@
+FormKey: 3A0125:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shaman_R025_Spell_SpiritFire
+Name:
+  TargetLanguage: English
+  Value: Spirit Fire
+MenuDisplayObject: 3DCE41:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 76
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C7:Skyrim.esm
+Effects:
+- BaseEffect: 3DCE51:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 10
+    Duration: 15

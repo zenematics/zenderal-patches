@@ -1,0 +1,22 @@
+FormKey: 28E6EB:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_A025_Spell_ForceOfNature
+Name:
+  TargetLanguage: English
+  Value: Force of Nature
+MenuDisplayObject: 191249:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 69
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44B7:Skyrim.esm
+Effects:
+- BaseEffect: 191250:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 5
+    Duration: 60

@@ -1,0 +1,21 @@
+FormKey: 205A93:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_D050_Spell_ConsecratedGround
+Name:
+  TargetLanguage: English
+  Value: Consecrated Ground
+MenuDisplayObject: 205A7A:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 76
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+HalfCostPerk: 0C44C0:Skyrim.esm
+Effects:
+- BaseEffect: 20ABA3:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 6
+    Duration: 30

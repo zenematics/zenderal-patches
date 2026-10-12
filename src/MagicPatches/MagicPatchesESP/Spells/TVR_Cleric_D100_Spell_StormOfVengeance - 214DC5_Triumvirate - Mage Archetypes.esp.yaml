@@ -1,0 +1,23 @@
+FormKey: 214DC5:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_D100_Spell_StormOfVengeance
+Name:
+  TargetLanguage: English
+  Value: Storm of Vengeance
+MenuDisplayObject: 205A7A:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 119
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- NoAbsorbOrReflect
+- NoDualCastModification
+CastType: FireAndForget
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 21EFF6:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 8
+    Duration: 30

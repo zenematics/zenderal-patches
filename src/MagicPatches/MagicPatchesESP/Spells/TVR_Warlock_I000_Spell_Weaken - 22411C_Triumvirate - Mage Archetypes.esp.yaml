@@ -1,0 +1,26 @@
+FormKey: 22411C:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_I000_Spell_Weaken
+Name:
+  TargetLanguage: English
+  Value: Weaken
+MenuDisplayObject: 21F001:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 33
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetLocation
+Range: 100
+HalfCostPerk: 0F2CA9:Skyrim.esm
+Effects:
+- BaseEffect: 22411B:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 0.2
+    Area: 40
+    Duration: 30

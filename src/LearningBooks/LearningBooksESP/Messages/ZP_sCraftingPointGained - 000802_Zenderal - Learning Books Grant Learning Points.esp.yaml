@@ -1,0 +1,10 @@
+FormKey: 000802:Zenderal - Learning Books Grant Learning Points.esp
+EditorID: ZP_sCraftingPointGained
+Description:
+  TargetLanguage: English
+  Value: You received %.0f Crafting Points!
+Name:
+  TargetLanguage: English
+  Value: You received %.0f Crafting Points!
+INAM: 0x00000000
+DisplayTime: 2

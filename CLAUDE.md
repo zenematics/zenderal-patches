@@ -69,6 +69,25 @@ confirmed by compiling real Enderal scripts (`_00E_TalentLibrary`, `_00E_Game_Ta
 > package ships `tools/net10.0` only), failing with a `DotnetToolSettings.xml was not found` error
 > that never mentions .NET.
 
+## Knowledge base (oculory-rag) — search it before answering
+
+If the `oculory-rag` MCP tools are available, use them **before** answering from memory and
+before grepping `reference/` by hand:
+
+- **`search`** — the written knowledge base: engine behaviour, record patterns, SPID, Spriggit
+  and Mutagen workflow, third-party mod analyses, prior art and design notes.
+- **`game_search` / `game_read`** — the decompiled game files themselves: ~331k records and
+  ~19k Papyrus scripts, looked up by EditorID, FormID, FormKey or in-game name. Prefer these
+  over walking `reference/` by hand; they are indexed and answer in milliseconds.
+- Pass `game="enderal"` for this repo. Enderal ships a MODIFIED `Skyrim.esm`, so a
+  vanilla-Skyrim answer is often the wrong one.
+
+Cite the doc id or FormKey a claim rests on, and keep the `[verified]` / `[community]` /
+`[unverified]` marks honest — retrieved text is evidence, not proof.
+
+These tools are an optional local index. If they are not present, work in this repo exactly as
+before: nothing here depends on them.
+
 ## Enderal ground truth
 
 Everything in this section was read off the installed game, not recalled. Re-verify with the same
@@ -175,11 +194,13 @@ src/                       # EVERY patch lives here — one folder per patch
     Scripts/source/*.psc   # Papyrus source — COMMITTED
     Scripts/compiled/*.pex # COMMITTED via a .gitignore exception (CI can't compile Papyrus)
     tools/*.ps1            # only for REPLACEMENT releases — the generators that rebuild the tree
+    spid/*_DISTR.ini       # SPID configs — COMMITTED; shipped via the manifest's "files" key
 build/                     # build.ps1 + manifest.json (+ a committed FOMOD tree per release that has
                            #   one - none currently do; releases carry "fomod": false)
 arch-docs/                 # patch-authoring guide, curation docs, generated build report
 arch-docs/magic/           # GENERATED magic dataset: every SPEL/MGEF/ENCH/SCRL/ALCH/SHOU/GMST with
                            #   load-order-WINNING values + provenance; /magic-extract regenerates it
+arch-docs/tools/           # third-party tool docs: SPID reference + its Enderal guide
 reference/base/            # gitignored — Enderal/vanilla decompiles + script source, LOOKUP ONLY
 reference/mods/            # gitignored — third-party list mods, serialized for lookup
 reference/mods/EGO/        #   `-- EGO's .esp + its loose scripts; documented in arch-docs/EGO/
@@ -228,6 +249,33 @@ papyrus-source/            # gitignored — spare slot for unpacked .psc trees (
 >
 > This shape carries an obligation the others don't: it redistributes a **modified copy of someone
 > else's script**, so check the author's permissions and credit them in the source header.
+
+> **A fourth shape: the SPID CONFIG release — no plugin, no script, one `.ini`.** **[verified
+> 2026-08-13]** *Spell Perk Item Distributor* 7.3.2 is in the list, and a fix that only needs to hand
+> a spell/perk/keyword/outfit to a set of NPCs is a text file, not a plugin. `build/manifest.json`
+> carries it with `"plugins": []`, `"fomod": false` and a **`"files"`** block:
+>
+> ```json
+> "files": [ { "from": "src/<PatchName>/spid/Zenderal - <Name>_DISTR.ini", "to": "" } ]
+> ```
+>
+> `"to": ""` is the **archive root** and it has to be, because SPID scans the Data folder with a
+> *non-recursive* `directory_iterator` — a config one folder down is never seen and nothing warns.
+> Three rules:
+> 1. **Prefix the shipped filename `Zenderal - `.** Two mods shipping the same `_DISTR.ini` name are
+>    an ordinary MO2 file conflict and only the winner deploys, silently. This list already has one:
+>    10 `_DISTR.ini` on disk, `9 matching inis found` in the log.
+> 2. **Write it pre-sanitised** — `~` not ` - `, no spaces around `|` or `,`, `0x` FormIDs with no
+>    leading zeros. SPID rewrites any config it has to normalise, in place, inside the deployed mod
+>    folder, so the committed and deployed copies otherwise drift.
+> 3. **Verify with `Registered X/Y` in `po3_SpellPerkItemDistributor.log`, not by launching.** Every
+>    unresolvable filter is skipped per entry and logged, never surfaced in game — Enderal currently
+>    registers **198/318** of the list's keyword entries.
+>
+> Full detail in [`arch-docs/tools/spid.md`](arch-docs/tools/spid.md) and
+> [`spid-in-enderal.md`](arch-docs/tools/spid-in-enderal.md). Read the second one before porting a
+> Skyrim config: faction, NPC and location filters almost never survive, and `NordRace` resolves in
+> Enderal to **Half Arazealean**.
 
 `src/` is the only place patch content goes, and it holds as many patches as the list needs. Each
 gets its own `src/<PatchName>/` folder and its own `build/manifest.json` release entry; the
@@ -367,13 +415,16 @@ Each patch's own ESL block. Overrides are not listed — they consume nothing.
 
 | Patch / plugin | Block | Contents |
 |---|---|---|
-| `RelentlessSword` → `Zenderal - Relentless Sword.esp` | `0x800–0x827` | `800–806` statics (1st-person models), `809–80F` weapons, `811–81F` forge + temper recipes (johnskyrim's original offsets, preserved for traceability), `820–825` dismantle recipes (new, this repo's), `826` crafting blueprint, `827` its placed reference in Riverville Temple |
-| `RelentlessSwordZen` → **also** `Zenderal - Relentless Sword.esp` | `0x828–0x831` | The ZEN release is a **superset of the row above under the same ModKey**: `0x800–0x827` are its 33 records copied verbatim, then `828–829` statics, `82A–82B` weapons, `82C–82D` forge recipes, `82E–82F` tempers, `830–831` dismantle recipes for johnskyrim's Patreon "Zen" blade. Generated by `src/RelentlessSwordZen/tools/build-zen-tree.ps1` — see the note below the table |
-| `MagicPatches` → `Zenderal - Magic Patches.esp` | _(none used)_ | ALL magic compat/balance patches for the list live in this one plugin. Currently: **Apocalypse cost-ladder repricing** — 175 overrides of the book-taught Apocalypse player spells (their live costs ran 4–7× EGO's ladder: FF tier medians 56/83/175/393/720 vs EGO's 30/53/76/97/124). Mechanism: the spells are ALL auto-calc, so the engine reprices them from effects at runtime and a bare `BaseCost` override does nothing — each override adds `ManualCostCalc` + a hand `BaseCost` (EGO's own archetype, 78/81 of its Kata patch overrides). New cost = per-(tier, FF/conc) ratio onto EGO medians, from `src/MagicPatches/tools/01-build-cost-table.py`; YAML generated by `02-apply-cost-table.ps1` from `reference/mods/Apocalypse`, then `03-retune-fever.ps1` retunes the heals' Arcane Fever tax (Wild Healing 5→1.5 to EGO's flat burst rate, Resurgence 5→4 and King's Heart 12→5 to Enderal's 78-HP-per-point / Panacea precedents; Healing Blossom's 8 was already on the rule). **Regeneration order is 02 then 03** — never hand-edit the Spells folder. Also one MGEF override, NOT script-generated (the `MagicEffects/` folder survives regeneration): `_00E_IncreaseArcaneFeverFFSelf 11A4B6:Skyrim.esm`, EGO's record forwarded verbatim except its fever description — EGO baked the literal `<1,5>%` into the shared effect's text (safe for EGO, whose every user is 1.5), so all four Apocalypse heals displayed "1,5%"; restored base Enderal's `<mag>` token so each spell shows its real fever. Plus **five LVLI distribution-list merges** from `04-merge-distribution-lists.py`: the four `_00E_SpellBooksLoot*` lists (winner = the EGO-Kata patch, which dropped Apocalypse's 8 loot injections each) and `02E_Scrolls 0905A5` (winner was Apocalypse itself, whose override reverted EGO's rebalance — renamed EditorID, `ChanceNone` 0.5→0.15, entry trims — while adding its 4 scrolls). Each = deliberate winner's record verbatim + Apocalypse's additions re-appended. **Ownership split: Magic Patches owns these five LVLIs; `KataFixes` owns the three vendor chests — neither plugin may touch the other's records.** Masters now seven: base three + `KataPUMBSpellPack.esp` + EGO + Apocalypse + `EGO - KataPUMB Spell Package.esp` **`halfCostPerk` is kept, not cleared**: 274/278 of EGO's own player spells carry the vanilla half-cost perks, so they are live in Enderal's cost system. Masters: the base three + `Apocalypse - Magic of Skyrim.esp` |
-| `KataFixes` → `Zenderal - Kata Fixes.esp` | _(none used)_ | Kata-related fixes. Currently the **magic-vendor chest merge**: Funkentanz `102AD5`, Torius `118050` and Tarhutie `05BCD6` are each contested by up to SIX plugins, and the live winner (`EGO SE - Leveling Redone.esp`) carries none of the losers' stock — Kata's 15 staves, Apocalypse's 45/39 tomes, xxOpenSpells' 4 books and the Emberlord patch's 5 entries were ALL dead in game (the staves' only surviving location was `_00E_Test_Container_Weapons 0465BB`, a test chest). Each override = the winner's record verbatim + every loser's additions re-appended, derived (not hardcoded) by `src/KataFixes/tools/01-merge-vendor-chests.py` from the reference trees (`LevelingRedoneEGO`, `KataPUMB`, `Apocalypse`, `xxOpenSpells`, `KataEmberlord`). `0465BB` deliberately untouched. Nine masters incl. `EGO SE - Leveling Redone.esp` (content-unused, mastered to force load-after). **Whoever owns these chest records owns them alone** — no other Zenderal plugin may override them (the RelentlessSword lesson). Also ships the recompiled `Kata_Enderal_SpellPackageAddToLLists.pex` (absorbed from the retired `Zenderal - No Kata Debug Prompt` release): kills pack 2's debug prompt AND comments out (`;ZP-DEDUPE`) the 58 `AddForm` lines injecting the **29 spell lines duplicated between the two Kata packs** — the injection is `Books.GetAt(<hardcoded index>)`, so the script is the only place it can be fixed (editing the FormList would shift every index). Dedupe reaches **new games only** (`StartGameEnabled` + `RunOnce`); the mod folder must win the loose-script file conflict with `KataPUMB Magic Package` |
-| `SkipToTamingTheWaves` → `Zenderal - Skip To Taming The Waves.esp` | `0x800–0x803` | `800` Quest `ZP_SkipTTW`, `801` Activator `ZP_SkipTTW_StartTrigger`, `802` its placed trigger ref in Ark market cell `070793`, `803` Message `ZP_SkipTTW_sClassChoice`. Overrides `MQ101 03372B` (alias 183 `StartMarkerRef` → `TeleportMarker_ArkMarket 0EAB74`) and forwards FS's `CapitalCityMarketArea 07072A` header — neither costs anything from the block. **No `MQP01PrologStart` override**: `QF_MQ101_0003372B.Fragment_332` only does `MoveTo(StartMarkerRef)`, and nothing else starts the prologue — `MQP01` is started by the trigger inside `MQP01Home`, which a player spawning in Ark never reaches. SkipIntro disables that trigger defensively; it is not needed |
+| `RelentlessSwordPatreon` → `Zenderal - Relentless Sword.esp` | `0x800–0x831` | `800–806` statics (1st-person models), `809–80F` weapons, `811–81F` forge + temper recipes (johnskyrim's original offsets, preserved for traceability), `820–825` dismantle recipes (new, this repo's), `826` crafting blueprint, `827` its placed reference in Riverville Temple — those 33 records were the free six-blade Nexus release. Then `828–829` statics, `82A–82B` weapons, `82C–82D` forge recipes, `82E–82F` tempers, `830–831` dismantle recipes for johnskyrim's Patreon "Zen" blade, allocated **above** the first block so a user coming from the six-blade build keeps every FormID. **The six-blade release was removed on 2026-08-16** (`src/RelentlessSword/`, plus `build-zen-tree.ps1`, which derived this tree from it and had no input left) — this folder is now hand-edited source of truth, and its assertions (42 record files, 8 blueprint-gated recipes, no `0F46CE`/`0F46D1` Skyforge refs) went with it. The **plugin filename was deliberately NOT renamed with the release**, for the same FormID reason |
+| `MagicPatches` → `Zenderal - Magic Patches.esp` | _(none used)_ | ALL magic compat/balance patches for the list live in this one plugin. Currently: **Apocalypse cost-ladder repricing** — 175 overrides of the book-taught Apocalypse player spells (their live costs ran 4–7× EGO's ladder: FF tier medians 56/83/175/393/720 vs EGO's 30/53/76/97/124). Mechanism: the spells are ALL auto-calc, so the engine reprices them from effects at runtime and a bare `BaseCost` override does nothing — each override adds `ManualCostCalc` + a hand `BaseCost` (EGO's own archetype, 78/81 of its Kata patch overrides). New cost = per-(tier, FF/conc) ratio onto EGO medians, from `src/MagicPatches/tools/01-build-cost-table.py`; YAML generated by `02-apply-cost-table.ps1` from `reference/mods/Apocalypse`, then `03-retune-fever.ps1` retunes the heals' Arcane Fever tax (Wild Healing 5→1.5 to EGO's flat burst rate, Resurgence 5→4 and King's Heart 12→5 to Enderal's 78-HP-per-point / Panacea precedents; Healing Blossom's 8 was already on the rule). **Regeneration order is 02 then 03** — never hand-edit the Spells folder. Also one MGEF override, NOT script-generated (the `MagicEffects/` folder survives regeneration): `_00E_IncreaseArcaneFeverFFSelf 11A4B6:Skyrim.esm`, EGO's record forwarded verbatim except its fever description — EGO baked the literal `<1,5>%` into the shared effect's text (safe for EGO, whose every user is 1.5), so all four Apocalypse heals displayed "1,5%"; restored base Enderal's `<mag>` token so each spell shows its real fever. Plus **five LVLI distribution-list merges** from `04-merge-distribution-lists.py`: the four `_00E_SpellBooksLoot*` lists (winner = the EGO-Kata patch, which dropped Apocalypse's 8 loot injections each) and `02E_Scrolls 0905A5` (winner was Apocalypse itself, whose override reverted EGO's rebalance — renamed EditorID, `ChanceNone` 0.5→0.15, entry trims — while adding its 4 scrolls). Each = deliberate winner's record verbatim + Apocalypse's additions re-appended. **Ownership split: Magic Patches owns these five LVLIs; `KataFixes` owns the three vendor chests — neither plugin may touch the other's records.** Since 2026-08-27 also the **Triumvirate cost-ladder repricing + fever tax** (the Triumvirate — Enderal Conversion v1.0.0 deliberately ships Enai's costs untouched, and its master FF tier ran ~10× EGO's ladder: live medians 46/82/168/356/1207): 75 overrides from `05-build-triumvirate-cost-table.py` (tier from Enai's own `TVR_<Arch>_<School><Tier>_` EditorID encoding — known outlier `TVR_Cleric_R025_Spell_Aura_1` carries a shared skill-75 proc) + `06-apply-triumvirate-cost-table.ps1` + `07-add-triumvirate-fever.ps1`, which taxes its three self-heals: Aura of Vigor gets EGO's whole Boon fever block copied verbatim (`106EA4` 0.25/s + the two Mental-perk-conditioned `0083D3:EGO` variants — the magnitude is NOT tunable, `106EA4`'s description bakes in "0,25% per second"), Mass Immortality `11A4B6`@5 (King's Heart/Panacea ceiling), Spirit of the Sun `11A4B6`@10. Drains, fortifies and Aura of Thorns' scripted release-heal stay untaxed, documented in 07's header. **Regeneration order: 02→03 (Apocalypse), 06→07 (Triumvirate) — the two pairs share the Spells folder and each deletes only its own mod's suffix.** **`halfCostPerk` is kept, not cleared**: 274/278 of EGO's own player spells carry the vanilla half-cost perks, so they are live in Enderal's cost system. Masters now eight: base three + `KataPUMBSpellPack.esp` + EGO + Apocalypse + `EGO - KataPUMB Spell Package.esp` + `Triumvirate - Mage Archetypes.esp` — **which forces Magic Patches to load AFTER Triumvirate (319 in the Alpha 0.3 order, i.e. after our old slot 292); move it when deploying** |
+| `KataFixes` → `Zenderal - Kata Fixes.esp` | _(none used)_ | Kata-related fixes. Currently the **magic-vendor chest merge**, covering the **three** contested chests: Funkentanz `102AD5`, Torius `118050` and Tarhutie `05BCD6`. Base = `EGO SE - Leveling Redone.esp`'s record (its trims are deliberate leveling work; every other overrider is EGO-lineage without mastering LR, so their reverts of its trims are collateral — verified 2026-08-27 on Emberlord's 18 base-book carries at Funkentanz) + each loser's own-suffix additions: Kata's 15 staves per chest, xxOpenSpells' 4 books and the Emberlord patch's 5 entries at Funkentanz. 54 entries restored across the three. Derived (not hardcoded) by `src/KataFixes/tools/01-merge-vendor-chests.py` from the reference trees (`LevelingRedoneEGO`, `KataPUMB`, `xxOpenSpells`, `KataEmberlord`), which asserts every count AND fails if Apocalypse's reference tree ever overrides a foreign container again. **Until 2026-08-27 this was a SEVEN-chest merge restoring Apocalypse's 160 tomes; its Enderal Patch v1.2.0 moved all vendor stock into the `<Merchant>_CustomMerchandise` hook lists, so the four Apocalypse-only chests (Milbert `127928`, Maxus `022BF2`, Barnabas `13824A`, Ora `0F9320`) were retired — keeping them would have double-stocked every tome — and the Tarhutie novice-tome CURATION stage went with them (upstream now sells every tome deterministically at exactly one shop, Apprentice tier at Tarhutie in Riverville). Our three chest overrides are the final winners, so they MUST keep the chest's `*_CustomMerchandise` hook entry (`0302D5`/`0302FE`/`0302F7:Enderal - Forgotten Stories.esm`) — dropping it kills Apocalypse's distribution at that shop; verified present in all three.** `_00E_Test_Container_Weapons 0465BB` deliberately untouched. Eight masters incl. `EGO SE - Leveling Redone.esp` (content-unused, mastered to force load-after); `Apocalypse - Magic of Skyrim.esp` is no longer one. **Whoever owns these chest records owns them alone** — no other Zenderal plugin may override them (the RelentlessSword lesson). Also ships the recompiled `Kata_Enderal_SpellPackageAddToLLists.pex` (absorbed from the retired `Zenderal - No Kata Debug Prompt` release): kills pack 2's debug prompt AND comments out (`;ZP-DEDUPE`) the 58 `AddForm` lines injecting the **29 spell lines duplicated between the two Kata packs** — the injection is `Books.GetAt(<hardcoded index>)`, so the script is the only place it can be fixed (editing the FormList would shift every index). Dedupe reaches **new games only** (`StartGameEnabled` + `RunOnce`); the mod folder must win the loose-script file conflict with `KataPUMB Magic Package` |
+| `SkipPrologue` → `Zenderal - Skip The Prologue.esp` | `0x800–0x802` | `800` Quest `ZP_SkipProlog`, `801` Activator `ZP_SkipProlog_StartTrigger`, `802` its placed trigger ref in Ark market cell `070793`. Overrides `MQ101 03372B` (alias 183 `StartMarkerRef` → `TeleportMarker_ArkMarket 0EAB74`) and forwards FS's `CapitalCityMarketArea 07072A` header — neither costs anything from the block. Lands the player awake at Jespar's camp with `MQ02` *"The Void"* running; see the note below the table for the mechanism |
 | `FasterSprint` → `Zenderal - Faster Sprint.esp` | none (overrides only) | Global (player + NPC) sprint speed **+92.03%** on top of EGO's current values (five stacked bumps, each applied to the current live value: +20% shipped, then +15%, +10%, +15%, +10% — 1.2 × 1.15 × 1.10 × 1.15 × 1.10 = 1.92027× overall) — overrides `NPC_Sprinting_MT` (`034D9C:Skyrim.esm`, `ForwardWalk`/`ForwardRun` 440→**844.9188**) and `AIControlledNPC_Sprinting_MT` (`0F3469:Skyrim.esm`, 450→**864.1215**). `BackWalk`/`BackRun`/rotation fields left untouched. Plus a **sprint stamina drain -50%**: overrides GMST `fSprintStaminaDrainMult` (`02DD35:Skyrim.esm`, EGO's `4` → `2`; base Enderal was `7`, so this is 50% of EGO's *current* value, matching this patch's "on top of EGO" convention). Confirmed only EGO touches this GMST anywhere in the active load order (grepped every `.esp`/`.esm` in the modlist for the string), so no other patch's value is being reverted. `fSprintStaminaWeightMult`/`fSprintStaminaWeightBase` left untouched — halving the leading `DrainMult` factor already scales total drain by 50% uniformly regardless of carry weight, no need to touch the weight-scaling GMSTs too. Master: `Skyrim.esm` only (no EGO FormKey is referenced, only its record is overridden — but this plugin **must load after both** `Enderal SE - Gameplay Overhaul.esp` **and** `Dynamic Sprint.esp` in-game to win the conflict on both — see below; declaring either as a master isn't required since no FormLink to either exists). See `arch-docs/zenderal-curation.md`. **Note:** `RecordData.yaml`'s `ModHeader.Description` says "by 80%" — that's stale/wrong, the actual sprint-speed ratio everywhere is 1.92027× (+92.03%); not corrected, flag if touching that file next. This value is now within one further +10% stack of doubling the original shipped speed — worth confirming with the user whether more increments are actually wanted or whether this has drifted past a comfortable gameplay pace; each increment so far has been a direct explicit request, not an assumption.
->
+| `BrawlFixes` → *(no plugin — two recompiled scripts)* | _(none)_ | Forks SureAI's two brawl scripts, `_00E_DGIntimidateAliasScript` and `_00E_DGIntimidatePlayerScript`, which **every** brawl in Enderal runs through (NQ12 Silia Foxhand, NQ_G_04 Duul, FS_NQ06 Darius Kupferhammer, the EnvironmentScene01 drunk). Both were tripping constantly next to the list's combat framework — see the `OnHit`/`akSource` gotcha below for the mechanism and the four wrong diagnoses it cost. Two `; ZP` guards: (1) `OnHit` requires `akWeapon as Weapon` to be non-None before converting the brawl to a real fight, since the parameter is really the hit *source* and is a **Spell** for a magic hit; (2) both `OnMagicEffectApply` handlers require `MagicEffect.GetAssociatedSkill()` to be one of the five schools before flagging stage 150, because Enderal's own offensive effects all carry a `MagicSkill` and combat-framework markers carry none (**verified**: zero across `For Honor in Skyrim` + `For Honor Reforged`, 482 across base Enderal). NO Property added/removed/renamed — the quest VMAD binds `UnarmedWeapon`, `DGIntimidateFaction`, `Opponent` and `OpponentFriend` by name. Nothing else in the list ships either script loose (they live only in `E - Misc.bsa`), so no sort position is required. **Credit SureAI** |
+| `NpcPotions` → `Zenderal - NPC Potions_DISTR.ini` | _(none — SPID config, no plugin)_ | **The repo's first worked example of the fourth release shape** (`"plugins": []` + a `files` block, `"to": ""`). 16 `Item =` lines distributing Enderal's three restore-consumable lines plus Ambrosia to `ActorTypeNPC` humanoids, level-banded `1/9`, `10/17`, `18/27`, `28/37`, `38` — the same 10/18/28/38 ladder as `_00ETraderPotion10/20/30`. Health `_NNE_Genesungstrank` (`0028C8`, `0028C5`, `0028C6`, `0028C7`, `0028C9` — **non-monotonic, do not sort**) at chance 55; mana `_NNE_Manatrank` (`0028DB`, `019E3B`, `090892`, `09B6CB`, `1037F7`) and stamina `_NNE_Morgenlufttrank` (`0028DE`, `085668`, `09B6CA`, `1037F5`, `1037F6`) at 45; **all count `1`** — cut from `1-2` once NUP's corpse-stripping was turned off, since nothing trims the piles any more. Ambrosia `_00E_Ambrosia 0FEC69` is a **`DeathItem =`**, count 1, chance 10 — see the NUP note below for why it is not an `Item =`. Traits `-S/-C/-D` exclude summons, children and StartsDead props. For the `Item =` lines, **chance is rolled per BASE NPC record, not per corpse, and it is all-or-nothing** — win and every instance of that base carries the item, lose and none ever do. A single low-chance line therefore reads as "never drops": Ambrosia at 12 hit 22 of 182 bases exactly as configured, but ~16 of those were townsfolk, leaving a typical fight (5–10 distinct enemy bases) a ~36% chance of yielding none. **[verified in-game 2026-08-13]** Budget per-base, not per-kill, and remember `ActorTypeNPC` is mostly civilians. **`DeathItem =` rolls per CORPSE instead**, which is the fix for that whole class of problem whenever the item is meant as loot rather than as something the NPC uses **`Morgenlufttrank` is the restore-stamina line** — `_NNE_Ausdauertrank` is *fortify* stamina and has only 2 tiers in base Enderal (a 3rd is EGO's new `0008C0`), so it is the wrong record. **Supersedes `Zenderal - Enemy Potions.esp`** — an untracked mod at MO2 priority 24 with no source in this repo, which banded the same three lines into the `_00E_MOB_Bandit` / `DeathItemDraugr` / `_00E_FS_DeathItem_Human` death-item lists; disable it or those NPCs draw from both. Unlike death items, SPID puts these in the base NPC's *live* container, so `Smart NPC Potions` and `NPCs Use Potions` will make enemies drink them — that is intentional (modern combat pillar), not a side effect. **`NPCs Use Potions` STRIPS EVERY CORPSE and will silently eat a distributed item — see the section below; this release depends on its `RemoveItemsOnDeath` being off** |
+| `ControllerTweaks` → *(no plugin — three file overrides)* | _(none)_ | **The repo's first release that ships NO plugin but DOES ship a script**, and its first fork of an **Enderal** script rather than a third-party one. Adapts the Complete Controller Setup stack to Enderal, and **must sort above `Complete Controller Setup` and `Dear Diary Dark Mode`** to win the file conflicts. (1) `Interface\Controls\PC\controlmap.txt` — CCS 5.3.5's, `Quick Stats` gamepad combo (B+DpadUp, `0x2000+0x0001`) unbound to `0xff`; it opened Skyrim's vanilla perk starfield, a UI Enderal never uses. (2) `interface\skyui\config.txt` — forked from **Dear Diary Dark Mode's** copy (its wins over SkyUI's), `[Input]` gamepad sort bindings moved off CCS's equip/drop buttons: `prevColumn` 274→280 (LT), `nextColumn` 275→281 (RT), `sortOrder` 272→273 (R3), so RB-equip and L3-drop stop re-sorting the item list. (3) `Scripts\_00E_Game_SkillmenuSC.pex` — SureAI's script recompiled with four `; ZP` additions binding **B + D-pad-Up → open Hero Menu, B → close**; see the controller gotcha below for why the chord cannot live in Gamepad++. Setup, required Nexus files and the `bGamepadEnable` INI trap are in [`arch-docs/zenderal-controller-setup.md`](arch-docs/zenderal-controller-setup.md). **Credit SureAI on any mod page** — this redistributes a modified copy of their script |
+| `LearningBooks` → `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` | `800` MGEF `ZP_LearningPointGrantME`, `801` MGEF `ZP_CraftingPointGrantME`, `802` MSG `ZP_sCraftingPointGained`. Inverts every learning/crafting book: instead of spending a point to raise a skill (redundant — `EGO SE - Leveling Redone` provides the spend path), each book **GRANTS** +1 of its currency on read — 48 `_00E_Lehrbuch*To*` → Lernpunkte `031ACB`, 24 `_00E_Handwerksbuch*To*` → Handwerkspunkte `085A79` — via one script (`ZP_GrantPointsOnRead`, `Points.Mod(Value)` + notification; learning reuses `_00E_MQP03_sLearningPointGained 037171`). The 72 ALCH overrides are **EGO's winning records verbatim** (prices/names kept) with only `BaseEffect` swapped, generated by `src/LearningBooks/tools/01-generate-book-overrides.py` from `reference/mods/EGO` — **never hand-edit `Ingestibles/`**; `MagicEffects/`+`Messages/` are hand-authored and survive regeneration. The generator asserts 48/24 counts, that every detached MGEF carried a spend script (incl. SureAI's `_00E_Lehrboch*` typo on the four Block books), and that exactly the 8 Conjuration/Illusion books carry EGO's `LehrbuchForbidden 001FB7` keyword — which is why **EGO is a declared master** (also engine-forces load-after-EGO, required to win). New MGEFs copied verbatim from EGO's `XionHandicraftPoints 00775D` shape. **Deliberately untouched: `_00E_Erinnerungsbuch` (+1 MEMORY point — separate currency, `TalentPoints 05BCFA` + `dragonsouls` mirror), the `Plus2*` grant books, `_00E_KnowledgeBook`, FS Apotheosis books.** This plugin OWNS the 72 ALCH records — no other Zenderal plugin may override them |
+
 > **THE ACTUAL ROOT CAUSE of "sprint speed changes don't show up in-game," found 2026-08-12 after an
 > extensive false-trail investigation: a THIRD mod, `Dynamic Sprint.esp`, overrides the exact same two
 > records** (`NPC_Sprinting_MT` `034D9C` and `AIControlledNPC_Sprinting_MT` `0F3469`) and was loading
@@ -449,6 +500,78 @@ Each patch's own ESL block. Overrides are not listed — they consume nothing.
 > impossible (it copies from `dist/` and verifies the destination), so prefer it over manual install
 > for anything under active iteration.
 
+> ### `NPCs Use Potions` STRIPS EVERY CORPSE — it will silently eat anything you distribute
+>
+> **[verified in-game 2026-08-14]** The list runs *NPCs Use Potions* (SKSE DLL + `*_NUP_DIST.ini`
+> rules), and its live settings in `zenderal/overwrite/SKSE/Plugins/NPCsUsePotions.ini` ship as:
+>
+> ```ini
+> [Removal]
+> RemoveItemsOnDeath = true
+> ChanceToRemoveItem = 90
+> MaxItemsLeftAfterRemoval = 2
+> ```
+>
+> Every dying NPC has its alchemy items culled — each item faces a **90% removal roll**, and at most
+> **2 survive**. NUP does this on a **worker thread** (`Started RemoveItemsHandler`,
+> `[TESDeathEvent] Removed item {}`), so it runs *after* anything else hooked to `TESDeathEvent`.
+>
+> **This cost a full diagnosis cycle on Ambrosia.** A single-count item cannot win that lottery
+> against the ~6 potions the same config distributes: at SPID chance **100**, on **every humanoid
+> base in the game**, Ambrosia reached **zero** corpses. The SPID log was clean and correct
+> throughout — `Registered 17/17 Items`, then `[📦] _00E_Ambrosia [ALCH:000FEC69]` on base after
+> base. Switching to `DeathItem =` did not help either: the log showed `[💀][📦]` delivering to all
+> four test corpses and the loot was still empty, because NUP's thread strips it afterwards. Only
+> `RemoveItemsOnDeath = false` made it appear, on every corpse, immediately.
+>
+> Generalise the *diagnosis*, not just the fix:
+> - **A clean SPID log does not mean the item reached the player.** SPID reports what it distributed,
+>   not what survived. Prove delivery *and* survival separately.
+> - **Test at chance 100 before tuning a chance.** It converts "is it rare?" into "does it work?" in
+>   one launch. Zero hits at 100% is proof of removal, not of bad luck.
+> - **A rare item competing with common ones is the worst case**, because the cull keeps a fixed
+>   *count*. The commons crowd out the rare even when the rare survives its own roll.
+> - NUP also has `DistributePotions = true`, and Enderal's potions live in a plugin literally named
+>   `Skyrim.esm` — which NUP's whitelist covers. So NUP is probably already handing out Enderal's
+>   restore potions on its own, which would make our three potion lines largely redundant.
+>   **Unverified** — NUP's `EnableLogging` is off; one run with it on would settle it.
+
+> **To skip to a point in Enderal's main quest, find the SetStage that Enderal's own fragment
+> already implements — do not re-author the transition.** **[verified 2026-08-09]**
+> `Zenderal - Skip The Prologue` is one `SetStage` call, because `MQ01.SetStage(130)` fires
+> `_00E_MQ01_Functions.CleanUp()`, which resets the timescale, opens the dam gate, unlocks the MQ01
+> doors, calls `Self.CompleteQuest()`, then `MQ02.Start()` + `MQ02.SetStage(10)`. MQ02 stage 10
+> (`MovePlayerAndJesparToStart`) teleports the player to `MQ02_D0_PlayersWakeUpmarker02 0C41D9` and
+> Jespar to `MQ02_D0_JesparSpawnMarker 07321F`, skips to 05:30 and chains to stage 15
+> (`WakeUpPlayer`) for the fade-in and the get-up idle. The earlier version of this patch walked
+> MQ01→MQ02→MQ03→MQ04 by hand for the same reason and only needed the first line of it.
+>
+> Three things that follow, all of which are cheaper to read here than to rediscover:
+> - **Quests can start themselves off dialogue.** `NQ41` *"Arcane Fever"* needs no property, no
+>   `Start()` and no stage: `TIF__000C3FE4`, on Jespar's first camp topic (`MQ02_D0_4b 0C3FD6`),
+>   calls `NQ41.SetStage(5)`. Likewise the class — MQ02's later Jespar topics (`146654`, `14664F`)
+>   set `iPlayerClass` and call `GivePlayerSkillbook()`, so pre-setting it double-grants the
+>   starting skillbooks. Grep the `TIF__*` fragments for the quest before writing any of it yourself.
+> - **Arcane Fever is the actor value `LastFlattered`, negated.** MQ01's `BeginHeadache()` does
+>   `ModAV("LastFlattered", -15)`, so 15 fever is what a natural arrival at MQ02 carries. The fever
+>   *ability* is `_00E_MQP03_MagicFeverSpell 02506B`, added by `MQP03.StrandingCutscene()` and
+>   removed by MQ04's `FinishUp()` — present or absent tells you which side of Lishari's ritual a
+>   start point is on.
+> - **A skipped stage's side effects stay skipped, and that is sometimes correct.** `KillFinn()`
+>   never runs, so `_00E_MQ01_FinnREF 085998` stays alive at the dam camp. Do **not** "fix" that by
+>   disabling him — `CleanUp()` has that exact line commented out with `; SE: Fixes "cannot disable
+>   an object with an enable state parent"`. Carbos `08599A` is `InitiallyDisabled` and never
+>   appears at all. Faking the prologue quests into the journal is likewise wrong: `MQP01` 40,
+>   `MQP02` 75 and `MQP03` 70 all carry fragments, and `MQP03`'s is `FinishQuestAndStartMQ01`,
+>   which would restart MQ01 at stage 5.
+>
+> The player still spawns at `TeleportMarker_ArkMarket 0EAB74` and the trigger still lives in the
+> Ark market cell, because that is what keeps them out of `MQP01Home` — `MQP01` is started by a
+> trigger inside that worldspace, not by `MQ101`, whose `Fragment_332` only does
+> `MoveTo(StartMarkerRef)`. `BeginSkip()` then `MoveTo`s the camp marker before racemenu, so
+> character creation happens at the camp with **no new cell override** — placing the trigger in
+> Vyn's `01A3F5` instead would have added an exterior cell to our conflict surface for nothing.
+
 > **When a mod has two mutually exclusive upstream builds, ship two ARCHIVES of ONE ModKey — not
 > two plugins.** **[verified 2026-08-06]** johnskyrim's Relentless Sword exists as a free Nexus
 > build (6 swords) and a Patreon "ZEN" build (the same 6 plus a Zen-design pair). The user owns one
@@ -466,11 +589,15 @@ Each patch's own ESL block. Overrides are not listed — they consume nothing.
 > its additions **above** them at `0x828+`, a user swapping builds keeps every FormID — swords
 > already in a save survive. `manifest.json` allows this directly: two releases may share a `dest`.
 >
-> The cost is a duplicated YAML tree, which the build requires (it deserializes a folder). Keep it
-> honest with `src/RelentlessSwordZen/tools/build-zen-tree.ps1`, which regenerates the Zen tree
-> from the base one and **asserts** file counts, that all 8 forge recipes gate on blueprint
-> `000826`, and that no `0F46CE`/`0F46D1` Skyforge reference survived. Re-run it after **any** edit
-> to `src/RelentlessSword/`; nothing else detects the drift.
+> The cost is a duplicated YAML tree, which the build requires (it deserializes a folder), plus a
+> generator to keep the two from drifting (`build-zen-tree.ps1`, which rebuilt the Zen tree from the
+> base one and asserted file counts, blueprint gating and the absence of dead Skyforge refs).
+>
+> **This repo no longer ships that pair.** On 2026-08-16 the six-blade release and its generator
+> were removed and the Zen tree was renamed `src/RelentlessSwordPatreon/`, leaving one release that
+> requires the Patreon build. The note stays because the *shape* is the reusable part — and note the
+> two things the retirement had to preserve: the **plugin filename** (renaming it would strand every
+> sword in an existing save) and the `0x828+` allocation above the retired block.
 >
 > Verified on the built plugin: `MAST Skyrim.esm` + `MAST Enderal - Forgotten Stories.esm` (no
 > third master), HEDR 1.7, ESL flag intact, `nextObjectId 0x832`, and all 244 FormKey references
@@ -577,6 +704,27 @@ Use the `mod-deploy` skill rather than copying by hand.
 **[upstream]** Plain SSEEdit mode reads the Skyrim game folder and INI and will not see Enderal's
 plugins at all. Pass the switch yourself — there is no skill that does it for you.
 
+> **xEdit lives inside the instance now, and the release archive contains no `EnderalSEEdit.exe` —
+> you make it yourself.** **[verified 2026-08-27]** xEdit **4.1.5f** is installed at
+> `<modlistRoot>/Tools/EnderalSEEdit 4.1.5f/`, which is the exact path the Zenderal
+> `ModOrganizer.ini` "EnderalSEEdit" entry already expected (it also passes
+> `-D:"<Stock game\Data>" -enderalse`). The `.7z` from
+> [TES5Edit releases](https://github.com/TES5Edit/TES5Edit/releases) ships **only** the generic
+> per-family binaries — `xTESEdit64.exe`, `xFOEdit64.exe`, `xSFEdit64.exe`, plus `BSArch64.exe` and
+> `Edit Scripts/`. **xEdit selects its game mode from the executable's NAME**, so
+> `EnderalSEEdit.exe` and `EnderalSEEditQuickAutoClean.exe` here are plain copies of
+> `xTESEdit64.exe`. Confirmed working: the running process's window title reads
+> `EnderalSEEdit 4.1.5f x64`, and the binary carries `EnderalSE` as a recognised mode string.
+>
+> Before this, **every** `xedit`/`bsarch` path in `tools.json` pointed into
+> `C:/modding/mod-projects/claudemoddev/modlist/tools/`, **which no longer exists** — that whole
+> shared tools folder is gone. `tools.json` now points at the in-instance install. **`champollion`
+> was in that same dead folder and is still NOT installed**; its key is blanked so `Assert-Tool`
+> fails loudly. Reinstall from
+> [Orvid/Champollion releases](https://github.com/Orvid/Champollion/releases) if you need to
+> decompile a third-party `.pex` — Enderal's own scripts need no decompiler, `ScriptsEnderal.zip`
+> is real source.
+
 ### Crash logs are written to the SKYRIM SE folder, not Enderal's
 
 **[verified]** Crash Logger SSE (and the other SKSE plugin logs — `skse64.log`, `EnderalSE.log`,
@@ -625,6 +773,8 @@ different repo.
 | `arch-docs/enderal-record-patterns.md` | Record shapes that build clean and do nothing in-game |
 | `arch-docs/zenderal-curation.md` | What is actually in the list and why |
 | **[`arch-docs/magic/`](arch-docs/magic/)** | **The actual in-game value of every magic record** — load-order-winning SPEL/MGEF/ENCH/SCRL/ALCH/SHOU/GMST as JSON/CSV, with override chains, per-field diffs and recomputed spell costs. Start any magic-rebalance work here; regenerate with the `magic-extract` skill |
+| [`arch-docs/tools/spid.md`](arch-docs/tools/spid.md) | **SPID reference** — `_DISTR.ini` grammar and runtime behaviour for 7.3.x, rebuilt from upstream source. Corrects three things powerof3's [Nexus article](https://www.nexusmods.com/skyrimspecialedition/articles/6617) gets wrong |
+| **[`arch-docs/tools/spid-in-enderal.md`](arch-docs/tools/spid-in-enderal.md)** | **SPID in Enderal** — what a ported `_DISTR.ini` silently loses and why. Read before installing or authoring one: the list currently registers only **198/318** keyword entries |
 
 Per pillar: combat patches start at [`arch-docs/enderal/combat.md`](arch-docs/enderal/combat.md),
 visuals at [`visuals-and-world.md`](arch-docs/enderal/visuals-and-world.md), and anything touching
@@ -656,6 +806,88 @@ how you write a patch, all documented in [`arch-docs/EGO/`](arch-docs/EGO/):
 Before touching a record, `grep` its FormKey in
 [`arch-docs/EGO/conflict-index.md`](arch-docs/EGO/conflict-index.md); if it is listed, build your
 version from **EGO's** YAML file, not the master's.
+
+### A LIST-SHAPED record is replaced wholesale, so a late override silently deletes stock
+
+**[verified 2026-08-11]** This is the single most productive bug class found in this list so far —
+**214 entries across seven merchant chests**, every one installed, enabled and unobtainable, all
+now restored by `Zenderal - Kata Fixes.esp`. Read this before authoring any patch that touches a
+vendor chest, an NPC inventory or a leveled list.
+
+The engine does not merge a Container's `Items:`, an NPC's inventory or a LeveledItem's `Entries:`.
+**The last plugin to override the record supplies the entire list.** So when mod A adds 45 spell
+tomes to a merchant, and unrelated mod B overrides that same merchant later for its own reasons,
+A's 45 tomes are gone. This is guardrail 5 seen from the receiving end, and it is invisible: both
+mods are installed, both enabled, the merchant exists and has plenty of stock, and the items are
+simply not in the game. No log line, no missing master, nothing to notice.
+
+**`EGO SE - Leveling Redone.esp` is the list's second dominant conflict source, after EGO itself.**
+It sits at load order **138** — far later than the content mods — and overrides **50 containers**,
+carrying none of any earlier mod's additions. It cost this list 160 Apocalypse spell tomes across
+seven merchant chests, plus Kata's staves and xxOpenSpells' books.
+`Zenderal - Kata Fixes.esp` now repairs all seven. Treat any record it touches as contested.
+
+> **The load order MOVED under this analysis once already — re-read `loadorder.txt`, don't trust
+> numbers written here.** **[verified 2026-08-20]** The 2026-08-11 audit saw Apocalypse at 125 and
+> Leveling Redone at 166; the live Alpha 0.3 profile now has Leveling Redone at **138** and
+> Apocalypse at **291** — the order *flipped*, so on any chest a Zenderal patch does not override,
+> **Apocalypse's base-derived container records now win**, reverting EGO's and Leveling Redone's
+> chest work. That is exactly how the "Ora Stonehand sells deprecated *Fire Ball*/*Chain Lightning*
+> tomes" bug report happened: the rebuilt Apocalypse's Funkentanz/Torius/Steinschlag chest overrides
+> were copied from **base Enderal's** records, which directly stock `_05E_SpellBookFireBall 08564A`
+> and `_05E_SpellBookChainLightning 04DC94` — tomes teaching spells EGO renamed `*unused` with the
+> "no longer used in the Gameplay Overhaul" description (EGO deliberately dropped both from its own
+> chest overrides and never overrides those two Book records, so they keep the base "Fire Ball"
+> spaced name). The seven-chest Kata Fixes merge already covers all three chests — but the bug
+> shipped anyway because the **deployed `Zenderal - Kata Fixes.esp` was a stale 2026-08-09
+> three-chest build** (no Steinschlag override): Gabrielle (Funkentanz, covered since the first
+> build) looked fine while Ora (Steinschlag, added 2026-08-11) stayed broken. The auditor audits the
+> *serialized source*, not the deployed binary, so it reports clean over a stale deploy — after any
+> chest-merge change, verify the deployed `.esp` actually contains the new override (guardrail 7:
+> `grep -c CCSteinschlag <esp>` is enough).
+
+**Run the auditor rather than remembering this:**
+
+```
+python src/KataFixes/tools/00-audit-vendor-conflicts.py        # read-only; --all shows patched ones too
+```
+
+It reads the live load order from the MO2 profile, walks every serialized plugin under
+`reference/mods/`, and reports each list-shaped record where a later plugin drops an earlier one's
+entries — filtering out deliberate drops (see below) and what a Zenderal patch already covers.
+**It currently reports the list clean: no collateral stock loss across 1837 records.** It only sees
+what is serialized, so a silent report means "none among the trees present", **not** "none":
+decompile the mod first if you are patching near it.
+
+> **COLLATERAL vs DELIBERATE — check this before calling anything a bug.** A dropped entry is only
+> a defect if **the winner does not declare the loser as a master.** A plugin cannot make a decision
+> about records it cannot see. Leveling Redone masters only `Skyrim.esm`, FS and EGO, so it had no
+> idea Apocalypse's tomes or Kata's staves were ever in those seven chests — pure collateral. But it
+> *does* master EGO, so its Gaboff chest dropping EGO's two Gaboff-priced learning books and
+> substituting the standard cheaper ones (`00775E` at 265g for `00840A` at 400g, base Enderal's
+> `0CE135` for `00840B`) is the mod doing its job — as is stripping ~25 `_00E_Lehrbuch*` /
+> `_00E_Handwerksbuch*` skill books off Adlerauge and the Blacksmith. It is a **leveling** overhaul
+> and those are leveling items. Likewise `EGO - KataPUMB Spell Package.esp` swapping
+> `_60E_XionFireNovaMythic` for its own `_60E_XionRecitalMythic`.
+>
+> **[verified 2026-08-11]** All five of those read as "lost stock" on a naive entry diff and all five
+> are correct behaviour; the auditor's first version reported them and nearly bought a patch that
+> would have fought a rebalance mod. And note the second trap inside the collateral class: a
+> **substitution is not a deletion** — compare entry counts and read both records before patching.
+
+Two more things to get right when fixing a genuine one, both easy to get backwards:
+
+1. **Start from the WINNER's record, not the master's.** The winner's trims and value changes are
+   deliberate balance work and must be forwarded.
+2. **Re-append only entries whose FormKey suffix is the LOSER'S OWN plugin.** An entry carrying a
+   *master's* suffix that the winner lacks is the winner deliberately deleting the master's stock —
+   restoring those reverts its rebalance. Leveling Redone trims hard: it cuts Milbert from 91
+   entries to 33. `src/KataFixes/tools/01-merge-vendor-chests.py` is the worked example, and it
+   asserts every count so a mod update fails the build instead of shipping quietly.
+
+**One owner per record.** Whichever Zenderal plugin overrides a contested record owns it alone; a
+second one of ours touching it re-creates the exact bug (`Kata Fixes` is 303, `Magic Patches` 304,
+so Magic Patches would win and wipe Kata's staves). See the ownership split in the allocations table.
 
 ## How Enderal differs (and what that breaks)
 
@@ -954,6 +1186,11 @@ These are **engine-hardcoded** FormIDs — Bethesda's own code depends on them, 
   trust `tools.json` alone for this specific step. Both paths share the same
   `C:\Users\frien\AppData\Local\Enderal Special Edition\Plugins.txt` load order, confirming the Steam
   folder is the real live target MO2's USVFS overlays onto when launched normally.
+  **The reliable defence is to stop relying on the tool's remembered path at all: pass
+  `-D:"<data dir>"` on the command line every time**, which is what the instance's MO2 entry does
+  (`-D:"…\Stock game\Data" -enderalse`). The paths above are from an older machine state and the
+  fresh 4.1.5f install has no remembered path yet — so set it explicitly rather than discovering
+  which folder it picked. **[verified 2026-08-27]**
 - **Enderal's cell EditorIDs are German; the display names are English.** Riverville is
   **`Flusshaim*`**, Ark is **`CapitalCity*`**, and the Sun Temple is `Suntemple*`. **[verified]**
   Searching `reference/base/*/Cells/` by the English town name returns **nothing** — grep the
@@ -1008,6 +1245,85 @@ These are **engine-hardcoded** FormIDs — Bethesda's own code depends on them, 
   rebase conflict in `CLAUDE.md`. Use the Edit tool for surgical text changes, or `git checkout` the
   file and redo them; if you must script it, read and write with an explicit
   `[System.Text.UTF8Encoding]::new($false)` rather than the `-Encoding utf8` shorthand.
+- **`bGamepadEnable` lives in `[MAIN]` of `EnderalPrefs.ini`, not `[Controls]` — and the list ships
+  it `=0`.** **[verified in-game 2026-08-16]** The launcher-style `[Controls]` placement is ignored;
+  the game-written INI puts the setting in `[MAIN]` (next to `bSaveOn*`/`bCrosshairEnabled`), and
+  only a value there takes effect. Bethesda's INI reader is section-scoped, so a right-named key in
+  the wrong section fails silently. Three companion facts from the same diagnosis: (1) the **live**
+  INI is the MO2 profile's copy (`profiles/<profile>/EnderalPrefs.ini`, `LocalSettings=true`), and it
+  wins even through PrivateProfileRedirector — proven by A/B: Documents=0 + profile=1 → pad works;
+  (2) engine 1.5.97 is one-input-at-a-time (gamepad mode locks out the mouse and vice versa) — the
+  *Auto Input Switch* SKSE mod is the switcher, and its current Nexus build is AE-only, rejected by
+  SKSE 2.0.20 as `does not appear to be an SKSE plugin` (no `SKSEPlugin_Query` export — the quick
+  binary test for any DLL); a 1.5.97 build exists in the mod's old files / the mod-166519 backport;
+  (3) an XInput pad's health is testable outside the game — poll `XInputGetState` slot 0 from
+  PowerShell before blaming the game. Controller stack in the list: Complete Controller Setup's
+  `controlmap.txt` wins the 3-way conflict (over Gamepad++ and Modern Toggle Walk-Run Fix), and its
+  eight required mods are all present. Two follow-up fixes live as in-place edits that a mod
+  reinstall reverts: CCS's controlmap has `Quick Stats`' gamepad combo (B+DpadUp) unbound → `0xff`
+  (it opened Skyrim's vanilla perk starfield, which Enderal never uses), and **SkyUI's gamepad sort
+  bindings are NOT in any MCM — they live in `interface\skyui\config.txt`, whose winning copy is
+  Dear Diary Dark Mode's**, edited to CCS's scheme (prevColumn 274→280 LT, nextColumn 275→281 RT,
+  sortOrder 272→273 R3) so RB-equip and L3-drop stop re-sorting the item list. Third file in that
+  mod: a recompile of **SureAI's `_00E_Game_SkillmenuSC`** binding **B + D-pad-Up → Hero Menu, B →
+  close** (four `; ZP`-marked additions: `ZP_iGamepadModifier` 277/B, `ZP_iGamepadOpenKey` 266/D-pad
+  Up, a held-flag, an `OnKeyUp` event, two `RegisterForKey` calls, and the chord in the existing
+  `OnKeyDown`). **A GAMEPAD CHORD MUST LIVE IN A SCRIPT THAT STAYS REGISTERED — do not route one
+  through Gamepad++.** **[verified in-game 2026-08-16, the expensive way]** Gamepad++ *can* emulate
+  a keyboard key on a combo (`Input.HoldKey`) and it works in gameplay, but it **goes inert while
+  any menu is open**, so nothing it binds can ever *close* a menu — the Hero Menu could only be
+  shut with Esc. (Its `OnMenuOpen` guard `if !MenuName == "FavoritesMenu"` *looks* like a
+  precedence bug that would keep it live; the observed behaviour says otherwise, so trust the
+  test.) Two further reasons the script is the right home: Gamepad++ **stores its bindings IN THE
+  SAVE**, reloading its `.gppd` only via MCM → Info → "Reset to Defaults" — so editing that file
+  changes nothing in an existing save, and a distributed list would need every user to press it —
+  and the script route needs no MCM step at all. If you ever do edit a `.gppd`, note its JSON order
+  is **[single, double, triple, LONG press] per D-pad direction**, not the Papyrus array's index
+  order (`i*4 + iMultiTap`) — read `gpp_mcm_combo_one.psc`'s `saveData()` first. Enderal's other
+  script hotkeys (Meditate, Phasmalist teleport, Horseflute) are listed in `_00e_enderalmcm.psc`
+  and can take the same treatment; **`_00E_Game_SkillmenuSC` compiles clean from SureAI's source**
+  with the standard three-tree `-i` order, and `UIExtensions`/`UIListMenu` are already inside
+  `reference/base/EnderalScripts`. Note there is **no free gamepad button** left in this layout to
+  bind Enderal's MCM hero-menu key to instead: X is Wheeler's `toggleWheel`, LT is Dual Wield
+  Parrying, and the four D-pad long-presses are Stances (`[ ] ; '` = 26/27/39/40). Also: CCS ships
+  its own `gpp_keyhandler.pex`/`gpp_mcm_*.pex` that **override Gamepad++'s** — diffing the `.pex`
+  string tables shows the only change is the version-nag `Debug.MessageBox` calls stripped, so
+  Gamepad++'s `.psc` source is still accurate for reading. **`.pex` is BIG-ENDIAN** — a
+  little-endian string-table reader fails immediately.
+- **`OnHit`'s second parameter is the hit SOURCE, not a weapon — and a modern combat
+  framework makes it a Spell on every single blow.** **[verified in-game 2026-08-28, after
+  four wrong diagnoses]** The signature reads `OnHit(ObjectReference akAggressor, Form akWeapon,
+  Projectile akProjectile, …)`, but that `Form` is a `Weapon` for a swing and a **`Spell`** for a
+  magic hit. Any script testing it as *"the source exists and is not X"* therefore fires on every
+  spell that lands. Enderal's brawl script does exactly that:
+
+  ```papyrus
+  if akProjectile || (akWeapon && akWeapon != UnarmedWeapon)   ; "the player swung a weapon"
+      pPlayer.RemoveFromFaction(DGIntimidateFaction)
+      pActor.RemoveFromFaction(DGIntimidateFaction)
+      pActor.StopCombat()  /  SendAssaultAlarm()  /  StartCombat(pPlayer)
+      GetOwningQuest().SetStage(150)
+  ```
+
+  `For Honor Reforged` casts `HitFrameTriggerSpell 000803` at the target on **every landed hit**
+  (`ReforgedParryController`'s unconditional `ApplyCombatHitSpell` entry), plus
+  `Parry Knockdown Spell 000836`, `ParryStaggerKnockdownSpell 0008B1` and `SP_Stagger_Parry 00082F`
+  on a parry — and **none of those effects carries the `NoHitEvent` flag**, so `OnHit` fires. Result:
+  the brawl ran its full "you cheated" teardown on every punch, and the `StopCombat()`/`StartCombat()`
+  pair restarted combat on an **Essential** actor, snapping her health back to full. Fix is a type
+  check: `akWeapon as Weapon` is `None` for a spell. Three things to generalise:
+  - **`NoHitEvent` on an MGEF is what stops a marker spell reaching `OnHit`.** Auditing a combat
+    mod's spells for its *absence* is the fast way to find which of them will trip host scripts;
+    `MagicEffect.IsEffectFlagSet` and the serialized `Flags:` list both show it.
+  - **A parry/block payload fires in FIRST person too**, because blocking is a shared behaviour —
+    unlike an OAR move-set, which is third-person only. "It only happens in third person" is
+    therefore evidence about *move-sets*, not about the whole framework, and reading it as the
+    latter cost a whole diagnosis here.
+  - **Take the player's animation report literally.** "The animation for going from normal to fists
+    ready was playing" *was* the `StopCombat`→`StartCombat` round trip, and it identified the guilty
+    function faster than four passes over the records did. An actor visibly leaving and re-entering
+    combat means something called those two.
+
 - **`E - Update.bsa` loads last and wins.** When a record or asset doesn't look like the one you
   found in `E - Meshes.bsa`, check `E - Update.bsa` before concluding your patch is wrong.
 - **Don't give a patch you author a DLC master** — there is nothing in the stubs to reference. But

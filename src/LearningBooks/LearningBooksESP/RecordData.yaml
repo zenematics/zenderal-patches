@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Learning Books Grant Learning Points.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Every Enderal learning and crafting book GRANTS 1 point of its currency when read, instead
+    of spending a point to raise a skill (EGO SE - Leveling Redone provides the skill-raising
+    path). Memory books untouched. Overrides EGO's 72 book records verbatim, changing only the
+    consume effect. Requires and loads after Enderal SE - Gameplay Overhaul.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  INTV: 1
