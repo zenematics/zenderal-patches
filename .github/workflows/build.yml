@@ -1,17 +1,15 @@
 name: Build & Package
 
 # Builds every Zenderal patch archive listed in build/manifest.json from its Spriggit YAML and
-# committed .pex, on every push to main and on version tags. Papyrus is NOT compiled here — the
-# .pex are committed (recompile + commit locally when a .psc changes; see README "CI build").
+# committed .pex. MANUAL ONLY — nothing triggers it automatically. Run it from the Actions tab
+# ("Run workflow") or with `gh workflow run build.yml --ref main`. Dispatched on main it publishes a
+# timestamped build-* pre-release that /github-release promotes; dispatched on a v* tag it cuts that
+# named release itself. Papyrus is NOT compiled here — the .pex are committed (recompile + commit
+# locally when a .psc changes; see README "CI build").
 # An empty manifest builds nothing and still succeeds; the release steps below are skipped.
 
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'arch-docs/build-report.md'   # loop guard: the report commit must not re-trigger
-    tags:
-      - 'v*'
+  workflow_dispatch:
 
 permissions:
   contents: write   # commit build-report.md back to main; create Releases (timestamped on main, v* on tags)

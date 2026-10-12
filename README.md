@@ -335,8 +335,10 @@ itself the signal to give it a FOMOD.
 
 ## CI build & release (GitHub Actions)
 
-`.github/workflows/build.yml` rebuilds every release archive on each push to `main` (publishing them
-to a **timestamped pre-release**), and cuts a named GitHub Release when you push a `v*` tag. It runs
+`.github/workflows/build.yml` is **manual only** — pushes do not trigger it. Run it from the Actions
+tab ("Run workflow") or with `gh workflow run build.yml --ref main`. Dispatched on `main` it rebuilds
+every release archive and publishes them to a **timestamped pre-release**; dispatched on a `v*` tag it
+cuts that named GitHub Release itself. It runs
 on a free `windows-latest` runner and is driven by **`build/build.ps1`** + **`build/manifest.json`**.
 The build script contains no patch-specific names — everything it builds comes from the manifest, so
 adding a patch means editing JSON, not PowerShell.

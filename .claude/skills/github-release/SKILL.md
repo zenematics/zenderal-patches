@@ -26,8 +26,9 @@ GitHub replaces spaces with dots in uploaded asset filenames, so a manifest `arc
 
 ## Background: how CI releases work
 
-Every push to `main` triggers a GitHub Actions build that publishes a **pre-release** tagged
-`build-<UTCtimestamp>` (e.g. `build-20260724-202103`) carrying every release archive as an asset.
+The GitHub Actions build (`.github/workflows/build.yml`) is **manual only** — pushes do not trigger
+it. Dispatched on `main` it publishes a **pre-release** tagged `build-<UTCtimestamp>` (e.g.
+`build-20260724-202103`) carrying every release archive as an asset. Step 3 dispatches it.
 
 A versioned release (`vX.Y.Z`) is a curated, permanent **Latest** release that reuses the assets
 from the most recent matching `build-*` pre-release. Those `build-*` pre-releases are throwaway —
@@ -59,9 +60,17 @@ care whether the main mod moved or whether this is a patches-only release.
   `gh api "repos/$REPO/git/refs/tags/<buildTag>" --jq '.object.sha'`
 - Confirm that commit's **tree** matches what you're releasing. `main` may sit one or two docs-only
   commits ahead (e.g. `ci: update build report [skip ci]` touching `arch-docs/build-report.md`) —
-  that's fine; the payload is identical. If real source changed after the last build, tell the user
-  the assets are stale and offer to wait for / trigger a fresh CI build rather than shipping old
-  binaries.
+  that's fine; the payload is identical.
+- If there is **no** `build-*` pre-release, or real source changed after it, dispatch a fresh build
+  and wait for it (CI never builds on its own):
+
+  ```bash
+  gh workflow run build.yml -R "$REPO" --ref main
+  sleep 5; RUN=$(gh run list -R "$REPO" --workflow build.yml --limit 1 --json databaseId --jq '.[0].databaseId')
+  gh run watch "$RUN" -R "$REPO" --exit-status
+  ```
+
+  The run also commits `ci: update build report [skip ci]` to `main` — `git pull --ff-only` after it.
 - Download the assets to a scratch dir:
   `gh release download <buildTag> -R "$REPO" --clobber`
 

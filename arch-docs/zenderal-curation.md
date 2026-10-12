@@ -413,8 +413,9 @@ entry saves someone a test cycle.
 
 ## Release process
 
-Patches are built and released from this repo, not from the modlist. `main` produces rolling
-pre-release archives on every push; a `vX.Y.Z` tag cuts a named release. See README →
+Patches are built and released from this repo, not from the modlist. The CI build is run by hand
+(`gh workflow run build.yml --ref main`) and publishes a timestamped pre-release; `/github-release`
+promotes its archives into a named `vX.Y.Z` release. See README →
 "CI build & release" and the `/github-release` skill.
 
 When the list ships a new version, note **which patch release it pins** — a modlist referencing
