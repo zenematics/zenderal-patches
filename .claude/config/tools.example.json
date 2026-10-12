@@ -46,6 +46,8 @@
   "_cao_help": "Cathedral Assets Optimizer .exe - mesh/texture optimization, relevant to the visuals pillar. Reference key; no skill wraps it yet.",
   "nifskope": "",
   "_nifskope_help": "NifSkope.exe - .nif mesh viewer/editor. Reference key; no skill wraps it yet.",
+  "pynifly": "",
+  "_pynifly_help": "The io_scene_nifly folder unzipped from a PyNifly release (github.com/BadDogSkyrim/PyNifly, V29.1.0 used). Headless LE->SE NIF conversion; first arg of src/FrostAtronachSEFix/tools/01-convert-frost-atronach.py.",
   "bae": "",
   "_bae_help": "bae.exe (Beth Archive Extract) - alternate .bsa extractor. Reference key; `bsa-extract` uses `bsab`.",
 
