@@ -1,0 +1,29 @@
+; Custom Skills Framework tree for Zenderal - Prophecy.
+; Format: meh321's NetScriptFramework CSF / Exit-9B CSF v2 (both read Data/NetScriptFramework/Plugins/CustomSkill.<id>.config.txt).
+Name = "Prophecy"
+Description = "What is written can be read - and rewritten."
+LevelFile = "Zenderal - Prophecy.esp"
+LevelId = 0x800
+RatioFile = "Zenderal - Prophecy.esp"
+RatioId = 0x801
+PerkPointsFile = "Zenderal - Prophecy.esp"
+PerkPointsId = 0x802
+ShowMenuFile = "Zenderal - Prophecy.esp"
+ShowMenuId = 0x803
+
+Node0.Enable = True
+Node0.PerkFile = ""
+Node0.PerkId = 0x0
+Node0.X = 0
+Node0.Y = 0
+Node0.GridX = 2
+Node0.GridY = 0
+Node0.Links = 1
+
+Node1.Enable = True
+Node1.PerkFile = "Zenderal - Prophecy.esp"
+Node1.PerkId = 0x804
+Node1.X = 0
+Node1.Y = 0
+Node1.GridX = 2
+Node1.GridY = 1

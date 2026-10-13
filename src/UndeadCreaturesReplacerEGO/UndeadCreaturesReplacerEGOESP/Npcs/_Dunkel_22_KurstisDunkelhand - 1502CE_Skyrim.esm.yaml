@@ -1,0 +1,194 @@
+FormKey: 1502CE:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _Dunkel_22_KurstisDunkelhand
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 240
+  - Name: masterambushscript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ambushOnTrigger
+      Data: True
+    - MutagenObjectType: ScriptBoolProperty
+      Name: helpAlliesOnTrigger
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: linkKeyword
+      Object: 02F472:Enderal - Forgotten Stories.esm
+ObjectBounds:
+  First: -26, -18, 0
+  Second: 26, 18, 149
+Configuration:
+  Flags:
+  - Unique
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 22
+  CalcMaxLevel: 100
+  SpeedMultiplier: 100
+  HealthOffset: -650
+Factions:
+- Faction: 005104:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 03C755:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 03AD7F:Skyrim.esm
+Voice: 01F1CD:Skyrim.esm
+Race: 0131EF:Skyrim.esm
+ActorEffect:
+- 001E21:Enderal SE - Gameplay Overhaul.esp
+- 001EBD:Enderal SE - Gameplay Overhaul.esp
+- 001EBE:Enderal SE - Gameplay Overhaul.esp
+- 101064:Skyrim.esm
+WornArmor: 03B5AB:Skyrim.esm
+AttackRace: 0131EF:Skyrim.esm
+Perks:
+- Perk: 001E9B:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 02F242:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 0028E4:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 034922:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0D93F2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0EB423:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  AggroRadiusBehavior: True
+  Attack: 600
+Packages:
+- 025BFC:Skyrim.esm
+Keywords:
+- 090CA9:Skyrim.esm
+Class: 023C0E:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Krustis Darkhand
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 5
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 45
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 5
+  - Key: Illusion
+    Value: 5
+  - Key: Restoration
+    Value: 5
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 70
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 1000
+  Magicka: 200
+  GearedUpWeapons: 1
+CombatStyle: 0BB365:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 0365C8:Skyrim.esm
+DefaultOutfit: 001D90:Enderal SE - Gameplay Overhaul.esp
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

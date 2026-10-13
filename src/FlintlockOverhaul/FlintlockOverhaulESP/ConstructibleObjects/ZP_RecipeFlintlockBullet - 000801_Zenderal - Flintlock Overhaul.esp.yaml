@@ -1,0 +1,9 @@
+FormKey: 000801:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_RecipeFlintlockBullet
+Items:
+- Item:
+    Item: 05ACE4:Skyrim.esm
+    Count: 1
+CreatedObject: 000800:Zenderal - Flintlock Overhaul.esp
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 5

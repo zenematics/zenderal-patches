@@ -309,6 +309,7 @@ Four things worth not rediscovering:
 | Mod | Version | Why | Patch | Notes |
 |---|---|---|---|---|
 | Pretty Enderal Armory set (11 plugins: Common, Semi-Unique, Unique, Mages, Factions, Pyrean, Holy Order, Holy Order Grandmaster, Clothing, Backpacks, Armory - Fixes) + 5 asset-only parts (Aeterna, Companions, Righteous Path, Rune, Starling) | — | Modern visuals for Enderal's own armour, weapons and clothing. | **PrettyArmoryEGO** → `Zenderal - Pretty Armory EGO Patch.esp` | The 11 plugins load after EGO and were authored against vanilla Enderal, so 140 of the 144 records they share with EGO silently reverted EGO's armour ratings, weapon damage/crit/speed, prices, weights, enchantments, armour types (EGO's robes-as-Clothing came back as light armour) and keywords — and on Tealor and four MQ07a Pyrean soldiers, EGO's perks/skills/combat styles. They also reverted 12 Enderal SE - Bug Fixes values and AOS footsteps on 2 boots. The patch (141 generated overrides) keeps every Pretty mesh/armature/outfit and forwards those gameplay fields; it also replaces 3 Pretty Unique weapon descriptions that ship as mis-encoded Russian. Visual replacers Pretty already beats (Unique Amulet Replacer, Guard Armor Replacer Falconer) are deliberately left losing — the look is unchanged. The asset-only parts carry no plugin and need no patch. `Pretty Unique Sets` ships its own older `Pretty Pyrean Armory.esp`, overwritten by the `Pretty Pyrean Armory` mod folder. Verified build, not yet verified in game. |
+| Guard Armor Replacer Falconer (Enderal Nexus 556) + Falconer Armor SE (62871) | 1.0.0.0 | Dresses Enderal's city guards in Falconer armor by repointing four ARMAs | `Zenderal - Guard Falconer Patch.esp` | Pretty Factions Armory reverted the cuirass addon `0EB250` and swapped the helmet in outfit `046ECE`, so guards wore Falconer boots/helmet over Enderal's haubergeon. Pretty Common Armory also reverts the gloves addon `0A6D7C`, deliberately left alone: guard outfits carry no gauntlets, and that addon is Heavy Leather Gauntlets for everyone |
 
 ### Rejected
 
@@ -343,6 +344,12 @@ tell you.
 
 **Patches from this repo load last**, after everything they forward, or they are not forwarding
 anything. See `enderal-record-patterns.md` §0.1.
+
+### Asset (left-pane) priorities
+
+| Mod | Must win over | Because |
+|---|---|---|
+| `Ingredients` (Pfuscher, Nexus 40777) | `High Poly Project`, `Static Mesh Improvement Mod`, `Ruins Clutter Improved SE` | Its 13 ingredient meshes put salts/powders in pottery bowls. Sorted below them, it lost every file (3 salts to HPP, 10 meshes to SMIM, 2 textures to RCI): Fire/Frost/Void Salts showed as bare piles with no bowl (reported 2026-10-12). Moved directly above HPP in `modlist.txt` (Alpha 0.5); **verified in game 2026-10-12** on Fire Salts. Those 15 files are its only overlaps. |
 
 ## Required third-party settings
 

@@ -1,0 +1,201 @@
+FormKey: 04C410:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _05E_Bandit07Ranged
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 50
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Respawn
+  MagickaOffset: 10
+  StaminaOffset: 30
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 5
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 24
+Factions:
+- Faction: 014C6F:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 14CE97:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 02F32B:Enderal - Forgotten Stories.esm
+Voice: 096858:Skyrim.esm
+Race: 013744:Skyrim.esm
+Perks:
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 001DB5:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 04C982:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 000838:AdventurerFlintlockPack.esp
+    Count: 1
+- Item:
+    Item: 000800:Zenderal - Flintlock Overhaul.esp
+    Count: 10
+AIData:
+  Aggression: Aggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Mood: Angry
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 1400
+  WarnOrAttack: 1200
+  Attack: 1000
+Packages:
+- 01B217:Skyrim.esm
+Class: 015BE7:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Highwayman
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 25
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 21
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 23
+  - Key: Illusion
+    Value: 25
+  - Key: Restoration
+    Value: 18
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 5
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 12
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 12
+  - Key: LightArmor
+    Value: 12
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 34
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 118
+  Magicka: 80
+  Stamina: 77
+  GearedUpWeapons: 1
+HeadParts:
+- 02425C:Skyrim.esm
+- 0C716E:Skyrim.esm
+- 0CDDA9:Skyrim.esm
+- 0DFC01:Skyrim.esm
+HairColor: 0A0433:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 014F7C:Skyrim.esm
+TextureLighting: '#00706156'
+FaceMorph:
+  NoseLongVsShort: -0.36
+  JawNarrowVsWide: 0.4
+  EyesUpVsDown: -0.4
+  EyesInVsOut: 0.4
+  BrowsUpVsDown: -0.4
+  LipsUpVsDown: 0.4
+  LipsInVsOut: 0.4
+  ChinNarrowVsWide: -0.4
+  ChinUpVsDown: 0.4
+FaceParts:
+  Nose: 14
+  Eyes: 17
+  Mouth: 14
+TintLayers:
+- Index: 2
+  Color: '#00212B52'
+  InterpolationValue: 0.34
+  Preset: 75
+MajorFlags:
+- 0x40000

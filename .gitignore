@@ -112,3 +112,5 @@ __pycache__/
 
 # LibreOffice/OpenOffice lock files
 .~lock.*#
+!src/Prophecy/Scripts/compiled/
+!src/Prophecy/Scripts/compiled/*.pex

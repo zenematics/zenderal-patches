@@ -1,0 +1,19 @@
+FormKey: 000808:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_FlintlockShot_StarlingFlintlockPistol
+Name:
+  TargetLanguage: English
+  Value: Refined bullet
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.7
+Effects:
+- BaseEffect: 000802:AdventurerFlintlockPack.esp
+  Data:
+    Magnitude: 24.0
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 1

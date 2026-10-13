@@ -1,0 +1,33 @@
+FormKey: 000803:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_FlintlockAmmoQuest
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000803:Zenderal - Flintlock Overhaul.esp
+      Alias: 0
+    Scripts:
+    - Name: ZP_FlintlockAmmoPlayerScript
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: ZP_FlintlockWeapons
+        Object: 000802:Zenderal - Flintlock Overhaul.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: ZP_FlintlockBullet
+        Object: 000800:Zenderal - Flintlock Overhaul.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: ZP_FlintlockArcheryScaling
+        Object: 00080D:Zenderal - Flintlock Overhaul.esp
+Flags:
+- StartGameEnabled
+- RunOnce
+NextAliasID: 1
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

@@ -5,6 +5,8 @@ reproduced from a working install. Three mods off Nexus, one INI value, and one 
 from this repo carrying the Enderal-specific tweaks — everything Wabbajack-compilable, nothing
 edited inside third-party mods.
 
+> **Update 2026-10-13:** Alpha 0.5 and 0.5.1 ship `bGamepadEnable=1`, with Auto Input Switch 1.1.2 (which loads on 1.5.97) switching between mouse and pad. Sections 1 and 5 below describe the earlier `=0` default.
+
 ## 1. Why this needs care on Enderal
 
 1. **The list ships the gamepad disabled.** `EnderalPrefs.ini` carries `bGamepadEnable=0` — and

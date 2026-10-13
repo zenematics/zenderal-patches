@@ -1,0 +1,12 @@
+FormKey: 00F5B8:OrdoLegionisMuskets.esp
+EditorID: OLM_WPNBlunderbussFire
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\OLM\OL_Musket\bbussfire2.wav
+- data\Sound\fx\olm\ol_musket\bbussfire2.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 4

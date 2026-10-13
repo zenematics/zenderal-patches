@@ -1,0 +1,588 @@
+{
+ "005102:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "014F7D:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "014F82:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "01F1A8:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "01F90F:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "020A56:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02A1BA:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02A4B4:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02DE35:Enderal - Forgotten Stories.esm": [
+  "AdventurerFlintlockPack.esp"
+ ],
+ "02EDB2:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F434:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F435:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F438:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F43B:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F43E:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F441:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F444:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F482:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F4BA:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F4BB:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F514:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F553:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F560:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F622:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "02F623:Enderal - Forgotten Stories.esm": [
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0366F0:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "036A1E:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "036A1F:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "03E17F:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "04459F:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "Undead Creatures Replacer.esp",
+  "Zenderal - Undead Creatures Replacer EGO Patch.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "044E8C:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "044E92:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0450AA:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0450AD:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0458AF:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0458B6:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "046D84:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "047D76:Skyrim.esm": [
+  "Skyrim.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "04838A:Skyrim.esm": [
+  "Skyrim.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "04C410:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "04CB63:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0672C0:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0672CC:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "069844:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "06C934:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "07FA86:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "080C77:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "080C78:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "095D16:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "095D18:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "095DB1:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "098D27:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "09AC22:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "0A33E8:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0A5EC2:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B55DA:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B55E7:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B55E8:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B55F0:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B55F2:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B55FB:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B5C65:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0B5C6F:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0C46D1:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0CAF97:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0CE133:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0D914A:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0D9427:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F7705:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F7706:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F770D:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F7712:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F7725:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F7728:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F7729:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F930A:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0F930B:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0FE155:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "0FE16E:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "102ACC:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "102AD0:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "103F41:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "10A873:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "11A6B8:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "11B0EC:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "11B160:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "11B1DB:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "1274A4:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "12912D:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "1294B9:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "1294D3:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "129536:Skyrim.esm": [
+  "Skyrim.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "129537:Skyrim.esm": [
+  "Skyrim.esm",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "129776:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "129778:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "133264:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "133D19:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "1356D8:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "13570A:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "135776:Skyrim.esm": [
+  "Skyrim.esm",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "13C1A4:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp",
+  "Enderal SE - Crossbows.esp"
+ ],
+ "13E7D0:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "13F15F:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "13FB05:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ],
+ "1401A4:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Bug Fixes.esp",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "Leveling Redone.esp",
+  "EGO SE - Leveling Redone.esp",
+  "Undead Creatures Replacer.esp",
+  "Zenderal - Undead Creatures Replacer EGO Patch.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "14969F:Skyrim.esm": [
+  "Skyrim.esm",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "14B747:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "14BDF3:Skyrim.esm": [
+  "Skyrim.esm",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "14BF0C:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "14BF31:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "EGO - KataPUMB Spell Package.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "14DA48:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal - Forgotten Stories.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "AdventurerFlintlockPack.esp"
+ ],
+ "15025C:Skyrim.esm": [
+  "Skyrim.esm",
+  "Enderal SE - Gameplay Overhaul.esp",
+  "OrdoLegionisMuskets.esp"
+ ]
+}

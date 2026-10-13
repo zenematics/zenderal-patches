@@ -24,10 +24,29 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`BakaHeroMenu`](BakaHeroMenu.md) | *(no plugin — `SKSE/Plugins/BakaHeroMenu.dll`)* | _(none)_ |
 | [`TrueHUDCombatIcons`](TrueHUDCombatIcons.md) | *(no plugin — `SKSE/Plugins/ZenTrueHUDCombatIcons.dll` + configs)* | _(none)_ |
 | [`FrostAtronachSEFix`](FrostAtronachSEFix.md) | *(no plugin — converted meshes, MO2 mod `Zenderal - Frost Atronach SE Fix`)* | _(none)_ |
-| [`PrecisionLiftFix`](PrecisionLiftFix.md) | **SUPERSEDED by `PrecisionFork`** *(no plugin — converted `actors/atronachfrost/character assets/skeleton.nif` + diagnostic `SKSE/Plugins/ZenPrecisionLiftFix.dll`, MO2 mod `Zenderal - Precision Lift Fix`)* | _(none)_ |
-| [`PrecisionFork`](PrecisionFork.md) | *(rebuilt `Precision.dll` + `Precision_ZenderalFixes.ini`, MO2 mod `Zenderal - Precision Fork`, sorted directly ABOVE `Precision`)* | _(none)_ |
+| [`PrecisionLiftFix`](PrecisionLiftFix.md) | **RETIRED 2026-10-13**, was *(no plugin — converted `actors/atronachfrost/character assets/skeleton.nif` + diagnostic `SKSE/Plugins/ZenPrecisionLiftFix.dll`, MO2 mod `Zenderal - Precision Lift Fix`)* | _(none)_ |
+| [`PrecisionFork`](PrecisionFork.md) | **RETIRED 2026-10-13**, was *(rebuilt `Precision.dll` + `Precision_ZenderalFixes.ini`, MO2 mod `Zenderal - Precision Fork`, sorted directly ABOVE `Precision`)* | _(none)_ |
 | [`ZenTraitsFixes`](ZenTraitsFixes.md) | *(no plugin — one recompiled script)* | _(none)_ |
 | [`LearningBooks`](LearningBooks.md) | `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` |
 | [`MCODirectionalPowerAttacks`](MCODirectionalPowerAttacks.md) | `Zenderal - MCO Directional Power Attacks.esp` | none (overrides only) |
 | [`PrettyArmoryEGO`](PrettyArmoryEGO.md) | `Zenderal - Pretty Armory EGO Patch.esp` | none (overrides only) |
 | [`ArkMyradPlatformFix`](ArkMyradPlatformFix.md) | `Zenderal - Ark Myrad Platform Fix.esp` | none (overrides only) |
+| [`ArkMarketTreeFix`](ArkMarketTreeFix.md) | `Zenderal - Ark Market Tree Fix.esp` | none (overrides only) |
+| [`EppiRivervilleStatues`](EppiRivervilleStatues.md) | `Zenderal - EPPI Riverville Statues Patch.esp` | none (overrides only) |
+| [`FeverDeathLatchFix`](FeverDeathLatchFix.md) | *(no plugin — one recompiled script)* | _(none)_ |
+| [`UndeadCreaturesReplacerEGO`](UndeadCreaturesReplacerEGO.md) | `Zenderal - Undead Creatures Replacer EGO Patch.esp` | none (overrides only) |
+| [`EnderalTextureRestores`](EnderalTextureRestores.md) | *(no plugin — loose textures, MO2 mod `Zenderal - Enderal Texture Restores`)* | _(none)_ |
+| [`PrettyFemaleMeshRestores`](PrettyFemaleMeshRestores.md) | *(no plugin — loose meshes, MO2 mod `Zenderal - Pretty Female Mesh Restores`)* | _(none)_ |
+| [`TerrainTextureSetFix`](TerrainTextureSetFix.md) | `Zenderal - Terrain Texture Set Fix.esp` | none (overrides only) |
+| [`MissingParallaxHeights`](MissingParallaxHeights.md) | *(no plugin — loose textures, MO2 mod `Zenderal - Missing Parallax Heights`)* | _(none)_ |
+| [`ArkWallCurbFix`](ArkWallCurbFix.md) | *(no plugin — Enderal's original meshes, MO2 mod `Zenderal - Ark Wall Curb Fix`)* | _(none)_ |
+| [`ApocalypseNaviFix`](ApocalypseNaviFix.md) | *(HOTFIX — rebuilt `Apocalypse - Magic of Skyrim.esp`, MO2 mod `Zenderal - Apocalypse NAVI Fix`)* | _(none)_ |
+| [`Prophecy`](Prophecy.md) | `Zenderal - Prophecy.esp` + 2 scripts + `NetScriptFramework/Plugins/CustomSkill.Prophecy.config.txt` | `0x800–0x807` |
+| [`ImprovedCameraSheatheFix`](ImprovedCameraSheatheFix.md) | *(no plugin — `SKSE/Plugins/ZenICSheatheFix.dll`)* | _(none)_ |
+| [`HorseCloakFluffFix`](HorseCloakFluffFix.md) | `Zenderal - Horse Cloak Fluff Fix.esp` + 2 generated meshes | none (overrides only) |
+| [`DintHairs`](DintHairs.md) | *(rebuilt third-party plugins, MO2 mods `[Dint999] BDOR Hairs - Hairs Only` / `[Dint999] HairPack02 - Hairs Only`)* | _(none)_ |
+| [`GuardFalconer`](GuardFalconer.md) | `Zenderal - Guard Falconer Patch.esp` | none (overrides only) |
+| [`MoonsteelPretty`](MoonsteelPretty.md) | `Zenderal - Moonsteel Pretty Patch.esp` + 2 loose meshes | none (overrides only) |
+| [`FlintlockOverhaul`](FlintlockOverhaul.md) | `Zenderal - Flintlock Overhaul.esp` + `ZP_FlintlockAmmoPlayerScript.pex` + `Zenderal - DAR Rifles Recipes Off.esp` + `_KID.ini` + Wheeler icons | `0x800–0x813` |
+| [`DragonPriestStaffSwap`](DragonPriestStaffSwap.md) | *(no plugin — loose meshes, MO2 mod `Zenderal - Dragon Priest Staff Swap`)* | _(none)_ |
+| [`StaffDrawFix`](StaffDrawFix.md) | *(no plugin — OAR submod, MO2 mod `Zenderal - Staff Draw Fix`)* | _(none)_ |

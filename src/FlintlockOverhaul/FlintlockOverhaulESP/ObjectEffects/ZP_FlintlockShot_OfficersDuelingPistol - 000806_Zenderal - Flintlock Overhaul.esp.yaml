@@ -1,0 +1,19 @@
+FormKey: 000806:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_FlintlockShot_OfficersDuelingPistol
+Name:
+  TargetLanguage: English
+  Value: Forged bullet
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.7
+Effects:
+- BaseEffect: 000802:AdventurerFlintlockPack.esp
+  Data:
+    Magnitude: 18.0
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.75

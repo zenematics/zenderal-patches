@@ -1,0 +1,20 @@
+FormKey: 144836:Skyrim.esm
+EditorID: NakedHorsePalominoCloakAA
+Version2: 1
+BodyTemplate:
+  FirstPersonFlags:
+  - Head
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 0131FD:Skyrim.esm
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+WorldModel:
+  Male:
+    File: Zenderal\HorseCloakFluff\HorsePalominoCloak.nif
+    Data: 0x020000000000000000000000
+FootstepSound: 05F720:Skyrim.esm

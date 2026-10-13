@@ -150,6 +150,18 @@ other consideration moot. The same applies to `MenuDisplayObject`, `LoadingScree
 `FirstPersonModel` and script `Object` properties, all of which are commonly vanilla FormIDs that
 Enderal lacks.
 
+- **A ported Skyrim mod with ANY navmesh carries a NAVI override at `012FB4:Skyrim.esm` — and in Enderal
+  that ID is a Forgotten Temple floor tile.** **[verified 2026-10-07]** Vanilla Skyrim's single
+  `NavigationMeshInfoMap` is `00012FB4`; the CK writes an override of it into every plugin that adds or
+  edits navmesh. Enderal's `Skyrim.esm` reuses the ID for REFR `DweRmLgMid01` in `ForgottenTemple 012C3B`
+  (Enderal's own NAVI is `000802:Enderal - Forgotten Stories.esm`; base `Skyrim.esm`'s has a null FormKey).
+  The NAVI wins and the floor ref silently never loads — a hole with no render and no collision, which
+  looks like a broken mesh and is not: the mesh, textures and records all check out, and a mesh-replacer
+  bisect changes nothing. Apocalypse shipped it (`ApocalypseNaviFix`). **Porting checklist item:** grep the
+  serialized mod for `NavigationMeshInfoMaps/` and delete it. Diagnostic: when a ref is intact on disk but
+  absent in game, scan every active plugin for that FormID **of any record type**, using each plugin's own
+  master index — a type-agnostic, master-aware scan is what found this after three wrong theories.
+
 > **A vanilla FormID that survived may be a completely different record — check what a ported mod
 > OVERRIDES, not just what it references.** **[verified]** Apocalypse overrides exactly one Enderal
 > record, and it is worldspace **`00003C`**. In Skyrim that is `Tamriel`; **in Enderal it is

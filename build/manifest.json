@@ -58,7 +58,7 @@
       ]
     },
     {
-      "$comment": "Chocolate Poise - Reforged scales all poise damage against reference items it fetches by VANILLA EditorID (IronDagger, DaedricWarhammer, ArmorHide/DaedricGauntlets, ArmorHide/DaedricShield, ArmorDaedricCuirass/Helmet/Boots). None exist in Enderal, so every lookup was NULL and every hit dealt 0 poise. Adds 9 unplaced new records with exactly those EditorIDs, copied from their Enderal equivalents. Also ships ZenCPRFactionFix.dll (NetScriptFramework plugin, source in src/ChocolatePoiseEnderal/NetScriptPlugin/, compiled DLL committed because CI cannot build against the local NSF install): CPR looks up its ForceFullBodyStagger faction at vanilla 0x10CED7, which in Enderal is a placed REFR, and then AddToFaction(null) on every poise break crashes the game; the DLL points that field at ChocolatePoise - Enderal.esp 0x800 at main menu. Requires .NET Script Framework and the Chocolate Poise Enderal Patch. Regenerate with src/ChocolatePoiseEnderal/tools/01-build-reference-items.py.",
+      "$comment": "Chocolate Poise - Reforged scales all poise damage against reference items it fetches by VANILLA EditorID (IronDagger, DaedricWarhammer, ArmorHide/DaedricGauntlets, ArmorHide/DaedricShield, ArmorDaedricCuirass/Helmet/Boots). None exist in Enderal, so every lookup was NULL and every hit dealt 0 poise. Adds 9 unplaced new records with exactly those EditorIDs, copied from their Enderal equivalents. Also ships ZenCPRFactionFix.dll (NetScriptFramework plugin, source in src/ChocolatePoiseEnderal/NetScriptPlugin/, compiled DLL committed because CI cannot build against the local NSF install): CPR looks up its ForceFullBodyStagger faction at vanilla 0x10CED7, which in Enderal is a placed REFR, and then AddToFaction(null) on every poise break crashes the game; the DLL points that field at ChocolatePoise - Enderal.esp 0x800 at main menu. Requires .NET Script Framework and the Chocolate Poise Enderal Patch. Regenerate with src/ChocolatePoiseEnderal/tools/01-build-reference-items.py. Also ships ChocolatePoise.json = the author's file + poise weights for the three Vatyr races (VatyrRace 2.5, VatyrRaceLarge 3.0, VatyrRaceGiant 3.5; unlisted races fall back to BaseMass, 1.5 for all three) - CPR reads only that one path, so the MO2 mod must sort above Chocolate Poise - Reforged. Regenerate with tools/02-build-poise-json.py after any CPR update.",
       "name": "Zenderal - Chocolate Poise Enderal Fix",
       "archiveName": "Zenderal - Chocolate Poise Enderal Fix",
       "fomod": false,
@@ -72,6 +72,10 @@
         {
           "from": "src/ChocolatePoiseEnderal/NetScriptPlugin/compiled/ZenCPRFactionFix.dll",
           "to": "NetScriptFramework/Plugins"
+        },
+        {
+          "from": "src/ChocolatePoiseEnderal/skse/ChocolatePoise.json",
+          "to": "SKSE/Plugins"
         }
       ]
     },
@@ -148,6 +152,30 @@
       ]
     },
     {
+      "$comment": "House at the Marketplace - Exterior Add-on (Ark Marketplace house exterior addon.esp) places juniper 003A97 in Ark's market (ArkMarket 070794) at Z 2142.7, ~68 units above its own terrain (2074.5) and the base manhole beside it (2073); no other plugin touches the cell. One REFR override lowering it to Z 2068, rest verbatim. Cell header forwarded from the addon (identical to FS); the addon is mastered to force load-after.",
+      "name": "Zenderal - Ark Market Tree Fix",
+      "archiveName": "Zenderal - Ark Market Tree Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/ArkMarketTreeFix/ArkMarketTreeFixESP",
+          "dest": "Zenderal - Ark Market Tree Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Mandragorasprouts' Statues for Enderal disables Enderal's small statue 12537E on the Riverville Mayor's House desk and places man_sheogorath_Bust 000813 at the desk's ORIGINAL spot; EPPI Riverville moved that table (12537B) by (-314.19, +20.09, +25.39), so the bust floated. One REFR override moving the bust by EPPI's exact table offset. Cell header forwarded from the winner (House Cats of Enderal), which is mastered to force load-after.",
+      "name": "Zenderal - EPPI Riverville Statues Patch",
+      "archiveName": "Zenderal - EPPI Riverville Statues Patch",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/EppiRivervilleStatues/EppiRivervilleStatuesESP",
+          "dest": "Zenderal - EPPI Riverville Statues Patch.esp"
+        }
+      ]
+    },
+    {
       "$comment": "Playable Half Starling Race makes WoodElfRace (Enderal's NPC Starling race, shared by every NPC Starling) playable; its EGO version loads after EGO SE - Dark Souls Style Movement and Stamina and MORE Unique Races and reverts the race to EGO's flat 50/50/90 + 0.1/6.3/3. Overrides it with a 'might and magic' profile sized against that mod's four races: 75/75/60, regen 0.3/8/20 (2nd-best HP and MP regen, low stamina regen). Record otherwise verbatim from EGO SE - Half Starling.esp, which is mastered (content-unused) to force load-after.",
       "name": "Zenderal - Half Starling DS Races",
       "archiveName": "Zenderal - Half Starling DS Races",
@@ -193,6 +221,18 @@
         {
           "yamlSource": "src/QuieterWaterfalls/QuieterWaterfallsESP",
           "dest": "Zenderal - Quieter Waterfalls.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "One TXST override: base Enderal's _00E_Rockpath01Iced 030FEB points its Height slot at a NORMAL map (rockpath02_n_DXT1.dds); ENB complex terrain parallax traced it as height and smeared the ground at Frost Crystal Passage. Height slot cleared, every other field verbatim.",
+      "name": "Zenderal - Terrain Texture Set Fix",
+      "archiveName": "Zenderal - Terrain Texture Set Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/TerrainTextureSetFix/TerrainTextureSetFixESP",
+          "dest": "Zenderal - Terrain Texture Set Fix.esp"
         }
       ]
     },
@@ -254,6 +294,27 @@
       ]
     },
     {
+      "$comment": "Script only - no plugin. Forks Leveling Redone's _00E_EPUpdateFunctions (SureAI's player script with LR's 4/3 points per level). At Arcane Fever >= 100 the script sets private isdead = True and calls Player.Kill(); nothing ever resets it, so if the kill does not take (tgm, essential, a scene) the flag is saved and permanently blocks the level-up loop and the fever 40/70 effects (user report 2026-10-10: 11010/5954 XP stuck at level 5, sv showed iLevelUpsNeeded = 3, IsDead = True). One ; ZP guard in OnUpdate clears isdead when the player is alive and fever < 100. String table identical to LR's .pex (260 strings) - no Property changed. Must sort BELOW 'Leveling Redone (No Skillbooks)' in MO2's left pane to win the loose-script conflict. Credit: SureAI, Ixion XVII.",
+      "name": "Zenderal - Fever Death Latch Fix",
+      "archiveName": "Zenderal - Fever Death Latch Fix",
+      "fomod": false,
+      "plugins": [],
+      "scripts": {
+        "from": "src/FeverDeathLatchFix/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "files": [
+        {
+          "from": "src/FeverDeathLatchFix/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/FeverDeathLatchFix/readme.txt",
+          "to": ""
+        }
+      ]
+    },
+    {
       "$comment": "SPID config only - no plugin, no script, one _DISTR.ini at the archive root. Distributes Enderal's restore-health/mana/stamina potions and Ambrosia to humanoid NPCs, level-banded. Supersedes 'Zenderal - Enemy Potions.esp' - disable that mod, or bandits, Lost Ones and FS humans get potions from both.",
       "name": "Zenderal - NPC Potions",
       "archiveName": "Zenderal - NPC Potions",
@@ -263,6 +324,39 @@
         {
           "from": "src/NpcPotions/spid/Zenderal - NPC Potions_DISTR.ini",
           "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "Overrides only. Kolapon's Undead Creatures Replacer.esp does not master EGO but loads after it, so its 44 NPC overrides reverted EGO on 36 Lost Ones/Ahnengeister (stats, perks, inventories - e.g. Zu-Sherath dropped EGO's retired 'Chaosnova (Rank I)' tome again). Each record = previous winner (EGO / EGO SE - Leveling Redone) + UCR's race, skin, height, female flag and template unlinking only. Generated by src/UndeadCreaturesReplacerEGO/tools/01-forward-ucr-visuals.py - never hand-edit Npcs/.",
+      "name": "Zenderal - Undead Creatures Replacer EGO Patch",
+      "archiveName": "Zenderal - Undead Creatures Replacer EGO Patch",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/UndeadCreaturesReplacerEGO/UndeadCreaturesReplacerEGOESP",
+          "dest": "Zenderal - Undead Creatures Replacer EGO Patch.esp"
+        }
+      ]
+    },
+    {
+      "name": "Zenderal - Prophecy",
+      "archiveName": "Zenderal - Prophecy",
+      "fomod": false,
+      "scripts": {
+        "from": "src/Prophecy/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "plugins": [
+        {
+          "yamlSource": "src/Prophecy/ProphecyESP",
+          "dest": "Zenderal - Prophecy.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/Prophecy/csf/CustomSkill.Prophecy.config.txt",
+          "to": "NetScriptFramework/Plugins"
         }
       ]
     },
@@ -279,6 +373,90 @@
         },
         {
           "from": "src/TrueHUDCombatIcons/data",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. Improved Camera SE 1.1.2.4228's TranslateCamera() raises the first-person camera by the NPCEyeBone height only while the weapon is sheathed, so every sheathe ends with a one-frame camera snap upwards (all weapons; not a setting). Runtime-patches ImprovedCameraSE.dll+0x78282 (xorps xmm11,xmm11 = 'upDisplacement = 0 when weapon drawn') to a 4-byte NOP after verifying 24 bytes of context, so the raise always applies. Any other IC build is left untouched and logged. Build with src/ImprovedCameraSheatheFix/build.cmd (shares BakaHeroMenu's CommonLibSSE-NG clone); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - IC Sheathe Fix",
+      "archiveName": "Zenderal - IC Sheathe Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/ImprovedCameraSheatheFix/compiled/ZenICSheatheFix.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/ImprovedCameraSheatheFix/data",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "Ark guard horses (CapitalCityGuardHorse01/02) wear Enderal's cloth barding (HorseCloak 14482A) over skins whose body is Horse.nif; Fluffworks replaces that body with 16 fur shells that poke through the cloth (and, not overriding the two *Cloak* ARMAs, gives them the brown mesh). Overrides NakedHorseBlacknWhiteCloakAA 144833 / NakedHorsePalominoCloakAA 144836 to point at Fluffworks' BnW/Palomino meshes with every shell vertex that reaches the cloth sunk under the skin. The meshes are Fluffworks' work: NOT in this archive - src/HorseCloakFluffFix/tools/01-trim-fluff-under-cloak.py generates them from the installed mod into the MO2 mod 'Zenderal - Horse Cloak Fluff Fix'.",
+      "name": "Zenderal - Horse Cloak Fluff Fix",
+      "archiveName": "Zenderal - Horse Cloak Fluff Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/HorseCloakFluffFix/HorseCloakFluffFixESP",
+          "dest": "Zenderal - Horse Cloak Fluff Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Guard Armor Replacer Falconer repoints four ARMAs at the Falconer meshes, but Pretty Factions Armory (later) reverts the city-guard cuirass addon StormcloakCuirassSolitudeAA 0EB250 to Enderal's ArkGuardHaubergeon, and swaps the helmet in _15E_CityGuardRegularOutfitHelmetNoShield 046ECE for its own variant (000827). Overrides: 0EB250 = the replacer's record verbatim (Pretty's differs only in the Falconer-specific fields); 046ECE = Pretty's outfit with the helmet back to _00E_LightCityGuardHelmet 0C7F5C. Requires Guard Armor Replacer Falconer for the boots/helmet ARMAs and Falconer Armor SE for the meshes. Masters Pretty Factions Armory.esp to force load-after.",
+      "name": "Zenderal - Guard Falconer Patch",
+      "archiveName": "Zenderal - Guard Falconer Patch",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/GuardFalconer/GuardFalconerESP",
+          "dest": "Zenderal - Guard Falconer Patch.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "EGO renames base Enderal's Silver Steel line to Moonsteel and repoints it, plus its new Silver Arrow (001D03) and that arrow's projectile (001D02), at vanilla Dragonborn Nordic meshes, so Pretty Common Armory's replacements at the base paths (Weapons/NordHero/*, Enderal/weapons/Silberstahldolch.nif) never load. 22 overrides = EGO's record verbatim with ObjectBounds/Model/FirstPersonModel from the base-Enderal record, generated by src/MoonsteelPretty/tools/01-build-moonsteel-overrides.py. EGO's Moonsteel mace/warhammer and Tharael's Bow stay on EGO's meshes. Masters Pretty Common Armory.esp to force load-after (it wins the three battleaxe records with base Enderal's). The quiver also needs Pretty's NordHeroArrow*.nif loose above Enderal Remastered Armory Part 1, written into the MO2 mod by tools/02-extract-pretty-arrow.py (not committed - Pretty's files).",
+      "name": "Zenderal - Moonsteel Pretty Patch",
+      "archiveName": "Zenderal - Moonsteel Pretty Patch",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/MoonsteelPretty/MoonsteelPrettyESP",
+          "dest": "Zenderal - Moonsteel Pretty Patch.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "A Gentleman's Flintlock Armoury's 8 pistols are staves; ZP_FlintlockAmmoPlayerScript makes them load one Flintlock Bullet (0x800, 1 iron ingot = 5) per shot with a 2 s reload and strips soul-gem charge. Damage: per-pistol enchantments at 1.2 x the Damage stat (just under the Ordo musket of the same tier) + hidden perk scaling with Archery, Fortify Archery and the bow talents (tools/01). Ordo's two Dawnguard-stub musket fire sounds re-pointed at Skyrim's output model, sounds otherwise Ordo's (tools/02). Wheeler icons per gun (tools/03). 111 NPCs that the flintlock pack / Ordo Legionis (Enderal) / Enderal SE - Crossbows override with base-Enderal copies are rebuilt on their previous winner (EGO for 92) + only the gun mods' inventory changes; every second hostile musket NPC carries a low-tier pistol + bullets instead; non-human pistol carriers drop the pistol on death instead of wielding it (tools/00 scan + tools/04). Second plugin Zenderal - DAR Rifles Recipes Off.esp hides DAR Rifles' 54 modern-gun recipes, and the _KID.ini gives Ordo's 14 muskets DAR's WeapTypeRifleBoltAction keyword so its reload animations play (tools/05). Must load after Enderal SE - Crossbows.",
+      "name": "Zenderal - Flintlock Overhaul",
+      "archiveName": "Zenderal - Flintlock Overhaul",
+      "fomod": false,
+      "scripts": { "from": "src/FlintlockOverhaul/Scripts/compiled", "to": "Scripts" },
+      "plugins": [
+        {
+          "yamlSource": "src/FlintlockOverhaul/FlintlockOverhaulESP",
+          "dest": "Zenderal - Flintlock Overhaul.esp"
+        },
+        {
+          "yamlSource": "src/FlintlockOverhaul/DARRecipesOffESP",
+          "dest": "Zenderal - DAR Rifles Recipes Off.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/FlintlockOverhaul/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/FlintlockOverhaul/wheeler/icons_custom",
+          "to": "SKSE/Plugins/wheeler/resources/icons_custom"
+        },
+        {
+          "from": "src/FlintlockOverhaul/kid",
           "to": ""
         }
       ]

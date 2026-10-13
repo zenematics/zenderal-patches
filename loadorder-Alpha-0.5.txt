@@ -1,0 +1,318 @@
+# Zenderal Alpha 0.5 - active plugins in load order (generated 2026-10-11)
+  0  Skyrim.esm
+  1  Update.esm
+  2  Dawnguard.esm
+  3  HearthFires.esm
+  4  Dragonborn.esm
+  5  Enderal - Forgotten Stories.esm
+  6  kcf.esm
+  7  High Poly Head.esm
+  8  Expressive Facegen Morphs.esl
+  9  1FalconerArmor.esl
+ 10  Dismembering Framework.esm
+ 11  OCF.esp
+ 12  NoSillyPhysicsDamage.esl
+ 13  True Coconut Palms.esp
+ 14  SmoothCam.esl
+ 15  AHZmoreHUDInventory.esl
+ 16  (SGC) NASC.esl
+ 17  OCPA.esl
+ 18  CompleteControllerSetup.esl
+ 19  TrueHUD.esl
+ 20  SGEyebrows.esp
+ 21  SkyUI_SE.esp
+ 22  Enderal SE - Bug Fixes.esp
+ 23  HPP - Vaermina's Torpor.esp
+ 24  GDOS - Splendid Mechanized Dwemer Door.esp
+ 25  DeadlySpellImpacts.esp
+ 26  dD - Enhanced Blood Main.esp
+ 27  dD-Larger Drips.esp
+ 28  MCMHelper.esp
+ 29  CBBE.esp
+ 30  Smooth Moveset.esp
+ 31  RaceMenuMorphsCBBE.esp
+ 32  Seasonal Aspen Trees.esp
+ 33  Seasonal Aspen Trees of Enderal_Summer.esp
+ 34  Seasonal Aspen Trees of Enderal_Autumn.esp
+ 35  Seasonal Aspen Trees of Enderal_Spring.esp
+ 36  Seasonal Aspen Trees of Enderal_Winter.esp
+ 37  XPMSE.esp
+ 38  Keytrace.esp
+ 39  Stances - Dynamic Weapon Movesets SE.esp
+ 40  Precision.esp
+ 41  Draw Fix - Move Equip Animation Fix.esp
+ 42  S3DRocks.esp
+ 43  Enderal SE - Gameplay Overhaul.esp
+ 44  SFO_SkinFeatureOverlays.esp
+ 45  BnP - Skinfix.esp
+ 46  Pocky Punk's Make Up Addon_females.esp
+ 47  Lamenthia's Marks of Beauty.esp
+ 48  AdditionalEyesByFia.esp
+ 49  Koralina's Makeup Tweaks.esp
+ 50  koralinas_freckles_moles.esp
+ 51  RaceMenu.esp
+ 52  RaceMenuPlugin.esp
+ 53  Bridges of Enderal.esp
+ 54  EPPIimprovedlacations.esp
+ 55  Last Watch Overhaul.esp
+ 56  TerrainHelper.esp
+ 57  SkyParkour.esp
+ 58  Old Watermill - Neo Enderal.esp
+ 59  Old Watermill - Eppi Improved Locations Patch.esp
+ 60  TrueDirectionalMovement.esp
+ 61  Beards of Power.esp
+ 62  Brows.esp
+ 63  TheEyesOfBeauty.esp
+ 64  ObiWarpaintsTattoos.esp
+ 65  RutahWarpaints.esp
+ 66  The Eyes Of Beauty - Elves Edition.esp
+ 67  _Fuse00_ArmorHelga.esp
+ 68  _Fuse00_AdventurerArmor.esp
+ 69  1FalconerArmor.esp
+ 70  GuardArmorReplacerFalconer.esp
+ 71  Grievous Rose Multicolor.esp
+ 72  Grievous Rose Enderal Integration Multicolor.esp
+ 73  kco_stw.esp
+ 74  kco_stw_Enderal.esp
+ 75  Bank of Ark SE.esp
+ 76  EAM SE - Enderal Apothecarii Monastery.esp
+ 77  TaberuAnimation.esp
+ 78  xxOpenSpells.esp
+ 79  Ark Marketplace house exterior addon.esp
+ 80  EPPIareadividerandconnectors.esp
+ 81  EPPIduneville.esp
+ 82  EPPIfogville.esp
+ 83  EPPIriverville.esp
+ 84  World Map Fix.esp
+ 85  Seaview Lodge SE.esp
+ 86  LTG_ChildOverhaul.esp
+ 87  Next-Gen Decapitations.esp
+ 88  man_DaedricShrines_Enderal.esp
+ 89  House Cats of Enderal - Mihail Monsters and Creatures.esp
+ 90  Wendigo creature mod.esp
+ 91  WendigoReplacerAlt.esp
+ 92  KS Hairdo's.esp
+ 93  Beards.esp
+ 94  Attack_MCO.esp
+ 95  Fluffworks.esp
+ 96  evgCLAMBER.esp
+ 97  Unique Amulet Replacer.esp
+ 98  Unique Amulets and Masks Fixes.esp
+ 99  DF - Official Creature Pack.esp
+100  Enderal SE - NPC Pathing Fixes (Whisperwood).esp
+101  Enderal SE - NPC Pathing Fixes (Heartland).esp
+102  Enderal SE - NPC Pathing Fixes (Sun Coast).esp
+103  EGO SE - Ice Claw (1 carry capacity).esp
+104  EGO SE - Increased Carry Weight.esp
+105  EGO SE - Unique Amulets and Masks.esp
+106  MythicalGiantsReplacer.esp
+107  EGO SE - Secure Chests.esp
+108  EGO SE - Reduced Enemy Damage.esp
+109  EGO SE - Quest Shader.esp
+110  EGO SE - Psionic affects Constructs.esp
+111  EGO SE - Faster Level Up.esp
+112  EGO SE - Apparition Regeneration.esp
+113  EGO SE - Relationship Messages.esp
+114  EGO SE - Increased Food Health Regeneration.esp
+115  EGO SE - Priests Cure Diseases.esp
+116  DynamicBlockHit.esp
+117  scar-adxp-patch.esp
+118  SprintFixes.esp
+119  Better Help.esp
+120  Easy Console Commands.esp
+121  SRP Bug Fixes Enderal.esp
+122  SNRP Parallax Fix.esp
+123  NB-Scars.esp
+124  Leveling Redone.esp
+125  EGO SE - Leveling Redone.esp
+126  Wellwatch Manor SE.esp
+127  TrueStormsSE.esp
+128  EnderalPlayerUpperhouse.esp
+129  Noble Quarter Home Fixes.esp
+130  EAS - Enderal Patch.esp
+131  Quieter Ark Temple.esp
+132  HotKeySkill.esp
+133  Forts of Enderal.esp
+134  Ships of the First Vassals.esp
+135  Ships of the First Vassals - EPPI IPL Addon.esp
+136  Temple of Malphas - Neo Enderal.esp
+137  Landscape Fixes - Neo Enderal.esp
+138  Rhalata Temple.esp
+139  Castle Bleakstar.esp
+140  Enderal_Occlusioned_Apothecarii_Monastery.esp
+141  Enderal_Occlusioned_Dungeons.esp
+142  Northern Watchtower.esp
+143  Nordic Winds.esp
+144  WildwoodEchoes.esp
+145  Duneville Supply Ship.esp
+146  Akropolis_Camping.esp
+147  Enderal SE - Diverse Weathers.esp
+148  Diverse Weather - True Storms.esp
+149  Enderal Fluffworks - Cow.esp
+150  Flufworks Goat Domestic.esp
+151  DF - Official Humanoid Pack.esp
+152  Dynamic Impact - Slash Effects X-01EBT.esp
+153  Dynamic Impact - Slash Effects X.esp
+154  ArkCityGateConsistencyPatch.esp
+155  Last Watch - EPPI Obstacles Patch.esp
+156  Last Watch - EPPI Improved Locations Patch.esp
+157  BetterThirdPersonSelection.esp
+158  Castle Bleakstar - EGO Patch.esp
+159  Deflection.esp
+160  DustEffectsSSE.esp
+161  EGO SE - No Gold Weight.esp
+162  FlyingCrowsSSE.esp
+163  FEC.esp
+164  Enderal SE - FEC.esp
+165  Immersive Death Cycle.esp
+166  Enderal SE - Immersive Death Cycle.esp
+167  Enderal - One Moon.esp
+168  ImmersiveInteractions.esp
+169  Enderal SE - Immersive Interactions.esp
+170  Frost Meshes Patch.esp
+171  LessDrunkenBee.esp
+172  LessDrunkenBee - Enderal 2.1.1.esp
+173  WadeInWater.esp
+174  LessDrunkenBee-EPPIRiverville-Patch.esp
+175  Mushroom Light Fix.esp
+176  NoNPCLoadDoorFade.esp
+177  dD-No Spinning Death Animation Merged.esp
+178  Undead Creatures Replacer.esp
+179  Dynamic Things Alternative.esp
+180  Enderal SE - Dynamic Things Alternative.esp
+181  Dynamic Activation Key.esp
+182  Ark Northern Gate Overhaul.esp
+183  EVE - SevEnderal.esp
+184  EVE - SevEnderal - Landscape Fixes Patch.esp
+185  Ark Bridge Overhaul.esp
+186  Ark Bridge Overhaul - EPPI Improved Locations Patch.esp
+187  Ark Bridge Overhaul - Landscape Fixes Patch.esp
+188  No Compass In Dialogue.esp
+189  Weapon Stats Viewer.esp
+190  Audio Overhaul Skyrim.esp
+191  AOS_EBT Patch.esp
+192  Audio Overhaul - Enderal patch.esp
+193  Pretty Common Armory.esp
+194  Pretty Enderal Armory - Fixes.esp
+195  Pretty Enderal Backpacks.esp
+196  Pretty Pyrean Armory.esp
+197  Pretty Semi-Unique Armory.esp
+198  Pretty Unique Armory.esp
+199  LTG_NecklaceUpdate.esp
+200  Dust Pit Revised.esp
+201  Enderal - Donkey.esp
+202  EGO SE - Donkey.esp
+203  Enderal SE - Stealth Overhaul.esp
+204  Slightly Less Intense Sandstorms.esp
+205  JS Knapsacks SE.esp
+206  JorrvaskrRugReplacerA.esp
+207  JorrvaskrRugReplacerB.esp
+208  OreIngotsFadingsignal.esp
+209  Myths and Legends VI - The Forgotten One.esp
+210  Racemenu - Character Creation Natural Light.esp
+211  Rally's Crates.esp
+212  Regional Debuffs.esp
+213  Reverb and Ambiance Overhaul - Enderal.esp
+214  NPCs Take Cover.esp
+215  Enderal SE - NPCs Take Cover.esp
+216  Sanguine Symphony.esp
+217  talkToSummons.esp
+218  SporesWhisperwoodLeavesGoldenforst.esp
+219  Ducks_and_Swans.esp
+220  Unique Statues - Rhalata Temple.esp
+221  WadeInWaterRedone.esp
+222  QuickLight.esp
+223  Rumble - Swimming.esp
+224  Rumble - Beasts.esp
+225  Rumble - Crafting.esp
+226  Rumble - Items.esp
+227  Rumble - Jumping.esp
+228  Rumble - UI.esp
+229  QuickLootIE.esp
+230  Rumble - Weapons.esp
+231  AmnesiaShrine.esp
+232  Immersive Replacements.esp
+233  Skyking Mountain Flowers.esp
+234  KataPUMBAffinities.esp
+235  AmnesiaShrine KataPUMBA Affinities BSA loader.esp
+236  KataPUMB_SpellPackage.esp
+237  KataHiddenPowers.esp
+238  EGO SE - KataPUMB Hidden Powers.esp
+239  EGO SE - KataPUMB New Affinities.esp
+240  KataPUMBSpellPack.esp
+241  EGO - KataPUMB Spell Package.esp
+242  EGO SE - KataPUMB Spells - Emberlord sells all spells.esp
+243  SwiftPotion.esp
+244  Enderal - Arp.esp
+245  Enderal SE - Canidae Wolves.esp
+246  Enderal Remastered Armory - Heavy Leather.esp
+247  Enderal Remastered Armory - Thief.esp
+248  StopOnSlash.esp
+249  Immersive Equipping Animations.esp
+250  DF - Xtudo Creature Pack - Canidae - A Wolf Replacer.esp
+251  Pretty Enderal Clothing.esp
+252  Pretty Mages Armory.esp
+253  Pretty Factions Armory.esp
+254  Pretty Holy Order Armory.esp
+255  Pretty Holy Order Grandmaster Armory.esp
+256  Helmet Toggle 2.esp
+257  For Honor in Skyrim.esp
+258  For Honor Balance Patch.esp
+259  Reforged Directional Combat.esp
+260  For Honor Reforged - Removed Effects Patch.esp
+261  Bears of the North.esp
+262  EGO SE - Bears of the North.esp
+263  EVGConditionalIdles.esp
+264  Fluffworks - Dismembering Framework Patch.esp
+265  Embers XD.esp
+266  Embers XD - Fire Magick Add-On.esp
+267  Bow Charge Plus.esp
+268  Zenderal - Faster Sprint.esp
+269  EGO SE - Wellwatch Manor.esp
+270  UntarnishedUI_Subtitle.esp
+271  Grumbledook_Ivy.esp
+272  Water for ENB for Enderal.esp
+273  Chocolate Poise - Reforged.esp
+274  ChocolatePoise - Enderal.esp
+275  Apocalypse - Magic of Skyrim.esp
+276  Zenderal - Kata Fixes.esp
+277  EGO SE - DS Movement Stamina UNIQUE RACES.esp
+278  Enderal SE - Half Starling.esp
+279  EGO SE - Half Starling.esp
+280  Zenderal - Half Starling DS Races.esp
+281  Zenderal - Ark Myrad Platform Fix.esp
+282  Zenderal - RiverBush.esp
+283  Triumvirate - Mage Archetypes.esp
+284  Zenderal - Magic Patches.esp
+285  StartMenuRedesigned.esp
+286  Zenderal - Pretty Armory EGO Patch.esp
+287  PhotoMode.esp
+288  Disable NPC Bash.esp
+289  UltimateImmersionToggle.esp
+290  Zenderal - Quieter Waterfalls.esp
+291  Zenderal - FHR Parry Poise.esp
+292  b612.esp
+293  Biggie Traits.esp
+294  Zen Traits.esp
+295  Zenderal - Chocolate Poise Enderal Fix.esp
+296  Dynamic Dodge Shot.esp
+297  Zenderal - MCO Directional Power Attacks.esp
+298  Zenderal - Dynamic Dodge Shot Fix.esp
+299  Gamepad++.esp
+300  Smart_NPC_Potions.esp
+301  Enderal SE - Smart NPC Potions.esp
+302  Zenderal - Undead Creatures Replacer EGO Patch.esp
+303  HPH SV Beards.esp
+304  BeardMaskFix.esp
+305  TAotB - New Facial Hairs.esp
+306  The Art of Beard for High Poly Head.esp
+307  KSHairdosSMP.esp
+308  Pretty Unique Sets.esp
+309  Zenderal - EPPI Riverville Statues Patch.esp
+310  Malphas' Blessing - Enderal.esp
+311  MB - EGO.esp
+312  Zenderal - Horse Cloak Fluff Fix.esp
+313  Zenderal - Guard Falconer Patch.esp
+314  Zenderal - Settings Applier.esp
+315  Occlusion.esp
+316  DynDOLOD.esp
