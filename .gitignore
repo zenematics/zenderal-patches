@@ -109,3 +109,6 @@ __pycache__/
 # NetScriptFramework plugin build output (source is committed; ship the built DLL via the manifest)
 /src/*/NetScriptPlugin/bin/
 /src/*/NetScriptPlugin/obj/
+
+# LibreOffice/OpenOffice lock files
+.~lock.*#
