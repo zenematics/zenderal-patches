@@ -42,7 +42,8 @@ Paths and Spriggit settings come from `.claude/config/tools.json` (loaded via
 2. Confirm `reference/<name>/` is covered by `.gitignore` (the blanket `/reference/` rule
    already handles it). **These decompiles are never committed** — they are large and fully
    regenerable from the local game/mod files.
-3. Add (or remind the user to add) a folder-map entry in `CLAUDE.md` marking
+3. Add (or remind the user to add) an entry in `arch-docs/workspace/spriggit.md` ("What's in
+   `reference/base/`", or a note for `reference/mods/`) marking
    `reference/<name>/` as reference-only (gitignored), with a note on what plugin it represents.
 
 ## Why reference decompiles are separated

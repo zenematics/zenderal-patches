@@ -34,7 +34,7 @@ The rest are real modifications: the `critter*` family, `default*` handlers, `dr
 > **This is why compile import order matters.** The Papyrus compiler's `-i` path is **first-wins**
 > **[verified]**, so Enderal's tree must come first. Compile against vanilla's copy and you link in
 > brawl logic Enderal deliberately removed. It fails at *runtime*, not at compile time — there is no
-> error to see. Full detail in CLAUDE.md → "The import path is first-wins".
+> error to see. Full detail in [`../workspace/papyrus.md`](../workspace/papyrus.md) → "The import path is first-wins".
 
 ## Repurposed vanilla ActorValues
 

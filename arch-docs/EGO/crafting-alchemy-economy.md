@@ -30,7 +30,7 @@ Conditions used across all 727 **[verified]**: `GetItemCount` ×655, `HasPerk` �
 | `GetActorValue Smithing >= N` | 125 |
 | `_00E_Class_Phasmalist_*` (`01E95E`, `01E972`, `01E95D`, `01E96B`, `01E96C`, `02A2A0`) | 59 |
 
-That is **exactly the archetype CLAUDE.md documents for Enderal's own forge recipes** — an AV check
+That is **exactly the archetype [`../enderal/porting-from-skyrim.md`](../enderal/porting-from-skyrim.md) documents for Enderal's own forge recipes** — an AV check
 plus a `GetItemCount <blueprint> >= 1`. EGO does not invent a new gating mechanism; it re-tunes the
 existing one. A Zenderal recipe patch written to the Enderal pattern stays compatible.
 
@@ -48,7 +48,7 @@ Two new GMST records raise the tempering ceiling: `fSmithingArmorMax 001F04` = *
 | **New dismantles** | 15 `_02E_/_03E_DismantleWeapon_*ToMoonstoneIngot` / `…ToShadowSteelIngot`, plus `XionDismantle*` for Anathema and the corroded swords |
 | **Cooking / utility** | `XionRecipeFoodMammothSoup 1–4`, `XionRecipeFoodMudcrabLegsCooked`, `XionRecipeFoodPriseSalz`, `XionRecipeCoal 008406`, `XionRecipeNails 008407`, `XionRecipeLeatherVatyrPelt`, `XionRecipeLeatherSteppecrusherHide2` |
 
-Recall from CLAUDE.md that `05AD9D:Skyrim.esm` is `IngotShadowsteel` (Enderal's ebony rename); EGO's
+Recall from [`../enderal/porting-from-skyrim.md`](../enderal/porting-from-skyrim.md) that `05AD9D:Skyrim.esm` is `IngotShadowsteel` (Enderal's ebony rename); EGO's
 dismantle outputs use that and moonstone as the two silver/high tiers.
 
 ## Alchemy and consumables

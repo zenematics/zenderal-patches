@@ -10,7 +10,7 @@ Convert a binary plugin into the git-friendly YAML representation.
 ## Workspace settings (from config)
 
 Paths and Spriggit settings come from `.claude/config/tools.json` (loaded via
-`.claude/config/tools.ps1`). Defaults: GameRelease **`EnderalSE`** (not `SkyrimSE` — see CLAUDE.md "Why EnderalSE"), PackageName
+`.claude/config/tools.ps1`). Defaults: GameRelease **`EnderalSE`** (not `SkyrimSE` — see `arch-docs/workspace/spriggit.md` "Why EnderalSE"), PackageName
 `Spriggit.Yaml.Skyrim`, PackageVersion `0.40.0`, CLI at `$Tools.spriggitCli`. To repoint paths, run the **modlist-install**
 skill or edit `tools.json`.
 

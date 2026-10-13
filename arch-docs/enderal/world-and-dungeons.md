@@ -146,7 +146,7 @@ Conventions:
 2. **The Vyn `TopCell` is one giant contested record.** All 212 markers live in the worldspace
    record's persistent cell — a patch adding or editing a map marker overrides refs inside
    `Vyn 001D3C`'s TopCell, the same surface FS already overrides. Copy the *winning* (FS) version
-   of anything you touch there, and remember the exterior-scaffolding rules in CLAUDE.md
+   of anything you touch there, and remember the exterior-scaffolding rules in [`../workspace/spriggit.md`](../workspace/spriggit.md)
    ("Placing a ref in an EXTERIOR cell needs three scaffolding files").
 3. **Don't trust LCTN for anything spatial.** A mod keying off `LocTypeDungeon`, location-based
    crime, or location events (`WIDragonAttacked` machinery) finds one or zero records. Location-
@@ -164,7 +164,7 @@ Conventions:
 - [ ] If you touch a map marker or anything persistent in Vyn: did you start from FS's override of
       the worldspace record?
 - [ ] If you place an exterior ref: did you build the three-file block/sub-block scaffolding
-      (CLAUDE.md Gotchas)?
+      ([`../workspace/spriggit.md`](../workspace/spriggit.md))?
 - [ ] Did you resolve the dungeon's cell chain by door pairs rather than assuming a Location tree?
 - [ ] If you read a region name: is it from the `Map:` block, and is it not `Desert 043C5D`?
 

@@ -92,7 +92,7 @@ mesh the game is not using.
 `Dawnguard.esm`, `HearthFires.esm` and `Dragonborn.esm` are present in Enderal's `Data/` but are not
 in `plugins.txt` and are not mastered by Enderal's ESM. Mutagen's implicit base-master list for
 `EnderalSE` *does* include them, so **Spriggit will not warn you**. The game will simply not load a
-plugin that masters one. See CLAUDE.md → "Masters".
+plugin that masters one. See [`enderal/install-and-engine.md`](enderal/install-and-engine.md) → "Masters".
 
 ---
 

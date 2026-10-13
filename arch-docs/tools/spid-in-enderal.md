@@ -75,7 +75,7 @@ regenerate that tree with the `spriggit-decompile-reference` skill if it is miss
 | **Location** EditorIDs | **No** | 90 locations, all Enderal's — `CapitalCityBibliothekLocation`, `_00E_SuncoastLocation`, `_00E_FlusshaimTaverneLocation` |
 | **NPC** EditorIDs / names | **No** | Enderal's cast. And note EditorIDs are German — see below |
 | **Outfit / spell / perk** EditorIDs | **No** | Enderal's own |
-| **Creation Club / DLC** anything | **No** | the DLC ESMs in Enderal are empty stubs (CLAUDE.md, "Masters"); `cc*` plugins are absent entirely |
+| **Creation Club / DLC** anything | **No** | the DLC ESMs in Enderal are empty stubs ([`../enderal/install-and-engine.md`](../enderal/install-and-engine.md), "Masters"); `cc*` plugins are absent entirely |
 
 **The working rule:** keyword and race filters usually port. Everything else must be checked
 individually, and Skyrim-flavoured names (Hold, faction, city, questline) almost never survive.

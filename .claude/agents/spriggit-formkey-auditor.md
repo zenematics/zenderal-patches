@@ -15,7 +15,7 @@ you never run `serialize`/`deserialize`.
 - The patches' authored YAML is committed under `src/`; `reference/` holds gitignored Enderal and
   third-party decompiles used for lookup. Both matter for collision and reference checks.
 - Most records here are **overrides**, not new records — weight your findings accordingly.
-- Read `CLAUDE.md` first for documented invariants (core records, parallel arrays, linked sets).
+- Read `CLAUDE.md` (and the `arch-docs/` it links) first for documented invariants (core records, parallel arrays, linked sets).
 - Read `arch-docs/enderal-record-patterns.md` — it is the source of truth for the anti-patterns in
   audit items 6 and 7 below, and its pre-ship checklist mirrors this agent's job.
 

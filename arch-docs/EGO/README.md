@@ -74,7 +74,7 @@ The exact serialize command used:
 
 It round-trips cleanly under Spriggit **0.40.0** — the CLI's built-in correctness check rebuilt the
 plugin from the YAML without error. **[verified]** EGO's leveled lists contain **no** COED owner
-ExtraData, so the 0.41.0 leveled-list corruption described in CLAUDE.md does not apply to this
+ExtraData, so the 0.41.0 leveled-list corruption described in [`../workspace/spriggit.md`](../workspace/spriggit.md) does not apply to this
 tree. **[verified]**
 
 ## Regenerating the appendices

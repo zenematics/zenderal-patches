@@ -16,6 +16,8 @@ assume it.
 | [`scripting-and-actorvalues.md`](scripting-and-actorvalues.md) | Script architecture, the `_00E_` convention, **repurposed vanilla ActorValues**, key controller quests |
 | [`factions.md`](factions.md) | The 335+96 faction records, why the lore factions (Rhalâta, Holy Order) mostly don't exist as records, crime/vendor factions, the German↔English glossary |
 | [`bestiary.md`](bestiary.md) | Enemy families and how to classify them, the `_NNE_` tier system, per-actor XP, the boss roster — and why nothing scales to the player |
+| [`install-and-engine.md`](install-and-engine.md) | Install path, SSE 1.5.97/SKSE, masters, the DLC stubs, BSAs, engine-hardcoded FormKeys, lookup gotchas (German cell EditorIDs, placed-ref FormIDs) |
+| [`porting-from-skyrim.md`](porting-from-skyrim.md) | **How Enderal differs** — progression, lighting, renamed schools, Arcane Fever, recipe traps, dead distribution, Enderal's own distribution slots and merchants |
 | [`world-and-dungeons.md`](world-and-dungeons.md) | The 22 real regions, the abandoned Location/EncounterZone systems, interior-cell conventions, and the full map-marker dungeon census |
 
 ## How these were written
@@ -27,7 +29,7 @@ came from so you can re-check them:
 - Records: `reference/base/Skyrim/` and `reference/base/EnderalFS/` (Spriggit YAML)
 - Scripts: `reference/base/EnderalScripts/source/scripts/` (5029 real `.psc` from SureAI)
 
-Regenerate the record trees with `/spriggit-decompile-reference`; see CLAUDE.md → "What's in
+Regenerate the record trees with `/spriggit-decompile-reference`; see [`../workspace/spriggit.md`](../workspace/spriggit.md) → "What's in
 `reference/base/`". Counts below were taken on **2026-08-01** against **Enderal SE 2.0.12.4**.
 
 **If you can't cite it, mark it.** These documents use the same confidence convention as CLAUDE.md:

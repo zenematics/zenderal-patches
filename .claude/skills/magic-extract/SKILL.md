@@ -44,7 +44,7 @@ python arch-docs/magic/tools/verify_against_yaml.py
 ## Guardrails
 
 - **Never use MagicExtract or its Mutagen 0.54.4 to WRITE a plugin.** Authoring goes exclusively
-  through pinned Spriggit 0.40.0 (CLAUDE.md). The version pin `[0.54.4]` + `packages.lock.json`
+  through pinned Spriggit 0.40.0 (`arch-docs/workspace/spriggit.md`). The version pin `[0.54.4]` + `packages.lock.json`
   must stay (NuGet lists broken ancient versions after it).
 - Commit `arch-docs/magic/data/*.json`, `spells.csv` and the generated `.md` together —
   they are one snapshot. `.provenance.json`, `bin/`, `obj/` stay gitignored.

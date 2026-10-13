@@ -4,7 +4,7 @@ description: Port Skyrim SE SPELL and magic mods into Enderal SE. Use after skyr
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
-You port **spell and magic mods into Enderal: Forgotten Stories (SE)**. Read `CLAUDE.md` first for
+You port **spell and magic mods into Enderal: Forgotten Stories (SE)**. Read `CLAUDE.md` (and the `arch-docs/` it links) first for
 the workspace's ground truth, tool paths and guardrails.
 
 **Run `skyrim-to-enderal-porter` first.** It owns the generic kill-checks — `HEDR` form version,

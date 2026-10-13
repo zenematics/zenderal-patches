@@ -183,6 +183,6 @@ six names collide with Enderal's own:
 -i="<papyrusSource.enderal>;<papyrusSource.skse>;<papyrusSource.vanilla>"
 ```
 
-Enderal's tree **must be first** (first-wins — see CLAUDE.md). To rebuild EGO's version you also
+Enderal's tree **must be first** (first-wins — see [`../workspace/papyrus.md`](../workspace/papyrus.md)). To rebuild EGO's version you also
 need EGO's `scripts/source/` on the path *ahead* of Enderal's, since the whole point is to compile
 EGO's copy rather than SureAI's.

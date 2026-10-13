@@ -69,7 +69,7 @@ A decompiled script that *compiles* is still unverified — require an in-game t
 - **Unknown type / unresolved script** (`SKSE`, `UI`, `SkyUI`, `MCM`, another mod's script) →
   that API's **source `.psc`** is missing from the import path. Add its `Source\Scripts` dir to
   `importDirs` in `.claude/config/tools.json` (the `papyrus-compile` skill appends them) and note
-  it in `CLAUDE.md`.
+  it in the imports table in `arch-docs/workspace/papyrus.md`.
 - **Flags-file errors** → ensure `-f="TESV_Papyrus_Flags.flg"` and that the game source (which
   contains it) is on the import path.
 - **Cannot find your own scripts** → put `src/<PatchName>/Scripts/source` first in `-i`.

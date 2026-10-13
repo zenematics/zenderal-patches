@@ -18,7 +18,7 @@
     "skse": "",
     "vanilla": ""
   },
-  "_papyrusSource_help": "The three Papyrus .psc source trees, in PRECEDENCE order. The compiler's -i path is FIRST-WINS (verified on this workspace's toolchain), and Enderal overrides 55 vanilla script names, so Enderal MUST come first or you compile against the wrong signatures. 'enderal': extract <gameDataDir>/ScriptsEnderal.zip once -> its source/scripts folder. 'skse': <gameDataDir>/Source/Scripts (SKSE64 ships its extended vanilla types there in an Enderal install). 'vanilla': extract <skyrimSeRoot>/Data/Scripts.zip once -> its Source/Scripts folder; this is also where TESV_Papyrus_Flags.flg comes from. See CLAUDE.md 'Papyrus toolchain'.",
+  "_papyrusSource_help": "The three Papyrus .psc source trees, in PRECEDENCE order. The compiler's -i path is FIRST-WINS (verified on this workspace's toolchain), and Enderal overrides 55 vanilla script names, so Enderal MUST come first or you compile against the wrong signatures. 'enderal': extract <gameDataDir>/ScriptsEnderal.zip once -> its source/scripts folder. 'skse': <gameDataDir>/Source/Scripts (SKSE64 ships its extended vanilla types there in an Enderal install). 'vanilla': extract <skyrimSeRoot>/Data/Scripts.zip once -> its Source/Scripts folder; this is also where TESV_Papyrus_Flags.flg comes from. See arch-docs/workspace/papyrus.md.",
 
   "papyrusFlags": "TESV_Papyrus_Flags.flg",
   "_papyrusFlags_help": "User-flags file name, resolved off the -i import path. Ships inside the vanilla Scripts.zip; Enderal's own source trees do not contain one.",
@@ -28,7 +28,7 @@
   "champollion": "C:/Tools/Champollion-x64/Champollion.exe",
   "papyrusCompiler": "C:/Gaming/steamapps/common/Skyrim Special Edition/Papyrus Compiler/PapyrusCompiler.exe",
   "creationKit": "C:/Gaming/steamapps/common/Skyrim Special Edition/CreationKit.exe",
-  "_creationKit_help": "SSE Creation Kit. To edit Enderal with it you must run it against Enderal's Data folder and set bAllowMultipleMasterLoads=1 - see CLAUDE.md 'Creation Kit against Enderal'. The CK is only needed for the Papyrus compiler and for asset work; all record editing here happens in the Spriggit YAML.",
+  "_creationKit_help": "SSE Creation Kit. To edit Enderal with it you must run it against Enderal's Data folder and set bAllowMultipleMasterLoads=1 - see arch-docs/workspace/papyrus.md 'Creation Kit against Enderal'. The CK is only needed for the Papyrus compiler and for asset work; all record editing here happens in the Spriggit YAML.",
 
   "xedit": "",
   "_xedit_help": "xEdit executable, for manual conflict/error review. For Enderal SE it must run in EnderalSE mode: either use a copy named EnderalSEEdit.exe or pass -EnderalSE. Plain SSEEdit mode reads the wrong game folder and INI and will not find Enderal's plugins. Reference key; no skill wraps it.",
@@ -67,5 +67,5 @@
   "_spriggit_help": "gameRelease is Mutagen's GameRelease.EnderalSE - NOT SkyrimSE. It is still served by the Spriggit.Yaml.Skyrim package (EnderalSE maps to GameCategory.Skyrim), but it carries a different implicit base-master set that includes 'Enderal - Forgotten Stories.esm'. Keep this in sync with the repo-root .spriggit file.",
 
   "importDirs": [],
-  "_importDirs_help": "EXTRA Papyrus source dirs (SkyUI/MCM, PapyrusUtil, other frameworks) appended to the compiler -i path AFTER the three papyrusSource trees. Add as you discover them, and record each in CLAUDE.md's imports table."
+  "_importDirs_help": "EXTRA Papyrus source dirs (SkyUI/MCM, PapyrusUtil, other frameworks) appended to the compiler -i path AFTER the three papyrusSource trees. Add as you discover them, and record each in arch-docs/workspace/papyrus.md's imports table."
 }

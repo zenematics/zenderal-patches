@@ -167,7 +167,7 @@ fMinSecondsForLoadFadeIn=0.0001
 fSleepFaderTime=0.0001
 ```
 
-Note the tension with SureAI's own warning (quoted in CLAUDE.md) that ENB presets *"may deactivate
+Note the tension with SureAI's own warning (quoted in [`../enderal/porting-from-skyrim.md`](../enderal/porting-from-skyrim.md)) that ENB presets *"may deactivate
 fadeouts in cutscenes, leading to visual bugs"*. EGO removes those fades globally by INI. If a
 Zenderal visuals patch chases a cutscene-fade bug, this file is a suspect — and because it is an
 INI, xEdit will never show it to you.

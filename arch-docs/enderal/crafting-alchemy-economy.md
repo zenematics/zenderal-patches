@@ -87,7 +87,7 @@ All six carry `00E_AlchRestoreHealth` `0028C3` (`Archetype: ActorValue → Healt
 (`Healing Potion`, `Potion of Healing`, `Elixir`) in `Ingestibles/`, which returns nothing. Enderal's
 EditorIDs are **German** — *Genesungstrank* is "convalescence potion" — while the localized display
 strings are English (`"Health Potion (Cheap)"`). **Search Ingestibles by effect FormKey, not by
-English EditorID.** Same trap as the German cell names in CLAUDE.md's gotchas.
+English EditorID.** Same trap as the German cell names in [`install-and-engine.md`](install-and-engine.md#lookup-gotchas).
 
 So the design is a **trade, not a prohibition**: potions are the finite, gold-priced heal; healing
 *magic* is the renewable one, and Arcane Fever is its price.
@@ -190,7 +190,7 @@ Both FS classes gate crafting behind tiered perks **[verified]**:
   not trained by use.
 - **114 LeveledItems in FS** **[verified]** — these are the records the Spriggit 0.40.0 pin exists to
   protect. Leveled-list entries carrying owner ExtraData are exactly what Spriggit 0.41.0 corrupts.
-  See CLAUDE.md → "Why Spriggit 0.40.0 is pinned".
+  See [`../workspace/spriggit.md`](../workspace/spriggit.md) → "Why Spriggit 0.40.0 is pinned".
 - Vendor gating uses keywords like `_00E_FS_NQ07_VendorNoSale` and `VendorItemFSBlueprintContainer`.
   **[verified]**
 

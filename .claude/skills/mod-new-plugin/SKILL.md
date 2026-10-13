@@ -156,8 +156,8 @@ them as records appear. Do not scaffold empty ones.
    </requiredInstallFiles>
    ```
 
-   **If the release ships an installer image**, follow the confirmed-working recipe in CLAUDE.md's
-   "FOMOD images that actually render in MO2" gotcha — archive-root-relative `path=` *including*
+   **If the release ships an installer image**, follow the confirmed-working recipe in
+   `arch-docs/workspace/release-shapes.md` → "FOMOD images that actually render in MO2" — archive-root-relative `path=` *including*
    the `fomod` prefix, backslashes, an `<installSteps>` block even with no real choices, and a
    baseline (not progressive) JPEG. If another release already has a working config, copy it
    verbatim and edit the deltas. A wrong image setup still builds and still passes `-CheckFomod`;
@@ -179,8 +179,9 @@ them as records appear. Do not scaffold empty ones.
 
 ## Notes
 
-- Record `<PatchName>` and its FormKey allocations in `CLAUDE.md` as you go, and add the patch to
-  `arch-docs/zenderal-curation.md` — those files are what future sessions read to avoid reassigning
+- Record `<PatchName>` and its FormKey block as a one-line row in `CLAUDE.md`'s allocations table,
+  put the full mechanism/history in a new `arch-docs/patches/<PatchName>.md` (and a row in
+  `arch-docs/patches/README.md`), and add the patch to `arch-docs/zenderal-curation.md` — those files are what future sessions read to avoid reassigning
   a FormID and to know why the patch exists.
 - Read `arch-docs/enderal-record-patterns.md` before authoring the first record; it documents the
   record shapes that work in-game and the ones that silently don't, starting with the

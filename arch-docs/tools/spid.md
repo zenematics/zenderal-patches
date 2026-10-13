@@ -36,7 +36,7 @@ exception is Outfits** — see [Outfits are persisted](#outfits-are-the-exceptio
 | Soft requirement | **powerofthree's Tweaks** — see [EditorIDs need po3_Tweaks](#editorids-need-po3_tweaks) |
 
 Enderal SE is SSE 1.5.97, so the ordinary **SE** download is the correct one. An AE build loads
-nothing (CLAUDE.md, "Engine / SKSE version").
+nothing ([`../enderal/install-and-engine.md`](../enderal/install-and-engine.md), "Engine / SKSE version").
 
 ### Its own settings file
 
@@ -558,7 +558,7 @@ but that reversion happens in-game, on load, not by simply deleting the file.
 ## Reading the log
 
 `Documents\My Games\Skyrim Special Edition\SKSE\po3_SpellPerkItemDistributor.log` — the **Skyrim
-SE** folder, even for Enderal, the same as every other SKSE log (CLAUDE.md, "Crash logs are written
+SE** folder, even for Enderal, the same as every other SKSE log ([`../workspace/testing-and-debugging.md`](../workspace/testing-and-debugging.md), "Crash logs are written
 to the SKYRIM SE folder").
 
 Sections, in order:

@@ -132,7 +132,7 @@ Loose scripts beat the copy in `E - Misc.bsa`, so this wins with no extra step.
 > this mod shipped such a preset; it has been removed.
 
 > The `.pex` was built with the Enderal source tree **first** on the `-i` import path (see
-> CLAUDE.md, "The import path is first-wins"). To rebuild after an Enderal update, re-apply the
+> [`workspace/papyrus.md`](workspace/papyrus.md), "The import path is first-wins"). To rebuild after an Enderal update, re-apply the
 > `; ZP` edits to the new `.psc` and recompile the same way.
 
 > **Maintenance:** all three files are full-file forks living in `src/ControllerTweaks/`. If CCS,

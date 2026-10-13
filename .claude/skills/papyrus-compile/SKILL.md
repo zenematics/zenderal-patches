@@ -102,7 +102,7 @@ picks it up on every compile:
 "importDirs": ["C:/path/to/SkyUI/Source/Scripts", "C:/path/to/PapyrusUtil/Source/Scripts"]
 ```
 
-Then record it in `CLAUDE.md`'s per-project imports table.
+Then record it in `arch-docs/workspace/papyrus.md`'s per-project imports table.
 
 > SKSE's own types are already covered by `papyrusSource.skse` — an unresolved SKSE type means that
 > key is wrong or empty, not that you need a new `importDirs` entry.

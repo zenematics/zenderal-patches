@@ -49,7 +49,7 @@ One new Race (`TyargeRace 001D98`) and one new Class (`CombatMageAlteration 001D
 
 > **EGO carries no navmesh at all.** Of the 140 cell records it overrides where the master has a
 > `NavigationMeshes:` block, **140 ship that block empty and 0 carry NAVM data**. **[verified]** That
-> is exactly the pattern CLAUDE.md prescribes for our own cell edits — EGO gets this right, so a
+> is exactly the pattern [`../workspace/spriggit.md`](../workspace/spriggit.md) prescribes for our own cell edits — EGO gets this right, so a
 > Zenderal patch never has to reconcile EGO navmeshes.
 >
 > It does carry `Landscape` on 66 exterior cells and `Regions` on 41, which are ordinary CK

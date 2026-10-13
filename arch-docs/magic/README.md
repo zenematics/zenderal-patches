@@ -73,7 +73,7 @@ scan** (a second, Mutagen-free binary parser must find the same unique FormKeys 
 disagreements.
 
 **BEES dependency.** 67 enabled plugins are HEDR 1.71 and load *only* because
-*Backported Extended ESL Support* is installed (see CLAUDE.md's form-version-ceiling section).
+*Backported Extended ESL Support* is installed (see [`../workspace/testing-and-debugging.md`](../workspace/testing-and-debugging.md#the-form-version-ceiling-hedr-171-and-bees)).
 The extractor hard-fails if those plugins are present without BEES, and every record whose winner
 is one of them carries `winnerNeedsBees: true`.
 
