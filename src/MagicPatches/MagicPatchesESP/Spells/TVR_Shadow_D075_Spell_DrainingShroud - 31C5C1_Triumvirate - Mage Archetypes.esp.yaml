@@ -13,7 +13,7 @@ Flags:
 - ManualCostCalc
 ChargeTime: 0.5
 CastType: FireAndForget
-HalfCostPerk: 0C44C1:Skyrim.esm
+HalfCostPerk: 0C44BD:Skyrim.esm
 Effects:
 - BaseEffect: 31C5C0:Triumvirate - Mage Archetypes.esp
   Data:

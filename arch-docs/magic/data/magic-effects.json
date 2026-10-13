@@ -230882,7 +230882,7 @@
       "name": "Raw Damage",
       "description": "Warping blast that deals \u003Cmag\u003E raw damage.",
       "baseCost": 15,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
       "archetypeActorValue": "Health",
@@ -230931,10 +230931,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -231120,7 +231124,7 @@
       "name": "Magic Damage",
       "description": "Corrupting fire deals \u003Cmag\u003E magic damage and burns for",
       "baseCost": 13,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
@@ -231205,10 +231209,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -231220,7 +231228,7 @@
       "name": "Cloudkill",
       "description": "Corrupting blast deals \u003Cmag\u003E magic damage and leaves a \u003C20\u003E poison damage cloud.",
       "baseCost": 55,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
@@ -231268,10 +231276,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -232578,7 +232590,7 @@
       "name": "Poison Damage",
       "description": "\u003Cmag\u003E poison damage for \u003Cdur\u003E seconds.",
       "baseCost": 13,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "PoisonResist",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
@@ -232627,10 +232639,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -232642,7 +232658,7 @@
       "name": "Raw Damage",
       "description": "Deals \u003Cmag\u003E raw damage and flings survivors into Sinistra until the spell is cast again.",
       "baseCost": 30,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "PeakValueModifier",
       "archetypeActorValue": "Health",
@@ -232744,10 +232760,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -232758,7 +232778,7 @@
       "editorId": "TVR_Warlock_Balefire_Effect_HurlIntoOblivion_Aoe_Stun",
       "name": "Hurl Into Sinistra - Stun",
       "baseCost": 0,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Stagger",
       "castType": "FireAndForget",
@@ -232792,10 +232812,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -233362,7 +233386,7 @@
       "name": "Raw Damage",
       "description": "Bolt of dark fire that deals \u003Cmag\u003E raw damage for \u003Cdur\u003E seconds.",
       "baseCost": 7,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
       "archetypeActorValue": "Health",
@@ -233411,10 +233435,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -248603,7 +248631,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingShroud_CloakProc_AbsorbHealth",
       "name": "Absorb Health",
       "baseCost": 4,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "Absorb",
@@ -248702,10 +248730,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -248716,7 +248748,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingShroud_CloakProc_AbsorbMagicka",
       "name": "Absorb Magicka",
       "baseCost": 3,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "Absorb",
@@ -248797,10 +248829,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -248812,7 +248848,7 @@
       "name": "Draining Shroud",
       "description": "Absorbs \u003Cmag\u003E points of Health and Magicka per second from nearby enemies for \u003Cdur\u003E seconds.",
       "baseCost": 4,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Cloak",
       "archetypeAssociation": "31C5BE:Triumvirate - Mage Archetypes.esp",
@@ -248848,10 +248884,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -248863,7 +248903,7 @@
       "name": "Magic Damage",
       "description": "Shockwave of shadow energy that converts \u003C50\u003E% of your Magicka into magic damage. (\u003Cmag\u003E damage)",
       "baseCost": 3,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
@@ -248909,10 +248949,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -248923,7 +248967,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingMist_Hazard_AbsorbHealth",
       "name": "Absorb Health",
       "baseCost": 20,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "Absorb",
@@ -249011,10 +249055,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -249025,7 +249073,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingMist_Hazard_AbsorbMagicka",
       "name": "Absorb Magicka",
       "baseCost": 20,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "Absorb",
@@ -249095,10 +249143,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -249373,7 +249425,7 @@
       "name": "Draining Mist",
       "description": "Shadow infused mist that absorbs \u003Cmag\u003E points of Health and Magicka for \u003Cdur\u003E seconds.",
       "baseCost": 4.75,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "SpawnHazard",
       "archetypeAssociation": "330A36:Triumvirate - Mage Archetypes.esp",
@@ -249418,10 +249470,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -249661,7 +249717,7 @@
       "name": "Nightblade",
       "description": "Able to melee attack from up to \u003C50\u003E feet to perform a dash attack, converting \u003C50\u003E% of your Magicka into bonus magic damage on hit. Lasts \u003Cdur\u003E seconds. (\u003Cmag\u003E damage)",
       "baseCost": 0.4,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -249709,10 +249765,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -250224,7 +250284,7 @@
       "name": "Magic Damage",
       "description": "\u003Cmag\u003E magic damage and pulls the caster to the target.",
       "baseCost": 30,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
@@ -250285,10 +250345,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -250386,7 +250450,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_Nightblade_KeywordHolder",
       "name": "Nightblade Keyword",
       "baseCost": 0,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -250431,10 +250495,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -250446,7 +250514,7 @@
       "name": "Absorb Health",
       "description": "Absorbs \u003Cmag\u003E points of Health and Magicka per second from the target for \u003Cdur\u003E seconds.",
       "baseCost": 10,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "Absorb",
@@ -250531,10 +250599,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -250545,7 +250617,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingTouch_AbsorbMagicka",
       "name": "Absorb Magicka",
       "baseCost": 10,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "resistValue": "ResistMagic",
       "secondActorValueWeight": 0,
       "archetype": "Absorb",
@@ -250604,10 +250676,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -250618,7 +250694,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingTouch_KeywordHolder",
       "name": "Strife",
       "baseCost": 0,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -250689,10 +250765,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -252394,7 +252474,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingShroud_CloakProc_KeywordHolder",
       "name": "Strife",
       "baseCost": 0,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "Concentration",
@@ -252484,10 +252564,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -252498,7 +252582,7 @@
       "editorId": "TVR_Shadow_Rift_Effect_DrainingMist_Hazard_KeywordHolder",
       "name": "Strife",
       "baseCost": 0,
-      "magicSkill": "Destruction",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -252577,10 +252661,14 @@
         "definedIn": "Triumvirate - Mage Archetypes.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 299,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Triumvirate - Mage Archetypes.esp"
+          "Triumvirate - Mage Archetypes.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false

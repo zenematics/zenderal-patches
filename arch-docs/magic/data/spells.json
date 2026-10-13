@@ -194690,8 +194690,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -194703,9 +194703,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0F2CA8:Skyrim.esm",
-        "editorId": "DestructionNovice00",
-        "name": "Novice Destruction"
+        "formKey": "0F2CA7:Skyrim.esm",
+        "editorId": "ConjurationNovice00",
+        "name": "Novice Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -194778,6 +194778,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -194846,8 +194847,8 @@
       "castType": "FireAndForget",
       "targetType": "TargetActor",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -194859,9 +194860,9 @@
       "castDuration": 0,
       "range": 20,
       "halfCostPerk": {
-        "formKey": "0C44BF:Skyrim.esm",
-        "editorId": "DestructionApprentice25",
-        "name": "Apprentice Destruction"
+        "formKey": "0C44BB:Skyrim.esm",
+        "editorId": "ConjurationApprentice25",
+        "name": "Apprentice Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -194933,6 +194934,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -194947,8 +194949,8 @@
       "castType": "FireAndForget",
       "targetType": "TargetLocation",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -194960,9 +194962,9 @@
       "castDuration": 0,
       "range": 50,
       "halfCostPerk": {
-        "formKey": "0C44C1:Skyrim.esm",
-        "editorId": "DestructionExpert75",
-        "name": "Expert Destruction"
+        "formKey": "0C44BD:Skyrim.esm",
+        "editorId": "ConjurationExpert75",
+        "name": "Expert Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -195021,6 +195023,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -195601,8 +195604,8 @@
       "castType": "FireAndForget",
       "targetType": "TargetLocation",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -195614,9 +195617,9 @@
       "castDuration": 0,
       "range": 100,
       "halfCostPerk": {
-        "formKey": "0C44C2:Skyrim.esm",
-        "editorId": "DestructionMaster100",
-        "name": "Master Destruction"
+        "formKey": "0C44BE:Skyrim.esm",
+        "editorId": "ConjurationMaster100",
+        "name": "Master Conjuration"
       },
       "equipmentType": {
         "formKey": "013F45:Skyrim.esm",
@@ -195691,6 +195694,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -195705,8 +195709,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -195718,9 +195722,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44C0:Skyrim.esm",
-        "editorId": "DestructionAdept50",
-        "name": "Adept Destruction"
+        "formKey": "0C44BC:Skyrim.esm",
+        "editorId": "ConjurationAdept50",
+        "name": "Adept Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -195794,6 +195798,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -207694,8 +207699,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -207707,9 +207712,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0F2CA8:Skyrim.esm",
-        "editorId": "DestructionNovice00",
-        "name": "Novice Destruction"
+        "formKey": "0F2CA7:Skyrim.esm",
+        "editorId": "ConjurationNovice00",
+        "name": "Novice Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -207781,6 +207786,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -208449,8 +208455,8 @@
       "castType": "Concentration",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -208540,8 +208546,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -208553,9 +208559,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44C1:Skyrim.esm",
-        "editorId": "DestructionExpert75",
-        "name": "Expert Destruction"
+        "formKey": "0C44BD:Skyrim.esm",
+        "editorId": "ConjurationExpert75",
+        "name": "Expert Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -208599,6 +208605,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -208613,8 +208620,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -208626,9 +208633,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44BF:Skyrim.esm",
-        "editorId": "DestructionApprentice25",
-        "name": "Apprentice Destruction"
+        "formKey": "0C44BB:Skyrim.esm",
+        "editorId": "ConjurationApprentice25",
+        "name": "Apprentice Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -208687,6 +208694,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -208701,8 +208709,8 @@
       "castType": "FireAndForget",
       "targetType": "Touch",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -208792,8 +208800,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -208805,9 +208813,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44C2:Skyrim.esm",
-        "editorId": "DestructionMaster100",
-        "name": "Master Destruction"
+        "formKey": "0C44BE:Skyrim.esm",
+        "editorId": "ConjurationMaster100",
+        "name": "Master Conjuration"
       },
       "equipmentType": {
         "formKey": "013F45:Skyrim.esm",
@@ -208853,6 +208861,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -208931,8 +208940,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -208944,9 +208953,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44C0:Skyrim.esm",
-        "editorId": "DestructionAdept50",
-        "name": "Adept Destruction"
+        "formKey": "0C44BC:Skyrim.esm",
+        "editorId": "ConjurationAdept50",
+        "name": "Adept Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -209003,6 +209012,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -209069,8 +209079,8 @@
       "castType": "FireAndForget",
       "targetType": "TargetActor",
       "school": {
-        "actorValue": "Destruction",
-        "displayName": "Elementalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {

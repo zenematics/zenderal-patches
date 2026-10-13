@@ -1,0 +1,43 @@
+FormKey: 3216CE:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Rift_Effect_DrainingMist_Hazard_AbsorbMagicka
+Name:
+  TargetLanguage: English
+  Value: Absorb Magicka
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- HideInUI
+- PowerAffectsMagnitude
+BaseCost: 20
+MagicSkill: Conjuration
+ResistValue: ResistMagic
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+  Type: Absorb
+Projectile: 012FCF:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm

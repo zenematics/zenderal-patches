@@ -15,7 +15,7 @@ Flags:
 - NoDualCastModification
 ChargeTime: 3
 CastType: FireAndForget
-HalfCostPerk: 0C44C2:Skyrim.esm
+HalfCostPerk: 0C44BE:Skyrim.esm
 Effects:
 - BaseEffect: 330A2D:Triumvirate - Mage Archetypes.esp
   Data:

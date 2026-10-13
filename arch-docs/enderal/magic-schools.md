@@ -47,7 +47,11 @@ disagree with it. Triumvirate's Warlock "Destruction" spells (raw/magic/poison d
 binding, with none of the fire/frost/shock keywords Elementalist perks need) are moved to
 **Entropy** by `MagicPatches` (see [`../patches/MagicPatches.md`](../patches/MagicPatches.md)). Its
 Conjuration and Illusion sets stay in Entropy and Psionics, and "Hurl Into Oblivion" was renamed
-"Hurl Into Sinistra" by the conversion.
+"Hurl Into Sinistra" by the conversion. The Shadow Mage's "Destruction" set (health/magicka drains,
+raw magic damage) gets the same move. EGO's Sinistrope cost perks already call Entropy
+"*Schattenzauber*" (shadow spells). Its Alteration set stays in Mentalism (dashes, pulls and portals
+are the telekinetic "physical impulse" of the Mentalism book), and its Illusion set stays in
+Psionics. Counter-precedent, kept on record: Enderal files its own *Life Absorption* under Light Magic.
 
 ## How magic works: the Sea of Eventualities
 

@@ -1,0 +1,36 @@
+FormKey: 31C5C0:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Rift_Effect_DrainingShroud
+Name:
+  TargetLanguage: English
+  Value: Draining Shroud
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 38BD01:Triumvirate - Mage Archetypes.esp
+Flags:
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 4
+MagicSkill: Conjuration
+CastingLight: 2FDF80:Triumvirate - Mage Archetypes.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 31C5BE:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+CastingArt: 2FDF73:Triumvirate - Mage Archetypes.esp
+HitEffectArt: 2FDF83:Triumvirate - Mage Archetypes.esp
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 025D9B:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> points of Health and Magicka per second from nearby enemies for <dur> seconds.

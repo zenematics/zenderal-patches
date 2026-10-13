@@ -21,7 +21,7 @@
 # Wildmage Undercity); no scrolls exist. Triumvirate's TVR_Branded/Damnation/SoundAndImod
 # scripts read no skill or school (decompiled 2026-10-13), so nothing scripted needs changing.
 #
-# ORDER: 06 -> 07 -> 09. Re-running 06 regenerates the Spells folder and wipes the HalfCostPerk
+# ORDER: 06 -> 07 -> 09 -> 10. Re-running 06 regenerates the Spells folder and wipes the HalfCostPerk
 # edits; this script then re-applies them. Safe to re-run on its own (already-moved spells are
 # skipped, the other three folders are rebuilt from reference).
 #
@@ -117,4 +117,4 @@ foreach ($hex in $spells) {
 }
 if ($moved + $already -ne $spells.Count) { throw "Spells: handled $($moved + $already) of $($spells.Count)" }
 Write-Host ("  {0,-13} {1} moved, {2} already Conjuration" -f 'Spells', $moved, $already)
-Write-Host 'next: build/build.ps1'
+Write-Host 'next: 10-reschool-shadow-destruction.ps1, then build/build.ps1'

@@ -8,8 +8,8 @@
 # effects, perks, keywords, name - is carried verbatim (guardrail 5).
 #
 # The output folder is SHARED with the Apocalypse overrides: each script deletes only files
-# carrying its own mod's FormKey suffix. RUN 07-add-triumvirate-fever.ps1 THEN 09-reschool-warlock-destruction.ps1 AFTER this -
-# regenerating the Triumvirate overrides wipes the fever additions and the Warlock re-schooling.
+# carrying its own mod's FormKey suffix. RUN 07-add-triumvirate-fever.ps1, 09-reschool-warlock-destruction.ps1 AND 10-reschool-shadow-destruction.ps1 AFTER this -
+# regenerating the Triumvirate overrides wipes the fever additions and the Warlock/Shadow re-schooling.
 #
 # PS 5.1. Asserts every intended edit landed and throws on zero matches (CLAUDE.md: the CRLF
 # regex trap fails SILENTLY, so every replacement is counted).
@@ -80,4 +80,4 @@ Write-Host "wrote $written spell overrides -> $outSpells"
 Write-Host "  Flags list existed (prepended): $flagsAppended"
 Write-Host "  Flags block created:            $flagsCreated"
 if ($written -ne $table.Count) { throw "wrote $written but table has $($table.Count)" }
-Write-Host "next: 07-add-triumvirate-fever.ps1, then 09-reschool-warlock-destruction.ps1, then build/build.ps1"
+Write-Host "next: 07-add-triumvirate-fever.ps1, then 09-reschool-warlock-destruction.ps1, 10-reschool-shadow-destruction.ps1, then build/build.ps1"

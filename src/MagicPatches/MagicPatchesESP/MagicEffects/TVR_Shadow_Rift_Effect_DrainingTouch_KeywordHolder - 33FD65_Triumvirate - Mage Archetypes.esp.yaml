@@ -1,0 +1,42 @@
+FormKey: 33FD65:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Rift_Effect_DrainingTouch_KeywordHolder
+Name:
+  TargetLanguage: English
+  Value: Strife
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 381AE3:Triumvirate - Mage Archetypes.esp
+- 38BD01:Triumvirate - Mage Archetypes.esp
+Flags:
+- Detrimental
+- NoMagnitude
+- NoArea
+- HideInUI
+MagicSkill: Conjuration
+CastingLight: 2FDF80:Triumvirate - Mage Archetypes.esp
+TaperWeight: 1
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 30D2A0:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 2FDF70:Triumvirate - Mage Archetypes.esp
+DualCastScale: 1
+ImageSpaceModifier: 01FD04:Skyrim.esm
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

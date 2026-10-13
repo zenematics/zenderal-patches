@@ -2190,7 +2190,7 @@
       "index": 300,
       "enabled": true,
       "headerVersion": 1.7,
-      "source": "Zenderal - Patch Collection"
+      "source": "Zenderal - Magic Patches"
     },
     {
       "name": "StartMenuRedesigned.esp",
@@ -2437,6 +2437,13 @@
       "headerVersion": 1.71,
       "needsBees": true,
       "source": "DynDOLOD Output - Zenderal"
+    },
+    {
+      "name": "Skip Intro SE.esp",
+      "index": 335,
+      "enabled": true,
+      "headerVersion": 1.7,
+      "source": "Skip Intro SE"
     }
   ]
 }
