@@ -53,7 +53,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -219,7 +219,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -284,7 +284,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -349,7 +349,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -408,7 +408,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -467,7 +467,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -530,7 +530,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3583,7 +3583,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAM SE - Enderal Apothecarii Monastery.esp",
-        "winnerLoadOrderIndex": 83,
+        "winnerLoadOrderIndex": 80,
         "chain": [
           "EAM SE - Enderal Apothecarii Monastery.esp"
         ],

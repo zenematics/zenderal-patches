@@ -40,7 +40,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Biggie Traits.esp",
-        "winnerLoadOrderIndex": 315,
+        "winnerLoadOrderIndex": 309,
         "chain": [
           "Biggie Traits.esp"
         ],
@@ -96,7 +96,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Biggie Traits.esp",
-        "winnerLoadOrderIndex": 315,
+        "winnerLoadOrderIndex": 309,
         "chain": [
           "Biggie Traits.esp"
         ],
@@ -140,7 +140,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Biggie Traits.esp",
-        "winnerLoadOrderIndex": 315,
+        "winnerLoadOrderIndex": 309,
         "chain": [
           "Biggie Traits.esp"
         ],
@@ -184,7 +184,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Biggie Traits.esp",
-        "winnerLoadOrderIndex": 315,
+        "winnerLoadOrderIndex": 309,
         "chain": [
           "Biggie Traits.esp"
         ],
@@ -228,7 +228,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Biggie Traits.esp",
-        "winnerLoadOrderIndex": 315,
+        "winnerLoadOrderIndex": 309,
         "chain": [
           "Biggie Traits.esp"
         ],
@@ -272,7 +272,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Biggie Traits.esp",
-        "winnerLoadOrderIndex": 315,
+        "winnerLoadOrderIndex": 309,
         "chain": [
           "Biggie Traits.esp"
         ],
@@ -384,7 +384,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Smart_NPC_Potions.esp",
-        "winnerLoadOrderIndex": 140,
+        "winnerLoadOrderIndex": 317,
         "chain": [
           "Smart_NPC_Potions.esp"
         ],
@@ -430,7 +430,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -476,7 +476,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -522,7 +522,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -568,7 +568,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -614,7 +614,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -650,7 +650,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Smart NPC Potions.esp",
-        "winnerLoadOrderIndex": 141,
+        "winnerLoadOrderIndex": 318,
         "chain": [
           "Smart_NPC_Potions.esp",
           "Enderal SE - Smart NPC Potions.esp"
@@ -703,7 +703,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -749,7 +749,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -795,7 +795,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -841,7 +841,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -887,7 +887,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -933,7 +933,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -979,7 +979,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "EAS - Enderal Patch.esp"
         ],
@@ -1065,7 +1065,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Dynamic Things Alternative.esp",
-        "winnerLoadOrderIndex": 200,
+        "winnerLoadOrderIndex": 188,
         "chain": [
           "Dynamic Things Alternative.esp"
         ],
@@ -2650,7 +2650,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -2701,7 +2701,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -2752,7 +2752,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -2905,7 +2905,7 @@
       "editorId": "02E_Genesungstrank",
       "name": "Health Potion (Cheap)",
       "value": 45,
-      "weight": 0.5,
+      "weight": 0.25,
       "flags": [
         "NoAutoCalc"
       ],
@@ -2924,25 +2924,41 @@
             "editorId": "00E_AlchRestoreHealth",
             "name": "Restore Health"
           },
-          "magnitude": 15,
+          "magnitude": 11,
           "area": 0,
-          "duration": 4,
+          "duration": 6,
           "effectCost": 3,
           "archetype": "PeakValueModifier",
           "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "02F21D:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_AlchIncreaseArcaneFever",
+            "name": "Increase Arcane Fever"
+          },
+          "magnitude": 3,
+          "area": 0,
+          "duration": 1,
+          "effectCost": 0,
+          "archetype": "Script"
         }
       ],
       "provenance": {
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 93,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp",
-          "No Arcane fewer for Health Potions.esp"
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "weight",
+          "effects"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -2953,7 +2969,71 @@
       "editorId": "03E_Genesungstrank",
       "name": "Health Potion (Standard)",
       "value": 70,
-      "weight": 0.5,
+      "weight": 0.25,
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "addictionChance": 0,
+      "keywords": [
+        {
+          "formKey": "08CDEC:Skyrim.esm",
+          "editorId": "VendorItemPotion"
+        }
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "0028C3:Skyrim.esm",
+            "editorId": "00E_AlchRestoreHealth",
+            "name": "Restore Health"
+          },
+          "magnitude": 16,
+          "area": 0,
+          "duration": 6,
+          "effectCost": 6,
+          "archetype": "PeakValueModifier",
+          "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "02F21D:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_AlchIncreaseArcaneFever",
+            "name": "Increase Arcane Fever"
+          },
+          "magnitude": 4,
+          "area": 0,
+          "duration": 1,
+          "effectCost": 0,
+          "archetype": "Script"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 46,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal - Forgotten Stories.esm",
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "weight",
+          "effects"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "0028C7:Skyrim.esm",
+      "editorId": "04E_Genesungstrank",
+      "name": "Health Potion (Enhanced)",
+      "value": 115,
+      "weight": 0.25,
       "flags": [
         "NoAutoCalc"
       ],
@@ -2974,71 +3054,41 @@
           },
           "magnitude": 22,
           "area": 0,
-          "duration": 4,
-          "effectCost": 5,
-          "archetype": "PeakValueModifier",
-          "actorValue": "Health"
-        }
-      ],
-      "provenance": {
-        "definedIn": "Skyrim.esm",
-        "isNewRecord": false,
-        "isInjected": false,
-        "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 93,
-        "chain": [
-          "Skyrim.esm",
-          "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp",
-          "No Arcane fewer for Health Potions.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "0028C7:Skyrim.esm",
-      "editorId": "04E_Genesungstrank",
-      "name": "Health Potion (Quality)",
-      "value": 140,
-      "weight": 0.5,
-      "flags": [
-        "NoAutoCalc"
-      ],
-      "addictionChance": 0,
-      "keywords": [
-        {
-          "formKey": "08CDEC:Skyrim.esm",
-          "editorId": "VendorItemPotion"
-        }
-      ],
-      "effects": [
-        {
-          "index": 0,
-          "baseEffect": {
-            "formKey": "0028C3:Skyrim.esm",
-            "editorId": "00E_AlchRestoreHealth",
-            "name": "Restore Health"
-          },
-          "magnitude": 32,
-          "area": 0,
-          "duration": 4,
+          "duration": 6,
           "effectCost": 8,
           "archetype": "PeakValueModifier",
           "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "02F21D:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_AlchIncreaseArcaneFever",
+            "name": "Increase Arcane Fever"
+          },
+          "magnitude": 5,
+          "area": 0,
+          "duration": 1,
+          "effectCost": 0,
+          "archetype": "Script"
         }
       ],
       "provenance": {
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 93,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp",
-          "No Arcane fewer for Health Potions.esp"
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "name",
+          "value",
+          "weight",
+          "effects"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -3049,7 +3099,7 @@
       "editorId": "01E_Genesungstrank",
       "name": "Health Potion (Rancid)",
       "value": 25,
-      "weight": 0.5,
+      "weight": 0.25,
       "flags": [
         "NoAutoCalc"
       ],
@@ -3068,25 +3118,41 @@
             "editorId": "00E_AlchRestoreHealth",
             "name": "Restore Health"
           },
-          "magnitude": 9,
+          "magnitude": 7,
           "area": 0,
-          "duration": 4,
+          "duration": 6,
           "effectCost": 2,
           "archetype": "PeakValueModifier",
           "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "02F21D:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_AlchIncreaseArcaneFever",
+            "name": "Increase Arcane Fever"
+          },
+          "magnitude": 2,
+          "area": 0,
+          "duration": 1,
+          "effectCost": 0,
+          "archetype": "Script"
         }
       ],
       "provenance": {
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 93,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp",
-          "No Arcane fewer for Health Potions.esp"
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "weight",
+          "effects"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -3097,7 +3163,7 @@
       "editorId": "05E_Genesungstrank",
       "name": "Health Potion (Exclusive)",
       "value": 190,
-      "weight": 0.5,
+      "weight": 0.25,
       "flags": [
         "NoAutoCalc"
       ],
@@ -3116,25 +3182,41 @@
             "editorId": "00E_AlchRestoreHealth",
             "name": "Restore Health"
           },
-          "magnitude": 40,
+          "magnitude": 29,
           "area": 0,
-          "duration": 4,
-          "effectCost": 10,
+          "duration": 6,
+          "effectCost": 11,
           "archetype": "PeakValueModifier",
           "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "02F21D:Enderal - Forgotten Stories.esm",
+            "editorId": "_00E_AlchIncreaseArcaneFever",
+            "name": "Increase Arcane Fever"
+          },
+          "magnitude": 6,
+          "area": 0,
+          "duration": 1,
+          "effectCost": 0,
+          "archetype": "Script"
         }
       ],
       "provenance": {
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "No Arcane fewer for Health Potions.esp",
-        "winnerLoadOrderIndex": 93,
+        "winner": "Enderal SE - Gameplay Overhaul.esp",
+        "winnerLoadOrderIndex": 46,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp",
-          "No Arcane fewer for Health Potions.esp"
+          "Enderal SE - Gameplay Overhaul.esp"
+        ],
+        "changedFields": [
+          "weight",
+          "effects"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -3464,7 +3546,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3515,7 +3597,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3566,7 +3648,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3618,7 +3700,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3669,7 +3751,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3720,7 +3802,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -3845,7 +3927,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3891,7 +3973,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3937,7 +4019,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -3983,7 +4065,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -4029,7 +4111,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -4075,7 +4157,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataHiddenPowers.esp",
-        "winnerLoadOrderIndex": 267,
+        "winnerLoadOrderIndex": 251,
         "chain": [
           "KataHiddenPowers.esp"
         ],
@@ -4121,7 +4203,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4172,7 +4254,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4223,7 +4305,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4274,7 +4356,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4325,7 +4407,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4376,7 +4458,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -4988,7 +5070,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -10284,7 +10366,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Immersive Replacements.esp",
-        "winnerLoadOrderIndex": 262,
+        "winnerLoadOrderIndex": 246,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -11679,7 +11761,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -11757,7 +11839,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -12634,7 +12716,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Immersive Replacements.esp",
-        "winnerLoadOrderIndex": 262,
+        "winnerLoadOrderIndex": 246,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -12683,7 +12765,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Immersive Replacements.esp",
-        "winnerLoadOrderIndex": 262,
+        "winnerLoadOrderIndex": 246,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13260,7 +13342,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13324,7 +13406,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13392,7 +13474,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13456,7 +13538,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "EAS - Enderal Patch.esp"
@@ -13525,7 +13607,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -13762,7 +13844,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "ImmersiveInteractions.esp",
-        "winnerLoadOrderIndex": 185,
+        "winnerLoadOrderIndex": 175,
         "chain": [
           "ImmersiveInteractions.esp"
         ],
@@ -15635,7 +15717,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -16070,7 +16152,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -16280,7 +16362,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -16664,7 +16746,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -16728,7 +16810,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -19696,7 +19778,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "EAS - Enderal Patch.esp"
@@ -20852,7 +20934,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EAS - Enderal Patch.esp",
-        "winnerLoadOrderIndex": 144,
+        "winnerLoadOrderIndex": 136,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -20910,7 +20992,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -20956,7 +21038,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "TaberuAnimation.esp",
-        "winnerLoadOrderIndex": 84,
+        "winnerLoadOrderIndex": 81,
         "chain": [
           "TaberuAnimation.esp"
         ],

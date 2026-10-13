@@ -3,6 +3,23 @@
   "recordType": "GMST",
   "records": [
     {
+      "formKey": "000800:Disable NPC Bash.esp",
+      "editorId": "fCombatBashChanceMax",
+      "value": 0,
+      "provenance": {
+        "definedIn": "Disable NPC Bash.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Disable NPC Bash.esp",
+        "winnerLoadOrderIndex": 304,
+        "chain": [
+          "Disable NPC Bash.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
       "formKey": "000800:Enderal SE - Stealth Overhaul.esp",
       "editorId": "fSneakDistanceAttenuationExponent",
       "value": 3,
@@ -11,7 +28,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Enderal SE - Stealth Overhaul.esp"
         ],
@@ -28,12 +45,29 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "NoNPCLoadDoorFade.esp",
-        "winnerLoadOrderIndex": 195,
+        "winnerLoadOrderIndex": 185,
         "chain": [
           "NoNPCLoadDoorFade.esp"
         ],
         "winnerHeaderVersion": 1.71,
         "winnerNeedsBees": true
+      }
+    },
+    {
+      "formKey": "000801:Disable NPC Bash.esp",
+      "editorId": "fCombatBashChanceMin",
+      "value": 0,
+      "provenance": {
+        "definedIn": "Disable NPC Bash.esp",
+        "isNewRecord": true,
+        "isInjected": false,
+        "winner": "Disable NPC Bash.esp",
+        "winnerLoadOrderIndex": 304,
+        "chain": [
+          "Disable NPC Bash.esp"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
       }
     },
     {
@@ -45,7 +79,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Enderal SE - Stealth Overhaul.esp"
         ],
@@ -62,7 +96,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "NoNPCLoadDoorFade.esp",
-        "winnerLoadOrderIndex": 195,
+        "winnerLoadOrderIndex": 185,
         "chain": [
           "NoNPCLoadDoorFade.esp"
         ],
@@ -79,7 +113,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Enderal SE - Stealth Overhaul.esp"
         ],
@@ -113,7 +147,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Enderal SE - Stealth Overhaul.esp"
         ],
@@ -130,26 +164,9 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Enderal SE - Stealth Overhaul.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "000819:SCSI-ACTbfco-Main.esp",
-      "editorId": "fWeaponTwoHandedAnimationSpeedMult",
-      "value": 1.56,
-      "provenance": {
-        "definedIn": "SCSI-ACTbfco-Main.esp",
-        "isNewRecord": true,
-        "isInjected": false,
-        "winner": "SCSI-ACTbfco-Main.esp",
-        "winnerLoadOrderIndex": 15,
-        "chain": [
-          "SCSI-ACTbfco-Main.esp"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -167,91 +184,6 @@
         "winnerLoadOrderIndex": 46,
         "chain": [
           "Enderal SE - Gameplay Overhaul.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "00090D:SCSI-ACTbfco-Main.esp",
-      "editorId": "fArrowMinDistanceForTrails",
-      "value": 256,
-      "provenance": {
-        "definedIn": "SCSI-ACTbfco-Main.esp",
-        "isNewRecord": true,
-        "isInjected": false,
-        "winner": "SCSI-ACTbfco-Main.esp",
-        "winnerLoadOrderIndex": 15,
-        "chain": [
-          "SCSI-ACTbfco-Main.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "00090E:SCSI-ACTbfco-Main.esp",
-      "editorId": "fArrowMinPower",
-      "value": 0.55,
-      "provenance": {
-        "definedIn": "SCSI-ACTbfco-Main.esp",
-        "isNewRecord": true,
-        "isInjected": false,
-        "winner": "SCSI-ACTbfco-Main.esp",
-        "winnerLoadOrderIndex": 15,
-        "chain": [
-          "SCSI-ACTbfco-Main.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "00090F:SCSI-ACTbfco-Main.esp",
-      "editorId": "fArrowMinSpeedForTrails",
-      "value": 1000,
-      "provenance": {
-        "definedIn": "SCSI-ACTbfco-Main.esp",
-        "isNewRecord": true,
-        "isInjected": false,
-        "winner": "SCSI-ACTbfco-Main.esp",
-        "winnerLoadOrderIndex": 15,
-        "chain": [
-          "SCSI-ACTbfco-Main.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "000910:SCSI-ACTbfco-Main.esp",
-      "editorId": "fArrowMinVelocity",
-      "value": 0.66,
-      "provenance": {
-        "definedIn": "SCSI-ACTbfco-Main.esp",
-        "isNewRecord": true,
-        "isInjected": false,
-        "winner": "SCSI-ACTbfco-Main.esp",
-        "winnerLoadOrderIndex": 15,
-        "chain": [
-          "SCSI-ACTbfco-Main.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "000911:SCSI-ACTbfco-Main.esp",
-      "editorId": "fArrowWeakGravity",
-      "value": 0.6,
-      "provenance": {
-        "definedIn": "SCSI-ACTbfco-Main.esp",
-        "isNewRecord": true,
-        "isInjected": false,
-        "winner": "SCSI-ACTbfco-Main.esp",
-        "winnerLoadOrderIndex": 15,
-        "chain": [
-          "SCSI-ACTbfco-Main.esp"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -1861,7 +1793,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1878,7 +1810,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1895,7 +1827,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1912,7 +1844,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1929,7 +1861,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1946,7 +1878,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1963,7 +1895,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1980,7 +1912,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -1997,7 +1929,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2014,7 +1946,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2031,7 +1963,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2048,7 +1980,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2065,7 +1997,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2082,7 +2014,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2099,7 +2031,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2116,7 +2048,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -2133,7 +2065,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Audio Overhaul Skyrim.esp",
-        "winnerLoadOrderIndex": 211,
+        "winnerLoadOrderIndex": 199,
         "chain": [
           "Audio Overhaul Skyrim.esp"
         ],
@@ -4889,7 +4821,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -4911,7 +4843,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -4984,7 +4916,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -5962,7 +5894,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal - One Moon.esp",
-        "winnerLoadOrderIndex": 184,
+        "winnerLoadOrderIndex": 174,
         "chain": [
           "Skyrim.esm",
           "Enderal - One Moon.esp"
@@ -8213,7 +8145,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -8337,7 +8269,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -9856,7 +9788,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EGO SE - DS Movement Stamina UNIQUE RACES.esp",
-        "winnerLoadOrderIndex": 279,
+        "winnerLoadOrderIndex": 293,
         "chain": [
           "Skyrim.esm",
           "(SGC) NASC.esl",
@@ -9930,7 +9862,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EGO SE - Reduced Enemy Damage.esp",
-        "winnerLoadOrderIndex": 115,
+        "winnerLoadOrderIndex": 113,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -9952,7 +9884,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EGO SE - Reduced Enemy Damage.esp",
-        "winnerLoadOrderIndex": 115,
+        "winnerLoadOrderIndex": 113,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -9971,7 +9903,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EGO SE - Reduced Enemy Damage.esp",
-        "winnerLoadOrderIndex": 115,
+        "winnerLoadOrderIndex": 113,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -9993,7 +9925,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EGO SE - Reduced Enemy Damage.esp",
-        "winnerLoadOrderIndex": 115,
+        "winnerLoadOrderIndex": 113,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -10238,7 +10170,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Bug Fixes.esp",
@@ -11000,7 +10932,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -11022,7 +10954,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -25840,7 +25772,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -28158,7 +28090,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -28197,7 +28129,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "NoSillyPhysicsDamage.esl",
-        "winnerLoadOrderIndex": 14,
+        "winnerLoadOrderIndex": 12,
         "chain": [
           "Skyrim.esm",
           "Enderal - Forgotten Stories.esm",
@@ -28656,7 +28588,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -28678,7 +28610,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "Enderal SE - Stealth Overhaul.esp",
-        "winnerLoadOrderIndex": 226,
+        "winnerLoadOrderIndex": 212,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -29351,23 +29283,6 @@
       }
     },
     {
-      "formKey": "127788:Obsidian Weathers.esp",
-      "editorId": "fFastTravelSpeedMult",
-      "value": 3.6,
-      "provenance": {
-        "definedIn": "Obsidian Weathers.esp",
-        "isNewRecord": true,
-        "isInjected": false,
-        "winner": "Obsidian Weathers.esp",
-        "winnerLoadOrderIndex": 244,
-        "chain": [
-          "Obsidian Weathers.esp"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
       "formKey": "12E3DB:Skyrim.esm",
       "editorId": "fDetectionLOSDistanceMultExterior",
       "value": 0.45,
@@ -29465,7 +29380,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EGO SE - Reduced Enemy Damage.esp",
-        "winnerLoadOrderIndex": 115,
+        "winnerLoadOrderIndex": 113,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",
@@ -29487,7 +29402,7 @@
         "isNewRecord": false,
         "isInjected": false,
         "winner": "EGO SE - Reduced Enemy Damage.esp",
-        "winnerLoadOrderIndex": 115,
+        "winnerLoadOrderIndex": 113,
         "chain": [
           "Skyrim.esm",
           "Enderal SE - Gameplay Overhaul.esp",

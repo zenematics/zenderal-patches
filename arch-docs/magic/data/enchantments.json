@@ -33,7 +33,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "_Fuse00_AdventurerArmor.esp",
-        "winnerLoadOrderIndex": 73,
+        "winnerLoadOrderIndex": 71,
         "chain": [
           "_Fuse00_AdventurerArmor.esp"
         ],
@@ -71,7 +71,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "For Honor in Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winnerLoadOrderIndex": 272,
         "chain": [
           "For Honor in Skyrim.esp"
         ],
@@ -109,7 +109,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "FEC.esp",
-        "winnerLoadOrderIndex": 180,
+        "winnerLoadOrderIndex": 170,
         "chain": [
           "FEC.esp"
         ],
@@ -326,7 +326,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO SE - KataPUMB Hidden Powers.esp",
-        "winnerLoadOrderIndex": 268,
+        "winnerLoadOrderIndex": 252,
         "chain": [
           "KataHiddenPowers.esp",
           "EGO SE - KataPUMB Hidden Powers.esp"
@@ -877,13 +877,16 @@
       "formKey": "001F14:Enderal SE - Gameplay Overhaul.esp",
       "editorId": "EnchWeaponFrostDamageColdNight",
       "name": "Frost Damage",
-      "enchantmentCost": 7,
+      "enchantmentCost": 5,
       "enchantmentAmount": 7,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB96:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -892,10 +895,10 @@
             "editorId": "EnchFrostDamageFFContactNoShader",
             "name": "Frost damage"
           },
-          "magnitude": 4,
+          "magnitude": 8,
           "area": 0,
           "duration": 0,
-          "effectCost": 5,
+          "effectCost": 10,
           "archetype": "DualValueModifier",
           "actorValue": "Health"
         },
@@ -917,10 +920,16 @@
         "definedIn": "Enderal SE - Gameplay Overhaul.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -1291,7 +1300,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1330,7 +1339,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1369,7 +1378,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1408,7 +1417,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1447,7 +1456,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1486,7 +1495,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1687,7 +1696,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1740,7 +1749,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1807,7 +1816,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -1902,7 +1911,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -2035,7 +2044,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMB_SpellPackage.esp",
-        "winnerLoadOrderIndex": 266,
+        "winnerLoadOrderIndex": 250,
         "chain": [
           "KataPUMB_SpellPackage.esp"
         ],
@@ -2091,7 +2100,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2133,7 +2142,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2175,7 +2184,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2216,7 +2225,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2328,7 +2337,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2423,7 +2432,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2465,7 +2474,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2507,7 +2516,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2563,7 +2572,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO - KataPUMB Spell Package.esp",
-        "winnerLoadOrderIndex": 271,
+        "winnerLoadOrderIndex": 255,
         "chain": [
           "KataPUMBSpellPack.esp",
           "EGO - KataPUMB Spell Package.esp"
@@ -2610,7 +2619,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2666,7 +2675,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2746,7 +2755,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO - KataPUMB Spell Package.esp",
-        "winnerLoadOrderIndex": 271,
+        "winnerLoadOrderIndex": 255,
         "chain": [
           "KataPUMBSpellPack.esp",
           "EGO - KataPUMB Spell Package.esp"
@@ -2793,7 +2802,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2834,7 +2843,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EGO - KataPUMB Spell Package.esp",
-        "winnerLoadOrderIndex": 271,
+        "winnerLoadOrderIndex": 255,
         "chain": [
           "KataPUMBSpellPack.esp",
           "EGO - KataPUMB Spell Package.esp"
@@ -2881,7 +2890,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "KataPUMBSpellPack.esp",
-        "winnerLoadOrderIndex": 270,
+        "winnerLoadOrderIndex": 254,
         "chain": [
           "KataPUMBSpellPack.esp"
         ],
@@ -2975,7 +2984,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -3158,7 +3167,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -3804,6 +3813,9 @@
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -3826,10 +3838,10 @@
             "editorId": "EnchFireDamageFFContact",
             "name": "Fire Damage"
           },
-          "magnitude": 7,
+          "magnitude": 14,
           "area": 0,
           "duration": 0,
-          "effectCost": 7,
+          "effectCost": 16,
           "archetype": "ValueModifier",
           "actorValue": "Health"
         }
@@ -3838,10 +3850,15 @@
         "definedIn": "Enderal - Forgotten Stories.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal - Forgotten Stories.esm",
-        "winnerLoadOrderIndex": 5,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Enderal - Forgotten Stories.esm"
+          "Enderal - Forgotten Stories.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -3951,6 +3968,9 @@
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -3959,10 +3979,10 @@
             "editorId": "EnchFrostDamageFFContact",
             "name": "Frost Damage"
           },
-          "magnitude": 10,
+          "magnitude": 20,
           "area": 0,
           "duration": 0,
-          "effectCost": 13,
+          "effectCost": 29,
           "archetype": "DualValueModifier",
           "actorValue": "Health"
         },
@@ -3973,10 +3993,10 @@
             "editorId": "EnchShockDamageFFContact",
             "name": "Shock Damage"
           },
-          "magnitude": 5,
+          "magnitude": 10,
           "area": 0,
           "duration": 1,
-          "effectCost": 6,
+          "effectCost": 14,
           "archetype": "DualValueModifier",
           "actorValue": "Health"
         },
@@ -3998,10 +4018,15 @@
         "definedIn": "Enderal - Forgotten Stories.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal - Forgotten Stories.esm",
-        "winnerLoadOrderIndex": 5,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Enderal - Forgotten Stories.esm"
+          "Enderal - Forgotten Stories.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -4525,7 +4550,7 @@
       "formKey": "024153:Enderal - Forgotten Stories.esm",
       "editorId": "EnchUniqueWeapon_SouleatersMace",
       "name": "Shock Damage and Soul Trap",
-      "enchantmentCost": 12,
+      "enchantmentCost": 11,
       "enchantmentAmount": 12,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
@@ -4533,6 +4558,7 @@
       "chargeTime": 0,
       "baseEnchantment": "10FB9A:Skyrim.esm",
       "flags": [
+        "NoAutoCalc",
         "ExtendDurationOnRecast"
       ],
       "effects": [
@@ -4543,10 +4569,10 @@
             "editorId": "EnchShockDamageFFContact",
             "name": "Shock Damage"
           },
-          "magnitude": 4,
+          "magnitude": 10,
           "area": 0,
           "duration": 1,
-          "effectCost": 5,
+          "effectCost": 14,
           "archetype": "DualValueModifier",
           "actorValue": "Health"
         },
@@ -4568,14 +4594,17 @@
         "definedIn": "Enderal - Forgotten Stories.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
           "editorId",
+          "enchantmentCost",
+          "flags",
           "effects"
         ],
         "winnerHeaderVersion": 1.7,
@@ -4648,13 +4677,16 @@
       "formKey": "024BD5:Enderal - Forgotten Stories.esm",
       "editorId": "_04E_35_FS_WintersEdge_Ench",
       "name": "Frost Damage",
-      "enchantmentCost": 7,
+      "enchantmentCost": 18,
       "enchantmentAmount": 7,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB96:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -4663,10 +4695,10 @@
             "editorId": "EnchFrostDamageFFContact",
             "name": "Frost Damage"
           },
-          "magnitude": 13,
+          "magnitude": 26,
           "area": 0,
           "duration": 0,
-          "effectCost": 18,
+          "effectCost": 39,
           "archetype": "DualValueModifier",
           "actorValue": "Health"
         }
@@ -4675,14 +4707,17 @@
         "definedIn": "Enderal - Forgotten Stories.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -5830,13 +5865,16 @@
       "formKey": "02A49D:Enderal - Forgotten Stories.esm",
       "editorId": "_02E_15_Unique_SkaiNuasHeads_Ench",
       "name": "Frost Damage",
-      "enchantmentCost": 10,
+      "enchantmentCost": 9,
       "enchantmentAmount": 10,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB96:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -5845,10 +5883,10 @@
             "editorId": "EnchFrostDamageFFContact",
             "name": "Frost Damage"
           },
-          "magnitude": 7,
+          "magnitude": 16,
           "area": 0,
           "duration": 0,
-          "effectCost": 9,
+          "effectCost": 23,
           "archetype": "DualValueModifier",
           "actorValue": "Health"
         },
@@ -5870,14 +5908,17 @@
         "definedIn": "Enderal - Forgotten Stories.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -5887,13 +5928,16 @@
       "formKey": "02A49E:Enderal - Forgotten Stories.esm",
       "editorId": "_04E_30_Unique_YerosLastWords_Ench",
       "name": "Absorb Health",
-      "enchantmentCost": 44,
+      "enchantmentCost": 13,
       "enchantmentAmount": 44,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB91:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -5902,10 +5946,10 @@
             "editorId": "EnchAbsorbHealthFFContact",
             "name": "Absorb Health"
           },
-          "magnitude": 8,
+          "magnitude": 22,
           "area": 0,
           "duration": 1,
-          "effectCost": 13,
+          "effectCost": 40,
           "archetype": "Absorb",
           "actorValue": "Health"
         }
@@ -5914,14 +5958,17 @@
         "definedIn": "Enderal - Forgotten Stories.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Enderal - Forgotten Stories.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -12018,13 +12065,16 @@
       "formKey": "0432F0:Skyrim.esm",
       "editorId": "_04E_35_Unique_KilrasRedemption_Ench",
       "name": "Absorb Health",
-      "enchantmentCost": 237,
+      "enchantmentCost": 102,
       "enchantmentAmount": 237,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB91:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -12033,10 +12083,10 @@
             "editorId": "EnchAbsorbHealthFFContact",
             "name": "Absorb Health"
           },
-          "magnitude": 5,
+          "magnitude": 10,
           "area": 0,
           "duration": 0,
-          "effectCost": 99,
+          "effectCost": 214,
           "archetype": "Absorb",
           "actorValue": "Health"
         },
@@ -12047,10 +12097,10 @@
             "editorId": "EnchFireDamageFFContact",
             "name": "Fire Damage"
           },
-          "magnitude": 3,
+          "magnitude": 6,
           "area": 0,
           "duration": 0,
-          "effectCost": 3,
+          "effectCost": 6,
           "archetype": "ValueModifier",
           "actorValue": "Health"
         }
@@ -12059,10 +12109,16 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -12502,90 +12558,9 @@
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB95:Skyrim.esm",
-      "effects": [
-        {
-          "index": 0,
-          "baseEffect": {
-            "formKey": "04605A:Skyrim.esm",
-            "editorId": "EnchFireDamageFFContact",
-            "name": "Fire Damage"
-          },
-          "magnitude": 8,
-          "area": 0,
-          "duration": 0,
-          "effectCost": 8,
-          "archetype": "ValueModifier",
-          "actorValue": "Health"
-        }
+      "flags": [
+        "NoAutoCalc"
       ],
-      "provenance": {
-        "definedIn": "Skyrim.esm",
-        "isNewRecord": false,
-        "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
-        "chain": [
-          "Skyrim.esm"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "045C2C:Skyrim.esm",
-      "editorId": "EnchWeaponFireDamage03",
-      "name": "Fire Damage",
-      "enchantmentCost": 13,
-      "enchantmentAmount": 13,
-      "enchantType": "Enchantment",
-      "castType": "FireAndForget",
-      "targetType": "Touch",
-      "chargeTime": 0,
-      "baseEnchantment": "10FB95:Skyrim.esm",
-      "effects": [
-        {
-          "index": 0,
-          "baseEffect": {
-            "formKey": "04605A:Skyrim.esm",
-            "editorId": "EnchFireDamageFFContact",
-            "name": "Fire Damage"
-          },
-          "magnitude": 11,
-          "area": 0,
-          "duration": 0,
-          "effectCost": 12,
-          "archetype": "ValueModifier",
-          "actorValue": "Health"
-        }
-      ],
-      "provenance": {
-        "definedIn": "Skyrim.esm",
-        "isNewRecord": false,
-        "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
-        "chain": [
-          "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
-        ],
-        "changedFields": [
-          "effects"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "045C2D:Skyrim.esm",
-      "editorId": "EnchWeaponFireDamage04",
-      "name": "Fire Damage",
-      "enchantmentCost": 19,
-      "enchantmentAmount": 19,
-      "enchantType": "Enchantment",
-      "castType": "FireAndForget",
-      "targetType": "Touch",
-      "chargeTime": 0,
-      "baseEnchantment": "10FB95:Skyrim.esm",
       "effects": [
         {
           "index": 0,
@@ -12606,10 +12581,113 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects",
+          "flags"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "045C2C:Skyrim.esm",
+      "editorId": "EnchWeaponFireDamage03",
+      "name": "Fire Damage",
+      "enchantmentCost": 12,
+      "enchantmentAmount": 13,
+      "enchantType": "Enchantment",
+      "castType": "FireAndForget",
+      "targetType": "Touch",
+      "chargeTime": 0,
+      "baseEnchantment": "10FB95:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "04605A:Skyrim.esm",
+            "editorId": "EnchFireDamageFFContact",
+            "name": "Fire Damage"
+          },
+          "magnitude": 24,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 29,
+          "archetype": "ValueModifier",
+          "actorValue": "Health"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "045C2D:Skyrim.esm",
+      "editorId": "EnchWeaponFireDamage04",
+      "name": "Fire Damage",
+      "enchantmentCost": 19,
+      "enchantmentAmount": 19,
+      "enchantType": "Enchantment",
+      "castType": "FireAndForget",
+      "targetType": "Touch",
+      "chargeTime": 0,
+      "baseEnchantment": "10FB95:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "04605A:Skyrim.esm",
+            "editorId": "EnchFireDamageFFContact",
+            "name": "Fire Damage"
+          },
+          "magnitude": 32,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 40,
+          "archetype": "ValueModifier",
+          "actorValue": "Health"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
+        "chain": [
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -12699,128 +12777,16 @@
       "formKey": "045C36:Skyrim.esm",
       "editorId": "EnchWeaponFrostDamage01",
       "name": "Frost Damage",
-      "enchantmentCost": 5,
+      "enchantmentCost": 2,
       "enchantmentAmount": 5,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB96:Skyrim.esm",
-      "effects": [
-        {
-          "index": 0,
-          "baseEffect": {
-            "formKey": "04605B:Skyrim.esm",
-            "editorId": "EnchFrostDamageFFContact",
-            "name": "Frost Damage"
-          },
-          "magnitude": 2,
-          "area": 0,
-          "duration": 0,
-          "effectCost": 2,
-          "archetype": "DualValueModifier",
-          "actorValue": "Health"
-        },
-        {
-          "index": 1,
-          "baseEffect": {
-            "formKey": "0B72A0:Skyrim.esm",
-            "editorId": "FrostSlowFFContact",
-            "name": "Slowdown"
-          },
-          "magnitude": 50,
-          "area": 0,
-          "duration": 3,
-          "effectCost": 0,
-          "archetype": "Script"
-        }
+      "flags": [
+        "NoAutoCalc"
       ],
-      "provenance": {
-        "definedIn": "Skyrim.esm",
-        "isNewRecord": false,
-        "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
-        "chain": [
-          "Skyrim.esm",
-          "Enderal SE - Bug Fixes.esp",
-          "Enderal SE - Gameplay Overhaul.esp"
-        ],
-        "changedFields": [
-          "effects"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "045C37:Skyrim.esm",
-      "editorId": "EnchWeaponFrostDamage02",
-      "name": "Frost Damage",
-      "enchantmentCost": 10,
-      "enchantmentAmount": 10,
-      "enchantType": "Enchantment",
-      "castType": "FireAndForget",
-      "targetType": "Touch",
-      "chargeTime": 0,
-      "baseEnchantment": "10FB96:Skyrim.esm",
-      "effects": [
-        {
-          "index": 0,
-          "baseEffect": {
-            "formKey": "04605B:Skyrim.esm",
-            "editorId": "EnchFrostDamageFFContact",
-            "name": "Frost Damage"
-          },
-          "magnitude": 5,
-          "area": 0,
-          "duration": 0,
-          "effectCost": 6,
-          "archetype": "DualValueModifier",
-          "actorValue": "Health"
-        },
-        {
-          "index": 1,
-          "baseEffect": {
-            "formKey": "0B72A0:Skyrim.esm",
-            "editorId": "FrostSlowFFContact",
-            "name": "Slowdown"
-          },
-          "magnitude": 50,
-          "area": 0,
-          "duration": 3,
-          "effectCost": 0,
-          "archetype": "Script"
-        }
-      ],
-      "provenance": {
-        "definedIn": "Skyrim.esm",
-        "isNewRecord": false,
-        "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
-        "chain": [
-          "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
-        ],
-        "changedFields": [
-          "effects"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "045C39:Skyrim.esm",
-      "editorId": "EnchWeaponFrostDamage03",
-      "name": "Frost Damage",
-      "enchantmentCost": 15,
-      "enchantmentAmount": 15,
-      "enchantType": "Enchantment",
-      "castType": "FireAndForget",
-      "targetType": "Touch",
-      "chargeTime": 0,
-      "baseEnchantment": "10FB96:Skyrim.esm",
       "effects": [
         {
           "index": 0,
@@ -12854,14 +12820,144 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Bug Fixes.esp",
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "045C37:Skyrim.esm",
+      "editorId": "EnchWeaponFrostDamage02",
+      "name": "Frost Damage",
+      "enchantmentCost": 6,
+      "enchantmentAmount": 10,
+      "enchantType": "Enchantment",
+      "castType": "FireAndForget",
+      "targetType": "Touch",
+      "chargeTime": 0,
+      "baseEnchantment": "10FB96:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "04605B:Skyrim.esm",
+            "editorId": "EnchFrostDamageFFContact",
+            "name": "Frost Damage"
+          },
+          "magnitude": 16,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 23,
+          "archetype": "DualValueModifier",
+          "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "0B72A0:Skyrim.esm",
+            "editorId": "FrostSlowFFContact",
+            "name": "Slowdown"
+          },
+          "magnitude": 50,
+          "area": 0,
+          "duration": 3,
+          "effectCost": 0,
+          "archetype": "Script"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "045C39:Skyrim.esm",
+      "editorId": "EnchWeaponFrostDamage03",
+      "name": "Frost Damage",
+      "enchantmentCost": 10,
+      "enchantmentAmount": 15,
+      "enchantType": "Enchantment",
+      "castType": "FireAndForget",
+      "targetType": "Touch",
+      "chargeTime": 0,
+      "baseEnchantment": "10FB96:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "04605B:Skyrim.esm",
+            "editorId": "EnchFrostDamageFFContact",
+            "name": "Frost Damage"
+          },
+          "magnitude": 22,
+          "area": 0,
+          "duration": 0,
+          "effectCost": 32,
+          "archetype": "DualValueModifier",
+          "actorValue": "Health"
+        },
+        {
+          "index": 1,
+          "baseEffect": {
+            "formKey": "0B72A0:Skyrim.esm",
+            "editorId": "FrostSlowFFContact",
+            "name": "Slowdown"
+          },
+          "magnitude": 50,
+          "area": 0,
+          "duration": 3,
+          "effectCost": 0,
+          "archetype": "Script"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -12889,10 +12985,10 @@
             "editorId": "EnchFrostDamageFFContactNoShader",
             "name": "Frost damage"
           },
-          "magnitude": 10,
+          "magnitude": 26,
           "area": 0,
           "duration": 0,
-          "effectCost": 13,
+          "effectCost": 39,
           "archetype": "DualValueModifier",
           "actorValue": "Health"
         },
@@ -12914,11 +13010,12 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
           "editorId",
@@ -13038,101 +13135,16 @@
       "formKey": "045D59:Skyrim.esm",
       "editorId": "EnchWeaponShockDamage01",
       "name": "Shock Damage",
-      "enchantmentCost": 6,
+      "enchantmentCost": 5,
       "enchantmentAmount": 6,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB99:Skyrim.esm",
-      "effects": [
-        {
-          "index": 0,
-          "baseEffect": {
-            "formKey": "04605C:Skyrim.esm",
-            "editorId": "EnchShockDamageFFContact",
-            "name": "Shock Damage"
-          },
-          "magnitude": 4,
-          "area": 0,
-          "duration": 1,
-          "effectCost": 5,
-          "archetype": "DualValueModifier",
-          "actorValue": "Health"
-        }
+      "flags": [
+        "NoAutoCalc"
       ],
-      "provenance": {
-        "definedIn": "Skyrim.esm",
-        "isNewRecord": false,
-        "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
-        "chain": [
-          "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
-        ],
-        "changedFields": [
-          "effects"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "045D97:Skyrim.esm",
-      "editorId": "EnchWeaponShockDamage02",
-      "name": "Shock Damage",
-      "enchantmentCost": 10,
-      "enchantmentAmount": 10,
-      "enchantType": "Enchantment",
-      "castType": "FireAndForget",
-      "targetType": "Touch",
-      "chargeTime": 0,
-      "baseEnchantment": "10FB99:Skyrim.esm",
-      "effects": [
-        {
-          "index": 0,
-          "baseEffect": {
-            "formKey": "04605C:Skyrim.esm",
-            "editorId": "EnchShockDamageFFContact",
-            "name": "Shock Damage"
-          },
-          "magnitude": 7,
-          "area": 0,
-          "duration": 1,
-          "effectCost": 9,
-          "archetype": "DualValueModifier",
-          "actorValue": "Health"
-        }
-      ],
-      "provenance": {
-        "definedIn": "Skyrim.esm",
-        "isNewRecord": false,
-        "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
-        "chain": [
-          "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
-        ],
-        "changedFields": [
-          "effects"
-        ],
-        "winnerHeaderVersion": 1.7,
-        "winnerNeedsBees": false
-      }
-    },
-    {
-      "formKey": "045F6F:Skyrim.esm",
-      "editorId": "EnchWeaponShockDamage03",
-      "name": "Shock Damage",
-      "enchantmentCost": 17,
-      "enchantmentAmount": 17,
-      "enchantType": "Enchantment",
-      "castType": "FireAndForget",
-      "targetType": "Touch",
-      "chargeTime": 0,
-      "baseEnchantment": "10FB99:Skyrim.esm",
       "effects": [
         {
           "index": 0,
@@ -13153,14 +13165,117 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "045D97:Skyrim.esm",
+      "editorId": "EnchWeaponShockDamage02",
+      "name": "Shock Damage",
+      "enchantmentCost": 9,
+      "enchantmentAmount": 10,
+      "enchantType": "Enchantment",
+      "castType": "FireAndForget",
+      "targetType": "Touch",
+      "chargeTime": 0,
+      "baseEnchantment": "10FB99:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "04605C:Skyrim.esm",
+            "editorId": "EnchShockDamageFFContact",
+            "name": "Shock Damage"
+          },
+          "magnitude": 16,
+          "area": 0,
+          "duration": 1,
+          "effectCost": 23,
+          "archetype": "DualValueModifier",
+          "actorValue": "Health"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
+        ],
+        "winnerHeaderVersion": 1.7,
+        "winnerNeedsBees": false
+      }
+    },
+    {
+      "formKey": "045F6F:Skyrim.esm",
+      "editorId": "EnchWeaponShockDamage03",
+      "name": "Shock Damage",
+      "enchantmentCost": 14,
+      "enchantmentAmount": 17,
+      "enchantType": "Enchantment",
+      "castType": "FireAndForget",
+      "targetType": "Touch",
+      "chargeTime": 0,
+      "baseEnchantment": "10FB99:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
+      "effects": [
+        {
+          "index": 0,
+          "baseEffect": {
+            "formKey": "04605C:Skyrim.esm",
+            "editorId": "EnchShockDamageFFContact",
+            "name": "Shock Damage"
+          },
+          "magnitude": 24,
+          "area": 0,
+          "duration": 1,
+          "effectCost": 36,
+          "archetype": "DualValueModifier",
+          "actorValue": "Health"
+        }
+      ],
+      "provenance": {
+        "definedIn": "Skyrim.esm",
+        "isNewRecord": false,
+        "isInjected": false,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
+        "chain": [
+          "Skyrim.esm",
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -13667,6 +13782,9 @@
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB95:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -13675,10 +13793,10 @@
             "editorId": "EnchFireDamageFFContact",
             "name": "Fire Damage"
           },
-          "magnitude": 5,
+          "magnitude": 10,
           "area": 0,
           "duration": 0,
-          "effectCost": 5,
+          "effectCost": 11,
           "archetype": "ValueModifier",
           "actorValue": "Health"
         }
@@ -13687,10 +13805,15 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -14977,6 +15100,9 @@
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB97:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -14985,10 +15111,10 @@
             "editorId": "EnchMagickaDamageFFContact",
             "name": "Damage Mana"
           },
-          "magnitude": 9,
+          "magnitude": 18,
           "area": 0,
           "duration": 0,
-          "effectCost": 8,
+          "effectCost": 19,
           "archetype": "ValueModifier",
           "actorValue": "Magicka"
         }
@@ -14997,10 +15123,15 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -15217,6 +15348,9 @@
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB9B:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -15225,10 +15359,10 @@
             "editorId": "EnchStaminaDamageFFContact",
             "name": "Damage Stamina"
           },
-          "magnitude": 15,
+          "magnitude": 30,
           "area": 0,
           "duration": 0,
-          "effectCost": 29,
+          "effectCost": 63,
           "archetype": "ValueModifier",
           "actorValue": "Stamina"
         }
@@ -15237,10 +15371,15 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -15962,13 +16101,16 @@
       "formKey": "05B46E:Skyrim.esm",
       "editorId": "EnchUniqueWeapon_Lightbringer",
       "name": "Lightbringer",
-      "enchantmentCost": 59,
+      "enchantmentCost": 19,
       "enchantmentAmount": 59,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB9C:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -15991,7 +16133,7 @@
             "editorId": "XionLightbringer",
             "name": "Light Damage"
           },
-          "magnitude": 7,
+          "magnitude": 14,
           "area": 0,
           "duration": 1,
           "effectCost": 0,
@@ -16003,16 +16145,19 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
           "editorId",
           "name",
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -18387,7 +18532,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18425,7 +18570,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18463,7 +18608,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18501,7 +18646,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18539,7 +18684,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18577,7 +18722,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18615,7 +18760,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18653,7 +18798,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18691,7 +18836,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18743,7 +18888,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18809,7 +18954,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18874,7 +19019,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18939,7 +19084,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -18991,7 +19136,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19086,7 +19231,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19125,7 +19270,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19191,7 +19336,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19230,7 +19375,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19269,7 +19414,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19308,7 +19453,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19347,7 +19492,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19386,7 +19531,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19425,7 +19570,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19464,7 +19609,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19502,7 +19647,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19540,7 +19685,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19578,7 +19723,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19616,7 +19761,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19654,7 +19799,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19692,7 +19837,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19758,7 +19903,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19796,7 +19941,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19834,7 +19979,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -19872,7 +20017,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20162,7 +20307,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20200,7 +20345,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20238,7 +20383,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20276,7 +20421,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20341,7 +20486,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20393,7 +20538,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20445,7 +20590,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20483,7 +20628,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20671,7 +20816,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20709,7 +20854,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20747,7 +20892,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20786,7 +20931,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20824,7 +20969,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20876,7 +21021,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20915,7 +21060,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20953,7 +21098,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -20991,7 +21136,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -21501,7 +21646,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -21556,13 +21701,16 @@
       "formKey": "0AA145:Skyrim.esm",
       "editorId": "EnchWeaponAbsorbHealth02",
       "name": "Absorb Health",
-      "enchantmentCost": 10,
+      "enchantmentCost": 2,
       "enchantmentAmount": 10,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB91:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -21571,10 +21719,10 @@
             "editorId": "EnchAbsorbHealthFFContact",
             "name": "Absorb Health"
           },
-          "magnitude": 2,
+          "magnitude": 6,
           "area": 0,
           "duration": 1,
-          "effectCost": 2,
+          "effectCost": 9,
           "archetype": "Absorb",
           "actorValue": "Health"
         }
@@ -21583,14 +21731,17 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -21600,13 +21751,16 @@
       "formKey": "0AA158:Skyrim.esm",
       "editorId": "EnchWeaponAbsorbMagicka02",
       "name": "Absorb Mana",
-      "enchantmentCost": 7,
+      "enchantmentCost": 4,
       "enchantmentAmount": 7,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB9D:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -21615,10 +21769,10 @@
             "editorId": "EnchAbsorbMagickaFFContact",
             "name": "Absorb Mana"
           },
-          "magnitude": 4,
+          "magnitude": 8,
           "area": 0,
           "duration": 1,
-          "effectCost": 4,
+          "effectCost": 9,
           "archetype": "Absorb",
           "actorValue": "Magicka"
         }
@@ -21627,10 +21781,16 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -21640,13 +21800,16 @@
       "formKey": "0AA159:Skyrim.esm",
       "editorId": "EnchWeaponAbsorbStamina02",
       "name": "Absorb Stamina",
-      "enchantmentCost": 8,
+      "enchantmentCost": 4,
       "enchantmentAmount": 8,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB92:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -21655,10 +21818,10 @@
             "editorId": "EnchAbsorbStaminaFFContact",
             "name": "Absorb Stamina"
           },
-          "magnitude": 4,
+          "magnitude": 8,
           "area": 0,
           "duration": 1,
-          "effectCost": 4,
+          "effectCost": 9,
           "archetype": "Absorb",
           "actorValue": "Stamina"
         }
@@ -21667,10 +21830,16 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -21680,13 +21849,16 @@
       "formKey": "0AA15A:Skyrim.esm",
       "editorId": "EnchWeaponAbsorbHealth03",
       "name": "Absorb Health",
-      "enchantmentCost": 22,
+      "enchantmentCost": 7,
       "enchantmentAmount": 22,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB91:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -21695,10 +21867,10 @@
             "editorId": "EnchAbsorbHealthFFContact",
             "name": "Absorb Health"
           },
-          "magnitude": 5,
+          "magnitude": 12,
           "area": 0,
           "duration": 1,
-          "effectCost": 7,
+          "effectCost": 20,
           "archetype": "Absorb",
           "actorValue": "Health"
         }
@@ -21707,14 +21879,17 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -21724,13 +21899,16 @@
       "formKey": "0AA15B:Skyrim.esm",
       "editorId": "EnchWeaponAbsorbHealth04",
       "name": "Absorb Health",
-      "enchantmentCost": 44,
+      "enchantmentCost": 13,
       "enchantmentAmount": 44,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB91:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -21739,10 +21917,10 @@
             "editorId": "EnchAbsorbHealthFFContact",
             "name": "Absorb Health"
           },
-          "magnitude": 8,
+          "magnitude": 22,
           "area": 0,
           "duration": 1,
-          "effectCost": 13,
+          "effectCost": 40,
           "archetype": "Absorb",
           "actorValue": "Health"
         }
@@ -21751,14 +21929,17 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Enderal SE - Gameplay Overhaul.esp",
-        "winnerLoadOrderIndex": 46,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
           "Skyrim.esm",
-          "Enderal SE - Gameplay Overhaul.esp"
+          "Enderal SE - Gameplay Overhaul.esp",
+          "Zenderal - Magic Patches.esp"
         ],
         "changedFields": [
-          "effects"
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -22016,13 +22197,16 @@
       "formKey": "0AA162:Skyrim.esm",
       "editorId": "EnchWeaponAbsorbStamina03",
       "name": "Absorb Stamina",
-      "enchantmentCost": 14,
+      "enchantmentCost": 8,
       "enchantmentAmount": 14,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB92:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -22031,10 +22215,10 @@
             "editorId": "EnchAbsorbStaminaFFContact",
             "name": "Absorb Stamina"
           },
-          "magnitude": 7,
+          "magnitude": 14,
           "area": 0,
           "duration": 1,
-          "effectCost": 8,
+          "effectCost": 17,
           "archetype": "Absorb",
           "actorValue": "Stamina"
         }
@@ -22043,10 +22227,16 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -22056,13 +22246,16 @@
       "formKey": "0AA163:Skyrim.esm",
       "editorId": "EnchWeaponAbsorbStamina04",
       "name": "Absorb Stamina",
-      "enchantmentCost": 24,
+      "enchantmentCost": 13,
       "enchantmentAmount": 24,
       "enchantType": "Enchantment",
       "castType": "FireAndForget",
       "targetType": "Touch",
       "chargeTime": 0,
       "baseEnchantment": "10FB92:Skyrim.esm",
+      "flags": [
+        "NoAutoCalc"
+      ],
       "effects": [
         {
           "index": 0,
@@ -22071,10 +22264,10 @@
             "editorId": "EnchAbsorbStaminaFFContact",
             "name": "Absorb Stamina"
           },
-          "magnitude": 11,
+          "magnitude": 22,
           "area": 0,
           "duration": 1,
-          "effectCost": 13,
+          "effectCost": 28,
           "archetype": "Absorb",
           "actorValue": "Stamina"
         }
@@ -22083,10 +22276,16 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "enchantmentCost",
+          "effects",
+          "flags"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -22221,7 +22420,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "EAM SE - Enderal Apothecarii Monastery.esp",
-        "winnerLoadOrderIndex": 83,
+        "winnerLoadOrderIndex": 80,
         "chain": [
           "EAM SE - Enderal Apothecarii Monastery.esp"
         ],
@@ -24886,7 +25085,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25258,7 +25457,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25296,7 +25495,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25334,7 +25533,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25372,7 +25571,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25410,7 +25609,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25448,7 +25647,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25499,7 +25698,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -25538,7 +25737,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -28671,7 +28870,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -28738,7 +28937,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -35567,7 +35766,7 @@
             "editorId": "DA08EnchAbsorbHealthFFContact",
             "name": "Ebony Blade Absorb Health"
           },
-          "magnitude": 18,
+          "magnitude": 36,
           "area": 0,
           "duration": 1,
           "effectCost": 0,
@@ -35579,10 +35778,14 @@
         "definedIn": "Skyrim.esm",
         "isNewRecord": false,
         "isInjected": false,
-        "winner": "Skyrim.esm",
-        "winnerLoadOrderIndex": 0,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Skyrim.esm"
+          "Skyrim.esm",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "effects"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -41800,7 +42003,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -41866,7 +42069,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -41917,7 +42120,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -41955,7 +42158,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -41993,7 +42196,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -42032,7 +42235,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -42070,7 +42273,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 289,
+        "winnerLoadOrderIndex": 291,
         "chain": [
           "Apocalypse - Magic of Skyrim.esp"
         ],
@@ -42109,7 +42312,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42173,7 +42376,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42211,7 +42414,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42249,7 +42452,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42287,7 +42490,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42325,7 +42528,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42378,7 +42581,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42430,7 +42633,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42547,7 +42750,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42613,7 +42816,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42651,7 +42854,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42689,7 +42892,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42727,7 +42930,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42765,7 +42968,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42803,7 +43006,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42856,7 +43059,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42922,7 +43125,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -42975,7 +43178,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43027,7 +43230,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43066,7 +43269,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43105,7 +43308,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43143,7 +43346,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43181,7 +43384,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43234,7 +43437,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43273,7 +43476,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43312,7 +43515,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43351,7 +43554,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43417,7 +43620,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43455,7 +43658,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43493,7 +43696,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],
@@ -43531,7 +43734,7 @@
         "isNewRecord": true,
         "isInjected": false,
         "winner": "Triumvirate - Mage Archetypes.esp",
-        "winnerLoadOrderIndex": 290,
+        "winnerLoadOrderIndex": 299,
         "chain": [
           "Triumvirate - Mage Archetypes.esp"
         ],

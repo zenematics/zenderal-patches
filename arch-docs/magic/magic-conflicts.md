@@ -8,6 +8,7 @@ Every magic record more than one plugin touches, with what the winner changed re
 
 | FormKey | EditorID | Name | Winner | Chain | Changes |
 |---|---|---|---|---|---|
+| `0005F7:For Honor Balance Patch.esp` | `Shield Parry Poise Damage` | Shield Parry Poise Damage | Zenderal - FHR Parry Poise | For Honor Balance Patch → Zenderal - FHR Parry Poise | effects |
 | `000800:Enderal SE - Half Starling.esp` | `_00E_FS_Ab_RacialAb_Starling` | Longing for the Stars (Cultural Bonus) | EGO SE - Half Starling | Enderal SE - Half Starling → EGO SE - Half Starling | — |
 | `000803:For Honor in Skyrim.esp` | `Stagger Knockdown Followup Self Trigger` | Stagger Knockdown Followup Self Trigger | For Honor Balance Patch ⚠BEES | For Honor in Skyrim → For Honor Balance Patch | editorId: "SP_Followup" → "Stagger Knockdown Followup Self Trigger"; name: "Followup" → "Stagger Knockdown Followup Self Trigger"; targetType: "Touch" → "Self"; effects |
 | `000805:For Honor in Skyrim.esp` | `SP_ParryAttackDamage` | ParryAttackDamage | For Honor Balance Patch ⚠BEES | For Honor in Skyrim → For Honor Balance Patch | — |
@@ -26,8 +27,7 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `000876:For Honor in Skyrim.esp` | `SP_Stagger_HitPushX2` | Stagger_HitPushX2 | For Honor Balance Patch ⚠BEES | For Honor in Skyrim → For Honor Balance Patch | effects |
 | `000877:For Honor in Skyrim.esp` | `SP_Stagger_HitPushX3` | Stagger_HitPushX3 | For Honor Balance Patch ⚠BEES | For Honor in Skyrim → For Honor Balance Patch | effects |
 | `000879:For Honor in Skyrim.esp` | `SP_Stagger_BodyStamp` | Stagger_BodyStamp | For Honor Balance Patch ⚠BEES | For Honor in Skyrim → For Honor Balance Patch | effects |
-| `000899:BowRapidCombo.esp` | `Rapid Shot Damage` | Rapid Shot Damage | Bow Rapid Combo Balance ⚠BEES | BowRapidCombo → Bow Rapid Combo Balance | editorId: "Spell_TimingDamage" → "Rapid Shot Damage"; name: "TimingDamage" → "Rapid Shot Damage"; flags |
-| `000D65:Obsidian Weathers.esp` | `ObsidianSpell` | Options: Obsidian Weathers | Obsidian Weathers - Enderal | Obsidian Weathers → Obsidian Weathers - Enderal | type: "LesserPower" → "Poison" |
+| `000892:For Honor Balance Patch.esp` | `Weapon Parry Poise Damage` | Weapon Parry Poise Damage | Zenderal - FHR Parry Poise | For Honor Balance Patch → Zenderal - FHR Parry Poise | effects |
 | `0012DC:Apocalypse - Magic of Skyrim.esp` | `WB_Res_Peace4_Spell_NaturesBalance` | Nature's Balance | Zenderal - Magic Patches | Apocalypse - Magic of Skyrim → Zenderal - Magic Patches | cost.baseCost: 750 → 185; cost.manualCostCalc: false → true; cost.costDrift: 0 → ∅; cost.costMatchesStored: true → ∅; flags |
 | `00146F:KataPUMBAffinities.esp` | `Kata_Affinity_AbWhiteMage` | Affinity: White Mage | EGO SE - KataPUMB New Affinities | KataPUMBAffinities → EGO SE - KataPUMB New Affinities | description: "Raises Mana by \u003C15\u003E points. Raises each of Elementalism, Mentalism and Light Magic by \u003C7\u003E points. All Elementalism, Mentalism and Light Magic novice spells no longer cost mana to cast." → "Raises Mana by \u003C20\u003E points. Raises Elementalism by \u003C10\u003E points. Raises Mentalism and Light Magic both by \u003C5\u003E points. All Mentalism and Light Magic apprentice and novice spells no longer cost any mana to cast."; cost.baseCost: 126 → 186; cost.computedAutoCost: 126 → 120; cost.costDrift: 0 → -66; cost.costMatchesStored: true → false; chargeTime: 0.5 → 0; effects |
 | `001476:KataHiddenPowers.esp` | `Kata_P01_SP_FireBomb_I` | Lava Bomb | EGO SE - KataPUMB Hidden Powers | KataHiddenPowers → EGO SE - KataPUMB Hidden Powers | name: "Fire Bomb I" → "Lava Bomb"; cost.computedAutoCost: 4 → 9; flags; effects |
@@ -980,7 +980,7 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `3F637F:Triumvirate - Mage Archetypes.esp` | `TVR_Shadow_I075_Spell_Possession` | Possession | Zenderal - Magic Patches | Triumvirate - Mage Archetypes → Zenderal - Magic Patches | cost.baseCost: 290 → 79; cost.manualCostCalc: false → true; cost.costDrift: 0 → ∅; cost.costMatchesStored: true → ∅; flags |
 | `423DB0:Triumvirate - Mage Archetypes.esp` | `TVR_Shaman_A050_Spell_Fissure` | Fissure | Zenderal - Magic Patches | Triumvirate - Mage Archetypes → Zenderal - Magic Patches | cost.baseCost: 234 → 107; cost.manualCostCalc: false → true; cost.costDrift: 0 → ∅; cost.costMatchesStored: true → ∅; flags |
 
-## magic-effects (500)
+## magic-effects (499)
 
 | FormKey | EditorID | Name | Winner | Chain | Changes |
 |---|---|---|---|---|---|
@@ -1003,7 +1003,6 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `000884:Enderal SE - Gameplay Overhaul.esp` | `XionRandomIllu5` | Frenzy | EGO SE - Psionic affects Constructs | EGO → EGO SE - Psionic affects Constructs | conditions |
 | `000885:Enderal SE - Gameplay Overhaul.esp` | `XionRandomIllu6` | DoToD | EGO SE - Psionic affects Constructs | EGO → EGO SE - Psionic affects Constructs | conditions |
 | `000887:Enderal SE - Gameplay Overhaul.esp` | `XionRandomilluEmp1` | Tod Emp | EGO SE - Psionic affects Constructs | EGO → EGO SE - Psionic affects Constructs | conditions |
-| `00089B:BowRapidCombo.esp` | `Rapid Shot Damage` | Rapid Shot Damage | Bow Rapid Combo Balance ⚠BEES | BowRapidCombo → Bow Rapid Combo Balance | editorId: "Mag_PowerShotDamage3" → "Rapid Shot Damage"; name: "Power shot3" → "Rapid Shot Damage"; description: "Increases bow damage by \u003Cmag\u003E% for \u003Cdur\u003E seconds." → ∅; baseCost: 5 → 0; archetype: "PeakValueModifier" → "Absorb"; archetypeActorValue: "AttackDamageMult" → ∅; flags |
 | `0008E2:Immersive Death Cycle.esp` | `AfterDeathFalmerEffect` | After Death - Falmer Effect | Enderal SE - Immersive Death Cycle ⚠BEES | Immersive Death Cycle → Enderal SE - Immersive Death Cycle | scripts |
 | `000D62:WadeInWater.esp` | `WaterSlowdown` | wSlow | WadeInWaterRedone | WadeInWater → WadeInWaterRedone | archetype: "PeakValueModifier" → "Script"; archetypeActorValue: "SpeedMult" → ∅; flags |
 | `000D63:Smart_NPC_Potions.esp` | `NPCPotion_MagicEffect` | Magic Effect for NPC Potion | Enderal SE - Smart NPC Potions | Smart_NPC_Potions → Enderal SE - Smart NPC Potions | scripts |
@@ -1485,11 +1484,12 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `149751:Skyrim.esm` | `_00E_VoiceMyradPoisonBreathEffect` | Poison Breath | EGO | Skyrim(=Enderal) → EGO | name: "Poisonous Breath" → "Poison Breath"; secondActorValue: "Stamina" → ∅; secondActorValueWeight: 1 → 0; archetype: "DualValueModifier" → "ValueModifier"; keywords; description: ∅ → "Does \u003Cmag\u003E points of poison damage for \u003Cdur\u003E seconds." |
 | `149754:Skyrim.esm` | `_00E_VoiceMyradPoisonBall` | Poison Cloud | EGO | Skyrim(=Enderal) → EGO | name: "Poisonous Cloud" → "Poison Cloud"; secondActorValue: "Stamina" → ∅; secondActorValueWeight: 2 → 0; archetype: "DualValueModifier" → "ValueModifier"; keywords; description: ∅ → "Does \u003Cmag\u003E points of poison damage for \u003Cdur\u003E seconds." |
 
-## enchantments (275)
+## enchantments (289)
 
 | FormKey | EditorID | Name | Winner | Chain | Changes |
 |---|---|---|---|---|---|
 | `001479:KataHiddenPowers.esp` | `Kata_FireBombEnch` | Lava Bomb | EGO SE - KataPUMB Hidden Powers | KataHiddenPowers → EGO SE - KataPUMB Hidden Powers | name: "Fire Bomb" → "Lava Bomb" |
+| `001F14:Enderal SE - Gameplay Overhaul.esp` | `EnchWeaponFrostDamageColdNight` | Frost Damage | Zenderal - Magic Patches | EGO → Zenderal - Magic Patches | enchantmentCost: 7 → 5; effects; flags |
 | `00F7BE:KataPUMBSpellPack.esp` | `Kata_Staf_Entropy_Curse` | Curse | EGO - KataPUMB Spell Package | KataPUMBSpellPack → EGO - KataPUMB Spell Package | name: "Death Beam" → "Curse"; chargeTime: 0.3 → 0.5; effects |
 | `00F7C1:KataPUMBSpellPack.esp` | `Kata_Staf_LightMagic_HolyBall` | Holy Sun Burst | EGO - KataPUMB Spell Package | KataPUMBSpellPack → EGO - KataPUMB Spell Package | name: "Holy Ball" → "Holy Sun Burst"; chargeTime: 0.6 → 0.8; effects |
 | `00F7C6:KataPUMBSpellPack.esp` | `Kata_Staf_Entropy_SummonSpirit` | Summon Spirit | EGO - KataPUMB Spell Package | KataPUMBSpellPack → EGO - KataPUMB Spell Package | chargeTime: 0.3 → 3; effects |
@@ -1498,15 +1498,17 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `01D603:Skyrim.esm` | `01E_08UNIHelmDerInnerenKaelte_Ench` | Frost Resistance | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_08_Unique_HelmetOfTheInnerFrost_Ench" → "01E_08UNIHelmDerInnerenKaelte_Ench"; enchantmentCost: 400 → 300; enchantmentAmount: 400 → 300; flags |
 | `01D606:Skyrim.esm` | `01E_10UNIRobeDerInnerenFlamme_Ench` | Fortify Elementarism & Mana Regeneration | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_09_Unique_RobeOfTheInnerFlame_Ench" → "01E_10UNIRobeDerInnerenFlamme_Ench"; name: "Fortify Elementalism \u0026 Mana Regeneration" → "Fortify Elementarism \u0026 Mana Regeneration"; effects |
 | `01EB47:Enderal - Forgotten Stories.esm` | `_07E_60_Unique_SorrowsVisage_Ench` | Sorrow's Visage | EGO | FS → EGO | effects |
+| `01EB4B:Enderal - Forgotten Stories.esm` | `_02E_15_Unique_Epicura_Ench` | Epicura | Zenderal - Magic Patches | FS → Zenderal - Magic Patches | effects; flags |
 | `01EB4C:Enderal - Forgotten Stories.esm` | `EnchUniqueWeapon_LeafDancersBow` | Leaf Dancer's Bow | EGO | FS → EGO | editorId: "_04E_30_Unique_LeafDancersBow_Ench" → "EnchUniqueWeapon_LeafDancersBow"; effects |
 | `01EB4D:Enderal - Forgotten Stories.esm` | `EnchUniqueWeapon_BlueIslandsThorn` | Kiléan Shortsword | EGO | FS → EGO | editorId: "_03E_20_Unique_KileanShortSword_Ench" → "EnchUniqueWeapon_BlueIslandsThorn"; name: "Kilean Short Sword" → "Kil\u00E9an Shortsword"; effects |
+| `01EB4E:Enderal - Forgotten Stories.esm` | `_05E_45_Unique_Moonwind_Ench` | Moonwind | Zenderal - Magic Patches | FS → Zenderal - Magic Patches | effects; flags |
 | `01EB73:Enderal - Forgotten Stories.esm` | `_05E_40_Unique_MoralasBlessing_Ench` | Morala's Blessing | EGO | FS → EGO | effects |
 | `01FE9A:Enderal - Forgotten Stories.esm` | `_00E_EnchBackpackSevenThings` | Seven Things | EGO | FS → EGO | editorId: "_00E_Backpack_SevenThings_Ench" → "_00E_EnchBackpackSevenThings"; effects |
 | `01FE9B:Enderal - Forgotten Stories.esm` | `_00E_EnchSpecialBackpackC` | Companion of the Snow Nomad | EGO | FS → EGO | editorId: "_00E_Backpack_FellowOfTheSnowNomad_Ench" → "_00E_EnchSpecialBackpackC"; effects |
 | `01FE9D:Enderal - Forgotten Stories.esm` | `_00E_EnchBackpackVagabondsSac` | Vagabond's Sack | EGO | FS → EGO | editorId: "_00E_Backpack_VagabondsSac_Ench" → "_00E_EnchBackpackVagabondsSac"; name: "Vagabond\u0027s Sac" → "Vagabond\u0027s Sack" |
-| `024153:Enderal - Forgotten Stories.esm` | `EnchUniqueWeapon_SouleatersMace` | Shock Damage and Soul Trap | EGO | FS → EGO | editorId: "_02E_10_Unique_SouleatersMace_Ench" → "EnchUniqueWeapon_SouleatersMace"; effects |
+| `024153:Enderal - Forgotten Stories.esm` | `EnchUniqueWeapon_SouleatersMace` | Shock Damage and Soul Trap | Zenderal - Magic Patches | FS → EGO → Zenderal - Magic Patches | editorId: "_02E_10_Unique_SouleatersMace_Ench" → "EnchUniqueWeapon_SouleatersMace"; enchantmentCost: 12 → 11; flags; effects |
 | `024933:Enderal - Forgotten Stories.esm` | `EnchUniqueWeapon_RalysRyx` | Unholy Axe | EGO | FS → EGO | editorId: "_05E_40_Unique_RalysRyx_Ench" → "EnchUniqueWeapon_RalysRyx"; effects |
-| `024BD5:Enderal - Forgotten Stories.esm` | `_04E_35_FS_WintersEdge_Ench` | Frost Damage | EGO | FS → EGO | effects |
+| `024BD5:Enderal - Forgotten Stories.esm` | `_04E_35_FS_WintersEdge_Ench` | Frost Damage | Zenderal - Magic Patches | FS → EGO → Zenderal - Magic Patches | enchantmentCost: 7 → 18; effects; flags |
 | `024C28:Enderal - Forgotten Stories.esm` | `_03E_25_Unique_ShadowsEdge_Ench` | Fire Damage | EGO | FS → EGO | effects |
 | `027CEF:Skyrim.esm` | `01E_05UNIWehrrobe_Ench` | Fortify Mana Regeneration & Armor | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_05_DefenceRobe_Ench" → "01E_05UNIWehrrobe_Ench"; name: "Fortify Light Armor" → "Fortify Mana Regeneration \u0026 Armor"; enchantmentCost: 64 → 25; enchantmentAmount: 64 → 25; baseEnchantment: "10FB7A:Skyrim.esm" → "10FB7D:Skyrim.esm"; wornRestrictions: "10CD16:Skyrim.esm" → "10CD2A:Skyrim.esm"; effects |
 | `029B53:Skyrim.esm` | `StaffEnchRevenant` | Reanimate | EGO | Skyrim(=Enderal) → EGO | name: "Resurrection" → "Reanimate"; chargeTime: 0.5 → 1.25; effects |
@@ -1519,8 +1521,8 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `029B6E:Skyrim.esm` | `StaffEnchHealOther` | Heal Other | EGO | Skyrim(=Enderal) → EGO | effects |
 | `029B72:Skyrim.esm` | `StaffEnchTurnGreaterUndead` | Turn Greater Undead | EGO | Skyrim(=Enderal) → EGO | effects |
 | `02A022:Skyrim.esm` | `01E_07UNISchattenhaut_Ench` | Fortify Sneak | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_07_Unique_ShadowSkin_Ench" → "01E_07UNISchattenhaut_Ench"; enchantmentCost: 615 → 156; enchantmentAmount: 615 → 156; effects; flags |
-| `02A49D:Enderal - Forgotten Stories.esm` | `_02E_15_Unique_SkaiNuasHeads_Ench` | Frost Damage | EGO | FS → EGO | effects |
-| `02A49E:Enderal - Forgotten Stories.esm` | `_04E_30_Unique_YerosLastWords_Ench` | Absorb Health | EGO | FS → EGO | effects |
+| `02A49D:Enderal - Forgotten Stories.esm` | `_02E_15_Unique_SkaiNuasHeads_Ench` | Frost Damage | Zenderal - Magic Patches | FS → EGO → Zenderal - Magic Patches | enchantmentCost: 10 → 9; effects; flags |
+| `02A49E:Enderal - Forgotten Stories.esm` | `_04E_30_Unique_YerosLastWords_Ench` | Absorb Health | Zenderal - Magic Patches | FS → EGO → Zenderal - Magic Patches | enchantmentCost: 44 → 13; effects; flags |
 | `02A4B1:Enderal - Forgotten Stories.esm` | `EnchUniqueWeapon_SwordOfTheMesmer` | Psychosis | EGO | FS → EGO | editorId: "_03E_27_Unique_SwordOfTheMesmer_Ench" → "EnchUniqueWeapon_SwordOfTheMesmer"; baseEnchantment: "0240C4:Enderal - Forgotten Stories.esm" → ∅; effects |
 | `02A4B6:Enderal - Forgotten Stories.esm` | `EnchUniqueWeapon_BowOfTheIshyian` | Bow of the Ishyian | EGO | FS → EGO | editorId: "_02E_15_Unique_BowOfTheIshyian_Ench" → "EnchUniqueWeapon_BowOfTheIshyian"; enchantmentCost: 12 → 39; enchantmentAmount: 60 → 49; effects |
 | `02EF64:Enderal - Forgotten Stories.esm` | `_06E_50_HSet_SkybreakerBoots_Ench` | Wings of the Skybreaker | EGO | FS → EGO | effects |
@@ -1581,20 +1583,24 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `0432EA:Skyrim.esm` | `03E_26FeineWildmagierrobeDerRegeneration_Ench` | Fortify Mana Regeneration | EGO | Skyrim(=Enderal) → EGO | editorId: "_03E_26_GallantWildMageRobeOfRegeneration_Ench" → "03E_26FeineWildmagierrobeDerRegeneration_Ench"; effects |
 | `0432EC:Skyrim.esm` | `02E_EntropierobeDesChaos_Ench` | Fortify Entropy & Mana Regeneration | EGO | Skyrim(=Enderal) → EGO | editorId: "_03E_20_EntropyRobeOfChaos_Ench" → "02E_EntropierobeDesChaos_Ench"; effects |
 | `0432EE:Skyrim.esm` | `_03E_28AeternahandschuheDerMagiewinde_Ench` | Fortify Mana Regeneration | EGO | Skyrim(=Enderal) → EGO | editorId: "_03E_28_AeternaGauntletsOfMagicWinds_Ench" → "_03E_28AeternahandschuheDerMagiewinde_Ench"; effects |
+| `0432F0:Skyrim.esm` | `_04E_35_Unique_KilrasRedemption_Ench` | Absorb Health | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | enchantmentCost: 237 → 102; effects; flags |
 | `0432F6:Skyrim.esm` | `_04E_30_Unique_QaliansLastSmile_Ench` | Qalian's Last Smile | FS | Skyrim(=Enderal) → FS | effects |
 | `0432FD:Skyrim.esm` | `EnchUniqueWeapon_IrlandasGrace` | Irlanda's Grace | EGO | Skyrim(=Enderal) → EGO | editorId: "_05E_45_Unique_IrlandasGrace_Ench" → "EnchUniqueWeapon_IrlandasGrace"; effects |
 | `0438AA:Skyrim.esm` | `_01E_04_Unique_ShadowFinger_Ench` | Shadow Finger | EGO | Skyrim(=Enderal) → EGO | effects |
 | `043A8A:Skyrim.esm` | `_00E_FS_A3_Rogue_FrostbombEnch` | Glacial Bomb | EGO | Skyrim(=Enderal) → EGO | effects |
 | `044866:Skyrim.esm` | `EnchArmorFortifySpeechcraftBase_02` | Fortify Barter | EGO | Skyrim(=Enderal) → EGO | editorId: "EnchArmorFortifyPersuasion01" → "EnchArmorFortifySpeechcraftBase_02"; name: "Fortify Rhetoric" → "Fortify Barter"; baseEnchantment: "048504:Skyrim.esm" → "10FB84:Skyrim.esm"; effects |
-| `045C2C:Skyrim.esm` | `EnchWeaponFireDamage03` | Fire Damage | EGO | Skyrim(=Enderal) → EGO | effects |
-| `045C36:Skyrim.esm` | `EnchWeaponFrostDamage01` | Frost Damage | EGO | Skyrim(=Enderal) → Enderal SE - Bug Fixes → EGO | effects |
-| `045C37:Skyrim.esm` | `EnchWeaponFrostDamage02` | Frost Damage | EGO | Skyrim(=Enderal) → EGO | effects |
-| `045C39:Skyrim.esm` | `EnchWeaponFrostDamage03` | Frost Damage | EGO | Skyrim(=Enderal) → EGO | effects |
-| `045D4B:Skyrim.esm` | `EnchUniqueWeapon_SelnaBlackWidow` | Frost Damage | EGO | Skyrim(=Enderal) → EGO | editorId: "EnchWeaponFrostDamage04" → "EnchUniqueWeapon_SelnaBlackWidow"; effects |
-| `045D59:Skyrim.esm` | `EnchWeaponShockDamage01` | Shock Damage | EGO | Skyrim(=Enderal) → EGO | effects |
-| `045D97:Skyrim.esm` | `EnchWeaponShockDamage02` | Shock Damage | EGO | Skyrim(=Enderal) → EGO | effects |
-| `045F6F:Skyrim.esm` | `EnchWeaponShockDamage03` | Shock Damage | EGO | Skyrim(=Enderal) → EGO | effects |
+| `045C2A:Skyrim.esm` | `EnchWeaponFireDamage02` | Fire Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | effects; flags |
+| `045C2C:Skyrim.esm` | `EnchWeaponFireDamage03` | Fire Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 13 → 12; effects; flags |
+| `045C2D:Skyrim.esm` | `EnchWeaponFireDamage04` | Fire Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | effects; flags |
+| `045C36:Skyrim.esm` | `EnchWeaponFrostDamage01` | Frost Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → Enderal SE - Bug Fixes → EGO → Zenderal - Magic Patches | enchantmentCost: 5 → 2; effects; flags |
+| `045C37:Skyrim.esm` | `EnchWeaponFrostDamage02` | Frost Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 10 → 6; effects; flags |
+| `045C39:Skyrim.esm` | `EnchWeaponFrostDamage03` | Frost Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 15 → 10; effects; flags |
+| `045D4B:Skyrim.esm` | `EnchUniqueWeapon_SelnaBlackWidow` | Frost Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | editorId: "EnchWeaponFrostDamage04" → "EnchUniqueWeapon_SelnaBlackWidow"; effects |
+| `045D59:Skyrim.esm` | `EnchWeaponShockDamage01` | Shock Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 6 → 5; effects; flags |
+| `045D97:Skyrim.esm` | `EnchWeaponShockDamage02` | Shock Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 10 → 9; effects; flags |
+| `045F6F:Skyrim.esm` | `EnchWeaponShockDamage03` | Shock Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 17 → 14; effects; flags |
 | `048504:Skyrim.esm` | `EnchArmorFortifyPersuasionBase` | Fortify Barter | EGO | Skyrim(=Enderal) → EGO | name: "Fortify Rhetoric" → "Fortify Barter"; effects |
+| `049BB7:Skyrim.esm` | `EnchWeaponFireDamage01` | Fire Damage | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | effects; flags |
 | `04D9DD:Skyrim.esm` | `01E_03EnchAmulettZerstoerung_Ench` | Shadowy Necklace | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_03_ShadowyBronzeNecklace_Ench" → "01E_03EnchAmulettZerstoerung_Ench"; name: "Fortify Elementalism" → "Shadowy Necklace"; baseEnchantment: "10FB75:Skyrim.esm" → ∅; wornRestrictions: "10CD1C:Skyrim.esm" → "10CD1B:Skyrim.esm"; effects |
 | `04D9DF:Skyrim.esm` | `01E_03EnchAmulettBogen_Ench` | Fortify Archery | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_03_BronzeNecklaceOfTheHunterApprentice_Ench" → "01E_03EnchAmulettBogen_Ench"; effects |
 | `04DED7:Skyrim.esm` | `StaffEnchIceSpike` | Ice Spike | EGO | Skyrim(=Enderal) → EGO | effects |
@@ -1606,12 +1612,14 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `053FDC:Skyrim.esm` | `_10E_HSet_BonejudgeBootsEnch` | Silent Step of the Rat Catcher | EGO | Skyrim(=Enderal) → EGO | editorId: "_02E_10_HSet_BonejudgeBoots_Ench" → "_10E_HSet_BonejudgeBootsEnch"; effects |
 | `053FDF:Skyrim.esm` | `_02E_10_LSet_VagabundCuirassLight_Ench` | Heart of the Vagrant | EGO | Skyrim(=Enderal) → EGO | name: "Heart of the Swashbuckler" → "Heart of the Vagrant"; effects |
 | `053FE0:Skyrim.esm` | `_02E_10_LSet_VagabundBoots_Ench` | Footprints of the Vagrant | EGO | Skyrim(=Enderal) → EGO | name: "Footprints of the Swashbuckler" → "Footprints of the Vagrant"; effects |
+| `05B454:Skyrim.esm` | `EnchWeaponMagickaDamage02` | Damage Mana | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | effects; flags |
+| `05B45A:Skyrim.esm` | `EnchWeaponStaminaDamage02` | Damage Stamina | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | effects; flags |
 | `05B466:Skyrim.esm` | `EnchWeaponFear02` | Panic | EGO | Skyrim(=Enderal) → EGO | effects |
 | `05B467:Skyrim.esm` | `EnchWeaponFear03` | Panic | EGO | Skyrim(=Enderal) → EGO | effects |
 | `05B468:Skyrim.esm` | `EnchWeaponFear04` | Panic | EGO | Skyrim(=Enderal) → EGO | effects |
 | `05B469:Skyrim.esm` | `EnchWeaponFear05` | Panic | EGO | Skyrim(=Enderal) → EGO | effects |
 | `05B46A:Skyrim.esm` | `EnchWeaponFear06` | Panic | EGO | Skyrim(=Enderal) → EGO | effects |
-| `05B46E:Skyrim.esm` | `EnchUniqueWeapon_Lightbringer` | Lightbringer | EGO | Skyrim(=Enderal) → EGO | editorId: "EnchWeaponTurnUndead03" → "EnchUniqueWeapon_Lightbringer"; name: "Turn Undead" → "Lightbringer"; effects |
+| `05B46E:Skyrim.esm` | `EnchUniqueWeapon_Lightbringer` | Lightbringer | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | editorId: "EnchWeaponTurnUndead03" → "EnchUniqueWeapon_Lightbringer"; name: "Turn Undead" → "Lightbringer"; enchantmentCost: 59 → 19; effects; flags |
 | `067289:Skyrim.esm` | `_25E_RingDesSchattens_Ench` | Fortify Sneak | EGO | Skyrim(=Enderal) → EGO | editorId: "_03E_25_RingOfShadow_Ench" → "_25E_RingDesSchattens_Ench"; effects |
 | `06728A:Skyrim.esm` | `_00E_EnchAbsorbHealthStaff01` | Absorb Health | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_05_StaffOfTheSickSoul_Ench" → "_00E_EnchAbsorbHealthStaff01"; enchantmentCost: 27 → 30; enchantmentAmount: 27 → 30; chargeTime: 0 → 1; effects |
 | `06728C:Skyrim.esm` | `_05E_RingDerLaeuterung_Ench` | Fortify Light Magic | EGO | Skyrim(=Enderal) → EGO | editorId: "_01E_05_RingOfCleansing_Ench" → "_05E_RingDerLaeuterung_Ench" |
@@ -1633,11 +1641,15 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `091FFD:Skyrim.esm` | `StaffEnchRevenant2` | Reanimate | EGO | Skyrim(=Enderal) → EGO | name: "Resurrection" → "Reanimate"; chargeTime: 0.5 → 1.25; effects |
 | `0963A3:Skyrim.esm` | `_00E_OorbayaAreaAttackDMG` | Dimension Rift | EGO | Skyrim(=Enderal) → EGO | effects |
 | `0A0370:Skyrim.esm` | `TrapPoisonGasEnch01` | Poison Gas | EGO | Skyrim(=Enderal) → EGO | effects |
-| `0AA145:Skyrim.esm` | `EnchWeaponAbsorbHealth02` | Absorb Health | EGO | Skyrim(=Enderal) → EGO | effects |
-| `0AA15A:Skyrim.esm` | `EnchWeaponAbsorbHealth03` | Absorb Health | EGO | Skyrim(=Enderal) → EGO | effects |
-| `0AA15B:Skyrim.esm` | `EnchWeaponAbsorbHealth04` | Absorb Health | EGO | Skyrim(=Enderal) → EGO | effects |
+| `0AA145:Skyrim.esm` | `EnchWeaponAbsorbHealth02` | Absorb Health | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 10 → 2; effects; flags |
+| `0AA158:Skyrim.esm` | `EnchWeaponAbsorbMagicka02` | Absorb Mana | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | enchantmentCost: 7 → 4; effects; flags |
+| `0AA159:Skyrim.esm` | `EnchWeaponAbsorbStamina02` | Absorb Stamina | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | enchantmentCost: 8 → 4; effects; flags |
+| `0AA15A:Skyrim.esm` | `EnchWeaponAbsorbHealth03` | Absorb Health | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 22 → 7; effects; flags |
+| `0AA15B:Skyrim.esm` | `EnchWeaponAbsorbHealth04` | Absorb Health | Zenderal - Magic Patches | Skyrim(=Enderal) → EGO → Zenderal - Magic Patches | enchantmentCost: 44 → 13; effects; flags |
 | `0AA15F:Skyrim.esm` | `EnchWeaponAbsorbMagicka04` | Absorb Mana | EGO | Skyrim(=Enderal) → EGO | effects |
 | `0AA161:Skyrim.esm` | `EnchWeaponAbsorbMagicka06` | Absorb Mana | EGO | Skyrim(=Enderal) → EGO | effects |
+| `0AA162:Skyrim.esm` | `EnchWeaponAbsorbStamina03` | Absorb Stamina | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | enchantmentCost: 14 → 8; effects; flags |
+| `0AA163:Skyrim.esm` | `EnchWeaponAbsorbStamina04` | Absorb Stamina | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | enchantmentCost: 24 → 13; effects; flags |
 | `0AA165:Skyrim.esm` | `EnchWeaponAbsorbStamina06` | Absorb Stamina | EGO | Skyrim(=Enderal) → EGO | effects |
 | `0ACBBA:Skyrim.esm` | `EnchUniqueWeapon_Qalian` | Paralyze | EGO | Skyrim(=Enderal) → EGO | editorId: "EnchWeaponParalysis04" → "EnchUniqueWeapon_Qalian"; effects |
 | `0AD458:Skyrim.esm` | `EnchArmorFortifyDestruction02` | Fortify Elementarism | EGO | Skyrim(=Enderal) → EGO | name: "Fortify Elementalism" → "Fortify Elementarism"; effects |
@@ -1707,6 +1719,7 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `10EAD3:Skyrim.esm` | `EnchRobesDestructionBase` | Fortify Elementarism & Mana Regeneration | EGO | Skyrim(=Enderal) → EGO | name: "Fortify Elementalism \u0026 Mana Regeneration" → "Fortify Elementarism \u0026 Mana Regeneration"; effects |
 | `10EAD4:Skyrim.esm` | `EnchRobesIllusionBase` | Fortify Psionics & Mana Regeneration | EGO | Skyrim(=Enderal) → EGO | effects |
 | `10EAD5:Skyrim.esm` | `EnchRobesRestorationBase` | Fortify Light Magic & Mana Regeneration | EGO | Skyrim(=Enderal) → EGO | effects |
+| `10FAF0:Skyrim.esm` | `_04E_30_Unique_PetrifiedSaber_Ench` | Ebony Blade Enchantment | Zenderal - Magic Patches | Skyrim(=Enderal) → Zenderal - Magic Patches | effects |
 | `10FB71:Skyrim.esm` | `EnchArmorFortifyAlterationBase` | Fortify Mentalism | EGO | Skyrim(=Enderal) → EGO | effects |
 | `10FB72:Skyrim.esm` | `EnchArmorFortifyBlockBase` | Fortify Blocking | EGO | Skyrim(=Enderal) → EGO | effects |
 | `10FB74:Skyrim.esm` | `EnchArmorFortifyConjurationBase` | Fortify Entropy | EGO | Skyrim(=Enderal) → EGO | effects |
@@ -1812,11 +1825,11 @@ Every magic record more than one plugin touches, with what the winner changed re
 | `001482:KataHiddenPowers.esp` | `Kata_P01_FireBomb_Book01` | [Rog's Secrets] Lava Bomb (I) | EGO SE - KataPUMB Hidden Powers | KataHiddenPowers → EGO SE - KataPUMB Hidden Powers | name: "Rog\u0027s Secret Sauce: Fire Bomb (Tier I)" → "[Rog\u0027s Secrets] Lava Bomb (I)"; effects |
 | `001485:KataHiddenPowers.esp` | `Kata_P01_FireBomb_Book02` | [Rog's Secrets] Lava Bomb (II) | EGO SE - KataPUMB Hidden Powers | KataHiddenPowers → EGO SE - KataPUMB Hidden Powers | name: "Rog\u0027s Secret Sauce: Fire Bomb (Tier II)" → "[Rog\u0027s Secrets] Lava Bomb (II)"; effects |
 | `001486:KataHiddenPowers.esp` | `Kata_P01_FireBomb_Book03` | [Rog's Secrets] Lava Bomb (III) | EGO SE - KataPUMB Hidden Powers | KataHiddenPowers → EGO SE - KataPUMB Hidden Powers | name: "Rog\u0027s Secret Sauce: Fire Bomb (Tier III)" → "[Rog\u0027s Secrets] Lava Bomb (III)"; effects |
-| `0028C5:Skyrim.esm` | `02E_Genesungstrank` | Health Potion (Cheap) | No Arcane fewer for Health Potions | Skyrim(=Enderal) → FS → EGO → No Arcane fewer for Health Potions | — |
-| `0028C6:Skyrim.esm` | `03E_Genesungstrank` | Health Potion (Standard) | No Arcane fewer for Health Potions | Skyrim(=Enderal) → FS → EGO → No Arcane fewer for Health Potions | — |
-| `0028C7:Skyrim.esm` | `04E_Genesungstrank` | Health Potion (Quality) | No Arcane fewer for Health Potions | Skyrim(=Enderal) → FS → EGO → No Arcane fewer for Health Potions | — |
-| `0028C8:Skyrim.esm` | `01E_Genesungstrank` | Health Potion (Rancid) | No Arcane fewer for Health Potions | Skyrim(=Enderal) → FS → EGO → No Arcane fewer for Health Potions | — |
-| `0028C9:Skyrim.esm` | `05E_Genesungstrank` | Health Potion (Exclusive) | No Arcane fewer for Health Potions | Skyrim(=Enderal) → FS → EGO → No Arcane fewer for Health Potions | — |
+| `0028C5:Skyrim.esm` | `02E_Genesungstrank` | Health Potion (Cheap) | EGO | Skyrim(=Enderal) → FS → EGO | weight: 0.5 → 0.25; effects |
+| `0028C6:Skyrim.esm` | `03E_Genesungstrank` | Health Potion (Standard) | EGO | Skyrim(=Enderal) → FS → EGO | weight: 0.5 → 0.25; effects |
+| `0028C7:Skyrim.esm` | `04E_Genesungstrank` | Health Potion (Enhanced) | EGO | Skyrim(=Enderal) → FS → EGO | name: "Health Potion (Quality)" → "Health Potion (Enhanced)"; value: 140 → 115; weight: 0.5 → 0.25; effects |
+| `0028C8:Skyrim.esm` | `01E_Genesungstrank` | Health Potion (Rancid) | EGO | Skyrim(=Enderal) → FS → EGO | weight: 0.5 → 0.25; effects |
+| `0028C9:Skyrim.esm` | `05E_Genesungstrank` | Health Potion (Exclusive) | EGO | Skyrim(=Enderal) → FS → EGO | weight: 0.5 → 0.25; effects |
 | `0028D9:Skyrim.esm` | `01E_Gifttrank` | Poison of Woe (Rancid) | EGO | Skyrim(=Enderal) → EGO | value: 15 → 20; weight: 0.5 → 0.1; effects |
 | `0028DB:Skyrim.esm` | `01E_Manatrank` | Mana Potion (Rancid) | EGO | Skyrim(=Enderal) → EGO | value: 18 → 20; weight: 0.5 → 0.25; effects |
 | `0028DE:Skyrim.esm` | `01E_Morgenlufttrank` | Morning Air Potion (Rancid) | EGO | Skyrim(=Enderal) → EGO | value: 18 → 20; weight: 0.5 → 0.25; effects |

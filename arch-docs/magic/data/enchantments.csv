@@ -3,23 +3,23 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 10A27E:Skyrim.esm,TrapFrostRune,,Enchantment,FireAndForget,Touch,3433,3433,0,,Enderal SE - Gameplay Overhaul.esp
 10A27F:Skyrim.esm,TrapLightningRune,,Enchantment,FireAndForget,Touch,4293,4293,0,,Enderal SE - Gameplay Overhaul.esp
 002C89:Enderal SE - Gameplay Overhaul.esp,EnchWeaponAbsorbStaminaSanguine,Absorb Health,Enchantment,FireAndForget,Touch,14,14,0,,Enderal SE - Gameplay Overhaul.esp
-02A49E:Enderal - Forgotten Stories.esm,_04E_30_Unique_YerosLastWords_Ench,Absorb Health,Enchantment,FireAndForget,Touch,44,44,0,,Enderal SE - Gameplay Overhaul.esp
-0432F0:Skyrim.esm,_04E_35_Unique_KilrasRedemption_Ench,Absorb Health,Enchantment,FireAndForget,Touch,237,237,0,,Skyrim.esm
-0AA145:Skyrim.esm,EnchWeaponAbsorbHealth02,Absorb Health,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
-0AA15A:Skyrim.esm,EnchWeaponAbsorbHealth03,Absorb Health,Enchantment,FireAndForget,Touch,22,22,0,,Enderal SE - Gameplay Overhaul.esp
-0AA15B:Skyrim.esm,EnchWeaponAbsorbHealth04,Absorb Health,Enchantment,FireAndForget,Touch,44,44,0,,Enderal SE - Gameplay Overhaul.esp
+02A49E:Enderal - Forgotten Stories.esm,_04E_30_Unique_YerosLastWords_Ench,Absorb Health,Enchantment,FireAndForget,Touch,13,44,0,,Zenderal - Magic Patches.esp
+0432F0:Skyrim.esm,_04E_35_Unique_KilrasRedemption_Ench,Absorb Health,Enchantment,FireAndForget,Touch,102,237,0,,Zenderal - Magic Patches.esp
+0AA145:Skyrim.esm,EnchWeaponAbsorbHealth02,Absorb Health,Enchantment,FireAndForget,Touch,2,10,0,,Zenderal - Magic Patches.esp
+0AA15A:Skyrim.esm,EnchWeaponAbsorbHealth03,Absorb Health,Enchantment,FireAndForget,Touch,7,22,0,,Zenderal - Magic Patches.esp
+0AA15B:Skyrim.esm,EnchWeaponAbsorbHealth04,Absorb Health,Enchantment,FireAndForget,Touch,13,44,0,,Zenderal - Magic Patches.esp
 0AA15C:Skyrim.esm,EnchWeaponAbsorbHealth05,Absorb Health,Enchantment,FireAndForget,Touch,48,48,0,,Skyrim.esm
 0AA15D:Skyrim.esm,EnchWeaponAbsorbHealth06,Absorb Health,Enchantment,FireAndForget,Touch,62,62,0,,Skyrim.esm
 10FB91:Skyrim.esm,EnchWeaponAbsorbHealthBase,Absorb Health,Enchantment,FireAndForget,Touch,22,22,0,,Enderal SE - Gameplay Overhaul.esp
-0AA158:Skyrim.esm,EnchWeaponAbsorbMagicka02,Absorb Mana,Enchantment,FireAndForget,Touch,7,7,0,,Skyrim.esm
+0AA158:Skyrim.esm,EnchWeaponAbsorbMagicka02,Absorb Mana,Enchantment,FireAndForget,Touch,4,7,0,,Zenderal - Magic Patches.esp
 0AA15E:Skyrim.esm,EnchWeaponAbsorbMagicka03,Absorb Mana,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
 0AA15F:Skyrim.esm,EnchWeaponAbsorbMagicka04,Absorb Mana,Enchantment,FireAndForget,Touch,25,25,0,,Enderal SE - Gameplay Overhaul.esp
 0AA160:Skyrim.esm,EnchWeaponAbsorbMagicka05,Absorb Mana,Enchantment,FireAndForget,Touch,32,32,0,,Skyrim.esm
 0AA161:Skyrim.esm,EnchWeaponAbsorbMagicka06,Absorb Mana,Enchantment,FireAndForget,Touch,37,37,0,,Enderal SE - Gameplay Overhaul.esp
 10FB9D:Skyrim.esm,EnchWeaponAbsorbMagickaBase,Absorb Mana,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
-0AA159:Skyrim.esm,EnchWeaponAbsorbStamina02,Absorb Stamina,Enchantment,FireAndForget,Touch,8,8,0,,Skyrim.esm
-0AA162:Skyrim.esm,EnchWeaponAbsorbStamina03,Absorb Stamina,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
-0AA163:Skyrim.esm,EnchWeaponAbsorbStamina04,Absorb Stamina,Enchantment,FireAndForget,Touch,24,24,0,,Skyrim.esm
+0AA159:Skyrim.esm,EnchWeaponAbsorbStamina02,Absorb Stamina,Enchantment,FireAndForget,Touch,4,8,0,,Zenderal - Magic Patches.esp
+0AA162:Skyrim.esm,EnchWeaponAbsorbStamina03,Absorb Stamina,Enchantment,FireAndForget,Touch,8,14,0,,Zenderal - Magic Patches.esp
+0AA163:Skyrim.esm,EnchWeaponAbsorbStamina04,Absorb Stamina,Enchantment,FireAndForget,Touch,13,24,0,,Zenderal - Magic Patches.esp
 0AA164:Skyrim.esm,EnchWeaponAbsorbStamina05,Absorb Stamina,Enchantment,FireAndForget,Touch,34,34,0,,Skyrim.esm
 0AA165:Skyrim.esm,EnchWeaponAbsorbStamina06,Absorb Stamina,Enchantment,FireAndForget,Touch,39,39,0,,Enderal SE - Gameplay Overhaul.esp
 10FB92:Skyrim.esm,EnchWeaponAbsorbStaminaBase,Absorb Stamina,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
@@ -82,14 +82,14 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 044A69:Skyrim.esm,_03E_27_DaggerOfRighteousAmbush_Ench,Critical Hit Chance,Enchantment,FireAndForget,Touch,12,125,0,,Skyrim.esm
 046FC3:Skyrim.esm,_00E_EnchWeaponCrit_BaseEnch,Critical Hit Chance,Enchantment,FireAndForget,Touch,17,17,0,,Skyrim.esm
 05B453:Skyrim.esm,EnchWeaponMagickaDamage01,Damage Mana,Enchantment,FireAndForget,Touch,4,4,0,,Skyrim.esm
-05B454:Skyrim.esm,EnchWeaponMagickaDamage02,Damage Mana,Enchantment,FireAndForget,Touch,8,8,0,,Skyrim.esm
+05B454:Skyrim.esm,EnchWeaponMagickaDamage02,Damage Mana,Enchantment,FireAndForget,Touch,8,8,0,,Zenderal - Magic Patches.esp
 05B455:Skyrim.esm,EnchWeaponMagickaDamage03,Damage Mana,Enchantment,FireAndForget,Touch,15,15,0,,Skyrim.esm
 05B456:Skyrim.esm,EnchWeaponMagickaDamage04,Damage Mana,Enchantment,FireAndForget,Touch,21,21,0,,Skyrim.esm
 05B457:Skyrim.esm,EnchWeaponMagickaDamage05,Damage Mana,Enchantment,FireAndForget,Touch,33,33,0,,Skyrim.esm
 05B458:Skyrim.esm,EnchWeaponMagickaDamage06,Damage Mana,Enchantment,FireAndForget,Touch,39,39,0,,Skyrim.esm
 10FB97:Skyrim.esm,EnchWeaponMagickaDamageBase,Damage Mana,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
 05B459:Skyrim.esm,EnchWeaponStaminaDamage01,Damage Stamina,Enchantment,FireAndForget,Touch,14,14,0,,Skyrim.esm
-05B45A:Skyrim.esm,EnchWeaponStaminaDamage02,Damage Stamina,Enchantment,FireAndForget,Touch,29,29,0,,Skyrim.esm
+05B45A:Skyrim.esm,EnchWeaponStaminaDamage02,Damage Stamina,Enchantment,FireAndForget,Touch,29,29,0,,Zenderal - Magic Patches.esp
 05B45B:Skyrim.esm,EnchWeaponStaminaDamage03,Damage Stamina,Enchantment,FireAndForget,Touch,33,33,0,,Skyrim.esm
 05B45C:Skyrim.esm,EnchWeaponStaminaDamage04,Damage Stamina,Enchantment,FireAndForget,Touch,40,40,0,,Skyrim.esm
 05B45D:Skyrim.esm,EnchWeaponStaminaDamage05,Damage Stamina,Enchantment,FireAndForget,Touch,51,51,0,,Skyrim.esm
@@ -100,7 +100,7 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 0963A3:Skyrim.esm,_00E_OorbayaAreaAttackDMG,Dimension Rift,Enchantment,FireAndForget,Touch,665,665,0,,Enderal SE - Gameplay Overhaul.esp
 02319D:Skyrim.esm,_00E_A2_PrimalForceSynergyDMGEnch,Dimensional Rift (Synergy Effect),Enchantment,FireAndForget,Touch,31,31,0,,Skyrim.esm
 02F18F:Enderal - Forgotten Stories.esm,_00E_FS_Affinity_Druid_FrostnovaEnch,Druid Storm,Enchantment,FireAndForget,Touch,5,5,0,,Enderal SE - Gameplay Overhaul.esp
-10FAF0:Skyrim.esm,_04E_30_Unique_PetrifiedSaber_Ench,Ebony Blade Enchantment,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
+10FAF0:Skyrim.esm,_04E_30_Unique_PetrifiedSaber_Ench,Ebony Blade Enchantment,Enchantment,FireAndForget,Touch,0,0,0,,Zenderal - Magic Patches.esp
 13F361:Skyrim.esm,_03E_25_HSet_FallenOne_Boots_Ench,Echo of the Fallen,Enchantment,ConstantEffect,Self,477,477,0,,Skyrim.esm
 148A1A:Skyrim.esm,_40E_MSet_WandererBootsEnch,Echo of the Wandering Mage,Enchantment,ConstantEffect,Self,782,782,0,,Enderal SE - Gameplay Overhaul.esp
 02C594:Skyrim.esm,VoiceEnchElementalFury,Elemental Fury,Enchantment,FireAndForget,Touch,0,0,0,,Skyrim.esm
@@ -108,7 +108,7 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 000812:For Honor in Skyrim.esp,OB_EnchArt,EnchA_Weapon,Enchantment,FireAndForget,Touch,0,0,0,,For Honor in Skyrim.esp
 01A0A8:Apocalypse - Magic of Skyrim.esp,WB_C050_DaedricCrescent_SummonedWeaponEnchantment,Entropic Crescent,Enchantment,FireAndForget,Touch,1000,1000,0,,Apocalypse - Magic of Skyrim.esp
 001E9E:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Totensturm,Entropic Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
-01EB4B:Enderal - Forgotten Stories.esm,_02E_15_Unique_Epicura_Ench,Epicura,Enchantment,FireAndForget,Touch,23,23,0,,Enderal - Forgotten Stories.esm
+01EB4B:Enderal - Forgotten Stories.esm,_02E_15_Unique_Epicura_Ench,Epicura,Enchantment,FireAndForget,Touch,23,23,0,,Zenderal - Magic Patches.esp
 1130C7:Skyrim.esm,_00E_A2_EyeOfTheStormFailsaveEnch,Eye of the Storm,Enchantment,FireAndForget,Touch,665,665,0,,Skyrim.esm
 13F358:Skyrim.esm,_02E_15_LSet_CallOfNorthHelmet_Ench,Eyes of the North,Enchantment,ConstantEffect,Self,884,884,0,,Enderal SE - Gameplay Overhaul.esp
 01FE07:Enderal - Forgotten Stories.esm,_00E_FS_NQ05_AmulettEnch,Family Hoofbeat's Amulet,Enchantment,ConstantEffect,Self,423,423,0,,Enderal - Forgotten Stories.esm
@@ -117,12 +117,12 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 02EF6A:Enderal - Forgotten Stories.esm,_06E_50_LSet_VenturerGloves_Ench,Fingers of the Venturer,Enchantment,ConstantEffect,Self,381,381,0,,Enderal SE - Gameplay Overhaul.esp
 001DD6:Enderal SE - Gameplay Overhaul.esp,XionFireNova,Fire Damage,Enchantment,FireAndForget,Touch,15,15,0,,Enderal SE - Gameplay Overhaul.esp
 024C28:Enderal - Forgotten Stories.esm,_03E_25_Unique_ShadowsEdge_Ench,Fire Damage,Enchantment,FireAndForget,Touch,4,4,0,,Enderal SE - Gameplay Overhaul.esp
-045C2A:Skyrim.esm,EnchWeaponFireDamage02,Fire Damage,Enchantment,FireAndForget,Touch,8,8,0,,Skyrim.esm
-045C2C:Skyrim.esm,EnchWeaponFireDamage03,Fire Damage,Enchantment,FireAndForget,Touch,13,13,0,,Enderal SE - Gameplay Overhaul.esp
-045C2D:Skyrim.esm,EnchWeaponFireDamage04,Fire Damage,Enchantment,FireAndForget,Touch,19,19,0,,Skyrim.esm
+045C2A:Skyrim.esm,EnchWeaponFireDamage02,Fire Damage,Enchantment,FireAndForget,Touch,8,8,0,,Zenderal - Magic Patches.esp
+045C2C:Skyrim.esm,EnchWeaponFireDamage03,Fire Damage,Enchantment,FireAndForget,Touch,12,13,0,,Zenderal - Magic Patches.esp
+045C2D:Skyrim.esm,EnchWeaponFireDamage04,Fire Damage,Enchantment,FireAndForget,Touch,19,19,0,,Zenderal - Magic Patches.esp
 045C30:Skyrim.esm,EnchWeaponFireDamage05,Fire Damage,Enchantment,FireAndForget,Touch,24,24,0,,Skyrim.esm
 045C35:Skyrim.esm,EnchWeaponFireDamage06,Fire Damage,Enchantment,FireAndForget,Touch,37,37,0,,Skyrim.esm
-049BB7:Skyrim.esm,EnchWeaponFireDamage01,Fire Damage,Enchantment,FireAndForget,Touch,5,5,0,,Skyrim.esm
+049BB7:Skyrim.esm,EnchWeaponFireDamage01,Fire Damage,Enchantment,FireAndForget,Touch,5,5,0,,Zenderal - Magic Patches.esp
 101BDF:Skyrim.esm,crAtronachExplosionFireDamage,Fire Damage,Enchantment,FireAndForget,Touch,15,15,0,,Enderal SE - Gameplay Overhaul.esp
 10A26D:Skyrim.esm,TrapExplosiveGasEnch01,Fire Damage,Enchantment,FireAndForget,Touch,9,9,0,,Enderal SE - Gameplay Overhaul.esp
 10FB95:Skyrim.esm,EnchWeaponFireDamageBase,Fire Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
@@ -481,13 +481,13 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 0BE025:Skyrim.esm,EnchArmorFortifyTwoHanded04,Fortify Two-handed,Enchantment,ConstantEffect,Self,659,659,0,,Skyrim.esm
 0BE026:Skyrim.esm,EnchArmorFortifyTwoHanded05,Fortify Two-handed,Enchantment,ConstantEffect,Self,825,825,0,,Skyrim.esm
 0BE027:Skyrim.esm,EnchArmorFortifyTwoHanded06,Fortify Two-handed,Enchantment,ConstantEffect,Self,961,961,0,,Skyrim.esm
-001F14:Enderal SE - Gameplay Overhaul.esp,EnchWeaponFrostDamageColdNight,Frost Damage,Enchantment,FireAndForget,Touch,7,7,0,,Enderal SE - Gameplay Overhaul.esp
-024BD5:Enderal - Forgotten Stories.esm,_04E_35_FS_WintersEdge_Ench,Frost Damage,Enchantment,FireAndForget,Touch,7,7,0,,Enderal SE - Gameplay Overhaul.esp
-02A49D:Enderal - Forgotten Stories.esm,_02E_15_Unique_SkaiNuasHeads_Ench,Frost Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
-045C36:Skyrim.esm,EnchWeaponFrostDamage01,Frost Damage,Enchantment,FireAndForget,Touch,5,5,0,,Enderal SE - Gameplay Overhaul.esp
-045C37:Skyrim.esm,EnchWeaponFrostDamage02,Frost Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
-045C39:Skyrim.esm,EnchWeaponFrostDamage03,Frost Damage,Enchantment,FireAndForget,Touch,15,15,0,,Enderal SE - Gameplay Overhaul.esp
-045D4B:Skyrim.esm,EnchUniqueWeapon_SelnaBlackWidow,Frost Damage,Enchantment,FireAndForget,Touch,18,18,0,,Enderal SE - Gameplay Overhaul.esp
+001F14:Enderal SE - Gameplay Overhaul.esp,EnchWeaponFrostDamageColdNight,Frost Damage,Enchantment,FireAndForget,Touch,5,7,0,,Zenderal - Magic Patches.esp
+024BD5:Enderal - Forgotten Stories.esm,_04E_35_FS_WintersEdge_Ench,Frost Damage,Enchantment,FireAndForget,Touch,18,7,0,,Zenderal - Magic Patches.esp
+02A49D:Enderal - Forgotten Stories.esm,_02E_15_Unique_SkaiNuasHeads_Ench,Frost Damage,Enchantment,FireAndForget,Touch,9,10,0,,Zenderal - Magic Patches.esp
+045C36:Skyrim.esm,EnchWeaponFrostDamage01,Frost Damage,Enchantment,FireAndForget,Touch,2,5,0,,Zenderal - Magic Patches.esp
+045C37:Skyrim.esm,EnchWeaponFrostDamage02,Frost Damage,Enchantment,FireAndForget,Touch,6,10,0,,Zenderal - Magic Patches.esp
+045C39:Skyrim.esm,EnchWeaponFrostDamage03,Frost Damage,Enchantment,FireAndForget,Touch,10,15,0,,Zenderal - Magic Patches.esp
+045D4B:Skyrim.esm,EnchUniqueWeapon_SelnaBlackWidow,Frost Damage,Enchantment,FireAndForget,Touch,18,18,0,,Zenderal - Magic Patches.esp
 045D56:Skyrim.esm,EnchWeaponFrostDamage05,Frost Damage,Enchantment,FireAndForget,Touch,23,23,0,,Skyrim.esm
 045D58:Skyrim.esm,EnchWeaponFrostDamage06,Frost Damage,Enchantment,FireAndForget,Touch,26,26,0,,Skyrim.esm
 10FB96:Skyrim.esm,EnchWeaponFrostDamageBase,Frost Damage,Enchantment,FireAndForget,Touch,9,9,0,,Enderal SE - Gameplay Overhaul.esp
@@ -527,7 +527,7 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 001F8C:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Light3,Light Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
 001F8F:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Light_Base,Light Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
 001F95:Enderal SE - Gameplay Overhaul.esp,EnchUniqueWeapon_Light2,Light Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
-05B46E:Skyrim.esm,EnchUniqueWeapon_Lightbringer,Lightbringer,Enchantment,FireAndForget,Touch,59,59,0,,Enderal SE - Gameplay Overhaul.esp
+05B46E:Skyrim.esm,EnchUniqueWeapon_Lightbringer,Lightbringer,Enchantment,FireAndForget,Touch,19,59,0,,Zenderal - Magic Patches.esp
 0432DF:Skyrim.esm,02E_10FeinstahlhelmDesMagiewiderstands_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,373,373,0,,Enderal SE - Gameplay Overhaul.esp
 0432E0:Skyrim.esm,02E_10EnchAmulettDerMagieresistenz_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,373,373,0,,Enderal SE - Gameplay Overhaul.esp
 0432E1:Skyrim.esm,_02E_14_RuneShieldOfSpellBreaking_Ench,Magic Resistance,Enchantment,ConstantEffect,Self,373,373,0,,Enderal SE - Gameplay Overhaul.esp
@@ -538,7 +538,7 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 001CFA:Enderal SE - Gameplay Overhaul.esp,XionWispExplosionDUPLICATE001,Mana schädigen,Enchantment,FireAndForget,Touch,0,0,0,,Enderal SE - Gameplay Overhaul.esp
 13F35E:Skyrim.esm,_03E_25_HSet_FallenOne_Helmet_Ench,Mask of the Fallen,Enchantment,ConstantEffect,Self,615,615,0,,Skyrim.esm
 02E4E3:Enderal - Forgotten Stories.esm,_00E_FS_NQR05_EnchFatherMask,Mask of the Father,Enchantment,ConstantEffect,Self,1465,1465,0,,Enderal - Forgotten Stories.esm
-01EB4E:Enderal - Forgotten Stories.esm,_05E_45_Unique_Moonwind_Ench,Moonwind,Enchantment,FireAndForget,Touch,19,19,0,,Enderal - Forgotten Stories.esm
+01EB4E:Enderal - Forgotten Stories.esm,_05E_45_Unique_Moonwind_Ench,Moonwind,Enchantment,FireAndForget,Touch,19,19,0,,Zenderal - Magic Patches.esp
 01EB73:Enderal - Forgotten Stories.esm,_05E_40_Unique_MoralasBlessing_Ench,Morala's Blessing,Enchantment,ConstantEffect,Self,755,755,0,,Enderal SE - Gameplay Overhaul.esp
 12E18C:Skyrim.esm,_02E_15_MSet_MageNemesisSetHelmet_Ench,Nemesis Circlet,Enchantment,ConstantEffect,Self,472,472,0,,Enderal SE - Gameplay Overhaul.esp
 12E18D:Skyrim.esm,_02E_15_MSet_MageNemesisSetRobe_Ench,Nemesis Garb,Enchantment,ConstantEffect,Self,556,556,0,,Enderal SE - Gameplay Overhaul.esp
@@ -652,15 +652,15 @@ Form Key,Editor Id,Name,Enchant Type,Cast Type,Target Type,Enchantment Cost,Ench
 02F414:Enderal - Forgotten Stories.esm,_00E_FS_Theriantrophist_ClawBracers_BaseEnch,Sharper Claws,Enchantment,ConstantEffect,Self,29,29,0,,Enderal SE - Gameplay Overhaul.esp
 067229:Skyrim.esm,_00E_A2_EldritchBloodEnchantment,Shatter Soul,Enchantment,FireAndForget,Touch,665,665,0,,Skyrim.esm
 01EB48:Enderal - Forgotten Stories.esm,_03E_25_Unique_KileanKingsGuardShield_Ench,Shield of the Kiléan Royal Guard,Enchantment,ConstantEffect,Self,331,331,0,,Enderal - Forgotten Stories.esm
-045D59:Skyrim.esm,EnchWeaponShockDamage01,Shock Damage,Enchantment,FireAndForget,Touch,6,6,0,,Enderal SE - Gameplay Overhaul.esp
-045D97:Skyrim.esm,EnchWeaponShockDamage02,Shock Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
-045F6F:Skyrim.esm,EnchWeaponShockDamage03,Shock Damage,Enchantment,FireAndForget,Touch,17,17,0,,Enderal SE - Gameplay Overhaul.esp
+045D59:Skyrim.esm,EnchWeaponShockDamage01,Shock Damage,Enchantment,FireAndForget,Touch,5,6,0,,Zenderal - Magic Patches.esp
+045D97:Skyrim.esm,EnchWeaponShockDamage02,Shock Damage,Enchantment,FireAndForget,Touch,9,10,0,,Zenderal - Magic Patches.esp
+045F6F:Skyrim.esm,EnchWeaponShockDamage03,Shock Damage,Enchantment,FireAndForget,Touch,14,17,0,,Zenderal - Magic Patches.esp
 045F89:Skyrim.esm,EnchWeaponShockDamage04,Shock Damage,Enchantment,FireAndForget,Touch,21,21,0,,Skyrim.esm
 045F8D:Skyrim.esm,EnchWeaponShockDamage05,Shock Damage,Enchantment,FireAndForget,Touch,26,26,0,,Skyrim.esm
 045F9E:Skyrim.esm,EnchWeaponShockDamage06,Shock Damage,Enchantment,FireAndForget,Touch,30,30,0,,Skyrim.esm
 10CBE0:Skyrim.esm,EnchDwarvenSpiderShockDamage,Shock Damage,Enchantment,FireAndForget,Touch,1,1,0,,Enderal SE - Gameplay Overhaul.esp
 10FB99:Skyrim.esm,EnchWeaponShockDamageBase,Shock Damage,Enchantment,FireAndForget,Touch,10,10,0,,Enderal SE - Gameplay Overhaul.esp
-024153:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_SouleatersMace,Shock Damage and Soul Trap,Enchantment,FireAndForget,Touch,12,12,0,,Enderal SE - Gameplay Overhaul.esp
+024153:Enderal - Forgotten Stories.esm,EnchUniqueWeapon_SouleatersMace,Shock Damage and Soul Trap,Enchantment,FireAndForget,Touch,11,12,0,,Zenderal - Magic Patches.esp
 0252A6:Skyrim.esm,_00E_A2_SkyfallNovaEnch,Shock Nova,Enchantment,FireAndForget,Touch,38,38,0,,Skyrim.esm
 0432D9:Skyrim.esm,03E_24WegestreuenstiefelDesBerserkers_Ench,Shock Resistance,Enchantment,ConstantEffect,Self,496,496,0,,Enderal SE - Gameplay Overhaul.esp
 0432E3:Skyrim.esm,_15E_RingDerBlitzresistenz_Ench,Shock Resistance,Enchantment,ConstantEffect,Self,421,421,0,,Enderal SE - Gameplay Overhaul.esp

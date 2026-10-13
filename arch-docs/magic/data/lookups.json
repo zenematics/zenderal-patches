@@ -232,12 +232,6 @@
       "winner": "talkToSummons.esp"
     },
     {
-      "formKey": "000802:Bow Rapid Combo Balance.esp",
-      "editorId": "Timing Shot Damage",
-      "name": "Timing Shot Damage",
-      "winner": "Bow Rapid Combo Balance.esp"
-    },
-    {
       "formKey": "000802:ImmersiveInteractions.esp",
       "editorId": "AR_AnimPerk",
       "name": "AR_AnimPerk",
@@ -261,12 +255,6 @@
       "winner": "EGO SE - KataPUMB New Affinities.esp"
     },
     {
-      "formKey": "000807:Bow Rapid Combo Balance.esp",
-      "editorId": "Weak Shot Damage",
-      "name": "Weak Shot Damage",
-      "winner": "Bow Rapid Combo Balance.esp"
-    },
-    {
       "formKey": "000807:Reforged Directional Combat.esp",
       "editorId": "ReforgedDirectionalCombatPassives",
       "name": "Reforged Directional Combat Passives",
@@ -278,18 +266,6 @@
       "winner": "Zen Traits.esp"
     },
     {
-      "formKey": "000808:Bow Rapid Combo Balance.esp",
-      "editorId": "Sprint Attack Damage",
-      "name": "Sprint Attack Damage",
-      "winner": "Bow Rapid Combo Balance.esp"
-    },
-    {
-      "formKey": "000808:SCSI-ACTbfco-Main.esp",
-      "editorId": "bfco_wastPERK",
-      "name": "[/bp/]",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "00080A:EGO - KataPUMB Spell Package.esp",
       "editorId": "Kata_Inspire2",
       "winner": "EGO - KataPUMB Spell Package.esp"
@@ -298,11 +274,6 @@
       "formKey": "00080B:EGO - KataPUMB Spell Package.esp",
       "editorId": "Kata_Inspire3",
       "winner": "EGO - KataPUMB Spell Package.esp"
-    },
-    {
-      "formKey": "00080C:SCSI-ACTbfco-Main.esp",
-      "editorId": "bfco_isDWequip",
-      "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
       "formKey": "00080D:Biggie Traits.esp",
@@ -434,22 +405,6 @@
       "winner": "For Honor Balance Patch.esp"
     },
     {
-      "formKey": "00084F:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isGrsPerksInstall",
-      "name": "[/patch for TEST/]",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "000851:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp01",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "000852:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp02",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "000866:For Honor in Skyrim.esp",
       "editorId": "ParryAttackDamage",
       "name": "Extra Damage",
@@ -480,25 +435,10 @@
       "winner": "For Honor Balance Patch.esp"
     },
     {
-      "formKey": "00088D:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp03",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "00088E:For Honor Balance Patch.esp",
       "editorId": "ReforgedFollowupController",
       "name": "Reforged Followup Controller",
       "winner": "For Honor Balance Patch.esp"
-    },
-    {
-      "formKey": "00088E:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp04",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "00088F:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp05",
-      "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
       "formKey": "000890:For Honor Balance Patch.esp",
@@ -507,71 +447,16 @@
       "winner": "For Honor Balance Patch.esp"
     },
     {
-      "formKey": "000890:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp06",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "000892:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp07",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "000893:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp08",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "000894:BowRapidCombo.esp",
-      "editorId": "BPowerShot_Damage",
-      "name": "PowerShot Damage",
-      "winner": "Bow Rapid Combo Balance.esp"
-    },
-    {
-      "formKey": "000896:BowRapidCombo.esp",
-      "editorId": "BPowerShot_Damage2",
-      "name": "PowerShot Damage2",
-      "winner": "Bow Rapid Combo Balance.esp"
-    },
-    {
-      "formKey": "00089A:BowRapidCombo.esp",
-      "editorId": "Rapid Shot Damage",
-      "name": "Rapid Shot Damage",
-      "winner": "Zenderal - Bow Rapid Combo Balance.esp"
-    },
-    {
       "formKey": "0008A6:For Honor Balance Patch.esp",
       "editorId": "Hype Up",
       "name": "Hype Up",
       "winner": "For Honor Balance Patch.esp"
     },
     {
-      "formKey": "0008A6:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp09",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "0008BD:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_perk_bp00",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "0008CD:SCSI-ACTbfco-Main.esp",
-      "editorId": "bfco_baseperk001_bfcoSTYLE1",
-      "name": "[BFCO BsaeTweaks-STYLE1]",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "0008CE:Enderal SE - Gameplay Overhaul.esp",
       "editorId": "XionArmorHeavyPlayer",
       "name": "Player Armor Rebalance Perk",
       "winner": "Enderal SE - Gameplay Overhaul.esp"
-    },
-    {
-      "formKey": "0008D8:SCSI-ACTbfco-Main.esp",
-      "editorId": "bfco_ACTattackSpecial",
-      "name": "[/AttackCombE/]",
-      "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
       "formKey": "000F41:Deflection.esp",
@@ -4233,11 +4118,6 @@
       "winner": "kcf.esm"
     },
     {
-      "formKey": "00080A:Dynamic Sprint.esp",
-      "editorId": "Per_Sprint_1",
-      "winner": "Dynamic Sprint.esp"
-    },
-    {
       "formKey": "00080A:OCF.esp",
       "editorId": "OCF_WeapTypeHuntingKnife1H",
       "winner": "OCF.esp"
@@ -4253,11 +4133,6 @@
       "winner": "Biggie Traits.esp"
     },
     {
-      "formKey": "00080B:Dynamic Sprint.esp",
-      "editorId": "Per_Sprint_2",
-      "winner": "Dynamic Sprint.esp"
-    },
-    {
       "formKey": "00080B:OCF.esp",
       "editorId": "OCF_WeapTypeLightsaber1H",
       "winner": "OCF.esp"
@@ -4266,11 +4141,6 @@
       "formKey": "00080B:kcf.esm",
       "editorId": "WeapTypeGun",
       "winner": "kcf.esm"
-    },
-    {
-      "formKey": "00080C:Dynamic Sprint.esp",
-      "editorId": "Per_Sprint_3",
-      "winner": "Dynamic Sprint.esp"
     },
     {
       "formKey": "00080C:OCF.esp",
@@ -4291,11 +4161,6 @@
       "formKey": "00080D:Chocolate Poise - Reforged.esp",
       "editorId": "BHR_Effect_Key",
       "winner": "Chocolate Poise - Reforged.esp"
-    },
-    {
-      "formKey": "00080D:Dynamic Sprint.esp",
-      "editorId": "Per_Sprint_4",
-      "winner": "Dynamic Sprint.esp"
     },
     {
       "formKey": "00080D:OCF.esp",
@@ -4548,11 +4413,6 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "00082B:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isWeaponMana",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "00082C:Biggie Traits.esp",
       "editorId": "Traits_OldFashionArmor",
       "winner": "Biggie Traits.esp"
@@ -4723,11 +4583,6 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000847:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isWeaponManaX",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "000848:For Honor in Skyrim.esp",
       "editorId": "KW_Block",
       "winner": "For Honor in Skyrim.esp"
@@ -4738,19 +4593,9 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000848:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isMoonSStime",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "000849:OCF.esp",
       "editorId": "OCF_WeapTypeTrident2H",
       "winner": "OCF.esp"
-    },
-    {
-      "formKey": "000849:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isgroudSStime",
-      "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
       "formKey": "00084A:OCF.esp",
@@ -4948,19 +4793,9 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "00086E:BowRapidCombo.esp",
-      "editorId": "SecondaryDagger",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "00086E:OCF.esp",
       "editorId": "OCF_AmmoTypeBolt",
       "winner": "OCF.esp"
-    },
-    {
-      "formKey": "00086F:BowRapidCombo.esp",
-      "editorId": "SecondaryIron",
-      "winner": "BowRapidCombo.esp"
     },
     {
       "formKey": "00086F:OCF.esp",
@@ -4968,19 +4803,9 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000870:BowRapidCombo.esp",
-      "editorId": "SecondarySteel",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "000870:OCF.esp",
       "editorId": "OCF_AmmoTypeDart",
       "winner": "OCF.esp"
-    },
-    {
-      "formKey": "000871:BowRapidCombo.esp",
-      "editorId": "SecondaryOrcish",
-      "winner": "BowRapidCombo.esp"
     },
     {
       "formKey": "000871:OCF.esp",
@@ -4988,19 +4813,9 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000872:BowRapidCombo.esp",
-      "editorId": "SecondaryDwarven",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "000872:OCF.esp",
       "editorId": "OCF_AmmoTypeArrow_Basic",
       "winner": "OCF.esp"
-    },
-    {
-      "formKey": "000873:BowRapidCombo.esp",
-      "editorId": "SecondaryElven",
-      "winner": "BowRapidCombo.esp"
     },
     {
       "formKey": "000873:Helmet Toggle 2.esp",
@@ -5013,11 +4828,6 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000874:BowRapidCombo.esp",
-      "editorId": "SecondaryGlass",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "000874:Helmet Toggle 2.esp",
       "editorId": "HT_ApplyWorkaround",
       "winner": "Helmet Toggle 2.esp"
@@ -5028,19 +4838,9 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000875:BowRapidCombo.esp",
-      "editorId": "SecondaryEbony",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "000875:OCF.esp",
       "editorId": "OCF_AmmoTypeBullet1H",
       "winner": "OCF.esp"
-    },
-    {
-      "formKey": "000876:BowRapidCombo.esp",
-      "editorId": "SecondaryDaedric",
-      "winner": "BowRapidCombo.esp"
     },
     {
       "formKey": "000876:Helmet Toggle 2.esp",
@@ -5053,29 +4853,14 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000877:BowRapidCombo.esp",
-      "editorId": "SecondaryDragonbone",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "000877:OCF.esp",
       "editorId": "OCF_AmmoTypeBullet1H_Basic",
       "winner": "OCF.esp"
     },
     {
-      "formKey": "000878:BowRapidCombo.esp",
-      "editorId": "SecondaryStalhrim",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "000878:OCF.esp",
       "editorId": "OCF_AmmoTypeBullet2H_Basic",
       "winner": "OCF.esp"
-    },
-    {
-      "formKey": "000879:BowRapidCombo.esp",
-      "editorId": "SecondaryNordic",
-      "winner": "BowRapidCombo.esp"
     },
     {
       "formKey": "000879:OCF.esp",
@@ -5188,16 +4973,6 @@
       "winner": "OCF.esp"
     },
     {
-      "formKey": "00088B:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isWeaponConeTime",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "00088C:BowRapidCombo.esp",
-      "editorId": "SecondaryForHonor",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "00088C:OCF.esp",
       "editorId": "OCF_HasEnchantmentT",
       "winner": "OCF.esp"
@@ -5241,11 +5016,6 @@
       "formKey": "000894:OCF.esp",
       "editorId": "OCF_ActiCritter",
       "winner": "OCF.esp"
-    },
-    {
-      "formKey": "000894:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isShadowDoDgeTime",
-      "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
       "formKey": "000895:For Honor Balance Patch.esp",
@@ -5358,24 +5128,9 @@
       "winner": "FEC.esp"
     },
     {
-      "formKey": "0008B5:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isACTattackEnd_STYLE0",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
-      "formKey": "0008C4:SCSI-ACTbfco-Main.esp",
-      "editorId": "scsi_isACTattackTime",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "0008C7:Enderal SE - Gameplay Overhaul.esp",
       "editorId": "XionImmuneMediumForce",
       "winner": "Enderal SE - Gameplay Overhaul.esp"
-    },
-    {
-      "formKey": "0008C8:SCSI-ACTbfco-Main.esp",
-      "editorId": "bfco_isForceVanillaType",
-      "winner": "SCSI-ACTbfco-Main.esp"
     },
     {
       "formKey": "0008CD:FEC.esp",
@@ -5398,11 +5153,6 @@
       "winner": "Enderal SE - Gameplay Overhaul.esp"
     },
     {
-      "formKey": "0008DB:SCSI-ACTbfco-Main.esp",
-      "editorId": "bfco_isAllowActivate_Combat",
-      "winner": "SCSI-ACTbfco-Main.esp"
-    },
-    {
       "formKey": "0008EE:FEC.esp",
       "editorId": "FEC_ShockCorpseDMG",
       "winner": "FEC.esp"
@@ -5414,7 +5164,7 @@
     },
     {
       "formKey": "000910:DynDOLOD.esp",
-      "editorId": "4N0O7S6E3H8S35O7T98T4I2M6B2U1S4",
+      "editorId": "4N4O4S7E1H1S64O8T39T4I7M6B2U7S0",
       "winner": "DynDOLOD.esp"
     },
     {
@@ -13110,19 +12860,9 @@
       "winner": "Sanguine Symphony.esp"
     },
     {
-      "formKey": "00082D:BowRapidCombo.esp",
-      "editorId": "DG_DustGenImpact",
-      "winner": "BowRapidCombo.esp"
-    },
-    {
       "formKey": "00082D:Sanguine Symphony.esp",
       "editorId": "SS_BloodSpray_Insect_Subtle_Projectile",
       "winner": "Sanguine Symphony.esp"
-    },
-    {
-      "formKey": "00082E:BowRapidCombo.esp",
-      "editorId": "DG_DustGenImpact_Stand",
-      "winner": "BowRapidCombo.esp"
     },
     {
       "formKey": "000842:Sanguine Symphony.esp",
@@ -13228,11 +12968,6 @@
       "formKey": "00085A:Audio Overhaul Skyrim.esp",
       "editorId": "DragonFrostProjectile01_AOS",
       "winner": "Audio Overhaul Skyrim.esp"
-    },
-    {
-      "formKey": "000887:BowRapidCombo.esp",
-      "editorId": "DG_FlappingSound",
-      "winner": "BowRapidCombo.esp"
     },
     {
       "formKey": "000894:Sanguine Symphony.esp",
@@ -15061,20 +14796,20 @@
     {
       "formKey": "14F6D1:Skyrim.esm",
       "editorId": "ArrowOrcishProjectileOld",
-      "name": "Old Rune Arrow",
-      "winner": "Pretty Semi-Unique Armory.esp"
+      "name": "Old rune Arrow",
+      "winner": "Zenderal - Pretty Armory EGO Patch.esp"
     },
     {
       "formKey": "15033D:Skyrim.esm",
       "editorId": "ArrowSteelAltProjectile",
       "name": "Old Steel Arrow",
-      "winner": "Pretty Common Armory.esp"
+      "winner": "Zenderal - Pretty Armory EGO Patch.esp"
     },
     {
       "formKey": "15033E:Skyrim.esm",
       "editorId": "ArrowSteelSpitzProjectile",
       "name": "Sharp Steel Arrow",
-      "winner": "Pretty Common Armory.esp"
+      "winner": "Zenderal - Pretty Armory EGO Patch.esp"
     },
     {
       "formKey": "151037:Skyrim.esm",
@@ -15091,7 +14826,7 @@
       "formKey": "152B9B:Skyrim.esm",
       "editorId": "ArrowIronProjectileOld",
       "name": "Old Iron Arrow",
-      "winner": "Pretty Common Armory.esp"
+      "winner": "Zenderal - Pretty Armory EGO Patch.esp"
     },
     {
       "formKey": "15E72D:Apocalypse - Magic of Skyrim.esp",

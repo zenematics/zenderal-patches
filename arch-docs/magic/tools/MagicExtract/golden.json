@@ -20,9 +20,9 @@
     { "_why": "BSA-embedded strings: Dismembering Framework.esm is Localized, ships no loose Strings, only its BSA — this name resolving proves the BSA lookup path",
       "dataset": "spells", "formKey": "000809:Dismembering Framework.esm", "field": "name", "op": "eq", "value": "Dismember Slow Time Effect" },
     { "_why": "a record overridden by a HEDR-1.71 plugin: it DOES win (BEES loads it) and is flagged",
-      "dataset": "spells", "formKey": "000899:BowRapidCombo.esp", "field": "provenance.winner", "op": "eq", "value": "Bow Rapid Combo Balance.esp" },
+      "dataset": "spells", "formKey": "000805:For Honor in Skyrim.esp", "field": "provenance.winner", "op": "eq", "value": "For Honor Balance Patch.esp" },
     { "_why": "…and the BEES dependency is visible per record",
-      "dataset": "spells", "formKey": "000899:BowRapidCombo.esp", "field": "provenance.winnerNeedsBees", "op": "eq", "value": true },
+      "dataset": "spells", "formKey": "000805:For Honor in Skyrim.esp", "field": "provenance.winnerNeedsBees", "op": "eq", "value": true },
     { "_why": "third-party new-record path (KataPUMB defines its own FormID space)",
       "dataset": "spells", "formKey": "0020FB:KataPUMBSpellPack.esp", "field": "provenance.isNewRecord", "op": "eq", "value": true }
   ]

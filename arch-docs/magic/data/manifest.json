@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
   "generatedBy": "MagicExtract (Mutagen.Bethesda.Skyrim 0.54.4, read-only)",
-  "extractedAt": "2026-08-27 21:58:22",
+  "extractedAt": "2026-10-13 17:51:53",
   "requiresBees": true,
-  "beesLogEmulatedCount": 76,
-  "beesLogTime": "2026-08-27 19:59:38",
+  "beesLogEmulatedCount": 72,
+  "beesLogTime": "2026-10-11 23:33:53",
   "costModelEnabled": true,
   "counts": {
-    "spells": 2723,
-    "magicEffects": 3406,
+    "spells": 2686,
+    "magicEffects": 3329,
     "enchantments": 870,
     "scrolls": 180,
     "ingestibles": 407,
     "shouts": 66,
     "leveledSpells": 9,
-    "gameSettings": 1709
+    "gameSettings": 1704
   },
   "warnings": [
     "4 effect entries reference a MGEF absent from the load order (these are REAL dangling links in game): SPEL 01545F:Apocalypse - Magic of Skyrim.esp \u2192 MGEF 101063:Skyrim.esm; ALCH 00088B:Dynamic Things Alternative.esp \u2192 MGEF 018EF4:Dawnguard.esm; ALCH 00088B:Dynamic Things Alternative.esp \u2192 MGEF 013812:Dawnguard.esm; ALCH 05F6DF:Skyrim.esm \u2192 MGEF 0A05C8:Skyrim.esm"
