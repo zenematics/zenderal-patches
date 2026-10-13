@@ -1,2 +1,0 @@
-# Keep the patch byte-exact: its context lines must match upstream Precision line endings to apply.
-*.patch -text

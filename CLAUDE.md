@@ -254,8 +254,8 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`BakaHeroMenu`](arch-docs/patches/BakaHeroMenu.md) → `BakaHeroMenu.dll` | none | CommonLibSSE-NG port for 1.5.97; GPL — publish source |
 | [`TrueHUDCombatIcons`](arch-docs/patches/TrueHUDCombatIcons.md) → `ZenTrueHUDCombatIcons.dll` | none | FHR status icons inside TrueHUD's info bar |
 | [`FrostAtronachSEFix`](arch-docs/patches/FrostAtronachSEFix.md) → converted meshes (not committed) | none | Black Ice Elementals: LE→SE meshes + plain lighting shader |
-| [`PrecisionLiftFix`](arch-docs/patches/PrecisionLiftFix.md) | none | **Superseded** by PrecisionFork; record of failed routes |
-| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) → rebuilt `Precision.dll` | none | Floating Ice Elementals fixed (PLANCK rigidBodyT hooks); GPL; rebuild per Precision update |
+| [`PrecisionLiftFix`](arch-docs/patches/PrecisionLiftFix.md) | none | **Retired** — record of failed routes; source removed |
+| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) | none | **Retired 2026-10-13** — the list ships Precision's `bApplyImpulseOnHit = 0` instead; fork recoverable from commit `7b63d3a` |
 | [`ZenTraitsFixes`](arch-docs/patches/ZenTraitsFixes.md) → one recompiled script | none | Ambrosia reduces Arcane Fever again |
 | [`LearningBooks`](arch-docs/patches/LearningBooks.md) → `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` | Books grant points; **owns** the 72 book ALCH records. Generated |
 | [`MCODirectionalPowerAttacks`](arch-docs/patches/MCODirectionalPowerAttacks.md) → `.esp` | none | Side/back/sprint power attacks reach FHR's MCO animations |
