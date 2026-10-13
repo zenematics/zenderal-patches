@@ -1,0 +1,186 @@
+FormKey: 02EDB2:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _20E_Flusshaim_GuardJael
+SkyrimMajorRecordFlags:
+- Compressed
+Configuration:
+  Flags:
+  - Essential
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 30
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 225
+Factions:
+- Faction: 07286C:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 07286D:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 07286E:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 112687:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 1399D1:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 13CA5D:Skyrim.esm
+  Fluff: 0x000000
+Voice: 149767:Skyrim.esm
+Race: 013741:Skyrim.esm
+Items:
+- Item:
+    Item: 001DE4:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 0028D2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 01D4EC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 00F5B7:OrdoLegionisMuskets.esp
+    Count: 1
+- Item:
+    Item: 00F5BE:OrdoLegionisMuskets.esp
+    Count: 8
+AIData:
+  Aggression: Aggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 12E3DD:Skyrim.esm
+- 048359:Skyrim.esm
+- 070601:Skyrim.esm
+- 070602:Skyrim.esm
+- 07067F:Skyrim.esm
+- 04835D:Skyrim.esm
+Class: 0E3A66:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Jael
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 13
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 19
+  - Key: Block
+    Value: 9
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 16
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 16
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 13
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 5
+  - Key: Illusion
+    Value: 5
+  - Key: Restoration
+    Value: 5
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 109
+  Magicka: 50
+  Stamina: 96
+  GearedUpWeapons: 1
+HeadParts:
+- 0C3CDE:Skyrim.esm
+- 0C716E:Skyrim.esm
+- 0DFC01:Skyrim.esm
+- 0E4E2B:Skyrim.esm
+HairColor: 0A0432:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 80
+SoundLevel: Normal
+DefaultOutfit: 05BD6D:Skyrim.esm
+SleepingOutfit: 0F122A:Skyrim.esm
+CrimeFaction: 07286C:Skyrim.esm
+HeadTexture: 0D0721:Skyrim.esm
+TextureLighting: '#00573D33'
+FaceMorph:
+  NoseUpVsDown: -0.1
+  JawUpVsDown: -0.3
+  JawNarrowVsWide: 0.3
+  JawForwardVsBack: 0.1
+  EyesUpVsDown: 0.2
+  EyesInVsOut: -0.5
+  ChinNarrowVsWide: 0.3
+  ChinUpVsDown: 0.2
+  ChinUnderbiteVsOverbite: 0.1
+  EyesForwardVsBack: -0.1
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 5
+  Unknown: 4294967295
+  Eyes: 9
+  Mouth: 2
+TintLayers:
+- Index: 2
+  Color: '#00573D33'
+  InterpolationValue: 1
+  Preset: 82
+- Index: 6
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 103
+MajorFlags:
+- 0x40000

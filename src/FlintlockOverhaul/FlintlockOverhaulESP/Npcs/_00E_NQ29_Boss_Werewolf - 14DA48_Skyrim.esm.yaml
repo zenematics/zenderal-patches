@@ -1,0 +1,234 @@
+FormKey: 14DA48:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _00E_NQ29_Boss_Werewolf
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 800
+  - Name: _00E_NQ29_Boss_Werewolf_SC
+    Properties:
+    - MutagenObjectType: ScriptIntProperty
+      Name: __Config_iObjectiveIndex
+      Data: 25
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_Theriantrophist_TransEXP
+      Object: 02F097:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_Theriantrophist_TransformIMOD
+      Object: 02F0A6:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MAGEldritchShockExplosionTeleport
+      Object: 133CF7:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AbWerewolf
+      Object: 0A1A3E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NQ29
+      Object: 14BEC4:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NQ29_MythicalCreaturesMax
+      Object: 14BECD:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NQ29_MythicalCreaturesSlain
+      Object: 14BECC:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PowerRacialWoodElfCommandAnimalExplosion01
+      Object: 10F928:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WerewolfChange_Arveldhiin
+      Object: 006BB3:Enderal - Forgotten Stories.esm
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Essential
+  StaminaOffset: 220
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 45
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 700
+Factions:
+- Faction: 014C6F:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 03C755:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 14F9EF:Skyrim.esm
+  Fluff: 0x000000
+Voice: 0DD762:Skyrim.esm
+Race: 013741:Skyrim.esm
+ActorEffect:
+- 14DA4A:Skyrim.esm
+Perks:
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 0030A8:Skyrim.esm
+    Count: 9
+- Item:
+    Item: 07C98C:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0AF5FD:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 000827:AdventurerFlintlockPack.esp
+    Count: 1
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  AggroRadiusBehavior: True
+  Warn: 1000
+  WarnOrAttack: 1000
+  Attack: 1000
+Keywords:
+- 090CA9:Skyrim.esm
+- 0EEE66:Skyrim.esm
+- 0172AC:Skyrim.esm
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Arveldhiin the Wanderer
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 44
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 44
+  - Key: LightArmor
+    Value: 44
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 10
+  - Key: Speech
+    Value: 10
+  - Key: Alteration
+    Value: 10
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 63
+  - Key: Illusion
+    Value: 87
+  - Key: Restoration
+    Value: 29
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 65
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 35
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 292
+  Magicka: 195
+  Stamina: 98
+  GearedUpWeapons: 1
+HeadParts:
+- 02425E:Skyrim.esm
+- 0D0564:Skyrim.esm
+- 0E4DAA:Skyrim.esm
+- 0E4E16:Skyrim.esm
+- 0E4E16:Skyrim.esm
+- 0E4E1A:Skyrim.esm
+- 0E4E29:Skyrim.esm
+HairColor: 0A0436:Skyrim.esm
+CombatStyle: 03D2C8:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 30
+SoundLevel: Normal
+DefaultOutfit: 02F237:Enderal - Forgotten Stories.esm
+HeadTexture: 0D0731:Skyrim.esm
+TextureLighting: '#00706156'
+TintLayers:
+- Index: 2
+  Color: '#00706156'
+  InterpolationValue: 1
+  Preset: 79
+- Index: 30
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 175
+- Index: 61
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 415
+MajorFlags:
+- 0x40000

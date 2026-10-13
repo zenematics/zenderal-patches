@@ -1,0 +1,21 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Guard Falconer Patch.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Completes Guard Armor Replacer Falconer under the Pretty Armory set: restores the Falconer
+    cuirass on the city-guard cuirass addon and the guard helmet in the helmet-no-shield outfit.
+    Must load after Pretty Factions Armory.esp.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Pretty Factions Armory.esp
+    FileSize: 0
+  INTV: 1

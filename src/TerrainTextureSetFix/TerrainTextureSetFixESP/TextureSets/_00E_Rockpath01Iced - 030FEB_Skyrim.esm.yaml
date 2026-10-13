@@ -1,0 +1,23 @@
+FormKey: 030FEB:Skyrim.esm
+EditorID: _00E_Rockpath01Iced
+Version2: 1
+Diffuse: enderal\landscape\rockpathIced_DXT1.dds
+NormalOrGloss: enderal\landscape\rockpath_n_DXT1.dds
+BacklightMaskOrSpecular: enderal\landscape\rockpath02_n_DXT1.dds
+Decal:
+  MinWidth: 8
+  MaxWidth: 32
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  Shininess: 4
+  ParallaxScale: 10
+  ParallaxPasses: 4
+  Flags:
+  - Parallax
+  - AlphaBlending
+  - AlphaTesting
+  Unknown: 28206
+  Color: '#00949494'
+Flags:
+- HasModelSpaceNormalMap

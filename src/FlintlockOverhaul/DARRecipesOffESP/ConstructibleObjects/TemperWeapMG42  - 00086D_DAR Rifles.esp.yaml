@@ -1,0 +1,14 @@
+FormKey: 00086D:DAR Rifles.esp
+EditorID: 'TemperWeapMG42 '
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ActorValue: Smithing
+  ComparisonValue: 1000
+CreatedObject: 00083E:DAR Rifles.esp
+WorkbenchKeyword: 088108:Skyrim.esm
+CreatedObjectCount: 1

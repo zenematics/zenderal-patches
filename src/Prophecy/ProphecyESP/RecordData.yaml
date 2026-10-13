@@ -1,0 +1,14 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Prophecy.esp
+GameRelease: EnderalSE
+ModHeader:
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Prophecy - a separate perk tree opened by the Prophecy power (needs Custom Skills Framework). Feasibility prototype.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

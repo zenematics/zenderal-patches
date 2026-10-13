@@ -1,0 +1,168 @@
+FormKey: 14B747:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _00E_PahtiraZenturio
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 350
+  - Name: _00E_SetStageOnDeath
+    Properties:
+    - MutagenObjectType: ScriptIntProperty
+      Name: DesiredStage
+      Data: 80
+    - MutagenObjectType: ScriptObjectProperty
+      Name: QuestToSet
+      Object: 1469ED:Skyrim.esm
+ObjectBounds:
+  First: -63, -64, 0
+  Second: 63, 64, 224
+Configuration:
+  Flags:
+  - IsGhost
+  MagickaOffset: 20
+  StaminaOffset: 20
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 60
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  TemplateFlags:
+  - AIPackages
+  HealthOffset: 1050
+DeathItem: 00080F:Zenderal - Flintlock Overhaul.esp
+Voice: 135770:Skyrim.esm
+Template: 13E7D0:Skyrim.esm
+Race: 0131F1:Skyrim.esm
+ActorEffect:
+- 047FA8:Skyrim.esm
+AttackRace: 0131F1:Skyrim.esm
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+Packages:
+- 09BDF0:Skyrim.esm
+- 09BCBD:Skyrim.esm
+- 09448B:Skyrim.esm
+Keywords:
+- 090CA9:Skyrim.esm
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Horst (Pahtira)
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 5
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 5
+  - Key: Illusion
+    Value: 5
+  - Key: Restoration
+    Value: 5
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 32
+  Magicka: 6656
+  Stamina: 10365
+  GearedUpWeapons: 1
+CombatStyle: 09035B:Skyrim.esm
+NAM5: 255
+Height: 1.1
+Weight: 50
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 13E148:Skyrim.esm
+TextureLighting: '#00000000'
+MajorFlags:
+- 0x40000

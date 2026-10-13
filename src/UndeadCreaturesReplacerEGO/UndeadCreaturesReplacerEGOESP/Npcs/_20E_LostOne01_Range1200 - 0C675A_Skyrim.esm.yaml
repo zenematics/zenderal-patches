@@ -1,0 +1,169 @@
+FormKey: 0C675A:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _20E_LostOne01_Range1200
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 185
+ObjectBounds:
+  First: -33, -31, 0
+  Second: 33, 31, 145
+Configuration:
+  Flags:
+  - Female
+  - Respawn
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 20
+  CalcMaxLevel: 100
+  SpeedMultiplier: 100
+  HealthOffset: 215
+Factions:
+- Faction: 005104:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 03AD7F:Skyrim.esm
+Voice: 01F1CD:Skyrim.esm
+Race: 00398C:Undead Creatures Replacer.esp
+WornArmor: 00398D:Undead Creatures Replacer.esp
+AttackRace: 000D53:Skyrim.esm
+Perks:
+- Perk: 001E9B:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 001DB4:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 1600
+  WarnOrAttack: 1600
+  Attack: 1400
+Packages:
+- 0EB248:Skyrim.esm
+Keywords:
+- 03C700:Skyrim.esm
+- 013796:Skyrim.esm
+Class: 023C0C:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Lost One
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 5
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 10
+  - Key: Illusion
+    Value: 10
+  - Key: Restoration
+    Value: 5
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 30
+  - Key: TwoHanded
+    Value: 30
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 50
+  Stamina: 80
+  GearedUpWeapons: 1
+CombatStyle: 000D0D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 01D0F7:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

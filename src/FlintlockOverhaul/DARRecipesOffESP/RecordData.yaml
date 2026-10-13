@@ -1,0 +1,18 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - DAR Rifles Recipes Off.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Hides DAR Rifles' 54 modern-gun recipes; the mod is kept only for its reload animations.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: DAR Rifles.esp
+    FileSize: 0
+  INTV: 1

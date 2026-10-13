@@ -1,0 +1,14 @@
+FormKey: 00089D:DAR Rifles.esp
+EditorID: RecipeWeapM4A1SD
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ActorValue: Smithing
+  ComparisonValue: 1000
+CreatedObject: 000899:DAR Rifles.esp
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 1

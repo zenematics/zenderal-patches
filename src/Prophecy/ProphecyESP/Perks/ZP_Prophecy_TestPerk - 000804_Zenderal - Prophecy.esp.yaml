@@ -1,0 +1,10 @@
+FormKey: 000804:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_TestPerk
+Name:
+  TargetLanguage: English
+  Value: First Omen
+Description:
+  TargetLanguage: English
+  Value: Prototype node. Proves the Prophecy tree opens, shows this perk, and spends a Prophecy point.
+NumRanks: 1
+Playable: True

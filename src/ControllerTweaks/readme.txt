@@ -3,7 +3,7 @@ Zenderal - Controller Tweaks
 
 Two file overrides adapting the Complete Controller Setup (CCS) stack to Enderal.
 This mod must WIN file conflicts against both source mods (place it at higher
-priority than Complete Controller Setup and Dear Diary Dark Mode).
+priority than Complete Controller Setup and Vel'dun UI Enderal Default).
 
 1. Interface\Controls\PC\controlmap.txt
    Base: Complete Controller Setup 5.3.5 (Nexus SE 99978)
@@ -12,8 +12,10 @@ priority than Complete Controller Setup and Dear Diary Dark Mode).
    never uses (Enderal's character menu lives in its own journal UI).
 
 2. interface\skyui\config.txt
-   Base: Dear Diary Dark Mode (white text) - its copy wins the config.txt
-   conflict over SkyUI's, so it is the one that must be forked.
+   Base: Vel'dun UI Enderal Default - the list's UI; its copy carries
+   Vel'dun's list layout and colours, so it is the one that must be forked.
+   (Until 2026-10-12 this was forked from Dear Diary Dark Mode, which is no
+   longer in the list - that stale copy overrode Vel'dun's whole layout.)
    Changes ([Input] section only, everything else untouched):
      controls.gamepad.prevColumn = 274 -> 280  (LB -> LT)
      controls.gamepad.nextColumn = 275 -> 281  (RB -> RT)
@@ -56,7 +58,7 @@ priority than Complete Controller Setup and Dear Diary Dark Mode).
    this script opened it.
 
 MAINTENANCE: all three files are full-file copies with small edits. If Complete
-Controller Setup or Dear Diary Dark Mode is updated, re-copy the new file and
+Controller Setup or Vel'dun UI is updated, re-copy the new file and
 re-apply the change described above. If ENDERAL itself is updated, re-apply the
 "; ZP" edits to the new _00E_Game_SkillmenuSC.psc and recompile with Enderal's
 source tree FIRST on the -i import path.

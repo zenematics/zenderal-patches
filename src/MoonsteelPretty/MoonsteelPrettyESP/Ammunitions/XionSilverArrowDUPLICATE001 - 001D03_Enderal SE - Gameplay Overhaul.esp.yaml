@@ -1,0 +1,25 @@
+FormKey: 001D03:Enderal SE - Gameplay Overhaul.esp
+EditorID: XionSilverArrowDUPLICATE001
+ObjectBounds:
+  First: -6, -62, -3
+  Second: 6, 0, 5
+Name:
+  TargetLanguage: English
+  Value: Silver Arrow
+Model:
+  File: Weapons\NordHero\NordHeroArrow.nif
+  Data: 0x020000000000000000000000
+PickUpSound: 03E7B7:Skyrim.esm
+PutDownSound: 03E877:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Effective against undead and ghosts
+Keywords:
+- 001D04:Enderal SE - Gameplay Overhaul.esp
+- 0917E7:Skyrim.esm
+Projectile: 001D02:Enderal SE - Gameplay Overhaul.esp
+Flags:
+- NonBolt
+Damage: 5
+Value: 7
+Weight: 0.1

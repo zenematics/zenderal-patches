@@ -1,0 +1,19 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Horse Cloak Fluff Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Ark guard horses: points the two cloaked horse skins at Fluffworks colour meshes with the fur
+    shells sunk wherever Enderal's cloth barding covers them, so the fur stops clipping through it.
+    Meshes are generated from the installed Fluffworks by src/HorseCloakFluffFix/tools.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

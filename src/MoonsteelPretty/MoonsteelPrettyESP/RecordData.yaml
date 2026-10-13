@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Moonsteel Pretty Patch.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Points EGO's Moonsteel weapons and Silver Arrow back at the base Enderal mesh paths that Pretty
+    Common Armory replaces. Records are otherwise EGO's. Must load after Pretty Common Armory.esp.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Pretty Common Armory.esp
+    FileSize: 0
+  INTV: 1

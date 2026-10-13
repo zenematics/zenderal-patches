@@ -1,0 +1,14 @@
+FormKey: 000800:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_FlintlockBullet
+ObjectBounds:
+  First: -2, -2, -2
+  Second: 2, 2, 2
+Name:
+  TargetLanguage: English
+  Value: Flintlock Bullets
+Model:
+  File: OLM\OL_musket\ol_Rifleball.nif
+Keywords:
+- 0917E7:Skyrim.esm
+Value: 2
+Weight: 0.1
