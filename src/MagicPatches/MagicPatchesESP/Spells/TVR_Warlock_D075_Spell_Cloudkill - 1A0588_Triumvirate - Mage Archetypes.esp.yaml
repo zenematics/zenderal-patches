@@ -16,7 +16,7 @@ ChargeTime: 0.5
 CastType: FireAndForget
 TargetType: TargetLocation
 Range: 50
-HalfCostPerk: 0C44C1:Skyrim.esm
+HalfCostPerk: 0C44BD:Skyrim.esm
 Effects:
 - BaseEffect: 1A0587:Triumvirate - Mage Archetypes.esp
   Data:

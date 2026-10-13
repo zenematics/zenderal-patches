@@ -1,0 +1,28 @@
+FormKey: 419B53:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_D000_Book_EldritchBlast
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Eldritch Blast'
+Model:
+  File: Clutter\Books\SpellTomeConjurationLowPoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face='$HandwrittenFont'><font size='40'><p align='center'>
+
+    Eldritch Blast
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 19B465:Triumvirate - Mage Archetypes.esp
+Value: 46
+Weight: 1
+InventoryArt: 02FBB6:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

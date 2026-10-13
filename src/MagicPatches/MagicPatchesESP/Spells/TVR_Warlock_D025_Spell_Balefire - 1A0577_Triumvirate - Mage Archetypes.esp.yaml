@@ -14,7 +14,7 @@ Flags:
 CastType: FireAndForget
 TargetType: TargetActor
 Range: 20
-HalfCostPerk: 0C44BF:Skyrim.esm
+HalfCostPerk: 0C44BB:Skyrim.esm
 Effects:
 - BaseEffect: 1A0580:Triumvirate - Mage Archetypes.esp
   Data:

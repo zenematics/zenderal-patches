@@ -72,4 +72,4 @@ foreach ($r in $ff) {
     Add-Tail (Get-Override $r.hex) $block '11A4B6:Skyrim.esm'
     Write-Host "$($r.id): fever $($r.mag) added"
 }
-Write-Host "done - rebuild with build/build.ps1"
+Write-Host "done - next: 09-reschool-warlock-destruction.ps1, then build/build.ps1"
