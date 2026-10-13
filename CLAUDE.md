@@ -361,6 +361,7 @@ Read the linked doc before working near any of these.
 | `arch-docs/zenderal-curation.md` | What is actually in the list and why |
 | `arch-docs/zenderal-controller-setup.md` | Controller stack setup |
 | **[`arch-docs/magic/`](arch-docs/magic/)** | **The actual in-game value of every magic record** — regenerate with the `magic-extract` skill |
+| [`arch-docs/perks/`](arch-docs/perks/README.md) | Every Memory-Point perk/talent star (prereqs, ranks, winning text) — `Run-PerkExtract.ps1` |
 | [`arch-docs/tools/spid.md`](arch-docs/tools/spid.md) | **SPID reference** for 7.3.x |
 | **[`arch-docs/tools/spid-in-enderal.md`](arch-docs/tools/spid-in-enderal.md)** | **SPID in Enderal** — read before installing or authoring a `_DISTR.ini` (only 198/318 keyword entries register) |
 | [`arch-docs/ordinator/`](arch-docs/ordinator/) | **Ordinator perk overhaul, studied for cherry-picking** — why it can't be installed in Enderal, which of its 469 perks are entry-point-only vs scripted |

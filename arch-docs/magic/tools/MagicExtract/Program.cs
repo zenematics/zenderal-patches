@@ -8,7 +8,7 @@ public static class Program
 {
     public static int Main(string[] args)
     {
-        string? modlistRoot = null, profile = null, gameData = null, outDir = null, reportsDir = null;
+        string? modlistRoot = null, profile = null, gameData = null, outDir = null, reportsDir = null, perksOut = null;
         bool probeOnly = false;
         for (int i = 0; i < args.Length; i++)
         {
@@ -20,6 +20,7 @@ public static class Program
                 case "--out": outDir = args[++i]; break;
                 case "--reports": reportsDir = args[++i]; break;
                 case "--probe": probeOnly = true; break;
+                case "--perks": perksOut = args[++i]; break;
                 default:
                     Console.Error.WriteLine($"unknown arg: {args[i]}");
                     return 2;
@@ -28,10 +29,10 @@ public static class Program
         if (modlistRoot is null || profile is null || gameData is null)
         {
             Console.Error.WriteLine("usage: MagicExtract --modlist-root <dir> --profile <name> --game-data <dir> " +
-                                    "[--out <dir> --reports <dir>] [--probe]");
+                                    "[--out <dir> --reports <dir>] [--perks <file>] [--probe]");
             return 2;
         }
-        if (!probeOnly && (outDir is null || reportsDir is null))
+        if (!probeOnly && perksOut is null && (outDir is null || reportsDir is null))
         {
             Console.Error.WriteLine("--out and --reports are required unless --probe");
             return 2;
@@ -73,6 +74,13 @@ public static class Program
                 return 1;
             }
             Console.WriteLine("strings canary: PASS (Mentalism / Entropy / Elementalism / Light Magic)");
+
+            if (perksOut is not null)
+            {
+                var perksOk = PerkExtract.Run(loaded, lo, profile, perksOut, warnings);
+                PrintWarnings(warnings);
+                return perksOk ? 0 : 1;
+            }
 
             if (probeOnly)
             {
