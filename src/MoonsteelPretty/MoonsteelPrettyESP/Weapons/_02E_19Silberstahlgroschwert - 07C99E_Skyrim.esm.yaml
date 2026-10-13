@@ -1,0 +1,52 @@
+FormKey: 07C99E:Skyrim.esm
+EditorID: _02E_19Silberstahlgroschwert
+ObjectBounds:
+  First: -8, -21, -1
+  Second: 8, 88, 1
+Name:
+  TargetLanguage: English
+  Value: Moonsteel Greatsword
+Model:
+  File: Weapons\NordHero\NordHeroGreatsword.nif
+  Data: 0x020000000000000000000000
+EquipmentType: 013F45:Skyrim.esm
+BlockBashImpact: 0183FF:Skyrim.esm
+AlternateBlockMaterial: 097786:Skyrim.esm
+Keywords:
+- 06727B:Skyrim.esm
+- 06D931:Skyrim.esm
+- 08F958:Skyrim.esm
+- 0C5C01:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 0949D5:Skyrim.esm
+FirstPersonModel: 0A3116:Skyrim.esm
+AttackFailSound: 0E4CAC:Skyrim.esm
+EquipSound: 03C8A9:Skyrim.esm
+UnequipSound: 03C8AA:Skyrim.esm
+BasicStats:
+  Value: 240
+  Weight: 16
+  Damage: 26
+Data:
+  AnimationType: TwoHandSword
+  Unused: 0x000000
+  Speed: 0.7
+  Reach: 1.3
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1067869798
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: TwoHanded
+  Stagger: 1.1
+Critical:
+  Damage: 13
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Loud

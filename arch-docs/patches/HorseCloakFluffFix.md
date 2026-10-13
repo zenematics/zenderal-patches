@@ -1,0 +1,11 @@
+# HorseCloakFluffFix
+
+> Moved out of `CLAUDE.md` on 2026-10-13. Text is verbatim; `[verified]` marks and dates are as originally recorded.
+
+- **Source:** `src/HorseCloakFluffFix/`
+- **Ships:** `Zenderal - Horse Cloak Fluff Fix.esp` + 2 generated meshes
+- **FormID block:** none (overrides only)
+
+## What it does
+
+Fluffworks' horse fur clipped through the Ark guard horses' cloth barding. `CapitalCityGuardHorse01/02` wear `HorseCloak 14482A` (`Enderal\armor\horsecloak\horsecloaksaddle.nif`, a full caparison incl. head) over skins `SkinHorseBlacknWhiteHideCloak 144830` / `SkinHorsePalominoHideCloak 144832`, whose bodies `NakedHorseBlacknWhiteCloakAA 144833` / `NakedHorsePalominoCloakAA 144836` use plain `Horse.nif` + alternate textures. Fluffworks replaces `Horse.nif` with 16 alpha fur shells (`horseshell.001–016`, ~0.25 apart, ~4 units out) while the cloth sits ~1 unit off the skin; it also never overrides the two *Cloak* ARMAs, so they got the brown mesh. Override = master records verbatim with `File` → `Zenderal\HorseCloakFluff\Horse{BnW,Palomino}Cloak.nif` and no `AlternateTextures` (Fluffworks' own `NakedHorse*AA` overrides drop them too). The meshes are Fluffworks' colour meshes with every shell vertex that reaches the cloth (ray from nearest skin vertex along its normal, `MARGIN` 1.5) sunk 0.3 under the skin — fur kept on legs, belly, eye holes, ears; only shell position floats change (script asserts it). **Generated, never committed**: `src/HorseCloakFluffFix/tools/01-trim-fluff-under-cloak.py` writes them into the MO2 mod from the installed Fluffworks + `E - Meshes.bsa`; `tools/nif.py` is a minimal SSE NIF reader (SE positions are always full-precision floats regardless of `VF_FULLPREC`; skinned shapes keep `num_vertices = 0` and their buffer in `NiSkinPartition`, whose partition triangles index that buffer directly; desc nibble 1 is the dynamic offset, so normal = nibble 4, skin = 7). Only Skyrim/FS/EGO/Fluffworks touch horse ARMAs and none these two. Master: Skyrim only. **Verified in game 2026-10-10** (guard horses show their BnW/Palomino colour, no fur through the cloth). When testing, the PLUGIN must be ticked in MO2's right pane — enabling the mod folder alone deploys the meshes but loads nothing — and CRDW must be rebuilt after regenerating the meshes.

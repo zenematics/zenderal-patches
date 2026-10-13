@@ -1,0 +1,188 @@
+FormKey: 1401A4:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _36E_LostOneLord_Miskamuhr
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 320
+ObjectBounds:
+  First: -29, -34, 0
+  Second: 29, 34, 144
+Configuration:
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 35
+  CalcMaxLevel: 100
+  SpeedMultiplier: 100
+  TemplateFlags:
+  - Factions
+  - ModelAnimation
+  - DefPackList
+  HealthOffset: 550
+Factions:
+- Faction: 005104:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 000811:Zenderal - Flintlock Overhaul.esp
+Voice: 01F1CD:Skyrim.esm
+Template: 01D0F7:Skyrim.esm
+Race: 000D53:Skyrim.esm
+WornArmor: 03280C:Skyrim.esm
+AttackRace: 000D53:Skyrim.esm
+Perks:
+- Perk: 001E9B:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 050983:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 063B42:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0BEC38:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10A86E:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 127D6F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 13B821:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 13C190:Skyrim.esm
+    Count: 1
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 1800
+  WarnOrAttack: 1200
+  Attack: 1200
+Keywords:
+- 090CA9:Skyrim.esm
+Class: 023C0C:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Miskahmur
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 20
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 85
+  - Key: TwoHanded
+    Value: 85
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 25
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 50
+  Stamina: 80
+  GearedUpWeapons: 1
+CombatStyle: 052197:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 01D0F7:Skyrim.esm
+DefaultOutfit: 01F6AB:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

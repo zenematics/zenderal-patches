@@ -1,0 +1,193 @@
+FormKey: 15025C:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _40E_NehrimesianSoldier03Bow
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 275
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Female
+  StaminaOffset: 180
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 30
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 290
+Factions:
+- Faction: 0EAA30:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 13FB21:Skyrim.esm
+  Fluff: 0x000000
+Voice: 11B1D4:Skyrim.esm
+Race: 013741:Skyrim.esm
+AttackRace: 013741:Skyrim.esm
+Perks:
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 0909D4:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 00F5E1:OrdoLegionisMuskets.esp
+    Count: 15
+- Item:
+    Item: 002F9B:OrdoLegionisMuskets.esp
+    Count: 1
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 1500
+  WarnOrAttack: 1200
+  Attack: 1200
+Packages:
+- 0317C8:Skyrim.esm
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Nehrimese Soldier
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 10
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 11
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 10
+  - Key: Speech
+    Value: 10
+  - Key: Alteration
+    Value: 10
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 13
+  - Key: Illusion
+    Value: 20
+  - Key: Restoration
+    Value: 13
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 50
+  - Key: TwoHanded
+    Value: 50
+  - Key: Archery
+    Value: 70
+  - Key: Block
+    Value: 40
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 163
+  Magicka: 70
+  Stamina: 57
+  GearedUpWeapons: 1
+HeadParts:
+- 0511A7:Skyrim.esm
+- 0E4DA4:Skyrim.esm
+HairColor: 0A0434:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 13EB11:Skyrim.esm
+HeadTexture: 0F2059:Skyrim.esm
+TextureLighting: '#00B9B3AA'
+FaceMorph:
+  CheeksUpVsDown: -0.4
+  EyesInVsOut: 0.4
+FaceParts:
+  Nose: 9
+  Eyes: 12
+  Mouth: 18
+TintLayers:
+- Index: 16
+  Color: '#00B9B3AA'
+  InterpolationValue: 1
+  Preset: 651
+- Index: 23
+  Color: '#00A95452'
+  InterpolationValue: 0.37
+  Preset: 704
+MajorFlags:
+- 0x40000

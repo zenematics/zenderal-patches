@@ -1,0 +1,24 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - EPPI Riverville Statues Patch.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Moves Mandragorasprouts' Sheogorath bust in the Riverville Mayor's House onto the desk EPPI Riverville relocated.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: man_DaedricShrines_Enderal.esp
+    FileSize: 0
+  - Master: House Cats of Enderal - Mihail Monsters and Creatures.esp
+    FileSize: 0
+  INTV: 1

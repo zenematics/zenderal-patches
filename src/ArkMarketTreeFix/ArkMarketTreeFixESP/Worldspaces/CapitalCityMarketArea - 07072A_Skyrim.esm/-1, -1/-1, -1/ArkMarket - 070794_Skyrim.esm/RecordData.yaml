@@ -1,0 +1,18 @@
+FormKey: 070794:Skyrim.esm
+EditorID: ArkMarket
+Flags:
+- HasWater
+Grid:
+  Point: -3, -3
+  Flags: -1331856896
+WaterHeight: 3.4028235E+38
+Regions:
+- 139A20:Skyrim.esm
+Location: 0A1A12:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 003A97:Ark Marketplace house exterior addon.esp
+  Base: 14BD3A:Skyrim.esm
+  Scale: 0.48
+  Placement:
+    Position: -9093.265, -10916.861, 2068

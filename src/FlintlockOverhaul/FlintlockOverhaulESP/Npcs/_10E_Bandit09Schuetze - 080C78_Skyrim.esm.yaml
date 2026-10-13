@@ -1,0 +1,204 @@
+FormKey: 080C78:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _10E_Bandit09Schuetze
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 100
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Female
+  - Respawn
+  MagickaOffset: 20
+  StaminaOffset: 70
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 10
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 47
+Factions:
+- Faction: 02E315:Enderal - Forgotten Stories.esm
+  Fluff: 0x000000
+- Faction: 014C6F:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 02F32B:Enderal - Forgotten Stories.esm
+Voice: 02E313:Enderal - Forgotten Stories.esm
+Race: 013744:Skyrim.esm
+AttackRace: 033898:Skyrim.esm
+Perks:
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 001DB1:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 002C5F:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 002C78:Enderal SE - Gameplay Overhaul.esp
+    Count: 16
+- Item:
+    Item: 04C982:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 00080C:Enderal SE - Crossbows.esp
+    Count: 1
+- Item:
+    Item: 000805:Enderal SE - Crossbows.esp
+    Count: 15
+AIData:
+  Aggression: Aggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Mood: Angry
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 1200
+  WarnOrAttack: 1200
+  Attack: 800
+Packages:
+- 01B217:Skyrim.esm
+Class: 013181:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Vagrant
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 25
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 21
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 23
+  - Key: Illusion
+    Value: 25
+  - Key: Restoration
+    Value: 18
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 20
+  - Key: TwoHanded
+    Value: 20
+  - Key: Archery
+    Value: 25
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 20
+  - Key: LightArmor
+    Value: 12
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 34
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 118
+  Magicka: 80
+  Stamina: 77
+  GearedUpWeapons: 1
+HeadParts:
+- 040227:Skyrim.esm
+- 0EAA72:Skyrim.esm
+HairColor: 0A0436:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 080C71:Skyrim.esm
+HeadTexture: 0F2066:Skyrim.esm
+TextureLighting: '#009B8B84'
+FaceMorph:
+  NoseLongVsShort: -0.36
+  JawForwardVsBack: -0.4
+  BrowsUpVsDown: -0.4
+  ChinUpVsDown: 0.4
+  ChinUnderbiteVsOverbite: -0.4
+TintLayers:
+- Index: 13
+  Color: '#009B8B84'
+  InterpolationValue: 1
+  Preset: 494
+- Index: 34
+  Color: '#00A95452'
+  InterpolationValue: 0.37
+  Preset: 545
+MajorFlags:
+- 0x40000

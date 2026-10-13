@@ -1,0 +1,342 @@
+FormKey: 02F46A:Enderal - Forgotten Stories.esm
+EditorID: _14E_LostOne_Trigger
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 140
+  - Name: masterambushscript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ambushOnTrigger
+      Data: True
+    - MutagenObjectType: ScriptBoolProperty
+      Name: helpAlliesOnTrigger
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: linkKeyword
+      Object: 02F472:Enderal - Forgotten Stories.esm
+ObjectBounds:
+  First: -29, -34, 0
+  Second: 29, 34, 144
+Configuration:
+  Flags:
+  - Respawn
+  - Female
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 14
+  CalcMaxLevel: 100
+  SpeedMultiplier: 100
+  TemplateFlags:
+  - Traits
+  - Stats
+  - Factions
+  - SpellList
+  - ModelAnimation
+  - BaseData
+  - Inventory
+  - DefPackList
+  - AttackData
+  - Keywords
+  HealthOffset: 90
+Factions:
+- Faction: 005104:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 03AD7F:Skyrim.esm
+Voice: 01F1CD:Skyrim.esm
+Template: 046EEC:Skyrim.esm
+Race: 00398C:Undead Creatures Replacer.esp
+WornArmor: 0045EF:Undead Creatures Replacer.esp
+AttackRace: 000D53:Skyrim.esm
+Attacks:
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStart1HMBackSlash
+- AttackData:
+    DamageMult: 7
+    Chance: 1
+    Flags:
+    - PowerAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 1
+    StaminaMult: 1
+  AttackEvent: attackStart1HMForwardPower
+- AttackData:
+    DamageMult: 7
+    Chance: 0.75
+    Flags:
+    - PowerAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 0.75
+    StaminaMult: 1
+  AttackEvent: attackStart1HMPowerChop
+- AttackData:
+    DamageMult: 7
+    Chance: 0.75
+    Flags:
+    - PowerAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 0.75
+    StaminaMult: 1
+  AttackEvent: attackStart1HMPowerSlash
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStart1HMSwipe
+- AttackData:
+    DamageMult: 5
+    Chance: 0.75
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStart1HMX2
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStart2HMBackSwipe
+- AttackData:
+    DamageMult: 7
+    Chance: 1
+    Flags:
+    - PowerAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 1
+    StaminaMult: 1
+  AttackEvent: attackStart2HMForwardPowerChop
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStart2HMForwardSwipe
+- AttackData:
+    DamageMult: 5
+    Chance: 0.5
+    Flags:
+    - PowerAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 0.75
+    StaminaMult: 1
+  AttackEvent: attackStart2HMPowerChop
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStart2HMSlash
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStartGSBackSlash
+- AttackData:
+    DamageMult: 7
+    Chance: 1
+    Flags:
+    - PowerAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 0.75
+    StaminaMult: 1
+  AttackEvent: attackStartGSChop
+- AttackData:
+    DamageMult: 7
+    Chance: 1
+    Flags:
+    - PowerAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 1
+    StaminaMult: 1
+  AttackEvent: attackStartGSForwardPowerB
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: attackStartGSX2
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - LeftAttack
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: AttackStartH2HLeft
+- AttackData:
+    DamageMult: 5
+    Chance: 1
+    Flags:
+    - OverrideData
+    StrikeAngle: 60
+    StaminaMult: 1
+  AttackEvent: AttackStartH2HRight
+- AttackData:
+    DamageMult: 5
+    Chance: 0.1
+    Flags:
+    - BashAttack
+    - OverrideData
+    StrikeAngle: 60
+    Stagger: 0.5
+    StaminaMult: 1
+  AttackEvent: bashStart
+Items:
+- Item:
+    Item: 0028E4:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 019E80:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  AggroRadiusBehavior: True
+  WarnOrAttack: 300
+  Attack: 300
+Packages:
+- 006BAA:Enderal - Forgotten Stories.esm
+Keywords:
+- 013796:Skyrim.esm
+Class: 023C0C:Skyrim.esm
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 20
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 10
+  - Key: TwoHanded
+    Value: 10
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 50
+  Stamina: 80
+  GearedUpWeapons: 1
+CombatStyle: 000D0D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 01D0F7:Skyrim.esm
+DefaultOutfit: 01F6AB:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00808080'

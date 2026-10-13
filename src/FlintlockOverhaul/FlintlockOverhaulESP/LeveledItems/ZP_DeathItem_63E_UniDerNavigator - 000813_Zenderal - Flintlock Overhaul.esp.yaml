@@ -1,0 +1,13 @@
+FormKey: 000813:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_DeathItem_63E_UniDerNavigator
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 03AD81:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000818:AdventurerFlintlockPack.esp
+    Count: 1

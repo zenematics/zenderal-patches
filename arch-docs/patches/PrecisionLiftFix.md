@@ -1,5 +1,10 @@
 # PrecisionLiftFix
 
+> **RETIRED 2026-10-13.** The curator chose to turn Precision's hit impulse off instead
+> (`bApplyImpulseOnHit = 0` in `Zenderal - Settings/MCM/Settings/Precision.ini`), so `src/PrecisionLiftFix/` was
+> removed. Frost atronachs shatter on death, so there is no corpse ragdoll to fix either. The source
+> is recoverable from commit `7b63d3a` if the impulse ever comes back. Everything below is history.
+
 > Moved out of `CLAUDE.md` on 2026-10-13. Text is verbatim; `[verified]` marks and dates are as originally recorded.
 
 - **Source:** `src/PrecisionLiftFix/`

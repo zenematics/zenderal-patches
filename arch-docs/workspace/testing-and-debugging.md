@@ -58,6 +58,15 @@ Two fields to read first, before the call stack:
 The plugin list in a `.ess` save is a second, independent source for what the engine actually
 loaded — useful when the game will not start at all.
 
+> **The Zenderal list ships NO Crash Logger DLL — its crash logs come from .NET Script Framework.**
+> **[verified 2026-10-10]** The MO2 mod `Crash Logger SSE AE VR - PDB support` contains only
+> `SkyrimSE.pdb` (the symbols add-on), no `CrashLogger.dll`, so nothing writes `crash-*.log`. The
+> active crash handler is `.NET Script Framework` (`Debug.CrashLog.Path = "Data\NetScriptFramework\Crash"`),
+> which under MO2 lands in **`<modlist>\overwrite\NetScriptFramework\Crash\Crash_<date>.txt`**. The
+> `crash-*.log` files in the Skyrim SE `SKSE` folder are from other lists (e.g. `Working Directory:
+> C:\Modlists\LoreRim\...`). The SKSE plugin logs (`skse64.log`, `TheosRenderPipeline.log`, `po3_*.log`)
+> DO still go to `…\My Games\Skyrim Special Edition\SKSE\`, and Documents may be OneDrive-redirected.
+
 ---
 
 ## Standalone xEdit reads its own game path

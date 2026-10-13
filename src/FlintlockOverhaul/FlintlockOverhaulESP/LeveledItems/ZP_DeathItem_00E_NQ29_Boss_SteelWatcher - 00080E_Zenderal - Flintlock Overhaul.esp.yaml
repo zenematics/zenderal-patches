@@ -1,0 +1,9 @@
+FormKey: 00080E:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_DeathItem_00E_NQ29_Boss_SteelWatcher
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 000819:AdventurerFlintlockPack.esp
+    Count: 1

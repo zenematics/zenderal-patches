@@ -1,0 +1,173 @@
+FormKey: 0D914A:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _00E_SchneefelsSoeldner
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 30
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 08D90C:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0D912C:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 1486A7:Skyrim.esm
+  Fluff: 0x000000
+Voice: 136D5A:Skyrim.esm
+Race: 013744:Skyrim.esm
+Perks:
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 50
+- Item:
+    Item: 0028C6:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05ACDC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05BB23:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 0909D4:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 002F9D:OrdoLegionisMuskets.esp
+    Count: 10
+- Item:
+    Item: 00F5E8:OrdoLegionisMuskets.esp
+    Count: 1
+AIData:
+  Confidence: Average
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 09361E:Skyrim.esm
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Mercenary
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 44
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 44
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 63
+  - Key: Illusion
+    Value: 82
+  - Key: Restoration
+    Value: 24
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 292
+  Magicka: 195
+  Stamina: 138
+  GearedUpWeapons: 1
+HeadParts:
+- 02425C:Skyrim.esm
+- 051410:Skyrim.esm
+- 0CDD8D:Skyrim.esm
+HairColor: 0A0430:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 06C933:Skyrim.esm
+CrimeFaction: 08D90C:Skyrim.esm
+HeadTexture: 0D0725:Skyrim.esm
+TextureLighting: '#00706156'
+FaceMorph:
+  EyesUpVsDown: 0.8
+FaceParts:
+  Nose: 12
+  Eyes: 18
+  Mouth: 16
+TintLayers:
+- Index: 9
+  Color: '#00500901'
+  InterpolationValue: 0.5
+  Preset: 116
+- Index: 24
+  Color: '#002F2013'
+  InterpolationValue: 1
+  Preset: 478
+MajorFlags:
+- 0x40000

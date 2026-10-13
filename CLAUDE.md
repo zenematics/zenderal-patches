@@ -254,13 +254,32 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`BakaHeroMenu`](arch-docs/patches/BakaHeroMenu.md) → `BakaHeroMenu.dll` | none | CommonLibSSE-NG port for 1.5.97; GPL — publish source |
 | [`TrueHUDCombatIcons`](arch-docs/patches/TrueHUDCombatIcons.md) → `ZenTrueHUDCombatIcons.dll` | none | FHR status icons inside TrueHUD's info bar |
 | [`FrostAtronachSEFix`](arch-docs/patches/FrostAtronachSEFix.md) → converted meshes (not committed) | none | Black Ice Elementals: LE→SE meshes + plain lighting shader |
-| [`PrecisionLiftFix`](arch-docs/patches/PrecisionLiftFix.md) | none | **Superseded** by PrecisionFork; record of failed routes |
-| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) → rebuilt `Precision.dll` | none | Floating Ice Elementals fixed (PLANCK rigidBodyT hooks); GPL; rebuild per Precision update |
+| [`PrecisionLiftFix`](arch-docs/patches/PrecisionLiftFix.md) | none | **Retired** — record of failed routes; source removed |
+| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) | none | **Retired 2026-10-13** — the list ships Precision's `bApplyImpulseOnHit = 0` instead; fork recoverable from commit `7b63d3a` |
 | [`ZenTraitsFixes`](arch-docs/patches/ZenTraitsFixes.md) → one recompiled script | none | Ambrosia reduces Arcane Fever again |
 | [`LearningBooks`](arch-docs/patches/LearningBooks.md) → `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` | Books grant points; **owns** the 72 book ALCH records. Generated |
 | [`MCODirectionalPowerAttacks`](arch-docs/patches/MCODirectionalPowerAttacks.md) → `.esp` | none | Side/back/sprint power attacks reach FHR's MCO animations |
 | [`PrettyArmoryEGO`](arch-docs/patches/PrettyArmoryEGO.md) → `Zenderal - Pretty Armory EGO Patch.esp` | none | 141 Pretty×EGO merges. Generated |
 | [`ArkMyradPlatformFix`](arch-docs/patches/ArkMyradPlatformFix.md) → `Zenderal - Ark Myrad Platform Fix.esp` | none | Moves FS marker `02F0B5`; read the FS-override postmortem first |
+| [`ArkMarketTreeFix`](arch-docs/patches/ArkMarketTreeFix.md) → `Zenderal - Ark Market Tree Fix.esp` | none | Lowers a floating juniper an addon placed in Ark's market |
+| [`EppiRivervilleStatues`](arch-docs/patches/EppiRivervilleStatues.md) → `Zenderal - EPPI Riverville Statues Patch.esp` | none | Moves a statue mod's bust with the desk EPPI moved |
+| [`FeverDeathLatchFix`](arch-docs/patches/FeverDeathLatchFix.md) → recompiled `_00E_EPUpdateFunctions` | none | Clears the stuck `isdead` latch that blocks level-ups; must sort below Leveling Redone |
+| [`UndeadCreaturesReplacerEGO`](arch-docs/patches/UndeadCreaturesReplacerEGO.md) → `.esp` | none | UCR visuals on EGO's Lost One NPCs. Generated |
+| [`EnderalTextureRestores`](arch-docs/patches/EnderalTextureRestores.md) → extracted textures (not committed) | none | Restores Enderal textures a Skyrim texture mod cut out |
+| [`PrettyFemaleMeshRestores`](arch-docs/patches/PrettyFemaleMeshRestores.md) → extracted meshes (not committed) | none | Pretty's BSA meshes over CBBE's loose ones; sort above CBBE |
+| [`TerrainTextureSetFix`](arch-docs/patches/TerrainTextureSetFix.md) → `Zenderal - Terrain Texture Set Fix.esp` | none | Drops normal maps from two TXST height slots (ENB streaks); load after DynDOLOD.esp. `src/TerrainParallaxHeights/` is its failed first attempt |
+| [`MissingParallaxHeights`](arch-docs/patches/MissingParallaxHeights.md) → generated flat `_p` textures | none | 289 missing parallax heights filled with flat grey |
+| [`ArkWallCurbFix`](arch-docs/patches/ArkWallCurbFix.md) → Enderal's original meshes (not committed) | none | Undoes SRP's parallax on Ark wall meshes |
+| [`ApocalypseNaviFix`](arch-docs/patches/ApocalypseNaviFix.md) → rebuilt Apocalypse `.esp` (hotfix) | none | Drops the `012FB4` NAVI that deleted a Forgotten Temple floor tile; retire once `enderal-mods` drops it |
+| [`Prophecy`](arch-docs/patches/Prophecy.md) → `Zenderal - Prophecy.esp` + scripts + CSF config | `0x800–0x807` | **Prototype**, non-ESL: Ordinator-perk tree via Custom Skills Framework |
+| [`ImprovedCameraSheatheFix`](arch-docs/patches/ImprovedCameraSheatheFix.md) → `ZenICSheatheFix.dll` | none | NOPs IC's drawn-weapon camera drop; tied to IC 1.1.2.4228 |
+| [`HorseCloakFluffFix`](arch-docs/patches/HorseCloakFluffFix.md) → `.esp` + generated meshes | none | Fluffworks fur trimmed under the Ark guard horses' barding |
+| [`DintHairs`](arch-docs/patches/DintHairs.md) → rebuilt Dint999 hair plugins | none | Hairs only, no wigs; +2 full plugin slots |
+| [`GuardFalconer`](arch-docs/patches/GuardFalconer.md) → `Zenderal - Guard Falconer Patch.esp` | none | Restores Falconer cuirass/helmet that Pretty Factions reverted |
+| [`MoonsteelPretty`](arch-docs/patches/MoonsteelPretty.md) → `.esp` + 2 loose meshes | none | Points EGO's Moonsteel line back at Pretty's meshes. Generated |
+| [`FlintlockOverhaul`](arch-docs/patches/FlintlockOverhaul.md) → `.esp` + script + DAR recipes ESL + KID + icons | `0x800–0x813` | Pistols use bullets and reload; 111 NPCs rebuilt over gun mods; load after Enderal SE - Crossbows |
+| [`DragonPriestStaffSwap`](arch-docs/patches/DragonPriestStaffSwap.md) → loose meshes (not committed) | none | Curator's taste: Pretty's chain-lightning staff mesh at the Dragon Priest staff paths |
+| [`StaffDrawFix`](arch-docs/patches/StaffDrawFix.md) → OAR submod with vanilla clips | none | Staff draw plays again over Smooth Magic Casting's always-true equip |
 
 ### Useful FormKey constants
 
@@ -306,12 +325,17 @@ Read the linked doc before working near any of these.
   conflict greps whenever a mod's enabled state changes. → [`patches/FasterSprint.md`](arch-docs/patches/FasterSprint.md)
 - **A ported mod's distribution is the likeliest thing to be dead** — vanilla leveled lists mostly
   don't exist in Enderal, and a surviving vanilla FormID may be a different record (`00003C` is
-  `MQP01Home`, not Tamriel). → [`enderal/porting-from-skyrim.md`](arch-docs/enderal/porting-from-skyrim.md)
+  `MQP01Home`, not Tamriel). Delete any ported `NavigationMeshInfoMaps/`: `012FB4` is a floor tile in
+  Enderal. → [`enderal/porting-from-skyrim.md`](arch-docs/enderal/porting-from-skyrim.md)
 - **`OnHit`'s `akWeapon` is the hit source** — a `Spell` on every combat-framework hit.
   → [`patches/BrawlFixes.md`](arch-docs/patches/BrawlFixes.md)
 - **A load crash: bisect the plugin header/masters before the records.**
   → [`workspace/testing-and-debugging.md`](arch-docs/workspace/testing-and-debugging.md#debugging-a-load-crash)
-- **Crash logs land in `My Games\Skyrim Special Edition\SKSE\`**, not the Enderal folder.
+- **This list's crash logs come from .NET Script Framework**, in `<modlist>\overwrite\NetScriptFramework\Crash\`
+  — it ships no Crash Logger DLL. SKSE plugin logs land in `My Games\Skyrim Special Edition\SKSE\`, not the
+  Enderal folder. → [`workspace/testing-and-debugging.md`](arch-docs/workspace/testing-and-debugging.md)
+- **Installed asset does nothing? Check the CRDW cache first** — a stale `data_*_.cache` makes newly
+  installed files unloadable; rebuild it after every install and Pandora run. → [`modlist/mod-gotchas.md`](arch-docs/modlist/mod-gotchas.md)
 - **Exterior-cell refs need 4 scaffolding files** or Spriggit silently drops the tree; YAML comments
   do not survive a re-serialize. → [`workspace/spriggit.md`](arch-docs/workspace/spriggit.md)
 - **A clean SPID log does not mean the item reached the player** (NUP stripped corpses).
@@ -339,6 +363,7 @@ Read the linked doc before working near any of these.
 | **[`arch-docs/magic/`](arch-docs/magic/)** | **The actual in-game value of every magic record** — regenerate with the `magic-extract` skill |
 | [`arch-docs/tools/spid.md`](arch-docs/tools/spid.md) | **SPID reference** for 7.3.x |
 | **[`arch-docs/tools/spid-in-enderal.md`](arch-docs/tools/spid-in-enderal.md)** | **SPID in Enderal** — read before installing or authoring a `_DISTR.ini` (only 198/318 keyword entries register) |
+| [`arch-docs/ordinator/`](arch-docs/ordinator/) | **Ordinator perk overhaul, studied for cherry-picking** — why it can't be installed in Enderal, which of its 469 perks are entry-point-only vs scripted |
 
 Per pillar: combat patches start at [`arch-docs/enderal/combat.md`](arch-docs/enderal/combat.md),
 visuals at [`visuals-and-world.md`](arch-docs/enderal/visuals-and-world.md), and anything touching

@@ -1,0 +1,19 @@
+FormKey: 000805:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_FlintlockShot_PriestsDuelingPistol
+Name:
+  TargetLanguage: English
+  Value: Shaped bullet
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.7
+Effects:
+- BaseEffect: 000802:AdventurerFlintlockPack.esp
+  Data:
+    Magnitude: 14.4
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.5

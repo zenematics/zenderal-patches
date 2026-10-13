@@ -1,0 +1,55 @@
+FormKey: 000818:AdventurerFlintlockPack.esp
+EditorID: PMDuelingPistol03
+Name:
+  TargetLanguage: English
+  Value: Officer's Dueling Pistol
+Model:
+  File: PowderMagePack\weapons\BattlestainedFP\FlintlockPistol01.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 000806:Zenderal - Flintlock Overhaul.esp
+EnchantmentAmount: 2
+EquipmentType: 013F44:Skyrim.esm
+BlockBashImpact: 0193CB:Skyrim.esm
+AlternateBlockMaterial: 0774B6:Skyrim.esm
+Keywords:
+- 01E716:Skyrim.esm
+- 01E717:Skyrim.esm
+- 0937A4:Skyrim.esm
+- 77777A:Update.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+FirstPersonModel: 000810:AdventurerFlintlockPack.esp
+AttackFailSound: 03C730:Skyrim.esm
+EquipSound: 03DE2C:Skyrim.esm
+UnequipSound: 03CEDB:Skyrim.esm
+BasicStats:
+  Value: 900
+  Weight: 7
+  Damage: 15
+Data:
+  AnimationType: Staff
+  Unused: 0x000000
+  Speed: 0.5
+  Reach: 1
+  Flags:
+  - RangeFixed
+  NumProjectiles: 1
+  RangeMax: 100
+  AnimationAttackMult: 1
+  Unknown2: 1065353216
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: Archery
+  Stagger: 0.5
+Critical:
+  Damage: 15
+  Unused: -21598
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0xFFFFFF
+  Unused3: 1
+DetectionSoundLevel: Normal

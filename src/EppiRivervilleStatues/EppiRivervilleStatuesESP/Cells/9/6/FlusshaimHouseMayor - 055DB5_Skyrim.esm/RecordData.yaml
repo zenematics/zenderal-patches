@@ -1,0 +1,53 @@
+FormKey: 055DB5:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: FlusshaimHouseMayor
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Riverville, Mayor's House
+Flags:
+- IsInteriorCell
+- HasWater
+- PublicArea
+- ShowSky
+Lighting:
+  AmbientColor: '#0047432E'
+  DirectionalColor: '#00252525'
+  FogNearColor: '#00757782'
+  FogFar: 3500
+  DirectionalRotationZ: 90
+  FogClipDistance: 2500
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#004E4330'
+    DirectionalXMinus: '#003F432B'
+    DirectionalYPlus: '#0047462E'
+    DirectionalYMinus: '#00473F2E'
+    DirectionalZPlus: '#00211F14'
+    DirectionalZMinus: '#006C6647'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00757782'
+  FogMax: 1
+LightingTemplate: 0B2157:Skyrim.esm
+WaterHeight: 0
+Location: 032706:Skyrim.esm
+Owner: 07070C:Skyrim.esm
+WaterEnvironmentMap: data\textures\cubemaps\duncaveruingreen_e.dds
+SkyAndWeatherFromRegion: 037B8B:Skyrim.esm
+AcousticSpace: 137405:Skyrim.esm
+Music: 10486D:Skyrim.esm
+ImageSpace: 0A2687:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000813:man_DaedricShrines_Enderal.esp
+  VersionControl: 12176
+  Base: 000812:man_DaedricShrines_Enderal.esp
+  Scale: 0.7
+  Placement:
+    Position: -599.77545, 646.15546, 88.70489
+    Rotation: 0, -0, -1.7831848
+MajorFlags:
+- 0x40000

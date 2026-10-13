@@ -1,0 +1,171 @@
+FormKey: 103F41:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _00E_DesertFarmer02
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 40
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 02E990:Enderal - Forgotten Stories.esm
+  Fluff: 0x000000
+- Faction: 02EF9C:Enderal - Forgotten Stories.esm
+  Fluff: 0x000000
+- Faction: 0484F4:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 08D90C:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 13C192:Skyrim.esm
+  Fluff: 0x000000
+Voice: 02E99E:Enderal - Forgotten Stories.esm
+Race: 013743:Skyrim.esm
+Items:
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 45
+- Item:
+    Item: 07C9A5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 00F5BE:OrdoLegionisMuskets.esp
+    Count: 15
+- Item:
+    Item: 00F5B7:OrdoLegionisMuskets.esp
+    Count: 1
+AIData:
+  Confidence: Average
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 1063AD:Skyrim.esm
+- 1063AC:Skyrim.esm
+Class: 0E3A66:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Lêkil Rottheal
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 47
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 88
+  - Key: Block
+    Value: 26
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 67
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 67
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 47
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 5
+  - Key: Illusion
+    Value: 5
+  - Key: Restoration
+    Value: 5
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 375
+  Magicka: 50
+  Stamina: 350
+  GearedUpWeapons: 1
+HeadParts:
+- 05107B:Skyrim.esm
+- 0F6F80:Skyrim.esm
+HairColor: 0A0438:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 80
+SoundLevel: Normal
+DefaultOutfit: 0DAB76:Skyrim.esm
+CrimeFaction: 08D90C:Skyrim.esm
+HeadTexture: 0F204A:Skyrim.esm
+TextureLighting: '#006D653D'
+FaceMorph:
+  NoseLongVsShort: -0.22
+  JawUpVsDown: -0.36
+  JawNarrowVsWide: 1
+  CheeksUpVsDown: -0.84
+  CheeksForwardVsBack: -0.94
+  EyesInVsOut: 1
+  ChinNarrowVsWide: 1
+  ChinUpVsDown: -1
+FaceParts:
+  Nose: 5
+  Eyes: 8
+  Mouth: 15
+TintLayers:
+- Index: 1
+  Color: '#006D653D'
+  InterpolationValue: 1
+  Preset: 59
+- Index: 20
+  Color: '#00330000'
+  InterpolationValue: 1
+  Preset: 293
+MajorFlags:
+- 0x40000

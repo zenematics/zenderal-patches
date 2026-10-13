@@ -1,0 +1,223 @@
+FormKey: 0458AF:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _10E_Bandit03Schuetze_NR
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_DeadBodyCleanupScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_DeathContainer
+      Object: 046D86:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_NPCDumpMarker
+      Object: 13458F:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 100
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Female
+  MagickaOffset: 20
+  StaminaOffset: 70
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 10
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 47
+Factions:
+- Faction: 014C6F:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 14CE9B:Skyrim.esm
+  Fluff: 0x000000
+Voice: 07BBC5:Skyrim.esm
+Race: 013741:Skyrim.esm
+AttackRace: 013743:Skyrim.esm
+Perks:
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 001DB1:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 04C982:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 000838:AdventurerFlintlockPack.esp
+    Count: 1
+- Item:
+    Item: 000800:Zenderal - Flintlock Overhaul.esp
+    Count: 10
+AIData:
+  Confidence: Brave
+  EnergyLevel: 50
+  Mood: Angry
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 1200
+  WarnOrAttack: 1000
+  Attack: 800
+Packages:
+- 01B217:Skyrim.esm
+Class: 013181:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Vagrant
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 25
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 21
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 23
+  - Key: Illusion
+    Value: 25
+  - Key: Restoration
+    Value: 18
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 20
+  - Key: TwoHanded
+    Value: 20
+  - Key: Archery
+    Value: 25
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 20
+  - Key: LightArmor
+    Value: 12
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 34
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 118
+  Magicka: 80
+  Stamina: 77
+  GearedUpWeapons: 1
+HeadParts:
+- 0F81D4:Skyrim.esm
+- 1017EE:Skyrim.esm
+HairColor: 0A0433:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 080C71:Skyrim.esm
+TextureLighting: '#00B9B3AA'
+FaceMorph:
+  NoseLongVsShort: 0.04
+  JawNarrowVsWide: -1
+  LipsUpVsDown: 0.8
+  LipsInVsOut: 0.4
+  ChinNarrowVsWide: -0.4
+  ChinUpVsDown: 1
+TintLayers:
+- Index: 18
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 678
+- Index: 23
+  Color: '#00A95452'
+  InterpolationValue: 0.37
+  Preset: 704
+- Index: 48
+  Color: '#00000000'
+  InterpolationValue: 0
+  Preset: 925
+- Index: 52
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 997
+- Index: 55
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 1068
+- Index: 57
+  Color: '#002F2013'
+  InterpolationValue: 1
+  Preset: 1234
+- Index: 74
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 1189
+MajorFlags:
+- 0x40000

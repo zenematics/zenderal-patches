@@ -1,0 +1,13 @@
+FormKey: 00080F:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_DeathItem_00E_PahtiraZenturio
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 03AD81:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00083A:AdventurerFlintlockPack.esp
+    Count: 1

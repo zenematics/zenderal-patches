@@ -1,0 +1,25 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Undead Creatures Replacer EGO Patch.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Forwards Kolapon's Undead Creatures Replacer race/skin swaps onto EGO's Lost One and
+    Ahnengeist NPCs, which the replacer (not mastering EGO) reverted to Forgotten Stories
+    stats, perks and inventories. Must load after Undead Creatures Replacer.esp (mastered).
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Undead Creatures Replacer.esp
+    FileSize: 0
+  INTV: 1

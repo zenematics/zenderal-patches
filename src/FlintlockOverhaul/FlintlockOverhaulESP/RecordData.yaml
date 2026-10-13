@@ -1,0 +1,30 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Flintlock Overhaul.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Flintlock pistols (A Gentleman's Flintlock Armoury) load one Flintlock Bullet per shot and reload after 2 s.
+    Soul gems no longer charge them. Shot damage scales with Archery and the bow talents. Ordo Legionis muskets use the flintlock shot sound. Gun-carrying NPCs rebuilt on their EGO-era records; half the hostile musketeers carry pistols.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: AdventurerFlintlockPack.esp
+    FileSize: 0
+  - Master: OrdoLegionisMuskets.esp
+    FileSize: 0
+  - Master: Enderal SE - Crossbows.esp
+    FileSize: 0
+  INTV: 1
