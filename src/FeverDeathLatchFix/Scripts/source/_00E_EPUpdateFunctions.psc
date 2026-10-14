@@ -52,7 +52,7 @@ State RealPlayer
 
 			If MapMarkersDiscoveredCounter >= 50 && !bMapMarkersAchievementUnlocked && _00E_AchievementsEnabled.GetValueInt() == 1
 				bMapMarkersAchievementUnlocked = True
-				Game.UnlockAchievement("END_LOCATIONS_01")
+				Steam.UnlockAchievement("END_LOCATIONS_01")
 			EndIf
 		EndIf
 
@@ -120,7 +120,7 @@ State RealPlayer
 		
 		If _00E_OreVeinsMined.GetValueInt() >= 50 && !bOreAchievementUnlocked && _00E_AchievementsEnabled.GetValueInt() == 1
 			bOreAchievementUnlocked = true
-			Game.UnlockAchievement("END_ORE_01")
+			Steam.UnlockAchievement("END_ORE_01")
 		EndIf
 		
 		delta = Game.QueryStat("Quests Completed") - QuestsCompletedCounter
@@ -128,13 +128,13 @@ State RealPlayer
 			QuestsCompletedCounter += delta
 			If QuestsCompletedCounter >= 50 && !bDoneQuestCompleted && _00E_AchievementsEnabled.GetValueInt() == 1
 				bDoneQuestCompleted = true
-				Game.UnlockAchievement("END_QUESTS_01")
+				Steam.UnlockAchievement("END_QUESTS_01")
 			EndIf
 		EndIf
 		
 		If _00E_RhetorikCounter.GetValueInt() >= 15 && !bRhetoricAchievementUnlocked && _00E_AchievementsEnabled.GetValueInt() == 1
 			bRhetoricAchievementUnlocked = true
-			Game.UnlockAchievement("END_RHETORIC_01")
+			Steam.UnlockAchievement("END_RHETORIC_01")
 		EndIf
 
 		; Arcane fever management
@@ -153,7 +153,7 @@ State RealPlayer
 			_00E_Player_sArcaneFever_Death.Show()
 			If _00E_AchievementsEnabled.GetValueInt() == 1 && !bDoneArcanistsFever
 				bDoneArcanistsFever = true
-				Game.UnlockAchievement("END_ARCANISTS_FEVER_01")
+				Steam.UnlockAchievement("END_ARCANISTS_FEVER_01")
 			EndIf
 		EndIf
 
@@ -162,7 +162,8 @@ State RealPlayer
 				iArcaneFeverWarnCounter -= 1
 				If iArcaneFeverWarnCounter <= 0
 					iArcaneFeverWarnCounter = 20
-					_00E_Player_sArcaneFever_Critical.Show()
+					Message.ResetHelpMessage("Empty")
+					_00E_Player_sArcaneFever_Critical.ShowAsHelpMessage("Empty", 5, 1, 1)
 				EndIf
 			Else ; iArcaneFever < 90
 				iArcaneFeverWarnCounter = 0 ; Reset
@@ -171,7 +172,8 @@ State RealPlayer
 			If iArcaneFever >= 40
 				If Player.HasSpell(_00E_Arkanistenfieber40) == False
 					Player.AddSpell(_00E_Arkanistenfieber40,0)
-					_00E_Player_sArcaneFever_Worsen.Show()
+					Message.ResetHelpMessage("Empty")
+					_00E_Player_sArcaneFever_Worsen.ShowAsHelpMessage("Empty", 3, 1, 1)
 				EndIf
 			Else ; iArcaneFever < 40
 				If Player.HasSpell(_00E_Arkanistenfieber40)
@@ -183,7 +185,8 @@ State RealPlayer
 			If iArcaneFever >= 70
 				If Player.HasSpell(_00E_Arkanistenfieber70) == False
 					Player.AddSpell(_00E_Arkanistenfieber70,0)
-					_00E_Player_sArcaneFever_Worsen.Show()
+					Message.ResetHelpMessage("Empty")
+					_00E_Player_sArcaneFever_Worsen.ShowAsHelpMessage("Empty", 4, 1, 1)
 				EndIf
 			Else ; iArcaneFever < 70
 				If Player.HasSpell(_00E_Arkanistenfieber70)
@@ -236,7 +239,7 @@ Bool _bLevelUpSystemLocked = False
 
 Function _LockLevelUpSystem()
 	While _bLevelUpSystemLocked
-		Utility.WaitMenuMode(0.03)
+		Utility.WaitMenuMode(0.1)
 	EndWhile
 	_bLevelUpSystemLocked = True
 EndFunction
@@ -272,8 +275,8 @@ function levelUp()
 	Game.SetPlayerLevel(PlayerLevel.GetValueInt())
 	TalentPoints.Mod(1)
 	Player.SetAV("dragonsouls", TalentPoints.GetValueInt())
-	Lernpunkte.Mod(4)
-	Handwerkspunkte.Mod(3)
+	Lernpunkte.Mod(5)
+	Handwerkspunkte.Mod(4)
 			
 	if iMessage == 0 
 		Player.SetActorValue("Health", Player.GetBaseAV("Health")+9)

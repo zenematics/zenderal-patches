@@ -21,13 +21,13 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`NpcPotions`](NpcPotions.md) | `Zenderal - NPC Potions_DISTR.ini` | _(none — SPID config, no plugin)_ |
 | [`ControllerTweaks`](ControllerTweaks.md) | *(no plugin — three file overrides)* | _(none)_ |
 | [`OldTempleWeather`](OldTempleWeather.md) | `Zenderal - Old Temple Weather.esp` | none (overrides only) |
-| [`BakaHeroMenu`](BakaHeroMenu.md) | *(no plugin — `SKSE/Plugins/BakaHeroMenu.dll`)* | _(none)_ |
+| [`BakaHeroMenu`](BakaHeroMenu.md) | **RETIRED 2026-10-14**, was *(no plugin — `SKSE/Plugins/BakaHeroMenu.dll`)* | _(none)_ |
 | [`TrueHUDCombatIcons`](TrueHUDCombatIcons.md) | *(no plugin — `SKSE/Plugins/ZenTrueHUDCombatIcons.dll` + configs)* | _(none)_ |
 | [`FrostAtronachSEFix`](FrostAtronachSEFix.md) | *(no plugin — converted meshes, MO2 mod `Zenderal - Frost Atronach SE Fix`)* | _(none)_ |
 | [`PrecisionLiftFix`](PrecisionLiftFix.md) | **RETIRED 2026-10-13**, was *(no plugin — converted `actors/atronachfrost/character assets/skeleton.nif` + diagnostic `SKSE/Plugins/ZenPrecisionLiftFix.dll`, MO2 mod `Zenderal - Precision Lift Fix`)* | _(none)_ |
 | [`PrecisionFork`](PrecisionFork.md) | **RETIRED 2026-10-13**, was *(rebuilt `Precision.dll` + `Precision_ZenderalFixes.ini`, MO2 mod `Zenderal - Precision Fork`, sorted directly ABOVE `Precision`)* | _(none)_ |
 | [`ZenTraitsFixes`](ZenTraitsFixes.md) | *(no plugin — one recompiled script)* | _(none)_ |
-| [`LearningBooks`](LearningBooks.md) | `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` |
+| [`LearningBooks`](LearningBooks.md) | **RETIRED 2026-10-14**, was `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` |
 | [`MCODirectionalPowerAttacks`](MCODirectionalPowerAttacks.md) | `Zenderal - MCO Directional Power Attacks.esp` | none (overrides only) |
 | [`PrettyArmoryEGO`](PrettyArmoryEGO.md) | `Zenderal - Pretty Armory EGO Patch.esp` | none (overrides only) |
 | [`ArkMyradPlatformFix`](ArkMyradPlatformFix.md) | `Zenderal - Ark Myrad Platform Fix.esp` | none (overrides only) |

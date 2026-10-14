@@ -251,19 +251,19 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`NpcPotions`](arch-docs/patches/NpcPotions.md) → `Zenderal - NPC Potions_DISTR.ini` | none | SPID potions to NPCs; depends on NUP corpse-stripping being off |
 | [`ControllerTweaks`](arch-docs/patches/ControllerTweaks.md) → controlmap, SkyUI config, `_00E_Game_SkillmenuSC.pex` | none | Gamepad fixes + B+D-pad-Up Hero Menu chord |
 | [`OldTempleWeather`](arch-docs/patches/OldTempleWeather.md) → `Zenderal - Old Temple Weather.esp` | none | Intro-beach weather under Obsidian (currently disabled with Obsidian) |
-| [`BakaHeroMenu`](arch-docs/patches/BakaHeroMenu.md) → `BakaHeroMenu.dll` | none | CommonLibSSE-NG port for 1.5.97; GPL — publish source |
+| [`BakaHeroMenu`](arch-docs/patches/BakaHeroMenu.md) | none | **Retired 2026-10-14** — source recoverable from commit `fa07b81`; its CommonLibSSE-NG clone moved to the repo-root `lib/` |
 | [`TrueHUDCombatIcons`](arch-docs/patches/TrueHUDCombatIcons.md) → `ZenTrueHUDCombatIcons.dll` | none | FHR status icons inside TrueHUD's info bar |
 | [`FrostAtronachSEFix`](arch-docs/patches/FrostAtronachSEFix.md) → converted meshes (not committed) | none | Black Ice Elementals: LE→SE meshes + plain lighting shader |
 | [`PrecisionLiftFix`](arch-docs/patches/PrecisionLiftFix.md) | none | **Retired** — record of failed routes; source removed |
 | [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) | none | **Retired 2026-10-13** — the list ships Precision's `bApplyImpulseOnHit = 0` instead; fork recoverable from commit `7b63d3a` |
 | [`ZenTraitsFixes`](arch-docs/patches/ZenTraitsFixes.md) → one recompiled script | none | Ambrosia reduces Arcane Fever again |
-| [`LearningBooks`](arch-docs/patches/LearningBooks.md) → `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` | Books grant points; **owns** the 72 book ALCH records. Generated |
+| [`LearningBooks`](arch-docs/patches/LearningBooks.md) | none | **Retired 2026-10-14** with Leveling Redone — books spend points again (EGO's records); source recoverable from commit `9afae18` |
 | [`MCODirectionalPowerAttacks`](arch-docs/patches/MCODirectionalPowerAttacks.md) → `.esp` | none | Side/back/sprint power attacks reach FHR's MCO animations |
 | [`PrettyArmoryEGO`](arch-docs/patches/PrettyArmoryEGO.md) → `Zenderal - Pretty Armory EGO Patch.esp` | none | 141 Pretty×EGO merges. Generated |
 | [`ArkMyradPlatformFix`](arch-docs/patches/ArkMyradPlatformFix.md) → `Zenderal - Ark Myrad Platform Fix.esp` | none | Moves FS marker `02F0B5`; read the FS-override postmortem first |
 | [`ArkMarketTreeFix`](arch-docs/patches/ArkMarketTreeFix.md) → `Zenderal - Ark Market Tree Fix.esp` | none | Lowers a floating juniper an addon placed in Ark's market |
 | [`EppiRivervilleStatues`](arch-docs/patches/EppiRivervilleStatues.md) → `Zenderal - EPPI Riverville Statues Patch.esp` | none | Moves a statue mod's bust with the desk EPPI moved |
-| [`FeverDeathLatchFix`](arch-docs/patches/FeverDeathLatchFix.md) → recompiled `_00E_EPUpdateFunctions` | none | Clears the stuck `isdead` latch that blocks level-ups; must sort below Leveling Redone |
+| [`FeverDeathLatchFix`](arch-docs/patches/FeverDeathLatchFix.md) → recompiled `_00E_EPUpdateFunctions` | none | Clears the stuck `isdead` latch that blocks level-ups; forked from SureAI's source |
 | [`UndeadCreaturesReplacerEGO`](arch-docs/patches/UndeadCreaturesReplacerEGO.md) → `.esp` | none | UCR visuals on EGO's Lost One NPCs. Generated |
 | [`EnderalTextureRestores`](arch-docs/patches/EnderalTextureRestores.md) → extracted textures (not committed) | none | Restores Enderal textures a Skyrim texture mod cut out |
 | [`PrettyFemaleMeshRestores`](arch-docs/patches/PrettyFemaleMeshRestores.md) → extracted meshes (not committed) | none | Pretty's BSA meshes over CBBE's loose ones; sort above CBBE |

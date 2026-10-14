@@ -1,5 +1,11 @@
 # LearningBooks
 
+> **RETIRED 2026-10-14.** It only made sense while `EGO SE - Leveling Redone` provided the list's way
+> to *spend* learning/crafting points (and Baka Hero Menu a second one). Both were removed from the list the
+> same day, which left the books' own spend behaviour as the only spend path — so the books must stay
+> vanilla (EGO's records). `src/LearningBooks/` and its manifest entry were removed; the source is
+> recoverable from commit `9afae18`. Its `0x800–0x802` block is free again. Everything below is history.
+
 > Moved out of `CLAUDE.md` on 2026-10-13. Text is verbatim; `[verified]` marks and dates are as originally recorded.
 
 - **Source:** `src/LearningBooks/`

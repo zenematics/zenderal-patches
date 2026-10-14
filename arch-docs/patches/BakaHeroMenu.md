@@ -1,5 +1,11 @@
 # BakaHeroMenu
 
+> **RETIRED 2026-10-14.** Removed from the list by the curator, so `src/BakaHeroMenu/` and its
+> manifest entry were removed. The source is recoverable from commit `fa07b81` (GPL-3.0: if it is
+> ever shipped again, the modified source must be published with it). The CommonLibSSE-NG clone it
+> used to hold now lives in the gitignored repo-root `lib/CommonLibNG`, shared by the other native
+> DLL patches. Everything below is history.
+
 > Moved out of `CLAUDE.md` on 2026-10-13. Text is verbatim; `[verified]` marks and dates are as originally recorded.
 
 - **Source:** `src/BakaHeroMenu/`

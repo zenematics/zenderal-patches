@@ -15,8 +15,8 @@ set(ENABLE_SKYRIM_VR OFF CACHE BOOL "" FORCE)
 set(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(SKSE_SUPPORT_PATCH_SAFETY OFF CACHE BOOL "" FORCE)
 
-# Shares the CommonLibSSE-NG clone used by BakaHeroMenu (gitignored; see that folder's notes).
-set(COMMONLIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../BakaHeroMenu/lib/CommonLibNG" CACHE PATH "CommonLibSSE-NG checkout")
+# Shares the CommonLibSSE-NG clone in the repo-root lib/ (gitignored; clone the ng branch of alandtse/CommonLibVR there).
+set(COMMONLIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../lib/CommonLibNG" CACHE PATH "CommonLibSSE-NG checkout")
 add_subdirectory(${COMMONLIB_DIR} CommonLibNG EXCLUDE_FROM_ALL)
 
 find_package(nlohmann_json CONFIG REQUIRED)

@@ -5,11 +5,10 @@ One recompiled script. No plugin, no records, no ESP.
 
   Scripts\_00E_EPUpdateFunctions.pex   (+ Scripts\Source\ .psc)
 
-  Base: Leveling Redone's copy of the script (Ixion XVII), verbatim - itself
-        SureAI's script with Leveling Redone's 4/3 points per level.
+  Base: SureAI's script (ScriptsEnderal.zip), verbatim.
   Change: one guard added, marked "; ZP".
 
-Credit: SureAI (original script), Ixion XVII (Leveling Redone).
+Credit: SureAI (original script).
 
 THE BUG
 -------
@@ -33,5 +32,6 @@ On an affected save, the owed level-ups fire a few seconds after loading.
 
 INSTALL
 -------
-Must win the loose-script conflict with "Leveling Redone (No Skillbooks)":
-sort this mod BELOW it in MO2's left pane.
+No other mod in the list ships this script, so its MO2 position does not
+matter. (Until 2026-10-14 it forked Leveling Redone's copy and had to sort
+below it; Leveling Redone has left the list.)

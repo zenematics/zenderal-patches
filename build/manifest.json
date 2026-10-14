@@ -26,7 +26,7 @@
       ]
     },
     {
-      "$comment": "Kata-related fixes. (1) The magic-vendor chest merge - all SEVEN contested chests (Funkentanz 102AD5, Torius 118050, Tarhutie 05BCD6, Milbert 127928, Maxus Tabbakus 022BF2, Barnabas 13824A, Ora Stonehand 0F9320) overridden with EGO SE - Leveling Redone's winning version plus every loser's re-appended stock - 214 entries: Kata's 15 staves, all 160 of Apocalypse's vendor tomes, xxOpenSpells' 4 books, the Emberlord patch's 5 entries. Regenerate with src/KataFixes/tools/01-merge-vendor-chests.py; audit for new ones with 00-audit-vendor-conflicts.py; MUST load after EGO SE - Leveling Redone.esp (mastered, so the engine enforces it). The same generator also adds CURATED stock no upstream mod put there: Apocalypse's 15 novice spell tomes at Tarhutie in Riverville, because Apocalypse hosts its novice tier at Milbert in Ark and Riverville is where a level-1 player actually is. (2) The recompiled Kata_Enderal_SpellPackageAddToLLists.pex (absorbed from the retired 'Zenderal - No Kata Debug Prompt' release): kills the debug prompt AND stops injecting the 29 spell lines duplicated between the two Kata packs; the mod folder MUST sort so it wins the loose-script file conflict with 'KataPUMB Magic Package'.",
+      "$comment": "Kata-related fixes. (1) The magic-vendor chest merge - the three contested chests (Funkentanz 102AD5, Torius 118050, Tarhutie 05BCD6) overridden with EGO's record plus every loser's re-appended stock - 54 entries: Kata's 15 staves per chest, xxOpenSpells' 4 books, the Emberlord patch's 5 entries. Regenerate with src/KataFixes/tools/01-merge-vendor-chests.py; audit for new ones with 00-audit-vendor-conflicts.py. Does NOT master Leveling Redone (removed from the list 2026-10-14). (2) The recompiled Kata_Enderal_SpellPackageAddToLLists.pex (absorbed from the retired 'Zenderal - No Kata Debug Prompt' release): kills the debug prompt AND stops injecting the 29 spell lines duplicated between the two Kata packs; the mod folder MUST sort so it wins the loose-script file conflict with 'KataPUMB Magic Package'.",
       "name": "Zenderal - Kata Fixes",
       "archiveName": "Zenderal - Kata Fixes",
       "fomod": false,
@@ -100,19 +100,6 @@
         {
           "yamlSource": "src/OldTempleWeather/OldTempleWeatherESP",
           "dest": "Zenderal - Old Temple Weather.esp"
-        }
-      ]
-    },
-    {
-      "$comment": "No plugin - one SKSE DLL. Baka Hero Menu (shad0wshayd3, Nexus enderalspecialedition/1121, GPL-3.0 + modding exception) ported from libxse CommonLibSSE (1.6.x+/Enderal 2.1.x) to CommonLibSSE-NG for Enderal SE 2.0.12 / SSE 1.5.97: click a skill in the Hero Menu to spend a Learning/Crafting Point on it. Port changes, all marked ZP in src/BakaHeroMenu/src: the Hero Menu is registered as '00E_heromenu' here, not 'CustomMenu'; class/affinity read from _00E_Game_SkillmenuSC on Levelsystem 010AA2 (2.1's _00E_AffinityControl/01597B:FS do not exist); null guards for the missing BakaHeroMenu.esp MCM quest (crashed on save load); Zenderal defaults = no gold cost, no gold readout. Build with src/BakaHeroMenu/build.cmd (VS 2026 Build Tools' bundled CMake/Ninja/vcpkg; CommonLibSSE-NG ng branch cloned to src/BakaHeroMenu/lib/CommonLibNG); compiled DLL committed because CI cannot build it. GPL: the modified source in src/BakaHeroMenu/ must stay published alongside the DLL.",
-      "name": "Zenderal - Baka Hero Menu SE",
-      "archiveName": "Zenderal - Baka Hero Menu SE",
-      "fomod": false,
-      "plugins": [],
-      "files": [
-        {
-          "from": "src/BakaHeroMenu/compiled/BakaHeroMenu.dll",
-          "to": "SKSE/Plugins"
         }
       ]
     },
@@ -294,7 +281,7 @@
       ]
     },
     {
-      "$comment": "Script only - no plugin. Forks Leveling Redone's _00E_EPUpdateFunctions (SureAI's player script with LR's 4/3 points per level). At Arcane Fever >= 100 the script sets private isdead = True and calls Player.Kill(); nothing ever resets it, so if the kill does not take (tgm, essential, a scene) the flag is saved and permanently blocks the level-up loop and the fever 40/70 effects (user report 2026-10-10: 11010/5954 XP stuck at level 5, sv showed iLevelUpsNeeded = 3, IsDead = True). One ; ZP guard in OnUpdate clears isdead when the player is alive and fever < 100. String table identical to LR's .pex (260 strings) - no Property changed. Must sort BELOW 'Leveling Redone (No Skillbooks)' in MO2's left pane to win the loose-script conflict. Credit: SureAI, Ixion XVII.",
+      "$comment": "Script only - no plugin. Forks SureAI's _00E_EPUpdateFunctions (the player script, from ScriptsEnderal.zip - base Enderal's copy wins since Leveling Redone left the list 2026-10-14). At Arcane Fever >= 100 the script sets private isdead = True and calls Player.Kill(); nothing ever resets it, so if the kill does not take (tgm, essential, a scene) the flag is saved and permanently blocks the level-up loop and the fever 40/70 effects (user report 2026-10-10: 11010/5954 XP stuck at level 5, sv showed iLevelUpsNeeded = 3, IsDead = True). One ; ZP guard in OnUpdate clears isdead when the player is alive and fever < 100. String table identical to base Enderal's .pex (261 strings) - no Property changed. No other mod in the list ships this script loose or in a BSA. Credit: SureAI.",
       "name": "Zenderal - Fever Death Latch Fix",
       "archiveName": "Zenderal - Fever Death Latch Fix",
       "fomod": false,
@@ -361,7 +348,7 @@
       ]
     },
     {
-      "$comment": "No plugin - one SKSE DLL + configs. Draws For Honor Reforged's status icons inside TrueHUD's floating info bars: incoming-attack arrows either side of the bar, one priority icon (unstable > stagger/parry/shield-flip/block-slide knockdown cooldowns) in a circle on the bar's right end. Attaches child clips to TrueHUD's own info-bar movie clip (_root.TrueHUD.TrueHUD_MainVisibilityWidgets.<actor handle>) so they inherit its position, scale and fade; icon art is whichever FHR icon .swf wins (currently Vel'dun's replacer). Ships empty-rule copies of FHR's eleven SKSE/Plugins/SIF/*.json so SIF stops drawing the same icons above heads - must sort ABOVE For Honor Reforged. Rules/layout in SKSE/Plugins/ZenTrueHUDCombatIcons.json, re-read on every save load. Build with src/TrueHUDCombatIcons/build.cmd (shares BakaHeroMenu's CommonLibSSE-NG clone); compiled DLL committed because CI cannot build it.",
+      "$comment": "No plugin - one SKSE DLL + configs. Draws For Honor Reforged's status icons inside TrueHUD's floating info bars: incoming-attack arrows either side of the bar, one priority icon (unstable > stagger/parry/shield-flip/block-slide knockdown cooldowns) in a circle on the bar's right end. Attaches child clips to TrueHUD's own info-bar movie clip (_root.TrueHUD.TrueHUD_MainVisibilityWidgets.<actor handle>) so they inherit its position, scale and fade; icon art is whichever FHR icon .swf wins (currently Vel'dun's replacer). Ships empty-rule copies of FHR's eleven SKSE/Plugins/SIF/*.json so SIF stops drawing the same icons above heads - must sort ABOVE For Honor Reforged. Rules/layout in SKSE/Plugins/ZenTrueHUDCombatIcons.json, re-read on every save load. Build with src/TrueHUDCombatIcons/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
       "name": "Zenderal - TrueHUD Combat Icons",
       "archiveName": "Zenderal - TrueHUD Combat Icons",
       "fomod": false,
@@ -378,7 +365,7 @@
       ]
     },
     {
-      "$comment": "No plugin - one SKSE DLL. Improved Camera SE 1.1.2.4228's TranslateCamera() raises the first-person camera by the NPCEyeBone height only while the weapon is sheathed, so every sheathe ends with a one-frame camera snap upwards (all weapons; not a setting). Runtime-patches ImprovedCameraSE.dll+0x78282 (xorps xmm11,xmm11 = 'upDisplacement = 0 when weapon drawn') to a 4-byte NOP after verifying 24 bytes of context, so the raise always applies. Any other IC build is left untouched and logged. Build with src/ImprovedCameraSheatheFix/build.cmd (shares BakaHeroMenu's CommonLibSSE-NG clone); compiled DLL committed because CI cannot build it.",
+      "$comment": "No plugin - one SKSE DLL. Improved Camera SE 1.1.2.4228's TranslateCamera() raises the first-person camera by the NPCEyeBone height only while the weapon is sheathed, so every sheathe ends with a one-frame camera snap upwards (all weapons; not a setting). Runtime-patches ImprovedCameraSE.dll+0x78282 (xorps xmm11,xmm11 = 'upDisplacement = 0 when weapon drawn') to a 4-byte NOP after verifying 24 bytes of context, so the raise always applies. Any other IC build is left untouched and logged. Build with src/ImprovedCameraSheatheFix/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
       "name": "Zenderal - IC Sheathe Fix",
       "archiveName": "Zenderal - IC Sheathe Fix",
       "fomod": false,
@@ -458,22 +445,6 @@
         {
           "from": "src/FlintlockOverhaul/kid",
           "to": ""
-        }
-      ]
-    },
-    {
-      "$comment": "All 72 EGO learning/crafting book overrides (built verbatim from reference/mods/EGO by src/LearningBooks/tools/01-generate-book-overrides.py - never hand-edit Ingestibles/), redirected to two new grant MGEFs (0x800/0x801) + a new Crafting Points message (0x802): each book GRANTS 1 point of its currency instead of spending one to raise a skill (EGO SE - Leveling Redone supplies the skill-raising path). Masters EGO (8 Entropy/Psionics books carry its LehrbuchForbidden 001FB7 keyword), which also forces load-after-EGO so the redirect wins. MEMORY books (_00E_Erinnerungsbuch) and the Plus2 grant books deliberately untouched. This plugin OWNS the 72 ALCH records - no other Zenderal plugin may override them.",
-      "name": "Zenderal - Learning Books Grant Learning Points",
-      "archiveName": "Zenderal - Learning Books Grant Learning Points",
-      "fomod": false,
-      "scripts": {
-        "from": "src/LearningBooks/Scripts/compiled",
-        "to": "Scripts"
-      },
-      "plugins": [
-        {
-          "yamlSource": "src/LearningBooks/LearningBooksESP",
-          "dest": "Zenderal - Learning Books Grant Learning Points.esp"
         }
       ]
     },
