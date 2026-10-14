@@ -26,6 +26,8 @@ Event OnInit()
     InitializeActorValueInfos()
     UpdateKeyRegistration()
 	RegisterForMenu("Journal Menu")
+    ; ZP: Hero Menu Enhanced opens the menu natively (tween menu "Skills"); fill it on open.
+    RegisterForMenu("00E_heromenu")
     
 EndEvent
 
@@ -75,6 +77,20 @@ Event OnKeyUp(Int KeyCode, Float fHoldTime)
 
     If KeyCode == ZP_iGamepadModifier
         ZP_bGamepadModifierHeld = False
+    EndIf
+
+EndEvent
+
+; ZP: from Hero Menu Enhanced (Nexus enderalspecialedition/563). Its DLL opens the Hero Menu from the
+; tween menu without going through OpenSkillmenu(), so the data must be pushed here. HME's debug
+; notification is left out.
+Event OnMenuOpen(String MenuName)
+
+    If MenuName == ("00E_heromenu")
+        InitializeActorValueInfos()
+        UI.InvokeStringA("00E_heromenu", "_root.heromenu_mc.SetStringValues", GetStrings())
+        UI.InvokeFloatA("00E_heromenu", "_root.heromenu_mc.SetIntValues", GetFloats())
+        UI.InvokeFloatA("00E_heromenu", "_root.heromenu_mc.SetModifier", GetMods())
     EndIf
 
 EndEvent
@@ -852,6 +868,8 @@ String Function GetPlayerClassName()
 EndFunction
 
 Event OnPlayerLoadGame()
+    ; ZP: Hero Menu Enhanced opens the menu natively (tween menu "Skills"); fill it on open.
+    RegisterForMenu("00E_heromenu")
     InitAffinitySystem()
 
     ; Post-1.2.5.0 update
