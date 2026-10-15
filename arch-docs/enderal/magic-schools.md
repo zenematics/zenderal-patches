@@ -52,6 +52,9 @@ raw magic damage) gets the same move. EGO's Sinistrope cost perks already call E
 "*Schattenzauber*" (shadow spells). Its Alteration set stays in Mentalism (dashes, pulls and portals
 are the telekinetic "physical impulse" of the Mentalism book), and its Illusion set stays in
 Psionics. Counter-precedent, kept on record: Enderal files its own *Life Absorption* under Light Magic.
+Apocalypse gets eleven moves: its earth and weather spells go Mentalism → Elementalism, and Wither,
+Prepare for Adventure, Blood for Blood, Pull From Eternity and Magicka Void go to Entropy. Its
+death/disease/drain line **stays in Light Magic on purpose**, so the list keeps offensive Light Magic.
 
 ## How magic works: the Sea of Eventualities
 

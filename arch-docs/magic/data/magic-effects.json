@@ -64268,7 +64268,7 @@
       "name": "Magicka Void",
       "description": "Reduces the Health percentage of all targets to match their Magicka percentage.",
       "baseCost": 725,
-      "magicSkill": "Illusion",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
       "archetypeActorValue": "Health",
@@ -64379,10 +64379,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -136634,7 +136638,7 @@
       "name": "Blood for Blood",
       "description": "Cast on a corpse, summons the anguish of its death as an avenging force to reduce the Health of the killer to \u003C1\u003E.",
       "baseCost": 170,
-      "magicSkill": "Illusion",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -136745,10 +136749,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -153622,7 +153630,7 @@
       "name": "Control Weather",
       "description": "Temporarily summon the weather of your choice.",
       "baseCost": 1250,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -153745,10 +153753,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -156500,7 +156512,7 @@
       "editorId": "WB_Alt_CrowdControl2_Effect_Wither_StackingDebuff_Speed",
       "name": "Wither - Proc Speed",
       "baseCost": 0,
-      "magicSkill": "Alteration",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
       "archetypeActorValue": "SpeedMult",
@@ -156574,10 +156586,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -160082,7 +160098,7 @@
       "name": "Pull From Eternity",
       "description": "Cast on a corpse to capture its ghost. Cast on a target to release the ghost to attack the target for \u003Cdur\u003E seconds. The ghost takes less damage from attacks.",
       "baseCost": 150,
-      "magicSkill": "Illusion",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -160248,10 +160264,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -167145,7 +167165,7 @@
       "name": "Talons of Vyn",
       "description": "Whenever an enemy in the area is staggered, a spike of rock erupts from the ground, tossing the target and dealing \u003Cmag\u003E Stamina damage. Lasts \u003Cdur\u003E seconds.",
       "baseCost": 0.35,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "SpawnHazard",
       "archetypeAssociation": "097A45:Apocalypse - Magic of Skyrim.esp",
@@ -167201,10 +167221,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -167215,7 +167239,7 @@
       "editorId": "WB_Alt_CrowdControl5_Effect_TalonsOfNirn_Hazard",
       "name": "Talons of Vyn",
       "baseCost": 2,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
       "archetypeActorValue": "Stamina",
@@ -167330,10 +167354,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -167344,7 +167372,7 @@
       "editorId": "WB_Alt_CrowdControl5_Effect_TalonsOfNirn_Hazard_RockSpike",
       "name": "Talons of Vyn - Rock Spike",
       "baseCost": 0,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -167511,10 +167539,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -167699,7 +167731,7 @@
       "name": "Raise Wall",
       "description": "Concentrate to summon a wall from the earth that blocks passage.",
       "baseCost": 8,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "Concentration",
@@ -167803,10 +167835,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -167817,7 +167853,7 @@
       "editorId": "WB_Alt_WorldInteractions2_Effect_RaiseWall_Fail",
       "name": "Raise Wall - Fail",
       "baseCost": 0,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "Concentration",
@@ -167896,10 +167932,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -167911,7 +167951,7 @@
       "name": "Undermine",
       "description": "For \u003Cdur\u003E seconds, shifting earth causes the target to lose its balance when swinging a melee weapon, staggering the target and draining \u003C30\u003E points of Stamina.",
       "baseCost": 50,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -168026,10 +168066,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -171493,7 +171537,7 @@
       "name": "Thrumming Stone",
       "description": "Magical vibrating rock that emits a tremor every \u003C8\u003E seconds, staggering enemies and inflicting \u003Cmag\u003E% weakness to magic for \u003Cdur\u003E seconds. Emits \u003C5\u003E pulses.",
       "baseCost": 65,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Stagger",
       "castType": "FireAndForget",
@@ -171537,10 +171581,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -171551,7 +171599,7 @@
       "editorId": "WB_Alt_CrowdControl2_Effect_Wither_StackingDebuff_Attack",
       "name": "Wither - Proc Attack",
       "baseCost": 0,
-      "magicSkill": "Alteration",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "ValueModifier",
       "archetypeActorValue": "AttackDamageMult",
@@ -171609,10 +171657,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -173175,7 +173227,7 @@
       "name": "Entomb",
       "description": "Buries a target permanently, or frees a buried target. Only one victim may be buried at a time.",
       "baseCost": 0,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Stagger",
       "castType": "FireAndForget",
@@ -173313,10 +173365,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -173760,7 +173816,7 @@
       "editorId": "WB_Alt_CrowdControl4_Effect_Entomb_Spawner",
       "name": "Entomb - Spawner",
       "baseCost": 475,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -173810,10 +173866,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -173971,7 +174031,7 @@
       "editorId": "WB_Alt_CrowdControl4_Effect_Entomb_Panic",
       "name": "Entomb - Panic",
       "baseCost": 0,
-      "magicSkill": "Alteration",
+      "magicSkill": "Destruction",
       "secondActorValueWeight": 0,
       "archetype": "Demoralize",
       "archetypeActorValue": "Confidence",
@@ -174082,10 +174142,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -187087,7 +187151,7 @@
       "name": "Prepare for Adventure",
       "description": "Creates a set of basic enchanted mage items (robes, circlet, boots, Destruction staff) in your inventory for \u003Cdur\u003E seconds.",
       "baseCost": 3.5,
-      "magicSkill": "Alteration",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -187165,10 +187229,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false
@@ -212852,7 +212920,7 @@
       "name": "Wither",
       "description": "Reduces movement speed and attack damage by \u003Cmag\u003E% per second, up to \u003C50\u003E%. Lasts \u003Cdur\u003E seconds.",
       "baseCost": 5,
-      "magicSkill": "Alteration",
+      "magicSkill": "Conjuration",
       "secondActorValueWeight": 0,
       "archetype": "Script",
       "castType": "FireAndForget",
@@ -212949,10 +213017,14 @@
         "definedIn": "Apocalypse - Magic of Skyrim.esp",
         "isNewRecord": true,
         "isInjected": false,
-        "winner": "Apocalypse - Magic of Skyrim.esp",
-        "winnerLoadOrderIndex": 291,
+        "winner": "Zenderal - Magic Patches.esp",
+        "winnerLoadOrderIndex": 300,
         "chain": [
-          "Apocalypse - Magic of Skyrim.esp"
+          "Apocalypse - Magic of Skyrim.esp",
+          "Zenderal - Magic Patches.esp"
+        ],
+        "changedFields": [
+          "magicSkill"
         ],
         "winnerHeaderVersion": 1.7,
         "winnerNeedsBees": false

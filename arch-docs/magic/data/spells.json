@@ -46143,8 +46143,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Destruction",
+        "displayName": "Elementalism",
         "source": "costliestEffect"
       },
       "cost": {
@@ -46156,9 +46156,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44B8:Skyrim.esm",
-        "editorId": "AlterationAdept50",
-        "name": "Adept Alteration"
+        "formKey": "0C44C0:Skyrim.esm",
+        "editorId": "DestructionAdept50",
+        "name": "Adept Destruction"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -46202,6 +46202,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -63179,8 +63180,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -63192,9 +63193,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0F2CA6:Skyrim.esm",
-        "editorId": "AlterationNovice00",
-        "name": "Novice Alteration"
+        "formKey": "0F2CA7:Skyrim.esm",
+        "editorId": "ConjurationNovice00",
+        "name": "Novice Conjuration"
       },
       "equipmentType": {
         "formKey": "013F45:Skyrim.esm",
@@ -63239,6 +63240,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -67831,8 +67833,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Illusion",
-        "displayName": "Psionics",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -67844,9 +67846,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44C6:Skyrim.esm",
-        "editorId": "IllusionMaster100",
-        "name": "Master Illusion"
+        "formKey": "0C44BE:Skyrim.esm",
+        "editorId": "ConjurationMaster100",
+        "name": "Master Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -67893,6 +67895,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -69391,8 +69394,8 @@
       "castType": "Concentration",
       "targetType": "Self",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Destruction",
+        "displayName": "Elementalism",
         "source": "costliestEffect"
       },
       "cost": {
@@ -69404,9 +69407,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44B7:Skyrim.esm",
-        "editorId": "AlterationApprentice25",
-        "name": "Apprentice Alteration"
+        "formKey": "0C44BF:Skyrim.esm",
+        "editorId": "DestructionApprentice25",
+        "name": "Apprentice Destruction"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -69464,6 +69467,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -117572,8 +117576,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Destruction",
+        "displayName": "Elementalism",
         "source": "costliestEffect"
       },
       "cost": {
@@ -117585,9 +117589,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44B9:Skyrim.esm",
-        "editorId": "AlterationExpert75",
-        "name": "Expert Alteration"
+        "formKey": "0C44C1:Skyrim.esm",
+        "editorId": "DestructionExpert75",
+        "name": "Expert Destruction"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -117662,6 +117666,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -138821,8 +138826,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Destruction",
+        "displayName": "Elementalism",
         "source": "costliestEffect"
       },
       "cost": {
@@ -138834,9 +138839,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44BA:Skyrim.esm",
-        "editorId": "AlterationMaster100",
-        "name": "Master Alteration"
+        "formKey": "0C44C2:Skyrim.esm",
+        "editorId": "DestructionMaster100",
+        "name": "Master Destruction"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -138882,6 +138887,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -141244,8 +141250,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -141377,8 +141383,8 @@
       "castType": "FireAndForget",
       "targetType": "Self",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Destruction",
+        "displayName": "Elementalism",
         "source": "costliestEffect"
       },
       "cost": {
@@ -141390,9 +141396,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44BA:Skyrim.esm",
-        "editorId": "AlterationMaster100",
-        "name": "Master Alteration"
+        "formKey": "0C44C2:Skyrim.esm",
+        "editorId": "DestructionMaster100",
+        "name": "Master Destruction"
       },
       "equipmentType": {
         "formKey": "013F45:Skyrim.esm",
@@ -141437,6 +141443,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -144423,8 +144430,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Illusion",
-        "displayName": "Psionics",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -144436,9 +144443,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44C6:Skyrim.esm",
-        "editorId": "IllusionMaster100",
-        "name": "Master Illusion"
+        "formKey": "0C44BE:Skyrim.esm",
+        "editorId": "ConjurationMaster100",
+        "name": "Master Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -144482,6 +144489,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -149831,8 +149839,8 @@
       "castType": "FireAndForget",
       "targetType": "Touch",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Destruction",
+        "displayName": "Elementalism",
         "source": "costliestEffect"
       },
       "cost": {
@@ -172752,8 +172760,8 @@
       "castType": "FireAndForget",
       "targetType": "TargetLocation",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Destruction",
+        "displayName": "Elementalism",
         "source": "costliestEffect"
       },
       "cost": {
@@ -172765,9 +172773,9 @@
       "castDuration": 0,
       "range": 30,
       "halfCostPerk": {
-        "formKey": "0C44BA:Skyrim.esm",
-        "editorId": "AlterationMaster100",
-        "name": "Master Alteration"
+        "formKey": "0C44C2:Skyrim.esm",
+        "editorId": "DestructionMaster100",
+        "name": "Master Destruction"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -172814,6 +172822,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -172954,8 +172963,8 @@
       "castType": "FireAndForget",
       "targetType": "Aimed",
       "school": {
-        "actorValue": "Alteration",
-        "displayName": "Mentalism",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -172967,9 +172976,9 @@
       "castDuration": 0,
       "range": 0,
       "halfCostPerk": {
-        "formKey": "0C44B7:Skyrim.esm",
-        "editorId": "AlterationApprentice25",
-        "name": "Apprentice Alteration"
+        "formKey": "0C44BB:Skyrim.esm",
+        "editorId": "ConjurationApprentice25",
+        "name": "Apprentice Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -173013,6 +173022,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,
@@ -173204,8 +173214,8 @@
       "castType": "FireAndForget",
       "targetType": "TargetActor",
       "school": {
-        "actorValue": "Illusion",
-        "displayName": "Psionics",
+        "actorValue": "Conjuration",
+        "displayName": "Entropy",
         "source": "costliestEffect"
       },
       "cost": {
@@ -173217,9 +173227,9 @@
       "castDuration": 0,
       "range": 10,
       "halfCostPerk": {
-        "formKey": "0C44C4:Skyrim.esm",
-        "editorId": "IllusionAdept50",
-        "name": "Adept Illusion"
+        "formKey": "0C44BC:Skyrim.esm",
+        "editorId": "ConjurationAdept50",
+        "name": "Adept Conjuration"
       },
       "equipmentType": {
         "formKey": "013F44:Skyrim.esm",
@@ -173266,6 +173276,7 @@
         ],
         "changedFields": [
           "cost",
+          "halfCostPerk",
           "flags"
         ],
         "winnerHeaderVersion": 1.7,

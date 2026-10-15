@@ -18,7 +18,7 @@ ChargeTime: 0.5
 CastType: FireAndForget
 TargetType: TargetActor
 Range: 10
-HalfCostPerk: 0C44C4:Skyrim.esm
+HalfCostPerk: 0C44BC:Skyrim.esm
 Effects:
 - BaseEffect: 0488FF:Apocalypse - Magic of Skyrim.esp
   Data: {}
