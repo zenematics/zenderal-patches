@@ -22,6 +22,8 @@ Inputs (regenerate with /spriggit-decompile-reference):
   reference/base/{Skyrim,EnderalFS}/SoundDescriptors
   reference/mods/RAO   (Reverb and Ambiance Overhaul - Enderal.esp)
   reference/mods/PrettyContext/Audio Overhaul Skyrim   (asserted to never win)
+Second rule: the coast wind bed near Ark gets an attenuating output model - see WINDBED.
+
 Output: src/QuieterWaterfalls/QuieterWaterfallsESP/SoundDescriptors/*.yaml (regenerated)
 """
 import glob
@@ -39,6 +41,19 @@ OUT = os.path.join(ROOT, "src", "QuieterWaterfalls", "QuieterWaterfallsESP", "So
 EXTRA_DB = 6.0
 WATER_RE = re.compile(r"aterfall|WaterRapids", re.I)
 EXPECTED = 72
+
+# The "waterfall" that cut in approaching Ark (found 2026-10-15 by moving RAO's Ambiance loops onto
+# other audio sliders until one slider alone silenced it): AMBrWindBedCoastLP. Its only marker
+# (13C956, cell CapitalCityWatchTowerSouth -6,0 on Ark's west shore) plays it through SOMStereo
+# 07EDCA, which has NO AttenuatesWithDistance - so the bed starts at full level the moment that
+# cell attaches (2 cells out, from any direction) and cuts off when it detaches. Re-pointed at
+# SOMStereoRad05000Linear 09173E (linear stereo, 200-5000 vanilla / 200-7500 under Audio Overhaul -
+# silent before the cell can attach at 8192), the model vanilla's own AMBWindloopMountainsCLPSD
+# uses. RAO's winning descriptor is forwarded with only OutputModel changed. Also safe for any
+# region use: region sounds play at the listener, where an attenuating model is at full volume.
+WINDBED = "0DB6DD:Skyrim.esm"           # AMBrWindBedCoastLP
+WINDBED_FROM = "07EDCA:Skyrim.esm"      # SOMStereo
+WINDBED_TO = "09173E:Skyrim.esm"        # SOMStereoRad05000Linear
 
 
 def index(folder):
@@ -94,6 +109,16 @@ def main():
     if len(rows) != EXPECTED:
         sys.exit(f"expected {EXPECTED} waterfall descriptors, wrote {len(rows)} - review before updating EXPECTED")
     print(f"OK: {len(rows)} waterfall/rapids sounds +{fmt(EXTRA_DB)} dB")
+
+    if WINDBED not in rao:
+        sys.exit(f"{WINDBED}: expected RAO to win the coast wind bed")
+    path, text = rao[WINDBED]
+    text, n = re.subn(r"^OutputModel: " + re.escape(WINDBED_FROM) + r"$", "OutputModel: " + WINDBED_TO, text, flags=re.M)
+    if n != 1:
+        sys.exit(f"{WINDBED}: OutputModel is no longer {WINDBED_FROM} in {path} - re-check before forcing")
+    with open(os.path.join(OUT, os.path.basename(path)), "w", encoding="utf-8", newline="\n") as fh:
+        fh.write(text)
+    print(f"OK: coast wind bed {WINDBED} {WINDBED_FROM} -> {WINDBED_TO}")
 
 
 if __name__ == "__main__":

@@ -200,7 +200,7 @@
       ]
     },
     {
-      "$comment": "Waterfall/rapids sounds -6 dB (72 SoundDescriptor overrides, StaticAttenuation +6 on the live winner - mostly Reverb and Ambiance Overhaul - Enderal, which made many of them louder). Regenerate with src/QuieterWaterfalls/tools/01-quieter-waterfalls.py. Masters RAO, so the engine enforces load-after.",
+      "$comment": "Waterfall/rapids sounds -6 dB (72 SoundDescriptor overrides, StaticAttenuation +6 on the live winner - mostly Reverb and Ambiance Overhaul - Enderal, which made many of them louder), plus the coast wind bed AMBrWindBedCoastLP re-pointed from the non-attenuating SOMStereo to SOMStereoRad05000Linear so it fades in near Ark instead of snapping on when its cell loads. Regenerate with src/QuieterWaterfalls/tools/01-quieter-waterfalls.py. Masters RAO, so the engine enforces load-after.",
       "name": "Zenderal - Quieter Waterfalls",
       "archiveName": "Zenderal - Quieter Waterfalls",
       "fomod": false,

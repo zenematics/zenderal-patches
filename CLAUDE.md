@@ -239,7 +239,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`KataFixes`](arch-docs/patches/KataFixes.md) → `Zenderal - Kata Fixes.esp` + `.pex` | none | **Owns** vendor chests `102AD5`, `118050`, `05BCD6` (must keep each `*_CustomMerchandise` hook); dedupes Kata spell packs |
 | [`SkipPrologue`](arch-docs/patches/SkipPrologue.md) → `Zenderal - Skip The Prologue.esp` | `0x800–0x802` | One `MQ01.SetStage(130)` lands the player at Jespar's camp |
 | [`FasterSprint`](arch-docs/patches/FasterSprint.md) → `Zenderal - Faster Sprint.esp` | none | Sprint +92%, drain −50%; must load after EGO **and** `Dynamic Sprint.esp`; armed sprint needs SSMT_Fix `WieldingMovementTypeFixes=true` |
-| [`QuieterWaterfalls`](arch-docs/patches/QuieterWaterfalls.md) → `Zenderal - Quieter Waterfalls.esp` | none | 72 SNDR +6 dB attenuation over RAO. Generated |
+| [`QuieterWaterfalls`](arch-docs/patches/QuieterWaterfalls.md) → `Zenderal - Quieter Waterfalls.esp` | none | 72 SNDR +6 dB attenuation over RAO; coast wind bed `0DB6DD` given an attenuating model so it no longer snaps on near Ark. Generated |
 | [`DynamicDodgeNoSway`](arch-docs/patches/DynamicDodgeNoSway.md) → OAR `user.json` only | none | Attack-cancel dodges use the step dodge, not the sway |
 | [`DynamicDodgeShotFix`](arch-docs/patches/DynamicDodgeShotFix.md) → `Zenderal - Dynamic Dodge Shot Fix.esp` | none | Re-parents `BowDodge` so it fires |
 | [`HalfStarlingDS`](arch-docs/patches/HalfStarlingDS.md) → `Zenderal - Half Starling DS Races.esp` | none | Restores per-race stats on `WoodElfRace 013749` |
