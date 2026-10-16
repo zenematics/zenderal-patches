@@ -1,0 +1,15 @@
+FormKey: 0BFA3E:Skyrim.esm
+EditorID: _00E_Class_Trickster_P03_B_Talent_Firearrow_02
+Version2: 2
+Name:
+  TargetLanguage: English
+  Value: 'Talent: Flame Shot'
+Description:
+  TargetLanguage: English
+  Value: >-
+    Grants you a handful of fire arrows - or flame musket balls while a musket or crossbow is equipped - which explode upon impact and do fire damage.
+
+
+    Tier II: 4 arrows, do additional 7 points of fire damage, 13 seconds duration
+NumRanks: 3
+Playable: True

@@ -281,6 +281,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`GuardFalconer`](arch-docs/patches/GuardFalconer.md) → `Zenderal - Guard Falconer Patch.esp` | none | Restores Falconer cuirass/helmet that Pretty Factions reverted |
 | [`MoonsteelPretty`](arch-docs/patches/MoonsteelPretty.md) → `.esp` + 2 loose meshes | none | Points EGO's Moonsteel line back at Pretty's meshes. Generated |
 | [`FlintlockOverhaul`](arch-docs/patches/FlintlockOverhaul.md) → `.esp` + script + DAR recipes ESL + KID + icons | `0x800–0x814` | Pistols use bullets and reload; 111 NPCs rebuilt over gun mods; **owns** the 14 `0?E_Beute*`/`Kampfitems` chest-loot LVLIs (gun ammo added); load after Enderal SE - Crossbows |
+| [`FlameShot`](arch-docs/patches/FlameShot.md) → `Zenderal - Flame Shot.esp` + recompiled `_00E_A1_FireArrowSC` | `0x800–0x801` | Fire Arrow talent renamed Flame Shot; with a musket it grants exploding Flame Musket Balls and restores the old ammo. Generated |
 | [`DragonPriestStaffSwap`](arch-docs/patches/DragonPriestStaffSwap.md) → loose meshes (not committed) | none | Curator's taste: Pretty's chain-lightning staff mesh at the Dragon Priest staff paths |
 | [`StaffDrawFix`](arch-docs/patches/StaffDrawFix.md) → OAR submod with vanilla clips | none | Staff draw plays again over Smooth Magic Casting's always-true equip |
 | [`IchorGooNoGlow`](arch-docs/patches/IchorGooNoGlow.md) → generated meshes (not committed) | none | Curator's taste: JS Ichor puddles without their particle haze + ENB light. Sort above JS in MO2 |

@@ -1,0 +1,28 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Flame Shot.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Renames the Rogue talent Fire Arrow to Flame Shot and makes it work with muskets and crossbows:
+    with one equipped it grants flame musket balls instead of fire arrows, and your previous ammo is re-equipped afterwards.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Enderal SE - Crossbows.esp
+    FileSize: 0
+  - Master: OrdoLegionisMuskets.esp
+    FileSize: 0
+  INTV: 1
