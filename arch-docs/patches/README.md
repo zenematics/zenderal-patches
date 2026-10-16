@@ -25,7 +25,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`TrueHUDCombatIcons`](TrueHUDCombatIcons.md) | *(no plugin — `SKSE/Plugins/ZenTrueHUDCombatIcons.dll` + configs)* | _(none)_ |
 | [`FrostAtronachSEFix`](FrostAtronachSEFix.md) | *(no plugin — converted meshes, MO2 mod `Zenderal - Frost Atronach SE Fix`)* | _(none)_ |
 | [`PrecisionLiftFix`](PrecisionLiftFix.md) | **RETIRED 2026-10-13**, was *(no plugin — converted `actors/atronachfrost/character assets/skeleton.nif` + diagnostic `SKSE/Plugins/ZenPrecisionLiftFix.dll`, MO2 mod `Zenderal - Precision Lift Fix`)* | _(none)_ |
-| [`PrecisionFork`](PrecisionFork.md) | **RETIRED 2026-10-13**, was *(rebuilt `Precision.dll` + `Precision_ZenderalFixes.ini`, MO2 mod `Zenderal - Precision Fork`, sorted directly ABOVE `Precision`)* | _(none)_ |
+| [`PrecisionFork`](PrecisionFork.md) | Reinstated 2026-10-16 *(rebuilt `Precision.dll` + `Precision_ZenderalFixes.ini`, MO2 mod `Zenderal - Precision Fork`, sorted directly ABOVE `Precision`)* | _(none)_ |
 | [`ZenTraitsFixes`](ZenTraitsFixes.md) | *(no plugin — one recompiled script)* | _(none)_ |
 | [`LearningBooks`](LearningBooks.md) | **RETIRED 2026-10-14**, was `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` |
 | [`MCODirectionalPowerAttacks`](MCODirectionalPowerAttacks.md) | `Zenderal - MCO Directional Power Attacks.esp` | none (overrides only) |

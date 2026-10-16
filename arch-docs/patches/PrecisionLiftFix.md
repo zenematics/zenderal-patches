@@ -1,5 +1,8 @@
 # PrecisionLiftFix
 
+> **Still retired. Its successor, [`PrecisionFork`](PrecisionFork.md), was reinstated 2026-10-16**
+> because turning the impulse off turned out not to stop the float. Original retirement note:
+>
 > **RETIRED 2026-10-13.** The curator chose to turn Precision's hit impulse off instead
 > (`bApplyImpulseOnHit = 0` in `Zenderal - Settings/MCM/Settings/Precision.ini`), so `src/PrecisionLiftFix/` was
 > removed. Frost atronachs shatter on death, so there is no corpse ragdoll to fix either. The source

@@ -255,7 +255,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`TrueHUDCombatIcons`](arch-docs/patches/TrueHUDCombatIcons.md) → `ZenTrueHUDCombatIcons.dll` | none | FHR status icons inside TrueHUD's info bar |
 | [`FrostAtronachSEFix`](arch-docs/patches/FrostAtronachSEFix.md) → converted meshes (not committed) | none | Black Ice Elementals: LE→SE meshes + plain lighting shader |
 | [`PrecisionLiftFix`](arch-docs/patches/PrecisionLiftFix.md) | none | **Retired** — record of failed routes; source removed |
-| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) | none | **Retired 2026-10-13** — the list ships Precision's `bApplyImpulseOnHit = 0` instead; fork recoverable from commit `7b63d3a` |
+| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) → rebuilt `Precision.dll` | none | Floating Ice/crystal elementals fixed (PLANCK rigidBodyT hooks); impulse-off alone does NOT fix it; GPL; rebuild per Precision update |
 | [`ZenTraitsFixes`](arch-docs/patches/ZenTraitsFixes.md) → one recompiled script | none | Ambrosia reduces Arcane Fever again |
 | [`LearningBooks`](arch-docs/patches/LearningBooks.md) | none | **Retired 2026-10-14** with Leveling Redone — books spend points again (EGO's records); source recoverable from commit `9afae18` |
 | [`MCODirectionalPowerAttacks`](arch-docs/patches/MCODirectionalPowerAttacks.md) → `.esp` | none | Side/back/sprint power attacks reach FHR's MCO animations |

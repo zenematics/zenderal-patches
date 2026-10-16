@@ -1,9 +1,18 @@
 # PrecisionFork
 
-> **RETIRED 2026-10-13.** The curator chose to turn Precision's hit impulse off instead
-> (`bApplyImpulseOnHit = 0` in `Zenderal - Settings/MCM/Settings/Precision.ini`), so `src/PrecisionFork/` was
-> removed. Frost atronachs shatter on death, so there is no corpse ragdoll to fix either. The source
-> is recoverable from commit `7b63d3a` if the impulse ever comes back. Everything below is history.
+> **REINSTATED 2026-10-16 — turning hit impulse off is NOT enough.** From 2026-10-13 the list ran the
+> official Precision with `bApplyImpulseOnHit = 0` (in `Zenderal - Settings/MCM/Settings/Precision.ini`)
+> instead of this fork. On 2026-10-16 Ice Elementals **and crystal elementals** rose off the ground on
+> hits again, while `Precision.log` showed that ini being read and nothing in the list had changed
+> Precision. **[verified]** So the float is the active-ragdoll pose offset on `bhkRigidBodyT` bodies, which
+> Precision drives on every hit whether or not it applies an impulse. The impulse-off test of
+> 2026-10-12 was too short to catch it. Crystal elementals (`_20E/_40E_CrystallElemental`) use
+> `AtronachFrostRace 0131F6`, and the Crystal Golems replacer's `skeletoncrystalgolem.nif` also has
+> `bhkRigidBodyT` limb bodies, so the same fix covers them. `src/PrecisionFork/` was restored from
+> `7b63d3a`, byte-identical to the deployed DLL. Redeployed the same day as MO2 mod
+> `Zenderal - Precision Fork`, directly above `Precision`. **Verified in game 2026-10-16: neither
+> creature floats any more.** Hit impulse stays off. The fork also fixed the float with impulse on
+> (2026-10-12), so turning impulse back on is now just a matter of taste.
 
 > Moved out of `CLAUDE.md` on 2026-10-13. Text is verbatim; `[verified]` marks and dates are as originally recorded.
 
