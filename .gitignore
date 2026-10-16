@@ -48,6 +48,7 @@ Thumbs.db
 # the src/ original and the two drift.
 /build/staging/**/*.ini
 /build/staging/**/*.txt
+/build/staging/**/*.svg
 /build/staging/**/*.psc
 /build/staging/**/*.json
 /build/staging/**/*.dll
