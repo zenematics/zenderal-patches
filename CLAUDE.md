@@ -273,14 +273,18 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`ApocalypseNaviFix`](arch-docs/patches/ApocalypseNaviFix.md) → rebuilt Apocalypse `.esp` (hotfix) | none | Drops the `012FB4` NAVI that deleted a Forgotten Temple floor tile; retire once `enderal-mods` drops it |
 | [`Prophecy`](arch-docs/patches/Prophecy.md) → `Zenderal - Prophecy.esp` + scripts + CSF config | `0x800–0x807` | **Prototype**, non-ESL: Ordinator-perk tree via Custom Skills Framework |
 | [`ImprovedCameraSheatheFix`](arch-docs/patches/ImprovedCameraSheatheFix.md) → `ZenICSheatheFix.dll` | none | NOPs IC's drawn-weapon camera drop; tied to IC 1.1.2.4228 |
+| [`BlockReleaseFix`](arch-docs/patches/BlockReleaseFix.md) → `ZenBlockReleaseFix.dll` | none | Ends blocks DWP's dropped key-up left stuck on |
+| [`CrossbowSprintSwap`](arch-docs/patches/CrossbowSprintSwap.md) → OAR `user.json` + two copied clips | none | Curator's taste: crossbows/muskets get only Tactical Crossbow Movement's sprint, plus Zodd's standing idle |
+| [`CrossbowDrawFix`](arch-docs/patches/CrossbowDrawFix.md) → `ZenCrossbowDrawFix.dll` | none | Resets the `kBowAttached` a cut-short crossbow draw leaves (no sprint/sheathe until a shot) |
 | [`HorseCloakFluffFix`](arch-docs/patches/HorseCloakFluffFix.md) → `.esp` + generated meshes | none | Fluffworks fur trimmed under the Ark guard horses' barding |
 | [`DintHairs`](arch-docs/patches/DintHairs.md) → rebuilt Dint999 hair plugins | none | Hairs only, no wigs; +2 full plugin slots |
 | [`GuardFalconer`](arch-docs/patches/GuardFalconer.md) → `Zenderal - Guard Falconer Patch.esp` | none | Restores Falconer cuirass/helmet that Pretty Factions reverted |
 | [`MoonsteelPretty`](arch-docs/patches/MoonsteelPretty.md) → `.esp` + 2 loose meshes | none | Points EGO's Moonsteel line back at Pretty's meshes. Generated |
-| [`FlintlockOverhaul`](arch-docs/patches/FlintlockOverhaul.md) → `.esp` + script + DAR recipes ESL + KID + icons | `0x800–0x813` | Pistols use bullets and reload; 111 NPCs rebuilt over gun mods; load after Enderal SE - Crossbows |
+| [`FlintlockOverhaul`](arch-docs/patches/FlintlockOverhaul.md) → `.esp` + script + DAR recipes ESL + KID + icons | `0x800–0x814` | Pistols use bullets and reload; 111 NPCs rebuilt over gun mods; **owns** the 14 `0?E_Beute*`/`Kampfitems` chest-loot LVLIs (gun ammo added); load after Enderal SE - Crossbows |
 | [`DragonPriestStaffSwap`](arch-docs/patches/DragonPriestStaffSwap.md) → loose meshes (not committed) | none | Curator's taste: Pretty's chain-lightning staff mesh at the Dragon Priest staff paths |
 | [`StaffDrawFix`](arch-docs/patches/StaffDrawFix.md) → OAR submod with vanilla clips | none | Staff draw plays again over Smooth Magic Casting's always-true equip |
 | [`IchorGooNoGlow`](arch-docs/patches/IchorGooNoGlow.md) → generated meshes (not committed) | none | Curator's taste: JS Ichor puddles without their particle haze + ENB light. Sort above JS in MO2 |
+| [`SilentPowerAttackGrunts`](arch-docs/patches/SilentPowerAttackGrunts.md) → 8 loose `.fuz` (not committed) | none | Curator's taste: female player power-attack yells silenced; other grunts kept |
 
 ### Useful FormKey constants
 
@@ -374,3 +378,7 @@ progression, potions or scripts at
 [`scripting-and-actorvalues.md`](arch-docs/enderal/scripting-and-actorvalues.md).
 
 Edit `.psc`/YAML, never the binary `.pex`/`.esp`. Commit source, not build artifacts.
+## Never search from the filesystem root
+Do not run `find /` (or any recursive search starting at `/`) in Bash. On this PC it walks into
+Windows' device namespace and crashes the system via a vJoy driver bug (BSOD 0x3B in vjoy.sys).
+Always search a specific folder instead, e.g. `find /e/Zenderal ...` or `find /c/Users/frien ...`.

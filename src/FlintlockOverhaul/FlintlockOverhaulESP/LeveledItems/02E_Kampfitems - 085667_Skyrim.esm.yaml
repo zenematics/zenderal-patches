@@ -1,0 +1,128 @@
+FormKey: 085667:Skyrim.esm
+EditorID: 02E_Kampfitems
+ChanceNone: 0.15
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 019E7D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 019E7E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 019E80:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 019E81:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 019E82:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 019E85:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 019E86:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 019E88:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBF7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBF8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBF9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02AE78:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02AE79:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02AE7A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02AE7B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02AFB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0375E3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04D089:Skyrim.esm
+    Count: 15
+- Data:
+    Level: 1
+    Reference: 05BB24:Skyrim.esm
+    Count: 10
+- Data:
+    Level: 1
+    Reference: 05BB24:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 06C936:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 072784:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0E0475:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 002C5F:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 002C78:Enderal SE - Gameplay Overhaul.esp
+    Count: 8
+- Data:
+    Level: 1
+    Reference: 002C78:Enderal SE - Gameplay Overhaul.esp
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 002F9D:OrdoLegionisMuskets.esp
+    Count: 10
+- Data:
+    Level: 1
+    Reference: 002F9D:OrdoLegionisMuskets.esp
+    Count: 15
+- Data:
+    Level: 1
+    Reference: 00F5E9:OrdoLegionisMuskets.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000814:Zenderal - Flintlock Overhaul.esp
+    Count: 1

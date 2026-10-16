@@ -1,0 +1,212 @@
+FormKey: 0028E6:Skyrim.esm
+EditorID: 01E_Kampfitems
+ChanceNone: 0.15
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 0028B0:Skyrim.esm
+    Count: 10
+- Data:
+    Level: 1
+    Reference: 0028CF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028CF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030B8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030B9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030BA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030BE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030BF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030C0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030C1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030CB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030CB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030CC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030CC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030D5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014C64:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014F7F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014F7F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014F89:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014F8C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBFA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBFA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBFB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBFB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBFC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CBFC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0457D8:Skyrim.esm
+    Count: 5
+- Data:
+    Level: 1
+    Reference: 0457D8:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 0457D8:Skyrim.esm
+    Count: 7
+- Data:
+    Level: 1
+    Reference: 000814:Zenderal - Flintlock Overhaul.esp
+    Count: 1

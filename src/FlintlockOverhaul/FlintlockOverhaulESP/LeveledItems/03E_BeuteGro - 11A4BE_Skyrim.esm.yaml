@@ -1,0 +1,167 @@
+FormKey: 11A4BE:Skyrim.esm
+EditorID: 03E_BeuteGro
+ChanceNone: 0.05
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 40
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 45
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 50
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 60
+- Data:
+    Level: 1
+    Reference: 0028C6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02E4F4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02E4FB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03AD5E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03AD5F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03AD60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05AD9E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05AD9F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05ADA1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 063B42:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 063B43:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 063B46:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 075418:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0773ED:Skyrim.esm
+    Count: 9
+- Data:
+    Level: 1
+    Reference: 07B8C7:Skyrim.esm
+    Count: 24
+- Data:
+    Level: 1
+    Reference: 07C983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 07C9A4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 07C9A5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 07C9A7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0EB494:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F857B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0FED04:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1181C1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1376D7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1447A2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1447A2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001CEA:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001D3D:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDD:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDD:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDD:Enderal SE - Gameplay Overhaul.esp
+    Count: 2
+- Data:
+    Level: 1
+    Reference: 001EDD:Enderal SE - Gameplay Overhaul.esp
+    Count: 2
+- Data:
+    Level: 1
+    Reference: 001EEA:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EEA:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 002C95:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000814:Zenderal - Flintlock Overhaul.esp
+    Count: 1

@@ -382,6 +382,40 @@
       ]
     },
     {
+      "$comment": "No plugin - one SKSE DLL. Dual Wield Parrying SKSE 1.7.0 only sends blockStop on a key-up it accepts, and drops key-ups that arrive while the weapon is not fully drawn, knocked down, controls/attack-block input are disabled, a menu is open, or IsBlocking briefly reads false (block-hit/timed-block/counter clips) - the player then blocks until the key is tapped again. Tracks DWP's ParryKey/ParryKey2 (read from DWP's own ini) and the vanilla Left/Right Attack/Block controls itself; once none has been held for GraceMs it clears wantBlocking and sends blockStop. Hooks PlayerCharacter::Update (vfunc 0xAD). Build with src/BlockReleaseFix/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - Block Release Fix",
+      "archiveName": "Zenderal - Block Release Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/BlockReleaseFix/compiled/ZenBlockReleaseFix.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/BlockReleaseFix/data",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. A crossbow draw sets the player's attack state to kBowAttached (CrossBow_Equip trigger arrowAttach@0.571) and only WeapEquip_Out at the clip's end clears it; a draw cut short (drawing within ~0.3 s of a sprint) never gets WeapEquip_Out, so sprinting and sheathing stay blocked until a shot. Resets a drawn crossbow's kBowAttached to kNone once it outlasts DrawHoldMs (1000) after a draw or HoldMs (2500) after a reload (a normal draw holds it ~0.9 s, a reload ~1.6 s), or at once while Sprint is held or on a Ready Weapon press (then sheathes) with no equip in progress. Hooks PlayerCharacter::Update (vfunc 0xAD). Build with src/CrossbowDrawFix/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - Crossbow Draw Fix",
+      "archiveName": "Zenderal - Crossbow Draw Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/CrossbowDrawFix/compiled/ZenCrossbowDrawFix.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/CrossbowDrawFix/data",
+          "to": ""
+        }
+      ]
+    },
+    {
       "$comment": "Ark guard horses (CapitalCityGuardHorse01/02) wear Enderal's cloth barding (HorseCloak 14482A) over skins whose body is Horse.nif; Fluffworks replaces that body with 16 fur shells that poke through the cloth (and, not overriding the two *Cloak* ARMAs, gives them the brown mesh). Overrides NakedHorseBlacknWhiteCloakAA 144833 / NakedHorsePalominoCloakAA 144836 to point at Fluffworks' BnW/Palomino meshes with every shell vertex that reaches the cloth sunk under the skin. The meshes are Fluffworks' work: NOT in this archive - src/HorseCloakFluffFix/tools/01-trim-fluff-under-cloak.py generates them from the installed mod into the MO2 mod 'Zenderal - Horse Cloak Fluff Fix'.",
       "name": "Zenderal - Horse Cloak Fluff Fix",
       "archiveName": "Zenderal - Horse Cloak Fluff Fix",
