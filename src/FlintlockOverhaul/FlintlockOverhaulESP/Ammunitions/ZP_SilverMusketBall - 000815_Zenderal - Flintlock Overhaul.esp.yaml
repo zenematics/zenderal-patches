@@ -1,0 +1,23 @@
+FormKey: 000815:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_SilverMusketBall
+Name:
+  TargetLanguage: English
+  Value: Silver Musket Balls
+Model:
+  File: OLM\OL_musket\ol_Rifleball.nif
+  Data: 0x020000000000000000000000
+PickUpSound: 002C63:Enderal SE - Gameplay Overhaul.esp
+PutDownSound: 002C64:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: Black powder charge and silver ball. Effective against undead and ghosts
+Keywords:
+- 001D04:Enderal SE - Gameplay Overhaul.esp
+- 0917E7:Skyrim.esm
+- 10AA1A:Skyrim.esm
+Projectile: 002F9E:OrdoLegionisMuskets.esp
+Flags:
+- IgnoresNormalWeaponResistance
+Damage: 6
+Value: 8
+Weight: 0.1

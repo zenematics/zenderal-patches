@@ -1,0 +1,16 @@
+FormKey: 000816:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_RecipeSilverMusketBall
+Items:
+- Item:
+    Item: 05ACE3:Skyrim.esm
+    Count: 1
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: Smithing
+  ComparisonValue: 40
+CreatedObject: 000815:Zenderal - Flintlock Overhaul.esp
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 10
