@@ -560,3 +560,16 @@
     }
   ]
 }
+    },
+    {
+      "$comment": "No plugin - two behaviour patches; tick BOTH in Pandora: Pandora-native Pandora_Engine/mod/zpaired ('Zenderal - Enderal Paired Animations') and Nemesis-format Nemesis_Engine/mod/zpairset ('... (anim sets)'). Pandora 5.0.0-beta cannot build FNIS pa/km lines, so Enderal's six paired scenes (km CaliaMassacre - MQ07b's Calia vs bandits - and pa HugB, Kiss2Female, Kiss2Male, KissMaleFemale, KissFemaleMale) had no states in Pandora's 3rd-person 0_master and never played. Re-adds exactly what FNIS put in Enderal's own 0_master.hkx: 130 nodes, 12 states on KillMove_Behavior/MT_PairedAnimationsBehavior, their 12 wildcard transitions and 12 events (as $eventID[]$). The clips are already registered in defaultmale/defaultfemale by Pandora's FNIS-list support, but SSE only loads a clip listed in the active animation set, so zpairset adds the six clips to all 374 sets of DefaultMale/DefaultFemale (verified in game 2026-10-16). GENERATED - regenerate with src/EnderalPairedAnims/tools/01-build-paired-patch.py and 02-build-animset-patch.py; never hand-edit their output.",
+      "name": "Zenderal - Enderal Paired Animations",
+      "archiveName": "Zenderal - Enderal Paired Animations",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/EnderalPairedAnims/data",
+          "to": ""
+        }
+      ]
