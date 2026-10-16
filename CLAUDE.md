@@ -249,7 +249,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`ChocolatePoiseEnderal`](arch-docs/patches/ChocolatePoiseEnderal.md) → `.esp` + `ZenCPRFactionFix.dll` | `0x800–0x808` | Vanilla-EditorID reference items for CPR + NSF crash fix |
 | [`BrawlFixes`](arch-docs/patches/BrawlFixes.md) → two recompiled SureAI scripts | none | Brawls no longer break on magic/framework hits |
 | [`NpcPotions`](arch-docs/patches/NpcPotions.md) → `Zenderal - NPC Potions_DISTR.ini` | none | SPID potions to NPCs; depends on NUP corpse-stripping being off |
-| [`ControllerTweaks`](arch-docs/patches/ControllerTweaks.md) → controlmap, SkyUI config, `_00E_Game_SkillmenuSC.pex` | none | Gamepad fixes + B+D-pad-Up Hero Menu chord |
+| [`ControllerTweaks`](arch-docs/patches/ControllerTweaks.md) → controlmap, SkyUI config, `_00E_Game_SkillmenuSC.pex` | none | Gamepad fixes + B+D-pad-Up Hero Menu chord; **its `.pex` also carries KataPUMB New Affinities + Amnesia Shrine's edits** — it outranks their BSA copies |
 | [`OldTempleWeather`](arch-docs/patches/OldTempleWeather.md) → `Zenderal - Old Temple Weather.esp` | none | Intro-beach weather under Obsidian (currently disabled with Obsidian) |
 | [`BakaHeroMenu`](arch-docs/patches/BakaHeroMenu.md) | none | **Retired 2026-10-14** — source recoverable from commit `fa07b81`; its CommonLibSSE-NG clone moved to the repo-root `lib/` |
 | [`TrueHUDCombatIcons`](arch-docs/patches/TrueHUDCombatIcons.md) → `ZenTrueHUDCombatIcons.dll` | none | FHR status icons inside TrueHUD's info bar |

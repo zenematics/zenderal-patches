@@ -114,6 +114,16 @@ EndEvent
 ;                                       FUNCTIONS                                    
 ;=====================================================================================
 
+;Added by DM to support Amnesia Shrine
+Function ResetAffinity()
+	if (bHasAffinityBonus)
+		bHasAffinityBonus = false
+		bDontShowAffinityMessageAgain = false
+		PlayerREF.RemoveSpell(Affinity_Spells[iCurrentAffinityIndex] as Spell)
+	endif
+	GetPlayerClass()
+EndFunction
+
 Function _UpdateExitHeroMenuKeyRegistration(Int iExitKeycode)
     If iExitKeycode != iHeroMenuKeycode && iExitKeycode != iMeditateKeycode
         If MenuOpen
@@ -371,9 +381,9 @@ Function InitAffinitySystem()
     EndIf
 
     ; Affinities
-    Affinity_Spells       = New Spell[21]
-    Affinity_Names_Male   = New Message[21]
-    Affinity_Names_Female = New Message[21]
+    Affinity_Spells       = New Spell[45]
+    Affinity_Names_Male   = New Message[45]
+    Affinity_Names_Female = New Message[45]
 
 	Affinity_BattlemageIndex   = RegisterAffinity( 0, _00E_Affinity_AbBattlemage, _00E_Game_Affinity_BattlemageName, _00E_Game_Affinity_BattlemageName_Female)
     Affinity_ClericIndex       = RegisterAffinity( 1, _00E_Affinity_AbCleric, _00E_Game_Affinity_ClericName, _00E_Game_Affinity_ClericName_Female)
@@ -414,6 +424,37 @@ Function InitAffinitySystem()
 		Affinity_SoulcallerIndex		= 20
     EndIf
 
+	;KATAPUMB EDITS
+
+	Affinity_AcrobatIndex = RegisterAffinity(21, Kata_Affinity_AbAcrobat, Kata_Game_Affinity_Acrobat, Kata_Game_Affinity_Acrobat_Female)
+	Affinity_BerserkerIndex = RegisterAffinity(22, Kata_Affinity_AbBerserker, Kata_Game_Affinity_Berserker, Kata_Game_Affinity_Berserker_Female)
+	Affinity_DragonHunterIndex = RegisterAffinity(23, Kata_Affinity_AbDragonHunter, Kata_Game_Affinity_DragonHunter, Kata_Game_Affinity_DragonHunter_Female)
+	Affinity_DuelistIndex = RegisterAffinity(24, Kata_Affinity_AbDuelist, Kata_Game_Affinity_Duelist, Kata_Game_Affinity_Duelist_Female)
+	Affinity_KnightIndex = RegisterAffinity(25, Kata_Affinity_AbKnight, Kata_Game_Affinity_Knight, Kata_Game_Affinity_Knight_Female)
+	Affinity_RiftMageIndex = RegisterAffinity(26, Kata_Affinity_AbRiftMage, Kata_Game_Affinity_RiftMage, Kata_Game_Affinity_RiftMage_Female)
+	Affinity_SlayerIndex = RegisterAffinity(27, Kata_Affinity_AbSlayer, Kata_Game_Affinity_Slayer, Kata_Game_Affinity_Slayer_Female)
+	Affinity_SpellSwordIndex = RegisterAffinity(28, Kata_Affinity_AbSpellSword, Kata_Game_Affinity_SpellSword, Kata_Game_Affinity_SpellSword_Female)
+	Affinity_ThiefIndex = RegisterAffinity(29, Kata_Affinity_AbThief, Kata_Game_Affinity_Thief, Kata_Game_Affinity_Thief_Female)
+	Affinity_WandererIndex = RegisterAffinity(30, Kata_Affinity_AbWanderer, Kata_Game_Affinity_Wanderer, Kata_Game_Affinity_Wanderer_Female)
+	Affinity_WhiteMageIndex = RegisterAffinity(31, Kata_Affinity_AbWhiteMage, Kata_Game_Affinity_WhiteMage, Kata_Game_Affinity_WhiteMage_Female)
+
+	;1.3 Version
+	Affinity_BardIndex = RegisterAffinity(32, Kata_Affinity_AbBard, Kata_Game_Affinity_Bard, Kata_Game_Affinity_Bard_Female)
+	Affinity_EnchanterIndex = RegisterAffinity(33, Kata_Affinity_AbEnchanter, Kata_Game_Affinity_Enchanter, Kata_Game_Affinity_Enchanter_Female)
+	Affinity_ShadowCasterIndex = RegisterAffinity(34, Kata_Affinity_AbShadowCaster, Kata_Game_Affinity_ShadowCaster, Kata_Game_Affinity_ShadowCaster_Female)
+
+	;2.0 Version
+	Affinity_IndexCustodio = RegisterAffinity(35, Kata_V2_Affinity_AbCustodio, Kata_V2_Game_Affinity_Custodio, Kata_V2_Game_Affinity_Custodio_Female)
+	Affinity_IndexHighlander = RegisterAffinity(36, Kata_V2_Affinity_AbHighlander, Kata_V2_Game_Affinity_Highlander, Kata_V2_Game_Affinity_Highlander_Female)
+	Affinity_IndexLunatic = RegisterAffinity(37, Kata_V2_Affinity_AbLunatic, Kata_V2_Game_Affinity_Lunatic, Kata_V2_Game_Affinity_Lunatic_Female)
+	Affinity_IndexMercenary = RegisterAffinity(38, Kata_V2_Affinity_AbMercenary, Kata_V2_Game_Affinity_Mercenary, Kata_V2_Game_Affinity_Mercenary_Female)
+	Affinity_IndexMonk = RegisterAffinity(39, Kata_V2_Affinity_AbMonk, Kata_V2_Game_Affinity_Monk, Kata_V2_Game_Affinity_Monk_Female)
+	Affinity_IndexPackLeader = RegisterAffinity(40, Kata_V2_Affinity_AbPackLeader, Kata_V2_Game_Affinity_PackLeader, Kata_V2_Game_Affinity_PackLeader_Female)
+	Affinity_IndexPoisoner = RegisterAffinity(41, Kata_V2_Affinity_AbPoisoner, Kata_V2_Game_Affinity_Poisoner, Kata_V2_Game_Affinity_Poisoner_Female)
+	Affinity_IndexSoulReaper = RegisterAffinity(42, Kata_V2_Affinity_AbSoulReaper, Kata_V2_Game_Affinity_SoulReaper, Kata_V2_Game_Affinity_SoulReaper_Female)
+	Affinity_IndexWitcher = RegisterAffinity(43, Kata_V2_Affinity_AbWitcher, Kata_V2_Game_Affinity_Witcher, Kata_V2_Game_Affinity_Witcher_Female)
+	Affinity_IndexWolfHunter = RegisterAffinity(44, Kata_V2_Affinity_AbWolfHunter, Kata_V2_Game_Affinity_WolfHunter, Kata_V2_Game_Affinity_WolfHunter_Female)
+	;END KATAPUMB EDITS
 
     ; Init affinitiesUnlocked if necessary
     If affinitiesUnlocked.Length != Affinity_Spells.Length
@@ -643,6 +684,85 @@ Function UpdateUnlockedAffinities(Int[] PerkDistribution)
 	; Soulcaller: Phasmalist und Lycantrophe
 	TryUnlockAffinity(PerkDistribution, Affinity_SoulcallerIndex, PerkTree_TheriantrophistIndex, PerkTree_PhasmalistIndex)
 
+
+	;KATAPUMB EDITS
+	
+	;Acrobat: Trickster + Blade Dancer
+	TryUnlockAffinity(PerkDistribution, Affinity_AcrobatIndex, PerkTree_TrickeryIndex, PerkTree_DerwishIndex)
+	
+	;Berserker: Vandal + Vagabund
+	TryUnlockAffinity(PerkDistribution, Affinity_BerserkerIndex, PerkTree_RageIndex, PerkTree_VagabondIndex)
+	
+	;DragonHunter: Keeper + Trickster
+	TryUnlockAffinity(PerkDistribution, Affinity_DragonHunterIndex, PerkTree_BastionIndex, PerkTree_TrickeryIndex)
+	
+	;Duelist: Vagabund + Bladedancer
+	TryUnlockAffinity(PerkDistribution, Affinity_DuelistIndex, PerkTree_DerwishIndex, PerkTree_VagabondIndex)
+	
+	;Lord: Keeper + Vandal
+	TryUnlockAffinity(PerkDistribution, Affinity_KnightIndex, PerkTree_BastionIndex, PerkTree_RageIndex)
+	
+	;RiftMage: Sinistra + Thaumaturge
+	TryUnlockAffinity(PerkDistribution, Affinity_RiftMageIndex, PerkTree_LifeAndDeathIndex, PerkTree_ManipulationIndex)
+	
+	;Slayer: Infiltrator+Vandal
+	TryUnlockAffinity(PerkDistribution, Affinity_SlayerIndex, PerkTree_EspionageIndex, PerkTree_RageIndex)
+
+	;Spell Sword: Blade Dancer + Elementalism/Thaumaturg/Sinistra
+	TryUnlockAffinity(PerkDistribution, Affinity_SpellSwordIndex, PerkTree_DerwishIndex, PerkTree_ElementalismIndex, PerkTree_LifeAndDeathIndex, PerkTree_ManipulationIndex)
+
+	;Thief: Infiltator + Trickster
+	TryUnlockAffinity(PerkDistribution, Affinity_ThiefIndex,  PerkTree_EspionageIndex, PerkTree_TrickeryIndex)
+	
+	;Wanderer: Vagabund + Thaumaturg/Elementarist/Sinistra
+	TryUnlockAffinity(PerkDistribution, Affinity_WandererIndex, PerkTree_VagabondIndex, PerkTree_ElementalismIndex, PerkTree_LifeAndDeathIndex, PerkTree_ManipulationIndex)
+	
+	;White Mage: Elementalism + Thaumaturge
+	TryUnlockAffinity(PerkDistribution, Affinity_WhiteMageIndex, PerkTree_ElementalismIndex, PerkTree_ManipulationIndex)
+	
+	;Version 1.3
+	;Bard: Vagabund + Phasmalist
+	TryUnlockAffinity(PerkDistribution, Affinity_BardIndex, PerkTree_VagabondIndex, PerkTree_PhasmalistIndex)
+	
+	;Enchanter: Phasmalist + Elementalism/Thaumaturg
+	TryUnlockAffinity(PerkDistribution, Affinity_EnchanterIndex, PerkTree_PhasmalistIndex, PerkTree_ElementalismIndex, PerkTree_ManipulationIndex)
+	
+	;ShadowCaster: Elementalism + Infiltator
+	TryUnlockAffinity(PerkDistribution, Affinity_ShadowCasterIndex, PerkTree_ElementalismIndex, PerkTree_EspionageIndex)
+	
+	
+	;Version 2.0
+	;Custodio: Keeper+Phasmalist
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexCustodio, PerkTree_PhasmalistIndex, PerkTree_BastionIndex)
+	
+	;HighLander: Vandal + Trickster
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexHighlander, PerkTree_RageIndex, PerkTree_TrickeryIndex)
+	
+	;Lunatic: Vandal + Lycantrophe
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexLunatic, PerkTree_RageIndex, PerkTree_TheriantrophistIndex)
+	
+	;Merc: Keeper + Infiltator
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexMercenary, PerkTree_BastionIndex, PerkTree_EspionageIndex)
+	
+	;Monk: Infiltrator + Thaumaturg
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexMonk, PerkTree_EspionageIndex, PerkTree_ManipulationIndex)
+	
+	;Pack Leader: Keeper + Lycantrophe
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexPackLeader, PerkTree_BastionIndex, PerkTree_TheriantrophistIndex)
+
+	;Poisoner: Infiltator + Vagrant
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexPoisoner, PerkTree_EspionageIndex, PerkTree_VagabondIndex)
+	
+	;Soul Reaper: Vandal + Sinistrope
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexSoulReaper, PerkTree_RageIndex, PerkTree_LifeAndDeathIndex)
+
+	;Witcher: Vagrant + Keeper
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexWitcher, PerkTree_VagabondIndex, PerkTree_BastionIndex)
+
+	;Wolf Hunter: Trickster + Lycantrophe
+	TryUnlockAffinity(PerkDistribution, Affinity_IndexWolfHunter, PerkTree_TrickeryIndex, PerkTree_TheriantrophistIndex)
+	
+	;END KATAPUMB EDITS
 Endfunction
 
 Function AddAchievementForAffinityUnlock(int nTotalUnlockedAffinityCount)
@@ -1121,10 +1241,120 @@ Int Affinity_RavagerIndex
 Int Affinity_ScourgeOfTheWildsIndex
 Int Affinity_SoulcallerIndex
 
+;KATAPUMB
+Int Affinity_AcrobatIndex
+Int Affinity_BerserkerIndex
+Int Affinity_DragonHunterIndex
+Int Affinity_DuelistIndex
+Int Affinity_KnightIndex
+Int Affinity_RiftMageIndex
+Int Affinity_SlayerIndex
+Int Affinity_SpellSwordIndex
+Int Affinity_ThiefIndex
+Int Affinity_WandererIndex
+Int Affinity_WhiteMageIndex
+
+Spell Property Kata_Affinity_AbAcrobat auto
+Spell Property Kata_Affinity_AbBerserker auto
+Spell Property Kata_Affinity_AbDragonHunter auto
+Spell Property Kata_Affinity_AbDuelist auto
+Spell Property Kata_Affinity_AbKnight auto
+Spell Property Kata_Affinity_AbRiftMage auto
+Spell Property Kata_Affinity_AbSlayer auto
+Spell Property Kata_Affinity_AbSpellSword auto
+Spell Property Kata_Affinity_AbThief auto
+Spell Property Kata_Affinity_AbWanderer auto
+Spell Property Kata_Affinity_AbWhiteMage auto
+
+Message Property Kata_Game_Affinity_Acrobat auto
+Message Property Kata_Game_Affinity_Acrobat_Female auto
+Message Property Kata_Game_Affinity_Berserker auto
+Message Property Kata_Game_Affinity_Berserker_Female auto
+Message Property Kata_Game_Affinity_DragonHunter auto
+Message Property Kata_Game_Affinity_DragonHunter_Female auto
+Message Property Kata_Game_Affinity_Duelist auto
+Message Property Kata_Game_Affinity_Duelist_Female auto
+Message Property Kata_Game_Affinity_Knight auto
+Message Property Kata_Game_Affinity_Knight_Female auto
+Message Property Kata_Game_Affinity_RiftMage auto
+Message Property Kata_Game_Affinity_RiftMage_Female auto
+Message Property Kata_Game_Affinity_Slayer auto
+Message Property Kata_Game_Affinity_Slayer_Female auto
+Message Property Kata_Game_Affinity_SpellSword auto
+Message Property Kata_Game_Affinity_SpellSword_Female auto
+Message Property Kata_Game_Affinity_Thief auto
+Message Property Kata_Game_Affinity_Thief_Female auto
+Message Property Kata_Game_Affinity_Wanderer auto
+Message Property Kata_Game_Affinity_Wanderer_Female auto
+Message Property Kata_Game_Affinity_WhiteMage auto
+Message Property Kata_Game_Affinity_WhiteMage_Female auto
+
+;Version 1.3
+Int Affinity_BardIndex
+Int Affinity_EnchanterIndex
+Int Affinity_ShadowCasterIndex
+
+Spell Property Kata_Affinity_AbBard auto
+Spell Property Kata_Affinity_AbEnchanter auto
+Spell Property Kata_Affinity_AbShadowCaster auto
+
+Message Property Kata_Game_Affinity_Bard auto
+Message Property Kata_Game_Affinity_Bard_Female auto
+Message Property Kata_Game_Affinity_Enchanter auto
+Message Property Kata_Game_Affinity_Enchanter_Female auto
+Message Property Kata_Game_Affinity_ShadowCaster auto
+Message Property Kata_Game_Affinity_ShadowCaster_Female auto
+
+;version 2.0
+Int Affinity_IndexCustodio
+Int Affinity_IndexHighlander
+Int Affinity_IndexLunatic
+Int Affinity_IndexMercenary
+Int Affinity_IndexMonk
+Int Affinity_IndexPackLeader
+Int Affinity_IndexPoisoner
+Int Affinity_IndexSoulReaper
+Int Affinity_IndexWitcher
+Int Affinity_IndexWolfHunter
+
+Spell Property Kata_V2_Affinity_AbCustodio auto
+Spell Property Kata_V2_Affinity_AbHighlander auto
+Spell Property Kata_V2_Affinity_AbLunatic auto
+Spell Property Kata_V2_Affinity_AbMercenary auto
+Spell Property Kata_V2_Affinity_AbMonk auto
+Spell Property Kata_V2_Affinity_AbPackLeader auto
+Spell Property Kata_V2_Affinity_AbPoisoner auto
+Spell Property Kata_V2_Affinity_AbSoulReaper auto
+Spell Property Kata_V2_Affinity_AbWitcher auto
+Spell Property Kata_V2_Affinity_AbWolfHunter auto
+
+Message Property Kata_V2_Game_Affinity_Custodio auto
+Message Property Kata_V2_Game_Affinity_Custodio_Female auto
+Message Property Kata_V2_Game_Affinity_Highlander auto
+Message Property Kata_V2_Game_Affinity_Highlander_Female auto
+Message Property Kata_V2_Game_Affinity_Lunatic auto
+Message Property Kata_V2_Game_Affinity_Lunatic_Female auto
+Message Property Kata_V2_Game_Affinity_Mercenary auto
+Message Property Kata_V2_Game_Affinity_Mercenary_Female auto
+Message Property Kata_V2_Game_Affinity_Monk auto
+Message Property Kata_V2_Game_Affinity_Monk_Female auto
+Message Property Kata_V2_Game_Affinity_PackLeader auto
+Message Property Kata_V2_Game_Affinity_PackLeader_Female auto
+Message Property Kata_V2_Game_Affinity_Poisoner auto
+Message Property Kata_V2_Game_Affinity_Poisoner_Female auto
+Message Property Kata_V2_Game_Affinity_SoulReaper auto
+Message Property Kata_V2_Game_Affinity_SoulReaper_Female auto
+Message Property Kata_V2_Game_Affinity_Witcher auto
+Message Property Kata_V2_Game_Affinity_Witcher_Female auto
+Message Property Kata_V2_Game_Affinity_WolfHunter auto
+Message Property Kata_V2_Game_Affinity_WolfHunter_Female auto
+
+;END KATAPUMB
+
 Bool FixedBugs1_2
 Bool BlockClassUpdates
 
 Bool bMeditateKeyRegistered = False
 Int Property iMeditateKeycode = 21 Auto Hidden ; 21 (Y on QWERTY, Z on QWERTZ)
 Int Property iQuickStatsKeycode = 53 Auto Hidden ; 53 (/ on QWERTZ, - on QWERTY) 
-Shout Property _00E_Class_Meditate Auto
+Shout Property _00E_Class_Meditate Auto
