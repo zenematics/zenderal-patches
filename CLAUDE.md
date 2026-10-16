@@ -286,6 +286,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`StaffDrawFix`](arch-docs/patches/StaffDrawFix.md) → OAR submod with vanilla clips | none | Staff draw plays again over Smooth Magic Casting's always-true equip |
 | [`IchorGooNoGlow`](arch-docs/patches/IchorGooNoGlow.md) → generated meshes (not committed) | none | Curator's taste: JS Ichor puddles without their particle haze + ENB light. Sort above JS in MO2 |
 | [`SilentPowerAttackGrunts`](arch-docs/patches/SilentPowerAttackGrunts.md) → 8 loose `.fuz` (not committed) | none | Curator's taste: female player power-attack yells silenced; other grunts kept |
+| [`NoScreenFlashes`](arch-docs/patches/NoScreenFlashes.md) → `Zenderal - No Screen Flashes.esp` | none | Curator's taste: drops full-screen blur/white-flash ISMs from enemy abilities (Wood Elemental call `0E41F1`) |
 
 ### Useful FormKey constants
 

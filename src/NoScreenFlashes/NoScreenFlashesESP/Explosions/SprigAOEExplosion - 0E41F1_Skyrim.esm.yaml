@@ -1,0 +1,14 @@
+FormKey: 0E41F1:Skyrim.esm
+EditorID: SprigAOEExplosion
+Version2: 4
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Light: 0ABF05:Skyrim.esm
+Radius: 6000
+ISRadius: 2600
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+- NoControllerVibration
