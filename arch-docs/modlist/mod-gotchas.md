@@ -74,9 +74,17 @@ List-wide traps that are not tied to one Zenderal patch.
   already 27/25/12 against the controller controlmap), DWP `ParryKey2 = 280`, Wheeler gamepad section from CCS,
   Stances F1–F4 plus `[ ] ; '` under extra `*_pad` names (Gamepad++ D-pad long presses send those keys — the
   duplicate-name lines work — **verified in game 2026-10-11** along with the rest of the mod, Personal Keybinds off), SkyUI MCM column buttons 280/281/273, TK Dodge Space + `EnableSprintKeyDodge`.
-  Single-key files keep keyboard: OCPA 259 (controller holds RT), BTPS Shift+wheel, SKSE Menu Framework F7 (pad
+  Single-key files keep keyboard: BTPS Shift+wheel, SKSE Menu Framework F7 (pad
   toggle OFF — CCS's F1 collided with Stances). CCS's `BowRapidCombo.ini` / `Dynamic Activation Key - MCM.ini` /
   `QuickLight.ini` are inert here (no matching MCM config installed).
+  **OCPA is the exception: it takes the controller key, 281 RT** (changed 2026-10-17, from 259 Mouse 4). CCS's
+  controlmap binds Left/Right Attack to **LB/RB** (`0x0100`/`0x0200`); **RT is unbound in gameplay**, so it
+  attacks only through OCPA. With 259, holding RT did nothing. Keyboard still power attacks by holding left
+  mouse (`iLongPressMode = 0`, vanilla). **[verified by the user 2026-10-17: hold RT did nothing, hold LMB worked]**
+  - **A modlist reinstall on 2026-10-17 shipped Input Defaults' `TK Dodge RE.ini` with
+  `EnableSprintKeyDodge = false` and `EnableDodgeAttackCancel = false`**, so tapping B never dodged (the TK Dodge
+  log prints both values at load). Both were set back to `true` locally; fix the list's published copy, or the
+  next reinstall reverts it again.
 
 - **Loading screens showing an old screenshot of your character and an empty centre frame = po3's Photo
   Mode, not a renderer or UI mod.** **[verified in game 2026-10-11]** Photo Mode's `bLoadScreenPics`
