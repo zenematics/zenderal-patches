@@ -51,3 +51,4 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`DragonPriestStaffSwap`](DragonPriestStaffSwap.md) | *(no plugin — loose meshes, MO2 mod `Zenderal - Dragon Priest Staff Swap`)* | _(none)_ |
 | [`StaffDrawFix`](StaffDrawFix.md) | *(no plugin — OAR submod, MO2 mod `Zenderal - Staff Draw Fix`)* | _(none)_ |
 | [`NoScreenFlashes`](NoScreenFlashes.md) | `Zenderal - No Screen Flashes.esp` | none (overrides only) |
+| [`Fuse00ArmorRaces`](Fuse00ArmorRaces.md) | `Zenderal - Fuse00 Armor Races.esp` | none (overrides only) |

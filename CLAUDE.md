@@ -287,6 +287,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`IchorGooNoGlow`](arch-docs/patches/IchorGooNoGlow.md) → generated meshes (not committed) | none | Curator's taste: JS Ichor puddles without their particle haze + ENB light. Sort above JS in MO2 |
 | [`SilentPowerAttackGrunts`](arch-docs/patches/SilentPowerAttackGrunts.md) → 8 loose `.fuz` (not committed) | none | Curator's taste: female player power-attack yells silenced; other grunts kept |
 | [`NoScreenFlashes`](arch-docs/patches/NoScreenFlashes.md) → `Zenderal - No Screen Flashes.esp` | none | Curator's taste: drops full-screen blur/white-flash ISMs from enemy abilities (Wood Elemental call `0E41F1`) |
+| [`Fuse00ArmorRaces`](arch-docs/patches/Fuse00ArmorRaces.md) → `Zenderal - Fuse00 Armor Races.esp` | none | Adventurer + Helga armor visible on Half Arazealean/Qyranian (`033899`/`033898`, not vanilla `013746`/`013748`). Generated |
 
 ### Useful FormKey constants
 

@@ -1,0 +1,20 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Fuse00 Armor Races.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Makes Fuse00's Adventurer Armor and Helga armor visible on Enderal's Half Arazealean and Half Qyranian player races, which the mods' armor addons never listed.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: _Fuse00_ArmorHelga.esp
+    FileSize: 0
+  - Master: _Fuse00_AdventurerArmor.esp
+    FileSize: 0
+  INTV: 1
