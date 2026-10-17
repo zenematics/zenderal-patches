@@ -16,7 +16,7 @@
 // any player block that is still on - the same wantBlocking = 0 + blockStop DWP would have sent.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 1, 0 },
+	.Version = REL::Version{ 1, 0, 2, 0 },
 	.Name = "ZenBlockReleaseFix"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -32,6 +32,31 @@ namespace
 	// verified in this list: right click = 258, Mouse 5 = 261).
 	constexpr std::uint32_t kMouseOffset = 257;
 	constexpr std::uint32_t kRetryMs = 500;
+
+	// Gamepad codes follow SKSE's numbering (266 = D-pad up ... 280 = LT, 281 = RT); the list's DWP
+	// ParryKey2 = 280 blocks on LT. The engine reports XInput button masks, and the triggers as 0x9/0xA.
+	std::uint32_t GamepadKeyCode(std::uint32_t a_idCode)
+	{
+		switch (a_idCode) {
+		case 0x0001: return 266;  // D-pad up
+		case 0x0002: return 267;  // D-pad down
+		case 0x0004: return 268;  // D-pad left
+		case 0x0008: return 269;  // D-pad right
+		case 0x0010: return 270;  // Start
+		case 0x0020: return 271;  // Back
+		case 0x0040: return 272;  // Left thumb
+		case 0x0080: return 273;  // Right thumb
+		case 0x0100: return 274;  // LB
+		case 0x0200: return 275;  // RB
+		case 0x1000: return 276;  // A
+		case 0x2000: return 277;  // B
+		case 0x4000: return 278;  // X
+		case 0x8000: return 279;  // Y
+		case 0x0009: return 280;  // LT
+		case 0x000A: return 281;  // RT
+		default:     return kNoKey;
+		}
+	}
 
 	std::uint32_t g_graceMs{ 200 };
 	bool          g_log{ true };
@@ -60,6 +85,9 @@ namespace
 			break;
 		case RE::INPUT_DEVICE::kMouse:
 			code += kMouseOffset;
+			break;
+		case RE::INPUT_DEVICE::kGamepad:
+			code = GamepadKeyCode(code);
 			break;
 		default:
 			return false;
@@ -234,7 +262,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenBlockReleaseFix 1.0.1 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenBlockReleaseFix 1.0.2 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };
