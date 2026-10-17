@@ -35,8 +35,16 @@ and cancelled the block every 500 ms, so holding block flickered. 1.0.1 parses t
 the BOM, and stays inert (logs a warning) if `ParryKey` can't be read. Check the startup line in the
 log: `DWP ParryKey=258`.
 
-**Limits.** DWP gamepad `ParryKey` codes are not mapped; controller blocking goes through vanilla `Left
-Attack/Block`, which is covered. A mod that starts a block from script with no key held would have it
+**1.0.1 → 1.0.2: map gamepad codes too.** [verified by the user 2026-10-17: holding LT flickered the
+block] 1.0.1 assumed controller blocking ran through vanilla `Left Attack/Block`. It does not: the
+controller controlmap binds that to **LB** (`0x0100`), and the list blocks on **LT** through DWP's
+`ParryKey2 = 280` (set by Custom Keybinds / CCS; SKSE numbering 266 = D-pad up … 280 = LT, 281 = RT).
+1.0.1 ignored every gamepad event that was not a vanilla attack, so a held LT read as "no block key
+held" and was cancelled every `kRetryMs` (500 ms), the same flicker as 1.0.0's. 1.0.2 converts the
+engine's XInput mask / trigger code (`0x9`/`0xA`) to SKSE's number before comparing it with `ParryKey`
+and `ParryKey2`.
+
+**Limits.** A mod that starts a block from script with no key held would have it
 ended after `GraceMs`; none is known in the list.
 
-Built and deployed 2026-10-13, **not yet verified in game**.
+Built and deployed 2026-10-13; 1.0.2 built and deployed 2026-10-17, **not yet verified in game**. Build note: `build.cmd` falls back to `vswhere` when the BuildTools path is absent (this machine has VS 18 Community); clone CommonLibSSE-NG into `lib/CommonLibNG` first.
