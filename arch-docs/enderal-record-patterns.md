@@ -319,6 +319,17 @@ adjustable, or conditional.
   A FormKey pointing at an undeclared master resolves to garbage at runtime.
 - **`GameRelease: EnderalSE`** in `RecordData.yaml` and `spriggit-meta.json`, matching `.spriggit`.
 
+## 8. Weapon models
+
+- **A weapon with a `FirstPersonModel` static is drawn from that static when EQUIPPED — in third
+  person too.** The WEAP `Model` is then only the world/dropped model. **[verified in game
+  2026-10-17]** Re-pointing the Gentleman's pistols' WEAP `Model` at new meshes changed nothing in hand
+  (3×-scaled copies there stayed normal size); 3× copies at the static's path turned the held pistol
+  giant. To change what an actor holds, override the static (`FirstPersonModel`), not the WEAP. See
+  [`patches/LoopPistolAnims.md`](patches/LoopPistolAnims.md).
+- **Test "is my mesh even loaded" with an unmistakable change** (scale the shape 3×) before reasoning
+  about orientations — two rounds of subtle rotations were judged in game against a mesh the game never drew.
+
 ---
 
 ## Pre-ship checklist

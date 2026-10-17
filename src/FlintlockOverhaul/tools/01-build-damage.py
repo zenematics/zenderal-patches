@@ -1,12 +1,14 @@
 """Zenderal - Flintlock Overhaul: pistol damage + bow-perk scaling. GENERATED records - never hand-edit
-the ObjectEffects/, Weapons/, MagicEffects/, Keywords/ or Perks/ folders; re-run this instead.
+the ObjectEffects/, Weapons/, Statics/, MagicEffects/, Keywords/ or Perks/ folders; re-run this instead.
 
 A Gentleman's Flintlock Armoury fires a staff enchantment (`PMPistolShot`, flat 100-300 health damage)
 shared four ways across eight pistols. This script:
   * gives each pistol its own enchantment (0x804-0x80B), copied verbatim from the one it used, with the
     PMPistolShot magnitude set to MULT x the pistol's own Damage stat (the author's tier ranking), which
     puts each pistol just under the Ordo Legionis (Enderal) musket of its tier (weapon + ammo). That magnitude is the Archery-50 value, which is what NPCs fire;
-  * overrides the eight weapons to point at them (records otherwise verbatim);
+  * overrides the eight weapons to point at them, and their eight
+    FirstPersonModel statics (the equipped model in both views) at the rotated meshes for Loop's pistol
+    animations (records otherwise verbatim);
   * tags PMPistolShot with keyword ZP_FlintlockShot (0x80C) - MGEF verbatim + Keywords;
   * builds hidden perk ZP_FlintlockArcheryScaling (0x80D) that the player script adds: x0.5 then
     x(1 + Archery*0.02) = bow skill scaling (fDamagePCSkillMin 0.5 .. fDamagePCSkillMax 1.5), Fortify
@@ -32,6 +34,11 @@ SHOT_MGEF = '000802:' + FP
 # pistol FormID -> new enchantment FormID (contiguous block 0x804-0x80B, in weapon FormID order)
 PISTOLS = ['000816', '000817', '000818', '000819', '000834', '000838', '000839', '00083A']
 ENCH_IDS = ['%06X' % (0x804 + i) for i in range(len(PISTOLS))]
+MODEL_PREFIX = 'PowderMagePack\\weapons\\'
+LOOP_MODEL_PREFIX = 'Zenderal\\LoopPistols\\'
+# EitherHand 013F44 is the pack's own value: Loop's clips serve the left hand and mirrored copies the right hand
+# (src/LoopPistolAnims). LeftHand 013F43 (reference/base/Skyrim/EquipTypes) if the right hand is ever dropped.
+EQUIP_TYPE = '013F44:Skyrim.esm'
 KYWD_ID = '00080C'
 PERK_ID = '00080D'
 
@@ -63,7 +70,7 @@ def sub1(pattern, repl, text, what):
 
 
 # clean the generated folders so a re-run never leaves stale files
-for folder in ('ObjectEffects', 'Weapons', 'MagicEffects', 'Keywords', 'Perks'):
+for folder in ('ObjectEffects', 'Weapons', 'Statics', 'MagicEffects', 'Keywords', 'Perks'):
     d = os.path.join(OUT, folder)
     if os.path.isdir(d):
         for f in os.listdir(d):
@@ -90,9 +97,24 @@ for pid, eid in zip(PISTOLS, ENCH_IDS):
              r'\g<1>%s' % mag, e, eid + ' shot magnitude')
     write('ObjectEffects', '%s - %s_%s.yaml' % (edid, eid, ME), e)
 
-    # --- weapon: verbatim, only the enchantment changes
+    # --- weapon: verbatim except the enchantment (EQUIP_TYPE is the pack's own EitherHand)
     w = sub1(r'^ObjectEffect: .*$', 'ObjectEffect: %s:%s' % (eid, ME), w, pid + ' ObjectEffect')
+    w = sub1(r'^EquipmentType: .*$', 'EquipmentType: ' + EQUIP_TYPE, w, pid + ' EquipmentType')
     write('Weapons', os.path.basename(wpath), w)
+
+    # --- equipped model: the FirstPersonModel static. The game draws an equipped weapon that has one from
+    # this static in THIRD person too (verified in game 2026-10-17: 3x-scaled copies at the WEAP Model path
+    # changed nothing, 3x copies at the static's path turned the held pistol giant); the WEAP Model is only
+    # the world/dropped model and stays original (its collision matches). The staff meshes need rotated
+    # copies (barrel on +Y), which LoopPistolAnims/tools/02 writes into the `Zenderal - Loop Pistol
+    # Animations` MO2 mod. First person draws the same static, so it gets the rotated mesh as well.
+    stat = re.search(r'^FirstPersonModel: (\S+)$', w, re.M).group(1)
+    if not stat.endswith(':' + FP):
+        sys.exit('%s: unexpected FirstPersonModel %s' % (pid, stat))
+    spath = find('Statics', stat.split(':')[0])
+    s = sub1(r'^(  File: )%s(\S+\.nif)$' % re.escape(MODEL_PREFIX),
+             r'\g<1>%s\g<2>' % LOOP_MODEL_PREFIX.replace('\\', '\\\\'), read(spath), stat + ' Model')
+    write('Statics', os.path.basename(spath), s)
     table.append((name, dmg, old_edid, mag))
 
 # --- keyword

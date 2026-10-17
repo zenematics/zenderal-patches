@@ -50,5 +50,6 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`FlintlockOverhaul`](FlintlockOverhaul.md) | `Zenderal - Flintlock Overhaul.esp` + `ZP_FlintlockAmmoPlayerScript.pex` + `Zenderal - DAR Rifles Recipes Off.esp` + `_KID.ini` + Wheeler icons | `0x800–0x813` |
 | [`DragonPriestStaffSwap`](DragonPriestStaffSwap.md) | *(no plugin — loose meshes, MO2 mod `Zenderal - Dragon Priest Staff Swap`)* | _(none)_ |
 | [`StaffDrawFix`](StaffDrawFix.md) | *(no plugin — OAR submod, MO2 mod `Zenderal - Staff Draw Fix`)* | _(none)_ |
+| [`LoopPistolAnims`](LoopPistolAnims.md) | *(no plugin — OAR mod, MO2 mod `Zenderal - Loop Pistol Animations`)* | _(none)_ |
 | [`NoScreenFlashes`](NoScreenFlashes.md) | `Zenderal - No Screen Flashes.esp` | none (overrides only) |
 | [`Fuse00ArmorRaces`](Fuse00ArmorRaces.md) | `Zenderal - Fuse00 Armor Races.esp` | none (overrides only) |

@@ -1,0 +1,7 @@
+FormKey: 000836:AdventurerFlintlockPack.esp
+EditorID: 1stPersonPMFlintlockPistool03
+Model:
+  File: Zenderal\LoopPistols\LowPolyFP\Pistool03.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
