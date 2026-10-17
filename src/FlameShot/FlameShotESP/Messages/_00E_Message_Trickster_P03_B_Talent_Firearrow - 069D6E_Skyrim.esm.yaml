@@ -1,0 +1,104 @@
+FormKey: 069D6E:Skyrim.esm
+EditorID: _00E_Message_Trickster_P03_B_Talent_Firearrow
+Description:
+  TargetLanguage: English
+  Value: >-
+    Grants you a handful of fire arrows - or flame musket balls while a musket or crossbow is equipped - which explode upon impact and do fire damage.
+
+
+    Tier I: 2 arrows, do 4.5 points of fire damage per second, 10 seconds duration (Cooldown: 110)
+
+    Tier II: 3 arrows, do 5 points of fire damage per second, 14 seconds duration (Cooldown: 110)
+
+    Tier III: 4 arrows, do 5.5 points of fire damage per second, 18 seconds duration (Cooldown: 110)
+Name:
+  TargetLanguage: English
+  Value: 'Talent: Flame Shot'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Unlock Tier I (1 Memory Point)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 06685F:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD3:Skyrim.esm
+- Text:
+    TargetLanguage: English
+    Value: Unlock Tier II (1 Memory Point)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 06685F:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD3:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0BFA3E:Skyrim.esm
+- Text:
+    TargetLanguage: English
+    Value: Unlock Tier III (1 Memory Point)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 06685F:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0BFA3E:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0BFA3D:Skyrim.esm
+- Text:
+    TargetLanguage: English
+    Value: You already unlocked this memory!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0BFA3D:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Back
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 0BFA3D:Skyrim.esm

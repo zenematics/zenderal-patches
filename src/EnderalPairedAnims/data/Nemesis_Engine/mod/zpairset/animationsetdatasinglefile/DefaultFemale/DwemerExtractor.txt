@@ -1,0 +1,6 @@
+meshes\actors\character\animations\enderal\paired_calia_massacre.hkx
+meshes\actors\character\animations\enderal\paired_hugb.hkx
+meshes\actors\character\animations\enderal\paired_kiss_2female.hkx
+meshes\actors\character\animations\enderal\paired_kiss_2male.hkx
+meshes\actors\character\animations\enderal\paired_kiss_male_female.hkx
+meshes\actors\character\animations\enderal\paired_kiss_female_male.hkx

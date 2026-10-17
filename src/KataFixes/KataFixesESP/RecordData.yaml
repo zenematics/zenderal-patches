@@ -7,7 +7,7 @@ ModHeader:
   Flags:
   - Small
   Author: Zenderal
-  Description: Kata-related fixes for the Zenderal list. Merges the three contested magic vendor chests so KataPUMB's staves, xxOpenSpells' books and the Emberlord patch's stock all survive each other, on Leveling Redone's rebalanced records. Also ships the deduplicated Kata spell-package script.
+  Description: Kata-related fixes for the Zenderal list. Merges the three contested magic vendor chests so KataPUMB's staves, xxOpenSpells' books and the Emberlord patch's stock all survive each other, on EGO's records. Also ships the deduplicated Kata spell-package script.
   Stats:
     Version: 1.7
   MasterReferences:
@@ -24,7 +24,5 @@ ModHeader:
   - Master: xxOpenSpells.esp
     FileSize: 0
   - Master: EGO SE - KataPUMB Spells - Emberlord sells all spells.esp
-    FileSize: 0
-  - Master: EGO SE - Leveling Redone.esp
     FileSize: 0
   INTV: 1

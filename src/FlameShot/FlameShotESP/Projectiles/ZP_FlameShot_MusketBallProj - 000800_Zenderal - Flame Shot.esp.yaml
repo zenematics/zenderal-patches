@@ -1,0 +1,26 @@
+FormKey: 000800:Zenderal - Flame Shot.esp
+EditorID: ZP_FlameShot_MusketBallProj
+Name:
+  TargetLanguage: English
+  Value: Flame Musket Ball
+Model:
+  File: OLM\OL_Musket\ol_ProjectileBB.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- MuzzleFlash
+- Supersonic
+Type: Arrow
+Gravity: 0.001
+Speed: 60000
+Range: 60000
+Explosion: 066891:Skyrim.esm
+Sound: 007ED9:OrdoLegionisMuskets.esp
+MuzzleFlashDuration: 2.5
+FadeDuration: 2
+ImpactForce: 5
+CollisionRadius: 0.5
+RelaunchInterval: 0.25
+MuzzleFlashModel: Effects\FXdartMuzzleDust.nif
+TextureFilesHashes: 0x020000000000000000000000
+SoundLevel: 3

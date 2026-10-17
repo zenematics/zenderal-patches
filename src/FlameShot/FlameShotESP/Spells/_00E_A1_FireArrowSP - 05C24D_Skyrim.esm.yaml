@@ -1,0 +1,96 @@
+FormKey: 05C24D:Skyrim.esm
+EditorID: _00E_A1_FireArrowSP
+Name:
+  TargetLanguage: English
+  Value: 'Flame Shot'
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 147
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Voice
+CastType: FireAndForget
+Effects:
+- BaseEffect: 05BD36:Skyrim.esm
+  Data:
+    Magnitude: 4.5
+    Duration: 10
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 069CD3:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 0BFA3E:Skyrim.esm
+- BaseEffect: 05BD36:Skyrim.esm
+  Data:
+    Magnitude: 5
+    Duration: 14
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 0BFA3E:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 0BFA3D:Skyrim.esm
+- BaseEffect: 05BD36:Skyrim.esm
+  Data:
+    Magnitude: 5.5
+    Duration: 18
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 0BFA3D:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 0F8682:Skyrim.esm
+  Data:
+    Magnitude: 2
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B53F7:Skyrim.esm
+    ComparisonValue: 2
+- BaseEffect: 0F8682:Skyrim.esm
+  Data:
+    Magnitude: 3
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B53F7:Skyrim.esm
+    ComparisonValue: 2
+- BaseEffect: 0F8682:Skyrim.esm
+  Data:
+    Magnitude: 4
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 0B53F7:Skyrim.esm
+    ComparisonValue: 2
+- BaseEffect: 143334:Skyrim.esm
+  Data:
+    Magnitude: 25

@@ -239,7 +239,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`KataFixes`](arch-docs/patches/KataFixes.md) → `Zenderal - Kata Fixes.esp` + `.pex` | none | **Owns** vendor chests `102AD5`, `118050`, `05BCD6` (must keep each `*_CustomMerchandise` hook); dedupes Kata spell packs |
 | [`SkipPrologue`](arch-docs/patches/SkipPrologue.md) → `Zenderal - Skip The Prologue.esp` | `0x800–0x802` | One `MQ01.SetStage(130)` lands the player at Jespar's camp |
 | [`FasterSprint`](arch-docs/patches/FasterSprint.md) → `Zenderal - Faster Sprint.esp` | none | Sprint +92%, drain −50%; must load after EGO **and** `Dynamic Sprint.esp`; armed sprint needs SSMT_Fix `WieldingMovementTypeFixes=true` |
-| [`QuieterWaterfalls`](arch-docs/patches/QuieterWaterfalls.md) → `Zenderal - Quieter Waterfalls.esp` | none | 72 SNDR +6 dB attenuation over RAO. Generated |
+| [`QuieterWaterfalls`](arch-docs/patches/QuieterWaterfalls.md) → `Zenderal - Quieter Waterfalls.esp` | none | 72 SNDR +6 dB attenuation over RAO; coast wind bed `0DB6DD` given an attenuating model so it no longer snaps on near Ark. Generated |
 | [`DynamicDodgeNoSway`](arch-docs/patches/DynamicDodgeNoSway.md) → OAR `user.json` only | none | Attack-cancel dodges use the step dodge, not the sway |
 | [`DynamicDodgeShotFix`](arch-docs/patches/DynamicDodgeShotFix.md) → `Zenderal - Dynamic Dodge Shot Fix.esp` | none | Re-parents `BowDodge` so it fires |
 | [`HalfStarlingDS`](arch-docs/patches/HalfStarlingDS.md) → `Zenderal - Half Starling DS Races.esp` | none | Restores per-race stats on `WoodElfRace 013749` |
@@ -249,21 +249,21 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`ChocolatePoiseEnderal`](arch-docs/patches/ChocolatePoiseEnderal.md) → `.esp` + `ZenCPRFactionFix.dll` | `0x800–0x808` | Vanilla-EditorID reference items for CPR + NSF crash fix |
 | [`BrawlFixes`](arch-docs/patches/BrawlFixes.md) → two recompiled SureAI scripts | none | Brawls no longer break on magic/framework hits |
 | [`NpcPotions`](arch-docs/patches/NpcPotions.md) → `Zenderal - NPC Potions_DISTR.ini` | none | SPID potions to NPCs; depends on NUP corpse-stripping being off |
-| [`ControllerTweaks`](arch-docs/patches/ControllerTweaks.md) → controlmap, SkyUI config, `_00E_Game_SkillmenuSC.pex` | none | Gamepad fixes + B+D-pad-Up Hero Menu chord |
+| [`ControllerTweaks`](arch-docs/patches/ControllerTweaks.md) → controlmap, SkyUI config, `_00E_Game_SkillmenuSC.pex` | none | Gamepad fixes + B+D-pad-Up Hero Menu chord; **its `.pex` also carries KataPUMB New Affinities + Amnesia Shrine's edits** — it outranks their BSA copies |
 | [`OldTempleWeather`](arch-docs/patches/OldTempleWeather.md) → `Zenderal - Old Temple Weather.esp` | none | Intro-beach weather under Obsidian (currently disabled with Obsidian) |
-| [`BakaHeroMenu`](arch-docs/patches/BakaHeroMenu.md) → `BakaHeroMenu.dll` | none | CommonLibSSE-NG port for 1.5.97; GPL — publish source |
+| [`BakaHeroMenu`](arch-docs/patches/BakaHeroMenu.md) | none | **Retired 2026-10-14** — source recoverable from commit `fa07b81`; its CommonLibSSE-NG clone moved to the repo-root `lib/` |
 | [`TrueHUDCombatIcons`](arch-docs/patches/TrueHUDCombatIcons.md) → `ZenTrueHUDCombatIcons.dll` | none | FHR status icons inside TrueHUD's info bar |
 | [`FrostAtronachSEFix`](arch-docs/patches/FrostAtronachSEFix.md) → converted meshes (not committed) | none | Black Ice Elementals: LE→SE meshes + plain lighting shader |
 | [`PrecisionLiftFix`](arch-docs/patches/PrecisionLiftFix.md) | none | **Retired** — record of failed routes; source removed |
-| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) | none | **Retired 2026-10-13** — the list ships Precision's `bApplyImpulseOnHit = 0` instead; fork recoverable from commit `7b63d3a` |
+| [`PrecisionFork`](arch-docs/patches/PrecisionFork.md) → rebuilt `Precision.dll` | none | Floating Ice/crystal elementals fixed (PLANCK rigidBodyT hooks); impulse-off alone does NOT fix it; GPL; rebuild per Precision update |
 | [`ZenTraitsFixes`](arch-docs/patches/ZenTraitsFixes.md) → one recompiled script | none | Ambrosia reduces Arcane Fever again |
-| [`LearningBooks`](arch-docs/patches/LearningBooks.md) → `Zenderal - Learning Books Grant Learning Points.esp` | `0x800–0x802` | Books grant points; **owns** the 72 book ALCH records. Generated |
+| [`LearningBooks`](arch-docs/patches/LearningBooks.md) | none | **Retired 2026-10-14** with Leveling Redone — books spend points again (EGO's records); source recoverable from commit `9afae18` |
 | [`MCODirectionalPowerAttacks`](arch-docs/patches/MCODirectionalPowerAttacks.md) → `.esp` | none | Side/back/sprint power attacks reach FHR's MCO animations |
 | [`PrettyArmoryEGO`](arch-docs/patches/PrettyArmoryEGO.md) → `Zenderal - Pretty Armory EGO Patch.esp` | none | 141 Pretty×EGO merges. Generated |
 | [`ArkMyradPlatformFix`](arch-docs/patches/ArkMyradPlatformFix.md) → `Zenderal - Ark Myrad Platform Fix.esp` | none | Moves FS marker `02F0B5`; read the FS-override postmortem first |
 | [`ArkMarketTreeFix`](arch-docs/patches/ArkMarketTreeFix.md) → `Zenderal - Ark Market Tree Fix.esp` | none | Lowers a floating juniper an addon placed in Ark's market |
 | [`EppiRivervilleStatues`](arch-docs/patches/EppiRivervilleStatues.md) → `Zenderal - EPPI Riverville Statues Patch.esp` | none | Moves a statue mod's bust with the desk EPPI moved |
-| [`FeverDeathLatchFix`](arch-docs/patches/FeverDeathLatchFix.md) → recompiled `_00E_EPUpdateFunctions` | none | Clears the stuck `isdead` latch that blocks level-ups; must sort below Leveling Redone |
+| [`FeverDeathLatchFix`](arch-docs/patches/FeverDeathLatchFix.md) → recompiled `_00E_EPUpdateFunctions` | none | Clears the stuck `isdead` latch that blocks level-ups; forked from SureAI's source |
 | [`UndeadCreaturesReplacerEGO`](arch-docs/patches/UndeadCreaturesReplacerEGO.md) → `.esp` | none | UCR visuals on EGO's Lost One NPCs. Generated |
 | [`EnderalTextureRestores`](arch-docs/patches/EnderalTextureRestores.md) → extracted textures (not committed) | none | Restores Enderal textures a Skyrim texture mod cut out |
 | [`PrettyFemaleMeshRestores`](arch-docs/patches/PrettyFemaleMeshRestores.md) → extracted meshes (not committed) | none | Pretty's BSA meshes over CBBE's loose ones; sort above CBBE |
@@ -273,13 +273,20 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`ApocalypseNaviFix`](arch-docs/patches/ApocalypseNaviFix.md) → rebuilt Apocalypse `.esp` (hotfix) | none | Drops the `012FB4` NAVI that deleted a Forgotten Temple floor tile; retire once `enderal-mods` drops it |
 | [`Prophecy`](arch-docs/patches/Prophecy.md) → `Zenderal - Prophecy.esp` + scripts + CSF config | `0x800–0x807` | **Prototype**, non-ESL: Ordinator-perk tree via Custom Skills Framework |
 | [`ImprovedCameraSheatheFix`](arch-docs/patches/ImprovedCameraSheatheFix.md) → `ZenICSheatheFix.dll` | none | NOPs IC's drawn-weapon camera drop; tied to IC 1.1.2.4228 |
+| [`BlockReleaseFix`](arch-docs/patches/BlockReleaseFix.md) → `ZenBlockReleaseFix.dll` | none | Ends blocks DWP's dropped key-up left stuck on |
+| [`CrossbowSprintSwap`](arch-docs/patches/CrossbowSprintSwap.md) → OAR `user.json` + two copied clips | none | Curator's taste: crossbows/muskets get only Tactical Crossbow Movement's sprint, plus Zodd's standing idle |
+| [`CrossbowDrawFix`](arch-docs/patches/CrossbowDrawFix.md) → `ZenCrossbowDrawFix.dll` | none | Resets the `kBowAttached` a cut-short crossbow draw leaves (no sprint/sheathe until a shot) |
 | [`HorseCloakFluffFix`](arch-docs/patches/HorseCloakFluffFix.md) → `.esp` + generated meshes | none | Fluffworks fur trimmed under the Ark guard horses' barding |
 | [`DintHairs`](arch-docs/patches/DintHairs.md) → rebuilt Dint999 hair plugins | none | Hairs only, no wigs; +2 full plugin slots |
 | [`GuardFalconer`](arch-docs/patches/GuardFalconer.md) → `Zenderal - Guard Falconer Patch.esp` | none | Restores Falconer cuirass/helmet that Pretty Factions reverted |
 | [`MoonsteelPretty`](arch-docs/patches/MoonsteelPretty.md) → `.esp` + 2 loose meshes | none | Points EGO's Moonsteel line back at Pretty's meshes. Generated |
-| [`FlintlockOverhaul`](arch-docs/patches/FlintlockOverhaul.md) → `.esp` + script + DAR recipes ESL + KID + icons | `0x800–0x813` | Pistols use bullets and reload; 111 NPCs rebuilt over gun mods; load after Enderal SE - Crossbows |
+| [`FlintlockOverhaul`](arch-docs/patches/FlintlockOverhaul.md) → `.esp` + script + DAR recipes ESL + KID + icons | `0x800–0x816` | Pistols use bullets and reload; Silver Musket Balls ride EGO's silver-arrow ghost perks; 111 NPCs rebuilt over gun mods; **owns** the 14 `0?E_Beute*`/`Kampfitems` chest-loot LVLIs (gun ammo added); load after Enderal SE - Crossbows |
+| [`FlameShot`](arch-docs/patches/FlameShot.md) → `Zenderal - Flame Shot.esp` + recompiled `_00E_A1_FireArrowSC` | `0x800–0x801` | Fire Arrow talent renamed Flame Shot; with a musket it grants exploding Flame Musket Balls and restores the old ammo. Generated |
 | [`DragonPriestStaffSwap`](arch-docs/patches/DragonPriestStaffSwap.md) → loose meshes (not committed) | none | Curator's taste: Pretty's chain-lightning staff mesh at the Dragon Priest staff paths |
 | [`StaffDrawFix`](arch-docs/patches/StaffDrawFix.md) → OAR submod with vanilla clips | none | Staff draw plays again over Smooth Magic Casting's always-true equip |
+| [`IchorGooNoGlow`](arch-docs/patches/IchorGooNoGlow.md) → generated meshes (not committed) | none | Curator's taste: JS Ichor puddles without their particle haze + ENB light. Sort above JS in MO2 |
+| [`SilentPowerAttackGrunts`](arch-docs/patches/SilentPowerAttackGrunts.md) → 8 loose `.fuz` (not committed) | none | Curator's taste: female player power-attack yells silenced; other grunts kept |
+| [`NoScreenFlashes`](arch-docs/patches/NoScreenFlashes.md) → `Zenderal - No Screen Flashes.esp` | none | Curator's taste: drops full-screen blur/white-flash ISMs from enemy abilities (Wood Elemental call `0E41F1`) |
 
 ### Useful FormKey constants
 
@@ -374,3 +381,7 @@ progression, potions or scripts at
 [`scripting-and-actorvalues.md`](arch-docs/enderal/scripting-and-actorvalues.md).
 
 Edit `.psc`/YAML, never the binary `.pex`/`.esp`. Commit source, not build artifacts.
+## Never search from the filesystem root
+Do not run `find /` (or any recursive search starting at `/`) in Bash. On this PC it walks into
+Windows' device namespace and crashes the system via a vJoy driver bug (BSOD 0x3B in vjoy.sys).
+Always search a specific folder instead, e.g. `find /e/Zenderal ...` or `find /c/Users/frien ...`.

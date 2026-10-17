@@ -1,0 +1,115 @@
+FormKey: 11A4BF:Skyrim.esm
+EditorID: 03E_BeuteKlein
+ChanceNone: 0.05
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 00000A:Skyrim.esm
+    Count: 2
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 20
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 23
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 26
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 29
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 32
+- Data:
+    Level: 1
+    Reference: 015A74:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02E4E6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02E4F3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05ACE3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05ACE3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05AD93:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05AD93:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0773ED:Skyrim.esm
+    Count: 3
+- Data:
+    Level: 1
+    Reference: 0773ED:Skyrim.esm
+    Count: 4
+- Data:
+    Level: 1
+    Reference: 0773ED:Skyrim.esm
+    Count: 8
+- Data:
+    Level: 1
+    Reference: 07B8C7:Skyrim.esm
+    Count: 20
+- Data:
+    Level: 1
+    Reference: 08659E:Skyrim.esm
+    Count: 15
+- Data:
+    Level: 1
+    Reference: 0905A5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0905A5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0981DE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13798D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13798D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001CBD:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDD:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDD:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000814:Zenderal - Flintlock Overhaul.esp
+    Count: 1

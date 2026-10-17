@@ -18,6 +18,25 @@ List-wide traps that are not tied to one Zenderal patch.
   reinstall resets `TK Dodge RE.ini`** (dodge key fell back to Left Alt = Jump), so the list's dodge
   settings (Space 57, step dodge, stamina 5) now live in `Zenderal - Settings`. Diagnostic: grep the
   Pandora output's `animationdatasinglefile.txt` for `^TKDodge` - zero lines means no motion data.
+- **Pandora 5.0.0-beta cannot build FNIS paired (`pa`) or killmove (`km`) animations, so Enderal's
+  paired cinematics are dead under it.** **[verified from source + output 2026-10-16; in-game
+  confirmation pending]** Pandora's FNIS support (`Pandora.Skyrim/Format/FNIS/`, tag `v5.0.0-beta`)
+  only registers each listed clip in `DefaultMale/Female.hkx` and splices the mod's *shipped*
+  `FNIS_<mod>_Behavior.hkx` into `0_master`'s root state machine; `BasicAnimation.BuildBehavior` is
+  an empty stub and the `Paired` case in `FNISAnimationFactory.Create` is commented out. FNIS puts
+  `pa`/`km` entries inside `0_master.hkx` itself, and Pandora's `0_Master.hkx` (rebuilt from its
+  vanilla template) overrides Enderal's FNIS-built one. Affected — all six such lines in
+  `fnis_enderal_list.txt` (shipped loose by *Enderal- Fores New Idles Patch - FNIS Patch*):
+  `km CaliaMassacre` (IDLE `pa_MQ07b_CaliaMassacre 13FAA3`, MQ07b), `pa HugB` (`0F4699`) and the four
+  `pa Kiss*` (`13FA92`, `13FA9C`, `13FA9D`, `141596`). Enderal's stock `0_master.hkx` contains
+  `CaliaMassacre`; Pandora's contains none. Nothing is logged — the list "parses" fine. The 45
+  `b`/`s`/`+`/`ch` lines ride Enderal's stock `FNIS_Enderal_Behavior.hkx` and may still work.
+  **Fixed 2026-10-16, verified in game** by
+  [`patches/EnderalPairedAnims.md`](../patches/EnderalPairedAnims.md): tick both *Zenderal - Enderal
+  Paired Animations* entries in Pandora. Lesson: a paired/killmove clip needs **two** things — the
+  graph states in `0_master` *and* the clip listed in `animationsetdatasinglefile.txt`; with only the
+  first, the event fires, the clip fails to load (A-Pose Fix logs "Converted animation file") and both
+  actors stand still.
 - **Keybinds: the list default and the curator's personal layout are two MO2 mods.**
   `Zenderal - Settings` carries the default (`Root/ControlMap_Custom.txt`, Dual Wield Parrying's and
   Wheeler's configs); the optional `Zenderal - Personal Keybinds` overrides it when sorted above it

@@ -4,18 +4,19 @@
 Three mods add stock to the same three merchant chests and the last loader wins whole:
 KataPUMBSpellPack (15 staves), xxOpenSpells (4 books), and the EGO SE Emberlord patch
 (5 entries). Whatever the current load order makes the raw winner, the list's intended
-resolution is EGO SE - Leveling Redone's BALANCE plus everyone's CONTENT:
+resolution is EGO's BALANCE plus everyone's CONTENT:
 
-  - Leveling Redone's record is the base. Its trims are deliberate leveling work (it
-    cuts Funkentanz's spell books from EGO's 79 entries to 62), and every other
-    overrider of these chests derives from EGO's lineage WITHOUT mastering Leveling
-    Redone - their reverts of its trims are collateral, not decisions. Verified
-    2026-08-27: the 18 base spell-book entries Emberlord "restores" at Funkentanz
-    trace base -> FS -> EGO -> Emberlord with LR alone trimming them.
+  - EGO's record is the base. The Emberlord patch masters EGO and its Funkentanz record
+    is exactly EGO's 79 entries plus its own 5 (verified 2026-10-14), so EGO is the
+    lineage every overrider agrees on.
   - Each loser's OWN additions are re-appended. An addition is an Items entry whose
     FormKey suffix is the loser's own plugin - the same definition an xEdit conflict
-    view would use. (Emberlord's 18 base-book carries are NOT additions by this rule,
-    and that is correct: they are LR's trim seen through an older lineage.)
+    view would use.
+
+HISTORY (base): until 2026-10-14 the base was EGO SE - Leveling Redone's record (its
+trims cut Funkentanz 79 -> 62, Torius 128 -> 108, Tarhutie 80 -> 68). Leveling Redone
+was removed from the list, so its trims went with it and EGO's record is the base again.
+Do NOT re-master Leveling Redone: the plugin would then fail to load without it.
 
 This plugin loads after every one of them, so the merge wins regardless of how the
 upstream order shuffles - it moved once already (2026-08-20, the Kata block jumped
@@ -37,7 +38,7 @@ container players never see, and its winner (the EGO - KataPUMB Spell Package pa
 can keep its 5-stave version.
 
 Inputs: the serialized reference trees (regenerate with /spriggit-decompile-reference):
-  reference/mods/LevelingRedoneEGO   (EGO SE - Leveling Redone.esp - the balance base)
+  reference/mods/EGO                 (Enderal SE - Gameplay Overhaul.esp - the balance base)
   reference/mods/KataPUMB            (KataPUMBSpellPack.esp)
   reference/mods/xxOpenSpells       (xxOpenSpells.esp)
   reference/mods/KataEmberlord       (EGO SE - KataPUMB Spells - Emberlord sells all spells.esp)
@@ -52,7 +53,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 REF = os.path.join(ROOT, "reference", "mods")
 OUT = os.path.join(ROOT, "src", "KataFixes", "KataFixesESP", "Containers")
 
-WINNER_TREE = "LevelingRedoneEGO"
+WINNER_TREE = "EGO"
 
 # chest hex -> [(loser tree, loser plugin name, expected addition count)]
 MERGES = {

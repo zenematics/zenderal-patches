@@ -1,0 +1,16 @@
+FormKey: 0DB6DD:Skyrim.esm
+EditorID: AMBrWindBedCoastLP
+Type: Standard
+Category: 00080D:Reverb and Ambiance Overhaul - Enderal.esp
+SoundFiles:
+- data\sound\fx\ambr\wind\coast\ambr_wind_coast_bed_lp.wav
+OutputModel: 09173E:Skyrim.esm
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInInteriorConditionData
+LoopAndRumble:
+  Unknown: 4
+  Loop: Loop
+Priority: 128
+StaticAttenuation: 7

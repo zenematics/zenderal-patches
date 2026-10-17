@@ -8,7 +8,7 @@ ObjectBounds:
   Second: 48, 24, 48
 Name:
   TargetLanguage: English
-  Value: Chest
+  Value: Truhe
 Model:
   File: Clutter\Containers\Chest01\Chest01.nif
   Data: 0x020000000000000000000000
@@ -146,6 +146,24 @@ Items:
     Item: 0854FE:Skyrim.esm
     Count: 2
 - Item:
+    Item: 085614:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 085615:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 085618:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 085619:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 085624:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 085625:Skyrim.esm
+    Count: 5
+- Item:
     Item: 085668:Skyrim.esm
     Count: 2
 - Item:
@@ -178,6 +196,24 @@ Items:
 - Item:
     Item: 0E4F0C:Skyrim.esm
     Count: 3
+- Item:
+    Item: 0E7622:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 0E7623:Skyrim.esm
+    Count: 10
+- Item:
+    Item: 0E7624:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0E7626:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 0E7627:Skyrim.esm
+    Count: 10
+- Item:
+    Item: 0E7628:Skyrim.esm
+    Count: 5
 - Item:
     Item: 0F11C0:Skyrim.esm
     Count: 5

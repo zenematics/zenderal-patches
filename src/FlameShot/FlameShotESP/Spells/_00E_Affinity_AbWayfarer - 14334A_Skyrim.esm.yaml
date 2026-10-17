@@ -1,0 +1,23 @@
+FormKey: 14334A:Skyrim.esm
+EditorID: _00E_Affinity_AbWayfarer
+Name:
+  TargetLanguage: English
+  Value: 'Affinity: Swashbuckler'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: 'Raises Stamina by <20> points, as well as both Light Armor and Archery by <7> points. Each fired fire arrow or flame musket ball also triggers another, smaller explosion upon impact.'
+BaseCost: 331
+Type: Ability
+Effects:
+- BaseEffect: 049507:Skyrim.esm
+  Data:
+    Magnitude: 20
+- BaseEffect: 03BB63:Skyrim.esm
+  Data:
+    Magnitude: 7
+- BaseEffect: 023163:Skyrim.esm
+  Data:
+    Magnitude: 7
+- BaseEffect: 143327:Skyrim.esm
+  Data: {}

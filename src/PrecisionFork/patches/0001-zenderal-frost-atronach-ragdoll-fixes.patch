@@ -1,0 +1,337 @@
+diff --git a/src/Hooks.cpp b/src/Hooks.cpp
+index 09a9227..28d5ca0 100644
+--- a/src/Hooks.cpp
++++ b/src/Hooks.cpp
+@@ -1,4 +1,5 @@
+ #include "Hooks.h"
++#include "ZenRagdollFixes.h"  // ZP
+ 
+ #include <xbyak/xbyak.h>
+ 
+@@ -21,6 +22,7 @@ namespace Hooks
+ 		AIHooks::Hook();
+ 
+ 		HavokHooks::Hook();
++		ZenRagdollFixes::Install();  // ZP
+ 
+ 		CameraShakeHook::Hook();
+ 		MovementHook::Hook();
+@@ -573,17 +575,21 @@ namespace Hooks
+ 
+ 	void HavokHooks::hkbRagdollDriver_DriveToPose(RE::hkbRagdollDriver* a_driver, float a_deltaTime, const RE::hkbContext& a_context, RE::hkbGeneratorOutput& a_generatorOutput)
+ 	{
++		ZenRagdollFixes::currentDriver = a_driver;  // ZP
+ 		PreDriveToPose(a_driver, a_deltaTime, a_context, a_generatorOutput);
+ 		_hkbRagdollDriver_DriveToPose(a_driver, a_deltaTime, a_context, a_generatorOutput);
+ 		PostDriveToPose(a_driver, a_deltaTime, a_context, a_generatorOutput);
++		ZenRagdollFixes::currentDriver = nullptr;  // ZP
+ 	}
+ 
+ 	void HavokHooks::hkbRagdollDriver_PostPhysics(RE::hkbRagdollDriver* a_driver, const RE::hkbContext& a_context, RE::hkbGeneratorOutput& a_generatorInOut)
+ 	{
++		ZenRagdollFixes::currentDriver = a_driver;  // ZP
+ 		PrePostPhysics(a_driver, a_context, a_generatorInOut);
+ 		_hkbRagdollDriver_PostPhysics(a_driver, a_context, a_generatorInOut);
+ 		PostPostPhysics(a_driver, a_context, a_generatorInOut);
+ 		PostPostPostPhysics(a_driver);
++		ZenRagdollFixes::currentDriver = nullptr;  // ZP
+ 	}
+ 
+ 	bool HavokHooks::BShkbAnimationGraph_ShouldAddToGraphListeners(RE::BShkbAnimationGraph* a_this)
+diff --git a/src/ZenRagdollFixes.cpp b/src/ZenRagdollFixes.cpp
+new file mode 100644
+index 0000000..fb3ac97
+--- /dev/null
++++ b/src/ZenRagdollFixes.cpp
+@@ -0,0 +1,258 @@
++// Zenderal fork of Precision 2.0.6 (ersh1/Precision, GPL-3.0): PLANCK's frost atronach active-ragdoll fixes.
++//
++// Why: with Precision's active ragdoll, Ice Elementals (frost atronachs) lift ~15-25 units off the ground
++// on every hit and hang there until the ragdoll switches off - measured in game 2026-10-12 as the WHOLE
++// ragdoll shifting up within one physics step, independent of impulse strength (halving it changed nothing).
++// The frost atronach is the one skeleton whose limb bodies are bhkRigidBodyT (bodies offset from their
++// bone). The game's ragdoll driver ignores that offset whenever it DRIVES a ragdoll to a pose or READS a
++// pose back from it - vanilla rarely drives a ragdoll, Precision does it on every hit. adamhynek's PLANCK
++// (Skyrim VR) fixes exactly this ("rigidBodyT is now handled both when writing and reading to/from the
++// ragdoll (mainly relates to frost atronach)", adamhynek/activeragdoll 61bce7e538), plus a second cause:
++// the atronach's animations stretch its limbs, and the game's anim->ragdoll mapping clamps bone lengths.
++//
++// This file ports those three PLANCK hooks to SSE 1.5.97 (call sites found in a decrypted image dump,
++// each verified byte-for-byte before patching; any other runtime or a changed byte = logged, not patched):
++//   write  0x9EC0B5  hkbRagdollDriver::driveToPose -> hkaRagdollRigidBodyController::driveToPose (0xB12210)
++//   read   0xB16228  hkaRagdollInstance::getApproxWorldFromBoneTransformAt -> hkpMotion::approxTransformAt (0xA70CE0)
++//   bones  0x9ED4B5  hkbRagdollDriver::mapHighResPoseLocalToLowResPoseLocal -> hkaSkeletonMapper::mapPose (0xB0DCD0)
++// Unlike PLANCK, the write and bone-length fixes only act on ragdolls that contain a bhkRigidBodyT body, so
++// every ordinary creature keeps Precision's behaviour exactly; the read fix only ever touches a T body.
++// Each fix has a switch in Data/SKSE/Plugins/Precision_ZenderalFixes.ini.
++
++#include "ZenRagdollFixes.h"
++
++#include "Offsets.h"
++#include "Utils.h"
++
++#include <SimpleIni.h>
++
++namespace ZenRagdollFixes
++{
++	namespace
++	{
++		bool g_write = true;
++		bool g_read = true;
++		bool g_boneLengths = false;
++
++		constexpr std::uint32_t kNoConstraints = 0;  // hkaSkeletonMapper::ConstraintSource::NO_CONSTRAINTS
++
++		bool GetRigidBodyT(RE::hkpRigidBody* a_body, RE::hkQuaternion*& a_rotation, RE::hkVector4*& a_translation)
++		{
++			if (!a_body) {
++				return false;
++			}
++			auto* wrapper = reinterpret_cast<RE::bhkRigidBody*>(a_body->userData);
++			if (!wrapper) {
++				return false;
++			}
++			static REL::Relocation<const RE::NiRTTI*> rttiT{ RE::NiRTTI_bhkRigidBodyT };
++			if (wrapper->GetRTTI() != rttiT.get()) {
++				return false;
++			}
++			auto* bytes = reinterpret_cast<std::uint8_t*>(wrapper);
++			a_rotation = reinterpret_cast<RE::hkQuaternion*>(bytes + 0x40);     // bhkRigidBodyT::rotation
++			a_translation = reinterpret_cast<RE::hkVector4*>(bytes + 0x50);     // bhkRigidBodyT::translation
++			return true;
++		}
++
++		bool RagdollHasRigidBodyT(RE::hkaRagdollInstance* a_ragdoll)
++		{
++			if (!a_ragdoll) {
++				return false;
++			}
++			RE::hkQuaternion* r;
++			RE::hkVector4*    t;
++			for (auto* body : a_ragdoll->rigidBodies) {
++				if (GetRigidBodyT(body, r, t)) {
++					return true;
++				}
++			}
++			return false;
++		}
++
++		RE::NiTransform LocalT(const RE::hkQuaternion& a_rotation, const RE::hkVector4& a_translation, float a_translationScale)
++		{
++			RE::NiTransform t;
++			t.rotate = Utils::QuaternionToMatrix(Utils::HkQuatToNiQuat(a_rotation));
++			t.translate = Utils::HkVectorToNiPoint(a_translation) * a_translationScale;
++			t.scale = 1.f;
++			return t;
++		}
++
++		// No unit conversion: these stay in whatever space the pose is in (Havok units in driveToPose).
++		RE::NiTransform QsToNi(const RE::hkQsTransform& a_in)
++		{
++			RE::NiTransform t;
++			t.rotate = Utils::QuaternionToMatrix(Utils::HkQuatToNiQuat(a_in.rotation));
++			t.translate = Utils::HkVectorToNiPoint(a_in.translation);
++			t.scale = a_in.scale.quad.m128_f32[0];
++			return t;
++		}
++
++		RE::hkQsTransform NiToQs(const RE::NiTransform& a_in)
++		{
++			RE::hkQsTransform q;
++			q.rotation = Utils::NiQuatToHkQuat(Utils::MatrixToQuaternion(a_in.rotate));
++			q.translation = Utils::NiPointToHkVector(a_in.translate);
++			q.scale = RE::hkVector4(a_in.scale, a_in.scale, a_in.scale, a_in.scale);
++			return q;
++		}
++
++		// PLANCK's ApplyRigidBodyTTransformsToPose: move each T body's bone target by the body's offset, so the
++		// controller drives the BODY to where the body belongs rather than to where its bone origin is.
++		void ApplyRigidBodyTToPose(RE::hkaRagdollInstance* a_ragdoll, const RE::hkQsTransform& a_worldFromModel, RE::hkQsTransform* a_poseLocal)
++		{
++			if (!a_ragdoll || !a_ragdoll->skeleton || !a_poseLocal) {
++				return;
++			}
++			const int numBones = static_cast<int>(a_ragdoll->skeleton->bones.size());
++			if (numBones <= 0 || static_cast<int>(a_ragdoll->boneToRigidBodyMap.size()) < numBones ||
++				static_cast<int>(a_ragdoll->skeleton->parentIndices.size()) < numBones) {
++				return;
++			}
++			const auto* parents = a_ragdoll->skeleton->parentIndices.begin();
++
++			std::vector<RE::hkQsTransform> world(numBones);
++			hkbPoseLocalToPoseWorld(numBones, parents, a_worldFromModel, a_poseLocal, world.data());
++
++			std::vector<bool> changed(numBones, false);
++			bool any = false;
++			for (int i = 0; i < numBones; ++i) {
++				const int index = a_ragdoll->boneToRigidBodyMap[i];
++				if (index < 0 || index >= static_cast<int>(a_ragdoll->rigidBodies.size())) {
++					continue;
++				}
++				RE::hkQuaternion* r;
++				RE::hkVector4*    t;
++				if (!GetRigidBodyT(a_ragdoll->rigidBodies[index], r, t)) {
++					continue;
++				}
++				world[i] = NiToQs(QsToNi(world[i]) * LocalT(*r, *t, 1.f));
++				changed[i] = true;
++				any = true;
++			}
++			if (!any) {
++				return;
++			}
++			// Back to local space - only for bones whose own or parent's world transform moved.
++			const RE::NiTransform worldFromModel = QsToNi(a_worldFromModel);
++			for (int i = 0; i < numBones; ++i) {
++				const int parent = parents[i];
++				if (!changed[i] && !(parent >= 0 && changed[parent])) {
++					continue;
++				}
++				const RE::NiTransform parentWorld = parent >= 0 ? QsToNi(world[parent]) : worldFromModel;
++				a_poseLocal[i] = NiToQs(parentWorld.Invert() * QsToNi(world[i]));
++			}
++		}
++
++		// ---------------------------------------------------------------- hooks
++
++		struct DriveToPose
++		{
++			static void thunk(void* a_controller, float a_deltaTime, RE::hkQsTransform* a_poseLocal, const RE::hkQsTransform& a_worldFromModel, void* a_stressOut)
++			{
++				if (g_write) {
++					// hkbRagdollDriver+0x98 is the hkaRagdollRigidBodyController (named unk98 in this CommonLib)
++					if (auto* driver = currentDriver; driver && driver->ragdoll &&
++														reinterpret_cast<void*>(driver->unk98) == a_controller) {
++						ApplyRigidBodyTToPose(driver->ragdoll, a_worldFromModel, a_poseLocal);
++					}
++				}
++				func(a_controller, a_deltaTime, a_poseLocal, a_worldFromModel, a_stressOut);
++			}
++			static inline REL::Relocation<decltype(thunk)> func;
++		};
++
++		struct ApproxTransformAt
++		{
++			static void thunk(RE::hkpMotion* a_motion, float a_time, RE::hkTransform& a_out)
++			{
++				func(a_motion, a_time, a_out);
++				if (!g_read) {
++					return;
++				}
++				// the call site passes &rigidBody->motion (rigidBody + 0x150)
++				auto*             body = reinterpret_cast<RE::hkpRigidBody*>(reinterpret_cast<std::uint8_t*>(a_motion) - 0x150);
++				RE::hkQuaternion* r;
++				RE::hkVector4*    t;
++				if (!GetRigidBodyT(body, r, t)) {
++					return;
++				}
++				// body world transform -> its bone's world transform (PLANCK: transform * inverse(rigidBodyT local))
++				RE::NiTransform bodyWorld = Utils::HkTransformToNiTransform(a_out);  // game units
++				bodyWorld = bodyWorld * LocalT(*r, *t, *g_worldScaleInverse).Invert();
++				a_out = Utils::NiTransformToHkTransform(bodyWorld);
++			}
++			static inline REL::Relocation<decltype(thunk)> func;
++		};
++
++		struct MapPose
++		{
++			static void thunk(void* a_mapper, const RE::hkQsTransform* a_poseAModel, const RE::hkQsTransform* a_originalPoseBLocal, RE::hkQsTransform* a_poseBModelInOut, std::uint32_t a_source)
++			{
++				if (g_boneLengths) {
++					if (auto* driver = currentDriver; driver && RagdollHasRigidBodyT(driver->ragdoll)) {
++						a_source = kNoConstraints;
++					}
++				}
++				func(a_mapper, a_poseAModel, a_originalPoseBLocal, a_poseBModelInOut, a_source);
++			}
++			static inline REL::Relocation<decltype(thunk)> func;
++		};
++
++		// Verify that a_rva holds `call rel32` to a_expectedTargetRva before patching; returns success.
++		template <class T>
++		bool WriteCall(std::uintptr_t a_rva, std::uintptr_t a_expectedTargetRva, const char* a_name)
++		{
++			const auto base = REL::Module::get().base();
++			const auto site = base + a_rva;
++			const auto* p = reinterpret_cast<const std::uint8_t*>(site);
++			if (p[0] != 0xE8) {
++				logger::error("ZenRagdollFixes: {} site {:X} is not a call ({:02X}) - not patched", a_name, a_rva, p[0]);
++				return false;
++			}
++			const auto target = site + 5 + *reinterpret_cast<const std::int32_t*>(p + 1);
++			if (target != base + a_expectedTargetRva) {
++				logger::error("ZenRagdollFixes: {} site {:X} calls {:X}, expected {:X} - not patched", a_name, a_rva, target - base, a_expectedTargetRva);
++				return false;
++			}
++			T::func = SKSE::GetTrampoline().write_call<5>(site, T::thunk);
++			logger::info("ZenRagdollFixes: {} hooked at {:X}", a_name, a_rva);
++			return true;
++		}
++
++		void LoadSettings()
++		{
++			constexpr auto path = L"Data/SKSE/Plugins/Precision_ZenderalFixes.ini";
++			CSimpleIniA    ini;
++			ini.SetUnicode();
++			if (ini.LoadFile(path) < 0) {
++				logger::info("ZenRagdollFixes: no Precision_ZenderalFixes.ini - using defaults");
++				return;
++			}
++			g_write = ini.GetBoolValue("RagdollFixes", "bApplyRigidBodyTWhenWriting", g_write);
++			g_read = ini.GetBoolValue("RagdollFixes", "bApplyRigidBodyTWhenReading", g_read);
++			g_boneLengths = ini.GetBoolValue("RagdollFixes", "bDontRestrictBoneLengthsAnimToRagdoll", g_boneLengths);
++		}
++	}
++
++	void Install()
++	{
++		LoadSettings();
++		logger::info("ZenRagdollFixes: write {}, read {}, bone lengths {}", g_write, g_read, g_boneLengths);
++		if (REL::Module::get().version() != SKSE::RUNTIME_SSE_1_5_97) {
++			logger::warn("ZenRagdollFixes: runtime {} is not 1.5.97 - addresses unknown, nothing patched", REL::Module::get().version().string());
++			return;
++		}
++		if (g_write) {
++			WriteCall<DriveToPose>(0x9EC0B5, 0xB12210, "driveToPose (rigidBodyT write)");
++		}
++		if (g_read) {
++			WriteCall<ApproxTransformAt>(0xB16228, 0xA70CE0, "approxTransformAt (rigidBodyT read)");
++		}
++		if (g_boneLengths) {
++			WriteCall<MapPose>(0x9ED4B5, 0xB0DCD0, "mapPose (bone lengths)");
++		}
++	}
++}
+diff --git a/src/ZenRagdollFixes.h b/src/ZenRagdollFixes.h
+new file mode 100644
+index 0000000..516a9c5
+--- /dev/null
++++ b/src/ZenRagdollFixes.h
+@@ -0,0 +1,14 @@
++#pragma once
++
++// Zenderal fork of Precision 2.0.6 (GPL-3.0): PLANCK's frost atronach active-ragdoll fixes, ported to
++// SSE 1.5.97. See ZenRagdollFixes.cpp for the why. Everything here is additive; Precision's own code
++// is unchanged except for the two lines in Hooks.cpp that record the current ragdoll driver.
++
++namespace ZenRagdollFixes
++{
++	// Set by Precision's hkbRagdollDriver driveToPose / postPhysics wrappers for the duration of the call,
++	// so the inner game-call hooks below know which ragdoll they are working on.
++	inline thread_local RE::hkbRagdollDriver* currentDriver = nullptr;
++
++	void Install();
++}
+diff --git a/src/main.cpp b/src/main.cpp
+index a59440e..dba223b 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -109,7 +109,7 @@ extern "C" DLLEXPORT bool SKSEAPI SKSEPlugin_Load(const SKSE::LoadInterface* a_s
+ 	logger::info("{} v{}"sv, Plugin::NAME, Plugin::VERSION.string());
+ 
+ 	SKSE::Init(a_skse);
+-	SKSE::AllocTrampoline(1 << 10);
++	SKSE::AllocTrampoline(1 << 11);  // ZP: room for ZenRagdollFixes
+ 
+ 	auto messaging = SKSE::GetMessagingInterface();
+ 	if (!messaging->RegisterListener("SKSE", MessageHandler)) {

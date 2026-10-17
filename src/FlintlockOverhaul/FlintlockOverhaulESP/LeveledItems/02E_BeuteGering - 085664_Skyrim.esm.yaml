@@ -1,0 +1,104 @@
+FormKey: 085664:Skyrim.esm
+EditorID: 02E_BeuteGering
+ChanceNone: 0.15
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 7
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 8
+- Data:
+    Level: 1
+    Reference: 014BEC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02E4E6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05ACDF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05ACE4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 05BB24:Skyrim.esm
+    Count: 4
+- Data:
+    Level: 1
+    Reference: 05BB24:Skyrim.esm
+    Count: 7
+- Data:
+    Level: 1
+    Reference: 07B8C7:Skyrim.esm
+    Count: 13
+- Data:
+    Level: 1
+    Reference: 085500:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 098620:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F5D05:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 137A06:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 148ABD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001CBC:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001DA5:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001DA5:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDB:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDB:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EDC:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EE8:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001EE8:Enderal SE - Gameplay Overhaul.esp
+    Count: 2
+- Data:
+    Level: 1
+    Reference: 000814:Zenderal - Flintlock Overhaul.esp
+    Count: 1

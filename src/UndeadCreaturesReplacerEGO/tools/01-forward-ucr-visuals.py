@@ -11,7 +11,7 @@ items. Visible symptom: Zu-Sherath 04459F drops the FS tome 'Spell Tome: Chaosno
 'This spell is no longer used in the "Gameplay Overhaul"' description).
 
 Rule, per UCR NPC (UCR's deleted 02F518 is left alone - its only two refs are deleted too):
-  record  = the previous winner verbatim (EGO SE - Leveling Redone > EGO > FS > Skyrim)
+  record  = the previous winner verbatim (EGO > FS > Skyrim)
   + every field UCR changed vs the record it was copied from (FS, else Skyrim), if in FORWARD
   + Configuration: only UCR's add/remove of Flags / TemplateFlags entries (Female flag; the
     template-flag drops that go with UCR unlinking a Template) - never its stat scalars
@@ -26,12 +26,12 @@ Any UCR field change in neither set fails the script - classify it before shippi
 Inputs (regenerate with /spriggit-decompile-reference):
   reference/base/{Skyrim,EnderalFS}/Npcs
   reference/mods/EGO/Npcs                     (Enderal SE - Gameplay Overhaul.esp)
-  reference/mods/LevelingRedoneEGO/Npcs       (EGO SE - Leveling Redone.esp)
   reference/mods/UndeadCreaturesReplacer/Npcs (Undead Creatures Replacer.esp)
 The winner chain was taken from a binary scan of every active plugin in 'Alpha 0.5':
 only Skyrim, FS, Enderal SE - Bug Fixes (090A0F, 1401A4; both lose to EGO), EGO,
 Leveling Redone.esp + EGO SE - Leveling Redone (1401A4) and UCR touch these NPCs, and UCR
-wins every one. Re-run that scan if the list changes.
+wins every one. Re-run that scan if the list changes. 2026-10-14: both Leveling Redone
+plugins left the list, so EGO is the previous winner for 1401A4 too.
 Output: src/UndeadCreaturesReplacerEGO/UndeadCreaturesReplacerEGOESP/Npcs/*.yaml (regenerated)
 """
 import collections
@@ -46,8 +46,7 @@ REF = os.path.join(ROOT, "reference")
 OUT = os.path.join(ROOT, "src", "UndeadCreaturesReplacerEGO", "UndeadCreaturesReplacerEGOESP", "Npcs")
 
 # Previous-winner search order, latest first. Bug Fixes is absent on purpose: EGO beats it.
-WINNERS = [("EGO SE - Leveling Redone", "mods/LevelingRedoneEGO"),
-           ("EGO", "mods/EGO"),
+WINNERS = [("EGO", "mods/EGO"),
            ("FS", "base/EnderalFS"),
            ("Skyrim", "base/Skyrim")]
 FORWARD = {"Race", "WornArmor", "Height", "AttackRace", "Attacks", "Template", "Name"}

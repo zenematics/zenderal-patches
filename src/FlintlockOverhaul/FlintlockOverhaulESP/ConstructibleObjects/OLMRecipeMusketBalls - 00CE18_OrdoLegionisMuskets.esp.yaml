@@ -1,0 +1,9 @@
+FormKey: 00CE18:OrdoLegionisMuskets.esp
+EditorID: OLMRecipeMusketBalls
+Items:
+- Item:
+    Item: 05ACE4:Skyrim.esm
+    Count: 2
+CreatedObject: 002F9D:OrdoLegionisMuskets.esp
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 10

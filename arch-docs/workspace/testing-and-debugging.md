@@ -204,6 +204,17 @@ From the Ark Myrad postmortem ([`patches/ArkMyradPlatformFix.md`](../patches/Ark
 > the record belongs to an NPC, quest alias, or anything else FS is likely to have touched.
 >
 
+## Which sound is that? Bisect with the audio-menu sliders
+
+When an unwanted sound can't be pinned down from the records (and mod A/B runs keep contradicting each
+other), find it in game with the volume sliders. Ask the curator which slider silences it, then build a
+throwaway plugin that moves groups of that category's descriptors (`Category:`) onto other sliders, i.e. any
+`SNCT` flagged `ShouldAppearOnMenu`. At the spot, set one slider at a time to 0, close the menu (menus
+duck all audio) and listen. The slider that keeps it gone names the group. Each round cuts the candidates
+about sixfold. It found the Ark coast wind bed in three rounds after a day of record analysis →
+[`patches/QuieterWaterfalls.md`](../patches/QuieterWaterfalls.md). Load the diag plugin last, and empty
+or remove it afterwards: its records override the real fix.
+
 ## Tooling traps
 
 - **Never rewrite a UTF-8 doc with PowerShell 5.1's `Set-Content -Encoding utf8`.** **[verified

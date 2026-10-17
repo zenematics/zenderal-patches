@@ -19,6 +19,10 @@ Thumbs.db
 # game content and are never committed. Unpack them outside the repo, or here.
 /papyrus-source/
 
+# CommonLibSSE-NG checkout (alandtse/CommonLibVR, ng branch) shared by every native SKSE DLL
+# patch in src/ — third-party, cloned per machine, never committed.
+/lib/
+
 # Binary Bethesda plugins — never commit. Edit the YAML, deserialize to build these.
 # CAUTION: Spriggit names its YAML cell/worldspace record *folders*
 # "<Name> - <FormID>_<Master>.esp" (or .esm/.esl), so a bare "*.esp" glob would ignore
@@ -44,6 +48,7 @@ Thumbs.db
 # the src/ original and the two drift.
 /build/staging/**/*.ini
 /build/staging/**/*.txt
+/build/staging/**/*.svg
 /build/staging/**/*.psc
 /build/staging/**/*.json
 /build/staging/**/*.dll
@@ -89,6 +94,8 @@ Thumbs.db
 !src/FeverDeathLatchFix/Scripts/compiled/*.pex
 !src/FlintlockOverhaul/Scripts/compiled/
 !src/FlintlockOverhaul/Scripts/compiled/*.pex
+!src/FlameShot/Scripts/compiled/
+!src/FlameShot/Scripts/compiled/*.pex
 
 # Reference decompiles — Enderal's ESM and third-party plugins serialized ONLY for FormKey
 # lookups. Large, regenerated locally from each machine's own copy, never committed.

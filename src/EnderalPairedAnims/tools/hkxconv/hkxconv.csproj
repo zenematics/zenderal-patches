@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- HKX <-> XML converter on Pandora's own HKX2 library. Build with:
+       dotnet build -c Release -p:Hkx2Dir=<checkout of Monitor221hz/HKX2-Enhanced-Library @ de77588>/HKX2
+       (that commit targets net10.0; on a net9-only SDK change HKX2E.csproj's TargetFramework to net9.0). -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(Hkx2Dir)/HKX2E.csproj" />
+  </ItemGroup>
+</Project>
