@@ -620,6 +620,23 @@
       ]
     },
     {
+      "$comment": "No plugin - one SKSE DLL + two JSON profiles. DBVO 2.0.2.2 gives every new game the same DBVO2/default_options.json and has no idea of the player's sex. When a new game's RaceSex menu closes, ZenDBVOSexDefaults.dll copies ZenDBVOSexDefaults/male.json or female.json over default_options.json and calls DBVO's own defaults loader (DBVO.dll +0x2AC20, pinned to TimeDateStamp 0x6AB06DCE + prologue bytes); the first save then keeps them in DBVO's record. The list's writable default_options.json lives in Zenderal - Settings. Build with src/DBVOSexDefaults/build.cmd; compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - DBVO Sex Defaults",
+      "archiveName": "Zenderal - DBVO Sex Defaults",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/DBVOSexDefaults/compiled/ZenDBVOSexDefaults.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/DBVOSexDefaults/data",
+          "to": ""
+        }
+      ]
+    },
+    {
       "$comment": "No plugin - one SKSE DLL + INI. Cinematic Conversation Camera (SceneDirector.dll) films Enderal's first-person memory scenes from a third-person crew camera: MQP01's childhood talk with Daddy (player SetScale 0.85, forced first person, cam switch locked) and the SetAlpha(0) scenes (MQP03 vision, Myrad flight). While the player's scale < ScaleBelowPct (90), race is a child race, or alpha < AlphaBelowPct (99), ZenCCCStandDown.dll holds SmoothCam's camera via SmoothCam's public API; CCC asks SmoothCam before every shot and declines on AlreadyTaken, so nothing in CCC is patched. Hooks PlayerCharacter::Update (vfunc 0xAD). Build with src/CCCStandDown/build.cmd; compiled DLL committed because CI cannot build it.",
       "name": "Zenderal - CCC Stand Down",
       "archiveName": "Zenderal - CCC Stand Down",

@@ -1,0 +1,16 @@
+{
+  "use_legacy_voice_over": true,
+  "legacy_pack": "FearTcbCiri",
+  "current_pack": "KicEnderal_Final_Voice_Pack",
+  "dialogue_volume": 178,
+  "dialogue_pitch": 90,
+  "dialogue_reverb": 32,
+  "resolve_alias_dialogue": true,
+  "force_localized": false,
+  "disable_player_subtitles": false,
+  "npc_response_delay": 1000,
+  "always_use_default_options": false,
+  "hide_dialogue_tree": false,
+  "use_localized_mappings": false,
+  "locale": ""
+}
