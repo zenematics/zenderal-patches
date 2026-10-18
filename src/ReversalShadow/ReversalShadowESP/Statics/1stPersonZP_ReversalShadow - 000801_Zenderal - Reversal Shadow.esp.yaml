@@ -1,0 +1,7 @@
+FormKey: 000801:Zenderal - Reversal Shadow.esp
+EditorID: 1stPersonZP_ReversalShadow
+Model:
+  File: Zenderal\ReversalShadow\ReversalShadow1st.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

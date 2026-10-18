@@ -127,3 +127,7 @@ NPCs.
 Built 2026-10-17. **Not yet verified in game:** confirm with OAR's animation log that `StfMagic_Release`
 etc. play from `Zenderal - Loop Pistol Animations`, and that the Flintlock Overhaul reload still fires
 (it hooks `OnActorAction` Spell Fire, which comes from the release clip's annotation).
+
+**Reversal Shadow (2026-10-18).** `tools/01` also matches `ZP_ReversalShadow 800:Zenderal - Reversal Shadow.esp` by
+form (`EXTRA_PISTOLS`). It carries the Loop keyword `801`, yet in game it did not get these animations with the keyword
+condition alone; why is open. Add any further pistol here by form, not by keyword.

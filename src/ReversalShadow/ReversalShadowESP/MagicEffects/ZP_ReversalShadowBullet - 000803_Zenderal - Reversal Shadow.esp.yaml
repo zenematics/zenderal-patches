@@ -1,0 +1,44 @@
+FormKey: 000803:Zenderal - Reversal Shadow.esp
+EditorID: ZP_ReversalShadowBullet
+Name:
+  TargetLanguage: English
+  Value: Pistol Shot
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 00080C:Zenderal - Flintlock Overhaul.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 50
+MagicSkill: Aggression
+ResistValue: Aggression
+TaperWeight: 0.3
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.0001
+TaperCurve: 2
+TaperDuration: 0.01
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000801:AdventurerFlintlockPack.esp
+Explosion: 0F3A8C:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+HitEffectArt: 0A6EF5:Skyrim.esm
+ImpactData: 0193B9:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 000803:AdventurerFlintlockPack.esp
+- Type: Release
+  Sound: 000804:AdventurerFlintlockPack.esp
+Description:
+  TargetLanguage: English
+  Value: Fires a Flintlock bullet.

@@ -1,0 +1,33 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Reversal Shadow.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Reversal Shadow: a black-and-silver flintlock pistol whose shot also casts Triumvirate's Witch Bolt on the target. Found on a shelf at Old Crosswatch, or crafted at the forge from a Priest's Dueling Pistol and two silver ingots (Smithing 50). Eldritch Blast does 20 more damage to a target under Witch Bolt. Requires the Flintlock Overhaul, Triumvirate and Zenderal - Magic Patches.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Pistol animation by Loop.esp
+    FileSize: 0
+  - Master: Forts of Enderal.esp
+    FileSize: 0
+  - Master: Triumvirate - Mage Archetypes.esp
+    FileSize: 0
+  - Master: AdventurerFlintlockPack.esp
+    FileSize: 0
+  - Master: Zenderal - Flintlock Overhaul.esp
+    FileSize: 0
+  - Master: Zenderal - Magic Patches.esp
+    FileSize: 0
+  INTV: 1

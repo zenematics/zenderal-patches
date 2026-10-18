@@ -1,0 +1,40 @@
+FormKey: 000806:Zenderal - Reversal Shadow.esp
+EditorID: ZP_EldritchBlastWitchBoltBonus
+Name:
+  TargetLanguage: English
+  Value: Witch Bolt Resonance
+MenuDisplayObject: 19B45E:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 0A9B1F:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- NoDeathDispel
+BaseCost: 0
+MagicSkill: Destruction
+CastingLight: 19B45C:Triumvirate - Mage Archetypes.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 19B45F:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 191247:Triumvirate - Mage Archetypes.esp
+ImpactData: 19B463:Triumvirate - Mage Archetypes.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 115E18:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> extra raw damage to a target burning with Witch Bolt.

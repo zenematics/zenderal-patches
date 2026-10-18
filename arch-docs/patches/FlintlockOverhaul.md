@@ -29,3 +29,8 @@ EGO's silver-arrow treatment and needs no new perk. **[verified from records]** 
   threshold, without its blueprint).
 - Not in loot or vendor lists yet. **[verified in game 2026-10-16]** Silver balls hurt ghosts, so equipped
   AMMO does satisfy `WornHasKeyword` with a crossbow-type musket.
+
+## `ZP_FlintlockWeapons 000802` is overridden by Reversal Shadow (2026-10-18)
+
+[`ReversalShadow`](ReversalShadow.md) adds its pistol to this list in its own plugin. After changing the
+list here, rerun `src/ReversalShadow/tools/02-build-records.py` or the override reverts the change.

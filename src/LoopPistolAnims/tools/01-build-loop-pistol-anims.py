@@ -65,8 +65,16 @@ def any_of(conditions):
 # (mirror_hkx.py) under those names.
 
 
+# Other Zenderal pistols built on the Gentleman's staves, matched by form like the 8 above. Reversal Shadow
+# (src/ReversalShadow) also carries the Loop keyword, but in game (2026-10-18) the keyword alone did not
+# select these submods; matching by form is the path verified in game.
+EXTRA_PISTOLS = [('Zenderal - Reversal Shadow.esp', '800')]
+
+
 def pistol(left):
-    return any_of([equipped(FLINTLOCK_ESP, f, left) for f in PISTOLS] + [has_keyword('801', left)])
+    return any_of([equipped(FLINTLOCK_ESP, f, left) for f in PISTOLS]
+                  + [equipped(p, f, left) for p, f in EXTRA_PISTOLS]
+                  + [has_keyword('801', left)])
 
 
 def direction(value):

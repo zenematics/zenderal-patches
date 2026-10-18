@@ -1,0 +1,28 @@
+FormKey: 001D3C:Skyrim.esm
+EditorID: Vyn
+Name:
+  TargetLanguage: English
+  Value: Vyn, Enderal
+Location: 066859:Skyrim.esm
+Climate: 00015F:Skyrim.esm
+Water: 000018:Skyrim.esm
+LodWater: 000018:Skyrim.esm
+LodWaterHeight: 0
+LandDefaults:
+  DefaultLandHeight: -2048
+MapData:
+  NorthwestCellCoords: -40, 40
+  SoutheastCellCoords: 30, -30
+  CameraMinHeight: 190000
+  CameraMaxHeight: 375000
+  CameraInitialPitch: 90
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- CannotFastTravel
+ObjectBoundsMin: -69, -55
+ObjectBoundsMax: 67, 134
+HdLodDiffuseTexture: data\textures\landscape\mountains\mountainslab02.dds
+HdLodNormalTexture: data\textures\landscape\mountains\mountainslab02_n.dds
+SubCellsUnknown: 1

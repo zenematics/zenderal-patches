@@ -1,0 +1,32 @@
+FormKey: 419B32:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_D000_StaffEnchantment_EldritchBlast
+Name:
+  TargetLanguage: English
+  Value: Eldritch Blast
+EnchantmentCost: 32
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 32
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 19B464:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 20
+    Duration: 1
+- BaseEffect: 19B46E:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 1000
+    Duration: 5
+- BaseEffect: 000806:Zenderal - Reversal Shadow.esp
+  Data:
+    Magnitude: 20
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 1BEBB6:Triumvirate - Mage Archetypes.esp
+    ComparisonValue: 1

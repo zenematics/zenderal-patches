@@ -131,6 +131,11 @@ lookup copies are the same files — there is no second copy to drift.
   fine and keeps the conflict surface to the WRLD fields. Copy the file and cut it with a script —
   do not retype it (guardrail 4).
 
+- **A `PlacedObject`'s record flags are raw, not named.** **[verified 2026-10-18]** `MajorFlags: [DoNotHavokSettle]`
+  works on a `PlacedNpc` but is **silently dropped** on a `PlacedObject` (built REFR flags = 0). Write the
+  raw form right after `FormKey:`, as Spriggit itself serializes it:
+  `MajorRecordFlagsRaw: 536870912` plus `SkyrimMajorRecordFlags: [0x20000000]` (Don't Havok Settle).
+  Check the built REFR's header flags, not the YAML.
 - **YAML comments do not survive a re-serialize.** Spriggit rewrites the folder from the binary
   plugin, so any `#` comment you add to a record file is lost the next time anyone runs
   `/spriggit-serialize`. Put durable explanation in `arch-docs/`, not in the record YAML.
