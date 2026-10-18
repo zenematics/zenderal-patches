@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.25)
 # Zenderal DBVO Sex Defaults: DBVO 2 has one default_options.json for every new character. When a new
 # game's character creation closes, this writes the male or female profile into it and has DBVO reload
 # it, so a new character starts with the voice settings for their sex. SSE 1.5.97 only, CommonLibSSE-NG.
-project(ZenDBVOSexDefaults VERSION 1.0.0 LANGUAGES CXX)
+project(ZenDBVOSexDefaults VERSION 1.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

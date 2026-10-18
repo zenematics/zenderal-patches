@@ -7,7 +7,8 @@
 // every new game and before every load. It has no idea of the player's sex, and in Enderal the sex is
 // chosen in the RaceSex menu well after the new game has started.
 //
-// So when a new game's RaceSex menu closes, this copies male.json or female.json (next to this DLL)
+// So at the start of a new game (the prologue is played as the default male player) and again when its
+// RaceSex menu closes, this copies male.json or female.json (next to this DLL)
 // over default_options.json and calls DBVO's own "load default_options.json" routine, which revert
 // uses. The settings are then in memory and go into the character's first save; from there on DBVO's
 // save record rules, so anything the player changes in DBVO's menu sticks.
@@ -20,7 +21,7 @@
 // called, and the log says so.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 0, 0 },
+	.Version = REL::Version{ 1, 1, 0, 0 },
 	.Name = "ZenDBVOSexDefaults"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -105,6 +106,26 @@ namespace
 		g_appliedSex = static_cast<int>(a_sex);
 	}
 
+	// Queued on the main thread: by then DBVO's revert for this new game has run, so our reload wins.
+	void ApplyForCurrentPlayer(const char* a_when)
+	{
+		SKSE::GetTaskInterface()->AddTask([a_when] {
+			const auto player = RE::PlayerCharacter::GetSingleton();
+			const auto base = player ? player->GetActorBase() : nullptr;
+			if (!base) {
+				SKSE::log::warn("{}: no player base yet; DBVO keeps its current settings", a_when);
+				return;
+			}
+			const auto sex = base->GetSex();
+			if (static_cast<int>(sex) == g_appliedSex) {
+				SKSE::log::info("{}: player is still {}, leaving DBVO alone", a_when, sex == RE::SEX::kFemale ? "female" : "male");
+				return;
+			}
+			SKSE::log::info("{}: player is {}", a_when, sex == RE::SEX::kFemale ? "female" : "male");
+			ApplyForSex(sex);
+		});
+	}
+
 	class MenuSink final : public RE::BSTEventSink<RE::MenuOpenCloseEvent>
 	{
 	public:
@@ -113,20 +134,7 @@ namespace
 			if (!a_event || a_event->opening || !g_freshGame || a_event->menuName != RE::RaceSexMenu::MENU_NAME) {
 				return RE::BSEventNotifyControl::kContinue;
 			}
-			SKSE::GetTaskInterface()->AddTask([] {
-				const auto player = RE::PlayerCharacter::GetSingleton();
-				const auto base = player ? player->GetActorBase() : nullptr;
-				if (!base) {
-					return;
-				}
-				const auto sex = base->GetSex();
-				if (static_cast<int>(sex) == g_appliedSex) {
-					SKSE::log::info("RaceSex menu closed; sex unchanged, leaving DBVO alone");
-					return;
-				}
-				SKSE::log::info("RaceSex menu closed on a new game; player is {}", sex == RE::SEX::kFemale ? "female" : "male");
-				ApplyForSex(sex);
-			});
+			ApplyForCurrentPlayer("RaceSex menu closed on a new game");
 			return RE::BSEventNotifyControl::kContinue;
 		}
 	};
@@ -136,7 +144,7 @@ namespace
 SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenDBVOSexDefaults 1.0.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenDBVOSexDefaults 1.1.0 loading, runtime {}", REL::Module::get().version().string());
 
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
 		switch (a_msg->type) {
@@ -145,9 +153,12 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 			RE::UI::GetSingleton()->AddEventSink<RE::MenuOpenCloseEvent>(&g_menuSink);
 			break;
 		case SKSE::MessagingInterface::kNewGame:
+			// Enderal's prologue is played before character creation, as the default (male) player, and
+			// DBVO voices it. Apply that sex's profile now so the prologue never runs on whatever profile
+			// default_options.json was last left holding; the RaceSex menu then switches it if needed.
 			g_freshGame = true;
 			g_appliedSex = -1;
-			SKSE::log::info("new game: waiting for the RaceSex menu to close");
+			ApplyForCurrentPlayer("new game");
 			break;
 		case SKSE::MessagingInterface::kPreLoadGame:
 			g_freshGame = false;

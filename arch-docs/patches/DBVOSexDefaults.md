@@ -38,9 +38,18 @@ DBVO has already loaded its defaults. **[verified by disassembly, 2026-10-18]**
 
 ## Mechanism
 
-`kNewGame` arms the plugin. When the RaceSex menu closes on that new game, a main-thread task reads the
+On `kNewGame`, and again when the RaceSex menu closes on that new game, a main-thread task reads the
 player's sex, copies `male.json` or `female.json` over `Data/SKSE/Plugins/DBVO2/default_options.json`
-(only if it differs), and calls DBVO's `0x2AC20`. The new settings are live at once, and the first save
+(only if it differs), and calls DBVO's `0x2AC20`. The `kNewGame` step matters because Enderal's
+prologue is played before character creation, as the default male player, and DBVO voices it.
+
+**Postmortem (1.0.0 → 1.1.0, 2026-10-18):** 1.0.0 applied a profile only when the RaceSex menu closed.
+Each chargen on the curator's machine rewrote the shipped `default_options.json`, and the compile packed
+it holding the *female* profile (the last chargen was a female test character). Users' new games then
+ran the prologue on the female voice, reported as "male character with female voice". 1.1.0 also
+applies at `kNewGame`, so the shipped file's content no longer decides anything.
+**Before every compile, check that `Zenderal - Settings/SKSE/Plugins/DBVO2/default_options.json` is
+still `male.json`**: every chargen on this machine overwrites it. The new settings are live at once, and the first save
 stores them in DBVO's own record. Any save load disarms the plugin, so later RaceSex visits (e.g.
 `showracemenu`) and every existing save are left alone. Player changes in DBVO's menu persist as normal.
 `always_use_default_options` stays `false` in both profiles. Setting it would make the file override
@@ -61,7 +70,10 @@ Include, MO2 row 44, above `Dragonborn Voice Over 2` at row 50) carries a copy t
 
 - Saves made with no DBVO record (before DBVO 2 was installed) get whatever profile was written last,
   through revert. Every save made since then has its own record.
-- Lines spoken before the RaceSex menu closes (the prologue) use the previous file's settings.
+- A player who will pick female hears the male profile during the prologue (they are male until
+  character creation), which is correct for the character on screen.
 
-**Status:** works in game (curator, 2026-10-18: new female character got the female profile). To check, look in `ZenDBVOSexDefaults.log` (`My Games/Skyrim Special
+**Status:** 1.0.0 worked for a female chargen (curator, 2026-10-18). **1.1.0 (new-game apply) is
+unverified in game.** On a new game the log should show `new game: player is male` and
+`DBVO reloaded its defaults: male profile is live`. To check, look in `ZenDBVOSexDefaults.log` (`My Games/Skyrim Special
 Edition/SKSE/`) for `DBVO reloaded its defaults: female profile is live` after a female chargen.
