@@ -56,3 +56,4 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`CCCStandDown`](CCCStandDown.md) | *(no plugin — `ZenCCCStandDown.dll` + `.ini`, MO2 mod `Zenderal - CCC Stand Down`)* | _(none)_ |
 | [`Fuse00ArmorRaces`](Fuse00ArmorRaces.md) | `Zenderal - Fuse00 Armor Races.esp` | none (overrides only) |
 | [`ReversalShadow`](ReversalShadow.md) | `Zenderal - Reversal Shadow.esp` + generated meshes/texture/sound | `0x800–0x808` |
+| [`PerpetuumTheaterEVGATFix`](PerpetuumTheaterEVGATFix.md) | `Zenderal - Perpetuum Theater EVGAT Fix.esp` | none (overrides only) |

@@ -293,6 +293,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`CCCStandDown`](arch-docs/patches/CCCStandDown.md) → `ZenCCCStandDown.dll` | none | CCC stays out of memory scenes (player shrunk/child race/faded: MQP01 Daddy, MQP03 vision) by holding SmoothCam's camera, which CCC then declines to take. Verified in game (MQP01) |
 | [`Fuse00ArmorRaces`](arch-docs/patches/Fuse00ArmorRaces.md) → `Zenderal - Fuse00 Armor Races.esp` | none | Adventurer + Helga armor visible on Half Arazealean/Qyranian (`033899`/`033898`, not vanilla `013746`/`013748`). Generated |
 | [`ReversalShadow`](arch-docs/patches/ReversalShadow.md) → `Zenderal - Reversal Shadow.esp` + generated meshes/texture | `0x800–0x808` | Black-and-silver Priest's pistol (laser shot sound) whose shot also casts Triumvirate's Witch Bolt; Eldritch Blast +20 on a Witch-Bolted target; one placed on the Old Crosswatch shelf (cell `001F20`). **Owns** `ZP_FlintlockWeapons 000802`, Eldritch Blast `19B465`/`419B32` and cell `001F20`'s header — rerun its `tools/02` after the Flintlock list or Magic Patches changes. Generated. Unverified in game |
+| [`PerpetuumTheaterEVGATFix`](arch-docs/patches/PerpetuumTheaterEVGATFix.md) → `Zenderal - Perpetuum Theater EVGAT Fix.esp` | none | Disables EVGAT_Enderal's plank/post `0009CC`/`0009CD` (floating over the rebuilt theater corner) and collision planes `0009CA`/`0009CB` (invisible walls in its courtyard), which the theater's own EVGAT patch skips. Generated. Unverified in game |
 
 ### Useful FormKey constants
 

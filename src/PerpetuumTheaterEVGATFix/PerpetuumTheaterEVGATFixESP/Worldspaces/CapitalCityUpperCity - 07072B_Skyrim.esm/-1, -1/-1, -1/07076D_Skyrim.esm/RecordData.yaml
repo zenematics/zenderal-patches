@@ -1,0 +1,67 @@
+FormKey: 07076D:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+SkyrimMajorRecordFlags:
+- Compressed
+Flags:
+- HasWater
+Grid:
+  Point: -1, -2
+WaterHeight: 3.4028235E+38
+Regions:
+- 139A23:Skyrim.esm
+Location: 0A1A12:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 0009CA:EVGAT_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  VersionControl: 12853
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 000021:Skyrim.esm
+  Primitive:
+    Bounds: 867.155, 2, 1202.8145
+    Color: '#00FFFF00'
+    Unknown: 0.15
+    Type: PortalBox
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -3648.0361, -7909.3657, -30000
+    Rotation: 0, -0, 2.2650008
+- MutagenObjectType: PlacedObject
+  FormKey: 0009CC:EVGAT_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  VersionControl: 12853
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 04F8E9:Skyrim.esm
+  Scale: 1.29
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -3515.8232, -7815.9316, -30000
+    Rotation: 1.5594733, 0.7716105, 0.055880778
+- MutagenObjectType: PlacedObject
+  FormKey: 0009CD:EVGAT_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  VersionControl: 12853
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0B735A:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -3595.6465, -7725.462, -30000
+    Rotation: 0, -0, 2.386408
+MajorFlags:
+- 0x40000

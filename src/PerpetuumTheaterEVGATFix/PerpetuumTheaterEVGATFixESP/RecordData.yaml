@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Perpetuum Theater EVGAT Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Disables the EVG Animated Traversal scaffold and collision planes left floating over the Perpetuum Theater's rebuilt Nobles Quarter.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: EVGAT_Enderal.esp
+    FileSize: 0
+  - Master: Perpetuum Theater - EVGAT Enderal Patch.esp
+    FileSize: 0
+  - Master: Perpetuum Theater - Enderal TAT CM Fixes.esp
+    FileSize: 0
+  INTV: 1
