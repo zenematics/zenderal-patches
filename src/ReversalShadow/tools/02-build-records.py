@@ -15,6 +15,8 @@ Loop meshes) or its ZP_FlintlockWeapons list change.
            IsBalefireSpell keyword, so it neither doubles the visuals nor counts as a second balefire hit
   override ZP_FlintlockWeapons 000802:Zenderal - Flintlock Overhaul.esp (+800), so the
            Flintlock Overhaul's reload script treats it as a pistol.
+  808 SNDR ZP_ReversalShadowShotSD   <- PMGunShotSD 000804 (Gentleman's), file -> the curator's laser shot
+           (tools/01 --shot copies it); 803's Release sound points at it
   807 REFR the pistol on the lower board of the CommonShelf04 at Old Crosswatch (shelf ref 0F916D,
            exterior cell 001F20 in Vyn) + the WRLD/group/cell scaffolding, headers from Forts of Enderal
   override TVR_Warlock_D000_Spell_EldritchBlast 19B465 = Zenderal - Magic Patches' copy (cost ladder) + 806
@@ -183,7 +185,8 @@ def place_on_shelf():
 def main():
     import shutil
     shutil.rmtree(os.path.join(OUT, 'Worldspaces'), ignore_errors=True)
-    for sub in ('Weapons', 'Statics', 'ObjectEffects', 'MagicEffects', 'ConstructibleObjects', 'FormLists', 'Spells'):
+    for sub in ('Weapons', 'Statics', 'ObjectEffects', 'MagicEffects', 'ConstructibleObjects', 'FormLists', 'Spells',
+                'SoundDescriptors'):
         d = os.path.join(OUT, sub)
         if os.path.isdir(d):
             for f in os.listdir(d):
@@ -217,7 +220,19 @@ def main():
     m = sub1(m, r'^BaseCost: .*?(?=\r?$)', 'BaseCost: 50')
     m = sub1(m, r'^(Description:\r?\n  TargetLanguage: English\r?\n  Value: )Fires a musket ball(?=\r?$)',
              r'\g<1>Fires a Flintlock bullet.')   # curator 2026-10-18: it loads Flintlock Bullets, not musket balls
+    m = sub1(m, r'^(- Type: Release\r?\n  Sound: )000804:AdventurerFlintlockPack\.esp(?=\r?$)', r'\g<1>000808:' + ME)
     write('MagicEffects', 'ZP_ReversalShadowBullet', '000803', m)
+
+    # 808 SNDR: the pistol's gunshot descriptor, playing the curator's laser shot (curator 2026-10-18)
+    sd = read(os.path.join(GENTLEMAN, 'SoundDescriptors', 'PMGunShotSD - 000804_AdventurerFlintlockPack.esp.yaml'))
+    sd = sub1(sd, r'^FormKey: .*?(?=\r?$)', f'FormKey: 000808:{ME}')
+    sd = sub1(sd, r'^EditorID: .*?(?=\r?$)', 'EditorID: ZP_ReversalShadowShotSD')
+    sd = sub1(sd, r'^(SoundFiles:\r?\n- ).*?(?=\r?$)',
+              lambda mt: mt.group(1) + r'\Data\Sound\FX\Zenderal\ReversalShadow\ReversalShadowShot.wav')
+    # curator 2026-10-18: 15% louder. The mix already peaks at the clip limit, so the gain goes here:
+    # 20*log10(1.15) = 1.21 dB less attenuation than the Gentleman's 4.85
+    sd = sub1(sd, r'^StaticAttenuation: 4\.85(?=\r?$)', 'StaticAttenuation: 3.64')
+    write('SoundDescriptors', 'ZP_ReversalShadowShotSD', '000808', sd)
 
     # 802 ENCH: Priest's shot (bullet swapped for 803) + Witch Bolt's two effects at Triumvirate's values
     e = one(os.path.join(FO, 'ObjectEffects'), 'ZP_FlintlockShot_PriestsDuelingPistol - 000805')

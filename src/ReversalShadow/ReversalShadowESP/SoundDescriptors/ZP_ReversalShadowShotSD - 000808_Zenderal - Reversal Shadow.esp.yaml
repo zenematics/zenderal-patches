@@ -1,0 +1,13 @@
+FormKey: 000808:Zenderal - Reversal Shadow.esp
+EditorID: ZP_ReversalShadowShotSD
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\Zenderal\ReversalShadow\ReversalShadowShot.wav
+OutputModel: 0ABEF3:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 1
+PercentFrequencyVariance: 5
+Priority: 128
+StaticAttenuation: 3.64

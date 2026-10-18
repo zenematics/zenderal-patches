@@ -38,7 +38,7 @@ Sounds:
 - Type: Charge
   Sound: 000803:AdventurerFlintlockPack.esp
 - Type: Release
-  Sound: 000804:AdventurerFlintlockPack.esp
+  Sound: 000808:Zenderal - Reversal Shadow.esp
 Description:
   TargetLanguage: English
   Value: Fires a Flintlock bullet.

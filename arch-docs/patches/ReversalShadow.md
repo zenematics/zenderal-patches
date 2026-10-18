@@ -2,7 +2,7 @@
 
 - **Source:** `src/ReversalShadow/`
 - **Ships:** `Zenderal - Reversal Shadow.esp` + 2 generated meshes + 1 generated texture (not committed)
-- **FormID block:** `0x800–0x807`
+- **FormID block:** `0x800–0x808`
 - **Pillar:** modern combat (curator's request, 2026-10-18)
 
 ## What it does
@@ -59,6 +59,20 @@ marks the inlays reflective, so they read as polished silver. The two meshes are
 `FlintlockPistol02.nif` (world model) and Loop's rotated copy (the equipped model, see LoopPistolAnims)
 with one same-length string changed, `flintblackbase_d.dds` → `flintrevshadow_d.dds`; the script
 asserts one hit each. Outputs go straight into the MO2 mod `Zenderal - Reversal Shadow`.
+
+## Laser shot sound (2026-10-18)
+
+Curator's request: the gunshot is three of the curator's own sounds layered from t = 0:
+`Lazer Gun Shot 3.wav` (1.54 s) + `Breathing Echo 2.wav` (3.73 s), both 16-bit PCM stereo 44.1 kHz, +
+`MA_CMDSOUND_Gun_Sound_03.wav` (1.84 s, **24-bit 48 kHz**, cut to 16-bit and linearly resampled to 44.1 kHz).
+`tools/01 --shot <wav>` (repeatable) checks the formats, sums the layers, and scales the whole mix down only if
+it would clip: the three-layer sum peaks at 56675, so the mix is ×0.565 (≈ −5 dB), 3.73 s long. It writes `sound/fx/Zenderal/ReversalShadow/ReversalShadowShot.wav` in the
+MO2 mod; **not committed** (the curator's files). SNDR `ZP_ReversalShadowShotSD 808` is `PMGunShotSD 000804` verbatim (category, output model,
+5% pitch variance) with the file changed and **StaticAttenuation 4.85 → 3.64 dB** (curator: "15% louder";
+20·log10 1.15 = 1.21 dB, done in the record because the mix already peaks at the clip limit), and the bullet effect `803`'s **Release**
+sound points at it. The shot sound comes from `803` because it is the costliest effect. The cocking
+(Charge) sound is still the Gentleman's. Stereo WAVs play unpositioned (2D), fine for the player's
+own gun. **[unverified in game]**
 
 ## Placed at Old Crosswatch (2026-10-18)
 
