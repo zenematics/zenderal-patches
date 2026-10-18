@@ -618,6 +618,23 @@
           "to": ""
         }
       ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL + INI. Cinematic Conversation Camera (SceneDirector.dll) films Enderal's first-person memory scenes from a third-person crew camera: MQP01's childhood talk with Daddy (player SetScale 0.85, forced first person, cam switch locked) and the SetAlpha(0) scenes (MQP03 vision, Myrad flight). While the player's scale < ScaleBelowPct (90), race is a child race, or alpha < AlphaBelowPct (99), ZenCCCStandDown.dll holds SmoothCam's camera via SmoothCam's public API; CCC asks SmoothCam before every shot and declines on AlreadyTaken, so nothing in CCC is patched. Hooks PlayerCharacter::Update (vfunc 0xAD). Build with src/CCCStandDown/build.cmd; compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - CCC Stand Down",
+      "archiveName": "Zenderal - CCC Stand Down",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/CCCStandDown/compiled/ZenCCCStandDown.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/CCCStandDown/data",
+          "to": ""
+        }
+      ]
     }
   ]
 }
