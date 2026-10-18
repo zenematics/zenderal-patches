@@ -1,0 +1,189 @@
+FormKey: 001FAC:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+Version2: 3
+SkyrimMajorRecordFlags:
+- Compressed
+Flags:
+- HasWater
+Grid:
+  Point: -5, -1
+  Flags: -1604588032
+WaterHeight: 3.4028235E+38
+Regions:
+- 0020F3:Skyrim.esm
+- 07C978:Skyrim.esm
+- 002230:Skyrim.esm
+- 07C979:Skyrim.esm
+Location: 0A1A12:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000800:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 006D00:KataHiddenPowers.esp
+  Owner: 000007:Skyrim.esm
+  Placement:
+    Position: -18003.87, -433.71, 1423.95
+    Rotation: -0.00069080025, -0.00031644572, 0.0046792827
+- MutagenObjectType: PlacedObject
+  FormKey: 000801:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 01AC8C:Skyrim.esm
+  Scale: 0.63
+  Placement:
+    Position: -19612.52, -133.42763, 1222.638
+    Rotation: -0.5182479, -0.044673566, 6.145035
+- MutagenObjectType: PlacedObject
+  FormKey: 000802:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 01AC8C:Skyrim.esm
+  Scale: 0.63
+  Placement:
+    Position: -19019.408, -130.8492, 1222.638
+    Rotation: -0.51945585, -0.024836123, 6.179791
+- MutagenObjectType: PlacedObject
+  FormKey: 000803:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 01AC8D:Skyrim.esm
+  Scale: 0.8
+  Placement:
+    Position: -19575.684, -398.1248, 742.71405
+    Rotation: 0, -0, 6.1731844
+- MutagenObjectType: PlacedObject
+  FormKey: 000804:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 01AC8D:Skyrim.esm
+  Scale: 0.8
+  Placement:
+    Position: -18985.78, -378.39005, 785.00653
+    Rotation: 0, -0, 6.2131844
+- MutagenObjectType: PlacedObject
+  FormKey: 000805:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -20352, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000806:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -20224, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000807:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -20096, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000808:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19968, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000809:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19840, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00080A:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19712, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00080B:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19584, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00080C:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19456, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00080D:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19328, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00080E:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19200, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00080F:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -19072, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000810:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18944, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000811:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18816, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000812:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18688, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000813:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18560, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000814:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18432, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000815:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18304, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000816:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18176, -64, 1280
+    Rotation: 0, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 000817:Zenderal - Ark Bridge Overhaul Fixes.esp
+  Base: 0FD0CB:Skyrim.esm
+  Scale: 0.25
+  Placement:
+    Position: -18048, -64, 1280
+    Rotation: 0, 0, 0
+MajorFlags:
+- 0x40000

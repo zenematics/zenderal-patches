@@ -32,6 +32,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`PrettyArmoryEGO`](PrettyArmoryEGO.md) | `Zenderal - Pretty Armory EGO Patch.esp` | none (overrides only) |
 | [`ArkMyradPlatformFix`](ArkMyradPlatformFix.md) | `Zenderal - Ark Myrad Platform Fix.esp` | none (overrides only) |
 | [`ArkMarketTreeFix`](ArkMarketTreeFix.md) | `Zenderal - Ark Market Tree Fix.esp` | none (overrides only) |
+| [`ArkBridgeOverhaulFixes`](ArkBridgeOverhaulFixes.md) | `Zenderal - Ark Bridge Overhaul Fixes.esp` | `0x800–0x817` |
 | [`EppiRivervilleStatues`](EppiRivervilleStatues.md) | `Zenderal - EPPI Riverville Statues Patch.esp` | none (overrides only) |
 | [`FeverDeathLatchFix`](FeverDeathLatchFix.md) | *(no plugin — one recompiled script)* | _(none)_ |
 | [`UndeadCreaturesReplacerEGO`](UndeadCreaturesReplacerEGO.md) | `Zenderal - Undead Creatures Replacer EGO Patch.esp` | none (overrides only) |

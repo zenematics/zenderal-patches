@@ -1,0 +1,28 @@
+FormKey: 001FA5:Skyrim.esm
+EditorID: CapitalCityDoor
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: -4, -1
+  Flags: -1347856640
+WaterHeight: 3.4028235E+38
+Regions:
+- 0020F3:Skyrim.esm
+- 07C978:Skyrim.esm
+- 002230:Skyrim.esm
+- 07C979:Skyrim.esm
+Location: 0A1A12:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 037889:Skyrim.esm
+  MajorRecordFlagsRaw: 1073741824
+  Version2: 1
+  SkyrimMajorRecordFlags:
+  - 0x40000000
+  Base: 03CAE2:Skyrim.esm
+  LinkedReferences:
+  - Reference: 03788C:Skyrim.esm
+  Placement:
+    Position: -15529.043, -1103.7936, 1228.9255
+    Rotation: 0, -0, 2.320014

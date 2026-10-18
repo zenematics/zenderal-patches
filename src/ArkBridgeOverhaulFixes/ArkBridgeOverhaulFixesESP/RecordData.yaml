@@ -1,0 +1,24 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Ark Bridge Overhaul Fixes.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Puts KataPUMB's Grappling Hook (Tier II) book and a Magical Symbol back within reach around Ark Bridge Overhaul's rebuilt bridge.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Ark Bridge Overhaul.esp
+    FileSize: 0
+  - Master: KataHiddenPowers.esp
+    FileSize: 0
+  INTV: 1

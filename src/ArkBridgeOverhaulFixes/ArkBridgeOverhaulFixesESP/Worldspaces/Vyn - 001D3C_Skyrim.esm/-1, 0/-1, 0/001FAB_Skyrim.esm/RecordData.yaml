@@ -1,0 +1,36 @@
+FormKey: 001FAB:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+Version2: 6
+SkyrimMajorRecordFlags:
+- Compressed
+Flags:
+- HasWater
+Grid:
+  Point: -5, 0
+  Flags: -1604585728
+WaterHeight: 1280
+Regions:
+- 07C979:Skyrim.esm
+- 002230:Skyrim.esm
+- 07C978:Skyrim.esm
+- 0020F3:Skyrim.esm
+Location: 0A1A12:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 007985:KataHiddenPowers.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 006D00:KataHiddenPowers.esp
+  Owner: 000007:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -18523.457, 24.240717, -30000
+    Rotation: -0.00069080025, -0.00031644572, 0.0046792827
+MajorFlags:
+- 0x40000

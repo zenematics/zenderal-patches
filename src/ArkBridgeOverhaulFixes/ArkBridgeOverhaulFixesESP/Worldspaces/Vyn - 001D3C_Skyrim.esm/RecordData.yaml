@@ -1,0 +1,53 @@
+FormKey: 001D3C:Skyrim.esm
+EditorID: Vyn
+Name:
+  TargetLanguage: English
+  Value: Vyn, Enderal
+Location: 066859:Skyrim.esm
+Climate: 00015F:Skyrim.esm
+Water: 000018:Skyrim.esm
+LodWater: 000018:Skyrim.esm
+LodWaterHeight: 0
+LandDefaults:
+  DefaultLandHeight: -2048
+MapData:
+  NorthwestCellCoords: -40, 40
+  SoutheastCellCoords: 30, -30
+  CameraMinHeight: 190000
+  CameraMaxHeight: 375000
+  CameraInitialPitch: 90
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- CannotFastTravel
+ObjectBoundsMin: -69, -55
+ObjectBoundsMax: 67, 134
+HdLodDiffuseTexture: data\textures\landscape\mountains\mountainslab02.dds
+HdLodNormalTexture: data\textures\landscape\mountains\mountainslab02_n.dds
+TopCell:
+  FormKey: 001D40:Skyrim.esm
+  IsCompressed: True
+  MajorRecordFlagsRaw: 263168
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - Compressed
+  Flags:
+  - HasWater
+  Grid:
+    Flags: -1604585728
+  WaterHeight: 3.4028235E+38
+  Persistent:
+  - MutagenObjectType: PlacedObject
+    FormKey: 03788C:Skyrim.esm
+    MajorRecordFlagsRaw: 1073742848
+    SkyrimMajorRecordFlags:
+    - 0x400
+    - 0x40000000
+    Base: 03CAE4:Skyrim.esm
+    Radius: 29.12291
+    Placement:
+      Position: -15524.925, -1103.3879, 1238.5856
+  MajorFlags:
+  - Persistent
+  - 0x40000
