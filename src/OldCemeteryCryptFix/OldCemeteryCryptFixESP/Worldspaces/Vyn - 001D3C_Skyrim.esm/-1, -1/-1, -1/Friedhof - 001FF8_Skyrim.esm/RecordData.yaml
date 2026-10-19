@@ -1,0 +1,23 @@
+FormKey: 001FF8:Skyrim.esm
+EditorID: Friedhof
+Flags:
+- HasWater
+Grid:
+  Point: -7, -6
+  Flags: -1254349568
+WaterHeight: 3.4028235E+38
+Regions:
+- 074BBF:Skyrim.esm
+- 0020F3:Skyrim.esm
+Location: 0133FA:Enderal - Forgotten Stories.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 016A98:Skyrim.esm
+  MajorRecordFlagsRaw: 32768
+  SkyrimMajorRecordFlags:
+  - VisibleWhenDistant
+  Base: 037F05:Skyrim.esm
+  Scale: 1.09
+  Placement:
+    Position: -26792.826, -21734.945, 515.76105
+    Rotation: 0, -0, 0.38197604
