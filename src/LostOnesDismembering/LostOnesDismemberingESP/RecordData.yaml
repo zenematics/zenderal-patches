@@ -1,0 +1,27 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Lost Ones Dismembering.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Dismembering Framework.esm
+    FileSize: 0
+  - Master: DF - Official Creature Pack.esp
+    FileSize: 0
+  - Master: Undead Creatures Replacer.esp
+    FileSize: 0
+  - Master: DF - Xtudo Creature Pack - Canidae - A Wolf Replacer.esp
+    FileSize: 0
+  INTV: 1

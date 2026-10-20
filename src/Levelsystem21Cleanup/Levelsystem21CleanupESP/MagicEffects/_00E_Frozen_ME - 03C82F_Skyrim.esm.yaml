@@ -1,0 +1,81 @@
+FormKey: 03C82F:Skyrim.esm
+EditorID: _00E_Frozen_ME
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_FrozenMEScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_A1_ArcticWindFreezeM
+      Object: 10A6A0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_A1_OnslaughtCloakDMG
+      Object: 03347B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_AchievementsEnabled
+      Object: 046F83:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FrostShatteringExplosion
+      Object: 066897:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FrostShatteringExplosion02
+      Object: 066895:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FrozenAchievementUnlocked
+      Object: 046F9C:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FrozenPerk
+      Object: 0EEE89:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_MAGIceGoreExplosion
+      Object: 033468:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_NoShatterNPCFormList
+      Object: 02F3EE:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_ShatteredEnemyPile
+      Object: 0671F3:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Synergy_ArcticWindOnslaught
+      Object: 037325:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _04E_30_UNI_SongOfWinterFrostDamagePerk
+      Object: 0439DB:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeNPC
+      Object: 013794:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DraugrRace
+      Object: 000D53:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: KillMove
+      Object: 100F19:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ShockSpells
+      Object: 0970EE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WeaponTypeBluntWeapon
+      Object: 06727A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WPNImpactBladeVsIce
+      Object: 02398B:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Frozen
+Flags:
+- NoDuration
+- FXPersist
+- HideInUI
+HitShader: 0DC20E:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+EquipAbility: 0B92CE:Skyrim.esm
+PerkToApply: 109639:Skyrim.esm
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

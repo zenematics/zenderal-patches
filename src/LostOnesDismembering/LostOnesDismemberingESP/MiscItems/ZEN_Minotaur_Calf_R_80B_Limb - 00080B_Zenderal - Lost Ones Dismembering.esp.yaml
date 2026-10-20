@@ -1,0 +1,34 @@
+FormKey: 00080B:Zenderal - Lost Ones Dismembering.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZEN_Minotaur_Calf_R_80B_Limb
+SkyrimMajorRecordFlags:
+- NotPlayable
+VirtualMachineAdapter:
+  Scripts:
+  - Name: DFDefaultLimbRefScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DF_Features_BloodSpray_BloodFactor_GV
+      Object: 000828:Dismembering Framework.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DF_Features_BloodSpray_BloodInterval_GV
+      Object: 000829:Dismembering Framework.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DF_Features_BloodSpray_Status_GV
+      Object: 000827:Dismembering Framework.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DF_Features_Misc_LimbCleanUpDelay_GV
+      Object: 00082C:Dismembering Framework.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DF_Features_ShaderStatus_GV
+      Object: 00082A:Dismembering Framework.esm
+Name:
+  TargetLanguage: English
+  Value: Limb
+Model:
+  File: DismemberingFramework\Zenderal\Minotaurs\Minotaur_Calf_R_80B.nif
+  Data: 0x020000000000000000000000
+Keywords:
+- 000802:Dismembering Framework.esm
+MajorFlags:
+- NonPlayable

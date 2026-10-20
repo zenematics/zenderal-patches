@@ -1,0 +1,7 @@
+FormKey: 037A04:Skyrim.esm
+EditorID: _00E_Levelsystem_sHurt
+Description:
+  TargetLanguage: English
+  Value: <Alias.ShortName=Levelsystem_SympathyActor> is hurt by that.
+INAM: 0x00000000
+DisplayTime: 2

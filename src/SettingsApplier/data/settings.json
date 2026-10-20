@@ -213,5 +213,13 @@
   "dir": "SKSE/Plugins/Zenderal Settings Applier/SwiftPotion",
   "auto": "AutoData.json",
   "hotkey": "HotkeyData.json"
+ },
+ "horse_key": {
+  "_comment": "Enderal's call-horse key (_00E_HorseFlute_SC.iMountHotkey on NQ06_Freda alias 6) defaults to L, the same key as Quick Light SE, so one press did both. Moved to K so the controller's D-pad-right double tap (Gamepad++ sends K) calls the horse and D-pad-left (L) only lights, as zenematics.com documents. Only changed while still at the default.",
+  "plugin": "Skyrim.esm",
+  "quest": 468410,
+  "alias": 6,
+  "default": 38,
+  "key": 37
  }
 }

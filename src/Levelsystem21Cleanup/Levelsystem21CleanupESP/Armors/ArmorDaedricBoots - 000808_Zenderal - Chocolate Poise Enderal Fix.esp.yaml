@@ -1,0 +1,51 @@
+FormKey: 000808:Zenderal - Chocolate Poise Enderal Fix.esp
+EditorID: ArmorDaedricBoots
+Version2: 10
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 02EF51:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 02EF56:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E0D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -117, -28, -117
+  Second: 117, 28, 117
+Name:
+  TargetLanguage: English
+  Value: (Set of the Skybreaker) Wings of the Skybreaker
+ObjectEffect: 02EF64:Enderal - Forgotten Stories.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\Immersive Armors\Paladin\bootsm_gnd.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Feet
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 06C0ED:Skyrim.esm
+- 08F959:Skyrim.esm
+- 06BBD8:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 033EB4:Skyrim.esm
+Value: 625
+Weight: 10
+ArmorRating: 34.4

@@ -1,0 +1,1392 @@
+{
+  "LostOneTemplateRace": {
+    "ANY": {
+      "Male": {
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Draugr - Male - Naked - R Forearm",
+            "Priority": -100
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Draugr - Male - Naked - L Forearm",
+            "Priority": -100
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Draugr - Male - Naked - R Calf",
+            "Priority": -100
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Draugr - Male - Naked - L Calf",
+            "Priority": -100
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Draugr - Male - Naked - Head BE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6AD"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head BE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6AE"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head HA1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6A8"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head HA1 BE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6B1"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head HA1 BE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6B2"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head HA2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6AB"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head HA2 BE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F838"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head HA2 BE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F85E"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x23BF0"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE1 BE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F908"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE1 BE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F9FC"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x23BF1"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE2 BE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1FB58"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE2 BE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1FB5F"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE3",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x23BF2"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE3 BE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1FB60"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Armored - Head HE3 BE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1FB61"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Male - Naked - Head",
+            "Priority": -100
+          }
+        ]
+      },
+      "Female": {
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Draugr - Female - Naked - R Forearm",
+            "Priority": -100
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Draugr - Female - Naked - L Forearm",
+            "Priority": -100
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Draugr - Female - Naked - R Calf",
+            "Priority": -100
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Draugr - Female - Naked - L Calf",
+            "Priority": -100
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Draugr - Female - Naked - Head HA1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6A8"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Female - Naked - Head HA2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x1F6AB"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Female - ArmorLight - Head HE1",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x23BF0"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Female - ArmorHeavy - Head HE2",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x23BF1"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Female - ArmorHeavy - Head HE3",
+            "Conditions": [
+              {
+                "Name": "IsEquipped",
+                "Item": "Skyrim.esm:0x23BF2"
+              }
+            ]
+          },
+          {
+            "IDLimb": "Draugr - Female - Naked - Head",
+            "Priority": -100
+          }
+        ]
+      }
+    }
+  },
+  "mihailancientskeletonrace|SkeletonRace": {
+    "ANY": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - L Calf"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - R Calf"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - L Forearm"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - R Forearm"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - Head"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - L Calf"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - R Calf"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - L Forearm"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - R Forearm"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Skeleton - Head"
+          }
+        ]
+      }
+    }
+  },
+  "WolfRaceLarge|WolfRaceSmall|WolfHoheRace": {
+    "Skyrim.esm:0xC02FB": {
+      "Male|Female": {
+        "Canine_Neck2": [
+          {
+            "IDLimb": "Wolf - Black - Head"
+          }
+        ],
+        "Canine_Tail1": [
+          {
+            "IDLimb": "Wolf - Black - Tail"
+          }
+        ],
+        "Canine_LBackLeg2": [
+          {
+            "IDLimb": "Wolf - Black - Back L Leg"
+          }
+        ],
+        "Canine_RBackLeg2": [
+          {
+            "IDLimb": "Wolf - Black - Back R Leg"
+          }
+        ],
+        "Canine_LFrontLeg2": [
+          {
+            "IDLimb": "Wolf - Black - Front L Leg"
+          }
+        ],
+        "Canine_RFrontLeg2": [
+          {
+            "IDLimb": "Wolf - Black - Front R Leg"
+          }
+        ]
+      }
+    },
+    "Skyrim.esm:0xC02F8": {
+      "Male|Female": {
+        "Canine_Neck2": [
+          {
+            "IDLimb": "Wolf - Red - Head"
+          }
+        ],
+        "Canine_Tail1": [
+          {
+            "IDLimb": "Wolf - Red - Tail"
+          }
+        ],
+        "Canine_LBackLeg2": [
+          {
+            "IDLimb": "Wolf - Red - Back L Leg"
+          }
+        ],
+        "Canine_RBackLeg2": [
+          {
+            "IDLimb": "Wolf - Red - Back R Leg"
+          }
+        ],
+        "Canine_LFrontLeg2": [
+          {
+            "IDLimb": "Wolf - Red - Front L Leg"
+          }
+        ],
+        "Canine_RFrontLeg2": [
+          {
+            "IDLimb": "Wolf - Red - Front R Leg"
+          }
+        ]
+      }
+    },
+    "ANY": {
+      "Male|Female": {
+        "Canine_Neck2": [
+          {
+            "IDLimb": "Wolf - Default - Head",
+            "Priority": -100
+          }
+        ],
+        "Canine_Tail1": [
+          {
+            "IDLimb": "Wolf - Default - Tail",
+            "Priority": -100
+          }
+        ],
+        "Canine_LBackLeg2": [
+          {
+            "IDLimb": "Wolf - Default - Back L Leg",
+            "Priority": -100
+          }
+        ],
+        "Canine_RBackLeg2": [
+          {
+            "IDLimb": "Wolf - Default - Back R Leg",
+            "Priority": -100
+          }
+        ],
+        "Canine_LFrontLeg2": [
+          {
+            "IDLimb": "Wolf - Default - Front L Leg",
+            "Priority": -100
+          }
+        ],
+        "Canine_RFrontLeg2": [
+          {
+            "IDLimb": "Wolf - Default - Front R Leg",
+            "Priority": -100
+          }
+        ]
+      }
+    }
+  },
+  "FeralMinotaurRace": {
+    "1Minotaurs.esp:0xA811": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 805"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 806"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 807"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 808"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 809"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 805"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 806"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 807"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 808"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 809"
+          }
+        ]
+      }
+    },
+    "ANY": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 805"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 806"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 807"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 808"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 809"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 805"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 806"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 807"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 808"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 809"
+          }
+        ]
+      }
+    }
+  },
+  "MinotaurRace": {
+    "MinotaursInEnderal.esp:0x80C": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ]
+      }
+    },
+    "MinotaursInEnderal.esp:0x823": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80F"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 810"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 811"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 812"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80F"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 810"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 811"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 812"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ]
+      }
+    },
+    "MinotaursInEnderal.esp:0x824": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ]
+      }
+    },
+    "MinotaursInEnderal.esp:0x825": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ]
+      }
+    },
+    "MinotaursInEnderal.esp:0x827": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 814"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 815"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 816"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 817"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 818"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 814"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 815"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 816"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 817"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 818"
+          }
+        ]
+      }
+    },
+    "MinotaursInEnderal.esp:0x828": {
+      "Male": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 819"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 81A"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 81B"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 81C"
+          }
+        ]
+      },
+      "Female": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 819"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 81A"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 81B"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 81C"
+          }
+        ]
+      }
+    },
+    "MinotaursInEnderal.esp:0x829": {
+      "Male": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 81D"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 81E"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 81F"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 820"
+          }
+        ]
+      },
+      "Female": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 81D"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 81E"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 81F"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 820"
+          }
+        ]
+      }
+    },
+    "MinotaursInEnderal.esp:0x82A": {
+      "Male": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 821"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 822"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 823"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 824"
+          }
+        ]
+      },
+      "Female": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 821"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 822"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 823"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 824"
+          }
+        ]
+      }
+    },
+    "1Minotaurs.esp:0xA818": {
+      "Male": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 825"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 826"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 827"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 828"
+          }
+        ]
+      },
+      "Female": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 825"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 826"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 827"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 828"
+          }
+        ]
+      }
+    },
+    "ANY": {
+      "Male": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 825"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 826"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 827"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 828"
+          }
+        ]
+      },
+      "Female": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 825"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 826"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 827"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 828"
+          }
+        ]
+      }
+    },
+    "1Minotaurs.esp:0xA824": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 829"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82A"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 82B"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 82C"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 82D"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 829"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82A"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 82B"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 82C"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 82D"
+          }
+        ]
+      }
+    },
+    "1Minotaurs.esp:0xA828": {
+      "Male": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 82E"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82F"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 830"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 831"
+          }
+        ]
+      },
+      "Female": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 80E"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 82E"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82F"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 830"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 831"
+          }
+        ]
+      }
+    },
+    "1Minotaurs.esp:0xA838": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 825"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 826"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 827"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 828"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 82D"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 825"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 826"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 827"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 828"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 82D"
+          }
+        ]
+      }
+    },
+    "1Minotaurs.esp:0xA839": {
+      "Male": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 829"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82A"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 82B"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 82C"
+          }
+        ]
+      },
+      "Female": {
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 813"
+          }
+        ],
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 829"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82A"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 82B"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 82C"
+          }
+        ]
+      }
+    },
+    "1Minotaurs.esp:0xA840": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 82E"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82F"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 830"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 831"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 832"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_L - 82E"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Calf_R - 82F"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_L - 830"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Forearm_R - 831"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Minotaur - Head - 832"
+          }
+        ]
+      }
+    }
+  }
+}

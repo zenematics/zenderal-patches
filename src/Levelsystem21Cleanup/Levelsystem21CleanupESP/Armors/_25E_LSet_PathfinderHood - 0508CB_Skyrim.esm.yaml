@@ -1,0 +1,49 @@
+FormKey: 0508CB:Skyrim.esm
+EditorID: _25E_LSet_PathfinderHood
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 13F4ED:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 13F4EC:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E07:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: (Set of the Tracker) Face of the Tracker
+ObjectEffect: 13F4EB:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: armor\BosmerArmorMATY743\go\helmethood_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Ears
+  - 0x4000
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD3:Skyrim.esm
+- 06BBDB:Skyrim.esm
+- 06C0EE:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 0F13CF:Skyrim.esm
+- 0F13CE:Skyrim.esm
+- 0508C9:Skyrim.esm
+Value: 23
+Weight: 4
+ArmorRating: 17.1

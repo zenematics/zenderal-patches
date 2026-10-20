@@ -50,6 +50,8 @@ confirmed by compiling real Enderal scripts (`_00E_TalentLibrary`, `_00E_Game_Ta
 
 ## What's in `reference/base/` (built 2026-08-01, ~0.9 GB, gitignored)
 
+> **Enderal 2.1.4.4 (2026-10-20):** the 2.1 masters are serialized in `reference/base-2.1.4.4/{Skyrim,Update,EnderalFS}`; `reference/base/` below is still **2.0.12.4** until it is moved to `reference/base-2.0.12.4/`. Read 2.1 records from `base-2.1.4.4/` — see [`enderal-update-migration.md`](enderal-update-migration.md).
+
 Regenerate any of these with `/spriggit-decompile-reference`; the script trees are plain unzips.
 **Grep these instead of guessing a FormKey or a script signature.**
 

@@ -1,0 +1,35 @@
+FormKey: 03CAE2:Skyrim.esm
+EditorID: _00E_MagicalSymbol
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_EPOnMagicalSymbolDis
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_AchievementsEnabled
+      Object: 046F83:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Levelsystem_MagicalSymbolCollected
+      Object: 040A7A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MagicalSymbolsGlobalCollected
+      Object: 03CAE8:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MagicalSymbolSound
+      Object: 03CAE6:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MagicLigthShader
+      Object: 0FF02A:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 58
+ObjectBounds:
+  First: -16, -9, -36
+  Second: 16, 9, 16
+Name:
+  TargetLanguage: English
+  Value: Magical Symbol
+Model:
+  File: Enderal\Miscellaneous\enderalsymbolanimatedfx.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []

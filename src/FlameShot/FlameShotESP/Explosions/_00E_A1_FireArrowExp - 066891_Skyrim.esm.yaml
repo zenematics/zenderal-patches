@@ -1,0 +1,31 @@
+FormKey: 066891:Skyrim.esm
+EditorID: _00E_A1_FireArrowExp
+Version2: 5
+ObjectBounds:
+  First: -57, -60, -9
+  Second: 57, 60, 33
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Fire Arrow
+  - Language: Chinese
+    String: 火焰箭矢
+  - Language: Korean
+    String: 불화살
+Model:
+  File: Magic\FireBallExp01.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 06722A:Skyrim.esm
+Sound1: 02518E:Skyrim.esm
+Sound2: 02518F:Skyrim.esm
+ImpactDataSet: 026113:Skyrim.esm
+PlacedObject: 147207:Skyrim.esm
+Force: 1
+Radius: 128
+ISRadius: 1
+VerticalOffsetMult: 1
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+SoundLevel: Silent

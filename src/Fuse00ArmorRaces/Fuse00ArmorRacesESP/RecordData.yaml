@@ -9,11 +9,9 @@ ModHeader:
   Stats:
     Version: 1.7
   Author: Zenderal
-  Description: Makes Fuse00's Adventurer Armor and Helga armor visible on Enderal's Half Arazealean and Half Qyranian player races, which the mods' armor addons never listed.
+  Description: Makes Fuse00's Adventurer Armor visible on Enderal's Half Arazealean and Half Qyranian player races, which the mod's armor addons never listed.
   MasterReferences:
   - Master: Skyrim.esm
-    FileSize: 0
-  - Master: _Fuse00_ArmorHelga.esp
     FileSize: 0
   - Master: _Fuse00_AdventurerArmor.esp
     FileSize: 0

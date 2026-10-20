@@ -1,0 +1,24 @@
+FormKey: 000807:DF - Official Creature Pack.esp
+EditorID: DF_Draugr_Naked_Forearm_L_AA
+BodyTemplate:
+  FirstPersonFlags:
+  - 0x10000000
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000D53:Skyrim.esm
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 23
+WorldModel:
+  Male:
+    File: DismemberingFramework\OfficialCreaturePack\Draugr\Male\ArmorAddons\Naked\Dismembered_Addons.nif
+    Data: 0x020000000000000000000000
+  Female:
+    File: DismemberingFramework\OfficialCreaturePack\Draugr\Female\ArmorAddons\Naked\Dismembered_Addons.nif
+    Data: 0x020000000000000000000000
+AdditionalRaces:
+- 00398C:Undead Creatures Replacer.esp

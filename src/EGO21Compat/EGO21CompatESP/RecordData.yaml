@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - EGO 2.1 Compatibility.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Carries EGO's race changes onto Enderal 2.1's relocated Half Arazealean and Half Qyranian races and hides the obsolete copies EGO made playable again.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: EGO SE - DS Movement Stamina UNIQUE RACES.esp
+    FileSize: 0
+  INTV: 1

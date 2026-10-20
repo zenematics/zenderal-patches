@@ -1,0 +1,307 @@
+FormKey: 001EA7:Skyrim.esm
+EditorID: FlusshaimMittelweg
+Flags:
+- HasWater
+Grid:
+  Point: -21, -6
+  Flags: 944912896
+WaterHeight: 3.4028235E+38
+Regions:
+- 03A604:Skyrim.esm
+- 03A47B:Skyrim.esm
+- 037B8B:Skyrim.esm
+Location: 032706:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 029B5E:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -83485.13, -20555.697, -30000
+    Rotation: 6.265732, 6.2308254, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B5F:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -83092.74, -20826.184, -30000
+    Rotation: 0.017453292, 0, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B60:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -82817.4, -21100.502, -30000
+    Rotation: 0, 0.034906585, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B61:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -82526.32, -21238.543, -30000
+    Rotation: 0, 0.017453292, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B62:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -82519.29, -21439.617, -30000
+    Rotation: 0, 0.017453292, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B63:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -82286.67, -21590.164, -30000
+    Rotation: 0, 0.017453292, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B64:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -82001.81, -21824.488, -30000
+    Rotation: 0, -0.06254542, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B8C:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85620.11, -20500.736, -30000
+    Rotation: 5.9159207, 0.22981448, 6.283185
+- MutagenObjectType: PlacedObject
+  FormKey: 029B8D:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85941.97, -21036.113, -30000
+    Rotation: 6.273, 0.4349064, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B8E:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85728.94, -21205.354, -30000
+    Rotation: 0.10981447, 0.4349064, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B90:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85382.95, -21382.967, -30000
+    Rotation: 0.08547401, 0.061971404, 0.009597297
+- MutagenObjectType: PlacedObject
+  FormKey: 029B91:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85663.36, -21308.527, -30000
+    Rotation: 0.16217424, 0.3999998, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B92:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85306.05, -21937.162, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 029B93:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85323.8, -21691.535, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 029B94:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -85010.766, -22081.146, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 029B95:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -84810.414, -22272.816, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 029B96:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -84560.11, -22244.465, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 029B97:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -84667.95, -22628.266, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 029B98:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -84382.6, -22873.186, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 029B99:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -84078.72, -22957.35, -30000
+    Rotation: 0.017453292, 0.017453292, 0

@@ -1,0 +1,138 @@
+FormKey: 001F49:Enderal SE - Gameplay Overhaul.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: 01E_ChestSmall02Beute01MittelGhostCurse
+SkyrimMajorRecordFlags:
+- 0x8000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ChestAndDoorLockScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Ability_Antimagic_FXSShader
+      Object: 03A447:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Class_Trickery_P04b_
+      Object: 069CD1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Class_Trickery_P07_
+      Object: 069CD7:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Class_Trickery_P10_
+      Object: 069CEF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_IsForgottenStoriesActivated
+      Object: 04320E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_LockpickingGoldBuffMSG
+      Object: 01ED74:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Game_UnlockNeedsSkill
+      Object: 042AE0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_sDoorLocked
+      Object: 141570:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_SuntempleLocations
+      Object: 03BB5B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_UILockpickingUnlockM
+      Object: 085A43:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_UnlockLockExplosion
+      Object: 085938:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_UnlockProjectile_Adept
+      Object: 085953:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_UnlockProjectile_Apprentice
+      Object: 085954:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_UnlockProjectile_Expert
+      Object: 085952:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_UnlockProjectile_Master
+      Object: 085957:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_UnlockProjectile_Novice
+      Object: 085956:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Gold001
+      Object: 00000F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WPNTG06ControlStaffShootFailM
+      Object: 075807:Skyrim.esm
+  - Name: _00E_FS_SleightOfHand_HiddenSlotSC
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_AchievementsEnabled
+      Object: 046F83:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_HiddenSlotRewardFormlists
+      Object: 043226:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_IsForgottenStoriesActivated
+      Object: 04320E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_SleightOfHand_HiddenSlot_BigSlotREF
+      Object: 04326B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_SleightOfHand_HiddenSlot_MediumSlotREF
+      Object: 043263:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_SleightOfHand_HiddenSlot_sBigSlotFound
+      Object: 043211:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_SleightOfHand_HiddenSlot_SmallSlotREF
+      Object: 043261:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_SleightOfHand_HiddenSlot_sMediumSlotFound
+      Object: 043210:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_SleightOfHand_HiddenSlot_sSmallSlotFound
+      Object: 04320F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_SleightOfHand_HiddenSlotUsedMarker
+      Object: 043242:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_HiddenSlotAchievementUnlocked
+      Object: 02ED7C:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Gold001
+      Object: 00000F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SleightOfHandOwnerFaction
+      Object: 02F03A:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: UIEnchantingLearnEffectM
+      Object: 04326F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: UILockpickingCylinderTurnM
+      Object: 04325F:Skyrim.esm
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Value: Chest
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 0028E0:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 001D3D:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+Weight: 20
+MajorFlags:
+- NavMeshGenerationBoundingBox

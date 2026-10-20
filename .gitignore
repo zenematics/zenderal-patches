@@ -80,6 +80,8 @@ Thumbs.db
 !src/SkipPrologue/Scripts/compiled/*.pex
 !src/KataFixes/Scripts/compiled/
 !src/KataFixes/Scripts/compiled/*.pex
+!src/EGO21Compat/Scripts/compiled/
+!src/EGO21Compat/Scripts/compiled/*.pex
 !src/ControllerTweaks/Scripts/compiled/
 !src/ControllerTweaks/Scripts/compiled/*.pex
 !src/BrawlFixes/Scripts/compiled/
@@ -125,3 +127,13 @@ __pycache__/
 .~lock.*#
 !src/Prophecy/Scripts/compiled/
 !src/Prophecy/Scripts/compiled/*.pex
+
+# KataAffinities21: extracted third-party BSA contents + generator temp dirs
+/src/KataAffinities21/build/
+!src/KataAffinities21/Scripts/compiled/
+!src/KataAffinities21/Scripts/compiled/*.pex
+
+# SKSE plugin CMake/vcpkg build trees (the shipped DLL lives in compiled/)
+/src/*/SKSEPlugin/build/
+/src/*/SKSEPlugin/build.log
+/src/*/build-ae.log

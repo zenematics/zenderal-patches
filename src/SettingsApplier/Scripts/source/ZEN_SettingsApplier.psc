@@ -203,6 +203,22 @@ Event OnUpdate()
 		Debug.Trace("[Zenderal Settings Applier] skipped Swift Potion: SwiftPotion.esp not loaded, not initialised, or settings files not found")
 		skipped += 2
 	EndIf
+	Quest qHorse = Game.GetFormFromFile(0x725BA, "Skyrim.esm") as Quest
+	_00E_HorseFlute_SC aHorse = None
+	If qHorse
+		aHorse = qHorse.GetAlias(6) as _00E_HorseFlute_SC
+	EndIf
+	If aHorse && aHorse.iMountHotkey == 38
+		If aHorse.GetReference()
+			aHorse.SetMountTeleportKey(37)
+		Else
+			aHorse.iMountHotkey = 37
+		EndIf
+		applied += 1
+	Else
+		Debug.Trace("[Zenderal Settings Applier] skipped horse key: horse flute alias not found or key already changed")
+		skipped += 1
+	EndIf
 	Debug.Trace("[Zenderal Settings Applier] applied " + applied + ", skipped " + skipped)
 	Stop()
 EndEvent

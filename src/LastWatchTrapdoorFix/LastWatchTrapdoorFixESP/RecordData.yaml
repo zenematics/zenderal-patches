@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Last Watch Trapdoor Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Puts Ark's Last Watch's tower-top trapdoor, ladder exit and clutter back on EPPI Improved Locations' floor so the tower can be climbed down again.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: EPPIimprovedlacations.esp
+    FileSize: 0
+  - Master: Last Watch Overhaul.esp
+    FileSize: 0
+  - Master: Water for Enderal CS.esp
+    FileSize: 0
+  INTV: 1

@@ -1,0 +1,15 @@
+{
+    "name": "Sneak_mt_Exit",
+    "priority": 2140000002,
+    "conditions": [
+        {
+            "condition": "IsSneaking",
+            "requiredVersion": "1.0.0.0"
+        },
+        {
+            "condition": "IsWeaponDrawn",
+            "requiredVersion": "1.0.0.0",
+            "negated": true
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+FormKey: 0E7491:Skyrim.esm
+EditorID: _15E_MSet_MageNemesisSetGloves
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 12E192:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 12E18E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E05:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -10, -15, 0
+  Second: 11, 16, 10
+Name:
+  TargetLanguage: English
+  Value: (Set of the Nemesis) Nemesis Gauntlets
+ObjectEffect: 12E18B:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\DervishArmor\male\gloves_go.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: Enderal\armor\DervishArmor\male\gloves_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Hands
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD3:Skyrim.esm
+- 06BBE0:Skyrim.esm
+- 06C0EF:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 141D43:Skyrim.esm
+Value: 13
+Weight: 4
+ArmorRating: 10.26

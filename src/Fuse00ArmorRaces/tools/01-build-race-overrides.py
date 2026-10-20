@@ -1,16 +1,19 @@
 r"""Generate src/Fuse00ArmorRaces/Fuse00ArmorRacesESP/ArmorAddons/ -- never hand-edit it.
 
-Why: Fuse00's Adventurer Armor and Helga armor list the vanilla playable races on every armor addon
+Why: Fuse00's Adventurer Armor lists the vanilla playable races on every armor addon
 (ARMA). In Enderal the playable Nord and Redguard are NOT the vanilla 013746/013748 (those are the
 unplayable NordRaceSkyrim/RedguardRaceSkyrim) but 033899 NordRace "Half Arazealean" and
 033898 RedguardRace "Half Qyranian". A player of either race matches no addon, so the armor renders
 as nothing.
 
 Each override = the mod's ARMA verbatim with 033899 and 033898 appended to AdditionalRaces. No other
-plugin in the list overrides these 12 addons (checked 2026-10-17), so verbatim is the winning record.
+plugin in the list overrides these 8 addons (checked 2026-10-17), so verbatim is the winning record.
 
-Source: reference/mods/Fuse00AdventurerArmor and Fuse00ArmorHelga (Spriggit 0.40.0 serializations of
-the installed plugins). Re-serialize those and re-run this after either mod updates.
+Helga armor (_Fuse00_ArmorHelga.esp) is deliberately NOT covered: overriding its addons made it a
+master of this patch (dropped 2026-10-18).
+
+Source: reference/mods/Fuse00AdventurerArmor (Spriggit 0.40.0 serialization of the installed plugin).
+Re-serialize it and re-run this after the mod updates.
 
 Usage:  python 01-build-race-overrides.py
 """
@@ -18,10 +21,10 @@ import os, glob, shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
-SOURCES = [os.path.join(REPO, 'reference', 'mods', d) for d in ('Fuse00AdventurerArmor', 'Fuse00ArmorHelga')]
+SOURCES = [os.path.join(REPO, 'reference', 'mods', d) for d in ('Fuse00AdventurerArmor',)]
 OUT = os.path.join(REPO, 'src', 'Fuse00ArmorRaces', 'Fuse00ArmorRacesESP', 'ArmorAddons')
 ADD = ['033899:Skyrim.esm', '033898:Skyrim.esm']  # NordRace Half Arazealean, RedguardRace Half Qyranian
-EXPECTED = 12  # 8 Adventurer + 4 Helga addons
+EXPECTED = 8  # Adventurer addons
 
 shutil.rmtree(OUT, ignore_errors=True)
 os.makedirs(OUT)

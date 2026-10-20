@@ -1,0 +1,47 @@
+FormKey: 147207:Skyrim.esm
+EditorID: _00E_A1_FireArrowFXPlacer
+Version2: 1
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_A1_FireArrowFXSC
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_A1_FireArrowWayfarerExp
+      Object: 143325:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Affinity_AbWayfarer
+      Object: 14334A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_BottleExplosionNoSound
+      Object: 147206:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MAGBottleBreak
+      Object: 0A5EDF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Destructible:
+  Data:
+    Health: 1
+    DESTCount: 3
+  Stages:
+  - Data:
+      HealthPercent: 100
+  - Data:
+      HealthPercent: 99
+      Index: 1
+      ModelDamageStage: 1
+      Flags:
+      - CapDamage
+      SelfDamagePerSecond: 50
+  - Data:
+      Index: 2
+      ModelDamageStage: 2
+      Flags:
+      - Disable
+      Explosion: 000802:Zenderal - Flame Shot.esp
+MarkerColor: '#00CC4C33'
+Flags: []

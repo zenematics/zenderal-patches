@@ -53,8 +53,26 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`StaffDrawFix`](StaffDrawFix.md) | *(no plugin — OAR submod, MO2 mod `Zenderal - Staff Draw Fix`)* | _(none)_ |
 | [`LoopPistolAnims`](LoopPistolAnims.md) | *(no plugin — OAR mod, MO2 mod `Zenderal - Loop Pistol Animations`)* | _(none)_ |
 | [`NoScreenFlashes`](NoScreenFlashes.md) | `Zenderal - No Screen Flashes.esp` | none (overrides only) |
+| [`EnderalPairedAnims`](EnderalPairedAnims.md) | *(no plugin — Pandora-native patch `Pandora_Engine/mod/zpaired`, MO2 mod `Zenderal - Enderal Paired Animations`)* | _(none)_ |
+| [`DBVOPlayerLipSync`](DBVOPlayerLipSync.md) | *(no plugin — `ZenDBVOLipSync.dll` + CCC `SD_user.ini`, MO2 mod `Zenderal - DBVO Player Lip Sync`)* | _(none)_ |
 | [`CCCStandDown`](CCCStandDown.md) | *(no plugin — `ZenCCCStandDown.dll` + `.ini`, MO2 mod `Zenderal - CCC Stand Down`)* | _(none)_ |
+| [`GamepadCombos`](GamepadCombos.md) | *(no plugin — `ZenGamepadCombos.dll` + `.ini`, MO2 mod `Zenderal - Gamepad Combos`)* | _(none)_ |
 | [`Fuse00ArmorRaces`](Fuse00ArmorRaces.md) | `Zenderal - Fuse00 Armor Races.esp` | none (overrides only) |
+| [`EGO21Compat`](EGO21Compat.md) | `Zenderal - EGO 2.1 Compatibility.esp` | none (overrides only) |
+| [`GrassLightingFix`](GrassLightingFix.md) | *(generated meshes, `Zenderal - Grass Lighting Fix`)* | none |
+| [`TextureRename21Fix`](TextureRename21Fix.md) | *(generated textures, `Zenderal - 2.1 Texture Rename Fix`)* | none |
+| [`SuraClaymoreFix`](SuraClaymoreFix.md) | `Zenderal - Sura Claymore Fix.esp` | none (overrides only) |
+| [`RaySensePriority`](RaySensePriority.md) | **no plugin** (OAR files only) | none |
 | [`ReversalShadow`](ReversalShadow.md) | `Zenderal - Reversal Shadow.esp` + generated meshes/texture/sound | `0x800–0x808` |
 | [`PerpetuumTheaterEVGATFix`](PerpetuumTheaterEVGATFix.md) | `Zenderal - Perpetuum Theater EVGAT Fix.esp` | none (overrides only) |
+| [`EppiRivervilleCobbleRemoval`](EppiRivervilleCobbleRemoval.md) | `Zenderal - EPPI Riverville Cobble Removal.esp` | none (overrides only) |
+| [`LastWatchTrapdoorFix`](LastWatchTrapdoorFix.md) | `Zenderal - Last Watch Trapdoor Fix.esp` | none (overrides only) |
+| [`NoLightningFlash`](NoLightningFlash.md) | `Zenderal - No Lightning Flash.esp` | none (overrides only) |
+| [`Levelsystem21Cleanup`](Levelsystem21Cleanup.md) | `Zenderal - 2.1 Levelsystem Cleanup.esp` | none (overrides only) |
+| [`KataAffinities21`](KataAffinities21.md) | `Zenderal - KataPUMB Affinities 2.1.esp` + `_00E_AffinityControl.pex` | none (one override) |
+| [`LostOneSalletFix`](LostOneSalletFix.md) | *(generated mesh, not committed)* | none |
+| [`LostOnesDismembering`](LostOnesDismembering.md) | `Zenderal - Lost Ones Dismembering.esp` + DF JSON + generated meshes | `0x800–0x832` |
+| [`FrostSpiderMotherFix`](FrostSpiderMotherFix.md) | `Zenderal - Frost Spider Mother Fix.esp` | none (one override) |
+| [`MaceSpeed`](MaceSpeed.md) | `Zenderal - Mace Speed.esp` | none (overrides only) |
 | [`OldCemeteryCryptFix`](OldCemeteryCryptFix.md) | `Zenderal - Old Cemetery Crypt Fix.esp` | none (one override) |
+| [`MusketHandling`](MusketHandling.md) | `ZenMusketHandling.dll` + `.ini` | none (no plugin) |

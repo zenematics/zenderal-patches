@@ -211,6 +211,44 @@ namespace
 			fp ? fp->local.scale : 0.0f);
 	}
 
+	// Logs one line whenever any camera FOV / state / control value changes - for the "zoomed-in
+	// first person after leaving meditation" bug. Change-only, so a meditation round trip is short.
+	void TraceCameraState()
+	{
+		static std::string s_last;
+
+		auto* player = RE::PlayerCharacter::GetSingleton();
+		auto* camera = RE::PlayerCamera::GetSingleton();
+		auto* controls = RE::PlayerControls::GetSingleton();
+		auto* controlMap = RE::ControlMap::GetSingleton();
+		if (!player || !camera || !camera->currentState || !controls || !controlMap) {
+			return;
+		}
+
+		auto& cam2 = camera->GetRuntimeData2();
+		float nearDist = -1.0f;
+		float frustumW = -1.0f;
+		if (camera->cameraRoot && camera->cameraRoot->children.size() > 0) {
+			if (auto* ni = netimmerse_cast<RE::NiCamera*>(camera->cameraRoot->children[0].get())) {
+				auto& f = ni->GetRuntimeData2().viewFrustum;
+				nearDist = f.fNear;
+				frustumW = f.fRight - f.fLeft;
+			}
+		}
+		static REL::Relocation<float*> fDefaultWorldFOV{ REL::RelocationID(512129, 388785) };
+
+		auto line = std::format(
+			"cam={} worldFOV={:.2f} fpFOV={:.2f} defFOV={:.2f} near={:.2f} frustumW={:.4f} bowZoom={} povScript={} move={} look={} fight={} drawn={} alpha={:.2f}",
+			static_cast<std::uint32_t>(camera->currentState->id), cam2.worldFOV, cam2.firstPersonFOV, *fDefaultWorldFOV,
+			nearDist, frustumW, cam2.bowZoomedIn, controls->data.povScriptMode,
+			controlMap->IsMovementControlsEnabled(), controlMap->IsLookingControlsEnabled(), controlMap->IsFightingControlsEnabled(),
+			player->AsActorState()->IsWeaponDrawn(), player->GetAlpha());
+		if (line != s_last) {
+			SKSE::log::info("[cam] {}", line);
+			s_last = std::move(line);
+		}
+	}
+
 	// HUDMenu::AdvanceMovie runs once per frame; used only as a per-frame tick for the trace.
 	struct HUDAdvanceMovie
 	{
@@ -218,6 +256,7 @@ namespace
 		{
 			func(a_this, a_interval, a_currentTime);
 			Trace();
+			TraceCameraState();
 		}
 		static inline REL::Relocation<decltype(thunk)> func;
 	};

@@ -1,0 +1,170 @@
+FormKey: 05BCD7:Skyrim.esm
+MajorRecordFlagsRaw: 134217728
+EditorID: _00E_Merchant_FlusshaimSuraContainer
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Value: Truhe
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 670
+- Item:
+    Item: 0028CF:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0028D1:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0028D2:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0028D3:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0028D4:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028D5:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0028D6:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0030CC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0030D2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0030D3:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0030D4:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0030D5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 014F7F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 014F8C:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 01CBF8:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02A026:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 031ACC:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 031ACE:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 039936:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 039937:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 039941:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 039942:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 03F86A:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 03F86B:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 054028:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05402A:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 05ACDB:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05ACDF:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05ACE2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05ACE4:Skyrim.esm
+    Count: 10
+- Item:
+    Item: 05ACE5:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 05AD93:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 06F993:Skyrim.esm
+    Count: 40
+- Item:
+    Item: 071CF3:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 07542A:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0773ED:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 085641:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 085643:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0BFB09:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 0E75F3:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 0E75F4:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0E7632:Skyrim.esm
+    Count: 15
+- Item:
+    Item: 0E7633:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0F5D05:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 137A05:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 137A06:Skyrim.esm
+    Count: 8
+- Item:
+    Item: 0302F6:Enderal - Forgotten Stories.esm
+    Count: 1
+- Item:
+    Item: 001CEB:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Item:
+    Item: 001DF2:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+Flags:
+- Respawns
+Weight: 20
+MajorFlags:
+- NavMeshGenerationBoundingBox

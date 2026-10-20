@@ -1,0 +1,49 @@
+FormKey: 0028D4:Skyrim.esm
+EditorID: _01E_02_IronMace
+ObjectBounds:
+  First: -5, -13, -5
+  Second: 5, 46, 5
+Name:
+  TargetLanguage: English
+  Value: Iron Mace
+Model:
+  File: Weapons\Iron\IronMace.nif
+  Data: 0x020000000000000000000000
+EquipmentType: 013F42:Skyrim.esm
+BlockBashImpact: 0193C7:Skyrim.esm
+AlternateBlockMaterial: 0774C1:Skyrim.esm
+Keywords:
+- 01E714:Skyrim.esm
+- 01E718:Skyrim.esm
+- 06727B:Skyrim.esm
+- 08F958:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 0193B7:Skyrim.esm
+FirstPersonModel: 036BAF:Skyrim.esm
+AttackFailSound: 105D43:Skyrim.esm
+EquipSound: 03DE2A:Skyrim.esm
+UnequipSound: 03DE2B:Skyrim.esm
+BasicStats:
+  Value: 14
+  Weight: 6
+  Damage: 6
+Data:
+  AnimationType: OneHandMace
+  Unused: 0x000000
+  Speed: 0.9
+  Reach: 1
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1065353216
+  Unknown3: 0x000000000000000000000000
+  Skill: OneHanded
+  Stagger: 1
+Critical:
+  Damage: 4
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Normal

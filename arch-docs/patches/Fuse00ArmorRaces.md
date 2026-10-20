@@ -17,11 +17,15 @@ their vampire variants in `AdditionalRaces`. In Enderal the playable Nord and Re
 matches no addon, so the armor draws nothing.
 
 Each override is the mod's ARMA verbatim with `033899` and `033898` appended to `AdditionalRaces`
-(8 Adventurer addons, 4 Helga). The Adventurer hood keeps its author's exclusion of the beast races.
+(8 Adventurer addons). The Adventurer hood keeps its author's exclusion of the beast races.
 No other plugin in the list overrides these addons (binary scan of every `mods/*/*.esp` for `_Fuse00_A`,
 2026-10-17), so verbatim is the winning record.
 
-Masters: `Skyrim.esm`, `_Fuse00_ArmorHelga.esp`, `_Fuse00_AdventurerArmor.esp`.
+Masters: `Skyrim.esm`, `_Fuse00_AdventurerArmor.esp`.
+
+**Helga dropped 2026-10-18.** The first build also overrode Helga's 4 addons, which made
+`_Fuse00_ArmorHelga.esp` a master; the curator didn't want that dependency, so Helga armor stays
+invisible on Half Arazealean/Half Qyranian players. Re-adding it means re-adding the master.
 
 ## The general lesson
 
@@ -34,6 +38,6 @@ Built 2026-10-17; deserializes and round-trips byte-identical. **Not yet verifie
 
 ## Regenerating
 
-After either Fuse00 mod updates: re-serialize its plugin into `reference/mods/Fuse00AdventurerArmor` or
-`reference/mods/Fuse00ArmorHelga`, then run `python src/Fuse00ArmorRaces/tools/01-build-race-overrides.py`
-(it asserts 12 addons and that neither race is already present).
+After Adventurer Armor updates: re-serialize its plugin into `reference/mods/Fuse00AdventurerArmor`,
+then run `python src/Fuse00ArmorRaces/tools/01-build-race-overrides.py`
+(it asserts 8 addons and that neither race is already present).

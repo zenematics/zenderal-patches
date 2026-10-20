@@ -1,0 +1,24 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - EPPI Riverville Cobble Removal.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Disables EPPI Riverville's 98 raised cobble floor plates across Riverville's streets.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: EPPIriverville.esp
+    FileSize: 0
+  - Master: Water for Enderal CS.esp
+    FileSize: 0
+  INTV: 1

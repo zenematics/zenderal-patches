@@ -70,8 +70,8 @@
       ],
       "files": [
         {
-          "from": "src/ChocolatePoiseEnderal/NetScriptPlugin/compiled/ZenCPRFactionFix.dll",
-          "to": "NetScriptFramework/Plugins"
+          "from": "src/ChocolatePoiseEnderal/SKSEPlugin/compiled/ZenCPRFactionFix.dll",
+          "to": "SKSE/Plugins"
         },
         {
           "from": "src/ChocolatePoiseEnderal/skse/ChocolatePoise.json",
@@ -224,6 +224,19 @@
       ]
     },
     {
+      "$comment": "RaySense Cover Animation + both RaySense wall-lean mods raised above every competing OAR set (top competitor: Beam Walking Assist 2110000084). No plugin - 50 OAR user.json files, each the author's config.json with only priority changed: Cover 2140000000+, Sonder's Wall Leaning 2130000100+, Simple Wall Lean 2130000000+. Regenerate with src/RaySensePriority/tools/01-raise-raysense-priority.py.",
+      "name": "Zenderal - RaySense Priority",
+      "archiveName": "Zenderal - RaySense Priority",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/RaySensePriority/meshes",
+          "to": "meshes"
+        }
+      ]
+    },
+    {
       "$comment": "Waterfall/rapids sounds -6 dB (72 SoundDescriptor overrides, StaticAttenuation +6 on the live winner - mostly Reverb and Ambiance Overhaul - Enderal, which made many of them louder), plus the coast wind bed AMBrWindBedCoastLP re-pointed from the non-attenuating SOMStereo to SOMStereoRad05000Linear so it fades in near Ark instead of snapping on when its cell loads. Regenerate with src/QuieterWaterfalls/tools/01-quieter-waterfalls.py. Masters RAO, so the engine enforces load-after.",
       "name": "Zenderal - Quieter Waterfalls",
       "archiveName": "Zenderal - Quieter Waterfalls",
@@ -259,23 +272,15 @@
       ]
     },
     {
-      "$comment": "No plugin - three file overrides that adapt the Complete Controller Setup stack to Enderal, and MUST WIN the file conflict against their source mods (sort this above 'Complete Controller Setup' and 'Dear Diary Dark Mode'). (1) controlmap.txt: CCS 5.3.5's, with the Quick Stats gamepad combo (B+DpadUp, 0x2000+0x0001) unbound to 0xff - it opened Skyrim's vanilla perk starfield, which Enderal never uses. (2) interface/skyui/config.txt: forked from DEAR DIARY DARK MODE's copy, not SkyUI's, because Dear Diary's wins the conflict; [Input] gamepad sort bindings moved off the buttons CCS uses for equip/drop (prevColumn 274->280 LT, nextColumn 275->281 RT, sortOrder 272->273 R3), so RB-equip and L3-drop stop re-sorting the item list. (3) _00E_Game_SkillmenuSC.pex: SureAI's script recompiled with four '; ZP' additions binding B+DpadUp to open the Hero Menu and B to close it - NO Property added/removed/renamed (verified by diffing .pex string tables against a pristine build), so the host plugin's VMAD still binds. The chord lives HERE and not in Gamepad++ because Gamepad++ goes inert while any menu is open, so nothing it binds can ever CLOSE a menu; it also stores its bindings in the save, which a distributed list cannot rely on. Do NOT also ship a Gamepad++ preset emitting 'H' on the same chord - both would fire and the menu would toggle shut instantly. Requires: Complete Controller Setup 99978, Gamepad++ 27007, Auto Input Switch 54309 v1.1.2 (the SE build - the current main file is AE-only and silently fails on 1.5.97), plus bGamepadEnable=1 in EnderalPrefs.ini's [MAIN] section. Full setup in arch-docs/zenderal-controller-setup.md. Credit: SureAI, for _00E_Game_SkillmenuSC.",
+      "$comment": "No plugin - two file overrides that adapt the Complete Controller Setup stack to Enderal, and MUST WIN the file conflict against their source mods (sort this above 'Complete Controller Setup' and 'Dear Diary Dark Mode'). (1) controlmap.txt: CCS 5.3.5's, with the Quick Stats gamepad combo (B+DpadUp, 0x2000+0x0001) unbound to 0xff - it opened Skyrim's vanilla perk starfield, which Enderal never uses. (2) interface/skyui/config.txt: forked from DEAR DIARY DARK MODE's copy, not SkyUI's, because Dear Diary's wins the conflict; [Input] gamepad sort bindings moved off the buttons CCS uses for equip/drop (prevColumn 274->280 LT, nextColumn 275->281 RT, sortOrder 272->273 R3), so RB-equip and L3-drop stop re-sorting the item list. The former (3), a recompiled _00E_Game_SkillmenuSC.pex binding B+DpadUp to the Hero Menu, was retired 2026-10-20: Enderal 2.1 removed that script (its level system moved into EnderalSE.dll); the source is kept in src/ControllerTweaks/retired-enderal-2.0/ and the chord needs a 2.1 reimplementation. Requires: Complete Controller Setup 99978, Gamepad++ 27007, Auto Input Switch 54309 v1.1.2 (the SE build - the current main file is AE-only and silently fails on 1.5.97), plus bGamepadEnable=1 in EnderalPrefs.ini's [MAIN] section. Full setup in arch-docs/zenderal-controller-setup.md.",
       "name": "Zenderal - Controller Tweaks",
       "archiveName": "Zenderal - Controller Tweaks",
       "fomod": false,
       "plugins": [],
-      "scripts": {
-        "from": "src/ControllerTweaks/Scripts/compiled",
-        "to": "Scripts"
-      },
       "files": [
         {
           "from": "src/ControllerTweaks/Interface",
           "to": "Interface"
-        },
-        {
-          "from": "src/ControllerTweaks/Scripts/source",
-          "to": "Scripts/Source"
         },
         {
           "from": "src/ControllerTweaks/readme.txt",
@@ -423,6 +428,23 @@
       ]
     },
     {
+      "$comment": "No plugin - one SKSE DLL. SSE 1.5.97 ignores the modifier of a controlmap gamepad combo, so Complete Controller Setup's LB sheathes (A+LB = Ready Weapon) instead of attacking with the left hand, and D-pad Down alone opens the map (B + D-pad Down). Reads the gameplay gamepad bindings from controlmap.txt + ControlMap_Custom.txt and re-picks each press's userEvent from the held buttons, in the InputEvent* sinks of MenuControls and PlayerControls (vfunc 0x01). Build with src/GamepadCombos/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - Gamepad Combos",
+      "archiveName": "Zenderal - Gamepad Combos",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/GamepadCombos/compiled/ZenGamepadCombos.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/GamepadCombos/data",
+          "to": ""
+        }
+      ]
+    },
+    {
       "$comment": "No plugin - one SKSE DLL. A crossbow draw sets the player's attack state to kBowAttached (CrossBow_Equip trigger arrowAttach@0.571) and only WeapEquip_Out at the clip's end clears it; a draw cut short (drawing within ~0.3 s of a sprint) never gets WeapEquip_Out, so sprinting and sheathing stay blocked until a shot. Resets a drawn crossbow's kBowAttached to kNone once it outlasts DrawHoldMs (1000) after a draw or HoldMs (2500) after a reload (a normal draw holds it ~0.9 s, a reload ~1.6 s), or at once while Sprint is held or on a Ready Weapon press (then sheathes) with no equip in progress. Hooks PlayerCharacter::Update (vfunc 0xAD). Build with src/CrossbowDrawFix/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
       "name": "Zenderal - Crossbow Draw Fix",
       "archiveName": "Zenderal - Crossbow Draw Fix",
@@ -435,6 +457,23 @@
         },
         {
           "from": "src/CrossbowDrawFix/data",
+          "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. Muskets (crossbow-type WEAPs from OrdoLegionisMuskets.esp, configurable) are slower to use than bows: TK Dodge only refuses a dodge while the attack state is not kNone, which a musket reaches ~1.6 s after a shot while DAR Rifles' fire+reload clip runs 2.4 s, so a dodge cut the reload short; the plugin drops the player's TKDodge* graph events for LockAfterShotMs (2300) after a musket shot. While a musket is raised/aimed (kBowDraw/kBowDrawn) the player's SpeedMult is lowered by SpeedMultPenalty (35), lifted before each save and undone on load from the co-save. Hooks PlayerCharacter::Update (vfunc 0xAD) and NotifyAnimationGraph (vtable 3, vfunc 0x01). Build with src/MusketHandling/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - Musket Handling",
+      "archiveName": "Zenderal - Musket Handling",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/MusketHandling/compiled/ZenMusketHandling.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/MusketHandling/data",
           "to": ""
         }
       ]
@@ -464,7 +503,7 @@
       ]
     },
     {
-      "$comment": "Fuse00's Adventurer Armor and Helga armor list only vanilla playable races on their 12 ARMAs. Enderal's playable Nord and Redguard are 033899 NordRace (Half Arazealean) and 033898 RedguardRace (Half Qyranian), not vanilla's 013746/013748, so on those player races the armor renders as nothing. Overrides = each ARMA verbatim with the two races appended to AdditionalRaces, generated by src/Fuse00ArmorRaces/tools/01-build-race-overrides.py from reference/mods/Fuse00AdventurerArmor and Fuse00ArmorHelga. No other list plugin overrides these addons.",
+      "$comment": "Fuse00's Adventurer Armor lists only vanilla playable races on its 8 ARMAs. Enderal's playable Nord and Redguard are 033899 NordRace (Half Arazealean) and 033898 RedguardRace (Half Qyranian), not vanilla's 013746/013748, so on those player races the armor renders as nothing. Overrides = each ARMA verbatim with the two races appended to AdditionalRaces, generated by src/Fuse00ArmorRaces/tools/01-build-race-overrides.py from reference/mods/Fuse00AdventurerArmor. Helga armor is deliberately not covered, so _Fuse00_ArmorHelga.esp is not a master. No other list plugin overrides these addons.",
       "name": "Zenderal - Fuse00 Armor Races",
       "archiveName": "Zenderal - Fuse00 Armor Races",
       "fomod": false,
@@ -472,6 +511,30 @@
         {
           "yamlSource": "src/Fuse00ArmorRaces/Fuse00ArmorRacesESP",
           "dest": "Zenderal - Fuse00 Armor Races.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "_26E_Frostkrabblermutter 0E430A rendered invisible: EGO moved it from FrostbiteSpiderRaceGiant 04E507 to FrostbiteSpiderRaceLarge 053477 but kept skin SkinFrostbiteSpiderGiantCold 02C181, whose only body ARMA NakedFrostbiteSpiderGiantColdAA 02C17F is race-locked to Giant. Override = Skyrim.esm's ARMA verbatim + AdditionalRaces 053477 (EGO's race change kept). No list plugin overrides 02C17F (live scan 2026-10-19). Masters Skyrim.esm only.",
+      "name": "Zenderal - Frost Spider Mother Fix",
+      "archiveName": "Zenderal - Frost Spider Mother Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/FrostSpiderMotherFix/FrostSpiderMotherFixESP",
+          "dest": "Zenderal - Frost Spider Mother Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Sura's merchant chest _00E_Merchant_FlusshaimSuraContainer 05BCD7 (Riverville, 'Sura's Sharp Steel') lists _01E_02_IronClaymore 0028D3 twice (count 1 + 1) - SureAI's own duplicate, kept by FS and EGO. Player report: buying a claymore there takes 4, selling/dropping them crashes. Suspected interaction with Item Stacking Tweaks; untested fix. Override = EGO's record verbatim with the two entries merged into one of count 2. Only EGO touches this container in the list.",
+      "name": "Zenderal - Sura Claymore Fix",
+      "archiveName": "Zenderal - Sura Claymore Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/SuraClaymoreFix/SuraClaymoreFixESP",
+          "dest": "Zenderal - Sura Claymore Fix.esp"
         }
       ]
     },
@@ -492,7 +555,10 @@
       "name": "Zenderal - Flintlock Overhaul",
       "archiveName": "Zenderal - Flintlock Overhaul",
       "fomod": false,
-      "scripts": { "from": "src/FlintlockOverhaul/Scripts/compiled", "to": "Scripts" },
+      "scripts": {
+        "from": "src/FlintlockOverhaul/Scripts/compiled",
+        "to": "Scripts"
+      },
       "plugins": [
         {
           "yamlSource": "src/FlintlockOverhaul/FlintlockOverhaulESP",
@@ -535,7 +601,10 @@
       "name": "Zenderal - Flame Shot",
       "archiveName": "Zenderal - Flame Shot",
       "fomod": false,
-      "scripts": { "from": "src/FlameShot/Scripts/compiled", "to": "Scripts" },
+      "scripts": {
+        "from": "src/FlameShot/Scripts/compiled",
+        "to": "Scripts"
+      },
       "plugins": [
         {
           "yamlSource": "src/FlameShot/FlameShotESP",
@@ -620,6 +689,23 @@
       ]
     },
     {
+      "$comment": "No plugin - one SKSE DLL + two INIs. DBVO 2.0.2.2 plays the player's voice line, but nothing drives the player's mouth from it (CCC's diagnostics: 0 viseme slots until its own fallback writes). ZenDBVOLipSync.dll finds the line's .fuz (Sound/DBVO/<pack>/<XXH64 of the prompt text>.fuz), decodes its .lip track (format in arch-docs/patches/DBVOPlayerLipSync.md) and writes the 16 phoneme weights to the player's face at 30 fps while the player's voice handle plays. SD_user.ini turns CCC's letter-guessed Lip Sync Fallback off ([Performance] bSynthLipSync=0) so the two don't fight; CCC's menu writes later changes into that file. Hooks PlayerCharacter::Update (vfunc 0xAD). Build with src/DBVOPlayerLipSync/build.cmd; compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - DBVO Player Lip Sync",
+      "archiveName": "Zenderal - DBVO Player Lip Sync",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/DBVOPlayerLipSync/compiled/ZenDBVOLipSync.dll",
+          "to": "SKSE/Plugins"
+        },
+        {
+          "from": "src/DBVOPlayerLipSync/data",
+          "to": ""
+        }
+      ]
+    },
+    {
       "$comment": "No plugin - one SKSE DLL + two JSON profiles. DBVO 2.0.2.2 gives every new game the same DBVO2/default_options.json and has no idea of the player's sex. At new-game start (the prologue is played as the default male player) and again when the RaceSex menu closes, ZenDBVOSexDefaults.dll copies ZenDBVOSexDefaults/male.json or female.json over default_options.json and calls DBVO's own defaults loader (DBVO.dll +0x2AC20, pinned to TimeDateStamp 0x6AB06DCE + prologue bytes); the first save then keeps them in DBVO's record. The list's writable default_options.json lives in Zenderal - Settings. Build with src/DBVOSexDefaults/build.cmd; compiled DLL committed because CI cannot build it.",
       "name": "Zenderal - DBVO Sex Defaults",
       "archiveName": "Zenderal - DBVO Sex Defaults",
@@ -666,6 +752,76 @@
       ]
     },
     {
+      "$comment": "Curator's taste: EPPI Riverville (EPPIriverville.esp) lays 98 copies of its static NorPlatBgFloorRaised01_EPPIrivervillecobble 029B46 (pale raised cobble plates) over the streets of seven Riverville exterior cells (FlusshaimZentrum 001EB1, Honigpresse 001EB2, Mittelweg 001EA7, Eingang 001E9C, Marktplatz2 001EB0, Marktplatz 001EA6, 001EB9). Disables all 98 the xEdit way (InitiallyDisabled, enable parent PlayerRef opposite, z -30000), refs verbatim from EPPI; no list plugin overrides them. Headers forwarded from their last overriders (WRLD Vyn from Water for Enderal CS, 001EB1/001EA7 from Zenderal - RiverBush, the rest from EPPI). Generated by tools/01-build-cobble-removal.py. Masters Water for Enderal CS to force load-after.",
+      "name": "Zenderal - EPPI Riverville Cobble Removal",
+      "archiveName": "Zenderal - EPPI Riverville Cobble Removal",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/EppiRivervilleCobbleRemoval/EppiRivervilleCobbleRemovalESP",
+          "dest": "Zenderal - EPPI Riverville Cobble Removal.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "KataPUMB New Affinities on Enderal SE 2.1. 2.1 moved affinities from _00E_Game_SkillmenuSC (quest Levelsystem 010AA2, both removed; EnderalSE.dll pops 'OUTDATED MOD: Levelsystem' if either exists) into _00E_AffinityControl on FS quest AffinityControl 01597B. Ships 2.1's _00E_AffinityControl with Kata's 24 affinities (indices 21-44, arrays 45) ported verbatim by tools/01 (_GetScriptVersion stays 1), and an 01597B override (FS's record verbatim + the 72 Kata spell/message properties, tools/03). Needs the cleaned Kata copy tools/02 generates on the user's machine (KataPUMBAffinities.esp minus QUST 010AA2, loose scripts minus _00e_game_skillmenusc) -- never shipped. Load after KataPUMBAffinities.esp and EGO SE - KataPUMB New Affinities.esp.",
+      "name": "Zenderal - KataPUMB Affinities 2.1",
+      "archiveName": "Zenderal - KataPUMB Affinities 2.1",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/KataAffinities21/KataAffinities21ESP",
+          "dest": "Zenderal - KataPUMB Affinities 2.1.esp"
+        }
+      ],
+      "scripts": {
+        "from": "src/KataAffinities21/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "files": [
+        {
+          "from": "src/KataAffinities21/Scripts/source",
+          "to": "Scripts/Source"
+        }
+      ]
+    },
+    {
+      "$comment": "Ark's Last Watch tower top could not be climbed down. EPPI Improved Locations replaces Enderal's TowerTop01 1043EC with its own plank floor WRIntCastleFloorWoodMid01QuadS 035BE3 at z 13930; Ark's Last Watch (Last Watch Overhaul.esp, loads after EPPI) also drops 1043EC and lowers the trapdoor 1043D6, its ladder's arrival point (1042FD in DPassTurm 103F39) and the top's clutter 20-30 units onto its own lower top, so all of it ends up under EPPI's planks. Keeps Last Watch's records but takes Placement from the plugin built for EPPI's floor (EPPI's override for 1043F3-F6, else base Enderal for 1043D6/1043ED-F2) and base's TeleportDestination for 1042FD. Headers forwarded from their last overriders (WRLD Water for Enderal CS, persistent cell Zenderal - Ark Bridge Overhaul Fixes, 00291B Last Watch - EPPI Improved Locations Patch, DPassTurm MinotaursInEnderal). Generated by tools/01-build-last-watch-trapdoor-fix.py. Masters Last Watch Overhaul to force load-after.",
+      "name": "Zenderal - Last Watch Trapdoor Fix",
+      "archiveName": "Zenderal - Last Watch Trapdoor Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/LastWatchTrapdoorFix/LastWatchTrapdoorFixESP",
+          "dest": "Zenderal - Last Watch Trapdoor Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Curator's taste: a lightning strike moves the directional (sun) light to the strike and tints it with the weather's LightningColor, so every strike relights the scene from a new angle (the intro beach's 'sun jumping', 4 strikes in 7.7 s on a recording). Diverse Weather - True Storms.esp sets LightningColor white on 13 rain/storm weathers (base Enderal: black on 8, pale #DBDCEE/#D5FFFF on its 5 storms). Copies all 13 verbatim from that plugin (their last overrider) with lightning switched off: ThunderLightningBeginFadeIn/EndFadeOut removed (the real switch: True Storms added EndFadeOut 0.50 to 8 weathers base Enderal ships without lightning) and LightningColor black; rain sounds kept. Generated by tools/01-build-no-lightning-flash.py. Masters Diverse Weather - True Storms to force load-after.",
+      "name": "Zenderal - No Lightning Flash",
+      "archiveName": "Zenderal - No Lightning Flash",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/NoLightningFlash/NoLightningFlashESP",
+          "dest": "Zenderal - No Lightning Flash.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Enderal 2.1 deleted quest Levelsystem 010AA2; 92 winning 2.0-era records in the list still reference it, so xEdit/DynDOLOD stop on 'Unresolved FormID [00010AA2]'. Copies each winner verbatim and, as base 2.1 did on its own records: removes the script property pointing at it (85), repoints the house deeds' 'Player' alias property to CustomNameControlQuest 0493BE alias 0 (2), drops the MESG Quest field (6). No behaviour change in game (the references already resolved to None). Generated by tools/00 (winners) + tools/01 (build) from the user's install. Masters all 11 winning plugins; must load LAST - re-run tools/00 + 01 whenever one of them changes.",
+      "name": "Zenderal - 2.1 Levelsystem Cleanup",
+      "archiveName": "Zenderal - 2.1 Levelsystem Cleanup",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/Levelsystem21Cleanup/Levelsystem21CleanupESP",
+          "dest": "Zenderal - 2.1 Levelsystem Cleanup.esp"
+        }
+      ]
+    },
+    {
       "$comment": "ETATU CM Fixes (Enderal TAT CM Fixes.esp, Save compatible 0.92a) re-bases the Old Cemetery's house shell 016A98 (cell Friedhof 001FF8, Vyn) onto its own static 0039C5 'SStyrrsHouse ark', whose mesh Architecture\\Solitude\\SStyrrsHouse ark.nif ships in no ETATU archive, so the building renders as nothing and the crypt door 01D188 stands alone (the stone gargoyle perched on its roof floats). Overrides 016A98 back onto SStyrrsHouse 037F05, everything else verbatim from ETATU; cell/worldspace headers forwarded from ETATU, their last overrider. Generated by tools/01-build-old-cemetery-crypt-fix.py. Masters ETATU CM Fixes to force load-after.",
       "name": "Zenderal - Old Cemetery Crypt Fix",
       "archiveName": "Zenderal - Old Cemetery Crypt Fix",
@@ -674,6 +830,40 @@
         {
           "yamlSource": "src/OldCemeteryCryptFix/OldCemeteryCryptFixESP",
           "dest": "Zenderal - Old Cemetery Crypt Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Every one-handed mace in the list swings at weapon Speed 0.8 (war axes 0.9, swords 1.0); player feedback: the For Honor mace moveset feels slow for its damage. 22 overrides = EGO's winning WEAP record verbatim with DNAM Speed 0.8 -> 0.9, generated by src/MaceSpeed/tools/01-build-mace-speed.py from a live load-order scan (tools/00-scan-maces.py). EGO wins all 22; Pretty's unplayable Pyrean mace, Apocalypse's conjured-Dremora weapons and Castle Bleakstar's 0.85 unique are left alone. Masters EGO to force load-after.",
+      "name": "Zenderal - Mace Speed",
+      "archiveName": "Zenderal - Mace Speed",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/MaceSpeed/MaceSpeedESP",
+          "dest": "Zenderal - Mace Speed.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Enderal 2.1 moved its playable Half Arazealean/Half Qyranian from 033899/033898 onto 013746 NordRace/013748 RedguardRace and left the old records as unplayable NordRaceOBSOLETE/RedguardRaceOBSOLETE. EGO's three race plugins still override the old ones with Playable set, so chargen lists both races twice. Overrides = DS Movement Stamina UNIQUE RACES' winning record verbatim on each 2.1 FormID (EGO's stats on the race chargen offers) and on each old FormID minus Playable. Generated by src/EGO21Compat/tools/01-build-race-overrides.py from reference/mods/EGODSRaces. Must load after that plugin (mastered). Also ships _00E_Theriantrophist_PlayerAsWerewolf: Enderal 2.1's script with EGO's werewolf rebalance three-way-merged on (base = 2.0.12 source, theirs = EGO's shipped .psc), because EGO's 2.0-era copy lacks _GetScriptVersion and trips EnderalSE.dll's 'overwritten by a mod' check; supersedes Enderal SE - Bug Fixes' copy too. Sort this mod above EGO in MO2.",
+      "name": "Zenderal - EGO 2.1 Compatibility",
+      "archiveName": "Zenderal - EGO 2.1 Compatibility",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/EGO21Compat/EGO21CompatESP",
+          "dest": "Zenderal - EGO 2.1 Compatibility.esp"
+        }
+      ],
+      "scripts": {
+        "from": "src/EGO21Compat/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "files": [
+        {
+          "from": "src/EGO21Compat/Scripts/source",
+          "to": "Scripts/Source"
         }
       ]
     }

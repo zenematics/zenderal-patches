@@ -1,0 +1,762 @@
+[
+  {
+    "fid": "000805",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_805.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "FeralMinotaurRace",
+        "skin": "00A811:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000806",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_806.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "FeralMinotaurRace",
+        "skin": "00A811:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000807",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_807.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "FeralMinotaurRace",
+        "skin": "00A811:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000808",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_808.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "FeralMinotaurRace",
+        "skin": "00A811:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000809",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Head_809.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "FeralMinotaurRace",
+        "skin": "00A811:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080A",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_80A.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00080C:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000824:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000825:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080B",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_80B.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00080C:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000824:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000825:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080C",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_80C.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00080C:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000824:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000825:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080D",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_80D.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00080C:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000824:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000825:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080E",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Head_80E.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00080C:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000824:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000825:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000828:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "000829:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00082A:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A828:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080F",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_80F.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000823:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000810",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_810.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000823:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000811",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_811.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000823:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000812",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_812.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000823:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000813",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Head_813.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000823:MinotaursInEnderal.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A818:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A839:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000814",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_814.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000827:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000815",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_815.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000827:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000816",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_816.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000827:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000817",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_817.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000827:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000818",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Head_818.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000827:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000819",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_819.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000828:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00081A",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_81A.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000828:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00081B",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_81B.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000828:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00081C",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_81C.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000828:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00081D",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_81D.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000829:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00081E",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_81E.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000829:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00081F",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_81F.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000829:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000820",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_820.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "000829:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000821",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_821.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00082A:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000822",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_822.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00082A:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000823",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_823.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00082A:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000824",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_824.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00082A:MinotaursInEnderal.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000825",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_825.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A818:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A838:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000826",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_826.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A818:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A838:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000827",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_827.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A818:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A838:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000828",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_828.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A818:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A838:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000829",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_829.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A824:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A839:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082A",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_82A.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A824:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A839:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082B",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_82B.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A824:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A839:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082C",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_82C.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A824:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A839:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082D",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Head_82D.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A824:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A838:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082E",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_L_82E.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A828:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A840:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082F",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Calf_R_82F.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A828:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A840:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000830",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_L_830.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A828:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A840:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000831",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Forearm_R_831.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A828:1Minotaurs.esp"
+      },
+      {
+        "race": "MinotaurRace",
+        "skin": "00A840:1Minotaurs.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000832",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Minotaurs\\Minotaur_Head_832.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "MinotaurRace",
+        "skin": "00A840:1Minotaurs.esp"
+      }
+    ]
+  }
+]

@@ -1,0 +1,196 @@
+mod,file,kind,status,modid,version,archive,game,repo
+Dyn FNIS AA functions,SKSE/Plugins/fnis_aa.dll,SE+AE (NG/dual),win,175362,3.1.1.0,Dyn FNIS AA functions 175362 3.1.1 2026-09-28T18-50Z tSBIcE4vV.zip,Skyrim,Nexus
+AddItemMenu - Ultimate Mod Explorer,SKSE/Plugins/AddItemMenuSE.dll,SE only (1.5.97),win,17563,1.13.0.0,AddItemMenuSE_113_SKSE2017-17563-1-13-1583560533.7z,SkyrimSE,Nexus
+Cached Recursive Directory Walk,SKSE/Plugins/CRDW.dll,SE only (1.5.97),win,186434,1.1.4.0,CRDW SE 186434 1.1.4 2026-08-01T17-04Z PuQ2UKyWP.7z,SkyrimSE,Nexus
+Zenderal - CCC Stand Down,SKSE/Plugins/ZenCCCStandDown.dll,SE+AE (NG/dual),win,,,,,
+TheosRenderPipeline Universal 0.4.3,SKSE/Plugins/TheosRenderPipeline.dll,SE+AE (NG/dual),win,191382,0.4.3.0,TheosRenderPipeline Universal 0.4.3 191382 0.4.3 2026-10-14T22-59Z miUDjFIUq.zip,SkyrimSE,Nexus
+TheosRenderPipeline Standard 0.4.3,SKSE/Plugins/TheosRenderPipeline.dll,SE+AE (NG/dual),overridden:TheosRenderPipeline Universal 0.4.3,192113,0.4.3.0,TheosRenderPipeline Standard 0.4.3 192113 0.4.3 2026-10-14T22-58Z 31i7IoniL.zip,SkyrimSE,Nexus
+Auto Input Switch,SKSE/Plugins/AutoInputSwitch.dll,SE only (1.5.97),win,54309,1.1.2.0,Auto Input Switch-54309-1-1-2-1630404989.zip,SkyrimSE,Nexus
+First Person FOV and Tween Menu Fix SKSE,skse/plugins/FirstPersonFOV.dll,SE+AE (NG/dual),win,172417,1.0.11.0,First Person FOV SKSE 172417 1.0.11 2026-08-22T22-08Z 587RqTfXD.zip,SkyrimSE,Nexus
+Dragonborn Voice Over 2,SKSE/Plugins/DBVO.dll,SE+AE (NG/dual),win,84329,2.0.2.2,Dragonborn Voice Over 2 84329 2.0.2.2 2026-09-22T00-02Z FpnkHZBbS.zip,SkyrimSE,Nexus
+Auto Parallax,SKSE/Plugins/AutoParallax.dll,SE+AE (NG/dual),win,79473,1.0.27.0,Auto Parallax-79473-1-0-27-1669777275.zip,SkyrimSE,Nexus
+Zenderal - DBVO Player Lip Sync,SKSE/Plugins/ZenDBVOLipSync.dll,SE+AE (NG/dual),win,,,,,
+Zenderal - Crossbow Draw Fix,SKSE/Plugins/ZenCrossbowDrawFix.dll,SE+AE (NG/dual),win,,,,,
+Zenderal - IC Sheathe Fix,SKSE/Plugins/ZenICSheatheFix.dll,SE+AE (NG/dual),win,,,,,
+FLICK - Fuzz's Legally Intelligible Core Kit,SKSE/plugins/FUCK.dll,SE+AE (NG/dual),win,181603,1.6.0.0,FLICK NG 181603 1.6.0 2026-10-12T01-06Z eVtX7JsKg.7z,SkyrimSE,Nexus
+Show Player In Inventory,SKSE/Plugins/ShowPlayerInInventory.dll,SE+AE (NG/dual),win,0,d2026.10.13.0,Show Player In Inventory (3).7z,EnderalSE,Nexus
+Zenderal - TrueHUD Combat Icons,SKSE/Plugins/ZenTrueHUDCombatIcons.dll,SE+AE (NG/dual),win,,,,,
+Zenderal - Patch Collection,SKSE/Plugins/ZenBlockReleaseFix.dll,SE+AE (NG/dual),win,1128,1.5.0.0,Zenderal - Patch Collection 1128 1.5 2026-10-18T16-13Z eZVTbYf9b.7z,EnderalSE,Nexus
+Zenderal - Patch Collection,SKSE/Plugins/ZenCrossbowDrawFix.dll,SE+AE (NG/dual),overridden:Zenderal - Crossbow Draw Fix,1128,1.5.0.0,Zenderal - Patch Collection 1128 1.5 2026-10-18T16-13Z eZVTbYf9b.7z,EnderalSE,Nexus
+Zenderal - Patch Collection,SKSE/Plugins/ZenICSheatheFix.dll,SE+AE (NG/dual),overridden:Zenderal - IC Sheathe Fix,1128,1.5.0.0,Zenderal - Patch Collection 1128 1.5 2026-10-18T16-13Z eZVTbYf9b.7z,EnderalSE,Nexus
+Zenderal - Patch Collection,SKSE/Plugins/ZenTrueHUDCombatIcons.dll,SE+AE (NG/dual),overridden:Zenderal - TrueHUD Combat Icons,1128,1.5.0.0,Zenderal - Patch Collection 1128 1.5 2026-10-18T16-13Z eZVTbYf9b.7z,EnderalSE,Nexus
+Biggie Traits - Enderal Conversion,SKSE/Plugins/Traits.dll,SE+AE (NG/dual),win,0,d2026.8.29.0,Biggie Traits - Enderal Conversion.zip,EnderalSE,
+Improved Camera SE,skse/plugins/ImprovedCameraSE.dll,SE+AE (NG/dual),win,93962,1.1.2.0,Improved Camera SE-93962-1-1-2-1757468263.7z,SkyrimSE,Nexus
+Native Water Light Stabilizer,SKSE/Plugins/NativeWaterLightStabilizer.dll,SE+AE (NG/dual),win,186700,1.2.0.0,NativeWaterLightStabilizer 186700 1.2 2026-07-31T23-22Z N2AYL5rn5.zip,SkyrimSE,Nexus
+Desktop Splash Screen,SKSE/Plugins/_SplashScreen.dll,SE+AE (NG/dual),win,83470,1.0.1.0,Splash Screen-83470-1-0-1-1678902363.7z,SkyrimSE,Nexus
+KiLoader,SKSE/Plugins/KiLoaderSatelliteSKSE.dll,SE+AE (NG/dual),win,99404,1.2.0.0,KiLoader for Skyrim-99404-1-2-1713391803.7z,SkyrimSE,Nexus
+Cinematic Conversation Camera,SKSE/Plugins/SceneDirector.dll,SE+AE (NG/dual),win,187087,1.5.0.0,Cinematic Conversation Camera 1.5.0 187087 1.5.0 2026-10-04T01-06Z VMSnJreGF.zip,SkyrimSE,Nexus
+wheeler-enderal-fix,SKSE/Plugins/wheeler.dll,SE+AE (NG/dual),win,1009,1.0.0.0,wheeler-enderal-fix-1009-v1-0-0-1769009105.7z,EnderalSE,Nexus
+Reticle Arcs,SKSE/Plugins/ReticleArcs.dll,SE+AE (NG/dual),win,193635,1.3.0.0,Reticle Arcs 193635 1.3.0 2026-10-04T22-28Z izKcFpmr3.zip,SkyrimSE,Nexus
+Local Map Icons,SKSE/Plugins/LocalMapIcons.dll,SE+AE (NG/dual),win,177661,1.0.5.0,Local Map Icons-177661-1-0-5-1781103784.zip,SkyrimSE,Nexus
+Casting Bar SKSE Menu Framework,SKSE/Plugins/CastingBar.dll,SE+AE (NG/dual),win,173070,3.0.0.0,Casting Bar SKSE Menu Framework-173070-3-0-0-1771678898.7z,SkyrimSE,Nexus
+Casting Bar,SKSE/Plugins/CastingBar.dll,SE+AE (NG/dual),overridden:Casting Bar SKSE Menu Framework,80455,3.0.0.0,Casting Bar-80455-3-0-0-1703987389.7z,SkyrimSE,Nexus
+Oxygen Meter 2 - Fixes and Additions,SKSE/Plugins/oxygenMeter2.dll,SE only (1.5.97),win,171916,1.0.8.0,Oxygen Meter 2 - Fixes and Additions - SE-171916-1-0-8-1775286213.7z,SkyrimSE,Nexus
+OxygenMeter2,SKSE/Plugins/oxygenMeter2.dll,SE only (1.5.97),overridden:Oxygen Meter 2 - Fixes and Additions,64532,1.0.7.0,OxygenMeter2 FOMOD SSE AE640 AE1170-64532-1-0-7-1708856967.zip,SkyrimSE,Nexus
+Enderal Map Markers - CoMAP Patch for Enderal SE,SKSE/Plugins/MapMarkerFramework.dll,SE only (1.5.97),win,605,1.0.0.0,Enderal Map Markers - FOMOD-605-1-0-1699817679.zip,EnderalSE,Nexus
+CoMAP,SKSE/Plugins/MapMarkerFramework.dll,AE only,overridden:Enderal Map Markers - CoMAP Patch for Enderal SE,56123,4.4.0.0,CoMAP-56123-4-4-0-1779986964.zip,SkyrimSE,Nexus
+QuickLoot IE,SKSE/Plugins/QuickLootIE.dll,SE+AE (NG/dual),win,120075,4.1.3.0,QuickLoot IE 120075 4.1.3 2026-09-17T20-17Z izKcFpI7X.zip,SkyrimSE,Nexus
+Wheeler CTD-Fix,SKSE/Plugins/wheeler.dll,SE+AE (NG/dual),overridden:wheeler-enderal-fix,132074,1.0.1.0,Wheeler ctd-fix-132074-1-0-1-1729806384.zip,SkyrimSE,Nexus
+Knotwork for Skyrim 1.5,SKSE/Plugins/Knotwork.dll,SE only (1.5.97),win,129164,2.1.1.0,Knotwork for Skyrim 1.5-129164-2-1-1-1778363799.7z,SkyrimSE,Nexus
+Knotwork,SKSE/Plugins/Knotwork.dll,SE+AE (NG/dual),overridden:Knotwork for Skyrim 1.5,128235,2.1.1.0,Knotwork-128235-2-1-1-1777201402.zip,SkyrimSE,Nexus
+Detection Meter,SKSE/Plugins/MaxsuDetectionMeter.dll,SE+AE (NG/dual),win,63057,1.11.0.0,Detection Meter-v1.11-63057-v1-11-1710345932.7z,SkyrimSE,Nexus
+Dynamic Location Popups,SKSE/Plugins/po3_DynamicLocationPopups.dll,SE only (1.5.97),win,153122,1.0.1.0,Dynamic Location Pop-ups-153122-1-0-1-1751949297.7z,SkyrimSE,Nexus
+Compass Navigation Overhaul - Enderal Patch,SKSE/Plugins/CompassNavigationOverhaul.dll,SE+AE (NG/dual),win,1089,1.1.0.0,Compass Navigation Overhaul Enderal Patch 1089 1.1 2026-07-27T16-17Z Nh2GE1a4X.rar,EnderalSE,Nexus
+Compass Navigation Overhaul,SKSE/Plugins/CompassNavigationOverhaul.dll,SE+AE (NG/dual),overridden:Compass Navigation Overhaul - Enderal Patch,74484,2.2.0.0,Compass Navigation Overhaul-74484-2-2-0-1710712304.rar,SkyrimSE,Nexus
+Better Third Person Selection - BTPS,SKSE/Plugins/BetterThirdPersonSelection.dll,SE+AE (NG/dual),win,64339,0.8.9.0,Better Third Person Selection (AE - SE)-64339-0-8-9-1749297418.7z,SkyrimSE,Nexus
+Unsearched Corpse Indicator,SKSE/Plugins/UnsearchedCorpsesIndicator.dll,SE+AE (NG/dual),win,177677,1.3.2.0,Unsearched Corpses Indicator-177677-1-3-2-1777011434.zip,SkyrimSE,Nexus
+True Directional Movement - Modernized Third Person Gameplay,SKSE/Plugins/TrueDirectionalMovement.dll,SE+AE (NG/dual),win,51614,2.2.7.0,True Directional Movement 51614 2.2.7 2026-06-27T22-20Z OyYrPuHkX.7z,SkyrimSE,Nexus
+Photo Mode,SKSE/Plugins/po3_PhotoMode.dll,SE only (1.5.97),win,91701,3.0.4.0,Photo Mode 91701 3.0.4 2026-09-11T10-50Z PuQ2UKvvw.7z,SkyrimSE,Nexus
+Wheeler - Quick Action Wheel Of Skyrim,SKSE/Plugins/wheeler.dll,SE+AE (NG/dual),overridden:wheeler-enderal-fix,97345,1.2.0.0,Wheeler-97345-1-2-1692836360.zip,SkyrimSE,Nexus
+SmoothCam,SKSE/Plugins/SmoothCam.dll,SE only (1.5.97),win,41252,1.7.1.0,SmoothCam-41252-1-7-1-1773112010.zip,SkyrimSE,Nexus
+TrueHUD - HUD Additions,SKSE/Plugins/TrueHUD.dll,SE+AE (NG/dual),win,62775,1.1.9.0,TrueHUD-62775-1-1-9-1703382929.7z,SkyrimSE,Nexus
+moreHUD Inventory Edition,SKSE/Plugins/AHZmoreHUDInventory.dll,SE+AE (NG/dual),win,18619,2.2.4.0,moreHUD Inventory Edition - AE and SE 18619 2.2.4.0 2026-10-13T12-34Z s6Og0dQbo.7z,SkyrimSE,Nexus
+moreHUD SE,SKSE/Plugins/AHZmoreHUDPlugin.dll,SE+AE (NG/dual),win,12688,5.4.7.0,moreHUD Light Master - SE and AE 12688 5.4.7.0 2026-10-14T00-45Z tSBIcEJz3.7z,SkyrimSE,Nexus
+HD Local Map,SKSE/Plugins/HDLocalMap.dll,SE+AE (NG/dual),win,74722,1.0.4.0,HD Local Map 74722 1.0.4 2026-08-24T21-04Z oPpNfUt8z.zip,SkyrimSE,Nexus
+Hero Menu Enhanced,SKSE/Plugins/EnderalHeroMenu.dll,SE+AE (NG/dual),win,563,f1.02,Hero Menu Enhanced-563-v1-02-1685268222.7z,EnderalSE,Nexus
+A. Tween Menu Overhaul - Classic,SKSE/Plugins/TweenMenuOverhaul.dll,SE+AE (NG/dual),win,143275,1.2.1.0,A. Tween Menu Overhaul - Classic 143275 1.2.1 2026-09-08T21-10Z Z3mWyIehS.zip,SkyrimSE,Nexus
+Favorites Menu Effects Description,SKSE/Plugins/FavoritesMenuEffectsDescription.dll,SE+AE (NG/dual),win,143532,1.2.0.0,Favorites Menu Effects Description 143532 1.2 2026-09-10T20-31Z bqv3tSRQK.zip,SkyrimSE,Nexus
+Local Map Upgrade,SKSE/Plugins/LocalMapUpgrade.dll,SE+AE (NG/dual),win,129756,3.1.0.0,Local Map Upgrade 3.1.0-129756-3-1-0-1734046344.rar,SkyrimSE,Nexus
+Infinity UI,SKSE/Plugins/InfinityUI.dll,SE+AE (NG/dual),win,74483,2.0.3.0,Infinity UI-74483-2-0-3-1730049690.rar,SkyrimSE,Nexus
+Beard Mask Fix - Beards Use Slot 44 SKSE Plugin,SKSE/Plugins/BeardMaskFix.dll,AE only,win,80232,1.0.2.0,Beard Mask Fix 80232 1.0.2 2026-08-28T16-55Z yIjvuhTJ7.7z,SkyrimSE,Nexus
+Hair Suppression Fix,SKSE/plugins/HairSuppressionFix.dll,SE+AE (NG/dual),win,179400,1.3.0.0,Hair Suppression Fix 179400 1.3.0 2026-08-25T14-08Z pQ0AZ3BSQ.7z,SkyrimSE,Nexus
+RaceMenu,SKSE/Plugins/skee64.dll,SE only (1.5.97),win,19080,0.4.16.0,1_RaceMenu Special Edition v0-4-16-19080-0-4-16-1601805673.7z,SkyrimSE,Nexus
+Smooth Terrain,SKSE/plugins/SmoothTerrain.dll,SE+AE (NG/dual),win,186875,0.3.0.0,Smooth Terrain 186875 0.3.0 2026-08-02T16-26Z Ae46W7wh2.zip,SkyrimSE,Nexus
+Horizon Fix SE,SKSE/plugins/HorizonFix.dll,SE only (1.5.97),win,184607,0.4.1.0,Horizon Fix SE 184607 0.4.1 2026-07-21T03-52Z Ae46W7jd1.zip,SkyrimSE,Nexus
+Terrain Helper,SKSE/Plugins/TerrainHelper.dll,SE+AE (NG/dual),win,143149,1.0.1.0,Terrain Helper-143149-1-0-1-1780247980.zip,SkyrimSE,Nexus
+Security Overhaul SKSE - Lock Variations,skse/plugins/po3_LockVariations.dll,SE only (1.5.97),win,58224,4.0.0.0,Security Overhaul SKSE - Lock Variations-58224-4-0-0-1724139207.7z,SkyrimSE,Nexus
+Dynamic Bloodpool Framework,SKSE/Plugins/DynamicBloodpoolFramework.dll,SE+AE (NG/dual),win,172080,1.1.0.0,Dynamic Bloodpool Framework - Latest Version 172080 1.1.0 2026-07-25T00-22Z Dc5uGkaOG.zip,SkyrimSE,Nexus
+Sanguine Symphony,SKSE/Plugins/SanguineSymphony.dll,SE+AE (NG/dual),win,148388,1.3.3.0,Sanguine Symphony - Latest Version 148388 1.3.3 2026-08-01T18-09Z kATsMWElO.zip,SkyrimSE,Nexus
+Glow Be Gone Redone - NG,SKSE/Plugins/GlowBeGoneSKSE.dll,SE+AE (NG/dual),win,171248,1.5.1.0,Glow Be Gone Redone - NG 171248 1.5.1 2026-08-02T05-34Z OyYrPuZen.7z,SkyrimSE,Nexus
+Frozen Electrocuted Combustion,SKSE/Plugins/po3_FEC.dll,SE only (1.5.97),win,3532,6.1.1.0,Frozen Electrocuted Combustion-3532-6-1-1-1773356353.7z,SkyrimSE,Nexus
+Beam Walking Assist,SKSE/Plugins/BeamWalking.dll,SE+AE (NG/dual),win,175511,1.4.0.0,Beam Walking Assist 175511 1.4.0 2026-08-30T05-09Z xDLPwGthp.zip,SkyrimSE,Nexus
+RaySense - Cover Animation,SKSE/Plugins/CoverAnimation.dll,SE+AE (NG/dual),win,175504,1.5.0.0,RaySense - Cover Animation-175504-1-5-1774677046.zip,SkyrimSE,Nexus
+Open Animation Replacer - RaySense,SKSE/Plugins/OpenAnimationReplacer-RaySense.dll,SE+AE (NG/dual),win,175498,1.2.0.0,Open Animation Replacer - RaySense 175498 1.2.0 2026-08-28T08-44Z xDLPwGaCN.zip,SkyrimSE,Nexus
+TK Dodge NG,SKSE/Plugins/TK_Dodge_RE.dll,SE+AE (NG/dual),win,115408,1.1.0.0,TK Dodge NG-115408-1-1-0-1712229201.7z,SkyrimSE,Nexus
+Wade In Water Redone,SKSE/Plugins/WadeInWater.dll,SE+AE (NG/dual),win,71418,1.1.2.0,Wade In Water Redone-71418-1-1-2-1666745482.zip,SkyrimSE,Nexus
+Sprint Sneak Movement Speed Fix,SKSE/Plugins/SSMT_Fix.dll,SE+AE (NG/dual),win,86631,1.1.2.0,Sprint Sneak Movement Speed Fix-86631-1-1-2-1702208975.zip,SkyrimSE,Nexus
+Sprint Stuttering Fix,SKSE/Plugins/SprintStutteringFix.dll,SE+AE (NG/dual),win,140804,1.0.0.0,Sprint Stuttering Fix-140804-1-0-0-1738697252.zip,SkyrimSE,Nexus
+Classic Sprinting Redone (SKSE64),SKSE/Plugins/ClassicSprinting.dll,SE only (1.5.97),win,20166,2.2.0.0,Classic Sprinting Redone-20166-2-2-1626015365.zip,SkyrimSE,Nexus
+Loki's Wade In Water,skse/plugins/WadeInWater.dll,SE only (1.5.97),overridden:Wade In Water Redone,42854,1.0.0.0,Loki_WadeInWater-42854-v1-1606602483.rar,SkyrimSE,Nexus
+TK Dodge RE,SKSE/Plugins/TK_Dodge_RE.dll,SE+AE (NG/dual),overridden:TK Dodge NG,56956,0.55.0.0rc-3,TK Dodge RE-v0.55-rc3-56956-v0-55-rc3-1688194322.zip,SkyrimSE,Nexus
+DKAF,SKSE/Plugins/DKAF.dll,SE+AE (NG/dual),win,87706,1.0.0.0,DKAF-87706-v1-0-1679787928.7z,SkyrimSE,Nexus
+SkyParkour V3 - Parkour Framework,SKSE/Plugins/SkyParkourNG.dll,SE+AE (NG/dual),win,132292,3.5.4.0,SkyParkour V3 - Parkour Framework-132292-3-5-4-1779046772.7z,SkyrimSE,Nexus
+Better Jumping SE,SKSE/Plugins/BetterJumpingSE.dll,SE only (1.5.97),win,18967,1.7.3.0,Better Jumping SE-18967-1-7-3-1658818941.zip,SkyrimSE,Nexus
+Auto Skeleton Patch - Universal Behaviour Runtime,SKSE/Plugins/SkeletonAutoPatch.dll,SE+AE (NG/dual),win,176724,1.0.4.0,Skeleton Auto Patch-176724-v1-0-4-1777223954.zip,SkyrimSE,Nexus
+Faster HDT-SMP,SKSE/Plugins/hdtsmp64.dll,SE+AE (NG/dual),win,57339,4.0.1.0,FSMP 4.0.1 57339 4.0.1 2026-07-05T18-19Z n0oTCm5i9.zip,SkyrimSE,Nexus
+Paired Animation Improvements,SKSE/Plugins/PairedAnimationImprovements.dll,SE+AE (NG/dual),win,99621,1.0.2.0,Paired Animation Improvements-99621-1-0-2-1706671876.7z,SkyrimSE,Nexus
+Animation Queue Fix,SKSE/Plugins/AnimationQueueFix.dll,SE+AE (NG/dual),win,82395,1.0.1.0,Animation Queue Fix-82395-1-0-1-1673338766.7z,SkyrimSE,Nexus
+FormList Manipulator - FLM,SKSE/Plugins/FormListManipulator.dll,SE+AE (NG/dual),win,74037,1.8.1.0,FormList Manipulator - FLM-74037-1-8-1-1727507011.zip,SkyrimSE,Nexus
+Ultimate Animated Potions NG,SKSE/Plugins/UAPNG.dll,SE+AE (NG/dual),win,97674,2.8.0.0,Ultimate Animated Potions NG-97674-2-8-1739367782.7z,SkyrimSE,Nexus
+Open Animation Replacer - Math Plugin,SKSE/Plugins/OpenAnimationReplacer-Math.dll,SE+AE (NG/dual),win,92607,1.0.4.0,Open Animation Replacer - Math Plugin-92607-1-0-4-1778187976.7z,SkyrimSE,Nexus
+Open Animation Replacer - IED Conditions,SKSE/Plugins/OpenAnimationReplacer-IEDConditionExtensions.dll,SE+AE (NG/dual),win,98308,1.0.2.0,Open Animation Replacer - IED conditions-98308-1-0-3-1693587943.zip,SkyrimSE,Nexus
+Draw Fix - Move Equip Animation Fix,SKSE/Plugins/DrawFixSKSE.dll,SE+AE (NG/dual),win,147478,1.4.2.0,Draw Fix - Move Equip Animation Fix 147478 1.4.2 2026-09-17T18-06Z oPpNfUC0F.7z,SkyrimSE,Nexus
+Disable Turn Animation NG,SKSE/Plugins/DisableTurnAnimation.dll,SE+AE (NG/dual),win,78106,3.1.0.0,Disable Turn Animation NG-78106-3-1-1780627503.zip,SkyrimSE,Nexus
+Animation Motion Revolution,SKSE/Plugins/AnimationMotionRevolution.dll,SE+AE (NG/dual),win,50258,1.5.3.0,Animation Motion Revolution-50258-1-5-3-1664395662.rar,SkyrimSE,Nexus
+Skyrim Vanity System,SKSE/Plugins/SkyrimVanitySystem.dll,SE+AE (NG/dual),win,175182,1.4.10.0,Skyrim Vanity System-175182-v1-4-10-1777394364.zip,SkyrimSE,Nexus
+Simple Offence Suppression,SKSE/Plugins/po3_SimpleOffenceSuppression.dll,SE only (1.5.97),win,41764,2.3.0.0,Simple Offence Suppression 41764 2.3.0 2026-08-06T02-50Z 31i7IoeJ9.7z,SkyrimSE,Nexus
+Loading Screen Truce,SKSE/Plugins/LoadingScreenTruce.dll,SE+AE (NG/dual),win,104439,f0.01,Loading Screen Truce-104439-v0-01-1699702005.7z,SkyrimSE,Nexus
+FYX - Alpha Blood Blending Bug - NG,SKSE/Plugins/AlphaBloodBlendingBug-Fix-NG.dll,SE+AE (NG/dual),win,149128,1.0.0.0,Alpha Blood Blending Bug (NG) - Latest Version-149128-1-0-0-1746309313.zip,SkyrimSE,Nexus
+MCO Universal Support,SKSE/Plugins/MCO.dll,SE+AE (NG/dual),win,85491,1.0.1.0,MCO Universal Support 85491 1.0.1 2026-08-24T21-05Z N2AYL5IHf.zip,SkyrimSE,Nexus
+Dynamic Animation Casting - NG,SKSE/plugins/loki_DynamicAnimationCasting.dll,SE+AE (NG/dual),win,73293,3.2.4.0,Dynamic Animation Casting NG Plus-73293-3-2-4-1686888583.zip,SkyrimSE,Nexus
+Chocolate Poise - Reforged,skse/plugins/ChocolatePoiseReforged.dll,SE+AE (NG/dual),win,181084,4.2.0.0,Chocolate Poise - Reforged 181084 4.2 2026-09-28T00-55Z JrECN21OQ.rar,SkyrimSE,Nexus
+Stop On Slash AE - Hitstop and Screenshake,SKSE/Plugins/dTryHitStop.dll,SE only (1.5.97),win,66155,2.2.0.0,Stop On Slash - SSE-66155-2-2-1651316830.7z,SkyrimSE,Nexus
+Break Stagger,SKSE/Plugins/BreakStagger.dll,SE+AE (NG/dual),win,178745,1.0.1.0,Break Stagger-178745-1-0-1-1777590242.zip,SkyrimSE,Nexus
+Timed Block-Dodge and Counter,SKSE/Plugins/TimedBlockDodgeCounter.dll,SE+AE (NG/dual),win,181239,1.6.0.0,Timed Block Dodge And Counter 181239 1.6 2026-06-23T16-13Z 8gJHT4BVF.rar,SkyrimSE,Nexus
+Alt-Tab Stuck Key Fix,SKSE/Plugins/AltTabFix.dll,SE+AE (NG/dual),win,148466,1.3.1.0,AltTabFix 1.3.1-148466-1-3-1-1773584460.zip,SkyrimSE,Nexus
+Notify Events,SKSE/Plugins/NotifyEvents.dll,SE+AE (NG/dual),win,175848,1.0.0.0,Notify Events-175848-1-0-0-1774714588.zip,SkyrimSE,Nexus
+Trigger Combat Behaviour - TCB,SKSE/Plugins/TriggerBehaviour.dll,SE+AE (NG/dual),win,167256,1.1.1.0a,Trigger Combat Behaviour-167256-1-1-1a-1780691314.zip,SkyrimSE,Nexus
+Status Indicator Framework - Floating Icons,SKSE/Plugins/StatusIndicatorFramework.dll,SE+AE (NG/dual),win,177587,1.0.2.0,Status Indicator Framework-177587-1-0-2-1776597568.zip,SkyrimSE,Nexus
+Modern Stagger Lock,SKSE/Plugins/ModernStaggerLock.dll,SE+AE (NG/dual),win,,1.07a,,SkyrimSE,
+SCAR - Skyrim Combos AI Revolution,SKSE/Plugins/SCAR.dll,SE+AE (NG/dual),win,0,0.24.0.0a,SCAR-v2.01.7z,SkyrimSE,
+Combat Pathing Revolution,SKSE/Plugins/CombatPathingRevolution.dll,SE+AE (NG/dual),win,86950,0.30.0.0,Combat Pathing Revolution-86950-v0-30-1678975298.7z,SkyrimSE,Nexus
+Death Drop Overhaul,SKSE/Plugins/DeathDropOverhaul.dll,SE+AE (NG/dual),win,151590,1.3.2.0,Death Drop Overhaul - Latest Version 151590 1.3.2 2026-07-16T13-57Z FpnkHZPPg.zip,SkyrimSE,Nexus
+Next-Gen Decapitations,SKSE/Plugins/NextGenDecapitations.dll,SE+AE (NG/dual),win,135254,1.4.3.0,Next-Gen Decapitations - Latest Version-135254-1-4-3-1763108174.zip,SkyrimSE,Nexus
+Zenderal - Precision Fork,SKSE/Plugins/Precision.dll,SE+AE (NG/dual),win,,,,,
+Precision,SKSE/Plugins/Precision.dll,SE+AE (NG/dual),overridden:Zenderal - Precision Fork,72347,2.0.4.0,Precision 72347 2.0.6 2026-09-01T07-51Z pQ0AZ3jtL.7z,SkyrimSE,Nexus
+IFrame Generator RE,SKSE/Plugins/MaxsuIFrame.dll,SE+AE (NG/dual),win,74401,f1.03,IFrame Generator RE-74401-v1-03-1662193506.7z,SkyrimSE,Nexus
+Dual Wield Parrying SKSE,SKSE/Plugins/DualWieldParryingSKSE.dll,SE+AE (NG/dual),win,85505,1.7.0.0,1_Dual Wield Parrying SKSE-85505-1-7-0-1689508403.zip,SkyrimSE,Nexus
+One Click Power Attack NG,SKSE/Plugins/OneClickPowerAttack.dll,SE+AE (NG/dual),win,60878,NG-v1.11,One Click Power Attack NG-60878-NG-v1-11-1679176229.7z,SkyrimSE,Nexus
+Open Animation Replacer,SKSE/Plugins/OpenAnimationReplacer.dll,SE+AE (NG/dual),win,92109,3.2.1.0,Open Animation Replacer 92109 3.2.1 2026-08-31T16-32Z MWx0rveD6.7z,SkyrimSE,Nexus
+Simple Dual Sheath,SKSE/Plugins/SimpleDualSheath.dll,SE+AE (NG/dual),win,50049,1.5.7.0,Simple Dual Sheath for 1.5.39 - 1.6.353-50049-1-5-7-1702208576.zip,SkyrimSE,Nexus
+Immersive Equipment Displays,SKSE/Plugins/ImmersiveEquipmentDisplays.dll,SE+AE (NG/dual),win,62001,1.7.4.0,Immersive Equipment Displays for 1.5.39 - 1.6.353-62001-1-7-4-1702213343.zip,SkyrimSE,Nexus
+Project Combat Event Fixes - Fix NPCs Stuck in Combat,SKSE/Plugins/ProjectCombatEventFixes.dll,SE+AE (NG/dual),win,158459,1.5.0.0,Project Combat Event Fixes 158459 1.5 2026-08-04T15-38Z uhRBKsIcw.7z,SkyrimSE,Nexus
+Face Discoloration Fix,SKSE/Plugins/FaceGenFixes.dll,SE only (1.5.97),win,42441,1.0.1.0,Face Discoloration Fix SE-42441-1-0-1-1628974769.zip,SkyrimSE,Nexus
+SMP-NPC crash fix,skse/plugins/SMP-NPC crash fix.dll,SE+AE (NG/dual),win,91616,1.0.0.0,SMP-NPC crash fix-91616-1-1684409131.7z,SkyrimSE,Nexus
+Sound Record Distributor,SKSE/Plugins/SoundRecordDistributor.dll,SE+AE (NG/dual),win,77815,1.5.3.0,Sound Record Distributor-77815-1-5-3-1771842563.zip,SkyrimSE,Nexus
+Model Swapper,SKSE/Plugins/ModelSwapper.dll,SE+AE (NG/dual),win,136461,1.3.0.0,Model Swapper 1.3-136461-1-3-1734437860.7z,SkyrimSE,Nexus
+SkyPatcher,SKSE/Plugins/SkyPatcher.dll,SE only (1.5.97),win,106659,7.1.3.0,SkyPatcher - SE 106659 7.1.3 2026-10-06T15-12Z pQ0AZ3GA8.zip,SkyrimSE,Nexus
+Custom Skills Framework,SKSE/Plugins/CustomSkills.dll,SE only (1.5.97),win,41780,3.2.0.0,Custom Skills Framework for 1.5.97 41780 3.2.0 2026-10-02T05-19Z Yj6wQRzqI.7z,SkyrimSE,Nexus
+Behavior Data Injector Universal Support,SKSE/Plugins/BehaviorDataInjector.dll,SE+AE (NG/dual),win,78159,0.13.0.4,Behavior Data Injector Universal Support 78159 v0.13.0.4 2026-08-24T20-55Z 2Bej58obO.zip,SkyrimSE,Nexus
+B612 - my little asteroid of useful UI components,SKSE/Plugins/B612.dll,SE+AE (NG/dual),win,127701,1.0.27.0,B612 - little asteroid of useful UI components 127701 1.0.27 2026-08-28T14-38Z gbrZ4tK8e.zip,SkyrimSE,Nexus
+Inventory Refresh Fix,SKSE/Plugins/InventoryRefreshFix.dll,SE+AE (NG/dual),win,192814,0.7.1.0,InventoryRefreshFix 192814 0.7.1 2026-09-24T06-44Z PuQ2UKxMr.zip,SkyrimSE,Nexus
+Inventory Interface Information Injector Improved,SKSE/Plugins/InventoryInjectorImproved.dll,SE+AE (NG/dual),win,192976,0.3.1.0,Inventory Interface Information Injector Improved 192976 0.3.1 2026-10-03T10-13Z yIjvuhO6k.zip,SkyrimSE,Nexus
+MCM Helper for Skyrim 1.5,SKSE/Plugins/MCMHelper.dll,SE only (1.5.97),win,192419,1.6.3.0,MCM Helper For Skyrim 1.5 192419 1.6.3 2026-09-20T00-24Z bqv3tS6nX.7z,SkyrimSE,Nexus
+Particle Limit Uncapper,skse/plugins/ParticleLimitUncapper.dll,SE+AE (NG/dual),win,184367,2.4.0.0,Particle Limit Uncapper 184367 2.4 2026-08-26T22-26Z JrECN23Hj.zip,SkyrimSE,Nexus
+Base Object Swapper,SKSE/Plugins/po3_BaseObjectSwapper.dll,SE only (1.5.97),win,60805,3.5.0.0,Base Object Swapper 60805 3.5.0 2026-08-25T12-33Z Ae46W7Fxr.7z,SkyrimSE,Nexus
+Fix Note Icon for SkyUI (SKSE64 plugin),SKSE/Plugins/FixNotesForSkyUI.dll,SE only (1.5.97),win,32561,1.2.1.0,FixNotesForSkyUI SKSE64 2.0.17-32561-1-2-1-1583205405.zip,SkyrimSE,Nexus
+Inventory Interface Information Injector for Skyrim 1.5,SKSE/Plugins/InventoryInjector.dll,SE only (1.5.97),win,87002,1.1.0.0-SE.1,Inventory Interface Information Injector 1.5-87002-1-1-0-SE-1-1739643220.7z,SkyrimSE,Nexus
+Dynamic Armor Variants Extended,SKSE/Plugins/DynamicArmorVariants.dll,SE+AE (NG/dual),win,175181,1.7.5.0,Dynamic Armor Variants Extended-175181-v1-7-5-1777141823.zip,SkyrimSE,Nexus
+MCM Helper,SKSE/Plugins/MCMHelper.dll,SE+AE (NG/dual),overridden:MCM Helper for Skyrim 1.5,53000,1.6.3.0,MCM Helper 53000 1.6.3 2026-08-26T18-07Z kATsMWjPO.7z,SkyrimSE,Nexus
+Item Stacking Tweaks SKSE,SKSE/Plugins/ItemStackingTweaks.dll,SE+AE (NG/dual),win,173918,1.0.7.0,Item Stacking Tweaks SKSE 173918 1.0.7 2026-07-11T07-45Z 8gJHT4weh.zip,SkyrimSE,Nexus
+Dismembering Framework,SKSE/Plugins/DismemberingFramework.dll,SE+AE (NG/dual),win,126203,1.2.3.0,Dismembering Framework - Latest Version 126203 1.2.3 2026-09-02T21-29Z izKcFpCdM.zip,SkyrimSE,Nexus
+Core Impact Framework (CIF),SKSE/Plugins/CoreImpactFramework.dll,SE+AE (NG/dual),win,146873,2.0.3.0,Core Impact Framework - Latest Version 146873 2.0.3 2026-08-07T23-06Z Yj6wQRxer.zip,SkyrimSE,Nexus
+More Informative Console,SKSE/plugins/MoreInformativeConsole.dll,SE+AE (NG/dual),win,19250,1.2.2.0,More Informative Console 1.2.2-19250-1-2-2-1726885673.zip,SkyrimSE,Nexus
+Mfg Fix,SKSE/Plugins/mfgfix.dll,SE only (1.5.97),win,11669,1.5.4.0,MfgFix-11669-1-5-4-1592988142.7z,SkyrimSE,Nexus
+Lexicon SKSE,SKSE/Plugins/LexiconSKSE.dll,SE+AE (NG/dual),win,153176,0.1.4.3,LEX Main File-153176-0-1-4-3-1764613685.7z,SkyrimSE,Nexus
+Actor Value Generator,SKSE/Plugins/ActorValueGenerator.dll,SE+AE (NG/dual),win,84743,2.2.9.4,AVG Main File-84743-2-2-9-4-1767152229.7z,SkyrimSE,Nexus
+SKSE Menu Framework,SKSE/Plugins/SKSEMenuFramework.dll,SE+AE (NG/dual),win,120352,3.13.0.0-Hotfix2,SKSE Menu Framework 120352 3.13-Hotfix2 2026-07-09T16-10Z 587RqTYjW.7z,SkyrimSE,Nexus
+Constructible Object Custom Keyword System,SKSE/Plugins/CraftingCategories.dll,AE only,win,81409,1.1.1.0,Crafting Categories for SkyUI-81409-1-1-1-1713865527.7z,SkyrimSE,Nexus
+Easy Console Commands,SKSE/Plugins/ECC_Utils.dll,SE+AE (NG/dual),win,122895,1.0.28.0,Easy Console Commands 122895 1.0.28 2026-07-19T17-40Z n0oTCmAJi.zip,SkyrimSE,Nexus
+ConsolePlusPlus,SKSE/Plugins/po3_ConsolePlusPlus.dll,SE only (1.5.97),win,79975,1.5.0.0,ConsolePlusPlus-79975-1-5-0-1759958106.7z,SkyrimSE,Nexus
+Directional Movement Keys - DMK,SKSE/Plugins/DirectionalMovement.dll,SE+AE (NG/dual),win,174499,1.5.0.0,Directional Movement Keys 174499 1.5.0 2026-07-25T18-34Z uhRBKsSmc.zip,SkyrimSE,Nexus
+SSE Display Tweaks,SKSE/Plugins/SSEDisplayTweaks.dll,SE+AE (NG/dual),win,34705,0.5.16.0,SSE Display Tweaks-34705-0-5-16-1703410713.zip,SkyrimSE,Nexus
+dMenu NG,SKSE/Plugins/dmenu.dll,SE+AE (NG/dual),win,166751,1.3.0.0,dMenu NG - Patch-166751-1-3-1773660820.zip,SkyrimSE,Nexus
+dMenu,SKSE/Plugins/dmenu.dll,SE+AE (NG/dual),overridden:dMenu NG,97221,1.2.1.0,dMenu-97221-1-2-1-1692833188.zip,SkyrimSE,Nexus
+dTry Plugin Updates,SKSE/Plugins/DtryKeyUtil.dll,SE+AE (NG/dual),win,85740,1.0.3.0,dTry Plugin Updates-85740-1-0-3-1696691628.zip,SkyrimSE,Nexus
+Keyword Item Distributor,SKSE/Plugins/po3_KeywordItemDistributor.dll,SE only (1.5.97),win,55728,4.0.6.0,Keyword Item Distributor 55728 4.0.6 2026-06-30T14-22Z hfH9s6Iim.7z,SkyrimSE,Nexus
+PaulMix's dTry Key Utils extend,SKSE/Plugins/DtryKeyUtil.dll,SE+AE (NG/dual),overridden:dTry Plugin Updates,141040,3.2.0.0.Pre.2,DtryKeyUtil extend 3.2.Pre 141040 3.2.Pre.2 2026-06-24T15-46Z yIjvuhZNu.7z,SkyrimSE,Nexus
+Payload Interpreter,SKSE/Plugins/PayloadInterpreter.dll,SE+AE (NG/dual),win,65089,1.1.0.0,Payload Interpreter-65089-1-1-0-1685672813.zip,SkyrimSE,Nexus
+Behavior Data Injector,SKSE/Plugins/BehaviorDataInjector.dll,SE+AE (NG/dual),overridden:Behavior Data Injector Universal Support,78146,0.13.0.0,Behavior Data Injector-78146-v0-13-1667564855.7z,SkyrimSE,Nexus
+Papyrus Ini Manipulator,SKSE/Plugins/PapyrusIniManipulator.dll,SE+AE (NG/dual),win,65634,1.9.8.0,Papyrus Ini Manipulator-65634-1-9-8-1773649981.zip,SkyrimSE,Nexus
+dTry's Key Utils SE,SKSE/Plugins/DtryKeyUtil.dll,SE only (1.5.97),overridden:dTry Plugin Updates,69944,1.1.0.0,dTry's Key Utils SE-69944-1-1-1655790357.7z,SkyrimSE,Nexus
+Auto Physics Reset,SKSE/Plugins/AutoPhysicsReset.dll,SE+AE (NG/dual),win,174098,1.3.0.0,Auto Physics Reset-174098-1-3-1773304783.zip,SkyrimSE,Nexus
+Console Commands Extender,SKSE/Plugins/CCExtender.dll,SE only (1.5.97),win,28210,1.8.0.0,Console Commands Extender-28210-1-8-0-1596771552.zip,SkyrimSE,Nexus
+Enhanced Volumetric Lighting and Shadows (EVLaS),SKSE/Plugins/EVLaS.dll,SE+AE (NG/dual),win,63725,1.3.1.0,1_EVLaS-63725-1-3-1-1663514779.7z,SkyrimSE,Nexus
+EngineFixes,SKSE/Plugins/EngineFixes.dll,SE only (1.5.97),win,17230,7.0.20.0,Engine Fixes - Main File-17230-7-0-20-1772078239.7z,SkyrimSE,Nexus
+ConsoleUtilSSE NG,SKSE/Plugins/ConsoleUtilSSE.dll,SE+AE (NG/dual),win,76649,1.5.1.0,ConsoleUtilSSE NG-76649-1-5-1-1704108553.7z,SkyrimSE,Nexus
+JContainers SE,SKSE/Plugins/JContainers64.dll,SE only (1.5.97),win,16495,4.1.13.0,JContainers SE-16495-4-1-13-1602690897.7z,SkyrimSE,Nexus
+Backported Extended ESL Support,SKSE/Plugins/BackportedESLSupport.dll,SE+AE (NG/dual),win,106441,1.2.0.0,BEES-1_2-106441-1-2-1702155399.zip,SkyrimSE,Nexus
+Spell Perk Item Distributor,SKSE/Plugins/po3_SpellPerkItemDistributor.dll,SE only (1.5.97),win,36869,7.3.2.0,Spell Perk Item Distributor 36869 7.3.2 2026-07-29T20-36Z Ae46W7wdT.7z,SkyrimSE,Nexus
+powerofthree's Tweaks,SKSE/Plugins/po3_Tweaks.dll,SE only (1.5.97),win,51073,1.16.0.0,powerofthree's Tweaks 51073 1.16.0 2026-07-12T16-59Z 587RqTEnz.7z,SkyrimSE,Nexus
+PapyrusUtil SE - Modders Scripting Utility Functions,SKSE/Plugins/PapyrusUtil.dll,SE only (1.5.97),win,13048,3.9.0.0,PapyrusUtil SE - Scripting Utility Functions-13048-3-9-1580810594.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-16-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-23-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-3-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-39-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-50-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-53-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-62-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-73-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-80-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/version-1-5-97-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-1130-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-1170-0-1.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-1170-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-1179-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-317-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-318-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-323-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-342-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-353-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-629-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-640-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-6-659-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-7-104-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+Address Library for SKSE Plugins,SKSE/Plugins/versionlib-1-7-99-0.bin,AddressLibrary db,win,32444,13.0.0.0,Address Library All in One (1.7.104.0) v13 32444 13 2026-08-27T15-29Z Ae46W7Fw2.zip,SkyrimSE,Nexus
+powerofthree's Papyrus Extender,SKSE/Plugins/po3_PapyrusExtender.dll,SE only (1.5.97),win,22854,5.10.0.0,Papyrus Extender-22854-5-10-0-1741317512.7z,SkyrimSE,Nexus

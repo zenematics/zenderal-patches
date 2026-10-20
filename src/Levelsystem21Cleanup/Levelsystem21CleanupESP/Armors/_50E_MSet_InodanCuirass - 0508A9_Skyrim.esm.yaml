@@ -1,0 +1,54 @@
+FormKey: 0508A9:Skyrim.esm
+EditorID: _50E_MSet_InodanCuirass
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: __Config_5Pieces
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 02EF53:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 02EF55:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E0F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -33, -38, -11
+  Second: 33, 29, 31
+Name:
+  TargetLanguage: English
+  Value: (Set of Inodan) Inodan's Legacy
+ObjectEffect: 02EF6E:Enderal - Forgotten Stories.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\ForgottenStories\Armor\Stormlord\cuirassgo.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBD8:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 0508A8:Skyrim.esm
+Value: 1125
+Weight: 15
+ArmorRating: 55.2

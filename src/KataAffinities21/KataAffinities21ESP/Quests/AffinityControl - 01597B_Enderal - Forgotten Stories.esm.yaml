@@ -1,0 +1,605 @@
+FormKey: 01597B:Enderal - Forgotten Stories.esm
+EditorID: AffinityControl
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 01597B:Enderal - Forgotten Stories.esm
+      Alias: 0
+    Scripts:
+    - Name: _00E_AffinityControl
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbArcaneArcher
+        Object: 143349:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbAssassin
+        Object: 14334D:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbBattlemage
+        Object: 143347:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbBlackMage
+        Object: 143341:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbBladebreaker
+        Object: 143343:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbCleric
+        Object: 143345:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbDarkKeeper
+        Object: 143340:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbFencer
+        Object: 143348:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbShadowdancer
+        Object: 143344:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_AbWayfarer
+        Object: 14334A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_DoNotShowAgain
+        Object: 029A0C:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_Message_Actor_01
+        Object: 143336:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_Message_Actor_02
+        Object: 143335:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_MessageboxFirstAffinity
+        Object: 029A0B:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Affinity_MessageboxNew
+        Object: 029A0A:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbBrute
+        Object: 02F0E4:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbDrifter
+        Object: 02F0E5:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbDruid
+        Object: 02F0E6:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbGhostblade
+        Object: 02A045:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbNightwolf
+        Object: 02F0E7:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbRavager
+        Object: 02F0E8:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbRitualist
+        Object: 029A36:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbScourge
+        Object: 02F0E9:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbSoulcaller
+        Object: 02F0EA:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Affinity_AbSpectralWarrior
+        Object: 029A39:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Brute
+        Object: 02F17A:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Brute_Female
+        Object: 02F17B:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Drifter
+        Object: 02F17C:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Drifter_Female
+        Object: 02F17D:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Druid
+        Object: 02F17E:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Druid_Female
+        Object: 02F17F:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_GhostBlade
+        Object: 044EF3:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_GhostBlade_Female
+        Object: 029A34:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Nightwolf
+        Object: 02F180:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Nightwolf_Female
+        Object: 02F181:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Ravager
+        Object: 02F182:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Ravager_Female
+        Object: 02F183:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_ScourgeOfTheWilds
+        Object: 02F184:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_ScourgeOfTheWilds_Female
+        Object: 02F185:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Soulcaller
+        Object: 02F187:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Soulcaller_Female
+        Object: 02F186:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Spectralist
+        Object: 029A35:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_Spectralist_Female
+        Object: 044EEE:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_SpectralWarrior
+        Object: 02F178:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_Affinity_SpectralWarrior_Female
+        Object: 02F179:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_PhasmalistName
+        Object: 044EEB:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_PhasmalistName_Female
+        Object: 044EED:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_TheriantrophistName
+        Object: 02F188:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_FS_Game_TheriantrophistName_Female
+        Object: 02F189:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_ArcaneArcherName
+        Object: 042A96:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_ArcaneArcherName_Female
+        Object: 042A97:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_AssassinName
+        Object: 042A8E:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_AssassinName_Female
+        Object: 042A98:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BattlemageName
+        Object: 042A8C:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BattlemageName_Female
+        Object: 042A99:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BlackMageName
+        Object: 042A91:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BlackMageName_Female
+        Object: 042A9A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BladebreakerName
+        Object: 042A94:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BladebreakerName_Female
+        Object: 042A9B:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BlademasterName
+        Object: 042A93:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_BlademasterName_Female
+        Object: 042A9C:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_ClericName
+        Object: 042A8D:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_ClericName_Female
+        Object: 042A9D:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_DarkKeeperName
+        Object: 042A92:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_DarkKeeperName_Female
+        Object: 042A9E:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_ShadowdancerName
+        Object: 042A95:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_ShadowdancerName_Female
+        Object: 042A9F:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_WayfarerName
+        Object: 042A90:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_Affinity_WayfarerName_Female
+        Object: 042AA0:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_BastionName
+        Object: 042A84:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_BastionName_Female
+        Object: 042A7B:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_DerwishName
+        Object: 042A85:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_DerwishName_Female
+        Object: 042A7C:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_ElementalismName
+        Object: 042A86:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_ElementalismName_Female
+        Object: 042A7D:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_EspionageName
+        Object: 042A87:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_EspionageName_Female
+        Object: 042A7E:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_LifeAndDeathName
+        Object: 042A89:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_LifeAndDeathName_Female
+        Object: 042A7F:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_ManipulationName
+        Object: 042A8A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_ManipulationName_Female
+        Object: 042A80:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_NoClassName
+        Object: 042A8B:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_NoClassName_Female
+        Object: 042A7A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_RageName
+        Object: 042AA1:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_RageName_Female
+        Object: 042A81:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_sUnlockedAffinity
+        Object: 0431FA:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_TrickeryName
+        Object: 042AA2:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_TrickeryName_Female
+        Object: 042A82:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_VagabondName
+        Object: 042AA3:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_Game_VagabondName_Female
+        Object: 042A83:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_MajorClassIndex
+        Object: 0493ED:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: _00E_MinorClassIndex
+        Object: 0493EE:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: BastionPerks
+        Object: 06686B:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DerwishPerks
+        Object: 06686D:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: ElementalismPerks
+        Object: 066875:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: EspionagePerks
+        Object: 066889:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FS_PhasmalistPerks
+        Object: 044EEA:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FS_TheriantrophistPerks
+        Object: 02EE04:Enderal - Forgotten Stories.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbAcrobat
+        Object: 001492:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbBard
+        Object: 005F60:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbBerserker
+        Object: 001486:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbDragonHunter
+        Object: 00149E:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbDuelist
+        Object: 001489:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbEnchanter
+        Object: 005F69:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbKnight
+        Object: 0014A2:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbRiftMage
+        Object: 0014A5:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbShadowCaster
+        Object: 00784D:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbSlayer
+        Object: 002138:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbSpellSword
+        Object: 003A16:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbThief
+        Object: 001482:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbWanderer
+        Object: 00148E:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Affinity_AbWhiteMage
+        Object: 00146F:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Acrobat
+        Object: 0014A6:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Acrobat_Female
+        Object: 0014A8:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Bard
+        Object: 005F67:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Bard_Female
+        Object: 005F68:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Berserker
+        Object: 0014AB:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Berserker_Female
+        Object: 0014AC:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_DragonHunter
+        Object: 0014AD:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_DragonHunter_Female
+        Object: 0014AE:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Duelist
+        Object: 0014AF:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Duelist_Female
+        Object: 0014B0:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Enchanter
+        Object: 006BDB:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Enchanter_Female
+        Object: 006BDD:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Knight
+        Object: 0014B1:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Knight_Female
+        Object: 0014B2:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_RiftMage
+        Object: 0014B3:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_RiftMage_Female
+        Object: 0014B4:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_ShadowCaster
+        Object: 00784E:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_ShadowCaster_Female
+        Object: 007850:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Slayer
+        Object: 002DA5:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Slayer_Female
+        Object: 0014AA:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_SpellSword
+        Object: 003A14:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_SpellSword_Female
+        Object: 003A18:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Thief
+        Object: 0014B5:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Thief_Female
+        Object: 0014B6:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Wanderer
+        Object: 0014B7:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_Wanderer_Female
+        Object: 0014B8:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_WhiteMage
+        Object: 0014B9:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_Game_Affinity_WhiteMage_Female
+        Object: 0014BA:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbCustodio
+        Object: 00C315:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbHighlander
+        Object: 00B693:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbLunatic
+        Object: 00C30A:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbMercenary
+        Object: 00C321:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbMonk
+        Object: 00AA11:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbPackLeader
+        Object: 00C305:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbPoisoner
+        Object: 00AA10:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbSoulReaper
+        Object: 00AA07:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbWitcher
+        Object: 00C31A:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Affinity_AbWolfHunter
+        Object: 00B68B:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Custodio
+        Object: 00C30F:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Custodio_Female
+        Object: 00C310:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Highlander
+        Object: 00B694:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Highlander_Female
+        Object: 00B696:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Lunatic
+        Object: 00C30D:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Lunatic_Female
+        Object: 00C30E:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Mercenary
+        Object: 00C31D:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Mercenary_Female
+        Object: 00C31E:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Monk
+        Object: 00B685:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Monk_Female
+        Object: 00B686:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_PackLeader
+        Object: 00C306:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_PackLeader_Female
+        Object: 00C308:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Poisoner
+        Object: 00B687:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Poisoner_Female
+        Object: 00B688:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_SoulReaper
+        Object: 00B689:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_SoulReaper_Female
+        Object: 00B68A:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Witcher
+        Object: 00C318:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_Witcher_Female
+        Object: 00C31C:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_WolfHunter
+        Object: 00B68E:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Kata_V2_Game_Affinity_WolfHunter_Female
+        Object: 00B690:KataPUMBAffinities.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: LifeAndDeathPerks
+        Object: 066873:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: ManipulationPerks
+        Object: 06686A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: NQ31
+        Object: 14BFEB:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Player
+        Object: 000007:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: RagePerks
+        Object: 066887:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: TrickeryPerks
+        Object: 06687F:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: UIQuestCompleteM
+        Object: 14333F:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: VagabondPerks
+        Object: 066877:Skyrim.esm
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+Priority: 100
+Filter: Misc\Systems\
+Objectives:
+- Index: 5
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Values:
+    - Language: Chinese
+      String: <Alias=AliasName>
+    - Language: Czech
+      String: <Alias=AliasName>
+    - Language: English
+      String: <Alias=AliasName>
+    - Language: French
+      String: <Alias=AliasName>
+    - Language: German
+      String: <Alias=AliasName>
+    - Language: Italian
+      String: <Alias=AliasName>
+    - Language: Japanese
+      String: <Alias=AliasName>
+    - Language: Korean
+      String: <Alias=AliasName>
+    - Language: Polish
+      String: <Alias=AliasName>
+    - Language: Russian
+      String: <Alias=AliasName>
+    - Language: Spanish
+      String: <Alias=AliasName>
+NextAliasID: 9
+Aliases:
+- Name: Player
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: Affinity_01
+  Flags:
+  - Optional
+  - StoresText
+  - UsesStoredText
+  ForcedReference: 14333D:Skyrim.esm
+  VoiceTypes: Null
+- ID: 2
+  Name: Affinity_02
+  Flags:
+  - Optional
+  - StoresText
+  - UsesStoredText
+  ForcedReference: 14333E:Skyrim.esm
+  VoiceTypes: Null

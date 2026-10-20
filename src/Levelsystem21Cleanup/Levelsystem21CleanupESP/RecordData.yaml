@@ -1,0 +1,42 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - 2.1 Levelsystem Cleanup.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Drops references to Enderal 2.0's Levelsystem quest 010AA2 (deleted in 2.1) from 92 winning records, as SureAI did on their own records in 2.1, so xEdit and DynDOLOD load cleanly. Load last.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Seaview Lodge SE.esp
+    FileSize: 0
+  - Master: EGO SE - Relationship Messages.esp
+    FileSize: 0
+  - Master: Wellwatch Manor SE.esp
+    FileSize: 0
+  - Master: Castle Bleakstar.esp
+    FileSize: 0
+  - Master: Myths and Legends VI - The Forgotten One.esp
+    FileSize: 0
+  - Master: KataHiddenPowers.esp
+    FileSize: 0
+  - Master: EGO SE - KataPUMB Hidden Powers.esp
+    FileSize: 0
+  - Master: Zenderal - Chocolate Poise Enderal Fix.esp
+    FileSize: 0
+  - Master: Pretty Unique Sets.esp
+    FileSize: 0
+  - Master: Golden Mare Mill SE.esp
+    FileSize: 0
+  INTV: 1

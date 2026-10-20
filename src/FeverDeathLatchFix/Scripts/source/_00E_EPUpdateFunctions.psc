@@ -1,7 +1,7 @@
 Scriptname _00E_EPUpdateFunctions extends Actor
 
-
 import Math
+
 int MapMarkersDiscoveredCounter = 0
 int LocksPickedCounter = 0
 int ItemsPickpocketedCounter = 0
@@ -15,6 +15,10 @@ int MagicItemsMadeCounter = 0
 int IntimidationsCounter = 0
 int QuestsCompletedCounter = 0
 
+int function _GetScriptVersion() Global
+    return 2
+endFunction
+
 ;=====================================================================================
 ;              							EVENTS                  					 
 ;=====================================================================================
@@ -22,7 +26,6 @@ int QuestsCompletedCounter = 0
 Event OnInit()
 	if Self == Player
 		GoToState("RealPlayer")
-		(Player as _00E_PlayerFunctions).InitCombatMusic()
 		RegisterForSingleUpdate(2.0)
 	Endif
 EndEvent
@@ -33,8 +36,6 @@ Event OnPlayerLoadGame()
 			GoToState("RealPlayer")
 		EndIf
 		UpdateLevelUpSystem() ; Failsafe and version update
-		(Player as _00E_PlayerFunctions).InitCombatMusic() ; Version update from 1.5.2.0 or earlier
-		UnregisterForUpdate()
 		RegisterForSingleUpdate(3.5)
 	EndIf
 EndEvent
@@ -50,7 +51,7 @@ State RealPlayer
 			_00E_Player_sEPGained_Discovery.Show()
 			receiveEP(40 * delta)
 
-			If MapMarkersDiscoveredCounter >= 50 && !bMapMarkersAchievementUnlocked && _00E_AchievementsEnabled.GetValueInt() == 1
+			If MapMarkersDiscoveredCounter >= 50 && !bMapMarkersAchievementUnlocked
 				bMapMarkersAchievementUnlocked = True
 				Steam.UnlockAchievement("END_LOCATIONS_01")
 			EndIf
@@ -114,11 +115,10 @@ State RealPlayer
 
 		if ShowEXPMessage == False && PlayerEXP.GetValue() >= 120 && (_00E_DisableQuestTutorials.GetValueInt() == 0)
 			ShowEXPMessage = true
-			Message.ResetHelpMessage("Empty")
-			_00E_Tutorial_EPSystem.ShowAsHelpMessage("Empty", 4.0, 3.0, 1)
+			_00E_HelpMessage.Show(_00E_Tutorial_EPSystem, 4)
 		EndIf
 		
-		If _00E_OreVeinsMined.GetValueInt() >= 50 && !bOreAchievementUnlocked && _00E_AchievementsEnabled.GetValueInt() == 1
+		If _00E_OreVeinsMined.GetValueInt() >= 50 && !bOreAchievementUnlocked
 			bOreAchievementUnlocked = true
 			Steam.UnlockAchievement("END_ORE_01")
 		EndIf
@@ -126,19 +126,19 @@ State RealPlayer
 		delta = Game.QueryStat("Quests Completed") - QuestsCompletedCounter
 		if delta > 0
 			QuestsCompletedCounter += delta
-			If QuestsCompletedCounter >= 50 && !bDoneQuestCompleted && _00E_AchievementsEnabled.GetValueInt() == 1
+			If QuestsCompletedCounter >= 50 && !bDoneQuestCompleted
 				bDoneQuestCompleted = true
 				Steam.UnlockAchievement("END_QUESTS_01")
 			EndIf
 		EndIf
 		
-		If _00E_RhetorikCounter.GetValueInt() >= 15 && !bRhetoricAchievementUnlocked && _00E_AchievementsEnabled.GetValueInt() == 1
+		If _00E_RhetorikCounter.GetValueInt() >= 15 && !bRhetoricAchievementUnlocked
 			bRhetoricAchievementUnlocked = true
 			Steam.UnlockAchievement("END_RHETORIC_01")
 		EndIf
 
 		; Arcane fever management
-		Int iArcaneFever = -1*(Player.GetAV("LastFlattered")) as Int
+		Int iArcaneFever = -1*(Player.GetActorValue("LastFlattered")) as Int
 
 		; ZP: isdead latches True on a fever death and nothing ever clears it. If Kill() did not
 		; ZP: actually kill the player, the flag is saved and blocks every level-up and the fever
@@ -149,9 +149,10 @@ State RealPlayer
 
 		If iArcaneFever >= 100 && isdead == False
 			isdead = True
+			Debug.SetGodMode(false)
 			Player.Kill()
 			_00E_Player_sArcaneFever_Death.Show()
-			If _00E_AchievementsEnabled.GetValueInt() == 1 && !bDoneArcanistsFever
+			If !bDoneArcanistsFever
 				bDoneArcanistsFever = true
 				Steam.UnlockAchievement("END_ARCANISTS_FEVER_01")
 			EndIf
@@ -162,8 +163,7 @@ State RealPlayer
 				iArcaneFeverWarnCounter -= 1
 				If iArcaneFeverWarnCounter <= 0
 					iArcaneFeverWarnCounter = 20
-					Message.ResetHelpMessage("Empty")
-					_00E_Player_sArcaneFever_Critical.ShowAsHelpMessage("Empty", 5, 1, 1)
+					_00E_HelpMessage.Show(_00E_Player_sArcaneFever_Critical, 5)
 				EndIf
 			Else ; iArcaneFever < 90
 				iArcaneFeverWarnCounter = 0 ; Reset
@@ -172,8 +172,7 @@ State RealPlayer
 			If iArcaneFever >= 40
 				If Player.HasSpell(_00E_Arkanistenfieber40) == False
 					Player.AddSpell(_00E_Arkanistenfieber40,0)
-					Message.ResetHelpMessage("Empty")
-					_00E_Player_sArcaneFever_Worsen.ShowAsHelpMessage("Empty", 3, 1, 1)
+					_00E_HelpMessage.Show(_00E_Player_sArcaneFever_Worsen, 3)
 				EndIf
 			Else ; iArcaneFever < 40
 				If Player.HasSpell(_00E_Arkanistenfieber40)
@@ -185,8 +184,7 @@ State RealPlayer
 			If iArcaneFever >= 70
 				If Player.HasSpell(_00E_Arkanistenfieber70) == False
 					Player.AddSpell(_00E_Arkanistenfieber70,0)
-					Message.ResetHelpMessage("Empty")
-					_00E_Player_sArcaneFever_Worsen.ShowAsHelpMessage("Empty", 4, 1, 1)
+					_00E_HelpMessage.Show(_00E_Player_sArcaneFever_Worsen, 4)
 				EndIf
 			Else ; iArcaneFever < 70
 				If Player.HasSpell(_00E_Arkanistenfieber70)
@@ -199,28 +197,14 @@ State RealPlayer
 		; Level up
 		If iLevelUpsNeeded > 0
 			; Level up if not in combat, not in dialogue, activate controls enabled (not in a scene?) and, obviously, not dead
-			While !IsInCombat() && UI.IsMenuOpen("Dialogue Menu") == False && Game.IsActivateControlsEnabled() && !Player.IsDead() && (isdead == False) && (iLevelUpsNeeded > 0)
-				levelUp()
+			While !IsInCombat() && Game.IsActivateControlsEnabled() && !Player.IsDead() && (isdead == False) && (iLevelUpsNeeded > 0)
+				if SKSE.GetVersion() == 0 || UI.IsMenuOpen("Dialogue Menu") == False
+					levelUp()
+				endif
 			EndWhile
-		EndIf
-		
-		If bShowHeroMenuHelpBox && (_00E_DisableMenuTutorials.GetValueInt() == 0)
-			bShowHeroMenuHelpBox = False
-			Message.ResetHelpMessage("Empty")
-			_00E_Tutorial_HeroMenue.ShowAsHelpMessage("Empty", 7, 30, 1)
 		EndIf
 
 		RegisterForSingleUpdate(3.5) ; seems like a decent value
-	EndEvent
-
-
-	Event OnDeath(Actor akKiller)
-
-		if Player.IsInCombat()
-			_00E_Player_sIdiot.Show()
-			receiveEP(1000)
-		EndIf
-		
 	EndEvent
 
 EndState
@@ -271,25 +255,20 @@ function levelUp()
 
 	Utility.Wait(1) ;added a Wait() between the audio cue and the level up prompt to give the player an early warning about the incoming message box
 	
-	int iMessage = _00E_Levelup.show(PlayerLevel.GetValueInt(),Player.GetBaseAV("Health"), Player.GetBaseAV("Magicka"), Player.GetBaseAV("Stamina"))
+	int iMessage = _00E_Levelup.show(PlayerLevel.GetValueInt(),Player.GetBaseActorValue("Health"), Player.GetBaseActorValue("Magicka"), Player.GetBaseActorValue("Stamina"))
 	Game.SetPlayerLevel(PlayerLevel.GetValueInt())
 	TalentPoints.Mod(1)
-	Player.SetAV("dragonsouls", TalentPoints.GetValueInt())
+	Player.SetActorValue("dragonsouls", TalentPoints.GetValueInt())
 	Lernpunkte.Mod(5)
 	Handwerkspunkte.Mod(4)
 			
 	if iMessage == 0 
-		Player.SetActorValue("Health", Player.GetBaseAV("Health")+9)
+		Player.SetActorValue("Health", Player.GetBaseActorValue("Health")+9)
 	elseif iMessage == 1 
-		Player.SetActorValue("Magicka", Player.GetBaseAV("Magicka")+8)
+		Player.SetActorValue("Magicka", Player.GetBaseActorValue("Magicka")+8)
 	elseif iMessage == 2 
-		Player.SetActorValue("Stamina", Player.GetBaseAV("Stamina")+11)
+		Player.SetActorValue("Stamina", Player.GetBaseActorValue("Stamina")+11)
 	endif
-
-	Int iPlayerLevel = PlayerLevel.GetValueInt()
-	If iPlayerLevel >= 2 && iPlayerLevel <= 5
-		bShowHeroMenuHelpBox = True
-	EndIf
 
 Endfunction
 
@@ -302,7 +281,7 @@ bool function receiveEP(int amount)
 	iLevelUpsNeeded = iLevelUpCount 
 	_UnlockLevelUpSystem()
 
-	PlayerNeededExp.SetValue(ComputeNeededExp((PlayerLevel.GetValueInt()+iLevelUpCount), EXPMultSlope.GetValue(), EXPMult.GetValue()))
+	PlayerNeededExp.SetValue(_00E_Func_ComputeNeededExp.Run((PlayerLevel.GetValueInt()+iLevelUpCount), EXPMultSlope.GetValue(), EXPMult.GetValue()))
 	
 	int iNeededExpNextLevel = (PlayerNeededExp.GetValueInt()-PlayerExp.GetValueInt())
 	_00E_sEPNeeded.Show(amount, iNeededExpNextLevel)
@@ -321,7 +300,7 @@ int function getLevelUpCount()
 
 	While LevelCheckRequired
 		LevelCheckRequired = false
-		NeededExp = ComputeNeededExp(iCurrentLevel, EXPMultSlope.GetValue(), EXPMult.GetValue())
+		NeededExp = _00E_Func_ComputeNeededExp.Run(iCurrentLevel, EXPMultSlope.GetValue(), EXPMult.GetValue())
 	
 		if iCurrentExp >= NeededExp
 			LevelCheckRequired = true
@@ -335,60 +314,6 @@ int function getLevelUpCount()
 
 EndFunction
 
-float Function ComputeNeededExp(int CurrentLevel, float Slope, float Mult)
-{Computes the total Experience (EP) needed by the player to reach the level CurrentLevel + 1. This includes the experience needed for the previous level.}
-	
-	; commented out as it is useless upon the Steam releases
-	; GlobalVariable _00E_FS_IsForgottenStoriesActivated = Game.GetForm(0x0004320E) as GlobalVariable
-	; If _00E_FS_IsForgottenStoriesActivated.GetValueInt() == 0
-        ; Pre-DLC formula:
-        ; return pow(CurrentLevel, Slope) * Mult
-    ; EndIf
-
-    ; This can be used as a quick way to scale the leveling process
-    ; for all levels:
-	float fExpAcc = 1.0
-	float fExpAcc_Level20 = 1.2
-	float fExpAcc_Level30 = 1.5
-	float fExpAcc_Level40 = 2.0
-
-    Mult *= fExpAcc
-
-    If CurrentLevel <= 20
-        ; no changes to the old formula until level 20.
-        return pow(CurrentLevel, Slope) * Mult
-    Else
-        ; no changes to the old formula for the first 20 levels.
-        float result = pow(20, Slope) * Mult
-        ; Progressive taxation:
-        if CurrentLevel <= 30
-            result += (pow(CurrentLevel, Slope) - pow(20, Slope)) * Mult * fExpAcc_Level20
-            return result
-        elseif CurrentLevel <= 40
-            result += (pow(30, Slope) - pow(20, Slope)) * Mult * fExpAcc_Level20
-            result += (pow(CurrentLevel, Slope) - pow(30, Slope)) * Mult * fExpAcc_Level30
-            return result
-        else
-            result += (pow(30, Slope) - pow(20, Slope)) * Mult * fExpAcc_Level20
-            result += (pow(40, Slope) - pow(30, Slope)) * Mult * fExpAcc_Level30
-            result += (pow(CurrentLevel, Slope) - pow(40, Slope)) * Mult * fExpAcc_Level40
-            return result
-        endif
-    EndIf
-
-EndFunction
-
-; A debugging function:
-;function DumpLevelCurve()
-;{Dump a table of required EP for each level from 0 to 100 to the Papyrus log}
-;	string aua = ""
-;	int iIndex = 0
-;	while iIndex < 100
-;		aua += "To get to level " + (iIndex + 1) + ", you need " + ComputeNeededExp(iIndex, EXPMultSlope.GetValue(), EXPMult.GetValue()) + "EP. \n "
-;		iIndex += 1
-;	endwhile
-;	Debug.Trace(aua)
-;Endfunction
 
 ;=====================================================================================
 ;              							PROPERTIES                  					 
@@ -407,7 +332,6 @@ Message Property _00E_Player_sArcaneFever_Worsen Auto
 Message Property _00E_Player_sArcaneFever_Death Auto
 Message Property _00E_Player_sArcaneFever_Critical Auto
 Message Property _00E_Player_sArcaneFever_Cure Auto
-Message Property _00E_Player_sIdiot Auto
 Message Property _00E_sEPNeeded Auto
 Message Property _00E_Levelup Auto
 Message Property _00E_Tutorial_EPSystem Auto
@@ -426,7 +350,6 @@ GlobalVariable Property EXPMultSlope auto
 GlobalVariable Property SoulsCaught Auto
 GlobalVariable Property _00E_DisableMenuTutorials Auto
 GlobalVariable Property _00E_DisableQuestTutorials Auto
-GlobalVariable Property _00E_AchievementsEnabled Auto
 GlobalVariable Property _00E_OreVeinsMined Auto
 GlobalVariable Property _00E_RhetorikCounter Auto
 GlobalVariable Property TalentPoints Auto
@@ -435,7 +358,6 @@ Sound Property UILevelUp Auto
 
 bool isdead
 Bool ShowEXPMessage
-bool bShowHeroMenuHelpBox = false
 bool bDoneQuestCompleted = false
 bool bDoneArcanistsFever = false
 bool bOreAchievementUnlocked = false

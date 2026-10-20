@@ -14,7 +14,7 @@ so the musket ended up with no ammo at all. This patch:
   * renames the power to "Flame Shot" everywhere the player sees it.
 
 Every override is copied from the plugin that wins it in the live load order (scanned 2026-10-16):
-EGO wins 05C233, 05C24D, 069D6E, 14334A, 13E955; base Enderal wins 05BD36, 069CD3, 0BFA3E, 0BFA3D, 0671F7.
+EGO wins 05C233, 05C24D, 069D6E, 14334A, 13E955; base Enderal wins 05BD36, 069CD3, 0BFA3E, 0BFA3D, 0671F7, 066891, 067252.
 
 Run from the repo root: python -I src/FlameShot/tools/01-build-flame-shot.py
 """
@@ -29,6 +29,7 @@ MOD = 'Zenderal - Flame Shot.esp'
 
 BALL_AMMO = '000801:' + MOD
 BALL_PROJ = '000800:' + MOD
+RUNE_EXP = '000802:' + MOD
 
 # Bolt-type ammo (no NonBolt flag, playable) in the list, appended to the "restore old ammo" FormList.
 BOLTS = [
@@ -141,6 +142,34 @@ def main():
     t = replace_once(t, '- CanBePickedUp\n', '')
     t = replace_once(t, 'Explosion: 007ED3:OrdoLegionisMuskets.esp', 'Explosion: 066891:Skyrim.esm')
     written.append(write('Projectiles', 'ZP_FlameShot_MusketBallProj', BALL_PROJ, t))
+
+    # --- Explosion 066891 (base): drop the fire-bolt cast imagespace (a near-white screen flash) ---
+    t = read(find('base/Skyrim', '066891:Skyrim.esm'))
+    t = replace_once(t, 'ImageSpaceModifier: 10FBEB:Skyrim.esm\n', '')
+    written.append(write('Explosions', edid_of(t), '066891:Skyrim.esm', t))
+
+    # --- Fire damage effect 067252 (base): drop the fireball imagespace (3 s blur + white flash) ---
+    t = read(find('base/Skyrim', '067252:Skyrim.esm'))
+    t = replace_once(t, 'ImageSpaceModifier: 0439C1:Skyrim.esm\n', '')
+    written.append(write('MagicEffects', edid_of(t), '067252:Skyrim.esm', t))
+
+    # The flash players actually see: 066891 places _00E_A1_FireArrowFXPlacer 147207, which destroys itself
+    # into ExplosionRuneFlame01 06051F - MAGFireBallExpImod 0439C1 at ISRadius 1024. 06051F is shared with
+    # fire runes, gas traps and Kata's Fire Nova, so the placer gets its own flashless copy instead.
+    t = read(find('base/Skyrim', '06051F:Skyrim.esm'))
+    t = replace_once(t, 'FormKey: 06051F:Skyrim.esm', 'FormKey: ' + RUNE_EXP)
+    t = replace_once(t, 'EditorID: ExplosionRuneFlame01\n', 'EditorID: ZP_FlameShot_ImpactExp\n')
+    t = replace_once(t, 'ImageSpaceModifier: 0439C1:Skyrim.esm\n', '')
+    written.append(write('Explosions', 'ZP_FlameShot_ImpactExp', RUNE_EXP, t))
+
+    t = read(find('base/Skyrim', '147207:Skyrim.esm'))
+    t = replace_once(t, 'Explosion: 06051F:Skyrim.esm', 'Explosion: ' + RUNE_EXP)
+    written.append(write('Activators', edid_of(t), '147207:Skyrim.esm', t))
+
+    # Swashbuckler's bonus blast (only placed by 147207): drop its imagespace 037E91 (ISRadius 1024) too.
+    t = read(find('base/Skyrim', '143325:Skyrim.esm'))
+    t = replace_once(t, 'ImageSpaceModifier: 037E91:Skyrim.esm\n', '')
+    written.append(write('Explosions', edid_of(t), '143325:Skyrim.esm', t))
 
     # --- New: ammo (Ordo's Musket Balls) ---
     t = read(find('mods/OrdoEnderal', '002F9D:OrdoLegionisMuskets.esp'))
