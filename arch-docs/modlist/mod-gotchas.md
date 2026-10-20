@@ -85,6 +85,15 @@ List-wide traps that are not tied to one Zenderal patch.
   `EnableSprintKeyDodge = false` and `EnableDodgeAttackCancel = false`**, so tapping B never dodged (the TK Dodge
   log prints both values at load). Both were set back to `true` locally; fix the list's published copy, or the
   next reinstall reverts it again.
+  - **`ControlMap_Custom.txt` overrides `controlmap.txt`, gamepad section included** — so a CCS update to
+  `controlmap.txt` does nothing while Input Defaults' custom map carries the old gamepad block. Binary
+  format (decoded by hand, header bytes not fully understood): the file opens `02 00 8a`, the gamepad section
+  opens `02 00 3f` at `0x10A`;
+  keyboard entries are `[uint32 LE event][scancode]`, gamepad entries `[event][uint16 BE modifier][uint16 BE
+  key]` (e.g. `0a 20 00 00 20` = event `0x0a` Tween Menu on B `0x2000` + Back `0x0020`). Tween = event `0x0a`,
+  Wait = `0x20`. **When CCS updates, copy its gamepad section (from `0x10A`) over ours byte for byte.** Done
+  2026-10-20 for CCS's Tween/Wait swap (Tween = Back, Wait = B+Back) after the controlmap-only fix showed the
+  old binds in game [reported by the user: View opened Wait, B+View opened Tween, fixed by disabling Input Defaults].
 
 - **Loading screens showing an old screenshot of your character and an empty centre frame = po3's Photo
   Mode, not a renderer or UI mod.** **[verified in game 2026-10-11]** Photo Mode's `bLoadScreenPics`
