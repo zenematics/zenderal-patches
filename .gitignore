@@ -80,8 +80,6 @@ Thumbs.db
 !src/SkipPrologue/Scripts/compiled/*.pex
 !src/KataFixes/Scripts/compiled/
 !src/KataFixes/Scripts/compiled/*.pex
-!src/ControllerTweaks/Scripts/compiled/
-!src/ControllerTweaks/Scripts/compiled/*.pex
 !src/BrawlFixes/Scripts/compiled/
 !src/BrawlFixes/Scripts/compiled/*.pex
 !src/LearningBooks/Scripts/compiled/

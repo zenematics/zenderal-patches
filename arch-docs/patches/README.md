@@ -19,7 +19,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`ChocolatePoiseEnderal`](ChocolatePoiseEnderal.md) | `Zenderal - Chocolate Poise Enderal Fix.esp` + `ZenCPRFactionFix.dll` (NSF) | `0x800–0x808` |
 | [`BrawlFixes`](BrawlFixes.md) | *(no plugin — two recompiled scripts)* | _(none)_ |
 | [`NpcPotions`](NpcPotions.md) | `Zenderal - NPC Potions_DISTR.ini` | _(none — SPID config, no plugin)_ |
-| [`ControllerTweaks`](ControllerTweaks.md) | *(no plugin — three file overrides)* | _(none)_ |
+| [`ControllerTweaks`](ControllerTweaks.md) | **RETIRED 2026-10-20**, was *(no plugin — three file overrides)* | _(none)_ |
 | [`OldTempleWeather`](OldTempleWeather.md) | `Zenderal - Old Temple Weather.esp` | none (overrides only) |
 | [`BakaHeroMenu`](BakaHeroMenu.md) | **RETIRED 2026-10-14**, was *(no plugin — `SKSE/Plugins/BakaHeroMenu.dll`)* | _(none)_ |
 | [`TrueHUDCombatIcons`](TrueHUDCombatIcons.md) | *(no plugin — `SKSE/Plugins/ZenTrueHUDCombatIcons.dll` + configs)* | _(none)_ |
