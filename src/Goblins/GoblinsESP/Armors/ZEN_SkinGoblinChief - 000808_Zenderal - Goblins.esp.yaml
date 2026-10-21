@@ -1,0 +1,16 @@
+FormKey: 000808:Zenderal - Goblins.esp
+EditorID: ZEN_SkinGoblinChief
+Version2: 2
+BodyTemplate:
+  FirstPersonFlags:
+  - Head
+  - Hair
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000800:Zenderal - Goblins.esp
+Description:
+  TargetLanguage: English
+Armature:
+- 000804:Zenderal - Goblins.esp
+ArmorRating: 7

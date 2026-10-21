@@ -1,0 +1,42 @@
+FormKey: 002051:Skyrim.esm
+EditorID: AltUskasarak
+Flags:
+- HasWater
+Grid:
+  Point: 5, 2
+WaterHeight: 3.4028235E+38
+Regions:
+- 10D11A:Skyrim.esm
+- 0E8EC5:Skyrim.esm
+- 002234:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B03:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: 23253.3, 10026.7, 14679.7
+    Rotation: 0, 0, 5.8198
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B04:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: 23338.7, 9962.7, 14667.5
+    Rotation: 0, 0, 4.5348
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B05:Zenderal - Goblins.esp
+  Base: 000811:Zenderal - Goblins.esp
+  Placement:
+    Position: 23125.3, 9984.0, 14694.3
+    Rotation: 0, 0, 0.2144
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B06:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: 23360.0, 10154.7, 14669.6
+    Rotation: 0, 0, 5.3152
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B07:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: 23232.0, 9856.0, 14684.9
+    Rotation: 0, 0, 3.84

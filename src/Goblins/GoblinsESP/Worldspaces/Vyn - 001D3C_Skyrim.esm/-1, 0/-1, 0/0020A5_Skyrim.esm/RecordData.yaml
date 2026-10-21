@@ -1,0 +1,66 @@
+FormKey: 0020A5:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+Version2: 5
+SkyrimMajorRecordFlags:
+- Compressed
+Flags:
+- HasWater
+Grid:
+  Point: -7, 4
+  Flags: -889597952
+WaterHeight: 1280
+Regions:
+- 0020F3:Skyrim.esm
+- 002230:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB1:Zenderal - Goblins.esp
+  Base: 000812:Zenderal - Goblins.esp
+  Placement:
+    Position: -25301.3, 19712.0, 1823.5
+    Rotation: 0, 0, 4.4422
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB2:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -25258.7, 19626.7, 1820.1
+    Rotation: 0, 0, 3.8967
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB3:Zenderal - Goblins.esp
+  Base: 000811:Zenderal - Goblins.esp
+  Placement:
+    Position: -25386.7, 19669.3, 1867.5
+    Rotation: 0, 0, 3.2574
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB4:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -25173.3, 19797.3, 1725.9
+    Rotation: 0, 0, 1.4402
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB5:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -25472.0, 19712.0, 1896.7
+    Rotation: 0, 0, 4.8581
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB6:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -25237.3, 19904.0, 1700.0
+    Rotation: 0, 0, 2.0872
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB7:Zenderal - Goblins.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: -25472.0, 19840.0, 1871.6
+    Rotation: 0, 0, 4.1694
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AB8:Zenderal - Goblins.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: -25194.7, 19520.0, 1843.0
+    Rotation: 0, 0, 0.1138
+MajorFlags:
+- 0x40000

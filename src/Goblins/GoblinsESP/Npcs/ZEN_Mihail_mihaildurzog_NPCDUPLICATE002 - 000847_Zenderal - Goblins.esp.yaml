@@ -1,0 +1,169 @@
+FormKey: 000847:Zenderal - Goblins.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: ZEN_Mihail_mihaildurzog_NPCDUPLICATE002
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 25
+  - Name: ZEN_GoblinRespawn
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GameDaysPassed
+      Object: 000039:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZEN_GoblinRespawnDays
+      Object: 000820:Zenderal - Goblins.esp
+ObjectBounds:
+  First: -15, -62, 0
+  Second: 15, 62, 56
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 5
+  SpeedMultiplier: 70
+  DispositionBase: 35
+  TemplateFlags:
+  - Factions
+  HealthOffset: 50
+Factions:
+- Faction: 000013:Skyrim.esm
+  Fluff: 0x000000
+Voice: 019FE5:Skyrim.esm
+Template: 000833:Zenderal - Goblins.esp
+Race: 00084E:Zenderal - Goblins.esp
+WornArmor: 000850:Zenderal - Goblins.esp
+AttackRace: 00084E:Zenderal - Goblins.esp
+Items:
+- Item:
+    Item: 000844:Zenderal - Goblins.esp
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 100
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Unused: 160
+  Attack: 300
+Class: 0131E6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Tamed Durzog
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 25
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 20
+  - Key: Block
+    Value: 22
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 32
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 95
+  Stamina: 30
+  GearedUpWeapons: 1
+CombatStyle: 03CEDF:Skyrim.esm
+NAM5: 255
+Height: 1.4
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 000846:Zenderal - Goblins.esp
+DefaultPackageList: 0EB249:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

@@ -1,0 +1,19 @@
+FormKey: 000822:Zenderal - Goblins.esp
+EditorID: ZEN_GoblinIron1H
+Entries:
+- Data:
+    Level: 1
+    Reference: 0028CF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028D2:Skyrim.esm
+    Count: 1

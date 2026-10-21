@@ -1,0 +1,21 @@
+FormKey: 000842:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihaildurzog_hitDUPLICATE005
+Duration: 0.25
+Orientation: ProjectileReflection
+AngleThreshold: 15
+PlacementRadius: 16
+SoundLevel: VeryLoud
+Decal:
+  MinWidth: 8
+  MaxWidth: 32
+  MinHeight: 8
+  MaxHeight: 32
+  Depth: 32
+  Shininess: 4
+  ParallaxScale: 1
+  ParallaxPasses: 4
+  Flags:
+  - Parallax
+  Color: '#00FFFFFF'
+TextureSet: 01F827:Skyrim.esm
+Sound1: 000840:Zenderal - Goblins.esp

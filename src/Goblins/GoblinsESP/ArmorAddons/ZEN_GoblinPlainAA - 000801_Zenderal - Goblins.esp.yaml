@@ -1,0 +1,21 @@
+FormKey: 000801:Zenderal - Goblins.esp
+EditorID: ZEN_GoblinPlainAA
+Version2: 4
+BodyTemplate:
+  FirstPersonFlags:
+  - Head
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000800:Zenderal - Goblins.esp
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 17
+WorldModel:
+  Male:
+    File: Zenderal\Goblins\Goblin_Plain.nif
+FootstepSound: 04400B:Skyrim.esm

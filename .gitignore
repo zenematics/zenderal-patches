@@ -132,6 +132,8 @@ __pycache__/
 /src/KataAffinities21/build/
 !src/KataAffinities21/Scripts/compiled/
 !src/KataAffinities21/Scripts/compiled/*.pex
+!src/Goblins/Scripts/compiled/
+!src/Goblins/Scripts/compiled/*.pex
 
 # SKSE plugin CMake/vcpkg build trees (the shipped DLL lives in compiled/)
 /src/*/SKSEPlugin/build/

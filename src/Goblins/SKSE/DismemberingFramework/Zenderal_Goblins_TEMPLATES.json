@@ -1,0 +1,42 @@
+{
+  "Zenderal - Goblin - Actor addons data - L Calf": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x814",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x850"
+  },
+  "Zenderal - Goblin - Actor addons data - R Calf": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x816",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x851"
+  },
+  "Zenderal - Goblin - Actor addons data - L Forearm": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x818",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x852"
+  },
+  "Zenderal - Goblin - Actor addons data - R Forearm": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x81A",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x853"
+  },
+  "Zenderal - Goblin - Actor addons data - Head": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x81C",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x854"
+  },
+  "Zenderal - GoblinWitch - Actor addons data - L Calf": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x81E",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x850"
+  },
+  "Zenderal - GoblinWitch - Actor addons data - R Calf": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x820",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x851"
+  },
+  "Zenderal - GoblinWitch - Actor addons data - L Forearm": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x822",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x852"
+  },
+  "Zenderal - GoblinWitch - Actor addons data - R Forearm": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x824",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x853"
+  },
+  "Zenderal - GoblinWitch - Actor addons data - Head": {
+    "ActorArmorAddon": "Zenderal - Goblins Dismembering.esp:0x826",
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x854"
+  }
+}

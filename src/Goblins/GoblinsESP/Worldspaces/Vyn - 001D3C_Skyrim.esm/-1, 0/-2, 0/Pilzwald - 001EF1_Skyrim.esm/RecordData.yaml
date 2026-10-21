@@ -1,0 +1,50 @@
+FormKey: 001EF1:Skyrim.esm
+EditorID: Pilzwald
+Version2: 7
+Flags:
+- HasWater
+Grid:
+  Point: -15, 2
+  Flags: -1254349568
+WaterHeight: 3.4028235E+38
+Regions:
+- 0E3B0D:Skyrim.esm
+- 0020F3:Skyrim.esm
+- 072780:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A1B:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -58713.1, 9874.3, 4110.6
+    Rotation: 0, 0, 2.3706
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A1C:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -58615.4, 9888.5, 4103.3
+    Rotation: 0, 0, 0.4898
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A1D:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: -58730.7, 9984.0, 4148.5
+    Rotation: 0, 0, 1.8344
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A1E:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -58837.3, 9920.0, 4149.3
+    Rotation: 0, 0, 0.8675
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A1F:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: -58679.4, 9739.2, 4090.8
+    Rotation: 0, 0, 0.8485
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A20:Zenderal - Goblins.esp
+  Base: 000812:Zenderal - Goblins.esp
+  Placement:
+    Position: -58568.7, 9785.1, 4085.7
+    Rotation: 0, 0, 5.4321

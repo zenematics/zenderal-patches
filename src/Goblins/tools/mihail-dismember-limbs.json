@@ -1,0 +1,212 @@
+[
+  {
+    "fid": "000828",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Calf_L_828.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000832:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000829",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Calf_R_829.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000832:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082A",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Forearm_L_82A.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000832:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082B",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Forearm_R_82B.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000832:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082C",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Head_82C.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000832:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082D",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Calf_L_82D.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000838:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082E",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Calf_R_82E.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000838:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00082F",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Forearm_L_82F.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000838:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000830",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Forearm_R_830.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000838:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000831",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Head_831.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000838:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000832",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Calf_L_832.nif",
+    "node": "NPC L Calf [LClf]",
+    "base_template": "Humanoid - Male - Base data - L Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - L Calf",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000839:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000833",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Calf_R_833.nif",
+    "node": "NPC R Calf [RClf]",
+    "base_template": "Humanoid - Male - Base data - R Calf",
+    "addon_template": "Humanoid - Male - Actor addons data - R Calf",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000839:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000834",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Forearm_L_834.nif",
+    "node": "NPC L Forearm [LLar]",
+    "base_template": "Humanoid - Male - Base data - L Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - L Forearm",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000839:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000835",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Forearm_R_835.nif",
+    "node": "NPC R Forearm [RLar]",
+    "base_template": "Humanoid - Male - Base data - R Forearm",
+    "addon_template": "Humanoid - Male - Actor addons data - R Forearm",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000839:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000836",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\MihailGoblins\\MihailGoblin_Head_836.nif",
+    "node": "NPC Neck [Neck]",
+    "base_template": "Draugr - Male - Base data - Head",
+    "addon_template": "Draugr - Male - Actor addons data - Head",
+    "skins": [
+      {
+        "race": "ZEN_Mihail_mihailgoblinrace",
+        "skin": "000839:Zenderal - Goblins.esp"
+      }
+    ]
+  }
+]

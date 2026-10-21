@@ -1,0 +1,29 @@
+FormKey: 000844:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihaildurzog_lootDUPLICATE001
+Name:
+  TargetLanguage: English
+  Value: Durzog Meat
+Keywords:
+- 08CDEB:Skyrim.esm
+Model:
+  File: Mihail Monsters and Animals\skeever\durzog\loot1.nif
+  Data: 0x020000000000000000000000
+PickUpSound: 0FC21E:Skyrim.esm
+Value: 15
+Weight: 1
+IngredientValue: 20
+Effects:
+- BaseEffect: 03EB16:Skyrim.esm
+  Data:
+    Magnitude: 5
+- BaseEffect: 03EB01:Skyrim.esm
+  Data:
+    Magnitude: 10
+    Duration: 5
+- BaseEffect: 03A2B6:Skyrim.esm
+  Data:
+    Magnitude: 6
+- BaseEffect: 03EAF9:Skyrim.esm
+  Data:
+    Magnitude: 3
+    Duration: 20

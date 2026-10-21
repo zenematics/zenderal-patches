@@ -79,3 +79,4 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`MaceSpeed`](MaceSpeed.md) | `Zenderal - Mace Speed.esp` | none (overrides only) |
 | [`OldCemeteryCryptFix`](OldCemeteryCryptFix.md) | `Zenderal - Old Cemetery Crypt Fix.esp` | none (one override) |
 | [`MusketHandling`](MusketHandling.md) | `ZenMusketHandling.dll` + `.ini` | none (no plugin) |
+| [`Goblins`](Goblins.md) | `Zenderal - Goblins.esp` + `.pex` + generated meshes; `Zenderal - Goblins Dismembering.esp` + DF JSON + generated meshes | `0x800–0xB29`; Dismembering `0x800–0x836` |

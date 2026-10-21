@@ -1,0 +1,72 @@
+FormKey: 001F73:Skyrim.esm
+Flags:
+- HasWater
+Grid:
+  Point: 1, 3
+  Flags: -1254349568
+WaterHeight: 1280
+Regions:
+- 0020F3:Skyrim.esm
+- 002230:Skyrim.esm
+Location: 0133FB:Enderal - Forgotten Stories.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AD7:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: 4693.3, 13781.3, 6673.1
+    Rotation: 0, 0, 0.5935
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AD8:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: 4629.3, 13866.7, 6702.8
+    Rotation: 0, 0, 1.7957
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AD9:Zenderal - Goblins.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: 4544.0, 13738.7, 6724.8
+    Rotation: 0, 0, 3.2404
+- MutagenObjectType: PlacedNpc
+  FormKey: 000ADA:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: 4821.3, 13632.0, 6566.6
+    Rotation: 0, 0, 3.4041
+- MutagenObjectType: PlacedNpc
+  FormKey: 000ADB:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: 4586.7, 13952.0, 6744.0
+    Rotation: 0, 0, 5.8661
+- MutagenObjectType: PlacedNpc
+  FormKey: 000ADC:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: 4480.0, 13845.3, 6767.7
+    Rotation: 0, 0, 4.1266
+- MutagenObjectType: PlacedNpc
+  FormKey: 000ADD:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: 4480.0, 13653.3, 6666.5
+    Rotation: 0, 0, 4.0766
+- MutagenObjectType: PlacedNpc
+  FormKey: 000ADE:Zenderal - Goblins.esp
+  Base: 00083D:Zenderal - Goblins.esp
+  Placement:
+    Position: 4970.7, 13717.3, 6506.3
+    Rotation: 0, 0, 5.9426
+- MutagenObjectType: PlacedNpc
+  FormKey: 000ADF:Zenderal - Goblins.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: 4394.7, 13760.0, 6704.4
+    Rotation: 0, 0, 4.3947
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AE0:Zenderal - Goblins.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: 4928.0, 13994.7, 6533.8
+    Rotation: 0, 0, 2.2645

@@ -1,0 +1,38 @@
+FormKey: 00084C:Zenderal - Goblins.esp
+MajorRecordFlagsRaw: 68
+EditorID: ZEN_Mihail_ArmorIronShield_goblinmihail
+SkyrimMajorRecordFlags:
+- NotPlayable
+- 0x40
+Name:
+  TargetLanguage: English
+  Value: Iron Shield
+WorldModel:
+  Male:
+    Model:
+      File: Armor\Iron\Shield.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Shield
+  ArmorType: HeavyArmor
+  ActsLike44: True
+EquipmentType: 0141E8:Skyrim.esm
+BashImpactDataSet: 0183FB:Skyrim.esm
+AlternateBlockMaterial: 016978:Skyrim.esm
+Race: 000830:Zenderal - Goblins.esp
+Keywords:
+- 06BBE3:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0965B2:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000848:Zenderal - Goblins.esp
+Value: 60
+Weight: 12
+ArmorRating: 13
+MajorFlags:
+- NonPlayable
+- Shield

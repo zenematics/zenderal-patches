@@ -1,0 +1,322 @@
+[
+  {
+    "fid": "000800",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_L_800.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Zenderal - Goblin - Actor addons data - L Calf",
+    "cap": "Goblin",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000805:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000801",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_R_801.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Zenderal - Goblin - Actor addons data - R Calf",
+    "cap": "Goblin",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000805:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000802",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_L_802.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Zenderal - Goblin - Actor addons data - L Forearm",
+    "cap": "Goblin",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000805:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000803",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_R_803.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Zenderal - Goblin - Actor addons data - R Forearm",
+    "cap": "Goblin",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000805:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000804",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Head_804.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Zenderal - Goblin - Actor addons data - Head",
+    "cap": "Goblin",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000805:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000805",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_L_805.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Zenderal - Goblin - Actor addons data - L Calf",
+    "cap": "Goblin",
+    "npcs": 2,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000806:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000806",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_R_806.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Zenderal - Goblin - Actor addons data - R Calf",
+    "cap": "Goblin",
+    "npcs": 2,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000806:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000807",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_L_807.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Zenderal - Goblin - Actor addons data - L Forearm",
+    "cap": "Goblin",
+    "npcs": 2,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000806:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000808",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_R_808.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Zenderal - Goblin - Actor addons data - R Forearm",
+    "cap": "Goblin",
+    "npcs": 2,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000806:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000809",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Head_809.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Zenderal - Goblin - Actor addons data - Head",
+    "cap": "Goblin",
+    "npcs": 2,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000806:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080A",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_L_80A.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - L Calf",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000807:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080B",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_R_80B.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - R Calf",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000807:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080C",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_L_80C.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - L Forearm",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000807:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080D",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_R_80D.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - R Forearm",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000807:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080E",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Head_80E.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - Head",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000807:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "00080F",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_L_80F.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - L Calf",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000808:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000810",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Calf_R_810.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - R Calf",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000808:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000811",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_L_811.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - L Forearm",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000808:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000812",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Forearm_R_812.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - R Forearm",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000808:Zenderal - Goblins.esp"
+      }
+    ]
+  },
+  {
+    "fid": "000813",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Goblin_Head_813.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Zenderal - GoblinWitch - Actor addons data - Head",
+    "cap": "GoblinWitch",
+    "npcs": 1,
+    "skins": [
+      {
+        "race": "ZEN_GoblinRace",
+        "skin": "000808:Zenderal - Goblins.esp"
+      }
+    ]
+  }
+]

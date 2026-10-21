@@ -1,0 +1,17 @@
+FormKey: 000834:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihaildeathitemgoblin
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 03AD6F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 087131:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA02C:Skyrim.esm
+    Count: 1

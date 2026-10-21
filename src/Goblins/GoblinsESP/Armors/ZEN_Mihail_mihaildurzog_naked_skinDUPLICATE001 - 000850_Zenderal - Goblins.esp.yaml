@@ -1,0 +1,18 @@
+FormKey: 000850:Zenderal - Goblins.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZEN_Mihail_mihaildurzog_naked_skinDUPLICATE001
+SkyrimMajorRecordFlags:
+- NotPlayable
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 00084E:Zenderal - Goblins.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00084F:Zenderal - Goblins.esp
+MajorFlags:
+- NonPlayable
