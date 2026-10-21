@@ -1,0 +1,9 @@
+FormKey: 2DAEC9:TaberuAnimation.esp
+MajorRecordFlagsRaw: 512
+EditorID: aaAOt_BowlBS_PotatoSoup
+SkyrimMajorRecordFlags:
+- 0x200
+Model:
+  File: TaberuMono\Tableware\BowlBS_AppleCabbageStew.nif
+  Data: 0x020000000000000000000000
+UnloadEvent: EasUnequipAnimObj0

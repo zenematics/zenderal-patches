@@ -1,0 +1,20 @@
+FormKey: 000831:Dynamic Things Alternative.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: dtaBanditPole06
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -19, -36, -8
+  Second: 18, 27, 141
+Name:
+  TargetLanguage: English
+  Value: Burnt Corpse
+Model:
+  File: Clutter\Bandit\BanditPole06.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Respawns
+OpenSound: 100F2C:Skyrim.esm
+CloseSound: 100F2D:Skyrim.esm
+MajorFlags:
+- NavMeshGenerationBoundingBox

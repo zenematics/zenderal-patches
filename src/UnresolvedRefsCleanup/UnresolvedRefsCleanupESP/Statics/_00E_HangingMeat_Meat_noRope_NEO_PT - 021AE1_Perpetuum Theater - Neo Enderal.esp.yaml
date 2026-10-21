@@ -1,0 +1,10 @@
+FormKey: 021AE1:Perpetuum Theater - Neo Enderal.esp
+EditorID: _00E_HangingMeat_Meat_noRope_NEO_PT
+ObjectBounds:
+  First: -30, -31, -54
+  Second: 30, 27, 197
+Model:
+  File: Enderal\Clutter\AARS\foodcontainer\hangingmeat.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

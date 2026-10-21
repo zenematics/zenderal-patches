@@ -391,6 +391,16 @@ a Community Shaders fork with every CS feature bundled, Effects 11, reverse-Z, s
 - Disabled: ENB Binaries, ENB Extender and Helper, ENB World Map Fix, EVLaS (CS-incompatible), Terrain Helper (bundled in
   Bottled; identical `TerrainHelper.esp`). Kept: *Steamin ENB* so Effects 11 runs its preset (Shift+Num* toggles).
 - Grass back on the complex builds (EGR ENB, Tamrielic for ENB Complex Grass, Rock Grass for ENB Complex Grass);
+- **Unified Water off (2026-10-21).** Bottled Shaders' *Unified Water* ("replaces distant water tiles with LOD0",
+  per-worldspace cache `overwrite/SKSE/Plugins/CommunityShaders/UnifiedWaterCache/<ws>_cache.wc`) drew flat grey
+  hard-edged tiles over the sea, even right next to the camera in loaded cells. Confirmed by an A/B test with it in
+  *Disable at Boot*: the tiles were gone. A freshly rebuilt cache still showed them, and the feature has no options.
+  Earlier terrain-LOD suspects did not fix it: a stray 2.0-era loose `vyn.32.-5.9.btr` (moved to backups) and a
+  fresh xLODGen terrain LOD (kept, as it matches the landscape mods). **The CS settings now ship in *Zenderal -
+  Settings*** (`SKSE/Plugins/CommunityShaders/SettingsUser.json`, moved out of overwrite, which Wabbajack misses),
+  with Disable at Boot = GrassOptimizations, HDRDisplay, PostProcessing, Skin, UnifiedWater. Don't toggle CS features
+  live under MO2: the runtime recompile of ~1500 shaders failed to open its includes and crashed (02:07, alt-tab).
+  Use Disable at Boot and restart.
   *Zenderal - Grass Lighting Fix* regenerated for them (297 meshes).
 - CS Light audit: all 30 effect-shader EditorIDs and every light-template EditorID exist in Enderal; 779/1093 mesh
   entries hit meshes that exist (the rest no-op); `CS Light.esp` (ESL, Skyrim.esm master) overrides 21 magic LIGH that

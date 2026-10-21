@@ -1,0 +1,9 @@
+FormKey: 2DAEC6:TaberuAnimation.esp
+MajorRecordFlagsRaw: 512
+EditorID: aaAOt_Bowl_HorkerStew
+SkyrimMajorRecordFlags:
+- 0x200
+Model:
+  File: TaberuMono\Tableware\Bowl_AppleCabbageStew.nif
+  Data: 0x020000000000000000000000
+UnloadEvent: EasUnequipAnimObj0

@@ -69,6 +69,9 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`LastWatchTrapdoorFix`](LastWatchTrapdoorFix.md) | `Zenderal - Last Watch Trapdoor Fix.esp` | none (overrides only) |
 | [`NoLightningFlash`](NoLightningFlash.md) | `Zenderal - No Lightning Flash.esp` | none (overrides only) |
 | [`Levelsystem21Cleanup`](Levelsystem21Cleanup.md) | `Zenderal - 2.1 Levelsystem Cleanup.esp` | none (overrides only) |
+| [`QyraIslandEditorIdFix`](QyraIslandEditorIdFix.md) | `Zenderal - Qyra Island EditorID Fix.esp` | none (overrides only) |
+| [`UnresolvedRefsCleanup`](UnresolvedRefsCleanup.md) | `Zenderal - Unresolved References Cleanup.esp` | none (overrides only) |
+| [`IronGolemClean`](IronGolemClean.md) | generated cleaned `mihailirongolem.esp` (not committed) | none |
 | [`KataAffinities21`](KataAffinities21.md) | `Zenderal - KataPUMB Affinities 2.1.esp` + `_00E_AffinityControl.pex` | none (one override) |
 | [`LostOneSalletFix`](LostOneSalletFix.md) | *(generated mesh, not committed)* | none |
 | [`LostOnesDismembering`](LostOnesDismembering.md) | `Zenderal - Lost Ones Dismembering.esp` + DF JSON + generated meshes | `0x800–0x832` |

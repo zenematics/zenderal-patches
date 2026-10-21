@@ -1,0 +1,22 @@
+FormKey: 000842:Dynamic Things Alternative.esp
+EditorID: dtaHagravenDeadGoat01
+ObjectBounds:
+  First: -19, -20, -14
+  Second: 23, 28, 21
+Name:
+  TargetLanguage: English
+  Value: Goat
+Model:
+  File: clutter\hagraven\dtahagravendeadgoat01.nif
+  Data: 0x020000000000000000000000
+PNAM: 0x00000000
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: Harvest Horns
+FNAM: 0x0000
+HarvestSound: 0A5013:Skyrim.esm
+Production:
+  Spring: 100
+  Summer: 100
+  Fall: 100
+  Winter: 100

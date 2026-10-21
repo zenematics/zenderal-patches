@@ -1,0 +1,18 @@
+FormKey: 0008BE:DF - Official Creature Pack.esp
+EditorID: DF_Troll_Black_Armored_Head_AA
+BodyTemplate:
+  FirstPersonFlags:
+  - Decapitate
+  ArmorType: Clothing
+  ActsLike44: True
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 23
+WorldModel:
+  Male:
+    File: DismemberingFramework\OfficialCreaturePack\Troll\ArmorAddons\BlackArmored\Dismembered_Addons.nif
+    Data: 0x020000000000000000000000

@@ -1,0 +1,41 @@
+FormKey: 0E1F17:Skyrim.esm
+EditorID: DBArmorHelmetSP
+Version2: 14
+ObjectBounds:
+  First: -17, -4, -15
+  Second: 8, 9, 19
+Name:
+  TargetLanguage: English
+  Value: Ancient Shrouded Cowl
+ObjectEffect: 0BE00D:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Armor\DBArmor\DBArmorHoodGND.nif
+      Data: 0x02000000020000000000000004E922B96464730016ED4B613E2B932A6464730016ED4B61
+  Female:
+    Model:
+      File: Armor\DBArmor\DBArmorHoodGND.nif
+      Data: 0x02000000020000000000000004E922B96464730016ED4B613E2B932A6464730016ED4B61
+BodyTemplate:
+  FirstPersonFlags:
+  - Hair
+  - Circlet
+  - 0x4000
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 06C0EE:Skyrim.esm
+- 06BBD3:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 0D2840:Skyrim.esm
+- 106E58:Skyrim.esm
+- 106E59:Skyrim.esm
+Value: 150
+Weight: 1
+ArmorRating: 15

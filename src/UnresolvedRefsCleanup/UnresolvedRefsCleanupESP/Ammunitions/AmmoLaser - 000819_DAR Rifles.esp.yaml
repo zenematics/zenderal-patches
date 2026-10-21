@@ -1,0 +1,17 @@
+FormKey: 000819:DAR Rifles.esp
+EditorID: AmmoLaser
+Name:
+  TargetLanguage: English
+  Value: Ammo Laser
+Model:
+  File: Rifles\Mag.nif
+  Data: 0x020000000000000000000000
+Description:
+  TargetLanguage: English
+  Value: ''
+Keywords:
+- 01E71A:Skyrim.esm
+- 0917E7:Skyrim.esm
+Projectile: 00081C:DAR Rifles.esp
+Damage: 16
+Value: 5

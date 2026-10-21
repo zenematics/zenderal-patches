@@ -1,0 +1,94 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Unresolved References Cleanup.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Author: Zenderal
+  Description: Removes references to forms no loaded plugin defines (mostly vanilla Skyrim/DLC leftovers in mods ported from Skyrim) from 222 winning records, so xEdit and DynDOLOD load cleanly. Load last.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Dawnguard.esm
+    FileSize: 0
+  - Master: HearthFires.esm
+    FileSize: 0
+  - Master: Dragonborn.esm
+    FileSize: 0
+  - Master: High Poly Head.esm
+    FileSize: 0
+  - Master: EVGAnimatedTraversal.esl
+    FileSize: 0
+  - Master: Pistol animation by Loop.esp
+    FileSize: 0
+  - Master: PGPatcher.esp
+    FileSize: 0
+  - Master: HPP - Vaermina's Torpor.esp
+    FileSize: 0
+  - Master: DeadlySpellImpacts.esp
+    FileSize: 0
+  - Master: S3DRocks.esp
+    FileSize: 0
+  - Master: _Fuse00_ArmorHelga.esp
+    FileSize: 0
+  - Master: EAM SE - Enderal Apothecarii Monastery.esp
+    FileSize: 0
+  - Master: TaberuAnimation.esp
+    FileSize: 0
+  - Master: Wendigo creature mod.esp
+    FileSize: 0
+  - Master: DF - Official Creature Pack.esp
+    FileSize: 0
+  - Master: Dynamic Impact - Slash Effects X.esp
+    FileSize: 0
+  - Master: Deflection.esp
+    FileSize: 0
+  - Master: FEC.esp
+    FileSize: 0
+  - Master: ImmersiveInteractions.esp
+    FileSize: 0
+  - Master: mihailirongolem.esp
+    FileSize: 0
+  - Master: Dynamic Things Alternative.esp
+    FileSize: 0
+  - Master: JS Knapsacks SE.esp
+    FileSize: 0
+  - Master: Skyking Mountain Flowers.esp
+    FileSize: 0
+  - Master: Helmet Toggle 2.esp
+    FileSize: 0
+  - Master: Audio Overhaul Skyrim.esp
+    FileSize: 0
+  - Master: Audio Overhaul - Enderal patch.esp
+    FileSize: 0
+  - Master: BeardMaskFix.esp
+    FileSize: 0
+  - Master: mihailmatingcrabs.esp
+    FileSize: 0
+  - Master: mihailcrystalgolem.esp
+    FileSize: 0
+  - Master: 1Minotaurs.esp
+    FileSize: 0
+  - Master: DAR Rifles.esp
+    FileSize: 0
+  - Master: OrdoLegionisMuskets.esp
+    FileSize: 0
+  - Master: mihailudefryktereplacer.esp
+    FileSize: 0
+  - Master: MinotaursInEnderal.esp
+    FileSize: 0
+  - Master: Perpetuum Theater - Neo Enderal.esp
+    FileSize: 0
+  - Master: Foggy Nights - Enderal.esp
+    FileSize: 0
+  - Master: Apocalypse - Magic of Skyrim.esp
+    FileSize: 0
+  - Master: PG_1.esp
+    FileSize: 0
+  INTV: 1

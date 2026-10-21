@@ -1,0 +1,20 @@
+FormKey: 002F9D:OrdoLegionisMuskets.esp
+EditorID: OLMusket_ammo_lead
+Name:
+  TargetLanguage: English
+  Value: Musket Balls
+Model:
+  File: OLM\OL_musket\ol_Rifleball.nif
+  Data: 0x020000000000000000000000
+Description:
+  TargetLanguage: English
+  Value: Black powder charge and iron ball
+Keywords:
+- 0917E7:Skyrim.esm
+- 01E718:Skyrim.esm
+Projectile: 002F9E:OrdoLegionisMuskets.esp
+Flags:
+- IgnoresNormalWeaponResistance
+Damage: 6
+Value: 2
+Weight: 0.1

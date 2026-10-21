@@ -1,0 +1,25 @@
+FormKey: 000D65:JS Knapsacks SE.esp
+EditorID: JS_KnapsackSlashed
+Name:
+  TargetLanguage: English
+  Value: Knapsack
+Model:
+  File: clutter\containers\miscpouch04.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 04F78D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0876A5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 073FC5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 073FC4:Skyrim.esm
+    Count: 1
+Flags:
+- Respawns
+OpenSound: 0B2DD0:Skyrim.esm
+CloseSound: 0B2DD1:Skyrim.esm

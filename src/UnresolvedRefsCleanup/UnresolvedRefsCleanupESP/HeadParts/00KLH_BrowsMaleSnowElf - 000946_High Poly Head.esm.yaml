@@ -1,0 +1,18 @@
+FormKey: 000946:High Poly Head.esm
+EditorID: 00KLH_BrowsMaleSnowElf
+Name:
+  TargetLanguage: English
+  Value: BrowsMaleSnowElf
+Model:
+  File: KL\High Poly Head\FaceParts\MaleBrows.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Male
+Type: Eyebrows
+Parts:
+- PartType: RaceMorph
+  FileName: KL\High Poly Head\FaceParts\MaleHeadBrowsRaces.tri
+- PartType: Tri
+  FileName: KL\High Poly Head\FaceParts\MaleHeadBrows.tri
+- PartType: ChargenMorph
+  FileName: KL\High Poly Head\FaceParts\MaleHeadBrowsCharGen.tri

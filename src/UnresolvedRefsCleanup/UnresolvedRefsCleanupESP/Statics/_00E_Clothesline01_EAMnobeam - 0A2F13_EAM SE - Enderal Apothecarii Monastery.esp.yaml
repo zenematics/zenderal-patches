@@ -1,0 +1,10 @@
+FormKey: 0A2F13:EAM SE - Enderal Apothecarii Monastery.esp
+EditorID: _00E_Clothesline01_EAMnobeam
+ObjectBounds:
+  First: -129, -3, -96
+  Second: 128, 3, 74
+Model:
+  File: _pgpatcher_dups\1\enderal\miscellaneous\clothesline\clothesline01.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

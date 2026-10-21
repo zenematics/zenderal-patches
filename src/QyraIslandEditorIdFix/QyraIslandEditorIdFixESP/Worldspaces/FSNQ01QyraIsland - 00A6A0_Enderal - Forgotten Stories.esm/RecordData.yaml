@@ -1,0 +1,26 @@
+FormKey: 00A6A0:Enderal - Forgotten Stories.esm
+EditorID: FSNQ01QyraIsland
+Version2: 6
+Name:
+  TargetLanguage: English
+  Value: Strange Place
+Location: 00CEDC:Enderal - Forgotten Stories.esm
+Parent:
+  Worldspace: 001D3C:Skyrim.esm
+  Flags:
+  - UseMapData
+Water: 000018:Skyrim.esm
+LodWater: 000018:Skyrim.esm
+LodWaterHeight: 0
+LandDefaults:
+  DefaultLandHeight: -2048
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -4, -4
+ObjectBoundsMax: 6, 6
+Music: 02ECEC:Enderal - Forgotten Stories.esm
+SubCellsUnknown: 1

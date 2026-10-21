@@ -1,0 +1,38 @@
+FormKey: 00A311:Dawnguard.esm
+EditorID: WPNzBoltImpactSet
+FormVersion: 43
+Impacts:
+- Material: 012F3C:Skyrim.esm
+  Impact: 04BB54:Skyrim.esm
+- Material: 012F3D:Skyrim.esm
+  Impact: 00A30C:Dawnguard.esm
+- Material: 012F3F:Skyrim.esm
+  Impact: 00A30C:Dawnguard.esm
+- Material: 012F40:Skyrim.esm
+  Impact: 0452D6:Skyrim.esm
+- Material: 016978:Skyrim.esm
+  Impact: 0193B5:Skyrim.esm
+- Material: 016979:Skyrim.esm
+  Impact: 0193B4:Skyrim.esm
+- Material: 052798:Skyrim.esm
+  Impact: 052799:Skyrim.esm
+- Material: 05A28F:Skyrim.esm
+  Impact: 00A30C:Dawnguard.esm
+- Material: 09150B:Skyrim.esm
+  Impact: 00082D:Dynamic Impact - Slash Effects X.esp
+- Material: 09644C:Skyrim.esm
+  Impact: 00082D:Dynamic Impact - Slash Effects X.esp
+- Material: 0C1AD7:Skyrim.esm
+  Impact: 00A30C:Dawnguard.esm
+- Material: 0D309F:Skyrim.esm
+  Impact: 00A30C:Dawnguard.esm
+- Material: 0D6C11:Skyrim.esm
+  Impact: 0452D6:Skyrim.esm
+- Material: 0F0EA8:Skyrim.esm
+  Impact: 00A30E:Dawnguard.esm
+- Material: 0F7B65:Skyrim.esm
+  Impact: 00A30E:Dawnguard.esm
+- Material: 100752:Skyrim.esm
+  Impact: 00082F:Dynamic Impact - Slash Effects X.esp
+- Material: 10D5CC:Skyrim.esm
+  Impact: 00082E:Dynamic Impact - Slash Effects X.esp

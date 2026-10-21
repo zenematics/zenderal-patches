@@ -1,0 +1,13 @@
+FormKey: 03CF89:Dragonborn.esm
+EditorID: QSTKagrumezStoneSlideLPMSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\Sound\FX\DLC02\QST\Kagrumez\QST_Kagrumez_Stone_Slide_01_LPM.wav
+- data\Sound\FX\DLC02\QST\Kagrumez\QST_Kagrumez_Stone_Slide_02_LPM.wav
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyVariance: 2
+Priority: 128
+Variance: 4
+StaticAttenuation: 18.94

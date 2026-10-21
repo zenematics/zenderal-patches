@@ -1,0 +1,153 @@
+FormKey: 00081D:mihailirongolem.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: mihailirongolem_NPC_fire
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -35, -25, 0
+  Second: 35, 25, 268
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - Unique
+  - LoopedAudio
+  StaminaOffset: 150
+  Level:
+    MutagenObjectType: PcLevelMult
+    LevelMult: 1
+  CalcMinLevel: 50
+  CalcMaxLevel: 70
+  SpeedMultiplier: 40
+  DispositionBase: 35
+  TemplateFlags:
+  - Stats
+  HealthOffset: 250
+Factions:
+- Faction: 02430D:Skyrim.esm
+  Fluff: 0x000000
+Voice: 01F1CF:Skyrim.esm
+Template: 00080B:mihailirongolem.esp
+Race: 000825:mihailirongolem.esp
+WornArmor: 000802:mihailirongolem.esp
+AttackRace: 000825:mihailirongolem.esp
+Items:
+- Item:
+    Item: 000804:mihailirongolem.esp
+    Count: 1
+- Item:
+    Item: 000806:mihailirongolem.esp
+    Count: 1
+- Item:
+    Item: 000823:mihailirongolem.esp
+    Count: 1
+- Item:
+    Item: 02E4FC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 03ADA3:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 03ADA4:Skyrim.esm
+    Count: 2
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  AggroRadiusBehavior: True
+  Unused: 243
+  Attack: 475
+Packages:
+- 000837:mihailirongolem.esp
+Class: 01CE17:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: The Dragon Wrecker
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 100
+  - Key: TwoHanded
+    Value: 100
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 96
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 60
+  - Key: LightArmor
+    Value: 96
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 1039
+  Stamina: 446
+  GearedUpWeapons: 1
+CombatStyle: 00083C:mihailirongolem.esp
+NAM5: 255
+Height: 1.4
+Weight: 50
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 000809:mihailirongolem.esp
+TextureLighting: '#007F7F7F'
+MajorFlags:
+- 0x40000

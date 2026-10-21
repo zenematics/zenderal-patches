@@ -1,0 +1,42 @@
+FormKey: 0ABFCD:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Entomb_Cell
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Entombed
+Flags:
+- IsInteriorCell
+- PublicArea
+Lighting:
+  AmbientColor: '#00808080'
+  DirectionalColor: '#00000000'
+  FogNearColor: '#00000000'
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#005C6B7B'
+    DirectionalXMinus: '#004B6B70'
+    DirectionalYPlus: '#00547076'
+    DirectionalYMinus: '#00546576'
+    DirectionalZPlus: '#00283235'
+    DirectionalZMinus: '#007FA3B6'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+LightingTemplate: 0EF2C5:Skyrim.esm
+WaterHeight: 0
+Owner: 000007:Skyrim.esm
+AcousticSpace: 01989F:Skyrim.esm
+ImageSpace: 09F363:Skyrim.esm
+MajorFlags:
+- 0x40000
