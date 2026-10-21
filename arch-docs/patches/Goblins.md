@@ -14,7 +14,7 @@
   **And** `Goblins- Mihail Monsters and Animals (SE-AE version)` (Nexus Skyrim SE 24525, v4) for Mihail's
   meshes, textures and sounds, with **its plugin `mihailgoblins.esp` disabled** (see 2b).
 - **FormID blocks:** Goblins `0x800` race, `0x801–0x808` skins, `0x810–0x814` NPCs, `0x820` global, `0x821` race ability,
-  `0x822–0x823` iron weapon lists, `0x830–0x850` Mihail's copied records, `0x900–0xB29` the 554 placed refs.
+  `0x822–0x823` iron weapon lists, `0x830–0x850` Mihail's copied records, `0x900–0xB29` the 542 placed refs (12 IDs freed by the MQ01 removal stay unused).
   Goblins Dismembering `0x800–0x813` limb items, `0x814–0x827` cap ARMO/ARMA pairs, `0x828–0x836` Mihail limb items.
 
 ## What it does
@@ -164,7 +164,15 @@ the winning cell headers, the winning navmeshes, all live placed refs and the ma
 
   Fixed seeds, so the plan is deterministic.
 
-Result (2026-10-21): **80 packs, 504 goblins (391 of them Mihail's) + 50 durzogs**. Roles: M-Archer 96,
+**Quest zones (`QUEST_CLEAR`, curator 2026-10-21).** No pack within 10,000 units of MQ01's Finn (`085998`)
+or Carbos (`08599A`; he stands in `MQ01Campsite` cell −27,1, Jespar's camp). The two Old Dam Lookout packs
+there (cells −26,1 and −28,1; 5 + 7 members) broke the opening dialogue with Finn, Carbos and Jespar. The
+zones drop packs *after* composition and never re-roll, and `02` carries every surviving pack's ref FormIDs
+over from the previous plan. `03` keeps a site's existing IDs and gives fresh ones only to new sites, so
+removing these two left the other 78 packs identical (place, line-up, ref IDs) and goblins in existing
+saves are the same refs. Add a ref here for any other scripted encounter a pack disturbs.
+
+Result before the quest zones: 80 packs. **Now 78 packs, 542 refs: 492 goblins + 50 durzogs.** At 80 packs the roles were M-Archer 96,
 M-Goblin 91, M-Berserker 81, M-Skirmisher 80, Durzog 50, Goblin 43, Archer 29, Scout 28, M-Warlord 25,
 M-Shaman 18, Chieftain 8, Shaman 5.
 

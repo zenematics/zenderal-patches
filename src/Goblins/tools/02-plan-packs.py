@@ -59,6 +59,13 @@ SEED = 20261021
 PACK = (5, 8)                     # goblins per pack
 DURZOGS = ((0, 0.5), (1, 0.3), (2, 0.2))   # extra Tamed Durzogs per pack: count, chance
 MIHAIL_SHARE = 0.75                # curator 2026-10-21: more of Mihail's goblins in the mix
+# placed ref -> (why, radius): no pack within radius. Curator 2026-10-21: the packs near Finn and Carbos (MQ01,
+# met before Jespar) and near Jespar's camp just after (MQ01Campsite, cell -27,1, where Carbos stands)
+# broke their opening dialogue.
+QUEST_CLEAR = {
+    '085998:Skyrim.esm': ('MQ01 Finn', 10000),
+    '08599A:Skyrim.esm': ("MQ01 Carbos / Jespar's camp", 10000),
+}
 SITE_SPACING = 7000
 ANCHOR_RANGE = (1200, 4000)
 CLEAR_NPC = 1500
@@ -449,6 +456,22 @@ def main():
                 break
         s['roles'] = roles[:n] + ['Durzog'] * d
         s['members'] = s['members'][:len(s['roles'])]
+    # Quest zones: drop (never re-roll) any pack near a scripted encounter, AFTER composition, so every other
+    # pack keeps its place and line-up.
+    pos = {r['fk']: r['pos'] for r in live}
+    for fk, (why, radius) in QUEST_CLEAR.items():
+        assert fk in pos, fk
+        gone = [s for s in sites if math.dist(s['center'][:2], pos[fk][:2]) < radius]
+        for s in gone:
+            print(f'  quest zone {why}: dropped pack near {s["near"]} (cell {s["cell"]}, {len(s["members"])} members)')
+        sites = [s for s in sites if s not in gone]
+    # carry the ref FormIDs 03 gave each surviving site, so goblins in existing saves keep their refs
+    if os.path.isfile(OUT):
+        old = {tuple(s['center']): s.get('refs', []) for s in json.load(open(OUT, encoding='utf-8'))}
+        for s in sites:
+            refs = old.get(tuple(s['center']), [])
+            if len(refs) == len(s['members']):
+                s['refs'] = refs
     total = sum(len(s['members']) for s in sites)
     print('roles: ' + ', '.join(f'{k} {v}' for k, v in collections.Counter(r for s in sites for r in s['roles']).most_common()))
     with open(OUT, 'w', encoding='utf-8', newline='\n') as fh:

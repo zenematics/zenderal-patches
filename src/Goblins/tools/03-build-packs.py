@@ -111,7 +111,14 @@ def main():
     by_cell = {}
     for s in sorted(plan, key=lambda s: (s['cell'][0], s['cell'][1], s['center'][0], s['center'][1])):
         by_cell.setdefault((tuple(s['cell']), s['cell_fk']), []).append(s)
-    fid = FIRST_REF
+    # A site keeps the ref FormIDs it already has (02 carries them over), so goblins in existing saves stay
+    # the same refs when other packs are added or removed; only new sites get fresh IDs.
+    kept = [r for s in plan if len(s.get('refs', [])) == len(s['members']) for r in s['refs']]
+    assert len(kept) == len(set(kept)), 'duplicate ref FormIDs in plan'
+    fid = max([int(r, 16) + 1 for r in kept] + [FIRST_REF])
+    for s in plan:
+        if len(s.get('refs', [])) != len(s['members']):
+            s['refs'] = []
     winners = {}
     for ((gx, gy), cell_fk), sites in sorted(by_cell.items()):
         found = [(p, cell_dir(r, gx, gy, cell_fk), r) for p, r in src]
@@ -123,15 +130,17 @@ def main():
         assert text.startswith(f'FormKey: {cell_fk}'), cdir
         body = ['Temporary:']
         for s in sites:
-            for (x, y, z, rot), role in zip(s['members'], s['roles']):
+            fresh = not s['refs']
+            for k, ((x, y, z, rot), role) in enumerate(zip(s['members'], s['roles'])):
+                if fresh:
+                    s['refs'].append(f'{fid:06X}')
+                    fid += 1
                 body += ['- MutagenObjectType: PlacedNpc',
-                         f'  FormKey: {fid:06X}:{MOD_KEY}',
+                         f'  FormKey: {s["refs"][k]}:{MOD_KEY}',
                          f'  Base: {BASES[role]}:{MOD_KEY}',
                          '  Placement:',
                          f'    Position: {x}, {y}, {z + 8}',
                          f'    Rotation: 0, 0, {rot}']
-                s.setdefault('refs', []).append(f'{fid:06X}')
-                fid += 1
         blk, sub = block_dirs(gx, gy)
         rel = os.path.relpath(cdir, os.path.join(root, 'Worldspaces', WS))
         write(os.path.join(outws, rel, 'RecordData.yaml'), header(text) + NL.join(body) + NL + trailer(text))
@@ -139,8 +148,9 @@ def main():
             gsrc = [os.path.join(r, 'Worldspaces', WS, *g, 'GroupRecordData.yaml') for _, r in src]
             gsrc = [p for p in gsrc if os.path.isfile(p)]
             shutil.copyfile(gsrc[-1], os.path.join(outws, *g, 'GroupRecordData.yaml'))
-    assert fid <= 0xFFF, f'ESL range exhausted at {fid:X}'
-    n = fid - FIRST_REF
+    assert fid <= 0x1000, f'ESL range exhausted at {fid:X}'
+    n = sum(len(s['refs']) for s in plan)
+    assert len({r for s in plan for r in s['refs']}) == n, 'duplicate ref FormIDs'
     print(f'{n} goblins in {len(plan)} packs, {len(by_cell)} cells; cell headers from: ' +
           ', '.join(f'{p} {c}' for p, c in sorted(winners.items(), key=lambda kv: -kv[1])))
 
