@@ -120,9 +120,14 @@ def rebuild(n, old, body, body_nif, corners, uvs):
     at = {}
     for k, i in enumerate(corners):
         at.setdefault(i, []).append(k)
-    for bone, pairs in old.bone_weights.items():
+    # All bones first, then every skin-to-bone, then the weights: add_bone resets the skin-to-bone of the
+    # bones added before it, so set-per-bone in one loop left all but the last at identity (the 3-bone head
+    # ring's Spine2/L Clavicle -> a spike from the neck on every decapitated goblin, seen in game 2026-10-22).
+    for bone in old.bone_weights:
         d.add_bone(bone, n.nodes[bone].transform)
+    for bone in old.bone_weights:
         d.set_skin_to_bone_xform(bone, old.get_shape_skin_to_bone(bone))
+    for bone, pairs in old.bone_weights.items():
         d.setShapeWeights(bone, [(k, w) for i, w in pairs for k in at.get(i, [])])
     d.set_partitions(old.partitions, [old.partition_tris[0]] * len(tris))
     return len(verts), len(tris)
@@ -177,6 +182,13 @@ def build(variant, body_nif, body):
         s = [x for x in o.shapes if x.name == name][-1]
         assert len(s.verts) == nv and len(s.tris) == nt, name
         assert s.textures['Diffuse'].lower() == want, (name, s.textures)
+        src = [x for x in NifFile(CAPS).shapes if x.name == name][0]
+        assert sorted(s.bone_names) == sorted(src.bone_names), (name, s.bone_names, src.bone_names)
+        for bone in src.bone_names:                 # every bind transform as DF's (read back from disk)
+            a, b = s.get_shape_skin_to_bone(bone), src.get_shape_skin_to_bone(bone)
+            assert np.allclose(list(a.translation), list(b.translation), atol=1e-3) and \
+                np.allclose([list(r) for r in a.rotation], [list(r) for r in b.rotation], atol=1e-4) and \
+                abs(a.scale - b.scale) < 1e-4, (variant, name, bone, list(a.translation), list(b.translation))
         print(f'  {name}: {nt} tris, {nv} corners, max UV span {span:.3f}')
     print(f'{variant}: {want} -> {out}')
 

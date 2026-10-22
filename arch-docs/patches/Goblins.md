@@ -237,6 +237,13 @@ keep DF's own Falmer limbs.
   (`goblin.dds`; `goblinwitch.dds` for the witch/chief bodies) rebuild each ring with the goblin shader. Each
   ring is unwelded and takes per-triangle UV islands from the goblin body (max triangle UV span 0.058;
   nearest-vertex transfer smeared 0.4–0.8 across seams).
+  **Fixed 2026-10-22: decapitated goblins grew a long spike from the neck** (seen in game). PyNifly's
+  `add_bone` resets the skin-to-bone of bones added before it. Setting each bone's transform in the same
+  loop left all but the last at identity. In the 3-bone head ring that meant `NPC Spine2` and
+  `NPC L Clavicle`, which together cover every vertex. The forearm/calf rings have one bone each, so they
+  were unaffected. `05` now adds all bones, then sets every transform, then the weights. It also reads the
+  written nif back and asserts each ring's per-bone transform equals DF's. Rule for any multi-bone PyNifly
+  rebuild: add bones first, then transforms.
 - `04b` (Mihail's goblins, added 2026-10-21) is the minotaur method from
   `src/LostOnesDismembering/tools/04`, which was verified in game. Mihail's race is humanoid: its skeleton
   has standard `NPC … [xxx]` bones, his skins cover only the Body slot, and the head is part of the body
