@@ -80,3 +80,8 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`OldCemeteryCryptFix`](OldCemeteryCryptFix.md) | `Zenderal - Old Cemetery Crypt Fix.esp` | none (one override) |
 | [`MusketHandling`](MusketHandling.md) | `ZenMusketHandling.dll` + `.ini` | none (no plugin) |
 | [`Goblins`](Goblins.md) | `Zenderal - Goblins.esp` + `.pex` + generated meshes; `Zenderal - Goblins Dismembering.esp` + DF JSON + generated meshes | `0x800–0xB29`; Dismembering `0x800–0x836` |
+| [`CreatureRagdollFix`](CreatureRagdollFix.md) | Pandora patch `zragfix`, human `0_master` contact edit + draugr get-up matcher start event | none (no plugin) |
+| [`ZenRagdollTrace`](ZenRagdollTrace.md) | Testing tool: SKSE logger of ragdoll/get-up graph events and state | none (no plugin) |
+| [`AirborneGetUpFix`](AirborneGetUpFix.md) | `ZenAirborneGetUpFix.dll`: holds mid-air `GetUpBegin` until the ragdoll settles | none (no plugin) |
+| [`DFSlowTimeGuard`](DFSlowTimeGuard.md) | `ZenDFSlowTimeGuard.dll`: stops DF's slow-mo reset cancelling Seismic Stomp's SlowTime | none (no plugin) |
+| [`SkeletonRagdollFix`](SkeletonRagdollFix.md) | generated loose `skeletons.hkx`: skeleton ragdoll limbs bend | none (no plugin) |

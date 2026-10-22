@@ -890,6 +890,45 @@
           "to": "Scripts/Source"
         }
       ]
+    },
+    {
+      "$comment": "Pandora-native patch zragfix (needs a Pandora run). 0_master.xml: the human #0260 CollisionListener contact edit MichelKI's Death and Ragdoll Behavior Fix (Nexus 171129) asks Pandora users to add by hand. draugrbehavior.xml: both get-up pose matchers start on GetUpBegin (248) instead of Ragdoll, which they never receive - skeletons got up in a rigid A-pose. The first creature version (contact event + TurnOnMatchingRagdoll on draugr/spriggan) was reverted; the mid-air freeze is AirborneGetUpFix.",
+      "name": "Zenderal - Creature Ragdoll Fix",
+      "archiveName": "Zenderal - Creature Ragdoll Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/CreatureRagdollFix/data/Pandora_Engine",
+          "to": "Pandora_Engine"
+        }
+      ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. An actor hit while flying as a ragdoll (Seismic Stomp under its SlowTime, but any knockdown) is sent GetUpBegin by the engine ~55 ms after the hit, turns animation-driven with no ragdoll or character controller, and hangs rigid mid-air (measured with ZenRagdollTrace). The plugin holds GetUpBegin until the actor's pelvis has settled (1 s within 4 units, wall clock; 8 s timeout) and refuses stagger*/recoil*/bleedOutStart events while an actor is ragdolled or knocked down (a stagger pulls the graph out of ragdoll and pins the body). Hooks Character::Update (vfunc 0xAD) and NotifyAnimationGraph (vtable 3, vfunc 0x01). Build with src/AirborneGetUpFix/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - Airborne Get-Up Fix",
+      "archiveName": "Zenderal - Airborne Get-Up Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/AirborneGetUpFix/compiled/ZenAirborneGetUpFix.dll",
+          "to": "SKSE/Plugins"
+        }
+      ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. Dismembering Framework's player slow-mo resets time with SetGlobalTimeMultiplier(1.0), and its native only guards values below 1.0 against a running SlowTime effect, so a dismember cancelled Seismic Stomp's SlowTime. After data load the plugin re-registers DismemberingFramework.SetGlobalTimeMultiplier: while the player has a SlowTime-archetype effect DF may not change time at all; otherwise it behaves exactly like DF's native. Build with src/DFSlowTimeGuard/build.cmd; compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - DF SlowTime Guard",
+      "archiveName": "Zenderal - DF SlowTime Guard",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/DFSlowTimeGuard/compiled/ZenDFSlowTimeGuard.dll",
+          "to": "SKSE/Plugins"
+        }
+      ]
     }
   ]
 }

@@ -233,3 +233,26 @@ Test spawns: `player.placeatme 013FEF` (`_00E_Spider`), `016C6B` (`_05E_Mooskrab
   BSA, plated/armored meshes). `Lost Ones Revised - EGO Patch.esp` references seven skins (`0083F3`,
   `00A95F`, `00DB22`, `00DB29`, `00DB31`, `00DB44`, `00E7B5` `:Undead Creatures Replacer.esp`) that the
   installed UCR 1.2 lacks. If that file is ever installed, rerun all three generators.
+
+## Frozen mid-air corpses: stump-cap test (2026-10-22, closed: not DF)
+
+**Resolved elsewhere, not DF:** a hit on an airborne ragdoll makes the engine start the get-up mid-air, and a stagger
+pulls the graph out of ragdoll; see [`AirborneGetUpFix.md`](AirborneGetUpFix.md) (measured with
+[`ZenRagdollTrace`](ZenRagdollTrace.md)). The contact-listener theory in [`CreatureRagdollFix.md`](CreatureRagdollFix.md)
+was wrong for creatures. The deployed JSON was restored to the repo copy the same day.
+
+**Symptom:** an enemy ragdolled into the air (Seismic Stomp), killed by a hit while airborne and dismembered, goes
+rigid in mid-air and never falls. Seen on skeletons (and reported for spriggans).
+
+**Lead, from DF 1.2.3's source** (Seb263/SkyrimSE_DismemberingFramework `eacedd8`, `Main.cpp`): for each limb cut
+DF runs `CutLimb`, `DropTargetItem`, `ToggleCollisionLayers` (dead target), `ToggleNode`, then
+**`EquipArmorAddon`**, which calls `ActorEquipManager::EquipObject` on the dying actor. That equips the stump cap,
+from the official packs' "Actor addons data" templates (`ActorArmorAddon`), which every limb uses, ours included.
+Equipping rebuilds the actor's worn 3D. On a live mid-air ragdoll, the suspicion is that this freezes the body in
+its current pose. **Not proven.**
+
+**Test deployed (not in the repo):** the deployed `Zenderal_LostOnes_LIMBS.json` has the "Actor addons data"
+template removed from the five `Zenderal - Skeleton - *` limbs. Skeletons still lose limbs, without a stump cap.
+Original in `E:/Zenderal-backups/2026-10-22-df-skeleton-cap-test/`; the repo copy and `tools/01` are unchanged.
+If skeletons stop freezing, the stump-cap equip is the cause. The fix then belongs in DF (defer the equip until the
+ragdoll has settled), or in our data (no caps on airborne-prone races).
