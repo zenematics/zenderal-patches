@@ -99,7 +99,7 @@ Attacks:
 - AttackData:
     DamageMult: 1.5
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     Flags:
     - PowerAttack
     StrikeAngle: 35
@@ -109,7 +109,7 @@ Attacks:
 - AttackData:
     DamageMult: 1.5
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     Flags:
     - PowerAttack
     StrikeAngle: 35
@@ -119,42 +119,42 @@ Attacks:
 - AttackData:
     DamageMult: 1
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     StrikeAngle: 50
     StaminaMult: 1
   AttackEvent: attackStartAttack1
 - AttackData:
     DamageMult: 1
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     StrikeAngle: 35
     StaminaMult: 1
   AttackEvent: attackStartAttack2
 - AttackData:
     DamageMult: 1
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     StrikeAngle: 50
     StaminaMult: 1
   AttackEvent: attackStartAttack3
 - AttackData:
     DamageMult: 1
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     StrikeAngle: 35
     StaminaMult: 1
   AttackEvent: attackStartAttack4
 - AttackData:
     DamageMult: 1
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     StrikeAngle: 35
     StaminaMult: 1
   AttackEvent: attackStartH2HAttack1
 - AttackData:
     DamageMult: 1
     Chance: 1
-    Spell: 109D7E:Skyrim.esm
+    Spell: 000824:Zenderal - Goblins.esp
     Flags:
     - LeftAttack
     StrikeAngle: 35

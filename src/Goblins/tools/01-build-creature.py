@@ -89,6 +89,12 @@ DEFAULT_HEALTH = 70
 DEFENSE = 0.65
 ABILITY = ('000821', '052FF4', 'ZEN_AbGoblin', '13CB1D')     # new fid, AbFalmer, EditorID, ability folded in
 ABILITY_MAGNITUDES = {'0AA024': 26, '053124': 10}           # AbResistPoison 40 -> 26, AbResistMagic 5+10 -> 10
+# The race's 8 power attacks carry the Arps' crFalmerPoisonedWeapon02 (109D7E), whose EGO effect crArpPoison
+# (0008C9:EGO, Health poison 30 s) runs MagicImodOnPlayerHitScript: PoisonHitImod 10E3D2 / PoisonEndImod 10E3D3,
+# a screen blur on the player. Curator 2026-10-22: keep the poison, lose the blur, goblins only (Arps keep it).
+# Goblin copies: the spell -> our effect, the effect = EGO's minus its script.
+POISON_SPELL = ('000824', '109D7E', 'ZEN_GoblinPoisonedWeapon')
+POISON_EFFECT = ('000825', '0008C9', 'ZEN_GoblinPoison')
 SKILL_OFFSET = 15
 REWARD_EXP = {'000814': 80}
 DEFAULT_EXP = 40
@@ -126,7 +132,7 @@ def sub(pattern, repl, text, what, count=1):
 
 
 def rekey(text, fid, edid):
-    text = sub(r'^FormKey: \S+(?=\r?$)', f'FormKey: {fid}:{MOD_KEY}', text, 'formkey')
+    text = sub(r'^FormKey: .+?(?=\r?$)', f'FormKey: {fid}:{MOD_KEY}', text, 'formkey')   # plugin names have spaces
     return sub(r'^EditorID: \S+(?=\r?$)', f'EditorID: {edid}', text, 'edid')
 
 
@@ -142,7 +148,25 @@ def build_race():
     a_fid, a_src, _, a_folded = ABILITY
     t = sub(r'^ActorEffect:\r\n- ' + a_src + r':Skyrim\.esm\r\n- ' + a_folded + r':Skyrim\.esm\r\n',
             f'ActorEffect:{NL}- {a_fid}:{MOD_KEY}{NL}', t, 'race abilities')
+    t = sub(r'(?<=^    Spell: )' + POISON_SPELL[1] + r':Skyrim\.esm(?=\r?$)', f'{POISON_SPELL[0]}:{MOD_KEY}', t,
+            'attack poison', count=8)
     write('Races', edid, fid, t)
+
+
+def build_poison():
+    """The goblins' poisoned-weapon attack spell and effect, as EGO's minus the screen blur (see POISON_*)."""
+    s_fid, s_src, s_edid = POISON_SPELL
+    e_fid, e_src, e_edid = POISON_EFFECT
+    ego = goblin_gear.EGO
+    s = rekey(find(REF_EGO, 'Spells', s_src), s_fid, s_edid)
+    s = sub(r'(?<=^- BaseEffect: )' + e_src + ':' + re.escape(ego) + r'(?=\r?$)', f'{e_fid}:{MOD_KEY}', s, 'spell effect')
+    write('Spells', s_edid, s_fid, s)
+    e = rekey(find(REF_EGO, 'MagicEffects', e_src, ego), e_fid, e_edid)
+    i, j = e.index('VirtualMachineAdapter:' + NL), e.index(NL + 'Name:' + NL)
+    assert 'MagicImodOnPlayerHitScript' in e[i:j] and e[i:j].count('  - Name: ') == 1, 'unexpected script list'
+    e = e[:i] + e[j + len(NL):]
+    assert 'Imod' not in e and '10E3D2' not in e and '10E3D3' not in e, 'blur still referenced'
+    write('MagicEffects', e_edid, e_fid, e)
 
 
 def build_ability():
@@ -294,10 +318,11 @@ def copy_goblins():
 
 
 def main():
-    for folder in ('Races', 'ArmorAddons', 'Armors', 'Npcs', 'Spells', 'LeveledItems'):
+    for folder in ('Races', 'ArmorAddons', 'Armors', 'Npcs', 'Spells', 'LeveledItems', 'MagicEffects'):
         shutil.rmtree(os.path.join(ESP, folder), ignore_errors=True)
     build_race()
     build_ability()
+    build_poison()
     build_iron_lists()
     build_skins()
     build_npcs()

@@ -14,7 +14,7 @@
   **And** `Goblins- Mihail Monsters and Animals (SE-AE version)` (Nexus Skyrim SE 24525, v4) for Mihail's
   meshes, textures and sounds, with **its plugin `mihailgoblins.esp` disabled** (see 2b).
 - **FormID blocks:** Goblins `0x800` race, `0x801–0x808` skins, `0x810–0x814` NPCs, `0x820` global, `0x821` race ability,
-  `0x822–0x823` iron weapon lists, `0x830–0x850` Mihail's copied records, `0x900–0xB29` the 542 placed refs (12 IDs freed by the MQ01 removal stay unused).
+  `0x822–0x823` iron weapon lists, `0x824–0x825` blur-free attack poison, `0x830–0x850` Mihail's copied records, `0x900–0xB29` the 542 placed refs (12 IDs freed by the MQ01 removal stay unused).
   Goblins Dismembering `0x800–0x813` limb items, `0x814–0x827` cap ARMO/ARMA pairs, `0x828–0x836` Mihail limb items.
 
 ## What it does
@@ -76,6 +76,15 @@ Ultra scan, 2026-10-21).
   15 → 10 and poison 40 → 26. Blindness is unchanged (not a defense). Enderal has no 5% magic-resist ability.
   Mihail's races carry no resistances.
 - The EGO NPC perk `XionNPCHumanoid` on our goblins only touches stamina, movement and attack damage.
+
+**No poison blur (curator 2026-10-22: "sometimes when goblins hit me, they apply a blur effect").** The
+copied FalmerRace carries the Arps' `crFalmerPoisonedWeapon02` (`109D7E`) on its 8 power attacks. EGO's
+effect for it, `crArpPoison` (`0008C9:EGO`, Health poison 0.5 for 30 s), runs `MagicImodOnPlayerHitScript`
+with `PoisonHitImod 10E3D2` / `PoisonEndImod 10E3D3`, a screen blur on the player. `01` gives the goblin
+race its own copies: `ZEN_GoblinPoisonedWeapon` `0x824` → `ZEN_GoblinPoison` `0x825`, EGO's effect
+verbatim minus that script, asserted. Goblins still poison you; the blur is gone. Real Arps keep EGO's
+original. Mihail's goblins carry no attack spells, and the durzog's diseases (Ataxia, Rotbone) have no
+screen effect.
 
 ### 2b. Mihail's goblins and durzogs (`tools/01b-build-mihail.py`, added 2026-10-21)
 
