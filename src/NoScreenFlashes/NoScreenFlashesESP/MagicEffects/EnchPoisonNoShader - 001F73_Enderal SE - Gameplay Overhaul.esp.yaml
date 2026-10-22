@@ -1,0 +1,43 @@
+FormKey: 001F73:Enderal SE - Gameplay Overhaul.esp
+EditorID: EnchPoisonNoShader
+Name:
+  TargetLanguage: English
+  Value: Poison Damage
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 042509:Skyrim.esm
+- 05BD16:Skyrim.esm
+- 1093BB:Skyrim.esm
+- 001EA1:Enderal SE - Gameplay Overhaul.esp
+- 001F93:Enderal SE - Gameplay Overhaul.esp
+Flags:
+- Hostile
+- Detrimental
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- Painless
+- NoDeathDispel
+BaseCost: 1.1
+ResistValue: PoisonResist
+TaperWeight: 0.2
+HitShader: 10CC64:Skyrim.esm
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals <0,5> points poison damage for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    RunOnType: Target
+    MagicEffect: 001F73:Enderal SE - Gameplay Overhaul.esp

@@ -1,0 +1,61 @@
+FormKey: 032DFC:Skyrim.esm
+EditorID: _00E_EnchWeaponCritDummy
+Version2: 1
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Raised Chance for Critical Hits
+  - Language: Chinese
+    String: 增加暴击几率
+  - Language: Korean
+    String: 치명타 확률이 높아집니다.
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 042509:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 3
+EnchantShader: 05D607:Skyrim.esm
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Increases critical hit chance by <mag> %.
+  - Language: German
+    String: Vulkanglasdolch der Sengenden Hitze
+  - Language: Spanish
+    String: Daga de cristal de abrasamiento
+  - Language: Italian
+    String: Pugnale di vetro dell'ustione
+  - Language: Polish
+    String: Szklany sztylet skwaru
+  - Language: Russian
+    String: Стеклянный кинжал сжигания
+  - Language: French
+    String: Dague de verre de flammes
+  - Language: Japanese
+    String: 碧水晶のダガー(火炎)
+  - Language: Chinese
+    String: 增加<mag>%暴击率。
+  - Language: Korean
+    String: 치명타 확률 <mag>% 증가.

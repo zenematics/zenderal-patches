@@ -1,0 +1,137 @@
+[
+ {
+  "editor_id": "crArpPoison",
+  "form_key": "0008C9:Enderal SE - Gameplay Overhaul.esp",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "crGrabwchterPoison",
+  "form_key": "001D49:Enderal SE - Gameplay Overhaul.esp",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "EnchPoison",
+  "form_key": "001EA9:Enderal SE - Gameplay Overhaul.esp",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "EnchPoisonNoShader",
+  "form_key": "001F73:Enderal SE - Gameplay Overhaul.esp",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "_00E_EnchFortifyCritChance",
+  "form_key": "01EB40:Enderal - Forgotten Stories.esm",
+  "winner": "Enderal - Forgotten Stories.esm"
+ },
+ {
+  "editor_id": "40E_FS_Unique_RalysRyxEnch",
+  "form_key": "024931:Enderal - Forgotten Stories.esm",
+  "winner": "Enderal - Forgotten Stories.esm"
+ },
+ {
+  "editor_id": "_00E_EnchWeaponCritDummy",
+  "form_key": "032DFC:Skyrim.esm",
+  "winner": "Skyrim.esm"
+ },
+ {
+  "editor_id": "WB_Res_Disease2_Effect_Necroplague",
+  "form_key": "034D0D:Apocalypse - Magic of Skyrim.esp",
+  "winner": "Apocalypse - Magic of Skyrim.esp"
+ },
+ {
+  "editor_id": "WB_Res_Disease2_Effect_Necroplague_AoE",
+  "form_key": "034D0F:Apocalypse - Magic of Skyrim.esp",
+  "winner": "Apocalypse - Magic of Skyrim.esp"
+ },
+ {
+  "editor_id": "AlchDamageMagicka",
+  "form_key": "03A2B6:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageStamina",
+  "form_key": "03A2C6:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageHealth",
+  "form_key": "03EB42:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "crSpiderSpitFFAimed",
+  "form_key": "046005:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "DA13AfflictedSpray",
+  "form_key": "059326:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "crChaurusSpitFFAimed",
+  "form_key": "06F6FD:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageStaminaRavage",
+  "form_key": "073F23:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageHealthRavage",
+  "form_key": "073F26:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageMagickaRavage",
+  "form_key": "073F27:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageMagickaRate",
+  "form_key": "073F2B:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageStaminaRate",
+  "form_key": "073F2C:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "FrostbiteVenomFFSelf",
+  "form_key": "0EA65A:Skyrim.esm",
+  "winner": "Skyrim.esm"
+ },
+ {
+  "editor_id": "TrapPoisonFFContactEffect",
+  "form_key": "101931:Skyrim.esm",
+  "winner": "Enderal SE - Gameplay Overhaul.esp"
+ },
+ {
+  "editor_id": "AlchDamageHealthDuration",
+  "form_key": "10AA4A:Skyrim.esm",
+  "winner": "Skyrim.esm"
+ },
+ {
+  "editor_id": "AlchDamageStaminaDuration",
+  "form_key": "10DE5E:Skyrim.esm",
+  "winner": "Skyrim.esm"
+ },
+ {
+  "editor_id": "AlchDamageMagickaDuration",
+  "form_key": "10DE5F:Skyrim.esm",
+  "winner": "Skyrim.esm"
+ },
+ {
+  "editor_id": "TVR_Druid_Toxic_Effect_ParasiticGrowth_Bleed",
+  "form_key": "2844D8:Triumvirate - Mage Archetypes.esp",
+  "winner": "Triumvirate - Mage Archetypes.esp"
+ },
+ {
+  "editor_id": "TVR_Druid_Toxic_Effect_BrambleGrowth_Hazard_Bleed",
+  "form_key": "28E6DF:Triumvirate - Mage Archetypes.esp",
+  "winner": "Triumvirate - Mage Archetypes.esp"
+ }
+]
