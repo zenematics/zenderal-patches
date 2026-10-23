@@ -1,0 +1,14 @@
+FormKey: 00086D:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Lia_HissingDragon_Projectile_Disease
+Model:
+  File: Ordinator\LightArmor_Projectile_HissingDragon_Disease.nif
+  Data: 0x020000000000000000000000
+Type: Cone
+Speed: 768
+Range: 128
+FadeDuration: 0.5
+ConeSpread: 10
+CollisionRadius: 10
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

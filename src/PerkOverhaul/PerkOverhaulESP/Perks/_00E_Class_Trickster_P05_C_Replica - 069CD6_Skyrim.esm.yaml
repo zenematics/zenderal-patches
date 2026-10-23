@@ -1,0 +1,30 @@
+FormKey: 069CD6:Skyrim.esm
+EditorID: _00E_Class_Trickster_P05_C_Replica
+Version2: 3
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: 'Trickster: Replica'
+  - Language: Chinese
+    String: '诡计师: 复制品'
+  - Language: Korean
+    String: '재주꾼: 복제'
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Automatically gives you a copy of a picked lock's key. Arrows and musket balls that hit an enemy have an additional 30 percent chance to be recoverable from their body.
+  - Language: Chinese
+    String: 开锁成功后会自动复制一把对应的钥匙放入背包。
+  - Language: Korean
+    String: 자물쇠를 해제하면 자동적으로 해당 열쇠의 복사본을 얻게 됩니다.
+NumRanks: 3
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModLockpickingKeyRewardChance
+  PerkConditionTabCount: 2
+  Value: 100
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000802:Zenderal - Perk Overhaul.esp

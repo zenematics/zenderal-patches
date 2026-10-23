@@ -1,0 +1,15 @@
+FormKey: 00091E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SecondWind_Ability
+Name:
+  TargetLanguage: English
+  Value: Second Wind
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 00091F:Zenderal - Prophecy.esp
+  Data: {}

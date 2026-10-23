@@ -391,17 +391,33 @@ a Community Shaders fork with every CS feature bundled, Effects 11, reverse-Z, s
 127557, the "v1.7.104+" DLL) + **CS Light 2.0.1** (Nexus 138443).
 - Disabled: ENB Binaries, ENB Extender and Helper, ENB World Map Fix, EVLaS (CS-incompatible), Terrain Helper (bundled in
   Bottled; identical `TerrainHelper.esp`). Kept: *Steamin ENB* so Effects 11 runs its preset (Shift+Num* toggles).
-- Grass back on the complex builds (EGR ENB, Tamrielic for ENB Complex Grass, Rock Grass for ENB Complex Grass);
 - **Unified Water off (2026-10-21).** Bottled Shaders' *Unified Water* ("replaces distant water tiles with LOD0",
   per-worldspace cache `overwrite/SKSE/Plugins/CommunityShaders/UnifiedWaterCache/<ws>_cache.wc`) drew flat grey
   hard-edged tiles over the sea, even right next to the camera in loaded cells. Confirmed by an A/B test with it in
   *Disable at Boot*: the tiles were gone. A freshly rebuilt cache still showed them, and the feature has no options.
-  Earlier terrain-LOD suspects did not fix it: a stray 2.0-era loose `vyn.32.-5.9.btr` (moved to backups) and a
-  fresh xLODGen terrain LOD (kept, as it matches the landscape mods). **The CS settings now ship in *Zenderal -
+  Earlier terrain-LOD suspects did not fix it: a loose `vyn.32.-5.9.btr` in Stock Game (moved to backups; it is
+  Enderal's paper-map tile, byte-size-identical to the one in `E - Meshes.bsa`, so removing it was harmless) and a
+  fresh xLODGen terrain LOD (kept, as it matches the landscape mods, but see the paper-map bullet below). **The CS settings now ship in *Zenderal -
   Settings*** (`SKSE/Plugins/CommunityShaders/SettingsUser.json`, moved out of overwrite, which Wabbajack misses),
   with Disable at Boot = GrassOptimizations, HDRDisplay, PostProcessing, Skin, UnifiedWater. Don't toggle CS features
   live under MO2: the runtime recompile of ~1500 shaders failed to open its includes and crashed (02:07, alt-tab).
   Use Disable at Boot and restart.
+- **Enderal's paper world map is LOD32 — never ship generated LOD32 for Vyn (2026-10-21).** The map is flat
+  (`[MapMenu]` pitch 0–90, `uLockedTerrainLOD=64`) and draws the coarsest LOD. Enderal paints the paper map
+  (`textures\map\enderal_main.dds` + `enderal_floor.dds`) into one LOD32 tile: terrain `vyn.32.-5.9.btr` and objects
+  `vyn.32.-5.9.bto` in `E - Meshes.bsa`. Its other 23 LOD32 terrain tiles are plain low-detail terrain and the other
+  LOD32 `.bto` are 228-byte stubs. The xLODGen terrain output wrote all 24 LOD32 tiles (its `-5.9` is 423 KB of real
+  terrain), so the map showed realistic terrain on a blue sea. Fixed by moving its 24 LOD32 `.btr` and 48 LOD32
+  `.dds` to `E:/Zenderal-backups/2026-10-21-paper-map/`. **When regenerating terrain LOD, untick LOD32** (or
+  delete `vyn.32.*` from the output); DynDOLOD writes no LOD32 objects (`Level32=0`), so leave that off too.
+- **Stance hotkeys need dTry's Key Utils AE 1.1, not PaulMix's extend (2026-10-21).** Both mods ship
+  `DtryKeyUtil.dll`. On 1.5.97 *dTry Plugin Updates* (SE-only, now off) won; on AE PaulMix's v3.3 won, and its
+  DLL has no config loader (no `config\custom` / `KeyTrace_EventID_*` strings), so `custom/Stances.ini` (F1–F4,
+  pad keys) was never read and stances never changed. *dTry's Key Utils AE* (Nexus 69944, Address Library build)
+  now sits above PaulMix's mod and wins DLL, `Keytrace.esp` and `settings.ini`. It also applies the movement
+  direction spells: the only Keytrace forms the list uses are MGEFs `801`–`804` (Dynamic Dodge, FHiS, Patch
+  Collection), which both esps define. PaulMix's mod stays enabled but loses all three files.
+- Grass back on the complex builds (EGR ENB, Tamrielic for ENB Complex Grass, Rock Grass for ENB Complex Grass);
   *Zenderal - Grass Lighting Fix* regenerated for them (297 meshes).
 - CS Light audit: all 30 effect-shader EditorIDs and every light-template EditorID exist in Enderal; 779/1093 mesh
   entries hit meshes that exist (the rest no-op); `CS Light.esp` (ESL, Skyrim.esm master) overrides 21 magic LIGH that
@@ -602,7 +618,7 @@ for 1.6.x, it still has to pass `skse64.log` on 1.7.
 - [ ] TexGen + DynDOLOD (`TexGen Output - Zenderal`, `DynDOLOD Output - Zenderal`). Enderal 2.1 ships
       new LOD and changed records.
 - [ ] Pandora (`Pandora Output - Zenderal`), with zpaired + zpairset ticked.
-- [ ] CRDW cache, always after Pandora and installs.
+- [x] ~~CRDW cache~~ — CRDW is disabled on 1.7.104; nothing to rebuild.
 - [ ] `magic-extract`; the SPID/KID logs (`Registered X/Y`).
 
 ## Phase 7 — Play-test (new game)

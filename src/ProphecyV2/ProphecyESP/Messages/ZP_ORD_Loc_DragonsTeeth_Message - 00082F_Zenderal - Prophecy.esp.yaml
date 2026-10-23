@@ -1,0 +1,30 @@
+FormKey: 00082F:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Message
+Description:
+  TargetLanguage: English
+  Value: Place which bear trap?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Basic
+- Text:
+    TargetLanguage: English
+    Value: Poison
+- Text:
+    TargetLanguage: English
+    Value: Drain Magicka
+- Text:
+    TargetLanguage: English
+    Value: Drain Stamina
+- Text:
+    TargetLanguage: English
+    Value: Slow
+- Text:
+    TargetLanguage: English
+    Value: Banish
+- Text:
+    TargetLanguage: English
+    Value: Turn Undead

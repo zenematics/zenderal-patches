@@ -1,0 +1,18 @@
+FormKey: 000815:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_QuickReload
+Version2: 7
+Name:
+  TargetLanguage: English
+  Value: 'Quick Reload'
+Description:
+  TargetLanguage: English
+  Value: 'Draw a bow and reload a crossbow or musket 30% faster.'
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 106642:Skyrim.esm
+- MutagenObjectType: PerkEntryPointSelectText
+  EntryPoint: SetBooleanGraphVariable
+  PerkConditionTabCount: 1
+  Text: bPerkQuickdraw

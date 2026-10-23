@@ -1,0 +1,10 @@
+FormKey: 0008A2:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_SmokeCurtain_Art
+ObjectBounds:
+  First: -111, -3, -90
+  Second: 111, 71, 132
+Model:
+  File: Ordinator\Sneak_Art_SmokeCurtain.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

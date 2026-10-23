@@ -1,0 +1,15 @@
+FormKey: 000C0B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Info_Deadeye
+Description:
+  TargetLanguage: English
+  Value: 'Deadeye: Shooting targets you haven''t shot within the past 10 seconds inflicts a critical strike that deals three times critical damage, and any weapon enchantments applied by the shot are twice as effective.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Learn (1 Prophecy point)
+- Text:
+    TargetLanguage: English
+    Value: Back

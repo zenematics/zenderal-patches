@@ -1,0 +1,15 @@
+FormKey: 000884:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Misc
+ObjectBounds:
+  First: -27, -27, -2
+  Second: 27, 27, 57
+Name:
+  TargetLanguage: English
+  Value: Clockwork Turret
+Model:
+  File: Ordinator\Smithing_Static_DwarvenAutocannon_Inv.nif
+  Data: 0x020000000000000000000000
+Keywords:
+- 06BBD7:Skyrim.esm
+Value: 35
+Weight: 5

@@ -1,0 +1,14 @@
+FormKey: 000802:Zenderal - Perk Overhaul.esp
+EditorID: ZEN_PO_ReplicaAmmoRecoveryAb
+Name:
+  TargetLanguage: English
+  Value: Replica
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 000803:Zenderal - Perk Overhaul.esp
+  Data: {}

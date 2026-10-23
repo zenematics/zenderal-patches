@@ -1,0 +1,39 @@
+FormKey: 000926:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_Tripwire_Package_PlaceTripwire
+Flags:
+- IgnoreCombat
+- WeaponsUnequipped
+- NoCombatAlert
+Type: Package
+PreferredSpeed: Run
+Unknown: 110
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+IdleAnimations:
+  Type: Random
+  Animations:
+  - 0EFC64:Skyrim.esm
+OwnerQuest: 0008AD:Zenderal - Prophecy.esp
+PackageTemplate: 0503D0:Skyrim.esm
+DataInputVersion: 5
+Data:
+- Key: 0
+  Value:
+    MutagenObjectType: PackageDataLocation
+    Location:
+      Target:
+        MutagenObjectType: LocationFallback
+        Type: NearSelf
+XnamMarker: 0x08
+OnBegin:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnEnd:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnChange:
+  Topics:
+  - MutagenObjectType: TopicReference

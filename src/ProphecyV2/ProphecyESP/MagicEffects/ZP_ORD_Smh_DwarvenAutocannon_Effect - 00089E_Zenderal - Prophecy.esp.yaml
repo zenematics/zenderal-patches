@@ -1,0 +1,103 @@
+FormKey: 00089E:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_DwarvenAutocannon_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXEmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_AngleDelta
+      Data: 60
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_DistanceInFront
+      Data: 48
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_DistanceZ
+    - MutagenObjectType: ScriptIntProperty
+      Name: ORD_Electrobolt
+      Data: 5
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_Min
+      Data: 0.25
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_RemoteControlDist
+      Data: 260
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_ShootZ
+      Data: 55
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Activator
+      Object: 00089D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Activator_RemoteControl
+      Object: 00089C:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Explosion_Electrobolt
+      Object: 00089A:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Marker_Deploy
+      Object: 000898:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Marker_Destroyed
+      Object: 000896:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Misc
+      Object: 000884:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Spell_Proc
+      Object: 00088F:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Spell_Proc_Electrobolt
+      Object: 00088A:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh30_RemoteControl_Perk_30
+      Object: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh50_Electrobolt_Perk_50
+      Object: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh70_FiringLine_Perk_70
+      Object: 00081E:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh80_SpinUp_Perk_80
+      Object: 00081E:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_SpeedUpDelta
+      Data: 0.015
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_UpdateRate
+      Data: 0.75
+Name:
+  TargetLanguage: English
+  Value: Clockwork Turret
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+Keywords:
+- 000889:Zenderal - Prophecy.esp
+Flags:
+- NoMagnitude
+- NoArea
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deploy a Clockwork Turret from your inventory. It tracks your line of sight for <dur> seconds, firing shells that deal <mag> magic damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetVATSFrontAreaFreeConditionData
+  ComparisonValue: 48
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    ItemOrList: 000884:Zenderal - Prophecy.esp
+  ComparisonValue: 1

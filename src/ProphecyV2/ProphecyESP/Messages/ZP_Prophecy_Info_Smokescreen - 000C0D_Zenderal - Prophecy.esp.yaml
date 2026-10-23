@@ -1,0 +1,15 @@
+FormKey: 000C0D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Info_Smokescreen
+Description:
+  TargetLanguage: English
+  Value: 'Smokescreen: Grants the "Smokescreen" power. Once a day, creates a 35 foot cloud for 180 seconds that blinds those in the cloud, preventing them from seeing sneaking targets. Sneak attacks against them deal 50% more damage.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Learn (1 Prophecy point)
+- Text:
+    TargetLanguage: English
+    Value: Back

@@ -1,0 +1,121 @@
+FormKey: 069D70:Skyrim.esm
+EditorID: _00E_Message_Trickster_P05_A_Ranger
+Version2: 7
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: You are able to move faster with a drawn bow or musket.
+  - Language: Chinese
+    String: 提高拉弓状态下的移动速度。
+  - Language: Korean
+    String: 활시위를 당긴 채로 더 빠르게 움직일 수 있습니다.
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: 'Trickster: Ranger'
+  - Language: German
+    String: Kram mit Charme
+  - Language: Spanish
+    String: Piezas y Recambios
+  - Language: Italian
+    String: Armi e Bagagli
+  - Language: Polish
+    String: To i Tamto
+  - Language: Russian
+    String: Всякая всячина
+  - Language: French
+    String: Bric-à-brac
+  - Language: Japanese
+    String: ビッツ・アンド・ピーセズ
+  - Language: Chinese
+    String: '诡计师: 游侠'
+  - Language: Korean
+    String: '재주꾼: 돌격병'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Unlock memory (1 Memory Point)
+    - Language: German
+      String: Otar
+    - Language: Spanish
+      String: Otar
+    - Language: Italian
+      String: Otar
+    - Language: Polish
+      String: Maska Otara
+    - Language: Russian
+      String: Отар
+    - Language: French
+      String: Otar
+    - Language: Japanese
+      String: オタール
+    - Language: Chinese
+      String: 解锁该记忆(1个记忆点数)
+    - Language: Korean
+      String: 기억 해제 (1 기억 점수)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD4:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD1:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: You already unlocked this memory!
+    - Language: Chinese
+      String: 你已经解锁了这个记忆！
+    - Language: Korean
+      String: 이미 이 기억을 해제했습니다!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD4:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Back
+    - Language: German
+      String: Zwergenhelm der Großen Schießkunst
+    - Language: Spanish
+      String: Yelmo enano de arquería mayor
+    - Language: Italian
+      String: Elmo nanico dell'arciere maggiore
+    - Language: Polish
+      String: Krasnoludzki hełm lepszego strzelectwa
+    - Language: Russian
+      String: Двемерский шлем настоящего лучника
+    - Language: French
+      String: Casque dwemer d'archerie accrue
+    - Language: Japanese
+      String: ドワーフの弓術の兜(大)
+    - Language: Chinese
+      String: 后退
+    - Language: Korean
+      String: 뒤로
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD4:Skyrim.esm

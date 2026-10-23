@@ -1,0 +1,40 @@
+FormKey: 000825:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Bck_QuickReflexes_Effect_Self
+VirtualMachineAdapter:
+  Scripts:
+  - Name: MagicImodBasicScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ImodFX
+      Object: 10C761:Skyrim.esm
+  - Name: ORD_DispelAfterDelay_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_DelayUntilDispel
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Slow Time
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+Keywords:
+- 046BB3:Skyrim.esm
+Flags:
+- DispelWithKeywords
+- NoArea
+- NoRecast
+TaperWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: SlowTime
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Time is briefly slowed.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 000825:Zenderal - Prophecy.esp

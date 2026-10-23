@@ -57,6 +57,10 @@ Masters: Skyrim, Update, FS and the 37 other plugins the records reference or wi
 EAM Apothecarii Monastery, HotKeySkill, Ark Bridge Overhaul + its EPPI patch, UndercityCutContent,
 TempleCutContent and UndercityHome. If DynDOLOD flags one of them, check that plugin by hand.
 
+**2026-10-22:** Loop's 8 gun recipes (`Pistol animation by Loop.esp`, their `HearthFires.esm` component) were
+removed from this plugin by hand: Flintlock Overhaul now overrides them without that component (and hides the
+crossbow ones), so a regeneration would no longer produce them. Its Loop projectile override stays.
+
 ## Regenerating
 
 **Re-run whenever any winning plugin changes, and always after the other generated last-loaders.**

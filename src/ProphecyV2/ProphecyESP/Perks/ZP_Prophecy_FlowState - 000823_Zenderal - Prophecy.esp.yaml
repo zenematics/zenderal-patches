@@ -1,0 +1,19 @@
+FormKey: 000823:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FlowState
+Description:
+  TargetLanguage: English
+  Value: 'Dodging in combat slows time to a crawl for a moment. This can happen once every 10 seconds.'
+Name:
+  TargetLanguage: English
+  Value: 'Flow State'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000822:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000911:Zenderal - Prophecy.esp

@@ -1,10 +1,11 @@
 # EGO21Compat
 
-- **Source:** `src/EGO21Compat/` (generated — run `tools/01-build-race-overrides.py`, never hand-edit `Races/`)
+- **Source:** `src/EGO21Compat/` (generated — run `tools/01-build-race-overrides.py` and
+  `tools/00-scan-arma-races.py` → `tools/02-build-armor-addons.py`; never hand-edit `Races/` or `ArmorAddons/`)
 - **Ships:** `Zenderal - EGO 2.1 Compatibility.esp` (ESL)
 - **FormID block:** none (overrides only)
-- **Status:** races done 2026-10-20, built and deployed; **unverified in game**. NPC / armor-addon /
-  FormList remaps not started (see "Still to do").
+- **Status:** races done 2026-10-20, built and deployed; **unverified in game**. 4 armor addons done
+  2026-10-22, built, not deployed, unverified in game. NPC / FormList remaps not started (see "Still to do").
 
 ## Why it exists
 
@@ -48,9 +49,35 @@ The source `reference/mods/EGODSRaces` matched a fresh serialization of the inst
 (2026-10-20). Re-serialize and re-run the generator whenever DS Unique Races or EGO updates — and
 retire this patch once EGO ships 2.1-aware races.
 
+## Armor addons (2026-10-22)
+
+Reported: Boots of the Righteous Path invisible on the player. EGO's 2.0-era override of their addon
+`03E_24_BootsOfTheRighteousPathAA 145879` is 2.1's record minus `013746`/`013748` in
+`AdditionalRaces` (it keeps the old `033899`/`033898`), so on a 2.1 Half Arazealean / Half Qyranian
+the boots equip and render nothing.
+
+`tools/00-scan-arma-races.py` (read only) compares every winning ARMA in the Ultra load order with
+the Skyrim.esm / FS record it overrides. **4 of 919** winners lose a 2.1 playable race, all EGO:
+
+| Addon | Armor |
+|---|---|
+| `03E_24_BootsOfTheRighteousPathAA 145879` | Boots of the Righteous Path (+ Forged) |
+| `01E_07_SteelShieldAA 14587A` | Steel Shield |
+| `02E_18_PyreanShieldAA 0E35C7` | Pyrean Shield |
+| `_50E_LSet_VenturerArmorAA 14483D` | Venturer armor |
+
+`tools/02-build-armor-addons.py` writes EGO's record verbatim with the two races inserted in FormID
+order, as 2.1 has them. **[verified]** on the built plugin: each record equals EGO's installed one
+subrecord for subrecord plus two `MODL`. 13 further EGO addons (Skaragg/Starling/Bonejudge/Wanderer/
+Thalmor/Redguard/Yarl/barkeeper/blacksmith shoes, Venturer gloves) also lack the races in EGO, but
+`Audio Overhaul - Enderal patch.esp` or a Pretty plugin wins them with both races present — they are
+fine and deliberately not overridden. Re-run 00 → 02 after EGO or any armor mod changes.
+Unverified in game.
+
 ## Still to do (the rest of EGO vs 2.1)
 
-`reference/mods/EGO` still points at the old races in **75 NPCs, 18 ArmorAddons and 1 FormList**.
+`reference/mods/EGO` still points at the old races in **75 NPCs, 18 ArmorAddons and 1 FormList**
+(ArmorAddons done 2026-10-22, above — only 4 actually won).
 Those overrides revert 2.1's own remap of the same records. With this patch the stats are equal, so
 the visible risk is mostly in conditions and scripts that test `GetIsRace 013746`/`013748` (2.1)
 against an NPC EGO left on `033899`/`033898`, and armor addons that list only the old race. Each needs

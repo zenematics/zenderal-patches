@@ -10,12 +10,10 @@ ModHeader:
   Stats:
     Version: 1.7
   Description: >-
-    Routes left, right and backward power attacks into MCO's power attack (attackPowerStartInPlace),
-    as Attack_MCO.esp already does for forward, so For Honor Reforged's DMK-directional power
-    attacks play instead of Enderal's vanilla ones (019B22, 019B23, 019B24). Also drops the vanilla
-    Critical Charge perk requirement from the three sprint power-attack idles (0EC3CC, 0EC3CE,
-    0EC3CF) and the two sprint light-attack idles (0F0A3E, 1038BF), which nothing in Enderal grants, so
-    sprint attacks reach MCO_SprintPowerAttack and MCO_SprintAttack.
+    MCO routing for For Honor Reforged: left/right/back power attacks send attackPowerStartInPlace
+    (019B22-24); sprint attack idles (0EC3CC/CE/CF, 0F0A3E, 1038BF) lose the Critical Charge perk
+    check; fists sprint-attack too (0F0A3E/0EC3CC accept type 0, AttackRightH2H 0870D6 not while
+    sprinting).
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0

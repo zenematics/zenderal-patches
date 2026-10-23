@@ -1,0 +1,27 @@
+FormKey: 000803:Zenderal - Perk Overhaul.esp
+EditorID: ZEN_PO_ReplicaAmmoRecoveryME
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_PO_ReplicaAmmoRecoverySC
+    Properties:
+    - MutagenObjectType: ScriptIntProperty
+      Name: Chance
+      Data: 30
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WeapTypeBow
+      Object: 01E715:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Replica
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

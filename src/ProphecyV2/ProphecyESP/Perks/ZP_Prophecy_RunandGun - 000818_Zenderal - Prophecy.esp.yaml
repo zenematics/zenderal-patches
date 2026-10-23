@@ -1,0 +1,34 @@
+FormKey: 000818:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_RunandGun
+Version2: 12
+Name:
+  TargetLanguage: English
+  Value: 'Run and Gun'
+Description:
+  TargetLanguage: English
+  Value: 'You move at full speed with a drawn bow or a raised musket.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000816:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000817:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointSelectText
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsSneakingConditionData
+  EntryPoint: SetBooleanGraphVariable
+  PerkConditionTabCount: 1
+  Text: bPerkQuickShot

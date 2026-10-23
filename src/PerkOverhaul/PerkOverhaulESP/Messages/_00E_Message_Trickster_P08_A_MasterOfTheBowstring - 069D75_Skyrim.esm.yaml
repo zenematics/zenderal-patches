@@ -1,0 +1,107 @@
+FormKey: 069D75:Skyrim.esm
+EditorID: _00E_Message_Trickster_P08_A_MasterOfTheBowstring
+Version2: 5
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Zooming in with a bow or musket now costs half as much Stamina than before and slows down time by 50%%. All arrows and musket balls do 1 more point of damage.
+  - Language: Chinese
+    String: 使用弓箭进入放大瞄准时，耐力消耗速度减半，时间流逝速度减慢50%%。所有类型的弓箭造成1点额外伤害。
+  - Language: Korean
+    String: 활 조준 확대에 필요한 지구력 소모량이 반으로 감소하고 조준 시 시간이 50%% 느려집니다. 모든 화살이 1의 추가 피해를 입합니다.
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: 'Trickster: Master with the Bowstring'
+  - Language: Chinese
+    String: '诡计师: 弓弦大师'
+  - Language: Korean
+    String: '재주꾼: 활시위의 명수'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Unlock memory (1 Memory Point)
+    - Language: Chinese
+      String: 解锁该记忆(1个记忆点数)
+    - Language: Korean
+      String: 기억 해제 (1 기억 점수)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CED:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CEA:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: You already unlocked this memory!
+    - Language: German
+      String: Riverwood test scene
+    - Language: Spanish
+      String: Riverwood test scene
+    - Language: Italian
+      String: Riverwood test scene
+    - Language: Polish
+      String: Scena testowa w Rzecznej Puszczy
+    - Language: Russian
+      String: Riverwood test scene
+    - Language: French
+      String: Riverwood test scene
+    - Language: Japanese
+      String: リバーウッドのテストシーン
+    - Language: Chinese
+      String: 你已经解锁了这个记忆！
+    - Language: Korean
+      String: 이미 이 기억을 해제했습니다!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CED:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Back
+    - Language: German
+      String: Erzählt mir etwas über dieses Kochbuch.
+    - Language: Spanish
+      String: Háblame de ese libro de cocina.
+    - Language: Italian
+      String: Parlami di questo ricettario.
+    - Language: Polish
+      String: Opowiedz mi o tej książce kucharskiej.
+    - Language: Russian
+      String: Расскажи мне об этой поваренной книге.
+    - Language: French
+      String: Parlez-moi de ce livre de cuisine.
+    - Language: Japanese
+      String: この料理本について教えてくれ
+    - Language: Chinese
+      String: 后退
+    - Language: Korean
+      String: 뒤로
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CED:Skyrim.esm

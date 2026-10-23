@@ -1,0 +1,60 @@
+FormKey: 000802:Pistol animation by Loop.esp
+EditorID: ExampleHunterPistol
+VirtualMachineAdapter:
+  Scripts:
+  - Name: SilverSwordScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SilverPerk
+      Object: 000816:Pistol animation by Loop.esp
+ObjectBounds:
+  First: -7, -15, -3
+  Second: 14, 41, 3
+Name:
+  TargetLanguage: English
+  Value: Hunter Pistol
+Model:
+  File: weapons\pistol animation by loop\pistol.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 000817:Zenderal - Flintlock Overhaul.esp
+EnchantmentAmount: 250
+EquipmentType: 013F42:Skyrim.esm
+BlockBashImpact: 0193CA:Skyrim.esm
+AlternateBlockMaterial: 0774B6:Skyrim.esm
+Keywords:
+- 01E716:Skyrim.esm
+- 01E719:Skyrim.esm
+- 0937A4:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 000801:Pistol animation by Loop.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+FirstPersonModel: 000810:Pistol animation by Loop.esp
+AttackFailSound: 03C730:Skyrim.esm
+EquipSound: 03DE2A:Skyrim.esm
+UnequipSound: 03DE2B:Skyrim.esm
+BasicStats:
+  Value: 100
+  Weight: 6
+Data:
+  AnimationType: Staff
+  Unused: 0x000000
+  Speed: 1
+  Reach: 1.3
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1065353216
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: Destruction
+Critical:
+  Unused: -15647
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0xFFFFFF
+  Unused3: 1
+DetectionSoundLevel: Normal

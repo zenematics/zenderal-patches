@@ -1,0 +1,14 @@
+FormKey: 000803:Zenderal - Testing Cheats.esp
+EditorID: ZEN_TC_Init
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_TC_Init
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Power
+      Object: 000800:Zenderal - Testing Cheats.esp
+  FileName: ''
+Flags:
+- StartGameEnabled
+- RunOnce
+NextAliasID: 0

@@ -1,0 +1,17 @@
+FormKey: 0008DB:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_Spell39TemplarProc01
+Name:
+  TargetLanguage: English
+  Value: Templar
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+Effects:
+- BaseEffect: 0008CE:Zenderal - Prophecy.esp
+  Data:
+    Duration: 6

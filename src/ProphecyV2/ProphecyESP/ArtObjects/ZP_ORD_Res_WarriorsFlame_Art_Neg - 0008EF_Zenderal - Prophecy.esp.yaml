@@ -1,0 +1,10 @@
+FormKey: 0008EF:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Art_Neg
+ObjectBounds:
+  First: -78, -24, -99
+  Second: 79, 39, 119
+Model:
+  File: Ordinator\Restoration_Art_WarriorsFlame_Neg.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

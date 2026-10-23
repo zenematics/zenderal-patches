@@ -1,0 +1,15 @@
+FormKey: 000C12:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Info_HissingDragon
+Description:
+  TargetLanguage: English
+  Value: 'Hissing Dragon: You may choose a damage type (fire, frost, shock, poison, disease or sun). Unarmed attacks unleash a shockwave that deals the chosen damage type to all targets in front of you. Requires two free hands. Does not activate while sneaking.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Learn (1 Prophecy point)
+- Text:
+    TargetLanguage: English
+    Value: Back

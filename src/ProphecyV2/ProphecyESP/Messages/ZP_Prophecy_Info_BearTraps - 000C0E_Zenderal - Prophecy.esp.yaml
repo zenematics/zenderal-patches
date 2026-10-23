@@ -1,0 +1,15 @@
+FormKey: 000C0E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Info_BearTraps
+Description:
+  TargetLanguage: English
+  Value: 'Bear Traps: You can pick up Bear Traps or craft them at a forge, and drop them from your inventory to place them. Their teeth deal 2 damage per level of Lockpicking and stagger victims, reducing their armor by 10 points per level of Lockpicking for 5 seconds.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Learn (1 Prophecy point)
+- Text:
+    TargetLanguage: English
+    Value: Back

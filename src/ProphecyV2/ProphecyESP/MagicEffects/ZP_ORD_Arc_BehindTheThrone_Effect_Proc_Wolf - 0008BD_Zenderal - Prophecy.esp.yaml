@@ -1,0 +1,42 @@
+FormKey: 0008BD:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_BehindTheThrone_Effect_Proc_Wolf
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_BehindTheThrone_Wolf_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Arc_BehindTheThrone_Actor
+      Object: 0008BE:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_DamagePerStatMult
+      Data: 0.15
+    - MutagenObjectType: ScriptIntProperty
+      Name: ORD_LevelMod
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_UpdateRate
+      Data: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Hunt Together
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- Painless
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Fame
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: You are accompanied by a Spirit Wolf that fights at your side for <dur> seconds or until combat ends.

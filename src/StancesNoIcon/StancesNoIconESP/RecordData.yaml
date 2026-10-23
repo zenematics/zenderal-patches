@@ -1,0 +1,20 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Stances No Icon.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Hides the stance icon Stances - Dynamic Weapon Movesets SE shows above the player's head. Stance
+    switching, movesets and the coloured stance glow are unchanged.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Stances - Dynamic Weapon Movesets SE.esp
+    FileSize: 0
+  INTV: 1

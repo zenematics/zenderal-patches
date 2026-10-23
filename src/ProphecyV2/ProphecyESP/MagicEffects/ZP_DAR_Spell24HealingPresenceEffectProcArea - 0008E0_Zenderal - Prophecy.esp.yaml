@@ -1,0 +1,29 @@
+FormKey: 0008E0:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_Spell24HealingPresenceEffectProcArea
+Name:
+  TargetLanguage: English
+  Value: Healing Presence
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 01CEB0:Skyrim.esm
+Flags:
+- FXPersist
+- PowerAffectsMagnitude
+MagicSkill: Restoration
+TaperWeight: 1
+HitShader: 012FD9:Skyrim.esm
+SpellmakingArea: 25
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData

@@ -1,0 +1,42 @@
+FormKey: 000930:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SeismicStomp_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_SeismicStompEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StompIdle
+      Object: 146675:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Shockwave
+      Object: 000931:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Bleed
+      Object: 000933:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SlowTime
+      Object: 000937:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Cooldown
+      Object: 000935:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownEffect
+      Object: 000936:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Seismic Stomp
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

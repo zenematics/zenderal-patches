@@ -79,8 +79,17 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`MaceSpeed`](MaceSpeed.md) | `Zenderal - Mace Speed.esp` | none (overrides only) |
 | [`OldCemeteryCryptFix`](OldCemeteryCryptFix.md) | `Zenderal - Old Cemetery Crypt Fix.esp` | none (one override) |
 | [`MusketHandling`](MusketHandling.md) | `ZenMusketHandling.dll` + `.ini` | none (no plugin) |
-| [`Goblins`](Goblins.md) | `Zenderal - Goblins.esp` + `.pex` + generated meshes; `Zenderal - Goblins Dismembering.esp` + DF JSON + generated meshes | `0x800–0xB29`; Dismembering `0x800–0x836` |
+| [`ZarAhTextureFix`](ZarAhTextureFix.md) | *(copied textures, not committed)* | none |
+| [`ArkGateSiegeFix`](ArkGateSiegeFix.md) | `Zenderal - Ark Gate Siege Fix.esp` + 2 scripts (**Enderal 2.0 release only**) | `0x800–0x801` |
+| [`GroundCoverAlphaFix`](GroundCoverAlphaFix.md) | *(generated meshes, not committed)* | none |
 | [`TraitsRework`](TraitsRework.md) | `Zenderal - Traits.esp` | `0x800–0x88F` (`0x800–0x843`, `0x870–0x878`, `0x880–0x881` used) |
+| [`PerkOverhaul`](PerkOverhaul.md) | `Zenderal - Perk Overhaul.esp` + `ZEN_PO_BladeMasterCritHealSC.pex` | `0x800–0x8FF` (`0x800–0x801` used) |
+| [`Goblins`](Goblins.md) | `Zenderal - Goblins.esp` + `.pex` + generated meshes; `Zenderal - Goblins Dismembering.esp` + DF JSON + generated meshes | `0x800–0xB29`; Dismembering `0x800–0x836` |
+| [`StancesNoIcon`](StancesNoIcon.md) | `Zenderal - Stances No Icon.esp` | none (overrides only) |
+| [`BloodyCritSound`](BloodyCritSound.md) | `Zenderal - Bloody Crit Sound.esp` + 1 loose `.wav` (not committed) | none (one override) |
+| [`ZenKeyTrace`](ZenKeyTrace.md) | `ZenKeyTrace.dll` | none (no plugin) |
+| [`TestingCheats`](TestingCheats.md) | `Zenderal - Testing Cheats.esp` + 2 scripts | `0x800–0x804` |
+| [`LostOneArcherAmmo`](LostOneArcherAmmo.md) | `Zenderal - Lost One Archer Ammo.esp` | none (overrides only) |
 | [`CreatureRagdollFix`](CreatureRagdollFix.md) | Pandora patch `zragfix`, human `0_master` contact edit + draugr get-up matcher start event | none (no plugin) |
 | [`ZenRagdollTrace`](ZenRagdollTrace.md) | Testing tool: SKSE logger of ragdoll/get-up graph events and state | none (no plugin) |
 | [`AirborneGetUpFix`](AirborneGetUpFix.md) | `ZenAirborneGetUpFix.dll`: holds mid-air `GetUpBegin` until the ragdoll settles | none (no plugin) |

@@ -1,0 +1,31 @@
+FormKey: 000934:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SeismicStomp_BleedEffect
+Name:
+  TargetLanguage: English
+  Value: Monk
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 00082B:Zenderal - Prophecy.esp
+Flags:
+- Detrimental
+- NoArea
+- HideInUI
+- NoRecast
+TaperWeight: 1
+HitShader: 00082A:Zenderal - Prophecy.esp
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData

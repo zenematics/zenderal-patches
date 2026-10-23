@@ -1,0 +1,20 @@
+FormKey: 000820:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_HissingDragon
+Name:
+  TargetLanguage: English
+  Value: 'Hissing Dragon'
+Description:
+  TargetLanguage: English
+  Value: You may choose a damage type (fire, frost, shock, poison, disease or sun). Unarmed attacks unleash a shockwave that deals the chosen damage type to all targets in front of you. Requires two free hands. Does not activate while sneaking.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 185
+  Ability: 000862:Zenderal - Prophecy.esp

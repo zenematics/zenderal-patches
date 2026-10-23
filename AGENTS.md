@@ -352,8 +352,8 @@ Read the linked doc before working near any of these.
 - **This list's crash logs come from .NET Script Framework**, in `<modlist>\overwrite\NetScriptFramework\Crash\`
   — it ships no Crash Logger DLL. SKSE plugin logs land in `My Games\Skyrim Special Edition\SKSE\`, not the
   Enderal folder. → [`workspace/testing-and-debugging.md`](arch-docs/workspace/testing-and-debugging.md)
-- **Installed asset does nothing? Check the CRDW cache first** — a stale `data_*_.cache` makes newly
-  installed files unloadable; rebuild it after every install and Pandora run. → [`modlist/mod-gotchas.md`](arch-docs/modlist/mod-gotchas.md)
+- **CRDW is gone (disabled since the 1.7.104 update, 2026-10-21)** — no cache to rebuild after installs
+  or Pandora runs. If it is ever re-enabled, a stale `data_*_.cache` makes newly installed files unloadable. → [`modlist/mod-gotchas.md`](arch-docs/modlist/mod-gotchas.md)
 - **Exterior-cell refs need 4 scaffolding files** or Spriggit silently drops the tree; YAML comments
   do not survive a re-serialize. → [`workspace/spriggit.md`](arch-docs/workspace/spriggit.md)
 - **A clean SPID log does not mean the item reached the player** (NUP stripped corpses).

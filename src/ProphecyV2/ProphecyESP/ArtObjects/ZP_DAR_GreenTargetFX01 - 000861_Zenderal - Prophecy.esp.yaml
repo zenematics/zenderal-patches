@@ -1,0 +1,11 @@
+FormKey: 000861:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_GreenTargetFX01
+FormVersion: 39
+ObjectBounds:
+  First: -78, -24, -99
+  Second: 79, 39, 119
+Model:
+  File: dareni\effects\sosgreentargetfx01.nif
+  Data: 0xCF238B7F6464730038973CEA5DDA555164647300582C55337E0FC2FF6464730038973CEA2B1BC6F66464730038973CEA
+Type:
+- MagicCasting

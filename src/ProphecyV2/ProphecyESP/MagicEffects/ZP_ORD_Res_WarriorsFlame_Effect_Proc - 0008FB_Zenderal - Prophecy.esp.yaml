@@ -1,0 +1,40 @@
+FormKey: 0008FB:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Effect_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_MessageIfPlayer_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Message
+      Object: 0008FF:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Warrior's Flame
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 0008FD:Zenderal - Prophecy.esp
+Flags:
+- NoHitEvent
+- NoArea
+- FXPersist
+- NoDeathDispel
+BaseCost: 1
+HitShader: 0008FE:Zenderal - Prophecy.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Magicka
+  Association: 0008FD:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: TargetActor
+HitEffectArt: 0008FC:Zenderal - Prophecy.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Regenerating <mag> points of Magicka and Stamina per second for <dur> seconds.

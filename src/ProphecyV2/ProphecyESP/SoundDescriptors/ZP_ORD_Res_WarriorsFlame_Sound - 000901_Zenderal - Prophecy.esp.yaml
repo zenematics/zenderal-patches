@@ -1,0 +1,14 @@
+FormKey: 000901:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Sound
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- \Data\Sound\FX\MAG\Restoration\MAG_Restoration_FF_Fire.wav
+OutputModel: 0E363A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+  RumbleValues: 1
+PercentFrequencyShift: 30
+PercentFrequencyVariance: 2
+Priority: 128
+StaticAttenuation: 13.22

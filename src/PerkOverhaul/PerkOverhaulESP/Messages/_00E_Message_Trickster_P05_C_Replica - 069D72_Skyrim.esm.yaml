@@ -1,0 +1,93 @@
+FormKey: 069D72:Skyrim.esm
+EditorID: _00E_Message_Trickster_P05_C_Replica
+Version2: 5
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Automatically gives you a copy of a picked lock's key. Arrows and musket balls that hit an enemy have an additional 30%% chance to be recoverable from their body.
+  - Language: Chinese
+    String: 开锁成功后会自动复制一把对应的钥匙放入背包。
+  - Language: Korean
+    String: 자물쇠를 해제하면 자동적으로 해당 열쇠의 복사본을 얻게 됩니다.
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: 'Trickster: Replica'
+  - Language: German
+    String: '[GESCHEITERT]'
+  - Language: Spanish
+    String: '[FALLO]'
+  - Language: Italian
+    String: '[FALLIMENTO]'
+  - Language: Polish
+    String: '[NIEUDANE]'
+  - Language: Russian
+    String: '[ПРОВАЛ]'
+  - Language: French
+    String: '[ÉCHEC]'
+  - Language: Japanese
+    String: '[失敗]'
+  - Language: Chinese
+    String: '诡计师: 复制品'
+  - Language: Korean
+    String: '재주꾼: 복제'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Unlock memory (1 Memory Point)
+    - Language: Chinese
+      String: 解锁该记忆(1个记忆点数)
+    - Language: Korean
+      String: 기억 해제 (1 기억 점수)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD6:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD1:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: You already unlocked this memory!
+    - Language: Chinese
+      String: 你已经解锁了这个记忆！
+    - Language: Korean
+      String: 이미 이 기억을 해제했습니다!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD6:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Back
+    - Language: Chinese
+      String: 后退
+    - Language: Korean
+      String: 뒤로
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CD6:Skyrim.esm

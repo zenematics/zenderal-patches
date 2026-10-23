@@ -1,0 +1,27 @@
+FormKey: 0008F9:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Effect_Proc_Stamina
+Name:
+  TargetLanguage: English
+  Value: Warrior's Flame - Stamina
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 0008FA:Zenderal - Prophecy.esp
+Flags:
+- NoHitEvent
+- NoArea
+- HideInUI
+- NoHitEffect
+- NoDeathDispel
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Stamina
+  Association: 0008FA:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

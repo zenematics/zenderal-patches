@@ -11,6 +11,10 @@
 //    player->NotifyAnimationGraph("TKDodge<Dir>"), and charges stamina only on the resulting
 //    TKDR_DodgeStart animation event, so this plugin drops those events for LockAfterShotMs after the
 //    shot (kBowReleasing/kBowReleased) while a drawn musket is still in hand.
+//    1.1.0: since the 1.7.104 update the list's TK ini sets enableDodgeAttackCancel = true, so TK
+//    accepts a dodge in ANY attack state and a dodge right after the shot interrupts the reload
+//    outright. The lock now also holds while the musket is still in its post-shot cycle (kBowReleasing
+//    .. kBowFollowThrough, kBowAttached = the reload), whatever the timer says, up to MaxLockMs.
 //
 // 2. Slower movement while aiming. Bows and crossbows share NPC_BowDrawn_MT 03580C, so a record edit
 //    cannot single out muskets. While a musket is raised or held aimed (kBowDraw, kBowDrawn) the
@@ -20,7 +24,7 @@
 //    the co-save and undone on load, so a save made mid-aim cannot keep it.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 0, 0 },
+	.Version = REL::Version{ 1, 1, 0, 0 },
 	.Name = "ZenMusketHandling"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -34,6 +38,7 @@ namespace
 	constexpr std::uint32_t kCosaveVersion = 1;
 
 	std::uint32_t            g_lockAfterShotMs{ 2300 };
+	std::uint32_t            g_maxLockMs{ 5000 };  // a stuck attack state never locks the dodge for longer
 	std::vector<std::string> g_blockedEventPrefixes{ "TKDodge" };
 	float                    g_speedMultPenalty{ 35.0f };
 	std::vector<std::string> g_musketPlugins{ "OrdoLegionisMuskets.esp" };
@@ -75,11 +80,22 @@ namespace
 			return false;
 		}
 		auto* player = RE::PlayerCharacter::GetSingleton();
-		if (!player || NowMs() - g_shotAtMs >= g_lockAfterShotMs || !HoldingDrawnMusket(player)) {
+		const auto elapsed = player ? NowMs() - g_shotAtMs : 0;
+		if (!player || elapsed >= g_maxLockMs || !HoldingDrawnMusket(player)) {
 			g_shotAtMs = 0;
 			return false;
 		}
-		return true;
+		if (elapsed < g_lockAfterShotMs) {
+			return true;
+		}
+		using enum RE::ATTACK_STATE_ENUM;
+		const auto attack = player->AsActorState()->GetAttackState();
+		const bool reloading = attack == kBowReleasing || attack == kBowReleased || attack == kBowAttached ||
+		                       attack == kBowNextAttack || attack == kBowFollowThrough;
+		if (!reloading) {
+			g_shotAtMs = 0;
+		}
+		return reloading;
 	}
 
 	void NudgeMovementSpeed(RE::PlayerCharacter* a_player)
@@ -269,18 +285,19 @@ namespace
 	{
 		g_musketPlugins = ReadIniList("Muskets"sv, "Plugins"sv, { "OrdoLegionisMuskets.esp" });
 		g_lockAfterShotMs = ReadIniNumber<std::uint32_t>("Dodge"sv, "LockAfterShotMs"sv, 2300);
+		g_maxLockMs = std::max(g_lockAfterShotMs, ReadIniNumber<std::uint32_t>("Dodge"sv, "MaxLockMs"sv, 5000));
 		g_blockedEventPrefixes = ReadIniList("Dodge"sv, "BlockedEvents"sv, { "TKDodge" });
 		g_speedMultPenalty = std::max(0.0f, ReadIniNumber<float>("Aim"sv, "SpeedMultPenalty"sv, 35.0f));
 		g_log = ReadIniNumber<std::uint32_t>("General"sv, "Log"sv, 1) != 0;
-		SKSE::log::info("Muskets=[{}] LockAfterShotMs={} BlockedEvents=[{}] SpeedMultPenalty={} Log={}",
-			Join(g_musketPlugins), g_lockAfterShotMs, Join(g_blockedEventPrefixes), g_speedMultPenalty, g_log);
+		SKSE::log::info("Muskets=[{}] LockAfterShotMs={} MaxLockMs={} BlockedEvents=[{}] SpeedMultPenalty={} Log={}",
+			Join(g_musketPlugins), g_lockAfterShotMs, g_maxLockMs, Join(g_blockedEventPrefixes), g_speedMultPenalty, g_log);
 	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenMusketHandling 1.0.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenMusketHandling 1.1.0 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };

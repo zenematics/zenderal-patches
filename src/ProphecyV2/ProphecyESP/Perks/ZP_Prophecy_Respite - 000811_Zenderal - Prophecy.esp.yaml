@@ -1,0 +1,17 @@
+FormKey: 000811:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Respite
+Version2: 11
+Name:
+  TargetLanguage: English
+  Value: 'Respite'
+Description:
+  TargetLanguage: English
+  Value: 'Healing spells also restore Stamina equal to their power.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000810:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

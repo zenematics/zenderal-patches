@@ -4,7 +4,7 @@
 
 - **Source:** `src/FlintlockOverhaul/`
 - **Ships:** `Zenderal - Flintlock Overhaul.esp` + `ZP_FlintlockAmmoPlayerScript.pex` + `Zenderal - DAR Rifles Recipes Off.esp` + `_KID.ini` + Wheeler icons
-- **FormID block:** `0x800–0x816`
+- **FormID block:** `0x800–0x81A`
 
 ## What it does
 
@@ -34,3 +34,34 @@ EGO's silver-arrow treatment and needs no new perk. **[verified from records]** 
 
 [`ReversalShadow`](ReversalShadow.md) adds its pistol to this list in its own plugin. After changing the
 list here, rerun `src/ReversalShadow/tools/02-build-records.py` or the override reverts the change.
+
+## Every pistol on bullets; pistol blueprints at traders (2026-10-22)
+
+**Report (Zenderal alpha):** players found pistols that still ran on soul gems. A whole-load-order WEAP scan
+(staves whose EditorID/name/model says pistol/gun) found exactly two sources: the pack's 8 (already ours) and
+**Loop's "Simple Pistol Shooting Animation"** (`Pistol animation by Loop.esp`, installed for its animations),
+which ships 4 example **Hunter Pistols** (`000802`, `00080B`–`00080D`) and 4 **Hunter Crossbows** (`000C24`,
+`000C2A`, `000C2B`, `000824`), all staves with Loop's own enchantments. Their 8 forge recipes need only
+`DwarvenSmithing 0CB40E`, which the Player record starts with, plus a `HearthFires.esm` component that never
+resolves (DLC stub) and so did not block crafting. Curator's call: pistols convert, crossbows go.
+
+- `tools/01` also builds `ZP_FlintlockShot_HunterPistol*` `0x817`–`0x81A` (the Flintlock Pistol's enchantment
+  at 10.8 / 14.4 / 18.0 / 21.6, the pack's lower tiers) and points the 4 Hunter Pistols at them; their own
+  meshes and animations stay. They are in `ZP_FlintlockWeapons`, so the reload script and the Archery perk
+  treat them like the pack's pistols (Reversal Shadow's `tools/02` rerun for its copy of the list).
+- `tools/08` overrides Loop's 8 recipes: the DLC-stub component dropped, the 4 Hunter Crossbow recipes hidden
+  with `Smithing >= 1000`. **This plugin owns them**; Unresolved References Cleanup no longer carries them.
+  Hunter Crossbows a player already owns keep using soul gems.
+
+**Blueprints.** The pack's 5 blueprints (`PMCraftingPlan*` `000800`, `000825`–`000828`) carry
+`BlueprintDONOTUSE 02A3D6`, which is on Enderal's folio list `_00E_FS_BlueprintList 02A3DD`, so the folio
+takes them, and the pack's recipes test `GetItemCount` on the folio's actor `02A3DB:FS` — Enderal's own
+blueprint mechanism (`_00E_FS_BlueprintContainerSpellSC`), not a bug. They were only in three quest
+containers. `tools/08` adds them to the trader list `_00ETraderCraftingPlans 137A06`, which ~20 merchant chests
+and the 01E/02E BeuteGross/Mittel/Gering chest lists draw from. Live winner was **Enderal SE - Crossbows**: a
+base-Enderal copy + its crossbow plan `000832`, which reverted EGO's version (ChanceNone 0.05, all levels 1,
+5 more plans). Ours = EGO's record + Crossbows' plan + the 5 blueprints at level 1 (63 entries). **This plugin
+owns `137A06`**; rerun `tools/08` after EGO or Crossbows changes it.
+
+Built and deployed 2026-10-22 (live-order scan: all 12 records won by this plugin). **Unverified in game.**
+

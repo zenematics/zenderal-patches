@@ -1,0 +1,15 @@
+FormKey: 000895:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Sound_Projectile_Loop
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\OBJ\Catapult\OBJ_Catapult_Projectile_01_LP.wav
+- Data\Sound\FX\OBJ\Catapult\OBJ_Catapult_Projectile_02_LP.wav
+- Data\Sound\FX\OBJ\Catapult\OBJ_Catapult_Projectile_03_LP.wav
+OutputModel: 0B4248:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 20
+Priority: 128
+StaticAttenuation: 6.17

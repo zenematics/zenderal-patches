@@ -1,0 +1,15 @@
+FormKey: 000C13:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Info_StunningBlows
+Description:
+  TargetLanguage: English
+  Value: 'Stunning Blows: Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Learn (1 Prophecy point)
+- Text:
+    TargetLanguage: English
+    Value: Back

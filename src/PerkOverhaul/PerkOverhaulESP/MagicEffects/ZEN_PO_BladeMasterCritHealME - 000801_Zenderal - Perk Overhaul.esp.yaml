@@ -1,0 +1,30 @@
+FormKey: 000801:Zenderal - Perk Overhaul.esp
+EditorID: ZEN_PO_BladeMasterCritHealME
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_PO_BladeMasterCritHealSC
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: HealAmount
+      Data: 10
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WeapTypeDagger
+      Object: 01E713:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WeapTypeSword
+      Object: 01E711:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Blade Master
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

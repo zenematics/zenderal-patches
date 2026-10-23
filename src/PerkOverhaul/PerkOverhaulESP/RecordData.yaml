@@ -1,0 +1,27 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Perk Overhaul.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Zenderal's rework of Enderal's perk tree, on top of EGO. Blade Dancer: Blade Master crit chance
+    10 -> 25 and critical hits with swords/daggers restore 10 Health. Trickster: archery perk texts
+    name muskets alongside bows (the perks already apply to them). Replica: bow/musket hits have a
+    further 30% chance to leave one ammo on the target. Must load after Enderal SE -
+    Gameplay Overhaul.esp. Requires powerofthree's Papyrus Extender.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  INTV: 1

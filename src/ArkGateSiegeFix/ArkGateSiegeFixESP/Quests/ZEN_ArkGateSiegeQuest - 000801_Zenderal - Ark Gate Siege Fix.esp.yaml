@@ -1,0 +1,14 @@
+FormKey: 000801:Zenderal - Ark Gate Siege Fix.esp
+EditorID: ZEN_ArkGateSiegeQuest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_ArkGateSiegeQuestScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZEN_ArkGateSiegeOpenPerk
+      Object: 000800:Zenderal - Ark Gate Siege Fix.esp
+  FileName: ''
+Flags:
+- StartGameEnabled
+- RunOnce
+NextAliasID: 0

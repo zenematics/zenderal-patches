@@ -34,6 +34,15 @@ drops any event starting with a `[Dodge] BlockedEvents` prefix (`TKDodge`) for `
 (2300) after the attack state enters kBowReleasing/kBowReleased with a drawn musket. The lock ends
 early if the musket is sheathed or swapped. A dropped dodge plays nothing and costs no stamina.
 
+**1.1.0 (2026-10-21): attack-cancel is on now.** Since the 1.7.104 update the list's TK ini (shipped by
+`Zenderal - Settings`, also `Input Defaults`/`Personal Keybinds`/CCS) has `enableDodgeAttackCancel =
+true` [verified, `TK_Dodge_RE.log` 2026-10-21: "found enableDodgeAttackCancel with value true"], so TK
+accepts a dodge in **any** attack state and fire → dodge → fire skips the reload outright, not only the
+last 0.8 s of it. The setting stays on (it is how melee dodge-cancels work); instead, after
+`LockAfterShotMs` the lock now also holds while the musket is still in its post-shot cycle
+(kBowReleasing … kBowFollowThrough, the reload being kBowAttached), capped at `MaxLockMs` (5000) so a
+stuck state cannot disable the dodge.
+
 ## 2. Slower movement while aiming
 
 Bows and crossbows both move on `NPC_BowDrawn_MT 03580C` while drawn (EGO DS sets all speeds 80), so a
@@ -50,13 +59,15 @@ saving before removing the DLL.
 
 ## Tuning
 
-All in `ZenMusketHandling.ini`: `LockAfterShotMs`, `BlockedEvents`, `SpeedMultPenalty` (0 = off),
+All in `ZenMusketHandling.ini`: `LockAfterShotMs`, `MaxLockMs`, `BlockedEvents`, `SpeedMultPenalty` (0 = off),
 `Plugins`, `Log`. With `Log=1`, `My Games\Skyrim Special Edition\SKSE\ZenMusketHandling.log` records
 each musket shot and each dropped dodge with its delay after the shot — use it to tune the lock.
 
 ## Status
 
-1.0.0 built 2026-10-19 and copied to MO2 mod `Zenderal - Musket Handling` (enable it in the profile).
+1.0.0 built 2026-10-19; **it never ran** — the mod sat unticked in Ultra (`-Zenderal - Musket Handling`)
+and absent from Alpha 0.6, and no `ZenMusketHandling.log` existed on 2026-10-21. 1.1.0 built (SE + AE
+address IDs; the list runs 1.7.104) and copied to the MO2 mod 2026-10-21; tick it in the profile.
 **Unverified in game:** that the lock covers the whole visible reload (both first and third person),
 and that the SpeedMult change is felt at once while aiming.
 

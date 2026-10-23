@@ -1,0 +1,71 @@
+FormKey: 00081D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ClockworkTurret
+Name:
+  TargetLanguage: English
+  Value: 'Clockwork Turret'
+Description:
+  TargetLanguage: English
+  Value: 'You can build Clockwork Turrets at a forge. Use the "Clockwork Turret" power to deploy one: it fires parallel to your crosshair for 30 seconds while you stay within 12 feet, dealing damage equal to 30% of your Handicraft skill.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081B:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081C:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 40
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 00088E:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetIsIDConditionData
+        Object: 000007:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: IsHostileToActorConditionData
+        TargetNpc: 000014:Skyrim.esm
+  EntryPoint: ModSpellMagnitude
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.1
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 193
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 00088E:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModSpellMagnitude
+  PerkConditionTabCount: 3
+  ActorValue: Smithing
+  Value: 0.01
+  Modification: MultiplyAVMult
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 194
+  Ability: 000882:Zenderal - Prophecy.esp

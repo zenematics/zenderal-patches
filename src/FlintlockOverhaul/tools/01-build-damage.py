@@ -9,6 +9,7 @@ shared four ways across eight pistols. This script:
   * overrides the eight weapons to point at them, and their eight
     FirstPersonModel statics (the equipped model in both views) at the rotated meshes for Loop's pistol
     animations (records otherwise verbatim);
+  * does the same for Loop's four Hunter Pistols (0x817-0x81A; their own models stay);
   * tags PMPistolShot with keyword ZP_FlintlockShot (0x80C) - MGEF verbatim + Keywords;
   * builds hidden perk ZP_FlintlockArcheryScaling (0x80D) that the player script adds: x0.5 then
     x(1 + Archery*0.02) = bow skill scaling (fDamagePCSkillMin 0.5 .. fDamagePCSkillMax 1.5), Fortify
@@ -41,6 +42,20 @@ LOOP_MODEL_PREFIX = 'Zenderal\\LoopPistols\\'
 EQUIP_TYPE = '013F44:Skyrim.esm'
 KYWD_ID = '00080C'
 PERK_ID = '00080D'
+
+# Loop's "Simple Pistol Shooting Animation" ships four example Hunter Pistols (staves on soul gems, craftable at any
+# forge since the player starts with DwarvenSmithing). Curator 2026-10-22: every pistol runs on Flintlock Bullets, so
+# they get the same treatment: a shot enchantment copied from the Flintlock Pistol's (PMPistolShot, so the perk
+# scales it) at the pack's lower tier magnitudes, and the weapon pointed at it. Their own mesh/animations stay.
+LOOP_SRC = os.path.join(ROOT, 'reference', 'mods', 'LoopPistol')
+LOOP = 'Pistol animation by Loop.esp'
+TEMPLATE_PISTOL = '000838'   # Flintlock Pistol: its generated enchantment is the template
+LOOP_PISTOLS = [  # Loop weapon, new enchantment, magnitude (Archery 50) = Flintlock / Priest's / Officer's / Aristocrat's
+    ('000802', '000817', 10.8),
+    ('00080B', '000818', 14.4),
+    ('00080C', '000819', 18.0),
+    ('00080D', '00081A', 21.6),
+]
 
 
 def read(path):
@@ -96,6 +111,8 @@ for pid, eid in zip(PISTOLS, ENCH_IDS):
     e = sub1(r'(- BaseEffect: %s\n  Data:\n    Magnitude: )[\d.]+$' % re.escape(SHOT_MGEF),
              r'\g<1>%s' % mag, e, eid + ' shot magnitude')
     write('ObjectEffects', '%s - %s_%s.yaml' % (edid, eid, ME), e)
+    if pid == TEMPLATE_PISTOL:
+        template_ench = e
 
     # --- weapon: verbatim except the enchantment (EQUIP_TYPE is the pack's own EitherHand)
     w = sub1(r'^ObjectEffect: .*$', 'ObjectEffect: %s:%s' % (eid, ME), w, pid + ' ObjectEffect')
@@ -116,6 +133,25 @@ for pid, eid in zip(PISTOLS, ENCH_IDS):
              r'\g<1>%s\g<2>' % LOOP_MODEL_PREFIX.replace('\\', '\\\\'), read(spath), stat + ' Model')
     write('Statics', os.path.basename(spath), s)
     table.append((name, dmg, old_edid, mag))
+
+# --- Loop's Hunter Pistols: template enchantment with their own magnitude; weapon verbatim except the enchantment
+for wid, eid, mag in LOOP_PISTOLS:
+    hits = [f for f in os.listdir(os.path.join(LOOP_SRC, 'Weapons')) if ' - %s_' % wid in f]
+    if len(hits) != 1:
+        sys.exit('expected one Loop weapon %s, found %r' % (wid, hits))
+    w = read(os.path.join(LOOP_SRC, 'Weapons', hits[0]))
+    name = re.search(r'^Name:\n  TargetLanguage: English\n  Value: (.+)$', w, re.M).group(1)
+    if 'Data:\n  AnimationType: Staff' not in w:
+        sys.exit('%s: not a staff' % wid)
+    edid = 'ZP_FlintlockShot_' + re.sub(r'\W', '', name)
+    e = sub1(r'^FormKey: .*$', 'FormKey: %s:%s' % (eid, ME), template_ench, eid + ' FormKey')
+    e = sub1(r'^EditorID: .*$', 'EditorID: ' + edid, e, eid + ' EditorID')
+    e = sub1(r'(- BaseEffect: %s\n  Data:\n    Magnitude: )[\d.]+$' % re.escape(SHOT_MGEF),
+             r'\g<1>%s' % mag, e, eid + ' shot magnitude')
+    write('ObjectEffects', '%s - %s_%s.yaml' % (edid, eid, ME), e)
+    w = sub1(r'^ObjectEffect: .*$', 'ObjectEffect: %s:%s' % (eid, ME), w, wid + ' ObjectEffect')
+    write('Weapons', hits[0], w)
+    table.append((name, 0, 'Loop', mag))
 
 # --- keyword
 write('Keywords', 'ZP_FlintlockShot - %s_%s.yaml' % (KYWD_ID, ME),
@@ -189,8 +225,8 @@ if perk.count('EntryPoint: ModSpellMagnitude') != 8:
     sys.exit('perk: expected 8 entries')
 write('Perks', 'ZP_FlintlockArcheryScaling - %s_%s.yaml' % (PERK_ID, ME), perk)
 
-if len(table) != 8:
-    sys.exit('expected 8 pistols')
+if len(table) != 8 + len(LOOP_PISTOLS):
+    sys.exit('expected 12 pistols')
 print('%-34s %4s  %-22s %8s %8s %8s' % ('pistol', 'dmg', 'old enchantment', 'Arch 0', 'Arch 50', 'Arch 100'))
 for name, dmg, old, mag in table:
     print('%-34s %4d  %-22s %8.1f %8.1f %8.1f' % (name, dmg, old, mag * 0.5, mag, mag * 1.5))

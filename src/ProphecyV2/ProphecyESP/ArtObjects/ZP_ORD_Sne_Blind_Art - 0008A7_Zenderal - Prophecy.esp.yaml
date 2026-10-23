@@ -1,0 +1,10 @@
+FormKey: 0008A7:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_Blind_Art
+ObjectBounds:
+  First: -63, -63, 6
+  Second: 63, 63, 110
+Model:
+  File: Ordinator\Sneak_Art_Blind.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

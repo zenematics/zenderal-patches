@@ -132,15 +132,28 @@ __pycache__/
 /src/KataAffinities21/build/
 !src/KataAffinities21/Scripts/compiled/
 !src/KataAffinities21/Scripts/compiled/*.pex
-!src/Goblins/Scripts/compiled/
-!src/Goblins/Scripts/compiled/*.pex
 
 # SKSE plugin CMake/vcpkg build trees (the shipped DLL lives in compiled/)
 /src/*/SKSEPlugin/build/
 /src/*/SKSEPlugin/build.log
 /src/*/build-ae.log
+!src/PerkOverhaul/Scripts/compiled/
+!src/PerkOverhaul/Scripts/compiled/*.pex
 !src/TraitsRework/Scripts/compiled/
 !src/TraitsRework/Scripts/compiled/*.pex
+!src/Goblins/Scripts/compiled/
+!src/Goblins/Scripts/compiled/*.pex
 
 # Curator artwork sources (large PNGs); src/TraitsRework/tools/02-build-icons.py reads outputs/trait-icons/
 /outputs/
+!src/ProphecyV2/Scripts/compiled/
+!src/ProphecyV2/Scripts/compiled/*.pex
+!src/TestingCheats/Scripts/compiled/
+!src/TestingCheats/Scripts/compiled/*.pex
+!src/ArkGateSiegeFix/Scripts/compiled/
+!src/ArkGateSiegeFix/Scripts/compiled/*.pex
+
+# Build output (build.ps1 staging) - commit source, not build artifacts
+/build/staging/
+# SureAI voice lines extracted for the trailer (copyrighted; never redistribute)
+/trailer-audio/

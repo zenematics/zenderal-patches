@@ -1,0 +1,15 @@
+FormKey: 000C16:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Info_SeismicStomp
+Description:
+  TargetLanguage: English
+  Value: 'Seismic Stomp: Grants the "Seismic Stomp" power: stomp the ground and send out a shockwave that hurls every enemy within 19 feet up and away and makes them bleed for 50 damage over 5 seconds, as time slows for a moment. Usable every 30 seconds.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Learn (1 Prophecy point)
+- Text:
+    TargetLanguage: English
+    Value: Back

@@ -5,7 +5,9 @@
 - **Ships:** `Zenderal - KataPUMB Affinities 2.1.esp` (ESL, HEDR 1.7) + `Scripts/_00E_AffinityControl.pex` (+ source)
 - **Needs on the user's machine:** the cleaned Kata copy that `tools/02` generates. It is never shipped.
 - **FormID block:** none (one override)
-- **Status:** built and compiled, round-trip clean; **unverified in game**
+- **Status:** built and compiled, round-trip clean; deployed to `Ultra` 2026-10-21. Plugins 236
+  (`KataPUMBAffinities.esp`, from the cleaned copy), 240 (EGO patch) and 241 (this). `tools/04`: no
+  trigger. **Unverified in game**
 
 ## Why it exists
 

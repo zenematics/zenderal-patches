@@ -1,0 +1,26 @@
+FormKey: 000813:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_HealingPresence
+Name:
+  TargetLanguage: English
+  Value: 'Healing Presence'
+Description:
+  TargetLanguage: English
+  Value: 'In combat you heal yourself and nearby allies for 25 Health every 10 seconds, at a cost of 1 Arcane Fever.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000811:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000812:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0008DC:Zenderal - Prophecy.esp

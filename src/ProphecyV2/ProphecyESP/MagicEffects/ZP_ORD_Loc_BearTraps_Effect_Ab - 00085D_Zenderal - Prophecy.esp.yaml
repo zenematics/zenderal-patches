@@ -1,0 +1,43 @@
+FormKey: 00085D:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_BearTraps_Effect_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_AddItem_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BearTraps_MiscItem
+      Object: 00082E:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc80_TheRevenge_Perk_80_OrdASISExclude
+      Object: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Bear Traps
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1

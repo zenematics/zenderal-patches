@@ -1,0 +1,28 @@
+FormKey: 000912:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FlowStateEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_FlowStateEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SlowTime
+      Object: 000824:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Flow State
+Flags:
+- HideInUI
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

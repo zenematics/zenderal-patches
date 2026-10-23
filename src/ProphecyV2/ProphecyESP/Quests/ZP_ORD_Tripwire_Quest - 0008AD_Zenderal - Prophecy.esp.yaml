@@ -1,0 +1,14 @@
+FormKey: 0008AD:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Tripwire_Quest
+Name:
+  TargetLanguage: English
+  Value: Explosive Tripwire
+Flags:
+- AllowRepeatedStages
+Filter: ORD\
+NextAliasID: 1
+Aliases:
+- Name: ORD_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null

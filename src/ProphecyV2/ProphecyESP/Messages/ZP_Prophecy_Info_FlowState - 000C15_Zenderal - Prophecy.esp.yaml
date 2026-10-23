@@ -1,0 +1,15 @@
+FormKey: 000C15:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Info_FlowState
+Description:
+  TargetLanguage: English
+  Value: 'Flow State: Dodging in combat slows time to a crawl for a moment. This can happen once every 10 seconds.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Learn (1 Prophecy point)
+- Text:
+    TargetLanguage: English
+    Value: Back

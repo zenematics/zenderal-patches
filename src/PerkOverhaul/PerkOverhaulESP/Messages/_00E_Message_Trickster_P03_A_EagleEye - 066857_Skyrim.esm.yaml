@@ -1,0 +1,93 @@
+FormKey: 066857:Skyrim.esm
+EditorID: _00E_Message_Trickster_P03_A_EagleEye
+Version2: 6
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Pressing Block while aiming a bow or musket will zoom in your view.
+  - Language: Chinese
+    String: 瞄准时按住格挡按钮将你的视野拉近。
+  - Language: Korean
+    String: 조준하는 동안 방어 키를 누르면 시야가 확대됩니다.
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: 'Trickster: Eagle Eye'
+  - Language: Chinese
+    String: '诡计师: 鹰眼视觉'
+  - Language: Korean
+    String: '재주꾼: 매의 눈'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Unlock memory (1 Memory Point)
+    - Language: German
+      String: Mächtige Angriffe verbrauchen Ausdauer. Wenn der Ausdauerbalken blinkt, wird jeder versuchte mächtige Angriff zu einem normalen Angriff.
+    - Language: Spanish
+      String: Los ataques de poder usan aguante. Si la barra de aguante parpadea, cualquier intento de realizar un ataque de poder se convierte en un ataque normal en su lugar.
+    - Language: Italian
+      String: Gli attacchi caricati sfruttano il vigore. Quando la barra del vigore lampeggia, ogni attacco caricato eseguito diventa un attacco normale.
+    - Language: Polish
+      String: Potężne ataki zużywają kondycję. Jeśli pasek kondycji miga, zamiast potężnego ataku zostanie wyprowadzony atak zwykły.
+    - Language: Russian
+      String: Силовые атаки понижают запас сил. Если индикатор запаса сил мигает, любая силовая атака становится обычной.
+    - Language: French
+      String: Les attaques de puissance consomment de la vigueur. Lorsque la jauge de vigueur clignote, toute tentative d'attaque de puissance se transforme en attaque normale.
+    - Language: Japanese
+      String: 強力な攻撃を繰り出すとスタミナを消費する。スタミナゲージが点滅している場合、強力な攻撃を試みても通常攻撃となってしまう。
+    - Language: Chinese
+      String: 解锁该记忆(1个记忆点数)
+    - Language: Korean
+      String: 기억 해제 (1 기억 점수)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 066867:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 06685F:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: You already unlocked this memory!
+    - Language: Chinese
+      String: 你已经解锁了这个记忆！
+    - Language: Korean
+      String: 이미 이 기억을 해제했습니다!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 066867:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Values:
+    - Language: English
+      String: Back
+    - Language: Chinese
+      String: 后退
+    - Language: Korean
+      String: 뒤로
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 066867:Skyrim.esm

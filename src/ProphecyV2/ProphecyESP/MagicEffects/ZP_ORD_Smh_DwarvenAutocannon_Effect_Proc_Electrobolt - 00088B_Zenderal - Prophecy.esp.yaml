@@ -1,0 +1,48 @@
+FormKey: 00088B:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Effect_Proc_Electrobolt
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_GrantXP_Script
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ORD_OnlyEnemy
+      Data: True
+    - MutagenObjectType: ScriptStringProperty
+      Name: ORD_School
+      Data: Smithing
+    - MutagenObjectType: ScriptIntProperty
+      Name: ORD_XP
+      Data: 2
+Name:
+  TargetLanguage: English
+  Value: Electrobolt
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+Keywords:
+- 00088E:Zenderal - Prophecy.esp
+- 00088D:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+ResistValue: ResistShock
+HitShader: 057C67:Skyrim.esm
+SpellmakingArea: 6
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 00088C:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+SecondActorValue: Magicka
+ImpactData: 059ED9:Skyrim.esm
+DualCastScale: 1.1
+Sounds:
+- Type: Release
+  Sound: 03F206:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> points of shock damage.

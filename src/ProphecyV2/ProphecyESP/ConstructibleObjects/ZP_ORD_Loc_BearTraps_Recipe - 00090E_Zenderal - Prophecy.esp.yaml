@@ -1,0 +1,37 @@
+FormKey: 00090E:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_BearTraps_Recipe
+Items:
+- Item:
+    Item: 0800E4:Skyrim.esm
+    Count: 20
+- Item:
+    Item: 05ACE4:Skyrim.esm
+    Count: 3
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081C:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    ItemOrList: 00082E:Zenderal - Prophecy.esp
+  ComparisonValue: 3
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    ItemOrList: 00082E:Zenderal - Prophecy.esp
+  ComparisonValue: 2
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+CreatedObject: 00082E:Zenderal - Prophecy.esp
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 1

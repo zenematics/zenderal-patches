@@ -1,0 +1,31 @@
+FormKey: 000870:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Lia_HissingDragon_Effect_Proc_Poison
+Name:
+  TargetLanguage: English
+  Value: Emerald Dragon
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 000868:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+ResistValue: PoisonResist
+HitShader: 000872:Zenderal - Prophecy.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000871:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 00086C:Zenderal - Prophecy.esp
+Description:
+  TargetLanguage: English
+  Value: Your fists poison targets for <mag> points of poison damage per second for <dur> seconds.
