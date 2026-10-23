@@ -54,6 +54,36 @@ have byte-identical data. Convention checks (the generator asserts them): frames
 Verified on the output (22:44 build from XPMSE): same size, 2,192 bytes changed, all inside joint fields; parses with
 hkxconv; all 14 hinges' frames agree with 0.0° at bind; ranges as above.
 
+## Which Lost Ones use this rig (survey 2026-10-23, winning records by the Ultra load order)
+
+| Race | Behaviour project | NPCs named "Lost…" | Ragdoll rig |
+|---|---|---|---|
+| `mihailancientskeletonrace 000800:mihailancientskeletons.esp` | `DraugrSkeletonProject` | 13: Awoken Lost Archer/One/Soldier, Fleshless Lost Archer/Guardian/One/Soldier/Warrior | `SkeletonS.HKX`: this fix |
+| `SkeletonRace 0B7998` (EGO's record) | `DraugrSkeletonProject` (female: `DraugrProject`) | 12: Decayed Lost One, Fleshless Lost Hunter/Miner/One, Fleshless Bowman, Awoken Lost Archer, Rotting Lost One | `SkeletonS.HKX`: this fix |
+| UCR `LostOneTemplateRace 00398C` | `DraugrProject` | 28 (Lost Archer, Knight, Mage, Warrior, Lords…) | draugr rig, real joints |
+| `DraugrRace 000D53` | `DraugrProject` | 23 (Lost One, Sere, Rotting, Fleshmaggot Sufferer, KataPUMB's) | draugr rig, real joints |
+| Giant / Elder / Dragon Priest | own projects | 9 (Grotesque, Wild Mage, Lich) | not skeletons |
+
+Mihail's race and `SkeletonRace` share skeleton `SkeletonS.nif`/`SkeletonF.nif`, body-part data `048C13` and the male
+behaviour project. They differ only in flags (`SkeletonRace` has `NoKnockdowns`, Mihail's has `CanDualWield`). All six
+Mihail meshes (`mihailancientskeleton0–5.nif`, skins `000802`/`00080A`/`00080B`) have the same 52 bones, matching the
+rig except the left foot's name (`[Lft ]` vs `[LLft ]`). User report 2026-10-23: Fleshless Lost Warriors and
+Archers still looked stiff in flight. Not this rig: they died from the stomp and a stagger then pinned the corpse;
+fixed in [`AirborneGetUpFix`](AirborneGetUpFix.md) 1.1.1.
+
+## Conflict check (2026-10-23, all 829 enabled mods / 409 active plugins, Ultra)
+
+- **Loose files** under `meshes/actors/draugr` that could override or bypass the rig: only XPMSE's `skeletons.hkx`
+  (priority 780, below this mod at 3). No mod replaces `DraugrSkeletonProject.hkx`, `characterskeleton/
+  Draugr_Skeleton.hkx` or `characters/*`, so skeletons still load the `SkeletonS.HKX` rig. `skeletons.nif` (XPMSE) has
+  vanilla physics. Pandora's `DraugrBehavior.hkx` is the behaviour graph, not the rig.
+- **Mod BSAs:** none contains a draugr skeleton rig, character file or project.
+- **Stock Game `Data` and MO2 `overwrite`:** no loose copies.
+- **Plugins** carrying RACE records on this rig (records scanned, compressed ones inflated): EGO's `SkeletonRace`,
+  Lost Ones Revised's `mihailancientskeletonrace` and Apocalypse's `WB_ConjureDeadeyeCaptain_Race`. All point at
+  `SkeletonS.nif` + `DraugrSkeletonProject`; nothing later overrides them.
+- Scan scripts: a filesystem/BSA walk (`tools/bsa.py` is importable since 2026-10-23) and a plugin record grep.
+
 ## Not covered / risks
 
 - Hips, shoulders and head stay **hinges** (one swing axis), not the draugr's cone joints. Converting the constraint

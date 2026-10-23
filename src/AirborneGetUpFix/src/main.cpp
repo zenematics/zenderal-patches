@@ -20,16 +20,18 @@
 // (pelvis still to 0.1 units for 10 s, no timeout either), so it is not a usable frame delta for these actors.
 // Under SlowTime (30%) a 1 s window is 0.3 s of game time; a body near the top of its arc still moves ~8 units in it.
 //
-// 1.1.0: a stagger reaching a ragdolled actor freezes it the same way. An Awoken Lost Archer (human graph) got
+// 1.1.0: a stagger reaching a ragdolled actor freezes it the same way. An Awoken Lost Archer (draugr skeleton graph) got
 // staggerStart 0.1 s after Ragdoll; the graph accepted it, left its ragdoll state for the stagger state
 // (animation-driven), and the still-ragdolled body hung at a frozen position for 17 s+. The released GetUpBegin was then
 // refused (no ragdoll state left to take it). An earlier Wood Elemental's get-up was cut short by a stagger in the same
 // way. So while an actor is ragdolled or not in the normal knock state, stagger / recoil / bleed-out start events are
 // refused (reported as not accepted, as the graph itself does for events it has no transition for).
+// 1.1.1: dead actors too. A Fleshless Lost Archer and Warrior killed by Seismic Stomp itself got Ragdoll already dead,
+// then staggerStart 0.08-0.13 s later; 1.1.0 skipped the dead, so the graph took it and the corpse hung stiff mid-air.
 // Log: My Games/Skyrim Special Edition/SKSE/ZenAirborneGetUpFix.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 1, 0, 0 },
+	.Version = REL::Version{ 1, 1, 1, 0 },
 	.Name = "ZenAirborneGetUpFix"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -100,11 +102,11 @@ namespace
 		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_eventName)
 		{
 			if (!g_sending && a_eventName.c_str() && BlockedWhileDown(a_eventName.c_str())) {
-				if (auto* actor = static_cast<RE::TESObjectREFR*>(a_this)->As<RE::Actor>(); actor && !actor->IsDead()) {
+				if (auto* actor = static_cast<RE::TESObjectREFR*>(a_this)->As<RE::Actor>()) {   // dead ones too (1.1.1)
 					const auto knock = actor->AsActorState()->GetKnockState();
 					if (actor->IsInRagdollState() || knock != RE::KNOCK_STATE_ENUM::kNormal) {
-						SKSE::log::info("{:08X} '{}': {} refused while down (knock {})", actor->GetFormID(), actor->GetName(),
-							a_eventName.c_str(), std::to_underlying(knock));
+						SKSE::log::info("{:08X} '{}': {} refused while down (knock {}{})", actor->GetFormID(), actor->GetName(),
+							a_eventName.c_str(), std::to_underlying(knock), actor->IsDead() ? ", dead" : "");
 						return false;
 					}
 				}
@@ -196,7 +198,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenAirborneGetUpFix 1.1.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenAirborneGetUpFix 1.1.1 loading, runtime {}", REL::Module::get().version().string());
 
 	// Character's vtables: [0] TESForm/Actor, [3] IAnimationGraphManagerHolder. The player (PlayerCharacter) is not touched.
 	REL::Relocation<std::uintptr_t> actorVtbl{ RE::VTABLE_Character[0] };

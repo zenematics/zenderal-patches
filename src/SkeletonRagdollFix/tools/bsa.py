@@ -53,4 +53,5 @@ def main():
             open(p, "wb").write(data)
 
 
-main()
+if __name__ == "__main__":
+    main()

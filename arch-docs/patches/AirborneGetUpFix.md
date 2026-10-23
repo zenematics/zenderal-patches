@@ -66,6 +66,14 @@ Constants are in `main.cpp` (`kWindow`, `kSettleRange`, `kTimeout`).
   (`meshes\actors\draugr\animations\`), and no mod overrides them (loose, OAR/DAR or BSA). The draugr get-up state also runs
   `hkbGetUpModifier` (1 s ragdoll-to-animation blend, `KeyframeLowerBody`), which SlowTime stretches to ~3 s real time.
 
+- **1.1.1 (2026-10-23):** the refusal covers **dead** actors too. User report: Fleshless Lost Warriors and Archers
+  still flew stiff after Seismic Stomp. Trace (session 2026-10-23 00:00): Fleshless Lost Archer `00051175` and Warrior
+  `00051174` got `Ragdoll` already **dead** (killed by the stomp), then `staggerStart` 0.13 s / 0.08 s later. 1.1.0
+  skipped dead actors (`!IsDead()`), so the graph took the stagger (`animDriven=true`) and the corpse hung at a fixed
+  height (Archer z 934, Warrior z 831). Not the rig: both are on `mihailancientskeletonrace`, which uses the patched
+  [`SkeletonRagdollFix`](SkeletonRagdollFix.md) rig. Side note: a dead Mihail skeleton's graph sent
+  `AddCharacterControllerToWorld` every frame (~60/s) after `RagdollInstant`. Harmless so far, not investigated. **Verified in game 2026-10-23:** Fleshless Warriors/Archers no longer hang stiff after the stomp (user).
+
 ## Not covered
 
 A get-up that starts on the ground but is interrupted (e.g. by a stagger) before its clip ends could still leave an
