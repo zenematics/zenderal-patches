@@ -1,0 +1,19 @@
+FormKey: 000872:Zenderal - Traits.esp
+EditorID: ZEN_TR_StatResistFrost
+Name:
+  TargetLanguage: English
+  Value: 'Trait: ResistFrost'
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistFrost
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

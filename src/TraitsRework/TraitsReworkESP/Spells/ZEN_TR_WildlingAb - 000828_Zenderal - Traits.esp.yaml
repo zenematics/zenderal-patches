@@ -1,0 +1,16 @@
+FormKey: 000828:Zenderal - Traits.esp
+EditorID: ZEN_TR_WildlingAb
+Name:
+  TargetLanguage: English
+  Value: Wildling
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    You deal 15% more damage to animals and take 15% less from them.
+
+    Townsfolk find you uncouth: prices are 15% worse.
+Type: Ability
+Effects:
+- BaseEffect: 000829:Zenderal - Traits.esp
+  Data: {}

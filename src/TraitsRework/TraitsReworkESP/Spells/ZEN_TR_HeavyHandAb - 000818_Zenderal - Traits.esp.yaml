@@ -1,0 +1,16 @@
+FormKey: 000818:Zenderal - Traits.esp
+EditorID: ZEN_TR_HeavyHandAb
+Name:
+  TargetLanguage: English
+  Value: Heavy Hand
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Power attacks deal 30% more damage.
+
+    Normal attacks deal 10% less damage, and power attacks cost 20% more Stamina.
+Type: Ability
+Effects:
+- BaseEffect: 000819:Zenderal - Traits.esp
+  Data: {}

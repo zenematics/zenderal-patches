@@ -1,0 +1,14 @@
+FormKey: 000882:Zenderal - Traits.esp
+EditorID: ZEN_TR_GunslingerLoot
+ChanceNone: 0.7
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000800:Zenderal - Flintlock Overhaul.esp
+    Count: 3
+- Data:
+    Level: 1
+    Reference: 000800:Zenderal - Flintlock Overhaul.esp
+    Count: 5

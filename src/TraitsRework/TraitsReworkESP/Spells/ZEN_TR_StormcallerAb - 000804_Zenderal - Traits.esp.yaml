@@ -1,0 +1,16 @@
+FormKey: 000804:Zenderal - Traits.esp
+EditorID: ZEN_TR_StormcallerAb
+Name:
+  TargetLanguage: English
+  Value: Stormcaller
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Shock spells deal 25% more damage and cost 10% less.
+
+    Fire and frost spells deal 15% less damage.
+Type: Ability
+Effects:
+- BaseEffect: 000805:Zenderal - Traits.esp
+  Data: {}

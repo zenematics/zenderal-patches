@@ -1,0 +1,19 @@
+FormKey: 000838:Zenderal - Traits.esp
+EditorID: ZEN_TR_InkStainedAb
+Name:
+  TargetLanguage: English
+  Value: Ink-Stained
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Handbooks cost 25% less.
+
+    Your maximum Stamina is reduced by 25.
+Type: Ability
+Effects:
+- BaseEffect: 000839:Zenderal - Traits.esp
+  Data: {}
+- BaseEffect: 000871:Zenderal - Traits.esp
+  Data:
+    Magnitude: 25

@@ -1,0 +1,16 @@
+FormKey: 000844:Zenderal - Traits.esp
+EditorID: ZEN_TR_GunslingerAb
+Name:
+  TargetLanguage: English
+  Value: Gunslinger
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Flintlock pistols deal 35% more damage, and people you kill have a 30% chance to carry Flintlock Bullets.
+
+    Your melee attacks deal 25% less damage.
+Type: Ability
+Effects:
+- BaseEffect: 000845:Zenderal - Traits.esp
+  Data: {}

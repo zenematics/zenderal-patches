@@ -1,0 +1,16 @@
+FormKey: 00080C:Zenderal - Traits.esp
+EditorID: ZEN_TR_GravecallerAb
+Name:
+  TargetLanguage: English
+  Value: Gravecaller
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Your summons and revived dead last 50% longer.
+
+    The dead are drawn to you: undead deal 15% more damage to you.
+Type: Ability
+Effects:
+- BaseEffect: 00080D:Zenderal - Traits.esp
+  Data: {}

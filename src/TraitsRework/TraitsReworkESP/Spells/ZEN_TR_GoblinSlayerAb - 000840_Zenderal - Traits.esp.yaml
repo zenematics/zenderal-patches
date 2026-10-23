@@ -1,0 +1,16 @@
+FormKey: 000840:Zenderal - Traits.esp
+EditorID: ZEN_TR_GoblinSlayerAb
+Name:
+  TargetLanguage: English
+  Value: Goblin Slayer
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Your weapons deal 25% more damage to goblins and Arps, and they deal 15% less damage to you. Goblins and Arps you kill carry extra gold, and often a gem or piece of jewelry.
+
+    Your weapons deal 10% less damage to everything else.
+Type: Ability
+Effects:
+- BaseEffect: 000841:Zenderal - Traits.esp
+  Data: {}

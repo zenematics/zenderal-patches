@@ -1,0 +1,20 @@
+FormKey: 000876:Zenderal - Traits.esp
+EditorID: ZEN_TR_StatStaminaRateNeg
+Name:
+  TargetLanguage: English
+  Value: 'Trait: StaminaRateNeg'
+Flags:
+- Recover
+- Detrimental
+- NoDuration
+- NoArea
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: StaminaRateMult
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

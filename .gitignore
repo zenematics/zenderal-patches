@@ -139,3 +139,8 @@ __pycache__/
 /src/*/SKSEPlugin/build/
 /src/*/SKSEPlugin/build.log
 /src/*/build-ae.log
+!src/TraitsRework/Scripts/compiled/
+!src/TraitsRework/Scripts/compiled/*.pex
+
+# Curator artwork sources (large PNGs); src/TraitsRework/tools/02-build-icons.py reads outputs/trait-icons/
+/outputs/

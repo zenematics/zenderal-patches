@@ -1,0 +1,16 @@
+FormKey: 000808:Zenderal - Traits.esp
+EditorID: ZEN_TR_EntropicPactAb
+Name:
+  TargetLanguage: English
+  Value: Entropic Pact
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Entropy spells cost 20% less, and Entropy spells other than summons last 25% longer.
+
+    Light Magic costs 25% more.
+Type: Ability
+Effects:
+- BaseEffect: 000809:Zenderal - Traits.esp
+  Data: {}

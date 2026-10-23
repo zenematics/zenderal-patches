@@ -80,6 +80,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`OldCemeteryCryptFix`](OldCemeteryCryptFix.md) | `Zenderal - Old Cemetery Crypt Fix.esp` | none (one override) |
 | [`MusketHandling`](MusketHandling.md) | `ZenMusketHandling.dll` + `.ini` | none (no plugin) |
 | [`Goblins`](Goblins.md) | `Zenderal - Goblins.esp` + `.pex` + generated meshes; `Zenderal - Goblins Dismembering.esp` + DF JSON + generated meshes | `0x800–0xB29`; Dismembering `0x800–0x836` |
+| [`TraitsRework`](TraitsRework.md) | `Zenderal - Traits.esp` | `0x800–0x88F` (`0x800–0x843`, `0x870–0x878`, `0x880–0x881` used) |
 | [`CreatureRagdollFix`](CreatureRagdollFix.md) | Pandora patch `zragfix`, human `0_master` contact edit + draugr get-up matcher start event | none (no plugin) |
 | [`ZenRagdollTrace`](ZenRagdollTrace.md) | Testing tool: SKSE logger of ragdoll/get-up graph events and state | none (no plugin) |
 | [`AirborneGetUpFix`](AirborneGetUpFix.md) | `ZenAirborneGetUpFix.dll`: holds mid-air `GetUpBegin` until the ragdoll settles | none (no plugin) |

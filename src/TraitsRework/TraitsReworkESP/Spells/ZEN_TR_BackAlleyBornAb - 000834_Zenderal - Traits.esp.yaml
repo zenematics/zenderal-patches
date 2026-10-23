@@ -1,0 +1,16 @@
+FormKey: 000834:Zenderal - Traits.esp
+EditorID: ZEN_TR_BackAlleyBornAb
+Name:
+  TargetLanguage: English
+  Value: Back-Alley Born
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Pickpocketing and lockpicking are easier, and in Ark and Riverville you sneak better (+15).
+
+    Merchants don't trust you: buying costs 10% more everywhere.
+Type: Ability
+Effects:
+- BaseEffect: 000835:Zenderal - Traits.esp
+  Data: {}

@@ -1,0 +1,13 @@
+FormKey: 00083E:Zenderal - Traits.esp
+EditorID: ZEN_TR_BrewersLungsPERK
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModAlchemyEffectiveness
+  PerkConditionTabCount: 1
+  Modification: Multiply
+  Value: 1.2
