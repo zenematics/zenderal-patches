@@ -1,0 +1,21 @@
+FormKey: 0008B6:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_ArcheryOnHit_Spell_CrossbowOnly_WitchHunter_Proc
+Name:
+  TargetLanguage: English
+  Value: Witch Hunter
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 12
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 9999
+HalfCostPerk: 000808:Zenderal - Prophecy.esp
+Effects:
+- BaseEffect: 0008B7:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 25
+    Duration: 4

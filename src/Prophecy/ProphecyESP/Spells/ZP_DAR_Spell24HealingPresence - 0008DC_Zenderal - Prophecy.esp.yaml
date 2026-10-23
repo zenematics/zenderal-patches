@@ -1,0 +1,21 @@
+FormKey: 0008DC:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_Spell24HealingPresence
+Name:
+  TargetLanguage: English
+  Value: Healing Presence
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+Type: Ability
+Effects:
+- BaseEffect: 0008DE:Zenderal - Prophecy.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 0008DD:Zenderal - Prophecy.esp

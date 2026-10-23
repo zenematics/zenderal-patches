@@ -1,0 +1,32 @@
+FormKey: 0008EE:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Effect_ProcNeg
+Name:
+  TargetLanguage: English
+  Value: Warrior's Flame
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 0008F0:Zenderal - Prophecy.esp
+Flags:
+- Detrimental
+- NoHitEvent
+- NoArea
+- FXPersist
+- HideInUI
+- NoDeathDispel
+BaseCost: 1
+HitShader: 0008F1:Zenderal - Prophecy.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Magicka
+  Association: 0008F0:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: TargetActor
+HitEffectArt: 0008EF:Zenderal - Prophecy.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

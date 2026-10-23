@@ -7,6 +7,224 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: ZP_ProphecyPower
       Object: 000805:Zenderal - Prophecy.esp
+  - Name: ZP_ProphecyMenu
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZP_ProphecyMenuMsg
+      Object: 00080D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZP_ProphecyPoints
+      Object: 000802:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZP_ProphecyPointsEarned
+      Object: 000809:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: Perks
+      Objects:
+      - Name: ''
+        Object: 000810:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000811:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000812:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000813:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000814:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000815:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000816:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000817:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000818:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000819:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081A:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081B:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081C:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081D:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000820:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000821:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000822:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000823:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000916:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000917:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000918:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000919:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00093A:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptStringListProperty
+      Name: Descriptions
+      Data:
+      - 'When you enter combat, you rapidly regenerate Magicka equal to half your Light Magic skill per second. The effect fades over 15 seconds and does not stop while casting.'
+      - 'Healing spells also restore Stamina equal to their power.'
+      - 'Light Magic healing is up to 30% more powerful if the recipient is below half Health. The bonus increases as Health decreases.'
+      - 'In combat you heal yourself and nearby allies for 25 Health every 10 seconds, at a cost of 1 Arcane Fever.'
+      - 'Once every 90 seconds, falling below 25% Health makes you immune to damage for 6 seconds and heals you for 100 Health afterwards, at a cost of 4 Arcane Fever.'
+      - 'Draw a bow and reload a crossbow or musket 30% faster.'
+      - 'Your musket, crossbow and bow hits also deal 10 points of fire damage.'
+      - 'Your musket, crossbow and bow hits make living targets bleed for 50 damage over 5 seconds.'
+      - 'You move at full speed with a drawn bow or a raised musket.'
+      - 'Shooting targets you haven''t shot within the past 10 seconds inflicts a critical strike that deals three times critical damage, and any weapon enchantments applied by the shot are twice as effective.'
+      - 'Grants the "Explosive Tripwire" power. At will, places a tripwire in front of you for 120 seconds. It snaps when tripped, knocking all targets hit by it to the floor, and an enemy who trips it sets off an explosion that deals 40 damage.'
+      - 'Grants the "Smokescreen" power. Once a day, creates a 35 foot cloud for 180 seconds that blinds those in the cloud, preventing them from seeing sneaking targets. Sneak attacks against them deal 50% more damage.'
+      - 'Grants the "Utility Droid" power. Deploy a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed; building another costs 10 Spare Parts.'
+      - 'You can build Clockwork Turrets at a forge. Use the "Clockwork Turret" power to deploy one: it fires parallel to your crosshair for 30 seconds while you stay within 12 feet, dealing damage equal to 30% of your Handicraft skill.'
+      - 'Your Clockwork Turret deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.'
+      - 'Increases unarmed damage by 15% of your current Stamina. Requires two free hands.'
+      - 'You may choose a damage type (fire, frost, shock, poison, disease or sun). Unarmed attacks unleash a shockwave that deals the chosen damage type to all targets in front of you. Requires two free hands. Does not activate while sneaking.'
+      - 'Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies.'
+      - 'Unarmed attacks have a 15% chance of a critical strike that deals critical damage equal to 40% of your current Stamina. Requires two free hands.'
+      - 'Dodging in combat slows time to a crawl for a moment, once every 10 seconds, and releases a Shock Nova that deals 40 shock damage to nearby enemies, once every 15 seconds.'
+      - 'Grants the "Seismic Stomp" power: stomp the ground and send out a shockwave that hurls every enemy within 19 feet up and away and makes them bleed for 50 damage over 5 seconds, as time slows for a moment. Usable every 30 seconds.'
+      - 'While at or below half Health, every hit you take restores 20 Stamina.'
+      - 'You gain 25% resistance to Fire, Frost and Lightning.'
+      - 'Grants the "War Banner" power: plant a banner for 15 seconds. While you stand near it you heal 20 Health per second, and enemies who come close are bound in chains as by a Stave of Binding. Usable once every 5 minutes.'
+      - 'While 3 or more enemies are close to you, your Stamina regenerates 2 points per second.'
+    - MutagenObjectType: ScriptStringListProperty
+      Name: Images
+      Data:
+      - 'ProphecyPics/ZP_Prophecy_DescendingLight.dds'
+      - 'ProphecyPics/ZP_Prophecy_Respite.dds'
+      - 'ProphecyPics/ZP_Prophecy_Edgewalker.dds'
+      - 'ProphecyPics/ZP_Prophecy_HealingPresence.dds'
+      - 'ProphecyPics/ZP_Prophecy_Templar.dds'
+      - 'ProphecyPics/ZP_Prophecy_QuickReload.dds'
+      - 'ProphecyPics/ZP_Prophecy_ElementalRounds.dds'
+      - 'ProphecyPics/ZP_Prophecy_BleedingShot.dds'
+      - 'ProphecyPics/ZP_Prophecy_RunandGun.dds'
+      - 'ProphecyPics/ZP_Prophecy_Deadeye.dds'
+      - 'ProphecyPics/ZP_Prophecy_Tripwire.dds'
+      - 'ProphecyPics/ZP_Prophecy_Smokescreen.dds'
+      - 'ProphecyPics/ZP_Prophecy_UtilityDroid.dds'
+      - 'ProphecyPics/ZP_Prophecy_ClockworkTurret.dds'
+      - 'ProphecyPics/ZP_Prophecy_Overclock.dds'
+      - 'ProphecyPics/ZP_Prophecy_IronFist.dds'
+      - 'ProphecyPics/ZP_Prophecy_HissingDragon.dds'
+      - 'ProphecyPics/ZP_Prophecy_StunningBlows.dds'
+      - 'ProphecyPics/ZP_Prophecy_BreakingWaves.dds'
+      - 'ProphecyPics/ZP_Prophecy_FlowState.dds'
+      - 'ProphecyPics/ZP_Prophecy_SeismicStomp.dds'
+      - 'ProphecyPics/ZP_Prophecy_SecondWind.dds'
+      - 'ProphecyPics/ZP_Prophecy_DragonScale.dds'
+      - 'ProphecyPics/ZP_Prophecy_WarBanner.dds'
+      - 'ProphecyPics/ZP_Prophecy_DeathorGlory.dds'
+    - MutagenObjectType: ScriptIntListProperty
+      Name: ParentA
+      Data:
+      - -1
+      - 0
+      - 0
+      - 1
+      - 3
+      - -1
+      - 5
+      - 5
+      - 6
+      - 8
+      - -1
+      - 10
+      - 10
+      - 11
+      - 13
+      - -1
+      - 15
+      - 15
+      - 16
+      - 18
+      - -1
+      - 20
+      - 20
+      - 21
+      - 21
+    - MutagenObjectType: ScriptIntListProperty
+      Name: ParentB
+      Data:
+      - -1
+      - -1
+      - -1
+      - 2
+      - -1
+      - -1
+      - -1
+      - -1
+      - 7
+      - -1
+      - -1
+      - -1
+      - -1
+      - 12
+      - -1
+      - -1
+      - -1
+      - -1
+      - 17
+      - -1
+      - -1
+      - -1
+      - -1
+      - 22
+      - 22
+    - MutagenObjectType: ScriptIntListProperty
+      Name: PowerPerk
+      Data:
+      - 10
+      - 11
+      - 12
+      - 13
+      - 20
+      - 23
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: PowerSpell
+      Objects:
+      - Name: ''
+        Object: 0008AA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00089F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000944:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000882:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00092F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000921:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptIntListProperty
+      Name: TreeStart
+      Data:
+      - 0
+      - 5
+      - 10
+      - 15
+      - 20
+      - 25
+    - MutagenObjectType: ScriptIntListProperty
+      Name: GiftPerk
+      Data:
+      - 13
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: GiftItem
+      Objects:
+      - Name: ''
+        Object: 000884:Zenderal - Prophecy.esp
   FileName: ''
 Flags:
 - StartGameEnabled

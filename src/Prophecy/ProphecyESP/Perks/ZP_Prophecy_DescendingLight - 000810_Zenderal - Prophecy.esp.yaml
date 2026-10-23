@@ -1,0 +1,29 @@
+FormKey: 000810:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DescendingLight
+Name:
+  TargetLanguage: English
+  Value: 'Descending Light'
+Description:
+  TargetLanguage: English
+  Value: 'When you enter combat, you rapidly regenerate Magicka equal to half your Light Magic skill per second. The effect fades over 15 seconds and does not stop while casting.'
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 200
+  Ability: 0008E3:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 211
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0008E2:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModSpellMagnitude
+  PerkConditionTabCount: 3
+  ActorValue: Restoration
+  Value: 0.01
+  Modification: MultiplyAVMult

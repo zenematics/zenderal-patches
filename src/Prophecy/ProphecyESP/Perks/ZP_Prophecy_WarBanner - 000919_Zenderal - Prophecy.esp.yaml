@@ -1,0 +1,26 @@
+FormKey: 000919:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WarBanner
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "War Banner" power: plant a banner for 15 seconds. While you stand near it you heal 20 Health per second, and enemies who come close are bound in chains as by a Stave of Binding. Usable once every 5 minutes.'
+Name:
+  TargetLanguage: English
+  Value: 'War Banner'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000917:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000918:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000921:Zenderal - Prophecy.esp

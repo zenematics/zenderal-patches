@@ -1,0 +1,40 @@
+FormKey: 00081F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IronFist
+Version2: 15
+Name:
+  TargetLanguage: English
+  Value: 'Iron Fist'
+Description:
+  TargetLanguage: English
+  Value: 'Increases unarmed damage by 15% of your current Stamina. Requires two free hands.'
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 197
+  Ability: 00087E:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkEntryPointModifyActorValue
+  Priority: 250
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasPerkConditionData
+        Perk: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetIsIDConditionData
+        Object: 000007:Skyrim.esm
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  ActorValue: Stamina
+  Value: 0.15

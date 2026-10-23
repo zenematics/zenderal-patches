@@ -1,0 +1,26 @@
+FormKey: 00093A:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DeathorGlory
+Description:
+  TargetLanguage: English
+  Value: 'While 3 or more enemies are close to you, your Stamina regenerates 2 points per second.'
+Name:
+  TargetLanguage: English
+  Value: 'Surrounded'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000917:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000918:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 00093B:Zenderal - Prophecy.esp

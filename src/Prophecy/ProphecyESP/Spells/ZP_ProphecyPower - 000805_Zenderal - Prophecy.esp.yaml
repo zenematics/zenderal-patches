@@ -10,7 +10,7 @@ Description:
 Flags:
 - IgnoreResistance
 - NoAbsorbOrReflect
-Type: Power
+Type: LesserPower
 CastType: FireAndForget
 Effects:
 - BaseEffect: 000806:Zenderal - Prophecy.esp

@@ -1,0 +1,34 @@
+FormKey: 00081B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Smokescreen
+Name:
+  TargetLanguage: English
+  Value: 'Smokescreen'
+Description:
+  TargetLanguage: English
+  Value: Grants the "Smokescreen" power. Once a day, creates a 35 foot cloud for 180 seconds that blinds those in the cloud, preventing them from seeing sneaking targets. Sneak attacks against them deal 50% more damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081A:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 127
+  Conditions:
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 0008A6:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModSneakAttackMult
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.5
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 139
+  Ability: 00089F:Zenderal - Prophecy.esp

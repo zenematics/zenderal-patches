@@ -1,0 +1,15 @@
+FormKey: 00089B:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Sound_Electrobolt
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- fx\mag\shock\ff\MAG_Shock_FF_Fire_01.wav
+- Data\Sound\FX\MAG\Shock\FF\MAG_Shock_FF_Fire_02.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 60
+PercentFrequencyVariance: 20
+Priority: 128
+StaticAttenuation: 8.81

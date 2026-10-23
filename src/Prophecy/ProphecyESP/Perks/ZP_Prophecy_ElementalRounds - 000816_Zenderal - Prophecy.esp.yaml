@@ -1,0 +1,29 @@
+FormKey: 000816:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ElementalRounds
+Description:
+  TargetLanguage: English
+  Value: 'Your musket, crossbow and bow hits also deal 10 points of fire damage.'
+Name:
+  TargetLanguage: English
+  Value: 'Elemental Rounds'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000815:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 000910:Zenderal - Prophecy.esp

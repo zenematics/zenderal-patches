@@ -1,0 +1,27 @@
+FormKey: 000882:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Spell
+Name:
+  TargetLanguage: English
+  Value: Clockwork Turret
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+ChargeTime: 0.5
+CastType: FireAndForget
+Effects:
+- BaseEffect: 00089E:Zenderal - Prophecy.esp
+  Data:
+    Duration: 30
+- BaseEffect: 000888:Zenderal - Prophecy.esp
+  Data:
+    Duration: 30
+- BaseEffect: 000886:Zenderal - Prophecy.esp
+  Data: {}
+- BaseEffect: 000883:Zenderal - Prophecy.esp
+  Data: {}

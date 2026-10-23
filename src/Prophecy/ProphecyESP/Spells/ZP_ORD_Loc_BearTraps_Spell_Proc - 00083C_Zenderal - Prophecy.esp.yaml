@@ -1,0 +1,29 @@
+FormKey: 00083C:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_BearTraps_Spell_Proc
+Name:
+  TargetLanguage: English
+  Value: Bear Trap
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 9999
+Effects:
+- BaseEffect: 00083F:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 200
+- BaseEffect: 00083E:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 0.85
+    Duration: 1
+- BaseEffect: 00083D:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 1000
+    Duration: 5

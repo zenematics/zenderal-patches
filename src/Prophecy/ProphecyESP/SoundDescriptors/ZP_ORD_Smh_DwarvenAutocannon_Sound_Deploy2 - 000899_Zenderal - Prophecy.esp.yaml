@@ -1,0 +1,12 @@
+FormKey: 000899:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Sound_Deploy2
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\DwarvenCenturion\Equip\NPC_DwarvenCenturion_Equip_01.wav
+OutputModel: 0F1B12:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 50
+PercentFrequencyVariance: 10
+Priority: 128

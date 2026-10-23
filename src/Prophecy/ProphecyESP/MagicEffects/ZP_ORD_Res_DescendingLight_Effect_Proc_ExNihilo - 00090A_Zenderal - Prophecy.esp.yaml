@@ -1,0 +1,39 @@
+FormKey: 00090A:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_DescendingLight_Effect_Proc_ExNihilo
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_ExNihilo_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_Fraction
+      Data: 1
+    - MutagenObjectType: ScriptStringProperty
+      Name: ORD_Stat
+      Data: Magicka
+Name:
+  TargetLanguage: English
+  Value: Ex Nihilo
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoArea
+- HideInUI
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: MagickaRate
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1

@@ -1,0 +1,45 @@
+FormKey: 000945:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_PowerEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_UtilityDroidPowerEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Droid
+      Object: 00093F:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpareParts
+      Object: 0773ED:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DroidList
+      Object: 000946:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FreeUsed
+      Object: 000947:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: Cost
+      Data: 10
+    - MutagenObjectType: ScriptFloatProperty
+      Name: BaseHealth
+      Data: 100.0
+    - MutagenObjectType: ScriptFloatProperty
+      Name: HealthPerLevel
+      Data: 10.0
+Name:
+  TargetLanguage: English
+  Value: Utility Droid
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

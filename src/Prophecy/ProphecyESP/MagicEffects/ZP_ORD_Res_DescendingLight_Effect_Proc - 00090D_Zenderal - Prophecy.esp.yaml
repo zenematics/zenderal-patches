@@ -1,0 +1,23 @@
+FormKey: 00090D:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_DescendingLight_Effect_Proc
+Name:
+  TargetLanguage: English
+  Value: Descending Light
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 0008E2:Zenderal - Prophecy.esp
+Flags:
+- NoHitEvent
+- NoArea
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Regenerating Magicka for <dur> seconds.

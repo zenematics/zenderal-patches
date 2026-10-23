@@ -1,0 +1,19 @@
+FormKey: 00084A:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Explosion_Slow
+ObjectBounds:
+  First: -135, -135, -6
+  Second: 135, 135, 17
+Model:
+  File: Ordinator\Lockpicking_Explosion_DragonsTeeth_Slow.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 00084B:Zenderal - Prophecy.esp
+Sound1: 042526:Skyrim.esm
+Sound2: 04251D:Skyrim.esm
+ImpactDataSet: 015C7B:Skyrim.esm
+Radius: 220
+ISRadius: 1024
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+SoundLevel: Silent

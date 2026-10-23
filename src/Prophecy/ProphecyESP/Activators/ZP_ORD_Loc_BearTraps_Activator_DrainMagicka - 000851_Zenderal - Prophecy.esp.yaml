@@ -1,0 +1,57 @@
+FormKey: 000851:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_BearTraps_Activator_DrainMagicka
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_BearTrap_Activator_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc50_BigGameHunter_Perk_50_OrdASISExclude
+      Object: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_LockpickingDamageMult
+      Data: 2
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ORD_StartOpen
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+  - Name: ORD_TrapHitBase_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_GhostAbility
+      Object: 05030B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BearTrap_Message
+      Object: 000841:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_Trap_Spell_Proc
+      Object: 00083C:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_TrapBurst_Spell_Proc
+      Object: 000852:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_RumbleAmount
+      Data: 0.25
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_RumbleDuration
+      Data: 0.5
+    - MutagenObjectType: ScriptIntProperty
+      Name: ORD_SoundLevel
+      Data: 10
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_SoundResetDelay
+      Data: 1
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_StaggerAmount
+      Data: 0.5
+Name:
+  TargetLanguage: English
+  Value: Placed Bear Trap (Drain Magicka)
+Model:
+  File: Traps\BearTrap\BearTrap01.nif
+  Data: 0x020000000000000000000000
+Keywords:
+- 00082D:Zenderal - Prophecy.esp
+MarkerColor: '#00CC4C33'
+Flags: []

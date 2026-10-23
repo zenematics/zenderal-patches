@@ -1,0 +1,7 @@
+FormKey: 000885:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Message_Fail_NoCannon
+Description:
+  TargetLanguage: English
+  Value: This power requires a Clockwork Turret in your inventory.
+INAM: 0x00000000
+DisplayTime: 2

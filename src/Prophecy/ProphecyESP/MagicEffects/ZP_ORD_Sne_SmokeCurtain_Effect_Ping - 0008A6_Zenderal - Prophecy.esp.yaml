@@ -1,0 +1,38 @@
+FormKey: 0008A6:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_SmokeCurtain_Effect_Ping
+Name:
+  TargetLanguage: English
+  Value: Smoke Curtain
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Keywords:
+- 0008A8:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- FXPersist
+- NoRecast
+SpellmakingArea: 35
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Blindness
+CastType: FireAndForget
+HitEffectArt: 0008A7:Zenderal - Prophecy.esp
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

@@ -1,0 +1,24 @@
+FormKey: 0008AA:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_Tripwire_Spell
+Name:
+  TargetLanguage: English
+  Value: Explosive Tripwire
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: 0008AC:Zenderal - Prophecy.esp
+  Data:
+    Duration: 120
+- BaseEffect: 0008AB:Zenderal - Prophecy.esp
+  Data:
+    Duration: 5
+- BaseEffect: 00092B:Zenderal - Prophecy.esp
+  Data: {}

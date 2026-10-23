@@ -1,0 +1,19 @@
+FormKey: 000921:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WarBanner_Power
+Name:
+  TargetLanguage: English
+  Value: War Banner
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000922:Zenderal - Prophecy.esp
+  Data:
+    Duration: 15

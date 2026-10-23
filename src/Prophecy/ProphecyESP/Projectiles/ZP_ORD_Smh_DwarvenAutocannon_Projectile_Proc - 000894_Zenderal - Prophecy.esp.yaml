@@ -1,0 +1,19 @@
+FormKey: 000894:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Projectile_Proc
+Model:
+  File: Ordinator\Smithing_Projectile_DwarvenAutocannon.nif
+  Data: 0x020000000000000000000000
+Flags:
+- MuzzleFlash
+Type: Missile
+Speed: 2800
+Range: 60000
+Explosion: 109626:Skyrim.esm
+Sound: 000895:Zenderal - Prophecy.esp
+MuzzleFlashDuration: 1
+FadeDuration: 5
+ImpactForce: 50
+CollisionRadius: 1
+RelaunchInterval: 0.001
+MuzzleFlashModel: Magic\MagDwarvenCenturionSteamBreath.nif
+TextureFilesHashes: 0x020000000000000000000000

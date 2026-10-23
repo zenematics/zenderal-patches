@@ -1,0 +1,44 @@
+FormKey: 000844:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Effect_Proc_Banish
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicBanishScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ImodFX
+      Object: 06F79B:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: SecondsBeforeDelete
+      Data: 4
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ThingToPlace
+      Object: 06F794:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Banish
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 00083A:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- NoDuration
+HitShader: 054223:Skyrim.esm
+SpellmakingArea: 8
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Confidence
+  Type: Banish
+Explosion: 000845:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Summoned daedra of level <mag> or below in a small area are sent back to Oblivion.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+  ComparisonValue: 1

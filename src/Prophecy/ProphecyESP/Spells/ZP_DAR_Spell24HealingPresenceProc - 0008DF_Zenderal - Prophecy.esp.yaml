@@ -1,0 +1,31 @@
+FormKey: 0008DF:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_Spell24HealingPresenceProc
+Name:
+  TargetLanguage: English
+  Value: Healing Presence
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+Effects:
+- BaseEffect: 0008E1:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 25
+    Duration: 1
+- BaseEffect: 0008E0:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 25
+    Area: 25
+    Duration: 1
+- BaseEffect: 0008DD:Zenderal - Prophecy.esp
+  Data:
+    Duration: 10
+- BaseEffect: 11A4B6:Skyrim.esm
+  Data:
+    Magnitude: 1
+    Duration: 1

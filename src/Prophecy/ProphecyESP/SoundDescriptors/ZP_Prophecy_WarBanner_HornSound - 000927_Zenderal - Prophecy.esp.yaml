@@ -1,0 +1,9 @@
+FormKey: 000927:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WarBanner_HornSound
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\Zenderal\ZEN_WarBannerHorn_01.wav
+OutputModel: 0B6463:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128
