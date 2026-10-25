@@ -72,6 +72,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`QyraIslandEditorIdFix`](QyraIslandEditorIdFix.md) | `Zenderal - Qyra Island EditorID Fix.esp` | none (overrides only) |
 | [`UnresolvedRefsCleanup`](UnresolvedRefsCleanup.md) | `Zenderal - Unresolved References Cleanup.esp` | none (overrides only) |
 | [`IronGolemClean`](IronGolemClean.md) | generated cleaned `mihailirongolem.esp` (not committed) | none |
+| [`BiggieTraits171`](BiggieTraits171.md) | generated HEDR 1.71 `Biggie Traits.esp` (not committed) | none |
 | [`KataAffinities21`](KataAffinities21.md) | `Zenderal - KataPUMB Affinities 2.1.esp` + `_00E_AffinityControl.pex` | none (one override) |
 | [`LostOneSalletFix`](LostOneSalletFix.md) | *(generated mesh, not committed)* | none |
 | [`LostOnesDismembering`](LostOnesDismembering.md) | `Zenderal - Lost Ones Dismembering.esp` + DF JSON + generated meshes | `0x800–0x832` |
@@ -82,14 +83,23 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`ZarAhTextureFix`](ZarAhTextureFix.md) | *(copied textures, not committed)* | none |
 | [`ArkGateSiegeFix`](ArkGateSiegeFix.md) | `Zenderal - Ark Gate Siege Fix.esp` + 2 scripts (**Enderal 2.0 release only**) | `0x800–0x801` |
 | [`GroundCoverAlphaFix`](GroundCoverAlphaFix.md) | *(generated meshes, not committed)* | none |
+| [`PusBeetleFixes`](PusBeetleFixes.md) | `Zenderal - Pus Beetle Fixes.esp` + generated skeleton | none (one override) |
+| [`OCPASecondKey`](OCPASecondKey.md) | `ZenOCPASecondKey.dll` + ini | none (no plugin) |
 | [`TraitsRework`](TraitsRework.md) | `Zenderal - Traits.esp` | `0x800–0x88F` (`0x800–0x843`, `0x870–0x878`, `0x880–0x881` used) |
 | [`PerkOverhaul`](PerkOverhaul.md) | `Zenderal - Perk Overhaul.esp` + `ZEN_PO_BladeMasterCritHealSC.pex` | `0x800–0x8FF` (`0x800–0x801` used) |
 | [`Goblins`](Goblins.md) | `Zenderal - Goblins.esp` + `.pex` + generated meshes; `Zenderal - Goblins Dismembering.esp` + DF JSON + generated meshes | `0x800–0xB29`; Dismembering `0x800–0x836` |
+| [`EnemyDensity`](EnemyDensity.md) | `Zenderal - Enemy Density.esp`: 922 placed enemies in 187 groups (Fogville goblins/Arps, Whisperwood undead hordes, six more regions) | `0x800–0xD9B` |
 | [`StancesNoIcon`](StancesNoIcon.md) | `Zenderal - Stances No Icon.esp` | none (overrides only) |
 | [`BloodyCritSound`](BloodyCritSound.md) | `Zenderal - Bloody Crit Sound.esp` + 1 loose `.wav` (not committed) | none (one override) |
 | [`ZenKeyTrace`](ZenKeyTrace.md) | `ZenKeyTrace.dll` | none (no plugin) |
+| [`CastingBarAE`](CastingBarAE.md) | `CastingBar.dll` (zax's Casting Bar rebuilt for 1.7.104) | none (no plugin) |
+| [`SilvergroveStoneWalls`](SilvergroveStoneWalls.md) | *(generated meshes + textures, not committed)* | none |
+| [`SPRPBRTweaks`](SPRPBRTweaks.md) | *(generated PGPatcher JSONs, not committed)* | none |
+| [`HighPolyDefaultHeads`](HighPolyDefaultHeads.md) | `Zenderal - High Poly Default Heads.esp` | none (18 overrides) |
+| [`UnskippableCinematics`](UnskippableCinematics.md) | *(7 recompiled SureAI scripts)* | none (no plugin) |
 | [`TestingCheats`](TestingCheats.md) | `Zenderal - Testing Cheats.esp` + 2 scripts | `0x800–0x804` |
 | [`LostOneArcherAmmo`](LostOneArcherAmmo.md) | `Zenderal - Lost One Archer Ammo.esp` | none (overrides only) |
+| [`SteaminTWoEWeatherList`](SteaminTWoEWeatherList.md) | *(generated `_weatherlist.ini`, not committed)* | none |
 | [`CreatureRagdollFix`](CreatureRagdollFix.md) | Pandora patch `zragfix`, human `0_master` contact edit + draugr get-up matcher start event | none (no plugin) |
 | [`ZenRagdollTrace`](ZenRagdollTrace.md) | Testing tool: SKSE logger of ragdoll/get-up graph events and state | none (no plugin) |
 | [`AirborneGetUpFix`](AirborneGetUpFix.md) | `ZenAirborneGetUpFix.dll`: holds mid-air `GetUpBegin` until the ragdoll settles | none (no plugin) |

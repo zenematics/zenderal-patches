@@ -196,3 +196,30 @@ If the pad seems dead, check Windows first: an XInput probe from PowerShell (pol
 same disease as the stock Auto Input Switch. Unrelated to controller support, but the list is
 running without Improved Camera and nothing warns about it; worth swapping for a 1.5.97 build in
 the same update.
+
+## Layout change 2026-10-25: Wheeler on D-pad Up, X sheathes, D-pad taps drink potions
+
+Curator request after the 1.7.104 controller fixes. Applied by a script that backs up every file to
+`E:/Zenderal-backups/2026-10-25-controller-layout/`:
+
+| Button | Now | Before | Where |
+|---|---|---|---|
+| D-pad Up | Wheeler (`toggleWheel = 266`) | favourites Hotkey7 + mid stance on hold | Wheeler `Controls.ini` in Input Defaults **and** Personal Keybinds (enabled in Ultra; it wins) |
+| X | Ready Weapon (`0x4000`) | Wheeler | `ControlMap_Custom.txt` gamepad block, event 9 (was A+LB `0x10000100`), in Input Defaults and Personal Keybinds (+ its `Root/` copy) |
+| D-pad Left / Down / Right, tap | Swift Potion Health / Mana / Stamina | favourites Hotkeys 6/8/5 | Gamepad++ preset (Input Defaults): single press sends the arrow keys Swift Potion's hotkeys 1–3 already use (203/200/205) |
+| hold A + D-pad Left / Right / Up / Down | stances neutral `[` / mid `'` / high `]` / low `;` | D-pad held alone | same preset, `Combo1` (A is combo key 1) |
+| D-pad Left / Right, double tap | L (lantern) / K | unchanged | same preset |
+
+The preset's `General` array is 12 plain values: action keys A1–A4 (Left 268, Right 269, Up 266, Down 267), combo keys
+C1–C4 (C1 = A 276), then 4th-combo, extended controls, multi-tap, long-press (`gpp_mcm_gen` saves them in that order).
+`Actions` and `Combo1`–`4` are `[keycode, label]` pairs, four per action key: single, double, triple, hold. A first edit
+misread `General` as pairs and wrote a corrupt preset; it was rebuilt from the backup the same day.
+
+Also: favourites Hotkeys 5–8 lose their D-pad binding in Input Defaults' `controlmap.txt` (Gamepad++'s own controlmap
+does the same). Wheeler's `BlockExternalKeyGamepad = 1`, so cycling items with D-pad Left/Right inside an open wheel
+shouldn't also drink potions (unverified). The ammo wheel's pad toggle (D-pad Right, `ToggleKeyGamepad`) is set to 0
+in the curator's `overwrite` copy and in a new `AmmoWheel.ini` in Input Defaults (Wheeler's defaults with only that
+line changed). Swift Potion needed no change: tapping goes through Gamepad++'s keyboard keys. Multi-tap is on (for the lantern), so a potion tap fires after the 0.3 s multi-tap delay.
+
+Caveats: an existing save keeps its Gamepad++ settings (load the default preset in its MCM). Wheeler edit mode still
+uses D-pad Up for "move entry back", the same button as the toggle. **Unverified in game.**

@@ -132,3 +132,48 @@ List-wide traps that are not tied to one Zenderal patch.
 - **Purple severed draugr/Lost One limbs and heads = `DF - Creatures by Xtudo - Draugrs` without Xtudo's draugr retexture. Disabled 2026-10-19 in Alpha 0.6 and Ultra.** **[verified on disk 2026-10-19; reported in game on Discord the same day]** Dismembering Framework maps every `DraugrRace` actor (Enderal's is `000D53:Skyrim.esm`, matched by EditorID) with ANY skin to the Official Creature Asset Pack's draugr limb meshes. Xtudo's DF pack (Nexus 126608, v1.3) sits above that pack in MO2 and replaces 44 of its 50 draugr meshes (limbs, heads and the gore-cap `dismembered_addons.nif`). It also replaces five vanilla draugr beard/helmet meshes. Its skin shapes point at `textures\actors\draugr\male\male1.dds`, `male2.dds`, `female\draugr1.dds` and `draugr2.dds` (+ `_n`). Those textures belong to Xtudo's "Draugrs - New models and textures", which the list doesn't ship, and no loose file or any of the 74 loaded BSAs has them, so every severed draugr limb rendered purple. The official pack's meshes use vanilla `textures\actors\draugr\draugr.dds` / `femaledraugr.dds` (in `Skyrim - Textures1.bsa`) and resolve. Xtudo's patch hub (SSE Nexus 123225) has nothing that fixes this: every file there needs that retexture too. Only re-enable the pack together with the retexture.
 
 - **The Colossus boss was invisible because Mythical Giants Replacer for Enderal (Enderal Nexus 883) was installed without the original Skyrim mod's assets. Fixed 2026-10-21.** **[verified on disk 2026-10-21; reported in game the same day]** Its `MythicalGiantsReplacer.esp` is the winning `_70E_Boss_UniColossus 03D822`. It moves the boss to its own `GiantRaceIce 000901` with skin `000900`, whose ARMA (`DLC1_NakedFrostGiantAA 006DB9:Dawnguard.esm`, injected) uses `actors\MythicalGiants\frost\giant01.nif`. The Enderal mod ships only the `.esp`, so the boss had no body mesh. The original **Mythical Giants Replacer (SSE Nexus 147274, f1.00)** is now installed as the MO2 mod `Mythical Giants Replacer`, one line below the Enderal patch in Ultra, with **meshes and textures only**. Its archive also ships a Skyrim `MythicalGiantsReplacer.esp` with the **same filename** as the Enderal patch's plugin, so it was left out on purpose. If it is ever reinstalled from the full archive, the Enderal patch must keep higher MO2 priority or the Skyrim plugin replaces it. The frost mesh's `hsd_hair_normal.dds` ships in neither archive (a missing hair normal map, cosmetic only). The summonable Colossus `13DD46` is not touched (EGO's ebony giant).
+
+- **NPCs Take Cover - Smarter Anti-Cheese AI (+ its Enderal patch) is disabled (2026-10-23, curator's decision).** Its
+  SPID monitor spell sends every humanoid NPC to cover whenever the player attacks with a bow, crossbow/musket, staff or
+  spell, or sneaks at them, so enemies broke off instead of fighting. The Lost One "fire once and flee" bug turned out to
+  be separate (see [`patches/LostOneArcherAmmo.md`](../patches/LostOneArcherAmmo.md)), but the mod stays off.
+
+- **Storms made the daylight sweep ("time passing quickly") = Bottled Shaders' Sky Sync, not the weathers (verified
+  in game 2026-10-23).** Each lightning strike briefly re-aims the sun's directional light (vanilla behaviour, also
+  the cause of the 2026-10-20 True Storms flicker). Sky Sync drives the light direction itself (`UseAlternateSunPath`
+  true) and fades the shadow direction between sources over `ShadowTransitionDuration` 300 (~15 s at timescale 20),
+  so every strike became a long shadow sweep. Did not happen under ENB. A/B test: `"SkySync": true` in
+  *Zenderal - Settings*' `SKSE/Plugins/CommunityShaders/SettingsUser.json` → *Disable at Boot* stopped it
+  (previous file in `E:/Zenderal-backups/2026-10-23-skysync-test/`). Turning lightning off in the weathers would only
+  have hidden it. Don't toggle Sky Sync live under MO2 (shader recompile crash); use Disable at Boot.
+  **Tuning does not fix it (tested in game 2026-10-23):** Sky Sync on with `ShadowTransitionDuration` 0 still swept, and so did `UseAlternateSunPath` false (transition back at 300). The sweep comes from Sky Sync's always-on job of deriving the light direction from the sun's sky position, which a strike moves; its other options only cover dawn/dusk/night. **Decision: Sky Sync stays off** (Disable at Boot). Re-enable only if Bottled Shaders fixes it (worth reporting: reproducible in any storm with lightning, unaffected by those two settings).
+
+- **Enderal Retexture Project - PBR Conversion (Enderal Nexus 1063, "SPR PBR" 1.0.0) is installed without its landscape
+  half (2026-10-24, curator's test).** Why: SRP's own `brickwall01` (Silvergrove/desert walls, `wall02.nif`) is SureAI's 2014
+  art upscaled; SRP's mesh asks for a `_p` it never ships, so it parallaxed against our flat-grey filler and looked flat.
+  Nexus had no modern replacement; this mod is SRP's same diffuse + normal with a height map and AI-made `_rmaos`
+  (the author warns the roughness is weak). MO2 mod `SPR PBR - Architecture Dungeons Misc`, directly below
+  *PBR and CM Landscapes of Vyn*: 903 files, `textures/PBR/enderal/*` + `PBRNifPatcher/enderal/*` only. **Left out:**
+  `enderal/landscape`, `enderal/alternative`, `stonepath*`, `textures/PBR/landscape/*`, `PBRTextureSets/` and
+  `SPR PBR.esp` (42 landscape TXSTs) — 258 of those paths are Piickl's newer, hand-made *Landscapes of Vyn*, which must
+  keep them. No staged file overlaps any enabled mod (Vyn, TomatoRim, ERM CM/PBR checked). **Needs a PGPatcher
+  rerun**; its 36 Ark wall-curb blocklist rules (see [`patches/ArkWallCurbFix.md`](../patches/ArkWallCurbFix.md))
+  keep those meshes out. Modlist backup `E:/Zenderal-backups/2026-10-24-sprpbr/`. Unverified in game.
+
+- **After a PGPatcher run, re-enable `TexGen_Output`, `DynDOLOD_Output` and `PG Patcher Output`, and their five plugins
+  (found 2026-10-24).** TexGen and DynDOLOD output must be off while PGPatcher runs (curator's procedure; on that run
+  `PG Patcher Output` was off too), and MO2 then drops `DynDOLOD.esm`, `PGPatcher.esp`,
+  `PG_1.esp`, `DynDOLOD.esp` and `Occlusion.esp` from `plugins.txt`; turning the mods back on adds them **disabled, at
+  the end**. `PBR Landscapes of Vyn.esp` masters `PGPatcher.esp`, and `Zenderal - Unresolved References Cleanup.esp`
+  masters both PG plugins, so the game stops on missing masters without them. Positions: `DynDOLOD.esm` after
+  `TrueHUD.esl`, `PGPatcher.esp` right after it, `PG_1.esp` after `Zenderal - Pretty Armory EGO Patch.esp`,
+  `DynDOLOD.esp` + `Occlusion.esp` after `ReadTheRoom.esp`.
+
+- **The "black screen" after MQP01's Daddy scene is Enderal's intro video, by design (2026-10-25).**
+  `_00E_MQP01_Functions.PlayIntroAndMovePlayerToShip()` plays `Video/EnderalIntro.bik` (Bink 1, 289 MB); it opens
+  with a full sentence of narration over black before the picture starts. It is **interruptible**: a key press or the
+  console during that black ends it at once and the game loads the ship (seen as ~30 s from Daddy's last line to
+  MQP02's load). Chased through Theo's Render Pipeline, CS Upscaling and CS Effects11 (all A/B'd, all innocent)
+  before the opening was recognised. A non-interruptible fork confirmed the video plays fine; the list now keeps all
+  of Enderal's cinematics unskippable ([`patches/UnskippableCinematics.md`](../patches/UnskippableCinematics.md)).
+  To skip videos on purpose: Enderal's MCM "Skip videos" (`_00E_VideoSkip 02E985:FS`).

@@ -1,0 +1,18 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - High Poly Default Heads.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    The vanilla humanoid head parts use High Poly Head's mesh and morphs, so Enderal's chargen presets start on
+    the high-poly head and the list's High Poly Head beards fit. Requires High Poly Head SE's files.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

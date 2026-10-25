@@ -1,0 +1,22 @@
+FormKey: 051622:Skyrim.esm
+EditorID: FemaleHeadRedguard
+Version2: 7
+Name:
+  TargetLanguage: English
+  Value: FemaleHeadRedguard
+Model:
+  File: KL\High Poly Head\FemaleHead.nif
+  Data: 0x0200000006000000000000007B5C71046464730066BB204C0A5DA8956464730066BB204C2F2F3AD06464730066BB204C8ED8395A6464730066BB204C5F2BD0EC0000000000000000D6458CF30000000000000000
+Flags:
+- Playable
+- Female
+Type: Face
+Parts:
+- PartType: RaceMorph
+  FileName: KL\High Poly Head\FemaleHeadRaces.tri
+- PartType: Tri
+  FileName: KL\High Poly Head\FemaleHead.tri
+- PartType: ChargenMorph
+  FileName: KL\High Poly Head\FemaleHeadCharGen.tri
+TextureSet: 051649:Skyrim.esm
+ValidRaces: 0A803B:Skyrim.esm

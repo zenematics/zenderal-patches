@@ -70,8 +70,30 @@ without a bow or with fewer than 3 arrows (was 11). Regenerate after Lost Ones R
 `mods/Lost Ones Revised/mihailancientskeletons.esp` to `reference/mods/mihailancientskeletons`, then run
 `python src/LostOneArcherAmmo/tools/03-build-skeleton-archers.py reference/mods/mihailancientskeletons` (asserts 7 + 4).
 
+## Part 4 — shielded skeletons that only block (`tools/04`, 2026-10-24)
+
+Reported with a video: a sword-and-shield "Ancient Skeleton" in the Abandoned Cabin ruins stood in the bushes at 2 m with
+its shield up for 18 s and never swung. In open ground it attacked, but rarely. ZenRagdollTrace caught it at death: ref
+`000E1248`, base `_10E_Skelett_Range1200 046EF1`, Enderal's own placement, not Enemy Density's.
+
+- Ancient Skeletons is **new in the 2.1 list**. Its plugin, loading after EGO, rebuilds Enderal's sword skeletons with
+  Mihail's race, `mihailskeletonsword 000810` and **`mihailskeletonshieldskin 000814`, an iron shield**. EGO's version had
+  only a weapon list. It also drops EGO's level 10, `HealthOffset 115`, perk `001E9B`, class and keywords: no EGO patch
+  covers these records (not fixed here).
+- Their combat style is `csDraugrMelee 000D0D` (EGO wins it), with **`Dueling`**, also in Enderal's own record. A dueling
+  NPC with a shield blocks and waits for an opening, and in a tight space it never gets one.
+- Ruled out: Combat Pathing Revolution AE (proper 1.7.104 build; its game settings match the old release's, and nothing
+  sets its per-actor graph variables, so its advance and circling features are off), combat GMSTs (reach, block, stamina,
+  and shield bashes off via Disable NPC Bash), Precision's AI reach hook (humans only), Airborne Get-Up Fix (logged nothing).
+- The race has a full attack set (`attackStart`, power attacks, bashes) on `DraugrSkeletonProject.hkx`.
+
+Override = EGO's record verbatim minus `Dueling` (it already has `CantWait`). **Owns** `000D0D`. Every melee undead using
+it now presses the attack. Regenerate with `python src/LostOneArcherAmmo/tools/04-build-melee-combat-style.py reference/mods/EGO`
+after an EGO update. Round trip identical apart from the description's line folding.
+
 ## Status
 
 Built and installed 2026-10-22 as MO2 mod `Zenderal - Lost One Archer Ammo` (ammo fix, then rebuilt with the combat
 style, then with the skeleton archers). Ammo-only and combat-style builds tested in game: archers still fled (the
-skeleton archers had no arrows). **Current build (all three parts) verified in game 2026-10-22: Lost One and skeleton archers keep shooting.**
+skeleton archers had no arrows). **Build with parts 1–3 verified in game 2026-10-22: Lost One and skeleton archers keep shooting.**
+Part 4 built 2026-10-24. **Unverified in game.**

@@ -1,0 +1,22 @@
+FormKey: 051629:Skyrim.esm
+EditorID: MaleHeadElder
+Version2: 7
+Name:
+  TargetLanguage: English
+  Value: MaleHeadElder
+Model:
+  File: KL\High Poly Head\MaleHead.nif
+  Data: 0x020000000600000000000000A7EC7CCE646473000FD3010CD8F06BF2646473000FD3010CB431DDCE646473000FD3010C1C2BD5BC646473000FD3010C5F2BD0EC0000000000000000D6458CF30000000000000000
+Flags:
+- Playable
+- Male
+Type: Face
+Parts:
+- PartType: RaceMorph
+  FileName: KL\High Poly Head\MaleHeadRaces.tri
+- PartType: Tri
+  FileName: KL\High Poly Head\MaleHead.tri
+- PartType: ChargenMorph
+  FileName: KL\High Poly Head\MaleHeadCustomizations.tri
+TextureSet: 067CDC:Skyrim.esm
+ValidRaces: 0A803E:Skyrim.esm

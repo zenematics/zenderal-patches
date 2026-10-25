@@ -10,6 +10,7 @@ Extract → decompile → edit → compile → package. Use the matching skills;
 |------|------|------------|
 | Extract `.bsa` | `bsab.exe`, or `BSArch64.exe` (see below) | `$Tools.bsab` / `$Tools.bsarch` |
 | Decompile `.pex`→`.psc` | `Champollion.exe` | `$Tools.champollion` |
+| Disassemble `.pex` (no Champollion) | `python tools/pexdis.py <file.pex>`: properties, variables, every function's instructions with names resolved | none |
 | Compile `.psc`→`.pex` | `PapyrusCompiler.exe` (from Skyrim SE) | `$Tools.papyrusCompiler` |
 | Open Creation Kit | `CreationKit.exe` (from Skyrim SE) | `$Tools.creationKit` |
 
@@ -73,6 +74,7 @@ skill appends them to `-i` after the three trees). Record each one here as you d
 |-----------------|-------------------|
 | powerofthree's Papyrus Extender (`PO3_SKSEFunctions`, used by `ZEN_SettingsApplier`) | `<modlistRoot>/mods/powerofthree's Papyrus Extender/Source/scripts` |
 | JContainers (`JValue`, `JMap`, `JContainers`, used by `ZEN_SettingsApplier`) | `<modlistRoot>/mods/JContainers SE/scripts/source` |
+| Zen Traits (`ZenTraits_ArcaneFeverScript`, `ArcaneFever`: the list's fever API, used by Prophecy's `ZP_LegionEffect`) | `<modlistRoot>/mods/Zenderal - Patch Collection/Source/Scripts`. Put it **last**: it also holds Zen Traits' copies of two `_00E_` fever scripts |
 | _(more)_ | Add SkyUI/MCM, PapyrusUtil, etc. here when a patch's script needs them. |
 
 ## Creation Kit against Enderal
@@ -88,6 +90,14 @@ in the Spriggit YAML**, so most sessions never open it. If you do:
 
 ## Gotchas
 
+- **A missing `-i` folder makes the compile fail with no error. [verified 2026-10-24]** The compiler prints
+  `Cannot use import folder "…" - Could not find a part of the path`, then `No output generated for X.psc,
+  compilation failed` with **0 error lines** — even for a script that never imports anything from that
+  folder. Every `-i` entry must exist. On 2026-10-24 two `tools.json` paths had gone stale (`papyrusSource.vanilla`
+  → a removed Nemesis folder, now `papyrus-source/vanilla-stubs`; PapyrusUtil's mod folder renamed to
+  `PapyrusUtil AE SE`). No vanilla `Scripts.zip` is installed on this machine; Enderal's tree carries every base
+  type and the flags file, so nothing needs the vanilla tree.
+
 - **Compiling against vanilla signatures.** If a script compiles clean and then misbehaves on an
   Enderal type, check the `-i` order — Enderal's tree must be first. 55 names collide.
 
@@ -96,3 +106,26 @@ in the Spriggit YAML**, so most sessions never open it. If you do:
   **read that instead of decompiling** whenever the script is Enderal's.
 - **Missing-type compile errors** → the referenced API's source isn't on the import path; add its
   `Source\Scripts` dir to `importDirs` in `tools.json` and record it in the imports table above.
+- **A property added to a script whose instance is already running in a save stays `None` there.** This bites
+  abilities, perk-granted effects and running quests: the plugin's new VMAD value does not reach the old instance.
+  Verified in game 2026-10-23 with Prophecy's Ice Shot watcher (`Remaining` read as 0, so `Cannot call GetValue()
+  on a None object`). For a new property on such a script, add a fallback (`If !Prop: Prop =
+  Game.GetFormFromFile(<id>, "<plugin>")`), or have the player re-add the perk or spell.
+- **Never call `UnequipAll` (or other inventory calls) on an actor from `OnDying`.** **[verified 2026-10-23]**
+  The game crashed in `UnequipAllVisitor` (Crash Logger: `SkyrimSE.exe+0164668`, an inventory entry pointer of `0x63`).
+  It was Prophecy's Legion skeleton ability calling `UnequipAll` in `OnDying`, on an archer that A Willing Sacrifice
+  was disintegrating (`SetCriticalStage`, `SetAlpha`, `AttachAshPile`), with FEC's death effects also on it. Strip
+  gear while the actor is alive, or just `Disable`/`Delete` the corpse, which takes its inventory with it.
+- **PO3's `MoveToNearestNavmeshLocation` moves a ref to the nearest navmesh *vertex*, not the nearest point on the
+  navmesh.** **[verified 2026-10-23 from `po3_PapyrusExtender.pdb`: the function's lambdas work on
+  `BSTArray<BSNavmeshVertex>`]** On open ground, where navmesh triangles are large, that can be meters away. A thrown
+  Utility Droid visibly landed off its throw. Use it only to rescue something placed inside geometry, never to
+  "tidy" a position that is already right.
+- **A `VisualEffect` property needs a Visual Effect (RFCT) record, not an Art Object (ARTO).** Pointing it at an
+  ARTO logs `cannot be bound because (…) is not the right type`, and the property stays `None`. The RFCT wraps the
+  art: `DA07SummonTargetFX 107D96` is the summon portal `SummonTargetFX 03F811`. Search `VisualEffects/` for an
+  existing RFCT by `EffectArt:` before making one.
+- **A line break for a UI string: build it in Papyrus with `"\n"`, not in a plugin string.** **[verified 2026-10-24]**
+  Spriggit/Mutagen 0.40 stores every line break in a script string property as CRLF, even a lone `\r` from the YAML.
+  B612's plain-text card description showed a stored `\n\n` as a huge gap. A Papyrus `"\n"` literal compiles to a lone
+  LF (check the `.pex` string table). Prophecy's card header is built this way in `ZP_ProphecyMenu`.
