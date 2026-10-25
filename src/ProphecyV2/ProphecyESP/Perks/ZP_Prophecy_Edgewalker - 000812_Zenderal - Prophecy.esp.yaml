@@ -6,7 +6,7 @@ Name:
   Value: 'Edgewalker'
 Description:
   TargetLanguage: English
-  Value: 'Light Magic healing is up to 30% more powerful if the recipient is below half Health. The bonus increases as Health decreases.'
+  Value: 'Your Light Magic heals are up to 30% stronger on targets below half Health; the lower their Health, the bigger the bonus.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:

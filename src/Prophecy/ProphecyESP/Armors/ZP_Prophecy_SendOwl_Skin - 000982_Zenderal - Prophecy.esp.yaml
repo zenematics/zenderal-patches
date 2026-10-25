@@ -1,0 +1,21 @@
+FormKey: 000982:Zenderal - Prophecy.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZP_Prophecy_SendOwl_Skin
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Barn Owl
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 00084F:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000983:Zenderal - Prophecy.esp
+MajorFlags:
+- NonPlayable

@@ -9,11 +9,8 @@ Description:
   Value: >-
     Elementalism spells deal 20% more damage.
 
-    Your maximum Health is reduced by 25.
+    Your maximum Health is 15% lower.
 Type: Ability
 Effects:
 - BaseEffect: 000801:Zenderal - Traits.esp
   Data: {}
-- BaseEffect: 000870:Zenderal - Traits.esp
-  Data:
-    Magnitude: 25

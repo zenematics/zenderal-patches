@@ -1,0 +1,19 @@
+FormKey: 0009D2:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FumeMask
+Description:
+  TargetLanguage: English
+  Value: 'You gain 15% resistance to poison.'
+Name:
+  TargetLanguage: English
+  Value: 'Fume Mask'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081B:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009FC:Zenderal - Prophecy.esp

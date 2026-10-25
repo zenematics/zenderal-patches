@@ -2,7 +2,7 @@ FormKey: 000918:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_DragonScale
 Description:
   TargetLanguage: English
-  Value: 'You gain 25% resistance to Fire, Frost and Lightning.'
+  Value: 'You gain 25% resistance to fire, frost and lightning.'
 Name:
   TargetLanguage: English
   Value: 'Dragon Scale'

@@ -1,0 +1,67 @@
+FormKey: 000992:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_CorpseFever
+Description:
+  TargetLanguage: English
+  Value: 'You can command one more summon for every 25% Arcane Fever you have.'
+Name:
+  TargetLanguage: English
+  Value: 'Corpse Fever'
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValueConditionData
+        ActorValue: LastFlattered
+      ComparisonValue: -25
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 1
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValueConditionData
+        ActorValue: LastFlattered
+      ComparisonValue: -50
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 1
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValueConditionData
+        ActorValue: LastFlattered
+      ComparisonValue: -75
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 1
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValueConditionData
+        ActorValue: LastFlattered
+      ComparisonValue: -100
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 1

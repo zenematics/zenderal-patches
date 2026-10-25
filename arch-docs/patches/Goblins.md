@@ -205,7 +205,7 @@ landmark, cell and ref FormIDs.
 each touched cell's header plus block files from their **last overrider before this plugin**. The cell
 headers come from FS 13, Skyrim.esm 12, EPPI IPL 10, Seasonal Aspen Winter 10 and 19 others. Masters are
 computed from the FormKeys written: Skyrim, Update, FS, EGO.
-**Load right after the last Vyn cell editor (Golden Mare Mill SE.esp, 2026-10-21); rerun `02` and `03`
+**[`EnemyDensity`](EnemyDensity.md) imports this planner/builder and forwards the same headers: rerun its `01`+`02` after these.** **Load right after the last Vyn cell editor (Golden Mare Mill SE.esp, 2026-10-21); rerun `02` and `03`
 when any Vyn cell editor changes.** DynDOLOD.esp and Occlusion.esp load later and win those cell headers;
 that is harmless to the refs.
 
@@ -216,7 +216,7 @@ Water for Enderal CS's `LodWater 000802` in this load order before this mod exis
 
 On every goblin NPC (it also does the health cut above; it has no properties beyond the original two, so
 instances in existing saves keep working): `OnDeath` stores `GameDaysPassed`. `OnLoad` resets the goblin (alive, at its own
-spot, re-equipped) once `ZEN_GoblinRespawnDays` (global `0x820`, default **7**) in-game days have passed.
+spot, re-equipped) once `ZEN_GoblinRespawnDays` (global `0x820`, default **3**, was 7 until 2026-10-24) in-game days have passed.
 `OnLoad` fires when the goblin's cell enters the loaded area, usually before the player can see it.
 Refs stay temporary: a quest-driven reset over a list would need all 507 persistent. The engine's own
 cell reset (Respawn flag, `iHoursToRespawnCell`) still applies too. Compiled against Enderal 2.1.4.4 +
@@ -277,7 +277,7 @@ spriggit deserialize src/Goblins/GoblinsDismemberingESP -> <mod>/Zenderal - Gobl
 copy src/Goblins/SKSE/DismemberingFramework/*.json -> <mod>/SKSE/DismemberingFramework/
 ```
 
-Built 2026-10-21. Both Spriggit round trips are equivalent: Goblins differs only in float formatting and
+Rebuilt 2026-10-24 for the 3-day respawn: the new `.esp` differs from the 2026-10-22 deployed copy by one byte (the global's float), backup in `E:\Zenderal-backups\2026-10-24-goblins-esp`. Existing saves keep the old value: `set ZEN_GoblinRespawnDays to 3` once. Built 2026-10-21. Both Spriggit round trips are equivalent: Goblins differs only in float formatting and
 defaulted fields (positions all within 0.01); Dismembering is identical. Both are ESL, HEDR 1.70. All
 683 + 50 FormKeys resolve. Deployed to Ultra (profile backup in
 `E:\Zenderal-backups\2026-10-21-goblins-profile`). **Not checked in xEdit.** In game 2026-10-21 (first
@@ -289,4 +289,4 @@ Test: `help Goblin 4` in the console lists the goblin NPCs with their load-order
 - Arps look like Arps again;
 - goblins fight beside Arps and are weak;
 - cut limbs and stumps are goblin green;
-- a killed pack is back after 7 days once its area reloads.
+- a killed pack is back after 3 days once its area reloads.

@@ -1,0 +1,18 @@
+FormKey: 000A50:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_SanctuaryHazard
+ObjectBounds:
+  First: -211, -299, 15
+  Second: 211, 299, 18
+Name:
+  TargetLanguage: English
+  Value: Sanctified Zone
+Model:
+  File: Lightpower\HolySanctuary.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 21.5
+Lifetime: 30
+TargetInterval: 0.3
+Spell: 000A3B:Zenderal - Prophecy.esp
+Light: 000A48:Zenderal - Prophecy.esp
+Sound: 056623:Skyrim.esm

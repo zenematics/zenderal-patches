@@ -1,0 +1,22 @@
+FormKey: 0009AD:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_ThrowExplosion
+Version2: 3
+ObjectBounds:
+  First: -235, -235, -26
+  Second: 235, 235, 223
+Model:
+  File: Enderal\Magic\TrickeryExplosionMass.nif
+  Data: 0x020000000000000000000000
+Light: 0EEFBE:Skyrim.esm
+Sound1: 03F206:Skyrim.esm
+Sound2: 03C8FC:Skyrim.esm
+ImpactDataSet: 059ED9:Skyrim.esm
+PlacedObject: 0009AE:Zenderal - Prophecy.esp
+Radius: 268
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+- NoControllerVibration
+SoundLevel: Silent

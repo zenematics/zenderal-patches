@@ -11,7 +11,7 @@ Conditions:
 - MutagenObjectType: ConditionFloat
   Data:
     MutagenObjectType: HasPerkConditionData
-    Perk: 00081C:Zenderal - Prophecy.esp
+    Perk: 000808:Zenderal - Prophecy.esp
   ComparisonValue: 1
 - MutagenObjectType: ConditionFloat
   CompareOperator: LessThan

@@ -1,0 +1,16 @@
+FormKey: 000995:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DeadDontForget
+Description:
+  TargetLanguage: English
+  Value: 'A Willing Sacrifice restores 50 Magicka for every enemy it hits.'
+Name:
+  TargetLanguage: English
+  Value: 'The Dead Don''t Forget'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000994:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

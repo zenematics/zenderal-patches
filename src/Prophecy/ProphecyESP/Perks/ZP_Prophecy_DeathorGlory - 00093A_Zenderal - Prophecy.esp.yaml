@@ -2,7 +2,7 @@ FormKey: 00093A:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_DeathorGlory
 Description:
   TargetLanguage: English
-  Value: 'While 3 or more enemies are close to you, your Stamina regenerates 2 points per second.'
+  Value: 'While 3 or more enemies are near you, you regenerate 2 Stamina per second.'
 Name:
   TargetLanguage: English
   Value: 'Surrounded'

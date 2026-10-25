@@ -1,0 +1,46 @@
+FormKey: 000A37:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_WrathoftheHeavensCloakDamageCooldownMGEF
+Name:
+  TargetLanguage: English
+  Value: Smite
+MenuDisplayObject: 1097CA:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1.5
+MagicSkill: Restoration
+CastingLight: 03F1B5:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 10B2DF:Skyrim.esm
+MinimumSkillLevel: 75
+TaperCurve: 2
+TaperDuration: 0.1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 000A4C:Zenderal - Prophecy.esp
+Explosion: 000A55:Zenderal - Prophecy.esp
+CastType: Concentration
+TargetType: Aimed
+CastingArt: 01C859:Skyrim.esm
+SkillUsageMultiplier: 1.4
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 000A37:Zenderal - Prophecy.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

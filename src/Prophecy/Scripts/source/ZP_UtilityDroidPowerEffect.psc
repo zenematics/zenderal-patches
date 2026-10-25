@@ -5,15 +5,16 @@ Scriptname ZP_UtilityDroidPowerEffect extends ActiveMagicEffect
     Spare Parts. Without them the power says so and does nothing.
 The droid is Enderal's Starling Spider re-purposed (ZP_Prophecy_UtilityDroid): it follows the player on SureAI's
 _DefaultFollowPlayer package, and its ability (ZP_UtilityDroidEffect) heals the player and staggers enemies.
-Its Health is set here: BaseHealth + HealthPerLevel per player level.}
+A new droid is thrown (curator 2026-10-23), as Enderal's Starling Dummy talent throws its spider: ThrowSpell is a
+copy of _00E_A2_StarlingdummyProjSP, whose lobbed projectile's explosion places ZP_UtilityDroidPlacerScript's
+activator where it lands; that places the droid and sets its Health, teammate flag and DroidList.}
 
-ActorBase Property Droid Auto
 MiscObject Property SpareParts Auto
 FormList Property DroidList Auto
 GlobalVariable Property FreeUsed Auto
 Int Property Cost = 10 Auto
-Float Property BaseHealth = 100.0 Auto
-Float Property HealthPerLevel = 10.0 Auto
+Spell Property ThrowSpell Auto
+Sound Property SwingSound Auto            ; WPNSwingUnarmedM - SureAI's throw sound
 
 Event OnEffectStart(Actor akTarget, Actor akCaster)
 	Actor player = akCaster
@@ -34,14 +35,6 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 		Debug.Notification("You need " + Cost + " Spare Parts to build a Utility Droid.")
 		Return
 	EndIf
-	Actor d = player.PlaceActorAtMe(Droid)
-	If !d
-		Return
-	EndIf
-	d.SetActorValue("Health", BaseHealth + HealthPerLevel * player.GetLevel())
-	d.RestoreActorValue("Health", 100000.0)
-	d.SetPlayerTeammate(true)
-	DroidList.Revert()
-	DroidList.AddForm(d)
-	Debug.Notification("Utility Droid deployed.")
+	ThrowSpell.Cast(player)
+	SwingSound.Play(player)
 EndEvent

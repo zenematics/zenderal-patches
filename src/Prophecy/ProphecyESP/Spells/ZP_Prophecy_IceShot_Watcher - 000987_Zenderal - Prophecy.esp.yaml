@@ -1,0 +1,15 @@
+FormKey: 000987:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_Watcher
+Name:
+  TargetLanguage: English
+  Value: Ice Shot
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000988:Zenderal - Prophecy.esp
+  Data: {}

@@ -5,8 +5,11 @@ VirtualMachineAdapter:
   - Name: ZP_UtilityDroidPowerEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
-      Name: Droid
-      Object: 00093F:Zenderal - Prophecy.esp
+      Name: ThrowSpell
+      Object: 0009AA:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SwingSound
+      Object: 07BB93:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
       Name: SpareParts
       Object: 0773ED:Skyrim.esm
@@ -19,12 +22,6 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptIntProperty
       Name: Cost
       Data: 10
-    - MutagenObjectType: ScriptFloatProperty
-      Name: BaseHealth
-      Data: 100.0
-    - MutagenObjectType: ScriptFloatProperty
-      Name: HealthPerLevel
-      Data: 10.0
 Name:
   TargetLanguage: English
   Value: Utility Droid

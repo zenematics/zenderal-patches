@@ -33,7 +33,7 @@ NL = '\r\n'
 FIRST_REF = 0x900
 BASES = {'Goblin': '000810', 'Scout': '000811', 'Archer': '000812', 'Shaman': '000813', 'Chief': '000814'}
 BASES.update(json.load(open(os.path.join(HERE, 'mihail-npcs.json'), encoding='utf-8')))   # 01b's Mihail roles
-RESPAWN_GLOBAL = ('000820', 'ZEN_GoblinRespawnDays', 7)
+RESPAWN_GLOBAL = ('000820', 'ZEN_GoblinRespawnDays', 3)
 BASE_MASTERS = ['Skyrim.esm', 'Update.esm', 'Enderal - Forgotten Stories.esm']
 REF_SECTIONS = re.compile(r'^(Temporary|Persistent|NavigationMeshes|Landscape|SubCells|TopCell|MajorFlags):')
 

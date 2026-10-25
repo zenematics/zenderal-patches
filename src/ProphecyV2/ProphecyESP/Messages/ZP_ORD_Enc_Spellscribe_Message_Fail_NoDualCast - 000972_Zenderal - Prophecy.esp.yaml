@@ -1,0 +1,7 @@
+FormKey: 000972:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Enc_Spellscribe_Message_Fail_NoDualCast
+Description:
+  TargetLanguage: English
+  Value: This power must be used while dual casting a spell.
+INAM: 0x00000000
+DisplayTime: 2

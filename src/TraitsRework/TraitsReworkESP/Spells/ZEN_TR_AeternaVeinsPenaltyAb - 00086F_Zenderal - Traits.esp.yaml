@@ -1,0 +1,14 @@
+FormKey: 00086F:Zenderal - Traits.esp
+EditorID: ZEN_TR_AeternaVeinsPenaltyAb
+Name:
+  TargetLanguage: English
+  Value: Aeterna Veins
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 000870:Zenderal - Traits.esp
+  Data:
+    Magnitude: 1

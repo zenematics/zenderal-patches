@@ -1,0 +1,17 @@
+FormKey: 000964:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_Explosion
+ObjectBounds:
+  First: -12, -12, 0
+  Second: 12, 12, 8
+Model:
+  File: Magic\MAGIceSpikeVolleyExplosion.nif
+  Data: 0x02000000040000000000000010A8EAB16464730038973CEA994D4BBA6464730038973CEAE85FED0564647300582C553309F3405B6464730038973CEA
+Sound1: 0EA343:Skyrim.esm
+Sound2: 0EA344:Skyrim.esm
+Force: 10
+Damage: 0
+Radius: 100
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

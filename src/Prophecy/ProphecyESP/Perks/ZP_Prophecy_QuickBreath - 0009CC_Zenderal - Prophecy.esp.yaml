@@ -1,0 +1,19 @@
+FormKey: 0009CC:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_QuickBreath
+Description:
+  TargetLanguage: English
+  Value: 'Your Stamina regenerates 25 percent faster.'
+Name:
+  TargetLanguage: English
+  Value: 'Quick Breath'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000816:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009F6:Zenderal - Prophecy.esp

@@ -13,7 +13,7 @@ Usage: python -I src/Prophecy/tools/04-install-stomp-anim.py [<MO2 mods dir>]
 """
 import os, sys, json, shutil, hashlib
 
-MODS = ['Zenderal - Prophecy', 'Zenderal - Prophecy v2 (Sanctum)']
+MODS = ['Zenderal - Prophecy', 'Zenderal - Prophecy v2 (Sanctum)', 'Zenderal - Prophecy v3 (Constellation)']
 OAR = ['meshes', 'actors', 'character', 'animations', 'OpenAnimationReplacer', 'Zenderal - Prophecy']
 SUBMOD = 'Seismic Stomp in Hot Key Skill slot J'
 CLIP = 'HKS_CustomAnimJ.hkx'
@@ -39,7 +39,10 @@ def main():
     blob = open(src, 'rb').read()
     for m in MODS:
         root = os.path.join(mods, m)
-        assert os.path.isdir(root), f'MO2 mod folder missing: {root}'
+        if not os.path.isdir(root):                  # v2/v3 are not always installed
+            assert m != MODS[0], f'MO2 mod folder missing: {root}'
+            print('   (skipped, not installed:', m + ')')
+            continue
         mod_dir = os.path.join(root, *OAR)
         sub_dir = os.path.join(mod_dir, SUBMOD)
         if os.path.isdir(sub_dir):

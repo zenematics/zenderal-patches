@@ -2,7 +2,7 @@ FormKey: 000817:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_BleedingShot
 Description:
   TargetLanguage: English
-  Value: 'Your musket, crossbow and bow hits make living targets bleed for 50 damage over 5 seconds.'
+  Value: 'Your musket hits make living targets bleed for 50 damage over 5 seconds.'
 Name:
   TargetLanguage: English
   Value: 'Bleeding Shot'

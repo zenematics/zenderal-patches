@@ -1,0 +1,12 @@
+FormKey: 000A59:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_LightshaftEffect2D
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Lightpower\HolySkyBoltSFX.wav
+OutputModel: 0E363A:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 25
+PercentFrequencyVariance: 10
+Priority: 128
+StaticAttenuation: 6.17

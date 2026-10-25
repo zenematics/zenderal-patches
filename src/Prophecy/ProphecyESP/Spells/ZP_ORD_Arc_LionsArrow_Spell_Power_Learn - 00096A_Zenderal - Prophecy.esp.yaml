@@ -1,0 +1,23 @@
+FormKey: 00096A:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_LionsArrow_Spell_Power_Learn
+Name:
+  TargetLanguage: English
+  Value: Arcane Echo
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+ChargeTime: 0.5
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000970:Zenderal - Prophecy.esp
+  Data: {}
+- BaseEffect: 00096E:Zenderal - Prophecy.esp
+  Data: {}
+- BaseEffect: 00096B:Zenderal - Prophecy.esp
+  Data: {}

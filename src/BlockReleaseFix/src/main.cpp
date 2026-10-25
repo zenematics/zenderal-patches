@@ -16,7 +16,7 @@
 // any player block that is still on - the same wantBlocking = 0 + blockStop DWP would have sent.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 1, 0 },
+	.Version = REL::Version{ 1, 0, 2, 0 },
 	.Name = "ZenBlockReleaseFix"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -45,6 +45,32 @@ namespace
 
 	std::uint64_t NowMs() { return ::GetTickCount64(); }
 
+	// DWP's gamepad key codes, in the order of its switch: D-pad up/down/left/right, Start, Back,
+	// thumbs, shoulders, A/B/X/Y, LT, RT = 266-281.
+	std::uint32_t DwpGamepadCode(std::uint32_t a_idCode)
+	{
+		using Key = RE::BSWin32GamepadDevice::Key;
+		switch (static_cast<Key>(a_idCode)) {
+		case Key::kUp:            return 266;
+		case Key::kDown:          return 267;
+		case Key::kLeft:          return 268;
+		case Key::kRight:         return 269;
+		case Key::kStart:         return 270;
+		case Key::kBack:          return 271;
+		case Key::kLeftThumb:     return 272;
+		case Key::kRightThumb:    return 273;
+		case Key::kLeftShoulder:  return 274;
+		case Key::kRightShoulder: return 275;
+		case Key::kA:             return 276;
+		case Key::kB:             return 277;
+		case Key::kX:             return 278;
+		case Key::kY:             return 279;
+		case Key::kLeftTrigger:   return 280;
+		case Key::kRightTrigger:  return 281;
+		default:                  return kNoKey - 1;
+		}
+	}
+
 	bool IsBlockKey(const RE::ButtonEvent* a_button)
 	{
 		const auto& userEvent = a_button->QUserEvent();
@@ -60,6 +86,12 @@ namespace
 			break;
 		case RE::INPUT_DEVICE::kMouse:
 			code += kMouseOffset;
+			break;
+		case RE::INPUT_DEVICE::kGamepad:
+			// 1.0.2: DWP numbers gamepad buttons 266-281 (InputEventHandler.cpp:62-114). The list's DWP
+			// ParryKey2 = 280 is LT, which Complete Controller Setup does not bind to Left Attack/Block, so
+			// 1.0.1 never saw it held and ended the block every 500 ms while LT was down.
+			code = DwpGamepadCode(code);
 			break;
 		default:
 			return false;
@@ -234,7 +266,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenBlockReleaseFix 1.0.1 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenBlockReleaseFix 1.0.2 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };

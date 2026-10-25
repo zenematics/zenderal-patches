@@ -7,6 +7,7 @@ Scriptname ZP_UtilityDroidEffect extends ActiveMagicEffect
 Stops when the droid dies.}
 
 Spell Property StaggerSpell Auto
+Spell Property HealSpell Auto              ; ZP_Prophecy_UtilityDroid_Heal: HealAmount through Enderal's heal-other effect, for its look
 Float Property HealAmount = 15.0 Auto
 Int Property HealInterval = 4 Auto
 Float Property HealRadius = 640.0 Auto
@@ -37,7 +38,7 @@ Event OnUpdate()
 	If healTick >= HealInterval
 		healTick = 0
 		If me.GetDistance(player) <= HealRadius && player.GetActorValuePercentage("Health") < 1.0
-			player.RestoreActorValue("Health", HealAmount)
+			Heal(player)
 		EndIf
 	EndIf
 	staggerTick += 1
@@ -55,3 +56,17 @@ Event OnUpdate()
 	EndIf
 	RegisterForSingleUpdate(1.0)
 EndEvent
+
+Function Heal(Actor akPlayer)
+	; the heal is a spell cast at the player (curator 2026-10-23: "an effect for when the droid heals me"): Enderal's
+	; RestoreHealthFFActor shows its healing shimmer on them. A droid already out when this shipped has no HealSpell
+	; (a property added to a running effect stays None in the save), so it is looked up, and the bare heal is the fallback.
+	If !HealSpell
+		HealSpell = Game.GetFormFromFile(0x0009AF, "Zenderal - Prophecy.esp") as Spell
+	EndIf
+	If HealSpell
+		HealSpell.RemoteCast(me, me, akPlayer)
+	Else
+		akPlayer.RestoreActorValue("Health", HealAmount)
+	EndIf
+EndFunction

@@ -1,0 +1,16 @@
+FormKey: 000A38:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HolyShieldEnch
+Name:
+  TargetLanguage: English
+  Value: Warding Light
+EnchantmentCost: 908
+EnchantmentAmount: 908
+EnchantType: Enchantment
+WornRestrictions: 10CD25:Skyrim.esm
+Effects:
+- BaseEffect: 0B7A35:Skyrim.esm
+  Data:
+    Magnitude: 25
+- BaseEffect: 100E60:Skyrim.esm
+  Data:
+    Magnitude: 100

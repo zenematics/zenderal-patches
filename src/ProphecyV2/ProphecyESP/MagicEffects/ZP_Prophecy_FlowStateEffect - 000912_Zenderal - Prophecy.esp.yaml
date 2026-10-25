@@ -7,6 +7,12 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: SlowTime
       Object: 000824:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Nova
+      Object: 00093D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: NovaCooldown
+      Data: 15.0
 Name:
   TargetLanguage: English
   Value: Flow State

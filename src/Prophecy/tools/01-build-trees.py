@@ -1,4 +1,4 @@
-"""Build the four Prophecy perk trees (Faith, Gunslinger, Gadgets, Martial Arts).
+"""Build the four Prophecy perk trees (Faith, Sharpshooter, Gadgets, Martial Arts).
 
 Regenerates, from the serialized source mods in reference/mods/:
   ProphecyESP/{Perks,Spells,MagicEffects,...}/   every record a picked perk needs, renumbered into
@@ -45,49 +45,275 @@ FIRE_ENCH = '04605A:Skyrim.esm'    # EnchFireDamageFFContact
 o = lambda h: f'{h}:{ORD}'
 s = lambda h: f'{h}:{SOS}'
 
+# Smokescreen also turns the player invisible on cast (curator 2026-10-23). Enderal's plain InvisibillityFFSelf
+# 01EA6A (no script; attacking or activating ends it), not Spectral Veil's _00E_A1_InvisibilityME 067239, whose
+# script SETS base Sneak +75 and writes the old value back: overlapping the player's own Spectral Veil could leave
+# Sneak permanently changed. 10 s = Spectral Veil's first rank.
+SMOKE_INVISIBLE = '01EA6A:Skyrim.esm'
+SMOKE_INVISIBLE_SECONDS = 10
+
+# Arcane Archery's numbers (curator 2026-10-23; Ice Shot first followed Flame Shot's middle tier: 14 s, 110 s recovery;
+# after play: no time limit (IceSeconds = a day: the arrows stay until fired), no cooldown, a 50 Magicka cost;
+# No Distractions casts the list's own Spell Ward (Rank II) - SPELL_WARD_RANK2)
+ARC = {'ElementDamage': 10, 'IceArrows': 3, 'IceSeconds': 1, 'IceMagicka': 50, 'IceDamage': 25,
+       'FreezeSeconds': 8, 'OwlDrain': 10, 'OwlRegen': 2}
+# Necromancy's numbers (curator's design 2026-10-23; the balance is ours). A Willing Sacrifice deals half the summon's
+# base Health - SureAI's own Corpse Explosion rule (_00E_FS_Entropy_CorpseExplosionSC) - to each enemy within
+# 300 units (14 ft; Enderal's Fireball is 12 ft), with a 15 s cooldown so it cannot be chained with Revive.
+# Legion: 5 minutes, 80 + 8 Health per player level. Dark Effigy prices like Triumvirate's Create Earth Totem (76, 60 s).
+NEC = {'FeverStep': 25, 'EffigyCost': 100, 'EffigySeconds': 60, 'EffigyHeal': 2, 'EffigyArmor': 250, 'EffigyRadius': 512,
+       'SacrificeRadius': 300, 'SacrificeFraction': 0.5, 'SacrificeCooldown': 15, 'DeadMagicka': 50,
+       'LegionFever': 50, 'LegionSeconds': 300, 'LegionHealth': 80, 'LegionHealthPerLevel': 8}
+
 # id, name, description, source seed, perks folded INTO this node (their FormKeys alias to it), parents
 TREES = [
-  ('Faith', 'Light Magic, healing and sustain.', [
-    ('faith1', 'Descending Light', 'When you enter combat, you rapidly regenerate Magicka equal to half your Light Magic skill per second. The effect fades over 15 seconds and does not stop while casting.', o('01435F'), [], []),
-    ('faith2', 'Respite', 'Healing spells also restore Stamina equal to their power.', '0581F9:Skyrim.esm', [], ['faith1']),
-    ('faith3', 'Edgewalker', 'Light Magic healing is up to 30% more powerful if the recipient is below half Health. The bonus increases as Health decreases.', '0581F8:Skyrim.esm', [], ['faith1']),
-    ('faith4', 'Healing Presence', 'In combat you heal yourself and nearby allies for 25 Health every 10 seconds, at a cost of 1 Arcane Fever.', s('000820'), [], ['faith2', 'faith3']),
-    ('faith5', 'Templar', 'Once every 90 seconds, falling below 25% Health makes you immune to damage for 6 seconds and heals you for 100 Health afterwards, at a cost of 4 Arcane Fever.', s('000849'), [], ['faith4']),
+  # Faith reworked 2026-10-25 around Kittytails' Holy Templar Magic (curator's design). The node ids, seeds and so the
+  # FormIDs stay (0x810-0x814): faith1-faith4's old perks (Descending Light, Respite, Edgewalker, Healing Presence) are
+  # rewritten in place (FAITH_NEW), so their seed closures - and every ID after them - are unchanged, and a save that
+  # owned one owns its successor in the same place. faith4 is now the capstone and faith5 (Templar) the merge talent:
+  # FAITH_CAPSTONE tells weave_stats.
+  ('Faith', 'Holy light, sacred wards and smiting.', [
+    ('faith1', 'Consecrate Dead', 'Grants the "Consecrate Dead" spell: cast it on a corpse to burn it to ash with holy light and restore 30 Health, Mana and Stamina. Undead it strikes take 15 damage and stagger.', o('01435F'), [], []),
+    ('faith2', 'Righteous Path', 'While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage.', '0581F9:Skyrim.esm', [], ['faith1']),
+    ('faith3', 'Smite', 'Your hits with silver weapons have a 15% chance to call down a pillar of holy light on the target: 40 damage, while beams of light strike the enemies around it for 10 each. Undead take double damage.', '0581F8:Skyrim.esm', [], ['faith1']),
+    ('faith4', 'Wrath of the Lightborn', 'Grants the "Wrath of the Lightborn" spell (200 Mana and 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. Cast at 50% Arcane Fever or more, it has no effect.', s('000820'), [], ['faith5']),
+    ('faith5', 'Templar', 'Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health.', s('000849'), [], ['faith2', 'faith3']),
   ]),
-  ('Gunslinger', 'Muskets, powder and lead.', [
-    ('gun1', 'Quick Reload', 'Draw a bow and reload a crossbow or musket 30% faster.', '105F19:Skyrim.esm', [], []),
-    ('gun2', 'Elemental Rounds', 'Your musket, crossbow and bow hits also deal 10 points of fire damage.', None, [], ['gun1']),
-    ('gun3', 'Bleeding Shot', 'Your musket, crossbow and bow hits make living targets bleed for 50 damage over 5 seconds.', None, [], ['gun1']),
-    ('gun4', 'Run and Gun', 'You move at full speed with a drawn bow or a raised musket.', '058F63:Skyrim.esm', [], ['gun2', 'gun3']),
-    ('gun5', 'Deadeye', None, o('0064C0'), [], ['gun4']),
+  ('Sharpshooter', 'Muskets, powder and lead.', [
+    ('gun1', 'Quick Reload', 'You reload muskets 30% faster.', '105F19:Skyrim.esm', [], []),
+    ('gun2', 'Elemental Rounds', 'Your musket hits deal 10 extra fire damage.', None, [], ['gun1']),
+    ('gun3', 'Bleeding Shot', 'Your musket hits make living targets bleed for 50 damage over 5 seconds.', None, [], ['gun1']),
+    ('gun4', 'Run and Gun', 'You move at full speed while aiming a musket.', '058F63:Skyrim.esm', [], ['gun2', 'gun3']),
+    ('gun5', 'Deadeye', "A musket shot at a target you haven't shot in the last 10 seconds is a critical strike that deals triple critical damage, and its weapon enchantments are twice as strong.", o('0064C0'), [], ['gun4']),
   ]),
   ('Gadgets', 'Traps, smoke and clockwork.', [
-    ('gad1', 'Explosive Tripwire', 'Grants the "Explosive Tripwire" power. At will, places a tripwire in front of you for 120 seconds. It snaps when tripped, knocking all targets hit by it to the floor, and an enemy who trips it sets off an explosion that deals 40 damage.', o('0379AA'), [], []),
-    ('gad2', 'Smokescreen', None, o('037419'), [], ['gad1']),
+    ('gad1', 'Explosive Tripwire', 'Grants the "Explosive Tripwire" power: at will, set a tripwire in front of you that lasts 120 seconds. When tripped, it snaps and knocks everyone it hits to the ground, and an enemy who trips it sets off an explosion that deals 40 damage.', o('0379AA'), [], []),
+    ('gad2', 'Smokescreen', f'Grants the "Smokescreen" power: once a day, create a 35-foot cloud of smoke for 180 seconds and turn invisible for {SMOKE_INVISIBLE_SECONDS} seconds. Those inside the cloud are blinded and cannot see sneaking targets, and your sneak attacks against them deal 50% more damage.', o('037419'), [], ['gad1']),
     # gad3 was Bear Traps (Ordinator 0306CB + Lockjaw 030C45). Utility Droid replaced it 2026-10-23; the seed and the
     # folded perk stay so the copy closure, and every ID after it, is unchanged. The perk itself is rewritten (DROID_NODE).
-    ('gad3', 'Utility Droid', 'Grants the "Utility Droid" power. Deploy a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed; building another costs 10 Spare Parts.', o('0306CB'), [o('030C45')], ['gad1']),
-    ('gad4', 'Clockwork Turret', 'You can build Clockwork Turrets at a forge. Use the "Clockwork Turret" power to deploy one: it fires parallel to your crosshair for 30 seconds while you stay within 12 feet, dealing damage equal to 30% of your Handicraft skill.', o('056C92'), [], ['gad2', 'gad3']),
-    ('gad5', 'Overclock', 'Your Clockwork Turret deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.', None, [o('056C9F'), o('056CA7')], ['gad4']),
+    ('gad3', 'Utility Droid', 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.', o('0306CB'), [o('030C45')], ['gad1']),
+    ('gad4', 'Clockwork Turret', 'You can build Clockwork Turrets at a forge, and you receive one when you learn this. The "Clockwork Turret" power deploys it for 30 seconds: it turns and fires at your target, or the nearest enemy in combat, dealing damage equal to 30% of your Handicraft skill.', o('056C92'), [], ['gad2', 'gad3']),
+    ('gad5', 'Overclock', 'Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.', None, [o('056C9F'), o('056CA7')], ['gad4']),
   ]),
   ('Martial Arts', 'Fists, footwork and timing.', [
-    ('ma1', 'Iron Fist', 'Increases unarmed damage by 15% of your current Stamina. Requires two free hands.', '058F6E:Skyrim.esm', [], []),
-    ('ma2', 'Hissing Dragon', None, o('04D4E3'), [], ['ma1']),
+    ('ma1', 'Iron Fist', 'Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty.', '058F6E:Skyrim.esm', [], []),
+    ('ma2', 'Hissing Dragon', 'Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking.', o('04D4E3'), [], ['ma1']),
     ('ma3', 'Stunning Blows', 'Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies.', s('000851'), [], ['ma1']),
-    ('ma4', 'Breaking Waves', 'Unarmed attacks have a 15% chance of a critical strike that deals critical damage equal to 40% of your current Stamina. Requires two free hands.', o('04D4DA'), [], ['ma2', 'ma3']),
-    ('ma5', 'Flow State', 'Dodging in combat slows time to a crawl for a moment, once every 10 seconds, and releases a Shock Nova that deals 40 shock damage to nearby enemies, once every 15 seconds.', None, [], ['ma4']),
+    ('ma4', 'Breaking Waves', 'Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty.', o('04D4DA'), [], ['ma2', 'ma3']),
+    ('ma5', 'Flow State', 'Dodging in combat briefly slows time to a crawl (once every 10 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies (once every 15 seconds).', None, [], ['ma4']),
   ]),
   # Glory (2026-10-21, curator's design): all hand-built - see write_glory. Its records sit AFTER every other
   # block (GLORY_FIRST_ID) so adding it did not renumber the four older trees in existing saves.
   ('Glory', 'Charges, banners and hard-won grit.', [
-    ('glo1', 'Seismic Stomp', 'Grants the "Seismic Stomp" power: stomp the ground and send out a shockwave that hurls every enemy within 19 feet up and away and makes them bleed for 50 damage over 5 seconds, as time slows for a moment. Usable every 30 seconds.', None, [], []),
-    ('glo2', 'Second Wind', 'While at or below half Health, every hit you take restores 20 Stamina.', None, [], ['glo1']),
-    ('glo3', 'Dragon Scale', 'You gain 25% resistance to Fire, Frost and Lightning.', None, [], ['glo1']),
-    ('glo4', 'War Banner', 'Grants the "War Banner" power: plant a banner for 15 seconds. While you stand near it you heal 20 Health per second, and enemies who come close are bound in chains as by a Stave of Binding. Usable once every 5 minutes.', None, [], ['glo2', 'glo3']),
-    ('glo5', 'Surrounded', 'While 3 or more enemies are close to you, your Stamina regenerates 2 points per second.', None, [], ['glo2', 'glo3']),
+    ('glo1', 'Seismic Stomp', 'Grants the "Seismic Stomp" power: stomp the ground to send out a shockwave that hurls every enemy within 19 feet into the air and makes them bleed for 50 damage over 5 seconds, while time briefly slows. Usable once every 30 seconds.', None, [], []),
+    ('glo2', 'Second Wind', 'While you are at or below half Health, every hit you take restores 20 Stamina.', None, [], ['glo1']),
+    ('glo3', 'Dragon Scale', 'You gain 25% resistance to fire, frost and lightning.', None, [], ['glo1']),
+    ('glo5', 'Surrounded', 'While 3 or more enemies are near you, you regenerate 2 Stamina per second.', None, [], ['glo2', 'glo3']),
+    ('glo4', 'War Banner', 'Grants the "War Banner" power: plant a banner for 15 seconds. While you stand near it, you heal 20 Health per second, and enemies who come close are bound in chains, as by a Stave of Binding. Usable once every 5 minutes.', None, [], ['glo5']),   # capstone after Surrounded (curator 2026-10-24)
+  ]),
+  # Arcane Archery (2026-10-23, curator's design): hand-built but Lion's Arrow (Ordinator's, its own description).
+  # Every record of this tree - its perks, write_arcane's records and Lion's Arrow's copied closure - is allocated
+  # AFTER all older blocks (ARCANE), so adding it renumbered nothing in existing saves.
+  ('Arcane Archery', 'Arrows, wards and spellcraft.', [
+    ('arc1', 'Arcane Arsenal', f'Grants the "Arcane Arsenal" power: choose Fire, Frost or Lightning, and your bow hits deal {ARC["ElementDamage"]} extra damage of that element.', None, [], []),
+    ('arc2', 'No Distractions', 'While you aim a bow, a Spell Ward (Rank II) surrounds you. It fades when you fire or lower the bow.', None, [], ['arc1']),
+    ('arc3', 'Ice Shot', f'Grants the "Ice Shot" power: with a bow equipped, add {ARC["IceArrows"]} ice arrows to your quiver for {ARC["IceMagicka"]} Magicka. They deal {ARC["IceDamage"]} frost damage and freeze the target solid for {ARC["FreezeSeconds"]} seconds, and your next arrow shatters it.', None, [], ['arc1']),
+    ('arc4', "Andrasta's Owl", f'Your bow hits send a barn owl to attack the target. It fights at your side until it is killed, each later hit sends it after that target, and each of its strikes drains {ARC["OwlDrain"]} Magicka from its target and gives it to you. While it is out, you regenerate {ARC["OwlRegen"]} Magicka per second. Only one owl can be out at a time.', None, [], ['arc2', 'arc3']),
+    ('arc5', 'Arcane Echo', 'Grants the "Arcane Echo" power: use it while dual casting a spell to store that spell. Your fully drawn bow shots in combat then also release the stored spell toward your crosshair. Only works with spells cast at others.', o('010258'), [], ['arc4']),  # Ordinator's Lion's Arrow, renamed (curator 2026-10-23)
+  ]),
+  # Necromancy (2026-10-23, curator's design): all hand-built - see write_necro. Allocated after every older block
+  # (NECRO), so adding it renumbered nothing. The Dead Don't Forget improves A Willing Sacrifice, so only it unlocks it.
+  ('Necromancy', 'Summons, sacrifice and the restless dead.', [
+    ('nec1', 'Corpse Fever', f'You can command one more summon for every {NEC["FeverStep"]}% Arcane Fever you have.', None, [], []),
+    ('nec2', 'Dark Effigy', f'Grants the "Dark Effigy" spell ({NEC["EffigyCost"]} Magicka): raise a dark totem for {NEC["EffigySeconds"]} seconds. Your undead summons near it heal {NEC["EffigyHeal"]} Health per second, and you and your allies near it gain {NEC["EffigyArmor"]} armor.', None, [], ['nec1']),
+    ('nec3', 'A Willing Sacrifice', f'Grants the "A Willing Sacrifice" power: every summon you command explodes, dealing damage equal to half its maximum Health to each enemy within 14 feet of it. Usable once every {NEC["SacrificeCooldown"]} seconds.', None, [], ['nec1']),
+    ('nec4', "The Dead Don't Forget", f'A Willing Sacrifice restores {NEC["DeadMagicka"]} Magicka for every enemy it hits.', None, [], ['nec3']),
+    ('nec5', 'Legion of the Damned', f'Grants the "Legion of the Damned" power: at the cost of {NEC["LegionFever"]}% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for {NEC["LegionSeconds"] // 60} minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.', None, [], ['nec4']),
   ]),
 ]
+
+# Stat talents (curator 2026-10-25, after Subclasses of Skyrim 2's stat nodes): six per tree, each one constant ability.
+# W1 sits between the root and both branches (they now need it), W2 between the last talent and the capstone, and
+# the four side talents hang off one talent each. Woven into TREES below, so the menu arrays list them in place;
+# their FormIDs are allocated after every other block (STAT_FIRST_ID), so nothing older is renumbered.
+# kind -> (effects, description). '@' = one of our two regen MGEFs (STAT_RATE_MGEFS). Regen magnitudes follow SureAI's
+# convention: points on the 100-scale *RateMult read as "percent" (Mental Master: MagickaRateMult +10 = "10 percent
+# faster") although the player's Health/Mana mults sit at 1/10 (_00E_Game_AbHealRateDamageFull 01DA25 on Player).
+STAT_FX = {
+    'health': (['0A1A3F'], 'Your maximum Health is increased by {m}.'),               # AbFortifyHealth
+    'mana': (['0CDA4B'], 'Your maximum Mana is increased by {m}.'),                     # AbFortifyMagickaHighElf
+    'stamina': (['091F77'], 'Your maximum Stamina is increased by {m}.'),               # AbFortifyStamina
+    'staminarate': (['105F21'], 'Your Stamina regenerates {m} percent faster.'),       # AbFortifyStaminaRate
+    'healrate': (['@healrate'], 'Your Health regenerates {m} percent faster.'),
+    'manarate': (['@manarate'], 'Your Mana regenerates {m} percent faster.'),
+    'armor': (['0CAB90'], 'Your armor rating is increased by {m}.'),                    # AbResistDamage
+    'resmagic': (['053124'], 'You gain {m}% resistance to magic.'),                     # AbResistMagic
+    'resfrost': (['024315'], 'You gain {m}% resistance to frost.'),                     # AbResistFrost
+    'resshock': (['024318'], 'You gain {m}% resistance to lightning.'),                 # AbResistShock
+    'respoison': (['0AA024'], 'You gain {m}% resistance to poison.'),                   # AbResistPoison
+    'carry': (['10CED9'], 'Your carry weight is increased by {m}.'),                    # AbFortifyCarryWeight
+    'unarmed': (['0424E2'], 'Your unarmed attacks deal {m} more damage.'),              # AbFortifyUnarmedDamage
+    'melee': (['023166', '023167'], 'Your One-handed and Two-handed skills are increased by {m}.'),
+    'light': (['023162'], 'Your Light Magic skill is increased by {m}.'),
+    'archery': (['023163'], 'Your Archery skill is increased by {m}.'),
+    'handicraft': (['0438F4'], 'Your Handicraft skill is increased by {m}.'),
+    'block': (['03E15B'], 'Your Blocking skill is increased by {m}.'),
+    'entropy': (['023165'], 'Your Entropy skill is increased by {m}.'),
+}
+# (key, EditorID, name, actor value) - copies of AbFortifyStaminaRate 105F21 on the other two rate multipliers
+STAT_RATE_MGEFS = [('healrate', 'ZP_Prophecy_FortifyHealRate', 'Fortify Health Regeneration', 'HealRateMult'),
+                   ('manarate', 'ZP_Prophecy_FortifyManaRate', 'Fortify Mana Regeneration', 'MagickaRateMult')]
+# tree -> (W1, [side talents with their parent], W2); a talent = (id, name, kind, magnitude[, parent])
+STAT_NODES = {
+    'Faith': (('fst1', 'Devotion', 'light', 10),
+              [('fst2', 'Inner Light', 'mana', 25, 'faith1'), ('fst3', 'Blessed Vigour', 'health', 25, 'faith2'),
+               ('fst4', 'Mending Grace', 'healrate', 25, 'faith3'), ('fst5', 'Serenity', 'manarate', 10, 'faith5')],
+              ('fst6', 'Warding Faith', 'resmagic', 10)),
+    'Sharpshooter': (('gst1', 'Steady Aim', 'archery', 10),
+              [('gst2', 'Powder Lungs', 'stamina', 25, 'gun1'), ('gst3', 'Quick Breath', 'staminarate', 25, 'gun2'),
+               ('gst4', 'Leather Duster', 'armor', 40, 'gun3'), ('gst5', 'Bandolier', 'carry', 25, 'gun4')],
+              ('gst6', 'Hardened Nerves', 'health', 25)),
+    'Gadgets': (('dst1', 'Tinkerer', 'handicraft', 10),
+              [('dst2', 'Toolbelt', 'carry', 30, 'gad1'), ('dst3', 'Fume Mask', 'respoison', 15, 'gad2'),
+               ('dst4', 'Riveted Plating', 'armor', 40, 'gad3'), ('dst5', 'Insulated Gloves', 'resshock', 15, 'gad4')],
+              ('dst6', 'Steady Hands', 'stamina', 25)),
+    'Martial Arts': (('mst1', 'Conditioning', 'stamina', 25),
+              [('mst2', 'Iron Knuckles', 'unarmed', 5, 'ma1'), ('mst3', 'Breath Control', 'staminarate', 25, 'ma2'),
+               ('mst4', 'Toughened Body', 'armor', 40, 'ma3'), ('mst5', 'Unbroken', 'health', 25, 'ma4')],
+              ('mst6', 'Inner Calm', 'resmagic', 10)),
+    'Glory': (('lst1', 'Battle-Hardened', 'health', 25),
+              [('lst2', 'Shield Discipline', 'block', 10, 'glo1'), ('lst3', 'Thick Hide', 'armor', 60, 'glo2'),
+               ('lst4', 'War Cry', 'stamina', 25, 'glo3'), ('lst5', 'Veteran', 'melee', 10, 'glo5')],
+              ('lst6', 'Iron Constitution', 'healrate', 25)),
+    'Arcane Archery': (('ast1', 'Arcane Focus', 'mana', 25),
+              [('ast2', "Fletcher's Eye", 'archery', 10, 'arc1'), ('ast3', 'Mana Spring', 'manarate', 10, 'arc2'),
+               ('ast4', 'Frostbound', 'resfrost', 15, 'arc3'), ('ast5', "Owl's Vigil", 'stamina', 25, 'arc4')],
+              ('ast6', 'Spellward', 'resmagic', 10)),
+    'Necromancy': (('nst1', 'Dark Studies', 'entropy', 10),
+              [('nst2', 'Grave Pact', 'mana', 25, 'nec1'), ('nst3', 'Corpse Ward', 'respoison', 15, 'nec2'),
+               ('nst4', "Death's Patience", 'manarate', 10, 'nec3'), ('nst5', 'Cold Blood', 'resfrost', 15, 'nec4')],
+              ('nst6', 'Bone Armour', 'armor', 40)),
+}
+STAT_FIRST_ID = 0x9C4
+FAITH_CAPSTONE = {'Faith': 'faith4'}     # the 2026-10-25 rework: Templar (faith5) is the merge talent now
+CAPSTONE_LEVEL = 30                      # every capstone needs this player level (curator 2026-10-25; ZP_ProphecyMenu.LevelReq)
+STAT = {}                          # node id -> (kind, magnitude)
+
+
+def weave_stats():
+    """Insert STAT_NODES into TREES: W1 after the root (the root's children now need W1), W2 before the capstone
+    (the last node; it now needs W2, which needs what the capstone needed), each side talent after its parent."""
+    for k, (tree, desc, ns) in enumerate(TREES):
+        (w1, sides, w2) = STAT_NODES[tree]
+        ns = list(ns)
+        root, capid = ns[0][0], FAITH_CAPSTONE.get(tree, ns[-1][0])
+        stat = lambda s, parents: (s[0], s[1], STAT_FX[s[2]][1].format(m=s[3]), None, [], parents)
+        kids = [i for i, n in enumerate(ns) if n[5] == [root]]
+        assert len(kids) == 2, (tree, 'root should have two children', kids)
+        for i in kids: ns[i] = ns[i][:5] + ([w1[0]],)
+        ns.insert(1, stat(w1, [root]))
+        ci = next(i for i, n in enumerate(ns) if n[0] == capid)
+        cap = ns[ci]
+        ns[ci] = cap[:5] + ([w2[0]],)
+        ns.insert(ci, stat(w2, list(cap[5])))
+        for s in sides:
+            after = w1[0] if s[4] == root else s[4]          # a side talent off the root reads after W1
+            at = next(i for i, n in enumerate(ns) if n[0] == after)
+            ns.insert(at + 1, stat(s, [s[4]]))
+        for s in [w1, w2] + sides: STAT[s[0]] = (s[2], s[3])
+        assert len(ns) == 11, (tree, len(ns))
+        TREES[k] = (tree, desc, ns)
+
+
+weave_stats()
+
+
+
+# ------------------------------------------------------------------------------------------------ Holy Templar Magic
+# Kittytails' Holy Templar Magic (Lightpower.esl; the curator has her permission to convert the spells, 2026-10-25).
+# Its six player spells and their 73-record closure are copied in from reference/mods/HolyTemplarMagic and allocated
+# after everything else (HOLY_FIRST_ID). Left out: the 6 tomes and both injector quests (their 6 vanilla leveled lists
+# do not exist in Enderal), the author's test cell (Dawnguard 001DBA) and the NPC/SPID variants (their factions do not
+# exist). Loose assets come from reference/mods/_raw/HolyTemplarMagic (a copy of the mod folder). Triage and balance:
+# arch-docs/patches/Prophecy.md, "Holy Templar Magic".
+HTM = 'Lightpower.esl'
+HTM_DIR = os.path.join(REF, 'mods', 'HolyTemplarMagic')
+HTM_RAW = os.path.join(REF, 'mods', '_raw', 'HolyTemplarMagic')
+htm = lambda x: f'{x}:{HTM}'
+HOLY_SEEDS = [htm('000826'), htm('000824'), htm('000820'), htm('000822'), htm('000825'), htm('000829')]
+HOLY_FIRST_ID = 0xA1A
+# Dawnguard/Dragonborn forms (empty stubs in Enderal) -> the list's holy look (Kata's Holy Cross: MAGINVTurnUndead,
+# TurnUnFXShader) and Enderal's Restoration hand art/sounds; None drops the line (ISMs: no screen flashes; DLC races
+# on the shield's ARMA)
+HOLY_SUBST = {
+    '00F64A:Dawnguard.esm': '01C859:Skyrim.esm',   # casting art -> Heal01HandEffects
+    '018F02:Dawnguard.esm': '1097CA:Skyrim.esm',   # menu display object -> MAGINVTurnUndead
+    '019C9D:Dawnguard.esm': '04C6D8:Skyrim.esm',   # hit shaders -> TurnUnFXShader
+    '00A3BB:Dawnguard.esm': '04C6D8:Skyrim.esm',
+    '019C9E:Dawnguard.esm': '04C6D8:Skyrim.esm',   # magiceffectshaderapply's EffectShaderFX
+    '00D9AE:Dawnguard.esm': '01C2AF:Skyrim.esm',   # impact data set -> MAGFirebolt01ImpactSet
+    '00D94A:Dawnguard.esm': '056622:Skyrim.esm',   # charge sound -> MAGRestorationChargeSD
+    '019956:Dawnguard.esm': '02518F:Skyrim.esm',   # far sky-bolt boom -> MAGDestructionFireballExplosionDistant
+    '00A3BE:Dawnguard.esm': None, '00AE9D:Dawnguard.esm': None,
+    '00E88A:Dawnguard.esm': None, '00377D:Dawnguard.esm': None, '03CA97:Dragonborn.esm': None,
+}
+# Prices on the list's cost ladder (EGO's medians, src/MagicPatches/tools/*-cost-table.json: FF 30/53.5/76.5/97/124
+# by tier, Concentration 7/16/28/37/43 per second); Wrath of the Heavens is a 60 s buff, priced between the master
+# rung and Holy Aura (Rank III), 258 for its 60 s cloak.
+HOLY_COST = {htm('000826'): 30, htm('000824'): 18, htm('000820'): 76, htm('000822'): 97, htm('000825'): 124,
+             htm('000829'): 200}   # Wrath of the Lightborn: the curator's 200 Mana (2026-10-25)
+# (spell, effect, field, old, new). Damage sits next to Enderal's own holy line at the same tier (Holy Ray, Holy
+# Cross, Holy Sun Burst; arch-docs/magic/data/spells.json); the mod's "undead take double damage" is kept.
+HOLY_EDITS = [
+    ('000826', '000816', 'Magnitude', '60', '30'),    # Consecrate Dead: restores 30 Health/Mana/Stamina (was 60)
+    ('000826', '000817', 'Magnitude', '8', '15'),     # ... and undead in it take 15
+    ('000827', '000818', 'Magnitude', '60', '30'),    # Blessing, the heal it casts
+    ('000827', '000819', 'Magnitude', '60', '30'),
+    ('000824', '000810', 'Magnitude', '20', '12'),    # Sun Shards 12/s (Holy Ray III at skill 25: 11.3)
+    ('000824', '000811', 'Magnitude', '20', '12'),
+    ('000820', '000804', 'Magnitude', '10', '20'),    # Sunlight Targe: its beam's damage (description)
+    ('000863', '000860', 'Magnitude', '8', '20'),     # ... the Reflector Beam itself
+    ('000822', '000814', 'Magnitude', '80', '40'),    # Hallowed Flare (description)
+    ('000823', '000812', 'Magnitude', '80', '40'),    # each sky-bolt's centre, shared with Wrath of the Heavens
+    ('000823', '000813', 'Magnitude', '80', '40'),
+    ('00081F', '000802', 'Magnitude', '40', '10'),    # each scattered beam (9 per Flare bolt, 6 per Wrath bolt)
+    ('00081F', '000803', 'Magnitude', '40', '10'),
+    ('000821', '000805', 'Magnitude', '8', '6'),      # Sanctuary's rising damage per second, x0.75
+    ('000821', '000806', 'Magnitude', '12', '9'),
+    ('000821', '000807', 'Magnitude', '16', '12'),
+    ('000821', '000808', 'Magnitude', '20', '15'),
+    ('000821', '000809', 'Magnitude', '24', '18'),
+    ('000821', '00080A', 'Magnitude', '8', '6'),
+    ('000821', '00080B', 'Magnitude', '16', '12'),
+    ('000821', '00080C', 'Magnitude', '24', '18'),
+    ('000829', '00081A', 'Magnitude', '80', '40'),    # Wrath of the Heavens (description): 60 s, not 120
+    ('000829', '00081A', 'Duration', '120', '60'),
+    ('000829', '00081B', 'Duration', '120', '60'),
+    ('000829', '00081B', 'Magnitude', '45', '20'),    # its cloak's reach in feet (no sniping across the map)
+]
+# The Faith rework's names (curator 2026-10-25), on every display string of the copied records
+HOLY_RENAME = [('Hallowed Flare', 'Smite'), ('Sunlight Targe', 'Righteous Path'),
+               ('Wrath of the Heavens', 'Wrath of the Lightborn')]
+HOLY_WRATH_FEVER = 50     # Arcane Fever per cast; the spell does nothing at this much fever or more (100% kills)
+
+
+def holy_closure(hidx):
+    """The six player spells and everything of Lightpower.esl they reach, in source-ID order."""
+    seen, q = set(), list(HOLY_SEEDS)
+    while q:
+        fk = q.pop()
+        if fk in seen: continue
+        assert fk in hidx, f'Holy Templar record {fk} missing from {HTM_DIR}'
+        seen.add(fk)
+        for a, b in FK.findall(hidx[fk][2]):
+            if b == HTM: q.append(f'{a}:{b}')
+    assert not any(hidx[fk][0] in ('Books', 'Quests', 'Cells') for fk in seen), 'Holy closure reached tomes/quests'
+    return sorted(seen)
+
+
 GLORY = 'Glory'
+ARCANE = 'Arcane Archery'
+NECRO = 'Necromancy'
 GLORY_FIRST_ID = 0x916
 # Glory nodes added after the Glory block was laid out get IDs at the END (after GLORY_RECORDS_5), so nothing that
 # existing saves point at moves. glo5 (2026-10-22) = 0x93A: first Death or Glory (power attacks stronger below 75%
@@ -113,9 +339,14 @@ SUBST = {
     '01397D:Skyrim.esm': '0800E4:Skyrim.esm',  # Bear Trap recipe's 20x (vanilla-only item) -> Leather Strips
     '09E0C9:Skyrim.esm': None,                 # Hunt Together wolf's faction (wolf never spawns: perk unpicked)
     '0A85C7:Skyrim.esm': None,                 # ... and its InheritsSoundsFrom
+    # Lion's Arrow's exclusion list (spells it will not store): four vanilla spells Enderal does not have
+    '0211EC:Skyrim.esm': None, '0211ED:Skyrim.esm': None, '0C96A0:Skyrim.esm': None, '0F9615:Skyrim.esm': None,
 }
 # A node renamed after release keeps its EditorID (the thumbnail file and the menu's Images path follow it).
-EDITORID = {'gad1': 'ZP_Prophecy_Tripwire', 'glo5': 'ZP_Prophecy_DeathorGlory'}   # gad3 follows its name: ZP_Prophecy_UtilityDroid
+EDITORID = {'gad1': 'ZP_Prophecy_Tripwire', 'glo5': 'ZP_Prophecy_DeathorGlory', 'arc4': 'ZP_Prophecy_SendaRaven',
+            'arc5': 'ZP_Prophecy_LionsArrow',   # gad3 follows its name: ZP_Prophecy_UtilityDroid
+            # the curator's thumbnail names
+            'nec3': 'ZP_Prophecy_WillingSacrifice', 'nec4': 'ZP_Prophecy_DeadDontForget', 'nec5': 'ZP_Prophecy_LegionDamned'}
 # Exact display strings renamed on the copied records (the power, its effect, the wire, its quest).
 RENAME = {'Tripwire': 'Explosive Tripwire'}
 
@@ -125,7 +356,8 @@ def perk_edid(node):
 
 
 LORE = [('Dwemer Autocannon', 'Clockwork Turret'), ('Dwarven Autocannon', 'Clockwork Turret'),
-        ('Dwemer', 'Clockwork'), ('Dwarven', 'Clockwork'), ('Skyrim', 'Vyn'), ('Light Armor experience', 'nothing')]
+        ('Dwemer', 'Clockwork'), ('Dwarven', 'Clockwork'), ('Skyrim', 'Vyn'), ('Light Armor experience', 'nothing'),
+        ("Lion's Arrow", 'Arcane Echo')]   # Arcane Archery 5 (curator 2026-10-23): the perk, its power and effects
 
 
 def ed(t):
@@ -151,9 +383,14 @@ def main():
             if fk in idx[p]: return p
     # --- closure over source records (stop at perks: perks are only copied when picked)
     nodes = {n[0]: n for _, _, ns in TREES for n in ns}
+    arc_nids = [n[0] for t, _, ns in TREES if t == ARCANE for n in ns if n[0] not in STAT]
+    nec_nids = [n[0] for t, _, ns in TREES if t == NECRO for n in ns if n[0] not in STAT]
     picked = {n[3]: n[0] for n in nodes.values() if n[3]}
     alias = {a: nid for nid, n in nodes.items() for a in n[4]}
-    seeds = list(picked) + list(alias) + EXTRA_SEEDS
+    # the older trees close over exactly the seeds they always had (same order, same IDs); Arcane Archery's own
+    # closure is a second pass below, allocated last
+    old_picked = {fk: nid for fk, nid in picked.items() if nid not in arc_nids}
+    seeds = list(old_picked) + list(alias) + EXTRA_SEEDS
     copy, q = [], list(seeds)
     while q:
         fk = q.pop()
@@ -163,7 +400,7 @@ def main():
         ty, _, t = rec[fk]
         for h, f in FK.findall(t):
             r = f'{h}:{f}'
-            if r in rec and r not in copy and (rec[r][0] != 'Perks' or r in picked or r in alias):
+            if r in rec and r not in copy and (rec[r][0] != 'Perks' or r in old_picked or r in alias):
                 q.append(r)
     # COBJ recipes that unlock on a picked perk (Bear Traps, the turret) - reverse refs
     for fk, (ty, _, t) in rec.items():
@@ -190,13 +427,26 @@ def main():
                 for h, f in FK.findall(rec[x][2]):
                     r = f'{h}:{f}'
                     if r in rec and rec[r][0] != 'Perks': q.append(r)
+    # Arcane Archery's closure (Lion's Arrow + the Mage Ward art): only what the older trees did not already copy
+    arc_copy = []
+    q = [fk for fk, nid in picked.items() if nid in arc_nids] + ARC_SEEDS
+    while q:
+        fk = q.pop()
+        if fk in copy or fk in late or fk in arc_copy: continue
+        assert fk in rec, f'seed/ref {fk} not in any source tree'
+        arc_copy.append(fk)
+        for h, f in FK.findall(rec[fk][2]):
+            r = f'{h}:{f}'
+            if r in rec and (rec[r][0] != 'Perks' or r in picked or r in alias):
+                q.append(r)
+    assert not any(rec[fk][0] in ('Scenes', 'ConstructibleObjects') for fk in arc_copy), 'Arcane closure needs scenes/recipes'
     # --- allocate
     newid, nxt = {}, FIRST_ID
     nodeperk = {}
-    glory_all = [n[0] for t, _, ns in TREES if t == GLORY for n in ns]
+    glory_all = [n[0] for t, _, ns in TREES if t == GLORY for n in ns if n[0] not in STAT]
     glory_nodes = [nid for nid in glory_all if nid not in GLORY_LATE_NODES]
     for nid, n in nodes.items():                         # perks first, in tree order, for readable IDs
-        if nid in glory_all: continue
+        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT: continue
         if n[3]: newid[n[3]] = f'{nxt:06X}:{MOD}'
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     for a, nid in alias.items(): newid[a] = nodeperk[nid]
@@ -226,17 +476,65 @@ def main():
     glory.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(GLORY_RECORDS_6)}); nxt += len(GLORY_RECORDS_6)
     nova = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(FLOW_NOVA_RECORDS)}; nxt += len(FLOW_NOVA_RECORDS)
     droid = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(DROID_RECORDS)}; nxt += len(DROID_RECORDS)
+    deadeye = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(('sound', 'marker', 'mgef'))}; nxt += 3
+    bleedsnd = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(('sound', 'marker', 'mgef'))}; nxt += 3
+    # Arcane Archery (2026-10-23): its perks, its hand-built records, then Lion's Arrow's copied closure
+    for nid in arc_nids:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    for fk, nid in picked.items():
+        if nid in arc_nids: newid[fk] = nodeperk[nid]
+    assert nodeperk['arc1'] == f'00094E:{MOD}', nodeperk['arc1']
+    arc = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(ARC_RECORDS)}; nxt += len(ARC_RECORDS)
+    for fk in arc_copy:
+        if fk not in newid: newid[fk] = f'{nxt:06X}:{MOD}'; nxt += 1
+    copy += arc_copy
+    sharp = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(SHARP_RECORDS)}; nxt += len(SHARP_RECORDS)   # 2026-10-23
+    # Necromancy (2026-10-23): its perks, then its hand-built records
+    assert nxt == 0x992, f'Necromancy would not start at 0x992 (0x{nxt:03X})'
+    for nid in nec_nids:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    nec = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(NEC_RECORDS)}; nxt += len(NEC_RECORDS)
+    # the thrown Utility Droid (2026-10-23)
+    assert nxt == 0x9AA, f'Utility Droid throw would not start at 0x9AA (0x{nxt:03X})'
+    droid.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(DROID_THROW_RECORDS)}); nxt += len(DROID_THROW_RECORDS)
+    droid.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(DROID_HEAL_RECORDS)}); nxt += len(DROID_HEAL_RECORDS)
+    assert droid['healspell'] == f'0009AF:{MOD}', droid['healspell']     # ZP_UtilityDroidEffect looks it up by this ID
     glory['quickreflexes_me'] = newid[f'07B100:{ORD}']     # ORD_Bck_QuickReflexes_Effect_Self
+    # the sound when a Prophecy point is gained (2026-10-25)
+    assert nxt == 0x9B0, f'point sound would not start at 0x9B0 (0x{nxt:03X})'
+    pointsnd = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(('sound', 'marker'))}; nxt += 2
+    assert pointsnd['marker'] == f'0009B1:{MOD}', pointsnd['marker']   # ZP_ProphecyMenu looks it up by this ID
+    # Prophecy v3's selection notes (2026-10-25): one SNDR per note of the curator's piano melody, played in order
+    notes = [f'{nxt + i:06X}:{MOD}' for i in range(SELECT_NOTES)]; nxt += SELECT_NOTES
+    # the stat talents (2026-10-25): their perks in tree order, then one ability each, then the two regen MGEFs
+    assert nxt == STAT_FIRST_ID, f'stat talents would not start at 0x{STAT_FIRST_ID:03X} (0x{nxt:03X})'
+    stat_ids = [nid for nid in nodes if nid in STAT]
+    for nid in stat_ids:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    statab = {}
+    for nid in stat_ids:
+        statab[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    ratemgef = {key: f'{nxt + i:06X}:{MOD}' for i, (key, *_) in enumerate(STAT_RATE_MGEFS)}; nxt += len(STAT_RATE_MGEFS)
+    # Holy Templar Magic (2026-10-25): its copied closure, in source-ID order
+    assert nxt == HOLY_FIRST_ID, f'Holy Templar records would not start at 0x{HOLY_FIRST_ID:03X} (0x{nxt:03X})'
+    hidx = index(HTM_DIR)
+    hcopy = holy_closure(hidx)
+    SUBST.update(HOLY_SUBST)
+    for fk in hcopy:
+        newid[fk] = f'{nxt:06X}:{MOD}'; nxt += 1
+    # the Faith rework (2026-10-25): Righteous Path's ability + its effects, Smite's hit spell + effect
+    assert nxt == 0xA63, f'Faith rework records would not start at 0xA63 (0x{nxt:03X})'
+    faith = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(FAITH_RECORDS)}; nxt += len(FAITH_RECORDS)
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
     bad = collections.Counter()
 
-    def remap(t, where):
+    def remap(t, where, vanilla_ok=False):
         def sub(m):
             r = f'{m.group(1)}:{m.group(2)}'
             if r in newid: return newid[r]
-            if m.group(2) in (ORD, SOS) or r in rec:
+            if m.group(2) in (ORD, SOS) or (r in rec and not vanilla_ok):   # vanilla_ok: a base form Ordinator also overrides
                 if r in rec and rec[r][0] == 'Perks': return NEVER
                 bad[f'{r} (source record not copied) in {where}'] += 1; return r
             if m.group(2) == MOD: return r
@@ -251,7 +549,7 @@ def main():
         return t
 
     # --- wipe generated folders (keep the prototype's hand-written 0x800-0x807 files)
-    keep = {f'{i:06X}' for i in range(0x800, 0x808)} | {'000809', '00080D'}     # + 809 PointsEarned, 80D ZP_ProphecyMenu
+    keep = {f'{i:06X}' for i in range(0x800, 0x808)} | {'000809', '00080D', '00080E'}     # + 809 PointsEarned, 80D ZP_ProphecyMenu, 80E ZP_ProphecyLevelWatch (hand-written quest)
     for p in glob.glob(os.path.join(ESP, '*', '*.yaml')):
         m = re.search(r' - ([0-9A-F]{6})_', os.path.basename(p))
         if m and m.group(1) not in keep: os.remove(p)
@@ -304,6 +602,11 @@ def main():
         if ty == 'ConstructibleObjects':
             # Bear Traps' forge recipes stay copied (IDs) but can no longer unlock: Utility Droid owns that perk now
             t = t.replace(nodeperk[DROID_NODE], NEVER)
+        if '- Name: ORD_DwarvenAutocannon_Script\n' in t:
+            # Clockwork Turret aims itself (curator 2026-10-23): our rebuild of Ordinator's script, same properties
+            # (both turrets: the main effect and Overclock's Firing Line one)
+            t = t.replace('- Name: ORD_DwarvenAutocannon_Script\n', '- Name: ZP_ClockworkTurretEffect\n')
+            t = t.replace('It tracks your line of sight for <dur> seconds', 'It shoots the nearest enemy for <dur> seconds')
         write(ty, t)
 
     # --- perks, one per node
@@ -341,6 +644,47 @@ def main():
             t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit)
         if nid == 'ma5':
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + flowab + '\n'
+        # Sharpshooter, muskets only (curator 2026-10-23): item type 12 on the owner tab
+        if nid == 'gun1':   # Quick Reload: its own copy of PerkAbQuickShot (crossbow-type effect only) + the flag gated
+            t, n = re.subn(r'  Ability: 106642:Skyrim\.esm\n', f"  Ability: {sharp['qrab']}\n", t)
+            assert n == 1, 'Quick Reload ability'
+            t, n = re.subn(r'(- MutagenObjectType: PerkEntryPointSelectText\n)(  EntryPoint: SetBooleanGraphVariable\n)',
+                           lambda m: m.group(1) + '  Conditions:\n  - Conditions:\n' + MUSKET_TAB_COND + m.group(2), t)
+            assert n == 1, 'Quick Reload graph flag'
+        if nid == 'gun4':   # Run and Gun: next to its IsSneaking check
+            sneak = '        MutagenObjectType: IsSneakingConditionData\n'
+            assert t.count(sneak) == 1, 'Run and Gun condition'
+            t = t.replace(sneak, sneak + MUSKET_TAB_COND)
+        if nid == 'gun5':   # Deadeye: crit/damage entries gated; the enchantment entries lose their "or a bow"
+            vats = '  - Conditions:\n    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: GetVATSModeConditionData\n'
+            assert t.count(vats) == 3, ('Deadeye tab-0 entries', t.count(vats))
+            t = t.replace(vats, vats + MUSKET_TAB_COND)
+            bow_or = ('    - MutagenObjectType: ConditionFloat\n      Flags:\n      - OR\n      Data:\n'
+                      '        MutagenObjectType: GetEquippedItemTypeConditionData\n      ComparisonValue: 7\n')
+            assert t.count(bow_or) == 2, ('Deadeye bow-or entries', t.count(bow_or))
+            t = t.replace(bow_or, '')
+        # Arcane Archery: the hit-spell perks point at the shared gun hit spell (one ApplyCombatHitSpell per hit)
+        if nid in ('arc1', 'arc3', 'arc4'):
+            t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit)
+        if nid in ARC_ABILITY:
+            if 'Effects:' not in t: t = t.rstrip('\n') + '\nEffects:\n'
+            t = t.rstrip('\n') + '\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + arc[ARC_ABILITY[nid]] + '\n'
+        if nid == 'arc3':   # Ice Shot's watcher (records ice shots, puts the old ammo back) - always on with the perk
+            t = t.rstrip('\n') + '\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + sharp['icewatchab'] + '\n'
+        if nid == 'nec1':   # Corpse Fever: +1 to the summon limit at each FeverStep of Arcane Fever (LastFlattered, negated)
+            t = t.rstrip('\n') + '\nEffects:\n' + ''.join(
+                '- MutagenObjectType: PerkEntryPointModifyValue\n  Priority: 100\n  Conditions:\n  - Conditions:\n'
+                '    - MutagenObjectType: ConditionFloat\n      CompareOperator: LessThanOrEqualTo\n      Data:\n'
+                '        MutagenObjectType: GetActorValueConditionData\n        ActorValue: LastFlattered\n'
+                f'      ComparisonValue: {-step}\n  EntryPoint: ModCommandedActorLimit\n  PerkConditionTabCount: 2\n'
+                '  Modification: Add\n  Value: 1\n' for step in range(NEC['FeverStep'], 101, NEC['FeverStep']))
+        if nid in NEC_ABILITY:   # the two powers (Dark Effigy is a spell: write_menu grants it)
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + nec[NEC_ABILITY[nid]] + '\n'
+        if nid in FAITH_NEW:      # the 2026-10-25 Faith rework: the old talent's entry points and script out
+            t = re.sub(r'^Effects:\n(?:[- ].*\n)*', '', t, count=1, flags=re.M)
+            t = re.sub(r'^VirtualMachineAdapter:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
+            assert 'Effects:' not in t and 'VirtualMachineAdapter' not in t, f'{nid}: old perk body left'
+            t = t.rstrip('\n') + '\n' + FAITH_NEW[nid](faith)
         if nid == DROID_NODE:      # Bear Traps' (and Lockjaw's) entry points out, the Utility Droid power in
             t, n_eff = re.subn(r'^Effects:\n(?:[- ].*\n)*', '', t, count=1, flags=re.M)
             assert n_eff == 1 and 'Effects:' not in t, 'Bear Traps perk effects not where expected'
@@ -350,6 +694,8 @@ def main():
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + droid['power'] + '\n'
         if nid in GLORY_ABILITY:
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + glory[GLORY_ABILITY[nid]] + '\n'
+        if nid in STAT:
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + statab[nid] + '\n'
         if nid == 'glo1':      # the player keeps full speed in Seismic Stomp's slow time (as Ordinator's Quick Reflexes)
             t += ('- MutagenObjectType: PerkEntryPointModifyValue\n  Conditions:\n  - RunOnTabIndex: 1\n    Conditions:\n'
                   '    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: EPMagic_SpellHasKeywordConditionData\n'
@@ -358,23 +704,268 @@ def main():
         write('Perks', t)
 
     # --- hand-built records
-    write_gunhit(gunhit, newid, nodeperk, write)
+    write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, sharp)
     write_flow(flowab, flowme, newid, write, nova)
     write_droid(droid, write)
     write_never(write)
     write_dummies(write)
-    add_fever(newid, write, rec)
+    # add_fever(newid, write, rec) - off since 2026-10-25 (curator): Faith's free heals no longer raise Arcane Fever
     add_tripwire_blast(newid, write, blast)
     write_glory(glory, write)
+    write_arcane(arc, newid, write, sharp)
+    write_necro(nec, nodeperk, write)
+    # Quick Reload's own weapon-speed ability: PerkAbQuickShot 106642 (Enderal SE - Crossbows' winning copy, shared with
+    # Enderal's Rapid Shot) minus its bow half - Sharpshooter is muskets only
+    write('Spells', f"FormKey: {sharp['qrab']}\nEditorID: ZP_Prophecy_QuickReload_Ability\nName:\n  TargetLanguage: English\n"
+                    "  Value: Quick Reload\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
+                    "Type: Ability\nCastType: ConstantEffect\nEffects:\n- BaseEffect: 105F17:Skyrim.esm\n  Data:\n    Magnitude: 1.3\n"
+                    "  Conditions:\n  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetEquippedItemTypeConditionData\n"
+                    "      ItemSource: Right\n    ComparisonValue: 12\n")
+    write('SoundDescriptors', f"""FormKey: {pointsnd['sound']}
+EditorID: ZP_Prophecy_PointGainedSound
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- {POINT_SOUND}
+OutputModel: 0B6463:Skyrim.esm
+LoopAndRumble: {{}}
+Priority: 128
+""")
+    write('SoundMarkers', f"FormKey: {pointsnd['marker']}\nEditorID: ZP_Prophecy_PointGainedMarker\nSoundDescriptor: {pointsnd['sound']}\n")
+    for k, fk in enumerate(notes, 1):     # UI category + 2D output: heard while the menu pauses the game
+        write('SoundDescriptors', f"""FormKey: {fk}
+EditorID: ZP_Prophecy_SelectNote_{k:02d}
+Type: Standard
+Category: 064451:Skyrim.esm
+SoundFiles:
+- Data\\Sound\\FX\\Zenderal\\Prophecy\\ZEN_ProphecyNote_{k:02d}.wav
+OutputModel: 0B75FB:Skyrim.esm
+LoopAndRumble: {{}}
+Priority: 128
+""")
     for key, spell_src, name, wav in POWER_SOUNDS:
         add_power_sound(newid, write, psound[key], key, spell_src, name, wav)
+    add_smoke_invisibility(newid)
+    write_stats(nodes, statab, ratemgef, write)
+    write_holy(hidx, hcopy, remap, write)
+    write_faith(faith, newid, write)
 
     if bad:
         for k, v in sorted(bad.items()): print('UNRESOLVED', v, k)
         sys.exit('unresolved references - fix SPEC or the source trees')
     copy_assets(models, scripts)
-    write_menu(nodes, nodeperk, write, {})
+    copy_holy_assets(hidx, hcopy)
+    write_menu(nodes, nodeperk, write, {'nec2': nec['effspell'],      # spells: AddPerk would not teach them
+                                        'faith1': newid[htm('000826')], 'faith4': newid[htm('000829')]})
     print(f'records copied {len(copy)}, perks {len(nodes)}, next free ID 0x{nxt:03X}, models {len(models)}, scripts {len(scripts)}')
+
+
+def write_stats(nodes, statab, ratemgef, write):
+    """One constant ability per stat talent, plus the Health/Mana regen MGEFs (AbFortifyStaminaRate's copies)."""
+    src = open(os.path.join(REF, 'base', 'Skyrim', 'MagicEffects', 'AbFortifyStaminaRate - 105F21_Skyrim.esm.yaml'),
+               encoding='utf-8').read().replace('\r\n', '\n')
+    for key, edid, name, av in STAT_RATE_MGEFS:
+        t = re.sub(r'^FormKey: .*$', f'FormKey: {ratemgef[key]}', src, count=1, flags=re.M)
+        t = re.sub(r'^EditorID: .*$', f'EditorID: {edid}', t, count=1, flags=re.M)
+        t = re.sub(r'^Name:\n(?:  .*\n)+', f'Name:\n  TargetLanguage: English\n  Value: {name}\n', t, count=1, flags=re.M)
+        t = re.sub(r'^Description:\n(?:  .*\n)+', "Description:\n  TargetLanguage: English\n  Value: ''\n", t, count=1, flags=re.M)
+        t, n = re.subn(r'^  ActorValue: StaminaRateMult$', f'  ActorValue: {av}', t, flags=re.M)
+        assert n == 1, edid
+        write('MagicEffects', t)
+    for nid, ab in statab.items():
+        kind, mag = STAT[nid]
+        name = nodes[nid][1].replace("'", "''")
+        effs = ''.join(f'- BaseEffect: {ratemgef[e[1:]] if e.startswith("@") else e + ":Skyrim.esm"}\n  Data:\n    Magnitude: {mag}\n'
+                       for e in STAT_FX[kind][0])
+        write('Spells', f"FormKey: {ab}\nEditorID: {perk_edid(nodes[nid])}_Ability\nName:\n  TargetLanguage: English\n"
+                        f"  Value: '{name}'\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
+                        f"Type: Ability\nCastType: ConstantEffect\nEffects:\n{effs}")
+
+
+# ------------------------------------------------------------------------------------------------ Faith rework
+# (curator 2026-10-25) Allocated after the Holy Templar block, 0xA63+. Append new ones LAST.
+FAITH_RECORDS = ('rpab', 'rpme', 'rpvis', 'smitespell', 'smiteme')
+WEAPMATERIALSILVER = '10AA1A:Skyrim.esm'
+SMITE_CHANCE = 15
+# Righteous Path's conditions: blocking, with a spell or nothing in the left hand (Dual Wield Parrying blocks that way)
+RP_BLOCKING = ('  Conditions:\n'
+               '  - MutagenObjectType: ConditionFloat\n    Flags:\n    - OR\n    Data:\n'
+               '      MutagenObjectType: GetEquippedItemTypeConditionData\n      ItemSource: Left\n    ComparisonValue: 0\n'
+               '  - MutagenObjectType: ConditionFloat\n    Data:\n'
+               '      MutagenObjectType: GetEquippedItemTypeConditionData\n      ItemSource: Left\n    ComparisonValue: 9\n'
+               '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: IsBlockingConditionData\n'
+               '    ComparisonValue: 1\n')
+FAITH_NEW = {
+    'faith1': lambda f: '',      # Consecrate Dead: the spell is granted by the menu (write_menu grants)
+    'faith2': lambda f: f"Effects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: {f['rpab']}\n",
+    # Smite: its own combat hit spell, on melee hits only (bows and muskets keep the shared gun hit spell: one
+    # ApplyCombatHitSpell per hit)
+    'faith3': lambda f: ('Effects:\n- MutagenObjectType: PerkEntryPointSelectSpell\n  Conditions:\n  - RunOnTabIndex: 1\n'
+                         '    Conditions:\n    - MutagenObjectType: ConditionFloat\n      Data:\n'
+                         f'        MutagenObjectType: HasKeywordConditionData\n        Keyword: {WEAPMATERIALSILVER}\n'
+                         '      ComparisonValue: 1\n    - MutagenObjectType: ConditionFloat\n      Data:\n'
+                         f'        MutagenObjectType: HasKeywordConditionData\n        Keyword: {WEAPTYPEBOW}\n'
+                         '      ComparisonValue: 0\n  EntryPoint: ApplyCombatHitSpell\n  PerkConditionTabCount: 3\n'
+                         f"  Spell: {f['smitespell']}\n"),
+    'faith4': lambda f: '',      # Wrath of the Lightborn: granted by the menu
+}
+
+
+def write_faith(f, newid, write):
+    """Righteous Path (Kittytails' Sunlight Targe as a passive block ward, without the summoned shield: equipping it
+    would push a spell out of the left hand) and Smite (Hallowed Flare's sky-bolt on a silver hit)."""
+    def mgef(fk, edid, name, desc, extra, cast='ConstantEffect', target='', shader=''):
+        write('MagicEffects', f"""FormKey: {fk}
+EditorID: {edid}
+{extra}Name:
+  TargetLanguage: English
+  Value: {name}
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+{'' if desc else '- HideInUI' + chr(10)}{shader}Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: {cast}
+{target}DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: '{desc}'
+""")
+    mgef(f['rpme'], 'ZP_Prophecy_RighteousPath_Effect', 'Righteous Path',
+         'While you block with a spell or nothing in your left hand, each attacker you block is struck by a beam of light.',
+         'VirtualMachineAdapter:\n  Scripts:\n  - Name: ZP_RighteousPathEffect\n    Properties:\n'
+         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: CounterSpell\n      Object: {newid[htm('000863')]}\n"
+         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: HitSFX\n      Object: {newid[htm('00085D')]}\n"
+         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: ExplosionArtEffect\n      Object: {newid[htm('00085E')]}\n")
+    # the ward's glow while it is up (the list's holy shader: Kata's Holy Cross, TurnUnFXShader)
+    mgef(f['rpvis'], 'ZP_Prophecy_RighteousPath_Glow', 'Righteous Path', '', '', shader='HitShader: 04C6D8:Skyrim.esm\n')
+    write('Spells', f"""FormKey: {f['rpab']}
+EditorID: ZP_Prophecy_RighteousPath_Ability
+Name:
+  TargetLanguage: English
+  Value: Righteous Path
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: {f['rpme']}
+  Data: {{}}
+- BaseEffect: 053124:Skyrim.esm
+  Data:
+    Magnitude: 25
+""" + RP_BLOCKING + """- BaseEffect: 0E40D3:Skyrim.esm
+  Data:
+    Magnitude: 100
+""" + RP_BLOCKING + f"""- BaseEffect: {f['rpvis']}
+  Data: {{}}
+""" + RP_BLOCKING)
+    # Smite: the hit places Hallowed Flare's own explosion on the target, which drops the player's sky-bolt there
+    mgef(f['smiteme'], 'ZP_Prophecy_Smite_Effect', 'Smite', '',
+         'VirtualMachineAdapter:\n  Scripts:\n  - Name: ZP_HolyPlaceExplosion\n    Properties:\n'
+         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: ExplosionRef\n      Object: {newid[htm('000841')]}\n",
+         cast='FireAndForget', target='TargetType: Touch\n')
+    write('Spells', f"""FormKey: {f['smitespell']}
+EditorID: ZP_Prophecy_Smite_HitSpell
+Name:
+  TargetLanguage: English
+  Value: Smite
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: {f['smiteme']}
+  Data: {{}}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetRandomPercentConditionData
+    ComparisonValue: {SMITE_CHANCE}
+""")
+
+
+def write_holy(hidx, hcopy, remap, write):
+    """Holy Templar Magic's records, rebalanced (HOLY_COST/HOLY_EDITS) and repointed at Enderal forms."""
+    hits = collections.Counter()
+    for fk in hcopy:
+        ty, _, t = hidx[fk]
+        t = t.replace('\r\n', '\n')
+        for sp, eff, field, old, new in HOLY_EDITS:
+            if fk == htm(sp):
+                pat = rf'(- BaseEffect: {eff}:{re.escape(HTM)}\n  Data:\n(?:    .*\n)*?    {field}: ){re.escape(old)}\n'
+                t, n = re.subn(pat, lambda m: m.group(1) + new + '\n', t)
+                assert n == 1, ('Holy edit', sp, eff, field, old)
+                hits['edit'] += 1
+        if fk in HOLY_COST:
+            t, n = re.subn(r'^BaseCost: .*$', f'BaseCost: {HOLY_COST[fk]}', t, count=1, flags=re.M)
+            assert n == 1 and 'ManualCostCalc' in t, ('Holy cost', fk)
+            hits['cost'] += 1
+        # magicPlaceExplosionScript / MagicPlaceHazard are vanilla scripts Enderal does not ship (triage 2026-10-25):
+        # the first is re-written as ZP_HolyPlaceExplosion; Sanctuary's hazard already comes from its SpawnHazard
+        # archetype (as Enderal's own Circle of Protection), so its MagicPlaceHazard goes. AshPileObject named a
+        # Dragonborn form: without it the script's AttachAshPile uses the default pile.
+        t, n = re.subn(r'^  - Name: magicPlaceExplosionScript$', '  - Name: ZP_HolyPlaceExplosion', t, flags=re.M)
+        hits['explosion script'] += n
+        t, n = re.subn(r'^  - Name: MagicPlaceHazard\n    Properties:\n(?:    .*\n)*', '', t, flags=re.M)
+        hits['hazard script'] += n
+        t, n = re.subn(r'^    - MutagenObjectType: ScriptObjectProperty\n      Name: AshPileObject\n      Object: .*\n', '', t, flags=re.M)
+        hits['ash pile'] += n
+        if fk == htm('000829'):   # Wrath of the Lightborn: the fever, and nothing at all at or above HOLY_WRATH_FEVER
+            ok = ('  Conditions:\n  - MutagenObjectType: ConditionFloat\n    CompareOperator: GreaterThan\n    Data:\n'
+                  '      MutagenObjectType: GetActorValueConditionData\n      ActorValue: LastFlattered\n'
+                  f'    ComparisonValue: {-HOLY_WRATH_FEVER}\n')
+            t, n = re.subn(r'^(- BaseEffect: .*\n  Data:\n(?:    .*\n)*)', lambda m: m.group(1) + ok, t, flags=re.M)
+            assert n == 2 and 'Conditions:' not in t.replace(ok, ''), 'Wrath effects'
+            t = t.rstrip('\n') + f'\n- BaseEffect: {FEVER}\n  Data:\n    Magnitude: {HOLY_WRATH_FEVER}\n    Duration: 1\n' + ok
+            hits['fever'] += 1
+        t = remap(t, ed(t), vanilla_ok=True)
+        t = re.sub(r'^EditorID: _LIP_', 'EditorID: ZP_Holy_', t, count=1, flags=re.M)
+        def rename(m):
+            line = m.group(0)
+            for a, b in HOLY_RENAME: line = line.replace(a, b)
+            return line
+        t = re.sub(r'^\s*(?:Value|String): .*$', rename, t, flags=re.M)
+        write(ty, t)
+    assert hits == {'edit': len(HOLY_EDITS), 'cost': len(HOLY_COST), 'explosion script': 4, 'hazard script': 1,
+                    'ash pile': 1, 'fever': 1}, hits
+
+
+def copy_holy_assets(hidx, hcopy):
+    """The mod's loose meshes, sound and scripts that the copied records name (vanilla paths stay in Enderal's BSAs)."""
+    assets = os.path.join(PATCH, 'assets')
+    shutil.rmtree(os.path.join(assets, 'sound'), ignore_errors=True)
+    n = 0
+    for fk in hcopy:
+        t = hidx[fk][2]
+        for f in re.findall(r'^\s+File: (.+?\.nif)\s*$', t, re.M | re.I):
+            src = os.path.join(HTM_RAW, 'meshes', f.strip("'\"").replace('\\', os.sep))
+            if os.path.isfile(src):
+                dst = os.path.join(assets, 'meshes', f.strip("'\"").lower().replace('\\', os.sep))
+                os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copyfile(src, dst); n += 1
+        for f in re.findall(r'^- (data\\sound\\.+?\.wav)\s*$', t, re.M | re.I):
+            src = os.path.join(HTM_RAW, f[5:].replace('\\', os.sep))
+            if os.path.isfile(src):
+                dst = os.path.join(assets, f[5:].lower().replace('\\', os.sep))
+                os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copyfile(src, dst); n += 1
+        for s in re.findall(r'^  - Name: (_LIP_\w+)\s*$', t, re.M | re.I):
+            src = os.path.join(HTM_RAW, 'scripts', s.lower() + '.pex')
+            assert os.path.isfile(src), f'Holy Templar script {s} not in {HTM_RAW}'
+            shutil.copyfile(src, os.path.join(PATCH, 'Scripts', 'compiled', s.lower() + '.pex')); n += 1
+    print(f'  Holy Templar Magic: {len(hcopy)} records, {n} asset copies')
 
 
 def add_unarmed(t):
@@ -402,7 +993,7 @@ def gun_hit_effect(spell):
             f'  Spell: {spell}\n')
 
 
-def write_gunhit(gunhit, newid, nodeperk, write):
+def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late):
     """One hit spell for both gun perks (ApplyCombatHitSpell applies a single spell per hit): Monk's bleed
     effect gated on Bleeding Shot, Enderal's weapon fire-enchant effect gated on Elemental Rounds."""
     monk_spell = newid[f'000879:{SOS}']
@@ -411,7 +1002,7 @@ def write_gunhit(gunhit, newid, nodeperk, write):
     be = (bleed.group(1) or bleed.group(2))
     t = re.sub(r'^FormKey: .*$', f'FormKey: {gunhit}', t, count=1, flags=re.M)
     t = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_GunHitSpell', t, count=1, flags=re.M)
-    t = re.sub(r'^(Name:\n  TargetLanguage: English\n  Value: ).*$', r'\1Gunslinger', t, count=1, flags=re.M)
+    t = re.sub(r'^(Name:\n  TargetLanguage: English\n  Value: ).*$', r'\1Sharpshooter', t, count=1, flags=re.M)
     def gate(perk):
         # MutagenObjectType must be the first key under Data or Spriggit fails to read it
         return ('  Conditions:\n  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: HasPerkConditionData\n'
@@ -420,10 +1011,43 @@ def write_gunhit(gunhit, newid, nodeperk, write):
     eff = re.search(r'^Effects:\n((?:[- ].*\n)*)', t, re.M)
     assert eff, 'Monk spell has no Effects'
     body = eff.group(1)
-    body = re.sub(r'(- BaseEffect: .*\n(?:  Data:\n(?:    .*\n)*)?)', lambda m: m.group(1) + gate(nodeperk['gun3']), body, count=1)
-    body += (f'- BaseEffect: {FIRE_ENCH}\n  Data:\n    Magnitude: 10\n    Duration: 0\n' + gate(nodeperk['gun2']))
+    body = re.sub(r'(- BaseEffect: .*\n(?:  Data:\n(?:    .*\n)*)?)', lambda m: m.group(1) + gate(nodeperk['gun3']) + MUSKET_IN_HAND, body, count=1)
+    body += (f'- BaseEffect: {FIRE_ENCH}\n  Data:\n    Magnitude: 10\n    Duration: 0\n' + gate(nodeperk['gun2']) + MUSKET_IN_HAND)
+    # Deadeye shares this spell (2026-10-23). ApplyCombatHitSpell applies one spell per hit and owning Deadeye means
+    # owning both gun perks, so Ordinator's own Deadeye hit spell competed with this one. Its other 11 effects are all
+    # gated on ZP_Prophecy_Never; only Snipe Blocker + Snipe (in Ordinator's order) carry over.
+    by_edid = lambda ty, e: [x for x in glob.glob(os.path.join(ESP, ty, '*.yaml')) if os.path.basename(x).startswith(e + ' - ')]
+    fk_of = lambda x: re.search(r'^FormKey: (.+?)\s*$', open(x, encoding='utf-8').read(), re.M).group(1)
+    snipe = fk_of(by_edid('MagicEffects', 'ZP_ORD_Arc_ArcheryOnHit_Effect_Snipe')[0])
+    blocker = fk_of(by_edid('MagicEffects', 'ZP_ORD_Arc_ArcheryOnHit_Effect_Snipe_Blocker')[0])
+    ord_path = by_edid('Spells', 'ZP_ORD_Arc_ArcheryOnHit_Spell')[0]
+    ot = open(ord_path, encoding='utf-8').read().replace('\r\n', '\n')
+    blocks = re.findall(r'^- BaseEffect: .*\n(?:  .*\n)*', ot, re.M)
+    keep = [b for b in blocks if b.split('\n')[0].split(': ')[1] in (blocker, snipe)]
+    assert [b.split('\n')[0].split(': ')[1] for b in keep] == [blocker, snipe], 'Snipe effects missing or reordered'
+    # the curator's rocket-launcher blast when Deadeye triggers: a target without Snipe takes the triple crit
+    # (Ordinator's Blocker only lands when Snipe is already on). First in the list, so Snipe is not on it yet.
+    sound_records(write, deadeye, 'DeadeyeShot', 'Deadeye', DEADEYE_WAV, on_caster=True)
+    lacks = lambda me: ('  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: HasMagicEffectConditionData\n'
+                        f'      MagicEffect: {me}\n')
+    # Bleeding Shot's proc (curator's file, 2026-10-23): a bloody knife on the victim when a bleed starts - the
+    # bleed's own GetDead == 0, and not while one runs (it is NoRecast). Before the bleed in the list.
+    sound_records(write, bleedsnd, 'BleedingShot', 'Bleeding Shot', BLEED_WAV, touch=True)
+    # Sharpshooter is muskets only (MUSKET_IN_HAND), Snipe's markers included, so a bow hit cannot spend Deadeye
+    keep = [b + '  Conditions:\n' + MUSKET_IN_HAND for b in keep]
+    assert all(b.count('Conditions:') == 1 for b in keep), 'Snipe effect gained its own conditions - merge them'
+    body = (f"- BaseEffect: {deadeye['mgef']}\n  Data: {{}}\n" + gate(nodeperk['gun5']) + lacks(snipe) + MUSKET_IN_HAND
+            + f"- BaseEffect: {bleedsnd['mgef']}\n  Data: {{}}\n" + gate(nodeperk['gun3'])
+            + '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetDeadConditionData\n'
+            + lacks(be) + MUSKET_IN_HAND
+            + body + arcane_hits(arc, late, nodeperk, gate, lacks) + ''.join(keep))
     t = t[:eff.start(1)] + body + t[eff.end(1):]
     write('Spells', t)
+    pp = glob.glob(os.path.join(ESP, 'Perks', f"* - {nodeperk['gun5'].split(':')[0]}_*"))[0]
+    pt = open(pp, encoding='utf-8').read().replace('\r\n', '\n')
+    ord_fk = fk_of(ord_path)
+    assert pt.count(f'  Spell: {ord_fk}\n') == 1, 'Deadeye hit-spell entry not found'
+    open(pp, 'w', encoding='utf-8', newline='\r\n').write(pt.replace(f'  Spell: {ord_fk}\n', f'  Spell: {gunhit}\n'))
 
 
 def write_flow(ab, me, newid, write, nova):
@@ -553,6 +1177,9 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: StaggerSpell
       Object: {d['stg']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HealSpell
+      Object: {d['healspell']}
     - MutagenObjectType: ScriptFloatProperty
       Name: HealAmount
       Data: {DROID['HealAmount']}
@@ -648,8 +1275,11 @@ VirtualMachineAdapter:
   - Name: ZP_UtilityDroidPowerEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
-      Name: Droid
-      Object: {d['npc']}
+      Name: ThrowSpell
+      Object: {d['throwspell']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SwingSound
+      Object: 07BB93:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
       Name: SpareParts
       Object: {SPARE_PARTS}
@@ -662,12 +1292,6 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptIntProperty
       Name: Cost
       Data: {DROID['Cost']}
-    - MutagenObjectType: ScriptFloatProperty
-      Name: BaseHealth
-      Data: {DROID['BaseHealth']}
-    - MutagenObjectType: ScriptFloatProperty
-      Name: HealthPerLevel
-      Data: {DROID['HealthPerLevel']}
 Name:
   TargetLanguage: English
   Value: Utility Droid
@@ -689,6 +1313,69 @@ Description:
 """)
     write('FormLists', f"FormKey: {d['list']}\nEditorID: ZP_Prophecy_UtilityDroid_Current\n")
     write('Globals', f"MutagenObjectType: GlobalShort\nFormKey: {d['free']}\nEditorID: ZP_Prophecy_UtilityDroid_FreeUsed\nData: 0\n")
+
+    # --- the throw (curator 2026-10-23): Enderal's Starling Dummy talent chain, copied. Its aimed spell's lobbed
+    # projectile (the curled-up Starling spider, gravity 0.7) bursts on landing; the burst places an invisible activator
+    # whose script places the droid (ZP_UtilityDroidPlacerScript). Each record is SureAI's with its links re-pointed.
+    def sub1(t, pat, rep, what):
+        t2, k = re.subn(pat, rep, t, count=1, flags=re.M)
+        assert k == 1, f'{what}: {pat}'
+        return t2
+    names = {'throwspell': 'ZP_Prophecy_UtilityDroid_ThrowSpell', 'throwme': 'ZP_Prophecy_UtilityDroid_ThrowEffect',
+             'throwproj': 'ZP_Prophecy_UtilityDroid_ThrowProjectile', 'throwexp': 'ZP_Prophecy_UtilityDroid_ThrowExplosion',
+             'placer': 'ZP_Prophecy_UtilityDroid_Placer'}
+    folder = {'throwspell': 'Spells', 'throwme': 'MagicEffects', 'throwproj': 'Projectiles', 'throwexp': 'Explosions',
+              'placer': 'Activators'}
+    for key, src in STARLING_DUMMY.items():
+        t = open(src, encoding='utf-8').read().replace('\r\n', '\n')
+        t = sub1(t, r'^FormKey: .*$', f'FormKey: {d[key]}', key)
+        t = sub1(t, r'^EditorID: .*$', f'EditorID: {names[key]}', key)
+        for block in ('Name', 'Description'):          # SureAI's localized strings -> one English line
+            t = re.sub(rf'^{block}:\n(?:  .*\n)*', f"{block}:\n  TargetLanguage: English\n  Value: {'Utility Droid' if block == 'Name' else chr(39) * 2}\n",
+                       t, count=1, flags=re.M)
+        if key == 'throwspell':
+            t = sub1(t, r'^- BaseEffect: 0F64A6:Skyrim\.esm$', f"- BaseEffect: {d['throwme']}", key)
+        elif key == 'throwme':
+            t = sub1(t, r'^Projectile: 0697F1:Skyrim\.esm$', f"Projectile: {d['throwproj']}", key)
+        elif key == 'throwproj':
+            t = sub1(t, r'^Explosion: 069836:Skyrim\.esm$', f"Explosion: {d['throwexp']}", key)
+        elif key == 'throwexp':
+            t = sub1(t, r'^PlacedObject: 06983E:Skyrim\.esm$', f"PlacedObject: {d['placer']}", key)
+            t = sub1(t, r'^ImageSpaceModifier: .*\n', '', key)        # MAGShockExpImod's flash (curator: no screen effects)
+        elif key == 'placer':
+            t = sub1(t, r'^VirtualMachineAdapter:\n(?:  .*\n)*',
+                     'VirtualMachineAdapter:\n  Scripts:\n  - Name: ZP_UtilityDroidPlacerScript\n    Properties:\n'
+                     f"    - MutagenObjectType: ScriptObjectProperty\n      Name: Droid\n      Object: {d['npc']}\n"
+                     f"    - MutagenObjectType: ScriptObjectProperty\n      Name: DroidList\n      Object: {d['list']}\n"
+                     '    - MutagenObjectType: ScriptObjectProperty\n      Name: DustExplosion\n      Object: 0EEFB1:Skyrim.esm\n'
+                     f"    - MutagenObjectType: ScriptFloatProperty\n      Name: BaseHealth\n      Data: {DROID['BaseHealth']}\n"
+                     f"    - MutagenObjectType: ScriptFloatProperty\n      Name: HealthPerLevel\n      Data: {DROID['HealthPerLevel']}\n", key)
+            t = sub1(t, r'^Destructible:\n(?:  .*\n)*', '', key)    # SureAI's self-destroying placer; ours deletes itself
+        assert not re.search(r'0F64A6|0697F1|069836|06983E|_00E_A2_', t), f'{key} still links SureAI\'s chain'
+        write(folder[key], t)
+
+    # --- the heal's look (curator 2026-10-23: "an effect for when the droid heals me"): the droid casts this at the
+    # player instead of restoring Health silently. Enderal's own heal-other effect RestoreHealthFFActor 01CEA7 (as in
+    # HealOther 012FD2): the healing shimmer (HitShader 012FD9 + HitEffectArt 03F1B4), no Arcane Fever.
+    write('Spells', f"""FormKey: {d['healspell']}
+EditorID: ZP_Prophecy_UtilityDroid_Heal
+Name:
+  TargetLanguage: English
+  Value: Utility Droid
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: 01CEA7:Skyrim.esm
+  Data:
+    Magnitude: {DROID['HealAmount']}
+""")
 
 
 def write_dummies(write):
@@ -781,6 +1468,12 @@ Conditions:
 
 # Sounds on using a power that ships silent (curator's files, 2026-10-22): (key, source power, display name, file).
 # The .wav files are loose and not committed - tools/03-install-sounds.py. Append new entries LAST (IDs follow order).
+# Deadeye's trigger sound (curator's file, 2026-10-23), carried by the gun hit spell - see write_gunhit
+DEADEYE_WAV = r'Data\Sound\FX\Zenderal\ZEN_DeadeyeShot_01.wav'
+BLEED_WAV = r'Data\Sound\FX\Zenderal\ZEN_BleedingShot_01.wav'     # Bleeding Shot's proc, same spell
+
+SELECT_NOTES = 18     # v3: notes of the curator's piano melody (src/ProphecyV3/tools/03-split-piano.py; not committed)
+POINT_SOUND = r'Data\Sound\FX\Zenderal\ZEN_ProphecyPoint_01.wav'   # a Prophecy point is gained; not committed: tools/03
 POWER_SOUNDS = [
     ('Tripwire_Ratchet', f'0379A4:{ORD}', 'Explosive Tripwire', r'Data\Sound\FX\Zenderal\ZEN_TripwireRatchet_01.wav'),
     ('Smokescreen_Burst', f'036EB3:{ORD}', 'Smokescreen', r'Data\Sound\FX\Zenderal\ZEN_SmokescreenBurst_01.wav'),
@@ -791,6 +1484,34 @@ def add_power_sound(newid, write, r, key, spell_src, name, wav):
     """A sound when a power is used (Explosive Tripwire's ratchet as the player kneels, Smokescreen's burst; both
     ship silent from Ordinator). An extra effect on the power whose script plays one sound - Ordinator's own scripts
     stay untouched."""
+    sound_records(write, r, key, name, wav)
+    h = newid[spell_src].split(':')[0]
+    p = glob.glob(os.path.join(ESP, 'Spells', f'* - {h}_*'))[0]
+    t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
+    assert r['mgef'] not in t
+    t = t.rstrip('\n') + f"\n- BaseEffect: {r['mgef']}\n  Data: {{}}\n"
+    assert re.search(r'^Effects:\n(?:[- ].*\n)+- BaseEffect: ' + re.escape(r['mgef']), t + '\n', re.M), 'Effects is not the last block'
+    open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
+
+
+def add_smoke_invisibility(newid):
+    """Smokescreen's power also turns the player invisible (SMOKE_INVISIBLE, curator 2026-10-23): one more effect on
+    the power spell, after the burst sound, so Ordinator's cloud script stays untouched."""
+    h = newid[f'036EB3:{ORD}'].split(':')[0]                 # ORD_Sne_SmokeCurtain_Spell
+    p = glob.glob(os.path.join(ESP, 'Spells', f'* - {h}_*'))[0]
+    t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
+    assert SMOKE_INVISIBLE not in t and 'Type: Power' in t
+    t = t.rstrip('\n') + f'\n- BaseEffect: {SMOKE_INVISIBLE}\n  Data:\n    Duration: {SMOKE_INVISIBLE_SECONDS}\n'
+    assert re.search(r'^Effects:\n(?:[- ].*\n)+- BaseEffect: ' + re.escape(SMOKE_INVISIBLE), t + '\n', re.M), 'Effects is not the last block'
+    open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
+
+
+def sound_records(write, r, key, name, wav, on_caster=False, touch=False):
+    """SoundDescriptor + marker + a hidden Script effect (ZP_PlaySoundEffect) that plays it once. touch: the effect
+    rides a Touch hit spell (target = the enemy); on_caster (implies touch) plays the sound on the shooter instead."""
+    caster = ('    - MutagenObjectType: ScriptBoolProperty\n      Name: PlayOnCaster\n      Data: True\n'
+              if on_caster else '')
+    touch = 'TargetType: Touch\n' if on_caster or touch else ''
     write('SoundDescriptors', f"""FormKey: {r['sound']}
 EditorID: ZP_Prophecy_{key}Sound
 Type: Standard
@@ -811,7 +1532,7 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: SoundToPlay
       Object: {r['marker']}
-Name:
+{caster}Name:
   TargetLanguage: English
   Value: {name}
 Flags:
@@ -824,20 +1545,13 @@ Archetype:
   MutagenObjectType: MagicEffectArchetype
   Type: Script
 CastType: FireAndForget
-DualCastScale: 1
+{touch}DualCastScale: 1
 CastingSoundLevel: Silent
 Sounds: []
 Description:
   TargetLanguage: English
   Value: ''
 """)
-    h = newid[spell_src].split(':')[0]
-    p = glob.glob(os.path.join(ESP, 'Spells', f'* - {h}_*'))[0]
-    t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
-    assert r['mgef'] not in t
-    t = t.rstrip('\n') + f"\n- BaseEffect: {r['mgef']}\n  Data: {{}}\n"
-    assert re.search(r'^Effects:\n(?:[- ].*\n)+- BaseEffect: ' + re.escape(r['mgef']), t + '\n', re.M), 'Effects is not the last block'
-    open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
 
 
 def add_fever(newid, write, rec):
@@ -910,6 +1624,15 @@ FLOW_NOVA_RECORDS = ('novaexp', 'novaench')     # Flow State's Shock Nova explos
 # spell it casts, the power and its effect, the one-droid list and the free-first-droid flag.
 DROID_NODE = 'gad3'
 DROID_RECORDS = ('npc', 'ab', 'abme', 'stgme', 'stg', 'power', 'powerme', 'list', 'free')
+# the throw (2026-10-23), allocated after Necromancy: Enderal's Starling Dummy talent chain, copied (write_droid)
+DROID_THROW_RECORDS = ('throwspell', 'throwme', 'throwproj', 'throwexp', 'placer')
+DROID_HEAL_RECORDS = ('healspell',)    # the heal as a spell, for Enderal's heal look (2026-10-23)
+STARLING_DUMMY = {k: os.path.join(REF, 'base', 'Skyrim', d, f) for k, d, f in [
+    ('throwspell', 'Spells', '_00E_A2_StarlingdummyProjSP - 0F64A7_Skyrim.esm.yaml'),
+    ('throwme', 'MagicEffects', '_00E_A2_StarlingdummyProjME - 0F64A6_Skyrim.esm.yaml'),
+    ('throwproj', 'Projectiles', '_00E_A2_StarlingdummyProjectile - 0697F1_Skyrim.esm.yaml'),
+    ('throwexp', 'Explosions', '_00E_A2_StarlingdummyExp - 069836_Skyrim.esm.yaml'),
+    ('placer', 'Activators', '_00E_A2_StarlingdummyPlacer - 06983E_Skyrim.esm.yaml')]}
 DROID = {'Cost': 10, 'HealAmount': 15.0, 'HealInterval': 4, 'HealRadius': 640.0, 'StaggerInterval': 6,
          'StaggerRadius': 300.0, 'StaggerMagnitude': 0.5, 'BaseHealth': 100.0, 'HealthPerLevel': 10.0}
 DROID_BASE_NPC = os.path.join(REF, 'mods', 'EGO - Enderal Gameplay Overhaul', 'Npcs',
@@ -924,6 +1647,361 @@ SHOCKWAVE = os.path.join(REF, 'mods', 'Apocalypse - Magic of Skyrim', 'Explosion
 WARHORN = r'Data\Sound\FX\Zenderal\ZEN_WarBannerHorn_01.wav'    # loose, not committed: tools/03-install-sounds.py
 GLORY_ABILITY = {'glo1': 'stompspell', 'glo2': 'swab', 'glo3': 'dsab', 'glo4': 'banner', 'glo5': 'surab'}     # perk -> record its PerkAbilityEffect grants
 TRIUMVIRATE = 'Triumvirate - Mage Archetypes.esp'
+
+
+ARC_RECORDS = ('arspell', 'arme', 'armsg', 'arglob',                       # Arcane Arsenal
+               'ndab', 'ndme', 'wardab', 'wardme', 'armorme',             # No Distractions
+               'icepower', 'iceme', 'icecd', 'icecdme', 'icearrow', 'iceproj', 'iceball', 'iceballproj',
+               'iceexp', 'iceench', 'freezeme',                           # Ice Shot (iceball*: reserved, bows only)
+               'ravenme', 'ravenlist')                                    # Send a Raven
+ARC_ABILITY = {'arc1': 'arspell', 'arc2': 'ndab', 'arc3': 'icepower'}   # node -> what its perk grants
+# Arcane Archery is bows only (curator 2026-10-23): the player's right-hand item type is 7 (crossbows/muskets: 12).
+# As a condition on a hit-spell effect (subject = the target) it runs on PlayerRef.
+# Sharpshooter is muskets only (curator 2026-10-23): crossbow-type weapons, item type 12 - Ordo's muskets, and the
+# list's 4 Xion crossbows, which only Enderal SE - Crossbows' own keyword 00081B tells apart (Prophecy masters
+# Skyrim.esm alone). Hit-spell form (on PlayerRef) and perk-tab form.
+MUSKET_IN_HAND = ('  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetEquippedItemTypeConditionData\n'
+                  '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n      ItemSource: Right\n    ComparisonValue: 12\n')
+MUSKET_TAB_COND = ('    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: GetEquippedItemTypeConditionData\n'
+                   '        ItemSource: Right\n      ComparisonValue: 12\n')
+# Records added after Arcane Archery's block (2026-10-23), in order - append new ones LAST: Quick Reload's own ability
+# (Sharpshooter, muskets only), then the raven's own ability + its effect (Send a Raven stays until killed)
+SHARP_RECORDS = ('qrab', 'ravenab', 'ravenabme', 'ravennpc', 'cawsound', 'cawmarker',
+                 'owlarmo', 'owlarma', 'owlperk', 'owlhit', 'owlhitme',
+                 # Ice Shot delivered by the hit, not the explosion (bears, 2026-10-23)
+                 'icewatchab', 'icewatchme', 'icetrig', 'icefrz', 'icefrost', 'icelast', 'icepending', 'iceold',
+                 # the shatter's two explosions without their screen blur (curator 2026-10-23)
+                 'iceshat1', 'iceshat2',
+                 # ice shots left from the last cast (the watcher cleans up at zero)
+                 'iceremain')
+# Andrasta's Owl's bird: Triumvirate's Call Raven creature as Triumvirate - Enderal Patch wins it (serialized into
+# reference/mods/TriumvirateEnderalPatch) - its chaurus-flyer skeleton and graph move and fight in Enderal - minus its
+# looping "conscious" crow call, wearing Mihail's Barn Owl mesh owl1go.nif (the one rigged to that skeleton; owl1.nif
+# is a baked flight path). Mihail's Barn Owls itself is only ambient scenery (an animated Activator).
+TVR = 'Triumvirate - Mage Archetypes.esp'
+_TVR_REF = os.path.join(REF, 'mods', 'TriumvirateEnderalPatch')
+RAVEN_SRC = os.path.join(_TVR_REF, 'Npcs', f'TVR_Primal_Actor_CallRaven - 14F4E2_{TVR}.yaml')
+RAVEN_ARMO_SRC = os.path.join(_TVR_REF, 'Armors', f'TVR_Primal_Armor_CallRaven - 000851_{TVR}.yaml')
+RAVEN_ARMA_SRC = os.path.join(_TVR_REF, 'ArmorAddons', f'TVR_Primal_Addon_CallRaven - 000850_{TVR}.yaml')
+OWL_MODEL = r'Zenderal\Prophecy\BarnOwl.nif'   # owl1go.nif re-rigged onto the raven skeleton - tools/05-build-owl-mesh.py
+OWL_SPAWN_WAV = r'Data\Sound\FX\Zenderal\ZEN_OwlSpawn_01.wav'      # the curator's file - tools/03-install-sounds.py
+BOW_IN_HAND = ('  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetEquippedItemTypeConditionData\n'
+               '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n      ItemSource: Right\n    ComparisonValue: 7\n')
+SPELL_WARD_RANK2 = '085654:Skyrim.esm'   # _10E_SpellSpellWard; Levin's Spell Ward Rework's shell version wins in the list
+ARC_SEEDS = [o('014E7B')]          # ORD_Res_MageWard_Art - the first No Distractions build's shell; unused, kept so Lion's Arrow's IDs stay put
+FROST_ENCH = '04605B:Skyrim.esm'   # EnchFrostDamageFFContact
+SHOCK_ENCH = '04605C:Skyrim.esm'   # EnchShockDamageFFContact
+ICE_EXPLOSION_SRC = os.path.join(REF, 'base', 'Skyrim', 'Explosions', 'MAGIceSpikeVolleyExplosion - 0D6C63_Skyrim.esm.yaml')
+# Ice Shot's frost damage: EnchFrostDamageFFContact 04605B (base Enderal's copy: Skyrim.esm references only), made
+# target-delivered for the freeze spell the hit trigger casts
+FROST_DAMAGE_SRC = os.path.join(REF, 'base', 'Skyrim', 'MagicEffects', 'EnchFrostDamageFFContact - 04605B_Skyrim.esm.yaml')
+# SureAI's shatter explosions (ShatterEnemy), as they win: Forgotten Stories overrides 066897, 066895 is base Enderal's.
+# Both carry ImageSpaceModifier 04408A at ISRadius 1024 - the blur on a shatter; Ice Shot uses copies without it.
+SHATTER_SRC = [('iceshat1', os.path.join(REF, 'base', 'EnderalFS', 'Explosions', '_00E_FrostShatteringExplosion - 066897_Skyrim.esm.yaml')),
+               ('iceshat2', os.path.join(REF, 'base', 'Skyrim', 'Explosions', '_00E_FrostShatteringExplosion02 - 066895_Skyrim.esm.yaml'))]
+
+
+def friendly_immune(entry_point):
+    """A perk entry on the owl: x0 incoming damage / spell strength when the attacker (tab 1: the attacker for
+    ModIncomingDamage, the caster for ModIncomingSpellMagnitude) is the player, a teammate or a PlayerFaction member
+    (curator 2026-10-23: "immune to all friendly fire"). Same shape as Triumvirate's TVR_Primal_Perk_ExtraDamageTaken
+    181F3A, which sat on this very creature."""
+    cond = lambda fn, extra, last=False: ('    - MutagenObjectType: ConditionFloat\n' + ('' if last else '      Flags:\n      - OR\n')
+                                          + f'      Data:\n        MutagenObjectType: {fn}ConditionData\n' + extra
+                                          + '      ComparisonValue: 1\n')
+    return (f'- MutagenObjectType: PerkEntryPointModifyValue\n  Conditions:\n  - RunOnTabIndex: 1\n    Conditions:\n'
+            + cond('GetIsID', '        Object: 000007:Skyrim.esm\n')
+            + cond('GetPlayerTeammate', '')
+            + cond('GetInFaction', f'        Faction: {PLAYER_FACTION}\n', last=True)
+            + f'  EntryPoint: {entry_point}\n  PerkConditionTabCount: 3\n  Modification: Multiply\n  Value: 0\n')
+
+
+def arcane_hits(a, late, nodeperk, gate, lacks):
+    """Arcane Archery's effects on the gun hit spell: Arcane Arsenal's element (one contact-damage effect per element,
+    gated on the perk and its global) and Send a Raven (living target, no raven of ours on it yet). Bows only (curator
+    2026-10-23): the player's right-hand item type must be 7 - crossbows and Ordo's muskets are 12, and they carry
+    WeapTypeBow too, so the perk entries' keyword check lets them through."""
+    out = ''
+    for value, me in ((1, FIRE_ENCH), (2, FROST_ENCH), (3, SHOCK_ENCH)):
+        out += (f"- BaseEffect: {me}\n  Data:\n    Magnitude: {ARC['ElementDamage']}\n    Duration: 0\n" + gate(nodeperk['arc1'])
+                + '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetGlobalValueConditionData\n'
+                + f"      Global: {a['arglob']}\n    ComparisonValue: {value}\n" + BOW_IN_HAND)
+    # Send a Raven: a 1 s spawn/redirect effect. No "not already on the target" condition: a hit-spell effect's
+    # conditions are re-checked while it runs, and that one ended the first build's effect - and raven - after 2 s.
+    out += (f"- BaseEffect: {a['ravenme']}\n  Data:\n    Duration: 1\n" + gate(nodeperk['arc4'])
+            + '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetDeadConditionData\n'
+            + BOW_IN_HAND)
+    # Ice Shot: a 1 s trigger; its script decides whether this hit was an ice arrow (the watcher's record) and casts
+    # the freeze spell on the target - the explosion's enchantment missed big creatures (bears, 2026-10-23)
+    out += (f"- BaseEffect: {late['icetrig']}\n  Data:\n    Duration: 1\n" + gate(nodeperk['arc3']) + BOW_IN_HAND)
+    return out
+
+
+def write_arcane(a, newid, write, late):
+    """Arcane Archery's hand-built records (curator's design, 2026-10-23). Values in ARC.
+    - Arcane Arsenal: a lesser power whose message box sets a global (0 none, 1 fire, 2 frost, 3 lightning); the gun
+      hit spell carries the three contact-damage effects, each gated on the perk and the global (write_gunhit).
+    - No Distractions: an ability whose script adds the ward on Bow Draw and removes it on release/sheathe. The ward is
+      Spell Ward (Rank II)'s 55 ward + 55 armor as plain value modifiers (Ordinator's Mage Ward shape) with Ordinator's
+      Mage Ward art - a concentration ward only works while cast, and Enderal's ward art sits in the casting hands.
+    - Ice Shot: Flame Shot's pattern (lesser power -> ammo handed out and equipped, old ammo back after) with ice
+      arrows, bows only, whose explosion (Enderal's ice-spike burst, no image space) carries frost damage and a
+      GetRandomPercent-gated freeze; the freeze is Arctic Wind's frozen ability, the shatter SureAI's (see the script).
+    - Send a Raven: a script effect on the gun hit spell; the raven is Triumvirate's, read at runtime."""
+    def mgef(fk, edid, name, desc, flags, archetype, cast='FireAndForget', vmad='', extra='', after=''):
+        return (f'FormKey: {fk}\nEditorID: {edid}\n' + vmad +
+                f"Name:\n  TargetLanguage: English\n  Value: {name}\n" + extra +
+                'Flags:\n' + ''.join(f'- {x}\n' for x in flags) +
+                f'Archetype:\n  MutagenObjectType: MagicEffectArchetype\n{archetype}' + after +
+                f'CastType: {cast}\nDualCastScale: 1\nCastingSoundLevel: Silent\nSounds: []\n'
+                f"Description:\n  TargetLanguage: English\n  Value: '{desc}'\n")
+    def touch(t):
+        return t.replace('CastType: FireAndForget\n', 'CastType: FireAndForget\nTargetType: Touch\n', 1)
+    def script(name, props):
+        out = f'VirtualMachineAdapter:\n  Scripts:\n  - Name: {name}\n    Properties:\n'
+        for pn, kind, val in props:
+            key = 'Object' if kind == 'Object' else 'Data'
+            out += f'    - MutagenObjectType: Script{kind}Property\n      Name: {pn}\n      {key}: {val}\n'
+        return out
+    def spell(fk, edid, name, typ, cast, effects, equip='013F44:Skyrim.esm', extra=''):
+        t = (f'FormKey: {fk}\nEditorID: {edid}\nName:\n  TargetLanguage: English\n  Value: {name}\n'
+             f'MenuDisplayObject: 0435A5:Skyrim.esm\nEquipmentType: {equip}\n'
+             "Description:\n  TargetLanguage: English\n  Value: ''\n" + extra)
+        if typ: t += f'Type: {typ}\n'
+        return t + f'CastType: {cast}\nEffects:\n' + effects
+    hidden = ['NoMagnitude', 'NoArea', 'NoDuration', 'HideInUI', 'Painless']
+
+    # --- Arcane Arsenal
+    write('Spells', spell(a['arspell'], 'ZP_Prophecy_ArcaneArsenal_Power', 'Arcane Arsenal', 'LesserPower', 'FireAndForget',
+                          f"- BaseEffect: {a['arme']}\n  Data: {{}}\n", equip='025BEE:Skyrim.esm',
+                          extra='Flags:\n- IgnoreResistance\n- NoAbsorbOrReflect\n'))
+    write('MagicEffects', mgef(a['arme'], 'ZP_Prophecy_ArcaneArsenal_Effect', 'Arcane Arsenal', '', hidden, '  Type: Script\n',
+                               vmad=script('ZP_ArcaneArsenalEffect', [('Menu', 'Object', a['armsg']), ('Element', 'Object', a['arglob'])])))
+    btn = lambda s: f'- Text:\n    TargetLanguage: English\n    Value: {s}\n'
+    write('Messages', f"FormKey: {a['armsg']}\nEditorID: ZP_Prophecy_ArcaneArsenal_Menu\nDescription:\n  TargetLanguage: English\n"
+                      '  Value: Which element will your arrows carry?\nINAM: 0x00000000\nFlags:\n- MessageBox\nMenuButtons:\n' +
+                      btn('Fire') + btn('Frost') + btn('Lightning') + btn('None'))
+    write('Globals', f"MutagenObjectType: GlobalShort\nFormKey: {a['arglob']}\nEditorID: ZP_Prophecy_ArcaneArsenal_Element\nData: 0\n")
+
+    # --- No Distractions
+    write('Spells', spell(a['ndab'], 'ZP_Prophecy_NoDistractions_Ability', 'No Distractions', 'Ability', 'ConstantEffect',
+                          f"- BaseEffect: {a['ndme']}\n  Data: {{}}\n"))
+    write('MagicEffects', mgef(a['ndme'], 'ZP_Prophecy_NoDistractions_Effect', 'No Distractions', '', hidden, '  Type: Script\n',
+                               cast='ConstantEffect', vmad=script('ZP_NoDistractionsEffect', [('Ward', 'Object', SPELL_WARD_RANK2),
+                                                                        ('MagicWard', 'Object', '01EA69:Skyrim.esm')])))
+    # The ward is the list's own Spell Ward (Rank II), cast by the script - Levin's Enderal Spell Ward Rework makes it a
+    # fire-and-forget shell ward (curator 2026-10-23: 'use the spell ward'). 'wardab'/'wardme'/'armorme' (the first
+    # build's hand-made value-modifier ward) stay reserved and unwritten; a save that has the old ability drops it.
+
+    # --- Ice Shot: the power. No cooldown, a Magicka cost the script takes (curator 2026-10-23); 'icecd'/'icecdme'
+    # (the first build's 110 s, then 60 s, cooldown) stay reserved and unwritten
+    write('Spells', spell(a['icepower'], 'ZP_Prophecy_IceShot_Power', 'Ice Shot', 'LesserPower', 'FireAndForget',
+                          f"- BaseEffect: {a['iceme']}\n  Data:\n    Duration: {ARC['IceSeconds']}\n", equip='025BEE:Skyrim.esm',
+                          extra='Flags:\n- IgnoreResistance\n- NoAbsorbOrReflect\n'))
+    write('MagicEffects', mgef(a['iceme'], 'ZP_Prophecy_IceShot_Effect', 'Ice Shot', '', ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'],
+                               '  Type: Script\n', vmad=script('ZP_IceShotEffect', [
+                                   ('IceArrow', 'Object', a['icearrow']),
+                                   ('AmmoList', 'Object', '13E955:Skyrim.esm'),          # _00E_A1_FirearrowAmmoFormlist
+                                   ('OldAmmo', 'Object', late['iceold']),
+                                   ('Remaining', 'Object', late['iceremain']),
+                                   ('ArrowCount', 'Int', ARC['IceArrows']),
+                                   ('MagickaCost', 'Float', ARC['IceMagicka'])])))
+    # --- the ammo: an arrow (the fire arrow's shape) and a musket ball (Flame Shot's cleaned copy of Ordo's)
+    write('Ammunitions', f"""FormKey: {a['icearrow']}
+EditorID: ZP_Prophecy_IceArrow
+Name:
+  TargetLanguage: English
+  Value: Ice Arrow
+Model:
+  File: Weapons\\Steel\\SteelArrow.nif
+  Data: 0x020000000000000000000000
+PickUpSound: 03E7B7:Skyrim.esm
+PutDownSound: 03E877:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Keywords:
+- 01CEAD:Skyrim.esm
+Projectile: {a['iceproj']}
+Flags:
+- NonBolt
+Damage: 7
+Weight: 0.1
+""")
+    # an exploding ARROW (Flame Shot ranks 2/3's _00E_A1_FireArrow_ProjectileL02 0670DA shape): the hit is a real weapon
+    # hit, which the hit trigger needs. The first build copied rank 1's Missile type, whose hits never reach
+    # ApplyCombatHitSpell (in game 2026-10-23: no freeze once the trigger replaced the explosion's enchantment)
+    write('Projectiles', f"""FormKey: {a['iceproj']}
+EditorID: ZP_Prophecy_IceArrowProjectile
+Model:
+  File: Weapons\\Steel\\SteelArrowFlight.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- DisableCombatAimCorrection
+Type: Arrow
+Gravity: 0.35
+Speed: 3600
+Range: 60000
+Light: 020BF4:Skyrim.esm
+Explosion: {a['iceexp']}
+Sound: 03F2B4:Skyrim.esm
+FadeDuration: 5
+ImpactForce: 1
+CollisionRadius: 0.5
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1
+""")
+    # 'iceball'/'iceballproj' stay reserved and unwritten: Ice Shot is bows only (curator 2026-10-23)
+    # --- the burst: Enderal's ice-spike volley explosion, visuals only (no physical damage, no enchantment). It carried
+    # the frost + freeze enchantment until 2026-10-23; that missed big creatures (bears), so the hit delivers them now
+    t = open(ICE_EXPLOSION_SRC, encoding='utf-8').read().replace('\r\n', '\n')
+    t = re.sub(r'^Name:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
+    for pat, rep in [(r'^FormKey: .*$', f"FormKey: {a['iceexp']}"), (r'^EditorID: .*$', 'EditorID: ZP_Prophecy_IceShot_Explosion'),
+                     (r'^Damage: .*$', 'Damage: 0'), (r'^Force: .*$', 'Force: 10')]:
+        t, n = re.subn(pat, rep, t, count=1, flags=re.M); assert n == 1, pat
+    assert 'ImageSpaceModifier' not in t and 'ObjectEffect' not in t
+    t = re.sub(r'^Version2: .*\n', '', t, flags=re.M)
+    write('Explosions', t)
+    # 'iceench' (the explosion's enchantment) stays reserved and unwritten
+    # --- the freeze, cast on the arrow's target by ZP_IceShotTriggerEffect: frost damage + the freeze, target-delivered
+    write('Spells', spell(late['icefrz'], 'ZP_Prophecy_IceShot_FreezeSpell', 'Ice Shot', None, 'FireAndForget',
+                          f"- BaseEffect: {late['icefrost']}\n  Data:\n    Magnitude: {ARC['IceDamage']}\n"
+                          f"- BaseEffect: {a['freezeme']}\n  Data:\n    Duration: {ARC['FreezeSeconds']}\n",
+                          extra='Flags:\n- NoAbsorbOrReflect\n').replace('CastType: FireAndForget\n', 'CastType: FireAndForget\nTargetType: TargetActor\n'))
+    t = open(FROST_DAMAGE_SRC, encoding='utf-8').read().replace('\r\n', '\n')
+    for pat, rep in [(r'^FormKey: .*$', f"FormKey: {late['icefrost']}"), (r'^EditorID: .*$', 'EditorID: ZP_Prophecy_IceShot_FrostDamage'),
+                     (r'^TargetType: Touch$', 'TargetType: TargetActor')]:
+        t, n = re.subn(pat, rep, t, count=1, flags=re.M); assert n == 1, pat
+    t = re.sub(r'^Version2: .*\n', '', t, flags=re.M)
+    assert re.search(r':(?!Skyrim\.esm)[^\s:]+\.es[mp]', t) is None, 'frost damage copy names another plugin'
+    write('MagicEffects', t)
+    write('MagicEffects', mgef(a['freezeme'], 'ZP_Prophecy_IceShot_FreezeEffect', 'Frozen', '',
+                               ['Hostile', 'Detrimental', 'NoMagnitude', 'NoArea', 'HideInUI'], '  Type: Script\n',
+                               vmad=script('ZP_IceShotFreezeEffect', [
+                                   ('MagicNoFreeze', 'Object', '0EEE66:Skyrim.esm'),
+                                   ('IceShader', 'Object', '0DC20E:Skyrim.esm'),         # FrostIceFormFXShader02 (_00E_Frozen_ME's)
+                                   ('FreezeSound', 'Object', '10A6A0:Skyrim.esm'),       # _00E_A1_ArcticWindFreezeM
+                                   ('ActorTypeNPC', 'Object', '013794:Skyrim.esm'),
+                                   ('DraugrRace', 'Object', '000D53:Skyrim.esm'),
+                                   ('ShatterExplosion', 'Object', late['iceshat1']),
+                                   ('ShatterExplosion02', 'Object', late['iceshat2']),
+                                   ('IceGoreExplosion', 'Object', '033468:Skyrim.esm'),
+                                   ('ShatteredPile', 'Object', '0671F3:Skyrim.esm'),
+                                   ('ImpactIce', 'Object', '02398B:Skyrim.esm')])).replace(
+                                       'CastType: FireAndForget\n', 'CastType: FireAndForget\nTargetType: TargetActor\n'))
+    for key, src in SHATTER_SRC:   # SureAI's shatter explosions minus their screen blur (04408A, ISRadius 1024)
+        t = open(src, encoding='utf-8').read().replace('\r\n', '\n')
+        edid = re.search(r'^EditorID: (.+?)\s*$', t, re.M).group(1)
+        for pat, rep in [(r'^FormKey: .*$', f"FormKey: {late[key]}"), (r'^EditorID: .*$', f'EditorID: ZP_Prophecy_IceShot{edid[4:]}')]:
+            t, n = re.subn(pat, rep, t, count=1, flags=re.M); assert n == 1, pat
+        t, n = re.subn(r'^(?:ImageSpaceModifier|ISRadius): .*\n', '', t, flags=re.M)
+        assert n == 2, (src, 'image space lines', n)
+        if key == 'iceshat2':   # the one the shatter still places: no push, so nearby clutter (logs) stays put
+            t, n = re.subn(r'^Force: .*$', 'Force: 0', t, count=1, flags=re.M)
+            assert n == 1, 'shatter burst force'
+        t = re.sub(r'^Version2: .*\n', '', t, flags=re.M)
+        t = re.sub(r'^Name:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
+        write('Explosions', t)
+    # --- the hit trigger (on the gun hit spell, arcane_hits) and the watcher ability (from the perk) that records ice shots
+    globals_ = [('icelast', 'ZP_Prophecy_IceShot_LastShot'), ('icepending', 'ZP_Prophecy_IceShot_Pending'),
+                ('iceremain', 'ZP_Prophecy_IceShot_Remaining')]
+    for k, edid in globals_:
+        write('Globals', f"MutagenObjectType: GlobalFloat\nFormKey: {late[k]}\nEditorID: {edid}\nData: 0\n")
+    write('FormLists', f"FormKey: {late['iceold']}\nEditorID: ZP_Prophecy_IceShot_OldAmmo\n")
+    write('MagicEffects', touch(mgef(late['icetrig'], 'ZP_Prophecy_IceShot_HitTrigger', 'Ice Shot', '',
+                               ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'], '  Type: Script\n',
+                               vmad=script('ZP_IceShotTriggerEffect', [
+                                   ('Freeze', 'Object', late['icefrz']), ('FreezeEffect', 'Object', a['freezeme']),
+                                   ('LastShot', 'Object', late['icelast']), ('Pending', 'Object', late['icepending'])]))))
+    write('Spells', spell(late['icewatchab'], 'ZP_Prophecy_IceShot_Watcher', 'Ice Shot', 'Ability', 'ConstantEffect',
+                          f"- BaseEffect: {late['icewatchme']}\n  Data: {{}}\n"))
+    write('MagicEffects', mgef(late['icewatchme'], 'ZP_Prophecy_IceShot_WatcherEffect', 'Ice Shot', '', hidden,
+                               '  Type: Script\n', cast='ConstantEffect',
+                               vmad=script('ZP_IceShotWatcherEffect', [
+                                   ('IceArrow', 'Object', a['icearrow']), ('OldAmmo', 'Object', late['iceold']),
+                                   ('LastShot', 'Object', late['icelast']), ('Pending', 'Object', late['icepending']),
+                                   ('Remaining', 'Object', late['iceremain'])])))
+
+    # --- Andrasta's Owl (was Send a Raven; curator 2026-10-23): the hit effect only spawns or redirects; the bird's own
+    # ability (RavenBrain) flies it and cleans up when it dies - it stays until killed. The bird is Triumvirate's Call
+    # Raven creature (chaurus-flyer skeleton + graph, which move and fight in Enderal) wearing Mihail's owl1go.nif,
+    # with no sound types; its strikes drain Magicka to the player.
+    write('MagicEffects', touch(mgef(a['ravenme'], 'ZP_Prophecy_SendRaven_Effect', "Andrasta's Owl", '',
+                               ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'], '  Type: Script\n',
+                               vmad=script('ZP_SendRavenEffect', [('Ravens', 'Object', a['ravenlist']),
+                                                                  ('PlayerFaction', 'Object', PLAYER_FACTION),
+                                                                  ('RavenBrain', 'Object', late['ravenab']),
+                                                                  ('BirdBase', 'Object', late['ravennpc']),
+                                                                  ('SpawnSound', 'Object', late['cawmarker'])]))))
+    # the owl: Triumvirate's raven record (its winning copy) with no sound types - its only one was the looping crow
+    # call TVR_Primal_Descriptor_Crow_Conscious 000853 - named Barn Owl, wearing the owl skin, with the owl's
+    # Magicka-drain perk in place of Triumvirate's TVR_Primal_Perk_ExtraDamageTaken 181F3A
+    t = open(RAVEN_SRC, encoding='utf-8').read().replace('\r\n', '\n')
+    for pat, rep in [(r'^FormKey: .*$', f"FormKey: {late['ravennpc']}"), (r'^EditorID: .*$', 'EditorID: ZP_Prophecy_SendOwl_Owl'),
+                     (r'^WornArmor: .*$', f"WornArmor: {late['owlarmo']}"),
+                     (r'^Perks:\n(?:- .*\n(?:  .*\n)*)', f"Perks:\n- Perk: {late['owlperk']}\n  Rank: 1\n  Fluff: 0x000000\n"),
+                     (r'^(Name:\n(?:  TargetLanguage: English\n)?  Value: ).*$', r'\1Barn Owl')]:
+        t, n = re.subn(pat, rep, t, count=1, flags=re.M); assert n == 1, pat
+    t, n = re.subn(r'^Sound:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
+    assert n == 1 and f'000853:{TVR}' not in t and f'181F3A:{TVR}' not in t, "raven's sound block / perk not where expected"
+    t = re.sub(r'^(?:IsCompressed|MajorRecordFlagsRaw): .*\n', '', t, flags=re.M)
+    t = re.sub(r'^SkyrimMajorRecordFlags:\n- Compressed\n', '', t, flags=re.M)
+    write('Npcs', t)
+    # the owl skin: Triumvirate's crow skin (armor + addon on the raven race) with Mihail's owl1go.nif as its model
+    for src, key, edid, extra in [(RAVEN_ARMA_SRC, 'owlarma', 'ZP_Prophecy_SendOwl_SkinAddon', []),
+                                  (RAVEN_ARMO_SRC, 'owlarmo', 'ZP_Prophecy_SendOwl_Skin',
+                                   [(r'^(Name:\n(?:  TargetLanguage: English\n)?  Value: ).*$', r'\1Barn Owl'),
+                                    (r'^Armature:\n- .*$', f"Armature:\n- {late['owlarma']}")])]:
+        t = open(src, encoding='utf-8').read().replace('\r\n', '\n')
+        for pat, rep in [(r'^FormKey: .*$', f"FormKey: {late[key]}"), (r'^EditorID: .*$', f'EditorID: {edid}')] + extra:
+            t, n = re.subn(pat, rep, t, count=1, flags=re.M); assert n == 1, (edid, pat)
+        if key == 'owlarma':
+            t, n = re.subn(r'^(    File: ).*basecrow\.nif\s*$', lambda m: m.group(1) + OWL_MODEL, t, count=1, flags=re.M | re.I)
+            assert n == 1, 'crow skin model not where expected'
+        write('ArmorAddons' if key == 'owlarma' else 'Armors', t)
+    # its strikes: a perk on the owl applies the drain as a combat-hit spell
+    write('Perks', f"FormKey: {late['owlperk']}\nEditorID: ZP_Prophecy_SendOwl_StrikePerk\nName:\n  TargetLanguage: English\n"
+                   "  Value: Andrasta's Owl\nNumRanks: 1\nEffects:\n- MutagenObjectType: PerkEntryPointSelectSpell\n"
+                   f"  EntryPoint: ApplyCombatHitSpell\n  PerkConditionTabCount: 3\n  Spell: {late['owlhit']}\n"
+                   + ''.join(friendly_immune(ep) for ep in ('ModIncomingDamage', 'ModIncomingSpellMagnitude')))
+    write('Spells', spell(late['owlhit'], 'ZP_Prophecy_SendOwl_StrikeSpell', "Andrasta's Owl", None, 'FireAndForget',
+                          f"- BaseEffect: {late['owlhitme']}\n  Data: {{}}\n",
+                          extra='Flags:\n- NoAbsorbOrReflect\n').replace('CastType: FireAndForget\n', 'CastType: FireAndForget\nTargetType: Touch\n'))
+    write('MagicEffects', touch(mgef(late['owlhitme'], 'ZP_Prophecy_SendOwl_StrikeEffect', 'Magicka Drain', '',
+                               ['Hostile', 'Detrimental', 'NoMagnitude', 'NoArea', 'NoDuration', 'HideInUI'], '  Type: Script\n',
+                               vmad=script('ZP_OwlAbsorbEffect', [('Amount', 'Float', ARC['OwlDrain'])]),
+                               after='HitShader: 057C67:Skyrim.esm\n')))       # AbsorbMagickaConstant's shader
+    # the spawn sound (the curator's file), played once; the bird is silent after it
+    write('SoundDescriptors', f"""FormKey: {late['cawsound']}
+EditorID: ZP_Prophecy_SendOwl_SpawnSound
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- {OWL_SPAWN_WAV}
+OutputModel: 0B6463:Skyrim.esm
+LoopAndRumble: {{}}
+Priority: 128
+""")
+    write('SoundMarkers', f"FormKey: {late['cawmarker']}\nEditorID: ZP_Prophecy_SendOwl_SpawnMarker\nSoundDescriptor: {late['cawsound']}\n")
+    write('FormLists', f"FormKey: {a['ravenlist']}\nEditorID: ZP_Prophecy_SendRaven_Current\n")
+    write('Spells', spell(late['ravenab'], 'ZP_Prophecy_SendRaven_RavenAbility', "Andrasta's Owl", 'Ability', 'ConstantEffect',
+                          f"- BaseEffect: {late['ravenabme']}\n  Data: {{}}\n"))
+    write('MagicEffects', mgef(late['ravenabme'], 'ZP_Prophecy_SendRaven_RavenEffect', "Andrasta's Owl", '',
+                               hidden + ['NoDeathDispel'], '  Type: Script\n', cast='ConstantEffect',
+                               vmad=script('ZP_RavenBrainEffect', [('Ravens', 'Object', a['ravenlist']),
+                                                                   ('PlayerMagickaPerSecond', 'Float', ARC['OwlRegen'])])))
+
+    # --- Lion's Arrow, bows only: its in-combat effect (ORD_LionsArrow_Script, OnPlayerBowShot) only with a bow
+    p = [x for x in glob.glob(os.path.join(ESP, 'Spells', '*.yaml')) if os.path.basename(x).startswith('ZP_ORD_Arc_LionsArrow_Spell_Ab - ')]
+    assert len(p) == 1, "Lion's Arrow ability moved"
+    t = open(p[0], encoding='utf-8').read().replace('\r\n', '\n')
+    incombat = '      MutagenObjectType: IsInCombatConditionData\n    ComparisonValue: 1\n'
+    assert t.count(incombat) == 1, "Lion's Arrow in-combat condition not where expected"
+    t = t.replace(incombat, incombat + '  - MutagenObjectType: ConditionFloat\n    Data:\n'
+                  '      MutagenObjectType: GetEquippedItemTypeConditionData\n      ItemSource: Right\n    ComparisonValue: 7\n')
+    open(p[0], 'w', encoding='utf-8', newline='\r\n').write(t)
 
 
 def write_glory(g, write):
@@ -1080,6 +2158,217 @@ Priority: 128
                                'War Banner can be raised again in <dur> seconds.', ['Recover'], '  Type: Script\n'))
 
 
+# Necromancy's records (2026-10-23), in order - append new ones LAST
+NEC_RECORDS = ('effspell', 'effme', 'armorspell', 'armorme',                                     # Dark Effigy
+               'wspower', 'wsme', 'wsblast', 'wsblastme', 'wsvisual', 'wscd', 'wscdme',          # A Willing Sacrifice
+               'legpower', 'legme', 'legwar', 'legarch', 'legmage', 'legab', 'legabme', 'leglist')   # Legion of the Damned
+NEC_ABILITY = {'nec3': 'wspower', 'nec5': 'legpower'}   # node -> the power its perk grants
+# Base Enderal's player skeleton summon ("Fleshless Lost One"). EGO's winning copy adds FS/EGO forms (a health-bar
+# script, perks) the plugin does not master, so the Legion is built from Skyrim.esm's.
+SKELETON_SRC = os.path.join(REF, 'base', 'Skyrim', 'Npcs', '_07E_SummonableSkeleton_Player - 11C391_Skyrim.esm.yaml')
+SUMMON_SPELL_SRC = os.path.join(REF, 'mods', 'EGO', 'Spells', '_07E_SpellSummonSkeleton - 11C383_Skyrim.esm.yaml')
+CORPSE_EXP_SRC = os.path.join(REF, 'base', 'EnderalFS', 'Explosions',
+                              '_00E_FS_Entropy_CorpseExplosionEXP - 02F27D_Enderal - Forgotten Stories.esm.yaml')
+
+
+def write_necro(n, nodeperk, write):
+    """Necromancy's hand-built records (curator's design, 2026-10-23). Values in NEC.
+    - Corpse Fever: entry points on the perk itself (main()).
+    - Dark Effigy: an Entropy spell (Summon Ancestor's casting look, copied) whose script plants a hagraven goat pole
+      and once a second gives allies near it ArmorSpell and heals the player's undead summons (ZP_DarkEffigyEffect).
+    - A Willing Sacrifice: a lesser power whose script explodes every commanded actor and Legion skeleton (Forgotten
+      Stories' Corpse Explosion look and damage rule); The Dead Don't Forget is a perk that script checks.
+    - Legion of the Damned: a lesser power that adds Arcane Fever and places six skeleton copies of base Enderal's
+      player summon, with their own lifetime ability."""
+    def mgef(fk, edid, name, desc, flags, archetype, cast='FireAndForget', vmad='', extra='', after=''):
+        return (f'FormKey: {fk}\nEditorID: {edid}\n' + vmad +
+                f"Name:\n  TargetLanguage: English\n  Value: {name}\n" + extra +
+                'Flags:\n' + ''.join(f'- {x}\n' for x in flags) +
+                f'Archetype:\n  MutagenObjectType: MagicEffectArchetype\n{archetype}' + after +
+                f'CastType: {cast}\nDualCastScale: 1\nCastingSoundLevel: Silent\nSounds: []\n'
+                f"Description:\n  TargetLanguage: English\n  Value: '{desc}'\n")
+    def script(name, props):
+        out = f'VirtualMachineAdapter:\n  Scripts:\n  - Name: {name}\n    Properties:\n'
+        for pn, kind, val in props:
+            key = 'Object' if kind == 'Object' else 'Data'
+            out += f'    - MutagenObjectType: Script{kind}Property\n      Name: {pn}\n      {key}: {val}\n'
+        return out
+    def spell(fk, edid, name, typ, cast, effects, equip='013F44:Skyrim.esm', extra=''):
+        t = (f'FormKey: {fk}\nEditorID: {edid}\nName:\n  TargetLanguage: English\n  Value: {name}\n'
+             f'MenuDisplayObject: 0435A5:Skyrim.esm\nEquipmentType: {equip}\n'
+             "Description:\n  TargetLanguage: English\n  Value: ''\n" + extra)
+        if typ: t += f'Type: {typ}\n'
+        return t + f'CastType: {cast}\nEffects:\n' + effects
+    def target_actor(t):
+        return t.replace('CastType: FireAndForget\n', 'CastType: FireAndForget\nTargetType: TargetActor\n', 1)
+    hidden = ['NoMagnitude', 'NoArea', 'NoDuration', 'HideInUI', 'Painless']
+    def sub1(t, pat, rep, what):
+        t2, k = re.subn(pat, rep, t, count=1, flags=re.M)
+        assert k == 1, f'{what}: {pat}'
+        return t2
+
+    # --- Dark Effigy: Summon Ancestor's spell (EGO's winning copy) re-aimed at the caster
+    t = open(SUMMON_SPELL_SRC, encoding='utf-8').read().replace('\r\n', '\n')
+    t = sub1(t, r'^FormKey: .*$', f"FormKey: {n['effspell']}", 'effigy spell')
+    t = sub1(t, r'^EditorID: .*$', 'EditorID: ZP_Prophecy_DarkEffigy_Spell', 'effigy spell')
+    t = sub1(t, r'^Name:\n(?:  .*\n)*', 'Name:\n  TargetLanguage: English\n  Value: Dark Effigy\n', 'effigy spell')
+    t = sub1(t, r'^EquipmentType: .*$', 'EquipmentType: 013F44:Skyrim.esm', 'effigy spell')     # either hand
+    t = sub1(t, r'^BaseCost: .*$', f"BaseCost: {NEC['EffigyCost']}", 'effigy spell')
+    t = sub1(t, r'^ChargeTime: .*$', 'ChargeTime: 1.5', 'effigy spell')
+    t = sub1(t, r'^TargetType: TargetLocation\n', 'TargetType: Self\n', 'effigy spell')
+    t = sub1(t, r'^Range: .*\n', '', 'effigy spell')
+    t = sub1(t, r'^Effects:\n(?:[- ].*\n)*', f"Effects:\n- BaseEffect: {n['effme']}\n  Data:\n    Duration: {NEC['EffigySeconds']}\n", 'effigy spell')
+    assert '14181F' not in t and 'Skyrim.esm' in t
+    write('Spells', t)
+    # its effect: Summon Ancestor's (14181F) casting art, light and sounds and skill; a script instead of the summon
+    write('MagicEffects', f"""FormKey: {n['effme']}
+EditorID: ZP_Prophecy_DarkEffigy_Effect
+{script('ZP_DarkEffigyEffect', [
+        ('Totem', 'Object', '0ACAFD:Skyrim.esm'),              # HagravenDeadGoatPole01
+        ('PlantVisual', 'Object', n['wsvisual']),
+        ('ArmorSpell', 'Object', n['armorspell']),
+        ('ActorTypeUndead', 'Object', '013796:Skyrim.esm'),
+        ('MagicSummonUndead', 'Object', '02482B:Skyrim.esm'),  # on every reanimate effect: a raised corpse carries it
+        ('LegionList', 'Object', n['leglist']),
+        ('Radius', 'Float', NEC['EffigyRadius']),
+        ('HealPerSecond', 'Float', NEC['EffigyHeal'])])}Name:
+  TargetLanguage: English
+  Value: Dark Effigy
+Keywords:
+- 1076F4:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 15
+MagicSkill: Conjuration
+CastingLight: 03BA90:Skyrim.esm
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Self
+CastingArt: 03CDFC:Skyrim.esm
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: A dark totem stands for <dur> seconds. Your undead summons near it heal {NEC['EffigyHeal']} Health per second, and you and your allies near it gain {NEC['EffigyArmor']} armor.
+""")
+    write('Spells', target_actor(spell(n['armorspell'], 'ZP_Prophecy_DarkEffigy_Armor', 'Dark Effigy', None, 'FireAndForget',
+                                       f"- BaseEffect: {n['armorme']}\n  Data:\n    Magnitude: {NEC['EffigyArmor']}\n    Duration: 2\n",
+                                       extra='Flags:\n- NoAbsorbOrReflect\n')))
+    write('MagicEffects', target_actor(mgef(n['armorme'], 'ZP_Prophecy_DarkEffigy_ArmorEffect', 'Dark Effigy',
+                                            'Armor rating increased by <mag>.', ['Recover', 'NoArea'], '  ActorValue: DamageResist\n')))
+
+    # --- A Willing Sacrifice
+    write('Spells', spell(n['wspower'], 'ZP_Prophecy_WillingSacrifice_Power', 'A Willing Sacrifice', 'LesserPower', 'FireAndForget',
+                          f"- BaseEffect: {n['wsme']}\n  Data:\n    Duration: 30\n", equip='025BEE:Skyrim.esm',   # outlasts the chain of blasts
+                          extra='Flags:\n- IgnoreResistance\n- NoAbsorbOrReflect\n'))
+    write('MagicEffects', mgef(n['wsme'], 'ZP_Prophecy_WillingSacrifice_Effect', 'A Willing Sacrifice', '',
+                               ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'], '  Type: Script\n',
+                               vmad=script('ZP_WillingSacrificeEffect', [
+                                   ('Blast', 'Object', n['wsblast']),
+                                   ('BlastVisual', 'Object', n['wsvisual']),
+                                   ('LegionList', 'Object', n['leglist']),
+                                   ('DeadDontForget', 'Object', nodeperk['nec4']),
+                                   ('Cooldown', 'Object', n['wscd']),
+                                   ('CooldownEffect', 'Object', n['wscdme']),
+                                   ('Radius', 'Float', NEC['SacrificeRadius']),
+                                   ('HealthFraction', 'Float', NEC['SacrificeFraction']),
+                                   ('MagickaPerEnemy', 'Float', NEC['DeadMagicka'])])))
+    # the blast: plain damage to Health (its magnitude set per summon by the script), blamed on the player - Enderal's
+    # BlameSpellKeyword so a kill pays EP (_00E_EPOnDeath) - with Corpse Explosion's eldritch hit shader
+    write('Spells', target_actor(spell(n['wsblast'], 'ZP_Prophecy_WillingSacrifice_Blast', 'A Willing Sacrifice', None, 'FireAndForget',
+                                       f"- BaseEffect: {n['wsblastme']}\n  Data:\n    Magnitude: 1\n",
+                                       extra='Flags:\n- NoAbsorbOrReflect\n')))
+    write('MagicEffects', target_actor(mgef(n['wsblastme'], 'ZP_Prophecy_WillingSacrifice_BlastEffect', 'A Willing Sacrifice', '',
+                                            ['Hostile', 'Detrimental', 'NoArea', 'NoDuration'], '  ActorValue: Health\n',
+                                            extra='MenuDisplayObject: 0435A5:Skyrim.esm\nKeywords:\n- 05BD16:Skyrim.esm\n- 1076F4:Skyrim.esm\n')
+                                       .replace('Archetype:\n', 'HitShader: 06A07B:Skyrim.esm\nArchetype:\n', 1)))
+    # its burst: Corpse Explosion's eldritch explosion, without its damage enchantment, screen effect or push
+    t = open(CORPSE_EXP_SRC, encoding='utf-8').read().replace('\r\n', '\n')
+    t = sub1(t, r'^FormKey: .*$', f"FormKey: {n['wsvisual']}", 'corpse explosion')
+    t = sub1(t, r'^EditorID: .*$', 'EditorID: ZP_Prophecy_WillingSacrifice_Explosion', 'corpse explosion')
+    t = sub1(t, r'^Name:\n(?:  .*\n)*', 'Name:\n  TargetLanguage: English\n  Value: A Willing Sacrifice\n', 'corpse explosion')
+    for line in ('ObjectEffect', 'ImageSpaceModifier', 'ISRadius'):
+        t = sub1(t, rf'^{line}: .*\n', '', 'corpse explosion')
+    t = sub1(t, r'^Force: .*$', 'Force: 0', 'corpse explosion')
+    t = sub1(t, r'^Radius: .*$', f"Radius: {NEC['SacrificeRadius']}", 'corpse explosion')
+    assert 'Forgotten Stories.esm' not in t and 'EldritchShockExplosion.nif' in t, 'corpse explosion copy still names FS'
+    write('Explosions', t)
+    write('Spells', spell(n['wscd'], 'ZP_Prophecy_WillingSacrifice_Cooldown', 'A Willing Sacrifice', None, 'FireAndForget',
+                          f"- BaseEffect: {n['wscdme']}\n  Data:\n    Duration: {NEC['SacrificeCooldown']}\n",
+                          extra='Flags:\n- NoAbsorbOrReflect\n'))
+    write('MagicEffects', mgef(n['wscdme'], 'ZP_Prophecy_WillingSacrifice_CooldownEffect', 'A Willing Sacrifice',
+                               'A Willing Sacrifice can be used again in <dur> seconds.', ['Recover'], '  Type: Script\n'))
+
+    # --- Legion of the Damned
+    write('Spells', spell(n['legpower'], 'ZP_Prophecy_LegionDamned_Power', 'Legion of the Damned', 'LesserPower', 'FireAndForget',
+                          f"- BaseEffect: {n['legme']}\n  Data:\n    Duration: 6\n", equip='025BEE:Skyrim.esm',
+                          extra='Flags:\n- IgnoreResistance\n- NoAbsorbOrReflect\n'))
+    write('MagicEffects', mgef(n['legme'], 'ZP_Prophecy_LegionDamned_Effect', 'Legion of the Damned', '',
+                               ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'], '  Type: Script\n',
+                               vmad=script('ZP_LegionEffect', [
+                                   ('Warrior', 'Object', n['legwar']),
+                                   ('Archer', 'Object', n['legarch']),
+                                   ('Mage', 'Object', n['legmage']),
+                                   ('FeverMessage', 'Object', '036F95:Skyrim.esm'),     # _00E_Player_sArcaneFeverIncreased
+                                   ('FeverImod', 'Object', '103755:Skyrim.esm'),        # _00E_ArkanistenfieberIMOD
+                                   ('MentalExpert', 'Object', '069D07:Skyrim.esm'),     # _00E_Class_Thaumaturge_P07_MentalExpert
+                                   ('LegionList', 'Object', n['leglist']),
+                                   ('SummonArt', 'Object', '107D96:Skyrim.esm'),        # DA07SummonTargetFX (RFCT of art SummonTargetFX 03F811;
+                                                                                         # an ARTO does not bind to VisualEffect)
+                                   ('RaiseSound', 'Object', '14C018:Skyrim.esm'),       # MAGConjurePortalOpenM
+                                   ('FeverCost', 'Float', NEC['LegionFever']),
+                                   ('BaseHealth', 'Float', NEC['LegionHealth']),
+                                   ('HealthPerLevel', 'Float', NEC['LegionHealthPerLevel'])])))
+    write('Spells', spell(n['legab'], 'ZP_Prophecy_LegionDamned_Ability', 'Legion of the Damned', 'Ability', 'ConstantEffect',
+                          f"- BaseEffect: {n['legabme']}\n  Data: {{}}\n"))
+    write('MagicEffects', mgef(n['legabme'], 'ZP_Prophecy_LegionDamned_SkeletonEffect', 'Legion of the Damned', '', hidden,
+                               '  Type: Script\n', cast='ConstantEffect',
+                               vmad=script('ZP_LegionSkeletonEffect', [('LegionList', 'Object', n['leglist']),
+                                                                       ('LifeSeconds', 'Float', NEC['LegionSeconds'])])))
+    write('FormLists', f"FormKey: {n['leglist']}\nEditorID: ZP_Prophecy_LegionDamned_Current\n")
+    # the skeletons: base Enderal's player summon, levelled with the player, in the player's faction, following,
+    # no loot (no bone meal; their gear is removed when they die)
+    weapon = '- Item:\n    Item: 0672D9:Skyrim.esm\n    Count: 1\n'                        # 01E_MOB_SkelettWeapon01
+    kinds = [('legwar', 'ZP_Prophecy_LegionDamned_Warrior', 'Legion Warrior', weapon, '000D0D:Skyrim.esm', [], 0),
+             ('legarch', 'ZP_Prophecy_LegionDamned_Archer', 'Legion Archer',
+              '- Item:\n    Item: 07C97F:Skyrim.esm\n    Count: 1\n- Item:\n    Item: 08659D:Skyrim.esm\n    Count: 99\n',  # Oak Bow, Old Rune Arrows
+              '038A23:Skyrim.esm', [], 0),                                                     # csDraugrMissile (LostOneArcherAmmo's fixes)
+             ('legmage', 'ZP_Prophecy_LegionDamned_Mage', 'Legion Mage', weapon,
+              '038A24:Skyrim.esm', ['048006:Skyrim.esm'], 200)]                                # csDraugrMagic + the Lost Mage's fire bolt
+    for key, edid, name, items, combat, spells, magicka in kinds:
+        t = open(SKELETON_SRC, encoding='utf-8').read().replace('\r\n', '\n')
+        t = sub1(t, r'^FormKey: .*$', f'FormKey: {n[key]}', edid)
+        t = sub1(t, r'^EditorID: .*$', f'EditorID: {edid}', edid)
+        t = sub1(t, r'^  Flags:\n  - Summonable\n', '', edid)                      # placed actors, not summons
+        t = sub1(t, r'^  Level:\n    MutagenObjectType: NpcLevel\n    Level: 7\n',
+                 ('  MagickaOffset: %d\n' % magicka if magicka else '') +
+                 '  Level:\n    MutagenObjectType: PcLevelMult\n    LevelMult: 1\n  CalcMinLevel: 1\n  CalcMaxLevel: 100\n', edid)
+        t = sub1(t, r'^Factions:\n(?:- .*\n(?:  .*\n)*)', f'Factions:\n- Faction: {PLAYER_FACTION}\n  Fluff: 0x000000\n', edid)
+        t = sub1(t, r'^(Race: .*\n)', lambda m: m.group(1) + 'ActorEffect:\n' + ''.join(f'- {x}\n' for x in [n['legab']] + spells), edid)
+        t = sub1(t, r'^Items:\n(?:- .*\n(?:  .*\n)*)*', 'Items:\n' + items, edid)
+        t = sub1(t, r'^AIData:\n(?:  .*\n)*', 'AIData:\n  Aggression: Aggressive\n  Confidence: Foolhardy\n  EnergyLevel: 50\n'
+                                             '  Responsibility: NoCrime\n  Assistance: HelpsFriendsAndAllies\n'
+                                             f'Packages:\n- {FOLLOW_PLAYER}\n', edid)
+        t = sub1(t, r'^Name:\n(?:  .*\n)*', f'Name:\n  TargetLanguage: English\n  Value: {name}\n', edid)
+        t = sub1(t, r'^CombatStyle: .*$', f'CombatStyle: {combat}', edid)
+        assert t.count('ActorEffect:') == 1 and t.count('Packages:') == 1 and '034CDD' not in t
+        write('Npcs', t)
+
+
 def perk_powers(esp, perk_fks):
     """(perk index, spell FormKey) for every perk whose PerkAbilityEffect is a Power/LesserPower. AddPerk from a
     script does not hand out power-type abilities (Explosive Tripwire, 2026-10-21), so the menu AddSpells them."""
@@ -1123,11 +2412,25 @@ def write_menu(nodes, nodeperk, write, grants):
         p = glob.glob(os.path.join(ESP, 'Perks', f'* - {nodeperk[nid].split(":")[0]}_*'))[0]
         t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
         val = lambda key: re.search(rf'^{key}:\n  TargetLanguage: English\n  Value: (.*)$', t, re.M).group(1)
-        unq = lambda v: v[1:-1].replace("''", "'") if v.startswith("'") else v
+        def unq(v):
+            if v.startswith("'"): return v[1:-1].replace("''", "'")
+            if v.startswith('"'): return json.loads(v)     # Spriggit's double-quoted scalars: Arcane Echo's showed \" (2026-10-24)
+            return v
+        # the talent's name heads its description (curator 2026-10-24). B612's card menu shows the description as plain
+        # text (b612_traitsmenut.swf updateDetails sets ItemText_tf.text, not htmlText), so a line of its own, no markup.
+        # The talent's name heads its description (curator 2026-10-24), added by ZP_ProphecyMenu at runtime with a
+        # Papyrus "\n": Mutagen stores every line break here as CRLF (even a lone CR), and B612's plain-text field
+        # breaks on CR and LF alike, so a stored "\n\n" showed a huge gap. The array holds the bare description.
         descs.append(unq(val('Description')))
         images.append(f'ProphecyPics/{ed(t)}.dds')
     strs = lambda xs: ''.join("      - '" + x.replace("'", "''") + "'\n" for x in xs)
+    # double-quoted YAML, so the header's line break survives (a single-quoted scalar folds a newline into a space)
+    dqstrs = lambda xs: ''.join('      - "' + x.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n').replace('\r', '\\r') + '"\n' for x in xs)
     pos = {nid: k for k, nid in enumerate(order)}
+    # capstones need level 30 (curator 2026-10-25): the talent after each tree's W2 stat talent
+    caps = {n for n in order if nodes[n][5] and nodes[n][5][0] in {w2[0] for _, _, w2 in STAT_NODES.values()}}
+    assert len(caps) == len(TREES), ('capstones', sorted(caps))
+    levelreq = [CAPSTONE_LEVEL if n in caps else 0 for n in order]
     pa = [pos[nodes[n][5][0]] if nodes[n][5] else -1 for n in order]
     pb = [pos[nodes[n][5][1]] if len(nodes[n][5]) > 1 else -1 for n in order]
     objs = lambda fks: ''.join(f"      - Name: ''\n        Object: {fk}\n" for fk in fks)
@@ -1156,7 +2459,7 @@ def write_menu(nodes, nodeperk, write, grants):
     # created from the plugin on every cast and passed to ZP_ProphecyMenu.Refresh: a running quest keeps its old
     # property values in the save, so without this new perks never reached existing saves (2026-10-22).
     arrays = ('    - MutagenObjectType: ScriptObjectListProperty\n      Name: Perks\n      Objects:\n' + objs(nodeperk[n] for n in order) +
-              '    - MutagenObjectType: ScriptStringListProperty\n      Name: Descriptions\n      Data:\n' + strs(descs) +
+              '    - MutagenObjectType: ScriptStringListProperty\n      Name: Descriptions\n      Data:\n' + dqstrs(descs) +
               '    - MutagenObjectType: ScriptStringListProperty\n      Name: Images\n      Data:\n' + strs(images) +
               '    - MutagenObjectType: ScriptIntListProperty\n      Name: ParentA\n      Data:\n' + ints(pa) +
               '    - MutagenObjectType: ScriptIntListProperty\n      Name: ParentB\n      Data:\n' + ints(pb) +
@@ -1164,7 +2467,8 @@ def write_menu(nodes, nodeperk, write, grants):
               '    - MutagenObjectType: ScriptObjectListProperty\n      Name: PowerSpell\n      Objects:\n' + objs(pw_s) +
               '    - MutagenObjectType: ScriptIntListProperty\n      Name: TreeStart\n      Data:\n' + ints(starts) +
               '    - MutagenObjectType: ScriptIntListProperty\n      Name: GiftPerk\n      Data:\n' + ints(gift_i) +
-              '    - MutagenObjectType: ScriptObjectListProperty\n      Name: GiftItem\n      Objects:\n' + objs(gift_s))
+              '    - MutagenObjectType: ScriptObjectListProperty\n      Name: GiftItem\n      Objects:\n' + objs(gift_s) +
+              '    - MutagenObjectType: ScriptIntListProperty\n      Name: LevelReq\n      Data:\n' + ints(levelreq))
     write('Quests',
           f'FormKey: 000807:{MOD}\nEditorID: ZP_ProphecyInit\nVirtualMachineAdapter:\n  Scripts:\n'
           '  - Name: ZP_ProphecyInit\n    Properties:\n' + prop('ZP_ProphecyPower', f'000805:{MOD}') +

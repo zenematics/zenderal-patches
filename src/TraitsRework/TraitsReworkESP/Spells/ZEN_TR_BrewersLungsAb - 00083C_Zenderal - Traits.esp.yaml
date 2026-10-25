@@ -9,11 +9,8 @@ Description:
   Value: >-
     Potions you brew are 20% stronger.
 
-    Years of fumes: your maximum Health is reduced by 15.
+    Years of fumes: your maximum Health is 10% lower.
 Type: Ability
 Effects:
 - BaseEffect: 00083D:Zenderal - Traits.esp
   Data: {}
-- BaseEffect: 000870:Zenderal - Traits.esp
-  Data:
-    Magnitude: 15

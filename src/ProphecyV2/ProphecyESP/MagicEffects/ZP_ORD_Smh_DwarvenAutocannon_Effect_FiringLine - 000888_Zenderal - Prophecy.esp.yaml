@@ -2,7 +2,7 @@ FormKey: 000888:Zenderal - Prophecy.esp
 EditorID: ZP_ORD_Smh_DwarvenAutocannon_Effect_FiringLine
 VirtualMachineAdapter:
   Scripts:
-  - Name: ORD_DwarvenAutocannon_Script
+  - Name: ZP_ClockworkTurretEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
       Name: FXEmptyActivator

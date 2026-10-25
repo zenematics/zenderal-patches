@@ -35,8 +35,16 @@ and cancelled the block every 500 ms, so holding block flickered. 1.0.1 parses t
 the BOM, and stays inert (logs a warning) if `ParryKey` can't be read. Check the startup line in the
 log: `DWP ParryKey=258`.
 
-**Limits.** DWP gamepad `ParryKey` codes are not mapped; controller blocking goes through vanilla `Left
-Attack/Block`, which is covered. A mod that starts a block from script with no key held would have it
+**1.0.1 → 1.0.2: gamepad DWP keys.** [verified from the log 2026-10-25] On controller, holding LT made the block
+stop and restart every 500 ms. The log showed `Ended stuck block … N ms after last block key-up` every 0.5 s while
+LT was held. Complete Controller Setup binds vanilla `Left Attack/Block` to LB, not LT; LT blocks through DWP's
+`ParryKey2 = 280`, and 1.0.1 only decoded DWP keys from keyboard and mouse. 1.0.2 maps gamepad buttons to DWP's
+266–281 numbering, copied from DWP's own switch (`lib/rebuilds/DWP/src/InputEventHandler.cpp:62-114`). Built with a
+plain PATH (an inherited PATH entry with `&` breaks `vcvars64.bat`), committed in `compiled/`, and deployed to
+`Zenderal - Block Release Fix` and `Zenderal - Patch Collection` (which carries a copy). 1.0.1 is backed up in
+`E:/Zenderal-backups/2026-10-25-blockreleasefix-1.0.1`.
+
+**Limits.** A mod that starts a block from script with no key held would have it
 ended after `GraceMs`; none is known in the list.
 
-Built and deployed 2026-10-13, **not yet verified in game**.
+Built and deployed 2026-10-13; 1.0.2 built and deployed 2026-10-25. **1.0.2 not yet verified in game.**

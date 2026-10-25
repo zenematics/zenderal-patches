@@ -5,12 +5,12 @@ Name:
   Value: 'Deadeye'
 Description:
   TargetLanguage: English
-  Value: Shooting targets you haven't shot within the past 10 seconds inflicts a critical strike that deals three times critical damage, and any weapon enchantments applied by the shot are twice as effective.
+  Value: 'A musket shot at a target you haven''t shot in the last 10 seconds is a critical strike that deals triple critical damage, and its weapon enchantments are twice as strong.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:
     MutagenObjectType: HasPerkConditionData
-    Perk: 000818:Zenderal - Prophecy.esp
+    Perk: 0009CF:Zenderal - Prophecy.esp
   ComparisonValue: 1
 NumRanks: 1
 Playable: True
@@ -27,7 +27,7 @@ Effects:
       ComparisonValue: 1
   EntryPoint: ApplyCombatHitSpell
   PerkConditionTabCount: 3
-  Spell: 0008B4:Zenderal - Prophecy.esp
+  Spell: 000910:Zenderal - Prophecy.esp
 - MutagenObjectType: PerkEntryPointModifyValue
   Priority: 155
   Conditions:
@@ -35,6 +35,11 @@ Effects:
     - MutagenObjectType: ConditionFloat
       Data:
         MutagenObjectType: GetVATSModeConditionData
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 12
   - RunOnTabIndex: 1
     Conditions:
     - MutagenObjectType: ConditionFloat
@@ -59,6 +64,11 @@ Effects:
     - MutagenObjectType: ConditionFloat
       Data:
         MutagenObjectType: GetVATSModeConditionData
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 12
   - RunOnTabIndex: 1
     Conditions:
     - MutagenObjectType: ConditionFloat
@@ -83,6 +93,11 @@ Effects:
     - MutagenObjectType: ConditionFloat
       Data:
         MutagenObjectType: GetVATSModeConditionData
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 12
   - RunOnTabIndex: 1
     Conditions:
     - MutagenObjectType: ConditionFloat
@@ -104,12 +119,6 @@ Effects:
   Priority: 158
   Conditions:
   - Conditions:
-    - MutagenObjectType: ConditionFloat
-      Flags:
-      - OR
-      Data:
-        MutagenObjectType: GetEquippedItemTypeConditionData
-      ComparisonValue: 7
     - MutagenObjectType: ConditionFloat
       Data:
         MutagenObjectType: GetEquippedItemTypeConditionData
@@ -161,12 +170,6 @@ Effects:
   Priority: 159
   Conditions:
   - Conditions:
-    - MutagenObjectType: ConditionFloat
-      Flags:
-      - OR
-      Data:
-        MutagenObjectType: GetEquippedItemTypeConditionData
-      ComparisonValue: 7
     - MutagenObjectType: ConditionFloat
       Data:
         MutagenObjectType: GetEquippedItemTypeConditionData

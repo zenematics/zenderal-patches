@@ -80,14 +80,22 @@ def main():
             by_stem[m.group(1).replace("-", "")] = f
     missing = [s for s in stems if s not in by_stem]
     extra = [s for s in by_stem if s not in stems]
-    if missing or extra:
-        sys.exit(f"icon/trait mismatch - missing: {missing}, unknown: {extra}")
+    if extra:
+        sys.exit(f"icon/trait mismatch - unknown: {extra}")
+    # Partial update (2026-10-25: the curator replaced 16 of the 27): art that is not in the folder keeps its
+    # committed .dds; every trait must still end up with one.
+    if missing:
+        kept = [s for s in missing if os.path.isfile(os.path.join(OUT, f"{editor_ids[s]}.dds"))]
+        if len(kept) != len(missing):
+            sys.exit(f"no art and no existing .dds for: {[s for s in missing if s not in kept]}")
+        print(f"partial update: {len(by_stem)} new, {len(kept)} kept")
 
     texconv = texconv_path()
-    shutil.rmtree(OUT, ignore_errors=True)
-    os.makedirs(OUT)
+    if not missing:
+        shutil.rmtree(OUT, ignore_errors=True)
+    os.makedirs(OUT, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
-        for stem in stems:
+        for stem in [s for s in stems if s in by_stem]:
             png = os.path.join(tmp, f"{editor_ids[stem]}.png")
             fit(Image.open(by_stem[stem]).convert("RGB")).save(png)
             r = subprocess.run([texconv, "-nologo", "-y", "-f", "BC1_UNORM", "-m", "1", "-o", OUT, png],

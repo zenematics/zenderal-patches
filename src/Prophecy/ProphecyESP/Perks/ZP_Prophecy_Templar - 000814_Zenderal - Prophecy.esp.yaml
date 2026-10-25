@@ -5,12 +5,19 @@ Name:
   Value: 'Templar'
 Description:
   TargetLanguage: English
-  Value: 'Once every 90 seconds, falling below 25% Health makes you immune to damage for 6 seconds and heals you for 100 Health afterwards, at a cost of 4 Arcane Fever.'
+  Value: 'Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health.'
 Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000811:Zenderal - Prophecy.esp
+  ComparisonValue: 1
 - MutagenObjectType: ConditionFloat
   Data:
     MutagenObjectType: HasPerkConditionData
-    Perk: 000813:Zenderal - Prophecy.esp
+    Perk: 000812:Zenderal - Prophecy.esp
   ComparisonValue: 1
 NumRanks: 1
 Playable: True

@@ -1,0 +1,52 @@
+FormKey: 000A43:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_WrathoftheHeavens
+Name:
+  TargetLanguage: English
+  Value: Wrath of the Lightborn
+MenuDisplayObject: 1097CA:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 200
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+HalfCostPerk: 0C44CA:Skyrim.esm
+Effects:
+- BaseEffect: 000A34:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 40
+    Duration: 60
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: LastFlattered
+    ComparisonValue: -50
+- BaseEffect: 000A35:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 20
+    Duration: 60
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: LastFlattered
+    ComparisonValue: -50
+- BaseEffect: 11A4B6:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThan
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: LastFlattered
+    ComparisonValue: -50

@@ -37,8 +37,8 @@ Effects:
     Conditions:
     - MutagenObjectType: ConditionFloat
       Data:
-        MutagenObjectType: HasKeywordConditionData
-        Keyword: 013794:Skyrim.esm
+        MutagenObjectType: IsHostileToActorConditionData
+        TargetNpc: 000014:Skyrim.esm
       ComparisonValue: 1
   EntryPoint: AddLeveledListOnDeath
   PerkConditionTabCount: 2

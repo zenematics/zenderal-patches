@@ -1,0 +1,15 @@
+FormKey: 0009EE:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Devotion_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Devotion'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 023162:Skyrim.esm
+  Data:
+    Magnitude: 10

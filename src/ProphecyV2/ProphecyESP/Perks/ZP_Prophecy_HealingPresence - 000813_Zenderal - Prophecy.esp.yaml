@@ -5,7 +5,7 @@ Name:
   Value: 'Healing Presence'
 Description:
   TargetLanguage: English
-  Value: 'In combat you heal yourself and nearby allies for 25 Health every 10 seconds, at a cost of 1 Arcane Fever.'
+  Value: 'In combat, you and nearby allies heal 25 Health every 10 seconds, at a cost of 1% Arcane Fever each time.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Flags:

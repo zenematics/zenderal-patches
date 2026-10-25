@@ -1,0 +1,38 @@
+FormKey: 001F55:Skyrim.esm
+EditorID: SchneepassStart
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: 9, 1
+  Flags: -1601927168
+WaterHeight: 3.4028235E+38
+Regions:
+- 002234:Skyrim.esm
+- 035CCA:Skyrim.esm
+- 10D11A:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CC8:Zenderal - Enemy Density.esp
+  Base: 12E284:Skyrim.esm
+  Placement:
+    Position: 37366.8, 5779.0, 10390.7
+    Rotation: 0, 0, 4.1872
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CC9:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 37325.3, 5869.4, 10407.3
+    Rotation: 0, 0, 0.6118
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CCA:Zenderal - Enemy Density.esp
+  Base: 12E287:Skyrim.esm
+  Placement:
+    Position: 37376.0, 5674.7, 10385.7
+    Rotation: 0, 0, 3.1969
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CCB:Zenderal - Enemy Density.esp
+  Base: 12E284:Skyrim.esm
+  Placement:
+    Position: 37461.7, 5842.9, 10352.8
+    Rotation: 0, 0, 1.9377

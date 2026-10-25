@@ -18,7 +18,7 @@ so all of Enderal's Arps (vanilla FalmerRace 0131F4) turned into goblins. The cu
      model swapped (texture-hash `Data` dropped: it described the Falmer textures);
    - five NPCs copied from Arps: weaker by design (Level 6, base health 70 vs 160, no health offset,
      weapon/magic skill offsets 15 vs 25-45, 40 EP vs 150), Arp faction kept (via their Template), Respawn kept,
-     plus ZEN_GoblinRespawn (back 7 in-game days after death, global ZEN_GoblinRespawnDays).
+     plus ZEN_GoblinRespawn (back 3 in-game days after death, global ZEN_GoblinRespawnDays).
 
 Usage:  python 01-build-creature.py [<modlist root>]       (default E:/Zenderal)
 """

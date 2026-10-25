@@ -6,13 +6,20 @@ Name:
   Value: 'Quick Reload'
 Description:
   TargetLanguage: English
-  Value: 'Draw a bow and reload a crossbow or musket 30% faster.'
+  Value: 'You reload muskets 30% faster.'
 NumRanks: 1
 Playable: True
 Effects:
 - MutagenObjectType: PerkAbilityEffect
-  Ability: 106642:Skyrim.esm
+  Ability: 00097C:Zenderal - Prophecy.esp
 - MutagenObjectType: PerkEntryPointSelectText
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 12
   EntryPoint: SetBooleanGraphVariable
   PerkConditionTabCount: 1
   Text: bPerkQuickdraw

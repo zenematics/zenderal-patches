@@ -5,7 +5,7 @@ Name:
   Value: 'Templar'
 Description:
   TargetLanguage: English
-  Value: 'Once every 90 seconds, falling below 25% Health makes you immune to damage for 6 seconds and heals you for 100 Health afterwards, at a cost of 4 Arcane Fever.'
+  Value: 'Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health at a cost of 4% Arcane Fever.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:

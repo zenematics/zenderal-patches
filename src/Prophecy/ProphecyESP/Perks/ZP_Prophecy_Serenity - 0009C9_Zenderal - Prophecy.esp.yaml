@@ -1,0 +1,19 @@
+FormKey: 0009C9:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Serenity
+Description:
+  TargetLanguage: English
+  Value: 'Your Mana regenerates 10 percent faster.'
+Name:
+  TargetLanguage: English
+  Value: 'Serenity'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000814:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009F3:Zenderal - Prophecy.esp

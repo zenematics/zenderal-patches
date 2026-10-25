@@ -28,7 +28,7 @@ KW_UNDEAD = "013796:Skyrim.esm"        # ActorTypeUndead
 KW_ANIMAL = "013798:Skyrim.esm"        # ActorTypeAnimal
 KW_BOW = "01E715:Skyrim.esm"           # WeapTypeBow: bows, crossbows and the OrdoLegionis muskets
 KW_LEHRBUCH = "031ACD:Skyrim.esm"      # Lehrbuch: every handbook ALCH
-KW_ACTOR_NPC = "013794:Skyrim.esm"     # ActorTypeNPC: people, not animals or creatures
+PLAYER_REF = "000014:Skyrim.esm"
 # Flintlock Overhaul's pistols are STAVES firing a spell; every pistol shot enchantment carries this keyword, and the
 # overhaul's own scaling perk (ZP_FlintlockArcheryScaling 00080D) multiplies ModSpellMagnitude on it the same way.
 KW_FLINTLOCK_SHOT = "00080C:Zenderal - Flintlock Overhaul.esp"
@@ -47,7 +47,8 @@ LVLI_GEMS_2 = "085676:Skyrim.esm"      # 03E_Edelsteine
 LVLI_JEWELRY_1 = "04C981:Skyrim.esm"   # 01E_Schmuckstck
 LVLI_JEWELRY_2 = "0E1222:Skyrim.esm"   # 02E_Schmuckstck
 
-BLOCK_START = 0x800   # trait n uses BLOCK_START + 4n .. +2 (SPEL, MGEF, PERK); +3 spare
+BLOCK_START = 0x800   # trait n uses BLOCK_START + 4n .. +2 (SPEL, MGEF, PERK); +3 spare (a Pool trait's cut ability)
+ZEN_POOL_START = 0x86C  # cut abilities for Zen Traits' own traits (0x86C-0x86F), counting down from 0x86F
 STAT_START = 0x870    # shared stat MGEFs
 LOOT_START = 0x880    # leveled lists (0x880-0x88F)
 
@@ -173,7 +174,7 @@ class LootOnDeath:
 # ---------- leveled lists ----------
 LOOT_GOBLIN = fk(LOOT_START)          # always: three large-gold + one small-gold roll + one rare roll
 LOOT_GOBLIN_RARE = fk(LOOT_START + 1)  # 76% nothing, else a gem or jewelry roll
-LOOT_GUNSLINGER = fk(LOOT_START + 2)   # 70% nothing, else 3 or 5 Flintlock Bullets
+LOOT_GUNSLINGER = fk(LOOT_START + 2)   # 50% nothing, else 3 or 5 Flintlock Bullets
 LEVELED_LISTS = [
     # FormKey, EditorID, ChanceNone (0-1), flags, [(level, reference, count)]
     # 2026-10-22: +60% on both (curator): rare 15% -> 24%; gold ~13 -> ~21 per kill
@@ -184,8 +185,8 @@ LEVELED_LISTS = [
      ["UseAll"],
      [(1, LVLI_GOLD_LARGE, 1), (1, LVLI_GOLD_LARGE, 1), (1, LVLI_GOLD_LARGE, 1), (1, LVLI_GOLD_SMALL, 1),
       (1, LOOT_GOBLIN_RARE, 1)]),
-    # Gunslinger (curator 2026-10-23): 30% chance of pistol ammo on a slain person
-    (LOOT_GUNSLINGER, "ZEN_TR_GunslingerLoot", 0.7,
+    # Gunslinger (curator 2026-10-23): 50% chance of pistol ammo on any slain enemy
+    (LOOT_GUNSLINGER, "ZEN_TR_GunslingerLoot", 0.5,
      ["CalculateFromAllLevelsLessThanOrEqualPlayer"],
      [(1, FLINTLOCK_BULLET, 3), (1, FLINTLOCK_BULLET, 5)]),
 ]
@@ -223,13 +224,29 @@ class Stat:
         self.key, self.magnitude, self.conds = key, magnitude, conds or []
 
 
+# Zen Traits traits whose cut is ours (formkey, stem, menu name, stat key). Their scripts are Zen Traits' own, forked
+# in Scripts/source: a script-only replacement keeps its properties, so it finds the ability by FormID.
+ZEN_POOLS = [(fk(0x86F), "AeternaVeins", "Aeterna Veins", "health_neg")]
+
+
+class Pool:
+    """A percentage cut to a maximum pool that follows every change to it (curator 2026-10-25; these were flat cuts,
+    because a plain ability can't scale a max). The trait's perk-carrier MGEF also runs ZEN_TR_PoolPenaltyEffect,
+    which keeps the trait's own cut ability (its spare slot, +3: one Detrimental stat effect, magnitude set at runtime)
+    at `fraction` of the pool's uncut maximum. Zen Traits' Aeterna Veins is the archetype (a cut ability re-added on
+    level-up); this re-checks every 5 s, so gear and buffs count too."""
+    def __init__(self, key, av, fraction):
+        assert key in STAT_FK and 0 < fraction < 1, (key, fraction)
+        self.key, self.av, self.fraction = key, av, fraction
+
+
 # ---------- the traits ----------
 # (EditorID stem, menu name, description, [EP...], [Stat...])
 TRAITS = [
     ("Overcharged", "Overcharged",
-     "Elementalism spells deal 20% more damage.\n\nYour maximum Health is reduced by 25.",
+     "Elementalism spells deal 20% more damage.\n\nYour maximum Health is 15% lower.",
      [EP("ModSpellMagnitude", 1.2, {1: [is_spell(), school("Destruction")]})],
-     [Stat("health_neg", 25)]),
+     [Pool("health_neg", "Health", 0.15)]),
 
     ("Stormcaller", "Stormcaller",
      "Shock spells deal 25% more damage and cost 10% less.\n\nFire and frost spells deal 15% less damage.",
@@ -326,14 +343,14 @@ TRAITS = [
      []),
 
     ("InkStained", "Ink-Stained",
-     "Handbooks cost 25% less.\n\nYour maximum Stamina is reduced by 25.",
+     "Handbooks cost 25% less.\n\nYour maximum Stamina is 15% lower.",
      [EP("ModBuyPrices", 0.75, {1: [has_kw(KW_LEHRBUCH)]})],
-     [Stat("stamina_neg", 25)]),
+     [Pool("stamina_neg", "Stamina", 0.15)]),
 
     ("BrewersLungs", "Brewer's Lungs",
-     "Potions you brew are 20% stronger.\n\nYears of fumes: your maximum Health is reduced by 15.",
+     "Potions you brew are 20% stronger.\n\nYears of fumes: your maximum Health is 10% lower.",
      [EP("ModAlchemyEffectiveness", 1.2)],
-     [Stat("health_neg", 15)]),
+     [Pool("health_neg", "Health", 0.10)]),
 
     ("GoblinSlayer", "Goblin Slayer",
      "Your weapons deal 25% more damage to goblins and Arps, and they deal 15% less damage to you. "
@@ -349,11 +366,12 @@ TRAITS = [
     # Flintlock shot keyword; ModAttackDamage never touches them. Melee = any weapon attack without WeapTypeBow
     # (bows, crossbows and muskets all carry it), fists included.
     ("Gunslinger", "Gunslinger",
-     "Flintlock pistols deal 35% more damage, and people you kill have a 30% chance to carry Flintlock Bullets.\n\n"
+     "Flintlock pistols deal 35% more damage, and enemies you kill have a 50% chance to carry Flintlock Bullets.\n\n"
      "Your melee attacks deal 25% less damage.",
      [EP("ModSpellMagnitude", 1.35, {1: [spell_kw(KW_FLINTLOCK_SHOT)]}),
       EP("ModAttackDamage", 0.75, {1: [C("HasKeyword", {"Keyword": KW_BOW})]}),
-      LootOnDeath(LOOT_GUNSLINGER, [has_kw(KW_ACTOR_NPC)])],
+      # any enemy: FS's own Shadow Dancer token perk (01596A) checks its victim the same way
+      LootOnDeath(LOOT_GUNSLINGER, [C("IsHostileToActor", {"TargetNpc": PLAYER_REF}, value=1)])],
      []),
 ]
 
@@ -398,8 +416,25 @@ def main():
     counts = {"SPEL": 0, "MGEF": len(STATS), "PERK": 0, "EP": 0}
     for n, (stem, name, desc, eps, stats) in enumerate(TRAITS):
         base = BLOCK_START + 4 * n
-        assert base + 3 < STAT_START, "trait block overflows into the stat MGEFs"
+        assert base + 3 < ZEN_POOL_START, "trait block overflows into the Zen Traits cut abilities"
         spel, mgef, perk = fk(base), fk(base + 1), fk(base + 2)
+        pools = [s for s in stats if isinstance(s, Pool)]
+        stats = [s for s in stats if not isinstance(s, Pool)]
+        assert len(pools) <= 1 and (not pools or eps), f"{stem}: one Pool, on a trait whose perk MGEF can carry it"
+        vmad = []
+        if pools:
+            pool, penalty = pools[0], fk(base + 3)
+            vmad = ["VirtualMachineAdapter:", "  Scripts:", "  - Name: ZEN_TR_PoolPenaltyEffect", "    Properties:",
+                    "    - MutagenObjectType: ScriptObjectProperty", "      Name: Penalty", f"      Object: {penalty}",
+                    "    - MutagenObjectType: ScriptStringProperty", "      Name: PoolName", f"      Data: {pool.av}",
+                    "    - MutagenObjectType: ScriptFloatProperty", "      Name: Fraction",
+                    f"      Data: {num(pool.fraction)}"]
+            write("Spells", f"ZEN_TR_{stem}PenaltyAb", penalty, [
+                f"FormKey: {penalty}", f"EditorID: ZEN_TR_{stem}PenaltyAb", "Name:", "  TargetLanguage: English",
+                f"  Value: {name}", f"EquipmentType: {EQUIP_TYPE}", "Description:", "  TargetLanguage: English",
+                "  Value: ''", "Type: Ability", "Effects:",
+                f"- BaseEffect: {STAT_FK[pool.key]}", "  Data:", "    Magnitude: 1"])   # the script sets it
+            counts["SPEL"] += 1
         effects = []
         if eps:
             plines = [f"FormKey: {perk}", f"EditorID: ZEN_TR_{stem}PERK", "Description:",
@@ -408,7 +443,7 @@ def main():
                 plines += ep.lines()
             write("Perks", f"ZEN_TR_{stem}PERK", perk, plines)
             write("MagicEffects", f"ZEN_TR_{stem}MGEF", mgef, [
-                f"FormKey: {mgef}", f"EditorID: ZEN_TR_{stem}MGEF", "Name:", "  TargetLanguage: English",
+                f"FormKey: {mgef}", f"EditorID: ZEN_TR_{stem}MGEF"] + vmad + ["Name:", "  TargetLanguage: English",
                 f"  Value: {name}",
                 "Flags:", "- Recover", "- NoDuration", "- NoMagnitude", "- NoArea",
                 "Archetype:", "  MutagenObjectType: MagicEffectArchetype", "  Type: Script",
@@ -432,6 +467,16 @@ def main():
         ability_fks.append(spel)
         counts["SPEL"] += 1
 
+    # Zen Traits' Aeterna Veins (curator 2026-10-25): its cut is this ability, kept at 20% of the uncut max Health by
+    # the forked ZenTraits_AeternaVeinsScript in Scripts/source (which looks it up by this FormID; see its header)
+    for formkey, stem, name, key in ZEN_POOLS:
+        write("Spells", f"ZEN_TR_{stem}PenaltyAb", formkey, [
+            f"FormKey: {formkey}", f"EditorID: ZEN_TR_{stem}PenaltyAb", "Name:", "  TargetLanguage: English",
+            f"  Value: {name}", f"EquipmentType: {EQUIP_TYPE}", "Description:", "  TargetLanguage: English",
+            "  Value: ''", "Type: Ability", "Effects:",
+            f"- BaseEffect: {STAT_FK[key]}", "  Data:", "    Magnitude: 1"])   # the script sets it
+        counts["SPEL"] += 1
+
     for formkey, edid, chance_none, flags, entries in LEVELED_LISTS:
         assert LOOT_START <= int(formkey[:6], 16) <= 0x88F, formkey
         write("LeveledItems", edid, formkey, lvli_lines(formkey, edid, chance_none, flags, entries))
@@ -440,7 +485,7 @@ def main():
     write("FormLists", "Traits_AbilityList", ABILITY_LIST,
           [f"FormKey: {ABILITY_LIST}", "EditorID: Traits_AbilityList", "Items:"] + [f"- {x}" for x in ability_fks])
 
-    assert counts["SPEL"] == len(TRAITS) == 18, counts   # 18th: Gunslinger (2026-10-23)
+    assert len(TRAITS) == 18 and counts["SPEL"] == 18 + 3 + len(ZEN_POOLS), counts   # 18th: Gunslinger (2026-10-23); + cut abilities
     print(f"traits={counts['SPEL']} perks={counts['PERK']} entry_points={counts['EP']} mgefs={counts['MGEF']} "
           f"leveled_lists={len(LEVELED_LISTS)}")
 

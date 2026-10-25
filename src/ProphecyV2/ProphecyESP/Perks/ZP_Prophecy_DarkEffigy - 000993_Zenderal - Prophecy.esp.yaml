@@ -1,0 +1,16 @@
+FormKey: 000993:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DarkEffigy
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Dark Effigy" spell (100 Magicka): raise a dark totem for 60 seconds. Your undead summons near it heal 2 Health per second, and you and your allies near it gain 250 armor.'
+Name:
+  TargetLanguage: English
+  Value: 'Dark Effigy'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000992:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

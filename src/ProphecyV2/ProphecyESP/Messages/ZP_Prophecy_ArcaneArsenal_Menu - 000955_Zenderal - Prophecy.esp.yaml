@@ -1,0 +1,21 @@
+FormKey: 000955:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ArcaneArsenal_Menu
+Description:
+  TargetLanguage: English
+  Value: Which element will your arrows carry?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Fire
+- Text:
+    TargetLanguage: English
+    Value: Frost
+- Text:
+    TargetLanguage: English
+    Value: Lightning
+- Text:
+    TargetLanguage: English
+    Value: None

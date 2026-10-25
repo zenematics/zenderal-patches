@@ -1,0 +1,60 @@
+FormKey: 000A2B:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_SunShardsUndeadMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshaderapply
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: bUseDuration
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX
+      Object: 04C6D8:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Sun Shards
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 0A9B1E:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- GoryVisuals
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.5
+MagicSkill: Restoration
+CastingLight: 03F1B5:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 04C6D8:Skyrim.esm
+MinimumSkillLevel: 25
+TaperCurve: 2
+TaperDuration: 0.1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000A4D:Zenderal - Prophecy.esp
+CastType: Concentration
+TargetType: Aimed
+CastingArt: 01C859:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: ConcentrationCastLoop
+  Sound: 03E958:Skyrim.esm
+- Type: Release
+  Sound: 03F2EA:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Concentrated sunlight dealing <mag> points of damage. Undead targets take double damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1

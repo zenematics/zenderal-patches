@@ -10,7 +10,7 @@ Conditions:
 - MutagenObjectType: ConditionFloat
   Data:
     MutagenObjectType: HasPerkConditionData
-    Perk: 00081F:Zenderal - Prophecy.esp
+    Perk: 0009D6:Zenderal - Prophecy.esp
   ComparisonValue: 1
 NumRanks: 1
 Playable: True

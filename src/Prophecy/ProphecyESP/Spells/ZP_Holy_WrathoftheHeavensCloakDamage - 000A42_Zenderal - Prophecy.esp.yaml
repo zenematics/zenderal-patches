@@ -1,0 +1,24 @@
+FormKey: 000A42:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_WrathoftheHeavensCloakDamage
+Name:
+  TargetLanguage: English
+  Value: Smite
+MenuDisplayObject: 1097CA:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C7:Skyrim.esm
+Effects:
+- BaseEffect: 000A36:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 4
+    Duration: 1
+- BaseEffect: 000A37:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 1
+    Duration: 3

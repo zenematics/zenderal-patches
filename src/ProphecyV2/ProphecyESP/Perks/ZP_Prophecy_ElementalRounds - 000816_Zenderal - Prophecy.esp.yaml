@@ -2,7 +2,7 @@ FormKey: 000816:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_ElementalRounds
 Description:
   TargetLanguage: English
-  Value: 'Your musket, crossbow and bow hits also deal 10 points of fire damage.'
+  Value: 'Your musket hits deal 10 extra fire damage.'
 Name:
   TargetLanguage: English
   Value: 'Elemental Rounds'

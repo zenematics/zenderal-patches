@@ -7,6 +7,9 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: StaggerSpell
       Object: 000943:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HealSpell
+      Object: 0009AF:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptFloatProperty
       Name: HealAmount
       Data: 15.0

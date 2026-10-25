@@ -1,0 +1,19 @@
+FormKey: 00094F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_NoDistractions
+Description:
+  TargetLanguage: English
+  Value: 'While you aim a bow, a Spell Ward (Rank II) surrounds you. It fades when you fire or lower the bow.'
+Name:
+  TargetLanguage: English
+  Value: 'No Distractions'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 0009E2:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000957:Zenderal - Prophecy.esp

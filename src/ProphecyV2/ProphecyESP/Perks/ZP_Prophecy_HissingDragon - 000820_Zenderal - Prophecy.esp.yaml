@@ -5,7 +5,7 @@ Name:
   Value: 'Hissing Dragon'
 Description:
   TargetLanguage: English
-  Value: You may choose a damage type (fire, frost, shock, poison, disease or sun). Unarmed attacks unleash a shockwave that deals the chosen damage type to all targets in front of you. Requires two free hands. Does not activate while sneaking.
+  Value: 'Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:

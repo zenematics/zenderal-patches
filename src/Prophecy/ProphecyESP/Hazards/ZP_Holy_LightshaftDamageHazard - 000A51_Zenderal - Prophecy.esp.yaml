@@ -1,0 +1,12 @@
+FormKey: 000A51:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_LightshaftDamageHazard
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 10
+Lifetime: 0.45
+TargetInterval: 0.2
+Flags:
+- DropToGround
+Spell: 000A3D:Zenderal - Prophecy.esp

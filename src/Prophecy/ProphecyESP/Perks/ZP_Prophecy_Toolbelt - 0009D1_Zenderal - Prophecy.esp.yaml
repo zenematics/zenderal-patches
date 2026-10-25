@@ -1,0 +1,19 @@
+FormKey: 0009D1:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Toolbelt
+Description:
+  TargetLanguage: English
+  Value: 'Your carry weight is increased by 30.'
+Name:
+  TargetLanguage: English
+  Value: 'Toolbelt'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081A:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009FB:Zenderal - Prophecy.esp

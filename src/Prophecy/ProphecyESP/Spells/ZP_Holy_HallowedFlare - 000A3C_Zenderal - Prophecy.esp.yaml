@@ -1,0 +1,32 @@
+FormKey: 000A3C:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HallowedFlare
+Name:
+  TargetLanguage: English
+  Value: Smite
+MenuDisplayObject: 1097CA:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 97
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C9:Skyrim.esm
+Effects:
+- BaseEffect: 000A28:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 4
+    Area: 10
+- BaseEffect: 000A29:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 0.75
+    Area: 10
+    Duration: 6
+- BaseEffect: 000A2E:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 40
+    Area: 10

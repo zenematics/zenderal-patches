@@ -1,0 +1,35 @@
+FormKey: 0009AB:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_ThrowEffect
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Utility Droid
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- NoHitEvent
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- Painless
+- NoHitEffect
+- NoDeathDispel
+BaseCost: 2.3
+MagicSkill: Destruction
+MinimumSkillLevel: 50
+SpellmakingArea: 15
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+Projectile: 0009AC:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 02FD65:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+CastingSoundLevel: Silent
+Sounds:
+- Type: Release
+  Sound: 0C06D1:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

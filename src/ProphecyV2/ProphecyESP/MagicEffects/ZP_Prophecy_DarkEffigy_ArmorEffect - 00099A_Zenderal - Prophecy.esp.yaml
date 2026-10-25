@@ -1,0 +1,19 @@
+FormKey: 00099A:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DarkEffigy_ArmorEffect
+Name:
+  TargetLanguage: English
+  Value: Dark Effigy
+Flags:
+- Recover
+- NoArea
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: DamageResist
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'Armor rating increased by <mag>.'

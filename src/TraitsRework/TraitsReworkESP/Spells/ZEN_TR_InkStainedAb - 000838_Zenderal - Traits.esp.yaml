@@ -9,11 +9,8 @@ Description:
   Value: >-
     Handbooks cost 25% less.
 
-    Your maximum Stamina is reduced by 25.
+    Your maximum Stamina is 15% lower.
 Type: Ability
 Effects:
 - BaseEffect: 000839:Zenderal - Traits.esp
   Data: {}
-- BaseEffect: 000871:Zenderal - Traits.esp
-  Data:
-    Magnitude: 25

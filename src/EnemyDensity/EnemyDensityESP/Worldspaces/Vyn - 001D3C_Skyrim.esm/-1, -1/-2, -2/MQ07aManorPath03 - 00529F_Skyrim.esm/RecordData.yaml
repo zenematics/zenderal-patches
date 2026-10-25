@@ -1,0 +1,31 @@
+FormKey: 00529F:Skyrim.esm
+EditorID: MQ07aManorPath03
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: -14, -14
+  Flags: -1655952128
+WaterHeight: 3.4028235E+38
+Regions:
+- 048089:Skyrim.esm
+- 01DE6D:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C41:Zenderal - Enemy Density.esp
+  Base: 016C6B:Skyrim.esm
+  Placement:
+    Position: -54570.7, -56810.7, 3063.2
+    Rotation: 0, 0, 0.6778
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C42:Zenderal - Enemy Density.esp
+  Base: 016C6B:Skyrim.esm
+  Placement:
+    Position: -54485.3, -56874.7, 3019.6
+    Rotation: 0, 0, 2.6437
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C43:Zenderal - Enemy Density.esp
+  Base: 07BCCB:Skyrim.esm
+  Placement:
+    Position: -54485.3, -56746.7, 3051.5
+    Rotation: 0, 0, 1.1215

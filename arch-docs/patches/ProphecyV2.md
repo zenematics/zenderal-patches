@@ -37,3 +37,10 @@ and the lighting of `MQP03TempleInnerVision` (Enderal's vision void). Spawn = En
 Lighting and sky (interior, no Akropolis weather); whether star/line animations persist across save/load (re-lit on
 entry regardless); star spacing (`HALF_WIDTH` 40, vertical span = the reused wall's); the player keeps fighting/
 casting enabled so the power can be recast to leave.
+
+## Generator out of date (2026-10-25)
+
+`tools/01-build-v2.py` now stops with `KeyError: 'Sharpshooter'`. `WALLS` still names v1's old "Gunslinger" tree,
+and has no sanctum wall for Glory's later perks, Arcane Archery or Necromancy. v2's MO2 mod is not installed (v3
+is the A/B choice in use), so it was left as is. Update `WALLS`/`LAYOUTS` before building v2 again.
+

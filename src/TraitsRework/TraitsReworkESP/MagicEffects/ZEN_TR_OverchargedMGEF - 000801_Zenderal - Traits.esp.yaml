@@ -1,5 +1,18 @@
 FormKey: 000801:Zenderal - Traits.esp
 EditorID: ZEN_TR_OverchargedMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_TR_PoolPenaltyEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Penalty
+      Object: 000803:Zenderal - Traits.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: PoolName
+      Data: Health
+    - MutagenObjectType: ScriptFloatProperty
+      Name: Fraction
+      Data: 0.15
 Name:
   TargetLanguage: English
   Value: Overcharged

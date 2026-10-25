@@ -1,0 +1,63 @@
+FormKey: 000984:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SendOwl_StrikePerk
+Name:
+  TargetLanguage: English
+  Value: Andrasta's Owl
+NumRanks: 1
+Effects:
+- MutagenObjectType: PerkEntryPointSelectSpell
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 000985:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetIsIDConditionData
+        Object: 000007:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetPlayerTeammateConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetInFactionConditionData
+        Faction: 000DB1:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetIsIDConditionData
+        Object: 000007:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetPlayerTeammateConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetInFactionConditionData
+        Faction: 000DB1:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ModIncomingSpellMagnitude
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0

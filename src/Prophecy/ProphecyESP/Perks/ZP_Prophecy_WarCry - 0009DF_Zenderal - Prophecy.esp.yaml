@@ -1,0 +1,19 @@
+FormKey: 0009DF:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WarCry
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Stamina is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'War Cry'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000918:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A09:Zenderal - Prophecy.esp

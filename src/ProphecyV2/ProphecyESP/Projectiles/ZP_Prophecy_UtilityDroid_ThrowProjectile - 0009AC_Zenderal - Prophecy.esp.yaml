@@ -1,0 +1,25 @@
+FormKey: 0009AC:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_ThrowProjectile
+Version2: 3
+ObjectBounds:
+  First: -15, -16, -8
+  Second: 15, 17, 14
+Name:
+  TargetLanguage: English
+  Value: Utility Droid
+Model:
+  File: Enderal\Magic\StarlingDummyProjectile.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+Type: Missile
+Gravity: 0.7
+Speed: 1000
+Range: 60000
+Explosion: 0009AD:Zenderal - Prophecy.esp
+FadeDuration: 5
+ImpactForce: 1
+CollisionRadius: 0.5
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 2

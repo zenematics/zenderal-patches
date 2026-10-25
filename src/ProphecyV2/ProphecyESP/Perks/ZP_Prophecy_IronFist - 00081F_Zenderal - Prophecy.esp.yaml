@@ -6,7 +6,7 @@ Name:
   Value: 'Iron Fist'
 Description:
   TargetLanguage: English
-  Value: 'Increases unarmed damage by 15% of your current Stamina. Requires two free hands.'
+  Value: 'Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty.'
 NumRanks: 1
 Playable: True
 Effects:

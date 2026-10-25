@@ -1,0 +1,19 @@
+FormKey: 0009CB:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_PowderLungs
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Stamina is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Powder Lungs'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000815:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009F5:Zenderal - Prophecy.esp

@@ -1,0 +1,46 @@
+FormKey: 000941:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_UtilityDroidEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StaggerSpell
+      Object: 000943:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HealSpell
+      Object: 0009AF:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: HealAmount
+      Data: 15.0
+    - MutagenObjectType: ScriptIntProperty
+      Name: HealInterval
+      Data: 4
+    - MutagenObjectType: ScriptFloatProperty
+      Name: HealRadius
+      Data: 640.0
+    - MutagenObjectType: ScriptIntProperty
+      Name: StaggerInterval
+      Data: 6
+    - MutagenObjectType: ScriptFloatProperty
+      Name: StaggerRadius
+      Data: 300.0
+Name:
+  TargetLanguage: English
+  Value: Utility Droid
+Flags:
+- HideInUI
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

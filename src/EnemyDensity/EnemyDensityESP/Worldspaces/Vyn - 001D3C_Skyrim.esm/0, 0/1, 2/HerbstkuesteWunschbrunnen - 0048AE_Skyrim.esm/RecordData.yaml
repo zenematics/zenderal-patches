@@ -1,0 +1,42 @@
+FormKey: 0048AE:Skyrim.esm
+EditorID: HerbstkuesteWunschbrunnen
+Version2: 13
+Flags:
+- HasWater
+Grid:
+  Point: 8, 16
+  Flags: -1655950592
+WaterHeight: 3.4028235E+38
+Regions:
+- 035CCA:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CC3:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 33272.0, 67544.5, 325.7
+    Rotation: 0, 0, 2.4829
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CC4:Zenderal - Enemy Density.esp
+  Base: 12E284:Skyrim.esm
+  Placement:
+    Position: 33224.9, 67649.0, 325.1
+    Rotation: 0, 0, 5.439
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CC5:Zenderal - Enemy Density.esp
+  Base: 12E287:Skyrim.esm
+  Placement:
+    Position: 33405.6, 67499.0, 264.1
+    Rotation: 0, 0, 4.6228
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CC6:Zenderal - Enemy Density.esp
+  Base: 12E284:Skyrim.esm
+  Placement:
+    Position: 33301.8, 67377.5, 335.5
+    Rotation: 0, 0, 0.6173
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CC7:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 33138.0, 67680.3, 353.8
+    Rotation: 0, 0, 4.8932

@@ -1,0 +1,33 @@
+FormKey: 000A64:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_RighteousPath_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_RighteousPathEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CounterSpell
+      Object: 000A61:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HitSFX
+      Object: 000A5B:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExplosionArtEffect
+      Object: 000A5C:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Righteous Path
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'While you block with a spell or nothing in your left hand, each attacker you block is struck by a beam of light.'

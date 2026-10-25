@@ -23,7 +23,7 @@ Spell Property Cooldown Auto
 MagicEffect Property CooldownEffect Auto
 Float Property Radius = 400.0 Auto
 Float Property KnockForce = 4.0 Auto
-Float Property LiftImpulse = 150.0 Auto   ; 2026-10-22: 200 flew too high; height grows with the square, 150 ~ 56%
+Float Property LiftImpulse = 105.0 Auto   ; 2026-10-22: 200 flew too high; height grows with the square, 150 ~ 56%; then -30% to 105 (~49% of 150's height)
 Float Property ImpactDelay = 0.5 Auto
 Float Property RecoverDelay = 0.8 Auto   ; after the impact, let the stomp finish before freeing the player
 

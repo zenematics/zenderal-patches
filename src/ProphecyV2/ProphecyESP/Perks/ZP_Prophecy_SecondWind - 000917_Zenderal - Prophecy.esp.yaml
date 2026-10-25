@@ -2,7 +2,7 @@ FormKey: 000917:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_SecondWind
 Description:
   TargetLanguage: English
-  Value: 'While at or below half Health, every hit you take restores 20 Stamina.'
+  Value: 'While you are at or below half Health, every hit you take restores 20 Stamina.'
 Name:
   TargetLanguage: English
   Value: 'Second Wind'

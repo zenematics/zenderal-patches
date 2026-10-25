@@ -25,7 +25,3 @@ Effects:
 - BaseEffect: 0008DD:Zenderal - Prophecy.esp
   Data:
     Duration: 10
-- BaseEffect: 11A4B6:Skyrim.esm
-  Data:
-    Magnitude: 1
-    Duration: 1

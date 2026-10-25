@@ -1,0 +1,35 @@
+FormKey: 00097B:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_LionsArrow_Effect_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_RevertOnEnd_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_FormList
+      Object: 00096C:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Arcane Echo
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- HideInUI
+- NoHitEffect
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1

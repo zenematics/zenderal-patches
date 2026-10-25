@@ -1,0 +1,9 @@
+FormKey: 00094B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BleedingShotSound
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\Zenderal\ZEN_BleedingShot_01.wav
+OutputModel: 0B6463:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

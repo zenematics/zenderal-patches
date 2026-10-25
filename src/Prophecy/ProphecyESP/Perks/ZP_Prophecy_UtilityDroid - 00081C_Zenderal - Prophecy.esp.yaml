@@ -5,12 +5,12 @@ Name:
   Value: 'Utility Droid'
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Utility Droid" power. Deploy a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed; building another costs 10 Spare Parts.'
+  Value: 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:
     MutagenObjectType: HasPerkConditionData
-    Perk: 00081A:Zenderal - Prophecy.esp
+    Perk: 0009D0:Zenderal - Prophecy.esp
   ComparisonValue: 1
 NumRanks: 1
 Playable: True

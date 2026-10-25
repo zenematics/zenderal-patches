@@ -113,8 +113,7 @@ Skyrim.esm FormID. The records themselves are hand-edited copies of EGO's (no ge
 
 ## Compiling
 
-`papyrus-compile`'s PowerShell recipe failed silently on 2026-10-21 (even on a known-good script):
-`papyrusSource.vanilla` points at a removed Nemesis folder and the relative `-o`/source paths did not
-resolve. Calling `PapyrusCompiler.exe` with **absolute** paths and
-`-i=<source>;<papyrusSource.enderal>;<papyrusSource.skse>;<PE Source/Scripts>` works; the flags file
-resolves from Enderal's tree.
+`papyrus-compile`'s recipe failed silently on 2026-10-21 (even on a known-good script). The cause, found
+2026-10-24: **any missing `-i` folder** makes the compiler drop its output with no error, and two
+`tools.json` import paths had gone stale (see [`papyrus.md`](../workspace/papyrus.md#gotchas)). Fixed in
+`tools.json`; the config recipe compiles again.

@@ -5,7 +5,7 @@ Name:
   Value: 'Descending Light'
 Description:
   TargetLanguage: English
-  Value: 'When you enter combat, you rapidly regenerate Magicka equal to half your Light Magic skill per second. The effect fades over 15 seconds and does not stop while casting.'
+  Value: 'When you enter combat, you regenerate Magicka equal to half your Light Magic skill per second. The effect fades over 15 seconds and keeps working while you cast.'
 NumRanks: 1
 Playable: True
 Effects:

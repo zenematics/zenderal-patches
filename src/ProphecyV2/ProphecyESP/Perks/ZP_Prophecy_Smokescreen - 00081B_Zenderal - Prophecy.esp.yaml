@@ -5,7 +5,7 @@ Name:
   Value: 'Smokescreen'
 Description:
   TargetLanguage: English
-  Value: Grants the "Smokescreen" power. Once a day, creates a 35 foot cloud for 180 seconds that blinds those in the cloud, preventing them from seeing sneaking targets. Sneak attacks against them deal 50% more damage.
+  Value: 'Grants the "Smokescreen" power: once a day, create a 35-foot cloud of smoke for 180 seconds and turn invisible for 10 seconds. Those inside the cloud are blinded and cannot see sneaking targets, and your sneak attacks against them deal 50% more damage.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:

@@ -5,7 +5,7 @@ Name:
   Value: 'Breaking Waves'
 Description:
   TargetLanguage: English
-  Value: 'Unarmed attacks have a 15% chance of a critical strike that deals critical damage equal to 40% of your current Stamina. Requires two free hands.'
+  Value: 'Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Flags:

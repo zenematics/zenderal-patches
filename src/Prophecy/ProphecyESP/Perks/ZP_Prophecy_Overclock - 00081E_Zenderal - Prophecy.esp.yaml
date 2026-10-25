@@ -2,7 +2,7 @@ FormKey: 00081E:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_Overclock
 Description:
   TargetLanguage: English
-  Value: 'Your Clockwork Turret deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.'
+  Value: 'Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.'
 Name:
   TargetLanguage: English
   Value: 'Overclock'
@@ -10,7 +10,7 @@ Conditions:
 - MutagenObjectType: ConditionFloat
   Data:
     MutagenObjectType: HasPerkConditionData
-    Perk: 00081D:Zenderal - Prophecy.esp
+    Perk: 0009D5:Zenderal - Prophecy.esp
   ComparisonValue: 1
 NumRanks: 1
 Playable: True

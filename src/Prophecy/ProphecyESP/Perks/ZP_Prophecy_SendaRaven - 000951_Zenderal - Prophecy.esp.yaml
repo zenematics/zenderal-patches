@@ -1,0 +1,36 @@
+FormKey: 000951:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SendaRaven
+Description:
+  TargetLanguage: English
+  Value: 'Your bow hits send a barn owl to attack the target. It fights at your side until it is killed, each later hit sends it after that target, and each of its strikes drains 10 Magicka from its target and gives it to you. While it is out, you regenerate 2 Magicka per second. Only one owl can be out at a time.'
+Name:
+  TargetLanguage: English
+  Value: 'Andrasta''s Owl'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00094F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000950:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 000910:Zenderal - Prophecy.esp

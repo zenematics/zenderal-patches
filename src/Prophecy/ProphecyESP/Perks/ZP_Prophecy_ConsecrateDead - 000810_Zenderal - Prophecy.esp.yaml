@@ -1,0 +1,10 @@
+FormKey: 000810:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ConsecrateDead
+Name:
+  TargetLanguage: English
+  Value: 'Consecrate Dead'
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Consecrate Dead" spell: cast it on a corpse to burn it to ash with holy light and restore 30 Health, Mana and Stamina. Undead it strikes take 15 damage and stagger.'
+NumRanks: 1
+Playable: True

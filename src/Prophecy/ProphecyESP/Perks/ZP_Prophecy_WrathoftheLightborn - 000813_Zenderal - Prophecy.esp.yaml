@@ -1,0 +1,16 @@
+FormKey: 000813:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WrathoftheLightborn
+Name:
+  TargetLanguage: English
+  Value: 'Wrath of the Lightborn'
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Wrath of the Lightborn" spell (200 Mana and 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. Cast at 50% Arcane Fever or more, it has no effect.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 0009C8:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

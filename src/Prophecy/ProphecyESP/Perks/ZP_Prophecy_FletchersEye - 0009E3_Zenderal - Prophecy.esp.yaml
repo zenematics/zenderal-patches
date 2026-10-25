@@ -1,0 +1,19 @@
+FormKey: 0009E3:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FletchersEye
+Description:
+  TargetLanguage: English
+  Value: 'Your Archery skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Fletcher''s Eye'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00094E:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A0D:Zenderal - Prophecy.esp

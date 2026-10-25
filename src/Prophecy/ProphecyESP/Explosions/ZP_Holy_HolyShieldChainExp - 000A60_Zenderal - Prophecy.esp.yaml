@@ -1,0 +1,17 @@
+FormKey: 000A60:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HolyShieldChainExp
+ObjectBounds:
+  First: -91, -27, 0
+  Second: 91, 27, 31
+Name:
+  TargetLanguage: English
+  Value: Reflector Beam
+Model:
+  File: DLC01\Magic\DLC1ImpactSunFireSpell.nif
+  Data: 0x020000000000000000000000
+Radius: 10
+ISRadius: 360
+Flags:
+- 0x1
+- Chain
+SoundLevel: Normal

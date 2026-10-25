@@ -1,0 +1,42 @@
+FormKey: 000945:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_PowerEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_UtilityDroidPowerEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ThrowSpell
+      Object: 0009AA:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SwingSound
+      Object: 07BB93:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpareParts
+      Object: 0773ED:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DroidList
+      Object: 000946:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FreeUsed
+      Object: 000947:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: Cost
+      Data: 10
+Name:
+  TargetLanguage: English
+  Value: Utility Droid
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

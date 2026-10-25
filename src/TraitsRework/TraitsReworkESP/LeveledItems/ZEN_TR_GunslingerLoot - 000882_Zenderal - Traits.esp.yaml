@@ -1,6 +1,6 @@
 FormKey: 000882:Zenderal - Traits.esp
 EditorID: ZEN_TR_GunslingerLoot
-ChanceNone: 0.7
+ChanceNone: 0.5
 Flags:
 - CalculateFromAllLevelsLessThanOrEqualPlayer
 Entries:

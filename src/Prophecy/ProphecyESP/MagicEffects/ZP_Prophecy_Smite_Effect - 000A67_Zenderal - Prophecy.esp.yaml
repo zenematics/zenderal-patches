@@ -1,0 +1,29 @@
+FormKey: 000A67:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Smite_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_HolyPlaceExplosion
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExplosionRef
+      Object: 000A54:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Smite
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

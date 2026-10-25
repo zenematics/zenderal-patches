@@ -1,0 +1,19 @@
+FormKey: 0009EA:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_CorpseWard
+Description:
+  TargetLanguage: English
+  Value: 'You gain 15% resistance to poison.'
+Name:
+  TargetLanguage: English
+  Value: 'Corpse Ward'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000993:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A14:Zenderal - Prophecy.esp

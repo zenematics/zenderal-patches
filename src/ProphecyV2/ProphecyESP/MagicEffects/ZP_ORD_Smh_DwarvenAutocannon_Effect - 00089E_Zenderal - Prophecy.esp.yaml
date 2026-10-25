@@ -2,7 +2,7 @@ FormKey: 00089E:Zenderal - Prophecy.esp
 EditorID: ZP_ORD_Smh_DwarvenAutocannon_Effect
 VirtualMachineAdapter:
   Scripts:
-  - Name: ORD_DwarvenAutocannon_Script
+  - Name: ZP_ClockworkTurretEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
       Name: FXEmptyActivator
@@ -88,7 +88,7 @@ CastingSoundLevel: Normal
 Sounds: []
 Description:
   TargetLanguage: English
-  Value: Deploy a Clockwork Turret from your inventory. It tracks your line of sight for <dur> seconds, firing shells that deal <mag> magic damage.
+  Value: Deploy a Clockwork Turret from your inventory. It shoots the nearest enemy for <dur> seconds, firing shells that deal <mag> magic damage.
 Conditions:
 - MutagenObjectType: ConditionFloat
   CompareOperator: GreaterThanOrEqualTo

@@ -1,0 +1,19 @@
+FormKey: 0009D9:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ToughenedBody
+Description:
+  TargetLanguage: English
+  Value: 'Your armor rating is increased by 40.'
+Name:
+  TargetLanguage: English
+  Value: 'Toughened Body'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000821:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A03:Zenderal - Prophecy.esp

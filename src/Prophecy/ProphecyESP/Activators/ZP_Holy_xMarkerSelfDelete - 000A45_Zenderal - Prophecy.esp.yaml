@@ -1,0 +1,15 @@
+FormKey: 000A45:Zenderal - Prophecy.esp
+MajorRecordFlagsRaw: 8388608
+EditorID: ZP_Holy_xMarkerSelfDelete
+SkyrimMajorRecordFlags:
+- 0x800000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: SummonTargetFXActivatorScript
+Model:
+  File: MarkerXHeading.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- IsMarker

@@ -1,0 +1,73 @@
+FormKey: 002015:Skyrim.esm
+Version2: 12
+Flags:
+- HasWater
+Grid:
+  Point: 10, -4
+  Flags: -1907537152
+WaterHeight: 3.4028235E+38
+Regions:
+- 139C4D:Skyrim.esm
+- 035CCA:Skyrim.esm
+- 002234:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD1:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 41877.3, -15232.0, 8624.9
+    Rotation: 0, 0, 2.0178
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD2:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 42005.3, -15061.3, 8611.0
+    Rotation: 0, 0, 1.0548
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD3:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 41877.3, -14954.7, 8633.5
+    Rotation: 0, 0, 1.0838
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD4:Zenderal - Enemy Density.esp
+  Base: 12E284:Skyrim.esm
+  Placement:
+    Position: 41600.0, -15253.3, 8641.3
+    Rotation: 0, 0, 3.7632
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD5:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 41920.0, -15509.3, 8641.4
+    Rotation: 0, 0, 2.5812
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD6:Zenderal - Enemy Density.esp
+  Base: 0450AD:Skyrim.esm
+  Placement:
+    Position: 44842.7, -13738.7, 12909.0
+    Rotation: 0, 0, 0.9662
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD7:Zenderal - Enemy Density.esp
+  Base: 139C70:Skyrim.esm
+  Placement:
+    Position: 44736.0, -13717.3, 12900.8
+    Rotation: 0, 0, 6.2593
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD8:Zenderal - Enemy Density.esp
+  Base: 139C70:Skyrim.esm
+  Placement:
+    Position: 44949.3, -13781.3, 12914.5
+    Rotation: 0, 0, 1.868
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CD9:Zenderal - Enemy Density.esp
+  Base: 139C70:Skyrim.esm
+  Placement:
+    Position: 44800.0, -13610.7, 12877.6
+    Rotation: 0, 0, 0.4975
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CDA:Zenderal - Enemy Density.esp
+  Base: 13B951:Skyrim.esm
+  Placement:
+    Position: 44778.7, -13866.7, 12958.3
+    Rotation: 0, 0, 0.2117

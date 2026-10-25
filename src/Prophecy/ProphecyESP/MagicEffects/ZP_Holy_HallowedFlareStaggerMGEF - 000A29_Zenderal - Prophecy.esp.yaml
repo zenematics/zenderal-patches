@@ -1,0 +1,50 @@
+FormKey: 000A29:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HallowedFlareStaggerMGEF
+Name:
+  TargetLanguage: English
+  Value: Smite
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 0A9B1E:Skyrim.esm
+Flags:
+- Hostile
+- FXPersist
+- HideInUI
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.3
+MagicSkill: Restoration
+CastingLight: 03F1B5:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 04C6D8:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+Projectile: 000A4C:Zenderal - Prophecy.esp
+Explosion: 000A54:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 01C859:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000A5A:Zenderal - Prophecy.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 000A29:Zenderal - Prophecy.esp

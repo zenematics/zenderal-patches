@@ -1,0 +1,49 @@
+FormKey: 001EE3:Skyrim.esm
+EditorID: SonnenkuesteVerworfen
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: -22, 5
+  Flags: -1515783168
+WaterHeight: 1000
+Regions:
+- 00703D:Skyrim.esm
+Water: 018967:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B7E:Zenderal - Enemy Density.esp
+  Base: 09286C:Skyrim.esm
+  Placement:
+    Position: -89770.7, 23936.0, 4680.8
+    Rotation: 0, 0, 5.7618
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B7F:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -89877.3, 23893.3, 4697.6
+    Rotation: 0, 0, 0.9993
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B80:Zenderal - Enemy Density.esp
+  Base: 09286C:Skyrim.esm
+  Placement:
+    Position: -89685.3, 24021.3, 4673.2
+    Rotation: 0, 0, 0.9708
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B81:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -89642.7, 23872.0, 4676.5
+    Rotation: 0, 0, 5.5831
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B82:Zenderal - Enemy Density.esp
+  Base: 0C6760:Skyrim.esm
+  Placement:
+    Position: -89770.7, 23786.7, 4708.9
+    Rotation: 0, 0, 0.2363
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B83:Zenderal - Enemy Density.esp
+  Base: 0C6760:Skyrim.esm
+  Placement:
+    Position: -89962.7, 23786.7, 4701.3
+    Rotation: 0, 0, 5.9353

@@ -1,0 +1,20 @@
+FormKey: 000811:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_RighteousPath
+Version2: 11
+Name:
+  TargetLanguage: English
+  Value: 'Righteous Path'
+Description:
+  TargetLanguage: English
+  Value: 'While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 0009C4:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A63:Zenderal - Prophecy.esp

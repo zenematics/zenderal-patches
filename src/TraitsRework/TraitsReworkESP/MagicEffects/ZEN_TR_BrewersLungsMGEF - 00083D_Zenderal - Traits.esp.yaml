@@ -1,5 +1,18 @@
 FormKey: 00083D:Zenderal - Traits.esp
 EditorID: ZEN_TR_BrewersLungsMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_TR_PoolPenaltyEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Penalty
+      Object: 00083F:Zenderal - Traits.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: PoolName
+      Data: Health
+    - MutagenObjectType: ScriptFloatProperty
+      Name: Fraction
+      Data: 0.1
 Name:
   TargetLanguage: English
   Value: Brewer's Lungs

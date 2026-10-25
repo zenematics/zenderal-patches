@@ -1,0 +1,19 @@
+FormKey: 0009CA:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SteadyAim
+Description:
+  TargetLanguage: English
+  Value: 'Your Archery skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Steady Aim'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000815:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009F4:Zenderal - Prophecy.esp

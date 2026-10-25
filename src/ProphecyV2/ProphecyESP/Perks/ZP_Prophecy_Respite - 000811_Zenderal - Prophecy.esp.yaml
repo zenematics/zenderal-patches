@@ -6,7 +6,7 @@ Name:
   Value: 'Respite'
 Description:
   TargetLanguage: English
-  Value: 'Healing spells also restore Stamina equal to their power.'
+  Value: 'Your healing spells also restore as much Stamina as they restore Health.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:

@@ -1,0 +1,19 @@
+FormKey: 0009C4:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Devotion
+Description:
+  TargetLanguage: English
+  Value: 'Your Light Magic skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Devotion'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000810:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009EE:Zenderal - Prophecy.esp

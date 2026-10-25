@@ -12,7 +12,7 @@ MenuButtons:
     Value: Faith
 - Text:
     TargetLanguage: English
-    Value: Gunslinger
+    Value: Sharpshooter
 - Text:
     TargetLanguage: English
     Value: Gadgets
@@ -22,6 +22,12 @@ MenuButtons:
 - Text:
     TargetLanguage: English
     Value: Glory
+- Text:
+    TargetLanguage: English
+    Value: Arcane Archery
+- Text:
+    TargetLanguage: English
+    Value: Necromancy
 - Text:
     TargetLanguage: English
     Value: Cancel

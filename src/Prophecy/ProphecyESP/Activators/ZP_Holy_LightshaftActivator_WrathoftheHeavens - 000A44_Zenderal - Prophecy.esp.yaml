@@ -1,0 +1,50 @@
+FormKey: 000A44:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_LightshaftActivator_WrathoftheHeavens
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _LIP_LightshaftSkyboltActivatorScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ArtEffect
+      Object: 000A4F:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DamageEffect
+      Object: 000A51:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptBoolProperty
+      Name: IsPlayerCast
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LightshaftSpell
+      Object: 000A39:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: MaxHeight
+      Data: 80
+    - MutagenObjectType: ScriptFloatProperty
+      Name: MaxLow
+      Data: 50
+    - MutagenObjectType: ScriptIntProperty
+      Name: ShaftNumNew
+      Data: 6
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkyboltEchoSFX
+      Object: 000A1A:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkyboltSFX
+      Object: 000A1B:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: SpawnHeight
+      Data: 80
+    - MutagenObjectType: ScriptFloatProperty
+      Name: WaitDur
+      Data: 0.75
+    - MutagenObjectType: ScriptObjectProperty
+      Name: XMarker
+      Object: 000A45:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: IsPlayerCast boolean flag uses RemoteCast function with Player as host. This tells the NPCs hit by the player's spell to blame them!
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00FFFFC0'
+Flags: []

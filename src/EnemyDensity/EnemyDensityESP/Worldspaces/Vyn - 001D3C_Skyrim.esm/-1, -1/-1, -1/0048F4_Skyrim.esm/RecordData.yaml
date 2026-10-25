@@ -1,0 +1,37 @@
+FormKey: 0048F4:Skyrim.esm
+Flags:
+- HasWater
+Grid:
+  Point: -7, -8
+  Flags: -354127872
+WaterHeight: 3.4028235E+38
+Regions:
+- 048089:Skyrim.esm
+- 0020F3:Skyrim.esm
+- 074BBF:Skyrim.esm
+Location: 0133FA:Enderal - Forgotten Stories.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C85:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -26368.0, -30912.0, 1936.5
+    Rotation: 0, 0, 4.4173
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C86:Zenderal - Enemy Density.esp
+  Base: 0C6760:Skyrim.esm
+  Placement:
+    Position: -26282.7, -30869.3, 1939.4
+    Rotation: 0, 0, 5.08
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C87:Zenderal - Enemy Density.esp
+  Base: 09286C:Skyrim.esm
+  Placement:
+    Position: -26346.7, -31104.0, 1863.1
+    Rotation: 0, 0, 1.2045
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C88:Zenderal - Enemy Density.esp
+  Base: 09286C:Skyrim.esm
+  Placement:
+    Position: -26133.3, -30912.0, 1915.9
+    Rotation: 0, 0, 2.3101

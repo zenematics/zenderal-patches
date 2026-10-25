@@ -16,10 +16,11 @@ Form[] Property PowerSpell Auto
 Int[] Property TreeStart Auto
 Int[] Property GiftPerk Auto
 Form[] Property GiftItem Auto
+Int[] Property LevelReq Auto
 
 Event OnEffectStart(Actor akTarget, Actor akCaster)
 	If Perks && TreeStart
-		MenuQuest.Refresh(Perks, Descriptions, Images, ParentA, ParentB, PowerPerk, PowerSpell, TreeStart, GiftPerk, GiftItem)
+		MenuQuest.Refresh(Perks, Descriptions, Images, ParentA, ParentB, PowerPerk, PowerSpell, TreeStart, GiftPerk, GiftItem, LevelReq)
 	EndIf
 	MenuQuest.RequestOpen()
 EndEvent

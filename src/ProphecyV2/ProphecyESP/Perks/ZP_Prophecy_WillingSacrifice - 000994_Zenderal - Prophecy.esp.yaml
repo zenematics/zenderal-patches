@@ -1,0 +1,19 @@
+FormKey: 000994:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WillingSacrifice
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "A Willing Sacrifice" power: every summon you command explodes, dealing damage equal to half its maximum Health to each enemy within 14 feet of it. Usable once every 15 seconds.'
+Name:
+  TargetLanguage: English
+  Value: 'A Willing Sacrifice'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000992:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 00099B:Zenderal - Prophecy.esp

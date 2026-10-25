@@ -1,0 +1,15 @@
+FormKey: 000957:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_NoDistractions_Ability
+Name:
+  TargetLanguage: English
+  Value: No Distractions
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000958:Zenderal - Prophecy.esp
+  Data: {}

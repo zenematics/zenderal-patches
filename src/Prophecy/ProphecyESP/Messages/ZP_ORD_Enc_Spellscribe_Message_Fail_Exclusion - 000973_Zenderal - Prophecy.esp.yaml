@@ -1,0 +1,7 @@
+FormKey: 000973:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Enc_Spellscribe_Message_Fail_Exclusion
+Description:
+  TargetLanguage: English
+  Value: Cannot store this spell.
+INAM: 0x00000000
+DisplayTime: 2

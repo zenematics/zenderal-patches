@@ -1,0 +1,62 @@
+FormKey: 001D61:Skyrim.esm
+EditorID: PilzwaldHoehle
+Version2: 9
+Flags:
+- HasWater
+Grid:
+  Point: -26, 5
+  Flags: 1035632128
+WaterHeight: 3.4028235E+38
+Regions:
+- 10A875:Skyrim.esm
+- 00703D:Skyrim.esm
+- 03A604:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008F6:Zenderal - Enemy Density.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -102677.3, 20522.7, 6842.6
+    Rotation: 0, 0, 1.7536
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008F7:Zenderal - Enemy Density.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: -102741.3, 20608.0, 6827.8
+    Rotation: 0, 0, 2.36
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008F8:Zenderal - Enemy Density.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -102570.7, 20501.3, 6876.9
+    Rotation: 0, 0, 2.625
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008F9:Zenderal - Enemy Density.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: -102677.3, 20672.0, 6797.0
+    Rotation: 0, 0, 2.7482
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008FA:Zenderal - Enemy Density.esp
+  Base: 000812:Zenderal - Goblins.esp
+  Placement:
+    Position: -102848.0, 20501.3, 6883.0
+    Rotation: 0, 0, 5.8207
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008FB:Zenderal - Enemy Density.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -102485.3, 20586.7, 6894.2
+    Rotation: 0, 0, 3.1357
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008FC:Zenderal - Enemy Density.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: -102549.3, 20693.3, 6751.8
+    Rotation: 0, 0, 3.2811
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008FD:Zenderal - Enemy Density.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: -102826.7, 20714.7, 6800.0
+    Rotation: 0, 0, 1.7253

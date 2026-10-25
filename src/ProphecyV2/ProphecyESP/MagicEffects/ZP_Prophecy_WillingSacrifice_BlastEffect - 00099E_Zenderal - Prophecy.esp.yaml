@@ -1,0 +1,26 @@
+FormKey: 00099E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WillingSacrifice_BlastEffect
+Name:
+  TargetLanguage: English
+  Value: A Willing Sacrifice
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 05BD16:Skyrim.esm
+- 1076F4:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- NoDuration
+HitShader: 06A07B:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

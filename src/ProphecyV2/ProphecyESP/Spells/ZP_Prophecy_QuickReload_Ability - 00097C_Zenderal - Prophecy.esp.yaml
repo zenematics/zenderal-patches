@@ -1,0 +1,21 @@
+FormKey: 00097C:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_QuickReload_Ability
+Name:
+  TargetLanguage: English
+  Value: Quick Reload
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 105F17:Skyrim.esm
+  Data:
+    Magnitude: 1.3
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Right
+    ComparisonValue: 12

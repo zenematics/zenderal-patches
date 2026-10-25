@@ -1,0 +1,40 @@
+FormKey: 000988:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_WatcherEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_IceShotWatcherEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IceArrow
+      Object: 000960:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OldAmmo
+      Object: 00098E:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LastShot
+      Object: 00098C:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Pending
+      Object: 00098D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Remaining
+      Object: 000991:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Ice Shot
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

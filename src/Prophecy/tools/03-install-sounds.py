@@ -16,12 +16,16 @@ _conv = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_conv)
 
 # target file (under Sound\FX\Zenderal) -> the curator's source file name
 SOUNDS = {
+    'ZEN_ProphecyPoint_01.wav': 'MA_Warp-Efx_Holy_Spell_Cast_4.wav',                # a Prophecy point is gained
     'ZEN_WarBannerHorn_01.wav': 'WAR HORN 6.wav',                                     # War Banner, on raising it
     'ZEN_TripwireRatchet_01.wav': '02. Hand Key Ratchet.wav',                         # Explosive Tripwire, setting the wire
     'ZEN_SmokescreenBurst_01.wav': 'MA_SoundsByGFXSounds_SmokeGrenadeExplosion_1.wav',  # Smokescreen, on use
     'ZEN_SeismicStomp_01.wav': 'MA_MotionAudio_SuperheroStompOnConcrete_03.wav',     # Seismic Stomp, the shockwave
+    'ZEN_DeadeyeShot_01.wav': 'MA_SoundsByGFXSounds_RocketLauncherFire_3.wav',       # Deadeye, on the triple crit
+    'ZEN_BleedingShot_01.wav': 'MA_MikalaiSenkin_BloodyKnife_02.wav',                # Bleeding Shot, a bleed starts
+    'ZEN_OwlSpawn_01.wav': 'MA_ebccsfx_Mysterious Owl_5.wav',                        # Send an Owl, the owl arrives
 }
-MODS = ['Zenderal - Prophecy', 'Zenderal - Prophecy v2 (Sanctum)']
+MODS = ['Zenderal - Prophecy', 'Zenderal - Prophecy v2 (Sanctum)', 'Zenderal - Prophecy v3 (Constellation)']
 RATE = 44100
 
 
@@ -57,8 +61,11 @@ def main():
         print(f'{name}: {fmt[0] * 8}-bit {fmt[1]} Hz, {secs:.2f} s' + (' -> converted to 16-bit 44100 Hz' if tmp else ''))
         for m in MODS:
             root = os.path.join(mods, m)
-            assert os.path.isdir(root), f'MO2 mod folder missing: {root}'
-            out = os.path.join(root, 'Sound', 'FX', 'Zenderal', target)
+            if not os.path.isdir(root):                  # v2 (Sanctum) is not always installed
+                assert m != MODS[0], f'MO2 mod folder missing: {root}'
+                print('   (skipped, not installed:', m + ')')
+                continue
+            out =os.path.join(root, 'Sound', 'FX', 'Zenderal', target)
             os.makedirs(os.path.dirname(out), exist_ok=True)
             shutil.copyfile(tmp or src, out)
             print('   ->', out)

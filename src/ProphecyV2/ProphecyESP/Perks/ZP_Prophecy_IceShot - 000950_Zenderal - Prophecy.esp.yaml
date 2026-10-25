@@ -1,0 +1,33 @@
+FormKey: 000950:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Ice Shot" power: with a bow equipped, add 3 ice arrows to your quiver for 50 Magicka. They deal 25 frost damage and freeze the target solid for 8 seconds, and your next arrow shatters it.'
+Name:
+  TargetLanguage: English
+  Value: 'Ice Shot'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00094E:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 000910:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 00095C:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000987:Zenderal - Prophecy.esp

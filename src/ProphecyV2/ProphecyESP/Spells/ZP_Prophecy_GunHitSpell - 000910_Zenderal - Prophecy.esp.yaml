@@ -2,7 +2,7 @@ FormKey: 000910:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_GunHitSpell
 Name:
   TargetLanguage: English
-  Value: Gunslinger
+  Value: Sharpshooter
 MenuDisplayObject: 0435A5:Skyrim.esm
 EquipmentType: 013F44:Skyrim.esm
 Description:
@@ -13,6 +13,51 @@ Flags:
 CastType: FireAndForget
 TargetType: Touch
 Effects:
+- BaseEffect: 00094A:Zenderal - Prophecy.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 000819:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 0008B2:Zenderal - Prophecy.esp
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 12
+- BaseEffect: 00094D:Zenderal - Prophecy.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 000817:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetDeadConditionData
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 000829:Zenderal - Prophecy.esp
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 12
 - BaseEffect: 000829:Zenderal - Prophecy.esp
   Data:
     Magnitude: 10
@@ -25,6 +70,13 @@ Effects:
       Reference: 000014:Skyrim.esm
       Perk: 000817:Zenderal - Prophecy.esp
     ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 12
 - BaseEffect: 04605A:Skyrim.esm
   Data:
     Magnitude: 10
@@ -37,3 +89,143 @@ Effects:
       Reference: 000014:Skyrim.esm
       Perk: 000816:Zenderal - Prophecy.esp
     ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 12
+- BaseEffect: 04605A:Skyrim.esm
+  Data:
+    Magnitude: 10
+    Duration: 0
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 00094E:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000956:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 7
+- BaseEffect: 04605B:Skyrim.esm
+  Data:
+    Magnitude: 10
+    Duration: 0
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 00094E:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000956:Zenderal - Prophecy.esp
+    ComparisonValue: 2
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 7
+- BaseEffect: 04605C:Skyrim.esm
+  Data:
+    Magnitude: 10
+    Duration: 0
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 00094E:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000956:Zenderal - Prophecy.esp
+    ComparisonValue: 3
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 7
+- BaseEffect: 000967:Zenderal - Prophecy.esp
+  Data:
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 000951:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetDeadConditionData
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 7
+- BaseEffect: 000989:Zenderal - Prophecy.esp
+  Data:
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 000950:Zenderal - Prophecy.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 7
+- BaseEffect: 0008B3:Zenderal - Prophecy.esp
+  Data:
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 12
+- BaseEffect: 0008B2:Zenderal - Prophecy.esp
+  Data:
+    Duration: 10
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ItemSource: Right
+    ComparisonValue: 12

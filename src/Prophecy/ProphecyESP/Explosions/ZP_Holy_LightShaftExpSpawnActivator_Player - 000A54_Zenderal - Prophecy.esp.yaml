@@ -1,0 +1,15 @@
+FormKey: 000A54:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_LightShaftExpSpawnActivator_Player
+Model:
+  File: Effects\FXEmptyExplosion10sec.nif
+  Data: 0x020000000000000000000000
+PlacedObject: 000A46:Zenderal - Prophecy.esp
+Radius: 100
+ISRadius: 1024
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+- NoControllerVibration
+SoundLevel: Silent

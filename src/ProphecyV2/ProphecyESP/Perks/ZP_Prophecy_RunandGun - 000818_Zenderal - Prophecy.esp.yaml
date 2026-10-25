@@ -6,7 +6,7 @@ Name:
   Value: 'Run and Gun'
 Description:
   TargetLanguage: English
-  Value: 'You move at full speed with a drawn bow or a raised musket.'
+  Value: 'You move at full speed while aiming a musket.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Flags:
@@ -29,6 +29,11 @@ Effects:
     - MutagenObjectType: ConditionFloat
       Data:
         MutagenObjectType: IsSneakingConditionData
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 12
   EntryPoint: SetBooleanGraphVariable
   PerkConditionTabCount: 1
   Text: bPerkQuickShot
