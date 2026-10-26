@@ -46,3 +46,10 @@ after an EGO update.
 ## Status
 
 Built and installed 2026-10-24 in Ultra. Plugin round trip identical. **Unverified in game.**
+
+**2026-10-25: the plugin had never loaded.** The MO2 mod was enabled, but `Zenderal - Pus Beetle Fixes.esp` sat
+**unticked** in `plugins.txt` (MO2 lists a new mod's plugin disabled), so beetles still knocked the player down.
+Ticked (line 430, after EGO at 52). Rechecked the beetles for other knockback: race `ChaurusRace 0131EB` (EGO) carries
+the spit, `AbChaurusFX`, `Xion75%PoisonRes` and attack spells `crChaurusPoisonBite01`/`DiseaseRattles`, none with a
+knockback; the 4 NPCs carry no spells. EGO's only other `XionParalyzeKnockback` user is `crXionParalyzeBite 001D52`,
+on `_30E_DesertSpiderSmall` only. The capsule half (loose `skeleton.nif`) was always active.

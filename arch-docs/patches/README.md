@@ -93,6 +93,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`BloodyCritSound`](BloodyCritSound.md) | `Zenderal - Bloody Crit Sound.esp` + 1 loose `.wav` (not committed) | none (one override) |
 | [`ZenKeyTrace`](ZenKeyTrace.md) | `ZenKeyTrace.dll` | none (no plugin) |
 | [`CastingBarAE`](CastingBarAE.md) | `CastingBar.dll` (zax's Casting Bar rebuilt for 1.7.104) | none (no plugin) |
+| [`AspectLayout`](AspectLayout.md) | `_ZenAspectLayout.dll` + ini; layout sets generated (not committed) | none (no plugin) |
 | [`SilvergroveStoneWalls`](SilvergroveStoneWalls.md) | *(generated meshes + textures, not committed)* | none |
 | [`SPRPBRTweaks`](SPRPBRTweaks.md) | *(generated PGPatcher JSONs, not committed)* | none |
 | [`HighPolyDefaultHeads`](HighPolyDefaultHeads.md) | `Zenderal - High Poly Default Heads.esp` | none (18 overrides) |

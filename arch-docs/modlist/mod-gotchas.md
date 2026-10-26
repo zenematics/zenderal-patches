@@ -177,3 +177,22 @@ List-wide traps that are not tied to one Zenderal patch.
   before the opening was recognised. A non-interruptible fork confirmed the video plays fine; the list now keeps all
   of Enderal's cinematics unskippable ([`patches/UnskippableCinematics.md`](../patches/UnskippableCinematics.md)).
   To skip videos on purpose: Enderal's MCM "Skip videos" (`_00E_VideoSkip 02E985:FS`).
+
+- **Enemy poise bar colour lives in Chocolate Poise, not TrueHUD (2026-10-26).** Chocolate Poise - Reforged sends
+  TrueHUD its own special-bar colour (`[TrueHUD] SpecialBarNormalColor` in `SKSE/Plugins/ChocolatePoise.ini`),
+  which overrides Vel'dun's TrueHUD `sSpecialColor`. Shipped default was `FFFF00` (bright yellow). *Zenderal -
+  Settings* now carries a full copy of that ini with only `SpecialBarNormalColor = B0A998` and
+  `SpecialBarDepletedColor = 5D584E` (was `FFFFFF`) changed: Vel'dun's muted trim tone and dark trim edge, sampled from
+  its UI frame (palette `CFC5AD`/`B0A998`/`8F8877`/`5D584E` on `211E1C`/`121212`; curator found its `sSpecialColor`
+  gold `BF9766` too saturated); it beats Chocolate Poise by priority. **Re-copy from Chocolate Poise after it updates**
+  (keep the one changed line), or the copy silently pins the old ini's other settings.
+  The bar's refill flash is TrueHUD's own `sSpecialFlashColor`: set to `B8652A` (muted burnt orange, was Vel'dun's
+  `FFA600`, which read as yellow) in the `Vel'dun Zenderal patches 16x9/21x9/32x9` and ultrawide `TrueHUD.ini`s
+  (2026-10-26; backups `E:/Zenderal-backups/2026-10-26-veldun-flash/`).
+
+- **Resolution and HUD layout are automatic (2026-10-26).** [`AspectLayout`](../patches/AspectLayout.md)'s
+  `_ZenAspectLayout.dll` writes `SSEDisplayTweaks_custom.ini` with the primary monitor's resolution at every launch and
+  copies Vel'dun's 16x9/21x9/32x9 HUD layout into place when the screen shape changes. Keep the 8
+  `Zenderal - Resolution …` presets and the 3 `Vel'dun Zenderal patches` mods **disabled**: a preset's custom ini is
+  overwritten each launch, and an enabled aspect patch is outranked (or, sorted above Aspect Layout, wins and pins its
+  layout). Rerun `src/AspectLayout/tools/01` after a Vel'dun patch update.
