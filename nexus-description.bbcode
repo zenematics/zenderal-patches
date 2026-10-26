@@ -1,0 +1,93 @@
+[size=5][b]Description[/b][/size]
+
+The compatibility patches and bug fixes made for [b]Zenderal[/b], the Enderal: Forgotten Stories Special Edition Wabbajack modlist, collected in one download.
+
+Zenderal aims for three things: [b]bug fixes[/b], [b]modern combat[/b] and [b]modern visuals[/b]. A lot of the mods involved were never built to work together, or were made for Skyrim and only half work in Enderal. Each patch here fixes one of those gaps.
+
+All plugins are ESL-flagged, built at form version 1.70, and made for Enderal SE 2.0.12 (engine 1.5.97).
+
+
+[size=5][b]Installation instructions[/b][/size]
+
+[b]Wabbajack users:[/b] nothing to do. Install Zenderal through Wabbajack and every patch is downloaded and placed for you.
+
+[b]Manual install (MO2):[/b]
+[list=1]
+[*]Open the archive. Each top-level folder is a separate mod.
+[*]Install only the patches whose required mods you already have (see [b]Requirements[/b] below). Install each one as its own mod in MO2.
+[*]Sort each patch after the mods it patches, both in the left pane and in the plugin load order.
+[/list]
+
+
+[size=5][b]Main features[/b][/size]
+
+[size=4][b]Combat[/b][/size]
+[list]
+[*][b]Chocolate Poise Enderal Fix:[/b] Chocolate Poise - Reforged deals zero poise damage in Enderal because it looks up vanilla Skyrim items that Enderal doesn't have. This adds the reference items it needs, with stats copied from their Enderal equivalents, and makes Vatyr races harder to stagger.
+[*][b]Chocolate Poise Faction Fix:[/b] a NetScriptFramework plugin that stops Chocolate Poise - Reforged crashing the game on a poise break in Enderal.
+[*][b]FHR Parry Poise:[/b] For Honor Reforged parries now actually stagger under Chocolate Poise (weapon parry 20 to 60, shield parry 5 to 40).
+[*][b]MCO Directional Power Attacks:[/b] left, right and back power attacks play For Honor Reforged's directional animations instead of Enderal's vanilla ones.
+[*][b]Dynamic Dodge No Sway:[/b] dodging out of an attack plays the normal step dodge instead of the on-the-spot sway.
+[*][b]Dynamic Dodge Shot Fix:[/b] Dynamic Dodge Shot never triggered in Enderal; now it does.
+[*][b]Smooth Moveset NPC Idles:[/b] stops NPCs replaying Smooth Moveset's combat-idle start animation every time they walk or run.
+[*][b]Faster Sprint:[/b] sprint speed +20% for the player and NPCs, on top of EGO's values.
+[/list]
+
+[size=4][b]Gameplay and balance[/b][/size]
+[list]
+[*][b]Magic Patches:[/b] reprices Apocalypse and Triumvirate spells onto EGO's cost ladder, makes Triumvirate's self-heals cost Arcane Fever as Enderal's own do, and doubles the damage of weapon enchantments.
+[*][b]Kata Fixes:[/b] merges the magic vendor chests that KataPUMB, xxOpenSpells, the Emberlord patch and EGO Leveling Redone all override, so no mod's stock is lost. Also removes KataPUMB pack 2's debug prompt and the 29 spells duplicated between the two Kata packs (new games only).
+[*][b]Pretty Armory EGO Patch:[/b] keeps every Pretty Armory mesh and outfit while restoring EGO's stats, prices, weights, keywords and NPC perks.
+[*][b]Undead Creatures Replacer EGO Patch:[/b] keeps the new Lost One and Ahnengeist looks while restoring the EGO stats, perks and loot the replacer reverted.
+[*][b]Half Starling DS Races:[/b] gives the playable Half Starling a profile to match the other Dark Souls Movement and Stamina races (75/75/60, regen 0.3/8/20).
+[*][b]Zen Traits + Zen Traits Fixes:[/b] Shazdeh's Zen Traits, plus a one-line script fix so drinking Ambrosia reduces Arcane Fever again.
+[/list]
+
+[size=4][b]UI and controls[/b][/size]
+[list]
+[*][b]SIF Icons Above TrueHUD:[/b] moves SIF's icons up so they don't overlap TrueHUD's bars.
+[/list]
+
+[size=4][b]World, visuals and audio[/b][/size]
+[list]
+[*][b]Ark Myrad Platform Fix:[/b] stops the Ark Myrad boarding sequence dropping you off the edge of the platform.
+[*][b]RiverBush:[/b] adds 32 bushes to Riverville on top of EPPI Riverville.
+[*][b]Stump Ivy Patch:[/b] adjusted pine forest stump, log and hollow-trunk meshes.
+[*][b]Quieter Waterfalls:[/b] turns every waterfall and rapids sound down 6 dB on top of Reverb and Ambiance Overhaul.
+[/list]
+
+
+[size=5][b]Requirements[/b][/size]
+
+[b]All patches:[/b] Enderal: Forgotten Stories Special Edition, SKSE.
+
+Each patch also needs the mods it patches:
+[list]
+[*][b]Chocolate Poise Enderal Fix:[/b] Chocolate Poise - Reforged, EGO (Enderal SE - Gameplay Overhaul)
+[*][b]Chocolate Poise Faction Fix:[/b] Chocolate Poise - Reforged, ChocolatePoise - Enderal.esp, NetScriptFramework
+[*][b]FHR Parry Poise:[/b] For Honor Reforged (For Honor Balance Patch.esp), Chocolate Poise - Reforged
+[*][b]MCO Directional Power Attacks:[/b] MCO / Attack_MCO, For Honor Reforged
+[*][b]Dynamic Dodge No Sway:[/b] Dynamic Dodge, TK Dodge RE, Open Animation Replacer
+[*][b]Dynamic Dodge Shot Fix:[/b] Dynamic Dodge Shot
+[*][b]Smooth Moveset NPC Idles:[/b] Smooth Moveset, Open Animation Replacer
+[*][b]Faster Sprint:[/b] EGO (load after it)
+[*][b]Magic Patches:[/b] KataPUMB Spell Pack, EGO, Apocalypse - Magic of Skyrim (Enderal version), EGO - KataPUMB Spell Package, Triumvirate - Mage Archetypes
+[*][b]Kata Fixes:[/b] KataPUMB Spell Pack, EGO, xxOpenSpells, EGO SE - KataPUMB Spells - Emberlord sells all spells, EGO SE - Leveling Redone
+[*][b]Pretty Armory EGO Patch:[/b] EGO plus the Pretty Enderal Armory set (Common, Pyrean, Semi-Unique, Unique, Mages, Factions, Holy Order, Holy Order Grandmaster, Clothing, Fixes) and Enderal Remastered Armory - Heavy Leather
+[*][b]Undead Creatures Replacer EGO Patch:[/b] Undead Creatures Replacer, EGO
+[*][b]Half Starling DS Races:[/b] Enderal SE - Half Starling, EGO SE - Half Starling
+[*][b]Zen Traits:[/b] Biggie Traits (Enderal conversion)
+[*][b]SIF Icons Above TrueHUD:[/b] SIF, TrueHUD
+[*][b]RiverBush:[/b] EPPI Riverville
+[*][b]Quieter Waterfalls:[/b] Reverb and Ambiance Overhaul - Enderal
+[/list]
+
+
+[size=5][b]Shout outs[/b][/size]
+
+[list]
+[*][b]SureAI[/b], for Enderal.
+[*][b]Shazdeh[/b], for Zen Traits (MIT licence).
+[*][b]Ixion XVII[/b] (EGO), [b]Kolapon[/b] (Undead Creatures Replacer), [b]BlessingS91[/b] (Chocolate Poise - Reforged), and the authors of For Honor Reforged, Dynamic Dodge, Smooth Moveset, Pretty Enderal Armory, KataPUMB, Apocalypse, Triumvirate and Reverb and Ambiance Overhaul. These patches only exist because their mods do.
+[*]Source for every patch: [url=https://github.com/zenematics/zenderal-patches]github.com/zenematics/zenderal-patches[/url]
+[/list]
