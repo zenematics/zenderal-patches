@@ -1,0 +1,202 @@
+{
+  "Zenderal - Arp - Calf_L - 800": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Falmer - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x800"
+  },
+  "Zenderal - Arp - Calf_R - 801": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Falmer - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x801"
+  },
+  "Zenderal - Arp - Forearm_L - 802": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Falmer - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x802"
+  },
+  "Zenderal - Arp - Forearm_R - 803": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Falmer - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x803"
+  },
+  "Zenderal - Arp - Head - 804": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Falmer - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x804"
+  },
+  "Zenderal - Arp - Calf_L - 805": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Falmer - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x805"
+  },
+  "Zenderal - Arp - Calf_R - 806": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Falmer - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x806"
+  },
+  "Zenderal - Arp - Forearm_L - 807": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Falmer - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x807"
+  },
+  "Zenderal - Arp - Forearm_R - 808": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Falmer - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x808"
+  },
+  "Zenderal - Arp - Head - 809": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Falmer - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x809"
+  },
+  "Zenderal - Arp - Calf_L - 80A": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Falmer - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x80A"
+  },
+  "Zenderal - Arp - Calf_R - 80B": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Falmer - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x80B"
+  },
+  "Zenderal - Arp - Forearm_L - 80C": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Falmer - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x80C"
+  },
+  "Zenderal - Arp - Forearm_R - 80D": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Falmer - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x80D"
+  },
+  "Zenderal - Arp - Head - 80E": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Falmer - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x80E"
+  },
+  "Zenderal - Arp - Calf_L - 80F": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Falmer - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x80F"
+  },
+  "Zenderal - Arp - Calf_R - 810": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Falmer - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x810"
+  },
+  "Zenderal - Arp - Forearm_L - 811": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Falmer - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x811"
+  },
+  "Zenderal - Arp - Forearm_R - 812": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Falmer - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x812"
+  },
+  "Zenderal - Arp - Head - 813": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Falmer - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x813"
+  },
+  "Zenderal - Arp - Calf_L - 814": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Falmer - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x814"
+  },
+  "Zenderal - Arp - Calf_R - 815": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Falmer - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x815"
+  },
+  "Zenderal - Arp - Forearm_L - 816": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Falmer - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x816"
+  },
+  "Zenderal - Arp - Forearm_R - 817": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Falmer - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x817"
+  },
+  "Zenderal - Arp - Head - 818": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Falmer - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Arp Dismembering.esp:0x818"
+  }
+}

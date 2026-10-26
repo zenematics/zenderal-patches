@@ -153,6 +153,13 @@ Traps the generator handles:
 
 Test: `help EncMinotaur 4` in the console lists the NPC IDs, then `player.placeatme <id>`.
 
+## Arps (moved out 2026-10-26)
+
+A same-path copy of DF's `OfficialCreaturePack_Falmer_DATA.json` briefly lived here (a `tools/06` that pointed the
+Arp skins at DF's own Falmer limbs). That was the wrong fix: the list's `Enderal Arp` mod renders Arps as
+Enderal's swamp race, so no DF Falmer limb matches them. Both are removed; Arps now have their own patch,
+[`ArpDismembering`](ArpDismembering.md).
+
 ## Spiders: SHELVED 2026-10-19 (not shipped)
 
 **Current state:** `SPIDERS = False` in `01` and `02`. The plugin carries no spider items, the DATA no spider
