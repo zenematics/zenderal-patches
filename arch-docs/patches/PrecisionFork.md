@@ -22,7 +22,29 @@
 
 Earlier failed routes: [`PrecisionLiftFix.md`](PrecisionLiftFix.md).
 
-> **2026-10-22: the `0001` hooks are inactive on 1.7.104.** `Precision.log` says *"ZenRagdollFixes: runtime 1-7-104-0
+> **2026-10-27: `0001` re-ported to 1.7.104. Floating ice/crystal elementals were back** because the hooks
+> never installed after the 1.7.104 update (log below). Not hit impulse: the winning `Precision.ini`
+> (`Zenderal - Settings`) still has `bApplyImpulseOnHit = 0`, and `Precision.log` reads it. **[verified]**
+> The 1.7.104 `SkyrimSE.exe` on disk is **not** encrypted, so the sites were read straight from it (Address
+> Library format 5 + capstone). The compiled code matches 1.5.97, so each site is the same offset into the same function.
+> **[verified]**
+>
+> | Hook | 1.5.97 site → target | 1.7.104 site → target | How found |
+> |---|---|---|---|
+> | write | `9EC0B5` → `B12210` | `AC8055` → `BF0FE0` | driveToPose = the call Precision hooks at ID 63562 `+0x256` (→ `AC6FB0`); `+0x10A5`, `rcx=[rsi+0x98]`, stack arg 0 |
+> | read | `B16228` → `A70CE0` | `BF4FF8` → `B4F5A0` | `add rcx,0x150` at function `+0x48`; function `BF4FB0` (controller `+0x3FD0`, same distance as SE) |
+> | bones | `9ED4B5` → `B0DCD0` | `AC9455` → `BECAA0` | ID 58304 (`AC9350`) `+0x105`, stack arg `2` |
+>
+> `NiRTTI_bhkRigidBodyT` (ID 411581 → `33377F8`) checked: its initializer at `ECC47` loads the `"bhkRigidBodyT"` string.
+> Not checked: the `bhkRigidBodyT +0x40/+0x50` field offsets on AE (assumed unchanged, like the rest of the bhk layout).
+> `Install()` picks the 1.5.97 or 1.7.104 table and logs anything else. Rebuilt with `build.cmd`, deployed to **both**
+> `Zenderal - Patch Collection` (the copy that wins: `Zenderal - Precision Fork` is disabled in `Ultra`) and the
+> fork mod. Previous DLLs are in `E:/Zenderal-backups/2026-10-27-precision-fork-ae-hooks/`. **Verified in game
+> 2026-10-27: frost atronachs no longer lift off the floor when hit (curator).** At
+> load, `Precision.log` must show `ZenRagdollFixes: driveToPose (rigidBodyT write) hooked at AC8055` and
+> `… approxTransformAt (rigidBodyT read) hooked at BF4FF8`.
+>
+> **2026-10-22 (superseded): the `0001` hooks are inactive on 1.7.104.** `Precision.log` says *"ZenRagdollFixes: runtime 1-7-104-0
 > is not 1.5.97 - addresses unknown, nothing patched"*. The fork still loads as plain Precision, but the frost-atronach
 > fix needs its three call sites re-found in the 1.7.104 executable. Ice/crystal elementals may float again.
 >

@@ -7,11 +7,14 @@
 // every new game and before every load. It has no idea of the player's sex, and in Enderal the sex is
 // chosen in the RaceSex menu well after the new game has started.
 //
-// So at the start of a new game (the prologue is played as the default male player) and again when its
-// RaceSex menu closes, this copies male.json or female.json (next to this DLL)
-// over default_options.json and calls DBVO's own "load default_options.json" routine, which revert
+// So at the start of a new game this copies silent.json (male.json at volume 0: the prologue is played
+// before the player has a character, and a voice there would be the wrong one half the time), and when
+// the RaceSex menu closes it copies male.json or female.json (all next to this DLL) over
+// default_options.json and calls DBVO's own "load default_options.json" routine, which revert
 // uses. The settings are then in memory and go into the character's first save; from there on DBVO's
-// save record rules, so anything the player changes in DBVO's menu sticks.
+// save record rules, so anything the player changes in DBVO's menu sticks. A save made before character
+// creation holds the silent settings; the RaceSex menu closing still switches it, because
+// default_options.json then still holds silent.json.
 //
 // DBVO.dll 2.0.2.2 (TimeDateStamp 0x6AB06DCE), read with capstone 2026-10-18:
 //   0x6FB0  registers the serialization callbacks: save 0x8830, load 0x80F0, revert 0x6FF0
@@ -21,7 +24,7 @@
 // called, and the log says so.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 1, 0, 0 },
+	.Version = REL::Version{ 1, 2, 0, 0 },
 	.Name = "ZenDBVOSexDefaults"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -32,6 +35,7 @@ namespace
 	constexpr auto kDefaultsPath = "Data/SKSE/Plugins/DBVO2/default_options.json";
 	constexpr auto kMalePath = "Data/SKSE/Plugins/ZenDBVOSexDefaults/male.json";
 	constexpr auto kFemalePath = "Data/SKSE/Plugins/ZenDBVOSexDefaults/female.json";
+	constexpr auto kSilentPath = "Data/SKSE/Plugins/ZenDBVOSexDefaults/silent.json";
 
 	constexpr std::uint32_t kDbvoTimeDateStamp = 0x6AB06DCE;
 	constexpr std::uintptr_t kLoadDefaultsRva = 0x2AC20;
@@ -43,7 +47,7 @@ namespace
 	LoadDefaults_t g_loadDefaults{ nullptr };
 
 	bool g_freshGame{ false };          // set by kNewGame, cleared by any save load
-	int  g_appliedSex{ -1 };            // sex applied during this fresh game (-1 = none yet)
+	int  g_appliedSex{ -1 };            // sex applied during this fresh game (-1 = none yet, or silent)
 
 	std::optional<std::string> ReadFile(const char* a_path)
 	{
@@ -78,14 +82,14 @@ namespace
 		SKSE::log::info("DBVO.dll 2.0.2.2 found at {:X}; defaults loader at +{:X}", base, kLoadDefaultsRva);
 	}
 
-	void ApplyForSex(RE::SEX a_sex)
+	// Writes a_profilePath over default_options.json and has DBVO reload it. False if nothing was applied.
+	bool ApplyProfile(const char* a_profilePath, const char* a_label)
 	{
-		const bool female = a_sex == RE::SEX::kFemale;
-		const auto profilePath = female ? kFemalePath : kMalePath;
+		const auto profilePath = a_profilePath;
 		const auto profile = ReadFile(profilePath);
 		if (!profile || profile->empty()) {
 			SKSE::log::error("{} is missing or empty; DBVO keeps its current settings", profilePath);
-			return;
+			return false;
 		}
 		if (ReadFile(kDefaultsPath) != profile) {
 			std::ofstream out(kDefaultsPath, std::ios::binary | std::ios::trunc);
@@ -93,7 +97,7 @@ namespace
 			out.close();
 			if (!out) {
 				SKSE::log::error("could not write {}", kDefaultsPath);
-				return;
+				return false;
 			}
 			SKSE::log::info("wrote {} into {}", profilePath, kDefaultsPath);
 		} else {
@@ -101,9 +105,25 @@ namespace
 		}
 		if (g_loadDefaults) {
 			g_loadDefaults();
-			SKSE::log::info("DBVO reloaded its defaults: {} profile is live", female ? "female" : "male");
+			SKSE::log::info("DBVO reloaded its defaults: {} profile is live", a_label);
 		}
-		g_appliedSex = static_cast<int>(a_sex);
+		return true;
+	}
+
+	void ApplyForSex(RE::SEX a_sex)
+	{
+		const bool female = a_sex == RE::SEX::kFemale;
+		if (ApplyProfile(female ? kFemalePath : kMalePath, female ? "female" : "male")) {
+			g_appliedSex = static_cast<int>(a_sex);
+		}
+	}
+
+	// default_options.json still holding silent.json means the voice was never switched on for this
+	// character: a save made before character creation, loaded later.
+	bool DefaultsAreSilent()
+	{
+		const auto silent = ReadFile(kSilentPath);
+		return silent && !silent->empty() && ReadFile(kDefaultsPath) == silent;
 	}
 
 	// Queued on the main thread: by then DBVO's revert for this new game has run, so our reload wins.
@@ -131,10 +151,15 @@ namespace
 	public:
 		RE::BSEventNotifyControl ProcessEvent(const RE::MenuOpenCloseEvent* a_event, RE::BSTEventSource<RE::MenuOpenCloseEvent>*) override
 		{
-			if (!a_event || a_event->opening || !g_freshGame || a_event->menuName != RE::RaceSexMenu::MENU_NAME) {
+			if (!a_event || a_event->opening || a_event->menuName != RE::RaceSexMenu::MENU_NAME) {
 				return RE::BSEventNotifyControl::kContinue;
 			}
-			ApplyForCurrentPlayer("RaceSex menu closed on a new game");
+			if (g_freshGame) {
+				ApplyForCurrentPlayer("RaceSex menu closed on a new game");
+			} else if (DefaultsAreSilent()) {
+				g_appliedSex = -1;
+				ApplyForCurrentPlayer("RaceSex menu closed on a save made before character creation");
+			}
 			return RE::BSEventNotifyControl::kContinue;
 		}
 	};
@@ -144,7 +169,7 @@ namespace
 SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenDBVOSexDefaults 1.1.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenDBVOSexDefaults 1.2.0 loading, runtime {}", REL::Module::get().version().string());
 
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
 		switch (a_msg->type) {
@@ -153,12 +178,14 @@ SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 			RE::UI::GetSingleton()->AddEventSink<RE::MenuOpenCloseEvent>(&g_menuSink);
 			break;
 		case SKSE::MessagingInterface::kNewGame:
-			// Enderal's prologue is played before character creation, as the default (male) player, and
-			// DBVO voices it. Apply that sex's profile now so the prologue never runs on whatever profile
-			// default_options.json was last left holding; the RaceSex menu then switches it if needed.
+			// Enderal's prologue is played before character creation, as the default (male) player. Keep the
+			// player voice silent until the RaceSex menu closes and the character's sex is known.
 			g_freshGame = true;
 			g_appliedSex = -1;
-			ApplyForCurrentPlayer("new game");
+			SKSE::GetTaskInterface()->AddTask([] {
+				SKSE::log::info("new game: player voice silent until character creation");
+				ApplyProfile(kSilentPath, "silent");
+			});
 			break;
 		case SKSE::MessagingInterface::kPreLoadGame:
 			g_freshGame = false;

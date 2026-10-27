@@ -70,8 +70,22 @@ Include, MO2 row 44, above `Dragonborn Voice Over 2` at row 50) carries a copy t
 
 - Saves made with no DBVO record (before DBVO 2 was installed) get whatever profile was written last,
   through revert. Every save made since then has its own record.
-- A player who will pick female hears the male profile during the prologue (they are male until
-  character creation), which is correct for the character on screen.
+- ~~A player who will pick female hears the male profile during the prologue.~~ Since 1.2.0 the
+  prologue is silent instead (below).
+
+## 1.2.0: silent until character creation (2026-10-27)
+
+Curator's request: no player voice before the character exists. `kNewGame` now applies `silent.json`
+(`male.json` with `dialogue_volume` 0, generated from it — keep the two identical apart from that line)
+instead of the male profile, and the RaceSex menu closing applies male or female as before. Volume 0
+rather than an empty pack: DBVO keeps running exactly as configured, only inaudible, and the subtitles stay.
+A save made before character creation stores the silent settings; on load the plugin is disarmed, so the
+RaceSex close also switches when `default_options.json` still holds `silent.json` (the voice was never
+switched on). The shipped `default_options.json` stays `male.json`: if the plugin ever fails, players get
+the old male default, never a voice stuck at 0. Both copies (Patch Collection, which loads, and the
+disabled standalone mod) replaced; backup `E:/Zenderal-backups/2026-10-27-dbvo-silent-prologue/`.
+**Unverified in game:** a new game should log `DBVO reloaded its defaults: silent profile is live`, then
+`male`/`female profile is live` when the RaceSex menu closes.
 
 **Status:** 1.0.0 worked for a female chargen (curator, 2026-10-18). **1.1.0 (new-game apply) is
 unverified in game.** On a new game the log should show `new game: player is male` and

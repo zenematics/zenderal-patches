@@ -1,0 +1,16 @@
+{
+  "use_legacy_voice_over": false,
+  "legacy_pack": "",
+  "current_pack": "KicEnderal_Final_Voice_Pack",
+  "dialogue_volume": 0,
+  "dialogue_pitch": 100,
+  "dialogue_reverb": 21,
+  "resolve_alias_dialogue": false,
+  "force_localized": false,
+  "disable_player_subtitles": false,
+  "npc_response_delay": 0,
+  "always_use_default_options": false,
+  "hide_dialogue_tree": false,
+  "use_localized_mappings": false,
+  "locale": ""
+}

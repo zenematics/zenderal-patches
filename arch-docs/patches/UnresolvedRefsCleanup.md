@@ -85,6 +85,16 @@ The curator disabled `mihailcrystalgolem.esp`, so MO2 reported it as a missing m
 (39 masters, 1 record fewer, same order). Every remaining master is enabled in Ultra. Backup:
 `E:/Zenderal-backups/2026-10-26-crystal-golem-cleanup/`.
 
+## Fuse00 Helga armor removed (2026-10-27)
+
+`_Fuse00_ArmorHelga_CBBE` was tagged Ignore in the Wabbajack compile but still enabled in Ultra, so this plugin
+mastered `_Fuse00_ArmorHelga.esp` and every Wabbajack install reported it as a missing master. The curator removed
+Helga from the list (disabled in Ultra). Its one record (`_Fuse00_ChokerOutfitHelga 0083DC`) and the master were
+dropped from the YAML by hand and the plugin rebuilt (38 masters, all enabled in Ultra). Nothing else in the list
+masters Helga. Both installed copies replaced; backup: `E:/Zenderal-backups/2026-10-27-helga-removed/`.
+**Before regenerating, check that no enabled plugin is on the compile's Ignore list** — an ignored mod that this
+plugin masters ships as a missing master.
+
 **The copy that loads is Patch Collection's.** In Ultra the standalone `Zenderal - Unresolved References Cleanup` mod is
 disabled; `Zenderal - Patch Collection` ships the same `.esp`, so a rebuild only reaches the game once that copy is
 replaced too (done 2026-10-26, backup in `.../patch-collection/`). Saves made near the Crystal Forest while the golem

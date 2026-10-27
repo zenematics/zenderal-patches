@@ -759,7 +759,7 @@
       ]
     },
     {
-      "$comment": "No plugin - one SKSE DLL + two JSON profiles. DBVO 2.0.2.2 gives every new game the same DBVO2/default_options.json and has no idea of the player's sex. At new-game start (the prologue is played as the default male player) and again when the RaceSex menu closes, ZenDBVOSexDefaults.dll copies ZenDBVOSexDefaults/male.json or female.json over default_options.json and calls DBVO's own defaults loader (DBVO.dll +0x2AC20, pinned to TimeDateStamp 0x6AB06DCE + prologue bytes); the first save then keeps them in DBVO's record. The list's writable default_options.json lives in Zenderal - Settings. Build with src/DBVOSexDefaults/build.cmd; compiled DLL committed because CI cannot build it.",
+      "$comment": "No plugin - one SKSE DLL + three JSON profiles. DBVO 2.0.2.2 gives every new game the same DBVO2/default_options.json and has no idea of the player's sex. At new-game start it copies ZenDBVOSexDefaults/silent.json (male.json at volume 0: no player voice in the prologue, before the character exists), and when the RaceSex menu closes ZenDBVOSexDefaults.dll copies male.json or female.json over default_options.json and calls DBVO's own defaults loader (DBVO.dll +0x2AC20, pinned to TimeDateStamp 0x6AB06DCE + prologue bytes); the first save then keeps them in DBVO's record. The list's writable default_options.json lives in Zenderal - Settings. Build with src/DBVOSexDefaults/build.cmd; compiled DLL committed because CI cannot build it.",
       "name": "Zenderal - DBVO Sex Defaults",
       "archiveName": "Zenderal - DBVO Sex Defaults",
       "fomod": false,

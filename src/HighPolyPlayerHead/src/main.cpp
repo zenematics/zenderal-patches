@@ -1,19 +1,28 @@
 #include "pch.h"
 
 // Enderal's chargen presets and playable races use the vanilla face head parts (MaleHeadNord, ...:
-// Character Assets\MaleHead.nif), while the list's beards are fitted to High Poly Head, so on a new
-// character the head pokes through their stubble shells. High Poly Head.esm ships a twin of each
-// vanilla face part, 00KLH_<name>: same texture set, races and flags, only the mesh and .tri paths differ.
+// Character Assets\MaleHead.nif), while the list's beards are fitted to High Poly Head. High Poly Head.esm
+// ships a twin of each vanilla face part, 00KLH_<name>: same texture set, races and flags, only the mesh and
+// .tri paths differ.
 //
 // Repointing the shared vanilla records instead (Zenderal - High Poly Default Heads, 2026-10-25) hard-froze
 // the game: NPCs with baked facegen keep their 898-vertex face mesh but take the head part's .tri morphs,
-// HPH's are 3598-vertex, and the MQP03 temple corpse's head lock was left held mid-render. So this touches
-// only the player: whenever the player's face part (explicit, or the race default it falls back to) has
-// an HPH twin, the player's own NPC record and 3D switch to the twin. Checked once per frame from
-// PlayerCharacter::Update, so it also catches chargen race/preset changes and scripted race swaps.
+// HPH's are 3598-vertex. 1.0 swapped the player's face every frame from PlayerCharacter::Update, which does
+// not tick while the race menu pauses the game: the swap landed the moment the menu closed, over Enderal's
+// presets, whose slider values are tuned on the vanilla head (beta reports, 2026-10-27).
+//
+// 1.1 acts only inside the RaceSex menu (its AdvanceMovie, every frame while it is open), so HPH is the menu's
+// default and nothing is forced afterwards:
+//   - race/sex changed (or the menu opened on a new game) with a vanilla face -> the HPH twin with all 19
+//     sliders at 0. Picking a race makes the engine apply one of its presets (the face goes onto the NPC
+//     record and the sliders take the preset's values; log, 2026-10-27), and those values only look right
+//     on the vanilla head, so the default becomes HPH's neutral face;
+//   - a preset picked (the sliders now equal one of the race's preset NPCs) while wearing a twin this put
+//     on -> back to the vanilla face, so the preset looks as SureAI tuned it;
+//   - anything else (a head picked by hand, sliders moved, NPCs, every record) is left alone.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 1, 0 },
+	.Version = REL::Version{ 1, 1, 2, 0 },
 	.Name = "ZenHighPolyPlayerHead"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -24,20 +33,20 @@ namespace
 	constexpr auto kIniPath = "Data/SKSE/Plugins/ZenHighPolyPlayerHead.ini";
 	constexpr auto kPrefix = "00KLH_"sv;
 
-	// After a swap, wait this long before the next one, so a menu that keeps re-applying the vanilla
-	// head can't make us rebuild the face every frame.
-	constexpr std::uint64_t kCooldownMs = 1000;
-
 	bool g_enabled{ true };
 	bool g_log{ true };
 
-	std::unordered_map<RE::BGSHeadPart*, RE::BGSHeadPart*> g_twins;  // vanilla face part -> HPH twin
-	std::uint64_t                                         g_nextSwapMs{ 0 };
-	bool                                                  g_seenUpdate{ false };
-	RE::BGSHeadPart*                                      g_lastFace{ nullptr };
-	RE::BGSHeadPart*                                      g_lastRefused{ nullptr };
+	std::unordered_map<RE::BGSHeadPart*, RE::BGSHeadPart*> g_twins;     // vanilla face part -> HPH twin
+	std::unordered_map<RE::BGSHeadPart*, RE::BGSHeadPart*> g_vanillas;  // HPH twin -> vanilla face part
 
-	std::uint64_t NowMs() { return ::GetTickCount64(); }
+	// Menu state, reset whenever the RaceSex menu opens.
+	bool                  g_menuFresh{ true };
+	RE::TESRace*          g_lastRace{ nullptr };
+	int                   g_lastSex{ -1 };
+	std::array<float, 23> g_lastLook{};
+	RE::BGSHeadPart*      g_ourTwin{ nullptr };  // the twin this put on, while the player still wears it
+	RE::BGSHeadPart*      g_lastFace{ nullptr };
+	bool                  g_newGame{ false };    // kNewGame until a save is loaded
 
 	void BuildTwins()
 	{
@@ -74,6 +83,7 @@ namespace
 				twin->textureSet = vanilla->textureSet;
 			}
 			g_twins.emplace(vanilla, twin);
+			g_vanillas.emplace(twin, vanilla);
 		}
 		SKSE::log::info("{} vanilla face parts have a High Poly Head twin", g_twins.size());
 	}
@@ -97,62 +107,173 @@ namespace
 		return nullptr;
 	}
 
-	void Check(RE::PlayerCharacter* a_player)
+	// The 19 sliders and 4 nose/eyes/mouth picks; no face data = every slider at its default.
+	std::array<float, 23> Look(const RE::TESNPC* a_npc)
 	{
-		if (g_twins.empty()) {
-			return;
-		}
-		auto* npc = a_player->GetActorBase();
-		if (!npc) {
-			return;
-		}
-		auto* face = CurrentFace(npc);
-		if (g_log && (!std::exchange(g_seenUpdate, true) || face != g_lastFace)) {
-			auto* explicitFace = npc->GetHeadPartByType(RE::BGSHeadPart::HeadPartType::kFace);
-			auto* race = npc->GetRace();
-			SKSE::log::info("Player face part: {} {:08X} ({}; overlays {}), race {}, {} twin", face ? face->GetFormEditorID() : "none",
-				face ? face->GetFormID() : 0, face == explicitFace ? "on the NPC record" : "race default or overlay", npc->HasOverlays(),
-				race ? race->GetFormEditorID() : "?", face && g_twins.contains(face) ? "has a" : "no");
-		}
-		g_lastFace = face;
-		const auto it = face ? g_twins.find(face) : g_twins.end();
-		if (it == g_twins.end()) {
-			return;
-		}
-		auto* twin = it->second;
-		auto* race = npc->GetRace();
-		if (twin->validRaces && race && !twin->validRaces->HasForm(race)) {
-			if (g_log && face != g_lastRefused) {
-				SKSE::log::info("{} not valid for race {}", twin->GetFormEditorID(), race->GetFormEditorID());
+		std::array<float, 23> look{};
+		if (const auto* face = a_npc->faceData) {
+			for (std::size_t i = 0; i < RE::TESNPC::FaceData::Morphs::kTotal; ++i) {
+				look[i] = face->morphs[i];
 			}
-			g_lastRefused = face;
-			return;
+			for (std::size_t i = 0; i < RE::TESNPC::FaceData::Parts::kTotal; ++i) {
+				look[RE::TESNPC::FaceData::Morphs::kTotal + i] = static_cast<float>(face->parts[i]);
+			}
 		}
-		const auto now = NowMs();
-		if (now < g_nextSwapMs) {
-			return;
+		return look;
+	}
+
+	bool SlidersAtDefault(const RE::TESNPC* a_npc)
+	{
+		const auto* face = a_npc->faceData;
+		if (!face) {
+			return true;
 		}
-		g_nextSwapMs = now + kCooldownMs;
-		npc->ChangeHeadPart(twin);
+		for (const auto morph : face->morphs) {
+			if (std::fabs(morph) > 0.001f) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// A preset NPC of the player's race and sex whose sliders the player now has. Presets with no slider
+	// values look the same on either head and never count.
+	RE::TESNPC* MatchingPreset(RE::TESNPC* a_npc, const std::array<float, 23>& a_look)
+	{
+		auto*      race = a_npc->GetRace();
+		const auto sex = a_npc->GetSex();
+		if (!race || sex > RE::SEX::kFemale || !race->faceRelatedData[sex] || !race->faceRelatedData[sex]->presetNPCs) {
+			return nullptr;
+		}
+		for (auto* preset : *race->faceRelatedData[sex]->presetNPCs) {
+			if (!preset || SlidersAtDefault(preset)) {
+				continue;
+			}
+			const auto look = Look(preset);
+			if (std::ranges::equal(look, a_look, [](float x, float y) { return std::fabs(x - y) < 0.001f; })) {
+				return preset;
+			}
+		}
+		return nullptr;
+	}
+
+	void SetFace(RE::PlayerCharacter* a_player, RE::TESNPC* a_npc, RE::BGSHeadPart* a_from, RE::BGSHeadPart* a_to, bool a_neutral, std::string_view a_why)
+	{
+		a_npc->ChangeHeadPart(a_to);
+		if (a_neutral && a_npc->faceData) {
+			for (auto& morph : a_npc->faceData->morphs) {
+				morph = 0.0f;
+			}
+		}
 		if (a_player->Get3D(false)) {
-			a_player->ChangeHeadPart(face, twin);
+			if (a_neutral) {
+				// The slider values only reach the head when it is rebuilt.
+				a_player->DoReset3D(false);
+			} else {
+				a_player->ChangeHeadPart(a_from, a_to);
+			}
 		}
 		if (g_log) {
-			SKSE::log::info("Player head {} -> {} (race {})", face->GetFormEditorID(), twin->GetFormEditorID(),
-				race ? race->GetFormEditorID() : "?");
+			auto* race = a_npc->GetRace();
+			SKSE::log::info("Player head {} -> {} (race {}){}: {}", a_from->GetFormEditorID(), a_to->GetFormEditorID(),
+				race ? race->GetFormEditorID() : "?", a_neutral ? ", sliders reset to 0" : "", a_why);
 		}
 	}
 
-	// Actor::Update (vfunc 0xAD) on the player's vtable: once per frame while the game runs.
-	struct PlayerUpdate
+	void CheckInMenu()
 	{
-		static void thunk(RE::PlayerCharacter* a_this, float a_delta)
+		auto* player = RE::PlayerCharacter::GetSingleton();
+		auto* npc = player ? player->GetActorBase() : nullptr;
+		if (!npc || g_twins.empty()) {
+			return;
+		}
+		auto*      face = CurrentFace(npc);
+		auto*      race = npc->GetRace();
+		const auto sex = static_cast<int>(npc->GetSex());
+		const auto look = Look(npc);
+		const bool raceChanged = race != g_lastRace || sex != g_lastSex;
+		const bool lookChanged = look != g_lastLook;
+		if (g_log && (g_menuFresh || raceChanged || face != g_lastFace)) {
+			auto* explicitFace = npc->GetHeadPartByType(RE::BGSHeadPart::HeadPartType::kFace);
+			auto* preset = MatchingPreset(npc, look);
+			SKSE::log::info("Race menu: face {} ({}), race {}, sex {}, sliders {}{}", face ? face->GetFormEditorID() : "none",
+				face && face == explicitFace ? "on the NPC record" : "race default", race ? race->GetFormEditorID() : "?", sex,
+				SlidersAtDefault(npc) ? "at default" : "set", preset ? fmt::format(" = preset {}", preset->GetFormEditorID()) : "");
+		}
+		const bool fresh = std::exchange(g_menuFresh, false);
+		// Only the first time the menu opens on a new game: Enderal opens it again later in the same game, and that
+		// must not reset the face the player has just made.
+		const bool firstOnNewGame = fresh && std::exchange(g_newGame, false);
+		g_lastRace = race;
+		g_lastSex = sex;
+		g_lastLook = look;
+		g_lastFace = face;
+		if (g_ourTwin && face != g_ourTwin) {
+			g_ourTwin = nullptr;  // the player picked another head
+		}
+		if (!face) {
+			return;
+		}
+
+		// Opening the menu on an existing character (showracemenu) must not undo its sculpted face.
+		if (firstOnNewGame || (!fresh && raceChanged)) {
+			const auto it = g_twins.find(face);
+			if (it == g_twins.end()) {
+				return;
+			}
+			auto* twin = it->second;
+			if (twin->validRaces && race && !twin->validRaces->HasForm(race)) {
+				if (g_log) {
+					SKSE::log::info("{} not valid for race {}", twin->GetFormEditorID(), race->GetFormEditorID());
+				}
+				return;
+			}
+			SetFace(player, npc, face, twin, true, fresh ? "menu opened on a new game" : "race or sex changed");
+			g_ourTwin = twin;
+			g_lastFace = twin;
+			g_lastLook = Look(npc);
+			return;
+		}
+
+		if (lookChanged && face == g_ourTwin) {
+			if (auto* preset = MatchingPreset(npc, look)) {
+				const auto it = g_vanillas.find(face);
+				if (it != g_vanillas.end()) {
+					SetFace(player, npc, face, it->second, false, preset->GetFormEditorID());
+					g_ourTwin = nullptr;
+					g_lastFace = it->second;
+				}
+			}
+		}
+	}
+
+	// RaceSexMenu::AdvanceMovie (IMenu vfunc 0x05): every frame while the race menu is open.
+	struct RaceMenuAdvance
+	{
+		static void thunk(RE::RaceSexMenu* a_this, float a_interval, std::uint32_t a_currentTime)
 		{
-			Check(a_this);
-			func(a_this, a_delta);
+			func(a_this, a_interval, a_currentTime);
+			CheckInMenu();
 		}
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
+
+	class MenuSink final : public RE::BSTEventSink<RE::MenuOpenCloseEvent>
+	{
+	public:
+		RE::BSEventNotifyControl ProcessEvent(const RE::MenuOpenCloseEvent* a_event, RE::BSTEventSource<RE::MenuOpenCloseEvent>*) override
+		{
+			if (a_event && a_event->opening && a_event->menuName == RE::RaceSexMenu::MENU_NAME) {
+				g_menuFresh = true;
+				g_lastRace = nullptr;
+				g_lastSex = -1;
+				g_ourTwin = nullptr;
+				g_lastFace = nullptr;
+			}
+			return RE::BSEventNotifyControl::kContinue;
+		}
+	};
+	MenuSink g_menuSink;
 
 	// GetPrivateProfileInt can't be used: a relative path is looked up in the Windows directory, and a
 	// UTF-8 BOM glues itself to the first section header (ZenBlockReleaseFix 1.0.0). Parse it ourselves.
@@ -206,7 +327,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenHighPolyPlayerHead 1.0.1 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenHighPolyPlayerHead 1.1.2 loading, runtime {}", REL::Module::get().version().string());
 	g_enabled = ReadIniInt(kIniPath, "General"sv, "Enabled"sv, 1) != 0;
 	g_log = ReadIniInt(kIniPath, "General"sv, "Log"sv, 1) != 0;
 	SKSE::log::info("Enabled={} Log={}", g_enabled, g_log);
@@ -215,13 +336,24 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	}
 
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
-		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {
+		switch (a_msg->type) {
+		case SKSE::MessagingInterface::kDataLoaded:
 			BuildTwins();
+			RE::UI::GetSingleton()->AddEventSink<RE::MenuOpenCloseEvent>(&g_menuSink);
+			break;
+		case SKSE::MessagingInterface::kNewGame:
+			g_newGame = true;
+			break;
+		case SKSE::MessagingInterface::kPreLoadGame:
+			g_newGame = false;
+			break;
+		default:
+			break;
 		}
 	});
 
-	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };
-	PlayerUpdate::func = vtbl.write_vfunc(0xAD, PlayerUpdate::thunk);
-	SKSE::log::info("PlayerCharacter::Update hooked");
+	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_RaceSexMenu[0] };
+	RaceMenuAdvance::func = vtbl.write_vfunc(0x05, RaceMenuAdvance::thunk);
+	SKSE::log::info("RaceSexMenu::AdvanceMovie hooked");
 	return true;
 }
