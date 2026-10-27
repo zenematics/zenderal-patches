@@ -11,7 +11,7 @@
 A new character starts with the DBVO voice settings for their sex. Male: the curator's "Gary" settings
 (Enderal Final Voice Pack, volume 224, reverb 21, pitch 100). Female: the curator's "Gunslinger"
 settings retuned on "Mer" (2026-10-18 18:08, `Save1`): legacy DBVO 1.0 Ciri pack `FearTcbCiri`,
-volume 178, reverb 32, pitch 90, NPC response delay 1000 ms, resolve alias dialogue on. To change a profile, edit its JSON. It uses the same keys as DBVO's own
+volume 178, reverb 32, pitch 100 (90 until 2026-10-27: too deep), NPC response delay 1000 ms, resolve alias dialogue on. To change a profile, edit its JSON. It uses the same keys as DBVO's own
 `default_options.json`.
 
 ## Why a plugin
