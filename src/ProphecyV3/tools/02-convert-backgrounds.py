@@ -58,5 +58,30 @@ def main():
             print(f'{tree}: {w}x{h} -> {W}x{H} BC1')
 
 
+        # the radial map's one background (curator 2026-10-27): Prophecy-Radial.png, square, the seven trees' themes in
+        # wedges clockwise from Faith at the top - the map's own order. Centre-cropped square, 2048x2048 BC1.
+        png = os.path.join(src, RADIAL_PNG)
+        if os.path.isfile(png):
+            im = Image.open(png).convert('RGB')
+            w, h = im.size
+            s = min(w, h)
+            im = im.crop(((w - s) // 2, (h - s) // 2, (w - s) // 2 + s, (h - s) // 2 + s))
+            tmp_png = os.path.join(tmp, 'Radial.png')
+            im.resize((RADIAL, RADIAL), Image.LANCZOS).save(tmp_png)
+            r = subprocess.run([tc, '-nologo', '-y', '-f', 'BC1_UNORM', '-m', '1', '-o', OUT, tmp_png],
+                               capture_output=True, text=True)
+            assert r.returncode == 0, f'texconv failed on {RADIAL_PNG}: {r.stdout}{r.stderr}'
+            for f in os.listdir(OUT):
+                if f.lower() == 'radial.dds' and f != 'Radial.dds':
+                    os.replace(os.path.join(OUT, f), os.path.join(OUT, 'Radial.dds'))
+            print(f'radial map: {RADIAL_PNG} {w}x{h} -> {RADIAL}x{RADIAL} BC1')
+        else:
+            print(f'no {RADIAL_PNG} - the radial map draws no background')
+
+
+RADIAL_PNG = 'Radial mutes.png'      # the curator's muted version (2026-10-27); was Prophecy-Radial.png
+RADIAL = 2048
+
+
 if __name__ == '__main__':
     main()

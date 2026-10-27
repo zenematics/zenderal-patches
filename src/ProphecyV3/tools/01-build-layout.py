@@ -13,7 +13,7 @@ position of their parents, so two-way branches mirror left and right.
 
 Run after src/Prophecy/tools/01-build-trees.py:  python -I src/ProphecyV3/tools/01-build-layout.py
 """
-import os, re, sys, json, glob, importlib.util
+import os, re, sys, json, glob, math, importlib.util
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
@@ -82,16 +82,16 @@ SHAPES = {
         # and ramrod are the short strokes off it
         'labels_above': ['gst3', 'gst6', 'gun5'],
         'nodes': {'gun1': (-4.0, 0.3), 'gst2': (-4.0, -0.75), 'gst1': (-2.6, 0.3),
-                  'gun2': (-1.2, 0.4), 'gst3': (-1.55, 0.95), 'gun3': (-1.0, -0.4), 'gst4': (-0.75, -0.95),
-                  'gun4': (0.3, 0.42), 'gst5': (2.3, 0.0), 'gst6': (2.0, 0.45), 'gun5': (4.0, 0.45)},
+                  'gun2': (-1.2, 0.4), 'gst3': (-1.75, 1.15), 'gun3': (-1.0, -0.4), 'gst4': (-0.5, -1.15),
+                  'gun4': (0.3, 0.42), 'gst5': (2.6, -0.25), 'gst6': (2.0, 0.45), 'gun5': (4.0, 0.45)},   # opened up 2026-10-27
         'via': {},
         'stars': [], 'lines': [],
     },
     'Gadgets': {                                         # an open-end wrench holding a nut
-        'nodes': {'dst2': (0, -1.4), 'gad1': (0, -0.2), 'dst1': (0, 1.0),
-                  'gad2': (-1.1, 2.0), 'gad3': (1.1, 2.0), 'dst3': (-1.25, 3.7), 'dst4': (1.25, 3.7),
-                  'gad4': (0, 2.3), 'dst6': (-0.5, 3.0), 'dst5': (0.5, 3.0), 'gad5': (0, 3.7),
-                  'gad6': (-2.2, 2.0)},                  # Chaff (2026-10-26): a spur off Smokescreen
+        'nodes': {'dst2': (0, -1.4), 'gad1': (0, -0.2), 'dst1': (0, 1.0),          # nut opened up 2026-10-27
+                  'gad2': (-1.2, 2.0), 'gad3': (1.2, 2.0), 'dst3': (-1.35, 4.0), 'dst4': (1.35, 4.0),
+                  'gad4': (0, 2.3), 'dst6': (-0.65, 3.15), 'dst5': (0.65, 3.15), 'gad5': (0, 4.0),
+                  'gad6': (-2.35, 2.0)},                 # Chaff (2026-10-26): a spur off Smokescreen
         'via': {},
         'stars': [], 'lines': [],
     },
@@ -110,9 +110,9 @@ SHAPES = {
         'stars': [], 'lines': [],
     },
     'Necromancy': {                                      # a reaper's scythe: snath with two grips, blade to the left
-        'nodes': {'nst2': (0, -1.5), 'nec1': (0, -0.4), 'nst1': (0, 0.8),
-                  'nec2': (0.75, 1.0), 'nst3': (1.4, 1.15), 'nec3': (0, 2.1), 'nst4': (0.8, 2.35),
-                  'nec4': (0, 3.4), 'nst5': (0.6, 3.75), 'nst6': (-1.3, 3.95), 'nec5': (-2.8, 3.1)},
+        'nodes': {'nst2': (0, -1.7), 'nec1': (0, -0.5), 'nst1': (0, 0.8),          # opened up 2026-10-27
+                  'nec2': (1.0, 1.2), 'nst3': (2.0, 1.45), 'nec3': (0, 2.3), 'nst4': (1.1, 2.65),
+                  'nec4': (0, 3.8), 'nst5': (0.95, 4.3), 'nst6': (-1.5, 4.45), 'nec5': (-3.2, 3.6)},
         'via': {},
         'stars': [], 'lines': [],
     },
@@ -174,6 +174,149 @@ def layout(indices, parents):
     return pos
 
 
+# The radial map (curator 2026-10-27, "like Path of Exile"): every tree on one canvas, a Prophecy start point at the
+# centre, each tree's figure turned so its root -> capstone axis points straight out along its own spoke, clockwise
+# from Faith at the top - the order of the background art's wedges (Prophecy-Radial.png). Map units, y up, centre 0,0.
+RADIAL_ROOT = float(os.environ.get('ZP_RADIAL_ROOT', 3.5))     # the least a tree's root sits out from the centre
+RADIAL_SPREAD = float(os.environ.get('ZP_RADIAL_SPREAD', 2.0)) # each figure scaled by this on the map (2026-10-27: 1.2 bunched the talents under their names, 2.0)
+RADIAL_LABEL_GAP = 1.9         # tree name: this far beyond its furthest talent
+RADIAL_FILL = float(os.environ.get('ZP_RADIAL_FILL', 0.6))      # share of its half-slice a figure may use (0.75: Arcane Archery touched Glory)
+RADIAL_LENGTH = float(os.environ.get('ZP_RADIAL_LENGTH', 0.0))  # every figure this long (0 = RADIAL_SPREAD)
+RADIAL_MIN_CENTRE = 2.0        # nothing behind a root comes closer to the centre than this
+RADIAL_BG = 'Data\\Interface\\ProphecyBackgrounds\\Radial.dds'
+TREE_COLOR = {'Faith': (232, 196, 110), 'Sharpshooter': (205, 140, 80), 'Gadgets': (190, 165, 105),
+              'Martial Arts': (110, 190, 175), 'Glory': (215, 90, 75), 'Arcane Archery': (110, 155, 230),
+              'Necromancy': (165, 110, 210)}
+
+
+def place_radial(trees):
+    """Adds mx/my to every node, and color/labelPos/mapRoutes/angle to every tree. Returns the map's own settings."""
+    n = len(trees)
+    far_all = 0.0
+    for k, t in enumerate(trees):
+        s = t['shape']
+        assert s, f"{t['name']}: the radial map needs every tree shaped"
+        pos = {int(i): tuple(p) for i, p in s['nodes'].items()}
+        root = next(nd['index'] for nd in t['nodes'] if not nd['parents'])
+        cap = next(nd['index'] for nd in t['nodes'] if nd['minLevel'])
+        rx, ry = pos[root]
+        ang_fig = math.atan2(pos[cap][1] - ry, pos[cap][0] - rx)
+        # balanced trees (2026-10-27): each figure scaled so it reaches RADIAL_LENGTH from its root - the long rifle and
+        # sword no longer set the map's size while the compact figures stay cramped
+        span = max(math.hypot(p[0] - rx, p[1] - ry) for p in pos.values())
+        spread = RADIAL_LENGTH / span if RADIAL_LENGTH > 0 else RADIAL_SPREAD
+        ang = math.pi / 2 - 2 * math.pi * k / n
+        rot = ang - ang_fig
+        cs, sn = math.cos(rot), math.sin(rot)
+
+        # each tree starts as far out as it needs for its whole figure (stars and line waypoints) to stay inside its
+        # own slice of the circle: |across| <= tan(half slice * RADIAL_FILL) * (root + along). One shared root radius
+        # let the wide figures (Faith's crossbar, Glory's guard) reach into their neighbours (curator 2026-10-27).
+        def local(p):
+            x, y = (p[0] - rx) * spread, (p[1] - ry) * spread
+            xr, yr = x * cs - y * sn, x * sn + y * cs
+            return xr * math.cos(ang) + yr * math.sin(ang), -xr * math.sin(ang) + yr * math.cos(ang)
+        pts = [pos[i] for i in pos] + [tuple(v) for r in s['routes'] for v in r['via']]
+        tan_half = math.tan(math.pi / n * RADIAL_FILL)
+        need = RADIAL_ROOT
+        for p in pts:
+            along, across = local(p)
+            need = max(need, abs(across) / tan_half - along, RADIAL_MIN_CENTRE - along)
+        root_r = need
+
+        def T(p, root_r=root_r):
+            x, y = (p[0] - rx) * spread, (p[1] - ry) * spread
+            return [round(math.cos(ang) * root_r + x * cs - y * sn, 4),
+                    round(math.sin(ang) * root_r + x * sn + y * cs, 4)]
+        far = 0.0
+        for nd in t['nodes']:
+            nd['mx'], nd['my'] = T(pos[nd['index']])
+            far = max(far, math.hypot(nd['mx'], nd['my']))
+        t['mapRoutes'] = [{'from': r['from'], 'to': r['to'], 'via': [T(v) for v in r['via']]} for r in s['routes']]
+        t['angle'] = round(math.degrees(ang), 3)
+        t['color'] = list(TREE_COLOR.get(t['name'], (200, 196, 186)))
+        # the name well past the furthest talent, so it never sits on the capstone's own label (curator 2026-10-27)
+        t['labelPos'] = [round(math.cos(ang) * (far + RADIAL_LABEL_GAP), 4), round(math.sin(ang) * (far + RADIAL_LABEL_GAP), 4)]
+        far_all = max(far_all, far + RADIAL_LABEL_GAP)
+    bg = os.path.join(REPO, 'src', 'ProphecyV3', 'assets', 'interface', 'ProphecyBackgrounds', 'Radial.dds')
+    return {'rootRadius': RADIAL_ROOT, 'extent': round(far_all + 0.8, 3),
+            'background': RADIAL_BG if os.path.isfile(bg) else ''}
+
+
+# Label sides (curator 2026-10-27: names overlapped at the whole-map view). Each talent's name goes below, above, right
+# or left of its star - whichever collides least with stars, tree names and the labels placed before it - judged at
+# the default view of a reference canvas (the curator's 16:9 window). Mirrors DrawMap's sizes. Pillow is not available
+# under -I, so text widths come from a per-character table for Futura Book.
+REF_CANVAS = (1784, 1130)
+REF_FONT = 20.0
+SIDES = ('below', 'above', 'right', 'left')
+
+
+def text_w(s, size):
+    w = 0.0
+    for ch in s:
+        if ch in "iljtf'.,:;!| ": w += 0.28
+        elif ch in 'mwMW': w += 0.86
+        elif ch.isupper(): w += 0.66
+        else: w += 0.52
+    return w * size
+
+
+def label_boxes(x, y, r, w, h):
+    return {'below': (x - w / 2, y + r + 4, x + w / 2, y + r + 4 + h),
+            'above': (x - w / 2, y - r - 4 - h, x + w / 2, y - r - 4),
+            'right': (x + r + 5, y - h / 2, x + r + 5 + w, y + h / 2),
+            'left': (x - r - 5 - w, y - h / 2, x - r - 5, y + h / 2)}
+
+
+def place_labels(trees, extent):
+    cw, ch = REF_CANVAS
+    sc = min(cw, ch) / (2 * extent)
+    z = max(0.7, min(2.4, sc / 45.0))
+    ls = REF_FONT * max(0.8, min(1.5, z * 0.9))
+    tfs = REF_FONT * max(1.15, min(2.2, z * 1.35))
+    P = lambda p: (cw / 2 + p[0] * sc, ch / 2 - p[1] * sc)
+    hit = lambda a, b: a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
+    # a tree's name steps outward until it clears its own stars (Arcane Archery's sat on Arcane Echo)
+    for t in trees:
+        for _ in range(12):
+            x, y = P(t['labelPos'])
+            w = text_w(t['name'], tfs)
+            box = (x - w / 2, y - tfs / 2, x + w / 2, y + tfs / 2)
+            if not any(hit(box, (P((n['mx'], n['my']))[0] - 14 * z, P((n['mx'], n['my']))[1] - 14 * z,
+                                 P((n['mx'], n['my']))[0] + 14 * z, P((n['mx'], n['my']))[1] + 14 * z)) for n in t['nodes']):
+                break
+            d = math.hypot(*t['labelPos'])
+            t['labelPos'] = [round(t['labelPos'][0] * (d + 0.3) / d, 4), round(t['labelPos'][1] * (d + 0.3) / d, 4)]
+    obstacles = []
+    for t in trees:
+        for n in t['nodes']:
+            x, y = P((n['mx'], n['my']))
+            r = (12 if n['minLevel'] else 6 if n['minor'] else 8.5) * z + 2
+            obstacles.append((n['index'], (x - r, y - r, x + r, y + r)))
+        x, y = P(t['labelPos'])
+        w = text_w(t['name'], tfs)
+        obstacles.append((-1, (x - w / 2, y - tfs / 2, x + w / 2, y + tfs / 2)))
+    placed, bad = [], 0
+    nodes = [n for t in trees for n in t['nodes']]
+    nodes.sort(key=lambda n: (not n['minLevel'], n['minor']))      # capstones first, stat talents last
+    for n in nodes:
+        x, y = P((n['mx'], n['my']))
+        r = (12 if n['minLevel'] else 6 if n['minor'] else 8.5) * z
+        boxes = label_boxes(x, y, r, text_w(n['name'], ls), ls)
+        def cost(side):
+            b = boxes[side]
+            c = sum(1 for i, o in obstacles if i != n['index'] and hit(b, o)) + sum(1 for o in placed if hit(b, o))
+            c += 4 * (b[0] < 0 or b[2] > cw or b[1] < 0 or b[3] > ch)
+            return c
+        side = min(SIDES, key=lambda s: (cost(s), SIDES.index(s)))
+        n['labelSide'] = SIDES.index(side)
+        bad += cost(side) > 0
+        if not n['minor']:               # stat talents' names only show zoomed in: they do not block the others
+            placed.append(boxes[side])
+    return bad
+
+
 def main():
     perks, descs, images, pa, pb, starts, levelreq = quest_arrays()
     n = len(perks)
@@ -201,13 +344,17 @@ def main():
                 'x': pos[i][0],
                 'tier': pos[i][1],
                 'minLevel': levelreq[i],     # capstones: level 30 (curator 2026-10-25)
-            } for i in idx],
+                'minor': nodes[k][0] in v1.STAT,     # a stat talent: the map hides its label when zoomed out
+            } for k, i in enumerate(idx)],
         })
+    radial = place_radial(trees)
+    crowded = place_labels(trees, radial['extent'])
+    print(f'labels: {crowded} still crowded at the whole-map view')
     # the selection notes, in melody order (ZP_Prophecy_SelectNote_NN; the clips come from tools/03-split-piano.py)
     notes = []
     for p in sorted(glob.glob(os.path.join(ESP, 'SoundDescriptors', 'ZP_Prophecy_SelectNote_* - *.yaml'))):
         notes.append(int(re.search(r'^FormKey: ([0-9A-F]{6}):', open(p, encoding='utf-8').read(), re.M).group(1), 16))
-    data = {'plugin': MOD, 'pointsGlobal': int(POINTS, 16), 'selectNotes': notes, 'trees': trees}
+    data = {'plugin': MOD, 'pointsGlobal': int(POINTS, 16), 'selectNotes': notes, 'radial': radial, 'trees': trees}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w', encoding='utf-8', newline='\n') as fh:
         json.dump(data, fh, indent=1, ensure_ascii=False)

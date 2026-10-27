@@ -100,6 +100,77 @@ points left") and the description; clicking a gold star asks to confirm. Escape 
 - **Threads.** Render runs on SMF's render thread and only reads a snapshot (perks owned, points) that a game-thread
   task refreshes every 10 frames while the window is open; the learn event is sent from a game-thread task.
 
+## The radial map (2026-10-27)
+
+The curator wanted every tree on one Path-of-Exile-style canvas. It replaces the tabs whenever `ZenProphecyUI.json`
+has a `radial` block; the old tab view stays as the fallback. Concept image: `outputs/prophecy-radial-concept.png`.
+
+- **Layout** (`tools/01`, `place_radial`). A Prophecy start point sits at the centre. Each tree's shaped figure is
+  turned so its root → capstone axis points straight out along its own spoke. The spokes run clockwise from Faith at
+  the top, in TREES order, and each root sits at `RADIAL_ROOT` 5.2 units. The tool writes:
+  - per node `mx`/`my` (map units, y up) and `minor` (stat talents);
+  - per tree `color`, `angle`, `labelPos` (beyond its furthest talent) and `mapRoutes` (waypoints transformed);
+  - top level `radial` {`extent`, `rootRadius`, `background`}.
+
+  No cross-links: each tree is reached from the centre only. The learn rules are untouched, since the roots need no
+  parent.
+- **Background.** The curator's art has the seven themes in wedges in the same clockwise order. Since the same day it
+  is `Radial mutes.png`, a muted version; it was `Prophecy-Radial.png`. `tools/02` (`RADIAL_PNG`) centre-crops it to
+  a square and converts it to `assets/interface/ProphecyBackgrounds/Radial.dds` (2048² BC1).
+  - **Size:** it covers [−e, e] with e = extent × canvas aspect × 1.45, so a wide window has no black bars even
+    zoomed out and panned. A uniform scale about the centre keeps every wedge on its spoke.
+  - **Tint:** light (215/210/202), because the art is already muted.
+  - **Tree names** sit `RADIAL_LABEL_GAP` 1.9 units past their furthest talent; at 0.8 they covered the capstones'
+    labels.
+- **Spacing and labels (same day: "names are overlapping").** Tuned against a simulator of the whole-map view on the
+  curator's canvas (1784×1130, real Futura metrics; scratchpad `labelsim.py`).
+  - **Before:** 22 overlapping labels.
+  - **Spread and root:** `RADIAL_SPREAD` 1.5 scales every figure and `RADIAL_ROOT` 5.5. Spread alone bottoms out
+    near 11, because the fit shrinks it back.
+  - **Label sides:** `place_labels` picks each talent label's side (below/above/right/left, `labelSide`, 0–3), the
+    one that collides least with stars, tree names and earlier labels, capstones first. Widths come from a
+    per-character table, since Pillow is unavailable under `-I`.
+  - **Tree names** step out until they clear their own stars.
+  - **Result:** 4 left, each a label grazing a small stat-talent dot.
+
+- **Second pass (same day: "some nodes are even closer").** A shared root radius with 1.5× figures pushed the wide
+  figures into their neighbours. The fixes:
+  - **Per-tree start distance.** Each tree's root now sits as far out as its figure needs to stay within
+    `RADIAL_FILL` 0.75 of half its 51° slice (`RADIAL_ROOT` 3.5 is only the minimum).
+  - **Spread** went back to 1.2.
+  - **Figures opened up:** the scythe's grips and heel, the musket's hammer, trigger and ramrod, the wrench's nut.
+  - **Tried and dropped:** per-tree length normalization (`RADIAL_LENGTH`, kept at 0), because shrinking the rifle
+    squeezed its barrel.
+  - **Result at the whole-map view:** closest stars 34 px (were 24), across trees 65 px (were 42), 4 labels
+    grazing a small dot. Preview: `outputs/prophecy-radial-preview.png` (scratchpad `mappreview.py` renders the
+    JSON as DrawMap does).
+
+- **Room between talents (same day: "too bunched up, archery almost through glory").** The DLL sizes stars and
+  text from pixels per map unit (`z = sc / 45`), so the room between talents *relative to their names* depends
+  only on the figures' size in map units, at every zoom. `RADIAL_SPREAD` 1.2 → **2.0** (closest pair 1.08 → 1.8
+  units) and `RADIAL_FILL` 0.75 → **0.6** (closest stars of two trees 2.1 → 6.6 units; extent 18.1 → 33.5).
+  The DLL's zoom factors grew by the same ×1.85 so a tree looks as large as before: tree buttons 2.4 → 4.4× fit,
+  wheel max 5 → 9×, stat-talent names from 1.6 → 2.9× fit. The whole-map view gets smaller (labels are clamped at
+  their minimum size there; the label simulator reports 16 crowded instead of 4). Preview renders: scratchpad
+  `mappreview.py <zoom> <cx> <cy> <out>`.
+
+  In the DLL, talent names always show and stat-talent names from 1.6× the fit zoom; it was absolute z ≥ 0.75, which
+  hid every name once the map got larger. Click areas cover the star plus its label on its side.
+- **DLL** (`DrawMap`). One canvas `InvisibleButton` (left and right buttons) with `SetNextItemAllowOverlap`, so the
+  talent buttons drawn after it still take the hover:
+  - **Pan:** drag either button (`igGetMouseDragDelta` + `igResetMouseDragDelta` while the canvas is active).
+  - **Zoom:** the wheel zooms at the cursor, 0.8–5× the fit scale.
+  - **The wheel itself:** it is read as ImGuiKey `MouseWheelY`'s `AnalogValue` from `igGetKeyData_Key` (+12). The
+    key's number is found once by name with `igGetKeyName`, because it differs between ImGui versions; no `ImGuiIO`
+    offsets are assumed.
+  - **What it draws:** spokes and prerequisite lines in tree colours (solid once learned, dashed otherwise), the four
+    node states as before, a capstone ring, tree names, and the start point.
+  - **Labels:** a stat talent's label shows only when zoomed in.
+  - **Edges:** a talent whose button would cross the canvas edge gets no button, since it would grow the content and
+    add scrollbars. The window opens with `NoScrollbar | NoScrollWithMouse`, 70% of the screen wide.
+  - **Jump bar:** "Whole map", plus one button per tree that centres and zooms on it.
+- Unverified in game.
+
 ## Building
 
 1. `python -I src/Prophecy/tools/01-build-trees.py` (v1), then `python -I src/ProphecyV3/tools/01-build-layout.py`.

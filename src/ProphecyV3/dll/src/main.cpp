@@ -261,6 +261,70 @@ namespace
 			ZP_BIND(igPopID, void (*)());
 			if (igPopID) igPopID();
 		}
+		// radial map (2026-10-27)
+		bool InvisibleButtonFlags(const char* a_id, ImVec2 a_size, int a_flags)
+		{
+			ZP_BIND(igInvisibleButton, bool (*)(const char*, ImVec2, int));
+			return igInvisibleButton && igInvisibleButton(a_id, a_size, a_flags);
+		}
+		void SetNextItemAllowOverlap()
+		{
+			ZP_BIND(igSetNextItemAllowOverlap, void (*)());
+			if (igSetNextItemAllowOverlap) igSetNextItemAllowOverlap();
+		}
+		bool IsItemActive()
+		{
+			ZP_BIND(igIsItemActive, bool (*)());
+			return igIsItemActive && igIsItemActive();
+		}
+		bool IsWindowHovered()
+		{
+			ZP_BIND(igIsWindowHovered, bool (*)(int));
+			return igIsWindowHovered && igIsWindowHovered(0);
+		}
+		ImVec2 GetMouseDragDelta(int a_button)
+		{
+			ZP_BIND(igGetMouseDragDelta, void (*)(ImVec2*, int, float));
+			ImVec2 v{};
+			if (igGetMouseDragDelta) igGetMouseDragDelta(&v, a_button, 0.0f);
+			return v;
+		}
+		void ResetMouseDragDelta(int a_button)
+		{
+			ZP_BIND(igResetMouseDragDelta, void (*)(int));
+			if (igResetMouseDragDelta) igResetMouseDragDelta(a_button);
+		}
+		ImVec2 GetMousePos()
+		{
+			ZP_BIND(igGetMousePos, void (*)(ImVec2*));
+			ImVec2 v{};
+			if (igGetMousePos) igGetMousePos(&v);
+			return v;
+		}
+		// The wheel as ImGuiKey MouseWheelY's AnalogValue (ImGuiKeyData: bool Down, float DownDuration, float
+		// DownDurationPrev, float AnalogValue -> +12). The key's number moves between ImGui versions, so it is found by
+		// name once (igGetKeyName over the named keys from 512); no ImGuiIO offsets are assumed.
+		float MouseWheel()
+		{
+			static int  key = -1;
+			static bool tried = false;
+			if (!tried) {
+				tried = true;
+				ZP_BIND(igGetKeyName, const char* (*)(int));
+				for (int k = 512; igGetKeyName && k < 512 + 400; ++k) {
+					const char* nm = igGetKeyName(k);
+					if (nm && std::strcmp(nm, "MouseWheelY") == 0) {
+						key = k;
+						break;
+					}
+				}
+				SKSE::log::info("mouse wheel key: {}", key);
+			}
+			if (key < 0) return 0.0f;
+			ZP_BIND(igGetKeyData_Key, const char* (*)(int));
+			const char* kd = igGetKeyData_Key ? igGetKeyData_Key(key) : nullptr;
+			return kd ? *reinterpret_cast<const float*>(kd + 12) : 0.0f;
+		}
 	}
 
 	namespace dl
@@ -312,6 +376,16 @@ namespace
 			ZP_BIND(ImDrawList_AddRectFilledMultiColor, void (*)(void*, ImVec2, ImVec2, ImU32, ImU32, ImU32, ImU32));
 			if (ImDrawList_AddRectFilledMultiColor && a_dl) ImDrawList_AddRectFilledMultiColor(a_dl, a_min, a_max, a_ul, a_ur, a_br, a_bl);
 		}
+		void PushClip(void* a_dl, ImVec2 a_min, ImVec2 a_max)
+		{
+			ZP_BIND(ImDrawList_PushClipRect, void (*)(void*, ImVec2, ImVec2, bool));
+			if (ImDrawList_PushClipRect && a_dl) ImDrawList_PushClipRect(a_dl, a_min, a_max, true);
+		}
+		void PopClip(void* a_dl)
+		{
+			ZP_BIND(ImDrawList_PopClipRect, void (*)(void*));
+			if (ImDrawList_PopClipRect && a_dl) ImDrawList_PopClipRect(a_dl);
+		}
 		void DashedLine(void* a_dl, ImVec2 a_a, ImVec2 a_b, ImU32 a_col, float a_thick, float a_dash = 5.0f, float a_gap = 5.0f)
 		{
 			const float dx = a_b.x - a_a.x, dy = a_b.y - a_a.y;
@@ -337,6 +411,9 @@ namespace
 		float            x = 0.0f;
 		int              tier = 0;
 		int              minLevel = 0;  // capstones: level 30 (curator 2026-10-25); the script enforces it too
+		ImVec2           map{ 0.0f, 0.0f };   // radial map position (map units, y up, centre 0,0)
+		bool             minor = false;       // a stat talent: no label when zoomed out
+		int              labelSide = 0;       // 0 below, 1 above, 2 right, 3 left (tools/01 place_labels)
 		RE::BGSPerk*     perk = nullptr;
 		void*            texture = nullptr;
 		bool             textureTried = false;
@@ -364,7 +441,30 @@ namespace
 		std::vector<ImVec2>                      decorStars;
 		std::vector<std::pair<ImVec2, ImVec2>>   decorLines;
 		std::vector<int>                         labelsAbove; // node indices whose name sits above the star
+		// radial map
+		ImU32                                    color = 0;
+		ImVec2                                   labelPos{ 0.0f, 0.0f };
+		std::vector<Route>                       mapRoutes;
 	};
+
+	// the radial map (curator 2026-10-27): every tree on one canvas around a Prophecy start point
+	struct Radial
+	{
+		bool        on = false;
+		float       extent = 15.0f;     // map units from the centre to the outermost tree name, + a margin
+		float       rootRadius = 5.0f;
+		std::string background;
+		void*       backgroundTex = nullptr;
+		bool        backgroundTried = false;
+	};
+	Radial g_radial;
+	struct MapView
+	{
+		ImVec2 c{ 0.0f, 0.0f };   // map point at the canvas centre
+		float  scale = 0.0f;      // pixels per map unit; 0 = fit the whole map on the next draw
+	};
+	MapView g_view;
+	float   g_fitScale = 30.0f;
 
 	ImVec2 Pt(const nlohmann::json& a_j)
 	{
@@ -409,11 +509,32 @@ namespace
 			g_plugin = j.at("plugin").get<std::string>();
 			g_pointsGlobalId = j.at("pointsGlobal").get<std::uint32_t>();
 			g_noteIds = j.value("selectNotes", std::vector<std::uint32_t>{});
+			if (j.contains("radial") && j["radial"].is_object()) {
+				const auto& jr = j["radial"];
+				g_radial.on = true;
+				g_radial.extent = jr.value("extent", 15.0f);
+				g_radial.rootRadius = jr.value("rootRadius", 5.0f);
+				g_radial.background = jr.value("background", "");
+			}
 			for (auto& jt : j.at("trees")) {
 				Tree t;
 				t.name = jt.at("name").get<std::string>();
 				t.description = jt.value("description", "");
 				t.background = jt.value("background", "");
+				if (jt.contains("color")) {
+					const auto c = jt["color"].get<std::vector<int>>();
+					t.color = Col(c.at(0), c.at(1), c.at(2));
+				}
+				if (jt.contains("labelPos")) t.labelPos = Pt(jt["labelPos"]);
+				if (jt.contains("mapRoutes")) {
+					for (auto& jr : jt["mapRoutes"]) {
+						Tree::Route r;
+						r.from = jr.at("from").get<int>();
+						r.to = jr.at("to").get<int>();
+						for (auto& p : jr.at("via")) r.via.push_back(Pt(p));
+						t.mapRoutes.push_back(std::move(r));
+					}
+				}
 				if (jt.contains("shape") && jt["shape"].is_object()) {
 					const auto& js = jt["shape"];
 					t.shaped = true;
@@ -440,6 +561,9 @@ namespace
 					n.x = jn.at("x").get<float>();
 					n.tier = jn.at("tier").get<int>();
 					n.minLevel = jn.value("minLevel", 0);
+					n.map = ImVec2{ jn.value("mx", 0.0f), jn.value("my", 0.0f) };
+					n.minor = jn.value("minor", false);
+					n.labelSide = jn.value("labelSide", 0);
 					t.nodes.push_back(std::move(n));
 				}
 				g_trees.push_back(std::move(t));
@@ -790,6 +914,219 @@ namespace
 		ig::Dummy(avail);
 	}
 
+	// ---------------------------------------------------------------------------------------------- radial map
+	// (curator 2026-10-27, "like Path of Exile") Every tree on one canvas: a Prophecy start point at the centre, each
+	// tree's figure on its own spoke (positions from tools/01-build-layout.py, map units, y up). Drag (left or right
+	// button) pans, the wheel zooms at the cursor; the talents and the confirm popup work as on the tree tabs.
+	ImVec2 MapCenter(const Tree& a_tree)
+	{
+		ImVec2 c{ 0.0f, 0.0f };
+		for (auto& n : a_tree.nodes) { c.x += n.map.x; c.y += n.map.y; }
+		const float k = a_tree.nodes.empty() ? 1.0f : static_cast<float>(a_tree.nodes.size());
+		return ImVec2{ c.x / k, c.y / k };
+	}
+
+	ImU32 Fade(ImU32 a_col, int a_alpha)
+	{
+		return (a_col & 0x00FFFFFFu) | (static_cast<ImU32>(a_alpha) << 24);
+	}
+
+	void DrawMap(const Snapshot& a_s)
+	{
+		void*        list = ig::GetWindowDrawList();
+		const ImVec2 o = ig::GetCursorScreenPos();
+		const ImVec2 avail = ig::GetContentRegionAvail();
+		if (avail.x < 50.0f || avail.y < 50.0f) return;
+		const ImVec2 mid{ o.x + avail.x * 0.5f, o.y + avail.y * 0.5f };
+		g_fitScale = std::min(avail.x, avail.y) / (2.0f * g_radial.extent);
+		if (g_view.scale <= 0.0f) {
+			g_view.scale = g_fitScale;
+			g_view.c = ImVec2{ 0.0f, 0.0f };
+		}
+
+		// the canvas: a drag anywhere off a talent pans; talents drawn later still take the hover (AllowOverlap)
+		ig::SetNextItemAllowOverlap();
+		ig::InvisibleButtonFlags("map##zp", avail, 1 | 2);     // left and right mouse buttons
+		if (ig::IsItemActive()) {
+			for (int b = 0; b < 2; ++b) {
+				const ImVec2 d = ig::GetMouseDragDelta(b);
+				if (d.x != 0.0f || d.y != 0.0f) {
+					g_view.c.x -= d.x / g_view.scale;
+					g_view.c.y += d.y / g_view.scale;
+					ig::ResetMouseDragDelta(b);
+				}
+			}
+		}
+		if (ig::IsWindowHovered()) {
+			if (const float w = ig::MouseWheel(); w != 0.0f) {
+				const ImVec2 m = ig::GetMousePos();
+				const ImVec2 at{ g_view.c.x + (m.x - mid.x) / g_view.scale, g_view.c.y - (m.y - mid.y) / g_view.scale };
+				g_view.scale = std::clamp(g_view.scale * std::pow(1.15f, w), g_fitScale * 0.8f, g_fitScale * 9.0f);  // 9x: the map is 1.85x larger since 2026-10-27 (spread 2.0)
+				g_view.c = ImVec2{ at.x - (m.x - mid.x) / g_view.scale, at.y + (m.y - mid.y) / g_view.scale };
+			}
+		}
+		const float lim = g_radial.extent;
+		g_view.c.x = std::clamp(g_view.c.x, -lim, lim);
+		g_view.c.y = std::clamp(g_view.c.y, -lim, lim);
+		const float sc = g_view.scale;
+		auto S = [&](ImVec2 p) { return ImVec2{ mid.x + (p.x - g_view.c.x) * sc, mid.y - (p.y - g_view.c.y) * sc }; };
+
+		dl::PushClip(list, o, ImVec2{ o.x + avail.x, o.y + avail.y });
+		dl::Rect(list, o, ImVec2{ o.x + avail.x, o.y + avail.y }, Col(9, 8, 11));
+		if (!g_radial.backgroundTried) {
+			g_radial.backgroundTried = true;
+			if (!g_radial.background.empty() && std::filesystem::exists(g_radial.background)) {
+				ZP_BIND(LoadTexture, void* (*)(const char*, ImVec2*));
+				if (LoadTexture) g_radial.backgroundTex = LoadTexture(g_radial.background.c_str(), nullptr);
+				SKSE::log::info("radial background {}: {}", g_radial.background, g_radial.backgroundTex ? "loaded" : "failed");
+			}
+		}
+		if (g_radial.backgroundTex) {
+			// cover the whole canvas, even zoomed out and panned to the edge (curator 2026-10-27: black bars on a wide
+			// window). A uniform scale about the centre keeps every wedge on its tree's spoke.
+			const float aspect = std::max(avail.x, avail.y) / std::min(avail.x, avail.y);
+			const float e = g_radial.extent * aspect * 1.45f;
+			dl::Image(list, g_radial.backgroundTex, S(ImVec2{ -e, e }), S(ImVec2{ e, -e }), ImVec2{ 0, 0 }, ImVec2{ 1, 1 }, Col(215, 210, 202));   // the curator's art is already muted
+		}
+		for (float r : { g_radial.rootRadius, g_radial.rootRadius + 3.0f, g_radial.rootRadius + 6.0f }) {
+			dl::Circle(list, S(ImVec2{ 0, 0 }), r * sc, Col(255, 255, 255, 16), 1.5f);
+		}
+
+		const float z = std::clamp(sc / 45.0f, 0.7f, 2.4f);
+		ZP_BIND(igGetFontSize, float (*)());
+		const float baseFont = igGetFontSize ? igGetFontSize() : ig::CalcTextSize("Ag").y;
+		auto learned = [&](int i) { return i >= 0 && i < static_cast<int>(a_s.learned.size()) && a_s.learned[i]; };
+		auto shadowText = [&](float a_size, ImVec2 a_p, ImU32 a_col, const char* a_txt) {
+			const ImU32 sh = Col(0, 0, 0, 215);
+			dl::TextSized(list, a_size, ImVec2{ a_p.x + 1.5f, a_p.y + 1.5f }, sh, a_txt);
+			dl::TextSized(list, a_size, ImVec2{ a_p.x - 1.0f, a_p.y + 1.0f }, sh, a_txt);
+			dl::TextSized(list, a_size, a_p, a_col, a_txt);
+		};
+
+		// spokes and prerequisite lines, under everything else
+		for (auto& t : g_trees) {
+			for (auto& n : t.nodes) {
+				if (n.parents.empty()) {
+					const bool lit = learned(n.index);
+					dl::Line(list, S(ImVec2{ 0, 0 }), S(n.map), Fade(t.color, lit ? 230 : 120), (lit ? 2.6f : 1.8f) * z);
+				}
+				for (int p : n.parents) {
+					const Node* pn = FindNode(p);
+					if (!pn) continue;
+					std::vector<ImVec2> path{ S(pn->map) };
+					for (auto& r : t.mapRoutes) {
+						if (r.from == p && r.to == n.index) {
+							for (auto& v : r.via) path.push_back(S(v));
+							break;
+						}
+					}
+					path.push_back(S(n.map));
+					const bool lit = learned(n.index) && learned(p);
+					for (std::size_t k = 0; k + 1 < path.size(); ++k) {
+						if (lit) {
+							dl::Line(list, path[k], path[k + 1], Fade(t.color, 235), 2.2f * z);
+						} else {
+							dl::DashedLine(list, path[k], path[k + 1], Fade(t.color, 130), 1.4f * z, 6.0f * z, 5.0f * z);
+						}
+					}
+				}
+			}
+		}
+
+		// the start point
+		{
+			const ImVec2 c = S(ImVec2{ 0, 0 });
+			dl::Disc(list, c, 34.0f * z, Col(240, 220, 170, 30));
+			dl::Disc(list, c, 22.0f * z, Col(240, 220, 170, 70));
+			dl::Disc(list, c, 12.0f * z, Col(250, 238, 205));
+			const float fs = baseFont * std::clamp(z * 1.3f, 1.1f, 2.0f);
+			ImVec2      ts = ig::CalcTextSize("PROPHECY");
+			ts.x *= fs / baseFont;
+			shadowText(fs, ImVec2{ c.x - ts.x * 0.5f, c.y + 26.0f * z }, Col(250, 236, 200), "PROPHECY");
+		}
+
+		const float labelSize = baseFont * std::clamp(z * 0.9f, 0.8f, 1.5f);
+		const float labelScale = labelSize / baseFont;
+		const float labelH = ig::CalcTextSize("Ag").y * labelScale;
+		for (auto& t : g_trees) {
+			for (auto& n : t.nodes) {
+				const ImVec2 c = S(n.map);
+				if (c.x < o.x - 40.0f || c.y < o.y - 40.0f || c.x > o.x + avail.x + 40.0f || c.y > o.y + avail.y + 40.0f) continue;
+				const State st = NodeState(n, a_s);
+				const bool  capstone = n.minLevel > 0;
+				const float r = (capstone ? 12.0f : n.minor ? 6.0f : 8.5f) * z;
+				dl::Disc(list, c, r + 5.0f * z, Fade(t.color, 40));
+				switch (st) {
+				case State::Learned:
+					dl::Disc(list, c, r, kNodeLearned);
+					dl::Circle(list, c, r + 3.0f * z, Fade(t.color, 255), 2.0f);
+					break;
+				case State::Available:
+					dl::Disc(list, c, r - 1.5f, kNodeOpen);
+					dl::Circle(list, c, r + 3.0f * z, kRingAvailable, 2.0f);
+					break;
+				case State::Unlocked:
+					dl::Disc(list, c, r - 1.5f, kNodeOpen);
+					break;
+				case State::Locked:
+					dl::Disc(list, c, r - 2.0f, kNodeDim);
+					break;
+				}
+				dl::Circle(list, c, r, Fade(t.color, st == State::Locked ? 150 : 230), 1.6f);
+				if (capstone && st != State::Learned) {
+					dl::Circle(list, c, r + 6.0f * z, Fade(t.color, st == State::Locked ? 110 : 200), 1.6f);
+				}
+				// talents' names always; stat talents' from 1.6x the whole-map zoom (curator 2026-10-27: names overlapped)
+				const bool showLabel = !n.minor || sc >= g_fitScale * 2.9f;
+				ImVec2     ts = ig::CalcTextSize(n.name.c_str());
+				ts.x *= labelScale;
+				ts.y = labelH;
+				// the side tools/01 picked so the name dodges its neighbours: below, above, right, left
+				ImVec2 lp{ c.x - ts.x * 0.5f, c.y + r + 4.0f };
+				switch (n.labelSide) {
+				case 1: lp = ImVec2{ c.x - ts.x * 0.5f, c.y - r - 4.0f - ts.y }; break;
+				case 2: lp = ImVec2{ c.x + r + 5.0f, c.y - ts.y * 0.5f }; break;
+				case 3: lp = ImVec2{ c.x - r - 5.0f - ts.x, c.y - ts.y * 0.5f }; break;
+				default: break;
+				}
+				if (showLabel) {
+					const ImU32 lc = st == State::Learned ? kLabelLit : st == State::Available ? kLabelAvailable : kLabelDim;
+					shadowText(labelSize, lp, lc, n.name.c_str());
+				}
+				// hit area: the star and its label when shown - only when it lies wholly inside the canvas: a button
+				// past its edge would grow the window's content and bring up scrollbars
+				float bx0 = c.x - r - 4.0f, by0 = c.y - r - 4.0f, bx1 = c.x + r + 4.0f, by1 = c.y + r + 4.0f;
+				if (showLabel) {
+					bx0 = std::min(bx0, lp.x); by0 = std::min(by0, lp.y);
+					bx1 = std::max(bx1, lp.x + ts.x); by1 = std::max(by1, lp.y + ts.y);
+				}
+				if (bx0 < o.x || bx1 > o.x + avail.x || by0 < o.y || by1 > o.y + avail.y) continue;
+				ig::SetCursorScreenPos(ImVec2{ bx0, by0 });
+				ig::PushID(n.index);
+				ig::InvisibleButton("node", ImVec2{ bx1 - bx0, by1 - by0 });
+				const bool hovered = ig::IsItemHovered();
+				const bool clicked = ig::IsItemClicked();
+				ig::PopID();
+				if (hovered) Tooltip(n, st, a_s);
+				if (clicked && st == State::Available) {
+					g_pending = n.index;
+					g_openConfirm = true;
+					PlayNextNote();
+				}
+			}
+			// the tree's name beyond its outer end
+			const float fs = baseFont * std::clamp(z * 1.35f, 1.15f, 2.2f);
+			ImVec2      ts = ig::CalcTextSize(t.name.c_str());
+			ts.x *= fs / baseFont;
+			ts.y *= fs / baseFont;
+			const ImVec2 lp = S(t.labelPos);
+			shadowText(fs, ImVec2{ lp.x - ts.x * 0.5f, lp.y - ts.y * 0.5f }, Fade(t.color, 255), t.name.c_str());
+		}
+		dl::PopClip(list);
+		ig::SetCursorScreenPos(o);
+		ig::Dummy(avail);
+	}
+
 	// The curator's piano melody, one note per selection (2026-10-25): each click on a learnable star plays the next
 	// note, so choosing talents plays the tune in order. AudioCategoryUI / SOMUIDefault: heard while the game is paused.
 	void PlayNextNote()
@@ -851,14 +1188,35 @@ namespace
 				if (d.x > 100.0f && d.y > 100.0f) display = d;
 			}
 		}
-		ig::SetNextWindowSize(ImVec2{ std::clamp(display.x * 0.45f, 900.0f, 1500.0f), display.y * 0.85f }, kCondAppearing);
+		if (g_radial.on) {    // the radial map wants room: 70% of the screen wide, a square at most
+			ig::SetNextWindowSize(ImVec2{ std::clamp(display.x * 0.7f, 1000.0f, display.y * 1.25f), display.y * 0.88f }, kCondAppearing);
+		} else {
+			ig::SetNextWindowSize(ImVec2{ std::clamp(display.x * 0.45f, 900.0f, 1500.0f), display.y * 0.85f }, kCondAppearing);
+		}
 		ig::SetNextWindowPos(ImVec2{ display.x * 0.5f, display.y * 0.5f }, kCondAppearing, ImVec2{ 0.5f, 0.5f });
 		bool open = true;
-		if (ig::Begin("The Prophecy##ZenProphecyUI", &open, kWindowNoCollapse)) {
+		// the map owns the wheel and fills the window: no scrollbar, no wheel scrolling (ImGuiWindowFlags_NoScrollbar
+		// 1 << 3, NoScrollWithMouse 1 << 4)
+		const int flags = kWindowNoCollapse | (g_radial.on ? (1 << 3) | (1 << 4) : 0);
+		if (ig::Begin("The Prophecy##ZenProphecyUI", &open, flags)) {
 			ig::TextColored(ImVec4{ 0.84f, 0.70f, 0.38f, 1.0f }, std::format("Prophecy points: {}", s.points).c_str());
 			ig::SameLine();
-			ig::TextColored(ImVec4{ 0.55f, 0.53f, 0.50f, 1.0f }, "   Hover a star to read it; click a lit one to learn it.");
-			if (ig::BeginTabBar("trees##zp")) {
+			if (g_radial.on) {
+				ig::TextColored(ImVec4{ 0.55f, 0.53f, 0.50f, 1.0f },
+					"   Drag to move, scroll to zoom. Hover a star to read it; click a lit one to learn it.");
+				// the jump bar: the whole map, or one tree centred and zoomed in
+				if (ig::Button("Whole map")) g_view.scale = 0.0f;
+				for (auto& t : g_trees) {
+					ig::SameLine();
+					ig::PushID(static_cast<int>(&t - g_trees.data()));
+					if (ig::Button(t.name.c_str())) {
+						g_view.c = MapCenter(t);
+						g_view.scale = g_fitScale * 4.4f;  // a tree as large on screen as 2.4x showed it before the 2026-10-27 spread
+					}
+					ig::PopID();
+				}
+				DrawMap(s);
+			} else if (ig::BeginTabBar("trees##zp")) {
 				for (auto& t : g_trees) {
 					if (ig::BeginTabItem(t.name.c_str())) {
 						if (!t.description.empty()) {
