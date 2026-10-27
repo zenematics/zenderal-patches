@@ -99,42 +99,6 @@
    "value": 0.0
   },
   {
-   "plugin": "Helmet Toggle 2.esp",
-   "formid": 2057,
-   "edid": "HT_EnableHelmet",
-   "value": 1.0
-  },
-  {
-   "plugin": "Helmet Toggle 2.esp",
-   "formid": 2058,
-   "edid": "HT_EnableHood",
-   "value": 1.0
-  },
-  {
-   "plugin": "Helmet Toggle 2.esp",
-   "formid": 2072,
-   "edid": "HT_HotkeyType",
-   "value": 2.0
-  },
-  {
-   "plugin": "Helmet Toggle 2.esp",
-   "formid": 2114,
-   "edid": "HT_EnableUnequip",
-   "value": 1.0
-  },
-  {
-   "plugin": "Helmet Toggle 2.esp",
-   "formid": 2122,
-   "edid": "HT_EnableMask",
-   "value": 1.0
-  },
-  {
-   "plugin": "Helmet Toggle 2.esp",
-   "formid": 2123,
-   "edid": "HT_EnableHat",
-   "value": 1.0
-  },
-  {
    "plugin": "EVGConditionalIdles.esp",
    "formid": 2052,
    "edid": "EVGCI15_HeadacheThreshold",
@@ -169,6 +133,12 @@
    "formid": 2057,
    "edid": "NPCpotion_DropPotion",
    "value": 50.0
+  },
+  {
+   "plugin": "ReadTheRoom.esp",
+   "formid": 2060,
+   "edid": "EquipWhenSafe",
+   "value": 1.0
   }
  ],
  "properties": [

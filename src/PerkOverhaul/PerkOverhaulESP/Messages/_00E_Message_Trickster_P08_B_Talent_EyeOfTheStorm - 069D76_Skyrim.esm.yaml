@@ -3,7 +3,7 @@ EditorID: _00E_Message_Trickster_P08_B_Talent_EyeOfTheStorm
 Description:
   TargetLanguage: English
   Value: >-
-    Stops time for your enemies and your surroundings for a short period of time. Only works if your equipped weapon is a bow or musket.
+    Stops time for your enemies and your surroundings for a short period of time. Only works if your equipped weapon is a musket or bow.
 
 
     Tier I: 7 seconds duration (Cooldown: 140)

@@ -80,6 +80,11 @@ MESG, asserts each replacement matches once). The three base-sourced records kee
 in the YAML; Spriggit writes only English into this non-localized plugin, so a round trip collapses
 them — expected.
 
+**Wording (2026-10-26, curator):** every node that works with both says **"muskets or bows"** (musket first;
+"musket balls or arrows" for the ammo), Replica's PERK description included. Noticed then: the MO2 mod
+`Zenderal - Perk Overhaul` was **disabled** in the Ultra profile (`-` in `modlist.txt`) while its plugin was
+ticked, so none of this patch was in game.
+
 ### Replica — ammo recovery (2026-10-23)
 
 Request: Replica (`069CD6`, base Enderal's: `ModLockpickingKeyRewardChance` 100) also gives a 30% chance

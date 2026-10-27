@@ -5,7 +5,7 @@ Description:
   TargetLanguage: English
   Values:
   - Language: English
-    String: Zooming in with a bow or musket now costs half as much Stamina than before and slows down time by 50%%. All arrows and musket balls do 1 more point of damage.
+    String: Zooming in with a musket or bow now costs half as much Stamina than before and slows down time by 50%%. All musket balls or arrows do 1 more point of damage.
   - Language: Chinese
     String: 使用弓箭进入放大瞄准时，耐力消耗速度减半，时间流逝速度减慢50%%。所有类型的弓箭造成1点额外伤害。
   - Language: Korean

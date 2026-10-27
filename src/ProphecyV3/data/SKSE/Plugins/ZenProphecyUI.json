@@ -171,7 +171,7 @@
      "index": 3,
      "perk": 2065,
      "name": "Righteous Path",
-     "description": "While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage.",
+     "description": "While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage, for 10 Mana (with less, you simply block).",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_RighteousPath.dds",
      "parents": [
       1
@@ -236,7 +236,7 @@
      "index": 8,
      "perk": 2067,
      "name": "Wrath of the Lightborn",
-     "description": "Grants the \"Wrath of the Lightborn\" spell (200 Mana and 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. Cast at 50% Arcane Fever or more, it has no effect.",
+     "description": "Grants the \"Wrath of the Lightborn\" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_WrathoftheLightborn.dds",
      "parents": [
       7
@@ -501,7 +501,7 @@
       -1.1,
       2.0
      ],
-     "27": [
+     "28": [
       1.1,
       2.0
      ],
@@ -509,25 +509,29 @@
       -1.25,
       3.7
      ],
-     "28": [
+     "29": [
       1.25,
       3.7
      ],
-     "29": [
+     "30": [
       0,
       2.3
      ],
-     "31": [
+     "32": [
       -0.5,
       3.0
      ],
-     "30": [
+     "31": [
       0.5,
       3.0
      ],
-     "32": [
+     "33": [
       0,
       3.7
+     ],
+     "27": [
+      -2.2,
+      2.0
      ]
     },
     "routes": [],
@@ -601,6 +605,19 @@
     },
     {
      "index": 27,
+     "perk": 2669,
+     "name": "Chaff",
+     "description": "Your Smokescreen cloud also blinds automatons: mechanical spiders, spheres and centurions inside it can no longer see you.",
+     "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Chaff.dds",
+     "parents": [
+      25
+     ],
+     "x": 1.0,
+     "tier": 3,
+     "minLevel": 0
+    },
+    {
+     "index": 28,
      "perk": 2076,
      "name": "Utility Droid",
      "description": "Grants the \"Utility Droid\" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.",
@@ -613,66 +630,66 @@
      "minLevel": 0
     },
     {
-     "index": 28,
+     "index": 29,
      "perk": 2515,
      "name": "Riveted Plating",
      "description": "Your armor rating is increased by 40.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_RivetedPlating.dds",
      "parents": [
-      27
+      28
      ],
-     "x": 1.0,
+     "x": -2.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 29,
+     "index": 30,
      "perk": 2077,
      "name": "Clockwork Turret",
      "description": "You can build Clockwork Turrets at a forge, and you receive one when you learn this. The \"Clockwork Turret\" power deploys it for 30 seconds: it turns and fires at your target, or the nearest enemy in combat, dealing damage equal to 30% of your Handicraft skill.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ClockworkTurret.dds",
      "parents": [
       25,
-      27
+      28
      ],
      "x": 0.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 30,
+     "index": 31,
      "perk": 2516,
      "name": "Insulated Gloves",
      "description": "You gain 15% resistance to lightning.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_InsulatedGloves.dds",
      "parents": [
-      29
+      30
      ],
      "x": -1.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 31,
+     "index": 32,
      "perk": 2517,
      "name": "Steady Hands",
      "description": "Your maximum Stamina is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_SteadyHands.dds",
      "parents": [
-      29
+      30
      ],
      "x": 0.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 32,
+     "index": 33,
      "perk": 2078,
      "name": "Overclock",
      "description": "Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Overclock.dds",
      "parents": [
-      31
+      32
      ],
      "x": 0.0,
      "tier": 5,
@@ -686,47 +703,47 @@
    "background": "Data\\Interface\\ProphecyBackgrounds\\Martial-Arts.dds",
    "shape": {
     "nodes": {
-     "35": [
+     "36": [
       0,
       -1.4
      ],
-     "33": [
+     "34": [
       0,
       -0.3
      ],
-     "34": [
+     "35": [
       0,
       0.8
      ],
-     "37": [
+     "38": [
       -2.5,
       1.5
      ],
-     "36": [
+     "37": [
       -1.3,
       2.0
      ],
-     "38": [
+     "39": [
       1.3,
       2.0
      ],
-     "39": [
+     "40": [
       2.5,
       1.5
      ],
-     "40": [
+     "41": [
       0,
       2.5
      ],
-     "41": [
+     "42": [
       -0.6,
       3.4
      ],
-     "42": [
+     "43": [
       0.6,
       3.4
      ],
-     "43": [
+     "44": [
       0,
       4.4
      ]
@@ -738,7 +755,7 @@
    },
    "nodes": [
     {
-     "index": 33,
+     "index": 34,
      "perk": 2079,
      "name": "Iron Fist",
      "description": "Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty.",
@@ -749,131 +766,131 @@
      "minLevel": 0
     },
     {
-     "index": 34,
+     "index": 35,
      "perk": 2518,
      "name": "Conditioning",
      "description": "Your maximum Stamina is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Conditioning.dds",
      "parents": [
-      33
+      34
      ],
      "x": 0.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 35,
+     "index": 36,
      "perk": 2519,
      "name": "Iron Knuckles",
      "description": "Your unarmed attacks deal 5 more damage.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_IronKnuckles.dds",
      "parents": [
-      33
+      34
      ],
      "x": -1.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 36,
+     "index": 37,
      "perk": 2080,
      "name": "Hissing Dragon",
      "description": "Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_HissingDragon.dds",
      "parents": [
-      34
+      35
      ],
      "x": -0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 37,
+     "index": 38,
      "perk": 2520,
      "name": "Breath Control",
      "description": "Your Stamina regenerates 25 percent faster.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_BreathControl.dds",
      "parents": [
-      36
+      37
      ],
      "x": -1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 38,
+     "index": 39,
      "perk": 2081,
      "name": "Stunning Blows",
      "description": "Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_StunningBlows.dds",
      "parents": [
-      34
+      35
      ],
      "x": 0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 39,
+     "index": 40,
      "perk": 2521,
      "name": "Toughened Body",
      "description": "Your armor rating is increased by 40.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ToughenedBody.dds",
      "parents": [
-      38
+      39
      ],
      "x": 1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 40,
+     "index": 41,
      "perk": 2082,
      "name": "Breaking Waves",
      "description": "Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_BreakingWaves.dds",
      "parents": [
-      36,
-      38
+      37,
+      39
      ],
      "x": 0.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 41,
+     "index": 42,
      "perk": 2522,
      "name": "Unbroken",
      "description": "Your maximum Health is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Unbroken.dds",
      "parents": [
-      40
+      41
      ],
      "x": -1.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 42,
+     "index": 43,
      "perk": 2523,
      "name": "Inner Calm",
      "description": "You gain 10% resistance to magic.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_InnerCalm.dds",
      "parents": [
-      40
+      41
      ],
      "x": 0.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 43,
+     "index": 44,
      "perk": 2083,
      "name": "Flow State",
      "description": "Dodging in combat briefly slows time to a crawl (once every 10 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies (once every 15 seconds).",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_FlowState.dds",
      "parents": [
-      42
+      43
      ],
      "x": 0.0,
      "tier": 5,
@@ -887,55 +904,55 @@
    "background": "Data\\Interface\\ProphecyBackgrounds\\Glory.dds",
    "shape": {
     "nodes": {
-     "46": [
+     "47": [
       0,
       -1.3
      ],
-     "44": [
+     "45": [
       0,
       -0.3
      ],
-     "45": [
+     "46": [
       0,
       0.6
      ],
-     "48": [
+     "49": [
       -2.3,
       1.0
      ],
-     "47": [
+     "48": [
       -1.2,
       1.4
      ],
-     "49": [
+     "50": [
       1.2,
       1.4
      ],
-     "50": [
+     "51": [
       2.3,
       1.0
      ],
-     "52": [
+     "53": [
       -0.95,
       2.5
      ],
-     "51": [
+     "52": [
       0,
       2.5
      ],
-     "53": [
+     "54": [
       0.95,
       2.5
      ],
-     "54": [
+     "55": [
       0,
       5.0
      ]
     },
     "routes": [
      {
-      "from": 45,
-      "to": 47,
+      "from": 46,
+      "to": 48,
       "via": [
        [
         0,
@@ -944,8 +961,8 @@
       ]
      },
      {
-      "from": 45,
-      "to": 49,
+      "from": 46,
+      "to": 50,
       "via": [
        [
         0,
@@ -954,8 +971,8 @@
       ]
      },
      {
-      "from": 47,
-      "to": 51,
+      "from": 48,
+      "to": 52,
       "via": [
        [
         0,
@@ -964,8 +981,8 @@
       ]
      },
      {
-      "from": 49,
-      "to": 51,
+      "from": 50,
+      "to": 52,
       "via": [
        [
         0,
@@ -974,8 +991,8 @@
       ]
      },
      {
-      "from": 53,
-      "to": 54,
+      "from": 54,
+      "to": 55,
       "via": [
        [
         0,
@@ -990,7 +1007,7 @@
    },
    "nodes": [
     {
-     "index": 44,
+     "index": 45,
      "perk": 2326,
      "name": "Seismic Stomp",
      "description": "Grants the \"Seismic Stomp\" power: stomp the ground to send out a shockwave that hurls every enemy within 19 feet into the air and makes them bleed for 50 damage over 5 seconds, while time briefly slows. Usable once every 30 seconds.",
@@ -1001,131 +1018,131 @@
      "minLevel": 0
     },
     {
-     "index": 45,
+     "index": 46,
      "perk": 2524,
      "name": "Battle-Hardened",
      "description": "Your maximum Health is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_BattleHardened.dds",
      "parents": [
-      44
+      45
      ],
      "x": 0.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 46,
+     "index": 47,
      "perk": 2525,
      "name": "Shield Discipline",
      "description": "Your Blocking skill is increased by 10.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ShieldDiscipline.dds",
      "parents": [
-      44
+      45
      ],
      "x": -1.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 47,
+     "index": 48,
      "perk": 2327,
      "name": "Second Wind",
      "description": "While you are at or below half Health, every hit you take restores 20 Stamina.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_SecondWind.dds",
      "parents": [
-      45
+      46
      ],
      "x": -0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 48,
+     "index": 49,
      "perk": 2526,
      "name": "Thick Hide",
      "description": "Your armor rating is increased by 60.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ThickHide.dds",
      "parents": [
-      47
+      48
      ],
      "x": -1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 49,
+     "index": 50,
      "perk": 2328,
      "name": "Dragon Scale",
      "description": "You gain 25% resistance to fire, frost and lightning.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_DragonScale.dds",
      "parents": [
-      45
+      46
      ],
      "x": 0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 50,
+     "index": 51,
      "perk": 2527,
      "name": "War Cry",
      "description": "Your maximum Stamina is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_WarCry.dds",
      "parents": [
-      49
+      50
      ],
      "x": 1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 51,
+     "index": 52,
      "perk": 2362,
      "name": "Surrounded",
      "description": "While 3 or more enemies are near you, you regenerate 2 Stamina per second.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_DeathorGlory.dds",
      "parents": [
-      47,
-      49
+      48,
+      50
      ],
      "x": 0.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 52,
+     "index": 53,
      "perk": 2528,
      "name": "Veteran",
      "description": "Your One-handed and Two-handed skills are increased by 10.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Veteran.dds",
      "parents": [
-      51
+      52
      ],
      "x": -1.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 53,
+     "index": 54,
      "perk": 2529,
      "name": "Iron Constitution",
      "description": "Your Health regenerates 25 percent faster.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_IronConstitution.dds",
      "parents": [
-      51
+      52
      ],
      "x": 0.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 54,
+     "index": 55,
      "perk": 2329,
      "name": "War Banner",
      "description": "Grants the \"War Banner\" power: plant a banner for 15 seconds. While you stand near it, you heal 20 Health per second, and enemies who come close are bound in chains, as by a Stave of Binding. Usable once every 5 minutes.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_WarBanner.dds",
      "parents": [
-      53
+      54
      ],
      "x": 0.0,
      "tier": 5,
@@ -1139,55 +1156,55 @@
    "background": "Data\\Interface\\ProphecyBackgrounds\\Arcane-Archery.dds",
    "shape": {
     "nodes": {
-     "57": [
+     "58": [
       0,
       -1.3
      ],
-     "55": [
+     "56": [
       0,
       -0.3
      ],
-     "56": [
+     "57": [
       0,
       0.6
      ],
-     "59": [
+     "60": [
       -2.5,
       0.6
      ],
-     "58": [
+     "59": [
       -1.9,
       1.5
      ],
-     "60": [
+     "61": [
       1.9,
       1.5
      ],
-     "61": [
+     "62": [
       2.5,
       0.6
      ],
-     "63": [
+     "64": [
       -0.95,
       2.3
      ],
-     "62": [
+     "63": [
       0,
       2.3
      ],
-     "64": [
+     "65": [
       0.95,
       2.3
      ],
-     "65": [
+     "66": [
       0,
       4.0
      ]
     },
     "routes": [
      {
-      "from": 64,
-      "to": 65,
+      "from": 65,
+      "to": 66,
       "via": [
        [
         0,
@@ -1202,7 +1219,7 @@
    },
    "nodes": [
     {
-     "index": 55,
+     "index": 56,
      "perk": 2382,
      "name": "Arcane Arsenal",
      "description": "Grants the \"Arcane Arsenal\" power: choose Fire, Frost or Lightning, and your bow hits deal 10 extra damage of that element.",
@@ -1213,131 +1230,131 @@
      "minLevel": 0
     },
     {
-     "index": 56,
+     "index": 57,
      "perk": 2530,
      "name": "Arcane Focus",
      "description": "Your maximum Mana is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ArcaneFocus.dds",
      "parents": [
-      55
+      56
      ],
      "x": 0.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 57,
+     "index": 58,
      "perk": 2531,
      "name": "Fletcher's Eye",
      "description": "Your Archery skill is increased by 10.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_FletchersEye.dds",
      "parents": [
-      55
+      56
      ],
      "x": -1.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 58,
+     "index": 59,
      "perk": 2383,
      "name": "No Distractions",
      "description": "While you aim a bow, a Spell Ward (Rank II) surrounds you. It fades when you fire or lower the bow.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_NoDistractions.dds",
      "parents": [
-      56
+      57
      ],
      "x": -0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 59,
+     "index": 60,
      "perk": 2532,
      "name": "Mana Spring",
      "description": "Your Mana regenerates 10 percent faster.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ManaSpring.dds",
      "parents": [
-      58
+      59
      ],
      "x": -1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 60,
+     "index": 61,
      "perk": 2384,
      "name": "Ice Shot",
      "description": "Grants the \"Ice Shot\" power: with a bow equipped, add 3 ice arrows to your quiver for 50 Magicka. They deal 25 frost damage and freeze the target solid for 8 seconds, and your next arrow shatters it.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_IceShot.dds",
      "parents": [
-      56
+      57
      ],
      "x": 0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 61,
+     "index": 62,
      "perk": 2533,
      "name": "Frostbound",
      "description": "You gain 15% resistance to frost.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Frostbound.dds",
      "parents": [
-      60
+      61
      ],
      "x": 1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 62,
+     "index": 63,
      "perk": 2385,
      "name": "Andrasta's Owl",
      "description": "Your bow hits send a barn owl to attack the target. It fights at your side until it is killed, each later hit sends it after that target, and each of its strikes drains 10 Magicka from its target and gives it to you. While it is out, you regenerate 2 Magicka per second. Only one owl can be out at a time.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_SendaRaven.dds",
      "parents": [
-      58,
-      60
+      59,
+      61
      ],
      "x": 0.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 63,
+     "index": 64,
      "perk": 2534,
      "name": "Owl's Vigil",
      "description": "Your maximum Stamina is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_OwlsVigil.dds",
      "parents": [
-      62
+      63
      ],
      "x": -1.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 64,
+     "index": 65,
      "perk": 2535,
      "name": "Spellward",
      "description": "You gain 10% resistance to magic.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Spellward.dds",
      "parents": [
-      62
+      63
      ],
      "x": 0.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 65,
+     "index": 66,
      "perk": 2386,
      "name": "Arcane Echo",
      "description": "Grants the \"Arcane Echo\" power: use it while dual casting a spell to store that spell. Your fully drawn bow shots in combat then also release the stored spell toward your crosshair. Only works with spells cast at others.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_LionsArrow.dds",
      "parents": [
-      64
+      65
      ],
      "x": 0.0,
      "tier": 5,
@@ -1351,47 +1368,47 @@
    "background": "Data\\Interface\\ProphecyBackgrounds\\Necromancy.dds",
    "shape": {
     "nodes": {
-     "68": [
+     "69": [
       0,
       -1.5
      ],
-     "66": [
+     "67": [
       0,
       -0.4
      ],
-     "67": [
+     "68": [
       0,
       0.8
      ],
-     "69": [
+     "70": [
       0.75,
       1.0
      ],
-     "70": [
+     "71": [
       1.4,
       1.15
      ],
-     "71": [
+     "72": [
       0,
       2.1
      ],
-     "72": [
+     "73": [
       0.8,
       2.35
      ],
-     "73": [
+     "74": [
       0,
       3.4
      ],
-     "74": [
+     "75": [
       0.6,
       3.75
      ],
-     "75": [
+     "76": [
       -1.3,
       3.95
      ],
-     "76": [
+     "77": [
       -2.8,
       3.1
      ]
@@ -1403,7 +1420,7 @@
    },
    "nodes": [
     {
-     "index": 66,
+     "index": 67,
      "perk": 2450,
      "name": "Corpse Fever",
      "description": "You can command one more summon for every 25% Arcane Fever you have.",
@@ -1414,130 +1431,130 @@
      "minLevel": 0
     },
     {
-     "index": 67,
+     "index": 68,
      "perk": 2536,
      "name": "Dark Studies",
      "description": "Your Entropy skill is increased by 10.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_DarkStudies.dds",
      "parents": [
-      66
+      67
      ],
      "x": 0.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 68,
+     "index": 69,
      "perk": 2537,
      "name": "Grave Pact",
      "description": "Your maximum Mana is increased by 25.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_GravePact.dds",
      "parents": [
-      66
+      67
      ],
      "x": -1.0,
      "tier": 1,
      "minLevel": 0
     },
     {
-     "index": 69,
+     "index": 70,
      "perk": 2451,
      "name": "Dark Effigy",
-     "description": "Grants the \"Dark Effigy\" spell (100 Magicka): raise a dark totem for 60 seconds. Your undead summons near it heal 2 Health per second, and you and your allies near it gain 250 armor.",
+     "description": "Grants the \"Dark Effigy\" spell (100 Magicka): raise a dark totem for 60 seconds. You and your undead summons near it heal 2 Health per second, and you and your allies near it gain 250 armor.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_DarkEffigy.dds",
      "parents": [
-      67
+      68
      ],
      "x": -0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 70,
+     "index": 71,
      "perk": 2538,
      "name": "Corpse Ward",
      "description": "You gain 15% resistance to poison.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_CorpseWard.dds",
      "parents": [
-      69
+      70
      ],
      "x": -1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 71,
+     "index": 72,
      "perk": 2452,
      "name": "A Willing Sacrifice",
      "description": "Grants the \"A Willing Sacrifice\" power: every summon you command explodes, dealing damage equal to half its maximum Health to each enemy within 14 feet of it. Usable once every 15 seconds.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_WillingSacrifice.dds",
      "parents": [
-      67
+      68
      ],
      "x": 0.5,
      "tier": 2,
      "minLevel": 0
     },
     {
-     "index": 72,
+     "index": 73,
      "perk": 2539,
      "name": "Death's Patience",
      "description": "Your Mana regenerates 10 percent faster.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_DeathsPatience.dds",
      "parents": [
-      71
+      72
      ],
      "x": 1.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 73,
+     "index": 74,
      "perk": 2453,
      "name": "The Dead Don't Forget",
      "description": "A Willing Sacrifice restores 50 Magicka for every enemy it hits.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_DeadDontForget.dds",
      "parents": [
-      71
+      72
      ],
      "x": 0.0,
      "tier": 3,
      "minLevel": 0
     },
     {
-     "index": 74,
+     "index": 75,
      "perk": 2540,
      "name": "Cold Blood",
      "description": "You gain 15% resistance to frost.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ColdBlood.dds",
      "parents": [
-      73
+      74
      ],
      "x": -1.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 75,
+     "index": 76,
      "perk": 2541,
      "name": "Bone Armour",
      "description": "Your armor rating is increased by 40.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_BoneArmour.dds",
      "parents": [
-      73
+      74
      ],
      "x": 0.0,
      "tier": 4,
      "minLevel": 0
     },
     {
-     "index": 76,
+     "index": 77,
      "perk": 2454,
      "name": "Legion of the Damned",
      "description": "Grants the \"Legion of the Damned\" power: at the cost of 50% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_LegionDamned.dds",
      "parents": [
-      75
+      76
      ],
      "x": 0.0,
      "tier": 5,

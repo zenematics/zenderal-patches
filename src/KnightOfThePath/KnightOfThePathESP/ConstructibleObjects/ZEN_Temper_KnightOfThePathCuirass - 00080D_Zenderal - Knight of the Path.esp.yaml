@@ -1,0 +1,23 @@
+FormKey: 00080D:Zenderal - Knight of the Path.esp
+EditorID: ZEN_Temper_KnightOfThePathCuirass
+Version2: 1
+Items:
+- Item:
+    Item: 05AD9D:Skyrim.esm
+    Count: 1
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: EPTemperingItemIsEnchantedConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 05218E:Skyrim.esm
+  ComparisonValue: 1
+CreatedObject: 000805:Zenderal - Knight of the Path.esp
+WorkbenchKeyword: 0ADB78:Skyrim.esm
+CreatedObjectCount: 1

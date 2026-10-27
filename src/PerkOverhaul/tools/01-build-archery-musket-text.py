@@ -20,53 +20,55 @@ BASE = 'reference/base/Skyrim/Messages'
 OUT = 'src/PerkOverhaul/PerkOverhaulESP/Messages'
 
 # FormID -> [(old, new), ...] applied to the record's English description.
+# Wording (curator, 2026-10-26): every node that works with both says "muskets or bows" ("musket balls or arrows"
+# for the ammo), musket first.
 EDITS = {
     '066858': [  # Strong Bowstring (EGO)
-        ('effective use of a bow with lockpicking', 'effective use of a bow or musket with lockpicking'),
-        ('Tier I: Bows do 15%%', 'Tier I: Bows and muskets do 15%%'),
-        ('Tier II: Bows do another', 'Tier II: Bows and muskets do another'),
+        ('effective use of a bow with lockpicking', 'effective use of muskets or bows with lockpicking'),
+        ('Tier I: Bows do 15%%', 'Tier I: Muskets or bows do 15%%'),
+        ('Tier II: Bows do another', 'Tier II: Muskets or bows do another'),
     ],
     '066856': [  # Skilled Hands (EGO)
-        ('while you have a bow equipped', 'while you have a bow or musket equipped'),
+        ('while you have a bow equipped', 'while you have a musket or bow equipped'),
     ],
     '066857': [  # Eagle Eye (base)
-        ('Pressing Block while aiming will', 'Pressing Block while aiming a bow or musket will'),
+        ('Pressing Block while aiming will', 'Pressing Block while aiming a musket or bow will'),
     ],
     '069D6F': [  # Concentration (EGO)
-        ('Bows do 18%%', 'Bows and muskets do 18%%'),
+        ('Bows do 18%%', 'Muskets or bows do 18%%'),
     ],
     '05BD2E': [  # Thief Apprentice (EGO)
-        ('while you have a bow equipped', 'while you have a bow or musket equipped'),
+        ('while you have a bow equipped', 'while you have a musket or bow equipped'),
     ],
     '069D70': [  # Ranger (base)
-        ('with a drawn bow.', 'with a drawn bow or musket.'),
+        ('with a drawn bow.', 'with a drawn musket or bow.'),
     ],
     '069D71': [  # Rapid Shot (EGO)
-        ('You can draw a bow 20%% faster.', 'You can draw a bow and reload a musket 20%% faster.'),
+        ('You can draw a bow 20%% faster.', 'You can reload muskets or draw bows 20%% faster.'),
     ],
     '069D72': [  # Replica (base) - not musket wording: the perk's new ammo recovery
         ("Automatically gives you a copy of a picked lock's key.",
-         "Automatically gives you a copy of a picked lock's key. Arrows and musket balls that hit an "
+         "Automatically gives you a copy of a picked lock's key. Musket balls or arrows that hit an "
          "enemy have an additional 30%% chance to be recoverable from their body."),
     ],
     '069D73': [  # Expert Locksmith (EGO)
-        ('Bows penetrate 25%%', 'Bows and muskets penetrate 25%%'),
+        ('Bows penetrate 25%%', 'Muskets or bows penetrate 25%%'),
     ],
     '069D74': [  # Fatal Shot (EGO)
-        ('critical hit chance with bows.', 'critical hit chance with bows and muskets.'),
+        ('critical hit chance with bows.', 'critical hit chance with muskets or bows.'),
     ],
     '069D75': [  # Master of the Bowstring (base)
-        ('Zooming in with a bow now', 'Zooming in with a bow or musket now'),
-        ('All arrows do 1 more point', 'All arrows and musket balls do 1 more point'),
+        ('Zooming in with a bow now', 'Zooming in with a musket or bow now'),
+        ('All arrows do 1 more point', 'All musket balls or arrows do 1 more point'),
     ],
     '069D76': [  # Eye of the Storm (EGO)
-        ('if your equipped weapon is a bow.', 'if your equipped weapon is a bow or musket.'),
+        ('if your equipped weapon is a bow.', 'if your equipped weapon is a musket or bow.'),
     ],
     '069D77': [  # Shadow Player (EGO)
-        ('sneak attack damage with bows', 'sneak attack damage with bows and muskets'),
+        ('sneak attack damage with bows', 'sneak attack damage with muskets or bows'),
     ],
     '069D78': [  # Master Thief (EGO)
-        ('your arrows often stagger', 'your arrows and musket balls often stagger'),
+        ('your arrows often stagger', 'your musket balls or arrows often stagger'),
     ],
 }
 

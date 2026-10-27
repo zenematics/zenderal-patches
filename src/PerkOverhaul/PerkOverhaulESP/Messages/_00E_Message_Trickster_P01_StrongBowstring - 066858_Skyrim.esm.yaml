@@ -3,12 +3,12 @@ EditorID: _00E_Message_Trickster_P01_StrongBowstring
 Description:
   TargetLanguage: English
   Value: >-
-    The memories of the "Trickster" combine the effective use of a bow or musket with lockpicking.
+    The memories of the "Trickster" combine the effective use of muskets or bows with lockpicking.
 
 
-    Tier I: Bows and muskets do 15%% more damage
+    Tier I: Muskets or bows do 15%% more damage
 
-    Tier II: Bows and muskets do another 14%% more damage
+    Tier II: Muskets or bows do another 14%% more damage
 Name:
   TargetLanguage: English
   Value: 'Gauner: Starke Sehne'

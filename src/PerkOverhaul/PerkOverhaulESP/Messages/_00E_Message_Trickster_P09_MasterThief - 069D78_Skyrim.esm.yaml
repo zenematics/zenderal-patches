@@ -2,7 +2,7 @@ FormKey: 069D78:Skyrim.esm
 EditorID: _00E_Message_Trickster_P09_MasterThief
 Description:
   TargetLanguage: English
-  Value: Lockpicking is easier and you can pick master locks. Additionally your arrows and musket balls often stagger opponents (excluding the largest ones)
+  Value: Lockpicking is easier and you can pick master locks. Additionally your musket balls or arrows often stagger opponents (excluding the largest ones)
 Name:
   TargetLanguage: English
   Value: 'Gauner: Der Meisterdieb'

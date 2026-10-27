@@ -1,18 +1,35 @@
-FormKey: 000846:Helmet Toggle 2.esp
-EditorID: HT_ArmorInvisibleCircletAA
+FormKey: 000801:Zenderal - Knight of the Path.esp
+EditorID: ZEN_KnightOfThePathCuirassAA
+Version2: 4
 BodyTemplate:
   FirstPersonFlags:
-  - Circlet
+  - Body
+  - Forearms
+  - Amulet
+  - Calves
   ArmorType: Clothing
   ActsLike44: True
 Race: 000019:Skyrim.esm
 Priority:
-  Male: 10
-  Female: 10
+  Male: 5
+  Female: 5
 WeightSliderEnabled:
-  Male: False
-  Female: False
+  Male: True
+  Female: True
+Unknown2: 23
+WeaponAdjust: 0.6
+WorldModel:
+  Male:
+    File: armor\zenderal\knightofthepath\m\cuirass_1.nif
+  Female:
+    File: armor\zenderal\knightofthepath\f\cuirass_1.nif
+FirstPersonModel:
+  Male:
+    File: armor\zenderal\knightofthepath\m\1stpersoncuirass_1.nif
+  Female:
+    File: armor\zenderal\knightofthepath\f\1stpersoncuirass_1.nif
 AdditionalRaces:
+- 0131F0:Skyrim.esm
 - 013740:Skyrim.esm
 - 013741:Skyrim.esm
 - 013742:Skyrim.esm
@@ -23,6 +40,8 @@ AdditionalRaces:
 - 013747:Skyrim.esm
 - 013748:Skyrim.esm
 - 013749:Skyrim.esm
+- 033898:Skyrim.esm
+- 033899:Skyrim.esm
 - 067CD8:Skyrim.esm
 - 088794:Skyrim.esm
 - 08883A:Skyrim.esm
@@ -36,9 +55,4 @@ AdditionalRaces:
 - 097A3D:Skyrim.esm
 - 0A82B9:Skyrim.esm
 - 0A82BA:Skyrim.esm
-- 0B7998:Skyrim.esm
-- 0EB872:Skyrim.esm
-- 0EBE18:Skyrim.esm
 - 10760A:Skyrim.esm
-- 00E88A:Dawnguard.esm
-- 03CA97:Dragonborn.esm

@@ -90,7 +90,8 @@ SHAPES = {
     'Gadgets': {                                         # an open-end wrench holding a nut
         'nodes': {'dst2': (0, -1.4), 'gad1': (0, -0.2), 'dst1': (0, 1.0),
                   'gad2': (-1.1, 2.0), 'gad3': (1.1, 2.0), 'dst3': (-1.25, 3.7), 'dst4': (1.25, 3.7),
-                  'gad4': (0, 2.3), 'dst6': (-0.5, 3.0), 'dst5': (0.5, 3.0), 'gad5': (0, 3.7)},
+                  'gad4': (0, 2.3), 'dst6': (-0.5, 3.0), 'dst5': (0.5, 3.0), 'gad5': (0, 3.7),
+                  'gad6': (-2.2, 2.0)},                  # Chaff (2026-10-26): a spur off Smokescreen
         'via': {},
         'stars': [], 'lines': [],
     },

@@ -356,6 +356,7 @@ anything. See `enderal-record-patterns.md` §0.1.
 
 | Mod | Must win over | Because |
 |---|---|---|
+| `Pretty Righteous Path Armory` (+ `Zenderal - Pretty Righteous Path SMP` above it) | `Enderal Remastered Armory Part 1 - Standard Armory` | Both replace the Righteous Path's `armor\ebony\` meshes and `weapons\ebony\ebonyshield.nif` (their only 25 overlaps). Pretty is the Righteous Path; ERA's remaster lives on as its own set through **KnightOfThePath** (`Zenderal - Knight of the Path.esp`, meshes copied to `armor\zenderal\knightofthepath\`). Set 2026-10-27. |
 | `Ingredients` (Pfuscher, Nexus 40777) | `High Poly Project`, `Static Mesh Improvement Mod`, `Ruins Clutter Improved SE` | Its 13 ingredient meshes put salts/powders in pottery bowls. Sorted below them, it lost every file (3 salts to HPP, 10 meshes to SMIM, 2 textures to RCI): Fire/Frost/Void Salts showed as bare piles with no bowl (reported 2026-10-12). Moved directly above HPP in `modlist.txt` (Alpha 0.5); **verified in game 2026-10-12** on Fire Salts. Those 15 files are its only overlaps. |
 
 ## Required third-party settings

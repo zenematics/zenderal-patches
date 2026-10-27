@@ -2,7 +2,7 @@ FormKey: 069D6F:Skyrim.esm
 EditorID: _00E_Message_Trickster_P03_C_Concentration
 Description:
   TargetLanguage: English
-  Value: Bows and muskets do 18%% more damage as long as your Stamina is above 80%%.
+  Value: Muskets or bows do 18%% more damage as long as your Stamina is above 80%%.
 Name:
   TargetLanguage: English
   Value: 'Gauner: Konzentration'

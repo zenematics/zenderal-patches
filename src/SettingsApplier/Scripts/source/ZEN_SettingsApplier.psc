@@ -89,36 +89,6 @@ Event OnUpdate()
 	Else
 		skipped += 1
 	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x809, "HT_EnableHelmet", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x80A, "HT_EnableHood", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x818, "HT_HotkeyType", 2.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x842, "HT_EnableUnequip", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x84A, "HT_EnableMask", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x84B, "HT_EnableHat", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
 	If SetG("EVGConditionalIdles.esp", 0x804, "EVGCI15_HeadacheThreshold", 0.33)
 		applied += 1
 	Else
@@ -145,6 +115,11 @@ Event OnUpdate()
 		skipped += 1
 	EndIf
 	If SetG("Smart_NPC_Potions.esp", 0x809, "NPCpotion_DropPotion", 50.0)
+		applied += 1
+	Else
+		skipped += 1
+	EndIf
+	If SetG("ReadTheRoom.esp", 0x80C, "EquipWhenSafe", 1.0)
 		applied += 1
 	Else
 		skipped += 1

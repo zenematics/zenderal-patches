@@ -5,7 +5,7 @@ Description:
   TargetLanguage: English
   Values:
   - Language: English
-    String: Pressing Block while aiming a bow or musket will zoom in your view.
+    String: Pressing Block while aiming a musket or bow will zoom in your view.
   - Language: Chinese
     String: 瞄准时按住格挡按钮将你的视野拉近。
   - Language: Korean

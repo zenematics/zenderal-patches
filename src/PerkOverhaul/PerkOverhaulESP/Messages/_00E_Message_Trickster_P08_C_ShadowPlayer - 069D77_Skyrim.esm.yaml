@@ -2,7 +2,7 @@ FormKey: 069D77:Skyrim.esm
 EditorID: _00E_Message_Trickster_P08_C_ShadowPlayer
 Description:
   TargetLanguage: English
-  Value: While you are in the dark you deal 15%% more sneak attack damage with bows and muskets and your ability to sneak is improved by 15%%.
+  Value: While you are in the dark you deal 15%% more sneak attack damage with muskets or bows and your ability to sneak is improved by 15%%.
 Name:
   TargetLanguage: English
   Value: 'Gauner: Schattenspieler'

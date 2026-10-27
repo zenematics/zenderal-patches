@@ -5,7 +5,7 @@ Description:
   TargetLanguage: English
   Values:
   - Language: English
-    String: You are able to move faster with a drawn bow or musket.
+    String: You are able to move faster with a drawn musket or bow.
   - Language: Chinese
     String: 提高拉弓状态下的移动速度。
   - Language: Korean

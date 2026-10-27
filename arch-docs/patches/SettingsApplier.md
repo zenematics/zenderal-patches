@@ -31,3 +31,13 @@ next load. That is how kill moves and kill cams came back after the 2.1 update. 
 overrides either global. Applies to new games; an existing save keeps its stored value, so use Enderal's
 MCM → Kill Moves (the curator turned it off there on 2026-10-20). Built and round-trip clean;
 **deploy pending** (the game was running), so it is unverified in game.
+
+## Read the Room replaces Helmet Toggle 2 (2026-10-26)
+
+Helmet Toggle 2 was disabled: it hid the helmet automatically too, which fought Read the Room. Its six globals
+(`HT_EnableHelmet`, `HT_EnableHood`, `HT_HotkeyType`, `HT_EnableUnequip`, `HT_EnableMask`, `HT_EnableHat`) were
+removed from `data/settings.json`. Added Read the Room's `EquipWhenSafe 00080C` = **1** ("Leaving safety"):
+Enderal has no hostile-location keywords, so the default (0, "Nearing danger") almost never fires (see
+[`ReadTheRoomEnderal`](ReadTheRoomEnderal.md)). Read the Room's MCM shows its choice from a private variable
+(`CurrentEquipWhenSafe`), so it keeps **displaying** "Nearing danger" while the feature reads the global (caveat 1
+above). Now 23 globals. Regenerated, compiled clean and deployed; unverified in game.

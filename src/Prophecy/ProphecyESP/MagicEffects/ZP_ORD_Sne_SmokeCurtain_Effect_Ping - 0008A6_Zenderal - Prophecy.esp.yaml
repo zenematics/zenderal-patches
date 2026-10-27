@@ -26,13 +26,15 @@ Description:
   Value: ''
 Conditions:
 - MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
   Data:
     MutagenObjectType: HasKeywordConditionData
     Keyword: 01397A:Skyrim.esm
 - MutagenObjectType: ConditionFloat
   Data:
-    MutagenObjectType: HasKeywordConditionData
-    Keyword: 013796:Skyrim.esm
-- MutagenObjectType: ConditionFloat
-  Data:
-    MutagenObjectType: IsUndeadConditionData
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    Perk: 000A6D:Zenderal - Prophecy.esp
+  ComparisonValue: 1

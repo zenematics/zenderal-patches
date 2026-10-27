@@ -18,7 +18,7 @@ Rules the copy follows (asserted, the script fails loudly otherwise):
   * any other reference into a source plugin, or to a base-game form Enderal does not define, is an error.
 Never hand-edit what this script writes - edit the SPEC below and re-run, then 02 (fever tax) is folded in here.
 """
-import os, re, sys, json, glob, shutil, collections
+import os, re, sys, json, glob, shutil, struct, collections
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
@@ -74,9 +74,9 @@ TREES = [
   # FAITH_CAPSTONE tells weave_stats.
   ('Faith', 'Holy light, sacred wards and smiting.', [
     ('faith1', 'Consecrate Dead', 'Grants the "Consecrate Dead" spell: cast it on a corpse to burn it to ash with holy light and restore 30 Health, Mana and Stamina. Undead it strikes take 15 damage and stagger.', o('01435F'), [], []),
-    ('faith2', 'Righteous Path', 'While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage.', '0581F9:Skyrim.esm', [], ['faith1']),
+    ('faith2', 'Righteous Path', 'While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage, for 10 Mana (with less, you simply block).', '0581F9:Skyrim.esm', [], ['faith1']),
     ('faith3', 'Smite', 'Your hits with silver weapons have a 15% chance to call down a pillar of holy light on the target: 40 damage, while beams of light strike the enemies around it for 10 each. Undead take double damage.', '0581F8:Skyrim.esm', [], ['faith1']),
-    ('faith4', 'Wrath of the Lightborn', 'Grants the "Wrath of the Lightborn" spell (200 Mana and 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. Cast at 50% Arcane Fever or more, it has no effect.', s('000820'), [], ['faith5']),
+    ('faith4', 'Wrath of the Lightborn', 'Grants the "Wrath of the Lightborn" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more.', s('000820'), [], ['faith5']),
     ('faith5', 'Templar', 'Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health.', s('000849'), [], ['faith2', 'faith3']),
   ]),
   ('Sharpshooter', 'Muskets, powder and lead.', [
@@ -89,6 +89,9 @@ TREES = [
   ('Gadgets', 'Traps, smoke and clockwork.', [
     ('gad1', 'Explosive Tripwire', 'Grants the "Explosive Tripwire" power: at will, set a tripwire in front of you that lasts 120 seconds. When tripped, it snaps and knocks everyone it hits to the ground, and an enemy who trips it sets off an explosion that deals 40 damage.', o('0379AA'), [], []),
     ('gad2', 'Smokescreen', f'Grants the "Smokescreen" power: once a day, create a 35-foot cloud of smoke for 180 seconds and turn invisible for {SMOKE_INVISIBLE_SECONDS} seconds. Those inside the cloud are blinded and cannot see sneaking targets, and your sneak attacks against them deal 50% more damage.', o('037419'), [], ['gad1']),
+    # Chaff (curator 2026-10-26): a side talent off Smokescreen. No effect of its own - fix_smoke_blind lets the cloud's
+    # blindness take automatons when the player has it. Allocated last (LATE_NODES), so no older ID moved.
+    ('gad6', 'Chaff', 'Your Smokescreen cloud also blinds automatons: mechanical spiders, spheres and centurions inside it can no longer see you.', None, [], ['gad2']),
     # gad3 was Bear Traps (Ordinator 0306CB + Lockjaw 030C45). Utility Droid replaced it 2026-10-23; the seed and the
     # folded perk stay so the copy closure, and every ID after it, is unchanged. The perk itself is rewritten (DROID_NODE).
     ('gad3', 'Utility Droid', 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.', o('0306CB'), [o('030C45')], ['gad1']),
@@ -125,7 +128,7 @@ TREES = [
   # (NECRO), so adding it renumbered nothing. The Dead Don't Forget improves A Willing Sacrifice, so only it unlocks it.
   ('Necromancy', 'Summons, sacrifice and the restless dead.', [
     ('nec1', 'Corpse Fever', f'You can command one more summon for every {NEC["FeverStep"]}% Arcane Fever you have.', None, [], []),
-    ('nec2', 'Dark Effigy', f'Grants the "Dark Effigy" spell ({NEC["EffigyCost"]} Magicka): raise a dark totem for {NEC["EffigySeconds"]} seconds. Your undead summons near it heal {NEC["EffigyHeal"]} Health per second, and you and your allies near it gain {NEC["EffigyArmor"]} armor.', None, [], ['nec1']),
+    ('nec2', 'Dark Effigy', f'Grants the "Dark Effigy" spell ({NEC["EffigyCost"]} Magicka): raise a dark totem for {NEC["EffigySeconds"]} seconds. You and your undead summons near it heal {NEC["EffigyHeal"]} Health per second, and you and your allies near it gain {NEC["EffigyArmor"]} armor.', None, [], ['nec1']),
     ('nec3', 'A Willing Sacrifice', f'Grants the "A Willing Sacrifice" power: every summon you command explodes, dealing damage equal to half its maximum Health to each enemy within 14 feet of it. Usable once every {NEC["SacrificeCooldown"]} seconds.', None, [], ['nec1']),
     ('nec4', "The Dead Don't Forget", f'A Willing Sacrifice restores {NEC["DeadMagicka"]} Magicka for every enemy it hits.', None, [], ['nec3']),
     ('nec5', 'Legion of the Damned', f'Grants the "Legion of the Damned" power: at the cost of {NEC["LegionFever"]}% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for {NEC["LegionSeconds"] // 60} minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.', None, [], ['nec4']),
@@ -196,7 +199,8 @@ STAT_NODES = {
 }
 STAT_FIRST_ID = 0x9C4
 FAITH_CAPSTONE = {'Faith': 'faith4'}     # the 2026-10-25 rework: Templar (faith5) is the merge talent now
-CAPSTONE_LEVEL = 30                      # every capstone needs this player level (curator 2026-10-25; ZP_ProphecyMenu.LevelReq)
+CAPSTONE_LEVEL = 30
+LATE_NODES = ('gad6',)                   # talents added after the stat talents: allocated after the Faith records                      # every capstone needs this player level (curator 2026-10-25; ZP_ProphecyMenu.LevelReq)
 STAT = {}                          # node id -> (kind, magnitude)
 
 
@@ -221,7 +225,7 @@ def weave_stats():
             at = next(i for i, n in enumerate(ns) if n[0] == after)
             ns.insert(at + 1, stat(s, [s[4]]))
         for s in [w1, w2] + sides: STAT[s[0]] = (s[2], s[3])
-        assert len(ns) == 11, (tree, len(ns))
+        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES), (tree, len(ns))
         TREES[k] = (tree, desc, ns)
 
 
@@ -239,6 +243,10 @@ weave_stats()
 HTM = 'Lightpower.esl'
 HTM_DIR = os.path.join(REF, 'mods', 'HolyTemplarMagic')
 HTM_RAW = os.path.join(REF, 'mods', '_raw', 'HolyTemplarMagic')
+HOLY_WARD_1ST = 'HolyShield_1st.nif'     # Righteous Path's first-person ward model (copy_holy_assets)
+# the flat shapes left out of it: the white disc, then (2026-10-26, "a smaller strip in the middle") the glow-spot disc,
+# both a thin bright sheet edge-on at first person's close angle; only the particles stay in first person
+HOLY_WARD_1ST_DROP = ('HolyShield:0', 'HolyShield:1')
 htm = lambda x: f'{x}:{HTM}'
 HOLY_SEEDS = [htm('000826'), htm('000824'), htm('000820'), htm('000822'), htm('000825'), htm('000829')]
 HOLY_FIRST_ID = 0xA1A
@@ -261,7 +269,7 @@ HOLY_SUBST = {
 # by tier, Concentration 7/16/28/37/43 per second); Wrath of the Heavens is a 60 s buff, priced between the master
 # rung and Holy Aura (Rank III), 258 for its 60 s cloak.
 HOLY_COST = {htm('000826'): 30, htm('000824'): 18, htm('000820'): 76, htm('000822'): 97, htm('000825'): 124,
-             htm('000829'): 200}   # Wrath of the Lightborn: the curator's 200 Mana (2026-10-25)
+             htm('000829'): 0}     # Wrath of the Lightborn: Arcane Fever only, no Mana (curator 2026-10-25)
 # (spell, effect, field, old, new). Damage sits next to Enderal's own holy line at the same tier (Holy Ray, Holy
 # Cross, Holy Sun Burst; arch-docs/magic/data/spells.json); the mod's "undead take double damage" is kept.
 HOLY_EDITS = [
@@ -294,7 +302,7 @@ HOLY_EDITS = [
 # The Faith rework's names (curator 2026-10-25), on every display string of the copied records
 HOLY_RENAME = [('Hallowed Flare', 'Smite'), ('Sunlight Targe', 'Righteous Path'),
                ('Wrath of the Heavens', 'Wrath of the Lightborn')]
-HOLY_WRATH_FEVER = 50     # Arcane Fever per cast; the spell does nothing at this much fever or more (100% kills)
+HOLY_WRATH_FEVER = 50     # Arcane Fever per cast; refused at this much fever or more (100% kills)
 
 
 def holy_closure(hidx):
@@ -446,7 +454,7 @@ def main():
     glory_all = [n[0] for t, _, ns in TREES if t == GLORY for n in ns if n[0] not in STAT]
     glory_nodes = [nid for nid in glory_all if nid not in GLORY_LATE_NODES]
     for nid, n in nodes.items():                         # perks first, in tree order, for readable IDs
-        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT: continue
+        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES: continue
         if n[3]: newid[n[3]] = f'{nxt:06X}:{MOD}'
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     for a, nid in alias.items(): newid[a] = nodeperk[nid]
@@ -525,6 +533,10 @@ def main():
     # the Faith rework (2026-10-25): Righteous Path's ability + its effects, Smite's hit spell + effect
     assert nxt == 0xA63, f'Faith rework records would not start at 0xA63 (0x{nxt:03X})'
     faith = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(FAITH_RECORDS)}; nxt += len(FAITH_RECORDS)
+    # talents added late (2026-10-26: Chaff), in LATE_NODES order - append new ones last
+    assert nxt == 0xA6D, f'late talents would not start at 0xA6D (0x{nxt:03X})'
+    for nid in LATE_NODES:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -746,8 +758,9 @@ Priority: 128
     for key, spell_src, name, wav in POWER_SOUNDS:
         add_power_sound(newid, write, psound[key], key, spell_src, name, wav)
     add_smoke_invisibility(newid)
+    fix_smoke_blind(nodeperk['gad6'])
     write_stats(nodes, statab, ratemgef, write)
-    write_holy(hidx, hcopy, remap, write)
+    write_holy(hidx, hcopy, remap, write, faith)
     write_faith(faith, newid, write)
 
     if bad:
@@ -784,7 +797,9 @@ def write_stats(nodes, statab, ratemgef, write):
 
 # ------------------------------------------------------------------------------------------------ Faith rework
 # (curator 2026-10-25) Allocated after the Holy Templar block, 0xA63+. Append new ones LAST.
-FAITH_RECORDS = ('rpab', 'rpme', 'rpvis', 'smitespell', 'smiteme')
+FAITH_RECORDS = ('rpab', 'rpme', 'rpvis', 'smitespell', 'smiteme',
+                 'rparmo', 'rparma',     # Righteous Path's visible ward (curator 2026-10-25)
+                 'wrathgate', 'wrathcloak', 'wrathfever')   # Wrath of the Lightborn's cast-time fever gate (wrath_split)
 WEAPMATERIALSILVER = '10AA1A:Skyrim.esm'
 SMITE_CHANCE = 15
 # Righteous Path's conditions: blocking, with a spell or nothing in the left hand (Dual Wield Parrying blocks that way)
@@ -837,13 +852,45 @@ Description:
   Value: '{desc}'
 """)
     mgef(f['rpme'], 'ZP_Prophecy_RighteousPath_Effect', 'Righteous Path',
-         'While you block with a spell or nothing in your left hand, each attacker you block is struck by a beam of light.',
+         'While you block with a spell or nothing in your left hand, each attacker you block is struck by a beam of light, for 10 Mana.',
          'VirtualMachineAdapter:\n  Scripts:\n  - Name: ZP_RighteousPathEffect\n    Properties:\n'
          f"    - MutagenObjectType: ScriptObjectProperty\n      Name: CounterSpell\n      Object: {newid[htm('000863')]}\n"
          f"    - MutagenObjectType: ScriptObjectProperty\n      Name: HitSFX\n      Object: {newid[htm('00085D')]}\n"
-         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: ExplosionArtEffect\n      Object: {newid[htm('00085E')]}\n")
-    # the ward's glow while it is up (the list's holy shader: Kata's Holy Cross, TurnUnFXShader)
-    mgef(f['rpvis'], 'ZP_Prophecy_RighteousPath_Glow', 'Righteous Path', '', '', shader='HitShader: 04C6D8:Skyrim.esm\n')
+         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: ExplosionArtEffect\n      Object: {newid[htm('00085E')]}\n"
+         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: WardShield\n      Object: {f['rparmo']}\n")
+    # The ward's trigger (2026-10-25; was the first version's body glow): condition-gated on the ability like the
+    # resistances, so the engine starts it for any block - Dual Wield Parrying's forced block raises no block events.
+    mgef(f['rpvis'], 'ZP_Prophecy_RighteousPath_WardEffect', 'Righteous Path', '',
+         'VirtualMachineAdapter:\n  Scripts:\n  - Name: ZP_RighteousPathWard\n    Properties:\n'
+         f"    - MutagenObjectType: ScriptObjectProperty\n      Name: WardShield\n      Object: {f['rparmo']}\n")
+    # The ward you see: Kittytails' Sunlight Targe shield (its mesh carries Prn = SHIELD, so it sits on the left
+    # forearm), copied into the FX01 slot (61) so wearing it leaves the left hand - and a spell in it - alone.
+    # ZP_RighteousPathEffect puts it on while the ward is up. No enchantment, rating, shield flag or block keyword.
+    path = lambda ty, fk: glob.glob(os.path.join(ESP, ty, f"* - {fk.split(':')[0]}_*"))[0]
+    def sub1(t, pat, rep, what):
+        t, n = re.subn(pat, rep, t, count=1, flags=re.M)
+        assert n == 1, f'Righteous Path ward: {what}'
+        return t
+    a = open(path('ArmorAddons', newid[htm('000846')]), encoding='utf-8').read().replace('\r\n', '\n')
+    a = sub1(a, r'^FormKey: .*$', f"FormKey: {f['rparma']}", 'ARMA FormKey')
+    a = sub1(a, r'^EditorID: .*$', 'EditorID: ZP_Prophecy_RighteousPath_WardAA', 'ARMA EditorID')
+    a = sub1(a, r'^  - Shield$', '  - FX01', 'ARMA slot')
+    fp1 = f'    File: Lightpower\\{HOLY_WARD_1ST}\n    Data: 0x020000000000000000000000\n'
+    a = sub1(a, r'^(WorldModel:\n(?:  .*\n)*)', lambda m: m.group(1) + 'FirstPersonModel:\n  Male:\n' + fp1 + '  Female:\n' + fp1,
+             'ARMA first-person model')
+    write('ArmorAddons', a)
+    o = open(path('Armors', newid[htm('00082D')]), encoding='utf-8').read().replace('\r\n', '\n')
+    o = sub1(o, r'^FormKey: .*$', f"FormKey: {f['rparmo']}", 'ARMO FormKey')
+    o = sub1(o, r'^EditorID: .*$', 'EditorID: ZP_Prophecy_RighteousPath_Ward', 'ARMO EditorID')
+    o = sub1(o, r'^VirtualMachineAdapter:\n(?:  .*\n)*', '', 'ARMO script')
+    o = sub1(o, r'^ObjectEffect: .*\n', '', 'ARMO enchantment')
+    o = sub1(o, r'^  - Shield$', '  - FX01', 'ARMO slot')
+    o = sub1(o, r'^EquipmentType: .*\n', '', 'ARMO equip type')
+    o = sub1(o, r'^Keywords:\n- 0965B2:Skyrim\.esm\n', '', 'ARMO shield keyword')
+    o = sub1(o, r'^Armature:\n- .*$', f"Armature:\n- {f['rparma']}", 'ARMO armature')
+    o = sub1(o, r'^ArmorRating: .*$', 'ArmorRating: 0', 'ARMO rating')
+    o = sub1(o, r'^- Shield\n', '', 'ARMO shield flag')
+    write('Armors', o)
     write('Spells', f"""FormKey: {f['rpab']}
 EditorID: ZP_Prophecy_RighteousPath_Ability
 Name:
@@ -898,7 +945,77 @@ Effects:
 """)
 
 
-def write_holy(hidx, hcopy, remap, write):
+def wrath_split(t, ty, faith, write):
+    """Wrath of the Lightborn (fixed 2026-10-25). Its first version carried "Arcane Fever below 50%" as a condition on
+    every effect - but the engine re-checks an active effect's conditions, and the cast's own +50% fever then failed
+    them, so the cloak stopped after one volley. Now the learned spell (this record, 0xA43, no Mana) holds only the gate
+    effect: ZP_WrathGate checks the fever ONCE, at cast, then casts the real cloak (wrathcloak, no conditions, runs its
+    full 60 s) and the fever spell (wrathfever, Enderal's 11A4B6 at HOLY_WRATH_FEVER). Returns the gate spell's text."""
+    cloak = re.sub(r'^FormKey: .*$', f"FormKey: {faith['wrathcloak']}", t, count=1, flags=re.M)
+    cloak = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Holy_WrathoftheLightborn_Cloak', cloak, count=1, flags=re.M)
+    assert 'Conditions:' not in cloak, 'Wrath cloak must carry no conditions'
+    write(ty, cloak)
+    write('Spells', f"""FormKey: {faith['wrathfever']}
+EditorID: ZP_Holy_WrathoftheLightborn_Fever
+Name:
+  TargetLanguage: English
+  Value: Wrath of the Lightborn
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+Effects:
+- BaseEffect: {FEVER}
+  Data:
+    Magnitude: {HOLY_WRATH_FEVER}
+    Duration: 1
+""")
+    write('MagicEffects', f"""FormKey: {faith['wrathgate']}
+EditorID: ZP_Holy_WrathoftheLightborn_Gate
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WrathGate
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CloakSpell
+      Object: {faith['wrathcloak']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FeverSpell
+      Object: {faith['wrathfever']}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: MaxFever
+      Data: {float(HOLY_WRATH_FEVER)}
+Name:
+  TargetLanguage: English
+  Value: Wrath of the Lightborn
+MenuDisplayObject: 1097CA:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+MagicSkill: Restoration
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 01C859:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'For 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. Costs {HOLY_WRATH_FEVER}% Arcane Fever; cannot be cast at {HOLY_WRATH_FEVER}% or more.'
+""")
+    t, n = re.subn(r'^Effects:\n(?:[- ].*\n)*', f"Effects:\n- BaseEffect: {faith['wrathgate']}\n  Data: {{}}\n", t,
+                   count=1, flags=re.M)
+    assert n == 1, 'Wrath effects block'
+    return t
+
+
+def write_holy(hidx, hcopy, remap, write, faith):
     """Holy Templar Magic's records, rebalanced (HOLY_COST/HOLY_EDITS) and repointed at Enderal forms."""
     hits = collections.Counter()
     for fk in hcopy:
@@ -924,14 +1041,6 @@ def write_holy(hidx, hcopy, remap, write):
         hits['hazard script'] += n
         t, n = re.subn(r'^    - MutagenObjectType: ScriptObjectProperty\n      Name: AshPileObject\n      Object: .*\n', '', t, flags=re.M)
         hits['ash pile'] += n
-        if fk == htm('000829'):   # Wrath of the Lightborn: the fever, and nothing at all at or above HOLY_WRATH_FEVER
-            ok = ('  Conditions:\n  - MutagenObjectType: ConditionFloat\n    CompareOperator: GreaterThan\n    Data:\n'
-                  '      MutagenObjectType: GetActorValueConditionData\n      ActorValue: LastFlattered\n'
-                  f'    ComparisonValue: {-HOLY_WRATH_FEVER}\n')
-            t, n = re.subn(r'^(- BaseEffect: .*\n  Data:\n(?:    .*\n)*)', lambda m: m.group(1) + ok, t, flags=re.M)
-            assert n == 2 and 'Conditions:' not in t.replace(ok, ''), 'Wrath effects'
-            t = t.rstrip('\n') + f'\n- BaseEffect: {FEVER}\n  Data:\n    Magnitude: {HOLY_WRATH_FEVER}\n    Duration: 1\n' + ok
-            hits['fever'] += 1
         t = remap(t, ed(t), vanilla_ok=True)
         t = re.sub(r'^EditorID: _LIP_', 'EditorID: ZP_Holy_', t, count=1, flags=re.M)
         def rename(m):
@@ -939,9 +1048,12 @@ def write_holy(hidx, hcopy, remap, write):
             for a, b in HOLY_RENAME: line = line.replace(a, b)
             return line
         t = re.sub(r'^\s*(?:Value|String): .*$', rename, t, flags=re.M)
+        if fk == htm('000829'):
+            t = wrath_split(t, ty, faith, write)
+            hits['wrath'] += 1
         write(ty, t)
     assert hits == {'edit': len(HOLY_EDITS), 'cost': len(HOLY_COST), 'explosion script': 4, 'hazard script': 1,
-                    'ash pile': 1, 'fever': 1}, hits
+                    'ash pile': 1, 'wrath': 1}, hits
 
 
 def copy_holy_assets(hidx, hcopy):
@@ -965,7 +1077,31 @@ def copy_holy_assets(hidx, hcopy):
             src = os.path.join(HTM_RAW, 'scripts', s.lower() + '.pex')
             assert os.path.isfile(src), f'Holy Templar script {s} not in {HTM_RAW}'
             shutil.copyfile(src, os.path.join(PATCH, 'Scripts', 'compiled', s.lower() + '.pex')); n += 1
-    print(f'  Holy Templar Magic: {len(hcopy)} records, {n} asset copies')
+    # Righteous Path's ward in first person (curator 2026-10-25: "a white mesh in the effect"): HolyShield:0 is a disc
+    # drawn with textures\white.dds that the effect shader softens by view angle - a glow from the third-person camera,
+    # a white sheet at first person's close, grazing angle. The first-person model is the same mesh with that shape
+    # DETACHED: its entry in its parent's child list set to -1 (rewritten in place, file size unchanged). The first
+    # version only set the shape's hidden flag and it still drew in game (2026-10-26) - attaching armor 3D can re-show
+    # culled shapes. The glow spot (HolyShield:1) and particles stay.
+    sys.path.insert(0, os.path.join(REPO, 'src', 'HorseCloakFluffFix', 'tools'))
+    import nif
+    src = os.path.join(assets, 'meshes', 'lightpower', 'holyshield.nif')
+    m = nif.Nif(src)
+    disc = [i for i, (typ, p, _) in enumerate(m.blocks)
+            if typ == 'BSTriShape' and m.string(struct.unpack_from('<i', m.data, p)[0]) in HOLY_WARD_1ST_DROP]
+    assert len(disc) == len(HOLY_WARD_1ST_DROP), f'{HOLY_WARD_1ST_DROP} not all found once in holyshield.nif'
+    hit = 0
+    for typ, p, _ in m.blocks:
+        if typ not in ('NiNode', 'BSFadeNode'):
+            continue
+        q = p + 8 + 4 * struct.unpack_from('<I', m.data, p + 4)[0] + 4 + 4 + 12 + 36 + 4 + 4   # NiAVObject -> children
+        for k in range(struct.unpack_from('<I', m.data, q)[0]):
+            if struct.unpack_from('<i', m.data, q + 4 + 4 * k)[0] in disc:
+                struct.pack_into('<i', m.data, q + 4 + 4 * k, -1)
+                hit += 1
+    assert hit == len(disc), f'{hit} parent entries for {len(disc)} shapes'
+    open(os.path.join(assets, 'meshes', 'lightpower', HOLY_WARD_1ST.lower()), 'wb').write(bytes(m.data))
+    print(f'  Holy Templar Magic: {len(hcopy)} records, {n} asset copies, + {HOLY_WARD_1ST} (first-person ward)')
 
 
 def add_unarmed(t):
@@ -1503,6 +1639,41 @@ def add_smoke_invisibility(newid):
     assert SMOKE_INVISIBLE not in t and 'Type: Power' in t
     t = t.rstrip('\n') + f'\n- BaseEffect: {SMOKE_INVISIBLE}\n  Data:\n    Duration: {SMOKE_INVISIBLE_SECONDS}\n'
     assert re.search(r'^Effects:\n(?:[- ].*\n)+- BaseEffect: ' + re.escape(SMOKE_INVISIBLE), t + '\n', re.M), 'Effects is not the last block'
+    open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
+
+
+def fix_smoke_blind(chaff):
+    """Smokescreen blinds Enderal's enemies (curator 2026-10-26: "still detected immediately with maxed stealth").
+    Every 0.5 s Ordinator's cloud script RemoteCasts Smoke Curtain from the cloud: Blindness 100 for 2 s (an engine AV
+    that works here - Enderal's own Arps carry AbBlind 052FF3 via AbFalmer) plus ORD_Alert_Script, SetAlert(True) on
+    every hostile inside. Two changes: (1) the blindness also takes undead - Ordinator skipped ActorTypeUndead/IsUndead,
+    which in Enderal is most enemies (Lost Ones, skeletons); automatons (ActorTypeDwarven) stay immune; (2) the alert
+    effect comes off the pulse - it put everyone in the cloud on alert twice a second, sharpening their hearing.
+    Blind enemies still HEAR (armour, running), as Arps do."""
+    by = lambda ty, e: [x for x in glob.glob(os.path.join(ESP, ty, '*.yaml')) if os.path.basename(x).startswith(e + ' - ')]
+    p = by('MagicEffects', 'ZP_ORD_Sne_SmokeCurtain_Effect_Ping')[0]
+    t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
+    undead = ['- MutagenObjectType: ConditionFloat\n  Data:\n    MutagenObjectType: HasKeywordConditionData\n'
+              '    Keyword: 013796:Skyrim.esm\n',
+              '- MutagenObjectType: ConditionFloat\n  Data:\n    MutagenObjectType: IsUndeadConditionData\n']
+    for c in undead:
+        assert t.count(c) == 1, ('Smoke Curtain blindness: undead condition not found once', c[:80])
+        t = t.replace(c, '')
+    # Chaff (2026-10-26): automatons too when the player has it - "not ActorTypeDwarven OR the player has Chaff"
+    dwarven = ('- MutagenObjectType: ConditionFloat\n  Data:\n    MutagenObjectType: HasKeywordConditionData\n'
+               '    Keyword: 01397A:Skyrim.esm\n')
+    assert t.count(dwarven) == 1, 'Smoke Curtain blindness: automaton condition not found once'
+    t = t.replace(dwarven, '- MutagenObjectType: ConditionFloat\n  Flags:\n  - OR\n' + dwarven[len('- MutagenObjectType: ConditionFloat\n'):] +
+                  '- MutagenObjectType: ConditionFloat\n  Data:\n    MutagenObjectType: HasPerkConditionData\n'
+                  '    RunOnType: Reference\n    Reference: 000014:Skyrim.esm\n'
+                  f'    Perk: {chaff}\n  ComparisonValue: 1\n')
+    open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
+    alert = re.search(r'^FormKey: (.+?)\s*$', open(by('MagicEffects', 'ZP_ORD_Sne_SmokeCurtain_Effect_PingScript')[0],
+                                                   encoding='utf-8').read(), re.M).group(1)
+    p = by('Spells', 'ZP_ORD_Sne_SmokeCurtain_Spell_Ping')[0]
+    t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
+    t, n = re.subn(rf'^- BaseEffect: {re.escape(alert)}\n(?:  .*\n)*', '', t, flags=re.M)
+    assert n == 1 and 'BaseEffect:' in t, 'Smoke Curtain pulse: alert effect not removed once'
     open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
 
 
@@ -2263,7 +2434,7 @@ Sounds:
   Sound: 03F2B1:Skyrim.esm
 Description:
   TargetLanguage: English
-  Value: A dark totem stands for <dur> seconds. Your undead summons near it heal {NEC['EffigyHeal']} Health per second, and you and your allies near it gain {NEC['EffigyArmor']} armor.
+  Value: A dark totem stands for <dur> seconds. You and your undead summons near it heal {NEC['EffigyHeal']} Health per second, and you and your allies near it gain {NEC['EffigyArmor']} armor.
 """)
     write('Spells', target_actor(spell(n['armorspell'], 'ZP_Prophecy_DarkEffigy_Armor', 'Dark Effigy', None, 'FireAndForget',
                                        f"- BaseEffect: {n['armorme']}\n  Data:\n    Magnitude: {NEC['EffigyArmor']}\n    Duration: 2\n",

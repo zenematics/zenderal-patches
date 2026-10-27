@@ -1,0 +1,28 @@
+FormKey: 000807:Zenderal - Knight of the Path.esp
+EditorID: ZEN_KnightOfThePathBoots
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Knight of the Path Boots
+WorldModel:
+  Male:
+    Model:
+      File: armor\zenderal\knightofthepath\m\bootsgnd.nif
+BodyTemplate:
+  FirstPersonFlags:
+  - Feet
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBD8:Skyrim.esm
+- 06C0ED:Skyrim.esm
+- 08F959:Skyrim.esm
+Description:
+  TargetLanguage: English
+Armature:
+- 000803:Zenderal - Knight of the Path.esp
+Value: 677
+Weight: 7
+ArmorRating: 24

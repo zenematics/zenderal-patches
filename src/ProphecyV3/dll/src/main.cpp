@@ -937,6 +937,74 @@ namespace
 	};
 	HotkeySink g_hotkeySink;
 
+	// ---------------------------------------------------------------------------------------------- Righteous Path ward
+	// (curator 2026-10-25: "appear quicker and disappear fast too") The ward shield ZP_Prophecy_RighteousPath_Ward
+	// (FX01 slot, Kittytails' shield of light) is worn while the player blocks with Righteous Path and an empty, spell or
+	// scroll left hand, and taken off the moment that stops. Papyrus could only follow the ability's condition checks
+	// (about once a second): Dual Wield Parrying forces its block into the graph, which raises no block events. Checked
+	// every 33 ms on the game thread. The Papyrus paths (ZP_RighteousPathWard / ZP_RighteousPathEffect) stand down
+	// when this DLL is loaded.
+	constexpr RE::FormID kRighteousPathPerk = 0x811;   // ZP_Prophecy_RighteousPath
+	constexpr RE::FormID kRighteousPathWard = 0xA68;   // ZP_Prophecy_RighteousPath_Ward
+	RE::BGSPerk*       g_rpPerk = nullptr;
+	RE::TESObjectARMO* g_rpWard = nullptr;
+	std::atomic<bool>  g_rpQueued{ false };
+	bool               g_rpShown = true;               // true at start: the first tick clears a ward left in a save
+
+	bool WardWanted(RE::PlayerCharacter* a_player)
+	{
+		if (!g_rpPerk || a_player->IsDead() || !a_player->HasPerk(g_rpPerk)) return false;
+		bool blocking = false;
+		if (!a_player->GetGraphVariableBool("IsBlocking", blocking) || !blocking) return false;
+		auto* left = a_player->GetEquippedObject(true);
+		return !left || left->Is(RE::FormType::Spell) || left->Is(RE::FormType::Scroll);
+	}
+
+	std::int32_t WardCount(RE::PlayerCharacter* a_player)
+	{
+		auto counts = a_player->GetInventoryCounts([](RE::TESBoundObject& a_obj) { return &a_obj == g_rpWard; });
+		auto it = counts.find(g_rpWard);
+		return it == counts.end() ? 0 : it->second;
+	}
+
+	void WardTick()   // game thread
+	{
+		auto* player = RE::PlayerCharacter::GetSingleton();
+		if (!player || !g_rpWard || !player->Is3DLoaded()) return;
+		const bool want = WardWanted(player);
+		if (want == g_rpShown) return;
+		auto* equip = RE::ActorEquipManager::GetSingleton();
+		if (!equip) return;
+		if (want) {
+			if (WardCount(player) < 1) player->AddObjectToContainer(g_rpWard, nullptr, 1, nullptr);
+			equip->EquipObject(player, g_rpWard, nullptr, 1, nullptr, false, true, false, true);
+		} else if (const auto n = WardCount(player); n > 0) {
+			equip->UnequipObject(player, g_rpWard, nullptr, n, nullptr, false, true, false, true, nullptr);
+			player->RemoveItem(g_rpWard, n, RE::ITEM_REMOVE_REASON::kRemove, nullptr, nullptr);
+		}
+		g_rpShown = want;
+	}
+
+	void StartWard()
+	{
+		auto* dh = RE::TESDataHandler::GetSingleton();
+		if (!dh || g_plugin.empty()) return;
+		g_rpPerk = dh->LookupForm<RE::BGSPerk>(kRighteousPathPerk, g_plugin);
+		g_rpWard = dh->LookupForm<RE::TESObjectARMO>(kRighteousPathWard, g_plugin);
+		SKSE::log::info("Righteous Path ward: perk {}, ward {}", g_rpPerk ? "found" : "MISSING", g_rpWard ? "found" : "MISSING");
+		if (!g_rpPerk || !g_rpWard) return;
+		std::thread([] {
+			for (;;) {
+				std::this_thread::sleep_for(std::chrono::milliseconds(33));
+				if (g_rpQueued.exchange(true)) continue;
+				SKSE::GetTaskInterface()->AddTask([] {
+					WardTick();
+					g_rpQueued = false;
+				});
+			}
+		}).detach();
+	}
+
 	void LoadIni()
 	{
 		constexpr auto path = "Data/SKSE/Plugins/ZenProphecyUI.ini";
@@ -974,6 +1042,11 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 			SKSE::GetModCallbackEventSource()->AddEventSink(&g_openSink);
 			LoadIni();
 			if (auto* input = RE::BSInputDeviceManager::GetSingleton()) input->AddEventSink(&g_hotkeySink);
+			StartWard();
+			break;
+		case SKSE::MessagingInterface::kPostLoadGame:
+		case SKSE::MessagingInterface::kNewGame:
+			g_rpShown = true;   // re-check: clear a ward a save may hold
 			break;
 		default:
 			break;

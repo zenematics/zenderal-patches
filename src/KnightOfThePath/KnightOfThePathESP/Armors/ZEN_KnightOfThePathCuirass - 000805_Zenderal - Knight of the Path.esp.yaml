@@ -1,0 +1,32 @@
+FormKey: 000805:Zenderal - Knight of the Path.esp
+EditorID: ZEN_KnightOfThePathCuirass
+Name:
+  TargetLanguage: English
+  Value: Knight of the Path Cuirass
+WorldModel:
+  Male:
+    Model:
+      File: armor\zenderal\knightofthepath\m\cuirassgnd.nif
+  Female:
+    Model:
+      File: armor\zenderal\knightofthepath\m\cuirassgnd.nif
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBD8:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000801:Zenderal - Knight of the Path.esp
+Value: 1424
+Weight: 38
+ArmorRating: 50.4

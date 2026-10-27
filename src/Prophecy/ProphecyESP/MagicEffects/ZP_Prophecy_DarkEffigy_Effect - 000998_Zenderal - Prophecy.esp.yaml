@@ -60,4 +60,4 @@ Sounds:
   Sound: 03F2B1:Skyrim.esm
 Description:
   TargetLanguage: English
-  Value: A dark totem stands for <dur> seconds. Your undead summons near it heal 2 Health per second, and you and your allies near it gain 250 armor.
+  Value: A dark totem stands for <dur> seconds. You and your undead summons near it heal 2 Health per second, and you and your allies near it gain 250 armor.

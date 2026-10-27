@@ -5,7 +5,7 @@ lasts, for every living actor within Radius of the totem:
   - each ally (the player, a teammate, a summon or raised corpse the player commands, a Legion of the Damned skeleton)
     gets ArmorSpell (+250 armor for 2 s, so it fades soon after leaving the totem);
   - each of those that is undead (ActorTypeUndead, or a raised corpse: its reanimate effect carries MagicSummonUndead)
-    and is the player's own (commanded or Legion) also heals HealPerSecond.
+    and is the player's own (commanded or Legion) also heals HealPerSecond, and so does the player (2026-10-26).
 Casting it again replaces the totem (the old effect ends and takes its totem with it).
 Needs powerofthree's Papyrus Extender (FindAllReferencesOfFormType, GetCommandingActor).}
 
@@ -56,7 +56,8 @@ Event OnUpdate()
 			Bool own = PO3_SKSEFunctions.GetCommandingActor(a) == player || LegionList.HasForm(a)
 			If a == player || own || a.IsPlayerTeammate()
 				ArmorSpell.RemoteCast(player, player, a)
-				If own && (a.HasKeyword(ActorTypeUndead) || a.HasEffectKeyword(MagicSummonUndead))
+				; the player heals too (curator 2026-10-26), at the same rate as their undead
+				If a == player || (own && (a.HasKeyword(ActorTypeUndead) || a.HasEffectKeyword(MagicSummonUndead)))
 					a.RestoreActorValue("Health", HealPerSecond)
 				EndIf
 			EndIf

@@ -34,3 +34,15 @@ Sort **above** `SPR PBR - Architecture Dungeons Misc`, then rerun PGPatcher. `--
 ## Status
 
 Generated 2026-10-24. Unverified in game.
+
+## 62 incomplete PBR colour maps hidden (2026-10-26)
+
+TexGen stopped with *File not found `textures/pbr/enderal/architecture/pyrean/dwemetaltiles03pyr_n.dds`*. SPR PBR
+1.0.0 ships 62 `textures/PBR/**` colour maps with **no `_n`** and no `PBRNifPatcher` JSON (Ark `*icy`, all
+`pyrean\dwe*`, Duenenhaim, Silvergrove and more). PGPatcher never uses them (none of the 711 `pbr\` texture bases in
+PG Patcher Output's meshes matches one), but TexGen takes any `textures\pbr\<diffuse>` as a full PBR set, and it
+has no setting to turn that off. `tools/02-hide-incomplete-pbr.py` renames each to `.dds.mohidden` inside
+`SPR PBR - Architecture Dungeons Misc` (MO2 hides it), after backing it up to
+`E:/Zenderal-backups/2026-10-26-spr-pbr-incomplete/`; it refuses if a PG Patcher mesh points at one. This is the one
+edit to SPR PBR's own folder: no override can remove a file. **Rerun it after reinstalling or updating SPR PBR**,
+before TexGen. Undo: strip the `.mohidden` suffix. TexGen not yet rerun.

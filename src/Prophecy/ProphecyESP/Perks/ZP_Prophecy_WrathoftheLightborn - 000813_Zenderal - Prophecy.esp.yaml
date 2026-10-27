@@ -5,7 +5,7 @@ Name:
   Value: 'Wrath of the Lightborn'
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Wrath of the Lightborn" spell (200 Mana and 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. Cast at 50% Arcane Fever or more, it has no effect.'
+  Value: 'Grants the "Wrath of the Lightborn" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:

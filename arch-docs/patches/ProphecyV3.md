@@ -116,3 +116,12 @@ Only one of v1, v2, v3 may be enabled (same plugin name).
 - the cursor and input: SMF windows take the mouse; a controller is not supported yet;
 - the card art in tooltips (`texture ...: loaded` in the log);
 - learning: gold star → confirm → "Learned X." and the star fills.
+
+## PG Patcher (2026-10-25)
+
+PG Patcher scans every loose mesh in the load order and writes patched copies into `PG Patcher Output`, which sits
+near the top of the list. Its 11:04 run on 2026-10-25 had patched the 11 Ordinator meshes this mod ships under
+`meshes\ordinator\` (Hissing Dragon projectiles, mage ward, Dwarven autocannon), and those copies (different bytes)
+overrode the mod's own. `*\ordinator\*` is now in PGPatcher's blocklist (`Tools/PG Patcher/PGPatcher/cfg/settings.json`,
+`params.processing.blocklist`; only this mod has that folder), and the 11 stale copies were moved out of the output to
+`E:/Zenderal-backups/2026-10-25-pgpatcher-prophecy/` with the old settings file. Later PG Patcher runs leave them alone.

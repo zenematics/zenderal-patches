@@ -2,7 +2,7 @@ FormKey: 069D73:Skyrim.esm
 EditorID: _00E_Message_Trickster_P06_ExpertLocksmith
 Description:
   TargetLanguage: English
-  Value: You can pick expert locks now and locks with expert difficulty or lower are easier to pick. Bows and muskets penetrate 25%% of enemy armor and do 10%% increased damage to creatures with impenetrable armor.
+  Value: You can pick expert locks now and locks with expert difficulty or lower are easier to pick. Muskets or bows penetrate 25%% of enemy armor and do 10%% increased damage to creatures with impenetrable armor.
 Name:
   TargetLanguage: English
   Value: 'Gauner: Expertenschlosser'

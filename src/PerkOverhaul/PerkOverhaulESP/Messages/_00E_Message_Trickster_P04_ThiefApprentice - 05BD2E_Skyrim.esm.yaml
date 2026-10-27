@@ -2,7 +2,7 @@ FormKey: 05BD2E:Skyrim.esm
 EditorID: _00E_Message_Trickster_P04_ThiefApprentice
 Description:
   TargetLanguage: English
-  Value: You can pick adept locks now and locks with adept difficulty or lower are easier to pick. Your stamina regeneration is increased by 15%% while you have a bow or musket equipped.
+  Value: You can pick adept locks now and locks with adept difficulty or lower are easier to pick. Your stamina regeneration is increased by 15%% while you have a musket or bow equipped.
 Name:
   TargetLanguage: English
   Value: 'Gauner: Diebeslehrling'

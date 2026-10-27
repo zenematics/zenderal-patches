@@ -1,0 +1,16 @@
+FormKey: 000A6D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Chaff
+Description:
+  TargetLanguage: English
+  Value: 'Your Smokescreen cloud also blinds automatons: mechanical spiders, spheres and centurions inside it can no longer see you.'
+Name:
+  TargetLanguage: English
+  Value: 'Chaff'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081B:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

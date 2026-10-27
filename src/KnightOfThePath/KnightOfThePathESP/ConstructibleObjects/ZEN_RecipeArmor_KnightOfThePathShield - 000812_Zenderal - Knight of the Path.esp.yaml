@@ -1,0 +1,45 @@
+FormKey: 000812:Zenderal - Knight of the Path.esp
+EditorID: ZEN_RecipeArmor_KnightOfThePathShield
+Items:
+- Item:
+    Item: 05AD9D:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 05AD9E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 05AD9F:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0773ED:Skyrim.esm
+    Count: 6
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ActorValue: Smithing
+  ComparisonValue: 50
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ItemOrList: 13C561:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    RunOnType: Reference
+    Reference: 02A3DB:Enderal - Forgotten Stories.esm
+    ItemOrList: 13C561:Skyrim.esm
+  ComparisonValue: 1
+CreatedObject: 000811:Zenderal - Knight of the Path.esp
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 1

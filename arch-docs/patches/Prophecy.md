@@ -105,9 +105,61 @@ the merge talent; `FAITH_CAPSTONE` tells `weave_stats`. The six stat talents sta
 | `faith2` 0x811 | Righteous Path (was Sunlight Targe) | ability `0xA63`. Script `ZP_RighteousPathEffect` sends the Reflector Beam at each attacker the player blocks (Kittytails' hit logic). 25% magic resistance, disease immunity and a `TurnUnFXShader` glow are gated on IsBlocking + left hand item type 0 or 9 (`RP_BLOCKING`), so a spell in the left hand counts (Dual Wield Parrying) and a shield or left weapon does not. Her summoned shield is NOT used: equipping it would push a spell out of the left hand |
 | `faith3` 0x812 | Smite (was Hallowed Flare) | its own `ApplyCombatHitSpell` on weapons with `WeapMaterialSilver 10AA1A`, not bows (bows and muskets keep the shared gun hit spell; one combat hit spell per hit). Hit spell `0xA66`, 15% roll on its effect `0xA67`, which places Hallowed Flare's player explosion (the sky-bolt) on the target via `ZP_HolyPlaceExplosion` |
 | `faith5` 0x814 merge | Templar | unchanged, fever-free |
-| `faith4` 0x813 capstone | Wrath of the Lightborn (was Wrath of the Heavens) | the spell, granted by the menu. 200 base Mana (Light Magic skill and perks lower it, as for any spell), 50% Arcane Fever (`11A4B6`), cloak reach 45 → 20 ft. Every effect, the fever included, has `LastFlattered > -50`, so at 50% fever or more the cast does nothing rather than kill |
+| `faith4` 0x813 capstone | Wrath of the Lightborn (was Wrath of the Heavens) | the spell (`0xA43`), granted by the menu. No Mana (curator), 50% Arcane Fever, cloak reach 45 → 20 ft. **Fixed the same day:** the first version put `LastFlattered > -50` on every effect; the engine re-checks an active effect's conditions, so the cast's own +50% fever ended the cloak after one volley. Now `0xA43` holds only the gate effect `0xA6A` (`ZP_WrathGate`). It checks fever once at cast: at 50% or more it refuses with a message (100% kills); otherwise it casts the cloak `0xA6B` (the balanced Wrath, no conditions, full 60 s) and the fever spell `0xA6C` (`11A4B6` at 50). Code: `wrath_split` |
 
 Rewritten records' display strings: `HOLY_RENAME`. Unverified in game.
+
+**Righteous Path's look (2026-10-25, curator: "the shield doesn't appear while blocking").**
+- **The ward shield.** `ZP_Prophecy_RighteousPath_Ward 0xA68` (ARMA `0xA69`) is Kittytails' shield copied into slot
+  FX01. Her mesh's `Prn = SHIELD` puts it on the left forearm, and the left hand stays free. `ZP_RighteousPathEffect`
+  wears it from `blockStart`/`blockStartOut` to `blockStop`/`blockStopOut`, re-checking every 0.25 s while it is up.
+  The first version's `TurnUnFXShader` glow (`0xA65`) is off the ability.
+- **Dual Wield Parrying (same day).** Its DLL forces the block by sending `blockStart`/`blockStop` *into* the graph
+  and setting `IsBlocking` (its strings). That raises none of the block events above, so the ward never showed. The
+  ward is now also worn by `0xA65` (`ZP_Prophecy_RighteousPath_WardEffect`, script `ZP_RighteousPathWard`, formerly
+  the glow), gated on the ability with `RP_BLOCKING` like the resistances. The engine starts and ends it for any
+  block, up to about a second late (the effect-condition update interval). Both paths are idempotent. A save that
+  already owns the perk needs it removed and re-added for the new ability effect.
+- **Instant ward (v3, same day: "appear quicker and disappear fast").** `ZenProphecyUI.dll` owns the ward when it is
+  loaded. Every 33 ms it queues a game-thread check:
+  - the conditions: perk `0x811`, graph `IsBlocking`, and a left hand that is empty or holds a spell or scroll;
+  - on a change it equips or unequips `0xA68` with sounds off and `applyNow`, adding or removing the item.
+
+  After a load it re-checks, which clears a ward a save may hold. Both Papyrus paths return early when
+  `SKSE.GetPluginVersion("ZenProphecyUI") > 0`, so they only run under v1. See
+  [`ProphecyV3.md`](ProphecyV3.md).
+- **First-person ward model (same day: "a white mesh in the effect").**
+  - **Cause:** `HolyShield:0` is a disc drawn with `textures\white.dds`, softened by the effect shader's view-angle
+    falloff. In third person it reads as a glow; at first person's close, grazing angle it shows as a white sheet.
+  - **Fix:** the ward ARMA `0xA69` has its own `FirstPersonModel`, `Lightpower\HolyShield_1st.nif`. It is the same
+    mesh with that shape *detached*: its entry in the root's child list is set to -1 (four bytes, written by
+    `copy_holy_assets`). The glow spot (`HolyShield:1`) and the particles stay. Third person is unchanged.
+  - **The glow spot goes too (2026-10-26).** With the white disc gone, the curator saw "a smaller strip in the
+    middle": the glow-spot disc `HolyShield:1`, also flat and edge-on. It is detached as well
+    (`HOLY_WARD_1ST_DROP`), so first person shows only the particles; third person keeps both discs.
+  - **The hidden bit did not hold.** The first version only set the shape's hidden flag; the curator still saw the
+    white sheet in game the next day. The likely cause is that attaching armor 3D re-shows culled shapes; nothing
+    animates that shape.
+- **The beam costs 10 Mana (2026-10-26, curator).** `ZP_RighteousPathEffect.OnHit` checks Magicka ≥ 10 before
+  firing and spends 10 (`DamageActorValue`). With less, the block stays an ordinary block. The ward, resistances and
+  pose are unaffected. The 10 is a literal in the function, not a property: a property added later stays unset in
+  saves already running the effect.
+- **Why not art.** Using the mesh as hit-effect art was not pursued: no vanilla magic/effect art uses `Prn`, and the
+  bone-attached body FX (`baneundeadcastbodyfx` and others) resolve their nodes some way not confirmed here.
+- **The shield animations.** The graph plays shield-block clips only for a real shield in the left hand, so
+  `tools/06-build-righteous-path-block.py` generates the MO2 mod **`Zenderal - Righteous Path Shield Block`** (clips
+  not committed). It mirrors Dynamic Block Hit (Rebalanced)'s 15 non-javelin shield sets as OAR submods that serve
+  `shd_blockidle`/`shd_blockanticipate`/`Maxsu_ShieldBlockHit` as `1hm_*`/`Maxsu_WeaponBlockHit`.
+- **Conditions and priority.** Each set keeps its own conditions, except "shield in the left hand", which becomes
+  `HasPerk 0x811` plus left hand of OAR type 0 or 12–17 (empty, a spell, a scroll). Priority is 2100000000 + (the
+  set's own − 8970000): above everything that applies to the player.
+- **First person (same day).** One more submod under `_1stperson` (priority 2100002000; the top first-person 1hm
+  block set is SigmaJelly Katana's 800000003). It serves SIGMA - Shield animations - 1st person's
+  `shd_blockidle/anticipate/hit/hit_vara/hit_varb` as `1hm_blockidle/anticipate/hit/hita/hitb` (vanilla's from the
+  BSA if SIGMA is off), on the same conditions. Bashes and the shield equip clip are left alone. The ward needs no
+  first-person model: vanilla shield ARMAs (e.g. `14587A`) have only a world model, which first person reuses.
+- **Gaps.** An unarmed right hand (h2h block) and a spell in each hand are not covered. Rerun 06 after a Dynamic Block
+  Hit update. Unverified in game.
 
 ## Capstones need level 30 (curator, 2026-10-25)
 
@@ -537,6 +589,29 @@ the table's order.
 - Clockwork Turret and War Banner already had sounds; Seismic Stomp's (`ZEN_SeismicStomp_01.wav`, 2.0 s) is its
   shockwave's own sound, not a `POWER_SOUNDS` entry.
 
+**Smokescreen blinds undead, and no longer alerts (2026-10-26, curator: "still detected immediately with maxed
+stealth").** How it works:
+- Ordinator's `ORD_SmokeCurtain_Script` (disassembled) places the cloud.
+- Every 0.5 s it `RemoteCast`s `Smoke Curtain` (`0x8A3`) from the cloud, blamed on the player.
+- The pulse was Blindness 100 for 2 s (`0x8A6`) plus `ORD_Alert_Script` (`0x8A4`, `SetAlert(True)` on every hostile
+  in 35 ft).
+
+The engine honours the Blindness AV: Enderal's Arps carry `AbBlind 052FF3` through `AbFalmer 052FF4`, and EGO has
+`XionBlindness`. A blind actor detects by sound only. Two faults, fixed by `fix_smoke_blind()`:
+- **Undead were never blinded.** Both effects skipped `ActorTypeUndead` and `IsUndead`, which is most of Enderal's
+  enemies. Those two conditions are removed; `ActorTypeDwarven` stays.
+- **The pulse kept enemies on alert.** The alert effect is removed from the pulse, since it put everyone in the cloud
+  on alert twice a second.
+
+Unverified in game.
+
+**Chaff (2026-10-26, curator).** Gadgets' 12th talent (`gad6`, perk `0xA6D`), a side talent off Smokescreen with no
+effect of its own. `fix_smoke_blind` turns the blindness's automaton condition into "not `ActorTypeDwarven` OR the
+player has Chaff", so with it the cloud also blinds Enderal's automatons (`DwarvenCenturionRace`, `DwarvenSphereRace`,
+`DwarvenSpiderRace`). It is allocated after the Faith records through `LATE_NODES`, which the first allocation loop
+skips, so no older ID moved; `weave_stats` allows a tree its late extras. On v3's wrench it is a spur off Smokescreen.
+No card art yet. Unverified in game.
+
 **Smokescreen turns you invisible (2026-10-23, curator: "make smokescreen also turn you invisible on cast").** The
 power `ZP_ORD_Sne_SmokeCurtain_Spell 0x89F` gets a third effect after the cloud and the burst sound:
 `InvisibillityFFSelf 01EA6A` for 10 s (`SMOKE_INVISIBLE` / `add_smoke_invisibility` in `tools/01`). That is the engine
@@ -759,7 +834,8 @@ three menu records (diffed). Card EditorIDs follow the curator's file names (`ED
   sacrifice's eldritch burst. Once a second, within 512 units: every ally (the player, teammates, actors the player
   commands, Legion skeletons) gets `ZP_Prophecy_DarkEffigy_Armor` (+250 `DamageResist` for 2 s, so it lapses soon
   after leaving). The player's own undead also heal 2 Health: keyword `ActorTypeUndead`, or a raised corpse (every
-  reanimate effect carries `MagicSummonUndead 02482B`). Recasting replaces the totem.
+  reanimate effect carries `MagicSummonUndead 02482B`). Since 2026-10-26 (curator) the player heals the same 2 per
+  second within range (no fever). Recasting replaces the totem.
 - **A Willing Sacrifice** (`nec3`): lesser power, 15 s cooldown (War Banner's pattern). Every actor the player commands
   (PO3 `GetCommandedActors`) and every Legion skeleton explodes, one after another (0.35 s apart). **Damage = half the
   summon's base Health** to every living actor hostile to the player within 300 units (14 ft; Enderal's Fireball is

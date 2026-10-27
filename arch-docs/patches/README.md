@@ -90,12 +90,16 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`Goblins`](Goblins.md) | `Zenderal - Goblins.esp` + `.pex` + generated meshes; `Zenderal - Goblins Dismembering.esp` + DF JSON + generated meshes | `0x800–0xB29`; Dismembering `0x800–0x836` |
 | [`EnemyDensity`](EnemyDensity.md) | `Zenderal - Enemy Density.esp`: 922 placed enemies in 187 groups (Fogville goblins/Arps, Whisperwood undead hordes, six more regions) | `0x800–0xD9B` |
 | [`StancesNoIcon`](StancesNoIcon.md) | `Zenderal - Stances No Icon.esp` | none (overrides only) |
+| [`KnightOfThePath`](KnightOfThePath.md) | `Zenderal - Knight of the Path.esp` + 25 meshes copied from ERA (not committed) | `0x800–0x813` |
+| [`ReadTheRoomEnderal`](ReadTheRoomEnderal.md) | `Zenderal - Read the Room Enderal.esp` | none (one override) |
 | [`BloodyCritSound`](BloodyCritSound.md) | `Zenderal - Bloody Crit Sound.esp` + 1 loose `.wav` (not committed) | none (one override) |
+| [`LevelUpSound`](LevelUpSound.md) | `Zenderal - Level Up Sound.esp` + 1 loose `.wav` (not committed) | none (one override) |
 | [`ZenKeyTrace`](ZenKeyTrace.md) | `ZenKeyTrace.dll` | none (no plugin) |
 | [`CastingBarAE`](CastingBarAE.md) | `CastingBar.dll` (zax's Casting Bar rebuilt for 1.7.104) | none (no plugin) |
 | [`AspectLayout`](AspectLayout.md) | `_ZenAspectLayout.dll` + ini; layout sets generated (not committed) | none (no plugin) |
 | [`SilvergroveStoneWalls`](SilvergroveStoneWalls.md) | *(generated meshes + textures, not committed)* | none |
 | [`SPRPBRTweaks`](SPRPBRTweaks.md) | *(generated PGPatcher JSONs, not committed)* | none |
+| [`TerrainParallaxShadowDistance`](TerrainParallaxShadowDistance.md) | *(generated Bottled Shaders `.hlsli`, not committed)* | none |
 | [`HighPolyDefaultHeads`](HighPolyDefaultHeads.md) | `Zenderal - High Poly Default Heads.esp` | none (18 overrides) |
 | [`UnskippableCinematics`](UnskippableCinematics.md) | *(7 recompiled SureAI scripts)* | none (no plugin) |
 | [`TestingCheats`](TestingCheats.md) | `Zenderal - Testing Cheats.esp` + 2 scripts | `0x800–0x804` |

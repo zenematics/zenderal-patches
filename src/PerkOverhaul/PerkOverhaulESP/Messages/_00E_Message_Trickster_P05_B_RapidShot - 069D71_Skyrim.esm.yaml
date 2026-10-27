@@ -2,7 +2,7 @@ FormKey: 069D71:Skyrim.esm
 EditorID: _00E_Message_Trickster_P05_B_RapidShot
 Description:
   TargetLanguage: English
-  Value: You can draw a bow and reload a musket 20%% faster.
+  Value: You can reload muskets or draw bows 20%% faster.
 Name:
   TargetLanguage: English
   Value: 'Gauner: Schnellschuss'

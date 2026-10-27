@@ -19,7 +19,3 @@ Effects:
     Magnitude: 100
     Area: 35
     Duration: 2
-- BaseEffect: 0008A4:Zenderal - Prophecy.esp
-  Data:
-    Area: 35
-    Duration: 2

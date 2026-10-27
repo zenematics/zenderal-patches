@@ -14,7 +14,7 @@ Description:
   TargetLanguage: English
   Values:
   - Language: English
-    String: Automatically gives you a copy of a picked lock's key. Arrows and musket balls that hit an enemy have an additional 30 percent chance to be recoverable from their body.
+    String: Automatically gives you a copy of a picked lock's key. Musket balls or arrows that hit an enemy have an additional 30 percent chance to be recoverable from their body.
   - Language: Chinese
     String: 开锁成功后会自动复制一把对应的钥匙放入背包。
   - Language: Korean

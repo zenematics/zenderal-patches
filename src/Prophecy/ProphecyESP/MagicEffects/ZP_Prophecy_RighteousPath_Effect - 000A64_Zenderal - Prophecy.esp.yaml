@@ -13,6 +13,9 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: ExplosionArtEffect
       Object: 000A5C:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WardShield
+      Object: 000A68:Zenderal - Prophecy.esp
 Name:
   TargetLanguage: English
   Value: Righteous Path
@@ -30,4 +33,4 @@ CastingSoundLevel: Silent
 Sounds: []
 Description:
   TargetLanguage: English
-  Value: 'While you block with a spell or nothing in your left hand, each attacker you block is struck by a beam of light.'
+  Value: 'While you block with a spell or nothing in your left hand, each attacker you block is struck by a beam of light, for 10 Mana.'

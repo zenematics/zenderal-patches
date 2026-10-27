@@ -71,3 +71,23 @@ crossbow ones), so a regeneration would no longer produce them. Its Loop project
 3. `python src/UnresolvedRefsCleanup/tools/00b-find-unresolved.py <scratch>/all <scratch>/unresolved.json`
 4. `python src/UnresolvedRefsCleanup/tools/01-build-unresolved-cleanup.py <scratch>/all <scratch>/unresolved.json`
 5. Rebuild `RecordData.yaml`'s masters from the output's FormKeys and the winners, then deserialize.
+
+## Helmet Toggle 2 removed (2026-10-26)
+
+Helmet Toggle 2 was disabled for Read the Room. Its two ARMAs (`HT_ArmorInvisibleCircletAA 000846`,
+`HT_ArmorInvisibleJewelryAA 000845`) and the master were dropped from the YAML by hand and the plugin rebuilt.
+A full rerun (tools 00a→00b→01) reads `plugins.txt` and leaves HT2 out the same way.
+
+## Mihail's Crystal Golem removed (2026-10-26)
+
+The curator disabled `mihailcrystalgolem.esp`, so MO2 reported it as a missing master of this plugin. Its one record
+(`mihailcrystalgolemraceImpactSet 000822`) and the master were dropped from the YAML by hand and the plugin rebuilt
+(39 masters, 1 record fewer, same order). Every remaining master is enabled in Ultra. Backup:
+`E:/Zenderal-backups/2026-10-26-crystal-golem-cleanup/`.
+
+**The copy that loads is Patch Collection's.** In Ultra the standalone `Zenderal - Unresolved References Cleanup` mod is
+disabled; `Zenderal - Patch Collection` ships the same `.esp`, so a rebuild only reaches the game once that copy is
+replaced too (done 2026-10-26, backup in `.../patch-collection/`). Saves made near the Crystal Forest while the golem
+mods were installed still crash on load (Engine Fixes in region-sound code, then Oxygen Meter 2 on a null player):
+their loaded crystal elementals use the removed golem forms. Older saves load. Reinstalling the two golem mods from
+MO2's downloads would bring those saves back.
