@@ -15,7 +15,7 @@
 // cells. Aligned chunks (every Tamriel chunk) are left alone. Nothing is written to disk.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 0, 0 },
+	.Version = REL::Version{ 1, 4, 0, 0 },
 	.Name = "ZenUnifiedWaterGrid"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -61,7 +61,7 @@ namespace
 	RE::NiPointer<RE::BSTriShape>              g_mesh;
 	std::unordered_map<std::string, WorldCache> g_caches;
 	int                                        g_rebuilt = 0;
-	int                                        g_logged = 0;
+	constexpr int                              kMaxTileCells = 32;  // no cap (1.2.0 test reverted: one change at a time)
 
 	std::uint64_t Key(std::int32_t a_x, std::int32_t a_y)
 	{
@@ -155,7 +155,9 @@ namespace
 				}
 				int size = 1;
 				if (a_lod > 4) {  // LOD4 tiles stay single cells: they are hidden one by one as real cells load
-					const int maxSize = std::min(a_lod - lx, a_lod - ly);
+					// kMaxTileCells: 1.2.0 tried 4 (the water mesh is one 4-vertex quad and the shader biases depth per vertex);
+				// 1.3.0 sets it back to 32, no cap, to test the reflection/normals release alone.
+				const int maxSize = std::min({ a_lod - lx, a_lod - ly, kMaxTileCells });
 					for (int cand = 2; cand <= maxSize; ++cand) {
 						bool ok = true;
 						for (int d = 0; d < cand && ok; ++d) {
@@ -182,6 +184,28 @@ namespace
 			}
 		}
 		return out;
+	}
+
+	// Bottled Shaders' helpers (UnifiedWater.cpp at cfcac91ad), copied as they are
+	void QueueDeferredRelease(RE::NiPointer<RE::NiRefObject>& a_object)
+	{
+		static REL::Relocation<void(RE::NiPointer<RE::NiRefObject>*)> func{ REL::RelocationID(69180, 70544) };
+		func(&a_object);
+	}
+
+	template <class Entry>
+	void RemoveOrphanedEntry(RE::BSTArray<RE::NiPointer<Entry>>& a_entries, const Entry* a_entry)
+	{
+		if (!a_entry || a_entry->GetRefCount() != 1) {
+			return;
+		}
+		const auto it = std::ranges::find_if(a_entries, [&](const auto& a_candidate) { return a_candidate.get() == a_entry; });
+		if (it == a_entries.end()) {
+			return;
+		}
+		RE::NiPointer<RE::NiRefObject> released{ it->get() };
+		QueueDeferredRelease(released);
+		a_entries.erase(it);
 	}
 
 	void DropChildren(RE::BSMultiBoundNode* a_water, bool a_unregister)
@@ -229,6 +253,8 @@ namespace
 		auto* node = a_block->node;
 		auto* water = a_block->water;
 		if (!node || !water || !a_block->chunk || !g_mesh || !node->manager) {
+			SKSE::log::info("skip: block without {}{}{}{}", node ? "" : "node ", water ? "" : "water-node ", a_block->chunk ? "" : "chunk ",
+				node ? std::format("(LOD{} chunk at cell {},{})", static_cast<int>(node->GetLODLevel()), node->baseCellX, node->baseCellY) : ""s);
 			return;
 		}
 		const int lod = static_cast<int>(node->GetLODLevel());
@@ -238,6 +264,7 @@ namespace
 		const int bx = node->baseCellX;
 		const int by = node->baseCellY;
 		if (Mod(bx, lod) == 0 && Mod(by, lod) == 0) {
+			SKSE::log::info("skip: LOD{} chunk at cell {},{} is aligned", lod, bx, by);
 			return;  // Unified Water's lookup is right for aligned chunks
 		}
 		const auto* cache = GetCache(node->manager->worldSpace);
@@ -254,6 +281,7 @@ namespace
 			if (owned) {
 				DropChildren(water, false);  // its tiles were for another chunk; this one has no water
 			}
+			SKSE::log::info("LOD{} chunk at cell {},{}: no water cells{}", lod, bx, by, owned ? " (dropped Unified Water's tiles)" : "");
 			return;
 		}
 
@@ -293,11 +321,29 @@ namespace
 		for (std::size_t i = 0; i < built.size(); ++i) {
 			auto*       shape = built[i];
 			const auto& t = tiles[i];
-			ws->AddWater(shape, t.form, t.height, nullptr, true, false);
+			{
+				// Bottled Shaders' own registration (UnifiedWater.cpp at cfcac91ad): AddWater under the water system's
+				// lock, then take the object back off the list and release the reflection and normals entries it left
+				// behind. Those keep raw pointers to the tile's material; 1.1.0 left them (upstream's older code), and
+				// every Vyn tile is built here, so tiles drew from stale reflection/normals state.
+				RE::BSSpinLockGuard guard(ws->lock);
+				ws->AddWater(shape, t.form, t.height, nullptr, true, false);
+				if (!ws->waterObjects.empty() && ws->waterObjects.back()->shape.get() == shape) {
+					const auto reflections = ws->waterObjects.back()->reflections.get();
+					const auto normals = ws->waterObjects.back()->normals.get();
+					ws->waterObjects.pop_back();
+					RemoveOrphanedEntry(ws->waterReflections, reflections);
+					RemoveOrphanedEntry(ws->waterNormals, normals);
+				}
+			}
 			if (const auto prop = shape->GetGeometryRuntimeData().shaderProperty.get(); prop && prop->GetRTTI() &&
 				std::string_view(prop->GetRTTI()->GetName()) == "BSWaterShaderProperty"sv) {
 				auto*                                                              wsp = static_cast<RE::BSWaterShaderProperty*>(prop);
-				REX::EnumSet<RE::BSWaterShaderProperty::WaterFlag, std::uint32_t> flags = static_cast<RE::BSWaterShaderProperty::WaterFlag>(0b10000100);
+				// 1.4.0: Unified Water's 0b10000100 without bit 0x4 (Depth by the usual naming), set before the tile is
+				// first drawn. With it, whole tiles read ~zero water thickness from the depth buffer and drew only the
+				// seabed behind them, coming and going with the view (verified in game 2026-10-28: patches gone without
+				// it). Why the depth read fails is not known. Cost: no depth-based shallows on distant LOD water.
+				REX::EnumSet<RE::BSWaterShaderProperty::WaterFlag, std::uint32_t> flags = static_cast<RE::BSWaterShaderProperty::WaterFlag>(0b10000000);
 				flags.set(RE::BSWaterShaderProperty::WaterFlag::kUseCubemapReflections, RE::BSWaterShaderProperty::WaterFlag::kUseReflections);
 				if (t.form->flags.any(RE::TESWaterForm::Flag::kEnableFlowmap)) {
 					flags.set(RE::BSWaterShaderProperty::WaterFlag::kEnableFlowmap);
@@ -306,11 +352,6 @@ namespace
 					flags.set(RE::BSWaterShaderProperty::WaterFlag::kBlendNormals);
 				}
 				wsp->waterFlags = flags;
-			}
-			// Unified Water manages its tiles itself: take the object AddWater just appended off the list again
-			RE::BSSpinLockGuard guard(ws->lock);
-			if (!ws->waterObjects.empty()) {
-				ws->waterObjects.pop_back();
 			}
 		}
 
@@ -341,19 +382,26 @@ namespace
 		ws->Enable();
 
 		++g_rebuilt;
-		if (g_logged < 12) {
-			++g_logged;
-			SKSE::log::info("LOD{} chunk at cell {},{}: {} tiles rebuilt on the real grid ({})", lod, bx, by, built.size(),
-				owned ? "replaced Unified Water's" : "Unified Water had none");
-		} else if (g_rebuilt % 500 == 0) {
-			SKSE::log::info("{} chunks rebuilt so far", g_rebuilt);
+		{
+			SKSE::log::info("LOD{} chunk at cell {},{}: {} tiles rebuilt on the real grid ({}), {} attaches so far", lod, bx, by, built.size(),
+				owned ? "replaced Unified Water's" : "Unified Water had none", g_rebuilt);
 		}
 	}
 
 	void AttachHook(RE::BGSTerrainBlock* a_block)
 	{
 		const bool wasAttached = a_block && a_block->attached;
+		// 1.1.0 handed blocks without a water pointer their chunk's WATER node by name, for LOD32 -5,9. Removed in
+		// 1.3.1: that file is Enderal's world-map mesh ("map" plane at z 100000, "background" at 97000), not terrain,
+		// so the game leaving it without water is right.
+		auto* waterBefore = a_block ? a_block->water : nullptr;
 		g_attach(a_block);  // Unified Water's hook, then the game's own attach
+		if (a_block && !wasAttached && a_block->attached && !a_block->water && a_block->node) {
+			// diagnostic (1.0.2): which attaches come out with no water node, and whether they had one going in
+			SKSE::log::info("attach without water node: LOD{} chunk at cell {},{} (had one before the call: {}, chunk {})",
+				static_cast<int>(a_block->node->GetLODLevel()), a_block->node->baseCellX, a_block->node->baseCellY,
+				waterBefore != nullptr, a_block->chunk != nullptr);
+		}
 		if (a_block && !wasAttached && a_block->attached) {
 			Rebuild(a_block);
 		}
@@ -409,7 +457,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenUnifiedWaterGrid 1.0.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenUnifiedWaterGrid 1.4.0 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
 		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {
 			Install();
