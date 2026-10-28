@@ -207,3 +207,12 @@ List-wide traps that are not tied to one Zenderal patch.
   `Zenderal - Resolution …` presets and the 3 `Vel'dun Zenderal patches` mods **disabled**: a preset's custom ini is
   overwritten each launch, and an enabled aspect patch is outranked (or, sorted above Aspect Layout, wins and pins its
   layout). Rerun `src/AspectLayout/tools/01` after a Vel'dun patch update.
+- **Unified Water (Bottled Shaders) removed Vyn's distant water: its Vyn cache was missing (2026-10-28, verified in the
+  log).** Turning the feature on replaces LOD water with its own, built from per-worldspace caches in
+  `overwrite/SKSE/Plugins/CommunityShaders/UnifiedWaterCache/`. That folder held 17 caches but no `Vyn_cache.wc`, so
+  the log said `Could not locate disk cache for Vyn`, then `No instructions found for Vyn chunk …` for every distant
+  cell, and the sea beyond loaded cells was blank. Bottled ships a precache only for `Tamriel`; every other worldspace
+  is built at runtime (Vyn takes ~1 s, the rest milliseconds), so the earlier build most likely ended before Vyn's
+  finished (not proven; that run's log was overwritten). **Fix: Bottled Shaders menu → Unified Water → Debug →
+  Regenerate Caches**, then check `BottledShaders.log` for `Vyn: Cache generated` and `18 / 18 complete`. Logs are now
+  `SKSE/BottledShaders.log`; `CommunityShaders.log` is stale.
