@@ -11,8 +11,14 @@ VirtualMachineAdapter:
       Name: Nova
       Object: 00093D:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptFloatProperty
-      Name: NovaCooldown
-      Data: 15.0
+      Name: NovaEvery
+      Data: 8.0
+    - MutagenObjectType: ScriptFloatProperty
+      Name: SlowEvery
+      Data: 8.0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ChainLightning
+      Object: 000B02:Zenderal - Prophecy.esp
 Name:
   TargetLanguage: English
   Value: Flow State

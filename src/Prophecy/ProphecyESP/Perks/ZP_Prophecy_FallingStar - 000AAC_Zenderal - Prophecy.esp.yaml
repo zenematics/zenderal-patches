@@ -1,0 +1,23 @@
+FormKey: 000AAC:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FallingStar
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Falling Star" spell: a falling star strikes for 60 damage and staggers; a target with more Mana than Health also loses Mana.'
+Name:
+  TargetLanguage: English
+  Value: 'Falling Star'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AA4:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AAA:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

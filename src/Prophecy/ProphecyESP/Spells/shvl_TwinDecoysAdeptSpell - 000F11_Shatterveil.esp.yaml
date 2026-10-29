@@ -1,0 +1,20 @@
+FormKey: 000F11:Shatterveil.esp
+EditorID: shvl_TwinDecoysAdeptSpell
+Name:
+  TargetLanguage: English
+  Value: Adept Twin Effigies
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 76
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+HalfCostPerk: 0C44C4:Skyrim.esm
+Effects:
+- BaseEffect: 000F08:Shatterveil.esp
+  Data:
+    Duration: 40

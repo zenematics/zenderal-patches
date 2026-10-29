@@ -1,0 +1,19 @@
+FormKey: 000AA0:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ArcaneStudy
+Description:
+  TargetLanguage: English
+  Value: 'Your Elementalism skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Arcane Study'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A9F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AAF:Zenderal - Prophecy.esp

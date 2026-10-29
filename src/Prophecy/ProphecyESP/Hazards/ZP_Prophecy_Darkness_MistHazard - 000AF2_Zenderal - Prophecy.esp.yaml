@@ -1,0 +1,19 @@
+FormKey: 000AF2:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Darkness_MistHazard
+ObjectBounds:
+  First: -123, -129, 0
+  Second: 123, 129, 6
+Name:
+  TargetLanguage: English
+  Value: Darkness
+Model:
+  File: Triumvirate\Shadows_Hazard_Blacklight.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Lifetime: 10
+TargetInterval: 10
+Flags:
+- InheritDurationFromSpawnSpell
+- AlignToImpactNormal
+Light: 025D3B:Triumvirate - Mage Archetypes.esp
+Sound: 3778D5:Triumvirate - Mage Archetypes.esp

@@ -1,0 +1,19 @@
+FormKey: 000A78:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Nightfall
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Nightfall" power (a full Darkness meter): for 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once.'
+Name:
+  TargetLanguage: English
+  Value: 'Nightfall'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A77:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A7F:Zenderal - Prophecy.esp

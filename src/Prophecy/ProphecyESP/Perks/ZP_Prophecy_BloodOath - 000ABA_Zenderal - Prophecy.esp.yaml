@@ -1,0 +1,19 @@
+FormKey: 000ABA:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BloodOath
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Health is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Blood Oath'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AB9:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AC8:Zenderal - Prophecy.esp

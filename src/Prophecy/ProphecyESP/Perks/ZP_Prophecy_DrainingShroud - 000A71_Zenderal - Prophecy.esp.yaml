@@ -1,0 +1,16 @@
+FormKey: 000A71:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DrainingShroud
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Draining Shroud" spell (4 Darkness): for 60 seconds, you absorb 10 Health and Mana per second from nearby enemies.'
+Name:
+  TargetLanguage: English
+  Value: 'Draining Shroud'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A6F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

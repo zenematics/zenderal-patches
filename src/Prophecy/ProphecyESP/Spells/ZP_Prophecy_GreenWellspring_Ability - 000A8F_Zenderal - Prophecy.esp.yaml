@@ -1,0 +1,15 @@
+FormKey: 000A8F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_GreenWellspring_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Green Wellspring'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000A19:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 10

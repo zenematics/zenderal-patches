@@ -1,0 +1,19 @@
+FormKey: 000A77:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Unseen
+Description:
+  TargetLanguage: English
+  Value: 'Your Sneak skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Unseen'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A75:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A7E:Zenderal - Prophecy.esp

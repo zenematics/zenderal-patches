@@ -79,7 +79,7 @@ Effects:
   EntryPoint: ModAttackDamage
   PerkConditionTabCount: 3
   Modification: Multiply
-  Value: 0.9
+  Value: 0.8
 - MutagenObjectType: PerkEntryPointAddLeveledItem
   Conditions:
   - RunOnTabIndex: 1

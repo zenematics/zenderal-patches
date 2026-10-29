@@ -40,6 +40,32 @@ Effects:
         MutagenObjectType: IsHostileToActorConditionData
         TargetNpc: 000014:Skyrim.esm
       ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 013794:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetIsRaceConditionData
+        Race: 000800:Zenderal - Goblins.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetIsRaceConditionData
+        Race: 000830:Zenderal - Goblins.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetIsRaceConditionData
+        Race: 0131F4:Skyrim.esm
+      ComparisonValue: 1
   EntryPoint: AddLeveledListOnDeath
   PerkConditionTabCount: 2
   Item: 000882:Zenderal - Traits.esp

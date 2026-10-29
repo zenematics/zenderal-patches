@@ -21,7 +21,7 @@ VirtualMachineAdapter:
       Data: 3
     - MutagenObjectType: ScriptFloatProperty
       Name: MagickaCost
-      Data: 50
+      Data: 0
 Name:
   TargetLanguage: English
   Value: Ice Shot

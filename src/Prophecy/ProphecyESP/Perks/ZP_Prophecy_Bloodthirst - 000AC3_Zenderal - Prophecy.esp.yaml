@@ -1,0 +1,19 @@
+FormKey: 000AC3:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Bloodthirst
+Description:
+  TargetLanguage: English
+  Value: 'Your Health regenerates 25 percent faster.'
+Name:
+  TargetLanguage: English
+  Value: 'Bloodthirst'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AC2:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000ACC:Zenderal - Prophecy.esp

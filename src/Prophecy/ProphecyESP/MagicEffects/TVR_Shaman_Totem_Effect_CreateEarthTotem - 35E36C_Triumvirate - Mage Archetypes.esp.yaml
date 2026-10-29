@@ -1,0 +1,43 @@
+FormKey: 35E36C:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shaman_Totem_Effect_CreateEarthTotem
+Name:
+  TargetLanguage: English
+  Value: 'Totem: Earth'
+MenuDisplayObject: 35E370:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 1091CF:Skyrim.esm
+- 3E706A:Triumvirate - Mage Archetypes.esp
+Flags:
+- SnapToNavmesh
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoHitEffect
+BaseCost: 0.2
+MagicSkill: Destruction
+CastingLight: 35E37F:Triumvirate - Mage Archetypes.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 35E36D:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+TargetType: TargetLocation
+CastingArt: 35E380:Triumvirate - Mage Archetypes.esp
+HitEffectArt: 35E381:Triumvirate - Mage Archetypes.esp
+ImpactData: 03A1E9:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+ImageSpaceModifier: 09E586:Skyrim.esm
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Charge
+  Sound: 056B75:Skyrim.esm
+- Type: Release
+  Sound: 03F2B1:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Create a Totem for <dur> seconds that casts <mag> damage tremors every <7> seconds in combat.

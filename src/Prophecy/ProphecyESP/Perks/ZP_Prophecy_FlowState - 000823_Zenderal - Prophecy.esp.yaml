@@ -2,7 +2,7 @@ FormKey: 000823:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_FlowState
 Description:
   TargetLanguage: English
-  Value: 'Dodging in combat briefly slows time to a crawl (once every 10 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies (once every 15 seconds).'
+  Value: 'Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 8 seconds).'
 Name:
   TargetLanguage: English
   Value: 'Flow State'

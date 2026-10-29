@@ -1,0 +1,19 @@
+FormKey: 000A72:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SoulSiphon
+Description:
+  TargetLanguage: English
+  Value: 'Your Mana regenerates 10 percent faster.'
+Name:
+  TargetLanguage: English
+  Value: 'Soul Siphon'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A71:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A7B:Zenderal - Prophecy.esp

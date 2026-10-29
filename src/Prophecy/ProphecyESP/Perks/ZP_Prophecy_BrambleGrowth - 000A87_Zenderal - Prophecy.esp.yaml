@@ -1,0 +1,16 @@
+FormKey: 000A87:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BrambleGrowth
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Bramble Growth" spell: a bed of brambles that deals 10 bleed and poison damage for 15 seconds. A target that dies on it sprouts a Goodberry.'
+Name:
+  TargetLanguage: English
+  Value: 'Bramble Growth'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A85:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

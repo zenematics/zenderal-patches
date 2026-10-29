@@ -1,0 +1,23 @@
+FormKey: 000A75:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_PullThroughShadows
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Pull Through Shadows" spell (3 Darkness): pull a target up to 150 feet away to you, lowering its armor by 100 for 10 seconds.'
+Name:
+  TargetLanguage: English
+  Value: 'Pull Through Shadows'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A71:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A73:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

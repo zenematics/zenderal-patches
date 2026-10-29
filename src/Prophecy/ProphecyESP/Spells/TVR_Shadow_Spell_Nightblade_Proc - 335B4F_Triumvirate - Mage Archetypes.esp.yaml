@@ -1,0 +1,43 @@
+FormKey: 335B4F:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Spell_Nightblade_Proc
+Name:
+  TargetLanguage: English
+  Value: Nightblade
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 157
+Flags:
+- AreaEffectIgnoresLOS
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: TargetActor
+Range: 50
+HalfCostPerk: 0C44C0:Skyrim.esm
+Effects:
+- BaseEffect: 335B4B:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 335B4C:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 335B4D:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 335B4E:Triumvirate - Mage Archetypes.esp
+  Data: {}
+- BaseEffect: 335B51:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 45
+    Duration: 1
+- BaseEffect: 335B52:Triumvirate - Mage Archetypes.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      Perk: 000A6E:Zenderal - Prophecy.esp
+    ComparisonValue: 0
+- BaseEffect: 381AFB:Triumvirate - Mage Archetypes.esp
+  Data: {}

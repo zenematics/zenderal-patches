@@ -1,0 +1,16 @@
+FormKey: 000A88:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WaterTotem
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Create Water Totem" spell: a totem stands for 60 seconds, heals 5 Health and Mana per second and cures disease. An Elementalism spell.'
+Name:
+  TargetLanguage: English
+  Value: 'Water Totem'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A83:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

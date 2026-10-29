@@ -1,0 +1,16 @@
+FormKey: 000A9E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Twister
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Twister" spell (97 Mana): a column of deadly wind that deals 40 damage per second for 10 seconds and staggers those caught in it.'
+Name:
+  TargetLanguage: English
+  Value: 'Twister'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A83:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

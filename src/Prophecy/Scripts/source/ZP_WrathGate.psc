@@ -3,11 +3,13 @@ Scriptname ZP_WrathGate extends ActiveMagicEffect
 MaxFever or more it refuses (its own fever would reach 100%, which kills); otherwise it casts the real cloak
 (CloakSpell, 60 s of sky-bolts) and the fever cost (FeverSpell, Enderal's _00E_IncreaseArcaneFeverFFSelf). The first
 version gated every effect with a fever condition, which the engine re-checks while the effect runs, so the cast's own
-fever ended the cloak after one volley. Arcane Fever is stored negated in LastFlattered.}
+fever ended the cloak after one volley. Arcane Fever is stored negated in LastFlattered.
+Shadow's Nightfall power uses it too (2026-10-27): CloakSpell = Triumvirate's Nightfall, Refusal its own text.}
 
 Spell Property CloakSpell Auto
 Spell Property FeverSpell Auto
 Float Property MaxFever = 50.0 Auto
+String Property Refusal = "Your Arcane Fever is too high to call down the Wrath of the Lightborn." Auto
 
 Event OnEffectStart(Actor akTarget, Actor akCaster)
 	Actor who = akCaster
@@ -19,7 +21,7 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	EndIf
 	If -who.GetActorValue("LastFlattered") >= MaxFever
 		If who == Game.GetPlayer()
-			Debug.Notification("Your Arcane Fever is too high to call down the Wrath of the Lightborn.")
+			Debug.Notification(Refusal)
 		EndIf
 		Return
 	EndIf

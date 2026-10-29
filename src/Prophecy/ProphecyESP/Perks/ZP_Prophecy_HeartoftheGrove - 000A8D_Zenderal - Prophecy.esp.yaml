@@ -1,0 +1,26 @@
+FormKey: 000A8D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_HeartoftheGrove
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Mana is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Heart of the Grove'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A87:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A8C:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A94:Zenderal - Prophecy.esp

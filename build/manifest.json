@@ -385,7 +385,9 @@
         {
           "from": "src/Prophecy/assets/sound",
           "to": "sound"
-        }
+        },
+        { "from": "src/Prophecy/rage/compiled/ZenProphecyRage.dll", "to": "SKSE/Plugins" },
+        { "from": "src/Prophecy/data/SKSE/Plugins/ZenProphecyRage.json", "to": "SKSE/Plugins" }
       ]
     },
     {
@@ -1064,7 +1066,9 @@
         {
           "from": "src/ProphecyV3/assets/interface/ProphecyBackgrounds",
           "to": "interface/ProphecyBackgrounds"
-        }
+        },
+        { "from": "src/Prophecy/rage/compiled/ZenProphecyRage.dll", "to": "SKSE/Plugins" },
+        { "from": "src/Prophecy/data/SKSE/Plugins/ZenProphecyRage.json", "to": "SKSE/Plugins" }
       ]
     },
     {

@@ -4,6 +4,7 @@
 
 #include <filesystem>
 #include <fstream>
+#include <set>
 #include <sstream>
 
 // Picks the player's screen shape at startup so nobody has to tick a resolution or HUD preset.
@@ -16,10 +17,13 @@
 // Both happen in SKSEPlugin_Load. This DLL is named _ZenAspectLayout.dll so SKSE loads it (alphabetically,
 // after its early plugins) before CastingBar, CompassNavigationOverhaul, SSEDisplayTweaks and TrueHUD, which
 // read these files during their own load or later. It uses no game addresses.
+// Skip list (optional): Data/SKSE/Plugins/ZenAspectLayout_Skip.txt, one Data-relative path per line, files this DLL
+// never writes. MO2's VFS writes into whichever mod wins a file, so a personal settings mod that wins it (the curator's
+// own ultrawide mod, which carries this list and is not shipped) would otherwise be overwritten.
 // Config: Data/SKSE/Plugins/ZenAspectLayout.ini ([General] Layout = auto|16x9|21x9|32x9, AutoResolution = 1).
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 0, 0 },
+	.Version = REL::Version{ 1, 1, 0, 0 },
 	.Name = "ZenAspectLayout"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -48,6 +52,38 @@ namespace
 		std::ofstream out(a_path, std::ios::binary | std::ios::trunc);
 		out << a_data;
 		return static_cast<bool>(out);
+	}
+
+	std::set<std::string> g_skip;  // lower-case, '/' separators
+
+	std::string Key(const fs::path& a_rel)
+	{
+		auto s = a_rel.generic_string();
+		std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
+		return s;
+	}
+
+	void LoadSkipList()
+	{
+		const auto path = kPlugins / "ZenAspectLayout_Skip.txt";
+		if (!fs::exists(path)) {
+			return;
+		}
+		std::istringstream lines(ReadAll(path));
+		for (std::string line; std::getline(lines, line);) {
+			while (!line.empty() && (line.back() == '\r' || line.back() == ' ')) {
+				line.pop_back();
+			}
+			if (!line.empty() && line[0] != '#') {
+				g_skip.insert(Key(fs::path(line)));
+			}
+		}
+		SKSE::log::info("Skip list {}: {} files never written", path.string(), g_skip.size());
+	}
+
+	bool Skipped(const fs::path& a_rel)
+	{
+		return g_skip.contains(Key(a_rel));
 	}
 
 	// Primary monitor's current mode, in physical pixels (EnumDisplaySettings ignores DPI scaling).
@@ -79,6 +115,10 @@ namespace
 	void ApplyResolution(std::uint32_t a_width, std::uint32_t a_height)
 	{
 		const auto path = kPlugins / "SSEDisplayTweaks_custom.ini";
+		if (Skipped("SKSE/Plugins/SSEDisplayTweaks_custom.ini")) {
+			SKSE::log::info("Resolution: {} is on the skip list; left alone", path.string());
+			return;
+		}
 		const std::string want = std::format("[Render]\r\nResolution={}x{}\r\n", a_width, a_height);
 		if (fs::exists(path) && ReadAll(path) == want) {
 			SKSE::log::info("Resolution {}x{} already set in {}", a_width, a_height, path.string());
@@ -112,6 +152,13 @@ namespace
 
 		const std::string last = fs::exists(kState) ? ReadAll(kState) : std::string{};
 		bool missing = false;
+		std::erase_if(files, [](const fs::path& rel) {
+			if (Skipped(rel)) {
+				SKSE::log::info("  {}: on the skip list; left alone", rel.string());
+				return true;
+			}
+			return false;
+		});
 		for (const auto& rel : files) {
 			missing |= !fs::exists("Data" / rel);
 		}
@@ -142,13 +189,14 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenAspectLayout 1.0.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenAspectLayout 1.1.0 loading, runtime {}", REL::Module::get().version().string());
 
 	CSimpleIniA ini;
 	ini.SetUnicode();
 	ini.LoadFile((kPlugins / "ZenAspectLayout.ini").string().c_str());
 	const std::string forced = ini.GetValue("General", "Layout", "auto");
 	const bool autoResolution = ini.GetBoolValue("General", "AutoResolution", true);
+	LoadSkipList();
 
 	std::uint32_t width = 0, height = 0;
 	if (!MonitorSize(width, height)) {

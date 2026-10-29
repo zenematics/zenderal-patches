@@ -1,0 +1,19 @@
+FormKey: 000A89:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DeepRoots
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Mana is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Deep Roots'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A88:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A92:Zenderal - Prophecy.esp

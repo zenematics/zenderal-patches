@@ -12,10 +12,13 @@ MenuButtons:
     Value: Faith
 - Text:
     TargetLanguage: English
-    Value: Sharpshooter
+    Value: Firearms
 - Text:
     TargetLanguage: English
     Value: Gadgets
+- Text:
+    TargetLanguage: English
+    Value: Shadow
 - Text:
     TargetLanguage: English
     Value: Martial Arts
@@ -24,10 +27,19 @@ MenuButtons:
     Value: Glory
 - Text:
     TargetLanguage: English
+    Value: Rage
+- Text:
+    TargetLanguage: English
+    Value: Druidic
+- Text:
+    TargetLanguage: English
     Value: Arcane Archery
 - Text:
     TargetLanguage: English
     Value: Necromancy
+- Text:
+    TargetLanguage: English
+    Value: Sorcery
 - Text:
     TargetLanguage: English
     Value: Cancel

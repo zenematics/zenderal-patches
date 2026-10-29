@@ -26,6 +26,7 @@ KW_SUMMON_UNDEAD = "02482B:Skyrim.esm"
 KW_SUMMON_FIRE = "024823:Skyrim.esm"
 KW_UNDEAD = "013796:Skyrim.esm"        # ActorTypeUndead
 KW_ANIMAL = "013798:Skyrim.esm"        # ActorTypeAnimal
+KW_NPC = "013794:Skyrim.esm"           # ActorTypeNPC: the human and elf races (Enderal's people), not Draugr/Falmer/skeletons
 KW_BOW = "01E715:Skyrim.esm"           # WeapTypeBow: bows, crossbows and the OrdoLegionis muskets
 KW_LEHRBUCH = "031ACD:Skyrim.esm"      # Lehrbuch: every handbook ALCH
 PLAYER_REF = "000014:Skyrim.esm"
@@ -185,7 +186,7 @@ LEVELED_LISTS = [
      ["UseAll"],
      [(1, LVLI_GOLD_LARGE, 1), (1, LVLI_GOLD_LARGE, 1), (1, LVLI_GOLD_LARGE, 1), (1, LVLI_GOLD_SMALL, 1),
       (1, LOOT_GOBLIN_RARE, 1)]),
-    # Gunslinger (curator 2026-10-23): 50% chance of pistol ammo on any slain enemy
+    # Gunslinger (curator 2026-10-23): 50% chance of pistol ammo on a slain enemy (humanoids only since 2026-10-28)
     (LOOT_GUNSLINGER, "ZEN_TR_GunslingerLoot", 0.5,
      ["CalculateFromAllLevelsLessThanOrEqualPlayer"],
      [(1, FLINTLOCK_BULLET, 3), (1, FLINTLOCK_BULLET, 5)]),
@@ -355,10 +356,10 @@ TRAITS = [
     ("GoblinSlayer", "Goblin Slayer",
      "Your weapons deal 25% more damage to goblins and Arps, and they deal 15% less damage to you. "
      "Goblins and Arps you kill carry extra gold, and often a gem or piece of jewelry.\n\n"
-     "Your weapons deal 10% less damage to everything else.",
+     "Your weapons deal 20% less damage to everything else.",
      [EP("ModAttackDamage", 1.25, {2: goblin()}),
       EP("ModIncomingDamage", 0.85, {1: goblin()}),
-      EP("ModAttackDamage", 0.9, {2: goblin(match=False)}),
+      EP("ModAttackDamage", 0.8, {2: goblin(match=False)}),      # was 0.9 (curator 2026-10-28)
       LootOnDeath(LOOT_GOBLIN, goblin())],
      []),
 
@@ -366,12 +367,15 @@ TRAITS = [
     # Flintlock shot keyword; ModAttackDamage never touches them. Melee = any weapon attack without WeapTypeBow
     # (bows, crossbows and muskets all carry it), fists included.
     ("Gunslinger", "Gunslinger",
-     "Flintlock pistols deal 35% more damage, and enemies you kill have a 50% chance to carry Flintlock Bullets.\n\n"
-     "Your melee attacks deal 25% less damage.",
+     "Flintlock pistols deal 35% more damage, and humanoid enemies, Arps and goblins you kill have a 50% chance to "
+     "carry Flintlock Bullets.\n\nYour melee attacks deal 25% less damage.",
      [EP("ModSpellMagnitude", 1.35, {1: [spell_kw(KW_FLINTLOCK_SHOT)]}),
       EP("ModAttackDamage", 0.75, {1: [C("HasKeyword", {"Keyword": KW_BOW})]}),
-      # any enemy: FS's own Shadow Dancer token perk (01596A) checks its victim the same way
-      LootOnDeath(LOOT_GUNSLINGER, [C("IsHostileToActor", {"TargetNpc": PLAYER_REF}, value=1)])],
+      # an enemy (FS's own Shadow Dancer token perk 01596A checks its victim the same way) who is a person or an Arp or
+      # goblin (curator 2026-10-28): hostile AND (ActorTypeNPC OR Goblin Slayer's three races), so no bullets on beasts,
+      # Lost Ones or skeletons
+      LootOnDeath(LOOT_GUNSLINGER, [C("IsHostileToActor", {"TargetNpc": PLAYER_REF}, value=1),
+                                    has_kw(KW_NPC, or_=True)] + goblin())],
      []),
 ]
 

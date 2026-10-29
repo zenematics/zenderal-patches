@@ -76,7 +76,7 @@ SHAPES = {
                 ('glo2', 'glo5'): [(0, 1.4)], ('glo3', 'glo5'): [(0, 1.4)], ('lst6', 'glo4'): [(0, 2.5)]},
         'stars': [], 'lines': [],
     },
-    'Sharpshooter': {                                    # a long musket, muzzle to the right
+    'Firearms': {                                    # a long musket, muzzle to the right
         'yscale': 1.4,                                   # a rifle is long and thin: give the stock room
         # one straight top line butt -> wrist -> lock -> breech -> barrel -> muzzle; hammer, trigger, butt plate
         # and ramrod are the short strokes off it
@@ -95,10 +95,46 @@ SHAPES = {
         'via': {},
         'stars': [], 'lines': [],
     },
+    'Shadow': {                                          # a dagger, point up, through an upturned crescent moon
+        'nodes': {'sst2': (0, -1.3), 'shd1': (0, -0.3), 'sst1': (0, 0.7),
+                  'shd2': (-1.3, 1.3), 'shd3': (1.3, 1.3), 'sst3': (-2.3, 2.9), 'sst4': (2.3, 2.9),
+                  'sst5': (-0.95, 2.4), 'shd4': (0, 2.4), 'sst6': (0.95, 2.4), 'shd5': (0, 4.6),
+                  'shd6': (0, 1.55), 'shd7': (0, 2.0)},  # Shade Veil, Darkness (2026-10-28): down the blade
+        'via': {('sst6', 'shd5'): [(0, 2.4)]},
+        'stars': [], 'lines': [],
+    },
     'Martial Arts': {                                    # a lotus on its stem
         'nodes': {'mst2': (0, -1.4), 'ma1': (0, -0.3), 'mst1': (0, 0.8),
                   'mst3': (-2.5, 1.5), 'ma2': (-1.3, 2.0), 'ma3': (1.3, 2.0), 'mst4': (2.5, 1.5),
+                  'ma6': (-2.3, 2.6),                    # Dragon's Breath (2026-10-28), beside Hissing Dragon
                   'ma4': (0, 2.5), 'mst5': (-0.6, 3.4), 'mst6': (0.6, 3.4), 'ma5': (0, 4.4)},
+        'via': {},
+        'stars': [], 'lines': [],
+    },
+    'Rage': {                                            # a double-headed axe: Heavenfall's head left, Shadowbringer's right
+        'nodes': {'yst2': (0, -1.3), 'rge1': (0, -0.3), 'yst1': (0, 0.7),
+                  'rge2': (-1.1, 1.6), 'yst3': (-2.1, 1.1), 'rge3': (-2.1, 2.4), 'rge4': (-1.2, 2.9),
+                  'rge5': (1.1, 1.6), 'yst4': (2.1, 1.1), 'rge6': (2.1, 2.4), 'yst5': (2.1, 3.5), 'rge7': (1.2, 2.9),
+                  'rge8': (0, 3.4), 'yst6': (0, 4.5), 'rge9': (0, 5.7)},
+        'via': {},
+        'stars': [], 'lines': [],
+    },
+    'Druidic': {                                           # an oak: roots, trunk, a round crown (growths left, totems right)
+        'nodes': {'vst2': (0, -1.3), 'dru1': (0, -0.3), 'vst1': (0, 0.7),
+                  'dru2': (-1.3, 1.6), 'vst3': (-2.3, 2.2), 'dru3': (-1.3, 3.2),
+                  'dru4': (1.2, 1.4), 'vst4': (2.3, 1.0), 'dru5': (2.5, 2.6), 'vst5': (2.4, 3.5), 'dru6': (1.3, 3.4),
+                  'vst6': (0, 4.2), 'dru7': (0, 5.4),
+                  'dru8': (0, 2.2),                      # Twister (2026-10-27): up the trunk, a dead end
+                  'dru9': (-2.5, 1.2), 'dru10': (3.4, 2.4)},   # Wolf Pack, Nature's Way (2026-10-29)
+        'via': {},
+        'stars': [], 'lines': [],
+    },
+    'Sorcery': {                                        # a star: elements to the left, the stars to the right, meeting in Falling Star
+        'nodes': {'cst2': (0, -1.3), 'sor1': (0, -0.3), 'cst1': (0, 0.8),
+                  'sor2': (-1.1, 1.8), 'cst3': (-2.0, 1.3), 'sor4': (-2.1, 2.8), 'sor3': (-1.1, 3.5),
+                  'cst4': (-2.0, 4.2), 'sor10': (-1.1, 5.0),
+                  'sor5': (1.1, 1.8), 'cst5': (2.0, 1.3), 'sor7': (2.1, 2.8), 'sor6': (1.1, 3.5),
+                  'sor8': (0, 4.3), 'cst6': (0, 5.5), 'sor9': (0, 6.8)},
         'via': {},
         'stars': [], 'lines': [],
     },
@@ -183,15 +219,22 @@ RADIAL_LABEL_GAP = 1.9         # tree name: this far beyond its furthest talent
 RADIAL_FILL = float(os.environ.get('ZP_RADIAL_FILL', 0.6))      # share of its half-slice a figure may use (0.75: Arcane Archery touched Glory)
 RADIAL_LENGTH = float(os.environ.get('ZP_RADIAL_LENGTH', 0.0))  # every figure this long (0 = RADIAL_SPREAD)
 RADIAL_MIN_CENTRE = 2.0        # nothing behind a root comes closer to the centre than this
+# each tree's share of the circle (default 1). Glory and Rage wider (curator 2026-10-27: Druid and Arcane Archery moved
+# further clockwise to give them room); the others give up a little. Faith stays at the top.
+RADIAL_WEIGHT = {'Glory': 1.35, 'Rage': 1.35}
+RADIAL_SCALE = {'Necromancy': 0.65}   # a figure drawn smaller without changing its slice (curator 2026-10-27: Necromancy stuck out)
 RADIAL_BG = 'Data\\Interface\\ProphecyBackgrounds\\Radial.dds'
-TREE_COLOR = {'Faith': (232, 196, 110), 'Sharpshooter': (205, 140, 80), 'Gadgets': (190, 165, 105),
+TREE_COLOR = {'Faith': (232, 196, 110), 'Firearms': (205, 140, 80), 'Gadgets': (190, 165, 105),
               'Martial Arts': (110, 190, 175), 'Glory': (215, 90, 75), 'Arcane Archery': (110, 155, 230),
-              'Necromancy': (165, 110, 210)}
+              'Necromancy': (165, 110, 210), 'Shadow': (130, 140, 170),
+              'Druidic': (115, 180, 95), 'Sorcery': (90, 200, 230), 'Rage': (240, 120, 30)}
 
 
 def place_radial(trees):
     """Adds mx/my to every node, and color/labelPos/mapRoutes/angle to every tree. Returns the map's own settings."""
     n = len(trees)
+    weights = [RADIAL_WEIGHT.get(t['name'], 1.0) for t in trees]
+    total = sum(weights)
     far_all = 0.0
     for k, t in enumerate(trees):
         s = t['shape']
@@ -204,8 +247,9 @@ def place_radial(trees):
         # balanced trees (2026-10-27): each figure scaled so it reaches RADIAL_LENGTH from its root - the long rifle and
         # sword no longer set the map's size while the compact figures stay cramped
         span = max(math.hypot(p[0] - rx, p[1] - ry) for p in pos.values())
-        spread = RADIAL_LENGTH / span if RADIAL_LENGTH > 0 else RADIAL_SPREAD
-        ang = math.pi / 2 - 2 * math.pi * k / n
+        spread = (RADIAL_LENGTH / span if RADIAL_LENGTH > 0 else RADIAL_SPREAD) * weights[k] * RADIAL_SCALE.get(t['name'], 1.0)   # a wider slice draws its figure larger
+        # the slice's centre, clockwise from Faith's at the top; slices sized by RADIAL_WEIGHT
+        ang = math.pi / 2 - 2 * math.pi * (sum(weights[:k]) + weights[k] / 2 - weights[0] / 2) / total
         rot = ang - ang_fig
         cs, sn = math.cos(rot), math.sin(rot)
 
@@ -217,7 +261,7 @@ def place_radial(trees):
             xr, yr = x * cs - y * sn, x * sn + y * cs
             return xr * math.cos(ang) + yr * math.sin(ang), -xr * math.sin(ang) + yr * math.cos(ang)
         pts = [pos[i] for i in pos] + [tuple(v) for r in s['routes'] for v in r['via']]
-        tan_half = math.tan(math.pi / n * RADIAL_FILL)
+        tan_half = math.tan(math.pi * weights[k] / total * RADIAL_FILL)
         need = RADIAL_ROOT
         for p in pts:
             along, across = local(p)
@@ -277,14 +321,19 @@ def place_labels(trees, extent):
     tfs = REF_FONT * max(1.15, min(2.2, z * 1.35))
     P = lambda p: (cw / 2 + p[0] * sc, ch / 2 - p[1] * sc)
     hit = lambda a, b: a[0] < b[2] and b[0] < a[2] and a[1] < b[3] and b[1] < a[3]
-    # a tree's name steps outward until it clears its own stars (Arcane Archery's sat on Arcane Echo)
+    # a tree's name steps outward until it clears its own stars (Arcane Archery's sat on Arcane Echo) and the room
+    # their names may take on any side (2026-10-27: on eight trees "Gadgets" sat on Clockwork Turret's name)
+    def zone(n):
+        x, y = P((n['mx'], n['my']))
+        if n['minor']: return (x - 14 * z, y - 14 * z, x + 14 * z, y + 14 * z)
+        w = text_w(n['name'], ls) / 2 + 14 * z
+        return (x - w, y - ls - 14 * z, x + w, y + ls + 14 * z)
     for t in trees:
-        for _ in range(12):
+        for _ in range(30):
             x, y = P(t['labelPos'])
             w = text_w(t['name'], tfs)
             box = (x - w / 2, y - tfs / 2, x + w / 2, y + tfs / 2)
-            if not any(hit(box, (P((n['mx'], n['my']))[0] - 14 * z, P((n['mx'], n['my']))[1] - 14 * z,
-                                 P((n['mx'], n['my']))[0] + 14 * z, P((n['mx'], n['my']))[1] + 14 * z)) for n in t['nodes']):
+            if not any(hit(box, zone(n)) for n in t['nodes']):
                 break
             d = math.hypot(*t['labelPos'])
             t['labelPos'] = [round(t['labelPos'][0] * (d + 0.3) / d, 4), round(t['labelPos'][1] * (d + 0.3) / d, 4)]
@@ -349,6 +398,8 @@ def main():
         })
     radial = place_radial(trees)
     crowded = place_labels(trees, radial['extent'])
+    # a tree name stepped outward still fits the whole-map view
+    radial['extent'] = round(max(radial['extent'], max(math.hypot(*t['labelPos']) for t in trees) + 0.8), 3)
     print(f'labels: {crowded} still crowded at the whole-map view')
     # the selection notes, in melody order (ZP_Prophecy_SelectNote_NN; the clips come from tools/03-split-piano.py)
     notes = []

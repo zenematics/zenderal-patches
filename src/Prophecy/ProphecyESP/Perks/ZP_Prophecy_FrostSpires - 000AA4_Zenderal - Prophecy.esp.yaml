@@ -1,0 +1,16 @@
+FormKey: 000AA4:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FrostSpires
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Frost Spires" spell: spires of ice burst from the ground, dealing 80 damage to Health and Stamina - up to four times that the more spires strike - and staggering.'
+Name:
+  TargetLanguage: English
+  Value: 'Frost Spires'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AA2:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

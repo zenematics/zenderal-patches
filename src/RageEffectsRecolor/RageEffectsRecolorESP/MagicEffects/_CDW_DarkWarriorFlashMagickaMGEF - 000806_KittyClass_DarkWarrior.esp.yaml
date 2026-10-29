@@ -1,0 +1,58 @@
+FormKey: 000806:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DarkWarriorFlashMagickaMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicAbsorbFXScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CasterVFX
+      Object: 00151D:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fEffectDurationMax
+      Data: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TargetVFX
+      Object: 001522:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TrapImod
+      Object: 000890:KittyClass_DarkWarrior.esp
+Name:
+  TargetLanguage: English
+  Value: Soulrender
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Keywords:
+- 001491:KittyClass_DarkWarrior.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+TaperWeight: 0.3
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+  Type: Absorb
+Projectile: 000879:KittyClass_DarkWarrior.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> points of Magicka.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 001585:KittyClass_DarkWarrior.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

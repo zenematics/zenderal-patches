@@ -1,0 +1,34 @@
+FormKey: 000825:KittySpellPack02.esl
+EditorID: _K02_DiamondWallSpell
+Name:
+  TargetLanguage: English
+  Value: 'Frost Spires'
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 97
+Flags:
+- ManualCostCalc
+ChargeTime: 2.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 000817:KittySpellPack02.esl
+  Data:
+    Magnitude: 80
+    Duration: 2
+- BaseEffect: 00081F:KittySpellPack02.esl
+  Data:
+    Magnitude: 10
+    Duration: 10
+- BaseEffect: 000820:KittySpellPack02.esl
+  Data:
+    Magnitude: 1
+    Duration: 10
+- BaseEffect: 0F3935:Skyrim.esm
+  Data:
+    Area: 15
+    Duration: 3

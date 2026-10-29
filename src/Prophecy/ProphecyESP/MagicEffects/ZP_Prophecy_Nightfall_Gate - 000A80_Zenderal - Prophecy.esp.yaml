@@ -1,0 +1,35 @@
+FormKey: 000A80:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Nightfall_Gate
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WrathGate
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CloakSpell
+      Object: 31C5B8:Triumvirate - Mage Archetypes.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: MaxFever
+      Data: 1000.0
+    - MutagenObjectType: ScriptStringProperty
+      Name: Refusal
+      Data: Your Arcane Fever is too high to call down Nightfall.
+Name:
+  TargetLanguage: English
+  Value: Nightfall
+MenuDisplayObject: 381AEB:Triumvirate - Mage Archetypes.esp
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+MagicSkill: Illusion
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 381AEC:Triumvirate - Mage Archetypes.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'For 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once. Costs a full Darkness meter.'

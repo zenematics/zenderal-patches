@@ -1,0 +1,19 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Rage Effects.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    A Dark Warrior's Tale's hit shader without its smoke cloud, for Prophecy's Rage (src/RageEffectsRecolor).
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: KittyClass_DarkWarrior.esp
+    FileSize: 0
+  INTV: 1

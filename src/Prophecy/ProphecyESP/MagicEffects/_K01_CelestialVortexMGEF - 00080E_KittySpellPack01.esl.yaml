@@ -1,0 +1,48 @@
+FormKey: 00080E:KittySpellPack01.esl
+EditorID: _K01_CelestialVortexMGEF
+Name:
+  TargetLanguage: English
+  Value: 'Gravity Well'
+MenuDisplayObject: 104F70:Skyrim.esm
+Keywords:
+- 0A9B1E:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3
+MagicSkill: Alteration
+ResistValue: ResistMagic
+CastingLight: 075347:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 15
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 00084F:KittySpellPack01.esl
+Explosion: 0E41F0:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 10F7A1:Skyrim.esm
+ImpactData: 000870:KittySpellPack01.esl
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 087588:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 00087F:KittySpellPack01.esl
+Description:
+  TargetLanguage: English
+  Value: Creates a gravitational beacon that pulls nearby targets into it and staggers them.

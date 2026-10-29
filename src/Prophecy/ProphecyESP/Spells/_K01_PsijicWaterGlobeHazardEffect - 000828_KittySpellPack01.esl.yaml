@@ -1,0 +1,32 @@
+FormKey: 000828:KittySpellPack01.esl
+EditorID: _K01_PsijicWaterGlobeHazardEffect
+Name:
+  TargetLanguage: English
+  Value: Wade
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 272
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 000811:KittySpellPack01.esl
+  Data:
+    Magnitude: 66.600006
+    Duration: 2
+- BaseEffect: 000813:KittySpellPack01.esl
+  Data:
+    Magnitude: 30
+- BaseEffect: 000AD4:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 10
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1

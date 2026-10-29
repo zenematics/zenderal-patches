@@ -37,7 +37,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
         for tree, _, _ in v1.TREES:
-            png = os.path.join(src, stem(tree) + '.png')
+            png = os.path.join(src, ART_NAME.get(tree, stem(tree)) + '.png')   # the art keeps its old name
             if not os.path.isfile(png):
                 print(f'{tree}: no {stem(tree)}.png - skipped (the window draws no background for it)')
                 continue
@@ -64,8 +64,12 @@ def main():
         if os.path.isfile(png):
             im = Image.open(png).convert('RGB')
             w, h = im.size
-            s = min(w, h)
-            im = im.crop(((w - s) // 2, (h - s) // 2, (w - s) // 2 + s, (h - s) // 2 + s))
+            # the square is centred on the painting's own centre star, which the map's start point sits on (curator
+            # 2026-10-27: the 11-tree art had it 25.7 px above the middle of 1254)
+            cx, cy = star(im)
+            half = min(cx, w - cx, cy, h - cy)
+            im = im.crop((round(cx - half), round(cy - half), round(cx + half), round(cy + half)))
+            print(f'radial map: centre star at ({cx:.1f}, {cy:.1f}), square {2 * half:.0f} px around it')
             tmp_png = os.path.join(tmp, 'Radial.png')
             im.resize((RADIAL, RADIAL), Image.LANCZOS).save(tmp_png)
             r = subprocess.run([tc, '-nologo', '-y', '-f', 'BC1_UNORM', '-m', '1', '-o', OUT, tmp_png],
@@ -78,6 +82,20 @@ def main():
         else:
             print(f'no {RADIAL_PNG} - the radial map draws no background')
 
+
+def star(im):
+    """Where the painting's centre star is: the brightest pixel in the middle 30% of the image, refined to the
+    centroid of its bright core."""
+    g = im.convert('L')
+    w, h = g.size
+    px = g.load()
+    v, x, y = max((px[i, j], i, j) for j in range(int(h * .35), int(h * .65)) for i in range(int(w * .35), int(w * .65)))
+    core = [(i, j) for j in range(y - 12, y + 13) for i in range(x - 12, x + 13) if px[i, j] >= v - 40]
+    return sum(p[0] for p in core) / len(core), sum(p[1] for p in core) / len(core)
+
+
+# trees renamed after their art was made (curator 2026-10-27): the tree -> the art file's name
+ART_NAME = {'Firearms': 'Sharpshooter'}
 
 RADIAL_PNG = 'Radial mutes.png'      # the curator's muted version (2026-10-27); was Prophecy-Radial.png
 RADIAL = 2048

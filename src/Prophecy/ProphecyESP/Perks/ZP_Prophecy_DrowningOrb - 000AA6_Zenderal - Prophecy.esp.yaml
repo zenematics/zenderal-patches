@@ -1,0 +1,19 @@
+FormKey: 000AA6:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DrowningOrb
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Drowning Orb" spell: a 15-foot sphere of water slows everyone inside it and drains 60 Stamina and Mana per second. Each enemy inside it gives you 10 of its Mana per second, and you restore 10 Mana per second while you stand in it. An Elementalism spell: water is frost, so Elementalist talents strengthen it.'
+Name:
+  TargetLanguage: English
+  Value: 'Drowning Orb'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AA4:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AD5:Zenderal - Prophecy.esp

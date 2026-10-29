@@ -1,0 +1,32 @@
+FormKey: 000A8E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ForceofNature
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Force of Nature" power (no Mana, 50% Arcane Fever): for 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends. It cannot be used when the fever would reach 100%.'
+Name:
+  TargetLanguage: English
+  Value: 'Force of Nature'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A8D:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A97:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 191250:Triumvirate - Mage Archetypes.esp
+      ComparisonValue: 1
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 4

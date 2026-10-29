@@ -1,0 +1,43 @@
+FormKey: 000AEF:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Darkness_SpellEffect
+Name:
+  TargetLanguage: English
+  Value: Darkness
+MenuDisplayObject: 381AEB:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 0A9B1E:Skyrim.esm
+- 31C5B7:Triumvirate - Mage Archetypes.esp
+Flags:
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+- NoDeathDispel
+BaseCost: 20
+MagicSkill: Illusion
+CastingLight: 3727BD:Triumvirate - Mage Archetypes.esp
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectLightArchetype
+  Association: 025D3B:Triumvirate - Mage Archetypes.esp
+Projectile: 30D2A0:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 381AEC:Triumvirate - Mage Archetypes.esp
+HitEffectArt: 395F0C:Triumvirate - Mage Archetypes.esp
+ImpactData: 000AF0:Zenderal - Prophecy.esp
+SkillUsageMultiplier: 0.15
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 08196D:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Leaves a pool of black mist and darkness where it strikes for <dur> seconds.

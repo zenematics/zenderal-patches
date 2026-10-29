@@ -75,6 +75,7 @@ skill appends them to `-i` after the three trees). Record each one here as you d
 | powerofthree's Papyrus Extender (`PO3_SKSEFunctions`, used by `ZEN_SettingsApplier`) | `<modlistRoot>/mods/powerofthree's Papyrus Extender/Source/scripts` |
 | JContainers (`JValue`, `JMap`, `JContainers`, used by `ZEN_SettingsApplier`) | `<modlistRoot>/mods/JContainers SE/scripts/source` |
 | Zen Traits (`ZenTraits_ArcaneFeverScript`, `ArcaneFever`: the list's fever API, used by Prophecy's `ZP_LegionEffect`) | `<modlistRoot>/mods/Zenderal - Patch Collection/Source/Scripts`. Put it **last**: it also holds Zen Traits' copies of two `_00E_` fever scripts |
+| B612 (`b612_TraitsMenu`: Prophecy's v1 card menu, `ZP_ProphecyMenu`) | `<modlistRoot>/mods/B612 - my little asteroid of useful UI components/Source/Scripts` |
 | _(more)_ | Add SkyUI/MCM, PapyrusUtil, etc. here when a patch's script needs them. |
 
 ## Creation Kit against Enderal

@@ -1,0 +1,16 @@
+FormKey: 000AA7:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Wildfire
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Wildfire" spell: a torrent of flame chases your targets, dealing 80 damage per second.'
+Name:
+  TargetLanguage: English
+  Value: 'Wildfire'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AA2:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

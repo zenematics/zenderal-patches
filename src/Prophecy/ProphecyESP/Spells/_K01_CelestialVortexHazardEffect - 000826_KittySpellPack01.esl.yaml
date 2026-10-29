@@ -1,0 +1,41 @@
+FormKey: 000826:KittySpellPack01.esl
+EditorID: _K01_CelestialVortexHazardEffect
+Name:
+  TargetLanguage: English
+  Value: Convergence
+MenuDisplayObject: 104F70:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 103
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 000AE2:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 20
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 000810:KittySpellPack01.esl
+    ComparisonValue: 0
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 00080F:KittySpellPack01.esl
+  Data:
+    Magnitude: 3
+    Duration: 1
+- BaseEffect: 000810:KittySpellPack01.esl
+  Data:
+    Magnitude: 1
+    Duration: 9
+- BaseEffect: 000816:KittySpellPack01.esl
+  Data:
+    Magnitude: 75
+    Duration: 3

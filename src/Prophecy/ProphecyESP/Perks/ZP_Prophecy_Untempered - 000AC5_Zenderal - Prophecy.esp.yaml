@@ -1,0 +1,23 @@
+FormKey: 000AC5:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Untempered
+Description:
+  TargetLanguage: English
+  Value: 'Your Rage can reach 15 stacks, and fades half as fast.'
+Name:
+  TargetLanguage: English
+  Value: 'Untempered'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000ABE:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AC2:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

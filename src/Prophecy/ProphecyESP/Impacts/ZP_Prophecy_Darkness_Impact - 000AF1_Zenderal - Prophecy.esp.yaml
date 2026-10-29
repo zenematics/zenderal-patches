@@ -1,0 +1,11 @@
+FormKey: 000AF1:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Darkness_Impact
+Model:
+  File: ZenProphecy\DarknessMist.nif
+Duration: 30
+AngleThreshold: 80
+PlacementRadius: 16
+SoundLevel: Silent
+NoDecalData: True
+Sound1: 08196E:Skyrim.esm
+Hazard: 000AF2:Zenderal - Prophecy.esp

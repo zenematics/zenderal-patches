@@ -1,0 +1,48 @@
+FormKey: 000AF7:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DragonsBreath_Effect_Fire
+Name:
+  TargetLanguage: English
+  Value: Invoker
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 015C2E:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2
+MagicSkill: Destruction
+ResistValue: ResistFire
+CastingLight: 0140EC:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 01B212:Skyrim.esm
+SpellmakingArea: 15
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 10FBED:Skyrim.esm
+Explosion: 000AFF:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 01B211:Skyrim.esm
+ImpactData: 01C2AF:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03F2EA:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Invoker deals <mag> damage.

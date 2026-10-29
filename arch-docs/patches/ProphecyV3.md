@@ -169,6 +169,15 @@ has a `radial` block; the old tab view stays as the fallback. Concept image: `ou
   - **Edges:** a talent whose button would cross the canvas edge gets no button, since it would grow the content and
     add scrollbars. The window opens with `NoScrollbar | NoScrollWithMouse`, 70% of the screen wide.
   - **Jump bar:** "Whole map", plus one button per tree that centres and zooms on it.
+- **Eighth tree, Shadow (2026-10-27):** a dagger, point up, through an upturned crescent moon, between Gadgets and
+  Martial Arts. With eight narrower slices every root sits further out, so the whole-map view draws everything
+  smaller. Its wedge is not in the background art, `Radial mutes.png`, which still has seven. A tree's name now steps
+  out until it also clears the room its talents' names may take, not just their stars ("Gadgets" sat on Clockwork
+  Turret's name). The map's extent grows to keep a moved name in view.
+- **Eleven trees (2026-10-27): Druid, Sorcerer, Rage.** Order clockwise: Faith, Sharpshooter, Gadgets, Shadow, Martial Arts,
+  Glory, Rage, Druid, Arcane Archery, Necromancy, Sorcerer. `RADIAL_WEIGHT` sizes the slices: Glory and Rage 1.35, which
+  moves Druid and Arcane Archery further clockwise (curator). A tree draws its figure larger by its weight, and `RADIAL_SCALE` draws one smaller without changing its slice: Necromancy 0.65 (curator: it stuck out; its scythe blade forced its root furthest out and set the whole map's size, so shrinking it also drew every other tree larger). The whole-map
+  view cannot keep every name clear at eleven trees (70 overlap); each tree reads cleanly from its jump button.
 - Unverified in game.
 
 ## Building

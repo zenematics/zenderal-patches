@@ -50,6 +50,13 @@ Function Refresh(Perk[] akPerks, String[] asDescriptions, String[] asImages, Int
 	GiftPerk = aiGiftPerk
 	GiftItem = akGiftItem
 	LevelReq = aiLevelReq
+	; Past 128 talents (Rage, 2026-10-27) the property arrays are larger than a Papyrus "new" array may be; they are
+	; built by the VM from the plugin, which should not be limited - this says so in game if it is.
+	Int total = TreeStart[TreeStart.Length - 1]
+	If Perks.Length != total || Descriptions.Length != total || ParentA.Length != total || LevelReq.Length != total
+		Debug.Trace("Prophecy: talent arrays truncated - Perks " + Perks.Length + ", Descriptions " + Descriptions.Length + ", ParentA " + ParentA.Length + ", LevelReq " + LevelReq.Length + ", expected " + total, 2)
+		Debug.MessageBox("Prophecy: the talent list was cut short (" + Perks.Length + " of " + total + "). Please report this.")
+	EndIf
 EndFunction
 
 ; New saves listen for level-ups from the start. Saves older than the prompts are hooked by ZP_ProphecyLevelWatch
@@ -414,9 +421,19 @@ Function Give(Form f, Bool abVerbose)
 	EndIf
 	Shout sh = f as Shout
 	If sh
+		; a talent that used to be a lesser power (Ice Shot until 2026-10-28) leaves its spell behind in the save
+		Spell old = sh.GetNthSpell(0)
+		If old && player.HasSpell(old)
+			player.RemoveSpell(old)
+		EndIf
+		Int k = 0
 		WordOfPower w = sh.GetNthWordOfPower(0)
-		Game.TeachWord(w)
-		Game.UnlockWord(w)
+		While w      ; every word: Veil Wyrm has three
+			Game.TeachWord(w)
+			Game.UnlockWord(w)
+			k += 1
+			w = sh.GetNthWordOfPower(k)
+		EndWhile
 		player.AddShout(sh)
 		If abVerbose
 			Debug.Notification("Talent learned: " + sh.GetName())

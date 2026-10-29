@@ -1,0 +1,16 @@
+FormKey: 000ABC:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Heavenfall
+Description:
+  TargetLanguage: English
+  Value: 'Your sprinting power attacks with at least 8 Rage tear a burning line through the ground: 80 damage to everyone in it, 4 more per second for 10 seconds, and a stagger. Spends 8 Rage.'
+Name:
+  TargetLanguage: English
+  Value: 'Heavenfall'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000ABA:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

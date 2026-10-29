@@ -1,0 +1,19 @@
+FormKey: 000E6A:Shatterveil.esp
+EditorID: shvl_GlassWyrmShout
+Name:
+  TargetLanguage: English
+  Value: Veil Wyrm
+MenuDisplayObject: 10A046:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: 'A wyrm forms over your shoulder and roars: its shockwave breaks apart what it filled the air with and staggers every enemy around you - the full Shout throws them, and the wyrm bursts, its pieces cutting.'
+WordsOfPower:
+- Word: 000E67:Shatterveil.esp
+  Spell: 000E6B:Shatterveil.esp
+  RecoveryTime: 40
+- Word: 000E68:Shatterveil.esp
+  Spell: 000E6C:Shatterveil.esp
+  RecoveryTime: 70
+- Word: 000E69:Shatterveil.esp
+  Spell: 000E6D:Shatterveil.esp
+  RecoveryTime: 100

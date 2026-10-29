@@ -1,0 +1,18 @@
+FormKey: 000ADE:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_OrbitWard_Ability
+Name:
+  TargetLanguage: English
+  Value: Orbit Ward
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000ADF:Zenderal - Prophecy.esp
+  Data: {}

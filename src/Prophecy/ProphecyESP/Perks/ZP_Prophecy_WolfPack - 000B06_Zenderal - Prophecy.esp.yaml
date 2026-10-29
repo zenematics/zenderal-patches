@@ -1,0 +1,30 @@
+FormKey: 000B06:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WolfPack
+Description:
+  TargetLanguage: English
+  Value: 'The Hunt calls two Gray Wolves instead of one.'
+Name:
+  TargetLanguage: English
+  Value: 'Wolf Pack'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A85:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000B0B:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 1

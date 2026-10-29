@@ -90,6 +90,32 @@ VirtualMachineAdapter:
       - Name: ''
         Object: 00081E:Zenderal - Prophecy.esp
       - Name: ''
+        Object: 000A6E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A6F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A70:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A71:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A72:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A73:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A74:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AE6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AED:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A75:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A76:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A77:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A78:Zenderal - Prophecy.esp
+      - Name: ''
         Object: 00081F:Zenderal - Prophecy.esp
       - Name: ''
         Object: 0009D6:Zenderal - Prophecy.esp
@@ -99,6 +125,8 @@ VirtualMachineAdapter:
         Object: 000820:Zenderal - Prophecy.esp
       - Name: ''
         Object: 0009D8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AF5:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000821:Zenderal - Prophecy.esp
       - Name: ''
@@ -133,6 +161,68 @@ VirtualMachineAdapter:
         Object: 0009E1:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000919:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AB9:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABB:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABC:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABD:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABE:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABF:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC0:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC1:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC2:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC3:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC4:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC7:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A82:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A83:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A84:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A85:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B06:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A86:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A87:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A9E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A88:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A89:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8A:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8B:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B07:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8C:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8D:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8E:Zenderal - Prophecy.esp
       - Name: ''
         Object: 00094E:Zenderal - Prophecy.esp
       - Name: ''
@@ -177,6 +267,38 @@ VirtualMachineAdapter:
         Object: 0009ED:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000996:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A9F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA0:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA1:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA2:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA3:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA4:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA7:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA9:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAB:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAC:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAD:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAE:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptStringListProperty
       Name: Descriptions
       Data:
@@ -214,17 +336,31 @@ VirtualMachineAdapter:
       - "You gain 15% resistance to lightning."
       - "Your maximum Stamina is increased by 25."
       - "Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%."
+      - "Darkness gathers in you while you stand in shadow, up to 10: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the \"Gather Shadows\" spell (3 Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness."
+      - "Your Sneak skill is increased by 10."
+      - "Your maximum Mana is increased by 25."
+      - "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health and Mana per second from nearby enemies."
+      - "Your Mana regenerates 10 percent faster."
+      - "Grants the \"Nightblade\" spell (4 Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing 15 more magic damage per point spent."
+      - "Your One-handed skill is increased by 10."
+      - "While you sneak, your body is wrapped in black and grey mist, you are 50% harder to detect, and Darkness gathers twice as fast."
+      - "Grants the \"Darkness\" spell (2 Darkness): a bolt that leaves a pool of black mist and darkness where it strikes for 30 seconds."
+      - "Grants the \"Pull Through Shadows\" spell (3 Darkness): pull a target up to 150 feet away to you, lowering its armor by 100 for 10 seconds."
+      - "Your Psionics skill is increased by 10."
+      - "Your Sneak skill is increased by 10."
+      - "Grants the \"Nightfall\" power (a full Darkness meter): for 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once."
       - "Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty."
       - "Your maximum Stamina is increased by 25."
       - "Your unarmed attacks deal 5 more damage."
       - "Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking."
       - "Your Stamina regenerates 25 percent faster."
+      - "Every 5th unarmed hit unleashes fire, frost or lightning on the enemy, at random: a fireball explosion, a freeze that holds it for 4 seconds, or chain lightning that leaps to nearby enemies. Each deals 60 damage."
       - "Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies."
       - "Your armor rating is increased by 40."
       - "Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty."
       - "Your maximum Health is increased by 25."
       - "You gain 10% resistance to magic."
-      - "Dodging in combat briefly slows time to a crawl (once every 10 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies (once every 15 seconds)."
+      - "Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 8 seconds)."
       - "Grants the \"Seismic Stomp\" power: stomp the ground to send out a shockwave that hurls every enemy within 19 feet into the air and makes them bleed for 50 damage over 5 seconds, while time briefly slows. Usable once every 30 seconds."
       - "Your maximum Health is increased by 25."
       - "Your Blocking skill is increased by 10."
@@ -236,12 +372,43 @@ VirtualMachineAdapter:
       - "Your One-handed and Two-handed skills are increased by 10."
       - "Your Health regenerates 25 percent faster."
       - "Grants the \"War Banner\" power: plant a banner for 15 seconds. While you stand near it, you heal 20 Health per second, and enemies who come close are bound in chains, as by a Stave of Binding. Usable once every 5 minutes."
+      - "Rage builds as you fight: every melee hit you land and every hit you take adds a stack, up to 10. Each stack makes your attacks 2% stronger. After 6 seconds without a hit, Rage fades by one stack every 3 seconds, and it is gone when combat ends."
+      - "Your maximum Health is increased by 25."
+      - "Your maximum Stamina is increased by 25."
+      - "Your sprinting power attacks with at least 8 Rage tear a burning line through the ground: 80 damage to everyone in it, 4 more per second for 10 seconds, and a stagger. Spends 8 Rage."
+      - "Your One-handed and Two-handed skills are increased by 10."
+      - "Your forward power attacks with at least 6 Rage send a wave of darkness in a straight line: 40 damage, and 20 more to targets further away. Spends 6 Rage."
+      - "Your backward power attacks with at least 6 Rage pierce the target for 40 damage and lower its magic resistance by 25% for 30 seconds. Spends 6 Rage."
+      - "Your standing power attacks with at least 8 Rage raise a pillar of dark fire: 60 damage, knocking down everyone it strikes. Spends 8 Rage."
+      - "Your armor rating is increased by 40."
+      - "Your sideways power attacks with at least 6 Rage drain 40 Health from the target into you. Spends 6 Rage."
+      - "Your Health regenerates 25 percent faster."
+      - "Your sideways power attacks with at least 6 Rage drain 40 Mana and 40 Stamina from the target into you. With Bloodletter, one hit does both for one cost. Spends 6 Rage."
+      - "Your Rage can reach 15 stacks, and fades half as fast."
+      - "Your Stamina regenerates 25 percent faster."
+      - "When your Rage reaches its peak you enter Vehemence for 15 seconds: your power attacks cost no Stamina, and their Rage actions spend no Rage. When it ends, your Rage is spent."
+      - "Grants the \"Druidcraft\" spell: cast it on a corpse and nature reclaims it, growing a plant you can harvest, and you heal 20 Health and gather a Goodberry."
+      - "Your Mana regenerates 10 percent faster."
+      - "Your armor rating is increased by 40."
+      - "Grants \"The Hunt\" power: spend 5 Goodberries to call a Gray Wolf to your side. It stays until it is killed."
+      - "The Hunt calls two Gray Wolves instead of one."
+      - "Your Health regenerates 25 percent faster."
+      - "Grants the \"Bramble Growth\" spell: a bed of brambles that deals 10 bleed and poison damage for 15 seconds. A target that dies on it sprouts a Goodberry."
+      - "Grants the \"Twister\" spell (97 Mana): a column of deadly wind that deals 40 damage per second for 10 seconds and staggers those caught in it."
+      - "Grants the \"Create Water Totem\" spell: a totem stands for 60 seconds, heals 5 Health and Mana per second and cures disease. An Elementalism spell."
+      - "Your maximum Mana is increased by 25."
+      - "Grants the \"Create Tree Totem\" spell: a totem stands for 60 seconds and deals 10 poison damage per second to nearby enemies in combat. An Elementalism spell."
+      - "Your armor rating is increased by 40."
+      - "You can have one more totem standing at a time."
+      - "Grants the \"Create Earth Totem\" spell: a totem stands for 60 seconds and casts tremors that deal 120 damage every 7 seconds in combat. An Elementalism spell."
+      - "Your maximum Mana is increased by 25."
+      - "Grants the \"Force of Nature\" power (no Mana, 50% Arcane Fever): for 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends. It cannot be used when the fever would reach 100%."
       - "Grants the \"Arcane Arsenal\" power: choose Fire, Frost or Lightning, and your bow hits deal 10 extra damage of that element."
       - "Your maximum Mana is increased by 25."
       - "Your Archery skill is increased by 10."
       - "While you aim a bow, a Spell Ward (Rank II) surrounds you. It fades when you fire or lower the bow."
       - "Your Mana regenerates 10 percent faster."
-      - "Grants the \"Ice Shot\" power: with a bow equipped, add 3 ice arrows to your quiver for 50 Magicka. They deal 25 frost damage and freeze the target solid for 8 seconds, and your next arrow shatters it."
+      - "Grants the \"Ice Shot\" talent (110 seconds cooldown): with a bow equipped, add 3 ice arrows to your quiver. They deal 25 frost damage and freeze the target solid for 8 seconds, and your next arrow shatters it."
       - "You gain 15% resistance to frost."
       - "Your bow hits send a barn owl to attack the target. It fights at your side until it is killed, each later hit sends it after that target, and each of its strikes drains 10 Magicka from its target and gives it to you. While it is out, you regenerate 2 Magicka per second. Only one owl can be out at a time."
       - "Your maximum Stamina is increased by 25."
@@ -258,6 +425,22 @@ VirtualMachineAdapter:
       - "You gain 15% resistance to frost."
       - "Your armor rating is increased by 40."
       - "Grants the \"Legion of the Damned\" power: at the cost of 50% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one."
+      - "Grants the \"Blink Step\" lesser power (35 Mana): you shatter like glass and re-form up to 33 feet ahead."
+      - "Your Elementalism skill is increased by 10."
+      - "Your maximum Mana is increased by 75."
+      - "While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting."
+      - "You gain 15% resistance to fire."
+      - "Grants the \"Frost Spires\" spell: spires of ice burst from the ground, dealing 80 damage to Health and Stamina - up to four times that the more spires strike - and staggering."
+      - "You gain 15% resistance to frost."
+      - "Grants the \"Drowning Orb\" spell: a 15-foot sphere of water slows everyone inside it and drains 60 Stamina and Mana per second. Each enemy inside it gives you 10 of its Mana per second, and you restore 10 Mana per second while you stand in it. An Elementalism spell: water is frost, so Elementalist talents strengthen it."
+      - "Grants the \"Wildfire\" spell: a torrent of flame chases your targets, dealing 80 damage per second."
+      - "Grants the \"Starlance\" spell: beams of pure Mana fall from the night sky on a single target for 120 damage."
+      - "You gain 15% resistance to lightning."
+      - "Grants the \"Twin Effigies\" spell: two copies of you, one on each side, draw your enemies' attacks for 30 seconds and cast the spells you held when you cast it. Each shatters after taking a third of your Health in damage. They grow with your Psionics: at 50 they last 40 seconds and take almost half your Health, at 75 50 seconds and two thirds, at 100 a full minute and more than your whole Health."
+      - "Grants the \"Gravity Well\" spell: a well of gravity pulls nearby enemies into it and staggers them, and drains 20 Health from each into you."
+      - "Grants the \"Falling Star\" spell: a falling star strikes for 60 damage and staggers; a target with more Mana than Health also loses Mana."
+      - "Your Mana regenerates 10 percent faster."
+      - "Grants the \"Veil Wyrm\" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for 20 seconds: your spells cost half as much Mana and you restore 10 Mana per second. One word recovers in 40 seconds, two in 70, three in 100."
     - MutagenObjectType: ScriptStringListProperty
       Name: Images
       Data:
@@ -295,11 +478,25 @@ VirtualMachineAdapter:
       - 'ProphecyPics/ZP_Prophecy_InsulatedGloves.dds'
       - 'ProphecyPics/ZP_Prophecy_SteadyHands.dds'
       - 'ProphecyPics/ZP_Prophecy_Overclock.dds'
+      - 'ProphecyPics/ZP_Prophecy_GatherShadows.dds'
+      - 'ProphecyPics/ZP_Prophecy_SilentStep.dds'
+      - 'ProphecyPics/ZP_Prophecy_DarkReservoir.dds'
+      - 'ProphecyPics/ZP_Prophecy_DrainingShroud.dds'
+      - 'ProphecyPics/ZP_Prophecy_SoulSiphon.dds'
+      - 'ProphecyPics/ZP_Prophecy_Nightblade.dds'
+      - 'ProphecyPics/ZP_Prophecy_UmbralEdge.dds'
+      - 'ProphecyPics/ZP_Prophecy_ShadeVeil.dds'
+      - 'ProphecyPics/ZP_Prophecy_Darkness.dds'
+      - 'ProphecyPics/ZP_Prophecy_PullThroughShadows.dds'
+      - 'ProphecyPics/ZP_Prophecy_WhisperingMind.dds'
+      - 'ProphecyPics/ZP_Prophecy_Unseen.dds'
+      - 'ProphecyPics/ZP_Prophecy_Nightfall.dds'
       - 'ProphecyPics/ZP_Prophecy_IronFist.dds'
       - 'ProphecyPics/ZP_Prophecy_Conditioning.dds'
       - 'ProphecyPics/ZP_Prophecy_IronKnuckles.dds'
       - 'ProphecyPics/ZP_Prophecy_HissingDragon.dds'
       - 'ProphecyPics/ZP_Prophecy_BreathControl.dds'
+      - 'ProphecyPics/ZP_Prophecy_Invoker.dds'
       - 'ProphecyPics/ZP_Prophecy_StunningBlows.dds'
       - 'ProphecyPics/ZP_Prophecy_ToughenedBody.dds'
       - 'ProphecyPics/ZP_Prophecy_BreakingWaves.dds'
@@ -317,6 +514,37 @@ VirtualMachineAdapter:
       - 'ProphecyPics/ZP_Prophecy_Veteran.dds'
       - 'ProphecyPics/ZP_Prophecy_IronConstitution.dds'
       - 'ProphecyPics/ZP_Prophecy_WarBanner.dds'
+      - 'ProphecyPics/ZP_Prophecy_BloodiedFury.dds'
+      - 'ProphecyPics/ZP_Prophecy_BloodOath.dds'
+      - 'ProphecyPics/ZP_Prophecy_IronLungs.dds'
+      - 'ProphecyPics/ZP_Prophecy_Heavenfall.dds'
+      - 'ProphecyPics/ZP_Prophecy_TemperedSteel.dds'
+      - 'ProphecyPics/ZP_Prophecy_ShadowCarve.dds'
+      - 'ProphecyPics/ZP_Prophecy_DarkDeluge.dds'
+      - 'ProphecyPics/ZP_Prophecy_Shadowbringer.dds'
+      - 'ProphecyPics/ZP_Prophecy_ScarredHide.dds'
+      - 'ProphecyPics/ZP_Prophecy_Bloodletter.dds'
+      - 'ProphecyPics/ZP_Prophecy_Bloodthirst.dds'
+      - 'ProphecyPics/ZP_Prophecy_Soulrender.dds'
+      - 'ProphecyPics/ZP_Prophecy_Untempered.dds'
+      - 'ProphecyPics/ZP_Prophecy_UnendingFury.dds'
+      - 'ProphecyPics/ZP_Prophecy_Vehemence.dds'
+      - 'ProphecyPics/ZP_Prophecy_Druidcraft.dds'
+      - 'ProphecyPics/ZP_Prophecy_GreenWellspring.dds'
+      - 'ProphecyPics/ZP_Prophecy_Barkskin.dds'
+      - 'ProphecyPics/ZP_Prophecy_TheHunt.dds'
+      - 'ProphecyPics/ZP_Prophecy_WolfPack.dds'
+      - 'ProphecyPics/ZP_Prophecy_SapofLife.dds'
+      - 'ProphecyPics/ZP_Prophecy_BrambleGrowth.dds'
+      - 'ProphecyPics/ZP_Prophecy_Twister.dds'
+      - 'ProphecyPics/ZP_Prophecy_WaterTotem.dds'
+      - 'ProphecyPics/ZP_Prophecy_DeepRoots.dds'
+      - 'ProphecyPics/ZP_Prophecy_TreeTotem.dds'
+      - 'ProphecyPics/ZP_Prophecy_Thornhide.dds'
+      - 'ProphecyPics/ZP_Prophecy_NaturesWay.dds'
+      - 'ProphecyPics/ZP_Prophecy_EarthTotem.dds'
+      - 'ProphecyPics/ZP_Prophecy_HeartoftheGrove.dds'
+      - 'ProphecyPics/ZP_Prophecy_ForceofNature.dds'
       - 'ProphecyPics/ZP_Prophecy_ArcaneArsenal.dds'
       - 'ProphecyPics/ZP_Prophecy_ArcaneFocus.dds'
       - 'ProphecyPics/ZP_Prophecy_FletchersEye.dds'
@@ -339,6 +567,22 @@ VirtualMachineAdapter:
       - 'ProphecyPics/ZP_Prophecy_ColdBlood.dds'
       - 'ProphecyPics/ZP_Prophecy_BoneArmour.dds'
       - 'ProphecyPics/ZP_Prophecy_LegionDamned.dds'
+      - 'ProphecyPics/ZP_Prophecy_BlinkStep.dds'
+      - 'ProphecyPics/ZP_Prophecy_ArcaneStudy.dds'
+      - 'ProphecyPics/ZP_Prophecy_ManaFont.dds'
+      - 'ProphecyPics/ZP_Prophecy_OrbitWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_EmberWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_FrostSpires.dds'
+      - 'ProphecyPics/ZP_Prophecy_RimeWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_DrowningOrb.dds'
+      - 'ProphecyPics/ZP_Prophecy_Wildfire.dds'
+      - 'ProphecyPics/ZP_Prophecy_Starlance.dds'
+      - 'ProphecyPics/ZP_Prophecy_StormWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_TwinEffigies.dds'
+      - 'ProphecyPics/ZP_Prophecy_GravityWell.dds'
+      - 'ProphecyPics/ZP_Prophecy_FallingStar.dds'
+      - 'ProphecyPics/ZP_Prophecy_ArcaneTide.dds'
+      - 'ProphecyPics/ZP_Prophecy_VeilWyrm.dds'
     - MutagenObjectType: ScriptIntListProperty
       Name: ParentA
       Data:
@@ -383,43 +627,104 @@ VirtualMachineAdapter:
       - 37
       - 35
       - 39
+      - 35
+      - 41
       - 37
-      - 41
-      - 41
       - 43
+      - 43
+      - 45
       - -1
-      - 45
-      - 45
-      - 46
+      - 47
+      - 47
       - 48
-      - 46
       - 50
       - 48
-      - 52
-      - 52
-      - 54
-      - -1
-      - 56
-      - 56
+      - 48
+      - 53
+      - 50
+      - 55
+      - 55
       - 57
-      - 59
-      - 57
-      - 61
-      - 59
-      - 63
-      - 63
-      - 65
       - -1
-      - 67
-      - 67
+      - 59
+      - 59
+      - 60
+      - 62
+      - 60
+      - 64
+      - 62
+      - 66
+      - 66
       - 68
+      - -1
       - 70
-      - 68
-      - 72
-      - 72
-      - 74
-      - 74
-      - 76
+      - 70
+      - 71
+      - 73
+      - 73
+      - 73
+      - 71
+      - 77
+      - 77
+      - 79
+      - 77
+      - 75
+      - 82
+      - 83
+      - -1
+      - 85
+      - 85
+      - 86
+      - 88
+      - 88
+      - 88
+      - 86
+      - 86
+      - 93
+      - 93
+      - 95
+      - 95
+      - 95
+      - 91
+      - 99
+      - -1
+      - 101
+      - 101
+      - 102
+      - 104
+      - 102
+      - 106
+      - 104
+      - 108
+      - 108
+      - 110
+      - -1
+      - 112
+      - 112
+      - 113
+      - 115
+      - 113
+      - 117
+      - 117
+      - 119
+      - 119
+      - 121
+      - -1
+      - 123
+      - 123
+      - 124
+      - 126
+      - 126
+      - 128
+      - 128
+      - 126
+      - 124
+      - 132
+      - 132
+      - 132
+      - 128
+      - 136
+      - 137
     - MutagenObjectType: ScriptIntListProperty
       Name: ParentB
       Data:
@@ -464,6 +769,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
+      - -1
+      - -1
       - 39
       - -1
       - -1
@@ -475,7 +782,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 50
+      - -1
+      - 53
       - -1
       - -1
       - -1
@@ -486,7 +794,7 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 61
+      - 64
       - -1
       - -1
       - -1
@@ -499,6 +807,64 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
+      - -1
+      - -1
+      - -1
+      - 79
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 98
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 106
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 134
       - -1
       - -1
     - MutagenObjectType: ScriptIntListProperty
@@ -508,16 +874,38 @@ VirtualMachineAdapter:
       - 25
       - 28
       - 30
-      - 45
-      - 55
-      - 56
-      - 61
-      - 66
-      - 72
-      - 77
-      - 70
+      - 46
+      - 59
+      - 69
+      - 88
+      - 100
+      - 101
+      - 111
+      - 117
+      - 122
+      - 115
       - 0
       - 8
+      - 34
+      - 37
+      - 39
+      - 43
+      - 42
+      - 92
+      - 91
+      - 93
+      - 95
+      - 98
+      - 85
+      - 128
+      - 130
+      - 131
+      - 132
+      - 123
+      - 135
+      - 136
+      - 106
+      - 138
     - MutagenObjectType: ScriptObjectListProperty
       Name: PowerSpell
       Objects:
@@ -530,13 +918,17 @@ VirtualMachineAdapter:
       - Name: ''
         Object: 000882:Zenderal - Prophecy.esp
       - Name: ''
+        Object: 000A7F:Zenderal - Prophecy.esp
+      - Name: ''
         Object: 00092F:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000921:Zenderal - Prophecy.esp
       - Name: ''
-        Object: 000953:Zenderal - Prophecy.esp
+        Object: 000B08:Zenderal - Prophecy.esp
       - Name: ''
-        Object: 00095C:Zenderal - Prophecy.esp
+        Object: 000A97:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000953:Zenderal - Prophecy.esp
       - Name: ''
         Object: 00096A:Zenderal - Prophecy.esp
       - Name: ''
@@ -549,6 +941,46 @@ VirtualMachineAdapter:
         Object: 000A40:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000A43:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 3727BF:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 31C5C1:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 330A43:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 30D2A4:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 000AEE:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00086F:Aero.esl
+      - Name: ''
+        Object: 27F3B4:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 3BE79F:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 3C38C5:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 35E36E:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 000A95:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000825:KittySpellPack02.esl
+      - Name: ''
+        Object: 000829:KittySpellPack01.esl
+      - Name: ''
+        Object: 000829:KittySpellPack02.esl
+      - Name: ''
+        Object: 000814:Supernova.esl
+      - Name: ''
+        Object: 000E52:Shatterveil.esp
+      - Name: ''
+        Object: 000827:KittySpellPack01.esl
+      - Name: ''
+        Object: 000815:Supernova.esl
+      - Name: ''
+        Object: 000AD8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000E6A:Shatterveil.esp
     - MutagenObjectType: ScriptIntListProperty
       Name: TreeStart
       Data:
@@ -556,10 +988,14 @@ VirtualMachineAdapter:
       - 11
       - 22
       - 34
-      - 45
-      - 56
-      - 67
-      - 78
+      - 47
+      - 59
+      - 70
+      - 85
+      - 101
+      - 112
+      - 123
+      - 139
     - MutagenObjectType: ScriptIntListProperty
       Name: GiftPerk
       Data:
@@ -616,6 +1052,62 @@ VirtualMachineAdapter:
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
       - 30
       - 0
       - 0
@@ -639,6 +1131,11 @@ VirtualMachineAdapter:
       - 0
       - 0
       - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0

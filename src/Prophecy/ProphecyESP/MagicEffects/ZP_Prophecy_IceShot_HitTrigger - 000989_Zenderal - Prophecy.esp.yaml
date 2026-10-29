@@ -16,6 +16,9 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: Pending
       Object: 00098D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IceArrow
+      Object: 000960:Zenderal - Prophecy.esp
 Name:
   TargetLanguage: English
   Value: Ice Shot

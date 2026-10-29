@@ -1,0 +1,22 @@
+FormKey: 000827:KittySpellPack01.esl
+EditorID: _K01_CelestialVortex
+Name:
+  TargetLanguage: English
+  Value: 'Gravity Well'
+MenuDisplayObject: 000840:KittySpellPack01.esl
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 97
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44B9:Skyrim.esm
+Effects:
+- BaseEffect: 00080E:KittySpellPack01.esl
+  Data:
+    Magnitude: 20

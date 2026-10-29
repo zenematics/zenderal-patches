@@ -27,6 +27,14 @@ playtest saw no bullets.) Trait 18 → `0x844` SPEL, `0x845` MGEF, `0x846` PERK;
   01596A` uses on its victims. The first build required `ActorTypeNPC 013794` at 30%; why no bullets showed up in the
   playtest is not established (the perk may not have been on the player, or 30% was unlucky) — confirm with
   `player.hasperk` before blaming the records.
+- **Humanoids only again (2026-10-28, curator: "only drop the ammo on Humanoid enemies").** The victim needs
+  `ActorTypeNPC 013794` as well as `IsHostileToActor PlayerRef`, still at 50%. In this list that keyword is on the human
+  and elf races (Enderal's people), not on Draugr (Lost Ones), skeletons, `FalmerRace` (Arps) or the goblin races (copies
+  of FalmerRace). This is the first build's condition, which saw no bullets in its one playtest (cause never found).
+  **Arps and goblins added the same day (curator):** victim = hostile AND (`ActorTypeNPC` OR Goblin Slayer's three
+  races, via the same `goblin()` OR chain). Only beasts, creatures, Lost Ones and skeletons are left out.
+  If none drop, check `player.hasperk` on `ZEN_TR_GunslingerPERK` first. Previous plugin in
+  `E:/Zenderal-backups/2026-10-28-traits-pre-goblin-gunslinger/`. Unverified in game.
 - **New master:** `Zenderal - Flintlock Overhaul.esp` (loads at 346, before Goblins and Traits).
 - **Art:** the curator's `outputs/trait-icons/27-Gunslinger.png` → `tools/02` (now expects 27 icons) →
   `Interface/TraitPics/ZEN_TR_GunslingerAb.dds` (two smoking flintlock pistols, converted and deployed 2026-10-23).
@@ -45,7 +53,7 @@ any of three races (OR chain): `ZEN_GoblinRace 000800`, `ZEN_Mihail_mihailgoblin
 durzogs are left out. The penalty uses the same three checks `== 0`, AND-chained.
 - Weapon damage ×1.25 against goblins: `ModAttackDamage`, target tab `GetIsRace FalmerRace`.
 - Damage taken from goblins ×0.85: `ModIncomingDamage`, attacker tab.
-- Weapon damage ×0.9 against everything else: the same race check `== 0`.
+- Weapon damage ×0.8 against everything else (×0.9 until 2026-10-28, curator): the same race check `== 0`.
 - Loot: `AddLeveledListOnDeath` (`PerkEntryPointAddLeveledItem`, victim on tab 1, two tabs). The shape is FS's
   own `_00E_SE_ShadowDancerAddToken 01596A`. It drops `ZEN_TR_GoblinSlayerLoot 880` (UseAll). Both rates were raised
   +60% on 2026-10-22, at the curator's request:
@@ -132,7 +140,10 @@ works is absolute paths, with `-i=<source>;<papyrusSource.enderal>;<papyrusSourc
   - Pathfinder's −50 carry weight was flat in the design too, and stays flat.
   - **Zen Traits' Aeterna Veins gets the same live cut (2026-10-25, curator: "without the full heal").** Its script
     `ZenTraits_AeternaVeinsScript` is forked in `Scripts/source` (Zen Traits is MIT) and ships loose in this mod.
-    *Zenderal - Traits* (modlist line 31) outranks *Zenderal - Patch Collection* (148), which holds Zen Traits' copy.
+    *Zenderal - Traits* (modlist line 31) outranked *Zenderal - Patch Collection* (148), which holds Zen Traits' copy.
+    **Since 2026-10-27, Patch Collection carries this plugin and its three scripts** (the fork replaced Zen's own
+    `ZenTraits_AeternaVeinsScript.pex` there), and the standalone *Zenderal - Traits* mod is disabled. A rebuild
+    goes into Patch Collection's copy. Keep the standalone copy identical.
     - Upstream's debuff `000815` was sized by its perk's `MultiplyAVMult Health 0.2` entry, after a `RestoreAV 10000`
       full heal, and was refreshed only on PO3's `OnLevelIncrease`. That event may never fire here, because Enderal
       levels through `Game.SetPlayerLevel`.

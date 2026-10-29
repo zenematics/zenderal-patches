@@ -1,0 +1,16 @@
+FormKey: 000AAB:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_GravityWell
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Gravity Well" spell: a well of gravity pulls nearby enemies into it and staggers them, and drains 20 Health from each into you.'
+Name:
+  TargetLanguage: English
+  Value: 'Gravity Well'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AA8:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

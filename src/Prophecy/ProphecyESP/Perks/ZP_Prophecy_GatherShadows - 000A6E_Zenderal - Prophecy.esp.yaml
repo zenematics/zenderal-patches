@@ -1,0 +1,13 @@
+FormKey: 000A6E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_GatherShadows
+Description:
+  TargetLanguage: English
+  Value: 'Darkness gathers in you while you stand in shadow, up to 10: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the "Gather Shadows" spell (3 Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness.'
+Name:
+  TargetLanguage: English
+  Value: 'Gather Shadows'
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AEB:Zenderal - Prophecy.esp

@@ -1,0 +1,19 @@
+FormKey: 000A74:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UmbralEdge
+Description:
+  TargetLanguage: English
+  Value: 'Your One-handed skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Umbral Edge'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A73:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A7C:Zenderal - Prophecy.esp

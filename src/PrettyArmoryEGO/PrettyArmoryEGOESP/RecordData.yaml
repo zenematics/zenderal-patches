@@ -29,8 +29,6 @@ ModHeader:
     FileSize: 0
   - Master: Pretty Unique Armory.esp
     FileSize: 0
-  - Master: Enderal Remastered Armory - Heavy Leather.esp
-    FileSize: 0
   - Master: Pretty Enderal Clothing.esp
     FileSize: 0
   - Master: Pretty Mages Armory.esp
@@ -40,5 +38,9 @@ ModHeader:
   - Master: Pretty Holy Order Armory.esp
     FileSize: 0
   - Master: Pretty Holy Order Grandmaster Armory.esp
+    FileSize: 0
+  - Master: Malphas' Blessing - Enderal.esp
+    FileSize: 0
+  - Master: Enderal Remastered Armory - Heavy Leather.esp
     FileSize: 0
   INTV: 1

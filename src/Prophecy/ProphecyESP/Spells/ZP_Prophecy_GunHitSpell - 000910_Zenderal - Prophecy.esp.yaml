@@ -2,7 +2,7 @@ FormKey: 000910:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_GunHitSpell
 Name:
   TargetLanguage: English
-  Value: Sharpshooter
+  Value: Firearms
 MenuDisplayObject: 0435A5:Skyrim.esm
 EquipmentType: 013F44:Skyrim.esm
 Description:

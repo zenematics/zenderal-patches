@@ -1,0 +1,19 @@
+FormKey: 000AA2:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_OrbitWard
+Description:
+  TargetLanguage: English
+  Value: 'While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting.'
+Name:
+  TargetLanguage: English
+  Value: 'Orbit Ward'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AA0:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000ADE:Zenderal - Prophecy.esp

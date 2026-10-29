@@ -161,6 +161,483 @@ Rewritten records' display strings: `HOLY_RENAME`. Unverified in game.
 - **Gaps.** An unarmed right hand (h2h block) and a spell in each hand are not covered. Rerun 06 after a Dynamic Block
   Hit update. Unverified in game.
 
+## Tree names (curator, 2026-10-27)
+
+Three trees were renamed in game: **Sharpshooter → Firearms, Druid → Druidic, Sorcerer → Sorcery** (the strings in
+`TREES`, `STAT_NODES`, `HAND_STATS`, `DRUID_TREE`/`SORC_TREE` and the v3 layout's keys). Node ids (`gun*`, `dru*`, `sor*`),
+FormIDs and EditorIDs did not change, so saves are untouched. Older sections, and code comments, still use the old
+names. The v3 tab background is now `Firearms.dds`; `02-convert-backgrounds.py` reads it from the curator's
+`Sharpshooter.png` (`ART_NAME`).
+
+## Shadow, the eighth tree (curator, 2026-10-27)
+
+It sits between Gadgets and Martial Arts in `TREES`, so it is in that place in the menu arrays, the v1 tree box and
+the v3 map. Its records are allocated after everything older (`SHADOW_FIRST_ID` `0xA6E`): 11 perks `0xA6E–0xA78` in
+tree order, 6 stat abilities `0xA79–0xA7E`, then Nightfall's power / gate / fever `0xA7F–0xA81`. Nothing was renumbered.
+
+- **The four spell talents grant Triumvirate's own spells** through the menu (`SHADOW_GRANTS`, as Dark Effigy): Gather
+  Shadows `3727BF`, Draining Shroud `31C5C1`, Nightblade `330A43`, Pull Through Shadows `30D2A4`. They are not copied.
+  Magic Patches already prices them for Enderal, and only their Mana costs differ between plugins (magnitudes checked
+  against Magic Patches and the Triumvirate Enderal patch). Their tomes are also sold in the list, so the talents are
+  a shortcut, not the only way to get them.
+- **Nightfall is a lesser power, not the 1245-Mana master spell.** Its gate effect reuses `ZP_WrathGate` (new `Refusal`
+  string property; its default keeps Wrath's text). It checks Arcane Fever once, refuses at 50% or more, then casts
+  Triumvirate's Nightfall `31C5B8` and 50% fever. A scripted cast costs nothing and ignores the spell's skill level.
+  Nightfall's `TVR_CastAllTheThings_Script` (string table read 2026-10-27) casts each Shadow buff in its list the
+  caster `HasSpell`: Shadow Stride, Shadow Dance, Nightblade, Draining Shroud and Gather Shadows.
+- **Shape:** Pull Through Shadows is the merge talent (either branch unlocks it); `weave_stats` needs a root with two
+  children. **Stat talents** (Mana and stealth): Silent Step (Sneak +10, W1), Dark Reservoir (Mana +25), Soul Siphon
+  (Mana regen +10%), Umbral Edge (One-handed +10; Elementalism until 2026-10-28), Whispering Mind (Psionics +10),
+  Unseen (Sneak +10, W2). Their effects are vanilla `AbFortifySneak`/`Illusion`/`OneHanded`
+  (`02E1C6`/`02E1C5`/`023166`), which no plugin in the list overrides.
+- **Shade Veil** (2026-10-28, `shd6`, `SHADOW_LATE_NODES`): off Silent Step, a dead end (the menu holds two parents at
+  most). Perk `0xAE6`, allocated after Shatterveil's records, then ability / effect / shader `0xAE7–0xAE9`
+  (`SHADE_VEIL_RECORDS`). Harder to detect = Enderal's own entry point `ModDetectionSneakSkill` Add 50 (SureAI's
+  Infiltrator: Devious calls Add 15 "15 percent"; detection only checks it while sneaking). The mist: a constant
+  ability whose effect needs `IsSneaking`, its hit shader a copy of Enderal's `DA02ArmorShadow 081180` (the vanilla
+  Ebony Armor smoke: grey membrane + `SmokeInky01` particles, textures in `Skyrim - Textures4/5`) minus its ambient
+  sound. No card art yet.
+- **Darkness** (curator, 2026-10-28): a meter that fills in darkness and pays for the Shadow spells **instead of Mana**.
+  `ZenProphecyDarkness.dll` (`src/Prophecy/darkness`, config `ZenProphecyDarkness.json` from `write_shadow`, numbers in
+  `DARKNESS`). Records `0xAEA–0xAEC`: global `ZP_Darkness` (saved with the game, so a load keeps it), and the
+  Darkness ability/effect on Gather Shadows ("You have <mag> Darkness."). Mechanism:
+  - **Light:** the `GetLightLevel` condition function (the sneak eye's value) through
+    `SCRIPT_FUNCTION::LocateScriptCommand`, no address ID. Steps are Gather Shadows' own thresholds 60/40/20: a point
+    every 3/2/1 s, twice as fast with Shade Veil's effect on; above 60 it drains a point every 4 s. Max 10.
+  - **Costs:** the four spells 3/4/4/3, Nightfall the full meter. Mana cost 0 for the player through the
+    `SpellItem::AdjustCost` vfunc (0x63); a cast short of Darkness is refused in `ActorMagicCaster::CheckCast` (0x0A,
+    "Not enough Darkness."); `TESSpellCastEvent` spends. Without Gather Shadows the spells cost Mana as before.
+  - **Nightfall** lost its Arcane Fever (gate `MaxFever` 1000, no `FeverSpell`; `fever` record unused). Its script casts
+    the buffs through the instant caster: never refused, and casts for 3 s after a full-meter spend are free.
+  - **Meter:** the Rage meter's Oxygen Meter 2 movie in its own menu, bar `4E5180` (was dark navy `2A1A5E`) / purple flash `6B48C8`
+    (curator). `yOffset` −2.5 (88.2%) sat on the compass in Vel'dun's bottom HUD; +2.8 (93.5%) is just below the
+    Stamina / Mana bars, worked out from the curator's screenshot. Meter, fill and costs verified in game 2026-10-28.
+- **Nightblade on Darkness** (2026-10-28, DLL 1.1.0, records `0xAF3–0xAF4`): Triumvirate's proc
+  (`TVR_Shadow_Spell_Nightblade_Proc 335B4F`, cast by `TVR_BlinkStrikes_Script` on each `PowerAttack_Start_End`) deals a
+  flat 45, and its `335B52` (`TVR_PercentageDamage_Script`, disassembled: `akCaster.DamageActorValue(magicka, 50%)`)
+  only *takes* half the caster's Mana - the damage never read it. Prophecy now **owns `335B4F`** (the Triumvirate Enderal
+  patch's record + a condition on `335B52`: PlayerRef lacks Gather Shadows), so tree users lose no Mana. The DLL watches
+  the proc's `TESHitEvent`s (one spend per target per 0.5 s), spends half the Darkness (rounded up) and casts
+  `ZP_Prophecy_Nightblade_DarknessDamage` (a copy of the proc's damage effect `335B51` minus its dash-keyword condition)
+  from the player with magnitude 15 per point (`NIGHTBLADE`). A full meter: 5 spent, 45 + 75. Unverified in game.
+- **Darkness talent** (`shd7`, 2026-10-28, `SHADOW_LATE_NODES_2`, after Shade Veil): perk `0xAED`, then a copy of
+  Triumvirate's Darkness spell chain `0xAEE–0xAF2` (spell from Magic Patches' winning record, effect / impact set /
+  impact / hazard from the Triumvirate Enderal patch), granted by the menu, 2 Darkness. Its hazard wears
+  `ZenProphecy\DarknessMist.nif` instead of the blacklight nif: vanilla's `FXMistLowSwirls01Dark` (about 900 units
+  across, the darkness light's 426-unit radius) with its swirl shader's base colour set from white to black by
+  `tools/08-build-darkness-mist.py` (generated, not committed). The original drew light grey in game: it is
+  alpha-blended, but white through a grey fog palette. Then "not noticeable enough": the shader's falloff faded the flat mist to 0 edge-on (stop opacity 0 at 80°, i.e. seen from standing height), so stop opacity is 1 and the base colour's alpha 2 (double). Triumvirate's own records are untouched (its tome still sells
+  the original). The meter moved again on the curator's word: `yOffset` 4.8, width 60.
+  Then "the original Darkness spell's effect additional to the black smoke": the hazard went back to Triumvirate's
+  `Shadows_Hazard_Blacklight.nif` and the mist moved onto the **impact** `0xAF1` (`Model` + `Duration` 30). The
+  blacklight nif is LE (BS version 83) and the mist SE, so one merged mesh was not an option. Vanilla impacts last
+  0.1–2 s; whether a 30 s impact holds its model that long is unverified. If the mist vanishes at once, the fallback
+  is a second hazard placed by `ZenProphecyDarkness.dll` beside each Darkness hazard.
+- **Card art** for the five major talents (`ProphecyPics/ZP_Prophecy_<Name>.dds`): converted 2026-10-28 from the
+  curator's PNGs (`tools/02`, see the card-art note below).
+- **Card art, 2026-10-29:** the curator's ten new cards (from `Pictures/Zenderal New Icons`, prompts in
+  `outputs/art-prompts-prophecy-2026-10-29.md`) were converted alone by `tools/02 <folder with only them>` and
+  installed. They cover Shade Veil, Darkness, Dragon's Breath, The Hunt, Wolf Pack, Nature's Way, Blink Step, Orbit
+  Ward, Twin Effigies and Veil Wyrm. Only Chaff (Gadgets) still has no card.
+- Unverified in game.
+
+## Druid, the ninth tree (curator, 2026-10-27)
+
+It sits between Glory and Arcane Archery. Records are allocated after Shadow (`DRUID_FIRST_ID` `0xA82`): 13 perks
+`0xA82–0xA8E`, 6 stat abilities `0xA8F–0xA94`, then `DRUID_RECORDS` `0xA95–0xA9D`. Nothing was renumbered.
+
+- **The Hunt, Wolf Pack, Nature's Way (curator, 2026-10-29).**
+  - **The Hunt** replaced Parasitic Growth on `dru2`, which keeps its perk `0xA85`. It is a lesser power `0xB08`:
+    `ZP_TheHuntEffect` (`0xB09`) spends 5 Goodberries (`TVR_Healing_Potion_Goodberry 2844D3`, `HUNT['Berries']`)
+    and casts the wolf spell `0xB0A`. The wolf is a copy of Triumvirate's Call Gray Wolf summon effect `16391F` (the
+    Enderal patch's copy) as `0xB0B`: FireAndForget, without `TVR_SummonCost_Script`, lasting 100000 s ("until
+    killed"), so the shape of Force of Nature's familiars. With fewer than 5 berries there is only a notification.
+    Parasitic Growth is no longer granted, so its tome is back in the tome lists (`write_unsold_tomes` reads the
+    grants). A save that bought `dru2` keeps the Parasitic Growth spell it was given.
+  - **Wolf Pack** (`dru9`, perk `0xB06`, off The Hunt): the script also casts the second wolf spell `0xB0C` (effect
+    `0xB0D`). The perk adds +1 to `ModCommandedActorLimit` while the first wolf's effect `0xB0B` is on.
+  - **Nature's Way** (`dru10`, perk `0xB07`, off Tree Totem): +1 to `ModCommandedActorLimit` while the player has an
+    effect with `TVR_Totem_Keyword_LevelScaling 3E706A`, which is on all three totem effects (the totems are summons).
+    The limit is shared, so a wolf and a totem compete for it.
+  - Allocated last (`DRUID_LATE_NODES_2`, `HUNT_RECORDS`). Unverified in game.
+  - **Druidcraft gives Goodberries** (same day, for The Hunt): `ZP_DruidcraftHealEffect` adds `DRUID['CraftBerries']`
+    (1) Goodberry with its heal on a corpse. Triumvirate's Druidcraft turns the corpse to ash, so it is once per
+    corpse. Unverified in game.
+
+- **Shape.** This is the first tree not built by `weave_stats`. Its stat talents are written in `TREES` and filled in
+  from `HAND_STATS`, and its W2 (Heart of the Grove) is listed in `HAND_W2` for the capstone's level gate.
+  - Druidcraft → W1 → three branches:
+    - Parasitic Growth → Bramble Growth.
+    - The totem chain: Water → Tree → Earth (the curator's "three-node cluster on one branch").
+    - **Twister**, the Abyssal Wind branch (added the same day, `dru8`, perk `0xA9E`, `DRUID_LATE_NODES`).
+  - W2 needs Bramble Growth or Earth Totem. The menu arrays hold at most two parents (`ParentA`/`ParentB`), so
+    Twister cannot also lead to it; it is a dead end.
+- **Twister comes from Kittytails' Abyssal Wind Magic (`Aero.esl`, Nexus 96352), installed, not copied** (curator's
+  choice). **Prophecy now masters `Aero.esl`.** Its plugin is a cleaned copy: see
+  [`KittytailsPacksClean`](KittytailsPacksClean.md). The menu grants `00086F:Aero.esl` (`_AV_PLAYER_WindBallSpawnTornado_75`).
+  Prophecy overrides that spell's price, 409 → 97 (EGO's tier-75 FireAndForget median), and drops its Dragonborn menu
+  art. Prophecy is the only plugin that touches it. The generator reads the cleaned plugin's YAML from
+  `reference/mods/AbyssalWindMagic` (gitignored; serialize the cleaned `Aero.esl` there).
+- **`write()` now names a file by its FormKey's own plugin.** This is for overrides such as the Twister spell.
+- **Spells granted by the menu (`DRUID_GRANTS`):** Triumvirate's Parasitic Growth `27F3B2`, Bramble Growth `27F3B4`,
+  and Create Water/Tree/Earth Totem (`3BE79F`/`3C38C5`/`35E36E`), priced by Magic Patches.
+- **Druidcraft** is our copy of Magic Patches' winning `28E6E9` plus `ZP_Prophecy_Druidcraft_Heal`. That is a
+  `NoDeathDispel` script effect, `ZP_DruidcraftHealEffect`, which heals the caster 20 when the target is dead.
+  Regenerate this copy if Magic Patches reprices Druidcraft.
+- **Force of Nature** is a lesser power. `ZP_ForceOfNatureEffect` works in this order:
+  1. It takes 50% fever the way Legion does (Zen Traits, refused when the fever would reach 100).
+  2. It casts Triumvirate's Force of Nature `28E6EB`: `TVR_Wildshape_Script` `SetRace`s the player to the Horned
+     Lord `000837` for 60 s.
+  3. Once `191250` is on the player, it casts the familiars: our FireAndForget copies of Triumvirate's Enderal-patched
+     summon effects (Raven `15460C`, Snow Leopard `168A21`, Rattlesnakes `02A226` ×2). The copies drop
+     `TVR_SummonCost_Script` (the Mana drain that ties them to concentration) and their Twin Souls conditions, and
+     last 65 s.
+  4. The perk adds `ModCommandedActorLimit` +4 while `191250` is on the player. The script polls each second and
+     dispels the familiars when the form ends early.
+- **Stat talents** (Mana, armor and regeneration):
+  - Green Wellspring: Mana regen +10% (W1).
+  - Barkskin: armor +40.
+  - Sap of Life: Health regen +25%.
+  - Deep Roots: Mana +25.
+  - Thornhide: armor +40.
+  - Heart of the Grove: Mana +25 (W2).
+- **Granted spells are not sold (curator, 2026-10-28; `write_unsold_tomes`).** Only Triumvirate's tomes reach shops:
+  Triumvirate - Enderal Patch puts its `TVR_Tomes_Litem_*` bundles in three merchant lists (Marius `0302D2`, Undercity
+  fence `030307`, Undercity wild mage `0302F0`) and distributes nothing at runtime (its `TVR_PopulateSpellBooks_Script`
+  says so). Prophecy overrides the 12 bundles holding the 9 granted spells' tomes (the Enderal patch's records, minus
+  those entries; `TVR_Tomes_Litem_All` 74 → 65; single-tome bundles left empty). Merchant lists untouched. Kittytails'
+  tomes never sold: their injector quests target vanilla tome lists Enderal lacks (`0FDE79`, `0A272F`, `0A2982`,
+  `0A2737`, `0A2984`), Aero's a Dragonborn stub list; Obscure Magic's SPID ini is not installed. Prophecy's own
+  spells have no tomes. The debug cheat chest `41EC95` still holds the bundles. Unverified in game.
+- **Totems are Elementalism (curator, 2026-10-28).** Triumvirate's Water/Tree/Earth Totems were Conjuration (Entropy).
+  The school sits on each spell's effect (`3BE79E`, `3C89CF`, `35E36C`); Magic Patches owns the three spells (prices),
+  so Prophecy overrides only the effects: the winning record verbatim with `MagicSkill: Destruction`
+  (`TOTEM_EFFECTS`). Their `MagicSummonFamiliar` keyword stays. Unverified in game.
+- **Invisible in the form: the player's own skin (found 2026-10-28 by `ZenPlayer3DTrace`).** The player's actor base
+  carries its own skin, `SkinNaked 000D64`, and an actor's own skin wins over its race's. After the swap the player
+  still wore SkinNaked, whose addons have no Horned Lord version: the trace showed the skeleton loaded and **no body
+  slot filled**. NPCs have no own skin, so they wore the race's (`000839`) and showed the form. Argonian worked for the
+  player because SkinNaked has Argonian addons. Fix: `ZP_ForceOfNatureEffect.FormSkin` - once the form is on, the
+  player's actor base wears `000839` (`ActorBase.SetSkin` + `QueueNiNodeUpdate`); the saved skin goes back when the
+  form ends (`PollSeconds` 0.25). SKSE's `SetSkin` is not saved in the save game. **Verified in game 2026-10-28.**
+- **Earlier wrong fix, kept as harmless:** the male skeleton.
+  **Invisible in the form: the male skeleton (curator, 2026-10-28).** Prophecy overrides the Horned Lord race
+  `000837` (the winning record, Triumvirate - Enderal Patch's copy of the .esp, verbatim) with one change: the **male**
+  skeleton `mihail monsters and animals\dwarven centurion\old god\skeletonoldgod.nif` (LE, with LE Havok ragdoll
+  data) becomes XPMSE's SE `Actors\Character\Character Assets\skeletonBeast.nif` (all 21 bones the body mesh uses).
+  How it was found, by console tests in game: a **female** NPC `setrace`d to the race showed the form (the female
+  skeleton is XPMSE's `skeletonBeast_female.nif`); the **male** player went invisible with no shadow even from a plain
+  `player.setrace` and after a reload; `player.setrace ArgonianRace` (the race's head data is Argonian) showed him.
+  Ruled out on the way: the LE body mesh (the raven familiar's LE skinned mesh draws), worn armour, missing bones,
+  the Enderal patch dropping the records, the player's face. Unverified in game.
+- **Earlier attempt, kept (`StripArmor`):** the race swap
+  worked (RaceMenu's `OnRaceSwitchComplete` fires), and the familiars showed, but the player drew nothing.
+  - Not the mesh format: 205 of Triumvirate's 214 meshes are LE (stream 83), the Horned Lord body included, but the
+    raven familiar's LE skinned `basecrow.nif` draws fine.
+  - The cause: `TVR_Wildshape_Script` (strings: `GetEquippedWeapon`, `UnequipItem`, no armour calls) only takes
+    weapons and spells off, and race `000837` has no `ArmorRace`. Worn armour stays on, its addons do not list the
+    race, so it draws nothing and hides the race's skin under every slot it covers.
+  - The script now takes worn armour (all 32 slots, `GetWornForm`) off before the form and equips it back when
+    the form ends (its watch loop, or `OnEffectFinish`). Unverified in game.
+- **Risks:** the race swap and the four summons around it have not been tried in this list; the A-pose history
+  applies. Card art for the eight main talents (2026-10-28). Unverified in game.
+
+## Sorcerer, the tenth tree (curator, 2026-10-27)
+
+It sits between Necromancy and Faith, last in `TREES`. Records are allocated after Druid (`SORC_FIRST_ID` `0xA9F`):
+16 perks `0xA9F–0xAAE`, 6 stat abilities `0xAAF–0xAB4`, then `0xAB5–0xAB8` (Storm Wisps', then Mana Burn's; retired
+2026-10-28, never reuse). Added later, after Rage (`SORC_LATE_RECORDS`, `0xAD3–0xAD7`): Mana Burn's restore `0xAD3` and
+shader `0xAD7` (retired), Drowning Orb's Mana drain `0xAD4` and watch ability `0xAD5–0xAD6`. After Ice Shot's shout
+(`SHVL_LATE_RECORDS`): Bursting Effigy's tier ability `0xADA–0xADB` (retired the same day, never reuse), Twin Effigies' `0xADC–0xADD` (dropped, then back on sor6), Orbit Ward's cast ability `0xADE–0xADF`, the shout's sound `0xAE0`, Blink Step's Mana cost `0xAE1`, Gravity Well's Health absorb `0xAE2`.
+
+- **Shape (hand-placed, `HAND_STATS`):**
+  - Blink Step → W1 Arcane Study → two branches:
+    - **Elements:** Orbit Ward → Frost Spires (→ Drowning Orb, added at the curator's request) and Wildfire.
+    - **Stars:** Starlance → Twin Effigies and Gravity Well.
+  - Falling Star merges Frost Spires and Twin Effigies → W2 Arcane Tide → **Veil Wyrm** (capstone shout, level 30).
+  - 16 talents is the v1 card menu's per-tree maximum (`new Bool[16]`).
+  - With 119 talents the menu arrays are near Papyrus's 128-element limit, which is still unverified.
+  - The v1 tree message box now has 11 buttons. Skyrim's message boxes take 10, so v1 cannot pick Sorcerer; v3
+    uses its own window.
+- **Spells.** Six come from Kittytails' Obscure Magic (`KittySpellPack01.esl`), Elemental Mastery Magic
+  (`KittySpellPack02.esl`) and Constellation Magic (`Supernova.esl`). Prophecy masters all three; they are installed
+  and cleaned by [`KittytailsPacksClean`](KittytailsPacksClean.md).
+  - The menu grants them (`SORC_SPELLS`).
+  - Prophecy overrides each player spell, as their only patcher:
+    - an Enderal name (no Aetherius or Psijics, Mana for Magicka);
+    - a price on EGO's FireAndForget ladder: tier 50 → 77, tier 75 → 97 (the packs used 210–625);
+    - its visible effects renamed, with their text lore-fixed (`SORC_LORE`).
+  - Damage stays the packs'.
+  - Fields that name a Dawnguard/Dragonborn form are dropped (`no_dlc`), so Prophecy needs no DLC master. In game they
+    resolve to nothing either way, e.g. Constellation's ImpactData `01A3FB:Dawnguard.esm`.
+  - Flare Storm's script property `MG01 → 01F251:Skyrim.esm` stays: it is a missing Skyrim quest, `None` as in the
+    pack.
+- **Names:**
+
+  | Pack spell | Enderal name |
+  |---|---|
+  | Diamond Splash | Frost Spires |
+  | Water Globe | Drowning Orb |
+  | Flare Storm | Wildfire |
+  | Celestial Rays | Starlance |
+  | Celestial Vortex | Gravity Well |
+  | Stardust | Falling Star |
+- **Shatterveil** (curator, 2026-10-28; Wollecss, Nexus 193420, 1.3.1). It replaced Arcane Brand, Rimefire, Star Prison
+  and Mana Burn (Rimefire's node was Twin Effigies for a few hours, then Orbit Ward). Its `Shatterveil.dll` (CommonLibSSE-NG, Address Library) runs the effigies, the dash and the wyrm,
+  so **none of it works without the DLL loading on 1.7.104** (unverified). Installed into the Ultra profile as MO2 mod
+  *Shatterveil*, above Obscure Magic; `Shatterveil.esp` (ESL, HEDR 1.71, masters only `Skyrim.esm`) loads after
+  `Supernova.esl`, and Prophecy masters it. Two changes to the install, both in `meta.ini`'s notes:
+  - its SkyPatcher tome list (`SKSE/Plugins/SkyPatcher/leveledList/Shatterveil/`) is **not installed**: it targets
+    vanilla Skyrim spell lists (`A297A`, `A272D`, ...) that Enderal does not have, and granted spells are not sold;
+  - `Shatterveil.ini`: `bGlassWyrmMusic = 0` and `bShadowWyrmWhispers = 0` (the curator: no battle music). The DLL
+    reads and its SKSE menu writes this one file.
+  - **Blink Step** (`000E52`, sor6) goes through `SORC_SPELLS` like the packs' spells, and since 2026-10-28 (curator) is
+    a **lesser power costing 35 Mana** (`blink_power`; was a 53-, then 20-Mana spell): `Type: LesserPower`, voice
+    equip slot. A power spends no Mana, so the spell gets a second effect, `ZP_Prophecy_BlinkStep_ManaCost 0xAE1`
+    (Damage Magicka 35); both effects require Magicka >= 35, the blink listed first so it is checked before the
+    Mana comes off. With less than 35 nothing happens (no message). A power plays no hand-casting sounds, so a third
+    effect plays the spell's own cast sound, its effect's Release sound `MAGIllusionReleaseSelfSD 07BBAE`, through
+    `sound_records(descriptor=...)` (marker `0xAE4` -> `07BBAE`, `ZP_PlaySoundEffect` effect `0xAE5`; Explosive
+    Tripwire's pattern), under the same Mana condition. Tried first (in game, 2026-10-28): a custom Release sound on
+    `E51`, which never played from the power; then a mix of Shatterveil's glass shatter + re-form,
+    which added a bell the original never had. `0xAE3` (that mix's sound record) is retired. Unverified in game.
+    2026-10-29, "add this sound to the Sorcery blink step": a fourth effect plays the curator's
+    `MA_Originals_FastSwooshTransitions_5.wav` with the cast sound (`BLINK_SWOOSH_RECORDS`: sound `0xB03`, marker
+    `0xB04`, `ZP_PlaySoundEffect` effect `0xB05`, under the same Mana condition). The file is converted from 24- to
+    16-bit by `tools/07-build-sounds.py` into `Sound/FX/ZenProphecy/ZP_BlinkStepSwoosh.wav` (not committed).
+    Unverified in game.
+  - **Orbit Ward** (sor2): not a spell the player casts. The talent's ability runs `ZP_CastWardEffect` (No
+    Distractions' shape): on the graph's `BeginCastRight`/`BeginCastLeft` it casts Shatterveil's Orbit Ward `000E55`
+    on the player (`Spell.Cast`, no Mana), and dispels it on `CastStop`, Sheathe, or two 0.25 s polls with none of
+    `IsCastingRight`/`IsCastingLeft`/`IsCastingDual` set (all three are vanilla `0_master` variables). The DLL
+    starts its five orbiting wards from that effect's apply event (`StartWard`, a `TESMagicEffectApplyEvent` sink);
+    **whether a dispel also takes the wards away is the DLL's and unverified** - its log line `ward took a blow: {}
+    charges left` suggests it counts charges itself. A fire-and-forget spell holds the ward only while charging.
+  - **Root swap (curator, 2026-10-28):** Blink Step moved to the root, sor1 (was sor6), and sor6 became **Twin Effigies**
+    (it replaced Bursting Effigy). The node ids, so the layout and perk FormIDs, stay; only what each grants moved:
+    a save that bought sor1 now holds Blink Step, sor6 Twin Effigies.
+  - **Gravity Well** (sor7) drains 20 Health from each enemy it catches into the caster (`GW_ABSORB`, curator
+    2026-10-28): Absorb Health `0xAE2` added first to the vortex hazard's spell `_K01_CelestialVortexHazardEffect
+    000826` (re-cast on everyone inside every 0.3 s for 3.1 s), gated on the target not yet having that spell's own 9 s
+    marker `000810`, so once per enemy per well, and on `IsHostileToActor` player. Unverified in game.
+  - **Twin Effigies** (sor6; Bursting Effigy on sor1 until the root swap) climbs Shatterveil's four tiers (`SHVL_TIERS`). The menu
+    grants nothing for it; the talent's ability runs `ZP_SpellTierWatch`, which keeps the player on the best tier
+    their base Psionics (`Illusion`) reaches and removes the others: apprentice from the start, then 50/75/100 (the
+    mod's own `MinimumSkillLevel`s). It checks when the ability starts and every 10 s (Enderal raises skills with no
+    event). Tier prices 53/76/97/124 (EGO's ladder; the mod's ran 150–1300). Tier strength is the DLL's, from the ini's
+    `fHealth*`/`fDamage*` (Bursting: 20/35/55/85 burst damage).
+    **Casting the player's spells** (curator 2026-10-29: "they just punch"): Shatterveil gives its effigies the
+    player's armor and weapons only, with a weapons-only combat style, so a caster's effigies punch (`fDamageTwinEffigies
+    = 0`: harmless). `ZenProphecyRage.dll` 1.2.0 handles it (`EFFIGY_CAST`, JSON `effigies`). On the player's cast of a Twin Effigies
+    spell (`F10`–`F13`) it remembers the spells in both hands, minus Twin Effigies itself and summons (an effigy's
+    summons would bypass the limit). Effigies (in `shvl_DecoyFaction 000800` or of base `000F01`) that appear within
+    3 s take that list. Each casts the next spell every 3 s at its combat target, or else the player's nearest foe within
+    2048 units (`CastSpellImmediate` from the effigy, blamed on the player, free); a self spell lands on the effigy. The
+    log names the remembered spells. Unverified in game.
+  - **Veil Wyrm** (sor9, the capstone): the menu grants the shout `000E6A`, and `ZP_ProphecyMenu.Give` now teaches and
+    unlocks **every** word of a granted shout (it taught only the first). Its own recovery: 20/35/50 s by words (doubled, below). No
+    fever cost.
+    **Mana Burn rides on it** (curator, 2026-10-28): each word's Voice spell (`E6B`–`E6D`) also casts Mana Burn's
+    marker effect `0xAB6` (20 s, was 60 until the same day; blue-flame aura `0xAD7` + shock-cloak art) and its 10 Mana/s
+    restore `0xAD3`, and the Veil Wyrm perk carries the `ModSpellCost` x0.5 while the marker is on. No fever: instead
+    Prophecy overrides the shout `E6A` with its recovery doubled (`WYRM_COOLDOWN_MULT`, 20/35/50 -> 40/70/100 s).
+    Mana Burn's spell and power `0xAB5`, `0xAB7`–`0xAB8` stay retired.
+    Prophecy also overrides two of its records: the slow-time spell `F26` onto Enderal's `_00E_Game_SlowTimeME 13FB41`
+    (its vanilla `048ACD` does not exist in Enderal), and the three word effects `E6E`–`E70` get a Release sound,
+    `ZP_Prophecy_VeilWyrmGlassImpactSD 0xAE0`: two of the curator's Motion Array clips mixed, the glass impact
+    `MA_GarnaVutka_Trailer_Glass_Impacts_09.wav` and the whale `MA_SBProductions_WhaleCollection_Whale7.wav` starting
+    2.0 s in, under the impact's tail (12 s; straight after the impact it came too late, curator),
+    24-bit converted to 16-bit PCM (48 kHz stereo), loose at `Sound/FX/ZenProphecy/ZP_VeilWyrmGlassImpact.wav` in the
+    v3 mod, **not committed**: rebuild with `tools/07-build-sounds.py` (reads the curator's Music folder). Shatterveil's own wyrm sounds stay silent
+    on 1.7.104 (see `ShatterveilAE.md`). 2026-10-29: the curator's `Glass-002.wav` was added to the mix at 0.0 s, "as an
+    addition". It is 96 kHz, so `07` low-pass filters and decimates it to 48 kHz. The three clips overlap past full
+    scale, so the whole mix is scaled by 0.707 (−3 dB).
+- **Drowning Orb** (curator, 2026-10-27): costs 39 Mana (half the tier-50 price). It is an Elementalism spell now:
+  its effects (`000812`, Wade's `000811`/`000813`, the drain) move from Alteration (Mentalism) to Destruction
+  (Elementalism) and carry `MagicDamageFrost 01CEAE`, the keyword Enderal's Elementalist talents boost
+  (`ModSpellMagnitude` on fire/frost/shock spells, e.g. Arcane Might `069D0B`). The orb is the pack's hazard `000853`, which re-casts its "Wade" spell
+  `000828` on everyone inside every 0.2 s. Prophecy overrides `000828` and adds Absorb Mana 10/s for 1 s (refreshed
+  while inside), enemies only (`IsHostileToActor` player).
+  - **The hazard never applies its spell to its own caster.** The first build also added the Mana restore there,
+    player-only (`GetIsReference` PlayerRef, survives the round trip). It gave no Mana in game (curator, 2026-10-27).
+    Probably the whole spell counts as hostile (its slow is), and a hostile spell is never applied to its caster.
+  - So the player's 10/s comes from `ZP_DrowningOrbWatch`, an ability the Drowning Orb talent gives (`0xAD5–0xAD6`).
+    On `OnSpellCast` of the orb spell it polls every 0.5 s for 12 s: `Game.FindClosestReferenceOfTypeFromRef(hazard
+    000853, player, 320)`, and restores 5 Mana per hit. 320 = the mesh's `BlastRadiusNode`; the bubble is ~200.
+    If a watch finds no orb at all, it writes `ZP_DrowningOrbWatch: no Drowning Orb hazard ...` to the Papyrus log
+    (whether that call finds placed hazards is unverified). Saves that already had the talent get the ability on load.
+- **Stat talents:** Elementalism +10 (W1), Mana +75 (Mana Font; +25 until 2026-10-28, curator), 15% resistance to
+  fire (new `resfire`, `AbResistFire 024314`), frost and lightning, and Mana regen +10% (W2). Mana Font's change was
+  deployed into *Prophecy v3 (Constellation)*'s copy, the winning one, after checking that copy was byte-identical to
+  the repo build before the change (5 bytes differ after). Previous plugin in
+  `E:/Zenderal-backups/2026-10-28-prophecy-pre-mana-font/`.
+- **Map:** a narrow star, elements to the left and stars to the right. At ten trees the whole-map view cannot keep
+  every name clear (52 overlapping); each tree reads cleanly zoomed in. Card art for the main talents (2026-10-28).
+  **Mana Burn** replaced Storm Wisps after its art was made (`StormWisps.png` is not used); its own card (the curator's
+  blue-flame caster, `OneDrive\Pictures\Zenderal New Icons\ZP_Prophecy_ManaBurn.png`, copied to
+  `outputs/trait-icons/`) was converted alone the same day (`tools/02 <folder with only that PNG>`, so no other card
+  was re-converted) and installed in *Prophecy v3 (Constellation)*'s `interface/ProphecyPics`, the path its
+  `ZenProphecyUI.json` loads. Unverified in game.
+
+## Martial Arts: Dragon's Breath, now Invoker (curator, 2026-10-28)
+
+**Renamed Invoker (curator, 2026-10-29).** The talent, its perk (EditorID now `ZP_Prophecy_Invoker`, FormID `0xAF5`
+unchanged), its card (`ZP_Prophecy_Invoker.dds`, the Dragon's Breath art) and the spell and effect names and
+descriptions. The spells' and effects' EditorIDs and the DLL's log lines keep "DragonsBreath".
+
+"Every 5 hits with unarmed attacks, trigger a random close range elemental blast, fire, frost, lightning" that hits
+3–5 m in front. Node `ma6`, beside Hissing Dragon (parent: Conditioning `mst1`, the root's stat talent - the
+root may have only two children in `weave_stats`), allocated last (`MARTIAL_LATE_NODES`): perk `0xAF5`, then per
+element a spell / effect / projectile `0xAF6–0xAFE` (`write_dragons_breath`). Each is Hissing Dragon's copied
+proc with its cone range 128 → 350 (~5 m), spread 10 → 30, speed 768 → 1024, 60 damage, and Hissing Dragon's proc
+keyword `000868` removed (so nothing keyed to Hissing Dragon takes them for its own). Frost and shock keep their
+Stamina / Magicka half (dual value).
+
+The count lives in `ZenProphecyRage.dll` 1.1.0 (`DragonsBreath`, same TESHitEvent sink, run before Rage's own
+root-perk gate, so it works without the Rage tree): player hits whose source is a hand-to-hand WEAP, hits closer
+than 0.15 s counted as one swing; every 5th casts a random spell with `CastSpellImmediate` from the player at the
+target. `ZenProphecyRage.json` `dragonsBreath` block. The log names each blast and the first three
+non-unarmed hits it skipped (in case unarmed hits report another source). Unverified in game.
+
+Then "blast out fire / frost or lightning depending on which is in rotation": each element got a blast `0xAFF–0xB01`
+(appended after the cones, `DRAGON_EXPL_SRC`): vanilla's `FireBallExp01`, `ExplosionRuneFrost01` and
+`ExplosionRuneShock01` copied with no damage, force, enchantment or image-space modifier (no screen flash; the cone
+does the damage). The DLL (1.1.1, JSON `explosions`, parallel to `spells`) sets the matching one off at the target
+with `PlaceObjectAtMe` as it casts the cone. Unverified in game.
+
+Then "a short burst of elemental emitting from the punches" and "like a breeze of fire / frost / lightning,
+shockwaves from the punches" (2026-10-29):
+- The blasts (same IDs) are now vanilla's **small** bursts: `FireballStormImpactExplosionNoDamage` (fire),
+  `MAGIceSpikeVolleyExplosion` (frost), `ExplosionShockMassNoEffectsSmall` (shock), still with no damage, force or
+  screen effect. DLL 1.1.2 creates the burst at whichever hand node (`NPC R Hand [RHnd]` / `NPC L Hand [LHnd]`)
+  is nearer the target's chest (`TESDataHandler::CreateReferenceAtLocation`), falling back to the target.
+- The cone projectiles (same IDs) are copies of the breath shouts' waves (`DRAGON_WAVE_SRC`): Fire Breath
+  `VoiceFireWaveProjectile01 0647BF`, Frost Breath `VoiceFrostWaveProjectile01 068BD0` and Enderal's
+  `_00E_MAGEldritchStormWaveProjectile 06A17B` for lightning. Each keeps its own speed and light, with range 350
+  and spread 30. All the meshes are in `Skyrim - Meshes1.bsa` / `E - Meshes.bsa`. Unverified in game.
+
+Then "Fire = Explosion, Frost = Freeze, Lightning = Chain lightning spell triggers on enemy" (2026-10-29) replaced
+all of the above (`DRAGON_SPELL_SRC`). The DLL still casts the picked spell from the player at the punched enemy;
+the JSON has no `explosions`, so no fist bursts:
+- **Fire** `0xAF6`: vanilla Fireball. Effect `0xAF7` = copy of `FireDamageFFAimedArea 01CEA1` (vanilla fireball
+  missile `10FBED`), 60 damage, 12 ft; explosion `0xAFF` = `FireBallExp01 0439C0` without its image-space flash.
+- **Frost** `0xAF9`: Ice Shot's freeze (`TargetActor`). Its frost damage `00098B` at 60, plus `ZP_IceShotFreezeEffect`
+  `000966` for 4 s (AI off, paralysed, iced over). A bow hit while frozen shatters, as with Ice Shot.
+- **Lightning** `0xAFC`: vanilla Chain Lightning. Effect `0xAFD` = copy of `ShockDamageFFAimedArea 05DBAE` (bolt
+  `0A9D92`), 60 damage, 13 ft; explosion `0xB01` = `ChainLightningExplosion 05DBAD` (Chain flag) without its flash.
+- `0xAF8`, `0xAFE`, `0xB00` are allocated but unwritten; never reuse them.
+- **Frost fix (same day):** the log showed the frost spell cast 6 times, but nothing froze in game. Fire and lightning
+  are Aimed and worked; frost was Ice Shot's `TargetActor` spell. Frost is now Aimed too: damage `0xAFA` = copy of
+  vanilla Ice Spike `FrostDamageFFAimed 01CEA2` (spike `02F774`), 60 damage, plus `0xAFB` = Ice Shot's freeze effect
+  copied with `TargetType: Aimed`, 4 s.
+- **Hit count (DLL 1.1.3):** the curator felt more than 5 punches were needed. Every player hit is now logged
+  while the perk is owned: "punch … n/5", "same swing, not counted" (within 0.15 s of the last counted one) or "not
+  unarmed" (with the source's form type). Hissing Dragon's shockwave hits have a spell as their source, so they
+  do not count.
+
+Unverified in game.
+
+## Rage, the eleventh tree (curator, 2026-10-27)
+
+It sits between Glory and Druid. Records are allocated after Sorcerer (`RAGE_FIRST_ID` `0xAB9`): 15 perks
+`0xAB9–0xAC7`, 6 stat abilities, then the `ZP_Rage` global, Vehemence spell/effect and Rage ability/effect
+(`0xACE–0xAD2`).
+
+- **What it uses:** A Dark Warrior's Tale's class actions (Kittytails, `KittyClass_DarkWarrior.esp`, installed and
+  cleaned by [`KittytailsPacksClean`](KittytailsPacksClean.md)). Prophecy's records do **not** reference that plugin, so
+  there is no new master. The DLL resolves its spells at load, and skips the actions with a log line if the pack is
+  missing.
+- **The pack's own triggers** (its `_CDW_ClassPerk` `ApplyCombatHitSpell` entries, read 2026-10-27):
+
+  | Power attack | Pack action |
+  |---|---|
+  | Standing | Soulrender |
+  | Side | Bloodletter |
+  | Forward | Shadow Carve |
+  | Back | Dark Deluge |
+  | Sprinting forward | Heavenfall (the burning ground line in the curator's screenshot) |
+  | A *normal* hit while sprinting or casting | Shadowbringer (the pink pillar: `fxfirecolumnanimloop` + the dark-illusion gradient) |
+
+  Its actions also cast a "rebound" Health drain on the player (`_CDW_ClassReboundDmg2/6`, 2–6/s for 15 s). The class
+  pays in Health; Rage replaces that, so the rebound is never cast.
+- **Prophecy's mapping** (the curator's choice):
+  - **Heavenfall:** sprinting power attack.
+  - **Shadowbringer:** standing power attack.
+  - **Shadow Carve:** forward. **Dark Deluge:** back.
+  - **Bloodletter and Soulrender:** side. With both, one hit does both and pays once.
+  - **Untempered** (merge): Rage cap 10 → 15, half-speed fade. **Vehemence** (capstone): see below.
+- **Hits are counted by `ZenProphecyRage.dll` (`src/Prophecy/rage`) from `TESHitEvent`, never by a perk's
+  `ApplyCombatHitSpell`.** The engine applies one of those per hit, and EGO's `XionPowerStagger` (every power attack),
+  Enderal's class talents (Carnage, Amputator, Bloodlust, Stunning Blow, Unwavering), Kata's affinities, Stunning Blows
+  and Smite already compete for it.
+- **Stacks:**
+  - +1 per melee hit landed and per weapon hit taken, deduplicated per attacker/target over 0.25 s.
+  - Fades one stack every 3 s (6 s with Untempered) after 6 s without a hit; reset 3 s after combat ends and on load.
+  - Written to `ZP_Rage`: Bloodied Fury has 15 `ModAttackDamage ×1.02` entries on `ZP_Rage >= k`.
+  - Also written into the Rage ability's effect magnitude ("You have <mag> stacks of Rage." in Active Effects).
+- **Triggers:**
+  - "sprint" = a power attack while sprinting, or within 1 s of having sprinted.
+  - Otherwise the attack data's `PowerAttackType` keyword (`0914E5`–`0914E8`). A missing keyword counts as standing
+    and is logged.
+  - The action fires before the hit's own stack is added.
+- **Rage costs raised (curator, 2026-10-28: "so you can't just spam them"):** Heavenfall and Shadowbringer 5 → 8,
+  Shadow Carve, Dark Deluge and the side pair (Bloodletter + Soulrender, one cost) 3 → 6 (`RAGE['Cost']`, written into
+  `ZenProphecyRage.json`; the DLL reads it at load). A full 10-stack bar buys one big action. Unverified in game.
+- **Vehemence:** at max Rage the DLL casts the Vehemence spell (15 s). The capstone perk's
+  `ModPowerAttackStamina ×0` applies while its effect is on; actions spend no Rage; when it ends, Rage goes to 0.
+- **The meter** is Oxygen Meter 2's movie (`interface/oxygenMeter2.swf`, in the list) opened in a menu of our own
+  (`ZenProphecyRageMeter`, always open, hidden while the game is paused). OM2 has no API: its functions are called on
+  `main.` (`setLocation`, `setBarAndFlashColor`, `setMeterPercent`/`updateMeterPercent`, `doShow`/`doFadeOut`/
+  `doFlash`). Names come from `oxygenMeter2.dll`'s strings, parameters from the SWF's function definitions.
+  - **Position (1.0.1):** the plugin reads Casting Bar 4.0's live `Data/SKSE/Plugins/CastingBar.ini` (Aspect Layout writes it per screen shape): `[CenterSlot] fPositionX/fPositionY` and `[Spell] fScale`. So the Rage meter sits where the casting bar does, between the compass and the health bar, which are bottom-left in Vel'dun's HUD. Both movies use percent of the 16:9 stage, which a wider screen extends past: X −5.2 on 21:9 is about 8% across the screen. The JSON's x/y are the fallback (`followCastingBar`). The two meters overlap while you cast or draw a bow with Rage up.
+  - Colour: bold orange-red `E8400C`, flash `FF2A00` (curator). Flashes when Vehemence starts.
+  - No meter if the SWF is missing.
+- **Config:** `src/Prophecy/data/SKSE/Plugins/ZenProphecyRage.json`, generated by `write_rage`. It ships in the v1 and
+  v3 archives with the DLL.
+- **First in-game test (1.0.0 → 1.0.1):** Rage built from hits (log: 0 → 5).
+  - **The meter stayed at the movie's default spot, top left.** Its layout ran from a task queued with the
+    menu's kShow, before the menu existed. Now laid out on first use and every tick until it takes, and logged.
+  - **Rage reset 5 → 0 "out of combat" mid-fight.** The grace was counted from leaving combat, and a fight not yet
+    flagged as combat had no such moment. Now counted from the later of that and the last hit.
+- **Second test (1.0.1 → 1.0.2):** Rage, Shadowbringer and Heavenfall worked in game (log).
+  - **No meter.** The movie's `setLocation` sets `_x`/`_y` straight from its arguments (disassembled; Casting Bar's
+    is the same), so they are stage pixels. Oxygen Meter's and Casting Bar's plugins convert their ini percentages
+    against the 1920x1080 stage; 1.0.1 passed −5.2/90.7 through as pixels, the stage's top-left corner, off a 21:9
+    screen. 1.0.2 converts with the movie's own size.
+  - **One standing power attack hitting two enemies fired Shadowbringer twice 16 ms apart** and spent Rage twice.
+    Actions now fire once per `SwingWindow` (0.5 s).
+- **Third test (1.0.2 → 1.0.3): the meter was in place but mostly hidden.** The movie's `doFadeOut` (disassembled)
+  appends a 1 s fade-to-0 tween to its `FaderTimeline` and replays the whole timeline from 0, and `doShow` only sets
+  `_visible`/`_alpha` without stopping it. Every Rage-to-0 added a fade that later hid a shown meter. 1.0.3 never
+  calls `doFadeOut`: it uses `doHide` (`_visible` false) after 1 s at 0 Rage.
+- **1.0.4: matched to the health bar** from the curator's screenshot (the bar was 215 of the health bar's 265 px,
+  centred 18 px left). Config `width` 69 (xscale; the height keeps the casting bar's 56) and `xOffset` +0.9% of the
+  stage, applied after following the casting bar. The movie's bar is centre-anchored (shape −181.7..182.6), so widening
+  needs the centre moved. Retune both from a screenshot if Vel'dun's bars change.
+- **1.0.5: power-attack direction from the graph event.** Under MCO/For Honor Reforged every non-sprint power attack's
+  attack data carries `PowerAttackTypeStanding`, so only Shadowbringer (and the sprint check's Heavenfall) ever fired (log:
+  24 standing). The plugin now hooks the player's `NotifyAnimationGraph` (`VTABLE_PlayerCharacter[3]`, slot 1) and reads
+  the IDLE's start event: `attackPowerStart{InPlace,Forward,Backward,Left,Right}`, `_Sprint`/`_2HMSprint`/`_2HWSprint`,
+  with `LeftHand`/`RightHand`/`H2H` suffixes, and mods' `attackStart…Power…` (`Running` = sprint; a leading Left/Right
+  there is the hand). Tested against all 28 such events in the list's idles. The direction is used if the hit lands
+  within 2.5 s; each start is logged. Falls back to the sprint check and the keyword.
+- **1.0.6: direction from the movement input.** 1.0.5's log: every non-sprint power attack starts as
+  `attackPowerStartInPlace` (22 of 24; the rest `_2HWSprint`). This list picks the directional swing itself from the
+  movement input at the attack: OAR, For Honor Reforged in third person, SIGMA in first. FHR's Payload tags
+  (``/``/`` → For Honor Balance Patch `0x882`/`0x883`/`0x887`) only exist in its
+  third-person clips and have no forward. So an in-place start reads `PlayerControls::data.moveInputVec`: y > 0.3 and
+  dominant → forward, y < −0.3 → back, |x| > 0.3 → side, else standing. Each start is logged with the input.
+- **Verified in game (curator, 2026-10-27, 1.0.6):** the Rage actions trigger by direction, and the meter shows
+  under the compass at the health bar's width (`width` 63: 69 was too wide). Not yet confirmed: Vehemence, and the
+  talent-array length check past 128 (no message box reported).
+- **Talent count:** 134 now, past 128. `ZP_ProphecyMenu.Refresh` now checks the property arrays' lengths against
+  `TreeStart` and shows a message box if the game cut them short. The first menu open in game is the test.
+- **Untested risks:**
+  - Whether MCO/FHR power attacks carry the vanilla `PowerAttackType` keywords (the log says).
+  - Whether `CastSpellImmediate` aims the pack's projectile spells as the pack's own `Cast` did.
+  - The meter's call parameters (inferred from the SWF, not documented).
+- Unverified in game.
+
 ## Capstones need level 30 (curator, 2026-10-25)
 
 A capstone is the talent after its tree's W2 stat talent. All 7 need player level 30 (`CAPSTONE_LEVEL`). That is the
@@ -243,6 +720,16 @@ the shared weapon enchantment `EnchWeaponShockDamage06 045F9E` (so that one is n
 sends `TKDR_DodgeStart`; there is no separate perfect-timing check. **Existing saves:** a running Flow State effect keeps
 its old property values (no `Nova`) until it restarts; `player.removeperk` / `player.addperk` on Flow State `0x823`
 restarts it. Previous plugin in `E:/Zenderal-backups/2026-10-23-prophecy-pre-flow-nova/`. Unverified in game.
+2026-10-29, the curator: "Flow State doesn't trigger the shockwave". The script now looks the nova up itself
+(`Game.GetFormFromFile(0x93D, "Zenderal - Prophecy.esp")`) when `Nova` is None, so a stale save needs no perk
+re-add. The cause (a stale property) is inferred, not traced. The curator then reported "everything works".
+Then "add a chain lightning to the Shock Nova" (2026-10-29): spell `0xB02` `ZP_Prophecy_FlowStateChainLightning`
+(Aimed, Dragon's Breath's chain lightning effect `0xAFD`, 40 damage, 13 ft) is cast with each nova from the player
+at `Foe()`: the player's combat target, or else a living hostile within 1400 units (`FindRandomActorFromRef`, 10
+tries; the player's `GetCombatTarget` is often None). Property `ChainLightning`, with a `GetFormFromFile` fallback
+for running effects. Unverified in game.
+Both cooldowns are 8 s (curator 2026-10-29; were 10 s slow time, 15 s nova). They are new properties `SlowEvery` /
+`NovaEvery`, defaulting to 8.0, because a running effect keeps its saved `Cooldown` / `NovaCooldown` values (now unused).
 
 **Sharpshooter is muskets only (curator, 2026-10-23: "fire damage from a Sharpshooter talent on my bow").** The tree
 used to key on `WeapTypeBow`, which bows and muskets share. Now every part requires a crossbow-type weapon:
@@ -668,6 +1155,12 @@ changed no older record but the gun hit spell and the menu arrays (diffed 2026-1
     curator saw the wrong ward, and lowering the bow without firing sends no actor action, so it stayed up until a
     20 s safety drop. Its records (`0x959–0x95B`) stay reserved and unwritten; a save that has that ability loses it
     on load. The Mage Ward art (`0x969`) is still copied so Lion's Arrow's IDs don't move.
+- **Ice Shot is a talent with Flame Shot's cooldown (curator, 2026-10-28).** A shout `ZP_Prophecy_IceShot 0xAD8` with one
+  word `0xAD9` (shaped like Enderal's `_00E_A1_Firearrow 05C233` / `_00E_A1_FirearrowWord01 05C274`), `RecoveryTime` 110 =
+  EGO's Fire Arrow at every rank (`ARC['IceCooldown']`); the power spell `0x95C` is now `Type: Voice` and no Magicka is
+  taken (`IceMagicka` 0). The perk no longer grants the spell; the menu grants the shout (`grants['arc3']`: TeachWord,
+  UnlockWord, AddShout) and `ZP_ProphecyMenu.Give` takes back the old lesser-power spell a save already had
+  (`RepairPowers` on load). Talent-cooldown bonuses apply as to Flame Shot. Unverified in game. Older notes below:
 - **Ice Shot** (`arc3`): bows only; 3 ice arrows; **no cooldown, costs 50 Magicka**, which the script takes since a
   lesser power has no cost of its own. **The arrows never expire.** Every ice-arrow hit deals 25 frost and freezes the
   target for 8 s; the next bow hit shatters it. Since 2026-10-23 it has three parts, none of which depends on a
@@ -689,6 +1182,10 @@ changed no older record but the gun hit spell and the menu arrays (diffed 2026-1
     has its own `ApplyCombatHitSpell` → `0x910`): if a pending ice shot is within 3 s and the target is not
     frozen, it casts `ZP_Prophecy_IceShot_FreezeSpell 0x98A` on the target. That spell is target-delivered: 25 frost
     (`0x98B`, a TargetActor copy of `EnchFrostDamageFFContact 04605B`) plus `ZP_IceShotFreezeEffect` for 8 s.
+    **Every** bow hit also takes Ice Arrows off the target (dead ones too), at once and 0.5 s later: an arrow that
+    hits an actor lands in its inventory, so they were lootable (curator, 2026-10-28). Not done by flagging the ammo
+    `NonPlayable` - the power equips it on the player, and hidden ammo may not equip. Enderal's own Fire Arrow ammo
+    `0670EC` has the same leftover. Unverified in game.
   - **The burst:** the ice arrows still explode in Enderal's ice-spike burst (`MAGIceSpikeVolleyExplosion 0D6C63`,
     no image space), now visuals only.
   - **The projectile must be an exploding *Arrow*** (Flame Shot ranks 2/3's `_00E_A1_FireArrow_ProjectileL02

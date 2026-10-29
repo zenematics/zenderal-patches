@@ -4,14 +4,14 @@ Name:
   TargetLanguage: English
   Value: Ice Shot
 MenuDisplayObject: 0435A5:Skyrim.esm
-EquipmentType: 025BEE:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
 Description:
   TargetLanguage: English
   Value: ''
 Flags:
 - IgnoreResistance
 - NoAbsorbOrReflect
-Type: LesserPower
+Type: Voice
 CastType: FireAndForget
 Effects:
 - BaseEffect: 00095D:Zenderal - Prophecy.esp

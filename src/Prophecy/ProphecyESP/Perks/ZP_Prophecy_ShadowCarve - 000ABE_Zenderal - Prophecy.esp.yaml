@@ -1,0 +1,16 @@
+FormKey: 000ABE:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ShadowCarve
+Description:
+  TargetLanguage: English
+  Value: 'Your forward power attacks with at least 6 Rage send a wave of darkness in a straight line: 40 damage, and 20 more to targets further away. Spends 6 Rage.'
+Name:
+  TargetLanguage: English
+  Value: 'Shadow Carve'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000ABC:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

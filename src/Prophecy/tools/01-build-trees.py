@@ -55,7 +55,9 @@ SMOKE_INVISIBLE_SECONDS = 10
 # Arcane Archery's numbers (curator 2026-10-23; Ice Shot first followed Flame Shot's middle tier: 14 s, 110 s recovery;
 # after play: no time limit (IceSeconds = a day: the arrows stay until fired), no cooldown, a 50 Magicka cost;
 # No Distractions casts the list's own Spell Ward (Rank II) - SPELL_WARD_RANK2)
-ARC = {'ElementDamage': 10, 'IceArrows': 3, 'IceSeconds': 1, 'IceMagicka': 50, 'IceDamage': 25,
+# Ice Shot is a talent (a shout) with Flame Shot's cooldown since 2026-10-28 (curator): IceCooldown = EGO's Fire Arrow
+# RecoveryTime (110, all ranks), and no Magicka cost - the 50 Magicka replaced the first build's cooldown on 2026-10-23
+ARC = {'ElementDamage': 10, 'IceArrows': 3, 'IceSeconds': 1, 'IceMagicka': 0, 'IceCooldown': 110, 'IceDamage': 25,
        'FreezeSeconds': 8, 'OwlDrain': 10, 'OwlRegen': 2}
 # Necromancy's numbers (curator's design 2026-10-23; the balance is ours). A Willing Sacrifice deals half the summon's
 # base Health - SureAI's own Corpse Explosion rule (_00E_FS_Entropy_CorpseExplosionSC) - to each enemy within
@@ -64,6 +66,80 @@ ARC = {'ElementDamage': 10, 'IceArrows': 3, 'IceSeconds': 1, 'IceMagicka': 50, '
 NEC = {'FeverStep': 25, 'EffigyCost': 100, 'EffigySeconds': 60, 'EffigyHeal': 2, 'EffigyArmor': 250, 'EffigyRadius': 512,
        'SacrificeRadius': 300, 'SacrificeFraction': 0.5, 'SacrificeCooldown': 15, 'DeadMagicka': 50,
        'LegionFever': 50, 'LegionSeconds': 300, 'LegionHealth': 80, 'LegionHealthPerLevel': 8}
+# Rage (curator 2026-10-27). Seconds are wall-clock seconds of unpaused game, counted by ZenProphecyRage.dll.
+RAGE = {'Max': 10, 'MaxUntempered': 15, 'DamagePerStack': 2, 'FadeAfter': 6, 'FadeEvery': 3, 'CombatGrace': 3,
+        'SprintGrace': 1.0, 'HitDedupe': 0.25, 'SwingWindow': 0.5, 'VehemenceSeconds': 15,
+        # the meter (Oxygen Meter 2's movie, our menu): where the casting bar sits, between the compass and the health bar
+        # (curator 2026-10-27) - Casting Bar 4.0's CenterSlot fPositionY 90.7 and fScale 56 (Aspect Layout's CastingBar.ini);
+        # X 50 is the screen's centre line in Oxygen Meter's movie. Bold orange-red (curator)
+        'Meter': {'x': 50.0, 'y': 90.7, 'rotation': 0.0, 'xscale': 56.0, 'yscale': 56.0,
+                  'barColour': 'E8400C', 'flashColour': 'FF2A00',
+                  'followCastingBar': True,
+                  # the health bar's width and centre (curator's screenshot 2026-10-27: the bar was 215 of the
+                  # health bar's 265 px, centred 18 px left): xscale 56 -> 69, centre +0.9% of the stage width
+                  'width': 63.0, 'xOffset': 0.1},   # in game (curator's screenshots): 69 too wide, 63 matches; +0.9 and 0.55 sat right of it   # the DLL reads Casting Bar's live CastingBar.ini (centre slot, spell scale) - x/y above are the fallback
+        # costs doubled-ish (curator 2026-10-28: "so you can't just spam them"; was 5/3/3/5/3/3): a full 10-stack bar
+        # buys one big action (sprint/standing) or one small one with a few stacks left
+        'Cost': {'Heavenfall': 8, 'Shadow Carve': 6, 'Dark Deluge': 6, 'Shadowbringer': 8, 'Bloodletter': 6, 'Soulrender': 6}}
+# Shadow's Darkness (curator 2026-10-28): a meter that fills in darkness and pays for the Shadow talents' spells instead
+# of Mana (ZenProphecyDarkness.dll, src/Prophecy/darkness). Fill steps use Gather Shadows' own light thresholds
+# (TVR_Shadows_Global_GatherShadows_Threshold_1-3: 60/40/20, the light level behind the sneak eye): darker fills faster.
+# Above the last step it drains. Nightfall costs the full meter ('full').
+# 2026-10-28 (curator): daytime shade outdoors filled nothing at 60, so a fourth, slower step up to 90 (the log showed
+# 137 in open light); the DLL logs the light level every 5 s for the next tuning.
+DARKNESS = {'Max': 10, 'Fill': [(20, 1.0), (40, 1.5), (60, 2.0), (90, 3.0)], 'VeilMult': 2.0, 'DrainEvery': 4.0,
+            'Cost': {'shd1': 3, 'shd2': 4, 'shd3': 4, 'shd4': 3, 'shd5': 'full', 'shd7': 2},
+            # the meter: Rage's (Oxygen Meter 2's movie, our own menu), dark navy / purple (curator 2026-10-28; bar #4E5180, was 2A1A5E). Rage
+            # follows the casting bar's slot (90.7% in Vel'dun's bottom HUD); this sits just below the Stamina / Mana
+            # bars (curator's screenshots: -2.5 sat on the compass, 2.8 on the Stamina / Mana bars, 4.0 a little high and wide)
+            'Meter': {'x': 50.0, 'y': 90.7, 'rotation': 0.0, 'xscale': 56.0, 'yscale': 56.0,
+                      'barColour': '4E5180', 'flashColour': '6B48C8', 'followCastingBar': True,
+                      'width': 60.0, 'xOffset': 0.1, 'yOffset': 4.8}}
+# Nightblade on Darkness (curator 2026-10-28: "scale its damage on the Darkness meter instead of Mana"). Triumvirate's
+# proc (TVR_Shadow_Spell_Nightblade_Proc 335B4F, cast by TVR_BlinkStrikes_Script on each power attack) deals a flat 45
+# and its 335B52 effect takes 50% of the CASTER's current Magicka (TVR_PercentageDamage_Script: akCaster) - the "50% of
+# your Magicka into damage" of its text, though the damage never read it. With Gather Shadows the Mana drain is off and
+# the DLL spends Fraction of the Darkness (rounded up) on each proc hit, adding PerPoint magic damage per point spent.
+NIGHTBLADE = {'Fraction': 0.5, 'PerPoint': 15}
+# Dragon's Breath (curator 2026-10-28): every Every-th unarmed hit, ZenProphecyRage.dll casts one of three elemental
+# cones at the target - Hissing Dragon's fire/frost/shock procs, reaching Range units (~5 m) instead of 128
+DRAGONS_BREATH = {'Every': 5, 'Damage': 60}
+SHADE_VEIL_DETECT = 50   # Shade Veil: ModDetectionSneakSkill Add, SureAI's "percent" (Infiltrator: Devious 15)
+NIGHTFALL_FEVER = 50     # Shadow's capstone power: Arcane Fever per use; refused at this much or more (as Wrath)
+# Druid's numbers (curator 2026-10-27). Force of Nature's 60 s are Triumvirate's own (its spell 28E6EB); the familiars
+# last FamiliarSeconds unless the form ends first.
+TWISTER_COST = 97       # Abyssal Wind's Twister (tier 75, FireAndForget) on EGO's ladder: 409 Mana on Skyrim's scale
+# Drowning Orb (Water Globe) drains OrbDrain Mana per second from each enemy inside it into the caster, and restores
+# OrbRegen per second to the player standing in it. Mana Burn (the capstone power of 2026-10-27, replaced by
+# Shatterveil's Veil Wyrm shout on 2026-10-28) lives on as the shout's buff (curator, same day): every word casts its
+# marker (spells x CostMult Mana, the blue-flame aura) and the RegenPerSecond restore, both BurnSeconds; no fever
+# BurnSeconds 60 -> 20 and the shout's recovery doubled (WYRM_COOLDOWN_MULT; curator 2026-10-28)
+# Blink Step is a lesser power (curator 2026-10-28): a power spends no Mana, so the spell gets a second effect that
+# takes BLINK_MANA (blinkme), and both effects need that much Mana first - the blink is listed first, so it is checked
+# before the Mana comes off
+BLINK_MANA = 35
+# ...and, as a power plays no hand-casting sounds, it plays the spell's own cast sound - its effect's Release sound,
+# vanilla MAGIllusionReleaseSelfSD 07BBAE - through sound_records: a third effect that plays it (Explosive Tripwire's
+# pattern). As a Release sound on the power it did not play, and a mix of Shatterveil's glass shatter + re-form added a
+# bell the original never had (curator, in game, 2026-10-28; 'blinksnd' 0xAE3 retired)
+BLINK_CAST_SOUND = '07BBAE:Skyrim.esm'
+# ...plus the curator's swoosh (2026-10-29, "add this sound to the Sorcery blink step"): Motion Array's
+# MA_Originals_FastSwooshTransitions_5 (24-bit, converted to 16-bit by tools/07-build-sounds.py, not committed),
+# played by a fourth effect the same way
+BLINK_SWOOSH_RECORDS = ('swooshsnd', 'swooshmarker', 'swooshplay')
+BLINK_SWOOSH_FILE = r'Data\Sound\FX\ZenProphecy\ZP_BlinkStepSwoosh.wav'
+# Gravity Well (Celestial Vortex) drains GW_ABSORB Health from each enemy it catches into the caster (curator
+# 2026-10-28). Its hazard re-casts _K01_CelestialVortexHazardEffect 000826 on everyone inside every 0.3 s for 3.1 s, and
+# that spell's first effects include a 9 s marker (000810, "cooldown"): the absorb is listed first and needs the marker
+# not yet on the target, so it lands once per enemy per well. Enemies only (IsHostileToActor player)
+GW_ABSORB = 20
+GW_HAZARD_SPELL = '000826:KittySpellPack01.esl'
+GW_COOLDOWN_MGEF = '000810:KittySpellPack01.esl'
+WYRM_COOLDOWN_MULT = 2   # the Veil Wyrm's word recovery times (Shatterveil's 20/35/50 s) x this
+SORC = {'OrbDrain': 10, 'OrbRegen': 10, 'BurnSeconds': 20, 'CostMult': 0.5, 'RegenPerSecond': 10}
+# The Hunt (2026-10-29): Goodberries spent per call; the wolves' summon lasts HUNT['Seconds'] - "until killed"
+HUNT = {'Berries': 5, 'Seconds': 100000}
+DRUID = {'CraftBerries': 1, 'CraftHeal': 20, 'FormFever': 50, 'FormSeconds': 60, 'FamiliarSeconds': 65, 'ExtraSummons': 4}
 
 # id, name, description, source seed, perks folded INTO this node (their FormKeys alias to it), parents
 TREES = [
@@ -79,7 +155,7 @@ TREES = [
     ('faith4', 'Wrath of the Lightborn', 'Grants the "Wrath of the Lightborn" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more.', s('000820'), [], ['faith5']),
     ('faith5', 'Templar', 'Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health.', s('000849'), [], ['faith2', 'faith3']),
   ]),
-  ('Sharpshooter', 'Muskets, powder and lead.', [
+  ('Firearms', 'Muskets, powder and lead.', [
     ('gun1', 'Quick Reload', 'You reload muskets 30% faster.', '105F19:Skyrim.esm', [], []),
     ('gun2', 'Elemental Rounds', 'Your musket hits deal 10 extra fire damage.', None, [], ['gun1']),
     ('gun3', 'Bleeding Shot', 'Your musket hits make living targets bleed for 50 damage over 5 seconds.', None, [], ['gun1']),
@@ -98,12 +174,31 @@ TREES = [
     ('gad4', 'Clockwork Turret', 'You can build Clockwork Turrets at a forge, and you receive one when you learn this. The "Clockwork Turret" power deploys it for 30 seconds: it turns and fires at your target, or the nearest enemy in combat, dealing damage equal to 30% of your Handicraft skill.', o('056C92'), [], ['gad2', 'gad3']),
     ('gad5', 'Overclock', 'Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.', None, [o('056C9F'), o('056CA7')], ['gad4']),
   ]),
+  # Shadow (2026-10-27, curator's design): Triumvirate's Shadow Mage spells, granted by the menu (SHADOW_GRANTS; Magic
+  # Patches prices them), and Nightfall as a fever-priced power (write_shadow). Allocated after every older block
+  # (SHADOW_FIRST_ID), so sitting between Gadgets and Martial Arts renumbered nothing.
+  ('Shadow', 'Darkness, stealth and stolen strength.', [
+    ('shd1', 'Gather Shadows', f'Darkness gathers in you while you stand in shadow, up to {DARKNESS["Max"]}: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the "Gather Shadows" spell ({DARKNESS["Cost"]["shd1"]} Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness.', None, [], []),
+    ('shd2', 'Draining Shroud', f'Grants the "Draining Shroud" spell ({DARKNESS["Cost"]["shd2"]} Darkness): for 60 seconds, you absorb 10 Health and Mana per second from nearby enemies.', None, [], ['shd1']),
+    ('shd3', 'Nightblade', f'Grants the "Nightblade" spell ({DARKNESS["Cost"]["shd3"]} Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing {NIGHTBLADE["PerPoint"]} more magic damage per point spent.', None, [], ['shd1']),
+    # Shade Veil (2026-10-28): off Silent Step, a dead end; added after the tree's first build, so allocated last
+    # (SHADOW_LATE_NODES). The menu holds two parents at most, so it does not join the merge below
+    ('shd6', 'Shade Veil', f'While you sneak, your body is wrapped in black and grey mist, you are {SHADE_VEIL_DETECT}% harder to detect, and Darkness gathers twice as fast.', None, [], ['sst1']),
+    # Darkness (2026-10-28): after Shade Veil, allocated after the Darkness meter's records (SHADOW_LATE_NODES_2)
+    ('shd7', 'Darkness', f'Grants the "Darkness" spell ({DARKNESS["Cost"]["shd7"]} Darkness): a bolt that leaves a pool of black mist and darkness where it strikes for 30 seconds.', None, [], ['shd6']),
+    ('shd4', 'Pull Through Shadows', f'Grants the "Pull Through Shadows" spell ({DARKNESS["Cost"]["shd4"]} Darkness): pull a target up to 150 feet away to you, lowering its armor by 100 for 10 seconds.', None, [], ['shd2', 'shd3']),
+    ('shd5', 'Nightfall', f'Grants the "Nightfall" power (a full Darkness meter): for 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once.', None, [], ['shd4']),
+  ]),
   ('Martial Arts', 'Fists, footwork and timing.', [
     ('ma1', 'Iron Fist', 'Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty.', '058F6E:Skyrim.esm', [], []),
     ('ma2', 'Hissing Dragon', 'Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking.', o('04D4E3'), [], ['ma1']),
+    # Dragon's Breath (2026-10-28): beside Hissing Dragon, off Conditioning (the root's stat talent), allocated after
+    # Nightblade's records (MARTIAL_LATE_NODES)
+    # renamed Invoker (curator 2026-10-29); its records keep their DragonsBreath EditorIDs
+    ('ma6', 'Invoker',f"Every {DRAGONS_BREATH['Every']}th unarmed hit unleashes fire, frost or lightning on the enemy, at random: a fireball explosion, a freeze that holds it for 4 seconds, or chain lightning that leaps to nearby enemies. Each deals {DRAGONS_BREATH['Damage']} damage.", None, [], ['mst1']),
     ('ma3', 'Stunning Blows', 'Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies.', s('000851'), [], ['ma1']),
     ('ma4', 'Breaking Waves', 'Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty.', o('04D4DA'), [], ['ma2', 'ma3']),
-    ('ma5', 'Flow State', 'Dodging in combat briefly slows time to a crawl (once every 10 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies (once every 15 seconds).', None, [], ['ma4']),
+    ('ma5', 'Flow State', 'Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 8 seconds).', None, [], ['ma4']),
   ]),
   # Glory (2026-10-21, curator's design): all hand-built - see write_glory. Its records sit AFTER every other
   # block (GLORY_FIRST_ID) so adding it did not renumber the four older trees in existing saves.
@@ -114,13 +209,65 @@ TREES = [
     ('glo5', 'Surrounded', 'While 3 or more enemies are near you, you regenerate 2 Stamina per second.', None, [], ['glo2', 'glo3']),
     ('glo4', 'War Banner', 'Grants the "War Banner" power: plant a banner for 15 seconds. While you stand near it, you heal 20 Health per second, and enemies who come close are bound in chains, as by a Stave of Binding. Usable once every 5 minutes.', None, [], ['glo5']),   # capstone after Surrounded (curator 2026-10-24)
   ]),
+  # Rage (2026-10-27, curator's design): A Dark Warrior's Tale's class actions (Kittytails; installed, cleaned by
+  # src/KittytailsPacksClean), driven by Rage stacks. ZenProphecyRage.dll counts the stacks from hit events (no
+  # ApplyCombatHitSpell: one per hit, and EGO's XionPowerStagger and Enderal's class talents already use it), fires
+  # each talent's action by power-attack direction and runs Vehemence; its config is generated (write_rage_json).
+  # The talents' perks are markers the DLL reads; Bloodied Fury's damage bonus and Vehemence's free power attacks
+  # are perk entries on the ZP_Rage global / the Vehemence effect. Shaped by hand (HAND_STATS); after Sorcerer.
+  ('Rage', 'Fury, blood and the strength of the fallen.', [
+    ('rge1', 'Bloodied Fury', f'Rage builds as you fight: every melee hit you land and every hit you take adds a stack, up to {RAGE["Max"]}. Each stack makes your attacks {RAGE["DamagePerStack"]}% stronger. After {RAGE["FadeAfter"]} seconds without a hit, Rage fades by one stack every {RAGE["FadeEvery"]} seconds, and it is gone when combat ends.', None, [], []),
+    ('yst1', 'Blood Oath', None, None, [], ['rge1']),
+    ('yst2', 'Iron Lungs', None, None, [], ['rge1']),
+    ('rge2', 'Heavenfall', f'Your sprinting power attacks with at least {RAGE["Cost"]["Heavenfall"]} Rage tear a burning line through the ground: 80 damage to everyone in it, 4 more per second for 10 seconds, and a stagger. Spends {RAGE["Cost"]["Heavenfall"]} Rage.', None, [], ['yst1']),
+    ('yst3', 'Tempered Steel', None, None, [], ['rge2']),
+    ('rge3', 'Shadow Carve', f'Your forward power attacks with at least {RAGE["Cost"]["Shadow Carve"]} Rage send a wave of darkness in a straight line: 40 damage, and 20 more to targets further away. Spends {RAGE["Cost"]["Shadow Carve"]} Rage.', None, [], ['rge2']),
+    ('rge4', 'Dark Deluge', f'Your backward power attacks with at least {RAGE["Cost"]["Dark Deluge"]} Rage pierce the target for 40 damage and lower its magic resistance by 25% for 30 seconds. Spends {RAGE["Cost"]["Dark Deluge"]} Rage.', None, [], ['rge2']),
+    ('rge5', 'Shadowbringer', f'Your standing power attacks with at least {RAGE["Cost"]["Shadowbringer"]} Rage raise a pillar of dark fire: 60 damage, knocking down everyone it strikes. Spends {RAGE["Cost"]["Shadowbringer"]} Rage.', None, [], ['yst1']),
+    ('yst4', 'Scarred Hide', None, None, [], ['rge5']),
+    ('rge6', 'Bloodletter', f'Your sideways power attacks with at least {RAGE["Cost"]["Bloodletter"]} Rage drain 40 Health from the target into you. Spends {RAGE["Cost"]["Bloodletter"]} Rage.', None, [], ['rge5']),
+    ('yst5', 'Bloodthirst', None, None, [], ['rge6']),
+    ('rge7', 'Soulrender', f'Your sideways power attacks with at least {RAGE["Cost"]["Soulrender"]} Rage drain 40 Mana and 40 Stamina from the target into you. With Bloodletter, one hit does both for one cost. Spends {RAGE["Cost"]["Soulrender"]} Rage.', None, [], ['rge5']),
+    ('rge8', 'Untempered', f'Your Rage can reach {RAGE["MaxUntempered"]} stacks, and fades half as fast.', None, [], ['rge3', 'rge6']),
+    ('yst6', 'Unending Fury', None, None, [], ['rge8']),
+    ('rge9', 'Vehemence', f'When your Rage reaches its peak you enter Vehemence for {RAGE["VehemenceSeconds"]} seconds: your power attacks cost no Stamina, and their Rage actions spend no Rage. When it ends, your Rage is spent.', None, [], ['yst6']),
+  ]),
+  # Druid (2026-10-27, curator's design): Triumvirate's Druid and Shaman spells, granted by the menu (DRUID_GRANTS),
+  # Druidcraft as our copy with a heal, Force of Nature a fever-priced power that also brings the familiars
+  # (write_druid). Its shape is not weave_stats' - three branches, the totems a three-talent chain - so its stat
+  # talents are written here and filled in from HAND_STATS. Allocated after every older block (DRUID_FIRST_ID).
+  # Abyssal Wind (the third branch) waits for its spell pack; it will be appended last.
+  ('Druidic', 'Roots, totems and the wild.', [
+    ('dru1', 'Druidcraft', f'Grants the "Druidcraft" spell: cast it on a corpse and nature reclaims it, growing a plant you can harvest, and you heal {DRUID["CraftHeal"]} Health and gather a Goodberry.', None, [], []),
+    ('vst1', 'Green Wellspring', None, None, [], ['dru1']),
+    ('vst2', 'Barkskin', None, None, [], ['dru1']),
+    # The Hunt (curator 2026-10-29) replaced Parasitic Growth on dru2 (its perk ID stays; a save that bought dru2 keeps
+    # the spell it was given then): a power that spends Goodberries to call Triumvirate's Gray Wolf (write_hunt)
+    ('dru2', 'The Hunt', f'Grants "The Hunt" power: spend {HUNT["Berries"]} Goodberries to call a Gray Wolf to your side. It stays until it is killed.', None, [], ['vst1']),
+    # Wolf Pack (2026-10-29): a branch off The Hunt, allocated last (DRUID_LATE_NODES_2)
+    ('dru9', 'Wolf Pack', 'The Hunt calls two Gray Wolves instead of one.', None, [], ['dru2']),
+    ('vst3', 'Sap of Life', None, None, [], ['dru2']),
+    ('dru3', 'Bramble Growth', 'Grants the "Bramble Growth" spell: a bed of brambles that deals 10 bleed and poison damage for 15 seconds. A target that dies on it sprouts a Goodberry.', None, [], ['dru2']),
+    # Twister (2026-10-27): the third branch, Abyssal Wind Magic's spell (Aero.esl, which Prophecy masters). Added after
+    # the tree's first build, so allocated last (DRUID_LATE_NODES). A dead end: the menu holds two parents at most.
+    ('dru8', 'Twister', f'Grants the "Twister" spell ({TWISTER_COST} Mana): a column of deadly wind that deals 40 damage per second for 10 seconds and staggers those caught in it.', None, [], ['vst1']),
+    ('dru4', 'Water Totem', 'Grants the "Create Water Totem" spell: a totem stands for 60 seconds, heals 5 Health and Mana per second and cures disease. An Elementalism spell.', None, [], ['vst1']),
+    ('vst4', 'Deep Roots', None, None, [], ['dru4']),
+    ('dru5', 'Tree Totem', 'Grants the "Create Tree Totem" spell: a totem stands for 60 seconds and deals 10 poison damage per second to nearby enemies in combat. An Elementalism spell.', None, [], ['dru4']),
+    ('vst5', 'Thornhide', None, None, [], ['dru5']),
+    # Nature's Way (2026-10-29): a branch off the totems, allocated last (DRUID_LATE_NODES_2)
+    ('dru10', "Nature's Way", 'You can have one more totem standing at a time.', None, [], ['dru5']),
+    ('dru6', 'Earth Totem', 'Grants the "Create Earth Totem" spell: a totem stands for 60 seconds and casts tremors that deal 120 damage every 7 seconds in combat. An Elementalism spell.', None, [], ['dru5']),
+    ('vst6', 'Heart of the Grove', None, None, [], ['dru3', 'dru6']),
+    ('dru7', 'Force of Nature', f'Grants the "Force of Nature" power (no Mana, {DRUID["FormFever"]}% Arcane Fever): for {DRUID["FormSeconds"]} seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends. It cannot be used when the fever would reach 100%.', None, [], ['vst6']),
+  ]),
   # Arcane Archery (2026-10-23, curator's design): hand-built but Lion's Arrow (Ordinator's, its own description).
   # Every record of this tree - its perks, write_arcane's records and Lion's Arrow's copied closure - is allocated
   # AFTER all older blocks (ARCANE), so adding it renumbered nothing in existing saves.
   ('Arcane Archery', 'Arrows, wards and spellcraft.', [
     ('arc1', 'Arcane Arsenal', f'Grants the "Arcane Arsenal" power: choose Fire, Frost or Lightning, and your bow hits deal {ARC["ElementDamage"]} extra damage of that element.', None, [], []),
     ('arc2', 'No Distractions', 'While you aim a bow, a Spell Ward (Rank II) surrounds you. It fades when you fire or lower the bow.', None, [], ['arc1']),
-    ('arc3', 'Ice Shot', f'Grants the "Ice Shot" power: with a bow equipped, add {ARC["IceArrows"]} ice arrows to your quiver for {ARC["IceMagicka"]} Magicka. They deal {ARC["IceDamage"]} frost damage and freeze the target solid for {ARC["FreezeSeconds"]} seconds, and your next arrow shatters it.', None, [], ['arc1']),
+    ('arc3', 'Ice Shot', f'Grants the "Ice Shot" talent ({ARC["IceCooldown"]} seconds cooldown): with a bow equipped, add {ARC["IceArrows"]} ice arrows to your quiver. They deal {ARC["IceDamage"]} frost damage and freeze the target solid for {ARC["FreezeSeconds"]} seconds, and your next arrow shatters it.', None, [], ['arc1']),
     ('arc4', "Andrasta's Owl", f'Your bow hits send a barn owl to attack the target. It fights at your side until it is killed, each later hit sends it after that target, and each of its strikes drains {ARC["OwlDrain"]} Magicka from its target and gives it to you. While it is out, you regenerate {ARC["OwlRegen"]} Magicka per second. Only one owl can be out at a time.', None, [], ['arc2', 'arc3']),
     ('arc5', 'Arcane Echo', 'Grants the "Arcane Echo" power: use it while dual casting a spell to store that spell. Your fully drawn bow shots in combat then also release the stored spell toward your crosshair. Only works with spells cast at others.', o('010258'), [], ['arc4']),  # Ordinator's Lion's Arrow, renamed (curator 2026-10-23)
   ]),
@@ -132,6 +279,31 @@ TREES = [
     ('nec3', 'A Willing Sacrifice', f'Grants the "A Willing Sacrifice" power: every summon you command explodes, dealing damage equal to half its maximum Health to each enemy within 14 feet of it. Usable once every {NEC["SacrificeCooldown"]} seconds.', None, [], ['nec1']),
     ('nec4', "The Dead Don't Forget", f'A Willing Sacrifice restores {NEC["DeadMagicka"]} Magicka for every enemy it hits.', None, [], ['nec3']),
     ('nec5', 'Legion of the Damned', f'Grants the "Legion of the Damned" power: at the cost of {NEC["LegionFever"]}% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for {NEC["LegionSeconds"] // 60} minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.', None, [], ['nec4']),
+  ]),
+  # Sorcerer (2026-10-27, curator's design): Kittytails' Obscure Magic, Elemental Mastery Magic and Constellation Magic,
+  # installed and mastered (src/KittytailsPacksClean), their spells granted by the menu and renamed for Enderal
+  # (SORC_SPELLS, write_sorcerer). Since 2026-10-28 four nodes are Shatterveil's (installed and mastered): Bursting
+  # Effigy (sor1, was Arcane Brand) climbs its tiers with Psionics (SHVL_TIERS), Orbit Ward (sor2, was Rimefire, then
+  # Twin Effigies) rises while the player casts (ORBIT_WARD), Blink Step (sor6, was Star Prison) and the Veil Wyrm
+  # shout as the capstone (sor9, was Mana Burn). Shaped by
+  # hand (HAND_STATS); allocated after Druid (SORC_FIRST_ID). Between Necromancy and Faith on the map.
+  ('Sorcery', 'Elements, stars and raw arcane might.', [
+    ('sor1', 'Blink Step', f'Grants the "Blink Step" lesser power ({BLINK_MANA} Mana): you shatter like glass and re-form up to 33 feet ahead.', None, [], []),
+    ('cst1', 'Arcane Study', None, None, [], ['sor1']),
+    ('cst2', 'Mana Font', None, None, [], ['sor1']),
+    ('sor2', 'Orbit Ward', 'While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting.', None, [], ['cst1']),
+    ('cst3', 'Ember Ward', None, None, [], ['sor2']),
+    ('sor3', 'Frost Spires', 'Grants the "Frost Spires" spell: spires of ice burst from the ground, dealing 80 damage to Health and Stamina - up to four times that the more spires strike - and staggering.', None, [], ['sor2']),
+    ('cst4', 'Rime Ward', None, None, [], ['sor3']),
+    ('sor10', 'Drowning Orb', f'Grants the "Drowning Orb" spell: a 15-foot sphere of water slows everyone inside it and drains 60 Stamina and Mana per second. Each enemy inside it gives you {SORC["OrbDrain"]} of its Mana per second, and you restore {SORC["OrbRegen"]} Mana per second while you stand in it. An Elementalism spell: water is frost, so Elementalist talents strengthen it.', None, [], ['sor3']),
+    ('sor4', 'Wildfire', 'Grants the "Wildfire" spell: a torrent of flame chases your targets, dealing 80 damage per second.', None, [], ['sor2']),
+    ('sor5', 'Starlance', 'Grants the "Starlance" spell: beams of pure Mana fall from the night sky on a single target for 120 damage.', None, [], ['cst1']),
+    ('cst5', 'Storm Ward', None, None, [], ['sor5']),
+    ('sor6', 'Twin Effigies', 'Grants the "Twin Effigies" spell: two copies of you, one on each side, draw your enemies\' attacks for 30 seconds and cast the spells you held when you cast it. Each shatters after taking a third of your Health in damage. They grow with your Psionics: at 50 they last 40 seconds and take almost half your Health, at 75 50 seconds and two thirds, at 100 a full minute and more than your whole Health.', None, [], ['sor5']),
+    ('sor7', 'Gravity Well', f'Grants the "Gravity Well" spell: a well of gravity pulls nearby enemies into it and staggers them, and drains {GW_ABSORB} Health from each into you.', None, [], ['sor5']),
+    ('sor8', 'Falling Star', 'Grants the "Falling Star" spell: a falling star strikes for 60 damage and staggers; a target with more Mana than Health also loses Mana.', None, [], ['sor3', 'sor6']),
+    ('cst6', 'Arcane Tide', None, None, [], ['sor8']),
+    ('sor9', 'Veil Wyrm', f'Grants the "Veil Wyrm" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for {SORC["BurnSeconds"]} seconds: your spells cost half as much Mana and you restore {SORC["RegenPerSecond"]} Mana per second. One word recovers in {20 * WYRM_COOLDOWN_MULT} seconds, two in {35 * WYRM_COOLDOWN_MULT}, three in {50 * WYRM_COOLDOWN_MULT}.', None, [], ['cst6']),
   ]),
 ]
 
@@ -162,6 +334,11 @@ STAT_FX = {
     'handicraft': (['0438F4'], 'Your Handicraft skill is increased by {m}.'),
     'block': (['03E15B'], 'Your Blocking skill is increased by {m}.'),
     'entropy': (['023165'], 'Your Entropy skill is increased by {m}.'),
+    'sneak': (['02E1C6'], 'Your Sneak skill is increased by {m}.'),                     # AbFortifySneak
+    'psionics': (['02E1C5'], 'Your Psionics skill is increased by {m}.'),               # AbFortifyIllusion
+    'elementalism': (['02E1C4'], 'Your Elementalism skill is increased by {m}.'),       # AbFortifyDestruction
+    'resfire': (['024314'], 'You gain {m}% resistance to fire.'),                       # AbResistFire
+    'onehanded': (['023166'], 'Your One-handed skill is increased by {m}.'),            # AbFortifyOneHanded
 }
 # (key, EditorID, name, actor value) - copies of AbFortifyStaminaRate 105F21 on the other two rate multipliers
 STAT_RATE_MGEFS = [('healrate', 'ZP_Prophecy_FortifyHealRate', 'Fortify Health Regeneration', 'HealRateMult'),
@@ -172,7 +349,7 @@ STAT_NODES = {
               [('fst2', 'Inner Light', 'mana', 25, 'faith1'), ('fst3', 'Blessed Vigour', 'health', 25, 'faith2'),
                ('fst4', 'Mending Grace', 'healrate', 25, 'faith3'), ('fst5', 'Serenity', 'manarate', 10, 'faith5')],
               ('fst6', 'Warding Faith', 'resmagic', 10)),
-    'Sharpshooter': (('gst1', 'Steady Aim', 'archery', 10),
+    'Firearms': (('gst1', 'Steady Aim', 'archery', 10),
               [('gst2', 'Powder Lungs', 'stamina', 25, 'gun1'), ('gst3', 'Quick Breath', 'staminarate', 25, 'gun2'),
                ('gst4', 'Leather Duster', 'armor', 40, 'gun3'), ('gst5', 'Bandolier', 'carry', 25, 'gun4')],
               ('gst6', 'Hardened Nerves', 'health', 25)),
@@ -180,6 +357,11 @@ STAT_NODES = {
               [('dst2', 'Toolbelt', 'carry', 30, 'gad1'), ('dst3', 'Fume Mask', 'respoison', 15, 'gad2'),
                ('dst4', 'Riveted Plating', 'armor', 40, 'gad3'), ('dst5', 'Insulated Gloves', 'resshock', 15, 'gad4')],
               ('dst6', 'Steady Hands', 'stamina', 25)),
+    # Shadow's (2026-10-27): Mana and stealth (curator)
+    'Shadow': (('sst1', 'Silent Step', 'sneak', 10),
+              [('sst2', 'Dark Reservoir', 'mana', 25, 'shd1'), ('sst3', 'Soul Siphon', 'manarate', 10, 'shd2'),
+               ('sst4', 'Umbral Edge', 'onehanded', 10, 'shd3'), ('sst5', 'Whispering Mind', 'psionics', 10, 'shd4')],
+              ('sst6', 'Unseen', 'sneak', 10)),
     'Martial Arts': (('mst1', 'Conditioning', 'stamina', 25),
               [('mst2', 'Iron Knuckles', 'unarmed', 5, 'ma1'), ('mst3', 'Breath Control', 'staminarate', 25, 'ma2'),
                ('mst4', 'Toughened Body', 'armor', 40, 'ma3'), ('mst5', 'Unbroken', 'health', 25, 'ma4')],
@@ -197,9 +379,22 @@ STAT_NODES = {
                ('nst4', "Death's Patience", 'manarate', 10, 'nec3'), ('nst5', 'Cold Blood', 'resfrost', 15, 'nec4')],
               ('nst6', 'Bone Armour', 'armor', 40)),
 }
+# Stat talents placed by hand in TREES (a tree whose shape weave_stats cannot make): id -> (kind, magnitude); the
+# tree's W2 (the one before its capstone) is listed in HAND_W2. Druid's (2026-10-27): Mana, armor and regeneration.
+HAND_STATS = {'Druidic': {'vst1': ('manarate', 10), 'vst2': ('armor', 40), 'vst3': ('healrate', 25),
+                        'vst4': ('mana', 25), 'vst5': ('armor', 40), 'vst6': ('mana', 25)},
+              'Sorcery': {'cst1': ('elementalism', 10), 'cst2': ('mana', 75), 'cst3': ('resfire', 15),   # Mana Font 25 -> 75 (curator 2026-10-28)
+                           'cst4': ('resfrost', 15), 'cst5': ('resshock', 15), 'cst6': ('manarate', 10)},
+              'Rage': {'yst1': ('health', 25), 'yst2': ('stamina', 25), 'yst3': ('melee', 10),
+                       'yst4': ('armor', 40), 'yst5': ('healrate', 25), 'yst6': ('staminarate', 25)}}
+HAND_W2 = {'vst6', 'cst6', 'yst6'}
 STAT_FIRST_ID = 0x9C4
 FAITH_CAPSTONE = {'Faith': 'faith4'}     # the 2026-10-25 rework: Templar (faith5) is the merge talent now
 CAPSTONE_LEVEL = 30
+SHADOW_LATE_NODES = ('shd6',)            # Shade Veil (2026-10-28): allocated after Shatterveil's records
+SHADOW_LATE_NODES_2 = ('shd7',)          # Darkness (2026-10-28): allocated after the Darkness meter's records
+SHADOW_LATE = SHADOW_LATE_NODES + SHADOW_LATE_NODES_2
+MARTIAL_LATE_NODES = ('ma6',)            # Dragon's Breath (2026-10-28): allocated after Nightblade's records
 LATE_NODES = ('gad6',)                   # talents added after the stat talents: allocated after the Faith records                      # every capstone needs this player level (curator 2026-10-25; ZP_ProphecyMenu.LevelReq)
 STAT = {}                          # node id -> (kind, magnitude)
 
@@ -208,6 +403,13 @@ def weave_stats():
     """Insert STAT_NODES into TREES: W1 after the root (the root's children now need W1), W2 before the capstone
     (the last node; it now needs W2, which needs what the capstone needed), each side talent after its parent."""
     for k, (tree, desc, ns) in enumerate(TREES):
+        if tree in HAND_STATS:                       # already in place: only their descriptions to fill in
+            hs = HAND_STATS[tree]
+            assert {n[0] for n in ns if n[2] is None} == set(hs), (tree, 'hand stat talents')
+            TREES[k] = (tree, desc, [(n[0], n[1], STAT_FX[hs[n[0]][0]][1].format(m=hs[n[0]][1]), *n[3:])
+                                     if n[0] in hs else n for n in ns])
+            STAT.update(hs)
+            continue
         (w1, sides, w2) = STAT_NODES[tree]
         ns = list(ns)
         root, capid = ns[0][0], FAITH_CAPSTONE.get(tree, ns[-1][0])
@@ -225,7 +427,7 @@ def weave_stats():
             at = next(i for i, n in enumerate(ns) if n[0] == after)
             ns.insert(at + 1, stat(s, [s[4]]))
         for s in [w1, w2] + sides: STAT[s[0]] = (s[2], s[3])
-        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES), (tree, len(ns))
+        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES + SHADOW_LATE + MARTIAL_LATE_NODES), (tree, len(ns))
         TREES[k] = (tree, desc, ns)
 
 
@@ -393,6 +595,10 @@ def main():
     nodes = {n[0]: n for _, _, ns in TREES for n in ns}
     arc_nids = [n[0] for t, _, ns in TREES if t == ARCANE for n in ns if n[0] not in STAT]
     nec_nids = [n[0] for t, _, ns in TREES if t == NECRO for n in ns if n[0] not in STAT]
+    shadow_all = [n[0] for t, _, ns in TREES if t == SHADOW for n in ns if n[0] not in SHADOW_LATE]   # its stat talents too: its own block
+    druid_all = [n[0] for t, _, ns in TREES if t == DRUID_TREE for n in ns if n[0] not in DRUID_LATE_NODES + DRUID_LATE_NODES_2]   # likewise
+    sorc_all = [n[0] for t, _, ns in TREES if t == SORC_TREE for n in ns]
+    rage_all = [n[0] for t, _, ns in TREES if t == RAGE_TREE for n in ns]
     picked = {n[3]: n[0] for n in nodes.values() if n[3]}
     alias = {a: nid for nid, n in nodes.items() for a in n[4]}
     # the older trees close over exactly the seeds they always had (same order, same IDs); Arcane Archery's own
@@ -454,7 +660,7 @@ def main():
     glory_all = [n[0] for t, _, ns in TREES if t == GLORY for n in ns if n[0] not in STAT]
     glory_nodes = [nid for nid in glory_all if nid not in GLORY_LATE_NODES]
     for nid, n in nodes.items():                         # perks first, in tree order, for readable IDs
-        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES: continue
+        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES or nid in shadow_all or nid in druid_all or nid in DRUID_LATE_NODES or nid in DRUID_LATE_NODES_2 or nid in sorc_all or nid in rage_all or nid in SHADOW_LATE or nid in MARTIAL_LATE_NODES: continue
         if n[3]: newid[n[3]] = f'{nxt:06X}:{MOD}'
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     for a, nid in alias.items(): newid[a] = nodeperk[nid]
@@ -516,7 +722,7 @@ def main():
     notes = [f'{nxt + i:06X}:{MOD}' for i in range(SELECT_NOTES)]; nxt += SELECT_NOTES
     # the stat talents (2026-10-25): their perks in tree order, then one ability each, then the two regen MGEFs
     assert nxt == STAT_FIRST_ID, f'stat talents would not start at 0x{STAT_FIRST_ID:03X} (0x{nxt:03X})'
-    stat_ids = [nid for nid in nodes if nid in STAT]
+    stat_ids = [nid for nid in nodes if nid in STAT and nid not in shadow_all and nid not in druid_all and nid not in sorc_all and nid not in rage_all]
     for nid in stat_ids:
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     statab = {}
@@ -537,6 +743,68 @@ def main():
     assert nxt == 0xA6D, f'late talents would not start at 0xA6D (0x{nxt:03X})'
     for nid in LATE_NODES:
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    # Shadow (2026-10-27): its perks in tree order, its stat abilities, then Nightfall's records
+    assert nxt == SHADOW_FIRST_ID, f'Shadow would not start at 0x{SHADOW_FIRST_ID:03X} (0x{nxt:03X})'
+    for nid in shadow_all:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    for nid in shadow_all:
+        if nid in STAT: statab[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    shadow = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(SHADOW_RECORDS)}; nxt += len(SHADOW_RECORDS)
+    # Druid (2026-10-27): the same layout
+    assert nxt == DRUID_FIRST_ID, f'Druid would not start at 0x{DRUID_FIRST_ID:03X} (0x{nxt:03X})'
+    for nid in druid_all:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    for nid in druid_all:
+        if nid in STAT: statab[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    druid = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(DRUID_RECORDS)}; nxt += len(DRUID_RECORDS)
+    for nid in DRUID_LATE_NODES:                          # talents added to Druid later, in order; append new ones last
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    # Sorcerer (2026-10-27): the same layout
+    assert nxt == SORC_FIRST_ID, f'Sorcerer would not start at 0x{SORC_FIRST_ID:03X} (0x{nxt:03X})'
+    for nid in sorc_all:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    for nid in sorc_all:
+        if nid in STAT: statab[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    sorc = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(SORC_RECORDS)}; nxt += len(SORC_RECORDS)
+    # Rage (2026-10-27): the same layout
+    assert nxt == RAGE_FIRST_ID, f'Rage would not start at 0x{RAGE_FIRST_ID:03X} (0x{nxt:03X})'
+    for nid in rage_all:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    for nid in rage_all:
+        if nid in STAT: statab[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    rage = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(RAGE_RECORDS)}; nxt += len(RAGE_RECORDS)
+    # Sorcery, later (2026-10-27): Mana Burn's and Drowning Orb's Mana restore, and the orb's drain. Append new ones LAST
+    assert nxt == SORC_LATE_FIRST_ID, f'Sorcery late records would not start at 0x{SORC_LATE_FIRST_ID:03X} (0x{nxt:03X})'
+    sorc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(SORC_LATE_RECORDS)}); nxt += len(SORC_LATE_RECORDS)
+    # Arcane Archery, later (2026-10-28): Ice Shot's shout and word. Append new ones LAST
+    arc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(ICE_LATE_RECORDS)}); nxt += len(ICE_LATE_RECORDS)
+    # Sorcery, later (2026-10-28): Shatterveil's tier abilities. Append new ones LAST
+    sorc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(SHVL_LATE_RECORDS)}); nxt += len(SHVL_LATE_RECORDS)
+    # Shadow, later (2026-10-28): Shade Veil's perk, then its records. Append new ones LAST
+    assert nxt == 0xAE6, f'Shade Veil would not start at 0xAE6 (0x{nxt:03X})'
+    for nid in SHADOW_LATE_NODES:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    shadow.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(SHADE_VEIL_RECORDS)}); nxt += len(SHADE_VEIL_RECORDS)
+    shadow.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(DARKNESS_RECORDS)}); nxt += len(DARKNESS_RECORDS)
+    for nid in SHADOW_LATE_NODES_2:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    shadow.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(DARK_SPELL_RECORDS)}); nxt += len(DARK_SPELL_RECORDS)
+    shadow.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(NIGHTBLADE_RECORDS)}); nxt += len(NIGHTBLADE_RECORDS)
+    # Martial Arts, later (2026-10-28): Dragon's Breath's perk, then its records. Append new ones LAST
+    assert nxt == 0xAF5, f"Dragon's Breath would not start at 0xAF5 (0x{nxt:03X})"
+    for nid in MARTIAL_LATE_NODES:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    dragon = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(DRAGON_RECORDS)}; nxt += len(DRAGON_RECORDS)
+    # Flow State's chain lightning (2026-10-29): one spell on Dragon's Breath's chain lightning effect. Append LAST
+    assert nxt == 0xB02, f"Flow State's chain lightning would not start at 0xB02 (0x{nxt:03X})"
+    flowchain = f'{nxt:06X}:{MOD}'; nxt += 1
+    # Blink Step's swoosh (2026-10-29): its sound, marker and play effect. Append LAST
+    sorc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(BLINK_SWOOSH_RECORDS)}); nxt += len(BLINK_SWOOSH_RECORDS)
+    # Druid, later (2026-10-29): Wolf Pack's and Nature's Way's perks, then The Hunt's records. Append LAST
+    assert nxt == 0xB06, f"Wolf Pack would not start at 0xB06 (0x{nxt:03X})"
+    for nid in DRUID_LATE_NODES_2:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    druid.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(HUNT_RECORDS)}); nxt += len(HUNT_RECORDS)
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -571,7 +839,7 @@ def main():
         fk = re.search(r'^FormKey: (.+?)\s*$', t, re.M).group(1)
         h = fk.split(':')[0]
         os.makedirs(os.path.join(ESP, ty), exist_ok=True)
-        open(os.path.join(ESP, ty, f'{ed(t)} - {h}_{MOD}.yaml'), 'w', encoding='utf-8', newline='\r\n').write(t)
+        open(os.path.join(ESP, ty, f'{ed(t)} - {h}_{fk.split(":", 1)[1]}.yaml'), 'w', encoding='utf-8', newline='\r\n').write(t)
 
     def setstr(t, key, val):
         val = val.replace("'", "''")
@@ -704,6 +972,32 @@ def main():
             t, n_vm = re.subn(r'^VirtualMachineAdapter:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
             assert n_vm == 1 and 'PRKF_ORD' not in t, 'Bear Traps perk script not where expected'
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + droid['power'] + '\n'
+        if nid == 'shd6':      # Shade Veil: the mist while sneaking, and harder to detect (Enderal's own entry point)
+            t = t.rstrip('\n') + ('\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + shadow['veilab'] +
+                                  '\n- MutagenObjectType: PerkEntryPointModifyValue\n  EntryPoint: ModDetectionSneakSkill\n'
+                                  f'  PerkConditionTabCount: 2\n  Modification: Add\n  Value: {SHADE_VEIL_DETECT}\n')
+        if nid == 'shd1':      # Gather Shadows: the Darkness ability (the DLL writes the count into its magnitude)
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + shadow['darkab'] + '\n'
+        if nid == 'shd5':      # Nightfall: the power (the four spells are granted by the menu, SHADOW_GRANTS)
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + shadow['power'] + '\n'
+        if nid == 'dru2':      # The Hunt: the power (the menu AddSpells perk powers)
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + druid['huntpower'] + '\n'
+        if nid == 'dru9':      # Wolf Pack: room for the second wolf while the first is out (The Hunt's script calls it)
+            t = t.rstrip('\n') + '\n' + summon_room('HasMagicEffectConditionData', 'MagicEffect', druid['wolfme1'])
+        if nid == 'dru10':     # Nature's Way: one more summon while a totem stands (totems are summons)
+            t = t.rstrip('\n') + '\n' + summon_room('HasMagicEffectKeywordConditionData', 'Keyword', TOTEM_KEYWORD)
+        if nid == 'dru7':      # Force of Nature: the power, and room for the familiars while the form lasts
+            t = t.rstrip('\n') + '\n' + druid_perk(druid)
+        if nid == 'sor10':     # Drowning Orb: the ability that restores the player's Mana inside the orb
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + sorc['orbwatch'] + '\n'
+        if nid == 'sor9':      # Veil Wyrm: Mana Burn's half-cost spells while the shout's marker is on
+            t = t.rstrip('\n') + '\n' + sorc_perk(sorc)
+        if nid == 'sor2':      # Orbit Ward: the ability that raises it while casting
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + sorc['orbitab'] + '\n'
+        if nid in SHVL_TIERS:  # Bursting Effigy: the ability that gives the Psionics tier
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + sorc[SHVL_TIERS[nid][0]] + '\n'
+        if nid in ('rge1', 'rge9'):      # Rage: the stack damage bonus / Vehemence's free power attacks
+            t = t.rstrip('\n') + '\n' + rage_perk(nid, rage)
         if nid in GLORY_ABILITY:
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + glory[GLORY_ABILITY[nid]] + '\n'
         if nid in STAT:
@@ -717,7 +1011,7 @@ def main():
 
     # --- hand-built records
     write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, sharp)
-    write_flow(flowab, flowme, newid, write, nova)
+    write_flow(flowab, flowme, newid, write, nova, flowchain, dragon['Shockme'])
     write_droid(droid, write)
     write_never(write)
     write_dummies(write)
@@ -762,6 +1056,13 @@ Priority: 128
     write_stats(nodes, statab, ratemgef, write)
     write_holy(hidx, hcopy, remap, write, faith)
     write_faith(faith, newid, write)
+    write_shadow(shadow, write, nodeperk)
+    write_druid(druid, write)
+    write_hunt(druid, write, nodeperk)
+    write_sorcerer(sorc, write)
+    write_unsold_tomes(write)
+    write_dragons_breath(dragon, write, sharp, arc)
+    write_rage(rage, nodeperk, write, dragon)
 
     if bad:
         for k, v in sorted(bad.items()): print('UNRESOLVED', v, k)
@@ -769,7 +1070,11 @@ Priority: 128
     copy_assets(models, scripts)
     copy_holy_assets(hidx, hcopy)
     write_menu(nodes, nodeperk, write, {'nec2': nec['effspell'],      # spells: AddPerk would not teach them
-                                        'faith1': newid[htm('000826')], 'faith4': newid[htm('000829')]})
+                                        'faith1': newid[htm('000826')], 'faith4': newid[htm('000829')],
+                                        **SHADOW_GRANTS, 'shd7': shadow['dspell'], **DRUID_GRANTS, 'dru1': druid['craftspell'],
+                                        **{nid: s[1] for nid, s in SORC_SPELLS.items()},
+                                        'arc3': arc['iceshout'],                # a shout: the menu teaches its word
+                                        'sor9': WYRM_SHOUT})                    # Veil Wyrm: all three words
     print(f'records copied {len(copy)}, perks {len(nodes)}, next free ID 0x{nxt:03X}, models {len(models)}, scripts {len(scripts)}')
 
 
@@ -1138,7 +1443,7 @@ def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late):
     be = (bleed.group(1) or bleed.group(2))
     t = re.sub(r'^FormKey: .*$', f'FormKey: {gunhit}', t, count=1, flags=re.M)
     t = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_GunHitSpell', t, count=1, flags=re.M)
-    t = re.sub(r'^(Name:\n  TargetLanguage: English\n  Value: ).*$', r'\1Sharpshooter', t, count=1, flags=re.M)
+    t = re.sub(r'^(Name:\n  TargetLanguage: English\n  Value: ).*$', r'\1Firearms', t, count=1, flags=re.M)
     def gate(perk):
         # MutagenObjectType must be the first key under Data or Spriggit fails to read it
         return ('  Conditions:\n  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: HasPerkConditionData\n'
@@ -1186,7 +1491,7 @@ def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late):
     open(pp, 'w', encoding='utf-8', newline='\r\n').write(pt.replace(f'  Spell: {ord_fk}\n', f'  Spell: {gunhit}\n'))
 
 
-def write_flow(ab, me, newid, write, nova):
+def write_flow(ab, me, newid, write, nova, chain, chainme):
     slow = newid[f'07B101:{ORD}']
     write('Spells', f"""FormKey: {ab}
 EditorID: ZP_Prophecy_FlowStateAbility
@@ -1216,8 +1521,14 @@ VirtualMachineAdapter:
       Name: Nova
       Object: {nova['novaexp']}
     - MutagenObjectType: ScriptFloatProperty
-      Name: NovaCooldown
+      Name: NovaEvery
       Data: {FLOW_NOVA['Cooldown']}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: SlowEvery
+      Data: {FLOW_NOVA['SlowCooldown']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ChainLightning
+      Object: {chain}
 Name:
   TargetLanguage: English
   Value: Flow State
@@ -1263,6 +1574,29 @@ Description:
                           '      MutagenObjectType: IsHostileToActorConditionData\n      TargetNpc: 000014:Skyrim.esm\n'
                           '    ComparisonValue: 1\n')
     write('ObjectEffects', t)
+    # the nova's chain lightning (curator 2026-10-29: "add a chain lightning to the Shock Nova"): vanilla Chain
+    # Lightning on Dragon's Breath's copy of its effect (no screen flash), at the nova's damage and Chain Lightning's
+    # 13 ft; the script casts it from the player at their combat target as the nova goes off
+    write('Spells', f"""FormKey: {chain}
+EditorID: ZP_Prophecy_FlowStateChainLightning
+Name:
+  TargetLanguage: English
+  Value: Shock Nova
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: Aimed
+Effects:
+- BaseEffect: {chainme}
+  Data:
+    Magnitude: {FLOW_NOVA['Damage']}
+    Area: 13
+""")
 
 
 def write_droid(d, write):
@@ -1537,7 +1871,7 @@ TRIPWIRE_DAMAGE = 40
 # Flow State's Shock Nova (curator, 2026-10-23): Enderal's shock-mass blast + its weapon shock-damage enchantment, copied
 SHOCK_MASS_EXP = os.path.join(REF, 'base', 'Skyrim', 'Explosions', 'ExplosionShockMass01ShockDamage - 03BC85_Skyrim.esm.yaml')
 SHOCK_DAMAGE_ENCH = os.path.join(REF, 'base', 'Skyrim', 'ObjectEffects', 'EnchWeaponShockDamage06 - 045F9E_Skyrim.esm.yaml')
-FLOW_NOVA = {'Damage': 40, 'Radius': 300, 'Cooldown': 15.0}
+FLOW_NOVA = {'Damage': 40, 'Radius': 300, 'Cooldown': 8.0, 'SlowCooldown': 8.0}   # both 8 s (curator 2026-10-29)
 
 
 def add_tripwire_blast(newid, write, blast):
@@ -1677,13 +2011,15 @@ def fix_smoke_blind(chaff):
     open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
 
 
-def sound_records(write, r, key, name, wav, on_caster=False, touch=False):
+def sound_records(write, r, key, name, wav, on_caster=False, touch=False, descriptor=None):
     """SoundDescriptor + marker + a hidden Script effect (ZP_PlaySoundEffect) that plays it once. touch: the effect
-    rides a Touch hit spell (target = the enemy); on_caster (implies touch) plays the sound on the shooter instead."""
+    rides a Touch hit spell (target = the enemy); on_caster (implies touch) plays the sound on the shooter instead.
+    descriptor: an existing SoundDescriptor for the marker instead of a new one from wav (r['sound'] unused)"""
     caster = ('    - MutagenObjectType: ScriptBoolProperty\n      Name: PlayOnCaster\n      Data: True\n'
               if on_caster else '')
     touch = 'TargetType: Touch\n' if on_caster or touch else ''
-    write('SoundDescriptors', f"""FormKey: {r['sound']}
+    if descriptor is None:
+        write('SoundDescriptors', f"""FormKey: {r['sound']}
 EditorID: ZP_Prophecy_{key}Sound
 Type: Standard
 Category: 01A0BD:Skyrim.esm
@@ -1693,7 +2029,8 @@ OutputModel: 0B6463:Skyrim.esm
 LoopAndRumble: {{}}
 Priority: 128
 """)
-    write('SoundMarkers', f"FormKey: {r['marker']}\nEditorID: ZP_Prophecy_{key}Marker\nSoundDescriptor: {r['sound']}\n")
+    write('SoundMarkers', f"FormKey: {r['marker']}\nEditorID: ZP_Prophecy_{key}Marker\n"
+                          f"SoundDescriptor: {descriptor or r['sound']}\n")
     write('MagicEffects', f"""FormKey: {r['mgef']}
 EditorID: ZP_Prophecy_{key}Effect
 VirtualMachineAdapter:
@@ -1825,7 +2162,8 @@ ARC_RECORDS = ('arspell', 'arme', 'armsg', 'arglob',                       # Arc
                'icepower', 'iceme', 'icecd', 'icecdme', 'icearrow', 'iceproj', 'iceball', 'iceballproj',
                'iceexp', 'iceench', 'freezeme',                           # Ice Shot (iceball*: reserved, bows only)
                'ravenme', 'ravenlist')                                    # Send a Raven
-ARC_ABILITY = {'arc1': 'arspell', 'arc2': 'ndab', 'arc3': 'icepower'}   # node -> what its perk grants
+ARC_ABILITY = {'arc1': 'arspell', 'arc2': 'ndab'}   # node -> what its perk grants (Ice Shot's shout: the menu, grants)
+ICE_LATE_RECORDS = ('iceshout', 'iceword')       # Ice Shot as a talent (2026-10-28), allocated after Sorcery's late records
 # Arcane Archery is bows only (curator 2026-10-23): the player's right-hand item type is 7 (crossbows/muskets: 12).
 # As a condition on a hit-spell effect (subject = the target) it runs on PlayerRef.
 # Sharpshooter is muskets only (curator 2026-10-23): crossbow-type weapons, item type 12 - Ordo's muskets, and the
@@ -1964,11 +2302,20 @@ def write_arcane(a, newid, write, late):
     # fire-and-forget shell ward (curator 2026-10-23: 'use the spell ward'). 'wardab'/'wardme'/'armorme' (the first
     # build's hand-made value-modifier ward) stay reserved and unwritten; a save that has the old ability drops it.
 
-    # --- Ice Shot: the power. No cooldown, a Magicka cost the script takes (curator 2026-10-23); 'icecd'/'icecdme'
-    # (the first build's 110 s, then 60 s, cooldown) stay reserved and unwritten
-    write('Spells', spell(a['icepower'], 'ZP_Prophecy_IceShot_Power', 'Ice Shot', 'LesserPower', 'FireAndForget',
-                          f"- BaseEffect: {a['iceme']}\n  Data:\n    Duration: {ARC['IceSeconds']}\n", equip='025BEE:Skyrim.esm',
+    # --- Ice Shot: a talent like Flame Shot (curator 2026-10-28): the spell is a Voice spell, the shout's one word
+    # carries the cooldown (ARC['IceCooldown'], Fire Arrow's EGO RecoveryTime), shaped like _00E_A1_Firearrow 05C233 /
+    # _00E_A1_FirearrowWord01 05C274. The menu grants the shout (TeachWord + UnlockWord + AddShout) and takes back the
+    # spell a 2026-10-23..27 save got as a lesser power. 'icecd'/'icecdme' (the first build's cooldown) stay unwritten.
+    write('Spells', spell(a['icepower'], 'ZP_Prophecy_IceShot_Power', 'Ice Shot', 'Voice', 'FireAndForget',
+                          f"- BaseEffect: {a['iceme']}\n  Data:\n    Duration: {ARC['IceSeconds']}\n", equip='013F44:Skyrim.esm',
                           extra='Flags:\n- IgnoreResistance\n- NoAbsorbOrReflect\n'))
+    write('WordsOfPower', f"FormKey: {a['iceword']}\nEditorID: ZP_Prophecy_IceShot_Word\nName:\n  TargetLanguage: English\n"
+                          "  Value: Ice Shot\nTranslation:\n  TargetLanguage: English\n  Value: Ice Shot\n")
+    write('Shouts', f"FormKey: {a['iceshout']}\nEditorID: ZP_Prophecy_IceShot\nName:\n  TargetLanguage: English\n  Value: Ice Shot\n"
+                    "MenuDisplayObject: 04E264:Skyrim.esm\nDescription:\n  TargetLanguage: English\n"
+                    f"  Value: 'Adds {ARC['IceArrows']} ice arrows to your quiver: {ARC['IceDamage']} frost damage, and the target freezes"
+                    f" for {ARC['FreezeSeconds']} seconds until your next arrow shatters it.'\n"
+                    f"WordsOfPower:\n- Word: {a['iceword']}\n  Spell: {a['icepower']}\n  RecoveryTime: {ARC['IceCooldown']}\n")
     write('MagicEffects', mgef(a['iceme'], 'ZP_Prophecy_IceShot_Effect', 'Ice Shot', '', ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'],
                                '  Type: Script\n', vmad=script('ZP_IceShotEffect', [
                                    ('IceArrow', 'Object', a['icearrow']),
@@ -2085,7 +2432,8 @@ SoundLevel: 1
                                ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'], '  Type: Script\n',
                                vmad=script('ZP_IceShotTriggerEffect', [
                                    ('Freeze', 'Object', late['icefrz']), ('FreezeEffect', 'Object', a['freezeme']),
-                                   ('LastShot', 'Object', late['icelast']), ('Pending', 'Object', late['icepending'])]))))
+                                   ('LastShot', 'Object', late['icelast']), ('Pending', 'Object', late['icepending']),
+                                   ('IceArrow', 'Object', a['icearrow'])]))))   # strips ice arrows off the target
     write('Spells', spell(late['icewatchab'], 'ZP_Prophecy_IceShot_Watcher', 'Ice Shot', 'Ability', 'ConstantEffect',
                           f"- BaseEffect: {late['icewatchme']}\n  Data: {{}}\n"))
     write('MagicEffects', mgef(late['icewatchme'], 'ZP_Prophecy_IceShot_WatcherEffect', 'Ice Shot', '', hidden,
@@ -2540,6 +2888,1404 @@ Description:
         write('Npcs', t)
 
 
+# ------------------------------------------------------------------------------------------------ Shadow
+# (curator 2026-10-27) Triumvirate's Shadow Mage spells, used as they are (Prophecy masters Triumvirate; Magic Patches
+# prices them for Enderal): the menu teaches four of them (SHADOW_GRANTS). Nightfall is a lesser power instead of its
+# 1245-Mana master spell: the power's gate effect (ZP_WrathGate, as Wrath of the Lightborn) checks Arcane Fever once,
+# then casts Triumvirate's Nightfall and the fever cost. A scripted cast is free and ignores the spell's skill level.
+# Nightfall's own script (TVR_CastAllTheThings_Script) casts each Shadow buff the caster HasSpell - so the talents'
+# spells, plus Shadow Stride/Shadow Dance if bought from a tome. Allocated after every older block. Append new ones LAST.
+SHADOW = 'Shadow'
+SHADOW_FIRST_ID = 0xA6E
+SHADOW_RECORDS = ('power', 'gate', 'fever')
+SHADE_VEIL_RECORDS = ('veilab', 'veilme', 'veilfxs')     # Shade Veil (2026-10-28), after Shatterveil's records
+DARKNESS_RECORDS = ('darkglobal', 'darkab', 'darkabme')   # Darkness (2026-10-28): the count, shown as the ability's magnitude
+# the Darkness talent's spell (2026-10-28): our copy of Triumvirate's Darkness 3727C3 (Magic Patches' winning record)
+# down to its hazard, whose model is vanilla's dark low mist - FXMistLowSwirls01Dark, about 900 units across, the
+# size of the darkness light's 426-unit radius. Triumvirate's own records stay as they are (its tome still sells them)
+DARK_SPELL_RECORDS = ('dspell', 'dme', 'dimpset', 'dimpact', 'dhazard')
+NIGHTBLADE_RECORDS = ('nbspell', 'nbme')   # Nightblade's Darkness damage (2026-10-28), cast by the DLL
+NIGHTBLADE_PROC = '335B4F'                 # TVR_Shadow_Spell_Nightblade_Proc: owned by Prophecy (no other plugin of ours)
+NIGHTBLADE_DRAIN = '335B52'                # its TVR_Shadow_Rift_Effect_Nightblade_Debuff_SelfDamage (the Mana drain)
+NIGHTBLADE_DAMAGE = '335B51'               # its 45 magic damage effect: the look and resist our damage copies
+DARK_SPELL_SRC = {'dspell': os.path.join(REPO, 'src', 'MagicPatches', 'MagicPatchesESP', 'Spells',
+                                         'TVR_Shadow_I025_Spell_Darkness - 3727C3_Triumvirate - Mage Archetypes.esp.yaml'),
+                  'dme': ('MagicEffects', '395F16'), 'dimpset': ('ImpactDataSets', '395F14'),
+                  'dimpact': ('Impacts', '395F15'), 'dhazard': ('Hazards', '38BD03')}
+DARK_SPELL_FK = {'dspell': '3727C3', 'dme': '395F16', 'dimpset': '395F14', 'dimpact': '395F15', 'dhazard': '38BD03'}
+DARK_MIST_MODEL = r'ZenProphecy\DarknessMist.nif'   # vanilla's FXMistLowSwirls01Dark tinted black (tools/08; drew light grey)
+DARK_MIST_SECONDS = 30                                # the spell's duration: the mist impact lasts as long
+DARKNESS_JSON = os.path.join(PATCH, 'data', 'SKSE', 'Plugins', 'ZenProphecyDarkness.json')
+# Shade Veil's mist: Enderal's DA02ArmorShadow (the vanilla Ebony Armor's black and grey smoke: inky particles, dark
+# membrane; its textures ship in Skyrim - Textures4/5) minus its ambient sound, which would sound on every crouch
+SHADE_VEIL_FXS = os.path.join(REF, 'base', 'Skyrim', 'EffectShaders', 'DA02ArmorShadow - 081180_Skyrim.esm.yaml')
+SHADOW_GRANTS = {'shd1': f'3727BF:{TRIUMVIRATE}',    # TVR_Shadow_I000_Spell_GatherShadows
+                 'shd2': f'31C5C1:{TRIUMVIRATE}',    # TVR_Shadow_D075_Spell_DrainingShroud
+                 'shd3': f'330A43:{TRIUMVIRATE}',    # TVR_Shadow_D050_Spell_Nightblade
+                 'shd4': f'30D2A4:{TRIUMVIRATE}'}    # TVR_Shadow_A075_Spell_PullThroughShadows
+NIGHTFALL_SPELL = f'31C5B8:{TRIUMVIRATE}'            # TVR_Shadow_I100_Spell_Nightfall
+SHADOW_ICON = f'381AEB:{TRIUMVIRATE}'                # Triumvirate's Shadow menu art and hand art
+SHADOW_CAST_ART = f'381AEC:{TRIUMVIRATE}'
+
+
+def write_dark_spell(sh, write):
+    """The Darkness talent's spell: Triumvirate's records copied (the Triumvirate Enderal patch's where it has them),
+    each pointing at the next copy; the hazard keeps its own model, the impact adds the black mist."""
+    tvr = lambda h: f'{h}:{TRIUMVIRATE}'
+    swap = {tvr(DARK_SPELL_FK[k]): sh[k] for k in DARK_SPELL_RECORDS}
+    names = {'dspell': 'ZP_Prophecy_Darkness_Spell', 'dme': 'ZP_Prophecy_Darkness_SpellEffect',
+             'dimpset': 'ZP_Prophecy_Darkness_ImpactSet', 'dimpact': 'ZP_Prophecy_Darkness_Impact',
+             'dhazard': 'ZP_Prophecy_Darkness_MistHazard'}
+    for k in DARK_SPELL_RECORDS:
+        src = DARK_SPELL_SRC[k]
+        if isinstance(src, tuple):
+            folder, h = src
+            hits = [f for d in ('TriumvirateEnderalPatch', 'Triumvirate')
+                    for f in glob.glob(os.path.join(REF, 'mods', d, folder, f'* - {h}_*.yaml'))]
+            assert hits, f'Darkness spell: {folder} {h} not found'
+            src = hits[0]
+        y = open(src, encoding='utf-8').read().replace('\r\n', '\n')
+        for a, b in swap.items():
+            y = y.replace(a, b)
+        y, n = re.subn(r'^EditorID: .*$', f'EditorID: {names[k]}', y, count=1, flags=re.M)
+        assert n == 1, k
+        if k == 'dhazard':
+            # the hazard keeps Triumvirate's own Blacklight model (curator 2026-10-28: "the original Darkness spell's
+            # effect additional to the black smoke"); it is an LE nif, so the two can't be merged into one mesh
+            y = y.replace('  Value: Blacklight Hazard', '  Value: Darkness')
+        if k == 'dimpact':
+            # the black mist rides the impact instead, its effect lasting the spell's 30 seconds (vanilla impacts
+            # last 0.1-2 s: that a 30 s one holds its model that long is unverified in game)
+            y, n = re.subn(r'^(EditorID: .*\n)', lambda m: m.group(1) + f'Model:\n  File: {DARK_MIST_MODEL}\n', y,
+                           count=1, flags=re.M)
+            assert n == 1, 'Darkness impact model'
+            y, n = re.subn(r'^Duration: .*$', f'Duration: {DARK_MIST_SECONDS}', y, count=1, flags=re.M)
+            assert n == 1, 'Darkness impact duration'
+        if k == 'dme':
+            y = y.replace('Creates a <10> foot source of darkness that sticks where it strikes for <dur> seconds.',
+                          'Leaves a pool of black mist and darkness where it strikes for <dur> seconds.')
+        assert sh[k] in y, k
+        ty = {'dspell': 'Spells', 'dme': 'MagicEffects', 'dimpset': 'ImpactDataSets', 'dimpact': 'Impacts',
+              'dhazard': 'Hazards'}[k]
+        write(ty, y)
+
+
+def tvr_record(folder, h):
+    """A Triumvirate record as the list loads it: the Triumvirate Enderal patch's copy where it has one."""
+    hits = [f for d in ('TriumvirateEnderalPatch', 'Triumvirate')
+            for f in glob.glob(os.path.join(REF, 'mods', d, folder, f'* - {h}_*.yaml'))]
+    assert hits, f'{folder} {h} not found'
+    return open(hits[0], encoding='utf-8').read().replace('\r\n', '\n')
+
+
+def write_nightblade(sh, write, nodeperk):
+    # the proc without its Mana drain while the player has Gather Shadows (the drain's subject is the target; the
+    # player is named by reference). Tome users without the tree keep Triumvirate's Nightblade as it was
+    y = tvr_record('Spells', NIGHTBLADE_PROC)
+    entry = f'- BaseEffect: {NIGHTBLADE_DRAIN}:{TRIUMVIRATE}\n  Data: {{}}\n'
+    assert y.count(entry) == 1, 'Nightblade proc: drain entry'
+    y = y.replace(entry, entry + '  Conditions:\n  - MutagenObjectType: ConditionFloat\n    Data:\n'
+                  '      MutagenObjectType: HasPerkConditionData\n      RunOnType: Reference\n'
+                  f"      Reference: 000014:Skyrim.esm\n      Perk: {nodeperk['shd1']}\n    ComparisonValue: 0\n")
+    write('Spells', y)
+    # the Darkness damage: Triumvirate's damage effect (its hit shader, resist, look) without the dash-keyword
+    # condition, in a spell the DLL casts from the player with the magnitude it computes
+    me = tvr_record('MagicEffects', NIGHTBLADE_DAMAGE)
+    me = re.sub(r'^FormKey: .*$', f"FormKey: {sh['nbme']}", me, count=1, flags=re.M)
+    me = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_Nightblade_DarknessDamage', me, count=1, flags=re.M)
+    me, n = re.subn(r'^Conditions:\n(?:[- ].*\n)*', '', me, count=1, flags=re.M)
+    assert n == 1, 'Nightblade damage: conditions'
+    me = me.replace('  Value: <mag> magic damage and pulls the caster to the target.', '  Value: <mag> magic damage from Darkness.')
+    me = me.replace('  Value: Magic Damage\n', '  Value: Nightblade\n', 1)
+    write('MagicEffects', me)
+    write('Spells', f"""FormKey: {sh['nbspell']}
+EditorID: ZP_Prophecy_Nightblade_DarknessDamage
+Name:
+  TargetLanguage: English
+  Value: Nightblade
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: {sh['nbme']}
+  Data:
+    Magnitude: 1
+    Duration: 1
+""")
+
+
+def write_shadow(sh, write, nodeperk):
+    # Darkness: the global (saved with the game), the ability that shows the count, and the DLL's config
+    write('Globals', f"MutagenObjectType: GlobalShort\nFormKey: {sh['darkglobal']}\nEditorID: ZP_Darkness\nData: 0\n")
+    write('Spells', f"FormKey: {sh['darkab']}\nEditorID: ZP_Prophecy_Darkness_Ability\nName:\n  TargetLanguage: English\n"
+                    "  Value: Darkness\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
+                    f"Type: Ability\nCastType: ConstantEffect\nEffects:\n- BaseEffect: {sh['darkabme']}\n  Data: {{}}\n")
+    write('MagicEffects', f"""FormKey: {sh['darkabme']}
+EditorID: ZP_Prophecy_Darkness_Effect
+Name:
+  TargetLanguage: English
+  Value: Darkness
+Flags:
+- Recover
+- NoDuration
+- NoArea
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: You have <mag> Darkness.
+""")
+    write_dark_spell(sh, write)
+    write_nightblade(sh, write, nodeperk)
+    hexid = lambda fk: fk.split(':')[0]
+    spells = ([(nid, SHADOW_GRANTS[nid]) for nid in ('shd1', 'shd2', 'shd3', 'shd4')] + [('shd5', sh['power'])] +
+              [('shd7', sh['dspell'])])
+    cfg = {
+        '$comment': 'Generated by src/Prophecy/tools/01-build-trees.py (write_shadow) - never hand-edit. FormIDs are '
+                    'local to their plugin (hex). See arch-docs/patches/Prophecy.md, Darkness.',
+        'plugin': MOD, 'darknessGlobal': hexid(sh['darkglobal']), 'darknessEffect': hexid(sh['darkabme']),
+        'veilEffect': hexid(sh['veilme']), 'perks': {'root': hexid(nodeperk['shd1'])},
+        'max': DARKNESS['Max'], 'fill': [{'lightAtMost': l, 'secondsPerPoint': s} for l, s in DARKNESS['Fill']],
+        'veilMult': DARKNESS['VeilMult'], 'drainEvery': DARKNESS['DrainEvery'],
+        'refusal': 'Not enough Darkness.',
+        'spells': [{'name': next(n[1] for _, _, ns in TREES for n in ns if n[0] == nid), 'plugin': fk.split(':', 1)[1],
+                    'id': hexid(fk), 'cost': DARKNESS['Cost'][nid]} for nid, fk in spells],
+        'meter': DARKNESS['Meter'],
+        'nightblade': {'procPlugin': TRIUMVIRATE, 'procId': NIGHTBLADE_PROC, 'damageSpell': hexid(sh['nbspell']),
+                       'fraction': NIGHTBLADE['Fraction'], 'perPoint': NIGHTBLADE['PerPoint']},
+    }
+    os.makedirs(os.path.dirname(DARKNESS_JSON), exist_ok=True)
+    with open(DARKNESS_JSON, 'w', encoding='utf-8', newline='\n') as fh:
+        json.dump(cfg, fh, indent=1)
+    fx = open(SHADE_VEIL_FXS, encoding='utf-8').read().replace('\r\n', '\n')
+    for a, b in ((r'^FormKey: .*$', f"FormKey: {sh['veilfxs']}"),
+                 (r'^EditorID: .*$', 'EditorID: ZP_Prophecy_ShadeVeil_FXS'),
+                 (r'^AmbientSound: .*\n', '')):
+        fx, n = re.subn(a, b, fx, count=1, flags=re.M)
+        assert n == 1, f'Shade Veil shader: {a}'
+    write('EffectShaders', fx)
+    write('Spells', f"""FormKey: {sh['veilab']}
+EditorID: ZP_Prophecy_ShadeVeil_Ability
+Name:
+  TargetLanguage: English
+  Value: Shade Veil
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: {sh['veilme']}
+  Data: {{}}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsSneakingConditionData
+    ComparisonValue: 1
+""")
+    # the mist is played by the effect's script (a HitShader on this conditioned effect did not show in game)
+    write('MagicEffects', f"""FormKey: {sh['veilme']}
+EditorID: ZP_Prophecy_ShadeVeil_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ShaderWhileActiveEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Shader
+      Object: {sh['veilfxs']}
+Name:
+  TargetLanguage: English
+  Value: Shade Veil
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'You are {SHADE_VEIL_DETECT}% harder to detect while sneaking.'
+""")
+    write('Spells', f"""FormKey: {sh['power']}
+EditorID: ZP_Prophecy_Nightfall_Power
+Name:
+  TargetLanguage: English
+  Value: Nightfall
+MenuDisplayObject: {SHADOW_ICON}
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: {sh['gate']}
+  Data: {{}}
+""")
+    write('MagicEffects', f"""FormKey: {sh['gate']}
+EditorID: ZP_Prophecy_Nightfall_Gate
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WrathGate
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CloakSpell
+      Object: {NIGHTFALL_SPELL}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: MaxFever
+      Data: 1000.0
+    - MutagenObjectType: ScriptStringProperty
+      Name: Refusal
+      Data: Your Arcane Fever is too high to call down Nightfall.
+Name:
+  TargetLanguage: English
+  Value: Nightfall
+MenuDisplayObject: {SHADOW_ICON}
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+MagicSkill: Illusion
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: {SHADOW_CAST_ART}
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'For 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once. Costs a full Darkness meter.'
+""")
+    write('Spells', f"""FormKey: {sh['fever']}
+EditorID: ZP_Prophecy_Nightfall_Fever
+Name:
+  TargetLanguage: English
+  Value: Nightfall
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+Effects:
+- BaseEffect: {FEVER}
+  Data:
+    Magnitude: {NIGHTFALL_FEVER}
+    Duration: 1
+""")
+
+
+# ------------------------------------------------------------------------------------------------ Druid
+# (curator 2026-10-27) Triumvirate's Druid and Shaman spells, used as they are (Magic Patches prices them): the menu
+# teaches Parasitic Growth, Bramble Growth and the three totems (DRUID_GRANTS) and our Druidcraft - Triumvirate's
+# spell (Magic Patches' price) plus a heal on a dead target. Force of Nature is a lesser power, not the 105-Mana spell:
+# ZP_ForceOfNatureEffect takes the fever as Legion of the Damned does, casts Triumvirate's Force of Nature (the player
+# becomes its Horned Lord race 000837 through TVR_Wildshape_Script) and then the familiars: our FireAndForget copies
+# of Triumvirate's Call Raven / Snow Leopard / Rattlesnakes summon effects without TVR_SummonCost_Script (the Mana
+# drain that ends them with the concentration). The perk raises the summon limit by ExtraSummons while the form is
+# on, and the script dispels the familiars when the form ends early. Allocated after Shadow. Append new ones LAST.
+DRUID_TREE = 'Druidic'
+DRUID_FIRST_ID = 0xA82
+DRUID_RECORDS = ('craftspell', 'crafthealme', 'power', 'powerme', 'familiars', 'raven', 'leopard', 'snake1', 'snake2')
+DRUID_LATE_NODES = ('dru8',)
+DRUID_LATE_NODES_2 = ('dru9', 'dru10')       # Wolf Pack, Nature's Way (2026-10-29): after Blink Step's swoosh
+HUNT_RECORDS = ('huntpower', 'huntme', 'wolfspell1', 'wolfme1', 'wolfspell2', 'wolfme2')
+GOODBERRY = f'2844D3:{TRIUMVIRATE}'                  # TVR_Healing_Potion_Goodberry
+WOLF_EFFECT = 'TVR_Druid_Primal_Effect_CallWolf - 16391F'   # Triumvirate's Enderal patch's copy
+WOLF_ICON = f'14F4DC:{TRIUMVIRATE}'
+TOTEM_KEYWORD = f'3E706A:{TRIUMVIRATE}'              # TVR_Totem_Keyword_LevelScaling: on all three totem effects
+AERO = 'Aero.esl'                                    # Abyssal Wind Magic (Kittytails), installed with src/KittytailsPacksClean
+TWISTER = f'00086F:{AERO}'                           # _AV_PLAYER_WindBallSpawnTornado_75
+DRUID_GRANTS = {'dru8': TWISTER,
+                'dru3': f'27F3B4:{TRIUMVIRATE}',     # TVR_Druid_R075_Spell_BrambleGrowth
+                'dru4': f'3BE79F:{TRIUMVIRATE}',     # TVR_Shaman_C000_Spell_CreateWaterTotem
+                'dru5': f'3C38C5:{TRIUMVIRATE}',     # TVR_Shaman_C025_Spell_CreateTreeTotem
+                'dru6': f'35E36E:{TRIUMVIRATE}'}     # TVR_Shaman_C075_Spell_CreateEarthTotem
+TOTEM_EFFECTS = ('3BE79E', '3C89CF', '35E36C')   # the three totem spells' effects: Elementalism, not Conjuration
+DRUIDCRAFT_EFFECT = f'2ACD21:{TRIUMVIRATE}'          # TVR_Druid_Verdant_Effect_Druidcraft
+DRUIDCRAFT_ICON = f'191249:{TRIUMVIRATE}'
+FON_SPELL = f'28E6EB:{TRIUMVIRATE}'                  # TVR_Druid_A025_Spell_ForceOfNature
+FON_EFFECT = f'191250:{TRIUMVIRATE}'                 # TVR_Druid_Verdant_Effect_ForceOfNature (TVR_Wildshape_Script)
+# the Horned Lord race's skin: the player's actor base wears it during the form (its own SkinNaked 000D64 wins over
+# the race's, which left the player with no body; ZP_ForceOfNatureEffect.FormSkin, 2026-10-28)
+FON_SKIN = f'000839:{TRIUMVIRATE}'                   # TVR_Verdant_Armor_ForceOfNature
+_TVR_PATCH_MGEF = os.path.join(REF, 'mods', 'TriumvirateEnderalPatch', 'MagicEffects')
+FAMILIARS = [('raven', 'TVR_Druid_Primal_Effect_CallRaven - 15460C', 'Raven'),          # Triumvirate's Enderal patch's copies
+             ('leopard', 'TVR_Druid_Primal_Effect_CallSnowLeopard - 168A21', 'Snow Leopard'),
+             ('snake1', 'TVR_Druid_Primal_Effect_CallSnakes - 02A226', 'Rattlesnake'),
+             ('snake2', 'TVR_Druid_Primal_Effect_CallSnakes - 02A226', 'Rattlesnake')]
+
+
+def summon_room(cond_type, field, form):
+    """+1 to the summon limit while the player has the given effect / an effect with the keyword."""
+    return ('Effects:\n- MutagenObjectType: PerkEntryPointModifyValue\n  Priority: 100\n  Conditions:\n  - Conditions:\n'
+            f'    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: {cond_type}\n'
+            f'        {field}: {form}\n      ComparisonValue: 1\n  EntryPoint: ModCommandedActorLimit\n'
+            '  PerkConditionTabCount: 2\n  Modification: Add\n  Value: 1\n')
+
+
+def write_hunt(d, write, nodeperk):
+    """The Hunt (curator 2026-10-29): a lesser power whose ZP_TheHuntEffect spends HUNT['Berries'] Goodberries and
+    casts the wolf spell (and, with Wolf Pack, the second). Each wolf spell is one copy of Triumvirate's Call Gray Wolf
+    summon effect, made FireAndForget and without TVR_SummonCost_Script (Force of Nature's familiars' shape), lasting
+    HUNT['Seconds']."""
+    write('Spells', f"""FormKey: {d['huntpower']}
+EditorID: ZP_Prophecy_TheHunt_Power
+Name:
+  TargetLanguage: English
+  Value: The Hunt
+MenuDisplayObject: {WOLF_ICON}
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: {d['huntme']}
+  Data:
+    Duration: 1
+""")
+    write('MagicEffects', f"""FormKey: {d['huntme']}
+EditorID: ZP_Prophecy_TheHunt_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_TheHuntEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Goodberry
+      Object: {GOODBERRY}
+    - MutagenObjectType: ScriptIntProperty
+      Name: Cost
+      Data: {HUNT['Berries']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Wolf
+      Object: {d['wolfspell1']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SecondWolf
+      Object: {d['wolfspell2']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WolfPack
+      Object: {nodeperk['dru9']}
+Name:
+  TargetLanguage: English
+  Value: The Hunt
+MenuDisplayObject: {WOLF_ICON}
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+    p = glob.glob(os.path.join(_TVR_PATCH_MGEF, f'{WOLF_EFFECT}_*.yaml'))
+    assert len(p) == 1, WOLF_EFFECT
+    src = open(p[0], encoding='utf-8').read().replace('\r\n', '\n')
+    for i in (1, 2):
+        sp, me = d[f'wolfspell{i}'], d[f'wolfme{i}']
+        t = re.sub(r'^FormKey: .*$', f'FormKey: {me}', src, count=1, flags=re.M)
+        t = re.sub(r'^EditorID: .*$', f'EditorID: ZP_Prophecy_TheHunt_Wolf{i}', t, count=1, flags=re.M)
+        t, n = re.subn(r'^VirtualMachineAdapter:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
+        assert n == 1 and 'TVR_SummonCost_Script' not in t, 'wolf: summon cost script'
+        t = re.sub(r'^Name:\n(?:  .*\n)+', 'Name:\n  TargetLanguage: English\n  Value: Gray Wolf\n', t, count=1, flags=re.M)
+        t = re.sub(r'^Description:\n(?:  .*\n)+', "Description:\n  TargetLanguage: English\n  Value: ''\n", t, count=1, flags=re.M)
+        t, n = re.subn(r'^CastType: Concentration$', 'CastType: FireAndForget', t, flags=re.M)
+        assert n == 1, 'wolf: cast type'
+        t = re.sub(r'^- Type: ConcentrationCastLoop\n  Sound: .*\n', '', t, flags=re.M)
+        t = re.sub(r'^MinimumSkillLevel: .*\n', '', t, flags=re.M)
+        t = re.sub(r'^Conditions:\n(?:[- ].*\n)*', '', t, count=1, flags=re.M)
+        assert 'MagicEffectSummonCreatureArchetype' in t
+        write('MagicEffects', t)
+        write('Spells', f"FormKey: {sp}\nEditorID: ZP_Prophecy_TheHunt_WolfSpell{i}\nName:\n  TargetLanguage: English\n"
+                        f"  Value: The Hunt\nMenuDisplayObject: {WOLF_ICON}\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n"
+                        "  TargetLanguage: English\n  Value: ''\nFlags:\n- ManualCostCalc\n- IgnoreResistance\n- NoAbsorbOrReflect\n"
+                        f"CastType: FireAndForget\nEffects:\n- BaseEffect: {me}\n  Data:\n    Duration: {HUNT['Seconds']}\n")
+
+
+def druid_perk(d):
+    return ('Effects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + d['power'] + '\n'
+            '- MutagenObjectType: PerkEntryPointModifyValue\n  Priority: 100\n  Conditions:\n  - Conditions:\n'
+            '    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: HasMagicEffectConditionData\n'
+            f'        MagicEffect: {FON_EFFECT}\n      ComparisonValue: 1\n  EntryPoint: ModCommandedActorLimit\n'
+            f"  PerkConditionTabCount: 2\n  Modification: Add\n  Value: {DRUID['ExtraSummons']}\n")
+
+
+def write_druid(d, write):
+    # Force of Nature's Horned Lord race, male skeleton: Triumvirate gives men Mihail's skeletonoldgod.nif, an LE file
+    # with LE Havok ragdoll data, and the male player got no body at all (no shadow; a plain player.setrace too) while
+    # a female NPC - XPMSE's SE skeletonBeast_female.nif - showed the form (curator, 2026-10-28). XPMSE's male
+    # skeletonBeast.nif carries all 21 bones the body mesh is skinned to. The winning record (Triumvirate - Enderal
+    # Patch's copy of the .esp) verbatim, only that path changed.
+    src = glob.glob(os.path.join(REF, 'mods', 'TriumvirateEnderalPatch', 'Races', '* - 000837_Triumvirate - Mage Archetypes.esp.yaml'))
+    assert len(src) == 1, 'serialize Triumvirate - Enderal Patch into reference/mods/TriumvirateEnderalPatch'
+    t = open(src[0], encoding='utf-8').read().replace('\r\n', '\n')
+    t, n = re.subn(r'(?i)^    File: mihail monsters and animals\\dwarven centurion\\old god\\skeletonoldgod\.nif$',
+                   lambda m: r'    File: Actors\Character\Character Assets\skeletonBeast.nif', t, flags=re.M)
+    assert n == 1, 'Horned Lord race: male skeleton path'
+    write('Races', t)
+    # The three totems are Elementalism (curator, 2026-10-28): Triumvirate makes them Conjuration (Enderal's Entropy).
+    # The school sits on each spell's effect; Magic Patches owns the spells (prices), so Prophecy overrides only the
+    # effects - the winning records (Triumvirate - Enderal Patch's), verbatim but for MagicSkill. Their
+    # MagicSummonFamiliar keyword stays (Sinistrope's Mystical Call reads it).
+    for eid in TOTEM_EFFECTS:
+        src = glob.glob(os.path.join(REF, 'mods', 'TriumvirateEnderalPatch', 'MagicEffects', f'* - {eid}_Triumvirate - Mage Archetypes.esp.yaml'))
+        assert len(src) == 1, eid
+        t = open(src[0], encoding='utf-8').read().replace('\r\n', '\n')
+        t, n = re.subn(r'^MagicSkill: Conjuration$', 'MagicSkill: Destruction', t, flags=re.M)
+        assert n == 1, f'{eid}: school'
+        write('MagicEffects', t)
+    # Twister priced for Enderal (an override of Aero.esl's record: Prophecy is its only patcher), and without its
+    # Dragonborn menu art (Dragonborn.esm is an empty stub in Enderal)
+    src = glob.glob(os.path.join(REF, 'mods', 'AbyssalWindMagic', 'Spells', '* - 00086F_Aero.esl.yaml'))
+    assert len(src) == 1, 'reference/mods/AbyssalWindMagic: serialize the cleaned Aero.esl there'
+    t = open(src[0], encoding='utf-8').read().replace('\r\n', '\n')
+    t, n = re.subn(r'^BaseCost: 409$', f'BaseCost: {TWISTER_COST}', t, flags=re.M)
+    assert n == 1 and '- ManualCostCalc' in t, 'Twister cost'
+    t, n = re.subn(r'^MenuDisplayObject: .*:Dragonborn\.esm\n', '', t, flags=re.M)
+    assert n == 1, 'Twister menu art'
+    write('Spells', t)
+    # Druidcraft: Magic Patches' winning spell (its price) with the heal added
+    src = glob.glob(os.path.join(REPO, 'src', 'MagicPatches', '*', 'Spells', '* - 28E6E9_*.yaml'))
+    assert len(src) == 1, 'Magic Patches Druidcraft'
+    t = open(src[0], encoding='utf-8').read().replace('\r\n', '\n')
+    t = re.sub(r'^FormKey: .*$', f"FormKey: {d['craftspell']}", t, count=1, flags=re.M)
+    t = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_Druidcraft_Spell', t, count=1, flags=re.M)
+    t, n = re.subn(r'^(Effects:\n- BaseEffect: ' + re.escape(DRUIDCRAFT_EFFECT) + r'\n  Data: \{\}\n)',
+                   lambda m: m.group(1) + f"- BaseEffect: {d['crafthealme']}\n  Data:\n    Magnitude: {DRUID['CraftHeal']}\n",
+                   t, flags=re.M)
+    assert n == 1, 'Druidcraft effects'
+    write('Spells', t)
+    write('MagicEffects', f"""FormKey: {d['crafthealme']}
+EditorID: ZP_Prophecy_Druidcraft_Heal
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_DruidcraftHealEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Goodberry
+      Object: {GOODBERRY}
+    - MutagenObjectType: ScriptIntProperty
+      Name: Berries
+      Data: {DRUID['CraftBerries']}
+Name:
+  TargetLanguage: English
+  Value: Druidcraft
+MenuDisplayObject: {DRUIDCRAFT_ICON}
+Flags:
+- NoDuration
+- NoArea
+- HideInUI
+- NoHitEffect
+- NoDeathDispel
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+    # Force of Nature: the power and its effect
+    write('Spells', f"""FormKey: {d['power']}
+EditorID: ZP_Prophecy_ForceOfNature_Power
+Name:
+  TargetLanguage: English
+  Value: Force of Nature
+MenuDisplayObject: {DRUIDCRAFT_ICON}
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: {d['powerme']}
+  Data:
+    Duration: {DRUID['FamiliarSeconds'] + 10}
+""")
+    write('MagicEffects', f"""FormKey: {d['powerme']}
+EditorID: ZP_Prophecy_ForceOfNature_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ForceOfNatureEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FormSpell
+      Object: {FON_SPELL}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FormEffect
+      Object: {FON_EFFECT}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Familiars
+      Object: {d['familiars']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FeverMessage
+      Object: 036F95:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FeverImod
+      Object: 103755:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MentalExpert
+      Object: 069D07:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: FeverCost
+      Data: {float(DRUID['FormFever'])}
+    - MutagenObjectType: ScriptBoolProperty
+      Name: StripArmor
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FormSkin
+      Object: {FON_SKIN}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: PollSeconds
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: Force of Nature
+MenuDisplayObject: {DRUIDCRAFT_ICON}
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+    # the familiars: one spell, four summon effects
+    write('Spells', f"FormKey: {d['familiars']}\nEditorID: ZP_Prophecy_ForceOfNature_Familiars\nName:\n  TargetLanguage: English\n"
+                    "  Value: Force of Nature\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
+                    "Flags:\n- ManualCostCalc\n- IgnoreResistance\n- NoAbsorbOrReflect\nCastType: FireAndForget\nEffects:\n" +
+                    ''.join(f"- BaseEffect: {d[k]}\n  Data:\n    Duration: {DRUID['FamiliarSeconds']}\n" for k, _, _ in FAMILIARS))
+    for k, base, name in FAMILIARS:
+        p = glob.glob(os.path.join(_TVR_PATCH_MGEF, f'{base}_*.yaml'))
+        assert len(p) == 1, base
+        t = open(p[0], encoding='utf-8').read().replace('\r\n', '\n')
+        t = re.sub(r'^FormKey: .*$', f'FormKey: {d[k]}', t, count=1, flags=re.M)
+        t = re.sub(r'^EditorID: .*$', f'EditorID: ZP_Prophecy_ForceOfNature_{k.capitalize()}', t, count=1, flags=re.M)
+        t, n = re.subn(r'^VirtualMachineAdapter:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
+        assert n == 1 and 'TVR_SummonCost_Script' not in t, f'{base}: summon cost script'
+        t = re.sub(r'^Name:\n(?:  .*\n)+', f'Name:\n  TargetLanguage: English\n  Value: {name}\n', t, count=1, flags=re.M)
+        t = re.sub(r'^Description:\n(?:  .*\n)+', "Description:\n  TargetLanguage: English\n  Value: ''\n", t, count=1, flags=re.M)
+        t, n = re.subn(r'^CastType: Concentration$', 'CastType: FireAndForget', t, flags=re.M)
+        assert n == 1, f'{base}: cast type'
+        t = re.sub(r'^- Type: ConcentrationCastLoop\n  Sound: .*\n', '', t, flags=re.M)
+        t = re.sub(r'^MinimumSkillLevel: .*\n', '', t, flags=re.M)
+        t = re.sub(r'^Conditions:\n(?:[- ].*\n)*', '', t, count=1, flags=re.M)     # Twin Souls / dual-cast gates
+        assert 'MagicEffectSummonCreatureArchetype' in t, base
+        write('MagicEffects', t)
+
+
+# ------------------------------------------------------------------------------------------------ Sorcerer
+# (curator 2026-10-27) Kittytails' Obscure Magic (KittySpellPack01.esl), Elemental Mastery Magic (KittySpellPack02.esl)
+# and Constellation Magic (Supernova.esl), installed and mastered, cleaned by src/KittytailsPacksClean. The menu grants
+# six of their spells; Prophecy overrides each (it is their only patcher) with an Enderal name (the curator: lore
+# friendly - no Aetherius, Psijics; Magicka is Mana in Enderal's text) and a price on EGO's FireAndForget ladder
+# (tier 50: 77, tier 75: 97; the packs use Skyrim's scale), and renames the effects the player sees. Damage is the
+# packs'. Shatterveil (2026-10-28, installed and mastered; its DLL runs the effigies, the dash and the wyrm) gives
+# Blink Step, the two tiered effigy lines (SHVL_TIERS) and the capstone shout - its SkyPatcher tome list is not
+# installed, and its ini has the wyrm's songs off. Drowning Orb: its hazard re-casts the pack's "Wade" spell
+# 000828 on everyone inside every 0.2 s; Prophecy's override adds an Absorb Mana (enemies only). The hazard never
+# applies its spell to its own caster (a player-only restore added there did nothing in game, 2026-10-27), so the
+# player's restore inside the orb is the Drowning Orb talent's ability, ZP_DrowningOrbWatch: after an orb cast it
+# looks for the hazard within 320 units twice a second. Allocated after Druid. Append LAST.
+SORC_TREE = 'Sorcery'
+SORC_FIRST_ID = 0xA9F
+SORC_RECORDS = ('marker', 'markerme', 'power', 'powerme')   # Mana Burn's; marker/power retired 2026-10-28, never reuse
+SORC_LATE_FIRST_ID = 0xAD3
+SORC_LATE_RECORDS = ('regen', 'orbdrain', 'orbwatch', 'orbwatchme', 'burnfxs')   # regen, burnfxs: Mana Burn's
+ORB_WADE = '000828:KittySpellPack01.esl'           # _K01_PsijicWaterGlobeHazardEffect, the orb's hazard spell
+ORB_HAZARD = '000853:KittySpellPack01.esl'         # _K01_PsijicWaterGlobeHazard
+# Drowning Orb is water: its effects move from Mentalism (Alteration) to Elementalism (Destruction) - the skill lowers
+# its cost and gains from it - and carry MagicDamageFrost, the keyword Enderal's Elementalist talents boost (Arcane
+# Might 069D0B, Elemental Frenzy 069D0E: ModSpellMagnitude on spells with fire/frost/shock keywords). Curator 2026-10-27
+ORB_EFFECTS = ('000812:KittySpellPack01.esl', '000811:KittySpellPack01.esl', '000813:KittySpellPack01.esl')
+FROST_KW = '01CEAE:Skyrim.esm'                      # MagicDamageFrost
+K01, K02, SNV, SHVL = 'KittySpellPack01.esl', 'KittySpellPack02.esl', 'Supernova.esl', 'Shatterveil.esp'
+SORC_REF = {K01: 'ObscureMagic', K02: 'ElementalMasteryMagic', SNV: 'ConstellationMagic',
+            SHVL: 'Shatterveil'}   # reference/mods/, serialized
+# node -> (pack's player spell, Enderal name, Mana cost). Shatterveil's costs on EGO's FireAndForget ladder
+# (30/53/76/97/124 by tier; the mod's own run 45-1300)
+SORC_SPELLS = {'sor3': ('Diamond Splash', f'000825:{K02}', 'Frost Spires', 97),
+               'sor10': ('Water Globe', f'000829:{K01}', 'Drowning Orb', 39),      # half the tier-50 price (curator)
+               'sor4': ('Flare Storm', f'000829:{K02}', 'Wildfire', 97),
+               'sor5': ('Celestial Rays', f'000814:{SNV}', 'Starlance', 97),
+               'sor1': ('Blink Step', f'000E52:{SHVL}', 'Blink Step', 20),        # the root since 2026-10-28 (was sor6)
+               'sor7': ('Celestial Vortex', f'000827:{K01}', 'Gravity Well', 97),
+               'sor8': ('Stardust', f'000815:{SNV}', 'Falling Star', 97)}
+# Shatterveil's tiered lines (curator 2026-10-28): the talent's ability (ZP_SpellTierWatch) gives the tier the player's
+# Psionics (Illusion) reaches and takes back the lower ones - the apprentice tier from the start, the mod's own
+# MinimumSkillLevel for the others. The menu grants nothing for these nodes. node -> (record key, [(spell, cost, skill)])
+SHVL_TIERS = {'sor6': ('tiertwin', [(f'000F10:{SHVL}', 53, 0), (f'000F11:{SHVL}', 76, 50),
+                                    (f'000F12:{SHVL}', 97, 75), (f'000F13:{SHVL}', 124, 100)])}
+# tierburst/tierburstme: Bursting Effigy's tier ability (sor1 on 2026-10-28), retired - never reuse. tiertwin/tiertwinme
+# are Twin Effigies' again (sor2 first, then sor6, both 2026-10-28)
+SHVL_LATE_RECORDS = ('tierburst', 'tierburstme', 'tiertwin', 'tiertwinme', 'orbitab', 'orbitme',   # after Ice Shot's
+                     'wyrmsnd', 'blinkme', 'gwabsorb', 'blinksnd', 'blinkmarker', 'blinkplay')
+# Orbit Ward (sor2, curator 2026-10-28: "an effect while casting spells that drops afterward, like Arcane Archery's
+# ward"): the talent's ability runs ZP_CastWardEffect, which casts Shatterveil's own Orbit Ward spell on the player at
+# BeginCastRight/Left (no Mana: Spell.Cast) and dispels it when the cast ends. The DLL starts the orbiting wards on the
+# effect's apply event; whether a dispel also takes them away is the DLL's (unverified)
+ORBIT_WARD = f'000E55:{SHVL}'      # shvl_PrismWardSpell
+WYRM_SHOUT = f'000E6A:{SHVL}'      # shvl_GlassWyrmShout, Sorcery's capstone (sor9); the menu teaches all three words
+# The shout's slow time is Shatterveil's spell shvl_VeilWyrmSlowTime, whose effect is vanilla VoiceSlowTime 048ACD -
+# not in Enderal, so the engine dropped it (0 effects in game, 2026-10-28 probe) and the DLL skipped slow time. Prophecy
+# overrides the spell onto Enderal's own SlowTime effect (_00E_Game_SlowTimeME, its slow-time ability's); the DLL sets
+# the magnitude from fShoutSlowTime itself
+WYRM_SLOW = (f'000F26:{SHVL}', '048ACD:Skyrim.esm', '13FB41:Skyrim.esm')
+# The shout's own sound (curator 2026-10-28): Shatterveil's wyrm sounds all report "playing" at the player and are
+# silent on 1.7.104 (cause open, see ShatterveilAE.md), so the curator's Motion Array glass impact (converted to 16-bit
+# PCM, loose, not committed; tools/07-build-sounds.py mixes it with a whale clip) plays as the Release sound of the three word effects - the engine's own spell sound, no
+# DLL involved. Stereo output (SOMStereo) so it is never attenuated.
+WYRM_WORD_MGEFS = (f'000E6E:{SHVL}', f'000E6F:{SHVL}', f'000E70:{SHVL}')
+WYRM_WORD_SPELLS = (f'000E6B:{SHVL}', f'000E6C:{SHVL}', f'000E6D:{SHVL}')   # each word's Voice spell: + Mana Burn's buff
+BURN_NAME = 'Mana Burn'
+# Mana Burn's look: Enderal's Onslaught talent cloak shader (flames thrown off the body, a glowing edge), copied and
+# turned Mana-blue through a palette, with the vanilla shock cloak's arcs around the player
+ONSLAUGHT_FXS = os.path.join(REF, 'base', 'Skyrim', 'EffectShaders', '_00E_A1_OnslaughtCloakFXS - 033478_Skyrim.esm.yaml')
+BURN_ART = '05B1BC:Skyrim.esm'                      # FXShockCloak01
+WYRM_SOUND_FILE = r'Data\Sound\FX\ZenProphecy\ZP_VeilWyrmGlassImpact.wav'
+SORC_LORE = [('Magicka', 'Mana'), ('from the Aetherius', 'from the night sky'), ('mystic water', 'water'),
+             ('meteorite', 'falling star')]
+
+
+def sorc_perk(s):
+    return ('Effects:\n- MutagenObjectType: PerkEntryPointModifyValue\n  Priority: 100\n  Conditions:\n  - Conditions:\n'
+            '    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: HasMagicEffectConditionData\n'
+            f"        MagicEffect: {s['markerme']}\n      ComparisonValue: 1\n  EntryPoint: ModSpellCost\n"
+            f"  PerkConditionTabCount: 2\n  Modification: Multiply\n  Value: {SORC['CostMult']}\n")
+
+
+def blink_power(t, s):
+    """Blink Step as a lesser power that costs BLINK_MANA (see BLINK_MANA)"""
+    t, n = re.subn(r'^EquipmentType: .*$', 'EquipmentType: 025BEE:Skyrim.esm', t, count=1, flags=re.M)
+    assert n == 1, 'Blink Step: equip type'
+    t, n = re.subn(r'^CastType: FireAndForget$', 'Type: LesserPower\nCastType: FireAndForget', t, count=1, flags=re.M)
+    assert n == 1 and t.count('Type: LesserPower') == 1, 'Blink Step: type'
+    t = re.sub(r'^HalfCostPerk: .*\n', '', t, flags=re.M)
+    cond = ('  Conditions:\n  - MutagenObjectType: ConditionFloat\n    CompareOperator: GreaterThanOrEqualTo\n'
+            '    Data:\n      MutagenObjectType: GetActorValueConditionData\n      ActorValue: Magicka\n'
+            f'    ComparisonValue: {BLINK_MANA}\n')
+    t, n = re.subn(r'^(- BaseEffect: 000E51:Shatterveil\.esp\n  Data: \{\}\n)', lambda m: m.group(1) + cond, t, flags=re.M)
+    assert n == 1, 'Blink Step: effect'
+    return (t.rstrip('\n') + f"\n- BaseEffect: {s['blinkme']}\n  Data:\n    Magnitude: {BLINK_MANA}\n" + cond +
+            f"- BaseEffect: {s['blinkplay']}\n  Data: {{}}\n" + cond +
+            f"- BaseEffect: {s['swooshplay']}\n  Data: {{}}\n" + cond)
+
+
+def sorc_record(fk):
+    hexid, plugin = fk.split(':')
+    p = glob.glob(os.path.join(REF, 'mods', SORC_REF[plugin], '*', f'* - {hexid}_{plugin}.yaml'))
+    assert len(p) == 1, f'{fk} not in reference/mods/{SORC_REF[plugin]}: serialize the cleaned pack there'
+    return os.path.basename(os.path.dirname(p[0])), open(p[0], encoding='utf-8').read().replace('\r\n', '\n')
+
+
+def write_sorcerer(s, write):
+    def rename(t, name, what):
+        t, n = re.subn(r'^Name:\n  TargetLanguage: English\n  Value: .*\n',
+                       f"Name:\n  TargetLanguage: English\n  Value: '{name}'\n", t, count=1, flags=re.M)
+        assert n == 1, f'{what}: name'
+        return t
+
+    def lore(t, desc=None):
+        def fix(m):
+            v = m.group(2)
+            if desc is not None and v.strip("'") != '': v = "'" + desc.replace("'", "''") + "'"
+            for a, b in SORC_LORE: v = v.replace(a, b)
+            return m.group(1) + v
+        return re.sub(r'^(Description:\n  TargetLanguage: English\n  Value: )(.*)$', fix, t, count=1, flags=re.M)
+
+    def no_dlc(t, what):
+        # a field naming a Dawnguard/Dragonborn form (empty stubs in Enderal: the pack's own record already resolves to
+        # nothing there) is dropped, so Prophecy needs no DLC master - Constellation's ImpactData 01A3FB:Dawnguard.esm
+        t = re.sub(r'^[A-Za-z]+: [0-9A-F]{6}:(?:Dawnguard|Dragonborn)\.esm\n', '', t, flags=re.M)
+        assert not re.search(r':(?:Dawnguard|Dragonborn)\.esm', t), f'{what}: a DLC form left in a list'
+        return t
+
+    def elementalism(t, what):
+        """Drowning Orb's effects: Elementalism (Destruction) and the frost keyword (ORB_EFFECTS)"""
+        t, n = re.subn(r'^MagicSkill: Alteration$', 'MagicSkill: Destruction', t, flags=re.M)
+        assert n == 1, f'{what}: school'
+        if re.search(r'^Keywords:$', t, re.M):
+            t, n = re.subn(r'^(Keywords:\n(?:- .*\n)*)', lambda m: m.group(1) + f'- {FROST_KW}\n', t, count=1, flags=re.M)
+        else:
+            t, n = re.subn(r'^Flags:$', f'Keywords:\n- {FROST_KW}\nFlags:', t, count=1, flags=re.M)
+        assert n == 1, f'{what}: keyword'
+        return t
+
+    def effects(spell_text, plugin, name, desc=None):
+        """the spell's own visible effects: the spell's Enderal name, lore-fixed text"""
+        for e in re.findall(r'^- BaseEffect: (\S+)$', spell_text, re.M):
+            if not e.endswith(':' + plugin): continue
+            ty, t = sorc_record(e)
+            if re.search(r'^- HideInUI$', t, re.M): continue
+            t = no_dlc(lore(rename(t, name, e), desc), e)
+            write(ty, elementalism(t, e) if e in ORB_EFFECTS else t)
+
+    for nid, (old, fk, name, cost) in SORC_SPELLS.items():
+        ty, t = sorc_record(fk)
+        assert re.search(rf"^  Value: {re.escape(old)}$", t, re.M), f'{fk} is not {old}'
+        t = rename(t, name, fk)
+        t, n = re.subn(r'^BaseCost: \d+$', f'BaseCost: {cost}', t, flags=re.M)
+        assert n == 1 and '- ManualCostCalc' in t, f'{fk}: cost'
+        if nid == 'sor1':
+            t = blink_power(t, s)
+        write(ty, no_dlc(t, fk))
+        effects(t, fk.split(':')[1], name)
+    # Drowning Orb: the hazard's Wade spell, plus the Mana drain from enemies. The player's restore inside the orb is
+    # ZP_DrowningOrbWatch's: a restore added here never reached the player (the hazard skips its own caster; in game)
+    ty, t = sorc_record(ORB_WADE)
+    assert t.rstrip('\n').endswith('Magnitude: 30'), f'{ORB_WADE}: Effects is not the last block'
+    write(ty, t.rstrip('\n') + f"""
+- BaseEffect: {s['orbdrain']}
+  Data:
+    Magnitude: {SORC['OrbDrain']}
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1
+""")
+    for e in ORB_EFFECTS[1:]:
+        ty, et = sorc_record(e)
+        write(ty, elementalism(et, e))
+    write('MagicEffects', f"""FormKey: {s['orbdrain']}
+EditorID: ZP_Prophecy_DrowningOrb_AbsorbMana
+Name:
+  TargetLanguage: English
+  Value: Drowning Orb
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- {FROST_KW}
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoDeathDispel
+- Painless
+MagicSkill: Destruction
+ResistValue: ResistMagic
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+  Type: Absorb
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> Mana per second.
+""")
+    write('Spells', f"""FormKey: {s['orbwatch']}
+EditorID: ZP_Prophecy_DrowningOrb_Watch
+Name:
+  TargetLanguage: English
+  Value: Drowning Orb
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: {s['orbwatchme']}
+  Data: {{}}
+""")
+    write('MagicEffects', f"""FormKey: {s['orbwatchme']}
+EditorID: ZP_Prophecy_DrowningOrb_WatchEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_DrowningOrbWatch
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OrbSpell
+      Object: {SORC_SPELLS['sor10'][1]}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OrbHazard
+      Object: {ORB_HAZARD}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: RestorePerSecond
+      Data: {float(SORC['OrbRegen'])}
+Name:
+  TargetLanguage: English
+  Value: Drowning Orb
+Flags:
+- HideInUI
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+    # Shatterveil's tiered lines: each spell on EGO's ladder, and the talent's ability that gives the tier
+    for nid, (key, tiers) in SHVL_TIERS.items():
+        for fk, cost, _ in tiers:
+            ty, st = sorc_record(fk)
+            st, n = re.subn(r'^BaseCost: \d+$', f'BaseCost: {cost}', st, flags=re.M)
+            assert n == 1 and '- ManualCostCalc' in st, f'{fk}: cost'
+            write(ty, st)
+        name = re.search(r'^  Value: (.+)$', sorc_record(tiers[0][0])[1], re.M).group(1)
+        write('Spells', f"""FormKey: {s[key]}
+EditorID: ZP_Prophecy_{name.replace(' ', '')}_Tiers
+Name:
+  TargetLanguage: English
+  Value: {name}
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: {s[key + 'me']}
+  Data: {{}}
+""")
+        write('MagicEffects', f"""FormKey: {s[key + 'me']}
+EditorID: ZP_Prophecy_{name.replace(' ', '')}_TiersEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_SpellTierWatch
+    Properties:
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: Tiers
+      Objects:
+""" + ''.join(f'      - Object: {fk}\n' for fk, _, _ in tiers) + """    - MutagenObjectType: ScriptIntListProperty
+      Name: MinSkill
+      Data:
+""" + ''.join(f'      - {sk}\n' for _, _, sk in tiers) + f"""Name:
+  TargetLanguage: English
+  Value: {name}
+Flags:
+- HideInUI
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+
+
+    # the Veil Wyrm's slow time on Enderal's SlowTime effect (WYRM_SLOW)
+    ty, st = sorc_record(WYRM_SLOW[0])
+    st, n = re.subn(rf'^- BaseEffect: {WYRM_SLOW[1]}$', f'- BaseEffect: {WYRM_SLOW[2]}', st, flags=re.M)
+    assert n == 1, 'Veil Wyrm slow time: effect'
+    write(ty, st)
+    # Mana Burn on the shout: its restore, its aura shader and marker effect, added to each word's Voice spell
+    write('MagicEffects', f"""FormKey: {s['regen']}
+EditorID: ZP_Prophecy_ManaBurn_Regen
+Name:
+  TargetLanguage: English
+  Value: {BURN_NAME}
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- NoArea
+- NoDeathDispel
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+CastType: FireAndForget
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Restores <mag> Mana per second.
+""")
+    fx = open(ONSLAUGHT_FXS, encoding='utf-8').read().replace('\r\n', '\n')
+    for a, b in ((r'^FormKey: .*$', f"FormKey: {s['burnfxs']}"),
+                 (r'^EditorID: .*$', 'EditorID: ZP_Prophecy_ManaBurn_FXS'),
+                 (r"^ParticlePaletteTexture: ''$", r'ParticlePaletteTexture: Effects\Gradients\GradBlueBright.dds'),
+                 (r"^EdgeEffectColor: .*$", "EdgeEffectColor: '#002A6CFF'"),
+                 (r"^FillColorKey1: .*$", "FillColorKey1: '#00050A1E'"),
+                 (r'^MembraneSourceBlendMode:', 'Flags:\n- ParticleGrayscaleColor\nMembraneSourceBlendMode:')):
+        fx, n = re.subn(a, lambda m, b=b: b, fx, count=1, flags=re.M)
+        assert n == 1, f'Mana Burn shader: {a}'
+    assert '\nFlags:' in fx and fx.count('Flags:') == 1, 'Mana Burn shader: Flags'
+    write('EffectShaders', fx)
+    write('MagicEffects', f"""FormKey: {s['markerme']}
+EditorID: ZP_Prophecy_ManaBurn_MarkerEffect
+Name:
+  TargetLanguage: English
+  Value: {BURN_NAME}
+Flags:
+- NoMagnitude
+- NoArea
+- Recover
+- FXPersist
+HitShader: {s['burnfxs']}
+HitEffectArt: {BURN_ART}
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Your spells cost half as much Mana for <dur> seconds.
+""")
+    for fk in WYRM_WORD_SPELLS:
+        ty, wt = sorc_record(fk)
+        assert wt.rstrip('\n').endswith('  Data: {}'), f'{fk}: Effects is not the last block'
+        write(ty, wt.rstrip('\n') + f"""
+- BaseEffect: {s['markerme']}
+  Data:
+    Duration: {SORC['BurnSeconds']}
+- BaseEffect: {s['regen']}
+  Data:
+    Magnitude: {SORC['RegenPerSecond']}
+    Duration: {SORC['BurnSeconds']}
+""")
+    # Gravity Well's Health drain (GW_ABSORB)
+    write('MagicEffects', f"""FormKey: {s['gwabsorb']}
+EditorID: ZP_Prophecy_GravityWell_AbsorbHealth
+Name:
+  TargetLanguage: English
+  Value: Gravity Well
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- NoDuration
+- NoDeathDispel
+MagicSkill: Alteration
+ResistValue: ResistMagic
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: Absorb
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> Health.
+""")
+    ty, gt = sorc_record(GW_HAZARD_SPELL)
+    absorb = (f"- BaseEffect: {s['gwabsorb']}\n  Data:\n    Magnitude: {GW_ABSORB}\n  Conditions:\n"
+              "  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: HasMagicEffectConditionData\n"
+              f"      MagicEffect: {GW_COOLDOWN_MGEF}\n    ComparisonValue: 0\n"
+              "  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: IsHostileToActorConditionData\n"
+              "      TargetNpc: 000014:Skyrim.esm\n    ComparisonValue: 1\n")
+    gt, n = re.subn(r'^Effects:\n', 'Effects:\n' + absorb, gt, count=1, flags=re.M)
+    assert n == 1 and gt.index(s['gwabsorb']) < gt.index(GW_COOLDOWN_MGEF), 'Gravity Well: absorb first'
+    write(ty, gt)
+    # Blink Step's cast sound (BLINK_CAST_SOUND): a marker + a script effect, the spell's third effect
+    sound_records(write, {'sound': s['blinksnd'], 'marker': s['blinkmarker'], 'mgef': s['blinkplay']}, 'BlinkStep',
+                  'Blink Step', None, descriptor=BLINK_CAST_SOUND)
+    sound_records(write, {'sound': s['swooshsnd'], 'marker': s['swooshmarker'], 'mgef': s['swooshplay']},
+                  'BlinkStepSwoosh', 'Blink Step', BLINK_SWOOSH_FILE)
+    # Blink Step's Mana price (blink_power)
+    write('MagicEffects', f"""FormKey: {s['blinkme']}
+EditorID: ZP_Prophecy_BlinkStep_ManaCost
+Name:
+  TargetLanguage: English
+  Value: Blink Step
+Flags:
+- Detrimental
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+CastType: FireAndForget
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+    # the shout's recovery times x WYRM_COOLDOWN_MULT
+    ty, sh = sorc_record(WYRM_SHOUT)
+    olds = [int(x) for x in re.findall(r'^  RecoveryTime: (\d+)$', sh, re.M)]
+    assert olds == [20, 35, 50], f'Veil Wyrm recovery times {olds}'
+    sh = re.sub(r'^  RecoveryTime: (\d+)$', lambda m: f'  RecoveryTime: {int(m.group(1)) * WYRM_COOLDOWN_MULT}', sh, flags=re.M)
+    write(ty, sh)
+    # the shout's glass impact (WYRM_SOUND_FILE) as each word effect's Release sound
+    write('SoundDescriptors', f"""FormKey: {s['wyrmsnd']}
+EditorID: ZP_Prophecy_VeilWyrmGlassImpactSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- {WYRM_SOUND_FILE}
+OutputModel: 07EDCA:Skyrim.esm
+LoopAndRumble: {{}}
+Priority: 128
+""")
+    for fk in WYRM_WORD_MGEFS:
+        ty, mt = sorc_record(fk)
+        mt, n = re.subn(r'^Sounds: \[\]$', f"Sounds:\n- Type: Release\n  Sound: {s['wyrmsnd']}", mt, flags=re.M)
+        assert n == 1, f'{fk}: Sounds'
+        write(ty, mt)
+    # Orbit Ward while casting
+    write('Spells', f"""FormKey: {s['orbitab']}
+EditorID: ZP_Prophecy_OrbitWard_Ability
+Name:
+  TargetLanguage: English
+  Value: Orbit Ward
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: {s['orbitme']}
+  Data: {{}}
+""")
+    write('MagicEffects', f"""FormKey: {s['orbitme']}
+EditorID: ZP_Prophecy_OrbitWard_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_CastWardEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Ward
+      Object: {ORBIT_WARD}
+Name:
+  TargetLanguage: English
+  Value: Orbit Ward
+Flags:
+- HideInUI
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+
+
+# ------------------------------------------------------------------------------------------------ Unsold tomes
+# (curator, 2026-10-28) A spell Prophecy grants is not for sale. Only Triumvirate's tomes reach shops: Triumvirate -
+# Enderal Patch puts its TVR_Tomes_Litem_* bundles into three merchant lists (BibliothekarMarius 0302D2, Undercity
+# fence 030307, Undercity wild mage 0302F0) and does no runtime distribution (its TVR_PopulateSpellBooks_Script says
+# so). Kittytails' packs inject into vanilla tome lists Enderal does not have (0FDE79, 0A272F, ...) and Aero into a
+# Dragonborn stub list, so theirs never sell. Prophecy overrides every bundle holding a granted spell's tome (the
+# winning record, the Enderal patch's) minus those entries; merchant lists stay untouched.
+def write_unsold_tomes(write):
+    granted = set(SHADOW_GRANTS.values()) | set(DRUID_GRANTS.values())
+    granted = {g for g in granted if g.endswith(':' + TRIUMVIRATE)}
+    tomes = set()
+    for f in glob.glob(os.path.join(REF, 'mods', 'Triumvirate', 'Books', '*.yaml')):
+        b = open(f, encoding='utf-8').read().replace('\r\n', '\n')
+        sp = re.search(r'^  Spell: (.+)$', b, re.M)
+        if sp and sp.group(1) in granted:
+            tomes.add(re.search(r'^FormKey: (.+)$', b, re.M).group(1))
+    assert len(tomes) == len(granted), f'{len(tomes)} tomes for {len(granted)} granted Triumvirate spells'
+    lists = 0
+    for f in sorted(glob.glob(os.path.join(REF, 'mods', 'TriumvirateEnderalPatch', 'LeveledItems', 'TVR_Tomes_Litem_*.yaml'))):
+        t = open(f, encoding='utf-8').read().replace('\r\n', '\n')
+        if not any(tm in t for tm in tomes):
+            continue
+        before = t.count('    Reference: ')
+        t, n = re.subn(r'^- Data:\n(?:    .*\n)*?    Reference: (?:' + '|'.join(map(re.escape, tomes)) + r')\n(?:    .*\n)*',
+                       '', t, flags=re.M)
+        assert n >= 1 and t.count('    Reference: ') == before - n and not any(tm in t for tm in tomes), f
+        if t.count('    Reference: ') == 0:
+            t = re.sub(r'^Entries:\n', '', t, flags=re.M)
+        write('LeveledItems', t)
+        lists += 1
+    print(f'unsold tomes: {len(tomes)} tomes taken out of {lists} Triumvirate tome lists')
+
+
+# ------------------------------------------------------------------------------------------------ Rage
+# (curator 2026-10-27) See the tree's comment. ZenProphecyRage.dll (src/Prophecy/rage) reads
+# Data/SKSE/Plugins/ZenProphecyRage.json, written here: Prophecy's IDs plus A Dark Warrior's Tale's action spells
+# (KittyClass_DarkWarrior.esp, by local ID; the DLL resolves them at load, so Prophecy needs no master for them - if the
+# pack is missing, the actions are skipped and logged). Each action casts the pack's damage spell and its visual on the
+# target from the player, as the pack's _CDW_MagicCastMultipleSpellsScript did - never its "rebound" Health cost
+# (_CDW_ClassReboundDmg2/6, 2-6 Health per second on the player: the class's price; Rage is ours).
+# Allocated after Sorcerer. Append new ones LAST.
+RAGE_TREE = 'Rage'
+RAGE_FIRST_ID = 0xAB9
+RAGE_RECORDS = ('global', 'vehspell', 'vehme', 'rageab', 'rageabme')   # rageab: the stack count, shown as its magnitude
+DW = 'KittyClass_DarkWarrior.esp'
+RAGE_JSON = os.path.join(PATCH, 'data', 'SKSE', 'Plugins', 'ZenProphecyRage.json')
+# node -> (trigger, [the pack's spells cast on the target]); triggers are the DLL's: sprint = a power attack while
+# sprinting or within a second of it; the rest by the attack's PowerAttackType keyword (0914E5-0914E8)
+RAGE_ACTIONS = {'rge2': ('sprint', ['000835', '00083D']),                # Heavenfall: _CDW_DarkWarriorBeamSlash_Upgraded + VFX
+                'rge3': ('forward', ['000834', '00083C']),               # Shadow Carve: _CDW_DarkWarriorBeamSlash + VFX
+                'rge4': ('back', ['000853', '000857']),                  # Dark Deluge: _CDW_DarkWarriorPierce + VFX
+                'rge5': ('standing', ['000FAB', '000FAC']),              # Shadowbringer: _CDW_DarkWarriorBeamSlash2 + VFX
+                'rge6': ('side', ['000832', '00083F', '00158A']),        # Bloodletter: _CDW_DarkWarriorSlash + VFX + FakeAbsorbRestoreHealth
+                'rge7': ('side', ['000833', '00083E', '00158B'])}        # Soulrender: _CDW_DarkWarriorFlash + VFX + FakeAbsorbRestoreMagickaStamina
+POWER_ATTACK_TYPES = {'standing': '0914E5', 'forward': '0914E6', 'side': '0914E7', 'back': '0914E8'}
+
+
+def rage_perk(nid, r):
+    if nid == 'rge1':    # the Rage ability (the DLL writes the stack count into its magnitude) and, per stack,
+                         # attacks x(1 + DamagePerStack%), stacking (ZP_Rage >= k)
+        return 'Effects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + r['rageab'] + '\n' + ''.join(
+            '- MutagenObjectType: PerkEntryPointModifyValue\n  Priority: 100\n  Conditions:\n  - Conditions:\n'
+            '    - MutagenObjectType: ConditionFloat\n      CompareOperator: GreaterThanOrEqualTo\n      Data:\n'
+            f"        MutagenObjectType: GetGlobalValueConditionData\n        Global: {r['global']}\n      ComparisonValue: {k}\n"
+            '  EntryPoint: ModAttackDamage\n  PerkConditionTabCount: 3\n  Modification: Multiply\n'
+            f"  Value: {1 + RAGE['DamagePerStack'] / 100}\n" for k in range(1, RAGE['MaxUntempered'] + 1))
+    if nid == 'rge9':    # Vehemence: power attacks cost no Stamina while it is on
+        return ('Effects:\n- MutagenObjectType: PerkEntryPointModifyValue\n  Priority: 100\n  Conditions:\n  - Conditions:\n'
+                '    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: HasMagicEffectConditionData\n'
+                f"        MagicEffect: {r['vehme']}\n      ComparisonValue: 1\n  EntryPoint: ModPowerAttackStamina\n"
+                '  PerkConditionTabCount: 2\n  Modification: Multiply\n  Value: 0\n')
+    return ''
+
+
+# Twin Effigies cast the player's spells (curator 2026-10-29: "the Effigies need to be able to cast the spells I have
+# equipped at the time of casting it" - Shatterveil copies weapons only, so a caster's effigies punched). Shatterveil's
+# records: shvl_TwinDecoys{Apprentice,Adept,Expert,Master}Spell, shvl_DecoyFaction, shvl_DecoyBase
+EFFIGY_CAST = {'Spells': ('000F10', '000F11', '000F12', '000F13'), 'Faction': '000800', 'Base': '000F01',
+               'CastEvery': 3.0, 'Range': 2048.0, 'SpawnWindow': 3.0}
+DRAGON_ELEMENTS = ('Fire', 'Frost', 'Shock')
+DRAGON_RECORDS = (tuple(f'{e}{k}' for e in DRAGON_ELEMENTS for k in ('spell', 'me', 'proj')) +
+                  tuple(f'{e}expl' for e in DRAGON_ELEMENTS))   # the blasts' look (2026-10-28): appended last
+# each element's spell (curator 2026-10-29: "Fire = Explosion, Frost = Freeze, Lightning = Chain lightning spell
+# triggers on enemy"), cast by the DLL from the player at the punched enemy. Earlier builds (cones from Hissing Dragon
+# / the breath shouts, bursts at the fist) are gone; their IDs stay allocated, unwritten:
+# - Fire: vanilla's fireball - a copy of FireDamageFFAimedArea 01CEA1 (fireball missile 10FBED, kept) whose
+#   explosion is a copy of FireBallExp01 0439C0 without its image-space flash
+# - Frost: vanilla Ice Spike's frost damage (a copy of FrostDamageFFAimed 01CEA2, its spike 02F774) plus Ice Shot's
+#   freeze (ZP_IceShotFreezeEffect: AI off, paralysed, iced over) in an Aimed copy, DRAGON_FREEZE_SECONDS. The first
+#   build cast Ice Shot's TargetActor freeze spell and nothing froze in game (2026-10-29) while the two Aimed spells
+#   worked, so frost is a projectile spell too. Its records use the Frost 'me' (damage) and 'proj' (freeze) IDs
+# - Lightning: vanilla's Chain Lightning - a copy of ShockDamageFFAimedArea 05DBAE (bolt 0A9D92, kept) whose explosion
+#   is a copy of ChainLightningExplosion 05DBAD (the Chain flag makes it leap), both without the image-space flash
+DRAGON_SPELL_SRC = {'Fire': ('FireDamageFFAimedArea - 01CEA1_Skyrim.esm.yaml', 'FireBallExp01 - 0439C0_Skyrim.esm.yaml'),
+                    'Shock': ('ShockDamageFFAimedArea - 05DBAE_Skyrim.esm.yaml',
+                              'ChainLightningExplosion - 05DBAD_Skyrim.esm.yaml')}
+DRAGON_AREA = {'Fire': 12, 'Shock': 13}       # feet: vanilla Fireball's and Chain Lightning's NPC spell's
+DRAGON_FREEZE_SECONDS = 4
+
+
+def write_dragons_breath(d, write, sharp, arc):
+    """Dragon's Breath's three spells (see DRAGON_SPELL_SRC)."""
+    def sub1(y, pat, new, what):
+        y, n = re.subn(pat, new, y, count=1, flags=re.M)
+        assert n == 1, what
+        return y
+
+    def base(folder, name):
+        return open(os.path.join(REF, 'base', 'Skyrim', folder, name), encoding='utf-8').read().replace('\r\n', '\n')
+
+    name = "Name:\n  TargetLanguage: English\n  Value: Invoker\n"
+
+    def spell(fk, e, target, effects):
+        return (f"FormKey: {fk}\nEditorID: ZP_Prophecy_DragonsBreath_Spell_{e}\n{name}EquipmentType: 013F44:Skyrim.esm\n"
+                "Description:\n  TargetLanguage: English\n  Value: ''\nFlags:\n- ManualCostCalc\n- NoAbsorbOrReflect\n"
+                f"CastType: FireAndForget\nTargetType: {target}\nEffects:\n{effects}")
+
+    for e, (me_src, expl_src) in DRAGON_SPELL_SRC.items():
+        me, expl = d[f'{e}me'], d[f'{e}expl']
+        y = base('Explosions', expl_src)
+        y = sub1(y, r'^FormKey: .*$', f'FormKey: {expl}', 'expl fk')
+        y = sub1(y, r'^EditorID: .*$', f'EditorID: ZP_Prophecy_DragonsBreath_Blast_{e}', 'expl edid')
+        y = re.sub(r'^Name:\n(?:  .*\n)*', '', y, flags=re.M)
+        y = re.sub(r'^(?:ImageSpaceModifier|ISRadius|Version2): .*\n', '', y, flags=re.M)
+        write('Explosions', y)
+        y = base('MagicEffects', me_src)
+        y = sub1(y, r'^FormKey: .*$', f'FormKey: {me}', 'me fk')
+        y = sub1(y, r'^EditorID: .*$', f'EditorID: ZP_Prophecy_DragonsBreath_Effect_{e}', 'me edid')
+        y = sub1(y, r'^Name:\n(?:  .*\n)*', name, 'me name')
+        y = sub1(y, r'^Explosion: .*$', f'Explosion: {expl}', 'me explosion')
+        y = re.sub(r'^(?:ImageSpaceModifier|Version2): .*\n', '', y, flags=re.M)
+        y = re.sub(r'^Description:\n(?:  .*\n)*', '', y, flags=re.M)
+        y = y.rstrip('\n') + "\nDescription:\n  TargetLanguage: English\n  Value: Invoker deals <mag> damage.\n"
+        assert 'ImageSpaceModifier' not in y
+        write('MagicEffects', y)
+        write('Spells', spell(d[f'{e}spell'], e, 'Aimed', f"- BaseEffect: {me}\n  Data:\n"
+                              f"    Magnitude: {DRAGONS_BREATH['Damage']}\n    Area: {DRAGON_AREA[e]}\n"))
+    y = base('MagicEffects', 'FrostDamageFFAimed - 01CEA2_Skyrim.esm.yaml')
+    y = sub1(y, r'^FormKey: .*$', f"FormKey: {d['Frostme']}", 'frost fk')
+    y = sub1(y, r'^EditorID: .*$', 'EditorID: ZP_Prophecy_DragonsBreath_Effect_Frost', 'frost edid')
+    y = sub1(y, r'^Name:\n(?:  .*\n)*', name, 'frost name')
+    y = re.sub(r'^(?:ImageSpaceModifier|Version2): .*\n', '', y, flags=re.M)
+    y = re.sub(r'^Description:\n(?:  .*\n)*', '', y, flags=re.M)
+    y = y.rstrip('\n') + "\nDescription:\n  TargetLanguage: English\n  Value: Invoker deals <mag> frost damage.\n"
+    write('MagicEffects', y)
+    # Ice Shot's freeze effect, delivered by the spike: the record as write_arcane wrote it, made Aimed
+    hits = glob.glob(os.path.join(ESP, 'MagicEffects', f"* - {arc['freezeme'].split(':')[0]}_*.yaml"))
+    assert len(hits) == 1, hits
+    y = open(hits[0], encoding='utf-8').read().replace('\r\n', '\n')
+    y = sub1(y, r'^FormKey: .*$', f"FormKey: {d['Frostproj']}", 'freeze fk')
+    y = sub1(y, r'^EditorID: .*$', 'EditorID: ZP_Prophecy_DragonsBreath_FreezeEffect', 'freeze edid')
+    y = sub1(y, r'^TargetType: TargetActor$', 'TargetType: Aimed', 'freeze delivery')
+    write('MagicEffects', y)
+    write('Spells', spell(d['Frostspell'], 'Frost', 'Aimed',
+                          f"- BaseEffect: {d['Frostme']}\n  Data:\n    Magnitude: {DRAGONS_BREATH['Damage']}\n"
+                          f"- BaseEffect: {d['Frostproj']}\n  Data:\n    Duration: {DRAGON_FREEZE_SECONDS}\n"))
+
+
+def write_rage(r, nodeperk, write, dragon):
+    write('Globals', f"MutagenObjectType: GlobalShort\nFormKey: {r['global']}\nEditorID: ZP_Rage\nData: 0\n")
+    write('Spells', f"FormKey: {r['vehspell']}\nEditorID: ZP_Prophecy_Vehemence_Spell\nName:\n  TargetLanguage: English\n"
+                    "  Value: Vehemence\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
+                    "Flags:\n- ManualCostCalc\n- IgnoreResistance\n- NoAbsorbOrReflect\nCastType: FireAndForget\n"
+                    f"Effects:\n- BaseEffect: {r['vehme']}\n  Data:\n    Duration: {RAGE['VehemenceSeconds']}\n")
+    write('MagicEffects', f"""FormKey: {r['vehme']}
+EditorID: ZP_Prophecy_Vehemence_Effect
+Name:
+  TargetLanguage: English
+  Value: Vehemence
+Flags:
+- NoMagnitude
+- NoArea
+- Recover
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Your power attacks cost no Stamina and their Rage actions spend no Rage for <dur> seconds.
+""")
+    write('Spells', f"FormKey: {r['rageab']}\nEditorID: ZP_Prophecy_Rage_Ability\nName:\n  TargetLanguage: English\n"
+                    "  Value: Rage\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
+                    f"Type: Ability\nCastType: ConstantEffect\nEffects:\n- BaseEffect: {r['rageabme']}\n  Data: {{}}\n")
+    write('MagicEffects', f"""FormKey: {r['rageabme']}
+EditorID: ZP_Prophecy_Rage_Effect
+Name:
+  TargetLanguage: English
+  Value: Rage
+Flags:
+- Recover
+- NoDuration
+- NoArea
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: You have <mag> stacks of Rage.
+""")
+    hexid = lambda fk: fk.split(':')[0]
+    cfg = {
+        '$comment': 'Generated by src/Prophecy/tools/01-build-trees.py (write_rage) - never hand-edit. FormIDs are local '
+                    'to their plugin (hex). See arch-docs/patches/Prophecy.md, Rage.',
+        'plugin': MOD, 'actionPlugin': DW,
+        'rageGlobal': hexid(r['global']), 'vehemenceSpell': hexid(r['vehspell']), 'vehemenceEffect': hexid(r['vehme']),
+        'rageEffect': hexid(r['rageabme']),
+        'perks': {'root': hexid(nodeperk['rge1']), 'untempered': hexid(nodeperk['rge8']), 'vehemence': hexid(nodeperk['rge9'])},
+        'max': RAGE['Max'], 'maxUntempered': RAGE['MaxUntempered'],
+        'fadeAfter': RAGE['FadeAfter'], 'fadeEvery': RAGE['FadeEvery'], 'combatGrace': RAGE['CombatGrace'],
+        'sprintGrace': RAGE['SprintGrace'], 'hitDedupe': RAGE['HitDedupe'], 'swingWindow': RAGE['SwingWindow'],
+        'powerAttackTypes': POWER_ATTACK_TYPES, 'meter': RAGE['Meter'],
+        # Dragon's Breath (Martial Arts, 2026-10-28): counted here with the other hit events, Rage or not
+        'dragonsBreath': {'perk': hexid(nodeperk['ma6']), 'every': DRAGONS_BREATH['Every'],
+                          'spells': [hexid(dragon[f'{e}spell']) for e in DRAGON_ELEMENTS]},   # no fist bursts
+        # Twin Effigies (Sorcery, 2026-10-29): Shatterveil's effigies cast the spells the player held when casting it
+        'effigies': {'plugin': SHVL, 'spells': list(EFFIGY_CAST['Spells']), 'faction': EFFIGY_CAST['Faction'],
+                     'base': EFFIGY_CAST['Base'], 'castEvery': EFFIGY_CAST['CastEvery'], 'range': EFFIGY_CAST['Range'],
+                     'spawnWindow': EFFIGY_CAST['SpawnWindow']},
+        'actions': [{'name': nodes_name, 'perk': hexid(nodeperk[nid]), 'trigger': trig,
+                     'cost': RAGE['Cost'][nodes_name], 'spells': spells}
+                    for nid, (trig, spells) in RAGE_ACTIONS.items()
+                    for nodes_name in [next(n[1] for _, _, ns in TREES for n in ns if n[0] == nid)]],
+    }
+    os.makedirs(os.path.dirname(RAGE_JSON), exist_ok=True)
+    with open(RAGE_JSON, 'w', encoding='utf-8', newline='\n') as fh:
+        json.dump(cfg, fh, indent=1)
+
+
 def perk_powers(esp, perk_fks):
     """(perk index, spell FormKey) for every perk whose PerkAbilityEffect is a Power/LesserPower. AddPerk from a
     script does not hand out power-type abilities (Explosive Tripwire, 2026-10-21), so the menu AddSpells them."""
@@ -2599,7 +4345,7 @@ def write_menu(nodes, nodeperk, write, grants):
     dqstrs = lambda xs: ''.join('      - "' + x.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n').replace('\r', '\\r') + '"\n' for x in xs)
     pos = {nid: k for k, nid in enumerate(order)}
     # capstones need level 30 (curator 2026-10-25): the talent after each tree's W2 stat talent
-    caps = {n for n in order if nodes[n][5] and nodes[n][5][0] in {w2[0] for _, _, w2 in STAT_NODES.values()}}
+    caps = {n for n in order if nodes[n][5] and nodes[n][5][0] in {w2[0] for _, _, w2 in STAT_NODES.values()} | HAND_W2}
     assert len(caps) == len(TREES), ('capstones', sorted(caps))
     levelreq = [CAPSTONE_LEVEL if n in caps else 0 for n in order]
     pa = [pos[nodes[n][5][0]] if nodes[n][5] else -1 for n in order]
