@@ -351,7 +351,7 @@ STAT_FX = {
     'unarmed': (['0424E2'], 'Your unarmed attacks deal {m} more damage.'),              # AbFortifyUnarmedDamage
     'melee': (['023166', '023167'], 'Your One-handed and Two-handed skills are increased by {m}.'),
     'light': (['023162'], 'Your Light Magic skill is increased by {m}.'),
-    'archery': (['023163'], 'Your Archery skill is increased by {m}.'),
+    'archery': (['023163'], 'Your Marksman skill is increased by {m}.'),
     'handicraft': (['0438F4'], 'Your Handicraft skill is increased by {m}.'),
     'block': (['03E15B'], 'Your Blocking skill is increased by {m}.'),
     'entropy': (['023165'], 'Your Entropy skill is increased by {m}.'),
@@ -831,6 +831,12 @@ def main():
     assert nxt == 0xB0E, f"Ricochet Rounds would not start at 0xB0E (0x{nxt:03X})"
     for nid in FIREARMS_LATE_NODES:
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    # The Hunt's howl (2026-10-29): its sound and marker. Append LAST
+    assert nxt == 0xB0F, f"The Hunt's howl would not start at 0xB0F (0x{nxt:03X})"
+    druid.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(HUNT_HOWL_RECORDS)}); nxt += len(HUNT_HOWL_RECORDS)
+    # The Hunt's invisible summon art (2026-10-29). Append LAST
+    assert nxt == 0xB11, f"The Hunt's summon art would not start at 0xB11 (0x{nxt:03X})"
+    druid.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(HUNT_PORTAL_RECORDS)}); nxt += len(HUNT_PORTAL_RECORDS)
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -862,6 +868,7 @@ def main():
     for p in glob.glob(os.path.join(ESP, '*', '*ZP_Prophecy_TestPerk*')): os.remove(p)
 
     def write(ty, t):
+        t = marksman(t)
         fk = re.search(r'^FormKey: (.+?)\s*$', t, re.M).group(1)
         h = fk.split(':')[0]
         os.makedirs(os.path.join(ESP, ty), exist_ok=True)
@@ -3239,6 +3246,16 @@ DRUID_RECORDS = ('craftspell', 'crafthealme', 'power', 'powerme', 'familiars', '
 DRUID_LATE_NODES = ('dru8',)
 DRUID_LATE_NODES_2 = ('dru9', 'dru10')       # Wolf Pack, Nature's Way (2026-10-29): after Blink Step's swoosh
 HUNT_RECORDS = ('huntpower', 'huntme', 'wolfspell1', 'wolfme1', 'wolfspell2', 'wolfme2')
+# The Hunt's howl (curator 2026-10-29, "that wolf sound to the Gray Wolves as they spawn in"): Motion Array's wolf howl
+# (tools/07, converted only), played by ZP_TheHuntEffect on the player once the wolf is called. Allocated after
+# Ricochet Rounds' perk
+HUNT_HOWL_RECORDS = ('howlsnd', 'howlmarker')
+# The wolves' summon art (2026-10-29): the effect needs a HitEffectArt or the summon is created but never shown nor
+# commanded until a reload; Triumvirate's portal still looked like conjuration, so a copy of it with vanilla's empty
+# effect model (Effects\FXEmptyObject.nif, also used by Enderal's own placers). Allocated after the howl
+HUNT_PORTAL_RECORDS = ('huntportal',)
+HUNT_PORTAL_SRC = os.path.join(REF, 'mods', 'Triumvirate', 'ArtObjects', 'TVR_Primal_Portal - 11F22F_Triumvirate - Mage Archetypes.esp.yaml')
+HUNT_HOWL_FILE = r'Data\Sound\FX\ZenProphecy\ZP_TheHuntHowl.wav'
 GOODBERRY = f'2844D3:{TRIUMVIRATE}'                  # TVR_Healing_Potion_Goodberry
 WOLF_EFFECT = 'TVR_Druid_Primal_Effect_CallWolf - 16391F'   # Triumvirate's Enderal patch's copy
 WOLF_ICON = f'14F4DC:{TRIUMVIRATE}'
@@ -3275,10 +3292,27 @@ def summon_room(cond_type, field, form):
 
 
 def write_hunt(d, write, nodeperk):
-    """The Hunt (curator 2026-10-29): a lesser power whose ZP_TheHuntEffect spends HUNT['Berries'] Goodberries and
-    casts the wolf spell (and, with Wolf Pack, the second). Each wolf spell is one copy of Triumvirate's Call Gray Wolf
-    summon effect, made FireAndForget and without TVR_SummonCost_Script (Force of Nature's familiars' shape), lasting
-    HUNT['Seconds']."""
+    """The Hunt (curator 2026-10-29): a lesser power that summons Triumvirate's Gray Wolf (and, with Wolf Pack, a second)
+    for HUNT['Berries'] Goodberries. Each wolf effect is one copy of Triumvirate's Call Gray Wolf summon effect, made
+    FireAndForget and without TVR_SummonCost_Script (Force of Nature's familiars' shape), lasting HUNT['Seconds'].
+    The summons sit on the power itself (the player's cast, so the engine applies the summon limit; summons cast from
+    a script ignore it - 6 wolves in game), each conditioned on carrying the Goodberries; ZP_TheHuntEffect only takes
+    the berries and plays the howl. The scripted entrance (hidden wolves leaping in from behind) was reverted the same
+    day: Papyrus took 5-7 s in the list ("too janky and heavy"). Its empty summon art 'huntportal' 0xB11 and the two
+    wolf spells 'wolfspell1/2' are retired and unwritten - never reuse."""
+    # the howl (2026-10-29): sound + marker, played from the script (Sound.Play) once the wolf is called
+    write('SoundDescriptors', f"""FormKey: {d['howlsnd']}
+EditorID: ZP_Prophecy_TheHuntHowlSound
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- {HUNT_HOWL_FILE}
+OutputModel: 0B6463:Skyrim.esm
+LoopAndRumble: {{}}
+Priority: 128
+""")
+    write('SoundMarkers', f"FormKey: {d['howlmarker']}\nEditorID: ZP_Prophecy_TheHuntHowlMarker\n"
+                          f"SoundDescriptor: {d['howlsnd']}\n")
     write('Spells', f"""FormKey: {d['huntpower']}
 EditorID: ZP_Prophecy_TheHunt_Power
 Name:
@@ -3298,6 +3332,31 @@ Effects:
 - BaseEffect: {d['huntme']}
   Data:
     Duration: 1
+- BaseEffect: {d['wolfme1']}
+  Data:
+    Duration: {HUNT['Seconds']}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetItemCountConditionData
+      ItemOrList: {GOODBERRY}
+    ComparisonValue: {HUNT['Berries']}
+- BaseEffect: {d['wolfme2']}
+  Data:
+    Duration: {HUNT['Seconds']}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetItemCountConditionData
+      ItemOrList: {GOODBERRY}
+    ComparisonValue: {HUNT['Berries']}
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: {nodeperk['dru9']}
+    ComparisonValue: 1
 """)
     write('MagicEffects', f"""FormKey: {d['huntme']}
 EditorID: ZP_Prophecy_TheHunt_Effect
@@ -3312,14 +3371,11 @@ VirtualMachineAdapter:
       Name: Cost
       Data: {HUNT['Berries']}
     - MutagenObjectType: ScriptObjectProperty
-      Name: Wolf
-      Object: {d['wolfspell1']}
+      Name: Howl
+      Object: {d['howlmarker']}
     - MutagenObjectType: ScriptObjectProperty
-      Name: SecondWolf
-      Object: {d['wolfspell2']}
-    - MutagenObjectType: ScriptObjectProperty
-      Name: WolfPack
-      Object: {nodeperk['dru9']}
+      Name: WolfBase
+      Object: 17CE35:Triumvirate - Mage Archetypes.esp
 Name:
   TargetLanguage: English
   Value: The Hunt
@@ -3343,7 +3399,7 @@ Description:
     assert len(p) == 1, WOLF_EFFECT
     src = open(p[0], encoding='utf-8').read().replace('\r\n', '\n')
     for i in (1, 2):
-        sp, me = d[f'wolfspell{i}'], d[f'wolfme{i}']
+        me = d[f'wolfme{i}']
         t = re.sub(r'^FormKey: .*$', f'FormKey: {me}', src, count=1, flags=re.M)
         t = re.sub(r'^EditorID: .*$', f'EditorID: ZP_Prophecy_TheHunt_Wolf{i}', t, count=1, flags=re.M)
         t, n = re.subn(r'^VirtualMachineAdapter:\n(?:  .*\n)*', '', t, count=1, flags=re.M)
@@ -3357,10 +3413,6 @@ Description:
         t = re.sub(r'^Conditions:\n(?:[- ].*\n)*', '', t, count=1, flags=re.M)
         assert 'MagicEffectSummonCreatureArchetype' in t
         write('MagicEffects', t)
-        write('Spells', f"FormKey: {sp}\nEditorID: ZP_Prophecy_TheHunt_WolfSpell{i}\nName:\n  TargetLanguage: English\n"
-                        f"  Value: The Hunt\nMenuDisplayObject: {WOLF_ICON}\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n"
-                        "  TargetLanguage: English\n  Value: ''\nFlags:\n- ManualCostCalc\n- IgnoreResistance\n- NoAbsorbOrReflect\n"
-                        f"CastType: FireAndForget\nEffects:\n- BaseEffect: {me}\n  Data:\n    Duration: {HUNT['Seconds']}\n")
 
 
 def druid_perk(d):
@@ -3652,6 +3704,22 @@ def sorc_record(fk):
     p = glob.glob(os.path.join(REF, 'mods', SORC_REF[plugin], '*', f'* - {hexid}_{plugin}.yaml'))
     assert len(p) == 1, f'{fk} not in reference/mods/{SORC_REF[plugin]}: serialize the cleaned pack there'
     return os.path.basename(os.path.dirname(p[0])), open(p[0], encoding='utf-8').read().replace('\r\n', '\n')
+
+
+MARKSMAN_ENUM_LINE = re.compile(r'^\s*(?:- )?(?:Key|Skill|ActorValue|SecondActorValue|Teaches|MagicSkill|ResistValue|'
+                                r'CastingSkill|AssociatedItem|EditorID|Name|Object)\s*:\s*\S*Archery')
+
+
+def marksman(t):
+    """The skill is "Marksman" in Enderal's own interface (translate_english.txt: $Archery = Marksman), so every
+    shown "Archery" that names the skill becomes Marksman (curator 2026-10-29). Not the tree "Arcane Archery", not
+    actor-value keys (Key/Skill/ActorValue: Archery), EditorIDs or script property names."""
+    out = []
+    for line in t.split('\n'):
+        if not MARKSMAN_ENUM_LINE.match(line):
+            line = re.sub(r'(?<!Arcane )\bArchery\b', 'Marksman', line)
+        out.append(line)
+    return '\n'.join(out)
 
 
 def sorc_tune(fk, t):

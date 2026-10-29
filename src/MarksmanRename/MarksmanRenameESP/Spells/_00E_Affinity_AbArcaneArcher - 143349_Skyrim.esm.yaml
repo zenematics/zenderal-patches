@@ -1,0 +1,28 @@
+FormKey: 143349:Skyrim.esm
+EditorID: _00E_Affinity_AbArcaneArcher
+Name:
+  TargetLanguage: English
+  Value: 'Affinity: Arcane Archer'
+MenuDisplayObject: 10F0FD:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Raises each of Marksman, Elementalism and Light Magic by <6> points. If you fire an arrow while "Eye of the Storm" is activated you automatically fire another, spectral arrow, which paralyzes enemies, at the same time.
+BaseCost: 2071
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 14332B:Skyrim.esm
+  Data:
+    Magnitude: 15
+- BaseEffect: 023163:Skyrim.esm
+  Data:
+    Magnitude: 6
+- BaseEffect: 02E1C4:Skyrim.esm
+  Data:
+    Magnitude: 6
+- BaseEffect: 023162:Skyrim.esm
+  Data:
+    Magnitude: 6

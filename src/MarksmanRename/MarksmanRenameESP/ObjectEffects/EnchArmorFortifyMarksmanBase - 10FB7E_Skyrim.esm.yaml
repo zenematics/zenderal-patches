@@ -1,0 +1,13 @@
+FormKey: 10FB7E:Skyrim.esm
+EditorID: EnchArmorFortifyMarksmanBase
+Name:
+  TargetLanguage: English
+  Value: Fortify Marksman
+EnchantmentCost: 293
+EnchantmentAmount: 293
+EnchantType: Enchantment
+WornRestrictions: 10CD10:Skyrim.esm
+Effects:
+- BaseEffect: 07A0FE:Skyrim.esm
+  Data:
+    Magnitude: 10

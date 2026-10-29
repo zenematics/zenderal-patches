@@ -17,3 +17,28 @@ Effects:
 - BaseEffect: 000B09:Zenderal - Prophecy.esp
   Data:
     Duration: 1
+- BaseEffect: 000B0B:Zenderal - Prophecy.esp
+  Data:
+    Duration: 100000
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetItemCountConditionData
+      ItemOrList: 2844D3:Triumvirate - Mage Archetypes.esp
+    ComparisonValue: 5
+- BaseEffect: 000B0D:Zenderal - Prophecy.esp
+  Data:
+    Duration: 100000
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetItemCountConditionData
+      ItemOrList: 2844D3:Triumvirate - Mage Archetypes.esp
+    ComparisonValue: 5
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 000B06:Zenderal - Prophecy.esp
+    ComparisonValue: 1

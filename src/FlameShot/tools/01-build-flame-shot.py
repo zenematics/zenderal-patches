@@ -229,6 +229,8 @@ def main():
     t = read(find('mods/EGO', '14334A:Skyrim.esm'))
     desc = replace_once(get_english(t, 'Description'), 'Each fired fire arrow also triggers',
                         'Each fired fire arrow or flame musket ball also triggers')
+    # the skill is Marksman in Enderal's interface (curator 2026-10-29: every shown "Archery" -> "Marksman")
+    desc = replace_once(desc, 'Light Armor and Archery by', 'Light Armor and Marksman by')
     t = set_string(t, 'Description', desc)
     written.append(write('Spells', edid_of(t), '14334A:Skyrim.esm', t))
 

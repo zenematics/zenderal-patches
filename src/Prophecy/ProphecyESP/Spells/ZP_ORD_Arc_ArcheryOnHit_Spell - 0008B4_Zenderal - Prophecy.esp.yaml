@@ -2,7 +2,7 @@ FormKey: 0008B4:Zenderal - Prophecy.esp
 EditorID: ZP_ORD_Arc_ArcheryOnHit_Spell
 Name:
   TargetLanguage: English
-  Value: Archery On-Hit Effects
+  Value: Marksman On-Hit Effects
 MenuDisplayObject: 000826:Zenderal - Prophecy.esp
 EquipmentType: 013F44:Skyrim.esm
 Description:

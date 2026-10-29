@@ -1,0 +1,25 @@
+FormKey: 00149E:KataPUMBAffinities.esp
+EditorID: Kata_Affinity_AbDragonHunter
+Name:
+  TargetLanguage: English
+  Value: 'Affinity: Dragon Hunter'
+MenuDisplayObject: 10FEF4:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Raises both Health and Stamina by <20>. Raises both Marksman and Heavy Armor by <8> points. Attacks made with a bow deal <1> point of bleeding damage for <10> seconds.
+BaseCost: 222
+Type: Ability
+Effects:
+- BaseEffect: 023163:Skyrim.esm
+  Data:
+    Magnitude: 8
+- BaseEffect: 03E15A:Skyrim.esm
+  Data:
+    Magnitude: 8
+- BaseEffect: 0A1A3F:Skyrim.esm
+  Data:
+    Magnitude: 20
+- BaseEffect: 00149D:KataPUMBAffinities.esp
+  Data:
+    Magnitude: 20

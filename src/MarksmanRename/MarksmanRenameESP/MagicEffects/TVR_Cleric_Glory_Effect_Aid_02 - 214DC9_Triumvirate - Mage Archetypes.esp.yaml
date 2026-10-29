@@ -1,0 +1,54 @@
+FormKey: 214DC9:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Cleric_Glory_Effect_Aid_02
+Name:
+  TargetLanguage: English
+  Value: Fortify Skills - Marksman
+MenuDisplayObject: 1EC537:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 1EC544:Triumvirate - Mage Archetypes.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsMagnitude
+MagicSkill: Restoration
+CastingLight: 1EC539:Triumvirate - Mage Archetypes.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Archery
+  Association: 1EC544:Triumvirate - Mage Archetypes.esp
+CastType: Concentration
+TargetType: TargetActor
+CastingArt: 1EC538:Triumvirate - Mage Archetypes.esp
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 086EFC:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 120819:Triumvirate - Mage Archetypes.esp
+- Type: ConcentrationCastLoop
+  Sound: 02F66C:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetShouldAttackConditionData
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013797:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm
+  ComparisonValue: 1

@@ -1321,6 +1321,18 @@
           "dest": "Zenderal - No Combat Music.esp"
         }
       ]
+    },
+    {
+      "$comment": "Curator's taste: the skill is Marksman in Enderal's own interface ($Archery = Marksman), so every shown 'Archery' naming it reads Marksman - learning-book effects, Fortify effects/enchantments, EGO's potions, affinities (Enderal's, KataPUMB's), the level-up message, Amnesia Shrine's menu, Loop's pistols, Triumvirate's skill effects. 33 records copied from their winners, English text only. Generated: src/MarksmanRename/tools/00 (scan) -> 01 (build). Load after EGO SE - KataPUMB New Affinities.esp.",
+      "name": "Zenderal - Marksman Rename",
+      "archiveName": "Zenderal - Marksman Rename",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/MarksmanRename/MarksmanRenameESP",
+          "dest": "Zenderal - Marksman Rename.esp"
+        }
+      ]
     }
   ]
 }

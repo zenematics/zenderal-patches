@@ -5,6 +5,7 @@ DLL-played sounds are silent on 1.7.104, see ShatterveilAE.md). Each is clips mi
   ~2 s are under -30 dB, it came too late); and, from 2026-10-29, the curator's Glass-002 with the impact ("add
   this sound to Sorcery's wyrm shout, as an addition") - a 96 kHz clip, downsampled to the mix's 48 kHz;
 - Blink Step's swoosh (ZP_Prophecy_BlinkStepSwooshSound): one Motion Array clip, converted only;
+- The Hunt's howl (ZP_Prophecy_TheHuntHowlSound): one Motion Array clip, converted only;
 Skyrim plays 16-bit PCM only; 24-bit clips are converted (top 16 bits, no dither). A clip at a whole multiple of the
 first clip's rate is low-pass filtered (windowed sinc) and decimated to it. The .wavs are not committed (licensed
 audio / another mod's); rerun this to rebuild them.
@@ -22,6 +23,8 @@ SOUNDS = {
                                                         ('Glass-002.wav', 0.0)],
     # Blink Step's swoosh (2026-10-29): one clip, only converted to 16-bit
     r'Sound\FX\ZenProphecy\ZP_BlinkStepSwoosh.wav': [('MA_Originals_FastSwooshTransitions_5.wav', 0.0)],
+    # The Hunt's howl (2026-10-29): one clip, only converted to 16-bit
+    r'Sound\FX\ZenProphecy\ZP_TheHuntHowl.wav': [('MA_Studiobell_WolfHowl_Version (2).wav', 0.0)],
 }
 MOD = r'E:\Zenderal\mods\Zenderal - Prophecy v3 (Constellation)'
 

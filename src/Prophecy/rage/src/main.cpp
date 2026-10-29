@@ -45,10 +45,14 @@
 // has an effect with the Flintlock Overhaul's ZP_FlintlockShot keyword) has Chance% to re-cast that shot enchantment
 // from the target at the nearest other foe of the player within Range, blamed on the player. The bounce's own hit
 // cannot bounce again (that target is ignored for Cooldown seconds).
+// 1.3.3: the bounce is a real bullet - the shot's own projectile launched from just past the first target towards the
+// second (Projectile::Launch, shooter the player). 1.3.0's CastSpellImmediate from the target's instant caster fired
+// (logged) but showed no projectile (curator 2026-10-29). Each shot's hit arrives twice; one bounce per victim per
+// 0.15 s.
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyRage.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 3, 2, 0 },
+	.Version = REL::Version{ 1, 3, 3, 0 },
 	.Name = "ZenProphecyRage"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -716,6 +720,43 @@ namespace
 	// ---------------------------------------------------------------- Ricochet Rounds
 	RE::FormID        g_ricochetTarget = 0;
 	Clock::time_point g_ricochetAt{};
+	RE::FormID        g_ricochetVictim = 0;     // 1.3.3: the same shot's second hit event
+	Clock::time_point g_ricochetVictimAt{};
+
+	void LaunchBounce(RE::MagicItem* a_shot, RE::Actor* a_from, RE::Actor* a_to, RE::Actor* a_player)
+	{
+		auto* mgef = a_shot->GetAVEffect();
+		auto* proj = mgef ? mgef->data.projectileBase : nullptr;
+		if (!proj) {
+			SKSE::log::info("Ricochet: {:08X} has no projectile - cast instead", a_shot->GetFormID());
+			a_from->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)
+				->CastSpellImmediate(a_shot, false, a_to, 1.0f, false, 0.0f, a_player);
+			return;
+		}
+		RE::NiPoint3 from = a_from->GetPosition();
+		from.z += a_from->GetHeight() * 0.6f;
+		RE::NiPoint3 to = a_to->GetPosition();
+		to.z += a_to->GetHeight() * 0.6f;
+		RE::NiPoint3 d = to - from;
+		const float len = d.Length();
+		if (len < 1.0f) {
+			return;
+		}
+		d /= len;
+		const float clear = std::min(60.0f, len * 0.5f);   // start outside the first target's body
+		from += d * clear;
+		RE::Projectile::ProjectileRot rot{ std::atan2(-d.z, std::hypot(d.x, d.y)), std::atan2(d.x, d.y) };
+		RE::Projectile::LaunchData data(a_player, from, rot, a_shot);
+		data.projectileBase = proj;
+		data.parentCell = a_from->GetParentCell();
+		data.desiredTarget = a_to;
+		data.castingSource = RE::MagicSystem::CastingSource::kInstant;
+		data.autoAim = false;
+		data.useOrigin = true;
+		RE::ProjectileHandle handle{};
+		RE::Projectile::Launch(&handle, data);
+		SKSE::log::info("Ricochet: launched {:08X} ({}) {:.0f} units", proj->GetFormID(), handle ? "ok" : "no handle", len);
+	}
 
 	RE::MagicItem* PistolShot(RE::FormID a_source)
 	{
@@ -757,6 +798,11 @@ namespace
 		if (victim->GetFormID() == g_ricochetTarget && Seconds(now - g_ricochetAt) < c.ricochetCooldown) {
 			return;   // the bounce's own hit
 		}
+		if (victim->GetFormID() == g_ricochetVictim && Seconds(now - g_ricochetVictimAt) < 0.15) {
+			return;   // the same shot's second hit event
+		}
+		g_ricochetVictim = victim->GetFormID();
+		g_ricochetVictimAt = now;
 		static std::mt19937 rng{ std::random_device{}() };
 		if (std::uniform_int_distribution<int>(1, 100)(rng) > c.ricochetChance) {
 			return;
@@ -780,8 +826,7 @@ namespace
 		}
 		g_ricochetTarget = next->GetFormID();
 		g_ricochetAt = now;
-		victim->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)
-			->CastSpellImmediate(shot, false, next, 1.0f, false, 0.0f, player);
+		LaunchBounce(shot, victim, next, player);
 		SKSE::log::info("Ricochet: {:08X} bounced off {:08X} into {:08X} ({:.0f} units)", shot->GetFormID(),
 			victim->GetFormID(), next->GetFormID(), bestD);
 	}
@@ -1075,7 +1120,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.3.2 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.3.3 loading, runtime {}", REL::Module::get().version().string());
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

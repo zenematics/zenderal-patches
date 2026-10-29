@@ -107,7 +107,11 @@ has a `radial` block; the old tab view stays as the fallback. Concept image: `ou
 
 - **Layout** (`tools/01`, `place_radial`). A Prophecy start point sits at the centre. Each tree's shaped figure is
   turned so its root → capstone axis points straight out along its own spoke. The spokes run clockwise from Faith at
-  the top, in TREES order, and each root sits at `RADIAL_ROOT` 5.2 units. The tool writes:
+  the top, in TREES order, and each root sits at `RADIAL_ROOT` 5.2 units. **Since 2026-10-29 the roots form a perfect
+  circle** (curator: "equally spaced like on the website"): every slice is 360/n degrees (`RADIAL_WEIGHT` now only
+  draws Glory and Rage larger, it no longer widens their slices), and every root sits at one shared radius, the
+  largest any figure needs to stay inside its slice (Druidic's, 33.89 on 2026-10-29), written as `rootRadius`, so the
+  menu's faint ring runs through every root. The background art's wedges were drawn for the old weighted slices. The tool writes:
   - per node `mx`/`my` (map units, y up) and `minor` (stat talents);
   - per tree `color`, `angle`, `labelPos` (beyond its furthest talent) and `mapRoutes` (waypoints transformed);
   - top level `radial` {`extent`, `rootRadius`, `background`}.

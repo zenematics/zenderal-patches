@@ -11,14 +11,11 @@ VirtualMachineAdapter:
       Name: Cost
       Data: 5
     - MutagenObjectType: ScriptObjectProperty
-      Name: Wolf
-      Object: 000B0A:Zenderal - Prophecy.esp
+      Name: Howl
+      Object: 000B10:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptObjectProperty
-      Name: SecondWolf
-      Object: 000B0C:Zenderal - Prophecy.esp
-    - MutagenObjectType: ScriptObjectProperty
-      Name: WolfPack
-      Object: 000B06:Zenderal - Prophecy.esp
+      Name: WolfBase
+      Object: 17CE35:Triumvirate - Mage Archetypes.esp
 Name:
   TargetLanguage: English
   Value: The Hunt

@@ -1,0 +1,22 @@
+FormKey: 00B68B:KataPUMBAffinities.esp
+EditorID: Kata_V2_Affinity_AbWolfHunter
+Name:
+  TargetLanguage: English
+  Value: 'Affinity: Wolf Hunter'
+MenuDisplayObject: 03C90F:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Raises Stamina by <30> points. Raises both Marksman and Alchemy by <8> points. If your target has less than <25>% health you deal <25>% more damage to it.
+BaseCost: 80
+Type: Ability
+Effects:
+- BaseEffect: 00B68F:KataPUMBAffinities.esp
+  Data:
+    Magnitude: 30
+- BaseEffect: 023163:Skyrim.esm
+  Data:
+    Magnitude: 8
+- BaseEffect: 0438F7:Skyrim.esm
+  Data:
+    Magnitude: 8

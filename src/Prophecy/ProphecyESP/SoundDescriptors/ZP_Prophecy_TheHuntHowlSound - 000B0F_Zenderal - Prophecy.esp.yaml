@@ -1,0 +1,9 @@
+FormKey: 000B0F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_TheHuntHowlSound
+Type: Standard
+Category: 01A0BD:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\ZenProphecy\ZP_TheHuntHowl.wav
+OutputModel: 0B6463:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

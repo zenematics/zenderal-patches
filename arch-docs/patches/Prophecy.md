@@ -568,6 +568,28 @@ Unverified in game.
   damage through a script property `SpellToCast` (strings of the extracted `.pex`), so the sub-spell is what counts.
   Unverified in game.
 
+## The Hunt: howl, the summon limit, and a reverted entrance (curator, 2026-10-29)
+
+- **Now:** the power `0xB08` carries the summon effects itself - `ZP_Prophecy_TheHunt_Wolf1 0xB0B` (and `Wolf2 0xB0D`
+  with Wolf Pack's perk), each conditioned on carrying 5 Goodberries - beside the script effect `0xB09`, which only
+  takes the berries and plays Motion Array's wolf howl (`ZP_Prophecy_TheHuntHowlSound 0xB0F` + marker `0xB10`,
+  `tools/07`, not committed). The wolf effects are Triumvirate's Call Gray Wolf look, unchanged.
+- **Why the summons moved onto the power:** summons cast from a script (`Spell.Cast`) ignore the summon limit - in
+  game the old design piled up 6 wolves. The player's own cast keeps the engine's limit (1; Wolf Pack's
+  `ModCommandedActorLimit` +1 while `Wolf1`'s effect is on - whether that is on in time for `Wolf2` of the same cast
+  is unverified).
+- **But the engine's limit is not 2:** it counts every summon kind and other talents raise it (Corpse Fever +1 per 25%
+  fever, Nature's Way, Entropy perks), so 3+ wolves were still possible. `ZP_TheHuntEffect.Cap` (2 s after the cast,
+  for the portal) keeps at most `MaxWolves` 2: the commanded actors of the wolf's race (`WolfBase` `17CE35`'s race)
+  past 2 are disabled and deleted, oldest first (the commanded list's order is assumed oldest-first, unverified).
+- **Tried and reverted the same day:** no conjuration look, and an entrance where the script hid each new wolf, moved
+  it behind the player and leapt it in (`attackStart_ForwardPower` + two `TranslateTo`s, wolves found with Papyrus
+  Extender's `GetCommandedActors`). Findings: without any `HitEffectArt` the summon is created but neither shown nor
+  commanded until a reload; a levelled summon's `GetLeveledActorBase()` is a generated base (match by race instead);
+  Papyrus took 5-7 s from cast to leap in this list. The curator: "too janky and heavy". The empty summon art
+  `0xB11` and the two wolf spells `0xB0A`/`0xB0C` are retired - never reuse.
+- Unverified in game.
+
 ## Ice Shot: weak enemies only (curator, 2026-10-29)
 
 "People are 2-shotting bosses": the shatter is a `Kill`. `ZP_IceShotFreezeEffect` now freezes only a target whose
@@ -593,6 +615,12 @@ another target."
   - **The log:** "Ricochet: … bounced off … into …", or "no other foe within".
 - **Unverified in game:** whether a staff enchantment fires its projectile when cast this way from another actor.
   Card prompt in `outputs/art-prompts-prophecy-2026-10-29.md`.
+
+- **1.3.3 (2026-10-29): a real bullet.** In game 1.3.0 logged its bounces but no projectile was seen: the shot was
+  `CastSpellImmediate`d from the hit enemy's instant caster. Now `LaunchBounce` launches the shot's own projectile
+  (its costliest effect's `projectileBase`) with `Projectile::Launch`, shooter the player, from 60 units past the first
+  target's chest towards the second's (`desiredTarget` set, no auto-aim). Each pistol hit arrives as two hit events
+  (two identical log lines in 1.3.0), so one bounce per victim per 0.15 s. Unverified in game.
 
 ## Rage, the eleventh tree (curator, 2026-10-27)
 

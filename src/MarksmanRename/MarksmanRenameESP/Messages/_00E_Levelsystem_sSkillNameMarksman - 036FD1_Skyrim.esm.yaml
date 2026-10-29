@@ -1,0 +1,37 @@
+FormKey: 036FD1:Skyrim.esm
+EditorID: _00E_Levelsystem_sSkillNameMarksman
+Version2: 1
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Increased Marksman by %.0f to %.0f!
+  - Language: Chinese
+    String: 箭术系等级增加%.0f级，目前为%.0f级！
+  - Language: Korean
+    String: 궁술이 %.0f 상승하여 %.0f 레벨이 되었습니다!
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Increased Marksman from %.0f to %.0f!
+  - Language: German
+    String: Erzählt mir etwas über Grelod die Gütige.
+  - Language: Spanish
+    String: Háblame de Grelod la Buena.
+  - Language: Italian
+    String: Parlami di Grelod la Gentile.
+  - Language: Polish
+    String: Opowiedz mi o Dobrodusznej Grelod.
+  - Language: Russian
+    String: Расскажи мне о Грелод Доброй.
+  - Language: French
+    String: Parlez-moi de Grelod la Douce.
+  - Language: Japanese
+    String: 親切者のグレロッドについて教えてほしい
+  - Language: Chinese
+    String: 箭术从%.0f级提升到%.0f级！
+  - Language: Korean
+    String: 궁술이 %.0f에서 %.0f로 상승했다!
+INAM: 0x00000000
+DisplayTime: 2

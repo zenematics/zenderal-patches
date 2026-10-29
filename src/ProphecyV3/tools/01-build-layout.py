@@ -232,12 +232,34 @@ TREE_COLOR = {'Faith': (232, 196, 110), 'Firearms': (205, 140, 80), 'Gadgets': (
 
 
 def place_radial(trees):
-    """Adds mx/my to every node, and color/labelPos/mapRoutes/angle to every tree. Returns the map's own settings."""
+    """Adds mx/my to every node, and color/labelPos/mapRoutes/angle to every tree. Returns the map's own settings.
+
+    The roots form a perfect circle (curator 2026-10-29, "equally spaced like on the website"): every slice is the
+    same width, so the roots are 360/n degrees apart, and every root sits at one shared radius - the largest any figure
+    needs to stay inside its slice (first pass). RADIAL_WEIGHT now only draws Glory and Rage larger."""
     n = len(trees)
     weights = [RADIAL_WEIGHT.get(t['name'], 1.0) for t in trees]
-    total = sum(weights)
     far_all = 0.0
-    for k, t in enumerate(trees):
+    shared = None
+    for pass_ in ('measure', 'place'):
+        needs = []
+        for k, t in enumerate(trees):
+            r = _place_tree(t, k, n, weights[k], shared)
+            needs.append(r[0])
+            if pass_ == 'place':
+                far_all = max(far_all, r[1])
+        shared = max(needs)
+    print(f'roots on a circle of radius {shared:.2f}, {360 / n:.2f} degrees apart (each tree alone: '
+          + ', '.join(f"{t['name']} {nd:.2f}" for t, nd in zip(trees, needs)) + ')')
+    bg = os.path.join(REPO, 'src', 'ProphecyV3', 'assets', 'interface', 'ProphecyBackgrounds', 'Radial.dds')
+    return {'rootRadius': round(shared, 4), 'extent': round(far_all + 0.8, 3),
+            'background': RADIAL_BG if os.path.isfile(bg) else ''}
+
+
+def _place_tree(t, k, n, weight, root_r_shared):
+    """One tree on spoke k of n: returns (the root radius its figure needs, its furthest reach incl. the name).
+    With root_r_shared it is placed at that radius instead."""
+    if True:
         s = t['shape']
         assert s, f"{t['name']}: the radial map needs every tree shaped"
         pos = {int(i): tuple(p) for i, p in s['nodes'].items()}
@@ -248,9 +270,9 @@ def place_radial(trees):
         # balanced trees (2026-10-27): each figure scaled so it reaches RADIAL_LENGTH from its root - the long rifle and
         # sword no longer set the map's size while the compact figures stay cramped
         span = max(math.hypot(p[0] - rx, p[1] - ry) for p in pos.values())
-        spread = (RADIAL_LENGTH / span if RADIAL_LENGTH > 0 else RADIAL_SPREAD) * weights[k] * RADIAL_SCALE.get(t['name'], 1.0)   # a wider slice draws its figure larger
-        # the slice's centre, clockwise from Faith's at the top; slices sized by RADIAL_WEIGHT
-        ang = math.pi / 2 - 2 * math.pi * (sum(weights[:k]) + weights[k] / 2 - weights[0] / 2) / total
+        spread = (RADIAL_LENGTH / span if RADIAL_LENGTH > 0 else RADIAL_SPREAD) * weight * RADIAL_SCALE.get(t['name'], 1.0)   # Glory and Rage drawn larger
+        # the slice's centre, clockwise from Faith's at the top; every slice 360/n degrees
+        ang = math.pi / 2 - 2 * math.pi * k / n
         rot = ang - ang_fig
         cs, sn = math.cos(rot), math.sin(rot)
 
@@ -262,12 +284,14 @@ def place_radial(trees):
             xr, yr = x * cs - y * sn, x * sn + y * cs
             return xr * math.cos(ang) + yr * math.sin(ang), -xr * math.sin(ang) + yr * math.cos(ang)
         pts = [pos[i] for i in pos] + [tuple(v) for r in s['routes'] for v in r['via']]
-        tan_half = math.tan(math.pi * weights[k] / total * RADIAL_FILL)
+        tan_half = math.tan(math.pi / n * RADIAL_FILL)
         need = RADIAL_ROOT
         for p in pts:
             along, across = local(p)
             need = max(need, abs(across) / tan_half - along, RADIAL_MIN_CENTRE - along)
-        root_r = need
+        if root_r_shared is None:
+            return need, 0.0
+        root_r = root_r_shared
 
         def T(p, root_r=root_r):
             x, y = (p[0] - rx) * spread, (p[1] - ry) * spread
@@ -282,10 +306,7 @@ def place_radial(trees):
         t['color'] = list(TREE_COLOR.get(t['name'], (200, 196, 186)))
         # the name well past the furthest talent, so it never sits on the capstone's own label (curator 2026-10-27)
         t['labelPos'] = [round(math.cos(ang) * (far + RADIAL_LABEL_GAP), 4), round(math.sin(ang) * (far + RADIAL_LABEL_GAP), 4)]
-        far_all = max(far_all, far + RADIAL_LABEL_GAP)
-    bg = os.path.join(REPO, 'src', 'ProphecyV3', 'assets', 'interface', 'ProphecyBackgrounds', 'Radial.dds')
-    return {'rootRadius': RADIAL_ROOT, 'extent': round(far_all + 0.8, 3),
-            'background': RADIAL_BG if os.path.isfile(bg) else ''}
+        return need, far + RADIAL_LABEL_GAP
 
 
 # Label sides (curator 2026-10-27: names overlapped at the whole-map view). Each talent's name goes below, above, right

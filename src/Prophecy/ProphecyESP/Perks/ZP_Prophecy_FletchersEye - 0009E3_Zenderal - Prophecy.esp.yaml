@@ -2,7 +2,7 @@ FormKey: 0009E3:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_FletchersEye
 Description:
   TargetLanguage: English
-  Value: 'Your Archery skill is increased by 10.'
+  Value: 'Your Marksman skill is increased by 10.'
 Name:
   TargetLanguage: English
   Value: 'Fletcher''s Eye'
