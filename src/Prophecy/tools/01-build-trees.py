@@ -136,7 +136,25 @@ GW_ABSORB = 20
 GW_HAZARD_SPELL = '000826:KittySpellPack01.esl'
 GW_COOLDOWN_MGEF = '000810:KittySpellPack01.esl'
 WYRM_COOLDOWN_MULT = 2   # the Veil Wyrm's word recovery times (Shatterveil's 20/35/50 s) x this
+# Balance pass (curator 2026-10-29: "match up with similar tiered spells in EGO"). Every Sorcery spell sits on EGO's
+# 97-Mana rung (Expert); EGO's damage at that rung, base magnitudes from arch-docs/magic: single target Blazing Spark VI
+# 78.5 (85 Mana), Firebolt VI 62 (68); area Fireball III 63 (90, area 12), Chain Lightning III 75 (107, area 20),
+# Frostwind III 53 + slow (78); per second Flame Bite III 19.2, Grounding III 23.85 (concentration). The packs' own:
+# Frost Spires 80 per spire up to four, Wildfire 80 on impact plus a homing hazard of 32 every 0.6 s for 10 s,
+# Starlance 120 (its sub-spell _SS_CelestialRaysDamageSpell), Drowning Orb 30 Stamina + Mana per hazard tick (60/s).
+# Falling Star (60, area 18 - Fireball III's) and Gravity Well (20 + 20 absorbed) already sit on the ladder.
+SORC_MAG = {'Spires': 30, 'WildfireHit': 40, 'WildfireBurn': 12, 'Starlance': 80, 'OrbSap': 15, 'OrbSapPerSecond': 30}
+# record -> [(effect, nth occurrence, magnitude)]: the packs' spells (and sub-spells) at Enderal's ladder
+SORC_TUNE = {'000825:KittySpellPack02.esl': [('000817:KittySpellPack02.esl', 0, SORC_MAG['Spires'])],     # Frost Spires
+             '000829:KittySpellPack02.esl': [('00081E:KittySpellPack02.esl', 0, SORC_MAG['WildfireHit'])],  # Wildfire
+             '000827:KittySpellPack02.esl': [('000819:KittySpellPack02.esl', 0, SORC_MAG['WildfireBurn'])],  # its hazard
+             '000814:Supernova.esl': [('000809:Supernova.esl', 0, SORC_MAG['Starlance'])],                   # Starlance (shown)
+             '000816:Supernova.esl': [('00080C:Supernova.esl', 0, SORC_MAG['Starlance'])],                   # its beam
+             '000828:KittySpellPack01.esl': [('000813:KittySpellPack01.esl', 0, SORC_MAG['OrbSap'])]}        # Drowning Orb
+EFFIGY_EVERY = 6.0   # Twin Effigies' chain lightning (curator 2026-10-29 "balance"): 3 s was 2 x 40 every 3 s for 30-60 s
 SORC = {'OrbDrain': 10, 'OrbRegen': 10, 'BurnSeconds': 20, 'CostMult': 0.5, 'RegenPerSecond': 10}
+# Ricochet Rounds (2026-10-29): chance per pistol hit, the second target's search radius (units, ~feet)
+RICOCHET = {'Chance': 25, 'Range': 960, 'Feet': 45, 'Cooldown': 1.0}
 # The Hunt (2026-10-29): Goodberries spent per call; the wolves' summon lasts HUNT['Seconds'] - "until killed"
 HUNT = {'Berries': 5, 'Seconds': 100000}
 DRUID = {'CraftBerries': 1, 'CraftHeal': 20, 'FormFever': 50, 'FormSeconds': 60, 'FamiliarSeconds': 65, 'ExtraSummons': 4}
@@ -159,6 +177,9 @@ TREES = [
     ('gun1', 'Quick Reload', 'You reload muskets 30% faster.', '105F19:Skyrim.esm', [], []),
     ('gun2', 'Elemental Rounds', 'Your musket hits deal 10 extra fire damage.', None, [], ['gun1']),
     ('gun3', 'Bleeding Shot', 'Your musket hits make living targets bleed for 50 damage over 5 seconds.', None, [], ['gun1']),
+    # Ricochet Rounds (curator 2026-10-29): pistols, off Steady Aim (the root's stat talent), allocated last
+    # (FIREARMS_LATE_NODES). ZenProphecyRage.dll does the bounce (write_rage's 'ricochet')
+    ('gun6', 'Ricochet Rounds', f"Your pistol shots have a {RICOCHET['Chance']}% chance to ricochet off their target into another enemy up to {RICOCHET['Feet']} feet away, hitting it with the same shot.", None, [], ['gst1']),
     ('gun4', 'Run and Gun', 'You move at full speed while aiming a musket.', '058F63:Skyrim.esm', [], ['gun2', 'gun3']),
     ('gun5', 'Deadeye', "A musket shot at a target you haven't shot in the last 10 seconds is a critical strike that deals triple critical damage, and its weapon enchantments are twice as strong.", o('0064C0'), [], ['gun4']),
   ]),
@@ -267,7 +288,7 @@ TREES = [
   ('Arcane Archery', 'Arrows, wards and spellcraft.', [
     ('arc1', 'Arcane Arsenal', f'Grants the "Arcane Arsenal" power: choose Fire, Frost or Lightning, and your bow hits deal {ARC["ElementDamage"]} extra damage of that element.', None, [], []),
     ('arc2', 'No Distractions', 'While you aim a bow, a Spell Ward (Rank II) surrounds you. It fades when you fire or lower the bow.', None, [], ['arc1']),
-    ('arc3', 'Ice Shot', f'Grants the "Ice Shot" talent ({ARC["IceCooldown"]} seconds cooldown): with a bow equipped, add {ARC["IceArrows"]} ice arrows to your quiver. They deal {ARC["IceDamage"]} frost damage and freeze the target solid for {ARC["FreezeSeconds"]} seconds, and your next arrow shatters it.', None, [], ['arc1']),
+    ('arc3', 'Ice Shot', f'Grants the "Ice Shot" talent ({ARC["IceCooldown"]} seconds cooldown): with a bow equipped, add {ARC["IceArrows"]} ice arrows to your quiver. They deal {ARC["IceDamage"]} frost damage and freeze a weak target - no higher level than you, never a unique foe - solid for {ARC["FreezeSeconds"]} seconds, and your next arrow shatters it.', None, [], ['arc1']),
     ('arc4', "Andrasta's Owl", f'Your bow hits send a barn owl to attack the target. It fights at your side until it is killed, each later hit sends it after that target, and each of its strikes drains {ARC["OwlDrain"]} Magicka from its target and gives it to you. While it is out, you regenerate {ARC["OwlRegen"]} Magicka per second. Only one owl can be out at a time.', None, [], ['arc2', 'arc3']),
     ('arc5', 'Arcane Echo', 'Grants the "Arcane Echo" power: use it while dual casting a spell to store that spell. Your fully drawn bow shots in combat then also release the stored spell toward your crosshair. Only works with spells cast at others.', o('010258'), [], ['arc4']),  # Ordinator's Lion's Arrow, renamed (curator 2026-10-23)
   ]),
@@ -293,13 +314,13 @@ TREES = [
     ('cst2', 'Mana Font', None, None, [], ['sor1']),
     ('sor2', 'Orbit Ward', 'While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting.', None, [], ['cst1']),
     ('cst3', 'Ember Ward', None, None, [], ['sor2']),
-    ('sor3', 'Frost Spires', 'Grants the "Frost Spires" spell: spires of ice burst from the ground, dealing 80 damage to Health and Stamina - up to four times that the more spires strike - and staggering.', None, [], ['sor2']),
+    ('sor3', 'Frost Spires', f'Grants the "Frost Spires" spell: spires of ice burst from the ground, dealing {SORC_MAG['Spires']} damage to Health and Stamina - up to four times that the more spires strike - and staggering.', None, [], ['sor2']),
     ('cst4', 'Rime Ward', None, None, [], ['sor3']),
-    ('sor10', 'Drowning Orb', f'Grants the "Drowning Orb" spell: a 15-foot sphere of water slows everyone inside it and drains 60 Stamina and Mana per second. Each enemy inside it gives you {SORC["OrbDrain"]} of its Mana per second, and you restore {SORC["OrbRegen"]} Mana per second while you stand in it. An Elementalism spell: water is frost, so Elementalist talents strengthen it.', None, [], ['sor3']),
-    ('sor4', 'Wildfire', 'Grants the "Wildfire" spell: a torrent of flame chases your targets, dealing 80 damage per second.', None, [], ['sor2']),
-    ('sor5', 'Starlance', 'Grants the "Starlance" spell: beams of pure Mana fall from the night sky on a single target for 120 damage.', None, [], ['cst1']),
+    ('sor10', 'Drowning Orb', f'Grants the "Drowning Orb" spell: a 15-foot sphere of water slows everyone inside it and drains {SORC_MAG['OrbSapPerSecond']} Stamina and Mana per second. Each enemy inside it gives you {SORC["OrbDrain"]} of its Mana per second, and you restore {SORC["OrbRegen"]} Mana per second while you stand in it. An Elementalism spell: water is frost, so Elementalist talents strengthen it.', None, [], ['sor3']),
+    ('sor4', 'Wildfire', f'Grants the "Wildfire" spell: a bolt of flame strikes for {SORC_MAG["WildfireHit"]} damage and leaves a fire that chases your targets for 10 seconds, burning {SORC_MAG["WildfireBurn"]} damage each time it catches them.', None, [], ['sor2']),
+    ('sor5', 'Starlance', f'Grants the "Starlance" spell: beams of pure Mana fall from the night sky on a single target for {SORC_MAG["Starlance"]} damage.', None, [], ['cst1']),
     ('cst5', 'Storm Ward', None, None, [], ['sor5']),
-    ('sor6', 'Twin Effigies', 'Grants the "Twin Effigies" spell: two copies of you, one on each side, draw your enemies\' attacks for 30 seconds and cast the spells you held when you cast it. Each shatters after taking a third of your Health in damage. They grow with your Psionics: at 50 they last 40 seconds and take almost half your Health, at 75 50 seconds and two thirds, at 100 a full minute and more than your whole Health.', None, [], ['sor5']),
+    ('sor6', 'Twin Effigies', f'Grants the "Twin Effigies" spell: two copies of you, one on each side, draw your enemies\' attacks for 30 seconds and hurl chain lightning at them every {EFFIGY_EVERY:g} seconds, 40 damage a bolt. Each shatters after taking a third of your Health in damage. They grow with your Psionics: at 50 they last 40 seconds and take almost half your Health, at 75 50 seconds and two thirds, at 100 a full minute and more than your whole Health.', None, [], ['sor5']),
     ('sor7', 'Gravity Well', f'Grants the "Gravity Well" spell: a well of gravity pulls nearby enemies into it and staggers them, and drains {GW_ABSORB} Health from each into you.', None, [], ['sor5']),
     ('sor8', 'Falling Star', 'Grants the "Falling Star" spell: a falling star strikes for 60 damage and staggers; a target with more Mana than Health also loses Mana.', None, [], ['sor3', 'sor6']),
     ('cst6', 'Arcane Tide', None, None, [], ['sor8']),
@@ -394,7 +415,8 @@ CAPSTONE_LEVEL = 30
 SHADOW_LATE_NODES = ('shd6',)            # Shade Veil (2026-10-28): allocated after Shatterveil's records
 SHADOW_LATE_NODES_2 = ('shd7',)          # Darkness (2026-10-28): allocated after the Darkness meter's records
 SHADOW_LATE = SHADOW_LATE_NODES + SHADOW_LATE_NODES_2
-MARTIAL_LATE_NODES = ('ma6',)            # Dragon's Breath (2026-10-28): allocated after Nightblade's records
+MARTIAL_LATE_NODES = ('ma6',)
+FIREARMS_LATE_NODES = ('gun6',)          # Ricochet Rounds (2026-10-29): allocated after The Hunt's records            # Dragon's Breath (2026-10-28): allocated after Nightblade's records
 LATE_NODES = ('gad6',)                   # talents added after the stat talents: allocated after the Faith records                      # every capstone needs this player level (curator 2026-10-25; ZP_ProphecyMenu.LevelReq)
 STAT = {}                          # node id -> (kind, magnitude)
 
@@ -427,7 +449,7 @@ def weave_stats():
             at = next(i for i, n in enumerate(ns) if n[0] == after)
             ns.insert(at + 1, stat(s, [s[4]]))
         for s in [w1, w2] + sides: STAT[s[0]] = (s[2], s[3])
-        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES + SHADOW_LATE + MARTIAL_LATE_NODES), (tree, len(ns))
+        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES + SHADOW_LATE + MARTIAL_LATE_NODES + FIREARMS_LATE_NODES), (tree, len(ns))
         TREES[k] = (tree, desc, ns)
 
 
@@ -660,7 +682,7 @@ def main():
     glory_all = [n[0] for t, _, ns in TREES if t == GLORY for n in ns if n[0] not in STAT]
     glory_nodes = [nid for nid in glory_all if nid not in GLORY_LATE_NODES]
     for nid, n in nodes.items():                         # perks first, in tree order, for readable IDs
-        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES or nid in shadow_all or nid in druid_all or nid in DRUID_LATE_NODES or nid in DRUID_LATE_NODES_2 or nid in sorc_all or nid in rage_all or nid in SHADOW_LATE or nid in MARTIAL_LATE_NODES: continue
+        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES or nid in shadow_all or nid in druid_all or nid in DRUID_LATE_NODES or nid in DRUID_LATE_NODES_2 or nid in sorc_all or nid in rage_all or nid in SHADOW_LATE or nid in MARTIAL_LATE_NODES or nid in FIREARMS_LATE_NODES: continue
         if n[3]: newid[n[3]] = f'{nxt:06X}:{MOD}'
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     for a, nid in alias.items(): newid[a] = nodeperk[nid]
@@ -805,6 +827,10 @@ def main():
     for nid in DRUID_LATE_NODES_2:
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     druid.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(HUNT_RECORDS)}); nxt += len(HUNT_RECORDS)
+    # Firearms, later (2026-10-29): Ricochet Rounds' perk (the DLL does the rest). Append LAST
+    assert nxt == 0xB0E, f"Ricochet Rounds would not start at 0xB0E (0x{nxt:03X})"
+    for nid in FIREARMS_LATE_NODES:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -1062,7 +1088,7 @@ Priority: 128
     write_sorcerer(sorc, write)
     write_unsold_tomes(write)
     write_dragons_breath(dragon, write, sharp, arc)
-    write_rage(rage, nodeperk, write, dragon)
+    write_rage(rage, nodeperk, write, dragon, flowchain)
 
     if bad:
         for k, v in sorted(bad.items()): print('UNRESOLVED', v, k)
@@ -3228,6 +3254,7 @@ TOTEM_EFFECTS = ('3BE79E', '3C89CF', '35E36C')   # the three totem spells' effec
 DRUIDCRAFT_EFFECT = f'2ACD21:{TRIUMVIRATE}'          # TVR_Druid_Verdant_Effect_Druidcraft
 DRUIDCRAFT_ICON = f'191249:{TRIUMVIRATE}'
 FON_SPELL = f'28E6EB:{TRIUMVIRATE}'                  # TVR_Druid_A025_Spell_ForceOfNature
+DRUIDCRAFT_SPELL = f'28E6E9:{TRIUMVIRATE}'           # TVR_Druid_A000_Spell_Druidcraft (our copy is the talent's)
 FON_EFFECT = f'191250:{TRIUMVIRATE}'                 # TVR_Druid_Verdant_Effect_ForceOfNature (TVR_Wildshape_Script)
 # the Horned Lord race's skin: the player's actor base wears it during the form (its own SkinNaked 000D64 wins over
 # the race's, which left the player with no body; ZP_ForceOfNatureEffect.FormSkin, 2026-10-28)
@@ -3627,6 +3654,17 @@ def sorc_record(fk):
     return os.path.basename(os.path.dirname(p[0])), open(p[0], encoding='utf-8').read().replace('\r\n', '\n')
 
 
+def sorc_tune(fk, t):
+    """SORC_TUNE's magnitudes on one record's text (each change asserted)"""
+    for eff, nth, mag in SORC_TUNE.get(fk, []):
+        blocks = [m for m in re.finditer(rf'^- BaseEffect: {re.escape(eff)}\n  Data:\n(?:    (?!Magnitude).*\n)*    Magnitude: ([\d.]+)$',
+                                         t, re.M)]
+        assert len(blocks) > nth, f'{fk}: effect {eff} #{nth} has no Magnitude'
+        m = blocks[nth]
+        t = t[:m.start(1)] + f'{mag:g}' + t[m.end(1):]
+    return t
+
+
 def write_sorcerer(s, write):
     def rename(t, name, what):
         t, n = re.subn(r'^Name:\n  TargetLanguage: English\n  Value: .*\n',
@@ -3677,12 +3715,14 @@ def write_sorcerer(s, write):
         assert n == 1 and '- ManualCostCalc' in t, f'{fk}: cost'
         if nid == 'sor1':
             t = blink_power(t, s)
+        t = sorc_tune(fk, t)
         write(ty, no_dlc(t, fk))
         effects(t, fk.split(':')[1], name)
     # Drowning Orb: the hazard's Wade spell, plus the Mana drain from enemies. The player's restore inside the orb is
     # ZP_DrowningOrbWatch's: a restore added here never reached the player (the hazard skips its own caster; in game)
     ty, t = sorc_record(ORB_WADE)
     assert t.rstrip('\n').endswith('Magnitude: 30'), f'{ORB_WADE}: Effects is not the last block'
+    t = sorc_tune(ORB_WADE, t)
     write(ty, t.rstrip('\n') + f"""
 - BaseEffect: {s['orbdrain']}
   Data:
@@ -3698,6 +3738,10 @@ def write_sorcerer(s, write):
     for e in ORB_EFFECTS[1:]:
         ty, et = sorc_record(e)
         write(ty, elementalism(et, e))
+    # the sub-spells that carry the damage (balance pass 2026-10-29): Wildfire's homing fire, Starlance's beam
+    for fk in ('000827:KittySpellPack02.esl', '000816:Supernova.esl'):
+        ty, t = sorc_record(fk)
+        write(ty, no_dlc(sorc_tune(fk, t), fk))
     write('MagicEffects', f"""FormKey: {s['orbdrain']}
 EditorID: ZP_Prophecy_DrowningOrb_AbsorbMana
 Name:
@@ -4061,6 +4105,9 @@ Description:
 # winning record, the Enderal patch's) minus those entries; merchant lists stay untouched.
 def write_unsold_tomes(write):
     granted = set(SHADOW_GRANTS.values()) | set(DRUID_GRANTS.values())
+    # + the two Druid talents that grant our own versions of Triumvirate spells (curator 2026-10-29: "remove any spells
+    # unlocked via this talent tree from vendors"): Druidcraft's and Force of Nature's tomes teach Triumvirate's originals
+    granted |= {DRUIDCRAFT_SPELL, FON_SPELL}
     granted = {g for g in granted if g.endswith(':' + TRIUMVIRATE)}
     tomes = set()
     for f in glob.glob(os.path.join(REF, 'mods', 'Triumvirate', 'Books', '*.yaml')):
@@ -4128,9 +4175,11 @@ def rage_perk(nid, r):
 
 # Twin Effigies cast the player's spells (curator 2026-10-29: "the Effigies need to be able to cast the spells I have
 # equipped at the time of casting it" - Shatterveil copies weapons only, so a caster's effigies punched). Shatterveil's
-# records: shvl_TwinDecoys{Apprentice,Adept,Expert,Master}Spell, shvl_DecoyFaction, shvl_DecoyBase
+# records: shvl_TwinDecoys{Apprentice,Adept,Expert,Master}Spell, shvl_DecoyFaction, shvl_DecoyBase.
+# Then (curator 2026-10-29): "not cast our own spells but just chain lightning - infinitely casting any spell was terrible
+# for balance": each effigy casts Flow State's Chain Lightning (flowchain, 40 Shock) every CastEvery s, nothing else
 EFFIGY_CAST = {'Spells': ('000F10', '000F11', '000F12', '000F13'), 'Faction': '000800', 'Base': '000F01',
-               'CastEvery': 3.0, 'Range': 2048.0, 'SpawnWindow': 3.0}
+               'CastEvery': EFFIGY_EVERY, 'Range': 2048.0, 'SpawnWindow': 3.0}
 DRAGON_ELEMENTS = ('Fire', 'Frost', 'Shock')
 DRAGON_RECORDS = (tuple(f'{e}{k}' for e in DRAGON_ELEMENTS for k in ('spell', 'me', 'proj')) +
                   tuple(f'{e}expl' for e in DRAGON_ELEMENTS))   # the blasts' look (2026-10-28): appended last
@@ -4210,7 +4259,7 @@ def write_dragons_breath(d, write, sharp, arc):
                           f"- BaseEffect: {d['Frostproj']}\n  Data:\n    Duration: {DRAGON_FREEZE_SECONDS}\n"))
 
 
-def write_rage(r, nodeperk, write, dragon):
+def write_rage(r, nodeperk, write, dragon, flowchain):
     write('Globals', f"MutagenObjectType: GlobalShort\nFormKey: {r['global']}\nEditorID: ZP_Rage\nData: 0\n")
     write('Spells', f"FormKey: {r['vehspell']}\nEditorID: ZP_Prophecy_Vehemence_Spell\nName:\n  TargetLanguage: English\n"
                     "  Value: Vehemence\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
@@ -4272,10 +4321,15 @@ Description:
         # Dragon's Breath (Martial Arts, 2026-10-28): counted here with the other hit events, Rage or not
         'dragonsBreath': {'perk': hexid(nodeperk['ma6']), 'every': DRAGONS_BREATH['Every'],
                           'spells': [hexid(dragon[f'{e}spell']) for e in DRAGON_ELEMENTS]},   # no fist bursts
+        # Ricochet Rounds (Firearms, 2026-10-29): a pistol hit - the Flintlock Overhaul's shot enchantments all carry
+        # PMPistolShot, tagged ZP_FlintlockShot - re-casts the same shot from the target at the next enemy
+        'ricochet': {'perk': hexid(nodeperk['gun6']), 'chance': RICOCHET['Chance'], 'range': RICOCHET['Range'],
+                     'cooldown': RICOCHET['Cooldown'], 'keywordPlugin': 'Zenderal - Flintlock Overhaul.esp',
+                     'keyword': '00080C'},
         # Twin Effigies (Sorcery, 2026-10-29): Shatterveil's effigies cast the spells the player held when casting it
         'effigies': {'plugin': SHVL, 'spells': list(EFFIGY_CAST['Spells']), 'faction': EFFIGY_CAST['Faction'],
                      'base': EFFIGY_CAST['Base'], 'castEvery': EFFIGY_CAST['CastEvery'], 'range': EFFIGY_CAST['Range'],
-                     'spawnWindow': EFFIGY_CAST['SpawnWindow']},
+                     'spawnWindow': EFFIGY_CAST['SpawnWindow'], 'castSpell': hexid(flowchain)},
         'actions': [{'name': nodes_name, 'perk': hexid(nodeperk[nid]), 'trigger': trig,
                      'cost': RAGE['Cost'][nodes_name], 'spells': spells}
                     for nid, (trig, spells) in RAGE_ACTIONS.items()

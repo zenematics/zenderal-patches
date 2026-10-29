@@ -2,7 +2,7 @@ FormKey: 000950:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_IceShot
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Ice Shot" talent (110 seconds cooldown): with a bow equipped, add 3 ice arrows to your quiver. They deal 25 frost damage and freeze the target solid for 8 seconds, and your next arrow shatters it.'
+  Value: 'Grants the "Ice Shot" talent (110 seconds cooldown): with a bow equipped, add 3 ice arrows to your quiver. They deal 25 frost damage and freeze a weak target - no higher level than you, never a unique foe - solid for 8 seconds, and your next arrow shatters it.'
 Name:
   TargetLanguage: English
   Value: 'Ice Shot'

@@ -2,7 +2,7 @@ FormKey: 000AA7:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_Wildfire
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Wildfire" spell: a torrent of flame chases your targets, dealing 80 damage per second.'
+  Value: 'Grants the "Wildfire" spell: a bolt of flame strikes for 40 damage and leaves a fire that chases your targets for 10 seconds, burning 12 damage each time it catches them.'
 Name:
   TargetLanguage: English
   Value: 'Wildfire'

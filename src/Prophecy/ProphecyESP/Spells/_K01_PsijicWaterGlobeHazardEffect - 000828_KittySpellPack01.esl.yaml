@@ -19,7 +19,7 @@ Effects:
     Duration: 2
 - BaseEffect: 000813:KittySpellPack01.esl
   Data:
-    Magnitude: 30
+    Magnitude: 15
 - BaseEffect: 000AD4:Zenderal - Prophecy.esp
   Data:
     Magnitude: 10

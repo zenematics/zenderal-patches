@@ -18,7 +18,7 @@ HalfCostPerk: 0C44C1:Skyrim.esm
 Effects:
 - BaseEffect: 00081E:KittySpellPack02.esl
   Data:
-    Magnitude: 80
+    Magnitude: 40
 - BaseEffect: 0153D3:Skyrim.esm
   Data:
     Magnitude: 0.25

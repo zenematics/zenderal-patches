@@ -1,0 +1,16 @@
+FormKey: 000B0E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_RicochetRounds
+Description:
+  TargetLanguage: English
+  Value: 'Your pistol shots have a 25% chance to ricochet off their target into another enemy up to 45 feet away, hitting it with the same shot.'
+Name:
+  TargetLanguage: English
+  Value: 'Ricochet Rounds'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 0009CA:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

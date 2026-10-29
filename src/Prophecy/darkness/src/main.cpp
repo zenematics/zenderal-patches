@@ -21,7 +21,7 @@
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyDarkness.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 1, 0, 0 },
+	.Version = REL::Version{ 1, 1, 2, 0 },
 	.Name = "ZenProphecyDarkness"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -255,6 +255,33 @@ namespace
 		view->Invoke(a_fn, nullptr, args.empty() ? nullptr : args.data(), static_cast<std::uint32_t>(args.size()));
 	}
 
+	// 1.1.1: what the movie really holds, for "the meter doesn't show" (logged with the light level)
+	std::string MeterState()
+	{
+		auto view = MeterView();
+		if (!view) {
+			return fmt::format("no view (registered {}, open {})", g_meterRegistered, RE::UI::GetSingleton()->IsMenuOpen(kMeterMenu));
+		}
+		auto num = [&](const char* a_path) {
+			RE::GFxValue v;
+			if (!view->GetVariable(&v, a_path)) {
+				return std::string{ "?" };
+			}
+			if (v.IsNumber()) {
+				return fmt::format("{:.1f}", v.GetNumber());
+			}
+			if (v.IsBool()) {
+				return std::string{ v.GetBool() ? "true" : "false" };
+			}
+			return std::string{ v.IsUndefined() ? "undef" : "other" };
+		};
+		const auto r = view->GetVisibleFrameRect();
+		return fmt::format("open {}, view visible {}, shown {}, main _x {} _y {} _visible {} _alpha {} _xscale {} _width {} _height {}, visible rect ({:.0f},{:.0f})-({:.0f},{:.0f})",
+			RE::UI::GetSingleton()->IsMenuOpen(kMeterMenu), view->GetVisible(), g_meterShown, num("main._x"), num("main._y"),
+			num("main._visible"), num("main._alpha"), num("main._xscale"), num("main._width"), num("main._height"),
+			r.left, r.top, r.right, r.bottom);
+	}
+
 	class DarknessMeter : public RE::IMenu
 	{
 	public:
@@ -302,6 +329,22 @@ namespace
 		}
 		g_meterLaidOut = false;
 		RE::UIMessageQueue::GetSingleton()->AddMessage(kMeterMenu, RE::UI_MESSAGE_TYPE::kShow, nullptr);
+	}
+
+	// 1.1.2: something closes the always-open menu (seen 2026-10-29 at a save + message box in Dal'valstaag's vault);
+	// open it again, at most once a second, outside loading screens
+	Clock::time_point g_meterReopenAt{};
+
+	void MeterKeepOpen()
+	{
+		auto* ui = RE::UI::GetSingleton();
+		if (!g_meterRegistered || !Player() || !Player()->Is3DLoaded() || ui->IsMenuOpen(RE::LoadingMenu::MENU_NAME) ||
+			ui->IsMenuOpen(kMeterMenu) || Seconds(Clock::now() - g_meterReopenAt) < 1.0) {
+			return;
+		}
+		g_meterReopenAt = Clock::now();
+		SKSE::log::info("meter menu was closed - opening it again");
+		MeterOpen();
 	}
 
 	// never doFadeOut (see the Rage DLL: each one appended a fade that later hid a shown meter)
@@ -486,8 +529,12 @@ namespace
 	{
 		auto* player = Player();
 		const bool paused = RE::UI::GetSingleton()->GameIsPaused();
+		MeterKeepOpen();
 		if (auto view = MeterView()) {
 			MeterSetUp();
+			if (g_dark > 0 && !g_meterShown) {
+				MeterUpdate(g_dark, g_cfg.max);   // after a reopen's layout hid it
+			}
 			if (g_meterShown && g_dark == 0 && Seconds(Clock::now() - g_meterZeroSince) >= kMeterHideDelay) {
 				MeterCall("main.doHide");
 				g_meterShown = false;
@@ -503,7 +550,7 @@ namespace
 		const double light = LightLevel();
 		if (Seconds(now - g_lastLightLog) >= kLightLogEvery) {
 			g_lastLightLog = now;
-			SKSE::log::info("light {:.0f}, Darkness {}", light, g_dark);
+			SKSE::log::info("light {:.0f}, Darkness {}; meter: {}", light, g_dark, MeterState());
 		}
 		const auto step = std::ranges::find_if(g_cfg.fill, [&](auto& f) { return light <= f.first; });
 		if (step != g_cfg.fill.end()) {
@@ -577,7 +624,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyDarkness 1.1.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyDarkness 1.1.2 loading, runtime {}", REL::Module::get().version().string());
 	REL::Relocation<std::uintptr_t> spellVtbl{ RE::VTABLE_SpellItem[0] };
 	AdjustCost::func = spellVtbl.write_vfunc(0x63, AdjustCost::thunk);
 	REL::Relocation<std::uintptr_t> casterVtbl{ RE::VTABLE_ActorMagicCaster[0] };

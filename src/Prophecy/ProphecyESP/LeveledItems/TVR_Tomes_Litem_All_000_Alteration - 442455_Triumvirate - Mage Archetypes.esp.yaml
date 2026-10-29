@@ -1,0 +1,13 @@
+FormKey: 442455:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Tomes_Litem_All_000_Alteration
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 419B1B:Triumvirate - Mage Archetypes.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 414A0A:Triumvirate - Mage Archetypes.esp
+    Count: 1

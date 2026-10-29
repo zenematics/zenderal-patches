@@ -19,7 +19,7 @@ HalfCostPerk: 0C44C1:Skyrim.esm
 Effects:
 - BaseEffect: 000809:Supernova.esl
   Data:
-    Magnitude: 120
+    Magnitude: 80
 - BaseEffect: 0F392D:Skyrim.esm
   Data:
     Magnitude: 99

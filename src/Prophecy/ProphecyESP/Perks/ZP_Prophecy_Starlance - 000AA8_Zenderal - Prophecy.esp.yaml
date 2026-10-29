@@ -2,7 +2,7 @@ FormKey: 000AA8:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_Starlance
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Starlance" spell: beams of pure Mana fall from the night sky on a single target for 120 damage.'
+  Value: 'Grants the "Starlance" spell: beams of pure Mana fall from the night sky on a single target for 80 damage.'
 Name:
   TargetLanguage: English
   Value: 'Starlance'

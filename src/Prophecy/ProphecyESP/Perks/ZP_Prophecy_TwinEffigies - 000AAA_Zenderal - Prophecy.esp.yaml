@@ -2,7 +2,7 @@ FormKey: 000AAA:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_TwinEffigies
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Twin Effigies" spell: two copies of you, one on each side, draw your enemies'' attacks for 30 seconds and cast the spells you held when you cast it. Each shatters after taking a third of your Health in damage. They grow with your Psionics: at 50 they last 40 seconds and take almost half your Health, at 75 50 seconds and two thirds, at 100 a full minute and more than your whole Health.'
+  Value: 'Grants the "Twin Effigies" spell: two copies of you, one on each side, draw your enemies'' attacks for 30 seconds and hurl chain lightning at them every 6 seconds, 40 damage a bolt. Each shatters after taking a third of your Health in damage. They grow with your Psionics: at 50 they last 40 seconds and take almost half your Health, at 75 50 seconds and two thirds, at 100 a full minute and more than your whole Health.'
 Name:
   TargetLanguage: English
   Value: 'Twin Effigies'

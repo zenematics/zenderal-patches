@@ -46,6 +46,14 @@
    "000AFC"
   ]
  },
+ "ricochet": {
+  "perk": "000B0E",
+  "chance": 25,
+  "range": 960,
+  "cooldown": 1.0,
+  "keywordPlugin": "Zenderal - Flintlock Overhaul.esp",
+  "keyword": "00080C"
+ },
  "effigies": {
   "plugin": "Shatterveil.esp",
   "spells": [
@@ -56,9 +64,10 @@
   ],
   "faction": "000800",
   "base": "000F01",
-  "castEvery": 3.0,
+  "castEvery": 6.0,
   "range": 2048.0,
-  "spawnWindow": 3.0
+  "spawnWindow": 3.0,
+  "castSpell": "000B02"
  },
  "actions": [
   {

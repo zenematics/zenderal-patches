@@ -212,6 +212,8 @@ tree order, 6 stat abilities `0xA79–0xA7E`, then Nightfall's power / gate / fe
   - **Meter:** the Rage meter's Oxygen Meter 2 movie in its own menu, bar `4E5180` (was dark navy `2A1A5E`) / purple flash `6B48C8`
     (curator). `yOffset` −2.5 (88.2%) sat on the compass in Vel'dun's bottom HUD; +2.8 (93.5%) is just below the
     Stamina / Mana bars, worked out from the curator's screenshot. Meter, fill and costs verified in game 2026-10-28.
+  - **DLL 1.1.1 (2026-10-29): meter state in the 5-second light log line** (menu open, view visible, `main._x/_y/_visible/_alpha/_width`, visible rect). Built after one session where the meter never showed although Darkness filled to 10 and `doShow` was called; the next session showed it with no change but the logging, so the cause is unknown. On 21:9 the meter sits at stage (-98, 1031), inside the visible rect (-300,0)-(2220,1080). If it vanishes again, read that line first.
+  - **Cause found the next session: the meter's menu gets closed** (`open false`, every other value fine), at 13:00:24 with a message box opening and a save, right after the curator used The Hunt in Dal'valstaag's vault. What closes it is unknown (The Hunt's script opens no menu). **Darkness 1.1.2 / Rage 1.3.1 reopen their meter menu** whenever it is found closed (at most once a second, not during loading screens; logged `meter menu was closed - opening it again`) and show it again if the meter has a value. Unverified in game.
 - **Nightblade on Darkness** (2026-10-28, DLL 1.1.0, records `0xAF3–0xAF4`): Triumvirate's proc
   (`TVR_Shadow_Spell_Nightblade_Proc 335B4F`, cast by `TVR_BlinkStrikes_Script` on each `PowerAttack_Start_End`) deals a
   flat 45, and its `335B52` (`TVR_PercentageDamage_Script`, disassembled: `akCaster.DamageActorValue(magicka, 50%)`)
@@ -263,6 +265,17 @@ It sits between Glory and Arcane Archery. Records are allocated after Shadow (`D
   - **Druidcraft gives Goodberries** (same day, for The Hunt): `ZP_DruidcraftHealEffect` adds `DRUID['CraftBerries']`
     (1) Goodberry with its heal on a corpse. Triumvirate's Druidcraft turns the corpse to ash, so it is once per
     corpse. Unverified in game.
+  - **No vendor sells a talent's spell (curator, 2026-10-29).** A read-only scan of every serialized plugin plus the
+    enabled mods' SPID/KID/SkyPatcher inis covered all 43 forms the menu grants: spells, powers, shouts, Twin
+    Effigies' tiers and Orbit Ward. It found 23 tomes, and only Triumvirate's were in any list.
+    - **Was missing:** Druidcraft (`28E6E9`) and Force of Nature (`28E6EB`). The talents grant our own versions,
+      so `write_unsold_tomes` never counted them. They are now in its set, and Prophecy overrides 14
+      `TVR_Tomes_Litem_*` lists (was 12).
+    - **Kittytails' and Shatterveil's tomes:** no list or ini distributes them; their `*_DISTR.ini` and SkyPatcher
+      lists are not installed.
+    - **Aero's Twister tome:** only in Aero's override of `DLC2SpellBookWhirlwindCloak 01D8D5:Dragonborn.esm`, which
+      nothing in Enderal references. Patching it would mean mastering a DLC stub, so it is left alone.
+    - **Parasitic Growth:** no longer granted, so its tome is sold again, on purpose.
 
 - **Shape.** This is the first tree not built by `weave_stats`. Its stat talents are written in `TREES` and filled in
   from `HAND_STATS`, and its W2 (Heart of the Grove) is listed in `HAND_W2` for the capstone's level gate.
@@ -536,6 +549,50 @@ the JSON has no `explosions`, so no fist bursts:
   do not count.
 
 Unverified in game.
+
+## Sorcery balance pass + chain-lightning effigies (curator, 2026-10-29)
+
+- **Twin Effigies** no longer cast the player's spells ("terrible for balance"): `ZenProphecyRage.dll` 1.3.2 reads
+  `effigies.castSpell` (Flow State's Chain Lightning `0xB02`, 40 Shock) and each effigy casts only that, every
+  `EFFIGY_EVERY` = 6 s (was 3).
+- **"Match similar tiered spells in EGO":** every Sorcery spell already cost EGO's 97-Mana rung, but the packs' damage
+  was 2-4x EGO's there (base magnitudes from `arch-docs/magic`: Blazing Spark VI 78.5 at 85, Fireball III 63 area 12 at
+  90, Chain Lightning III 75 at 107, Flame Bite III 19.2/s). `SORC_MAG` / `SORC_TUNE` in `tools/01`:
+  | Spell | Was | Now | Where |
+  |---|---|---|---|
+  | Frost Spires | 80 per spire (up to 4) | 30 | `000825:K02` effect `000817` |
+  | Wildfire | 80 hit + homing fire 32 every 0.6 s for 10 s | 40 + 12 | `000829:K02` + its hazard spell `000827:K02` |
+  | Starlance | 120 | 80 | `000814:SNV` (shown) + its beam `_SS_CelestialRaysDamageSpell 000816:SNV` |
+  | Drowning Orb | 30 Stamina + Mana per hazard tick (60/s) | 15 (30/s) | hazard spell `000828:K01` effect `000813` |
+  Falling Star (60, area 18) and Gravity Well (20 + 20 absorbed) left as they were. Constellation's spells deal their
+  damage through a script property `SpellToCast` (strings of the extracted `.pex`), so the sub-spell is what counts.
+  Unverified in game.
+
+## Ice Shot: weak enemies only (curator, 2026-10-29)
+
+"People are 2-shotting bosses": the shatter is a `Kill`. `ZP_IceShotFreezeEffect` now freezes only a target whose
+level is no higher than the player's and whose leveled base is not Unique (bosses, named enemies); others take the
+25 frost damage and nothing else. Unverified in game.
+
+## Firearms: Ricochet Rounds (curator, 2026-10-29)
+
+"A talent to Firearms that adds Ricochet Rounds to pistols, giving a 25% chance for a bullet shot to bounce to
+another target."
+- **The node:** `gun6`, perk `0xB0E`, off Steady Aim `gst1` (the root's stat talent, as Invoker hangs off
+  Conditioning), allocated last (`FIREARMS_LATE_NODES`). It is the tree's first pistol talent; the rest stay
+  muskets only. The perk has no effects.
+- **The bounce:** done by `ZenProphecyRage.dll` 1.3.0 (`Ricochet`, in the same TESHitEvent sink; JSON `ricochet`,
+  values in `RICOCHET`).
+  - **What counts as a pistol hit:** the Flintlock Overhaul's pistols are staves, and every shot enchantment
+    (`804–80B`, `817–81A`) carries `PMPistolShot`, tagged `ZP_FlintlockShot 00080C`. So a player hit counts when its
+    source is a staff whose enchantment, or the enchantment itself, has an effect with that keyword.
+  - **The roll:** 25%. On a success, the same enchantment is cast with `CastSpellImmediate` from the hit target at
+    the nearest other living foe of the player within 960 units (~45 ft), blamed on the player. So the second hit
+    has the shot's own damage, projectile and sound.
+  - **No chains:** a hit on the bounce's target within 1 s is ignored.
+  - **The log:** "Ricochet: … bounced off … into …", or "no other foe within".
+- **Unverified in game:** whether a staff enchantment fires its projectile when cast this way from another actor.
+  Card prompt in `outputs/art-prompts-prophecy-2026-10-29.md`.
 
 ## Rage, the eleventh tree (curator, 2026-10-27)
 

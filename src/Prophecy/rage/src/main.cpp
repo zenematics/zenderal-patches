@@ -38,10 +38,17 @@
 // itself, not summons) are remembered; each effigy that appears within SpawnWindow seconds casts them in turn, every
 // CastEvery seconds, at its combat target or the nearest foe of the player within Range - from the effigy, blamed on
 // the player, at no cost. Self-delivered spells land on the effigy.
+// 1.3.2: with "castSpell" set (curator: casting any of the player's spells for free was terrible for balance) the
+// effigies cast only that spell - Flow State's Chain Lightning - whatever the player holds.
+//
+// Ricochet Rounds (Firearms, 1.3.0): a pistol hit (its source a staff whose enchantment - or the enchantment itself -
+// has an effect with the Flintlock Overhaul's ZP_FlintlockShot keyword) has Chance% to re-cast that shot enchantment
+// from the target at the nearest other foe of the player within Range, blamed on the player. The bounce's own hit
+// cannot bounce again (that target is ignored for Cooldown seconds).
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyRage.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 2, 0, 0 },
+	.Version = REL::Version{ 1, 3, 2, 0 },
 	.Name = "ZenProphecyRage"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -99,6 +106,13 @@ namespace
 		double             effigyCastEvery{ 3.0 };
 		double             effigyRange{ 2048.0 };
 		double             effigySpawnWindow{ 3.0 };
+		RE::SpellItem*     effigyCastSpell{ nullptr };   // 1.3.2: the one spell they cast (none: the player's)
+		// Ricochet Rounds
+		RE::BGSPerk*       ricochetPerk{ nullptr };
+		RE::BGSKeyword*    ricochetKeyword{ nullptr };
+		int                ricochetChance{ 25 };
+		double             ricochetRange{ 960.0 };
+		double             ricochetCooldown{ 1.0 };
 	} g_cfg;
 
 	// state - touched only on the game's main thread (hit events and the tick task both run there)
@@ -177,6 +191,15 @@ namespace
 			SKSE::log::info("Dragon's Breath: every {} unarmed hits, {} spells, {} blasts", c.dragonEvery,
 				c.dragonSpells.size(), c.dragonBlasts.size());
 		}
+		if (j.contains("ricochet")) {
+			auto& r = j["ricochet"];
+			c.ricochetPerk = Lookup<RE::BGSPerk>(plugin, r["perk"], "Ricochet Rounds perk");
+			c.ricochetKeyword = Lookup<RE::BGSKeyword>(r["keywordPlugin"].get<std::string>(), r["keyword"], "ZP_FlintlockShot keyword");
+			c.ricochetChance = r["chance"].get<int>();
+			c.ricochetRange = r["range"].get<double>();
+			c.ricochetCooldown = r["cooldown"].get<double>();
+			SKSE::log::info("Ricochet Rounds: {}% within {} units", c.ricochetChance, c.ricochetRange);
+		}
 		if (j.contains("effigies")) {
 			auto& e = j["effigies"];
 			const auto ep = e["plugin"].get<std::string>();
@@ -190,6 +213,9 @@ namespace
 			c.effigyCastEvery = e["castEvery"].get<double>();
 			c.effigyRange = e["range"].get<double>();
 			c.effigySpawnWindow = e["spawnWindow"].get<double>();
+			if (e.contains("castSpell")) {
+				c.effigyCastSpell = Lookup<RE::SpellItem>(plugin, e["castSpell"], "effigy cast spell");
+			}
 			SKSE::log::info("Twin Effigies: {} spells, cast every {} s", c.effigySpells.size(), c.effigyCastEvery);
 		}
 		if (j.contains("meter")) {
@@ -389,6 +415,22 @@ namespace
 		}
 		g_meterLaidOut = false;
 		RE::UIMessageQueue::GetSingleton()->AddMessage(kMeterMenu, RE::UI_MESSAGE_TYPE::kShow, nullptr);
+	}
+
+	// 1.3.1: something closes the always-open menu (seen 2026-10-29 at a save + message box in Dal'valstaag's vault);
+	// open it again, at most once a second, outside loading screens
+	Clock::time_point g_meterReopenAt{};
+
+	void MeterKeepOpen()
+	{
+		auto* ui = RE::UI::GetSingleton();
+		if (!g_meterRegistered || !Player() || !Player()->Is3DLoaded() || ui->IsMenuOpen(RE::LoadingMenu::MENU_NAME) ||
+			ui->IsMenuOpen(kMeterMenu) || Seconds(Clock::now() - g_meterReopenAt) < 1.0) {
+			return;
+		}
+		g_meterReopenAt = Clock::now();
+		SKSE::log::info("meter menu was closed - opening it again");
+		MeterOpen();
 	}
 
 	void MeterUpdate(int a_rage, int a_max)
@@ -671,6 +713,79 @@ namespace
 		SKSE::log::info("Dragon's Breath: {:08X} at {:08X}", spell->GetFormID(), victim->GetFormID());
 	}
 
+	// ---------------------------------------------------------------- Ricochet Rounds
+	RE::FormID        g_ricochetTarget = 0;
+	Clock::time_point g_ricochetAt{};
+
+	RE::MagicItem* PistolShot(RE::FormID a_source)
+	{
+		auto* form = RE::TESForm::LookupByID(a_source);
+		if (!form) {
+			return nullptr;
+		}
+		RE::MagicItem* shot = nullptr;
+		if (auto* weap = form->As<RE::TESObjectWEAP>()) {
+			shot = weap->formEnchanting;
+		} else {
+			shot = form->As<RE::MagicItem>();
+		}
+		if (!shot) {
+			return nullptr;
+		}
+		for (auto* e : shot->effects) {
+			if (e && e->baseEffect && e->baseEffect->HasKeyword(g_cfg.ricochetKeyword)) {
+				return shot;
+			}
+		}
+		return nullptr;
+	}
+
+	void Ricochet(const RE::TESHitEvent* a_event)
+	{
+		auto& c = g_cfg;
+		auto* player = Player();
+		if (!c.ricochetPerk || !c.ricochetKeyword || a_event->cause.get() != player || a_event->target.get() == player ||
+			!Has(c.ricochetPerk)) {
+			return;
+		}
+		auto* victim = a_event->target->As<RE::Actor>();
+		auto* shot = victim ? PistolShot(a_event->source) : nullptr;
+		if (!shot) {
+			return;
+		}
+		const auto now = Clock::now();
+		if (victim->GetFormID() == g_ricochetTarget && Seconds(now - g_ricochetAt) < c.ricochetCooldown) {
+			return;   // the bounce's own hit
+		}
+		static std::mt19937 rng{ std::random_device{}() };
+		if (std::uniform_int_distribution<int>(1, 100)(rng) > c.ricochetChance) {
+			return;
+		}
+		RE::Actor* next = nullptr;
+		float      bestD = static_cast<float>(c.ricochetRange);
+		for (auto& h : RE::ProcessLists::GetSingleton()->highActorHandles) {
+			auto a = h.get();
+			if (!a || a.get() == victim || a.get() == player || a->IsDead() || !a->IsHostileToActor(player)) {
+				continue;
+			}
+			const auto d = a->GetPosition().GetDistance(victim->GetPosition());
+			if (d < bestD) {
+				bestD = d;
+				next = a.get();
+			}
+		}
+		if (!next) {
+			SKSE::log::info("Ricochet: no other foe within {} of {:08X}", c.ricochetRange, victim->GetFormID());
+			return;
+		}
+		g_ricochetTarget = next->GetFormID();
+		g_ricochetAt = now;
+		victim->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)
+			->CastSpellImmediate(shot, false, next, 1.0f, false, 0.0f, player);
+		SKSE::log::info("Ricochet: {:08X} bounced off {:08X} into {:08X} ({:.0f} units)", shot->GetFormID(),
+			victim->GetFormID(), next->GetFormID(), bestD);
+	}
+
 	class HitSink : public RE::BSTEventSink<RE::TESHitEvent>
 	{
 	public:
@@ -687,6 +802,7 @@ namespace
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			DragonsBreath(a_event);
+			Ricochet(a_event);
 			if (!g_cfg.ready || !Has(g_cfg.root)) {
 				return RE::BSEventNotifyControl::kContinue;
 			}
@@ -765,6 +881,10 @@ namespace
 			}
 			g_effigyLoadout.clear();
 			for (bool left : { false, true }) {
+				if (g_cfg.effigyCastSpell) {
+					g_effigyLoadout.push_back(g_cfg.effigyCastSpell);
+					break;
+				}
 				auto* obj = player->GetEquippedObject(left);
 				auto* spell = obj ? obj->As<RE::SpellItem>() : nullptr;
 				if (CastsWell(spell) &&
@@ -860,8 +980,12 @@ namespace
 		if (player && player->Is3DLoaded() && !paused) {
 			EffigyTick(player);
 		}
+		MeterKeepOpen();
 		if (auto view = MeterView()) {
 			MeterSetUp();
+			if (g_rage > 0 && !g_meterShown) {
+				MeterUpdate(g_rage, MaxRage());   // after a reopen's layout hid it
+			}
 			if (g_meterShown && g_rage == 0 && Seconds(Clock::now() - g_meterZeroSince) >= kMeterHideDelay) {
 				MeterCall("main.doHide");
 				g_meterShown = false;
@@ -951,7 +1075,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.2.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.3.2 loading, runtime {}", REL::Module::get().version().string());
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

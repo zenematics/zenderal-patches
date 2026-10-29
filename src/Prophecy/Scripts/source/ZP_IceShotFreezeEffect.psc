@@ -31,6 +31,11 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	If target.IsDead() || target.HasKeyword(MagicNoFreeze) || target.IsPlayerTeammate()
 		Return                                  ; never freeze (and later shatter) a follower or Andrasta's Owl
 	EndIf
+	; weak enemies only (curator 2026-10-29: "people are 2 shotting bosses" - the shatter is a kill): no higher level
+	; than the player, and never a unique actor (bosses, named enemies). The others keep the frost damage only
+	If target.GetLevel() > player.GetLevel() || target.GetLeveledActorBase().IsUnique()
+		Return
+	EndIf
 	frozen = True
 	FreezeSound.Play(target)
 	IceShader.Play(target)
