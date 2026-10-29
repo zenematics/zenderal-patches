@@ -65,6 +65,17 @@ including `SKSE/Plugins/SSEDisplayTweaks_custom.ini` for the resolution step. Th
 `SKSE/Plugins/CastingBar.ini`, `SKSE/Plugins/CompassNavigationOverhaul.ini`, `SKSE/Plugins/SSEDisplayTweaks_custom.ini`.
 Players have no list, so nothing changes for them. The log shows `Skip list …: 7 files never written`. Built; unverified in game.
 
+**1.2.0 (2026-10-29): a stale marker no longer wins.** Beta players on 16:9 (evLRise, PowerElite) had a shifted main
+menu after a list update. Their log: `HUD layout: 16x9 (detected)` then `Layout 16x9 already applied (11 files);
+leaving the active files alone`. `applied.txt` lives in MO2's `overwrite`, which Wabbajack neither ships nor touches on
+update, but the update resets the active files to the curator's layout (21x9). So the marker said 16x9 while the files
+were 21x9, and 1.1.0 trusted the marker. 1.2.0: when the marker matches, each active file that is missing **or
+byte-identical to another layout's copy** is copied again (`… holds another layout's copy` in the log); a file matching
+no layout is an in-game edit and is kept, as before. Simulated against the live files: the curator's 21x9 setup
+re-copies nothing; a stale 16x9 marker over the shipped 21x9 files re-copies all 10 differing files. **The shipped
+active files must stay byte-identical to one layout set** (checked 2026-10-29: all = 21x9), or a player keeps them as
+"edited". Workaround for 1.1.0: delete `overwrite/SKSE/Plugins/ZenAspectLayout/applied.txt`. Unverified in game.
+
 ## Load order
 
 `Zenderal - Aspect Layout` must outrank every mod that supplies one of these files: the three Vel'dun aspect patches
