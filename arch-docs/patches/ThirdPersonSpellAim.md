@@ -56,3 +56,6 @@ one with the magic crosshair on).
 ## Status
 
 Installed 2026-10-29. Tagged "AI Assisted" and 10 days old on install. **Verified in game 2026-10-29** (Consecrate Dead hits the corpse under the crosshair in third person).
+
+Side effect, fixed by [`HWYAMusketFix`](HWYAMusketFix.md): with the Easy preset HWYA's aim-pose solver
+pointed muskets straight up (fast near-zero-gravity balls lose its flat root, 2026-10-29).

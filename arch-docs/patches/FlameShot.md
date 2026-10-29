@@ -63,6 +63,9 @@ the musket is left with no ammo.
 base Enderal for the rest. `0670EC` and `0670DC` (EGO / Pretty Armory) are not overridden here.
 Re-run the generator after any EGO update.
 
+**2026-10-29:** the ball projectile `000800` now has Gravity 0 (Ordo's 0.001 dropped). Hit Where You
+Aim's aim-pose solver pointed the musket straight up with it; see [`HWYAMusketFix`](HWYAMusketFix.md).
+
 ## Unverified
 
 - Does `OnPlayerBowShot` fire for crossbow shots? If it does not, the effect still ends when its

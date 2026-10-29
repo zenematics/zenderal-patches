@@ -141,6 +141,9 @@ def main():
     t = replace_once(t, '  Value: Musket Ball\n', '  Value: Flame Musket Ball\n')
     t = replace_once(t, '- CanBePickedUp\n', '')
     t = replace_once(t, 'Explosion: 007ED3:OrdoLegionisMuskets.esp', 'Explosion: 066891:Skyrim.esm')
+    # Gravity 0.001 -> 0 (line omitted): Hit Where You Aim's ballistic solver loses the flat root at
+    # 60000 speed + near-zero gravity and pitches the aim pose straight up (see HWYAMusketFix)
+    t = replace_once(t, 'Gravity: 0.001\n', '')
     written.append(write('Projectiles', 'ZP_FlameShot_MusketBallProj', BALL_PROJ, t))
 
     # --- Explosion 066891 (base): drop the fire-bolt cast imagespace (a near-white screen flash) ---
