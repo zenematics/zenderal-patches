@@ -194,6 +194,15 @@ Event OnUpdate()
 		Debug.Trace("[Zenderal Settings Applier] skipped horse key: horse flute alias not found or key already changed")
 		skipped += 1
 	EndIf
+	If SetG("Enderal - Forgotten Stories.esm", 0x1598B, "_00E_ActorHealthBarsEnabled", 0.0)
+		_00E_GUI_ActorHealthBar qPanel = Game.GetFormFromFile(0x15989, "Enderal - Forgotten Stories.esm") as _00E_GUI_ActorHealthBar
+		If qPanel
+			qPanel.UnregisterEvents()
+		EndIf
+		applied += 1
+	Else
+		skipped += 1
+	EndIf
 	Debug.Trace("[Zenderal Settings Applier] applied " + applied + ", skipped " + skipped)
 	Stop()
 EndEvent

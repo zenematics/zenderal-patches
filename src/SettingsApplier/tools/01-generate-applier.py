@@ -139,6 +139,22 @@ if hk:
         "\tEndIf",
     ]
 
+# Enderal 2.1's companion health panel: its MCM toggle is a save-based global plus the widget quest's
+# mod-event registration, so do both steps the MCM does (_00e_enderalmcm.psc OnOptionSelect).
+cp = DATA.get("companion_panel")
+if cp:
+    lines += [
+        f'\tIf SetG("{esc(cp["plugin"])}", 0x{cp["global"]:X}, "{esc(cp["edid"])}", {cp["value"]})',
+        f'\t\t_00E_GUI_ActorHealthBar qPanel = Game.GetFormFromFile(0x{cp["quest"]:X}, "{esc(cp["plugin"])}") as _00E_GUI_ActorHealthBar',
+        "\t\tIf qPanel",
+        "\t\t\tqPanel.UnregisterEvents()",
+        "\t\tEndIf",
+        "\t\tapplied += 1",
+        "\tElse",
+        "\t\tskipped += 1",
+        "\tEndIf",
+    ]
+
 lines += [
     '\tDebug.Trace("[Zenderal Settings Applier] applied " + applied + ", skipped " + skipped)',
     "\tStop()",

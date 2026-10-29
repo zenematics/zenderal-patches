@@ -191,5 +191,13 @@
   "alias": 6,
   "default": 38,
   "key": 37
+ },
+ "companion_panel": {
+  "_comment": "Enderal 2.1's companion health panel (MCM toggle 'Actor Health Bars', widget skyui/companionpanel.swf) is save-based: GLOB _00E_ActorHealthBarsEnabled 01598B:FS (default 1) plus the widget quest ActorHealthBarWidget 015989:FS's mod-event registration. The curator turns it off; Enderal's MCM does the same two steps (_00e_enderalmcm.psc OnOptionSelect).",
+  "plugin": "Enderal - Forgotten Stories.esm",
+  "global": 88459,
+  "edid": "_00E_ActorHealthBarsEnabled",
+  "value": 0.0,
+  "quest": 88457
  }
 }

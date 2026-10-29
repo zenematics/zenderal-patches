@@ -41,3 +41,13 @@ Enderal has no hostile-location keywords, so the default (0, "Nearing danger") a
 [`ReadTheRoomEnderal`](ReadTheRoomEnderal.md)). Read the Room's MCM shows its choice from a private variable
 (`CurrentEquipWhenSafe`), so it keeps **displaying** "Nearing danger" while the feature reads the global (caveat 1
 above). Now 23 globals. Regenerated, compiled clean and deployed; unverified in game.
+
+## Enderal's companion health panel (2026-10-29)
+
+Players saw Enderal 2.1's companion panel (MCM toggle "Actor Health Bars", widget `skyui/companionpanel.swf`)
+although the curator turns it off: Enderal's own MCM keeps the choice in the save, in
+`_00E_ActorHealthBarsEnabled 01598B:FS` (default 1), and its toggle also calls the widget quest
+`ActorHealthBarWidget 015989:FS`'s `UnregisterEvents()` (`_00e_enderalmcm.psc` OnOptionSelect). The applier now does
+both (`companion_panel` in `data/settings.json`): global 0, then `UnregisterEvents()`; on later loads the widget's
+`OnGameReload` sees the global at 0 and never registers. Like every applier entry it runs once per save, so saves
+where the applier already ran keep the panel; players switch it off in Enderal's MCM. Compiled clean; unverified in game.
