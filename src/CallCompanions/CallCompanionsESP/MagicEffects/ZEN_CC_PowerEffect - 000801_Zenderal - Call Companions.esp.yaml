@@ -1,0 +1,27 @@
+FormKey: 000801:Zenderal - Call Companions.esp
+EditorID: ZEN_CC_PowerEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_CC_CallEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Known
+      Object: 000803:Zenderal - Call Companions.esp
+Name:
+  TargetLanguage: English
+  Value: Call Companions
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Your companions, followers and summons appear at your side.

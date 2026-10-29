@@ -150,6 +150,8 @@ __pycache__/
 !src/ProphecyV2/Scripts/compiled/*.pex
 !src/TestingCheats/Scripts/compiled/
 !src/TestingCheats/Scripts/compiled/*.pex
+!src/CallCompanions/Scripts/compiled/
+!src/CallCompanions/Scripts/compiled/*.pex
 !src/ArkGateSiegeFix/Scripts/compiled/
 !src/ArkGateSiegeFix/Scripts/compiled/*.pex
 

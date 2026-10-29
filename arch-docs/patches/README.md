@@ -103,6 +103,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`HighPolyDefaultHeads`](HighPolyDefaultHeads.md) | `Zenderal - High Poly Default Heads.esp` | none (18 overrides) |
 | [`UnskippableCinematics`](UnskippableCinematics.md) | *(7 recompiled SureAI scripts)* | none (no plugin) |
 | [`TestingCheats`](TestingCheats.md) | `Zenderal - Testing Cheats.esp` + 2 scripts | `0x800–0x804` |
+| [`CallCompanions`](CallCompanions.md) | `Zenderal - Call Companions.esp` + 2 scripts | `0x800–0x803` |
 | [`LostOneArcherAmmo`](LostOneArcherAmmo.md) | `Zenderal - Lost One Archer Ammo.esp` | none (overrides only) |
 | [`SteaminTWoEWeatherList`](SteaminTWoEWeatherList.md) | *(generated `_weatherlist.ini`, not committed)* | none |
 | [`CreatureRagdollFix`](CreatureRagdollFix.md) | Pandora patch `zragfix`, human `0_master` contact edit + draugr get-up matcher start event | none (no plugin) |
