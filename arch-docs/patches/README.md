@@ -110,3 +110,4 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`AirborneGetUpFix`](AirborneGetUpFix.md) | `ZenAirborneGetUpFix.dll`: holds mid-air `GetUpBegin` until the ragdoll settles | none (no plugin) |
 | [`DFSlowTimeGuard`](DFSlowTimeGuard.md) | `ZenDFSlowTimeGuard.dll`: stops DF's slow-mo reset cancelling Seismic Stomp's SlowTime | none (no plugin) |
 | [`SkeletonRagdollFix`](SkeletonRagdollFix.md) | generated loose `skeletons.hkx`: skeleton ragdoll limbs bend | none (no plugin) |
+| [`IEDPistolHolsters`](IEDPistolHolsters.md) | IED ExtraGearNodes file + generated IED export: pistols placed apart from staves | none (no plugin) |

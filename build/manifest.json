@@ -1333,6 +1333,19 @@
           "dest": "Zenderal - Marksman Rename.esp"
         }
       ]
+    },
+    {
+      "$comment": "IED: the flintlock pistols (staff-type WEAPs) get their own holster nodes ZenPistolRight/ZenPistolLeft, so pistols and staves are placed separately. No plugin - one IED ExtraGearNodes file (new CME/MOV/node chains beside XPMSE's bolt-quiver nodes). The IED config half (placement + display overrides on keyword Pistol_Animation_By_Loop) is a generated export imported in game, see arch-docs/patches/IEDPistolHolsters.md; src/IEDPistolHolsters/tools/01 regenerates it.",
+      "name": "Zenderal - IED Pistol Holsters",
+      "archiveName": "Zenderal - IED Pistol Holsters",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/IEDPistolHolsters/SKSE",
+          "to": "SKSE"
+        }
+      ]
     }
   ]
 }
