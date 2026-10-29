@@ -13,9 +13,15 @@
 // multiple of its LOD level, it throws away the tiles Unified Water made and builds them again, the way Unified Water
 // does, from Unified Water's own disk cache (<worldspace>_cache.wc, the per-cell LOD4 entries), for the chunk's real
 // cells. Aligned chunks (every Tamriel chunk) are left alone. Nothing is written to disk.
+//
+// 1.5.0: a coarse chunk stays attached for the quarters no finer chunk has taken over yet. Its water used to be a child
+// of the terrain chunk and was hidden with that quarter; Unified Water moves it under its own root, and its visibility
+// hook only handles LOD4, so the coarse tiles stayed under the finer chunks' water and fought with the real water near
+// the player (trace 2026-10-29: LOD16 tiles drawn over loaded cells). Tiles of chunks built here now stay inside one
+// quarter, and a quarter's tiles are hidden while any finer chunk is attached in it.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 4, 0, 0 },
+	.Version = REL::Version{ 1, 5, 0, 0 },
 	.Name = "ZenUnifiedWaterGrid"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -57,6 +63,16 @@ namespace
 
 	using Attach_t = void (*)(RE::BGSTerrainBlock*);
 	Attach_t g_attach = nullptr;
+	Attach_t g_detach = nullptr;
+
+	// every attached terrain chunk, for hiding a coarse chunk's quarters that finer chunks cover
+	struct Attached
+	{
+		const RE::TESWorldSpace* ws;
+		int                      lod, bx, by;
+		RE::NiPointer<RE::BSMultiBoundNode> builtWater;  // set when this DLL built the chunk's tiles; held so it can't dangle
+	};
+	std::unordered_map<RE::BGSTerrainBlock*, Attached> g_attached;
 
 	RE::NiPointer<RE::BSTriShape>              g_mesh;
 	std::unordered_map<std::string, WorldCache> g_caches;
@@ -157,7 +173,9 @@ namespace
 				if (a_lod > 4) {  // LOD4 tiles stay single cells: they are hidden one by one as real cells load
 					// kMaxTileCells: 1.2.0 tried 4 (the water mesh is one 4-vertex quad and the shader biases depth per vertex);
 				// 1.3.0 sets it back to 32, no cap, to test the reflection/normals release alone.
-				const int maxSize = std::min({ a_lod - lx, a_lod - ly, kMaxTileCells });
+				// 1.5.0: never across a quarter of the chunk, so a quarter a finer chunk covers can be hidden whole
+				const int q = a_lod / 2;
+				const int maxSize = std::min({ q - lx % q, q - ly % q, kMaxTileCells });
 					for (int cand = 2; cand <= maxSize; ++cand) {
 						bool ok = true;
 						for (int d = 0; d < cand && ok; ++d) {
@@ -245,6 +263,49 @@ namespace
 				}
 			}
 			child->SetAppCulled(cull);
+		}
+	}
+
+	// hide each built LOD8+ tile whose quarter of its chunk has a finer chunk attached (the quadtree shows a coarse
+	// chunk's quarter only while no finer chunk is displayed there)
+	void CullCoveredQuarters()
+	{
+		// a block that went away without a detach (worldspace change) must not count as cover
+		const auto* tes = RE::TES::GetSingleton();
+		const auto* current = tes ? tes->GetRuntimeData2().worldSpace : nullptr;
+		std::erase_if(g_attached, [&](const auto& a_entry) { return a_entry.second.ws != current; });
+		auto* root = WaterLODRoot();
+		int   hidden = 0, total = 0;
+		for (const auto& [block, a] : g_attached) {
+			if (!a.builtWater || a.lod <= 4 || a.builtWater->parent != root) {
+				continue;
+			}
+			const int q = a.lod / 2;
+			for (const auto& child : a.builtWater->GetChildren()) {
+				if (!child) {
+					continue;
+				}
+				const float half = child->local.scale * 2048.0f;
+				const int   cx = static_cast<int>(std::floor((child->local.translate.x - half) / 4096.0f + 0.5f));
+				const int   cy = static_cast<int>(std::floor((child->local.translate.y - half) / 4096.0f + 0.5f));
+				const int   qx0 = a.bx + (cx / q) * q;
+				const int   qy0 = a.by + (cy / q) * q;
+				bool        covered = false;
+				for (const auto& [other, b] : g_attached) {
+					if (b.ws == a.ws && b.lod < a.lod && b.bx < qx0 + q && qx0 < b.bx + b.lod && b.by < qy0 + q && qy0 < b.by + b.lod) {
+						covered = true;
+						break;
+					}
+				}
+				child->SetAppCulled(covered);
+				++total;
+				hidden += covered ? 1 : 0;
+			}
+		}
+		static int lastHidden = -1;
+		if (hidden != lastHidden) {
+			SKSE::log::info("coarse tiles hidden under finer chunks: {} of {}", hidden, total);
+			lastHidden = hidden;
 		}
 	}
 
@@ -381,6 +442,7 @@ namespace
 		}
 		ws->Enable();
 
+		g_attached[a_block].builtWater = RE::NiPointer<RE::BSMultiBoundNode>(water);
 		++g_rebuilt;
 		{
 			SKSE::log::info("LOD{} chunk at cell {},{}: {} tiles rebuilt on the real grid ({}), {} attaches so far", lod, bx, by, built.size(),
@@ -403,7 +465,20 @@ namespace
 				waterBefore != nullptr, a_block->chunk != nullptr);
 		}
 		if (a_block && !wasAttached && a_block->attached) {
+			if (const auto* node = a_block->node) {
+				g_attached[a_block] = { node->manager ? node->manager->worldSpace : nullptr, static_cast<int>(node->GetLODLevel()),
+					node->baseCellX, node->baseCellY, nullptr };
+			}
 			Rebuild(a_block);
+			CullCoveredQuarters();
+		}
+	}
+
+	void DetachHook(RE::BGSTerrainBlock* a_block)
+	{
+		g_detach(a_block);  // Unified Water's hook (parks the water node, drops its tiles), then the game's own
+		if (a_block && g_attached.erase(a_block) > 0) {
+			CullCoveredQuarters();
 		}
 	}
 
@@ -445,19 +520,28 @@ namespace
 			SKSE::log::info("BGSTerrainBlock::Attach is not hooked (first byte {:02X}): Unified Water inactive, not installing", bytes[0]);
 			return;
 		}
+		const auto  detachTarget = REL::RelocationID(30936, 31739).address();
+		const auto* detachBytes = reinterpret_cast<const std::uint8_t*>(detachTarget);
+		const bool  detachHooked = detachBytes[0] == 0xE9 || (detachBytes[0] == 0xFF && detachBytes[1] == 0x25);
+		if (!detachHooked) {
+			SKSE::log::info("BGSTerrainBlock::Detach is not hooked (first byte {:02X}): Unified Water inactive, not installing", detachBytes[0]);
+			return;
+		}
 		g_attach = reinterpret_cast<Attach_t>(target);
+		g_detach = reinterpret_cast<Attach_t>(detachTarget);
 		DetourTransactionBegin();
 		DetourUpdateThread(GetCurrentThread());
 		DetourAttach(reinterpret_cast<PVOID*>(&g_attach), reinterpret_cast<PVOID>(&AttachHook));
+		DetourAttach(reinterpret_cast<PVOID*>(&g_detach), reinterpret_cast<PVOID>(&DetachHook));
 		const auto err = DetourTransactionCommit();
-		SKSE::log::info("hooked BGSTerrainBlock::Attach after Unified Water: {}", err == NO_ERROR ? "ok"sv : "FAILED"sv);
+		SKSE::log::info("hooked BGSTerrainBlock::Attach and Detach after Unified Water: {}", err == NO_ERROR ? "ok"sv : "FAILED"sv);
 	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenUnifiedWaterGrid 1.4.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenUnifiedWaterGrid 1.5.0 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
 		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {
 			Install();

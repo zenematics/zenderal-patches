@@ -114,6 +114,22 @@ flags minus bit `0x4` (Depth by the usual naming), set before the tile is first 
   built. The flag has to be set at creation.
 - 1.3.0's reflection/normals release (Bottled Shaders' own pattern) stays. The merge cap stays off (32).
 
+**Near water flickered after 1.4.0 (curator's video, 2026-10-29):** jagged dark shapes changing every frame over the
+clear shallow water near the player, i.e. two coplanar water surfaces fighting. Trace F11 dumps: all 19 LOD4 tiles over
+loaded water cells were hidden as they should be. The drawn ones over those cells belonged to an attached **LOD16**
+chunk whose quarter the LOD4 chunks had already taken over.
+- The terrain quadtree keeps a coarse chunk attached for the quarters no finer chunk shows yet, and hides the others.
+- Its water used to be a child of the terrain chunk and was hidden with it. Unified Water moves the water node under
+  its own root, and its visibility hook (`UpdateWaterMeshSubVisibility`) returns early for anything but LOD4. So
+  nothing hides a coarse chunk's water in quarters finer chunks cover. That's a Bottled Shaders bug too, not Vyn's alone.
+- With the Depth flag (before 1.4.0) the extra tile was nearly invisible over real water, so the overlap didn't show.
+
+**1.5.0:** tiles of chunks built here never cross a quarter of their chunk (`q = lod / 2`). The DLL keeps every attached
+chunk (Attach hook, plus a new Detours hook on `BGSTerrainBlock::Detach` 30936/31739, chained after Unified Water's)
+and, on every attach and detach, hides each LOD8+ tile whose quarter has a finer chunk attached. The log line `coarse
+tiles hidden under finer chunks: N of M` shows it working. **Verified in game 2026-10-29** (curator: flicker gone; both
+hooks reported ok, the hidden count changes as chunks attach).
+
 Still to do: `Zenderal - Vyn Full Extend.esp` loads **before** `Occlusion.esp` (plugins.txt lines 438/444), against
 its doc. Disable `Zenderal - Water Trace (testing)` after use. Worth reporting upstream: the grid origin
 (`GetLODCoords`) and the Depth path on Unified Water tiles.
