@@ -42,7 +42,7 @@ Of the three patches' files, 11 are identical (shipped once, static) and 12 diff
 patches (e.g. 16x9's `SkyUI_SE.ini` = Zenderal - Settings', its map/loading menu = Vel'dun UI Enderal Default's); if
 nothing provides it (`main-menu-wallpaper.dds`, referenced only by 32x9's own logo mesh), the manifest says `keep`.
 `OxygenMeter2.ini` is identical in all three (Oxygen Meter writes its settings back into the winning copy).
-**Rerun `tools/01` after any Vel'dun patch update.** It deletes the whole mod folder, so copy
+**Rerun `tools/01` then `tools/02` after any Vel'dun patch update.** `01` deletes the whole mod folder, so copy
 `_ZenAspectLayout.dll` + `ZenAspectLayout.ini` back afterwards (from `compiled/` and the repo root), and move
 `overwrite/SKSE/Plugins/ZenAspectLayout/applied.txt` away: the regenerated active files are the 16x9 set, and with the
 old marker still saying e.g. `21x9` the DLL would skip re-applying. **But first save the curator's in-game edits:**
@@ -75,6 +75,18 @@ no layout is an in-game edit and is kept, as before. Simulated against the live 
 re-copies nothing; a stale 16x9 marker over the shipped 21x9 files re-copies all 10 differing files. **The shipped
 active files must stay byte-identical to one layout set** (checked 2026-10-29: all = 21x9), or a player keeps them as
 "edited". Workaround for 1.1.0: delete `overwrite/SKSE/Plugins/ZenAspectLayout/applied.txt`. Unverified in game.
+
+**16x9 main menu shifted right (2026-10-29), `tools/02`.** A 1920x1080 player on 1.2.0 (`Layout 16x9 already
+applied`, files correct) still had the wallpaper shifted right with black on the left third. Vel'dun's 16x9 patch
+has no main-menu meshes, so the 16x9 set takes Vel'dun UI Enderal Default's `logo.nif`/`logo01ae.nif`. Those map
+Vel'dun's own wallpaper: 4096x4096, picture in a full-width 16:9 band (rows 614-2929). The list's wallpaper is
+Classic Enderal Main Menu Background 4K: 4096x2048, picture at cols 1399-4095 (Enderal's layout), so through
+Vel'dun's mesh the screen showed u 0-1 of it. The 21x9/32x9 sets use Vel'dun's Zenderal patch meshes, made for the
+list's wallpaper, which is why ultrawide looked right. `tools/02-fit-16x9-wallpaper.py` (run after `01`) writes the
+16x9 set's `mainmenuwallpaper.dds` in Vel'dun's layout from the Classic picture (centre-cropped to the band's
+aspect, BC7). Players already marked 16x9 get it without deleting anything: their active wallpaper is the 21x9 copy,
+which 1.2.0 re-copies. Classic Enderal Main Menu Background 4K **outranks this mod** for that file, so the DLL's
+copy is written into Classic's file through MO2's VFS: keep this mod above it (swapped in Ultra 2026-10-29). **Verified in game** 2026-10-29: the 1920x1080 player installed the fitted wallpaper as a test mod and the menu was right.
 
 ## Load order
 

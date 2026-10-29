@@ -84,3 +84,9 @@ player's `CME ZenPistolRight`/`Left` in game (right `[43.5, -9, 12]`, left `[-37
 That means IED created the holster nodes and offered them for positioning. **Verified in game 2026-10-29** (curator:
 "all working"). **Note:** the saved default is newer than the export, so never copy
 the export over `DefaultConfigUser.json`. That would undo the in-game positioning.
+
+**Hotfix miss (2026-10-29):** the hotfix shipped the nodes and the export but **not** the default, because IED saved
+`DefaultConfigUser.json` into MO2's `overwrite`, which Wabbajack never ships. Players' pistols stayed on the back. Fixed
+by copying it into the mod (`SKSE/Plugins/IED/DefaultConfigUser.json`, md5 `999a4697…`). **Whenever the default is
+saved again in game, copy it from `overwrite` into the mod before compiling.** It only applies to new games: an
+existing save keeps the IED config in its co-save and needs File → Import → `Zenderal - Pistol Holsters`.
