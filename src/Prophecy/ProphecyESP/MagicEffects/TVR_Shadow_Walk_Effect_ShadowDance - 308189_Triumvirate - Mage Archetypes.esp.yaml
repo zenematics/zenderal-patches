@@ -1,0 +1,50 @@
+FormKey: 308189:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Walk_Effect_ShadowDance
+VirtualMachineAdapter:
+  Scripts:
+  - Name: TVR_Shockwave_Script
+    Properties:
+    - MutagenObjectType: ScriptStringProperty
+      Name: TVR_AnimEvent
+      Data: JumpUp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: TVR_Delay
+      Data: 0.3
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TVR_Shadow_Spell_ShadowDance_Proc
+      Object: 308190:Triumvirate - Mage Archetypes.esp
+Name:
+  TargetLanguage: English
+  Value: Shadow Dance
+MenuDisplayObject: 2FDF85:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 31C5B7:Triumvirate - Mage Archetypes.esp
+Flags:
+- NoMagnitude
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 30
+MagicSkill: Alteration
+CastingLight: 308186:Triumvirate - Mage Archetypes.esp
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 2FDF84:Triumvirate - Mage Archetypes.esp
+HitEffectArt: 308188:Triumvirate - Mage Archetypes.esp
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 03EDD5:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 025D9B:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: Able to perform a <20> foot dash by jumping, if the path is clear. Lasts <dur> seconds.

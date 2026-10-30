@@ -1,0 +1,24 @@
+FormKey: 31C5BE:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Spell_DrainingShroud_CloakProc
+Name:
+  TargetLanguage: English
+  Value: Draining Shroud
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 87
+Flags:
+- AreaEffectIgnoresLOS
+CastType: Concentration
+TargetType: Aimed
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 31C5BC:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 10
+    Duration: 1
+- BaseEffect: 381AE5:Triumvirate - Mage Archetypes.esp
+  Data:
+    Duration: 1

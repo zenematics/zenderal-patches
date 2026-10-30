@@ -342,7 +342,7 @@ VirtualMachineAdapter:
       - "Darkness gathers in you while you stand in shadow, up to 10: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the \"Gather Shadows\" spell (3 Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness."
       - "Your Sneak skill is increased by 10."
       - "Your maximum Mana is increased by 25."
-      - "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health and Mana per second from nearby enemies."
+      - "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every 4 seconds of draining an enemy builds 1 Darkness."
       - "Your Mana regenerates 10 percent faster."
       - "Grants the \"Nightblade\" spell (4 Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing 15 more magic damage per point spent."
       - "Your One-handed skill is increased by 10."

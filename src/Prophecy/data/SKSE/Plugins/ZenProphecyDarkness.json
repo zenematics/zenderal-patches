@@ -86,5 +86,10 @@
   "damageSpell": "000AF3",
   "fraction": 0.5,
   "perPoint": 15
+ },
+ "shroud": {
+  "procPlugin": "Triumvirate - Mage Archetypes.esp",
+  "procId": "31C5BE",
+  "ticksPerPoint": 4
  }
 }

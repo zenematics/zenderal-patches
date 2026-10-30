@@ -469,7 +469,7 @@
      "index": 12,
      "perk": 2506,
      "name": "Steady Aim",
-     "description": "Your Archery skill is increased by 10.",
+     "description": "Your Marksman skill is increased by 10.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_SteadyAim.dds",
      "parents": [
       11
@@ -1072,7 +1072,7 @@
      "index": 38,
      "perk": 2673,
      "name": "Draining Shroud",
-     "description": "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health and Mana per second from nearby enemies.",
+     "description": "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every 4 seconds of draining an enemy builds 1 Darkness.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_DrainingShroud.dds",
      "parents": [
       36
@@ -2703,7 +2703,7 @@
      "index": 104,
      "perk": 2531,
      "name": "Fletcher's Eye",
-     "description": "Your Archery skill is increased by 10.",
+     "description": "Your Marksman skill is increased by 10.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_FletchersEye.dds",
      "parents": [
       102

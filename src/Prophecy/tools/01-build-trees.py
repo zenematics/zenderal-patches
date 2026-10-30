@@ -98,9 +98,12 @@ DARKNESS = {'Max': 10, 'Fill': [(20, 1.0), (40, 1.5), (60, 2.0), (90, 3.0)], 'Ve
 # Nightblade on Darkness (curator 2026-10-28: "scale its damage on the Darkness meter instead of Mana"). Triumvirate's
 # proc (TVR_Shadow_Spell_Nightblade_Proc 335B4F, cast by TVR_BlinkStrikes_Script on each power attack) deals a flat 45
 # and its 335B52 effect takes 50% of the CASTER's current Magicka (TVR_PercentageDamage_Script: akCaster) - the "50% of
-# your Magicka into damage" of its text, though the damage never read it. With Gather Shadows the Mana drain is off and
+# your Magicka into damage" of its text, though the damage never read it. The Mana drain is removed (2026-10-30) and
 # the DLL spends Fraction of the Darkness (rounded up) on each proc hit, adding PerPoint magic damage per point spent.
 NIGHTBLADE = {'Fraction': 0.5, 'PerPoint': 15}
+# Draining Shroud builds Darkness (curator 2026-10-30: "let draining shroud slowly build up darkness like an absorb from
+# enemies"): the DLL counts its cloak proc's absorb ticks (about one per enemy per second), a point per TicksPerPoint
+SHROUD_DARKNESS = {'TicksPerPoint': 4}
 # Dragon's Breath (curator 2026-10-28): every Every-th unarmed hit, ZenProphecyRage.dll casts one of three elemental
 # cones at the target - Hissing Dragon's fire/frost/shock procs, reaching Range units (~5 m) instead of 128
 DRAGONS_BREATH = {'Every': 5, 'Damage': 60}
@@ -200,7 +203,7 @@ TREES = [
   # (SHADOW_FIRST_ID), so sitting between Gadgets and Martial Arts renumbered nothing.
   ('Shadow', 'Darkness, stealth and stolen strength.', [
     ('shd1', 'Gather Shadows', f'Darkness gathers in you while you stand in shadow, up to {DARKNESS["Max"]}: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the "Gather Shadows" spell ({DARKNESS["Cost"]["shd1"]} Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness.', None, [], []),
-    ('shd2', 'Draining Shroud', f'Grants the "Draining Shroud" spell ({DARKNESS["Cost"]["shd2"]} Darkness): for 60 seconds, you absorb 10 Health and Mana per second from nearby enemies.', None, [], ['shd1']),
+    ('shd2', 'Draining Shroud', f'Grants the "Draining Shroud" spell ({DARKNESS["Cost"]["shd2"]} Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every {SHROUD_DARKNESS["TicksPerPoint"]} seconds of draining an enemy builds 1 Darkness.', None, [], ['shd1']),
     ('shd3', 'Nightblade', f'Grants the "Nightblade" spell ({DARKNESS["Cost"]["shd3"]} Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing {NIGHTBLADE["PerPoint"]} more magic damage per point spent.', None, [], ['shd1']),
     # Shade Veil (2026-10-28): off Silent Step, a dead end; added after the tree's first build, so allocated last
     # (SHADOW_LATE_NODES). The menu holds two parents at most, so it does not join the merge below
@@ -2935,12 +2938,19 @@ SHADE_VEIL_RECORDS = ('veilab', 'veilme', 'veilfxs')     # Shade Veil (2026-10-2
 DARKNESS_RECORDS = ('darkglobal', 'darkab', 'darkabme')   # Darkness (2026-10-28): the count, shown as the ability's magnitude
 # the Darkness talent's spell (2026-10-28): our copy of Triumvirate's Darkness 3727C3 (Magic Patches' winning record)
 # down to its hazard, whose model is vanilla's dark low mist - FXMistLowSwirls01Dark, about 900 units across, the
-# size of the darkness light's 426-unit radius. Triumvirate's own records stay as they are (its tome still sells them)
+# size of the darkness light's 426-unit radius. Triumvirate's own records stay as they are (its tome is unsold)
 DARK_SPELL_RECORDS = ('dspell', 'dme', 'dimpset', 'dimpact', 'dhazard')
 NIGHTBLADE_RECORDS = ('nbspell', 'nbme')   # Nightblade's Darkness damage (2026-10-28), cast by the DLL
 NIGHTBLADE_PROC = '335B4F'                 # TVR_Shadow_Spell_Nightblade_Proc: owned by Prophecy (no other plugin of ours)
 NIGHTBLADE_DRAIN = '335B52'                # its TVR_Shadow_Rift_Effect_Nightblade_Debuff_SelfDamage (the Mana drain)
-NIGHTBLADE_DAMAGE = '335B51'               # its 45 magic damage effect: the look and resist our damage copies
+SHROUD_CLOAK = '31C5BE'                    # TVR_Shadow_Spell_DrainingShroud_CloakProc (owned: no Magicka absorb)
+SHROUD_ABSORB_MAGICKA = '31C5BD'           # its TVR_Shadow_Rift_Effect_DrainingShroud_CloakProc_AbsorbMagicka
+SHROUD_EFFECT = '31C5C0'                   # TVR_Shadow_Rift_Effect_DrainingShroud (owned: its description)
+SHADOW_DANCE_EFFECT = '308189'             # TVR_Shadow_Walk_Effect_ShadowDance (owned: its description)
+SHADOW_DANCE_DASHES = ('30818C', '30818D', '30818E', '30818F', '30D293', '30D294',   # its proc's 12 dash effects
+                       '30D295', '30D296', '30D297', '30D298', '30D299', '30D29A')   # (owned: no Magicka)
+NIGHTBLADE_BUFF = '335B49'                # TVR_Shadow_Rift_Effect_Nightblade: the 60 s buff (owned: its description)
+NIGHTBLADE_DAMAGE = '335B51'             # its 45 magic damage effect: the look and resist our damage copies
 DARK_SPELL_SRC = {'dspell': os.path.join(REPO, 'src', 'MagicPatches', 'MagicPatchesESP', 'Spells',
                                          'TVR_Shadow_I025_Spell_Darkness - 3727C3_Triumvirate - Mage Archetypes.esp.yaml'),
                   'dme': ('MagicEffects', '395F16'), 'dimpset': ('ImpactDataSets', '395F14'),
@@ -3011,16 +3021,51 @@ def tvr_record(folder, h):
     return open(hits[0], encoding='utf-8').read().replace('\r\n', '\n')
 
 
+def write_shadow_no_mana(write):
+    # curator 2026-10-30: "Shadow / Darkness spells should not have any ties to mana". Besides Nightblade's drain
+    # (write_nightblade), the Shadow spells' records touch Magicka in two places (their scripts never do: Shockwave,
+    # ShadowDance, Flash, Pull, BlinkStrikes disassembled). For everyone, since no other plugin overrides these.
+    # Draining Shroud's cloak absorbs Health and Magicka: the Magicka absorb goes
+    y = tvr_record('Spells', SHROUD_CLOAK)
+    entry = f'- BaseEffect: {SHROUD_ABSORB_MAGICKA}:{TRIUMVIRATE}\n  Data:\n    Magnitude: 10\n    Duration: 1\n'
+    assert y.count(entry) == 1, 'Draining Shroud cloak: Magicka absorb entry'
+    write('Spells', y.replace(entry, ''))
+    me = tvr_record('MagicEffects', SHROUD_EFFECT)
+    old = '  Value: Absorbs <mag> points of Health and Magicka per second from nearby enemies for <dur> seconds.\n'
+    assert me.count(old) == 1, 'Draining Shroud: description'
+    write('MagicEffects', me.replace(old, '  Value: Absorbs <mag> points of Health per second from nearby enemies for <dur> '
+          f'seconds. Every <{SHROUD_DARKNESS["TicksPerPoint"]}> seconds of draining an enemy builds 1 Darkness.\n'))
+    # Shadow Dance (Nightfall casts it): each of its 12 dash effects needs 10 Magicka and takes it (a Magicka value
+    # modifier). Now a script effect without the Magicka condition: the dash script is the whole effect
+    for h in SHADOW_DANCE_DASHES:
+        me = tvr_record('MagicEffects', h)
+        arch = 'Archetype:\n  MutagenObjectType: MagicEffectArchetype\n  ActorValue: Magicka\n'
+        cond = ('- MutagenObjectType: ConditionFloat\n  CompareOperator: GreaterThanOrEqualTo\n  Data:\n'
+                '    MutagenObjectType: GetActorValueConditionData\n    ActorValue: Magicka\n  ComparisonValue: 10\n')
+        assert me.count(arch) == 1 and me.count(cond) == 1, f'Shadow Dance dash {h}'
+        write('MagicEffects', me.replace(arch, 'Archetype:\n  MutagenObjectType: MagicEffectArchetype\n  Type: Script\n')
+              .replace(cond, ''))
+    me = tvr_record('MagicEffects', SHADOW_DANCE_EFFECT)
+    old = '  Value: Able to perform a <20> foot dash for <10> Magicka by jumping, if the path is clear. Lasts <dur> seconds.\n'
+    assert me.count(old) == 1, 'Shadow Dance: description'
+    write('MagicEffects', me.replace(old, '  Value: Able to perform a <20> foot dash by jumping, if the path is clear. Lasts <dur> seconds.\n'))
+
+
 def write_nightblade(sh, write, nodeperk):
-    # the proc without its Mana drain while the player has Gather Shadows (the drain's subject is the target; the
-    # player is named by reference). Tome users without the tree keep Triumvirate's Nightblade as it was
+    # the proc without its Mana drain, for everyone (curator 2026-10-30: "Shadow / Darkness spells should not have any
+    # ties to mana"; the drain never fed the damage - Triumvirate's damage is a flat 45)
     y = tvr_record('Spells', NIGHTBLADE_PROC)
     entry = f'- BaseEffect: {NIGHTBLADE_DRAIN}:{TRIUMVIRATE}\n  Data: {{}}\n'
     assert y.count(entry) == 1, 'Nightblade proc: drain entry'
-    y = y.replace(entry, entry + '  Conditions:\n  - MutagenObjectType: ConditionFloat\n    Data:\n'
-                  '      MutagenObjectType: HasPerkConditionData\n      RunOnType: Reference\n'
-                  f"      Reference: 000014:Skyrim.esm\n      Perk: {nodeperk['shd1']}\n    ComparisonValue: 0\n")
-    write('Spells', y)
+    write('Spells', y.replace(entry, ''))
+    # the buff's description: Triumvirate's says the dash converts 50% of the Magicka into damage
+    me = tvr_record('MagicEffects', NIGHTBLADE_BUFF)
+    old = ('  Value: Able to melee attack from up to <50> feet to perform a dash attack, converting <50>% of your Magicka '
+           'into bonus magic damage on hit. Lasts <dur> seconds. (<mag> damage)\n')
+    assert me.count(old) == 1, 'Nightblade buff: description'
+    write('MagicEffects', me.replace(old, '  Value: Power attacks reach targets up to <50> feet away, dashing you to them '
+          'for 45 magic damage. Each dash spends half your Darkness for '
+          f'<{NIGHTBLADE["PerPoint"]}> more damage per point. Lasts <dur> seconds.\n'))
     # the Darkness damage: Triumvirate's damage effect (its hit shader, resist, look) without the dash-keyword
     # condition, in a spell the DLL casts from the player with the magnitude it computes
     me = tvr_record('MagicEffects', NIGHTBLADE_DAMAGE)
@@ -3080,6 +3125,7 @@ Description:
 """)
     write_dark_spell(sh, write)
     write_nightblade(sh, write, nodeperk)
+    write_shadow_no_mana(write)
     hexid = lambda fk: fk.split(':')[0]
     spells = ([(nid, SHADOW_GRANTS[nid]) for nid in ('shd1', 'shd2', 'shd3', 'shd4')] + [('shd5', sh['power'])] +
               [('shd7', sh['dspell'])])
@@ -3096,6 +3142,7 @@ Description:
         'meter': DARKNESS['Meter'],
         'nightblade': {'procPlugin': TRIUMVIRATE, 'procId': NIGHTBLADE_PROC, 'damageSpell': hexid(sh['nbspell']),
                        'fraction': NIGHTBLADE['Fraction'], 'perPoint': NIGHTBLADE['PerPoint']},
+        'shroud': {'procPlugin': TRIUMVIRATE, 'procId': SHROUD_CLOAK, 'ticksPerPoint': SHROUD_DARKNESS['TicksPerPoint']},
     }
     os.makedirs(os.path.dirname(DARKNESS_JSON), exist_ok=True)
     with open(DARKNESS_JSON, 'w', encoding='utf-8', newline='\n') as fh:
@@ -4176,6 +4223,9 @@ def write_unsold_tomes(write):
     # + the two Druid talents that grant our own versions of Triumvirate spells (curator 2026-10-29: "remove any spells
     # unlocked via this talent tree from vendors"): Druidcraft's and Force of Nature's tomes teach Triumvirate's originals
     granted |= {DRUIDCRAFT_SPELL, FON_SPELL}
+    # + the Triumvirate spells the Shadow talents are built on (curator 2026-10-30: no Prophecy spell for sale, and
+    # that includes its Triumvirate equivalents): Darkness (the talent is our copy of it) and Nightfall (the power casts it)
+    granted |= {f"{DARK_SPELL_FK['dspell']}:{TRIUMVIRATE}", NIGHTFALL_SPELL}
     granted = {g for g in granted if g.endswith(':' + TRIUMVIRATE)}
     tomes = set()
     for f in glob.glob(os.path.join(REF, 'mods', 'Triumvirate', 'Books', '*.yaml')):

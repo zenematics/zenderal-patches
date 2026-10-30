@@ -17,11 +17,12 @@
 // The Shadow talents' spells cost Darkness instead of Mana: their Mana cost is 0 for the player (SpellItem::AdjustCost),
 // a cast without enough Darkness is refused (ActorMagicCaster::CheckCast) with a notification, and a cast spends its
 // cost (TESSpellCastEvent). Nightfall costs the full meter. Nightblade's dash hits spend half the Darkness for extra
-// damage (1.1.0; its Mana drain is off by a condition in the plugin). Without Gather Shadows the spells cost Mana as before.
+// damage (1.1.0; the plugin removes its Mana drain). Draining Shroud's absorb ticks on enemies build Darkness (1.3.0:
+// one point per TicksPerPoint ticks, light does not drain it meanwhile). Without Gather Shadows the spells cost Mana.
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyDarkness.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 1, 2, 0 },
+	.Version = REL::Version{ 1, 3, 0, 0 },
 	.Name = "ZenProphecyDarkness"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -50,6 +51,9 @@ namespace
 		RE::SpellItem*     nightbladeDamage{ nullptr };
 		double             nightbladeFraction{ 0.5 };
 		double             nightbladePerPoint{ 15.0 };
+		// Draining Shroud (1.3.0): each absorb tick of its cloak proc on an enemy is a step towards a point of Darkness
+		RE::FormID         shroudProc{ 0 };
+		int                shroudTicksPerPoint{ 4 };
 		// the meter: Oxygen Meter 2's movie, our own copy of its menu (setLocation's arguments, two colours)
 		double             meterX{ 50.0 }, meterY{ 21.0 }, meterRot{ 0.0 }, meterXScale{ 50.0 }, meterYScale{ 50.0 };
 		double             meterBar{ 0x2A1A5E }, meterFlash{ 0x6B48C8 };
@@ -133,6 +137,13 @@ namespace
 			c.nightbladeDamage = Lookup<RE::SpellItem>(plugin, nb["damageSpell"], "Nightblade Darkness damage");
 			c.nightbladeFraction = nb["fraction"].get<double>();
 			c.nightbladePerPoint = nb["perPoint"].get<double>();
+		}
+		if (j.contains("shroud")) {
+			auto& sh = j["shroud"];
+			if (auto* proc = Lookup<RE::SpellItem>(sh["procPlugin"].get<std::string>(), sh["procId"], "Draining Shroud proc")) {
+				c.shroudProc = proc->GetFormID();
+			}
+			c.shroudTicksPerPoint = std::max(1, sh["ticksPerPoint"].get<int>());
 		}
 		if (j.contains("meter")) {
 			auto& m = j["meter"];
@@ -475,6 +486,30 @@ namespace
 	std::map<RE::FormID, Clock::time_point> g_nightbladeHits;
 	constexpr double kNightbladeDedupe = 0.5;
 
+	// Draining Shroud: its cloak re-applies the absorb about once a second per enemy - one tick per target per window
+	std::map<RE::FormID, Clock::time_point> g_shroudHits;
+	constexpr double  kShroudDedupe = 0.9;
+	constexpr double  kShroudHoldsDrain = 1.5;   // light does not drain Darkness this long after a tick
+	int               g_shroudTicks = 0;
+	Clock::time_point g_lastShroudTick{};
+
+	void ShroudTick(RE::Actor* a_target)
+	{
+		const auto now = Clock::now();
+		auto& last = g_shroudHits[a_target->GetFormID()];
+		if (Seconds(now - last) < kShroudDedupe) {
+			return;
+		}
+		last = now;
+		g_lastShroudTick = now;
+		if (++g_shroudTicks >= g_cfg.shroudTicksPerPoint) {
+			g_shroudTicks = 0;
+			if (g_dark < g_cfg.max) {
+				SetDarkness(g_dark + 1, fmt::format("Draining Shroud on {:08X}", a_target->GetFormID()));
+			}
+		}
+	}
+
 	class HitSink : public RE::BSTEventSink<RE::TESHitEvent>
 	{
 	public:
@@ -487,12 +522,19 @@ namespace
 		RE::BSEventNotifyControl ProcessEvent(const RE::TESHitEvent* a_event, RE::BSTEventSource<RE::TESHitEvent>*) override
 		{
 			auto& c = g_cfg;
-			if (!a_event || !c.nightbladeProc || a_event->source != c.nightbladeProc || !c.nightbladeDamage ||
-				!a_event->cause || a_event->cause.get() != Player() || !a_event->target || !Active()) {
+			if (!a_event || !a_event->source || !a_event->cause || a_event->cause.get() != Player() || !a_event->target ||
+				!Active()) {
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			auto* target = a_event->target->As<RE::Actor>();
 			if (!target || target->IsDead()) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			if (c.shroudProc && a_event->source == c.shroudProc) {
+				ShroudTick(target);
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			if (!c.nightbladeProc || a_event->source != c.nightbladeProc || !c.nightbladeDamage) {
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			const auto now = Clock::now();
@@ -514,12 +556,118 @@ namespace
 		}
 	};
 
+	// ---------------------------------------------------------------- the player's own spell light (1.2.0)
+	// A readied spell's hand glow (ActorMagicCaster::light) counts in the engine's light level, so Psychosis held
+	// ready kept Darkness from filling in a dark room (player report 2026-10-29). The light level is cached on the
+	// process: ID 39946 (called from ID 40447 +0x541 and ID 41381 +0x1C7) sums the lights on the actor (each NiLight's
+	// diffuse x fade, +0x11C/+0x134 in the sum at 0x150F930) into middleHigh +0x3A8 at most every interval, stamping
+	// middleHigh +0x3B0 and clearing middleLow +0x328 (force flag). For the player it runs twice: first with the hand
+	// lights' fade 0 (that cache value is ours), then with the stamp and flag put back so the real update runs as
+	// before - sneak detection still sees the glow.
+	float g_lightNoCast = -1.0f;   // the player's cached light level without the hand lights, < 0 = none yet
+
+	struct LightUpdate
+	{
+		using func_t = std::uint64_t(void*, RE::Actor*, std::uint64_t, std::uint64_t);
+
+		static std::uint64_t thunk(void* a_process, RE::Actor* a_actor, std::uint64_t a_r8, std::uint64_t a_r9)
+		{
+			auto* player = Player();
+			auto** procs = static_cast<std::uint8_t**>(a_process);
+			if (!player || a_actor != player || !a_process || !procs[1] || !procs[2]) {
+				return next(a_process, a_actor, a_r8, a_r9);
+			}
+			std::array<RE::NiLight*, 4> lights{};
+			std::array<float, 4>        fades{};
+			bool                        any = false;
+			std::size_t                 i = 0;
+			for (auto src : { RE::MagicSystem::CastingSource::kLeftHand, RE::MagicSystem::CastingSource::kRightHand,
+					 RE::MagicSystem::CastingSource::kOther, RE::MagicSystem::CastingSource::kInstant }) {
+				auto* caster = skyrim_cast<RE::ActorMagicCaster*>(player->GetMagicCaster(src));
+				auto* light = caster && caster->light ? caster->light->light.get() : nullptr;
+				if (light && light->GetLightRuntimeData().fade > 0.0f) {
+					lights[i] = light;
+					fades[i] = light->GetLightRuntimeData().fade;
+					any = true;
+				}
+				++i;
+			}
+			auto* mh = procs[2];
+			auto& cached = *reinterpret_cast<float*>(mh + 0x3A8);
+			if (!any) {
+				const auto r = next(a_process, a_actor, a_r8, a_r9);
+				g_lightNoCast = cached;
+				return r;
+			}
+			auto&      stamp = *reinterpret_cast<float*>(mh + 0x3B0);
+			auto&      force = *(procs[1] + 0x328);
+			const auto stamp0 = stamp;
+			const auto force0 = force;
+			for (std::size_t k = 0; k < lights.size(); ++k) {
+				if (lights[k]) {
+					lights[k]->GetLightRuntimeData().fade = 0.0f;
+				}
+			}
+			const auto before = cached;
+			next(a_process, a_actor, a_r8, a_r9);
+			const bool updated = stamp != stamp0 || cached != before;
+			if (updated) {
+				g_lightNoCast = cached;
+			}
+			for (std::size_t k = 0; k < lights.size(); ++k) {
+				if (lights[k]) {
+					lights[k]->GetLightRuntimeData().fade = fades[k];
+				}
+			}
+			stamp = stamp0;
+			force = force0;
+			return next(a_process, a_actor, a_r8, a_r9);
+		}
+		static inline REL::Relocation<func_t> next;
+	};
+
+	void InstallLightUpdate()
+	{
+		SKSE::AllocTrampoline(28);
+		auto& tramp = SKSE::GetTrampoline();
+		const auto vanilla = REL::ID(39946).address();
+		std::uintptr_t prev = 0;
+		for (auto [id, off] : { std::pair{ 40447, 0x541 }, std::pair{ 41381, 0x1C7 } }) {
+			const auto site = REL::ID(id).address() + off;
+			const auto* code = reinterpret_cast<const std::uint8_t*>(site);
+			const auto target = code[0] == 0xE8 ? site + 5 + *reinterpret_cast<const std::int32_t*>(site + 1) : 0;
+			if (target != vanilla) {
+				SKSE::log::error("light-level update call not found at ID {} +{:X}; the hand-light exclusion is off", id, off);
+				continue;
+			}
+			prev = tramp.write_call<5>(site, LightUpdate::thunk);
+		}
+		if (prev) {
+			LightUpdate::next = prev;
+			SKSE::log::info("light-level update hooked: the player's hand-cast spell lights no longer count for Darkness");
+		}
+	}
+
 	// ---------------------------------------------------------------- filling
+	// GetLightLevel's condition function post-processes the cached value (ID 37775); swapping our cache value in
+	// for the call gives the same scale without the hand lights.
 	double LightLevel()
 	{
 		double level = 1000.0;
-		if (g_lightLevel) {
-			g_lightLevel(Player(), nullptr, nullptr, level);
+		if (!g_lightLevel) {
+			return level;
+		}
+		auto* player = Player();
+		auto* proc = player ? player->GetActorRuntimeData().currentProcess : nullptr;
+		auto* mh = proc ? reinterpret_cast<std::uint8_t**>(proc)[2] : nullptr;
+		if (mh && g_lightNoCast >= 0.0f) {
+			auto&      cached = *reinterpret_cast<float*>(mh + 0x3A8);
+			const auto real = cached;
+			cached = g_lightNoCast;
+			g_lightLevel(player, nullptr, nullptr, level);
+			cached = real;
+		} else {
+			g_lightLevel(player, nullptr, nullptr, level);
 		}
 		return level;
 	}
@@ -563,6 +711,9 @@ namespace
 					SetDarkness(g_dark + 1, fmt::format("light {:.0f}{}", light, veil ? ", Shade Veil" : ""));
 				}
 			}
+		} else if (Seconds(now - g_lastShroudTick) < kShroudHoldsDrain) {
+			g_fillTimer = 0.0;
+			g_drainTimer = 0.0;   // Draining Shroud is feeding the meter
 		} else {
 			g_fillTimer = 0.0;
 			g_drainTimer += dt;
@@ -624,11 +775,12 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyDarkness 1.1.2 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyDarkness 1.3.0 loading, runtime {}", REL::Module::get().version().string());
 	REL::Relocation<std::uintptr_t> spellVtbl{ RE::VTABLE_SpellItem[0] };
 	AdjustCost::func = spellVtbl.write_vfunc(0x63, AdjustCost::thunk);
 	REL::Relocation<std::uintptr_t> casterVtbl{ RE::VTABLE_ActorMagicCaster[0] };
 	CheckCast::func = casterVtbl.write_vfunc(0x0A, CheckCast::thunk);
+	InstallLightUpdate();
 	SKSE::GetMessagingInterface()->RegisterListener(OnMessage);
 	return true;
 }

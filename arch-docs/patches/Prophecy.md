@@ -178,8 +178,8 @@ tree order, 6 stat abilities `0xA79–0xA7E`, then Nightfall's power / gate / fe
 - **The four spell talents grant Triumvirate's own spells** through the menu (`SHADOW_GRANTS`, as Dark Effigy): Gather
   Shadows `3727BF`, Draining Shroud `31C5C1`, Nightblade `330A43`, Pull Through Shadows `30D2A4`. They are not copied.
   Magic Patches already prices them for Enderal, and only their Mana costs differ between plugins (magnitudes checked
-  against Magic Patches and the Triumvirate Enderal patch). Their tomes are also sold in the list, so the talents are
-  a shortcut, not the only way to get them.
+  against Magic Patches and the Triumvirate Enderal patch). Their tomes are not sold (see *Granted spells are not
+  sold*).
 - **Nightfall is a lesser power, not the 1245-Mana master spell.** Its gate effect reuses `ZP_WrathGate` (new `Refusal`
   string property; its default keeps Wrath's text). It checks Arcane Fever once, refuses at 50% or more, then casts
   Triumvirate's Nightfall `31C5B8` and 50% fever. A scripted cast costs nothing and ignores the spell's skill level.
@@ -214,14 +214,55 @@ tree order, 6 stat abilities `0xA79–0xA7E`, then Nightfall's power / gate / fe
     Stamina / Mana bars, worked out from the curator's screenshot. Meter, fill and costs verified in game 2026-10-28.
   - **DLL 1.1.1 (2026-10-29): meter state in the 5-second light log line** (menu open, view visible, `main._x/_y/_visible/_alpha/_width`, visible rect). Built after one session where the meter never showed although Darkness filled to 10 and `doShow` was called; the next session showed it with no change but the logging, so the cause is unknown. On 21:9 the meter sits at stage (-98, 1031), inside the visible rect (-300,0)-(2220,1080). If it vanishes again, read that line first.
   - **Cause found the next session: the meter's menu gets closed** (`open false`, every other value fine), at 13:00:24 with a message box opening and a save, right after the curator used The Hunt in Dal'valstaag's vault. What closes it is unknown (The Hunt's script opens no menu). **Darkness 1.1.2 / Rage 1.3.1 reopen their meter menu** whenever it is found closed (at most once a second, not during loading screens; logged `meter menu was closed - opening it again`) and show it again if the meter has a value. Unverified in game.
+  - **DLL 1.2.0 (2026-10-30): the player's own spell light no longer counts.** Player report: a readied spell's
+    hand glow (Psychosis) was bright enough that Darkness never filled where it otherwise would. The glow is
+    `ActorMagicCaster::light`. The engine caches the light level on the process and reads it back:
+    - `GetLightLevel`'s condition function (ID 21783) → ID 37775 → `middleHigh +0x3A8`.
+    - ID 39946 refills that cache. It is called from ID 40447 +0x541 and ID 41381 +0x1C7. It sums each light's
+      diffuse × `fade` (`+0x11C` / `+0x134` in the sum at RVA `0x150F930`). It then stamps `middleHigh +0x3B0`
+      and clears the force flag at `middleLow +0x328`.
+
+    For the player, the DLL wraps both calls:
+    1. It runs the update once with the four casters' light `fade` set to 0 and keeps that cache value for
+       Darkness.
+    2. It puts the fades, the stamp and the flag back, and runs the real update.
+
+    Sneak detection still sees the glow; only Darkness ignores it. Darkness reads its value by swapping it into the
+    cache around `GetLightLevel`, so the scale is unchanged. Torches and light spells still count. Unverified in game.
 - **Nightblade on Darkness** (2026-10-28, DLL 1.1.0, records `0xAF3–0xAF4`): Triumvirate's proc
   (`TVR_Shadow_Spell_Nightblade_Proc 335B4F`, cast by `TVR_BlinkStrikes_Script` on each `PowerAttack_Start_End`) deals a
   flat 45, and its `335B52` (`TVR_PercentageDamage_Script`, disassembled: `akCaster.DamageActorValue(magicka, 50%)`)
   only *takes* half the caster's Mana - the damage never read it. Prophecy now **owns `335B4F`** (the Triumvirate Enderal
-  patch's record + a condition on `335B52`: PlayerRef lacks Gather Shadows), so tree users lose no Mana. The DLL watches
+  patch's record without `335B52`; until 2026-10-30 a condition kept it for tree-less tome users), so no one loses Mana. The DLL watches
   the proc's `TESHitEvent`s (one spend per target per 0.5 s), spends half the Darkness (rounded up) and casts
   `ZP_Prophecy_Nightblade_DarknessDamage` (a copy of the proc's damage effect `335B51` minus its dash-keyword condition)
   from the player with magnitude 15 per point (`NIGHTBLADE`). A full meter: 5 spent, 45 + 75. Unverified in game.
+  - **Description (2026-10-30).** A player reported that "the damage still scales with half of your mana". The spell's
+    magic-menu text is the buff effect's (`TVR_Shadow_Rift_Effect_Nightblade 335B49`), which still said the dash
+    converts 50% of your Magicka into bonus damage (Triumvirate's text, wrong even for Triumvirate: its scripts only
+    take the Mana). Prophecy now **owns `335B49`** too, with only the description changed (Darkness only).
+- **No Mana in the Shadow spells** (2026-10-30, curator: "Shadow / Darkness spells should not have any ties to mana";
+  `write_shadow_no_mana` + `write_nightblade` in `tools/01`). The spells' scripts never read Magicka (Shockwave,
+  ShadowDance, Flash, Pull, BlinkStrikes, PercentageDamage disassembled); every tie was in the records, and each is
+  gone **for everyone** (no other plugin overrides these records). Prophecy **owns** them:
+  - Nightblade's proc `335B4F`: the drain `335B52` is removed, not just conditioned on Gather Shadows.
+  - Draining Shroud's cloak proc `31C5BE`: its Absorb Magicka `31C5BD` is removed (Health absorb kept), and the
+    description of `31C5C0` says Health only.
+  - Shadow Dance (Nightfall casts it): its 12 dash effects (`30818C–30818F`, `30D293–30D29A`) needed 10 Magicka and
+    took it as a Magicka value modifier. They are now script effects without the Magicka condition, so the dash is
+    free; the `308189` description drops "for 10 Magicka".
+  - Casting costs are unchanged: with Gather Shadows the DLL pays them in Darkness; without it they cost Mana as before.
+  - **Draining Shroud builds Darkness** (DLL 1.3.0, 2026-10-30, curator: "let draining shroud slowly build up darkness
+    like an absorb from enemies"). Its cloak proc `31C5BE` re-applies the Health absorb `31C5BC` to each nearby enemy
+    about once a second, and that effect sends hit events. The DLL counts the proc's `TESHitEvent`s with the player as
+    cause (one per target per 0.9 s), and every `SHROUD_DARKNESS['TicksPerPoint']` = 4 ticks adds a point. One enemy
+    gives a point every ~4 s, three every ~1.3 s. Light does not drain the meter within 1.5 s of a tick. Shadow tree
+    only (`Active()`). The talent text and `31C5C0` say so. Unverified in game: if the meter never moves, check
+    `ZenProphecyDarkness.log` for `Darkness n -> n+1 (Draining Shroud on …)` lines; none would mean the cloak's
+    applications send no hit events.
+
+  A scan of every record under the six Shadow spells (effects, the spells their scripts cast, their effects) finds no
+  Magicka left. Unverified in game.
 - **Darkness talent** (`shd7`, 2026-10-28, `SHADOW_LATE_NODES_2`, after Shade Veil): perk `0xAED`, then a copy of
   Triumvirate's Darkness spell chain `0xAEE–0xAF2` (spell from Magic Patches' winning record, effect / impact set /
   impact / hazard from the Triumvirate Enderal patch), granted by the menu, 2 Darkness. Its hazard wears
@@ -322,6 +363,14 @@ It sits between Glory and Arcane Archery. Records are allocated after Shadow (`D
   tomes never sold: their injector quests target vanilla tome lists Enderal lacks (`0FDE79`, `0A272F`, `0A2982`,
   `0A2737`, `0A2984`), Aero's a Dragonborn stub list; Obscure Magic's SPID ini is not installed. Prophecy's own
   spells have no tomes. The debug cheat chest `41EC95` still holds the bundles. Unverified in game.
+  - **Triumvirate equivalents too (curator, 2026-10-30: "no spells from ANY of the prophecy talent mod should be able
+    to be purchased as tomes").** Darkness `3727C3` (the Darkness talent is our copy of it) and Nightfall `31C5B8` (the
+    Nightfall power casts it) were still sold. Both are now in the set: 12 tomes out of 16 bundles (new:
+    `TVR_Tomes_Litem_Shadow_025_Illusion 4381E6`, `..._Shadow_100_Illusion 4381EF`). A check of every Triumvirate tome
+    against the spells Prophecy references, copies or names finds none left for sale. Shadow Dance and Shadow Stride stay
+    sold: no talent grants them, Nightfall only buffs them if known. The other sources' matching tomes (Aero's Twister,
+    Shatterveil's Blink Step/Orbit Ward/Twin Effigies) reach no list: no LVLI or SkyPatcher ini holds them, and Holy
+    Templar Magic is not installed.
 - **Totems are Elementalism (curator, 2026-10-28).** Triumvirate's Water/Tree/Earth Totems were Conjuration (Entropy).
   The school sits on each spell's effect (`3BE79E`, `3C89CF`, `35E36C`); Magic Patches owns the three spells (prices),
   so Prophecy overrides only the effects: the winning record verbatim with `MagicSkill: Destruction`

@@ -1,0 +1,57 @@
+FormKey: 30818F:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Walk_Effect_ShadowDance_Proc_3
+VirtualMachineAdapter:
+  Scripts:
+  - Name: TVR_ShadowDance_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: TVR_AngleDelta
+      Data: 270
+    - MutagenObjectType: ScriptFloatProperty
+      Name: TVR_DistanceInFront
+      Data: 426
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TVR_ImpactSound
+      Object: 025EC9:Triumvirate - Mage Archetypes.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: TVR_Speed
+      Data: 10000
+Name:
+  TargetLanguage: English
+  Value: Shadow Dance Left
+MenuDisplayObject: 2FDF85:Triumvirate - Mage Archetypes.esp
+Flags:
+- Detrimental
+- NoHitEvent
+- NoDuration
+- NoArea
+- HideInUI
+- NoHitEffect
+BaseCost: 5
+MagicSkill: Alteration
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetVATSLeftAreaFreeConditionData
+  ComparisonValue: 426
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetMovementDirectionConditionData
+  ComparisonValue: 4

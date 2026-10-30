@@ -29,15 +29,5 @@ Effects:
   Data:
     Magnitude: 45
     Duration: 1
-- BaseEffect: 335B52:Triumvirate - Mage Archetypes.esp
-  Data: {}
-  Conditions:
-  - MutagenObjectType: ConditionFloat
-    Data:
-      MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
-      Perk: 000A6E:Zenderal - Prophecy.esp
-    ComparisonValue: 0
 - BaseEffect: 381AFB:Triumvirate - Mage Archetypes.esp
   Data: {}
