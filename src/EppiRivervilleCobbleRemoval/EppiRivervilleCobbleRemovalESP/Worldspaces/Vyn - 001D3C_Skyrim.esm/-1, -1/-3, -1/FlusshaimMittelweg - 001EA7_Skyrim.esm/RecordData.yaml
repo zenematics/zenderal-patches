@@ -305,3 +305,78 @@ Temporary:
   Placement:
     Position: -84078.72, -22957.35, -30000
     Rotation: 0.017453292, 0.017453292, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B9A:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B3E:EPPIriverville.esp
+  Scale: 0.7
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -83883.29, -22933.523, -30000
+    Rotation: 0.034906585, 6.2482786, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B9B:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B3E:EPPIriverville.esp
+  Scale: 0.7
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -83769.36, -22851.045, -30000
+    Rotation: 0.06981317, 6.213372, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B9C:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B3E:EPPIriverville.esp
+  Scale: 0.7
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -83753.12, -22971.988, -30000
+    Rotation: 0.05235988, 6.213372, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B9D:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B3E:EPPIriverville.esp
+  Scale: 0.7
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -83795.164, -22713.215, -30000
+    Rotation: 0, 6.2482786, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B9E:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B3E:EPPIriverville.esp
+  Scale: 0.7
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -83649.945, -22676.158, -30000
+    Rotation: 0, 6.2482786, 0

@@ -1,0 +1,22 @@
+FormKey: 000815:_Fuse00_AdventurerArmor.esp
+VersionControl: 11950
+EditorID: _Fuse00_Adv_Boots_Recipe
+Items:
+- Item:
+    Item: 05ACE4:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0800E4:Skyrim.esm
+    Count: 2
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ActorValue: Smithing
+  ComparisonValue: 20
+CreatedObject: 000813:_Fuse00_AdventurerArmor.esp
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 1

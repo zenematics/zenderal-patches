@@ -56,6 +56,18 @@ BASE = ["Skyrim.esm", "Update.esm", "Enderal - Forgotten Stories.esm"]
 EGO = "Enderal SE - Gameplay Overhaul.esp"
 DONORS = [EGO, "Enderal SE - Bug Fixes.esp",
           "Audio Overhaul Skyrim.esp", "Audio Overhaul - Enderal patch.esp"]
+# Records another Zenderal plugin owns (one owner per record, CLAUDE.md): never emitted here.
+OWNED_ELSEWHERE = {"Zenderal - Moonsteel Pretty Patch.esp"}
+# Face mods: their NPC face fields are forwarded by 03-forward-npc-faces.py, so they are never the
+# visual winner here (Tealor's chain ends in MB - EGO, after Pretty Holy Order Grandmaster's outfit).
+FACE_MODS = {"Malphas' Blessing - Enderal.esp", "MB - EGO.esp"}
+
+
+def visual_winner(chain):
+    """The plugin whose looks the patch keeps: the last one in the chain that is neither a gameplay
+    donor nor a face mod. Not simply chain[-1]: since 2026-10 Audio Overhaul loads after the Pretty
+    plugins, and taking its record dropped Pretty's boot meshes."""
+    return next(p for p in reversed(chain) if p not in DONORS and p not in FACE_MODS)
 
 TREES = {
     "Skyrim.esm": os.path.join(REF, "base", "Skyrim"),
@@ -174,9 +186,9 @@ def same(field, a, b):
 
 
 def merge_record(typ, fk, chain):
-    winner = chain[-1]
+    winner = visual_winner(chain)
     base = [p for p in chain if p in BASE][-1]
-    donors = [p for p in chain[:-1] if p in DONORS]
+    donors = [p for p in chain if p in DONORS and p != winner]  # applied in load order, before or after the winner
     B = load(base, fk)
     W = load(winner, fk)
     D = {p: load(p, fk) for p in donors}
@@ -268,7 +280,7 @@ def merge_record(typ, fk, chain):
         out[f] = val
         changed.append(f)
 
-    if not changed:
+    if not changed and winner == chain[-1]:
         return None, []
     # place fields the winner lacks right after their predecessor in the donor/base file
     order = list(W.keys())
@@ -301,7 +313,9 @@ def main():
         owner = fk.split(":", 1)[1]
         if owner.startswith("Pretty") or not any(p.startswith("Pretty") for p in chain):
             continue
-        if not any(p in DONORS for p in chain[:-1]):
+        if not any(p in DONORS for p in chain if p != visual_winner(chain)):
+            continue
+        if any(p in OWNED_ELSEWHERE for p in chain):
             continue
         candidates += 1
         lines, changed = merge_record(typ, fk, chain)
@@ -309,15 +323,15 @@ def main():
             continue
         for f in changed:
             stats[(typ, f)] += 1
-        per_winner[chain[-1]] += 1
-        name = os.path.basename(index(chain[-1])[fk])
+        per_winner[visual_winner(chain)] += 1
+        name = os.path.basename(index(visual_winner(chain))[fk])
         d = os.path.join(ESP, FOLDER[typ])
         os.makedirs(d, exist_ok=True)
         text = "\r\n".join(lines) + "\r\n"
         with open(os.path.join(d, name), "w", encoding="utf-8", newline="") as f:
             f.write(text)
         referenced |= set(FK_RE.findall(text))
-        referenced.add(chain[-1])  # master every winner so the engine enforces load-after
+        referenced.add(visual_winner(chain))  # master every winner so the engine enforces load-after
         written += 1
 
     # ---- masters: everything referenced or overridden, in live load order ------------------

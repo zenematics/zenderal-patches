@@ -18,7 +18,7 @@
 // Log: My Games/Skyrim Special Edition/SKSE/ZenRagdollTrace.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 0, 0 },
+	.Version = REL::Version{ 1, 1, 0, 0 },
 	.Name = "ZenRagdollTrace"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -155,12 +155,128 @@ namespace
 		}
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
+
+	// 1.1.0: dead bodies vanishing on the killing blow (sometimes gone, sometimes back after a few seconds, sometimes
+	// flung). Every death starts a DEATH trace sampled from the player's update, so it keeps going while the corpse's
+	// own update stops or its 3D is gone: 20 Hz for kDeathFastMs, then 4 Hz until kDeathTraceMs.
+	constexpr std::int64_t kDeathTraceMs = 15000;
+	constexpr std::int64_t kDeathFastMs = 4000;
+
+	struct DeathTrace
+	{
+		std::int64_t   startMs{ 0 };
+		std::int64_t   lastSampleMs{ 0 };
+		RE::NiPoint3   startPos{};
+		std::uintptr_t last3D{ 0 };
+	};
+
+	std::unordered_map<RE::FormID, DeathTrace> g_deaths;
+
+	void CountGeometry(RE::NiAVObject* a_obj, bool a_culledAbove, int& a_total, int& a_hidden)
+	{
+		if (!a_obj) {
+			return;
+		}
+		const bool culled = a_culledAbove || a_obj->GetAppCulled();
+		if (a_obj->AsGeometry()) {
+			++a_total;
+			if (culled) {
+				++a_hidden;
+			}
+		}
+		if (auto* node = a_obj->AsNode()) {
+			for (auto& child : node->GetChildren()) {
+				CountGeometry(child.get(), culled, a_total, a_hidden);
+			}
+		}
+	}
+
+	void SampleDeath(RE::FormID a_id, DeathTrace& a_trace, std::int64_t a_now)
+	{
+		auto* actor = RE::TESForm::LookupByID<RE::Actor>(a_id);
+		if (!actor) {
+			SKSE::log::info("{:>8} {:08X} DEATH form gone", a_now, a_id);
+			return;
+		}
+		auto*      root = actor->Get3D();
+		const auto ptr = reinterpret_cast<std::uintptr_t>(root);
+		const auto pos = actor->GetPosition();
+		int        total = 0, hidden = 0;
+		CountGeometry(root, false, total, hidden);
+		std::string pelvis = "none";
+		if (root) {
+			if (auto* p = root->GetObjectByName("NPC Pelvis [Pelv]"sv)) {
+				pelvis = std::format("{:.0f},{:.0f},{:.0f}", p->world.translate.x, p->world.translate.y, p->world.translate.z);
+			} else {
+				pelvis = std::format("root {:.0f},{:.0f},{:.0f}", root->world.translate.x, root->world.translate.y, root->world.translate.z);
+			}
+		}
+		auto* player = RE::PlayerCharacter::GetSingleton();
+		SKSE::log::info("{:>8} {:08X} DEATH 3D={}{} rootCulled={} geom={}/{} hidden disabled={} deleted={} alpha={:.2f} "
+						"ragdoll={} knock={} pos={:.0f},{:.0f},{:.0f} moved={:.0f} pelvis={} distPlayer={:.0f} cell={:08X}",
+			a_now, a_id, root ? "yes" : "NO", ptr != a_trace.last3D && a_trace.last3D ? " (NEW 3D)" : "",
+			root ? root->GetAppCulled() : false, hidden, total, actor->IsDisabled(), actor->IsMarkedForDeletion(),
+			actor->GetAlpha(), actor->IsInRagdollState(), std::to_underlying(actor->AsActorState()->GetKnockState()),
+			pos.x, pos.y, pos.z, pos.GetDistance(a_trace.startPos), pelvis,
+			player ? pos.GetDistance(player->GetPosition()) : -1.0f, actor->GetParentCell() ? actor->GetParentCell()->GetFormID() : 0);
+		a_trace.last3D = ptr;
+	}
+
+	struct DeathSink : RE::BSTEventSink<RE::TESDeathEvent>
+	{
+		RE::BSEventNotifyControl ProcessEvent(const RE::TESDeathEvent* a_event, RE::BSTEventSource<RE::TESDeathEvent>*) override
+		{
+			if (!a_event || !a_event->actorDying) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			auto* actor = a_event->actorDying->As<RE::Actor>();
+			if (!actor || actor->IsPlayerRef()) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			const auto now = NowMs();
+			auto*      killer = a_event->actorKiller.get();
+			SKSE::log::info("{:>8} {:08X} DEATH event {} {} killer {:08X}", now, actor->GetFormID(),
+				a_event->dead ? "dead" : "dying", Describe(actor), killer ? killer->GetFormID() : 0);
+			std::scoped_lock l{ g_lock };
+			auto [it, fresh] = g_deaths.try_emplace(actor->GetFormID());
+			if (fresh || now - it->second.startMs > kDeathTraceMs) {
+				it->second = DeathTrace{ now, 0, actor->GetPosition(), reinterpret_cast<std::uintptr_t>(actor->Get3D()) };
+			}
+			SampleDeath(actor->GetFormID(), it->second, now);
+			return RE::BSEventNotifyControl::kContinue;
+		}
+	};
+
+	struct PlayerUpdate
+	{
+		static void thunk(RE::PlayerCharacter* a_this, float a_delta)
+		{
+			func(a_this, a_delta);
+			const auto      now = NowMs();
+			std::scoped_lock l{ g_lock };
+			for (auto it = g_deaths.begin(); it != g_deaths.end();) {
+				auto& t = it->second;
+				const auto age = now - t.startMs;
+				if (age > kDeathTraceMs) {
+					SKSE::log::info("{:>8} {:08X} DEATH trace end", now, it->first);
+					it = g_deaths.erase(it);
+					continue;
+				}
+				if (now - t.lastSampleMs >= (age < kDeathFastMs ? 50 : 250)) {
+					t.lastSampleMs = now;
+					SampleDeath(it->first, t, now);
+				}
+				++it;
+			}
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenRagdollTrace 1.0.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenRagdollTrace 1.1.0 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::log::info("knock: 0 normal, 1 explode, 2 explodeLeadIn, 3 out, 4 outLeadIn, 5 queued, 6 getUp, 7 down");
 
 	// Character's vtables: [0] TESForm/Actor, [2] BSTEventSink<BSAnimationGraphEvent>, [3] IAnimationGraphManagerHolder.
@@ -171,5 +287,15 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_Character[3] };
 	NotifyAnimationGraph::func = graphVtbl.write_vfunc(0x1, NotifyAnimationGraph::thunk);
 	SKSE::log::info("Character Update, graph event sink and NotifyAnimationGraph hooked");
+
+	REL::Relocation<std::uintptr_t> playerVtbl{ RE::VTABLE_PlayerCharacter[0] };
+	PlayerUpdate::func = playerVtbl.write_vfunc(0xAD, PlayerUpdate::thunk);
+	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
+		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {
+			static DeathSink sink;
+			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESDeathEvent>(&sink);
+			SKSE::log::info("death event sink registered; DEATH lines: 3D, culled, visible geometry, position, pelvis");
+		}
+	});
 	return true;
 }

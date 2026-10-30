@@ -153,6 +153,7 @@ List-wide traps that are not tied to one Zenderal patch.
   (previous file in `E:/Zenderal-backups/2026-10-23-skysync-test/`). Turning lightning off in the weathers would only
   have hidden it. Don't toggle Sky Sync live under MO2 (shader recompile crash); use Disable at Boot.
   **Tuning does not fix it (tested in game 2026-10-23):** Sky Sync on with `ShadowTransitionDuration` 0 still swept, and so did `UseAlternateSunPath` false (transition back at 300). The sweep comes from Sky Sync's always-on job of deriving the light direction from the sun's sky position, which a strike moves; its other options only cover dawn/dusk/night. **Decision: Sky Sync stays off** (Disable at Boot). Re-enable only if Bottled Shaders fixes it (worth reporting: reproducible in any storm with lightning, unaffected by those two settings).
+  **Superseded 2026-10-29:** the curator turned Sky Sync back on. A trace ([`patches/ZenSkySyncTrace.md`](../patches/ZenSkySyncTrace.md)) showed the explanation above was wrong: the sun never moves. The strike tilts the *directional light* to about 85° for the 0.5 s flash, and the sun shadows follow it up and down. [`patches/SkySyncLightningFix.md`](../patches/SkySyncLightningFix.md) holds the light on its pre-strike direction during flashes; verified in game 2026-10-29. **Sky Sync stays on.**
 
 - **Enderal Retexture Project - PBR Conversion (Enderal Nexus 1063, "SPR PBR" 1.0.0) is installed without its landscape
   half (2026-10-24, curator's test).** Why: SRP's own `brickwall01` (Silvergrove/desert walls, `wall02.nif`) is SureAI's 2014

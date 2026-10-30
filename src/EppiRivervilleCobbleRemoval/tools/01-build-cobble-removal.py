@@ -5,9 +5,14 @@ copies of its own static NorPlatBgFloorRaised01_EPPIrivervillecobble (STAT 029B4
 model NorPlatBgFloorRaised01.nif): pale raised cobble plates laid over the streets of seven Riverville
 exterior cells. The curator wants them gone.
 
-This disables all 98 the xEdit way (InitiallyDisabled, enable parent PlayerRef opposite, z -30000),
-copying every ref verbatim from EPPI. No list plugin overrides any of them (binary load-order scan,
-2026-10-20). Headers are forwarded from each record's last overrider in the Ultra load order:
+2026-10-30: also its 10 RoadChunkM04_EPPIriverville_grass02 (STAT 029B3E:EPPIriverville.esp) in
+FlusshaimHonigpresse and FlusshaimMittelweg. Their alternate texture puts the PBR cobblestone set 007E18
+(PBR Landscapes of Vyn.esp) on the road shape PG Patcher leaves non-PBR, so they rendered white (player
+report near the Forgotten Basement). The plates had the same pale look.
+
+This disables all 108 the xEdit way (InitiallyDisabled, enable parent PlayerRef opposite, z -30000),
+copying every ref verbatim from EPPI. No list plugin overrides any of them (binary load-order scans,
+2026-10-20 and 2026-10-30). Headers are forwarded from each record's last overrider in the Ultra load order:
   WRLD Vyn 001D3C        <- Water for Enderal CS.esp (its own LodWater 000802 -> mastered)
   CELL 001EB1 / 001EA7   <- Zenderal - RiverBush.esp (repo YAML, src/RiverBush)
   CELL 001EB9 / 001E9C / 001EA6 / 001EB0 / 001EB2  <- EPPIriverville.esp
@@ -28,8 +33,9 @@ RIVERBUSH = os.path.join(ROOT, "src", "RiverBush", "RiverBushESP", "Worldspaces"
 OUT = os.path.join(ROOT, "src", "EppiRivervilleCobbleRemoval", "EppiRivervilleCobbleRemovalESP")
 OUTWS = os.path.join(OUT, "Worldspaces", WS)
 CRLF = "\r\n"
-BASE = "  Base: 029B46:EPPIriverville.esp"
-EXPECTED = 98
+BASES = {"  Base: 029B46:EPPIriverville.esp": 98,   # raised cobble plates
+         "  Base: 029B3E:EPPIriverville.esp": 10}   # grass/cobble road pieces
+EXPECTED = sum(BASES.values())
 HEADER_FROM = {  # cell folder -> tree whose header wins
     "FlusshaimZentrum - 001EB1_Skyrim.esm": RIVERBUSH,
     "FlusshaimMittelweg - 001EA7_Skyrim.esm": RIVERBUSH,
@@ -69,7 +75,7 @@ def trailer(text):
 
 
 def cobble_blocks(text):
-    """Every '- MutagenObjectType:' item under Temporary whose Base is the cobble static, verbatim."""
+    """Every '- MutagenObjectType:' item under Temporary whose Base is one of BASES, verbatim."""
     lines = text.split(CRLF)
     try:
         start = lines.index("Temporary:")
@@ -82,7 +88,7 @@ def cobble_blocks(text):
             while j < len(lines) and lines[j].startswith("  "):
                 j += 1
             block = lines[i:j]
-            if BASE in block:
+            if any(b in block for b in BASES):
                 blocks.append(block)
             i = j
         else:
@@ -132,6 +138,7 @@ for rel in [(SUB[0], "GroupRecordData.yaml"), (SUB[0], SUB[1], "GroupRecordData.
     shutil.copyfile(os.path.join(EPPI, *rel), os.path.join(OUTWS, *rel))
 
 total = 0
+per_base = dict.fromkeys(BASES, 0)
 for cell, htree in HEADER_FROM.items():
     eppi_text = read(os.path.join(EPPI, *SUB, cell, "RecordData.yaml"))
     blocks = cobble_blocks(eppi_text)
@@ -139,12 +146,13 @@ for cell, htree in HEADER_FROM.items():
         raise SystemExit(f"{cell}: no cobble refs found")
     body = ["Temporary:"]
     for b in blocks:
+        per_base[next(x for x in BASES if x in b)] += 1
         body += disabled(b)
     head_text = read(os.path.join(htree, *SUB, cell, "RecordData.yaml"))
     write(os.path.join(OUTWS, *SUB, cell, "RecordData.yaml"), header(head_text) + CRLF.join(body) + CRLF + trailer(head_text))
     total += len(blocks)
     print(f"{cell}: {len(blocks)} cobble refs disabled (header from {os.path.basename(os.path.dirname(os.path.dirname(os.path.dirname(htree))))})")
 
-if total != EXPECTED:
-    raise SystemExit(f"expected {EXPECTED} disabled refs, wrote {total}")
+if per_base != BASES:
+    raise SystemExit(f"expected {BASES} disabled refs per base, wrote {per_base}")
 print(f"wrote {total} disabled refs to {OUTWS}")

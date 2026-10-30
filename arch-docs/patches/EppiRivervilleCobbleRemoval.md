@@ -44,6 +44,25 @@ plugins.txt.
 
 The refs are plugin records, not save state, so the plates disappear on an existing save too.
 
+## White road pieces (2026-10-30)
+
+Player report (Ehlengast): white ground in front of Riverville's Forgotten Basement. EPPI also places 10
+copies of `RoadChunkM04_EPPIriverville_grass02 029B3E:EPPIriverville.esp` (`RoadChunkM04.nif`), 5 in
+`FlusshaimHonigpresse 001EB2` (`029B3F`–`029B43`) and 5 in `FlusshaimMittelweg 001EA7` (`029B9A`–`029B9E`).
+Its alternate textures put TXST `013429` on shape `RoadChunkM04:2` and `007E18` on `RoadChunkM04:0`.
+
+**[verified 2026-10-30 on the Ultra profile]** `PG_1.esp` (PG Patcher) repoints the static at its duplicate
+`_pgpatcher_dups\1\landscape\roads\roadchunkm04.nif` and keeps both swaps. In that mesh `RoadChunkM04:0` is
+on the environment-map shader (type 1, no PBR flag) while the winning `007E18` is
+`PBR Landscapes of Vyn.esp`'s PBR set (`pbr\landscape\cobblestone02` + `_n`, `_rmaos`, `_p`); the grass
+shape and `013429` (`Tomato's PBR Landscapes.esp`) are both PBR. All the textures exist. A PBR set on a
+non-PBR shader is the likely cause of the flat white; the plates (`029B46`, PG's own set `00005A`) were the
+"pale plates" this patch first removed. Not confirmed by clicking the white patch in game.
+
+Fix: the 10 road pieces are disabled the same way (now 108 refs). Disabling, rather than overriding the
+static's alternate textures, survives PG Patcher reruns, which rewrite `PG_1.esp`'s copy of `029B3E`. A
+binary scan of the Ultra load order found no plugin overriding the 10 refs.
+
 ## Regenerating
 
 1. Re-serialize `EPPIriverville.esp` into `reference/mods/EPPIriverville` and
@@ -51,6 +70,6 @@ The refs are plugin records, not save state, so the plates disappear on an exist
 2. Re-check the header winners in the table above.
 3. Run `python src/EppiRivervilleCobbleRemoval/tools/01-build-cobble-removal.py`.
 
-The script asserts 98 refs. It refuses to build if any ref is already disabled, enable-parented or
+The script asserts 98 plates and 10 road pieces. It refuses to build if any ref is already disabled, enable-parented or
 flagged upstream. Note that `src/RiverBush`'s YAML is LF while reference decompiles are CRLF; the
 script normalizes both on read.

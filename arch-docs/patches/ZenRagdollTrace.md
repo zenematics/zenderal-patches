@@ -40,3 +40,35 @@ For every non-player actor (hooks on the `Character` vtable, so the player is sk
 
 An actor is traced for 20 s after any event containing `ragdoll`, `getup`, `death`, `charactercontroller` or
 `reanimat`. A rigid hang shows as `pelvisZ` frozen while `STATE` lines keep coming.
+
+## 1.1.0: vanishing corpses (2026-10-30)
+
+Curator: on a killing blow, enemies of any kind often vanish instead of falling: sometimes for good, sometimes back
+a few seconds later, sometimes flung away. 1.1.0 adds a `DEATH` trace: every `TESDeathEvent` (dying and dead, with the
+killer) starts a 15 s trace, sampled from the **player's** update (`PlayerCharacter` vtable [0], vfunc 0xAD), so it keeps
+logging while the corpse's own update stops or its 3D is gone. 20 Hz for the first 4 s, then 4 Hz.
+
+| Field | Tells apart |
+|---|---|
+| `3D=NO` / `(NEW 3D)` | 3D unloaded / rebuilt (a reload is "gone, then back") |
+| `rootCulled`, `geom=hidden/total` | 3D present but hidden (a hide script or a culled slot) |
+| `disabled`, `deleted`, `alpha` | the reference disabled, deleted or faded by a script |
+| `pos`, `moved`, `pelvis` | flung (pelvis far from the death spot) vs reference moved |
+| `distPlayer`, `cell` | left the loaded area |
+
+Mods in play at the time (Ultra): Death Drop Overhaul 1.3.6 (gear only, clean log), Guaranteed Death Animations,
+UNDERDOG Death Animations (OAR), No Spinning Death Animation, Precision + Precision Creatures, Core Impact Framework,
+Dismembering Framework, Immersive Death Cycle (+ Enderal patch: corpse swaps on animals/Falmer only, by SPID race,
+so not humans). Wabbajack-ignored. Results: pending.
+
+Leads before the trace (settings read 2026-10-30, web search):
+- **Dismembering Framework cuts on ~every killing blow**: `Zenderal - Settings`' `DismemberingFramework.ini` sets
+  regular and power-attack chance 1.0 for every weapon type. A cut is already known here to rebuild the corpse's 3D
+  (blink, then back) and, with a limb hull that overlaps the body, to fling the corpse
+  ([`LostOnesDismembering.md`](LostOnesDismembering.md), spiders).
+- **Precision's kill impulse is on**: our `Precision.ini` turns only `bApplyImpulseOnHit` off; `bApplyImpulseOnKill` stays
+  at Precision's default 1 (`fHitImpulseKillMult` 1). UNDERDOG Death Animations' page advises turning kill impulse off
+  because killmoves otherwise make the dead NPC ragdoll wildly. **Turned off 2026-10-30** (`bApplyImpulseOnKill = 0`
+  added to `Zenderal - Settings/MCM/Settings/Precision.ini`; original in `E:/Zenderal-backups/Precision-killimpulse-2026-10-30`).
+  Curator's symptom then: on a dismember the corpse jumps in a blink instead of falling. Unverified in game.
+- FSMP: an hdtSMP64 issue (#104) reports corpses warped away at huge speed by SMP physics on the body.

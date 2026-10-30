@@ -8,6 +8,14 @@ Conditions:
 - MutagenObjectType: ConditionFloat
   CompareOperator: GreaterThanOrEqualTo
   Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ActorValue: Smithing
+  ComparisonValue: 1000
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
     MutagenObjectType: GetBaseActorValueConditionData
     ActorValue: Smithing
   ComparisonValue: 75

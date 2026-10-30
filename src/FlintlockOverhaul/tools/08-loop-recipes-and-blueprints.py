@@ -5,8 +5,9 @@ LeveledItems/_00ETraderCraftingPlans 137A06; re-run this instead.
 1. Loop's "Simple Pistol Shooting Animation" (Pistol animation by Loop.esp) ships 8 example guns as staves on soul
    gems, each with a forge recipe the player can always use (it needs DwarvenSmithing 0CB40E, which the Player
    record starts with). Curator 2026-10-22: every pistol runs on Flintlock Bullets, and the soul-gem crossbows go.
-   - the 4 Hunter Pistol recipes stay; 01-build-damage.py converts the pistols themselves;
-   - the 4 Hunter Crossbow recipes are hidden with Smithing >= 1000 (the DAR Rifles Recipes Off pattern).
+   Curator 2026-10-30: the Hunter Pistols go too (Loop's animation examples, not part of the list's armoury).
+   - all 8 recipes are hidden with Smithing >= 1000 (the DAR Rifles Recipes Off pattern); 01-build-damage.py
+     still converts the 4 Hunter Pistols, so one a player already crafted keeps firing bullets.
    Every recipe also loses its HearthFires.esm component: the DLC ESMs are empty stubs in Enderal, so the entry
    never resolved (Zenderal - Unresolved References Cleanup used to drop it; with this plugin's records winning
    there is nothing left for it to clean).
@@ -19,6 +20,15 @@ LeveledItems/_00ETraderCraftingPlans 137A06; re-run this instead.
    crossbow plan 000832, which reverted EGO's version (ChanceNone 0.05, all levels 1, 5 more plans). Rule: EGO's
    record verbatim + Crossbows' addition + the 5 pistol blueprints at level 1. This plugin then OWNS 137A06.
 
+3. The pack's 5 working pistol recipes (Flintlock Pistol, 4 Dueling Pistols) need Smithing N AND the blueprint
+   inside the folio's actor 02A3DB, which only holds what the player hands it through the folio book's menu
+   (_00E_FS_BlueprintContainerSpellSC: ShowGiftMenu, nothing automatic). Enderal's own recipes (EGO's winning
+   _03E_RecipeArmor_22_AssassinCuirassForged 13CAE1, ...) also accept the blueprint in the player's inventory:
+   Smithing, then GetItemCount(blueprint) on the subject with OR, then the folio check. Player report 2026-10-30:
+   a bought pistol blueprint showed no recipe at the forge. Each override = the pack's record verbatim with that
+   OR'd subject check inserted before its folio check. Its other 4 recipes (PMRecipeFlintlock02-05) create
+   000812-000815 with blueprints 00081E-000820, none of which exist in the pack: left alone.
+
 Run from the repo root: python -I src/FlintlockOverhaul/tools/08-loop-recipes-and-blueprints.py
 """
 import os
@@ -28,6 +38,7 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 OUT = os.path.join(ROOT, 'src', 'FlintlockOverhaul', 'FlintlockOverhaulESP')
 LOOP_SRC = os.path.join(ROOT, 'reference', 'mods', 'LoopPistol', 'ConstructibleObjects')
+PACK_SRC = os.path.join(ROOT, 'reference', 'mods', 'FlintlockPack', 'ConstructibleObjects')
 EGO_LIST = os.path.join(ROOT, 'reference', 'mods', 'EGO', 'LeveledItems', '_00ETraderCraftingPlansA - 137A06_Skyrim.esm.yaml')
 XBOW_LIST = os.path.join(ROOT, 'reference', 'mods', 'EnderalCrossbows', 'LeveledItems', '_00ETraderCraftingPlans - 137A06_Skyrim.esm.yaml')
 LOOP = 'Pistol animation by Loop.esp'
@@ -37,6 +48,8 @@ CROSSBOWS = {'000C24', '000C2A', '000C2B', '000824'}   # Hunter Crossbow, +1, +2
 PISTOLS = {'000802', '00080B', '00080C', '00080D'}     # Hunter Pistol, +1, +2, +3
 XBOW_ADDS = ['000832:' + XBOW]
 BLUEPRINTS = ['000800:' + FP, '000825:' + FP, '000826:' + FP, '000827:' + FP, '000828:' + FP]
+PACK_RECIPES = {'00081A', '000821', '000822', '000823', '000824'}  # Flintlock Pistol, Ancient/Priest's/Officer's/Aristocrat's
+FOLIO = '02A3DB:Enderal - Forgotten Stories.esm'
 DLC_STUBS = ('HearthFires.esm', 'Dawnguard.esm', 'Dragonborn.esm')
 NL = '\r\n'
 HIDE = ('- MutagenObjectType: ConditionFloat' + NL + '  CompareOperator: GreaterThanOrEqualTo' + NL + '  Data:' + NL +
@@ -78,10 +91,9 @@ for f in sorted(os.listdir(LOOP_SRC)):
     if dropped != 1:
         sys.exit('%s: expected one DLC-stub component, found %d' % (f, dropped))
     t = t.replace(items.group(0), ('Items:' + NL + ''.join(keep)) if keep else '')
-    if kind == 'crossbow':
-        if '\nConditions:' + NL not in t:
-            sys.exit('%s: no Conditions block to extend' % f)
-        t = t.replace('Conditions:' + NL, 'Conditions:' + NL + HIDE, 1)
+    if '\nConditions:' + NL not in t:
+        sys.exit('%s: no Conditions block to extend' % f)
+    t = t.replace('Conditions:' + NL, 'Conditions:' + NL + HIDE, 1)
     write('ConstructibleObjects', f, t)
     done[kind] += 1
 if done != {'pistol': 4, 'crossbow': 4}:
@@ -120,5 +132,36 @@ for f in os.listdir(d):
     if ' - 137A06_' in f:
         os.remove(os.path.join(d, f))
 write('LeveledItems', os.path.basename(EGO_LIST), out)
-print('Loop recipes: 4 pistol kept, 4 crossbow hidden; 137A06: %d EGO + %d Crossbows + %d blueprints = %d entries'
-      % (n_before, len(XBOW_ADDS), len(BLUEPRINTS), n_before + len(XBOW_ADDS) + len(BLUEPRINTS)))
+
+# ---------------------------------------------------------------- 3. the pack's pistol recipes
+d = os.path.join(OUT, 'ConstructibleObjects')
+for f in os.listdir(d):
+    if f.endswith('_%s.yaml' % FP):
+        os.remove(os.path.join(d, f))
+FOLIO_COND = re.compile(r'^- MutagenObjectType: ConditionFloat' + NL + '  CompareOperator: GreaterThanOrEqualTo' + NL +
+                        '  Data:' + NL + '    MutagenObjectType: GetItemCountConditionData' + NL +
+                        '    RunOnType: Reference' + NL + '    Reference: ' + re.escape(FOLIO) + NL +
+                        r'    ItemOrList: (\S+)' + NL + '  ComparisonValue: 1' + NL, re.M)
+fixed = []
+for f in sorted(os.listdir(PACK_SRC)):
+    m = re.search(r' - ([0-9A-F]{6})_', f)
+    if not m or m.group(1) not in PACK_RECIPES:
+        continue
+    t = read(os.path.join(PACK_SRC, f))
+    folio = FOLIO_COND.findall(t)
+    if len(folio) != 1 or folio[0] not in BLUEPRINTS:
+        sys.exit('%s: expected one folio check on a known blueprint, found %r' % (f, folio))
+    if t.count('GetItemCountConditionData') != 1:
+        sys.exit('%s: already checks the blueprint elsewhere' % f)
+    player = ('- MutagenObjectType: ConditionFloat' + NL + '  CompareOperator: GreaterThanOrEqualTo' + NL + '  Flags:' + NL +
+              '  - OR' + NL + '  Data:' + NL + '    MutagenObjectType: GetItemCountConditionData' + NL +
+              '    ItemOrList: ' + folio[0] + NL + '  ComparisonValue: 1' + NL)
+    t = FOLIO_COND.sub(lambda x: player + x.group(0), t, count=1)
+    write('ConstructibleObjects', f, t)
+    fixed.append(m.group(1))
+if set(fixed) != PACK_RECIPES:
+    sys.exit('pack recipes: fixed %r, expected %r' % (fixed, sorted(PACK_RECIPES)))
+
+print('Loop recipes: 4 pistol + 4 crossbow hidden; 137A06: %d EGO + %d Crossbows + %d blueprints = %d entries; '
+      '%d pack recipes accept the blueprint in the inventory'
+      % (n_before, len(XBOW_ADDS), len(BLUEPRINTS), n_before + len(XBOW_ADDS) + len(BLUEPRINTS), len(fixed)))

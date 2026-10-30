@@ -12,6 +12,14 @@ Items:
     Count: 1
 Conditions:
 - MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ActorValue: Smithing
+  ComparisonValue: 1000
+- MutagenObjectType: ConditionFloat
   Data:
     MutagenObjectType: HasPerkConditionData
     Perk: 0CB40E:Skyrim.esm
