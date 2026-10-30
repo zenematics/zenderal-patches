@@ -1393,6 +1393,19 @@
           "to": "SKSE/Plugins"
         }
       ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. WHEELER - Refined 1.3.4 writes its co-save JSON with nlohmann's dump(..., error_handler_t::strict) after opening the record; a weapon/armour named with Enderal's Windows-1252 accents (Kilean Falcata, Rhalata gear) makes it throw, so every save stored a 0-byte record and the next load cleared all wheels. Patches the two argument stores at wheeler.dll+0x1238A3 (timestamp 6AB24A10 only) through a stub within rel32 range to error_handler_t::replace. Verified in game. Build with src/WheelerSaveFix/build.cmd; compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - Wheeler Save Fix",
+      "archiveName": "Zenderal - Wheeler Save Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/WheelerSaveFix/compiled/ZenWheelerSaveFix.dll",
+          "to": "SKSE/Plugins"
+        }
+      ]
     }
   ]
 }
