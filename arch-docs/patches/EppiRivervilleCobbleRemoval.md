@@ -57,7 +57,8 @@ on the environment-map shader (type 1, no PBR flag) while the winning `007E18` i
 `PBR Landscapes of Vyn.esp`'s PBR set (`pbr\landscape\cobblestone02` + `_n`, `_rmaos`, `_p`); the grass
 shape and `013429` (`Tomato's PBR Landscapes.esp`) are both PBR. All the textures exist. A PBR set on a
 non-PBR shader is the likely cause of the flat white; the plates (`029B46`, PG's own set `00005A`) were the
-"pale plates" this patch first removed. Not confirmed by clicking the white patch in game.
+"pale plates" this patch first removed. **Verified in game 2026-10-30**: with the road pieces disabled, the
+white ground outside the Forgotten Basement is gone.
 
 Fix: the 10 road pieces are disabled the same way (now 108 refs). Disabling, rather than overriding the
 static's alternate textures, survives PG Patcher reruns, which rewrite `PG_1.esp`'s copy of `029B3E`. A
