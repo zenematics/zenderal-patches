@@ -205,7 +205,7 @@ Curator request after the 1.7.104 controller fixes. Applied by a script that bac
 | Button | Now | Before | Where |
 |---|---|---|---|
 | D-pad Up | Wheeler (`toggleWheel = 266`) | favourites Hotkey7 + mid stance on hold | Wheeler `Controls.ini` in Input Defaults **and** Personal Keybinds (enabled in Ultra; it wins) |
-| X | Ready Weapon (`0x4000`) | Wheeler | `ControlMap_Custom.txt` gamepad block, event 9 (was A+LB `0x10000100`), in Input Defaults and Personal Keybinds (+ its `Root/` copy) |
+| X | Ready Weapon (`0x4000`) | Wheeler | `ControlMap_Custom.txt` gamepad block, event 9 (was A+LB `0x10000100`), in `Zenderal - Settings/Root/` and `Personal Keybinds/Root/` (the `Data\` copies are hidden since 2026-10-30: they stopped in-game rebinds from persisting) |
 | D-pad Left / Down / Right, tap | Swift Potion Health / Mana / Stamina | favourites Hotkeys 6/8/5 | Gamepad++ preset (Input Defaults): single press sends the arrow keys Swift Potion's hotkeys 1–3 already use (203/200/205) |
 | hold A + D-pad Left / Right / Up / Down | stances neutral `[` / mid `'` / high `]` / low `;` | D-pad held alone | same preset, `Combo1` (A is combo key 1) |
 | D-pad Left / Right, double tap | L (lantern) / K | unchanged | same preset |

@@ -50,13 +50,19 @@ List-wide traps that are not tied to one Zenderal patch.
   key`, event = index in the live `controlmap.txt` Main Gameplay list (6 Left Attack, 7 Right
   Attack, 0x15 Favorites). Dual Wield Parrying numbers mouse buttons **+257**, not the CK's +256
   (right click 258, Mouse 5 261).
-  **The game READS `ControlMap_Custom.txt` from `Data\`, not the game root.** **[verified in game 2026-10-10]**
-  `SkyrimSE.exe` names it as a bare relative path next to `Interface/Controls/PC/ControlMap.txt`, and the
-  engine's loader resolves those against `Data\` — but in-game remaps are WRITTEN to the game root, where Root
-  Builder (copy mode) syncs them back over the winning mod's `Root\` copy on exit. Enabling **Complete Controller
-  Setup** (which ships a loose, stock-keyboard `ControlMap_Custom.txt` in its mod root = `Data\`) silently replaced
-  every keyboard bind; a file under `Root\` alone is never read. Fix: ship the map at the MOD ROOT of a mod that
-  outranks CCS (`Zenderal - Personal Keybinds` now carries it in both places). Also keep each block's entry count
+  **Ship `ControlMap_Custom.txt` ONLY under `Root\`; any copy in `Data\` makes in-game rebinds reset every launch.**
+  **[verified in game 2026-10-30]** `SkyrimSE.exe` loads the INI setting `sControlsRemapFile:Controls`
+  (`ControlMap_Custom.txt`) through `BSResourceNiBinaryStream`, so a `Data\` copy wins; with none, it reads the
+  game-root copy (Root Builder's). In-game remaps are WRITTEN by `BSWin32SaveDataSystemUtility` to the game root,
+  and Root Builder (copy mode) syncs them back over the winning mod's `Root\` copy on exit. So while
+  `Zenderal - Input Defaults` shipped the map in `Data\`, every rebind went to `Zenderal - Settings/Root` and the
+  next launch loaded Input Defaults' unchanged copy again (player report 2026-10-30). Since 2026-10-30 the list
+  default is `Zenderal - Settings/Root/ControlMap_Custom.txt` only; the `Data\` copies of Input Defaults,
+  Personal Keybinds and **Complete Controller Setup** (a loose stock-keyboard map that silently replaced every
+  keyboard bind when enabled, 2026-10-10) are `.mohidden`. Test: with only Root copies, Personal Keybinds'
+  Favorites-on-G worked and Q (`controlmap.txt`) did nothing; a Toggle POV rebind survived quitting and relaunching.
+  The game also re-saves the map unasked (same bindings, entries reordered), so a changed timestamp alone is not a rebind.
+  A Wabbajack update restores `Zenderal - Settings/Root`, so players' rebinds reset on list updates. Also keep each block's entry count
   = the live controlmap's remappable-flag count (header byte = `3 + 5×entries`; the controller controlmap makes
   Quick Stats keyboard-remappable, 26→27) and the gamepad block = that controlmap's defaults.
   **CCS also overrides five `Zenderal - Settings` files with controller-only values** — `MCM/Settings/OCPA.ini`
@@ -70,8 +76,8 @@ List-wide traps that are not tied to one Zenderal patch.
   OCPA and DWP take ONE key, so a keyboard and a controller default cannot coexist in one file. **Fixed
   2026-10-11 by the MO2 mod `Zenderal - Input Defaults`** (compiler Include + AlwaysEnabled; must sort ABOVE CCS
   and BELOW Personal Keybinds in priority): the list defaults from `Zenderal - Settings` / the original mods, with
-  controller values merged wherever a file has room — `ControlMap_Custom.txt` at Data root (Settings' `Root\` map,
-  already 27/25/12 against the controller controlmap), DWP `ParryKey2 = 280`, Wheeler gamepad section from CCS,
+  controller values merged wherever a file has room — `ControlMap_Custom.txt` (at Data root until 2026-10-30, now
+  only in Settings' `Root\`; 27/25/12 against the controller controlmap), DWP `ParryKey2 = 280`, Wheeler gamepad section from CCS,
   Stances F1–F4 plus `[ ] ; '` under extra `*_pad` names (Gamepad++ D-pad long presses send those keys — the
   duplicate-name lines work — **verified in game 2026-10-11** along with the rest of the mod, Personal Keybinds off), SkyUI MCM column buttons 280/281/273, TK Dodge Space + `EnableSprintKeyDodge`.
   Single-key files keep keyboard: OCPA 259 (controller holds RT), BTPS Shift+wheel, SKSE Menu Framework F7 (pad
