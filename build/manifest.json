@@ -1406,6 +1406,19 @@
           "to": "SKSE/Plugins"
         }
       ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. Hit Where You Aim re-aims every projectile whose shooter is the player at the crosshair, including RemoteCasts that blame the player from elsewhere (Prophecy's Smite and Wrath of the Heavens sky beams, fired from a marker above the target at scattered spots). Chains onto HWYA's ProjectileInitHook (the call to the projectile's initialisation, ID 44222 +0x78A) at kPostLoad: HWYA writes back every player-shooter projectile's pre-init angle, undoing the init's aim at a RemoteCast's target. Spell projectiles (no weapon/ammo source) starting more than 64 units from every player magic node and the head get only the game's function, ID 44184. Build with src/RemoteCastAimFix/build.cmd; compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - Remote Cast Aim Fix",
+      "archiveName": "Zenderal - Remote Cast Aim Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/RemoteCastAimFix/compiled/ZenRemoteCastAim.dll",
+          "to": "SKSE/Plugins"
+        }
+      ]
     }
   ]
 }

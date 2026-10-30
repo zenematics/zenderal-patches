@@ -57,5 +57,8 @@ one with the magic crosshair on).
 
 Installed 2026-10-29. Tagged "AI Assisted" and 10 days old on install. **Verified in game 2026-10-29** (Consecrate Dead hits the corpse under the crosshair in third person).
 
+Side effect, fixed by [`RemoteCastAimFix`](RemoteCastAimFix.md): HWYA also re-aimed projectiles a script fires
+in the player's name from elsewhere (Smite's scatter beams lost their targets, 2026-10-29).
+
 Side effect, fixed by [`HWYAMusketFix`](HWYAMusketFix.md): with the Easy preset HWYA's aim-pose solver
 pointed muskets straight up (fast near-zero-gravity balls lose its flat root, 2026-10-29).
