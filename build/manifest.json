@@ -1380,6 +1380,19 @@
           "dest": "Zenderal - HWYA Musket Fix.esp"
         }
       ]
+    },
+    {
+      "$comment": "No plugin - one SKSE DLL. Hit Where You Aim's aim-pitch hook (PlayerGetAimPitch, Hooks.cpp:358) reads player->GetCurrentAmmo()->data.projectile with no null check during bow/crossbow draw-to-follow-through; firing the last arrow or bullet unequips the ammo there and crashed the game (HitWhereYouAim.dll+0x2551C, read of 0x110). Chains onto HWYA's hook at the aim-pitch call (ID 37356 +0xC3A) at kPostLoad and gives exactly those empty-ammo frames the game's own function, ID 39880. Build with src/HWYAEmptyAmmoFix/build.cmd; compiled DLL committed because CI cannot build it.",
+      "name": "Zenderal - HWYA Empty Ammo Fix",
+      "archiveName": "Zenderal - HWYA Empty Ammo Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/HWYAEmptyAmmoFix/compiled/ZenHWYAEmptyAmmo.dll",
+          "to": "SKSE/Plugins"
+        }
+      ]
     }
   ]
 }
