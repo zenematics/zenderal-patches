@@ -2,7 +2,8 @@
 
 - **Source:** `src/UnifiedWaterEnderal/` (generated: `tools/00-scan-vyn-water.py` → `tools/01-build-vyn-full-extend.py`)
 - **Ships:** `Zenderal - Vyn Full Extend.esp` (generated binary, not committed; MO2 mod `Zenderal - Vyn Full Extend`)
-- **FormID block:** `0x800–0x6606` (new CELL + LAND pairs). **Full plugin, not ESL** (about 24,000 new records).
+- **FormID block:** `0x800–0x8562` (new CELL + LAND pairs; `0x6607` on added 2026-10-31; IDs of cells outside the
+  terrain LOD grid reserved, not used). **Full plugin, not ESL** (about 24,000 new records).
 - **Pillar:** modern visuals
 
 ## Why
@@ -53,6 +54,26 @@ removes Vyn cells. Unified Water rebuilds its cache by itself when the load orde
 use Regenerate Caches.
 
 ## Status
+
+**Real-grid fill, 2026-10-31.** The curator saw a tan strip and a lighter band far out to sea. `tools/01` chose which
+cells to fill by 0-aligned 32-cell chunks, but [`UnifiedWaterGridFix`](UnifiedWaterGridFix.md) draws Unified Water on
+Vyn's real LOD grid, which starts at −69, −55. The real chunks that straddle those boundaries still had 2,995 sea
+cells with no tile, and the terrain LOD showed them as flat tan seabed. Two other gaps:
+- The grid's last rows (y 134–136, up to LOD16 `Vyn.16.43.121`) lay past `NAM9` (67, 134).
+- LOD32 chunk 27, 105 had no cache data at all, so it kept vanilla LOD water: the lighter band.
+
+`tools/01` now also fills every record-less cell of the terrain LOD grid (x −69..58, y −55..136) and widens `NAM9`.
+The new cells are numbered after the old ones: 16,265 cells, ids `0x800–0x8562`, and all 12,246 earlier cells keep
+their CELL/LAND FormIDs (compared).
+
+**Same day: a strip with no water past the grid edge** (curator at cell −19, −57). HorizonFix draws a water skirt
+around the world, but only on cells no plugin defines (`HorizonFix.log`: *"Water skirt map coverage for Vyn block
+(−1, −2): 2060/9216 near cells defined"*). Full Extend's cells west of x −69 and south of y −55 lie outside the terrain
+LOD grid, so Unified Water couldn't draw them either. Nothing drew water there. `tools/01` now fills **only inside the
+grid**, which leaves 10,198 cells. The dropped cells' FormIDs stay reserved, so every kept cell keeps its ID (compared).
+`Occlusion.esp` and `DynDOLOD.esp` define no cells outside the grid (checked). Saves that visited a dropped cell lose
+nothing: those cells hold no references. **Verified in game 2026-10-31** (curator, after Regenerate Caches: strip gone). After deploying, use Bottled Shaders → Unified Water → Debug
+→ **Regenerate Caches**: the load order is unchanged, so the cache may not rebuild by itself.
 
 **Load-order slip, found 2026-10-31.** Each DynDOLOD rerun disables and re-enables *DynDOLOD_Output*, and MO2 puts
 `DynDOLOD.esp` + `Occlusion.esp` back at the **end** of `plugins.txt`, i.e. after this plugin, so `Occlusion.esp`'s Vyn

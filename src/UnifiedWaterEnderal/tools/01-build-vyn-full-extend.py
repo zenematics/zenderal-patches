@@ -43,6 +43,9 @@ MASTERS = ["Skyrim.esm", "Update.esm", "Enderal - Forgotten Stories.esm"]
 SELF = len(MASTERS) << 24
 VYN = 0x001D3C
 LOD = 32
+# Vyn's terrain LOD grid: south-west cell from lodsettings\vyn.lod, far edge from the xLODGen output's LOD16 chunks
+# (Vyn.16.43.121 -> cell 58, 136). Unified Water's tiles are rebuilt on this grid (ZenUnifiedWaterGrid), not on 0
+GRID_X0, GRID_Y0, GRID_X1, GRID_Y1 = -69, -55, 58, 136
 LAND_HEIGHT = -2048.0
 FORM_VERSION = 44
 
@@ -110,8 +113,8 @@ def find_records(path, want_cells):
     return wrld, cells
 
 
-def widen_wrld(raw, min_x, min_y):
-    """Occlusion.esp's WRLD verbatim with NAM0 (world-unit lower bound) lowered to cover (min_x, min_y)."""
+def widen_wrld(raw, min_x, min_y, max_x, max_y):
+    """Occlusion.esp's WRLD verbatim with NAM0/NAM9 (world-unit bounds) widened to cover (min_x, min_y)-(max_x, max_y)."""
     typ, size, flags, fid = struct.unpack_from("<4sIII", raw, 0)
     assert typ == b"WRLD" and fid == VYN and not flags & 0x40000, (typ, hex(fid), hex(flags))
     data = raw[24:]
@@ -125,9 +128,13 @@ def widen_wrld(raw, min_x, min_y):
             x0, y0 = struct.unpack("<ff", d)
             d = struct.pack("<ff", min(x0, min_x * 4096.0), min(y0, min_y * 4096.0))
             changed += 1
+        elif t == b"NAM9":  # Occlusion's is (67, 134): one past the last cell, like NAM0's lower corner
+            x1, y1 = struct.unpack("<ff", d)
+            d = struct.pack("<ff", max(x1, (max_x + 1) * 4096.0), max(y1, (max_y + 1) * 4096.0))
+            changed += 1
         out += t + struct.pack("<H", len(d)) + d
         i += 6 + n
-    assert changed == 1
+    assert changed == 2
     return raw[:4] + struct.pack("<I", len(out)) + raw[8:24] + out
 
 
@@ -143,6 +150,18 @@ def main():
                     c = cells.get((xx, yy))
                     if c is None or c[0] in ("no-cell", "no-land"):
                         need.add((xx, yy))
+    # 2026-10-31: the 0-aligned chunks above miss sea cells of the real LOD chunks (origin -69, -55) that straddle
+    # them, and the grid's last rows (y 134-136) were past NAM9: ~4,000 cells drew as tan seabed in the far LOD. Fill
+    # every record-less cell of the terrain LOD grid, numbered after the first set so existing FormIDs stay put
+    extra = {(x, y) for x in range(GRID_X0, GRID_X1 + 1) for y in range(GRID_Y0, GRID_Y1 + 1)
+             if (x, y) not in need and (cells.get((x, y)) is None or cells[(x, y)][0] in ("no-cell", "no-land"))}
+    order = sorted(need, key=lambda c: (c[1], c[0])) + sorted(extra, key=lambda c: (c[1], c[0]))
+    # ...and never fill outside the terrain LOD grid: no LOD can draw water there, and HorizonFix's water skirt skips
+    # every defined cell (its log: "map coverage ... near cells defined"), so those cells left a strip with no water at
+    # all past the grid edge. Their FormIDs stay reserved so the cells inside keep theirs
+    in_grid = lambda c: GRID_X0 <= c[0] <= GRID_X1 and GRID_Y0 <= c[1] <= GRID_Y1
+    skipped = {c for c in need if not in_grid(c)}
+    need = {c for c in need | extra if in_grid(c)}
     no_land = {xy for xy in need if xy in cells and cells[xy][0] == "no-land"}
     owners = {cells[xy][1] for xy in no_land}
     assert owners <= {"Skyrim.esm", "Enderal - Forgotten Stories.esm"}, owners  # verbatim copy is only safe for these
@@ -157,11 +176,16 @@ def main():
     assert wrld_raw, "Occlusion.esp has no Vyn WRLD"
     min_x = min(x for x, _ in need)
     min_y = min(y for _, y in need)
-    wrld = widen_wrld(wrld_raw, min_x, min_y)
+    max_x = max(x for x, _ in need)
+    max_y = max(y for _, y in need)
+    wrld = widen_wrld(wrld_raw, min_x, min_y, max_x, max_y)
 
     next_id = 0x800
     blocks = {}
-    for (x, y) in sorted(need, key=lambda c: (c[1], c[0])):
+    for (x, y) in order:
+        if (x, y) in skipped:
+            next_id += 1 if cells.get((x, y)) and cells[(x, y)][0] == "no-land" else 2
+            continue
         if (x, y) in copied:
             cell_rec = copied[(x, y)]
             cell_fid = struct.unpack_from("<I", cell_rec, 12)[0]
@@ -198,7 +222,7 @@ def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     open(OUT, "wb").write(header + top)
     print(f"{len(need)} cells filled ({len(need) - len(no_land)} new CELLs, {len(no_land)} copied), "
-          f"{len(need)} LANDs, ids 0x800-0x{next_id - 1:X}; NAM0 min cell {min_x},{min_y}; {os.path.getsize(OUT)} bytes -> {OUT}")
+          f"{len(need)} LANDs, ids 0x800-0x{next_id - 1:X}; bounds cells {min_x},{min_y} to {max_x},{max_y}; {os.path.getsize(OUT)} bytes -> {OUT}")
 
 
 if __name__ == "__main__":
