@@ -31,5 +31,8 @@ byte-identical, generated from the user's install, never committed. Re-run after
 
 - Found with the CS hard-square terrain report (2026-10-20). The squares themselves were CS Extended
   Materials **height blending** on terrain whose textures have no height maps; it is turned off by
-  `Zenderal - Settings`' `SKSE/Plugins/CommunityShaders/Overrides/Zenderal_ExtendedMaterials.json`
-  (`EnableHeightBlending: 0`). Verified in game: the squares are gone.
+  `Zenderal - Settings`' `SKSE/Plugins/CommunityShaders/Presets/Zenderal/Baseline/Zenderal_ExtendedMaterials.json`
+  (`EnableHeightBlending: 0`). Verified in game: the squares are gone. **Bottled Shaders 1.9 (CS 1.9.0) stopped reading
+  `CommunityShaders/Overrides/`**, so from that update until 2026-10-31 height blending was back on (the 1.9 default).
+  The file now sits in the Baseline preset pack `Zenderal`, enabled by `Presets.baselinePackIds` in `SettingsUser.json`.
+  See [`workspace/enderal-update-migration.md`](../workspace/enderal-update-migration.md) (Bottled Shaders section).

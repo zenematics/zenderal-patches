@@ -1,0 +1,21 @@
+FormKey: 088CE0:Skyrim.esm
+EditorID: _00E_Grass_Lavender01
+Version2: 3
+ObjectBounds:
+  First: -46, -32, 0
+  Second: 46, 32, 54
+Model:
+  File: Landscape\grass\NicoLavender.nif
+  Data: 0x020000000000000000000000
+Density: 90
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 25
+HeightRange: 1
+ColorRange: 0.3
+WavePeriod: 150
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

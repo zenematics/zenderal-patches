@@ -1,0 +1,21 @@
+FormKey: 03749C:Skyrim.esm
+EditorID: _00E_Suncoast_Heathgrass
+Version2: 1
+ObjectBounds:
+  First: -37, -29, -3
+  Second: 36, 29, 64
+Model:
+  File: Landscape\grass\NicoHeathgrass.nif
+  Data: 0x020000000000000000000000
+Density: 25
+MaxSlope: 45
+Unknown: 67
+Unknown2: 31131
+PositionRange: 6
+HeightRange: 0.3
+ColorRange: 0.3
+WavePeriod: 400
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xA9978A

@@ -1,0 +1,21 @@
+FormKey: 0F17FE:Skyrim.esm
+EditorID: SnowGrass02
+Version2: 6
+ObjectBounds:
+  First: -37, -33, -7
+  Second: 31, 31, 50
+Model:
+  File: Landscape\Grass\SnowGrass02.nif
+  Data: 0x02000000020000000000000099E8A41964647300625C8D360A4C879A6464730038973CEA
+Density: 10
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 20
+HeightRange: 0.33
+ColorRange: 0.2
+WavePeriod: 180
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

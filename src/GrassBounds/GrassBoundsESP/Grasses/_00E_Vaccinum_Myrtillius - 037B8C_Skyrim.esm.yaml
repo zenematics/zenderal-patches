@@ -1,0 +1,21 @@
+FormKey: 037B8C:Skyrim.esm
+EditorID: _00E_Vaccinum_Myrtillius
+Version2: 3
+ObjectBounds:
+  First: -35, -27, -3
+  Second: 33, 27, 59
+Model:
+  File: landscape\grass\vurt_vaccinium myrtillus.nif
+  Data: 0x020000000000000000000000
+Density: 70
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 8
+HeightRange: 0.55
+ColorRange: 0.2
+WavePeriod: 350
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

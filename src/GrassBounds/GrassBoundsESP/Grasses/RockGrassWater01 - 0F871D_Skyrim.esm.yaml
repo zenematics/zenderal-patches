@@ -1,0 +1,22 @@
+FormKey: 0F871D:Skyrim.esm
+EditorID: RockGrassWater01
+Version2: 6
+ObjectBounds:
+  First: -29, -28, -5
+  Second: 34, 28, 8
+Model:
+  File: Landscape\Grass\RockGrassWater01.nif
+  Data: 0x02000000020000000000000016AECB8C64647300625C8D360A4C879A6464730038973CEA
+Density: 22
+MaxSlope: 34
+UnitsFromWater: 5
+Unknown2: 4448
+UnitsFromWaterType: BelowAtLeast
+PositionRange: 32
+HeightRange: 0.15
+ColorRange: 0.1
+WavePeriod: 60
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0x000000

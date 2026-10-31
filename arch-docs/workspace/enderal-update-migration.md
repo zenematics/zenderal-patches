@@ -402,6 +402,20 @@ a Community Shaders fork with every CS feature bundled, Effects 11, reverse-Z, s
   with Disable at Boot = GrassOptimizations, HDRDisplay, PostProcessing, Skin, UnifiedWater. Don't toggle CS features
   live under MO2: the runtime recompile of ~1500 shaders failed to open its includes and crashed (02:07, alt-tab).
   Use Disable at Boot and restart.
+- **Bottled Shaders 1.9 (CS 1.9.0) no longer reads `CommunityShaders/Overrides/` (found 2026-10-31).** Its boot log
+  says `2 file(s) in CommunityShaders/Overrides are no longer read` and `Discovered 0 Baseline files`: Zenderal's
+  `Zenderal_ExtendedMaterials.json` (terrain height blending off) and Theo's Render Pipeline's
+  `TheosRenderPipeline_Upscaling.json` (CS frame generation + Reflex off) were both dead. 1.9's replacement is a
+  **Baseline preset pack**: `Presets/<PackId>/<PackId>.json` (`"type": "Baseline"`) plus `Baseline/<Anything>_<Feature>.json`,
+  enabled by listing the folder name in `SettingsUser.json` `Presets.baselinePackIds`; Baseline values win over saved
+  settings until the player edits that setting (Bottled Shaders' `Presets/README.md`). *Zenderal - Settings* now ships the
+  pack `Presets/Zenderal/` with both files (Theo's copied verbatim; Theo's own copy stays in its mod, still unread,
+  so the log keeps counting 1 file) and enables it. `_metadata` accepts only `modName`, `version`, `description`,
+  `enabled` (DLL strings). The old `overwrite/.../Overrides/User/ExtendedMaterials.user.json` (2026-10-26,
+  `EnableHeightBlending: 1`) is an unread leftover. Backups: `E:/Zenderal-backups/2026-10-31-cs-baseline/`. Confirm
+  after the next launch: `Discovered 2 Baseline files` in `BottledShaders.log`, the pack listed as enabled on the
+  Presets page, and no hard-edged terrain squares on the coast.
+
 - **Enderal's paper world map is LOD32 — never ship generated LOD32 for Vyn (2026-10-21).** The map is flat
   (`[MapMenu]` pitch 0–90, `uLockedTerrainLOD=64`) and draws the coarsest LOD. Enderal paints the paper map
   (`textures\map\enderal_main.dds` + `enderal_floor.dds`) into one LOD32 tile: terrain `vyn.32.-5.9.btr` and objects

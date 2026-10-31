@@ -1,0 +1,21 @@
+FormKey: 08A21D:Skyrim.esm
+EditorID: _00E_Suncoast_Wildgrass03
+Version2: 2
+ObjectBounds:
+  First: -44, -26, 0
+  Second: 38, 45, 67
+Model:
+  File: Landscape\grass\NicoWildGrass03.nif
+  Data: 0x020000000000000000000000
+Density: 60
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 13
+HeightRange: 0.75
+ColorRange: 0.3
+WavePeriod: 200
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

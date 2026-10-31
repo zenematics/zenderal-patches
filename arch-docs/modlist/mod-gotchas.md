@@ -174,7 +174,19 @@ List-wide traps that are not tied to one Zenderal patch.
   the end**. `PBR Landscapes of Vyn.esp` masters `PGPatcher.esp`, and `Zenderal - Unresolved References Cleanup.esp`
   masters both PG plugins, so the game stops on missing masters without them. Positions: `DynDOLOD.esm` after
   `TrueHUD.esl`, `PGPatcher.esp` right after it, `PG_1.esp` after `Zenderal - Pretty Armory EGO Patch.esp`,
-  `DynDOLOD.esp` + `Occlusion.esp` after `ReadTheRoom.esp`.
+  `DynDOLOD.esp` + `Occlusion.esp` after `ReadTheRoom.esp`. **As of 2026-10-31** `ReadTheRoom.esp` is no longer in
+  the profile; the tail is `… Zenderal - Unresolved References Cleanup.esp`, `DynDOLOD.esp`, `Occlusion.esp`,
+  `Relentless Sword SE - Johnskyrim.esp`, **`Zenderal - Vyn Full Extend.esp` last** (it must follow `Occlusion.esp`;
+  [`patches/UnifiedWaterEnderal.md`](../patches/UnifiedWaterEnderal.md)).
+
+- **Grass LOD needs four things, and until 2026-10-31 the list had none of them** (no NGIO, no `Grass/*.cgid`
+  cache, TexGen `GrassBillboards=0`, DynDOLOD `DoGrass=0`), so there was no distant grass at all. 41 of Enderal's 72
+  GRAS also had no object bounds, which TexGen skips. Full setup and order: [`patches/GrassBounds.md`](../patches/GrassBounds.md).
+  Traps: NGIO's `Only-load-from-cache = true` means **no grass at all until the cache mod exists**; `PrecacheGrass.txt`
+  in the game root starts a cache run on **every** launch until a run finishes (NGIO 2.0.2 then deletes it; Root
+  Builder excludes it, so it never cleans it up); a leftover progress `PrecacheGrass.txt` in `overwrite/Root/` resumes an old load order's run; TrueHUD crashes
+  cache runs (use the `Grass Cache` profile). The tree-LOD brightness settings live in TexGen/DynDOLOD presets and
+  `DynDOLOD_ENDERALSE.ini`, not in any mod (same doc).
 
 - **The "black screen" after MQP01's Daddy scene is Enderal's intro video, by design (2026-10-25).**
   `_00E_MQP01_Functions.PlayIntroAndMovePlayerToShip()` plays `Video/EnderalIntro.bik` (Bink 1, 289 MB); it opens

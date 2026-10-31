@@ -54,6 +54,14 @@ use Regenerate Caches.
 
 ## Status
 
+**Load-order slip, found 2026-10-31.** Each DynDOLOD rerun disables and re-enables *DynDOLOD_Output*, and MO2 puts
+`DynDOLOD.esp` + `Occlusion.esp` back at the **end** of `plugins.txt`, i.e. after this plugin, so `Occlusion.esp`'s Vyn
+WRLD (bounds stopping at −69, −55) won again. That was already the case after the 2026-10-30 run. Fixed by moving this
+plugin back to the last line (after `Occlusion.esp` and `Relentless Sword SE - Johnskyrim.esp`). `tools/00` → `tools/01`
+on the new DynDOLOD output rebuilt it **byte for byte identical** to the deployed copy (the scan now counts 435
+LAND-less cells, but the 14 new ones are outside water chunks), so only the position needed fixing. **After every
+DynDOLOD run, check this plugin is still last.**
+
 Built and enabled 2026-10-28 in Ultra: MO2 mod at the top of `modlist.txt`, plugin right after `Occlusion.esp` (last
 line of `plugins.txt`/`loadorder.txt`; profile backups in `E:/Zenderal-backups/2026-10-28-vyn-full-extend/`).
 `tools/00 --with-self` on the live load order afterwards: every LOD4/LOD8 chunk with Unified Water fully covered, 3

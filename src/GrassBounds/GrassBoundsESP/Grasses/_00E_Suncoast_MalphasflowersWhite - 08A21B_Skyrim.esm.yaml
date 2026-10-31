@@ -1,0 +1,21 @@
+FormKey: 08A21B:Skyrim.esm
+EditorID: _00E_Suncoast_MalphasflowersWhite
+Version2: 4
+ObjectBounds:
+  First: -31, -18, 0
+  Second: 26, 32, 47
+Model:
+  File: Landscape\grass\NicoMalphasflowers03.nif
+  Data: 0x020000000000000000000000
+Density: 50
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 40
+HeightRange: 0.2
+ColorRange: 0.4
+WavePeriod: 220
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

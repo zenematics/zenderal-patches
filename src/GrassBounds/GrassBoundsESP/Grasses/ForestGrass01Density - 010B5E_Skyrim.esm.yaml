@@ -1,0 +1,21 @@
+FormKey: 010B5E:Skyrim.esm
+EditorID: ForestGrass01Density
+Version2: 1
+ObjectBounds:
+  First: -39, -45, -4
+  Second: 40, 40, 23
+Model:
+  File: Landscape\Grass\ForestGrass01.nif
+  Data: 0x020000000000000000000000
+Density: 65
+MaxSlope: 33
+Unknown: 205
+Unknown2: 52685
+PositionRange: 41
+HeightRange: 0.3
+ColorRange: 0.2
+WavePeriod: 120
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

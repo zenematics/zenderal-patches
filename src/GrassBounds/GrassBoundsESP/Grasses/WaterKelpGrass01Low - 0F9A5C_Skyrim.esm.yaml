@@ -1,0 +1,22 @@
+FormKey: 0F9A5C:Skyrim.esm
+EditorID: WaterKelpGrass01Low
+ObjectBounds:
+  First: -52, -49, -6
+  Second: 54, 50, 273
+Model:
+  File: Landscape\Grass\WaterKelpTall01.nif
+  Data: 0x020000000000000000000000
+Density: 27
+MaxSlope: 50
+Unknown: 205
+UnitsFromWater: 390
+Unknown2: 52685
+UnitsFromWaterType: BelowAtLeast
+PositionRange: 55
+HeightRange: 0.1
+ColorRange: 0.2
+WavePeriod: 90
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

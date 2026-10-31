@@ -79,6 +79,8 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`FrostSpiderMotherFix`](FrostSpiderMotherFix.md) | `Zenderal - Frost Spider Mother Fix.esp` | none (one override) |
 | [`MaceSpeed`](MaceSpeed.md) | `Zenderal - Mace Speed.esp` | none (overrides only) |
 | [`ArmorBalance`](ArmorBalance.md) | `Zenderal - Armor Balance.esp` | none (overrides only) |
+| [`GrassBounds`](GrassBounds.md) | `Zenderal - Grass Bounds.esp` | none (overrides only) |
+| [`TreeLOD21Match`](TreeLOD21Match.md) | *(generated 3D tree LOD models, not committed)* | none |
 | [`OldCemeteryCryptFix`](OldCemeteryCryptFix.md) | `Zenderal - Old Cemetery Crypt Fix.esp` | none (one override) |
 | [`MusketHandling`](MusketHandling.md) | `ZenMusketHandling.dll` + `.ini` | none (no plugin) |
 | [`ZarAhTextureFix`](ZarAhTextureFix.md) | *(copied textures, not committed)* | none |
