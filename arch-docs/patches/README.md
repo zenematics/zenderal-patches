@@ -51,3 +51,4 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`DragonPriestStaffSwap`](DragonPriestStaffSwap.md) | *(no plugin — loose meshes, MO2 mod `Zenderal - Dragon Priest Staff Swap`)* | _(none)_ |
 | [`StaffDrawFix`](StaffDrawFix.md) | *(no plugin — OAR submod, MO2 mod `Zenderal - Staff Draw Fix`)* | _(none)_ |
 | [`NoScreenFlashes`](NoScreenFlashes.md) | `Zenderal - No Screen Flashes.esp` | none (overrides only) |
+| [`ControllerLayout`](ControllerLayout.md) | `Zenderal - Controller Layout.esp` + `ZEN_ControllerLayout.pex` + every controller/keybind config file | `0x800` |

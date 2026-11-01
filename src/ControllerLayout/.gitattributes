@@ -1,0 +1,2 @@
+# Every file here must reach the game byte-for-byte (ControlMap_Custom.txt is binary).
+files/** -text

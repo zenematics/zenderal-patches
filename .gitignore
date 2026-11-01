@@ -123,3 +123,5 @@ __pycache__/
 .~lock.*#
 !src/Prophecy/Scripts/compiled/
 !src/Prophecy/Scripts/compiled/*.pex
+!src/ControllerLayout/Scripts/compiled/
+!src/ControllerLayout/Scripts/compiled/*.pex
