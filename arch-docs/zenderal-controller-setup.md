@@ -32,9 +32,9 @@ else comes from the config files only.
 | X | Open Wheeler |
 | Y | Jump |
 | L3 / R3 | Sneak / Toggle view |
-| Start / Back | Journal / Wait |
-| B + Back | Tween menu |
-| B + Start | Favourites |
+| Start / Back | Journal / Tween menu |
+| B + Back | Favourites |
+| B + Start | Wait |
 | B + D-pad Right / Left / Down | Inventory / Magic / Map |
 
 | D-pad | Tap | Double-tap | Hold (weapon drawn) |

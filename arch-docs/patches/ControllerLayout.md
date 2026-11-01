@@ -22,6 +22,11 @@ Two halves:
      `ZenOCPASecondKey.dll` (`iKeycode=281`). v1 set OCPA to 281 as well, and the DLL logs
      `Second key is OCPA's own key - nothing to add, staying idle`. RT still worked, but the
      keyboard Mouse 4 power attack was lost. **Never set OCPA's key to the second key's key.**
+   - Back / B + Back / B + Start = Tween / Favourites / Wait (curator's choice, 2026-11-01; CCS had
+     Wait / Tween / Favourites). Tween and Wait are gamepad-remappable, so the game takes them from
+     `ControlMap_Custom.txt`'s gamepad block (`TweenMenu 0x00000020`, `Wait 0x20000010`). Favourites
+     is not remappable on a gamepad (7th column 0), so it lives only in `controlmap.txt`
+     (`0x2000+0x0020`). Change both files together.
    - Gamepad++ preset: double-tap Left `L` → `K`, double-tap Right `K` → `H`, hold Right `'` → `\`,
      and labels filled in.
 2. **`ZEN_ControllerLayout`** (a player-alias script) handles what other mods keep **in the save**:

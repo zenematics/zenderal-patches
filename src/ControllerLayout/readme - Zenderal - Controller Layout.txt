@@ -24,9 +24,9 @@ CONTROLLER
   X                          Wheeler
   Y                          Jump
   L3 / R3                    Sneak / Toggle view
-  Start / Back               Journal / Wait
-  B + Back                   Tween menu
-  B + Start                  Favourites
+  Start / Back               Journal / Tween menu
+  B + Back                   Favourites
+  B + Start                  Wait
   B + D-pad Right/Left/Down  Inventory / Magic / Map
 
   D-pad        tap                   double-tap        hold (weapon drawn)
@@ -94,8 +94,9 @@ KEYBOARD AND MOUSE
 WHAT IS IN HERE
 ---------------
 Loose files (win by MO2 priority):
-  Interface\Controls\PC\controlmap.txt     CCS layout; Quick Stats + Auto-Move pad combos unbound
-  ControlMap_Custom.txt                    keyboard binds + CCS gamepad block
+  Interface\Controls\PC\controlmap.txt     CCS layout; Quick Stats + Auto-Move pad combos unbound;
+                                           Back = Tween, B+Back = Favourites, B+Start = Wait
+  ControlMap_Custom.txt                    keyboard binds + gamepad block (same Tween/Wait)
   MCM\Settings\OCPA.ini                    power attack = Mouse 4 (259); RT is
                                            Patch Collection's ZenOCPASecondKey (281)
   MCM\Settings\keybinds.json               helmet B, UI toggle V (its lantern entry is
