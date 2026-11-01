@@ -1,0 +1,551 @@
+#include "pch.h"
+
+#include <detours/detours.h>
+
+// Bottled Shaders' Unified Water (a Community Shaders feature) replaces distant LOD water with its own tiles. When a
+// terrain LOD chunk attaches, it looks the chunk up in its cache with WaterCache::GetLODCoords, which divides the
+// chunk's base cell by the LOD level: it assumes chunks start at multiples of their size, as Tamriel's do. Vyn's LOD
+// grid starts at cell -69, -55 (lodsettings\vyn.lod), so every chunk got the tiles of a different, 0-aligned chunk
+// that only partly overlaps it. Those tiles hang under the wrong node and vanish with it as the camera turns, and
+// where chunks of different LOD levels meet, cells get water twice or not at all (ZenWaterTrace, 2026-10-28).
+//
+// This runs after Unified Water's own attach hook (Detours chains onto it). For a chunk whose base cell is not a
+// multiple of its LOD level, it throws away the tiles Unified Water made and builds them again, the way Unified Water
+// does, from Unified Water's own disk cache (<worldspace>_cache.wc, the per-cell LOD4 entries), for the chunk's real
+// cells. Aligned chunks (every Tamriel chunk) are left alone. Nothing is written to disk.
+//
+// 1.5.0: a coarse chunk stays attached for the quarters no finer chunk has taken over yet. Its water used to be a child
+// of the terrain chunk and was hidden with that quarter; Unified Water moves it under its own root, and its visibility
+// hook only handles LOD4, so the coarse tiles stayed under the finer chunks' water and fought with the real water near
+// the player (trace 2026-10-29: LOD16 tiles drawn over loaded cells). Tiles of chunks built here now stay inside one
+// quarter, and a quarter's tiles are hidden while any finer chunk is attached in it.
+
+SKSEPluginInfo(
+	.Version = REL::Version{ 1, 5, 0, 0 },
+	.Name = "ZenUnifiedWaterGrid"sv,
+	.Author = "Zenderal"sv,
+	.StructCompatibility = SKSE::StructCompatibility::Independent,
+	.RuntimeCompatibility = SKSE::VersionIndependence::AddressLibrary)
+
+namespace
+{
+	// Unified Water's on-disk layout (WaterCache.h): a 32-byte header, then 32-byte instructions
+	struct CacheHeader
+	{
+		std::uint32_t label;
+		std::int32_t  width, height, minX, minY, maxX, maxY, dataCount;
+	};
+	static_assert(sizeof(CacheHeader) == 32);
+
+	struct CacheInstruction
+	{
+		std::uint32_t lodLevel;
+		std::uint32_t pad;
+		std::uint64_t form;  // runtime FormID in the low 32 bits on disk
+		std::int32_t  x, y;
+		std::uint32_t size;
+		float         waterHeight;
+	};
+	static_assert(sizeof(CacheInstruction) == 32);
+
+	struct CellWater
+	{
+		RE::FormID formID;
+		float      height;
+	};
+
+	struct WorldCache
+	{
+		std::filesystem::file_time_type             stamp{};
+		bool                                        loaded = false;
+		std::unordered_map<std::uint64_t, CellWater> cells;  // key = (x, y)
+	};
+
+	using Attach_t = void (*)(RE::BGSTerrainBlock*);
+	Attach_t g_attach = nullptr;
+	Attach_t g_detach = nullptr;
+
+	// every attached terrain chunk, for hiding a coarse chunk's quarters that finer chunks cover
+	struct Attached
+	{
+		const RE::TESWorldSpace* ws;
+		int                      lod, bx, by;
+		RE::NiPointer<RE::BSMultiBoundNode> builtWater;  // set when this DLL built the chunk's tiles; held so it can't dangle
+	};
+	std::unordered_map<RE::BGSTerrainBlock*, Attached> g_attached;
+
+	RE::NiPointer<RE::BSTriShape>              g_mesh;
+	std::unordered_map<std::string, WorldCache> g_caches;
+	int                                        g_rebuilt = 0;
+	constexpr int                              kMaxTileCells = 32;  // no cap (1.2.0 test reverted: one change at a time)
+
+	std::uint64_t Key(std::int32_t a_x, std::int32_t a_y)
+	{
+		return (static_cast<std::uint64_t>(static_cast<std::uint32_t>(a_x)) << 32) | static_cast<std::uint32_t>(a_y);
+	}
+
+	int Mod(int a_v, int a_m)
+	{
+		const int r = a_v % a_m;
+		return r < 0 ? r + a_m : r;
+	}
+
+	RE::NiNode* WaterLODRoot()
+	{
+		// the global Unified Water parents its tiles to (gWaterLOD, UnifiedWater.cpp)
+		static auto** root = reinterpret_cast<RE::NiNode**>(REL::RelocationID(516171, 402322).address());
+		return root ? *root : nullptr;
+	}
+
+	const WorldCache* GetCache(const RE::TESWorldSpace* a_ws)
+	{
+		if (!a_ws || a_ws->editorID.empty()) {
+			return nullptr;
+		}
+		const std::string name = a_ws->editorID.c_str();
+		const std::filesystem::path path = std::filesystem::path("Data/SKSE/Plugins/CommunityShaders/UnifiedWaterCache") / (name + "_cache.wc");
+		std::error_code ec;
+		const auto stamp = std::filesystem::last_write_time(path, ec);
+		auto& cache = g_caches[name];
+		if (ec) {
+			cache.loaded = false;
+			return nullptr;
+		}
+		if (cache.loaded && cache.stamp == stamp) {
+			return &cache;
+		}
+		// (re)read: first use, or Unified Water rebuilt the cache this session
+		cache = {};
+		std::ifstream in(path, std::ios::binary);
+		CacheHeader   hdr{};
+		if (!in.read(reinterpret_cast<char*>(&hdr), sizeof(hdr)) || hdr.label != 'HCTW' || hdr.dataCount < 0) {
+			SKSE::log::error("{}: unreadable cache header ({})", name, path.string());
+			return nullptr;
+		}
+		std::vector<CacheInstruction> ins(static_cast<std::size_t>(hdr.dataCount));
+		if (!in.read(reinterpret_cast<char*>(ins.data()), static_cast<std::streamsize>(ins.size() * sizeof(CacheInstruction)))) {
+			SKSE::log::error("{}: cache shorter than its {} instructions", name, hdr.dataCount);
+			return nullptr;
+		}
+		for (const auto& i : ins) {
+			if (i.lodLevel == 4 && i.size == 1) {  // LOD4 is never merged: one entry per water cell
+				cache.cells[Key(i.x, i.y)] = { static_cast<RE::FormID>(i.form & 0xFFFFFFFF), i.waterHeight };
+			}
+		}
+		cache.stamp = stamp;
+		cache.loaded = true;
+		SKSE::log::info("{}: read {} water cells from Unified Water's cache (bounds {},{} to {},{})", name, cache.cells.size(),
+			hdr.minX, hdr.minY, hdr.maxX, hdr.maxY);
+		return &cache;
+	}
+
+	struct Tile
+	{
+		std::int32_t      x, y, size;
+		float             height;
+		RE::TESWaterForm* form;
+	};
+
+	// Unified Water's GenerateInstructions merge, on the chunk's real cells: greedy squares of equal height and form
+	std::vector<Tile> BuildTiles(const WorldCache& a_cache, std::int32_t a_bx, std::int32_t a_by, std::int32_t a_lod)
+	{
+		std::vector<Tile> out;
+		std::vector<bool> done(static_cast<std::size_t>(a_lod * a_lod), false);
+		const auto        at = [&](int lx, int ly) -> const CellWater* {
+            const auto it = a_cache.cells.find(Key(a_bx + lx, a_by + ly));
+            return it == a_cache.cells.end() ? nullptr : &it->second;
+		};
+		for (int ly = 0; ly < a_lod; ++ly) {
+			for (int lx = 0; lx < a_lod; ++lx) {
+				if (done[ly * a_lod + lx]) {
+					continue;
+				}
+				done[ly * a_lod + lx] = true;
+				const auto* c = at(lx, ly);
+				if (!c) {
+					continue;
+				}
+				auto* form = RE::TESForm::LookupByID<RE::TESWaterForm>(c->formID);
+				if (!form || form->GetFormType() != RE::FormType::Water) {
+					continue;
+				}
+				int size = 1;
+				if (a_lod > 4) {  // LOD4 tiles stay single cells: they are hidden one by one as real cells load
+					// kMaxTileCells: 1.2.0 tried 4 (the water mesh is one 4-vertex quad and the shader biases depth per vertex);
+				// 1.3.0 sets it back to 32, no cap, to test the reflection/normals release alone.
+				// 1.5.0: never across a quarter of the chunk, so a quarter a finer chunk covers can be hidden whole
+				const int q = a_lod / 2;
+				const int maxSize = std::min({ q - lx % q, q - ly % q, kMaxTileCells });
+					for (int cand = 2; cand <= maxSize; ++cand) {
+						bool ok = true;
+						for (int d = 0; d < cand && ok; ++d) {
+							for (const auto [qx, qy] : { std::pair{ lx + d, ly + cand - 1 }, std::pair{ lx + cand - 1, ly + d } }) {
+								const auto* q = at(qx, qy);
+								if (done[qy * a_lod + qx] || !q || q->height != c->height || q->formID != c->formID) {
+									ok = false;
+									break;
+								}
+							}
+						}
+						if (!ok) {
+							break;
+						}
+						size = cand;
+					}
+				}
+				for (int yy = ly; yy < ly + size; ++yy) {
+					for (int xx = lx; xx < lx + size; ++xx) {
+						done[yy * a_lod + xx] = true;
+					}
+				}
+				out.push_back({ a_bx + lx, a_by + ly, size, c->height, form });
+			}
+		}
+		return out;
+	}
+
+	// Bottled Shaders' helpers (UnifiedWater.cpp at cfcac91ad), copied as they are
+	void QueueDeferredRelease(RE::NiPointer<RE::NiRefObject>& a_object)
+	{
+		static REL::Relocation<void(RE::NiPointer<RE::NiRefObject>*)> func{ REL::RelocationID(69180, 70544) };
+		func(&a_object);
+	}
+
+	template <class Entry>
+	void RemoveOrphanedEntry(RE::BSTArray<RE::NiPointer<Entry>>& a_entries, const Entry* a_entry)
+	{
+		if (!a_entry || a_entry->GetRefCount() != 1) {
+			return;
+		}
+		const auto it = std::ranges::find_if(a_entries, [&](const auto& a_candidate) { return a_candidate.get() == a_entry; });
+		if (it == a_entries.end()) {
+			return;
+		}
+		RE::NiPointer<RE::NiRefObject> released{ it->get() };
+		QueueDeferredRelease(released);
+		a_entries.erase(it);
+	}
+
+	void DropChildren(RE::BSMultiBoundNode* a_water, bool a_unregister)
+	{
+		auto* ws = RE::TESWaterSystem::GetSingleton();
+		auto  count = a_water->GetChildren().size();
+		while (count > 0) {
+			const auto child = a_water->GetChildren()[count - 1];
+			if (child && a_unregister && ws) {
+				ws->RemoveWater(child.get());
+			}
+			a_water->DetachChildAt(static_cast<std::uint32_t>(--count));
+		}
+	}
+
+	// UpdateWaterMeshSubVisibility's rule (UnifiedWater.cpp): a LOD4 tile over a loaded cell with water is hidden
+	void CullOverLoadedCells(RE::BSMultiBoundNode* a_water)
+	{
+		auto* tes = RE::TES::GetSingleton();
+		if (!tes || !tes->gridCells) {
+			return;
+		}
+		const auto& grid = tes->gridCells;
+		const int   len = static_cast<int>(grid->length);
+		const int   offX = tes->currentGridX - (len >> 1);
+		const int   offY = tes->currentGridY - (len >> 1);
+		for (const auto& child : a_water->GetChildren()) {
+			if (!child) {
+				continue;
+			}
+			const int x = static_cast<int>(std::floor(child->world.translate.x / 4096.0f)) - offX;
+			const int y = static_cast<int>(std::floor(child->world.translate.y / 4096.0f)) - offY;
+			bool      cull = false;
+			if (x >= 0 && y >= 0 && x < len && y < len) {
+				if (const auto cell = grid->GetCell(x, y); cell && cell->cellState.any(RE::TESObjectCELL::CellState::kAttached, static_cast<RE::TESObjectCELL::CellState>(6))) {
+					cull = cell->cellFlags.any(RE::TESObjectCELL::Flag::kHasWater);
+				}
+			}
+			child->SetAppCulled(cull);
+		}
+	}
+
+	// hide each built LOD8+ tile whose quarter of its chunk has a finer chunk attached (the quadtree shows a coarse
+	// chunk's quarter only while no finer chunk is displayed there)
+	void CullCoveredQuarters()
+	{
+		// a block that went away without a detach (worldspace change) must not count as cover
+		const auto* tes = RE::TES::GetSingleton();
+		const auto* current = tes ? tes->GetRuntimeData2().worldSpace : nullptr;
+		std::erase_if(g_attached, [&](const auto& a_entry) { return a_entry.second.ws != current; });
+		auto* root = WaterLODRoot();
+		int   hidden = 0, total = 0;
+		for (const auto& [block, a] : g_attached) {
+			if (!a.builtWater || a.lod <= 4 || a.builtWater->parent != root) {
+				continue;
+			}
+			const int q = a.lod / 2;
+			for (const auto& child : a.builtWater->GetChildren()) {
+				if (!child) {
+					continue;
+				}
+				const float half = child->local.scale * 2048.0f;
+				const int   cx = static_cast<int>(std::floor((child->local.translate.x - half) / 4096.0f + 0.5f));
+				const int   cy = static_cast<int>(std::floor((child->local.translate.y - half) / 4096.0f + 0.5f));
+				const int   qx0 = a.bx + (cx / q) * q;
+				const int   qy0 = a.by + (cy / q) * q;
+				bool        covered = false;
+				for (const auto& [other, b] : g_attached) {
+					if (b.ws == a.ws && b.lod < a.lod && b.bx < qx0 + q && qx0 < b.bx + b.lod && b.by < qy0 + q && qy0 < b.by + b.lod) {
+						covered = true;
+						break;
+					}
+				}
+				child->SetAppCulled(covered);
+				++total;
+				hidden += covered ? 1 : 0;
+			}
+		}
+		static int lastHidden = -1;
+		if (hidden != lastHidden) {
+			SKSE::log::info("coarse tiles hidden under finer chunks: {} of {}", hidden, total);
+			lastHidden = hidden;
+		}
+	}
+
+	void Rebuild(RE::BGSTerrainBlock* a_block)
+	{
+		auto* node = a_block->node;
+		auto* water = a_block->water;
+		if (!node || !water || !a_block->chunk || !g_mesh || !node->manager) {
+			SKSE::log::info("skip: block without {}{}{}{}", node ? "" : "node ", water ? "" : "water-node ", a_block->chunk ? "" : "chunk ",
+				node ? std::format("(LOD{} chunk at cell {},{})", static_cast<int>(node->GetLODLevel()), node->baseCellX, node->baseCellY) : ""s);
+			return;
+		}
+		const int lod = static_cast<int>(node->GetLODLevel());
+		if (lod < 4 || lod > 32) {
+			return;
+		}
+		const int bx = node->baseCellX;
+		const int by = node->baseCellY;
+		if (Mod(bx, lod) == 0 && Mod(by, lod) == 0) {
+			SKSE::log::info("skip: LOD{} chunk at cell {},{} is aligned", lod, bx, by);
+			return;  // Unified Water's lookup is right for aligned chunks
+		}
+		const auto* cache = GetCache(node->manager->worldSpace);
+		if (!cache) {
+			return;
+		}
+		auto* root = WaterLODRoot();
+		if (!root) {
+			return;
+		}
+		const auto tiles = BuildTiles(*cache, bx, by, lod);
+		const bool owned = a_block->waterAttached;  // Unified Water took the node (it is under the LOD water root)
+		if (tiles.empty()) {
+			if (owned) {
+				DropChildren(water, false);  // its tiles were for another chunk; this one has no water
+			}
+			SKSE::log::info("LOD{} chunk at cell {},{}: no water cells{}", lod, bx, by, owned ? " (dropped Unified Water's tiles)" : "");
+			return;
+		}
+
+		RE::NiPointer<RE::BSMultiBoundNode> keep(water);
+		if (owned) {
+			DropChildren(water, false);  // Unified Water already took its tiles out of the water system
+		} else {
+			// Unified Water found nothing for the wrong chunk and left the node on the terrain chunk: take it the same way
+			a_block->chunk->DetachChild2(water);
+			water->local.translate = a_block->chunk->local.translate;
+			DropChildren(water, true);
+		}
+
+		std::vector<RE::BSTriShape*> built;
+		built.reserve(tiles.size());
+		float lo = FLT_MAX, hi = -FLT_MAX;
+		for (const auto& t : tiles) {
+			RE::NiCloningProcess cloning;
+			auto*                clone = g_mesh->CreateClone(cloning);
+			auto*                shape = clone ? static_cast<RE::NiAVObject*>(clone)->AsTriShape() : nullptr;
+			if (!shape) {
+				continue;
+			}
+			shape->local.scale = static_cast<float>(t.size);
+			shape->local.translate = { (t.x - bx) * 4096.0f + t.size * 2048.0f, (t.y - by) * 4096.0f + t.size * 2048.0f, t.height };
+			water->AttachChild(shape, true);
+			built.push_back(shape);
+			lo = std::min(lo, t.height);
+			hi = std::max(hi, t.height);
+		}
+
+		auto* ws = RE::TESWaterSystem::GetSingleton();
+		{
+			RE::BSSpinLockGuard guard(ws->lock);
+			ws->waterObjects.reserve(ws->waterObjects.size() + static_cast<std::uint32_t>(built.size()));
+		}
+		for (std::size_t i = 0; i < built.size(); ++i) {
+			auto*       shape = built[i];
+			const auto& t = tiles[i];
+			{
+				// Bottled Shaders' own registration (UnifiedWater.cpp at cfcac91ad): AddWater under the water system's
+				// lock, then take the object back off the list and release the reflection and normals entries it left
+				// behind. Those keep raw pointers to the tile's material; 1.1.0 left them (upstream's older code), and
+				// every Vyn tile is built here, so tiles drew from stale reflection/normals state.
+				RE::BSSpinLockGuard guard(ws->lock);
+				ws->AddWater(shape, t.form, t.height, nullptr, true, false);
+				if (!ws->waterObjects.empty() && ws->waterObjects.back()->shape.get() == shape) {
+					const auto reflections = ws->waterObjects.back()->reflections.get();
+					const auto normals = ws->waterObjects.back()->normals.get();
+					ws->waterObjects.pop_back();
+					RemoveOrphanedEntry(ws->waterReflections, reflections);
+					RemoveOrphanedEntry(ws->waterNormals, normals);
+				}
+			}
+			if (const auto prop = shape->GetGeometryRuntimeData().shaderProperty.get(); prop && prop->GetRTTI() &&
+				std::string_view(prop->GetRTTI()->GetName()) == "BSWaterShaderProperty"sv) {
+				auto*                                                              wsp = static_cast<RE::BSWaterShaderProperty*>(prop);
+				// 1.4.0: Unified Water's 0b10000100 without bit 0x4 (Depth by the usual naming), set before the tile is
+				// first drawn. With it, whole tiles read ~zero water thickness from the depth buffer and drew only the
+				// seabed behind them, coming and going with the view (verified in game 2026-10-28: patches gone without
+				// it). Why the depth read fails is not known. Cost: no depth-based shallows on distant LOD water.
+				REX::EnumSet<RE::BSWaterShaderProperty::WaterFlag, std::uint32_t> flags = static_cast<RE::BSWaterShaderProperty::WaterFlag>(0b10000000);
+				flags.set(RE::BSWaterShaderProperty::WaterFlag::kUseCubemapReflections, RE::BSWaterShaderProperty::WaterFlag::kUseReflections);
+				if (t.form->flags.any(RE::TESWaterForm::Flag::kEnableFlowmap)) {
+					flags.set(RE::BSWaterShaderProperty::WaterFlag::kEnableFlowmap);
+				}
+				if (t.form->flags.any(RE::TESWaterForm::Flag::kBlendNormals)) {
+					flags.set(RE::BSWaterShaderProperty::WaterFlag::kBlendNormals);
+				}
+				wsp->waterFlags = flags;
+			}
+		}
+
+		// the node's multibound (from the .btr) covers this chunk at one height; stretch it over lake heights too
+		if (auto* mbn = water->AsMultiBoundNode(); mbn && !built.empty()) {
+			auto& mb = mbn->GetRuntimeData().multiBound;
+			if (mb && mb->data && mb->data->GetRTTI() && std::string_view(mb->data->GetRTTI()->GetName()) == "BSMultiBoundAABB"sv) {
+				auto*       box = static_cast<RE::BSMultiBoundAABB*>(mb->data.get());
+				const float bLo = box->center.z - std::abs(box->size.z);
+				const float bHi = box->center.z + std::abs(box->size.z);
+				if (lo < bLo || hi > bHi) {
+					const float nLo = std::min(lo, bLo), nHi = std::max(hi, bHi);
+					box->center.z = (nLo + nHi) * 0.5f;
+					box->size.z = (nHi - nLo) * 0.5f;
+				}
+			}
+		}
+
+		if (!owned) {
+			root->AttachChild(water, true);
+			a_block->waterAttached = true;
+		}
+		RE::NiUpdateData update;
+		water->Update(update);
+		if (lod == 4) {
+			CullOverLoadedCells(water);
+		}
+		ws->Enable();
+
+		g_attached[a_block].builtWater = RE::NiPointer<RE::BSMultiBoundNode>(water);
+		++g_rebuilt;
+		{
+			SKSE::log::info("LOD{} chunk at cell {},{}: {} tiles rebuilt on the real grid ({}), {} attaches so far", lod, bx, by, built.size(),
+				owned ? "replaced Unified Water's" : "Unified Water had none", g_rebuilt);
+		}
+	}
+
+	void AttachHook(RE::BGSTerrainBlock* a_block)
+	{
+		const bool wasAttached = a_block && a_block->attached;
+		// 1.1.0 handed blocks without a water pointer their chunk's WATER node by name, for LOD32 -5,9. Removed in
+		// 1.3.1: that file is Enderal's world-map mesh ("map" plane at z 100000, "background" at 97000), not terrain,
+		// so the game leaving it without water is right.
+		auto* waterBefore = a_block ? a_block->water : nullptr;
+		g_attach(a_block);  // Unified Water's hook, then the game's own attach
+		if (a_block && !wasAttached && a_block->attached && !a_block->water && a_block->node) {
+			// diagnostic (1.0.2): which attaches come out with no water node, and whether they had one going in
+			SKSE::log::info("attach without water node: LOD{} chunk at cell {},{} (had one before the call: {}, chunk {})",
+				static_cast<int>(a_block->node->GetLODLevel()), a_block->node->baseCellX, a_block->node->baseCellY,
+				waterBefore != nullptr, a_block->chunk != nullptr);
+		}
+		if (a_block && !wasAttached && a_block->attached) {
+			if (const auto* node = a_block->node) {
+				g_attached[a_block] = { node->manager ? node->manager->worldSpace : nullptr, static_cast<int>(node->GetLODLevel()),
+					node->baseCellX, node->baseCellY, nullptr };
+			}
+			Rebuild(a_block);
+			CullCoveredQuarters();
+		}
+	}
+
+	void DetachHook(RE::BGSTerrainBlock* a_block)
+	{
+		g_detach(a_block);  // Unified Water's hook (parks the water node, drops its tiles), then the game's own
+		if (a_block && g_attached.erase(a_block) > 0) {
+			CullCoveredQuarters();
+		}
+	}
+
+	bool LoadMesh()
+	{
+		// the same mesh and load arguments Unified Water uses (UnifiedWater::DataLoaded)
+		auto args = RE::BSModelDB::DBTraits::ArgsType();
+		args.unk8 = false;
+		args.unkA = false;
+		args.postProcess = false;
+		RE::NiPointer<RE::NiNode> nif;
+		if (RE::BSModelDB::Demand("meshes\\water\\watermesh.nif", nif, args) != RE::BSResource::ErrorCode::kNone || !nif ||
+			nif->GetChildren().empty() || !nif->GetChildren().front() || !nif->GetChildren().front()->AsNode()) {
+			return false;
+		}
+		auto* inner = nif->GetChildren().front()->AsNode();
+		if (inner->GetChildren().empty() || !inner->GetChildren().front()) {
+			return false;
+		}
+		g_mesh = RE::NiPointer<RE::BSTriShape>(inner->GetChildren().front()->AsTriShape());
+		return g_mesh != nullptr;
+	}
+
+	void Install()
+	{
+		if (!GetModuleHandleW(L"CommunityShaders.dll")) {
+			SKSE::log::info("CommunityShaders.dll not loaded; nothing to fix");
+			return;
+		}
+		if (!LoadMesh()) {
+			SKSE::log::error("could not load meshes\\water\\watermesh.nif; not installing");
+			return;
+		}
+		const auto target = REL::RelocationID(30934, 31737).address();
+		const auto* bytes = reinterpret_cast<const std::uint8_t*>(target);
+		const bool  hooked = bytes[0] == 0xE9 || (bytes[0] == 0xFF && bytes[1] == 0x25);
+		if (!hooked) {
+			// without Unified Water's hook there is nothing to correct (Unified Water off, or its mesh failed)
+			SKSE::log::info("BGSTerrainBlock::Attach is not hooked (first byte {:02X}): Unified Water inactive, not installing", bytes[0]);
+			return;
+		}
+		const auto  detachTarget = REL::RelocationID(30936, 31739).address();
+		const auto* detachBytes = reinterpret_cast<const std::uint8_t*>(detachTarget);
+		const bool  detachHooked = detachBytes[0] == 0xE9 || (detachBytes[0] == 0xFF && detachBytes[1] == 0x25);
+		if (!detachHooked) {
+			SKSE::log::info("BGSTerrainBlock::Detach is not hooked (first byte {:02X}): Unified Water inactive, not installing", detachBytes[0]);
+			return;
+		}
+		g_attach = reinterpret_cast<Attach_t>(target);
+		g_detach = reinterpret_cast<Attach_t>(detachTarget);
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
+		DetourAttach(reinterpret_cast<PVOID*>(&g_attach), reinterpret_cast<PVOID>(&AttachHook));
+		DetourAttach(reinterpret_cast<PVOID*>(&g_detach), reinterpret_cast<PVOID>(&DetachHook));
+		const auto err = DetourTransactionCommit();
+		SKSE::log::info("hooked BGSTerrainBlock::Attach and Detach after Unified Water: {}", err == NO_ERROR ? "ok"sv : "FAILED"sv);
+	}
+}
+
+SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
+{
+	SKSE::Init(a_skse);
+	SKSE::log::info("ZenUnifiedWaterGrid 1.5.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
+		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {
+			Install();
+		}
+	});
+	return true;
+}

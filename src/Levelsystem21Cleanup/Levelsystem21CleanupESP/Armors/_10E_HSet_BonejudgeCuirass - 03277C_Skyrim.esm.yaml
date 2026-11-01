@@ -1,0 +1,55 @@
+FormKey: 03277C:Skyrim.esm
+EditorID: _10E_HSet_BonejudgeCuirass
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 0DABFF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 0DABFE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E00:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -30, -20, -32
+  Second: 30, 12, 33
+Name:
+  TargetLanguage: English
+  Value: (Set of the Rat Catcher) Skin of the Rat Catcher
+ObjectEffect: 053FDB:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\Immersive Armors\Mercenary\m\chest_go.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: Enderal\armor\Immersive Armors\Mercenary\m\chest_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 06BBE3:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 0BEB5B:Skyrim.esm
+Value: 48
+Weight: 27
+ArmorRating: 29.4

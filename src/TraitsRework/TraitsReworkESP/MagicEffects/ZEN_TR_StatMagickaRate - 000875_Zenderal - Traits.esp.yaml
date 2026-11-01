@@ -1,0 +1,19 @@
+FormKey: 000875:Zenderal - Traits.esp
+EditorID: ZEN_TR_StatMagickaRate
+Name:
+  TargetLanguage: English
+  Value: 'Trait: MagickaRate'
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: MagickaRateMult
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

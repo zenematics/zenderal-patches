@@ -1,0 +1,16 @@
+FormKey: 000814:Zenderal - Traits.esp
+EditorID: ZEN_TR_CorneredWolfAb
+Name:
+  TargetLanguage: English
+  Value: Cornered Wolf
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    Below 30% Health, your weapons deal 25% more damage and you take 10% less damage.
+
+    Above 75% Health, your weapons deal 10% less damage.
+Type: Ability
+Effects:
+- BaseEffect: 000815:Zenderal - Traits.esp
+  Data: {}

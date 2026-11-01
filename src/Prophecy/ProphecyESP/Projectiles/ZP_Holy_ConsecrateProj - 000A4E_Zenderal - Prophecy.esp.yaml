@@ -1,0 +1,18 @@
+FormKey: 000A4E:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_ConsecrateProj
+ObjectBounds:
+  First: -279, -71, -61
+  Second: 275, 398, 67
+Model:
+  File: Lightpower\InvisProj.nif
+  Data: 0x020000000000000000000000
+Type: Beam
+Speed: 2750
+Range: 2750
+FadeDuration: 0.8
+ImpactForce: 0.1
+CollisionRadius: 10
+Lifetime: 0.8
+RelaunchInterval: 0.6
+MuzzleFlashModel: ''
+SoundLevel: 1

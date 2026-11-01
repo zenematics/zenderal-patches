@@ -114,6 +114,47 @@ if sp:
         "\tEndIf",
     ]
 
+# Enderal's call-horse key (_00E_HorseFlute_SC, a ReferenceAlias on NQ06_Freda) defaults to L, which
+# Quick Light SE also uses, so one press both lit and called the horse. Move it while it is still the
+# default. SetMountTeleportKey re-registers the key, which Enderal itself only does once the flute
+# alias is filled (OnContainerChanged); before that, only set the property so the key stays inert.
+hk = DATA.get("horse_key")
+if hk:
+    lines += [
+        f'\tQuest qHorse = Game.GetFormFromFile(0x{hk["quest"]:X}, "{esc(hk["plugin"])}") as Quest',
+        "\t_00E_HorseFlute_SC aHorse = None",
+        "\tIf qHorse",
+        f'\t\taHorse = qHorse.GetAlias({hk["alias"]}) as _00E_HorseFlute_SC',
+        "\tEndIf",
+        f'\tIf aHorse && aHorse.iMountHotkey == {hk["default"]}',
+        "\t\tIf aHorse.GetReference()",
+        f'\t\t\taHorse.SetMountTeleportKey({hk["key"]})',
+        "\t\tElse",
+        f'\t\t\taHorse.iMountHotkey = {hk["key"]}',
+        "\t\tEndIf",
+        "\t\tapplied += 1",
+        "\tElse",
+        '\t\tDebug.Trace("[Zenderal Settings Applier] skipped horse key: horse flute alias not found or key already changed")',
+        "\t\tskipped += 1",
+        "\tEndIf",
+    ]
+
+# Enderal 2.1's companion health panel: its MCM toggle is a save-based global plus the widget quest's
+# mod-event registration, so do both steps the MCM does (_00e_enderalmcm.psc OnOptionSelect).
+cp = DATA.get("companion_panel")
+if cp:
+    lines += [
+        f'\tIf SetG("{esc(cp["plugin"])}", 0x{cp["global"]:X}, "{esc(cp["edid"])}", {cp["value"]})',
+        f'\t\t_00E_GUI_ActorHealthBar qPanel = Game.GetFormFromFile(0x{cp["quest"]:X}, "{esc(cp["plugin"])}") as _00E_GUI_ActorHealthBar',
+        "\t\tIf qPanel",
+        "\t\t\tqPanel.UnregisterEvents()",
+        "\t\tEndIf",
+        "\t\tapplied += 1",
+        "\tElse",
+        "\t\tskipped += 1",
+        "\tEndIf",
+    ]
+
 lines += [
     '\tDebug.Trace("[Zenderal Settings Applier] applied " + applied + ", skipped " + skipped)',
     "\tStop()",

@@ -1,0 +1,14 @@
+FormKey: 000803:Zenderal - Traits.esp
+EditorID: ZEN_TR_OverchargedPenaltyAb
+Name:
+  TargetLanguage: English
+  Value: Overcharged
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 000870:Zenderal - Traits.esp
+  Data:
+    Magnitude: 1

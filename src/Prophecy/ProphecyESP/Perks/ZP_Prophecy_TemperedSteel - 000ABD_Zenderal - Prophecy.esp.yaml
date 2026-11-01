@@ -1,0 +1,19 @@
+FormKey: 000ABD:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_TemperedSteel
+Description:
+  TargetLanguage: English
+  Value: 'Your One-handed and Two-handed skills are increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Tempered Steel'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000ABC:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000ACA:Zenderal - Prophecy.esp

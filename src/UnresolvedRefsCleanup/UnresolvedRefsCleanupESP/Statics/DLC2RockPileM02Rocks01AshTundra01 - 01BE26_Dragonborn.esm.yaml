@@ -1,0 +1,19 @@
+FormKey: 01BE26:Dragonborn.esm
+MajorRecordFlagsRaw: 2048
+EditorID: DLC2RockPileM02Rocks01AshTundra01
+Version2: 2
+SkyrimMajorRecordFlags:
+- InitiallyDisabled
+ObjectBounds:
+  First: -273, -291, -290
+  Second: 295, 277, 277
+Model:
+  File: Landscape\Rocks\S3DRockPileM02.nif
+  Data: 0x020000000000000000000000
+  AlternateTextures:
+  - Name: RockPileM02:10
+    NewTexture: 01BD1C:Dragonborn.esm
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- 0x800

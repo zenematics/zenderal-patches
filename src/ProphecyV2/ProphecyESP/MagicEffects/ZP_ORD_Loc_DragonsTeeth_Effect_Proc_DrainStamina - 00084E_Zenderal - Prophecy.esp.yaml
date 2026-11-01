@@ -1,0 +1,25 @@
+FormKey: 00084E:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Effect_Proc_DrainStamina
+Name:
+  TargetLanguage: English
+  Value: Drain Stamina
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 00083A:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+ResistValue: ResistMagic
+SpellmakingArea: 8
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+Explosion: 00084F:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Drains <mag> points of Stamina in a small area.

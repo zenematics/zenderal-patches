@@ -1,0 +1,15 @@
+FormKey: 000804:Zenderal - Testing Cheats.esp
+EditorID: ZEN_TC_Confirm
+Description:
+  TargetLanguage: English
+  Value: Apply %.0f?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Apply
+- Text:
+    TargetLanguage: English
+    Value: Cancel

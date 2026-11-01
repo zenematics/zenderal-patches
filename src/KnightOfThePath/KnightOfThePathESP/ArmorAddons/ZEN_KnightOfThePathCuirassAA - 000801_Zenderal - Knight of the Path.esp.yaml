@@ -1,0 +1,58 @@
+FormKey: 000801:Zenderal - Knight of the Path.esp
+EditorID: ZEN_KnightOfThePathCuirassAA
+Version2: 4
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  - Forearms
+  - Amulet
+  - Calves
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Priority:
+  Male: 5
+  Female: 5
+WeightSliderEnabled:
+  Male: True
+  Female: True
+Unknown2: 23
+WeaponAdjust: 0.6
+WorldModel:
+  Male:
+    File: armor\zenderal\knightofthepath\m\cuirass_1.nif
+  Female:
+    File: armor\zenderal\knightofthepath\f\cuirass_1.nif
+FirstPersonModel:
+  Male:
+    File: armor\zenderal\knightofthepath\m\1stpersoncuirass_1.nif
+  Female:
+    File: armor\zenderal\knightofthepath\f\1stpersoncuirass_1.nif
+AdditionalRaces:
+- 0131F0:Skyrim.esm
+- 013740:Skyrim.esm
+- 013741:Skyrim.esm
+- 013742:Skyrim.esm
+- 013743:Skyrim.esm
+- 013744:Skyrim.esm
+- 013745:Skyrim.esm
+- 013746:Skyrim.esm
+- 013747:Skyrim.esm
+- 013748:Skyrim.esm
+- 013749:Skyrim.esm
+- 033898:Skyrim.esm
+- 033899:Skyrim.esm
+- 067CD8:Skyrim.esm
+- 088794:Skyrim.esm
+- 08883A:Skyrim.esm
+- 08883C:Skyrim.esm
+- 08883D:Skyrim.esm
+- 088840:Skyrim.esm
+- 088844:Skyrim.esm
+- 088845:Skyrim.esm
+- 088846:Skyrim.esm
+- 088884:Skyrim.esm
+- 097A3D:Skyrim.esm
+- 0A82B9:Skyrim.esm
+- 0A82BA:Skyrim.esm
+- 10760A:Skyrim.esm

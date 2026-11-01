@@ -1,0 +1,16 @@
+FormKey: 03824E:Skyrim.esm
+EditorID: _00E_Grass_Reeds
+Version2: 1
+ObjectBounds:
+  First: -41, -11, 6
+  Second: 21, 19, 55
+Model:
+  File: landscape\grass\vurt_reeds.nif
+  Data: 0x020000000000000000000000
+Density: 60
+MaxSlope: 90
+PositionRange: 32
+HeightRange: 0.2
+ColorRange: 0.5
+WavePeriod: 10
+Unknown3: 0xC58E3E

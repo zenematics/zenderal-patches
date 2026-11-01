@@ -1,0 +1,21 @@
+FormKey: 0890F9:Skyrim.esm
+EditorID: _00E_Grass_Tropical01
+Version2: 6
+ObjectBounds:
+  First: -44, -26, 0
+  Second: 38, 45, 67
+Model:
+  File: Landscape\grass\NicoTropicalGrass01.nif
+  Data: 0x020000000000000000000000
+Density: 40
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 25
+HeightRange: 1
+ColorRange: 0.3
+WavePeriod: 260
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

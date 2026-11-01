@@ -1,0 +1,16 @@
+FormKey: 000ABF:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DarkDeluge
+Description:
+  TargetLanguage: English
+  Value: 'Your backward power attacks with at least 6 Rage pierce the target for 40 damage and lower its magic resistance by 25% for 30 seconds. Spends 6 Rage.'
+Name:
+  TargetLanguage: English
+  Value: 'Dark Deluge'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000ABC:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

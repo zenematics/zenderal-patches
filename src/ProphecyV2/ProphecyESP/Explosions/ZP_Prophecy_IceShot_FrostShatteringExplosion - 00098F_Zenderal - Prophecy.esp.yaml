@@ -1,0 +1,18 @@
+FormKey: 00098F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_FrostShatteringExplosion
+ObjectBounds:
+  First: -18, -139, -17
+  Second: 18, 37, 17
+Model:
+  File: Enderal\magic\IceShatterExplosionTest.nif
+  Data: 0x020000000000000000000000
+Light: 0B79FA:Skyrim.esm
+Sound1: 023992:Skyrim.esm
+Force: 3
+Radius: 750
+VerticalOffsetMult: 50
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

@@ -1,0 +1,13 @@
+FormKey: 442454:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Tomes_Litem_All_075_Destruction
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 41EC6F:Triumvirate - Mage Archetypes.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 419B56:Triumvirate - Mage Archetypes.esp
+    Count: 1

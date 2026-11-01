@@ -1,0 +1,16 @@
+{
+    "name": "Sneak_mt_Enter",
+    "priority": 2140000001,
+    "conditions": [
+        {
+            "condition": "IsSneaking",
+            "requiredVersion": "1.0.0.0",
+            "negated": true
+        },
+        {
+            "condition": "IsWeaponDrawn",
+            "requiredVersion": "1.0.0.0",
+            "negated": true
+        }
+    ]
+}

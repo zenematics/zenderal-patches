@@ -12,7 +12,12 @@ ModHeader:
   Description: >-
     Applies the Zenderal list's save-based MCM settings once per save (30 s after load).
     Every value is checked by plugin and EditorID or script cast before it is written.
+    Also defaults Enderal 2.1's ally health bars and kill moves to off (MCM toggles still work).
   MasterReferences:
   - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
     FileSize: 0
   INTV: 1

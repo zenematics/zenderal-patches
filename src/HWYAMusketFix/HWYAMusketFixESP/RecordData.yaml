@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - HWYA Musket Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Musket and rifle balls fly with gravity 0 (was 0.001 / 0.000002), so Hit Where You Aim's solver
+    no longer points the aiming pose straight up. Forwards the winning records verbatim otherwise.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: DAR Rifles.esp
+    FileSize: 0
+  - Master: OrdoLegionisMuskets.esp
+    FileSize: 0
+  INTV: 1

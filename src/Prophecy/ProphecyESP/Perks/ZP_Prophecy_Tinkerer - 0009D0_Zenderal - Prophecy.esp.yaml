@@ -1,0 +1,19 @@
+FormKey: 0009D0:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Tinkerer
+Description:
+  TargetLanguage: English
+  Value: 'Your Handicraft skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Tinkerer'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081A:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009FA:Zenderal - Prophecy.esp

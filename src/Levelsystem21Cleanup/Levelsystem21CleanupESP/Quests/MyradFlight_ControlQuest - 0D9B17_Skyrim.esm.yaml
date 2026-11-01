@@ -1,0 +1,248 @@
+FormKey: 0D9B17:Skyrim.esm
+EditorID: MyradFlight_ControlQuest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_A0_MyradFlightControlQuest
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CameraFXloop
+      Object: 0D9AD0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CameraFXstart
+      Object: 0B94D1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CameraFXstart02
+      Object: 0B9569:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EVENTleaveFurniture
+      Object: 0D9B17:Skyrim.esm
+      Alias: 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EVENTplayerWalkAway
+      Object: 0D9B17:Skyrim.esm
+      Alias: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EVENTreturnHome01
+      Object: 0D9B17:Skyrim.esm
+      Alias: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EVENTreturnHome02
+      Object: 0D9B17:Skyrim.esm
+      Alias: 3
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FlightRoute
+      Object: 0D9AC5:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDragonLandingImpactSet
+      Object: 02BD39:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDragonTakeoffImpactSet
+      Object: 019A01:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GroundDismountDragon
+      Object: 10A293:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GroundDismountDragonNPC
+      Object: 10A294:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GroundMountDragonIdle
+      Object: 0EC6F9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IdleDrunk
+      Object: 0CEFD0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IdleWebExit
+      Object: 04A592:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IMODdizzy
+      Object: 0D9B21:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IMODfadeOut
+      Object: 03236E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IMODflying
+      Object: 0D9B1F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IMODpitchBlack
+      Object: 0F756E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IMODtakeLand
+      Object: 0D9B22:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IMODtakeOff
+      Object: 0D9B20:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IMODtakeOffDOF
+      Object: 0D9B23:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MyradIsFlying
+      Object: 0C3FC9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PuffoffDragonSmoke
+      Object: 088109:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PuffoffSmoke
+      Object: 01A13B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SFXflyBy
+      Object: 018B58:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SFXmyradRoadDistant
+      Object: 0FF7CA:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SFXmyradSoftHowl
+      Object: 03CB87:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SFXplayerDrop
+      Object: 0D9AC9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SFXwindLP
+      Object: 09174D:Skyrim.esm
+  - Name: _00E_MyradSystem02
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_AchievementsEnabled
+      Object: 046F83:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_IsForgottenStoriesActivated
+      Object: 04320E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_MyradTakeOffMarker
+      Object: 02F0B6:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MyradFlightPage1
+      Object: 12E295:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MyradFlightPage2
+      Object: 12E296:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ArkDestination
+      Object: 12E298:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ArkDestinationOutside
+      Object: 12E299:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DuestertalDesitnation
+      Object: 132E9E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DunehomeDestination
+      Object: 137A24:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FadeToBlackAndBackQuick
+      Object: 02F0B7:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FadeToBlackBackImod
+      Object: 0F756F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FadeToBlackHoldImod
+      Object: 0F756E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FadeToBlackImod
+      Object: 0F756D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FarmerscoastDestination
+      Object: 12E29A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FrostcliffDestination
+      Object: 12E2A0:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDragonTakeoffImpactSet
+      Object: 019A01:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Gold001
+      Object: 00000F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GroundMountDragon
+      Object: 0EC6F9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HeartlandBorderregionDestination
+      Object: 12E29D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HeartlandNordicDestination
+      Object: 12E29E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HeartlandWatchtowerDestination
+      Object: 12E29F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MisthomeDestination
+      Object: 12E29C:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MQ04
+      Object: 02EBA2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: Price
+      Data: 50
+    - MutagenObjectType: ScriptObjectProperty
+      Name: QuellwachtDestination
+      Object: 132FCC:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RiverhomeDestination
+      Object: 12E29B:Skyrim.esm
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 0D9B17:Skyrim.esm
+      Alias: 0
+    Scripts:
+    - Name: _00E_A0_MyradFlightAliasMyrad
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FlightControl
+        Object: 0D9B17:Skyrim.esm
+  - Property:
+      Name: ''
+      Object: 0D9B17:Skyrim.esm
+      Alias: 2
+    Scripts:
+    - Name: _00E_A0_MyradFlightAliasReturnHome
+  - Property:
+      Name: ''
+      Object: 0D9B17:Skyrim.esm
+      Alias: 3
+    Scripts:
+    - Name: _00E_A0_MyradFlightAliasReturnHome
+Priority: 80
+QuestFormVersion: 65
+Type: Misc
+Stages:
+- Index: 5
+  Flags:
+  - StartUpStage
+NextAliasID: 4
+Aliases:
+- Name: EVENTleaveFurniture
+  Flags:
+  - Optional
+  - AllowReuseInQuest
+  - UsesStoredText
+  - ClearNamesWhenRemoved
+  PackageData:
+  - 0C3F8E:Skyrim.esm
+  VoiceTypes: Null
+- ID: 2
+  Name: EVENTreturnHome01
+  Flags:
+  - Optional
+  - AllowReuseInQuest
+  - UsesStoredText
+  - ClearNamesWhenRemoved
+  VoiceTypes: Null
+- ID: 3
+  Name: EVENTreturnHome02
+  Flags:
+  - Optional
+  - AllowReuseInQuest
+  - UsesStoredText
+  - ClearNamesWhenRemoved
+  VoiceTypes: Null
+- ID: 1
+  Name: EVENTplayerWalkAway
+  Flags:
+  - Optional
+  - AllowReuseInQuest
+  - ClearNamesWhenRemoved
+  VoiceTypes: Null

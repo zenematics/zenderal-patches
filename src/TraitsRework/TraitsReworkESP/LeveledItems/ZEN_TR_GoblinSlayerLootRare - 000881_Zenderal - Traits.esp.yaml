@@ -1,0 +1,22 @@
+FormKey: 000881:Zenderal - Traits.esp
+EditorID: ZEN_TR_GoblinSlayerLootRare
+ChanceNone: 0.76
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 085669:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04C981:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 0E1222:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 085676:Skyrim.esm
+    Count: 1

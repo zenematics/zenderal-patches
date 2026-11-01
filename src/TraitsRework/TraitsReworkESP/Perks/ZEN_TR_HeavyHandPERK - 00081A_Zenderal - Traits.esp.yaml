@@ -1,0 +1,34 @@
+FormKey: 00081A:Zenderal - Traits.esp
+EditorID: ZEN_TR_HeavyHandPERK
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsPowerAttackingConditionData
+      ComparisonValue: 1
+  EntryPoint: ModPowerAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.3
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsPowerAttackingConditionData
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.9
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModPowerAttackStamina
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 1.2

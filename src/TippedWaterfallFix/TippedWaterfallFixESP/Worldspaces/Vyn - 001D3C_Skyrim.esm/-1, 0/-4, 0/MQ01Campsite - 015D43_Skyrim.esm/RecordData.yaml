@@ -1,0 +1,34 @@
+FormKey: 015D43:Skyrim.esm
+EditorID: MQ01Campsite
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: -27, 1
+  Flags: -1532996096
+WaterHeight: 3.4028235E+38
+Regions:
+- 03A604:Skyrim.esm
+- 037B8B:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 072D1D:Skyrim.esm
+  Base: 000800:Zenderal - Tipped Waterfall Fix.esp
+  Scale: 1.42
+  Placement:
+    Position: -109146.26, 7856.1226, 2768.615
+    Rotation: -1.4599843, -0, 3.1600003
+- MutagenObjectType: PlacedObject
+  FormKey: 072D1E:Skyrim.esm
+  Base: 000800:Zenderal - Tipped Waterfall Fix.esp
+  Scale: 1.42
+  Placement:
+    Position: -109153.63, 7801.999, 2768.615
+    Rotation: 1.45994, -0.0282331, 0.021549767
+- MutagenObjectType: PlacedObject
+  FormKey: 072D1F:Skyrim.esm
+  Base: 000800:Zenderal - Tipped Waterfall Fix.esp
+  Scale: 1.42
+  Placement:
+    Position: -109278.54, 7822.1763, 2777.7686
+    Rotation: 0.5560599, 1.4402261, 5.290696

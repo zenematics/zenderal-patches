@@ -1,0 +1,15 @@
+FormKey: 000ACB:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ScarredHide_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Scarred Hide'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 0CAB90:Skyrim.esm
+  Data:
+    Magnitude: 40

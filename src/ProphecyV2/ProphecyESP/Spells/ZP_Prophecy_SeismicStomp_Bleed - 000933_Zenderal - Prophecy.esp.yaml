@@ -1,0 +1,19 @@
+FormKey: 000933:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SeismicStomp_Bleed
+Name:
+  TargetLanguage: English
+  Value: Seismic Stomp
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: 000934:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 10
+    Duration: 5

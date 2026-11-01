@@ -1,0 +1,95 @@
+FormKey: 14BEC4:Skyrim.esm
+EditorID: NQ29
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_NQ29_Functions
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_AchievementsEnabled
+      Object: 046F83:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_MQ11a_MagicAnomalyScreamAM
+      Object: 0E4896:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FireballStormAlduinDeathExplosion
+      Object: 0E7721:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FireStormExplosion02
+      Object: 0877F9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NQ29_Boss_AshWidow_REF
+      Object: 03C5E1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkyrimDA02Weather
+      Object: 105F40:Skyrim.esm
+  - Name: QF_NQ29_0014BEC4
+  FileName: QF_NQ29_0014BEC4
+  Fragments:
+  - Stage: 10
+    Unknown2: 1
+    ScriptName: QF_NQ29_0014BEC4
+    FragmentName: Fragment_0
+Name:
+  TargetLanguage: English
+  Value: Myths and Legends
+Priority: 33
+QuestFormVersion: 65
+Type: SideQuest
+TextDisplayGlobals:
+- 14BECC:Skyrim.esm
+- 14BECD:Skyrim.esm
+Filter: Nebenquest\Collectibles\
+Stages:
+- Index: 5
+  Flags:
+  - StartUpStage
+  LogEntries:
+  - Flags: []
+    Entry:
+      TargetLanguage: English
+      Value: On my travels I got my hands on a book series of the old Endralean Archmagister Gawayn Girathû. In those he lists several legends about certain creatures which roam the land since quite some time - who knows, perhaps one or another has some truth in it?
+- Index: 10
+  Flags:
+  - ShutDownStage
+  LogEntries:
+  - Flags:
+    - CompleteQuest
+Objectives:
+- Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Find and defeat all mythical creatures in Enderal (<Global=NQ29_MythicalCreaturesSlain>/<Global=NQ29_MythicalCreaturesMax>)
+- Index: 5
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Find and defeat the "Blind Miner"
+- Index: 10
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Find and defeat the "Steel Warden"
+- Index: 15
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Find and defeat the "Ash Widow"
+- Index: 20
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Find and defeat the "Triceratops"
+- Index: 25
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Find and defeat "Arvheldhiin the Wanderer"
+- Index: 30
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: Find and defeat "The Forgotten One"
+NextAliasID: 0

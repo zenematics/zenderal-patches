@@ -1,0 +1,21 @@
+FormKey: 113497:Skyrim.esm
+EditorID: _00E_Tropical_DryGrass01Lesser
+ObjectBounds:
+  First: -44, -26, 0
+  Second: 38, 45, 67
+Model:
+  File: Landscape\grass\NicoDryGrass01.nif
+  Data: 0x020000000000000000000000
+Density: 20
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 25
+HeightRange: 0.3
+ColorRange: 0.1
+WavePeriod: 170
+Flags:
+- VertexLighting
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

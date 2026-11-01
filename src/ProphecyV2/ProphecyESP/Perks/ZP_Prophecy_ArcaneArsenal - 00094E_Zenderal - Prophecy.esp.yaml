@@ -1,0 +1,25 @@
+FormKey: 00094E:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ArcaneArsenal
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Arcane Arsenal" power: choose Fire, Frost or Lightning, and your bow hits deal 10 extra damage of that element.'
+Name:
+  TargetLanguage: English
+  Value: 'Arcane Arsenal'
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 000910:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000953:Zenderal - Prophecy.esp

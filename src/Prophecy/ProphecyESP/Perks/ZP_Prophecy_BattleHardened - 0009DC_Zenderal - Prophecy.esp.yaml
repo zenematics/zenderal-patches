@@ -1,0 +1,19 @@
+FormKey: 0009DC:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BattleHardened
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Health is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Battle-Hardened'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000916:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A06:Zenderal - Prophecy.esp

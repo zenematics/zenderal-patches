@@ -1,0 +1,43 @@
+FormKey: 000881:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Lia_RushingTide_Effect_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_CarryWeight_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_CarryWeight
+      Data: 0.01
+Name:
+  TargetLanguage: English
+  Value: Rushing Tide
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+TaperWeight: 1
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+SecondActorValueWeight: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: StaminaRateMult
+  Type: DualValueModifier
+CastType: FireAndForget
+SecondActorValue: SpeedMult
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1

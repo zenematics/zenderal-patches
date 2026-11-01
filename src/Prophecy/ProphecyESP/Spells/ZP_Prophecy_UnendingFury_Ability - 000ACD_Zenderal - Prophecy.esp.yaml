@@ -1,0 +1,15 @@
+FormKey: 000ACD:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UnendingFury_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Unending Fury'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 105F21:Skyrim.esm
+  Data:
+    Magnitude: 25

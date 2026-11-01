@@ -1,0 +1,22 @@
+FormKey: 00B693:KataPUMBAffinities.esp
+EditorID: Kata_V2_Affinity_AbHighlander
+Name:
+  TargetLanguage: English
+  Value: 'Affinity: Highlander'
+MenuDisplayObject: 03C90F:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Raises Stamina by <30> points. Raises both Marksman and Two Handed by <8> points. Attacks with a bow apply a debuff to the target that increases the damage of two-handed melee weapons by <25>% for <20> seconds. (Not stackable)
+BaseCost: 124
+Type: Ability
+Effects:
+- BaseEffect: 00B692:KataPUMBAffinities.esp
+  Data:
+    Magnitude: 30
+- BaseEffect: 023163:Skyrim.esm
+  Data:
+    Magnitude: 8
+- BaseEffect: 023167:Skyrim.esm
+  Data:
+    Magnitude: 8

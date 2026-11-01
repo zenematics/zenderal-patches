@@ -1,0 +1,14 @@
+FormKey: 000A4F:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_LightshaftArtHazard
+ObjectBounds:
+  First: -124, -124, -5
+  Second: 124, 124, 16
+Model:
+  File: Lightpower\HolySkyBoltHazard.nif
+  Data: 0x020000000000000000000000
+Limit: 1
+Radius: 1
+Lifetime: 3
+TargetInterval: 10
+Flags:
+- DropToGround

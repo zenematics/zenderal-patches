@@ -1,0 +1,42 @@
+FormKey: 01646A:Skyrim.esm
+EditorID: SonnenkuesteFischer
+Flags:
+- HasWater
+Grid:
+  Point: -28, -5
+  Flags: -1254349568
+WaterHeight: 3.4028235E+38
+Regions:
+- 03A604:Skyrim.esm
+- 037B8B:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000957:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: -112426.7, -16469.3, 1854.4
+    Rotation: 0, 0, 0.7065
+- MutagenObjectType: PlacedNpc
+  FormKey: 000958:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: -112448.0, -16362.7, 1873.3
+    Rotation: 0, 0, 4.5951
+- MutagenObjectType: PlacedNpc
+  FormKey: 000959:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -112554.7, -16448.0, 1891.1
+    Rotation: 0, 0, 2.4199
+- MutagenObjectType: PlacedNpc
+  FormKey: 00095A:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -112298.7, -16533.3, 1826.8
+    Rotation: 0, 0, 2.5087
+- MutagenObjectType: PlacedNpc
+  FormKey: 00095B:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: -112362.7, -16320.0, 1865.1
+    Rotation: 0, 0, 2.8705

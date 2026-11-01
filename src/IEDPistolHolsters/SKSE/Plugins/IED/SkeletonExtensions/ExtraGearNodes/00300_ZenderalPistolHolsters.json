@@ -1,0 +1,40 @@
+[
+	{
+		"name": "ZenPistolRight",
+		"desc": "Pistol holster (Zenderal)",
+		"parent": "Bolt Quiver",
+		"skeleton":
+		[
+			{
+				"match": { "any": true },
+				"obj_match":
+				[
+					{ "name": "Bolt Quiver", "is_node": true },
+					{ "name": "MOV BOLTXP32", "is_node": true },
+					{ "name": "WeaponStaff", "is_node": true }
+				],
+				"xfrm_mov": { "read_from": "MOV BOLTXP32" },
+				"xfrm_node": { "read_from": "WeaponStaff" }
+			}
+		]
+	},
+	{
+		"name": "ZenPistolLeft",
+		"desc": "Pistol holster left (Zenderal)",
+		"parent": "Aesthetic Bolt Quiver",
+		"skeleton":
+		[
+			{
+				"match": { "any": true },
+				"obj_match":
+				[
+					{ "name": "Aesthetic Bolt Quiver", "is_node": true },
+					{ "name": "MOV BOLTABQ", "is_node": true },
+					{ "name": "WeaponStaffLeft", "is_node": true }
+				],
+				"xfrm_mov": { "read_from": "MOV BOLTABQ" },
+				"xfrm_node": { "read_from": "WeaponStaffLeft" }
+			}
+		]
+	}
+]

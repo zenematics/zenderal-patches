@@ -1,0 +1,38 @@
+FormKey: 000914:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_TripwireBlastEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_TripwireBlastEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Blast
+      Object: 000913:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LastBlast
+      Object: 000915:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Tripwire Blast
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1

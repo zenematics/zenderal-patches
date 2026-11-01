@@ -1,0 +1,22 @@
+FormKey: 00080B:KittyClass_DarkWarrior.esp
+EditorID: _CDW_ClassMGEF
+Name:
+  TargetLanguage: English
+  Value: Vehemence
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- PowerAffectsDuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Assumes the mantle of the Dark Warrior.

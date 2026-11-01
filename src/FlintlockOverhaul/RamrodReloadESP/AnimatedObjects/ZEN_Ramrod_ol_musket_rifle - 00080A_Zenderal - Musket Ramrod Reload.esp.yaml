@@ -1,0 +1,5 @@
+FormKey: 00080A:Zenderal - Musket Ramrod Reload.esp
+EditorID: ZEN_Ramrod_ol_musket_rifle
+Model:
+  File: Zenderal\MusketRamrod\ZenRamrod_ol_musket_rifle.nif
+UnloadEvent: AnimObjectUnequip

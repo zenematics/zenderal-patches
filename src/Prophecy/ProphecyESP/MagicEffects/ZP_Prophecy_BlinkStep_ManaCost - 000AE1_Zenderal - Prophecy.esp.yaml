@@ -1,0 +1,21 @@
+FormKey: 000AE1:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BlinkStep_ManaCost
+Name:
+  TargetLanguage: English
+  Value: Blink Step
+Flags:
+- Detrimental
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+CastType: FireAndForget
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

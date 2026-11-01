@@ -1,0 +1,59 @@
+FormKey: 012F0E:Skyrim.esm
+EditorID: DefaultFootstepJumpDownImpact
+Impacts:
+- Material: 012F34:Skyrim.esm
+  Impact: 06A163:Skyrim.esm
+- Material: 012F35:Skyrim.esm
+  Impact: 01CE3F:Skyrim.esm
+- Material: 012F36:Skyrim.esm
+  Impact: 06A163:Skyrim.esm
+- Material: 012F37:Skyrim.esm
+  Impact: 012F0A:Skyrim.esm
+- Material: 012F38:Skyrim.esm
+  Impact: 0191A3:Skyrim.esm
+- Material: 012F39:Skyrim.esm
+  Impact: 06A163:Skyrim.esm
+- Material: 012F3D:Skyrim.esm
+  Impact: 01C14D:Skyrim.esm
+- Material: 012F3E:Skyrim.esm
+  Impact: 0191A3:Skyrim.esm
+- Material: 012F3F:Skyrim.esm
+  Impact: 0191A3:Skyrim.esm
+- Material: 012F40:Skyrim.esm
+  Impact: 013EA7:Skyrim.esm
+- Material: 012F41:Skyrim.esm
+  Impact: 01CE43:Skyrim.esm
+- Material: 012F42:Skyrim.esm
+  Impact: 01CE43:Skyrim.esm
+- Material: 012F43:Skyrim.esm
+  Impact: 01CE43:Skyrim.esm
+- Material: 012F45:Skyrim.esm
+  Impact: 01C149:Skyrim.esm
+- Material: 012F46:Skyrim.esm
+  Impact: 012F0A:Skyrim.esm
+- Material: 012F47:Skyrim.esm
+  Impact: 026943:Audio Overhaul Skyrim.esp
+- Material: 012F48:Skyrim.esm
+  Impact: 01C14D:Skyrim.esm
+- Material: 01686A:Skyrim.esm
+  Impact: 01CE43:Skyrim.esm
+- Material: 01686B:Skyrim.esm
+  Impact: 06A163:Skyrim.esm
+- Material: 01C151:Skyrim.esm
+  Impact: 01C14D:Skyrim.esm
+- Material: 02EE2C:Skyrim.esm
+  Impact: 06A163:Skyrim.esm
+- Material: 02EE2D:Skyrim.esm
+  Impact: 01CE43:Skyrim.esm
+- Material: 043DCC:Skyrim.esm
+  Impact: 01CE43:Skyrim.esm
+- Material: 052ED0:Skyrim.esm
+  Impact: 01C149:Skyrim.esm
+- Material: 0C6FB1:Skyrim.esm
+  Impact: 06A163:Skyrim.esm
+- Material: 0C8244:Skyrim.esm
+  Impact: 012F0A:Skyrim.esm
+- Material: 0D6C11:Skyrim.esm
+  Impact: 02742D:Audio Overhaul Skyrim.esp
+- Material: 0F7B68:Skyrim.esm
+  Impact: 01CE43:Skyrim.esm

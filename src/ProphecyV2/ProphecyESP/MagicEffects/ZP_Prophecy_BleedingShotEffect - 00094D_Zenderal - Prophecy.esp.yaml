@@ -1,0 +1,29 @@
+FormKey: 00094D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BleedingShotEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_PlaySoundEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SoundToPlay
+      Object: 00094C:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Bleeding Shot
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

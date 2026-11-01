@@ -1,0 +1,54 @@
+FormKey: 000E52:Shatterveil.esp
+EditorID: shvl_ShatterstepSpell
+Name:
+  TargetLanguage: English
+  Value: 'Blink Step'
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 20
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000E51:Shatterveil.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: Magicka
+    ComparisonValue: 35
+- BaseEffect: 000AE1:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 35
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: Magicka
+    ComparisonValue: 35
+- BaseEffect: 000AE5:Zenderal - Prophecy.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: Magicka
+    ComparisonValue: 35
+- BaseEffect: 000B05:Zenderal - Prophecy.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      ActorValue: Magicka
+    ComparisonValue: 35

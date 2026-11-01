@@ -1,0 +1,20 @@
+FormKey: 00F5BE:OrdoLegionisMuskets.esp
+EditorID: OLMusket_BB_scrapnel
+Name:
+  TargetLanguage: English
+  Value: Blunderbuss Scrapnel
+Model:
+  File: OLM\OL_musket\ol_AmmoBB_Normal.nif
+  Data: 0x020000000000000000000000
+Description:
+  TargetLanguage: English
+  Value: Black powder charge, metal pieces and broken soulgems.
+Keywords:
+- 01E718:Skyrim.esm
+- 0917E7:Skyrim.esm
+Projectile: 00F5BF:OrdoLegionisMuskets.esp
+Flags:
+- IgnoresNormalWeaponResistance
+Damage: 8
+Value: 2
+Weight: 0.25

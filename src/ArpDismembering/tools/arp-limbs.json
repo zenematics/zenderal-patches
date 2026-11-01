@@ -1,0 +1,287 @@
+[
+  {
+    "fid": "000800",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_L_800.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Falmer - Male - Actor addons data - L Calf",
+    "skins": [
+      "0B526C:Skyrim.esm",
+      "0B526E:Skyrim.esm",
+      "016EE7:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000801",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_R_801.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Falmer - Male - Actor addons data - R Calf",
+    "skins": [
+      "0B526C:Skyrim.esm",
+      "0B526E:Skyrim.esm",
+      "016EE7:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000802",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_L_802.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - L Forearm",
+    "skins": [
+      "0B526C:Skyrim.esm",
+      "0B526E:Skyrim.esm",
+      "016EE7:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000803",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_R_803.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - R Forearm",
+    "skins": [
+      "0B526C:Skyrim.esm",
+      "0B526E:Skyrim.esm",
+      "016EE7:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000804",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Head_804.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Falmer - Male - Actor addons data - Head",
+    "skins": [
+      "0B526C:Skyrim.esm",
+      "0B526E:Skyrim.esm",
+      "016EE7:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000805",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_L_805.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Falmer - Male - Actor addons data - L Calf",
+    "skins": [
+      "0B526D:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000806",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_R_806.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Falmer - Male - Actor addons data - R Calf",
+    "skins": [
+      "0B526D:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000807",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_L_807.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - L Forearm",
+    "skins": [
+      "0B526D:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000808",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_R_808.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - R Forearm",
+    "skins": [
+      "0B526D:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000809",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Head_809.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Falmer - Male - Actor addons data - Head",
+    "skins": [
+      "0B526D:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "00080A",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_L_80A.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Falmer - Male - Actor addons data - L Calf",
+    "skins": [
+      "0B526F:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "00080B",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_R_80B.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Falmer - Male - Actor addons data - R Calf",
+    "skins": [
+      "0B526F:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "00080C",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_L_80C.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - L Forearm",
+    "skins": [
+      "0B526F:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "00080D",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_R_80D.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - R Forearm",
+    "skins": [
+      "0B526F:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "00080E",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Head_80E.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Falmer - Male - Actor addons data - Head",
+    "skins": [
+      "0B526F:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "00080F",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_L_80F.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Falmer - Male - Actor addons data - L Calf",
+    "skins": [
+      "01848C:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000810",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_R_810.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Falmer - Male - Actor addons data - R Calf",
+    "skins": [
+      "01848C:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000811",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_L_811.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - L Forearm",
+    "skins": [
+      "01848C:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000812",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_R_812.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - R Forearm",
+    "skins": [
+      "01848C:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000813",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Head_813.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Falmer - Male - Actor addons data - Head",
+    "skins": [
+      "01848C:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000814",
+    "limb": "Calf_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_L_814.nif",
+    "node": "NPC L Calf",
+    "base_template": "Falmer - Male - Base data - L Calf",
+    "addon_template": "Falmer - Male - Actor addons data - L Calf",
+    "skins": [
+      "050F30:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000815",
+    "limb": "Calf_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Calf_R_815.nif",
+    "node": "NPC R Calf",
+    "base_template": "Falmer - Male - Base data - R Calf",
+    "addon_template": "Falmer - Male - Actor addons data - R Calf",
+    "skins": [
+      "050F30:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000816",
+    "limb": "Forearm_L",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_L_816.nif",
+    "node": "NPC L Forearm",
+    "base_template": "Falmer - Male - Base data - L Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - L Forearm",
+    "skins": [
+      "050F30:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000817",
+    "limb": "Forearm_R",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Forearm_R_817.nif",
+    "node": "NPC R Forearm",
+    "base_template": "Falmer - Male - Base data - R Forearm",
+    "addon_template": "Falmer - Male - Actor addons data - R Forearm",
+    "skins": [
+      "050F30:Skyrim.esm"
+    ]
+  },
+  {
+    "fid": "000818",
+    "limb": "Head",
+    "mesh": "DismemberingFramework\\Zenderal\\Arps\\Arp_Head_818.nif",
+    "node": "NPC Neck",
+    "base_template": "Falmer - Male - Base data - Head",
+    "addon_template": "Falmer - Male - Actor addons data - Head",
+    "skins": [
+      "050F30:Skyrim.esm"
+    ]
+  }
+]

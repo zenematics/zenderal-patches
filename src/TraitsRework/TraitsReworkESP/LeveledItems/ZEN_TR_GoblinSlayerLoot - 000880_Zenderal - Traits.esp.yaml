@@ -1,0 +1,25 @@
+FormKey: 000880:Zenderal - Traits.esp
+EditorID: ZEN_TR_GoblinSlayerLoot
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 0030A8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030A8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0030A8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0028E4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000881:Zenderal - Traits.esp
+    Count: 1

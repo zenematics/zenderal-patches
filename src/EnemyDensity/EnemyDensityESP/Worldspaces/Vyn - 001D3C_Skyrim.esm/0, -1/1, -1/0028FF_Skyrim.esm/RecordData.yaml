@@ -1,0 +1,74 @@
+FormKey: 0028FF:Skyrim.esm
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: 8, -8
+  Flags: -1893611520
+WaterHeight: 3.4028235E+38
+Regions:
+- 139C4D:Skyrim.esm
+- 10D11A:Skyrim.esm
+- 0333E3:Skyrim.esm
+- 0C5229:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB1:Zenderal - Enemy Density.esp
+  Base: 090BBC:Skyrim.esm
+  Placement:
+    Position: 33984.0, -31018.7, 881.4
+    Rotation: 0, 0, 0.1326
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB2:Zenderal - Enemy Density.esp
+  Base: 090BBA:Skyrim.esm
+  Placement:
+    Position: 34048.0, -31125.3, 942.1
+    Rotation: 0, 0, 5.1346
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB3:Zenderal - Enemy Density.esp
+  Base: 090BB9:Skyrim.esm
+  Placement:
+    Position: 33920.0, -31168.0, 905.1
+    Rotation: 0, 0, 1.2855
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB4:Zenderal - Enemy Density.esp
+  Base: 090BBD:Skyrim.esm
+  Placement:
+    Position: 34112.0, -30869.3, 866.7
+    Rotation: 0, 0, 0.7327
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB5:Zenderal - Enemy Density.esp
+  Base: 04BB66:Skyrim.esm
+  Placement:
+    Position: 33749.3, -30997.3, 814.7
+    Rotation: 0, 0, 0.579
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB6:Zenderal - Enemy Density.esp
+  Base: 090BBC:Skyrim.esm
+  Placement:
+    Position: 33834.7, -31253.3, 900.6
+    Rotation: 0, 0, 3.9623
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB7:Zenderal - Enemy Density.esp
+  Base: 090BB9:Skyrim.esm
+  Placement:
+    Position: 34197.3, -30741.3, 840.0
+    Rotation: 0, 0, 4.9285
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB8:Zenderal - Enemy Density.esp
+  Base: 04BB66:Skyrim.esm
+  Placement:
+    Position: 33685.3, -30826.7, 746.7
+    Rotation: 0, 0, 5.5276
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CB9:Zenderal - Enemy Density.esp
+  Base: 090BBD:Skyrim.esm
+  Placement:
+    Position: 33642.7, -31168.0, 817.3
+    Rotation: 0, 0, 3.2166
+- MutagenObjectType: PlacedNpc
+  FormKey: 000CBA:Zenderal - Enemy Density.esp
+  Base: 090A0F:Skyrim.esm
+  Placement:
+    Position: 33728.0, -31317.3, 876.1
+    Rotation: 0, 0, 5.3661

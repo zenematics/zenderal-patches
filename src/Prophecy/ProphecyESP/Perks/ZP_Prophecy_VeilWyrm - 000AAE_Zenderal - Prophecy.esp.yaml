@@ -1,0 +1,30 @@
+FormKey: 000AAE:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_VeilWyrm
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Veil Wyrm" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for 20 seconds: your spells cost half as much Mana and you restore 10 Mana per second. One word recovers in 40 seconds, two in 70, three in 100.'
+Name:
+  TargetLanguage: English
+  Value: 'Veil Wyrm'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AAD:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000AB6:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModSpellCost
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 0.5

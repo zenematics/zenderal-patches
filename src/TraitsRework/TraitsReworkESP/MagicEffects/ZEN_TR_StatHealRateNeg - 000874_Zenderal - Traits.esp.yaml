@@ -1,0 +1,20 @@
+FormKey: 000874:Zenderal - Traits.esp
+EditorID: ZEN_TR_StatHealRateNeg
+Name:
+  TargetLanguage: English
+  Value: 'Trait: HealRateNeg'
+Flags:
+- Recover
+- Detrimental
+- NoDuration
+- NoArea
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: HealRateMult
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

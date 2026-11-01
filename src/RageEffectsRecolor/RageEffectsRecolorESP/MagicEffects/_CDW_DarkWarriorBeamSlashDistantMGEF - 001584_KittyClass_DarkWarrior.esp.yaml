@@ -1,0 +1,43 @@
+FormKey: 001584:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DarkWarriorBeamSlashDistantMGEF
+Name:
+  TargetLanguage: English
+  Value: Shadow Carve
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Keywords:
+- 001491:KittyClass_DarkWarrior.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+TaperWeight: 0.3
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000877:KittyClass_DarkWarrior.esp
+CastType: FireAndForget
+TargetType: Aimed
+HitEffectArt: 08AFD1:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Distant targets take <mag> damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThan
+  Data:
+    MutagenObjectType: GetDistanceConditionData
+  ComparisonValue: 192
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

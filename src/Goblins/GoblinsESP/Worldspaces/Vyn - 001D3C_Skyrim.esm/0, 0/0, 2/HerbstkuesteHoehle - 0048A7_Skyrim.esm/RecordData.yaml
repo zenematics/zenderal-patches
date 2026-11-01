@@ -1,0 +1,42 @@
+FormKey: 0048A7:Skyrim.esm
+EditorID: HerbstkuesteHoehle
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: 2, 21
+  Flags: -2061463040
+WaterHeight: 3.4028235E+38
+Regions:
+- 035CCA:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AE8:Zenderal - Goblins.esp
+  Base: 000812:Zenderal - Goblins.esp
+  Placement:
+    Position: 9353.6, 86531.4, 1053.2
+    Rotation: 0, 0, 3.5425
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AE9:Zenderal - Goblins.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: 9256.3, 86517.5, 1049.0
+    Rotation: 0, 0, 4.6642
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AEA:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: 9428.4, 86605.6, 1055.7
+    Rotation: 0, 0, 3.4402
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AEB:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: 9258.8, 86412.9, 1057.8
+    Rotation: 0, 0, 5.3471
+- MutagenObjectType: PlacedNpc
+  FormKey: 000AEC:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: 9493.3, 86421.3, 1098.7
+    Rotation: 0, 0, 5.103

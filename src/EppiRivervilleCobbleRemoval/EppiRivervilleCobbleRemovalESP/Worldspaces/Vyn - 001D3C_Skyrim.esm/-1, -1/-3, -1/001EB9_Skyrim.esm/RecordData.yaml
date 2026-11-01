@@ -1,0 +1,35 @@
+FormKey: 001EB9:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+Version2: 1
+SkyrimMajorRecordFlags:
+- Compressed
+Flags:
+- HasWater
+Grid:
+  Point: -22, -4
+  Flags: -1498059008
+WaterHeight: 100
+Regions:
+- 03A604:Skyrim.esm
+- 03A47B:Skyrim.esm
+- 037B8B:Skyrim.esm
+Location: 032706:Skyrim.esm
+Water: 01896A:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 029B53:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -86521.93, -16211.331, -30000
+MajorFlags:
+- 0x40000

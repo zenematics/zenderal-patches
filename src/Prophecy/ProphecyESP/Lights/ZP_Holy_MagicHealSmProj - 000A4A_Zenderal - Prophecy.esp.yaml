@@ -1,0 +1,10 @@
+FormKey: 000A4A:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_MagicHealSmProj
+Time: -1
+Radius: 400
+Color: '#00803000'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 2.1

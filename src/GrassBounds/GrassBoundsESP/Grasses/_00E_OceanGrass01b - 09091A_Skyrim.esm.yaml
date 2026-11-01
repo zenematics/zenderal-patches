@@ -1,0 +1,23 @@
+FormKey: 09091A:Skyrim.esm
+EditorID: _00E_OceanGrass01b
+Version2: 1
+ObjectBounds:
+  First: -45, -34, -2
+  Second: 54, 47, 86
+Model:
+  File: Enderal\landscape\grass\Ztrees\EWpSea01b.nif
+  Data: 0x020000000000000000000000
+Density: 7
+MaxSlope: 50
+Unknown: 205
+UnitsFromWater: 155
+Unknown2: 52685
+UnitsFromWaterType: BelowAtLeast
+PositionRange: 40
+HeightRange: 0.4
+ColorRange: 0.2
+WavePeriod: 50
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

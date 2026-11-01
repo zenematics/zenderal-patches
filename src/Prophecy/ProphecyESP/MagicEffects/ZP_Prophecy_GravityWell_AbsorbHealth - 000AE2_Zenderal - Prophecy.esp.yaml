@@ -1,0 +1,25 @@
+FormKey: 000AE2:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_GravityWell_AbsorbHealth
+Name:
+  TargetLanguage: English
+  Value: Gravity Well
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- NoDuration
+- NoDeathDispel
+MagicSkill: Alteration
+ResistValue: ResistMagic
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: Absorb
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> Health.

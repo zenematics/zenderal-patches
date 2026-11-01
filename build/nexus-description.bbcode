@@ -1,0 +1,111 @@
+[size=5]Zenderal Patches[/size]
+
+[i]The compatibility patches, bug fixes and small tweaks behind Zenderal, an Enderal: Forgotten Stories (Special Edition) modlist built around three goals: bug fixes, modern combat and modern visuals.[/i]
+
+Every file here does one of three jobs. It makes a third-party mod work in Enderal, it makes two mods in the list work together, or it fixes a bug in Enderal itself. Each patch is a separate download, so take only the ones for mods you actually use.
+
+[line]
+
+[size=4]⚠ Read this first[/size]
+
+[list]
+[*][b]Enderal SE 2.0.12 / SSE 1.5.97 only.[/b] All SKSE plugins here are 1.5.97 (pre-AE) builds.
+[*][b]Each patch needs the mod it patches.[/b] The requirement is in the patch's name and in its line below. A patch without its mod either does nothing or keeps the game from loading.
+[*][b]Plugins are ESL-flagged where possible[/b] (Prophecy is the exception) and authored at form version 1.70, so BEES is not needed.
+[*][b]Load order matters for a few patches.[/b] Where it does, the patch's line says so.
+[/list]
+
+[line]
+
+[size=4]Bug fixes[/size]
+
+[list]
+[*][b]Fever Death Latch Fix[/b]: clears the stuck "dead" flag that can stop you from levelling up after an Arcane Fever death. Built from SureAI's own script source.
+[*][b]Brawl Fixes[/b]: brawls no longer break when a spell or a combat framework hits a brawler.
+[*][b]Zen Traits Fixes[/b]: Ambrosia lowers Arcane Fever again under Zen Traits.
+[*][b]Ark Myrad Platform Fix[/b]: moves a misplaced Forgotten Stories marker in Ark.
+[*][b]Ark Market Tree Fix[/b]: lowers a juniper that an addon left floating in Ark's market.
+[*][b]EPPI Riverville Statues Patch[/b]: moves a statue mod's bust along with the desk that EPPI moved.
+[*][b]Terrain Texture Set Fix[/b]: removes the normal maps from two terrain height slots that caused ENB streaks. Load after [font=Courier New]DynDOLOD.esp[/font].
+[*][b]Chocolate Poise Enderal Fix[/b]: adds the vanilla-EditorID items that Chocolate Poise Reborn looks for, plus a .NET Script Framework crash fix.
+[*][b]Half Starling DS Races[/b]: restores per-race stats on Half Starling under DS Unique Races.
+[*][b]Kata Fixes[/b]: merges the magic vendors' stock across the Kata mods, so no vendor loses its spell books, and removes duplicate spell packs.
+[*][b]Settings Applier[/b]: re-applies the list's save-based MCM settings once per save.
+[/list]
+
+[line]
+
+[size=4]Modern combat[/size]
+
+[list]
+[*][b]Flintlock Overhaul[/b]: pistols use bullets and reload. Silver Musket Balls hurt ghosts the way silver arrows do, 111 NPCs are rebuilt to use the gun mods, and gun ammo is added to Enderal's loot chests. Includes a recipes-off plugin for DAR Rifles, KID config and Wheeler icons. Load after Enderal SE - Crossbows.
+[*][b]Flame Shot[/b]: the Fire Arrow talent becomes Flame Shot. With a musket equipped it grants exploding Flame Musket Balls, and your old ammo comes back afterwards.
+[*][b]FHR Parry Poise[/b]: For Honor Reforged parries do enough poise damage (60/40 instead of 20/5) to stagger.
+[*][b]MCO Directional Power Attacks[/b]: side, back and sprint power attacks now reach For Honor Reforged's MCO animations.
+[*][b]Faster Sprint[/b]: sprint speed +92%, stamina drain −50%. Load after EGO [b]and[/b] [font=Courier New]Dynamic Sprint.esp[/font].
+[*][b]Dynamic Dodge Shot Fix[/b]: the bow dodge now fires.
+[*][b]Dynamic Dodge No Sway[/b]: attack-cancel dodges use the step dodge instead of the sway (OAR config only).
+[*][b]Block Release Fix[/b] (SKSE): ends blocks that stay up because a key release was dropped.
+[*][b]Crossbow Draw Fix[/b] (SKSE): an interrupted crossbow draw no longer leaves you unable to sprint or sheathe until you fire.
+[*][b]IC Sheathe Fix[/b] (SKSE): stops Improved Camera from dropping the camera with a weapon drawn. Built for IC 1.1.2.4228.
+[*][b]TrueHUD Combat Icons[/b] (SKSE): shows For Honor Reforged's status icons in TrueHUD's info bar.
+[*][b]NPC Potions[/b] (SPID): NPCs carry and use potions.
+[*][b]Prophecy[/b] [i](prototype, not ESL)[/i]: a perk tree of picks from Ordinator, built on Custom Skills Framework.
+[/list]
+
+[line]
+
+[size=4]Modern visuals[/size]
+
+[list]
+[*][b]Pretty Armory EGO Patch[/b]: merges Pretty Armory and EGO across 141 records, so EGO's stats and Pretty's looks both apply.
+[*][b]Moonsteel Pretty Patch[/b]: points EGO's Moonsteel line back at Pretty's meshes.
+[*][b]Undead Creatures Replacer EGO Patch[/b]: applies UCR's visuals to EGO's Lost One NPCs.
+[*][b]Guard Falconer Patch[/b]: restores the Falconer cuirass and helmet that Pretty Factions reverted.
+[*][b]Fuse00 Armor Races[/b]: the Adventurer and Helga armors now show on Enderal's Half Arazealean and Qyranian races.
+[*][b]Horse Cloak Fluff Fix[/b]: trims Fluffworks fur that poked through the Ark guard horses' barding.
+[*][b]Old Temple Weather[/b]: intro-beach weather fix for Obsidian Weathers.
+[*][b]No Screen Flashes[/b]: removes the full-screen blur and white flash from enemy abilities such as the Wood Elemental's call.
+[*][b]Quieter Waterfalls[/b]: 72 waterfall and ambient sounds fade 6 dB sooner over RAO, and the coast wind near Ark no longer cuts in suddenly.
+[*][b]RiverBush[/b]: 32 bushes placed around Riverville.
+[*][b]Enderal Paired Animations[/b] (Pandora): Enderal's six paired scenes (Calia's massacre, hugs, kisses) play under Pandora. Tick it in Pandora.
+[*][b]DBVO Player Lip Sync[/b] (SKSE): with DBVO, the player's mouth follows each voiced line's real lip file.
+[/list]
+
+[line]
+
+[size=4]Quality of life[/size]
+
+[list]
+[*][b]Skip The Prologue[/b]: starts the game at Jespar's camp, the same way Enderal's own quest stage does.
+[*][b]Controller Tweaks[/b]: gamepad fixes, plus a B + D-pad Up chord that opens the Hero Menu. Its menu script also includes the edits from KataPUMB New Affinities and Amnesia Shrine.
+[*][b]Relentless Sword Patreon[/b]: johnskyrim's Patreon "Zen" Relentless Sword rebuilt for Enderal. It is forged at shadowsteel tier from a blueprint found in the Riverville Temple. Needs his Patreon build, and his own plugin disabled.
+[*][b]Magic Patches[/b]: magic balance for the list. Apocalypse and Triumvirate spell costs are put on EGO's cost ladder and pay Arcane Fever, weapon enchantments are doubled, and spell books are added to Enderal's loot lists.
+[/list]
+
+[line]
+
+[size=4]Source code and licences[/size]
+
+All patches are built from source in a public GitHub repository. Plugins are kept as Spriggit YAML, alongside the Papyrus and C++ sources:
+[url=https://github.com/zenematics/zenderal-patches]github.com/zenematics/zenderal-patches[/url]
+
+[b]Precision fork (GPL-3.0).[/b] The modified [font=Courier New]Precision.dll[/font] is ersh1's Precision 2.0.6 with PLANCK's frost-atronach ragdoll fixes ported to SE, so Ice Elementals no longer float when hit. Under GPL-3.0, its full source and patch are published here:
+[list]
+[*][url=https://github.com/zenematics/zenderal-patches/tree/main/src/PrecisionFork]Zenderal Precision fork: build script and patch[/url]
+[*][url=https://github.com/zenematics/zenderal-patches/blob/main/src/PrecisionFork/patches/0001-zenderal-frost-atronach-ragdoll-fixes.patch]The patch file itself[/url]
+[*][url=https://github.com/ersh1/Precision]Original Precision source (ersh1)[/url]
+[/list]
+
+[line]
+
+[size=4]Credits[/size]
+
+[list]
+[*][b]SureAI[/b] for Enderal, and for shipping their script source.
+[*][b]ersh1[/b] for Precision and TrueHUD.
+[*][b]adamhynek[/b] for PLANCK, whose frost-atronach ragdoll fixes the Precision fork ports.
+[*][b]johnskyrim[/b] for Relentless Sword.
+[*]The authors of every mod patched here. These are patches, so all credit for the content goes to them.
+[*][b]Mutagen / Spriggit[/b], [b]xEdit[/b] and [b]CommonLibSSE-NG[/b], the tools all of this is built with.
+[/list]

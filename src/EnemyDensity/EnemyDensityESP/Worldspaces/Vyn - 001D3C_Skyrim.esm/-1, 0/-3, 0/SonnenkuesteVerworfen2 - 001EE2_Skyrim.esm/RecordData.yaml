@@ -1,0 +1,55 @@
+FormKey: 001EE2:Skyrim.esm
+EditorID: SonnenkuesteVerworfen2
+Version2: 4
+Flags:
+- HasWater
+Grid:
+  Point: -22, 6
+  Flags: -1529118464
+WaterHeight: 3.4028235E+38
+Regions:
+- 00703D:Skyrim.esm
+- 0023A3:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B84:Zenderal - Enemy Density.esp
+  Base: 048388:Skyrim.esm
+  Placement:
+    Position: -87637.3, 26496.0, 4165.2
+    Rotation: 0, 0, 0.4204
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B85:Zenderal - Enemy Density.esp
+  Base: 0849A3:Skyrim.esm
+  Placement:
+    Position: -87573.3, 26389.3, 4217.4
+    Rotation: 0, 0, 4.6667
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B86:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -87765.3, 26474.7, 4187.3
+    Rotation: 0, 0, 3.3375
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B87:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -87509.3, 26517.3, 4146.0
+    Rotation: 0, 0, 2.7663
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B88:Zenderal - Enemy Density.esp
+  Base: 0C6760:Skyrim.esm
+  Placement:
+    Position: -87722.7, 26602.7, 4122.8
+    Rotation: 0, 0, 5.0662
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B89:Zenderal - Enemy Density.esp
+  Base: 02F4DA:Enderal - Forgotten Stories.esm
+  Placement:
+    Position: -87616.0, 26752.0, 4062.1
+    Rotation: 0, 0, 5.4149
+- MutagenObjectType: PlacedNpc
+  FormKey: 000B8A:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -87829.3, 26325.3, 4256.4
+    Rotation: 0, 0, 3.7966

@@ -1,0 +1,75 @@
+FormKey: 0EA65A:Skyrim.esm
+EditorID: FrostbiteVenomFFSelf
+Version2: 13
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Spider Venom
+  - Language: German
+    String: Hier, kauft damit eine Rüstung. (<bribecost> Goldstücke)
+  - Language: Spanish
+    String: Toma, usa esto para comprar una armadura. (<bribecost>)
+  - Language: Italian
+    String: A te. Per comprarti una nuova armatura. (<bribecost> pezzi d'oro)
+  - Language: Polish
+    String: Proszę, kup mu za to nową zbroję. (<bribecost> sztuk złota)
+  - Language: Russian
+    String: Вот, возьми эти деньги и купи броню. (<bribecost> зол.)
+  - Language: French
+    String: Tenez, voilà de quoi vous acheter une armure. (<bribecost> pièces d'or)
+  - Language: Japanese
+    String: さあ、これで防具でも買ってやれ(<bribecost> ゴールド)
+  - Language: Chinese
+    String: 蜘蛛毒液
+  - Language: Korean
+    String: 거미 독
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- Painless
+- NoDeathDispel
+BaseCost: 10
+ResistValue: PoisonResist
+HitShader: 10CC64:Skyrim.esm
+SpellmakingCastingTime: 0.5
+SecondActorValueWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 04600A:Skyrim.esm
+CastType: FireAndForget
+SecondActorValue: Stamina
+CastingArt: 046006:Skyrim.esm
+ImpactData: 046008:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: A spider venom which does <mag> of Health and Stamina damage for <dur> seconds.
+  - Language: German
+    String: Kieferspitzenhöhle
+  - Language: Spanish
+    String: Caverna de Pico Pineda
+  - Language: Italian
+    String: Caverna di Pinepeak
+  - Language: Polish
+    String: Sosnowa Grota
+  - Language: Russian
+    String: Пещера Сосновый Пик
+  - Language: French
+    String: Grotte de Montpin
+  - Language: Japanese
+    String: パインクリーク洞窟
+  - Language: Chinese
+    String: 蜘蛛毒液对目标造成<mag>点生命和耐力伤害，持续<dur>秒。
+  - Language: Korean
+    String: 체력과 지구력에  <mag> 피해를 <dur>초 동안 주는 거미 독.

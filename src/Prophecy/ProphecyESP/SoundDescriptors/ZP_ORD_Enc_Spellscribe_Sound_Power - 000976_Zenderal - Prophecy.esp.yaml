@@ -1,0 +1,11 @@
+FormKey: 000976:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Enc_Spellscribe_Sound_Power
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\QST\MS06Potema\QST_MS06_Potema_Banish_01.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 80
+Priority: 128
+StaticAttenuation: 3.08

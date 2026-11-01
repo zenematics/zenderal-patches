@@ -1,0 +1,63 @@
+FormKey: 001E9B:Skyrim.esm
+EditorID: FlusshaimErsteBrcke
+Version2: 12
+Flags:
+- HasWater
+Grid:
+  Point: -23, -6
+  Flags: -1254349568
+WaterHeight: 3.4028235E+38
+Regions:
+- 03A47B:Skyrim.esm
+- 03A604:Skyrim.esm
+- 037B8B:Skyrim.esm
+Location: 032706:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 00098A:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -92480.0, -20992.0, 666.0
+    Rotation: 0, 0, 3.2745
+- MutagenObjectType: PlacedNpc
+  FormKey: 00098B:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -92416.0, -20842.7, 622.1
+    Rotation: 0, 0, 4.9364
+- MutagenObjectType: PlacedNpc
+  FormKey: 00098C:Zenderal - Goblins.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: -92416.0, -21162.7, 682.7
+    Rotation: 0, 0, 1.1103
+- MutagenObjectType: PlacedNpc
+  FormKey: 00098D:Zenderal - Goblins.esp
+  Base: 000814:Zenderal - Goblins.esp
+  Placement:
+    Position: -92544.0, -20821.3, 650.4
+    Rotation: 0, 0, 5.6651
+- MutagenObjectType: PlacedNpc
+  FormKey: 00098E:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -92650.7, -20892.4, 663.8
+    Rotation: 0, 0, 4.5023
+- MutagenObjectType: PlacedNpc
+  FormKey: 00098F:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -92188.4, -20987.3, 550.7
+    Rotation: 0, 0, 4.6414
+- MutagenObjectType: PlacedNpc
+  FormKey: 000990:Zenderal - Goblins.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: -92736.0, -20821.3, 670.6
+    Rotation: 0, 0, 4.4174
+- MutagenObjectType: PlacedNpc
+  FormKey: 000991:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: -92522.7, -20672.0, 703.2
+    Rotation: 0, 0, 1.1153

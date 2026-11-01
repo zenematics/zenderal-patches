@@ -1,0 +1,542 @@
+{
+    "FalmerRace": {
+        "Skyrim.esm:0xB526C": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            }
+        },
+        "Skyrim.esm:0xB526E": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            }
+        },
+        "Skyrim.esm:0x16EE7": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            }
+        },
+        "Skyrim.esm:0xB526D": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 805"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 806"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 807"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 808"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 809"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 805"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 806"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 807"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 808"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 809"
+                    }
+                ]
+            }
+        },
+        "Skyrim.esm:0xB526F": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 80A"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 80B"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 80C"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 80D"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 80E"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 80A"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 80B"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 80C"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 80D"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 80E"
+                    }
+                ]
+            }
+        },
+        "Skyrim.esm:0x1848C": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 80F"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 810"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 811"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 812"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 813"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 80F"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 810"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 811"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 812"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 813"
+                    }
+                ]
+            }
+        },
+        "Skyrim.esm:0x50F30": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 814"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 815"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 816"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 817"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 818"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 814"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 815"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 816"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 817"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 818"
+                    }
+                ]
+            }
+        },
+        "Skyrim.esm:0x149709": {
+            "Male": {
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Falmer - Male - Naked - R Forearm",
+                        "Priority": -100
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Falmer - Male - Naked - L Forearm",
+                        "Priority": -100
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Falmer - Male - Naked - R Calf",
+                        "Priority": -100
+                    }
+                ],
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Falmer - Male - Naked - L Calf",
+                        "Priority": -100
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Falmer - Male - Armored - Head",
+                        "Conditions": [
+                            {
+                                "Name": "IsEquipped",
+                                "Item": "Skyrim.esm:0x52381"
+                            }
+                        ]
+                    },
+                    {
+                        "IDLimb": "Falmer - Male - Naked - Head",
+                        "Priority": -100
+                    }
+                ]
+            }
+        },
+        "Dawnguard.esm:0x2848|Dawnguard.esm:0x284B": {
+            "Male|Female": {
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Falmer - Female - Naked - R Forearm",
+                        "Priority": -100
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Falmer - Female - Naked - L Forearm",
+                        "Priority": -100
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Falmer - Female - Naked - R Calf",
+                        "Priority": -100
+                    }
+                ],
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Falmer - Female - Naked - L Calf",
+                        "Priority": -100
+                    }
+                ]
+            }
+        },
+        "Dawnguard.esm:0x2848": {
+            "Male|Female": {
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Falmer - Female - Naked - Head",
+                        "Priority": -100
+                    }
+                ]
+            }
+        },
+        "Dawnguard.esm:0x284B": {
+            "Male|Female": {
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Falmer - Female - Naked - Head - Alt 01"
+                    }
+                ]
+            }
+        },
+        "ANY": {
+            "Male": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            },
+            "Female": {
+                "NPC L Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_L - 800"
+                    }
+                ],
+                "NPC R Calf": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Calf_R - 801"
+                    }
+                ],
+                "NPC L Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_L - 802"
+                    }
+                ],
+                "NPC R Forearm": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Forearm_R - 803"
+                    }
+                ],
+                "NPC Neck": [
+                    {
+                        "IDLimb": "Zenderal - Arp - Head - 804"
+                    }
+                ]
+            }
+        }
+    }
+}

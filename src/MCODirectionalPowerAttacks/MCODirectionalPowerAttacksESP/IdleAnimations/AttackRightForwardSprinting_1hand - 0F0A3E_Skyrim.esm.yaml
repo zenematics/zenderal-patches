@@ -7,12 +7,6 @@ Conditions:
     MutagenObjectType: IsSprintingConditionData
   ComparisonValue: 1
 - MutagenObjectType: ConditionFloat
-  CompareOperator: GreaterThanOrEqualTo
-  Data:
-    MutagenObjectType: GetEquippedItemTypeConditionData
-    ItemSource: Right
-  ComparisonValue: 1
-- MutagenObjectType: ConditionFloat
   CompareOperator: LessThanOrEqualTo
   Data:
     MutagenObjectType: GetEquippedItemTypeConditionData

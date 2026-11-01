@@ -1,0 +1,51 @@
+FormKey: 050882:Skyrim.esm
+EditorID: _40E_HSet_SkaraggCuirass
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 14A998:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 14A994:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E0A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -21, -47, -12
+  Second: 25, 25, 14
+Name:
+  TargetLanguage: English
+  Value: (Set of the Skaragg) Skaragg Cuirass
+ObjectEffect: 14A991:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: armor\BosmerArmorMATY743\go\HuntHeavyCuirass_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBD5:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 050881:Skyrim.esm
+Value: 75
+Weight: 36
+ArmorRating: 64.8

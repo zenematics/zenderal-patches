@@ -1,0 +1,19 @@
+FormKey: 001F20:Skyrim.esm
+Flags:
+- HasWater
+Grid:
+  Point: -21, 3
+  Flags: 14391808
+WaterHeight: 3.4028235E+38
+Regions:
+- 00703D:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000807:Zenderal - Reversal Shadow.esp
+  MajorRecordFlagsRaw: 536870912
+  SkyrimMajorRecordFlags:
+  - 0x20000000
+  Base: 000800:Zenderal - Reversal Shadow.esp
+  Placement:
+    Position: -84394.278, 14275.100, 5504.971
+    Rotation: 0, -0, 3.8939877

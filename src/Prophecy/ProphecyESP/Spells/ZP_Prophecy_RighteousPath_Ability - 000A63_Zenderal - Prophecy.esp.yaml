@@ -1,0 +1,73 @@
+FormKey: 000A63:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_RighteousPath_Ability
+Name:
+  TargetLanguage: English
+  Value: Righteous Path
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000A64:Zenderal - Prophecy.esp
+  Data: {}
+- BaseEffect: 053124:Skyrim.esm
+  Data:
+    Magnitude: 25
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Left
+    ComparisonValue: 0
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Left
+    ComparisonValue: 9
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsBlockingConditionData
+    ComparisonValue: 1
+- BaseEffect: 0E40D3:Skyrim.esm
+  Data:
+    Magnitude: 100
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Left
+    ComparisonValue: 0
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Left
+    ComparisonValue: 9
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsBlockingConditionData
+    ComparisonValue: 1
+- BaseEffect: 000A65:Zenderal - Prophecy.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Left
+    ComparisonValue: 0
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Left
+    ComparisonValue: 9
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsBlockingConditionData
+    ComparisonValue: 1

@@ -1,0 +1,18 @@
+FormKey: 00084D:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Spell_Proc_DrainStamina
+Name:
+  TargetLanguage: English
+  Value: Dragon's Teeth
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+Effects:
+- BaseEffect: 00084E:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 500
+    Area: 8

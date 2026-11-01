@@ -1,0 +1,19 @@
+FormKey: 000892:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Explosion
+ObjectBounds:
+  First: -222, -215, -26
+  Second: 222, 201, 223
+Model:
+  File: Ordinator\Smithing_Explosion_DwarvenAutocannon.nif
+  Data: 0x020000000000000000000000
+ImageSpaceModifier: 0439C1:Skyrim.esm
+Sound1: 000893:Zenderal - Prophecy.esp
+ImpactDataSet: 015C7B:Skyrim.esm
+Force: 25
+Radius: 128
+ISRadius: 256
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreLosCheck
+SoundLevel: Normal

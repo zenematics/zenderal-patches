@@ -1,0 +1,14 @@
+FormKey: 00093D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FlowStateNova
+Model:
+  File: Magic\ExplosionShockMass01.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 00093E:Zenderal - Prophecy.esp
+Sound1: 03F206:Skyrim.esm
+Sound2: 03C8FC:Skyrim.esm
+Force: 128
+Radius: 300
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

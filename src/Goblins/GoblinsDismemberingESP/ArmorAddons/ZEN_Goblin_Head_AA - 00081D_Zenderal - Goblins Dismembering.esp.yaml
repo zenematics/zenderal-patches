@@ -1,0 +1,19 @@
+FormKey: 00081D:Zenderal - Goblins Dismembering.esp
+EditorID: ZEN_Goblin_Head_AA
+BodyTemplate:
+  FirstPersonFlags:
+  - Decapitate
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000800:Zenderal - Goblins.esp
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 23
+WorldModel:
+  Male:
+    File: DismemberingFramework\Zenderal\Goblins\Dismembered_Addons_Goblin.nif
+    Data: 0x020000000000000000000000

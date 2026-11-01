@@ -1,0 +1,24 @@
+FormKey: 000AE6:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ShadeVeil
+Description:
+  TargetLanguage: English
+  Value: 'While you sneak, your body is wrapped in black and grey mist, you are 50% harder to detect, and Darkness gathers twice as fast.'
+Name:
+  TargetLanguage: English
+  Value: 'Shade Veil'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A6F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AE7:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModDetectionSneakSkill
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 50

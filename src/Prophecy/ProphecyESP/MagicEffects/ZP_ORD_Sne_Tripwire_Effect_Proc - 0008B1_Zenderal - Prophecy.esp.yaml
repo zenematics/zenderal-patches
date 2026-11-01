@@ -1,0 +1,52 @@
+FormKey: 0008B1:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_Tripwire_Effect_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_GrantXP_Script
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ORD_OnlyEnemy
+      Data: True
+    - MutagenObjectType: ScriptStringProperty
+      Name: ORD_School
+      Data: Sneak
+    - MutagenObjectType: ScriptIntProperty
+      Name: ORD_XP
+      Data: 10
+  - Name: ORD_Knockdown_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_KnockdownForce
+      Data: 3.5
+Name:
+  TargetLanguage: English
+  Value: Tripwire Snap
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Detrimental
+- NoMagnitude
+- HideInUI
+SpellmakingArea: 8
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Explosion: 000834:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0172AC:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm

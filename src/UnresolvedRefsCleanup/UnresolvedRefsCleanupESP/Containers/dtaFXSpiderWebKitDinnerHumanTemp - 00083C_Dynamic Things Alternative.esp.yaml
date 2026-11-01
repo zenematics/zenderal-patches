@@ -1,0 +1,20 @@
+FormKey: 00083C:Dynamic Things Alternative.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: dtaFXSpiderWebKitDinnerHumanTemp
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -15, -14, -65
+  Second: 16, 15, 66
+Name:
+  TargetLanguage: English
+  Value: Dessicated Corpse
+Model:
+  File: Effects\dtaFXSpiderWebKitDinnerHuman.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Respawns
+OpenSound: 03F8CA:Skyrim.esm
+CloseSound: 03F8CD:Skyrim.esm
+MajorFlags:
+- NavMeshGenerationBoundingBox

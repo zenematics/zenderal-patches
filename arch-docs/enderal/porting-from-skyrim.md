@@ -39,6 +39,19 @@ deactivate fadeouts in cutscenes, leading to visual bugs."* **[verified — quot
 > a drop-in. Budget for an Enderal-specific reconciliation pass, and watch cutscene fades — they are
 > a known ENB casualty and they are everywhere in Enderal's story.
 
+**DLC creature graphs have no idle tree.** A creature starts moving, turning and attacking through
+IDLE records rooted at its behavior graph (`BoarMoveStart`, `BoarTurnLeft`, …), and its default
+movement type is a MOVT record. For Dawnguard/Dragonborn creatures both live in the DLC ESMs, which
+are empty stubs in Enderal. The `.hkx` graph and animations still ship in `Skyrim - Animations.bsa`,
+so the creature loads and plays its idle loop, but **it never turns or moves**. Setting the race's
+`BaseMovementDefault*` does not help, because the actions still have no idle records. Triumvirate's
+Ravagor and Hound of Hircine (boar graph) did exactly this until *Bristlebacks In Enderal* injected
+the 33 `Boar*` IDLEs and `Boar_Default_MT 0179D6:Dragonborn.esm`. **[verified 2026-10-18]**
+
+> **Consequence.** Before shipping a ported mod whose race uses an `Actors\DLC01\…` or
+> `Actors\DLC02\…` graph, find a list plugin that injects that graph's IDLE tree. If none does, the
+> creature is dead weight.
+
 **Skyrim mods need conversion, by the author's own statement.** *"Enderal uses its own master file
 (ESM). Mods that were developed for Skyrim must be adjusted to it before they can safely be used in
 Enderal."* **[verified — `enderal readme.txt`]** In practice a Skyrim mod that only edits

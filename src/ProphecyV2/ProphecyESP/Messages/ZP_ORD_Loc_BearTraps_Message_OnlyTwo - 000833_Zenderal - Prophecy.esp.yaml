@@ -1,0 +1,7 @@
+FormKey: 000833:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_BearTraps_Message_OnlyTwo
+Description:
+  TargetLanguage: English
+  Value: You can only carry two bear traps.
+INAM: 0x00000000
+DisplayTime: 2

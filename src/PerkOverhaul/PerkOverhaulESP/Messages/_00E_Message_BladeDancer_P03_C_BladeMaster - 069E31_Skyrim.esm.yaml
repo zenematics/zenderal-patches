@@ -1,0 +1,48 @@
+FormKey: 069E31:Skyrim.esm
+EditorID: _00E_Message_BladeDancer_P03_C_BladeMaster
+Description:
+  TargetLanguage: English
+  Value: Attacks with one-handed swords and daggers have an additional chance of 25%% to do a critical hit. Critical hits with them restore 10 points of health.
+Name:
+  TargetLanguage: English
+  Value: 'Klingentänzer: Klingenmeister'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Unlock memory (1 memory point)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069D52:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069D4F:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: You already unlocked this memory!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069D52:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Back
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069D52:Skyrim.esm

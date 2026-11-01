@@ -1,0 +1,19 @@
+FormKey: 000AAD:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ArcaneTide
+Description:
+  TargetLanguage: English
+  Value: 'Your Mana regenerates 10 percent faster.'
+Name:
+  TargetLanguage: English
+  Value: 'Arcane Tide'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AAC:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AB4:Zenderal - Prophecy.esp

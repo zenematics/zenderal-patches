@@ -1,0 +1,38 @@
+FormKey: 000810:Zenderal - Knight of the Path.esp
+EditorID: ZEN_KnightOfThePathShieldAA
+Version2: 10
+BodyTemplate:
+  FirstPersonFlags:
+  - Shield
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+WorldModel:
+  Male:
+    File: armor\zenderal\knightofthepath\ebonyshield.nif
+  Female:
+    File: armor\zenderal\knightofthepath\ebonyshield.nif
+AdditionalRaces:
+- 000D53:Skyrim.esm
+- 013740:Skyrim.esm
+- 013741:Skyrim.esm
+- 013742:Skyrim.esm
+- 013743:Skyrim.esm
+- 013744:Skyrim.esm
+- 013745:Skyrim.esm
+- 013746:Skyrim.esm
+- 013747:Skyrim.esm
+- 013748:Skyrim.esm
+- 013749:Skyrim.esm
+- 033898:Skyrim.esm
+- 033899:Skyrim.esm
+- 067CD8:Skyrim.esm
+- 097A3D:Skyrim.esm
+- 0F71DC:Skyrim.esm
+- 10760A:Skyrim.esm

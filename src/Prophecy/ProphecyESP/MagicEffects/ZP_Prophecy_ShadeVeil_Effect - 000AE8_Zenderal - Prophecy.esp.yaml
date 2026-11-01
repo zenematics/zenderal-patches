@@ -1,0 +1,27 @@
+FormKey: 000AE8:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ShadeVeil_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ShaderWhileActiveEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Shader
+      Object: 000AE9:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Shade Veil
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'You are 50% harder to detect while sneaking.'

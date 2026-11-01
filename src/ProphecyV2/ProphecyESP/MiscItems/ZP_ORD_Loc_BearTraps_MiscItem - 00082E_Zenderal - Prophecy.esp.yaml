@@ -1,0 +1,76 @@
+FormKey: 00082E:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_BearTraps_MiscItem
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_BearTraps_Item_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_BreakingWheelScaling
+      Data: 1.35
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_BreakingWheelScalingNew
+      Data: 1.175
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_DistanceInFront
+      Data: 34
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_DistanceZ
+      Data: 6
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: ORD_Loc_BearTraps_Activator
+      Objects:
+      - Name: ''
+        Object: 00085B:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000856:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000851:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00084C:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000847:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000842:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000835:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BearTraps_Explosion
+      Object: 000834:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BearTraps_Message_OnlyOne
+      Object: 000833:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BearTraps_Message_OnlyThree
+      Object: 000832:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BearTraps_MiscItem
+      Object: 00082E:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BearTraps_Sound_Placement
+      Object: 000831:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_BreakingWheel_Message
+      Object: 000830:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc_DragonsTeeth_Message
+      Object: 00082F:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc60_BreakingWheel_Perk_60
+      Object: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Loc90_TheRevenge_Perk_90
+      Object: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_LocMAX_DragonsTeeth_Perk_MAX
+      Object: 000808:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Bear Trap
+Model:
+  File: Traps\BearTrap\BearTrap01.nif
+  Data: 0x020000000000000000000000
+Value: 10
+Weight: 2

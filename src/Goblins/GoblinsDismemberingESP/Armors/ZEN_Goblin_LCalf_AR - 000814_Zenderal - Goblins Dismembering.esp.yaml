@@ -1,0 +1,23 @@
+FormKey: 000814:Zenderal - Goblins Dismembering.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZEN_Goblin_LCalf_AR
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Dismembered Left Calf
+BodyTemplate:
+  FirstPersonFlags:
+  - 0x1000000
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000800:Zenderal - Goblins.esp
+Keywords:
+- 000802:Dismembering Framework.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000815:Zenderal - Goblins Dismembering.esp
+MajorFlags:
+- NonPlayable

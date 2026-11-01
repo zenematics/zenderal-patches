@@ -58,6 +58,13 @@ Two fields to read first, before the call stack:
 The plugin list in a `.ess` save is a second, independent source for what the engine actually
 loaded — useful when the game will not start at all.
 
+> **Since the 1.7.104 update (2026-10-21) the list's crash logs come from Crash Logger SSE again.**
+> **[verified 2026-10-23]** `CrashLoggerSSE v1-25-0-0` writes
+> `C:\Users\frien\OneDrive\Documents\My Games\Skyrim Special Edition\SKSE\crash-<timestamp>.log` (Documents is
+> OneDrive-redirected), with `Working Directory: E:\Zenderal\Stock game`. The Papyrus log is next door in
+> `…\Skyrim Special Edition\Logs\Script\Papyrus.0.log`. .NET Script Framework (1.5.97 only) wrote its last log on
+> 2026-10-15. The note below is the 1.5.97 era:
+>
 > **The Zenderal list ships NO Crash Logger DLL — its crash logs come from .NET Script Framework.**
 > **[verified 2026-10-10]** The MO2 mod `Crash Logger SSE AE VR - PDB support` contains only
 > `SkyrimSE.pdb` (the symbols add-on), no `CrashLogger.dll`, so nothing writes `crash-*.log`. The

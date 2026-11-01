@@ -1,0 +1,49 @@
+FormKey: 0059BC:Skyrim.esm
+EditorID: Pulverklippe
+Version2: 8
+Flags:
+- HasWater
+Grid:
+  Point: 25, -13
+  Flags: -1655950592
+WaterHeight: 3.4028235E+38
+Regions:
+- 139C4D:Skyrim.esm
+- 152BA6:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D90:Zenderal - Enemy Density.esp
+  Base: 13B951:Skyrim.esm
+  Placement:
+    Position: 105130.7, -49365.3, 3080.4
+    Rotation: 0, 0, 4.4714
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D91:Zenderal - Enemy Density.esp
+  Base: 13B951:Skyrim.esm
+  Placement:
+    Position: 105088.0, -49450.7, 3025.3
+    Rotation: 0, 0, 0.4629
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D92:Zenderal - Enemy Density.esp
+  Base: 0450AD:Skyrim.esm
+  Placement:
+    Position: 105216.0, -49301.3, 3117.4
+    Rotation: 0, 0, 3.6895
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D93:Zenderal - Enemy Density.esp
+  Base: 13C1A4:Skyrim.esm
+  Placement:
+    Position: 105173.3, -49493.3, 3020.6
+    Rotation: 0, 0, 2.6741
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D94:Zenderal - Enemy Density.esp
+  Base: 13B951:Skyrim.esm
+  Placement:
+    Position: 105088.0, -49237.3, 3153.3
+    Rotation: 0, 0, 3.3884
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D95:Zenderal - Enemy Density.esp
+  Base: 139C70:Skyrim.esm
+  Placement:
+    Position: 105258.7, -49450.7, 3020.0
+    Rotation: 0, 0, 5.2712

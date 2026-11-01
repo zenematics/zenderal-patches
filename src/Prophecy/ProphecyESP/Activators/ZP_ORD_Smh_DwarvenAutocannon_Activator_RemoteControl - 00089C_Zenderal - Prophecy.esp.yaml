@@ -1,0 +1,24 @@
+FormKey: 00089C:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Activator_RemoteControl
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_DestroyCannon_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Smh_DwarvenAutocannon_Spell
+      Object: 000882:Zenderal - Prophecy.esp
+ObjectBounds:
+  First: -27, -27, -2
+  Second: 27, 27, 70
+Name:
+  TargetLanguage: English
+  Value: Clockwork Turret
+Model:
+  File: Ordinator\Smithing_Static_DwarvenAutocannon_RemoteControl.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+LoopingSound: 0FE729:Skyrim.esm
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: Scrap
+Flags: []

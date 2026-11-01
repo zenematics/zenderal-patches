@@ -1,0 +1,7 @@
+FormKey: 000971:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Enc_Spellscribe_Message_Fail_Ritual
+Description:
+  TargetLanguage: English
+  Value: Cannot store ritual spells.
+INAM: 0x00000000
+DisplayTime: 2

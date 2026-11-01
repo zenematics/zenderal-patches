@@ -132,3 +132,25 @@ their own**; its perks are bought with Memory Points in 11 class trees. Three sh
 Whatever is chosen: new records at our own FormIDs (never Ordinator's vanilla-ID overrides),
 `HEDR 1.70`, no `Dragonborn.esm` master, lore-renamed text, and credit Enai Siaion — check
 Ordinator's permissions before shipping any of its records or scripts.
+
+## Permissions **[verified 2026-10-21, Nexus SSE 1137 "Permissions and credits"]**
+
+Enai Siaion's open permissions, as listed on the mod page:
+
+- **Modification:** allowed "so long as you credit me as the original creator".
+- **Conversion:** allowed to other games with credit (Enderal is the same engine, so this is a port at most).
+- **Asset use:** allowed "without permission as long as you credit me".
+- **Upload:** allowed with credit.
+- **Not allowed:** use in anything **sold** (paid mods, Creations).
+- **Ask first:** if the uploaded file is opted into Nexus **Donation Points**, get his permission.
+- All assets are his own or free-to-use resources.
+
+So Prophecy may copy Ordinator records, scripts and meshes (e.g. Smokescreen's smoke `.nif`). Obligations: credit
+Enai Siaion in the plugin header and on the mod page, and keep Prophecy's Nexus upload **out of Donation Points**
+unless he agrees.
+
+### Subclasses of Skyrim 2 (Nexus SSE 98784, "Destiny" tree) — permissions **[verified 2026-10-21]**
+
+Same open set as Ordinator — modify, convert, use assets, upload, all **with credit**; no paid use — except that
+**Donation Points are allowed** without asking. It ships its Papyrus **source** (`scripts/source/dar_*.psc`), so its
+scripted perks need no decompiler. Serialized at `reference/mods/SubclassesOfSkyrim/` + `-catalog.md` (52-node tree).

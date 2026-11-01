@@ -1,0 +1,19 @@
+FormKey: 0009D5:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SteadyHands
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Stamina is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Steady Hands'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081D:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009FF:Zenderal - Prophecy.esp

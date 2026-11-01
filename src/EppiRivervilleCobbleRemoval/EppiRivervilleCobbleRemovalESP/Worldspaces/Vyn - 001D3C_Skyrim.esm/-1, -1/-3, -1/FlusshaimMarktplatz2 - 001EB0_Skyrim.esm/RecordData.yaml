@@ -1,0 +1,75 @@
+FormKey: 001EB0:Skyrim.esm
+EditorID: FlusshaimMarktplatz2
+Flags:
+- HasWater
+Grid:
+  Point: -20, -5
+  Flags: -1498058240
+WaterHeight: 1500
+Regions:
+- 03A604:Skyrim.esm
+- 03A47B:Skyrim.esm
+- 037B8B:Skyrim.esm
+Location: 032706:Skyrim.esm
+Water: 108AC7:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 029B82:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -81775.35, -20043.32, -30000
+    Rotation: 6.265732, 0.017453292, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B83:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -81531.14, -20250.121, -30000
+    Rotation: 0, 0.017453292, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B84:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -81288.85, -20356.826, -30000
+    Rotation: 0, 0.017453292, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 029B85:EPPIriverville.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 029B46:EPPIriverville.esp
+  Scale: 0.66
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -81050.26, -20406.402, -30000
+    Rotation: 6.265732, 0.017453292, 0

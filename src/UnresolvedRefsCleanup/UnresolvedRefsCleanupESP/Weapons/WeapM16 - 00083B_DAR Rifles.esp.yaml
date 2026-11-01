@@ -1,0 +1,57 @@
+FormKey: 00083B:DAR Rifles.esp
+EditorID: WeapM16
+Name:
+  TargetLanguage: English
+  Value: DR M16
+Model:
+  File: Rifles\M16.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 072674:Skyrim.esm
+EquipmentType: 013F45:Skyrim.esm
+BlockBashImpact: 0193C6:Skyrim.esm
+AlternateBlockMaterial: 0774B6:Skyrim.esm
+Keywords:
+- 01E715:Skyrim.esm
+- 01E719:Skyrim.esm
+- 08F958:Skyrim.esm
+- 000802:DAR Rifles.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 00A311:Dawnguard.esm
+FirstPersonModel: 00082C:DAR Rifles.esp
+AttackSound: 000874:DAR Rifles.esp
+AttackSound2D: 000873:DAR Rifles.esp
+AttackFailSound: 0C1916:Skyrim.esm
+EquipSound: 017EC9:Dawnguard.esm
+UnequipSound: 017ECA:Dawnguard.esm
+BasicStats:
+  Value: 200
+  Weight: 15
+  Damage: 30
+Data:
+  AnimationType: Crossbow
+  Unused: 0x000000
+  Speed: 2
+  Reach: 1.1
+  BaseVATStoHitChance: 5
+  NumProjectiles: 1
+  RangeMin: 200
+  RangeMax: 3000
+  AnimationAttackMult: 1
+  Unknown2: 1069547520
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: Archery
+  Stagger: 1.25
+Critical:
+  Damage: 9
+  Unused: 18
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+  Unused3: 1
+DetectionSoundLevel: VeryLoud

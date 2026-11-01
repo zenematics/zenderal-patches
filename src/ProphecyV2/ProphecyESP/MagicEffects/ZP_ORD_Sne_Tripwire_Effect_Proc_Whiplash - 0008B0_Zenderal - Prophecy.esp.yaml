@@ -1,0 +1,34 @@
+FormKey: 0008B0:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_Tripwire_Effect_Proc_Whiplash
+Name:
+  TargetLanguage: English
+  Value: Whiplash
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- Detrimental
+- NoHitEvent
+- HideInUI
+SpellmakingArea: 8
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: DamageResist
+Explosion: 000834:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Target
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm

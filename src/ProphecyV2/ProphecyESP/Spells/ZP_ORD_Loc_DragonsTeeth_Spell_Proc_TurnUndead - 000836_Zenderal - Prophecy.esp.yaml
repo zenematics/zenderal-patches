@@ -1,0 +1,19 @@
+FormKey: 000836:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Spell_Proc_TurnUndead
+Name:
+  TargetLanguage: English
+  Value: Dragon's Teeth
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000837:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 65
+    Area: 8
+    Duration: 10

@@ -1,0 +1,83 @@
+FormKey: 043BDE:Skyrim.esm
+EditorID: _00E_FS_A3_Rogue_FrostBomb_Book_ME_01
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_FS_A3_TalentBookSC
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fRecoveryTime02
+      Data: 75
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fRecoveryTime03
+      Data: 70
+    - MutagenObjectType: ScriptIntProperty
+      Name: iTier
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Perk01
+      Object: 043A21:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Perk02
+      Object: 043A22:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Perk03
+      Object: 043A24:Skyrim.esm
+    - MutagenObjectType: ScriptStringProperty
+      Name: sClass
+      Data: Rogue
+    - MutagenObjectType: ScriptObjectProperty
+      Name: selfRef
+      Object: 043BE7:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: talentMessage
+      Object: 01CACA:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TaughtTalent
+      Object: 043A12:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Word01
+      Object: 043A18:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Word02
+      Object: 043A1D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Word03
+      Object: 043A1E:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Secret Tome
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 0A9B1E:Skyrim.esm
+Flags:
+- NoHitEvent
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- Painless
+- NoHitEffect
+BaseCost: 1
+CastingLight: 03F1B5:Skyrim.esm
+HitShader: 012FD9:Skyrim.esm
+MinimumSkillLevel: 25
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+CastingArt: 01C859:Skyrim.esm
+HitEffectArt: 03F1B4:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Throw a Starling bomb made of liquid ice which deals <mag> frost damage to enemies and freezes them for <dur> seconds . Frozen enemies can be shattered. Costs 1 Memory Point to learn.

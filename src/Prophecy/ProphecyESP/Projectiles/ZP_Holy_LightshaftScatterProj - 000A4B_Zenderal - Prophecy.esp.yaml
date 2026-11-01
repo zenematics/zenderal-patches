@@ -1,0 +1,21 @@
+FormKey: 000A4B:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_LightshaftScatterProj
+ObjectBounds:
+  First: -246, -259, -119
+  Second: 246, 259, 43
+Model:
+  File: Lightpower\HolyBoltProj.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Cone
+Speed: 540
+Range: 1620
+Light: 000A49:Zenderal - Prophecy.esp
+FadeDuration: 0.5
+ConeSpread: -2
+CollisionRadius: 14
+RelaunchInterval: 0.25
+CollisionLayer: 109E3A:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 1

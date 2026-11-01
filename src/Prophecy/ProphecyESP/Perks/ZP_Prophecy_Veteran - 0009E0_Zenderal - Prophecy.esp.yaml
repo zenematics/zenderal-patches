@@ -1,0 +1,19 @@
+FormKey: 0009E0:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Veteran
+Description:
+  TargetLanguage: English
+  Value: 'Your One-handed and Two-handed skills are increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Veteran'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00093A:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A0A:Zenderal - Prophecy.esp

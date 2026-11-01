@@ -1,0 +1,28 @@
+FormKey: 0008D9:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_Spell39Templar
+Name:
+  TargetLanguage: English
+  Value: Templar
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 0008DA:Zenderal - Prophecy.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetActorValuePercentConditionData
+      ActorValue: Health
+    ComparisonValue: 0.25
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 0008D2:Zenderal - Prophecy.esp

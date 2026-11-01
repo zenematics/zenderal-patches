@@ -1,0 +1,30 @@
+FormKey: 0009AE:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_Placer
+Version2: 3
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_UtilityDroidPlacerScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Droid
+      Object: 00093F:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DroidList
+      Object: 000946:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DustExplosion
+      Object: 0EEFB1:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: BaseHealth
+      Data: 100.0
+    - MutagenObjectType: ScriptFloatProperty
+      Name: HealthPerLevel
+      Data: 10.0
+ObjectBounds:
+  First: -7, -6, 0
+  Second: 6, 7, 27
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []

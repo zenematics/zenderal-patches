@@ -1,0 +1,55 @@
+FormKey: 000A1C:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_LightshaftScatterProjMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magiceffectshaderapply
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: bUseDuration
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EffectShaderFX
+      Object: 04C6D8:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Shafting Holy Light
+MenuDisplayObject: 1097CA:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1
+MagicSkill: Restoration
+CastingLight: 03F1B5:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 04C6D8:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000A4B:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 01C859:Skyrim.esm
+SkillUsageMultiplier: 0.1
+DualCastScale: 1.1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Concentrated sunlight dealing <mag> points of damage. Undead targets take double damage.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 000A1C:Zenderal - Prophecy.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1

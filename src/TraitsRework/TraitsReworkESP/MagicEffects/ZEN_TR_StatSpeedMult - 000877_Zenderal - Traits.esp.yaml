@@ -1,0 +1,19 @@
+FormKey: 000877:Zenderal - Traits.esp
+EditorID: ZEN_TR_StatSpeedMult
+Name:
+  TargetLanguage: English
+  Value: 'Trait: SpeedMult'
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: SpeedMult
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

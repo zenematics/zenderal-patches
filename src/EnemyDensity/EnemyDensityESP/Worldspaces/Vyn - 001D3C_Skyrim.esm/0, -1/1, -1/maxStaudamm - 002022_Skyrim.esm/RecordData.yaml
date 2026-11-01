@@ -1,0 +1,43 @@
+FormKey: 002022:Skyrim.esm
+EditorID: maxStaudamm
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: 12, -2
+  Flags: -1893602560
+WaterHeight: 3.4028235E+38
+Regions:
+- 002234:Skyrim.esm
+- 035CCA:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D03:Zenderal - Enemy Density.esp
+  Base: 12E284:Skyrim.esm
+  Placement:
+    Position: 52860.2, -8102.0, 1574.0
+    Rotation: 0, 0, 5.3292
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D04:Zenderal - Enemy Density.esp
+  Base: 12E287:Skyrim.esm
+  Placement:
+    Position: 52743.7, -7976.2, 1603.8
+    Rotation: 0, 0, 2.1039
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D05:Zenderal - Enemy Density.esp
+  Base: 12E287:Skyrim.esm
+  Placement:
+    Position: 52788.0, -8277.3, 1592.1
+    Rotation: 0, 0, 0.9611
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D06:Zenderal - Enemy Density.esp
+  Base: 12E284:Skyrim.esm
+  Placement:
+    Position: 53001.4, -8234.7, 1557.4
+    Rotation: 0, 0, 2.3363
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D07:Zenderal - Enemy Density.esp
+  Base: 12EBD5:Skyrim.esm
+  Placement:
+    Position: 52692.4, -8234.7, 1570.4
+    Rotation: 0, 0, 1.3898

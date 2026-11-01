@@ -1,0 +1,19 @@
+FormKey: 000817:Zenderal - Flintlock Overhaul.esp
+EditorID: ZP_FlintlockShot_HunterPistol
+Name:
+  TargetLanguage: English
+  Value: Rough bullet
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.7
+Effects:
+- BaseEffect: 000802:AdventurerFlintlockPack.esp
+  Data:
+    Magnitude: 10.8
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.25

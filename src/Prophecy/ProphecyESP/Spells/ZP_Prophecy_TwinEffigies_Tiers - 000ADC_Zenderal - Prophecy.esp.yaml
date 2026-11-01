@@ -1,0 +1,18 @@
+FormKey: 000ADC:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_TwinEffigies_Tiers
+Name:
+  TargetLanguage: English
+  Value: Twin Effigies
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000ADD:Zenderal - Prophecy.esp
+  Data: {}

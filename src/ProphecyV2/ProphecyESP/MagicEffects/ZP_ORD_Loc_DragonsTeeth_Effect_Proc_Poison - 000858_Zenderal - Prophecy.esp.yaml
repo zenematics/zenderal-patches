@@ -1,0 +1,26 @@
+FormKey: 000858:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Effect_Proc_Poison
+Name:
+  TargetLanguage: English
+  Value: Poison
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 00083A:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+ResistValue: PoisonResist
+HitShader: 10CC64:Skyrim.esm
+SpellmakingArea: 8
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Explosion: 000859:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> points of poison damage for <dur> seconds in a small area.

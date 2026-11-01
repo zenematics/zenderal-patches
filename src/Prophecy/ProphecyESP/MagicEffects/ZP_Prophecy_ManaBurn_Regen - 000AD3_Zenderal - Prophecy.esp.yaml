@@ -1,0 +1,20 @@
+FormKey: 000AD3:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ManaBurn_Regen
+Name:
+  TargetLanguage: English
+  Value: Mana Burn
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- NoArea
+- NoDeathDispel
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+CastType: FireAndForget
+TargetType: Self
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Restores <mag> Mana per second.

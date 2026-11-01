@@ -7,6 +7,1153 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: ZP_ProphecyPower
       Object: 000805:Zenderal - Prophecy.esp
+  - Name: ZP_ProphecyMenu
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZP_ProphecyMenuMsg
+      Object: 00080D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZP_ProphecyPoints
+      Object: 000802:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZP_ProphecyPointsEarned
+      Object: 000809:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: Perks
+      Objects:
+      - Name: ''
+        Object: 000810:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009C4:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009C5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000811:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009C6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000812:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009C7:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009C8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000813:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000814:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009C9:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000815:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009CA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009CB:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000816:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009CC:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000817:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009CD:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B0E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000818:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009CE:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009CF:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000819:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081A:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D0:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D1:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081B:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D2:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A6D:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081C:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D3:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081D:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D4:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A6E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A6F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A70:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A71:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A72:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A73:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A74:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AE6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AED:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A75:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A76:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A77:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A78:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00081F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D7:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000820:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AF5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000821:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009D9:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000822:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009DA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009DB:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000823:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000916:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009DC:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009DD:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000917:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009DE:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000918:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009DF:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00093A:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E0:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E1:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000919:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AB9:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABB:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABC:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABD:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABE:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000ABF:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC0:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC1:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC2:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC3:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC4:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AC7:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A82:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A83:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A84:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A85:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B06:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A86:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A87:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A9E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A88:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A89:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8A:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8B:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B07:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8C:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8D:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A8E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00094E:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E2:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E3:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00094F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E4:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000950:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000951:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E7:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000952:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000992:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009E9:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000993:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009EA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000994:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009EB:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000995:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009EC:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009ED:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000996:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A9F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA0:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA1:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA2:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA3:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA4:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA5:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA6:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA7:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AA9:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAB:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAC:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAD:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000AAE:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptStringListProperty
+      Name: Descriptions
+      Data:
+      - "Grants the \"Consecrate Dead\" spell: cast it on a corpse to burn it to ash with holy light and restore 30 Health, Mana and Stamina. Undead it strikes take 15 damage and stagger."
+      - "Your Light Magic skill is increased by 10."
+      - "Your maximum Mana is increased by 25."
+      - "While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage, for 10 Mana (with less, you simply block)."
+      - "Your maximum Health is increased by 25."
+      - "Your hits with silver weapons have a 15% chance to call down a pillar of holy light on the target: 40 damage, while beams of light strike the enemies around it for 10 each. Undead take double damage."
+      - "Your Health regenerates 25 percent faster."
+      - "You gain 10% resistance to magic."
+      - "Grants the \"Wrath of the Lightborn\" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more."
+      - "Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health."
+      - "Your Mana regenerates 10 percent faster."
+      - "You reload muskets 30% faster."
+      - "Your Marksman skill is increased by 10."
+      - "Your maximum Stamina is increased by 25."
+      - "Your musket hits deal 10 extra fire damage."
+      - "Your Stamina regenerates 25 percent faster."
+      - "Your musket hits make living targets bleed for 50 damage over 5 seconds."
+      - "Your armor rating is increased by 40."
+      - "Your pistol shots have a 25% chance to ricochet off their target into another enemy up to 45 feet away, hitting it with the same shot."
+      - "You move at full speed while aiming a musket."
+      - "Your carry weight is increased by 25."
+      - "Your maximum Health is increased by 25."
+      - "A musket shot at a target you haven't shot in the last 10 seconds is a critical strike that deals triple critical damage, and its weapon enchantments are twice as strong."
+      - "Grants the \"Explosive Tripwire\" power: at will, set a tripwire in front of you that lasts 120 seconds. When tripped, it snaps and knocks everyone it hits to the ground, and an enemy who trips it sets off an explosion that deals 40 damage."
+      - "Your Handicraft skill is increased by 10."
+      - "Your carry weight is increased by 30."
+      - "Grants the \"Smokescreen\" power: once a day, create a 35-foot cloud of smoke for 180 seconds and turn invisible for 10 seconds. Those inside the cloud are blinded and cannot see sneaking targets, and your sneak attacks against them deal 50% more damage."
+      - "You gain 15% resistance to poison."
+      - "Your Smokescreen cloud also blinds automatons: mechanical spiders, spheres and centurions inside it can no longer see you."
+      - "Grants the \"Utility Droid\" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts."
+      - "Your armor rating is increased by 40."
+      - "You can build Clockwork Turrets at a forge, and you receive one when you learn this. The \"Clockwork Turret\" power deploys it for 30 seconds: it turns and fires at your target, or the nearest enemy in combat, dealing damage equal to 30% of your Handicraft skill."
+      - "You gain 15% resistance to lightning."
+      - "Your maximum Stamina is increased by 25."
+      - "Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%."
+      - "Darkness gathers in you while you stand in shadow, up to 10: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the \"Gather Shadows\" spell (3 Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness."
+      - "Your Sneak skill is increased by 10."
+      - "Your maximum Mana is increased by 25."
+      - "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every 4 seconds of draining an enemy builds 1 Darkness."
+      - "Your Mana regenerates 10 percent faster."
+      - "Grants the \"Nightblade\" spell (4 Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing 15 more magic damage per point spent."
+      - "Your One-handed skill is increased by 10."
+      - "While you sneak, your body is wrapped in black and grey mist, you are 50% harder to detect, and Darkness gathers twice as fast."
+      - "Grants the \"Darkness\" spell (2 Darkness): a bolt that leaves a pool of black mist and darkness where it strikes for 30 seconds."
+      - "Grants the \"Pull Through Shadows\" spell (3 Darkness): pull a target up to 150 feet away to you, lowering its armor by 100 for 10 seconds."
+      - "Your Psionics skill is increased by 10."
+      - "Your Sneak skill is increased by 10."
+      - "Grants the \"Nightfall\" power (a full Darkness meter): for 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once."
+      - "Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty."
+      - "Your maximum Stamina is increased by 25."
+      - "Your unarmed attacks deal 5 more damage."
+      - "Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking."
+      - "Your Stamina regenerates 25 percent faster."
+      - "Every 5th unarmed hit unleashes fire, frost or lightning on the enemy, at random: a fireball explosion, a freeze that holds it for 4 seconds, or chain lightning that leaps to nearby enemies. Each deals 60 damage."
+      - "Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies."
+      - "Your armor rating is increased by 40."
+      - "Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty."
+      - "Your maximum Health is increased by 25."
+      - "You gain 10% resistance to magic."
+      - "Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 8 seconds)."
+      - "Grants the \"Seismic Stomp\" power: stomp the ground to send out a shockwave that hurls every enemy within 19 feet into the air and makes them bleed for 50 damage over 5 seconds, while time briefly slows. Usable once every 30 seconds."
+      - "Your maximum Health is increased by 25."
+      - "Your Blocking skill is increased by 10."
+      - "While you are at or below half Health, every hit you take restores 20 Stamina."
+      - "Your armor rating is increased by 60."
+      - "You gain 25% resistance to fire, frost and lightning."
+      - "Your maximum Stamina is increased by 25."
+      - "While 3 or more enemies are near you, you regenerate 2 Stamina per second."
+      - "Your One-handed and Two-handed skills are increased by 10."
+      - "Your Health regenerates 25 percent faster."
+      - "Grants the \"War Banner\" power: plant a banner for 15 seconds. While you stand near it, you heal 20 Health per second, and enemies who come close are bound in chains, as by a Stave of Binding. Usable once every 5 minutes."
+      - "Rage builds as you fight: every melee hit you land and every hit you take adds a stack, up to 10. Each stack makes your attacks 2% stronger. After 6 seconds without a hit, Rage fades by one stack every 3 seconds, and it is gone when combat ends."
+      - "Your maximum Health is increased by 25."
+      - "Your maximum Stamina is increased by 25."
+      - "Your sprinting power attacks with at least 8 Rage tear a burning line through the ground: 80 damage to everyone in it, 4 more per second for 10 seconds, and a stagger. Spends 8 Rage."
+      - "Your One-handed and Two-handed skills are increased by 10."
+      - "Your forward power attacks with at least 6 Rage send a wave of darkness in a straight line: 40 damage, and 20 more to targets further away. Spends 6 Rage."
+      - "Your backward power attacks with at least 6 Rage pierce the target for 40 damage and lower its magic resistance by 25% for 30 seconds. Spends 6 Rage."
+      - "Your standing power attacks with at least 8 Rage raise a pillar of dark fire: 60 damage, knocking down everyone it strikes. Spends 8 Rage."
+      - "Your armor rating is increased by 40."
+      - "Your sideways power attacks with at least 6 Rage drain 40 Health from the target into you. Spends 6 Rage."
+      - "Your Health regenerates 25 percent faster."
+      - "Your sideways power attacks with at least 6 Rage drain 40 Mana and 40 Stamina from the target into you. With Bloodletter, one hit does both for one cost. Spends 6 Rage."
+      - "Your Rage can reach 15 stacks, and fades half as fast."
+      - "Your Stamina regenerates 25 percent faster."
+      - "When your Rage reaches its peak you enter Vehemence for 15 seconds: your power attacks cost no Stamina, and their Rage actions spend no Rage. When it ends, your Rage is spent."
+      - "Grants the \"Druidcraft\" spell: cast it on a corpse and nature reclaims it, growing a plant you can harvest, and you heal 20 Health and gather a Goodberry."
+      - "Your Mana regenerates 10 percent faster."
+      - "Your armor rating is increased by 40."
+      - "Grants \"The Hunt\" power: spend 5 Goodberries to call a Gray Wolf to your side. It stays until it is killed."
+      - "The Hunt calls two Gray Wolves instead of one."
+      - "Your Health regenerates 25 percent faster."
+      - "Grants the \"Bramble Growth\" spell: a bed of brambles that deals 10 bleed and poison damage for 15 seconds. A target that dies on it sprouts a Goodberry."
+      - "Grants the \"Twister\" spell (97 Mana): a column of deadly wind that deals 40 damage per second for 10 seconds and staggers those caught in it."
+      - "Grants the \"Create Water Totem\" spell: a totem stands for 60 seconds, heals 5 Health and Mana per second and cures disease. An Elementalism spell."
+      - "Your maximum Mana is increased by 25."
+      - "Grants the \"Create Tree Totem\" spell: a totem stands for 60 seconds and deals 10 poison damage per second to nearby enemies in combat. An Elementalism spell."
+      - "Your armor rating is increased by 40."
+      - "You can have one more totem standing at a time."
+      - "Grants the \"Create Earth Totem\" spell: a totem stands for 60 seconds and casts tremors that deal 120 damage every 7 seconds in combat. An Elementalism spell."
+      - "Your maximum Mana is increased by 25."
+      - "Grants the \"Force of Nature\" power (no Mana, 50% Arcane Fever): for 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends. It cannot be used when the fever would reach 100%."
+      - "Grants the \"Arcane Arsenal\" power: choose Fire, Frost or Lightning, and your bow hits deal 10 extra damage of that element."
+      - "Your maximum Mana is increased by 25."
+      - "Your Marksman skill is increased by 10."
+      - "While you aim a bow, a Spell Ward (Rank II) surrounds you. It fades when you fire or lower the bow."
+      - "Your Mana regenerates 10 percent faster."
+      - "Grants the \"Ice Shot\" talent (110 seconds cooldown): with a bow equipped, add 3 ice arrows to your quiver. They deal 25 frost damage and freeze a weak target - no higher level than you, never a unique foe - solid for 8 seconds, and your next arrow shatters it."
+      - "You gain 15% resistance to frost."
+      - "Your bow hits send a barn owl to attack the target. It fights at your side until it is killed, each later hit sends it after that target, and each of its strikes drains 10 Magicka from its target and gives it to you. While it is out, you regenerate 2 Magicka per second. Only one owl can be out at a time."
+      - "Your maximum Stamina is increased by 25."
+      - "You gain 10% resistance to magic."
+      - "Grants the \"Arcane Echo\" power: use it while dual casting a spell to store that spell. Your fully drawn bow shots in combat then also release the stored spell toward your crosshair. Only works with spells cast at others."
+      - "You can command one more summon for every 25% Arcane Fever you have."
+      - "Your Entropy skill is increased by 10."
+      - "Your maximum Mana is increased by 25."
+      - "Grants the \"Dark Effigy\" spell (100 Magicka): raise a dark totem for 60 seconds. You and your undead summons near it heal 2 Health per second, and you and your allies near it gain 250 armor."
+      - "You gain 15% resistance to poison."
+      - "Grants the \"A Willing Sacrifice\" power: every summon you command explodes, dealing damage equal to half its maximum Health to each enemy within 14 feet of it. Usable once every 15 seconds."
+      - "Your Mana regenerates 10 percent faster."
+      - "A Willing Sacrifice restores 50 Magicka for every enemy it hits."
+      - "You gain 15% resistance to frost."
+      - "Your armor rating is increased by 40."
+      - "Grants the \"Legion of the Damned\" power: at the cost of 50% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one."
+      - "Grants the \"Blink Step\" lesser power (35 Mana): you shatter like glass and re-form up to 33 feet ahead."
+      - "Your Elementalism skill is increased by 10."
+      - "Your maximum Mana is increased by 75."
+      - "While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting."
+      - "You gain 15% resistance to fire."
+      - "Grants the \"Frost Spires\" spell: spires of ice burst from the ground, dealing 30 damage to Health and Stamina - up to four times that the more spires strike - and staggering."
+      - "You gain 15% resistance to frost."
+      - "Grants the \"Drowning Orb\" spell: a 15-foot sphere of water slows everyone inside it and drains 30 Stamina and Mana per second. Each enemy inside it gives you 10 of its Mana per second, and you restore 10 Mana per second while you stand in it. An Elementalism spell: water is frost, so Elementalist talents strengthen it."
+      - "Grants the \"Wildfire\" spell: a bolt of flame strikes for 40 damage and leaves a fire that chases your targets for 10 seconds, burning 12 damage each time it catches them."
+      - "Grants the \"Starlance\" spell: beams of pure Mana fall from the night sky on a single target for 80 damage."
+      - "You gain 15% resistance to lightning."
+      - "Grants the \"Twin Effigies\" spell: two copies of you, one on each side, draw your enemies' attacks for 30 seconds and hurl chain lightning at them every 6 seconds, 40 damage a bolt. Each shatters after taking a third of your Health in damage. They grow with your Psionics: at 50 they last 40 seconds and take almost half your Health, at 75 50 seconds and two thirds, at 100 a full minute and more than your whole Health."
+      - "Grants the \"Gravity Well\" spell: a well of gravity pulls nearby enemies into it and staggers them, and drains 20 Health from each into you."
+      - "Grants the \"Falling Star\" spell: a falling star strikes for 60 damage and staggers; a target with more Mana than Health also loses Mana."
+      - "Your Mana regenerates 10 percent faster."
+      - "Grants the \"Veil Wyrm\" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for 20 seconds: your spells cost half as much Mana and you restore 10 Mana per second. One word recovers in 40 seconds, two in 70, three in 100."
+    - MutagenObjectType: ScriptStringListProperty
+      Name: Images
+      Data:
+      - 'ProphecyPics/ZP_Prophecy_ConsecrateDead.dds'
+      - 'ProphecyPics/ZP_Prophecy_Devotion.dds'
+      - 'ProphecyPics/ZP_Prophecy_InnerLight.dds'
+      - 'ProphecyPics/ZP_Prophecy_RighteousPath.dds'
+      - 'ProphecyPics/ZP_Prophecy_BlessedVigour.dds'
+      - 'ProphecyPics/ZP_Prophecy_Smite.dds'
+      - 'ProphecyPics/ZP_Prophecy_MendingGrace.dds'
+      - 'ProphecyPics/ZP_Prophecy_WardingFaith.dds'
+      - 'ProphecyPics/ZP_Prophecy_WrathoftheLightborn.dds'
+      - 'ProphecyPics/ZP_Prophecy_Templar.dds'
+      - 'ProphecyPics/ZP_Prophecy_Serenity.dds'
+      - 'ProphecyPics/ZP_Prophecy_QuickReload.dds'
+      - 'ProphecyPics/ZP_Prophecy_SteadyAim.dds'
+      - 'ProphecyPics/ZP_Prophecy_PowderLungs.dds'
+      - 'ProphecyPics/ZP_Prophecy_ElementalRounds.dds'
+      - 'ProphecyPics/ZP_Prophecy_QuickBreath.dds'
+      - 'ProphecyPics/ZP_Prophecy_BleedingShot.dds'
+      - 'ProphecyPics/ZP_Prophecy_LeatherDuster.dds'
+      - 'ProphecyPics/ZP_Prophecy_RicochetRounds.dds'
+      - 'ProphecyPics/ZP_Prophecy_RunandGun.dds'
+      - 'ProphecyPics/ZP_Prophecy_Bandolier.dds'
+      - 'ProphecyPics/ZP_Prophecy_HardenedNerves.dds'
+      - 'ProphecyPics/ZP_Prophecy_Deadeye.dds'
+      - 'ProphecyPics/ZP_Prophecy_Tripwire.dds'
+      - 'ProphecyPics/ZP_Prophecy_Tinkerer.dds'
+      - 'ProphecyPics/ZP_Prophecy_Toolbelt.dds'
+      - 'ProphecyPics/ZP_Prophecy_Smokescreen.dds'
+      - 'ProphecyPics/ZP_Prophecy_FumeMask.dds'
+      - 'ProphecyPics/ZP_Prophecy_Chaff.dds'
+      - 'ProphecyPics/ZP_Prophecy_UtilityDroid.dds'
+      - 'ProphecyPics/ZP_Prophecy_RivetedPlating.dds'
+      - 'ProphecyPics/ZP_Prophecy_ClockworkTurret.dds'
+      - 'ProphecyPics/ZP_Prophecy_InsulatedGloves.dds'
+      - 'ProphecyPics/ZP_Prophecy_SteadyHands.dds'
+      - 'ProphecyPics/ZP_Prophecy_Overclock.dds'
+      - 'ProphecyPics/ZP_Prophecy_GatherShadows.dds'
+      - 'ProphecyPics/ZP_Prophecy_SilentStep.dds'
+      - 'ProphecyPics/ZP_Prophecy_DarkReservoir.dds'
+      - 'ProphecyPics/ZP_Prophecy_DrainingShroud.dds'
+      - 'ProphecyPics/ZP_Prophecy_SoulSiphon.dds'
+      - 'ProphecyPics/ZP_Prophecy_Nightblade.dds'
+      - 'ProphecyPics/ZP_Prophecy_UmbralEdge.dds'
+      - 'ProphecyPics/ZP_Prophecy_ShadeVeil.dds'
+      - 'ProphecyPics/ZP_Prophecy_Darkness.dds'
+      - 'ProphecyPics/ZP_Prophecy_PullThroughShadows.dds'
+      - 'ProphecyPics/ZP_Prophecy_WhisperingMind.dds'
+      - 'ProphecyPics/ZP_Prophecy_Unseen.dds'
+      - 'ProphecyPics/ZP_Prophecy_Nightfall.dds'
+      - 'ProphecyPics/ZP_Prophecy_IronFist.dds'
+      - 'ProphecyPics/ZP_Prophecy_Conditioning.dds'
+      - 'ProphecyPics/ZP_Prophecy_IronKnuckles.dds'
+      - 'ProphecyPics/ZP_Prophecy_HissingDragon.dds'
+      - 'ProphecyPics/ZP_Prophecy_BreathControl.dds'
+      - 'ProphecyPics/ZP_Prophecy_Invoker.dds'
+      - 'ProphecyPics/ZP_Prophecy_StunningBlows.dds'
+      - 'ProphecyPics/ZP_Prophecy_ToughenedBody.dds'
+      - 'ProphecyPics/ZP_Prophecy_BreakingWaves.dds'
+      - 'ProphecyPics/ZP_Prophecy_Unbroken.dds'
+      - 'ProphecyPics/ZP_Prophecy_InnerCalm.dds'
+      - 'ProphecyPics/ZP_Prophecy_FlowState.dds'
+      - 'ProphecyPics/ZP_Prophecy_SeismicStomp.dds'
+      - 'ProphecyPics/ZP_Prophecy_BattleHardened.dds'
+      - 'ProphecyPics/ZP_Prophecy_ShieldDiscipline.dds'
+      - 'ProphecyPics/ZP_Prophecy_SecondWind.dds'
+      - 'ProphecyPics/ZP_Prophecy_ThickHide.dds'
+      - 'ProphecyPics/ZP_Prophecy_DragonScale.dds'
+      - 'ProphecyPics/ZP_Prophecy_WarCry.dds'
+      - 'ProphecyPics/ZP_Prophecy_DeathorGlory.dds'
+      - 'ProphecyPics/ZP_Prophecy_Veteran.dds'
+      - 'ProphecyPics/ZP_Prophecy_IronConstitution.dds'
+      - 'ProphecyPics/ZP_Prophecy_WarBanner.dds'
+      - 'ProphecyPics/ZP_Prophecy_BloodiedFury.dds'
+      - 'ProphecyPics/ZP_Prophecy_BloodOath.dds'
+      - 'ProphecyPics/ZP_Prophecy_IronLungs.dds'
+      - 'ProphecyPics/ZP_Prophecy_Heavenfall.dds'
+      - 'ProphecyPics/ZP_Prophecy_TemperedSteel.dds'
+      - 'ProphecyPics/ZP_Prophecy_ShadowCarve.dds'
+      - 'ProphecyPics/ZP_Prophecy_DarkDeluge.dds'
+      - 'ProphecyPics/ZP_Prophecy_Shadowbringer.dds'
+      - 'ProphecyPics/ZP_Prophecy_ScarredHide.dds'
+      - 'ProphecyPics/ZP_Prophecy_Bloodletter.dds'
+      - 'ProphecyPics/ZP_Prophecy_Bloodthirst.dds'
+      - 'ProphecyPics/ZP_Prophecy_Soulrender.dds'
+      - 'ProphecyPics/ZP_Prophecy_Untempered.dds'
+      - 'ProphecyPics/ZP_Prophecy_UnendingFury.dds'
+      - 'ProphecyPics/ZP_Prophecy_Vehemence.dds'
+      - 'ProphecyPics/ZP_Prophecy_Druidcraft.dds'
+      - 'ProphecyPics/ZP_Prophecy_GreenWellspring.dds'
+      - 'ProphecyPics/ZP_Prophecy_Barkskin.dds'
+      - 'ProphecyPics/ZP_Prophecy_TheHunt.dds'
+      - 'ProphecyPics/ZP_Prophecy_WolfPack.dds'
+      - 'ProphecyPics/ZP_Prophecy_SapofLife.dds'
+      - 'ProphecyPics/ZP_Prophecy_BrambleGrowth.dds'
+      - 'ProphecyPics/ZP_Prophecy_Twister.dds'
+      - 'ProphecyPics/ZP_Prophecy_WaterTotem.dds'
+      - 'ProphecyPics/ZP_Prophecy_DeepRoots.dds'
+      - 'ProphecyPics/ZP_Prophecy_TreeTotem.dds'
+      - 'ProphecyPics/ZP_Prophecy_Thornhide.dds'
+      - 'ProphecyPics/ZP_Prophecy_NaturesWay.dds'
+      - 'ProphecyPics/ZP_Prophecy_EarthTotem.dds'
+      - 'ProphecyPics/ZP_Prophecy_HeartoftheGrove.dds'
+      - 'ProphecyPics/ZP_Prophecy_ForceofNature.dds'
+      - 'ProphecyPics/ZP_Prophecy_ArcaneArsenal.dds'
+      - 'ProphecyPics/ZP_Prophecy_ArcaneFocus.dds'
+      - 'ProphecyPics/ZP_Prophecy_FletchersEye.dds'
+      - 'ProphecyPics/ZP_Prophecy_NoDistractions.dds'
+      - 'ProphecyPics/ZP_Prophecy_ManaSpring.dds'
+      - 'ProphecyPics/ZP_Prophecy_IceShot.dds'
+      - 'ProphecyPics/ZP_Prophecy_Frostbound.dds'
+      - 'ProphecyPics/ZP_Prophecy_SendaRaven.dds'
+      - 'ProphecyPics/ZP_Prophecy_OwlsVigil.dds'
+      - 'ProphecyPics/ZP_Prophecy_Spellward.dds'
+      - 'ProphecyPics/ZP_Prophecy_LionsArrow.dds'
+      - 'ProphecyPics/ZP_Prophecy_CorpseFever.dds'
+      - 'ProphecyPics/ZP_Prophecy_DarkStudies.dds'
+      - 'ProphecyPics/ZP_Prophecy_GravePact.dds'
+      - 'ProphecyPics/ZP_Prophecy_DarkEffigy.dds'
+      - 'ProphecyPics/ZP_Prophecy_CorpseWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_WillingSacrifice.dds'
+      - 'ProphecyPics/ZP_Prophecy_DeathsPatience.dds'
+      - 'ProphecyPics/ZP_Prophecy_DeadDontForget.dds'
+      - 'ProphecyPics/ZP_Prophecy_ColdBlood.dds'
+      - 'ProphecyPics/ZP_Prophecy_BoneArmour.dds'
+      - 'ProphecyPics/ZP_Prophecy_LegionDamned.dds'
+      - 'ProphecyPics/ZP_Prophecy_BlinkStep.dds'
+      - 'ProphecyPics/ZP_Prophecy_ArcaneStudy.dds'
+      - 'ProphecyPics/ZP_Prophecy_ManaFont.dds'
+      - 'ProphecyPics/ZP_Prophecy_OrbitWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_EmberWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_FrostSpires.dds'
+      - 'ProphecyPics/ZP_Prophecy_RimeWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_DrowningOrb.dds'
+      - 'ProphecyPics/ZP_Prophecy_Wildfire.dds'
+      - 'ProphecyPics/ZP_Prophecy_Starlance.dds'
+      - 'ProphecyPics/ZP_Prophecy_StormWard.dds'
+      - 'ProphecyPics/ZP_Prophecy_TwinEffigies.dds'
+      - 'ProphecyPics/ZP_Prophecy_GravityWell.dds'
+      - 'ProphecyPics/ZP_Prophecy_FallingStar.dds'
+      - 'ProphecyPics/ZP_Prophecy_ArcaneTide.dds'
+      - 'ProphecyPics/ZP_Prophecy_VeilWyrm.dds'
+    - MutagenObjectType: ScriptIntListProperty
+      Name: ParentA
+      Data:
+      - -1
+      - 0
+      - 0
+      - 1
+      - 3
+      - 1
+      - 5
+      - 9
+      - 7
+      - 3
+      - 9
+      - -1
+      - 11
+      - 11
+      - 12
+      - 14
+      - 12
+      - 16
+      - 12
+      - 14
+      - 19
+      - 19
+      - 21
+      - -1
+      - 23
+      - 23
+      - 24
+      - 26
+      - 26
+      - 24
+      - 29
+      - 26
+      - 31
+      - 31
+      - 33
+      - -1
+      - 35
+      - 35
+      - 36
+      - 38
+      - 36
+      - 40
+      - 36
+      - 42
+      - 38
+      - 44
+      - 44
+      - 46
+      - -1
+      - 48
+      - 48
+      - 49
+      - 51
+      - 49
+      - 49
+      - 54
+      - 51
+      - 56
+      - 56
+      - 58
+      - -1
+      - 60
+      - 60
+      - 61
+      - 63
+      - 61
+      - 65
+      - 63
+      - 67
+      - 67
+      - 69
+      - -1
+      - 71
+      - 71
+      - 72
+      - 74
+      - 74
+      - 74
+      - 72
+      - 78
+      - 78
+      - 80
+      - 78
+      - 76
+      - 83
+      - 84
+      - -1
+      - 86
+      - 86
+      - 87
+      - 89
+      - 89
+      - 89
+      - 87
+      - 87
+      - 94
+      - 94
+      - 96
+      - 96
+      - 96
+      - 92
+      - 100
+      - -1
+      - 102
+      - 102
+      - 103
+      - 105
+      - 103
+      - 107
+      - 105
+      - 109
+      - 109
+      - 111
+      - -1
+      - 113
+      - 113
+      - 114
+      - 116
+      - 114
+      - 118
+      - 118
+      - 120
+      - 120
+      - 122
+      - -1
+      - 124
+      - 124
+      - 125
+      - 127
+      - 127
+      - 129
+      - 129
+      - 127
+      - 125
+      - 133
+      - 133
+      - 133
+      - 129
+      - 137
+      - 138
+    - MutagenObjectType: ScriptIntListProperty
+      Name: ParentB
+      Data:
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 5
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 16
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 29
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 40
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 54
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 65
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 80
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 99
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 107
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - -1
+      - 135
+      - -1
+      - -1
+    - MutagenObjectType: ScriptIntListProperty
+      Name: PowerPerk
+      Data:
+      - 23
+      - 26
+      - 29
+      - 31
+      - 47
+      - 60
+      - 70
+      - 89
+      - 101
+      - 102
+      - 112
+      - 118
+      - 123
+      - 116
+      - 0
+      - 8
+      - 35
+      - 38
+      - 40
+      - 44
+      - 43
+      - 93
+      - 92
+      - 94
+      - 96
+      - 99
+      - 86
+      - 129
+      - 131
+      - 132
+      - 133
+      - 124
+      - 136
+      - 137
+      - 107
+      - 139
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: PowerSpell
+      Objects:
+      - Name: ''
+        Object: 0008AA:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00089F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000944:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000882:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A7F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00092F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000921:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B08:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A97:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000953:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00096A:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00099B:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 0009A2:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000997:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A40:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000A43:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 3727BF:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 31C5C1:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 330A43:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 30D2A4:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 000AEE:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00086F:Aero.esl
+      - Name: ''
+        Object: 27F3B4:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 3BE79F:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 3C38C5:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 35E36E:Triumvirate - Mage Archetypes.esp
+      - Name: ''
+        Object: 000A95:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000825:KittySpellPack02.esl
+      - Name: ''
+        Object: 000829:KittySpellPack01.esl
+      - Name: ''
+        Object: 000829:KittySpellPack02.esl
+      - Name: ''
+        Object: 000814:Supernova.esl
+      - Name: ''
+        Object: 000E52:Shatterveil.esp
+      - Name: ''
+        Object: 000827:KittySpellPack01.esl
+      - Name: ''
+        Object: 000815:Supernova.esl
+      - Name: ''
+        Object: 000AD8:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000E6A:Shatterveil.esp
+    - MutagenObjectType: ScriptIntListProperty
+      Name: TreeStart
+      Data:
+      - 0
+      - 11
+      - 23
+      - 35
+      - 48
+      - 60
+      - 71
+      - 86
+      - 102
+      - 113
+      - 124
+      - 140
+    - MutagenObjectType: ScriptIntListProperty
+      Name: GiftPerk
+      Data:
+      - 31
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: GiftItem
+      Objects:
+      - Name: ''
+        Object: 000884:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptIntListProperty
+      Name: LevelReq
+      Data:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 30
   FileName: ''
 Flags:
 - StartGameEnabled

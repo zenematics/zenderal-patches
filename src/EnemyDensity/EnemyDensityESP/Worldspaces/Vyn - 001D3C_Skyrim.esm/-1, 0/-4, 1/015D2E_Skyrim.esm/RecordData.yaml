@@ -1,0 +1,59 @@
+FormKey: 015D2E:Skyrim.esm
+Version2: 11
+Flags:
+- HasWater
+Grid:
+  Point: -28, 9
+  Flags: -1254349568
+WaterHeight: 3.4028235E+38
+Regions:
+- 10A875:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008C6:Zenderal - Enemy Density.esp
+  Base: 000812:Zenderal - Goblins.esp
+  Placement:
+    Position: -111616.0, 39125.3, 9147.3
+    Rotation: 0, 0, 4.9673
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008C7:Zenderal - Enemy Density.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: -111701.3, 39296.0, 9186.7
+    Rotation: 0, 0, 5.8464
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008C8:Zenderal - Enemy Density.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: -111701.3, 38954.7, 9108.9
+    Rotation: 0, 0, 0.6
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008C9:Zenderal - Enemy Density.esp
+  Base: 00083A:Zenderal - Goblins.esp
+  Placement:
+    Position: -111402.7, 39125.3, 9147.1
+    Rotation: 0, 0, 0.4649
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008CA:Zenderal - Enemy Density.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -111808.0, 38954.7, 9100.5
+    Rotation: 0, 0, 3.8093
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008CB:Zenderal - Enemy Density.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: -111872.0, 39296.0, 9190.7
+    Rotation: 0, 0, 0.1318
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008CC:Zenderal - Enemy Density.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: -111914.7, 38997.3, 9106.5
+    Rotation: 0, 0, 2.1753
+- MutagenObjectType: PlacedNpc
+  FormKey: 0008CD:Zenderal - Enemy Density.esp
+  Base: 000847:Zenderal - Goblins.esp
+  Placement:
+    Position: -111616.0, 39466.7, 9246.8
+    Rotation: 0, 0, 3.5993

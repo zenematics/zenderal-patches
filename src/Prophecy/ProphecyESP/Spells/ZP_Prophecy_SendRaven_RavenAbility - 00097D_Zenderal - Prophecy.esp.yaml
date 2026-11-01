@@ -1,0 +1,15 @@
+FormKey: 00097D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SendRaven_RavenAbility
+Name:
+  TargetLanguage: English
+  Value: Andrasta's Owl
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 00097E:Zenderal - Prophecy.esp
+  Data: {}

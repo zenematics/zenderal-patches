@@ -1,0 +1,24 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Read the Room Enderal.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Read the Room counts Enderal's towns as safe areas: its SafeKeywords list gets the two keywords
+    Enderal puts on its town locations (Ark, Riverville, Duneville, the Sun Temple, inns and shops).
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: ReadTheRoom.esp
+    FileSize: 0
+  INTV: 1

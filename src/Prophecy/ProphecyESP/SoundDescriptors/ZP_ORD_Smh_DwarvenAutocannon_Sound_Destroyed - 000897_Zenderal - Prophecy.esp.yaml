@@ -1,0 +1,12 @@
+FormKey: 000897:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Sound_Destroyed
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\DwarvenCenturion\NPC_DwarvenCenturion_Stall.wav
+OutputModel: 0E32BF:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyShift: 70
+Priority: 128
+StaticAttenuation: 1.32

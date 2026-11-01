@@ -1,0 +1,13 @@
+FormKey: 057B44:Skyrim.esm
+EditorID: UILevelUpSD
+FormVersion: 40
+Type: Standard
+Category: 064451:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\Zenderal\ZEN_LevelUp_HolySpellCast.wav
+OutputModel: 07EDCA:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+  RumbleValues: 255
+Priority: 128
+StaticAttenuation: 7.93

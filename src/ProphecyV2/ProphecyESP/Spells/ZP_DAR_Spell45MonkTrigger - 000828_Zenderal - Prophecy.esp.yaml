@@ -1,0 +1,19 @@
+FormKey: 000828:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_Spell45MonkTrigger
+Name:
+  TargetLanguage: English
+  Value: Monk
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 000829:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 10
+    Duration: 5

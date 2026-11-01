@@ -1,0 +1,10 @@
+FormKey: 0773F1:Skyrim.esm
+EditorID: _00E_Music_Combat_Regular
+Flags:
+- CycleTracks
+Data:
+  Priority: 100
+  DuckingDecibel: 30
+FadeDuration: 5
+Tracks:
+- 0963BB:Skyrim.esm

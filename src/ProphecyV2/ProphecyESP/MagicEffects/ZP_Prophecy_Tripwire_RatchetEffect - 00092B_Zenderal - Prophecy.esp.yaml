@@ -1,0 +1,28 @@
+FormKey: 00092B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Tripwire_RatchetEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_PlaySoundEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SoundToPlay
+      Object: 00092A:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Explosive Tripwire
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

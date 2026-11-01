@@ -1,0 +1,510 @@
+{
+  "ZEN_GoblinRace": {
+    "Zenderal - Goblins.esp:0x805": {
+      "Male": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 800"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 801"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 802"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 803"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 804"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 800"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 801"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 802"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 803"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 804"
+          }
+        ]
+      }
+    },
+    "ANY": {
+      "Male": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 800"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 801"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 802"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 803"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 804"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 800"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 801"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 802"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 803"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 804"
+          }
+        ]
+      }
+    },
+    "Zenderal - Goblins.esp:0x806": {
+      "Male": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 805"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 806"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 807"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 808"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 809"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 805"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 806"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 807"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 808"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 809"
+          }
+        ]
+      }
+    },
+    "Zenderal - Goblins.esp:0x807": {
+      "Male": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 80E"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 80A"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 80B"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 80C"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 80D"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 80E"
+          }
+        ]
+      }
+    },
+    "Zenderal - Goblins.esp:0x808": {
+      "Male": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 80F"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 810"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 811"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 812"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 813"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_L - 80F"
+          }
+        ],
+        "NPC R Calf": [
+          {
+            "IDLimb": "Zenderal - Goblin - Calf_R - 810"
+          }
+        ],
+        "NPC L Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_L - 811"
+          }
+        ],
+        "NPC R Forearm": [
+          {
+            "IDLimb": "Zenderal - Goblin - Forearm_R - 812"
+          }
+        ],
+        "NPC Neck": [
+          {
+            "IDLimb": "Zenderal - Goblin - Head - 813"
+          }
+        ]
+      }
+    }
+  },
+  "ZEN_Mihail_mihailgoblinrace": {
+    "Zenderal - Goblins.esp:0x832": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 828"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 829"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 82A"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 82B"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 82C"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 828"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 829"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 82A"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 82B"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 82C"
+          }
+        ]
+      }
+    },
+    "Zenderal - Goblins.esp:0x838": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 82D"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 82E"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 82F"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 830"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 831"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 82D"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 82E"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 82F"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 830"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 831"
+          }
+        ]
+      }
+    },
+    "Zenderal - Goblins.esp:0x839": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 832"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 833"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 834"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 835"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 836"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 832"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 833"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 834"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 835"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 836"
+          }
+        ]
+      }
+    },
+    "ANY": {
+      "Male": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 828"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 829"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 82A"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 82B"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 82C"
+          }
+        ]
+      },
+      "Female": {
+        "NPC L Calf [LClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_L - 828"
+          }
+        ],
+        "NPC R Calf [RClf]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Calf_R - 829"
+          }
+        ],
+        "NPC L Forearm [LLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_L - 82A"
+          }
+        ],
+        "NPC R Forearm [RLar]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Forearm_R - 82B"
+          }
+        ],
+        "NPC Neck [Neck]": [
+          {
+            "IDLimb": "Zenderal - Mihail Goblin - Head - 82C"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+FormKey: 000A98:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ForceOfNature_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ForceOfNatureEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FormSpell
+      Object: 28E6EB:Triumvirate - Mage Archetypes.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FormEffect
+      Object: 191250:Triumvirate - Mage Archetypes.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Familiars
+      Object: 000A99:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FeverMessage
+      Object: 036F95:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FeverImod
+      Object: 103755:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MentalExpert
+      Object: 069D07:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: FeverCost
+      Data: 50.0
+    - MutagenObjectType: ScriptBoolProperty
+      Name: StripArmor
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FormSkin
+      Object: 000839:Triumvirate - Mage Archetypes.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: PollSeconds
+      Data: 0.25
+Name:
+  TargetLanguage: English
+  Value: Force of Nature
+MenuDisplayObject: 191249:Triumvirate - Mage Archetypes.esp
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

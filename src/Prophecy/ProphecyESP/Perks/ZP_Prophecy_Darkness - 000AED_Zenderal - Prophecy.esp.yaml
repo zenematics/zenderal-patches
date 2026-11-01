@@ -1,0 +1,16 @@
+FormKey: 000AED:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Darkness
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Darkness" spell (2 Darkness): a bolt that leaves a pool of black mist and darkness where it strikes for 30 seconds.'
+Name:
+  TargetLanguage: English
+  Value: 'Darkness'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AE6:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

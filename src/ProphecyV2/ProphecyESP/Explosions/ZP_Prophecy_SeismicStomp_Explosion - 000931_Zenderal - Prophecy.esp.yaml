@@ -1,0 +1,15 @@
+FormKey: 000931:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SeismicStomp_Explosion
+ObjectBounds:
+  First: -116, -116, -18
+  Second: 116, 116, 44
+Model:
+  File: ApocNew\AlterationEarth_Explosion_Massive.nif
+  Data: 0x020000000000000000000000
+Sound1: 000932:Zenderal - Prophecy.esp
+ImpactDataSet: 03F819:Skyrim.esm
+Force: 256
+Radius: 400
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

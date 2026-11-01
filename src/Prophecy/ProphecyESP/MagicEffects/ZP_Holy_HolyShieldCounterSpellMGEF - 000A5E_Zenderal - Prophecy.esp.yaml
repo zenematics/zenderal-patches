@@ -1,0 +1,32 @@
+FormKey: 000A5E:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HolyShieldCounterSpellMGEF
+Name:
+  TargetLanguage: English
+  Value: Reflector Beam
+MenuDisplayObject: 1097CA:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.7
+MagicSkill: Restoration
+TaperWeight: 0.01
+HitShader: 04C6D8:Skyrim.esm
+SpellmakingArea: 30
+SpellmakingCastingTime: 0.5
+TaperDuration: 0.1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000A5F:Zenderal - Prophecy.esp
+Explosion: 000A60:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 01C2AF:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Sunlight beam dealing <mag> points of damage to multiple targets.

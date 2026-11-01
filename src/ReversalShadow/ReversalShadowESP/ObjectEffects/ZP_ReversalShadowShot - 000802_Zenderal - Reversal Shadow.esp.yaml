@@ -1,0 +1,27 @@
+FormKey: 000802:Zenderal - Reversal Shadow.esp
+EditorID: ZP_ReversalShadowShot
+Name:
+  TargetLanguage: English
+  Value: Witch Bolt Shot
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+TargetType: Aimed
+EnchantType: StaffEnchantment
+ChargeTime: 0.7
+Effects:
+- BaseEffect: 000803:Zenderal - Reversal Shadow.esp
+  Data:
+    Magnitude: 36.0
+- BaseEffect: 0153D3:Skyrim.esm
+  Data:
+    Magnitude: 0.5
+- BaseEffect: 1BEBB6:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 3
+    Duration: 60
+- BaseEffect: 19B46E:Triumvirate - Mage Archetypes.esp
+  Data:
+    Magnitude: 1000
+    Duration: 60

@@ -1,0 +1,27 @@
+FormKey: 000823:Pistol animation by Loop.esp
+EditorID: bolt_bleeding
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- GoryVisuals
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.5
+TaperWeight: 0.5
+TaperCurve: 2
+TaperDuration: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Aimed
+SkillUsageMultiplier: 1
+DualCastScale: 3
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Target will bleed when hit,drains the target's Health by <mag> point per second for <dur> seconds

@@ -1,0 +1,131 @@
+FormKey: 024931:Enderal - Forgotten Stories.esm
+EditorID: 40E_FS_Unique_RalysRyxEnch
+Version2: 1
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Poison Damage
+  - Language: Japanese
+    String: 毒ダメージ
+  - Language: Spanish
+    String: Daño por veneno
+  - Language: Polish
+    String: Obrażenia od trucizny
+  - Language: Italian
+    String: Danno da veleno
+  - Language: Korean
+    String: 독 피해
+  - Language: French
+    String: Dégâts de poison
+  - Language: Chinese
+    String: 毒素伤害
+  - Language: German
+    String: Giftschaden
+  - Language: Russian
+    String: Урон ядом
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 042509:Skyrim.esm
+- 05BD16:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- Painless
+- NoDeathDispel
+ResistValue: PoisonResist
+TaperWeight: 0.2
+HitShader: 10CC64:Skyrim.esm
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Human enemies take <mag> extra damage for <dur> seconds.
+  - Language: Japanese
+    String: <dur> 秒間、敵が人間の場合、 <mag> ポイントの追加ダメージを与える
+  - Language: Spanish
+    String: Los enemigos humanos reciben <mag> de daño extra durante <dur> segundos.
+  - Language: Polish
+    String: Wrodzy ludzie otrzymują <mag> dodatkowych obrażeń przez <dur> s.
+  - Language: Italian
+    String: I nemici umani subiscono <mag> danni extra per <dur> secondi.
+  - Language: Korean
+    String: 인간인 적들이 <mag>의 추가 피해를 <dur>초 동안 받습니다.
+  - Language: French
+    String: Les ennemis humains subissent <mag> points de dégâts supplémentaires pendant <dur> secondes.
+  - Language: Chinese
+    String: 人类敌人受到<mag>点额外伤害，持续<dur>秒。
+  - Language: German
+    String: Menschliche Gegner erleiden <mag> Extraschaden über <dur> Sekunden.
+  - Language: Russian
+    String: Гуманоидные враги получают дополнительные <mag> урона в течение <dur> сек.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 033899:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 013741:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 013744:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 013743:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 013749:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 033898:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 013748:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: GetIsRaceConditionData
+    Race: 013746:Skyrim.esm
+  ComparisonValue: 1

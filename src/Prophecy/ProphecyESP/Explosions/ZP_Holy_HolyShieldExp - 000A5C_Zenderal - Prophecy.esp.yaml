@@ -1,0 +1,19 @@
+FormKey: 000A5C:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HolyShieldExp
+ObjectBounds:
+  First: -103, -103, -1
+  Second: 103, 103, 405
+Name:
+  TargetLanguage: English
+  Value: DLC1AurielsBow Exp01
+Model:
+  File: Lightpower\HolyShieldExp.nif
+  Data: 0x020000000000000000000000
+Radius: 320
+ISRadius: 1024
+VerticalOffsetMult: 0.5
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Silent

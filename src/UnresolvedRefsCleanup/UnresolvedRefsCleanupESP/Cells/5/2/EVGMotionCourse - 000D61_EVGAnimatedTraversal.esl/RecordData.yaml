@@ -1,0 +1,145 @@
+FormKey: 000D61:EVGAnimatedTraversal.esl
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: EVGMotionCourse
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: EVG Motion Course
+Flags:
+- IsInteriorCell
+- HasWater
+- CantTravelFromHere
+Lighting:
+  AmbientColor: '#00000000'
+  DirectionalColor: '#00000000'
+  FogNearColor: '#00000000'
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#00FFFFFF'
+    DirectionalXMinus: '#00FFFFFF'
+    DirectionalYPlus: '#00FFFFFF'
+    DirectionalYMinus: '#00FFFFFF'
+    DirectionalZPlus: '#00FFFFFF'
+    DirectionalZMinus: '#00FFFFFF'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - FogMax
+  - LightFadeDistances
+LightingTemplate: 03128C:Skyrim.esm
+WaterHeight: 0
+Music: 09CFDD:Skyrim.esm
+ImageSpace: 02EDEB:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000801:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -463.4225, 58.393494, -11.013965
+- MutagenObjectType: PlacedObject
+  FormKey: 000896:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -1118.7083, -220.79027, -4.3919
+    Rotation: -0.029640319, -0.09551888, 4.501424
+- MutagenObjectType: PlacedObject
+  FormKey: 000899:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -881.1874, -56.18374, 20.218597
+    Rotation: 0, -0.099999726, 0
+- MutagenObjectType: PlacedObject
+  FormKey: 00089A:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -891.7598, -97.664696, -41.331455
+    Rotation: 0, -0.19999862, 4.783189
+- MutagenObjectType: PlacedObject
+  FormKey: 0008AD:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -510.52417, 490.02866, 993.78033
+    Rotation: -8.794656E-08, 0.11681797, 7.353741E-08
+- MutagenObjectType: PlacedObject
+  FormKey: 0008B2:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -473.40204, 510.0834, 993.78033
+    Rotation: -8.794656E-08, 0.11681797, 7.353741E-08
+- MutagenObjectType: PlacedObject
+  FormKey: 0008B4:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: -467.2766, 488.4151, 913.09875
+- MutagenObjectType: PlacedObject
+  FormKey: 0008E6:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 688.4541, -378.65417, 62.728462
+    Rotation: 0, -0, 4.3
+- MutagenObjectType: PlacedObject
+  FormKey: 0008E7:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 617.0041, -524.52423, 106.24039
+    Rotation: 0, 0.17453292, 0.9000005
+- MutagenObjectType: PlacedObject
+  FormKey: 0008E8:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 689.93915, -389.7148, 17.607082
+    Rotation: 0, -0, 3.8000004
+- MutagenObjectType: PlacedObject
+  FormKey: 0008E9:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 688.90283, -420.88953, 17.607113
+    Rotation: 0, -0, 4.8
+- MutagenObjectType: PlacedObject
+  FormKey: 0008EA:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 692.85205, -396.2613, 62.601093
+    Rotation: 0, -0, 4.7000017
+- MutagenObjectType: PlacedObject
+  FormKey: 0008EB:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 691.0203, -466.4773, 62.6011
+    Rotation: 0, -0, 5.083189
+- MutagenObjectType: PlacedObject
+  FormKey: 0008ED:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 589.8546, -556.6722, 0.9479828
+    Rotation: 0, -0, 1.1
+- MutagenObjectType: PlacedObject
+  FormKey: 0008EE:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Placement:
+    Position: 579.11646, -539.6199, 0.9479675
+    Rotation: 0, -0, 1.3
+- MutagenObjectType: PlacedObject
+  FormKey: 000923:EVGAnimatedTraversal.esl
+  Base: 000034:Skyrim.esm
+  Lock:
+    Level: 255
+    Unused: 0x000000
+    Key: 0008BC:EVGAnimatedTraversal.esl
+    Unused2: 0x0000000000000000000000
+  Placement:
+    Position: 0, -1024, 0
+    Rotation: 0, -0, 3.1415927
+MajorFlags:
+- 0x40000

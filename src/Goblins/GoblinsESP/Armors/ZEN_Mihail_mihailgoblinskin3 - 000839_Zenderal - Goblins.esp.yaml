@@ -1,0 +1,18 @@
+FormKey: 000839:Zenderal - Goblins.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZEN_Mihail_mihailgoblinskin3
+SkyrimMajorRecordFlags:
+- NotPlayable
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000830:Zenderal - Goblins.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 000837:Zenderal - Goblins.esp
+MajorFlags:
+- NonPlayable

@@ -1,0 +1,20 @@
+FormKey: 00081D:Zenderal - Traits.esp
+EditorID: ZEN_TR_SteadyBreathMGEF
+Name:
+  TargetLanguage: English
+  Value: Steady Breath
+Flags:
+- Recover
+- NoDuration
+- NoMagnitude
+- NoArea
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+PerkToApply: 00081E:Zenderal - Traits.esp
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

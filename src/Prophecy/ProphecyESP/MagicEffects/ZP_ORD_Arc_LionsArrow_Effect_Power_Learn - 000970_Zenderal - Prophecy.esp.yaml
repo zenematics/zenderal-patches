@@ -1,0 +1,83 @@
+FormKey: 000970:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_LionsArrow_Effect_Power_Learn
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_MysticWarrior_Power_Learn_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MAGFail
+      Object: 022472:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicRitualSpell
+      Object: 0806E1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Alt_Cast_Imod
+      Object: 000978:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Enc_MysticWarrior_FormList
+      Object: 00096C:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Enc_MysticWarrior_FormList_Exclusion
+      Object: 000977:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Enc_MysticWarrior_Marker_Power
+      Object: 000975:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Enc_MysticWarrior_Message
+      Object: 000974:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Enc_MysticWarrior_Message_Fail_Exclusion
+      Object: 000973:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Enc_MysticWarrior_Message_Fail_NoDualCast
+      Object: 000972:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Enc_MysticWarrior_Message_Fail_Ritual
+      Object: 000971:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Arcane Echo
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Out of combat, store the spell you are currently dual casting. It is released with each fully drawn shot in combat.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInCombatConditionData
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetCurrentCastingTypeConditionData
+    SpellSource: Right
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: GetCurrentDeliveryTypeConditionData
+    SpellSource: Right
+  ComparisonValue: 4
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: GetCurrentDeliveryTypeConditionData
+    SpellSource: Right

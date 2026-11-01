@@ -1,0 +1,42 @@
+FormKey: 000836:Zenderal - Traits.esp
+EditorID: ZEN_TR_BackAlleyBornPERK
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModPickpocketChance
+  PerkConditionTabCount: 3
+  Modification: Add
+  Value: 20
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModLockpickSweetSpot
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 1.2
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetInCurrentLocConditionData
+        Location: 0A1A12:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetInCurrentLocConditionData
+        Location: 032706:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ModDetectionSneakSkill
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 15
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModBuyPrices
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 1.1

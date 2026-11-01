@@ -1,0 +1,20 @@
+FormKey: 01905B:Skyrim.esm
+EditorID: _00E_BeachGrassLush
+ObjectBounds:
+  First: -33, -28, -1
+  Second: 45, 28, 55
+Model:
+  File: Landscape\Grass\BeachGrassObj01.nif
+  Data: 0x020000000000000000000000
+Density: 100
+MaxSlope: 42
+Unknown: 205
+Unknown2: 52685
+PositionRange: 68
+HeightRange: 0.3
+ColorRange: 0.2
+WavePeriod: 600
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

@@ -1,0 +1,19 @@
+FormKey: 0009C6:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BlessedVigour
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Health is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Blessed Vigour'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000811:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009F0:Zenderal - Prophecy.esp

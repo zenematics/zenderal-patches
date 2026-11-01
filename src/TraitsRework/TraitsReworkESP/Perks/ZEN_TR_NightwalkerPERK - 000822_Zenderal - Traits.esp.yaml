@@ -1,0 +1,29 @@
+FormKey: 000822:Zenderal - Traits.esp
+EditorID: ZEN_TR_NightwalkerPERK
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: GetGlobalValueConditionData
+        Global: 000038:Skyrim.esm
+      ComparisonValue: 20
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetGlobalValueConditionData
+        Global: 000038:Skyrim.esm
+      ComparisonValue: 5
+  EntryPoint: ModDetectionSneakSkill
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 20

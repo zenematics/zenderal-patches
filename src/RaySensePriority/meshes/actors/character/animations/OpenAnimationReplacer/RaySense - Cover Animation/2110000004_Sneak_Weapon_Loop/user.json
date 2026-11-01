@@ -1,0 +1,15 @@
+{
+    "name": "Sneak_Weapon_Loop",
+    "priority": 2140000004,
+    "interruptible": true,
+    "conditions": [
+        {
+            "condition": "IsSneaking",
+            "requiredVersion": "1.0.0.0"
+        },
+        {
+            "condition": "IsWeaponDrawn",
+            "requiredVersion": "1.0.0.0"
+        }
+    ]
+}

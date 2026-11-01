@@ -1,0 +1,17 @@
+FormKey: 000A6C:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_WrathoftheLightborn_Fever
+Name:
+  TargetLanguage: English
+  Value: Wrath of the Lightborn
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+Effects:
+- BaseEffect: 11A4B6:Skyrim.esm
+  Data:
+    Magnitude: 50
+    Duration: 1

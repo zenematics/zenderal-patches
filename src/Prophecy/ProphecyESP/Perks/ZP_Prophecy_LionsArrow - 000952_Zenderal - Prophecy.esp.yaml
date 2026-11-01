@@ -1,0 +1,23 @@
+FormKey: 000952:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_LionsArrow
+Name:
+  TargetLanguage: English
+  Value: 'Arcane Echo'
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Arcane Echo" power: use it while dual casting a spell to store that spell. Your fully drawn bow shots in combat then also release the stored spell toward your crosshair. Only works with spells cast at others.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 0009E7:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 182
+  Ability: 000979:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 183
+  Ability: 00096A:Zenderal - Prophecy.esp

@@ -1,0 +1,19 @@
+FormKey: 0009D4:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_InsulatedGloves
+Description:
+  TargetLanguage: English
+  Value: 'You gain 15% resistance to lightning.'
+Name:
+  TargetLanguage: English
+  Value: 'Insulated Gloves'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081D:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009FE:Zenderal - Prophecy.esp

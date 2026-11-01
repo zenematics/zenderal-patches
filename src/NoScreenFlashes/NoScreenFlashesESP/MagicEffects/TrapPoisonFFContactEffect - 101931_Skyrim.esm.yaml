@@ -1,0 +1,41 @@
+FormKey: 101931:Skyrim.esm
+EditorID: TrapPoisonFFContactEffect
+Name:
+  TargetLanguage: English
+  Value: Poison Damage
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 042509:Skyrim.esm
+- 05BD16:Skyrim.esm
+- 1093BB:Skyrim.esm
+- 001EA1:Enderal SE - Gameplay Overhaul.esp
+Flags:
+- Hostile
+- Detrimental
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- Painless
+- NoDeathDispel
+ResistValue: PoisonResist
+TaperWeight: 0.2
+HitShader: 10CC64:Skyrim.esm
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals poison damage over a long period of time.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    RunOnType: Target
+    MagicEffect: 101931:Skyrim.esm

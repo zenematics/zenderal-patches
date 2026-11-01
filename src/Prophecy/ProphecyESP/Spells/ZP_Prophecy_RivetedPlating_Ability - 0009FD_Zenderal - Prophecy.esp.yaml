@@ -1,0 +1,15 @@
+FormKey: 0009FD:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_RivetedPlating_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Riveted Plating'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 0CAB90:Skyrim.esm
+  Data:
+    Magnitude: 40

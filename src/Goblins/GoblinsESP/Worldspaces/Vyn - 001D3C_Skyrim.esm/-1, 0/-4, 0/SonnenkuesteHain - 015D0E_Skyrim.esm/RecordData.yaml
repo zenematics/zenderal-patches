@@ -1,0 +1,57 @@
+FormKey: 015D0E:Skyrim.esm
+EditorID: SonnenkuesteHain
+Version2: 4
+Flags:
+- HasWater
+Grid:
+  Point: -31, 3
+  Flags: -1254349568
+WaterHeight: 3.4028235E+38
+Regions:
+- 0D3ADE:Skyrim.esm
+- 0457C6:Skyrim.esm
+- 03A604:Skyrim.esm
+- 037B8B:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000935:Zenderal - Goblins.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: -126592.3, 12373.3, 209.2
+    Rotation: 0, 0, 4.4587
+- MutagenObjectType: PlacedNpc
+  FormKey: 000936:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -126506.9, 12522.7, 255.4
+    Rotation: 0, 0, 5.858
+- MutagenObjectType: PlacedNpc
+  FormKey: 000937:Zenderal - Goblins.esp
+  Base: 000812:Zenderal - Goblins.esp
+  Placement:
+    Position: -126848.0, 12373.3, 215.1
+    Rotation: 0, 0, 2.0485
+- MutagenObjectType: PlacedNpc
+  FormKey: 000938:Zenderal - Goblins.esp
+  Base: 00083D:Zenderal - Goblins.esp
+  Placement:
+    Position: -126698.7, 12650.7, 307.8
+    Rotation: 0, 0, 3.9681
+- MutagenObjectType: PlacedNpc
+  FormKey: 000939:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -126912.0, 12437.3, 241.3
+    Rotation: 0, 0, 1.2455
+- MutagenObjectType: PlacedNpc
+  FormKey: 00093A:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: -126869.3, 12608.0, 302.5
+    Rotation: 0, 0, 3.0013
+- MutagenObjectType: PlacedNpc
+  FormKey: 00093B:Zenderal - Goblins.esp
+  Base: 00083B:Zenderal - Goblins.esp
+  Placement:
+    Position: -126272.2, 12565.3, 262.1
+    Rotation: 0, 0, 3.0741

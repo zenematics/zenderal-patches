@@ -1,0 +1,40 @@
+FormKey: 0135E0:Wellwatch Manor SE.esp
+EditorID: _00E_Game_Playerhouse_WellWatchManor
+VirtualMachineAdapter:
+  Scripts:
+  - Name: xion_playerhouse_document
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: kyHouseKey
+      Object: 0135DF:Wellwatch Manor SE.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Player
+      Object: 0493BE:Skyrim.esm
+      Alias: 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: VendorItemProperty
+      Object: 0135E3:Wellwatch Manor SE.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: VendorItemsBanker
+      Object: 046D39:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WellWatchOwned
+      Object: 0135E6:Wellwatch Manor SE.esp
+ObjectBounds:
+  First: -8, -5, 0
+  Second: 8, 5, 0
+Name:
+  TargetLanguage: English
+  Value: 'Title Deed: Wellwatch Manor (Goldenforst Myrad Tower)'
+Model:
+  File: Clutter\Books\NoteTitleDeed.nif
+  Data: 0x020000000000000000000000
+PickUpSound: 0C7A54:Skyrim.esm
+PutDownSound: 0C7A56:Skyrim.esm
+Keywords:
+- 0135E3:Wellwatch Manor SE.esp
+- 0FF9FB:Skyrim.esm
+Value: 1750

@@ -1,0 +1,21 @@
+FormKey: 1098CA:Skyrim.esm
+EditorID: FieldGrass02
+Version2: 9
+ObjectBounds:
+  First: -46, -32, 0
+  Second: 46, 32, 68
+Model:
+  File: Landscape\Grass\FieldGrassFlowers02.nif
+  Data: 0x020000000200000000000000315B43E564647300625C8D360A4C879A6464730038973CEA
+Density: 30
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 30
+HeightRange: 0.2
+ColorRange: 0.2
+WavePeriod: 390
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

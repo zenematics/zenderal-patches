@@ -1,0 +1,31 @@
+FormKey: 0870D6:Skyrim.esm
+EditorID: AttackRightH2H
+FormVersion: 37
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Unknown2: 12630
+  Data:
+    MutagenObjectType: IsBlockingConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Unknown2: 12630
+  Data:
+    MutagenObjectType: IsWeaponMagicOutConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Unknown2: 12630
+  Data:
+    MutagenObjectType: GetEquippedItemTypeConditionData
+    ItemSource: Right
+- MutagenObjectType: ConditionFloat
+  CompareOperator: NotEqualTo
+  Data:
+    MutagenObjectType: IsSprintingConditionData
+  ComparisonValue: 1
+Filename: Actors\Character\Behaviors\0_Master.hkx
+AnimationEvent: attackStart
+RelatedIdles:
+- 013211:Skyrim.esm
+- 100F16:Skyrim.esm
+AnimationGroupSection: 9

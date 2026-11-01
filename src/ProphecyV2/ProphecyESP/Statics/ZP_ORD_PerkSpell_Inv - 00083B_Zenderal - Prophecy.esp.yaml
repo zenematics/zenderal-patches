@@ -1,0 +1,15 @@
+FormKey: 00083B:Zenderal - Prophecy.esp
+MajorRecordFlagsRaw: 8388608
+EditorID: ZP_ORD_PerkSpell_Inv
+SkyrimMajorRecordFlags:
+- 0x800000
+ObjectBounds:
+  First: -92, -108, -15
+  Second: 93, 110, 15
+Model:
+  File: Ordinator\PerkSpell_Inv.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000
+MajorFlags:
+- IsMarker

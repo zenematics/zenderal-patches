@@ -1,0 +1,19 @@
+FormKey: 0009D7:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IronKnuckles
+Description:
+  TargetLanguage: English
+  Value: 'Your unarmed attacks deal 5 more damage.'
+Name:
+  TargetLanguage: English
+  Value: 'Iron Knuckles'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A01:Zenderal - Prophecy.esp

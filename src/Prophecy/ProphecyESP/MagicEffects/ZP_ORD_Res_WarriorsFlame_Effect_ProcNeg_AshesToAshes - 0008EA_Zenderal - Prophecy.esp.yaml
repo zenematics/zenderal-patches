@@ -1,0 +1,44 @@
+FormKey: 0008EA:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Effect_ProcNeg_AshesToAshes
+Name:
+  TargetLanguage: English
+  Value: To Ashes
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 0008EB:Zenderal - Prophecy.esp
+Flags:
+- Detrimental
+- NoHitEvent
+- NoArea
+- HideInUI
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: Health
+  Association: 0008EB:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Target
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData
+  ComparisonValue: 1

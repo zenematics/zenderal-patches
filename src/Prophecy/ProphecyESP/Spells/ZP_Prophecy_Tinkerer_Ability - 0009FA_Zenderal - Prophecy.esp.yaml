@@ -1,0 +1,15 @@
+FormKey: 0009FA:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Tinkerer_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Tinkerer'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 0438F4:Skyrim.esm
+  Data:
+    Magnitude: 10

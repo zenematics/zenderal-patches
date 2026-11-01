@@ -1,0 +1,30 @@
+FormKey: 000AC7:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Vehemence
+Description:
+  TargetLanguage: English
+  Value: 'When your Rage reaches its peak you enter Vehemence for 15 seconds: your power attacks cost no Stamina, and their Rage actions spend no Rage. When it ends, your Rage is spent.'
+Name:
+  TargetLanguage: English
+  Value: 'Vehemence'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AC6:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000AD0:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModPowerAttackStamina
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 0

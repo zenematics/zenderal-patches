@@ -1,0 +1,5 @@
+FormKey: 00080C:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DummySpell
+EquipmentType: 013F44:Skyrim.esm
+Type: Ability
+CastType: ConstantEffect

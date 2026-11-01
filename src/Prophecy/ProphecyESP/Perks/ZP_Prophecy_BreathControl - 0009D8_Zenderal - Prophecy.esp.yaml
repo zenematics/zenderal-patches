@@ -1,0 +1,19 @@
+FormKey: 0009D8:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BreathControl
+Description:
+  TargetLanguage: English
+  Value: 'Your Stamina regenerates 25 percent faster.'
+Name:
+  TargetLanguage: English
+  Value: 'Breath Control'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000820:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A02:Zenderal - Prophecy.esp

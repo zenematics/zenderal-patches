@@ -1,0 +1,9 @@
+FormKey: 000800:Zenderal - Tipped Waterfall Fix.esp
+EditorID: ZEN_FXWaterfallThin256x128Flat
+Version2: 1
+ObjectBounds:
+  First: -73, -118, -371
+  Second: 71, 14, -63
+Model:
+  File: Effects\Zenderal\FXWaterfallThin256x128Flat.nif
+  Data: 0x020000000400000000000000A23266406464730038973CEA20A6C72164647300582C5533614483AB6464730038973CEAFA31625864647300582C5533

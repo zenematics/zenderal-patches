@@ -1,0 +1,204 @@
+{
+ "000802:Pretty Pyrean Armory.esp": {
+  "anim": 4,
+  "chain": [
+   "Pretty Pyrean Armory.esp"
+  ],
+  "speed": 0.8
+ },
+ "001DDD:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 4,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "001F17:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 4,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "0028D4:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "005E71:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 4,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "005E73:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 4,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "019E81:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "022F0F:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "024151:Enderal - Forgotten Stories.esm": {
+  "anim": 4,
+  "chain": [
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "025902:Castle Bleakstar.esp": {
+  "anim": 4,
+  "chain": [
+   "Castle Bleakstar.esp",
+   "Castle Bleakstar - EGO Patch.esp"
+  ],
+  "speed": 0.85
+ },
+ "0364FF:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "05402A:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "07C990:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "07C998:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "07C9A6:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "0E12F5:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "0FED04:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "119BC4:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "139AEA:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "140019:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 4,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "speed": 0.8
+ },
+ "14001D:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 4,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "speed": 0.8
+ },
+ "1489CD:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "148A20:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "148A23:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "148A7A:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ },
+ "148A98:Skyrim.esm": {
+  "anim": 4,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "speed": 0.8
+ }
+}

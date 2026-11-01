@@ -1,0 +1,13 @@
+FormKey: 00088B:Dynamic Things Alternative.esp
+EditorID: dtaBloodPotion
+Name:
+  TargetLanguage: English
+  Value: Potion of Blood
+Model:
+  File: clutter\potions\dtaSmallBloodPotion.nif
+  Data: 0x020000000000000000000000
+PickUpSound: 03EDBD:Skyrim.esm
+PutDownSound: 03EDC0:Skyrim.esm
+Weight: 0.5
+Value: 17
+ConsumeSound: 106614:Skyrim.esm

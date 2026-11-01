@@ -1,0 +1,58 @@
+FormKey: 03491E:Skyrim.esm
+EditorID: _15E_HSet_SelnasBastion
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: __Config_5Pieces
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 12E189:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 12E184:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E03:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -31, -28, -11
+  Second: 31, 26, 17
+Name:
+  TargetLanguage: English
+  Value: (Set of Selna) Selna's Bastion
+ObjectEffect: 12E182:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\SteelPlateArmor\PlateCuirass_gnd.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: Enderal\armor\SteelPlateArmor\PlateCuirass_gnd.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBE6:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+- 0008D3:Enderal SE - Gameplay Overhaul.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 098BB3:Skyrim.esm
+Value: 100
+Weight: 20
+ArmorRating: 42.35

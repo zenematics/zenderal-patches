@@ -1,0 +1,19 @@
+FormKey: 00092F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SeismicStomp_Power
+Name:
+  TargetLanguage: English
+  Value: Seismic Stomp
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000930:Zenderal - Prophecy.esp
+  Data:
+    Duration: 6

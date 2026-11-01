@@ -1,0 +1,32 @@
+FormKey: 00094A:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DeadeyeShotEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_PlaySoundEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SoundToPlay
+      Object: 000949:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptBoolProperty
+      Name: PlayOnCaster
+      Data: True
+Name:
+  TargetLanguage: English
+  Value: Deadeye
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,282 @@
+{
+  "Zenderal - Goblin - Calf_L - 800": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Zenderal - Goblin - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x800"
+  },
+  "Zenderal - Goblin - Calf_R - 801": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Zenderal - Goblin - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x801"
+  },
+  "Zenderal - Goblin - Forearm_L - 802": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Zenderal - Goblin - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x802"
+  },
+  "Zenderal - Goblin - Forearm_R - 803": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Zenderal - Goblin - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x803"
+  },
+  "Zenderal - Goblin - Head - 804": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Zenderal - Goblin - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x804"
+  },
+  "Zenderal - Goblin - Calf_L - 805": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Zenderal - Goblin - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x805"
+  },
+  "Zenderal - Goblin - Calf_R - 806": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Zenderal - Goblin - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x806"
+  },
+  "Zenderal - Goblin - Forearm_L - 807": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Zenderal - Goblin - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x807"
+  },
+  "Zenderal - Goblin - Forearm_R - 808": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Zenderal - Goblin - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x808"
+  },
+  "Zenderal - Goblin - Head - 809": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Zenderal - Goblin - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x809"
+  },
+  "Zenderal - Goblin - Calf_L - 80A": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Zenderal - GoblinWitch - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x80A"
+  },
+  "Zenderal - Goblin - Calf_R - 80B": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Zenderal - GoblinWitch - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x80B"
+  },
+  "Zenderal - Goblin - Forearm_L - 80C": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Zenderal - GoblinWitch - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x80C"
+  },
+  "Zenderal - Goblin - Forearm_R - 80D": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Zenderal - GoblinWitch - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x80D"
+  },
+  "Zenderal - Goblin - Head - 80E": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Zenderal - GoblinWitch - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x80E"
+  },
+  "Zenderal - Goblin - Calf_L - 80F": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Calf",
+      "Zenderal - GoblinWitch - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x80F"
+  },
+  "Zenderal - Goblin - Calf_R - 810": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Calf",
+      "Zenderal - GoblinWitch - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x810"
+  },
+  "Zenderal - Goblin - Forearm_L - 811": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - L Forearm",
+      "Zenderal - GoblinWitch - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x811"
+  },
+  "Zenderal - Goblin - Forearm_R - 812": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - R Forearm",
+      "Zenderal - GoblinWitch - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x812"
+  },
+  "Zenderal - Goblin - Head - 813": {
+    "Templates": [
+      "DF - Base data",
+      "Falmer - Male - Base data - Head",
+      "Zenderal - GoblinWitch - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x813"
+  },
+  "Zenderal - Mihail Goblin - Calf_L - 828": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x828"
+  },
+  "Zenderal - Mihail Goblin - Calf_R - 829": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x829"
+  },
+  "Zenderal - Mihail Goblin - Forearm_L - 82A": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82A"
+  },
+  "Zenderal - Mihail Goblin - Forearm_R - 82B": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82B"
+  },
+  "Zenderal - Mihail Goblin - Head - 82C": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82C"
+  },
+  "Zenderal - Mihail Goblin - Calf_L - 82D": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82D"
+  },
+  "Zenderal - Mihail Goblin - Calf_R - 82E": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82E"
+  },
+  "Zenderal - Mihail Goblin - Forearm_L - 82F": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82F"
+  },
+  "Zenderal - Mihail Goblin - Forearm_R - 830": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x830"
+  },
+  "Zenderal - Mihail Goblin - Head - 831": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x831"
+  },
+  "Zenderal - Mihail Goblin - Calf_L - 832": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x832"
+  },
+  "Zenderal - Mihail Goblin - Calf_R - 833": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x833"
+  },
+  "Zenderal - Mihail Goblin - Forearm_L - 834": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x834"
+  },
+  "Zenderal - Mihail Goblin - Forearm_R - 835": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x835"
+  },
+  "Zenderal - Mihail Goblin - Head - 836": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x836"
+  }
+}

@@ -1,0 +1,61 @@
+FormKey: 01EC66:Enderal - Forgotten Stories.esm
+EditorID: _00E_FS_Ab_RacialAb_Qyranian
+Name:
+  TargetLanguage: English
+  Value: Breath of the Desert (Cultural Bonus)
+MenuDisplayObject: 10F0FD:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Increases Mentalism, Alchemy and Enchantment by <2>, and Stamina by <7> points.
+BaseCost: 104
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 045DC6:Skyrim.esm
+  Data:
+    Magnitude: 2
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetPCIsRaceConditionData
+      Race: 013748:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 02F0D7:Enderal - Forgotten Stories.esm
+  Data:
+    Magnitude: 2
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetPCIsRaceConditionData
+      Race: 013748:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 091F77:Skyrim.esm
+  Data:
+    Magnitude: 7
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetPCIsRaceConditionData
+      Race: 013748:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 02F0DE:Enderal - Forgotten Stories.esm
+  Data:
+    Magnitude: 2
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetPCIsRaceConditionData
+      Race: 013748:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 02F0D9:Enderal - Forgotten Stories.esm
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetPCIsRaceConditionData
+      Race: 013748:Skyrim.esm
+    ComparisonValue: 1

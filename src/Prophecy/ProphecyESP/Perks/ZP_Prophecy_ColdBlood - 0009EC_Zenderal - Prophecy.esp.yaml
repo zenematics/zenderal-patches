@@ -1,0 +1,19 @@
+FormKey: 0009EC:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ColdBlood
+Description:
+  TargetLanguage: English
+  Value: 'You gain 15% resistance to frost.'
+Name:
+  TargetLanguage: English
+  Value: 'Cold Blood'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000995:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A16:Zenderal - Prophecy.esp

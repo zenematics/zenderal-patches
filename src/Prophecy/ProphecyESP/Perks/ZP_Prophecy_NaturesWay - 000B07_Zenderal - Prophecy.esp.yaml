@@ -1,0 +1,30 @@
+FormKey: 000B07:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_NaturesWay
+Description:
+  TargetLanguage: English
+  Value: 'You can have one more totem standing at a time.'
+Name:
+  TargetLanguage: English
+  Value: 'Nature''s Way'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A8A:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectKeywordConditionData
+        Keyword: 3E706A:Triumvirate - Mage Archetypes.esp
+      ComparisonValue: 1
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 2
+  Modification: Add
+  Value: 1

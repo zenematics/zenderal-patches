@@ -1,0 +1,16 @@
+FormKey: 000AC2:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Bloodletter
+Description:
+  TargetLanguage: English
+  Value: 'Your sideways power attacks with at least 6 Rage drain 40 Health from the target into you. Spends 6 Rage.'
+Name:
+  TargetLanguage: English
+  Value: 'Bloodletter'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AC0:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

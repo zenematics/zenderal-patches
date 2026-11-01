@@ -1,0 +1,27 @@
+FormKey: 02C17F:Skyrim.esm
+EditorID: NakedFrostbiteSpiderGiantColdAA
+Version2: 5
+BodyTemplate:
+  FirstPersonFlags:
+  - Head
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 04E507:Skyrim.esm
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 17
+WorldModel:
+  Male:
+    File: Actors\FrostbiteSpider\Character Assets\FrostbiteSpiderCold.nif
+    Data: 0x020000000200000000000000C7EEEA286464730012BC50128C7F5A416464730012BC5012
+  Female:
+    File: Actors\FrostbiteSpider\Character Assets\FrostbiteSpiderCold.nif
+    Data: 0x020000000200000000000000C7EEEA286464730012BC50128C7F5A416464730012BC5012
+AdditionalRaces:
+- 053477:Skyrim.esm
+FootstepSound: 02E2F5:Skyrim.esm

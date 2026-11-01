@@ -40,10 +40,10 @@ index 09a9227..28d5ca0 100644
  	bool HavokHooks::BShkbAnimationGraph_ShouldAddToGraphListeners(RE::BShkbAnimationGraph* a_this)
 diff --git a/src/ZenRagdollFixes.cpp b/src/ZenRagdollFixes.cpp
 new file mode 100644
-index 0000000..fb3ac97
+index 0000000..6813218
 --- /dev/null
 +++ b/src/ZenRagdollFixes.cpp
-@@ -0,0 +1,258 @@
+@@ -0,0 +1,269 @@
 +// Zenderal fork of Precision 2.0.6 (ersh1/Precision, GPL-3.0): PLANCK's frost atronach active-ragdoll fixes.
 +//
 +// Why: with Precision's active ragdoll, Ice Elementals (frost atronachs) lift ~15-25 units off the ground
@@ -56,11 +56,13 @@ index 0000000..fb3ac97
 +// ragdoll (mainly relates to frost atronach)", adamhynek/activeragdoll 61bce7e538), plus a second cause:
 +// the atronach's animations stretch its limbs, and the game's anim->ragdoll mapping clamps bone lengths.
 +//
-+// This file ports those three PLANCK hooks to SSE 1.5.97 (call sites found in a decrypted image dump,
-+// each verified byte-for-byte before patching; any other runtime or a changed byte = logged, not patched):
-+//   write  0x9EC0B5  hkbRagdollDriver::driveToPose -> hkaRagdollRigidBodyController::driveToPose (0xB12210)
-+//   read   0xB16228  hkaRagdollInstance::getApproxWorldFromBoneTransformAt -> hkpMotion::approxTransformAt (0xA70CE0)
-+//   bones  0x9ED4B5  hkbRagdollDriver::mapHighResPoseLocalToLowResPoseLocal -> hkaSkeletonMapper::mapPose (0xB0DCD0)
++// This file ports those three PLANCK hooks to SSE 1.5.97 and 1.7.104 (1.5.97 call sites found in a decrypted image
++// dump, 1.7.104's in the plain on-disk exe at the same offsets inside the same functions; each verified byte-for-byte
++// before patching; any other runtime or a changed byte = logged, not patched):
++//                1.5.97 site -> target   1.7.104 site -> target
++//   write  0x9EC0B5 -> 0xB12210   0xAC8055 -> 0xBF0FE0  hkbRagdollDriver::driveToPose -> hkaRagdollRigidBodyController::driveToPose
++//   read   0xB16228 -> 0xA70CE0   0xBF4FF8 -> 0xB4F5A0  hkaRagdollInstance::getApproxWorldFromBoneTransformAt -> hkpMotion::approxTransformAt
++//   bones  0x9ED4B5 -> 0xB0DCD0   0xAC9455 -> 0xBECAA0  hkbRagdollDriver::mapHighResPoseLocalToLowResPoseLocal -> hkaSkeletonMapper::mapPose
 +// Unlike PLANCK, the write and bone-length fixes only act on ragdolls that contain a bhkRigidBodyT body, so
 +// every ordinary creature keeps Precision's behaviour exactly; the read fix only ever touches a T body.
 +// Each fix has a switch in Data/SKSE/Plugins/Precision_ZenderalFixes.ini.
@@ -287,31 +289,40 @@ index 0000000..fb3ac97
 +	{
 +		LoadSettings();
 +		logger::info("ZenRagdollFixes: write {}, read {}, bone lengths {}", g_write, g_read, g_boneLengths);
-+		if (REL::Module::get().version() != SKSE::RUNTIME_SSE_1_5_97) {
-+			logger::warn("ZenRagdollFixes: runtime {} is not 1.5.97 - addresses unknown, nothing patched", REL::Module::get().version().string());
++		// { write site, target, read site, target, bones site, target }
++		std::uintptr_t a[6];
++		const auto     version = REL::Module::get().version();
++		if (version == SKSE::RUNTIME_SSE_1_5_97) {
++			const std::uintptr_t se[6] = { 0x9EC0B5, 0xB12210, 0xB16228, 0xA70CE0, 0x9ED4B5, 0xB0DCD0 };
++			std::copy(std::begin(se), std::end(se), a);
++		} else if (version == REL::Version(1, 7, 104, 0)) {
++			const std::uintptr_t ae[6] = { 0xAC8055, 0xBF0FE0, 0xBF4FF8, 0xB4F5A0, 0xAC9455, 0xBECAA0 };
++			std::copy(std::begin(ae), std::end(ae), a);
++		} else {
++			logger::warn("ZenRagdollFixes: runtime {} is not 1.5.97 or 1.7.104 - addresses unknown, nothing patched", version.string());
 +			return;
 +		}
 +		if (g_write) {
-+			WriteCall<DriveToPose>(0x9EC0B5, 0xB12210, "driveToPose (rigidBodyT write)");
++			WriteCall<DriveToPose>(a[0], a[1], "driveToPose (rigidBodyT write)");
 +		}
 +		if (g_read) {
-+			WriteCall<ApproxTransformAt>(0xB16228, 0xA70CE0, "approxTransformAt (rigidBodyT read)");
++			WriteCall<ApproxTransformAt>(a[2], a[3], "approxTransformAt (rigidBodyT read)");
 +		}
 +		if (g_boneLengths) {
-+			WriteCall<MapPose>(0x9ED4B5, 0xB0DCD0, "mapPose (bone lengths)");
++			WriteCall<MapPose>(a[4], a[5], "mapPose (bone lengths)");
 +		}
 +	}
 +}
 diff --git a/src/ZenRagdollFixes.h b/src/ZenRagdollFixes.h
 new file mode 100644
-index 0000000..516a9c5
+index 0000000..274465a
 --- /dev/null
 +++ b/src/ZenRagdollFixes.h
 @@ -0,0 +1,14 @@
 +#pragma once
 +
 +// Zenderal fork of Precision 2.0.6 (GPL-3.0): PLANCK's frost atronach active-ragdoll fixes, ported to
-+// SSE 1.5.97. See ZenRagdollFixes.cpp for the why. Everything here is additive; Precision's own code
++// SSE 1.5.97 and 1.7.104. See ZenRagdollFixes.cpp for the why. Everything here is additive; Precision's own code
 +// is unchanged except for the two lines in Hooks.cpp that record the current ragdoll driver.
 +
 +namespace ZenRagdollFixes

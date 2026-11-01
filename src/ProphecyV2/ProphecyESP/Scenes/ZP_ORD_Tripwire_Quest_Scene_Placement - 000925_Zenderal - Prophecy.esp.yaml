@@ -1,0 +1,49 @@
+FormKey: 000925:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Tripwire_Quest_Scene_Placement
+VirtualMachineAdapter:
+  Scripts:
+  - Name: SF_ORD_Tripwire_Quest_Scene__010379A9
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IdleStop_Loose
+      Object: 10D9EE:Skyrim.esm
+  ScriptFragments:
+    FileName: SF_ORD_Tripwire_Quest_Scene__010379A9
+    OnBegin:
+      ExtraBindDataVersion: 1
+      ScriptName: SF_ORD_Tripwire_Quest_Scene__010379A9
+      FragmentName: Fragment_0
+    OnEnd:
+      ExtraBindDataVersion: 1
+      ScriptName: SF_ORD_Tripwire_Quest_Scene__010379A9
+      FragmentName: Fragment_1
+Flags:
+- BeginOnQuestStart
+- StopQuestOnEnd
+Phases:
+- Name: ''
+  CompletionConditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      MagicEffect: 0008AB:Zenderal - Prophecy.esp
+  Unused2: {}
+  EditorWidth: 200
+Actors:
+- Flags: []
+  BehaviorFlags:
+  - DeathEnd
+Actions:
+- Type: Package
+  Name: ''
+  ActorID: 0
+  Index: 1
+  StartPhase: 0
+  EndPhase: 0
+  Packages:
+  - 000926:Zenderal - Prophecy.esp
+Quest: 0008AD:Zenderal - Prophecy.esp
+LastActionIndex: 1
+VNAM: 0x03000000030000000300000003000000

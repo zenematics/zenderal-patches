@@ -1,0 +1,14 @@
+FormKey: 000AD1:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Rage_Ability
+Name:
+  TargetLanguage: English
+  Value: Rage
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000AD2:Zenderal - Prophecy.esp
+  Data: {}

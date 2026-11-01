@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Knight of the Path.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Author: Zenderal
+  Description: Knight of the Path armor - Enderal Remastered Armory's Righteous Path remaster as its own set, crafted like the Forged Righteous Path.
+  Stats:
+    Version: 1.7
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  INTV: 1

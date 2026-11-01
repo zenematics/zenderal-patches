@@ -1,0 +1,20 @@
+FormKey: 000806:DAR Rifles.esp
+EditorID: AmmoBullet
+ObjectBounds:
+  First: -1, -58, -2
+  Second: 2, 0, 2
+Name:
+  TargetLanguage: English
+  Value: Ammo Bullet
+Model:
+  File: Rifles\Mag.nif
+  Data: 0x020000000000000000000000
+Description:
+  TargetLanguage: English
+  Value: ''
+Keywords:
+- 01E718:Skyrim.esm
+- 0917E7:Skyrim.esm
+Projectile: 000808:DAR Rifles.esp
+Damage: 12
+Value: 3

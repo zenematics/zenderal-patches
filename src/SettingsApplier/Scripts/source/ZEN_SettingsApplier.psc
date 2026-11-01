@@ -89,36 +89,6 @@ Event OnUpdate()
 	Else
 		skipped += 1
 	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x809, "HT_EnableHelmet", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x80A, "HT_EnableHood", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x818, "HT_HotkeyType", 2.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x842, "HT_EnableUnequip", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x84A, "HT_EnableMask", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
-	If SetG("Helmet Toggle 2.esp", 0x84B, "HT_EnableHat", 1.0)
-		applied += 1
-	Else
-		skipped += 1
-	EndIf
 	If SetG("EVGConditionalIdles.esp", 0x804, "EVGCI15_HeadacheThreshold", 0.33)
 		applied += 1
 	Else
@@ -145,6 +115,11 @@ Event OnUpdate()
 		skipped += 1
 	EndIf
 	If SetG("Smart_NPC_Potions.esp", 0x809, "NPCpotion_DropPotion", 50.0)
+		applied += 1
+	Else
+		skipped += 1
+	EndIf
+	If SetG("ReadTheRoom.esp", 0x80C, "EquipWhenSafe", 1.0)
 		applied += 1
 	Else
 		skipped += 1
@@ -202,6 +177,31 @@ Event OnUpdate()
 	Else
 		Debug.Trace("[Zenderal Settings Applier] skipped Swift Potion: SwiftPotion.esp not loaded, not initialised, or settings files not found")
 		skipped += 2
+	EndIf
+	Quest qHorse = Game.GetFormFromFile(0x725BA, "Skyrim.esm") as Quest
+	_00E_HorseFlute_SC aHorse = None
+	If qHorse
+		aHorse = qHorse.GetAlias(6) as _00E_HorseFlute_SC
+	EndIf
+	If aHorse && aHorse.iMountHotkey == 38
+		If aHorse.GetReference()
+			aHorse.SetMountTeleportKey(37)
+		Else
+			aHorse.iMountHotkey = 37
+		EndIf
+		applied += 1
+	Else
+		Debug.Trace("[Zenderal Settings Applier] skipped horse key: horse flute alias not found or key already changed")
+		skipped += 1
+	EndIf
+	If SetG("Enderal - Forgotten Stories.esm", 0x1598B, "_00E_ActorHealthBarsEnabled", 0.0)
+		_00E_GUI_ActorHealthBar qPanel = Game.GetFormFromFile(0x15989, "Enderal - Forgotten Stories.esm") as _00E_GUI_ActorHealthBar
+		If qPanel
+			qPanel.UnregisterEvents()
+		EndIf
+		applied += 1
+	Else
+		skipped += 1
 	EndIf
 	Debug.Trace("[Zenderal Settings Applier] applied " + applied + ", skipped " + skipped)
 	Stop()
