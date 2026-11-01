@@ -1,0 +1,11 @@
+FormKey: 0008CF:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_TemplarCloakFX
+FormVersion: 43
+ObjectBounds:
+  First: -165, -74, -89
+  Second: 165, 79, 99
+Model:
+  File: dareni\effects\sostemplarbodyfx.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

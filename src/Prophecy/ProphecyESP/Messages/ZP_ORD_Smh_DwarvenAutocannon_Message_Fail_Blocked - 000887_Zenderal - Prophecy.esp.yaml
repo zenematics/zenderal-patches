@@ -1,0 +1,7 @@
+FormKey: 000887:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Message_Fail_Blocked
+Description:
+  TargetLanguage: English
+  Value: Deploying a Clockwork Turret requires 2 feet of free space in front of you.
+INAM: 0x00000000
+DisplayTime: 2

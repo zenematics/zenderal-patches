@@ -33,31 +33,6 @@ namespace
 	constexpr std::uint32_t kMouseOffset = 257;
 	constexpr std::uint32_t kRetryMs = 500;
 
-	// Gamepad codes follow SKSE's numbering (266 = D-pad up ... 280 = LT, 281 = RT); the list's DWP
-	// ParryKey2 = 280 blocks on LT. The engine reports XInput button masks, and the triggers as 0x9/0xA.
-	std::uint32_t GamepadKeyCode(std::uint32_t a_idCode)
-	{
-		switch (a_idCode) {
-		case 0x0001: return 266;  // D-pad up
-		case 0x0002: return 267;  // D-pad down
-		case 0x0004: return 268;  // D-pad left
-		case 0x0008: return 269;  // D-pad right
-		case 0x0010: return 270;  // Start
-		case 0x0020: return 271;  // Back
-		case 0x0040: return 272;  // Left thumb
-		case 0x0080: return 273;  // Right thumb
-		case 0x0100: return 274;  // LB
-		case 0x0200: return 275;  // RB
-		case 0x1000: return 276;  // A
-		case 0x2000: return 277;  // B
-		case 0x4000: return 278;  // X
-		case 0x8000: return 279;  // Y
-		case 0x0009: return 280;  // LT
-		case 0x000A: return 281;  // RT
-		default:     return kNoKey;
-		}
-	}
-
 	std::uint32_t g_graceMs{ 200 };
 	bool          g_log{ true };
 	bool          g_enabled{ true };
@@ -69,6 +44,32 @@ namespace
 	std::uint64_t              g_lastFixMs{ 0 };
 
 	std::uint64_t NowMs() { return ::GetTickCount64(); }
+
+	// DWP's gamepad key codes, in the order of its switch: D-pad up/down/left/right, Start, Back,
+	// thumbs, shoulders, A/B/X/Y, LT, RT = 266-281.
+	std::uint32_t DwpGamepadCode(std::uint32_t a_idCode)
+	{
+		using Key = RE::BSWin32GamepadDevice::Key;
+		switch (static_cast<Key>(a_idCode)) {
+		case Key::kUp:            return 266;
+		case Key::kDown:          return 267;
+		case Key::kLeft:          return 268;
+		case Key::kRight:         return 269;
+		case Key::kStart:         return 270;
+		case Key::kBack:          return 271;
+		case Key::kLeftThumb:     return 272;
+		case Key::kRightThumb:    return 273;
+		case Key::kLeftShoulder:  return 274;
+		case Key::kRightShoulder: return 275;
+		case Key::kA:             return 276;
+		case Key::kB:             return 277;
+		case Key::kX:             return 278;
+		case Key::kY:             return 279;
+		case Key::kLeftTrigger:   return 280;
+		case Key::kRightTrigger:  return 281;
+		default:                  return kNoKey - 1;
+		}
+	}
 
 	bool IsBlockKey(const RE::ButtonEvent* a_button)
 	{
@@ -87,7 +88,10 @@ namespace
 			code += kMouseOffset;
 			break;
 		case RE::INPUT_DEVICE::kGamepad:
-			code = GamepadKeyCode(code);
+			// 1.0.2: DWP numbers gamepad buttons 266-281 (InputEventHandler.cpp:62-114). The list's DWP
+			// ParryKey2 = 280 is LT, which Complete Controller Setup does not bind to Left Attack/Block, so
+			// 1.0.1 never saw it held and ended the block every 500 ms while LT was down.
+			code = DwpGamepadCode(code);
 			break;
 		default:
 			return false;

@@ -1,0 +1,19 @@
+FormKey: 0009E5:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Frostbound
+Description:
+  TargetLanguage: English
+  Value: 'You gain 15% resistance to frost.'
+Name:
+  TargetLanguage: English
+  Value: 'Frostbound'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000950:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A0F:Zenderal - Prophecy.esp

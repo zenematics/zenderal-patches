@@ -1,0 +1,176 @@
+FormKey: 000810:Zenderal - Goblins.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: ZEN_Goblin
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 40
+  - Name: ZEN_GoblinRespawn
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GameDaysPassed
+      Object: 000039:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZEN_GoblinRespawnDays
+      Object: 000820:Zenderal - Goblins.esp
+ObjectBounds:
+  First: -24, -24, 0
+  Second: 24, 24, 146
+Configuration:
+  Flags:
+  - Respawn
+  StaminaOffset: 50
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 6
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  TemplateFlags:
+  - Factions
+  HealthOffset: 0
+Factions:
+- Faction: 02F436:Enderal - Forgotten Stories.esm
+  Fluff: 0x000000
+Template: 0B5266:Skyrim.esm
+Race: 000800:Zenderal - Goblins.esp
+WornArmor: 000805:Zenderal - Goblins.esp
+Perks:
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 000822:Zenderal - Goblins.esp
+    Count: 1
+- Item:
+    Item: 001E48:Enderal SE - Gameplay Overhaul.esp
+    Count: 2
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 2000
+  WarnOrAttack: 1500
+  Attack: 1500
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Goblin
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 10
+  - Key: TwoHanded
+    Value: 10
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 38
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 10
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 5
+  - Key: Restoration
+    Value: 10
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 70
+  Magicka: 100
+  Stamina: 150
+  GearedUpWeapons: 1
+CombatStyle: 052388:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 0ADFA2:Skyrim.esm
+TextureLighting: '#00000000'
+MajorFlags:
+- 0x40000

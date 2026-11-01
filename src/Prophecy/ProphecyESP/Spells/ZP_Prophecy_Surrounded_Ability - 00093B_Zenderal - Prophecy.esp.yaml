@@ -1,0 +1,15 @@
+FormKey: 00093B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Surrounded_Ability
+Name:
+  TargetLanguage: English
+  Value: Surrounded
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 00093C:Zenderal - Prophecy.esp
+  Data: {}

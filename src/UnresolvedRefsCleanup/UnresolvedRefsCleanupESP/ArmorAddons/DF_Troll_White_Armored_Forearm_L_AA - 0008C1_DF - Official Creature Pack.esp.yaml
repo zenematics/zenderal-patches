@@ -1,0 +1,18 @@
+FormKey: 0008C1:DF - Official Creature Pack.esp
+EditorID: DF_Troll_White_Armored_Forearm_L_AA
+BodyTemplate:
+  FirstPersonFlags:
+  - 0x10000000
+  ArmorType: Clothing
+  ActsLike44: True
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 23
+WorldModel:
+  Male:
+    File: DismemberingFramework\OfficialCreaturePack\Troll\ArmorAddons\WhiteArmored\Dismembered_Addons.nif
+    Data: 0x020000000000000000000000

@@ -1,0 +1,39 @@
+FormKey: 0008BA:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_ArcheryOnHit_Effect_BehindTheThrone_Blocker
+Name:
+  TargetLanguage: English
+  Value: Behind the Throne Blocker
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+Flags:
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- HideInUI
+- NoHitEffect
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsLastHostileActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 0008BA:Zenderal - Prophecy.esp

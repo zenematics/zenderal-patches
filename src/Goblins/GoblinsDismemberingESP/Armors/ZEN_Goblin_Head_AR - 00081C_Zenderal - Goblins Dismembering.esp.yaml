@@ -1,0 +1,23 @@
+FormKey: 00081C:Zenderal - Goblins Dismembering.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZEN_Goblin_Head_AR
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Dismembered Head
+BodyTemplate:
+  FirstPersonFlags:
+  - Decapitate
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000800:Zenderal - Goblins.esp
+Keywords:
+- 000802:Dismembering Framework.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00081D:Zenderal - Goblins Dismembering.esp
+MajorFlags:
+- NonPlayable

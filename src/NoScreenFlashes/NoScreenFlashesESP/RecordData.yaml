@@ -10,9 +10,19 @@ ModHeader:
     Version: 1.7
   Author: Zenderal
   Description: >-
-    Removes full-screen blur and white-flash image-space effects from enemy abilities: the
-    Wood Elemental (spriggan race) call-creatures blast.
+    Removes full-screen image-space effects: the Wood Elemental (spriggan) call-creatures
+    blast, and the poison blur (PoisonHitImod/PoisonEndImod) from every poison effect.
   MasterReferences:
   - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Triumvirate - Mage Archetypes.esp
+    FileSize: 0
+  - Master: Apocalypse - Magic of Skyrim.esp
     FileSize: 0
   INTV: 1

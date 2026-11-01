@@ -1,0 +1,19 @@
+FormKey: 000AA5:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_RimeWard
+Description:
+  TargetLanguage: English
+  Value: 'You gain 15% resistance to frost.'
+Name:
+  TargetLanguage: English
+  Value: 'Rime Ward'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AA4:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AB2:Zenderal - Prophecy.esp

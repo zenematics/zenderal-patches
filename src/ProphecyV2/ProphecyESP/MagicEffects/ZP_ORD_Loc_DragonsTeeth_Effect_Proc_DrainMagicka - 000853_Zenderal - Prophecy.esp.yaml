@@ -1,0 +1,28 @@
+FormKey: 000853:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Effect_Proc_DrainMagicka
+Name:
+  TargetLanguage: English
+  Value: Drain Magicka
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 00083A:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+ResistValue: ResistMagic
+TaperWeight: 0.2
+SpellmakingArea: 8
+TaperCurve: 3
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+Explosion: 000854:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Drains <mag> points of Magicka in a small area.

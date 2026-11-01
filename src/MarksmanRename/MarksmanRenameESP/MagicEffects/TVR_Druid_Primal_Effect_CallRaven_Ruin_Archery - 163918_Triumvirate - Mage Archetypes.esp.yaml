@@ -1,0 +1,43 @@
+FormKey: 163918:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_Primal_Effect_CallRaven_Ruin_Archery
+Name:
+  TargetLanguage: English
+  Value: Drain Weapon Skills - Marksman
+MenuDisplayObject: 11D1A7:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 163916:Triumvirate - Mage Archetypes.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsMagnitude
+ResistValue: ResistMagic
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: TwoHanded
+  Association: 163916:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013794:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

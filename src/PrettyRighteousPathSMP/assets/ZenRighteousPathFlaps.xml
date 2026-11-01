@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Zenderal - Pretty Righteous Path SMP: physics for the two tabard flaps (shape "SkirtB") of Pretty Righteous
+  Path Armory's cuirass (meshes\armor\ebony\{f,m}\cuirass_{0,1}.nif). Generated meshes point at this file.
+
+  The flaps are already skinned to XPMSE's skirt chains: top half rigidly on SkirtFBone02 / SkirtBBone02, bottom
+  half on SkirtFBone03 / SkirtBBone03. Bone01 stays animated (the belt); 02 and 03 are simulated.
+  Each constraint is framed at bodyA (the child bone's own origin): Bone02 sits at the flap's top edge, Bone03 at
+  its middle, so the flap hinges at the belt and again at mid-length instead of orbiting the bone above.
+  Bone local axes [verified against XPMSE 4.80's skeletons]: X = lateral (fore/aft swing), Y = forward
+  (side swing), Z = along the flap (twist).
+  Note: the back belt plate of shape "Skirt" is also weighted to SkirtBBone02, so it tilts with the rear flap.
+-->
+<system xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="description.xsd">
+
+<!-- Kinematic: follow the animation. -->
+	<bone name="NPC Pelvis [Pelv]"/>
+	<bone name="NPC Spine [Spn0]"/>
+	<bone name="NPC Spine1 [Spn1]"/>
+	<bone name="NPC L Thigh [LThg]"/>
+	<bone name="NPC R Thigh [RThg]"/>
+	<bone name="NPC L Calf [LClf]"/>
+	<bone name="NPC R Calf [RClf]"/>
+	<bone name="NPC L Foot [Lft ]"/>
+	<bone name="NPC R Foot [Rft ]"/>
+	<bone name="SkirtFBone01"/>
+	<bone name="SkirtBBone01"/>
+
+<!-- Dynamic: the flaps. Plate-ish, so heavy and well damped. -->
+	<bone-default>
+		<margin-multiplier>1</margin-multiplier>
+		<mass>1</mass>
+		<inertia x="30" y="30" z="30"/>
+		<centerOfMassTransform>
+			<basis x="0" y="0" z="0" w="1"/>
+			<origin x="0" y="0" z="0"/>
+		</centerOfMassTransform>
+		<linearDamping>0.5</linearDamping>
+		<angularDamping>0.6</angularDamping>
+		<friction>0.3</friction>
+		<restitution>0.1</restitution>
+		<gravity-factor>1</gravity-factor>
+	</bone-default>
+	<bone name="SkirtFBone02"/>
+	<bone name="SkirtFBone03"/>
+	<bone name="SkirtBBone02"/>
+	<bone name="SkirtBBone03"/>
+
+<!-- Upper halves: small swing at the belt. -->
+	<generic-constraint-default>
+		<frameInA>
+			<basis x="0" y="0" z="0" w="1"/>
+			<origin x="0" y="0" z="0"/>
+		</frameInA>
+		<useLinearReferenceFrameA>false</useLinearReferenceFrameA>
+		<linearLowerLimit x="0" y="0" z="0"/>
+		<linearUpperLimit x="0" y="0" z="0"/>
+		<angularLowerLimit x="-0.3" y="-0.08" z="-0.03"/>
+		<angularUpperLimit x="0.3" y="0.08" z="0.03"/>
+		<linearStiffness x="0" y="0" z="0"/>
+		<angularStiffness x="40" y="60" z="80"/>
+		<linearDamping x="0" y="0" z="0"/>
+		<angularDamping x="0.5" y="0.5" z="0.5"/>
+		<linearEquilibrium x="0" y="0" z="0"/>
+		<angularEquilibrium x="0" y="0" z="0"/>
+	</generic-constraint-default>
+	<generic-constraint bodyA="SkirtFBone02" bodyB="SkirtFBone01"/>
+	<generic-constraint bodyA="SkirtBBone02" bodyB="SkirtBBone01"/>
+
+<!-- Lower halves: freer swing at mid-flap. -->
+	<generic-constraint-default>
+		<frameInA>
+			<basis x="0" y="0" z="0" w="1"/>
+			<origin x="0" y="0" z="0"/>
+		</frameInA>
+		<useLinearReferenceFrameA>false</useLinearReferenceFrameA>
+		<linearLowerLimit x="0" y="0" z="0"/>
+		<linearUpperLimit x="0" y="0" z="0"/>
+		<angularLowerLimit x="-0.4" y="-0.12" z="-0.03"/>
+		<angularUpperLimit x="0.4" y="0.12" z="0.03"/>
+		<linearStiffness x="0" y="0" z="0"/>
+		<angularStiffness x="25" y="40" z="80"/>
+		<linearDamping x="0" y="0" z="0"/>
+		<angularDamping x="0.5" y="0.5" z="0.5"/>
+		<linearEquilibrium x="0" y="0" z="0"/>
+		<angularEquilibrium x="0" y="0" z="0"/>
+	</generic-constraint-default>
+	<generic-constraint bodyA="SkirtFBone03" bodyB="SkirtFBone02"/>
+	<generic-constraint bodyA="SkirtBBone03" bodyB="SkirtBBone02"/>
+
+<!-- Collision: the flaps against the greaves' thighs and calves (hips and belt left out, they touch the flaps
+     at rest). -->
+	<per-triangle-shape name="Greaves">
+		<margin>0.3</margin>
+		<penetration>2</penetration>
+		<tag>ZenRPLegs</tag>
+		<no-collide-with-tag>ZenRPLegs</no-collide-with-tag>
+		<weight-threshold bone="NPC Pelvis [Pelv]">1</weight-threshold>
+		<weight-threshold bone="NPC Spine [Spn0]">1</weight-threshold>
+		<weight-threshold bone="NPC Spine1 [Spn1]">1</weight-threshold>
+		<weight-threshold bone="SkirtBBone01">1</weight-threshold>
+		<weight-threshold bone="NPC L Thigh [LThg]">0.1</weight-threshold>
+		<weight-threshold bone="NPC R Thigh [RThg]">0.1</weight-threshold>
+		<weight-threshold bone="NPC L Calf [LClf]">0.3</weight-threshold>
+		<weight-threshold bone="NPC R Calf [RClf]">0.3</weight-threshold>
+		<weight-threshold bone="NPC L Foot [Lft ]">1</weight-threshold>
+		<weight-threshold bone="NPC R Foot [Rft ]">1</weight-threshold>
+	</per-triangle-shape>
+	<per-triangle-shape name="SkirtB">
+		<margin>0.3</margin>
+		<penetration>1</penetration>
+		<tag>ZenRPFlaps</tag>
+		<no-collide-with-tag>ZenRPFlaps</no-collide-with-tag>
+	</per-triangle-shape>
+</system>

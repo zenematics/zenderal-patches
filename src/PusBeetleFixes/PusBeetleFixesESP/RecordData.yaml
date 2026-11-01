@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Pus Beetle Fixes.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: The pus beetle's venom spit no longer knocks you back (EGO's Paralyze Knockback removed from it).
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  INTV: 1

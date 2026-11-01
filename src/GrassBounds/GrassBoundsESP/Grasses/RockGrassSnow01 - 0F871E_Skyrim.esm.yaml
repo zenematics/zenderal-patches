@@ -1,0 +1,20 @@
+FormKey: 0F871E:Skyrim.esm
+EditorID: RockGrassSnow01
+Version2: 5
+ObjectBounds:
+  First: -29, -28, -5
+  Second: 34, 28, 8
+Model:
+  File: Landscape\Grass\RockGrassSnowObj01.nif
+  Data: 0x020000000200000000000000398AE12C64647300625C8D360A4C879A6464730038973CEA
+Density: 20
+MaxSlope: 36
+Unknown2: 4448
+PositionRange: 32
+HeightRange: 0.15
+ColorRange: 0.05
+WavePeriod: 60
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0x000000

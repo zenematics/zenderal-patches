@@ -1,0 +1,7 @@
+FormKey: 00080F:AdventurerFlintlockPack.esp
+EditorID: 1stPersonPMDuelingPistol01
+Model:
+  File: Zenderal\LoopPistols\BattlestainedFP\FlintlockPistol03.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

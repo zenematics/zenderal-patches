@@ -1,0 +1,9 @@
+FormKey: 0009C3:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SelectNote_18
+Type: Standard
+Category: 064451:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\Zenderal\Prophecy\ZEN_ProphecyNote_18.wav
+OutputModel: 0B75FB:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

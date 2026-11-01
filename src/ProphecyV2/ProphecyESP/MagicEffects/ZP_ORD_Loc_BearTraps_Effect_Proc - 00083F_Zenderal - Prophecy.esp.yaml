@@ -1,0 +1,26 @@
+FormKey: 00083F:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_BearTraps_Effect_Proc
+Name:
+  TargetLanguage: English
+  Value: Bear Trap
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 00082C:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- HideInUI
+TaperWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

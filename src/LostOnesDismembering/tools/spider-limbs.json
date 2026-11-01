@@ -1,0 +1,322 @@
+[
+  {
+    "fid": "000833",
+    "limb": "Leg_L0",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_L0.nif",
+    "node": "Leg_L[02]",
+    "item_limb": "Forearm_L",
+    "base_template": "Zenderal - Spider - Base data - Leg_L0",
+    "base_data": {
+      "RefNode": "Leg_L[02]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - L",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87E"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  },
+  {
+    "fid": "000834",
+    "limb": "Leg_L1",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_L1.nif",
+    "node": "Leg_L[12]",
+    "item_limb": "Forearm_L",
+    "base_template": "Zenderal - Spider - Base data - Leg_L1",
+    "base_data": {
+      "RefNode": "Leg_L[12]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - L",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87E"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  },
+  {
+    "fid": "000835",
+    "limb": "Leg_L2",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_L2.nif",
+    "node": "Leg_L[22]",
+    "item_limb": "Forearm_L",
+    "base_template": "Zenderal - Spider - Base data - Leg_L2",
+    "base_data": {
+      "RefNode": "Leg_L[22]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - L",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87E"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  },
+  {
+    "fid": "000836",
+    "limb": "Leg_L3",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_L3.nif",
+    "node": "Leg_L[32]",
+    "item_limb": "Forearm_L",
+    "base_template": "Zenderal - Spider - Base data - Leg_L3",
+    "base_data": {
+      "RefNode": "Leg_L[32]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - L",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87E"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  },
+  {
+    "fid": "000837",
+    "limb": "Leg_R0",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_R0.nif",
+    "node": "Leg_R[02]",
+    "item_limb": "Forearm_R",
+    "base_template": "Zenderal - Spider - Base data - Leg_R0",
+    "base_data": {
+      "RefNode": "Leg_R[02]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - R",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87F"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  },
+  {
+    "fid": "000838",
+    "limb": "Leg_R1",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_R1.nif",
+    "node": "Leg_R[12]",
+    "item_limb": "Forearm_R",
+    "base_template": "Zenderal - Spider - Base data - Leg_R1",
+    "base_data": {
+      "RefNode": "Leg_R[12]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - R",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87F"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  },
+  {
+    "fid": "000839",
+    "limb": "Leg_R2",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_R2.nif",
+    "node": "Leg_R[22]",
+    "item_limb": "Forearm_R",
+    "base_template": "Zenderal - Spider - Base data - Leg_R2",
+    "base_data": {
+      "RefNode": "Leg_R[22]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - R",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87F"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  },
+  {
+    "fid": "00083A",
+    "limb": "Leg_R3",
+    "mesh": "DismemberingFramework\\Zenderal\\Spiders\\Spider_Leg_R3.nif",
+    "node": "Leg_R[32]",
+    "item_limb": "Forearm_R",
+    "base_template": "Zenderal - Spider - Base data - Leg_R3",
+    "base_data": {
+      "RefNode": "Leg_R[32]",
+      "BipedSlot": 37,
+      "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+      "Translation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "addon_template": "Zenderal - Spider - Actor addons data - R",
+    "addon_data": {
+      "ActorArtObject": "DF - Official Creature Pack.esp:0x87F"
+    },
+    "skins": [
+      {
+        "race": "FrostbiteSpiderRace",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceLarge",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceGiant",
+        "skin": "ANY"
+      },
+      {
+        "race": "FrostbiteSpiderRaceHoher",
+        "skin": "ANY"
+      }
+    ]
+  }
+]

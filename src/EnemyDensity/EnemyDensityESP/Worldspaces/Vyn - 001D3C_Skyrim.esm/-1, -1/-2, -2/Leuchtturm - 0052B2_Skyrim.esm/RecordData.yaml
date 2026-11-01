@@ -1,0 +1,35 @@
+FormKey: 0052B2:Skyrim.esm
+EditorID: Leuchtturm
+Flags:
+- HasWater
+Grid:
+  Point: -9, -14
+WaterHeight: 3.4028235E+38
+Regions:
+- 07C977:Skyrim.esm
+- 048089:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C76:Zenderal - Enemy Density.esp
+  Base: 0C6760:Skyrim.esm
+  Placement:
+    Position: -34133.3, -54272.0, 453.6
+    Rotation: 0, 0, 2.9206
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C77:Zenderal - Enemy Density.esp
+  Base: 046EEC:Skyrim.esm
+  Placement:
+    Position: -34133.3, -54368.0, 455.6
+    Rotation: 0, 0, 1.1026
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C78:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -34133.3, -54176.0, 451.6
+    Rotation: 0, 0, 3.8078
+- MutagenObjectType: PlacedNpc
+  FormKey: 000C79:Zenderal - Enemy Density.esp
+  Base: 046EDC:Skyrim.esm
+  Placement:
+    Position: -34048.0, -53973.3, 470.8
+    Rotation: 0, 0, 4.5851

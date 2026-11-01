@@ -1,0 +1,18 @@
+FormKey: 000990:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_FrostShatteringExplosion02
+ObjectBounds:
+  First: -222, -215, -26
+  Second: 222, 201, 223
+Model:
+  File: Magic\ExplosionFrost01.nif
+  Data: 0x020000000000000000000000
+Sound1: 03EDD8:Skyrim.esm
+Sound2: 03C8FC:Skyrim.esm
+ImpactDataSet: 018A2E:Skyrim.esm
+Force: 0
+Damage: 2
+Radius: 280
+VerticalOffsetMult: 50
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

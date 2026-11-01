@@ -1,0 +1,19 @@
+FormKey: 000AA1:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ManaFont
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Mana is increased by 75.'
+Name:
+  TargetLanguage: English
+  Value: 'Mana Font'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A9F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AB0:Zenderal - Prophecy.esp

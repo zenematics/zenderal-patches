@@ -1,0 +1,19 @@
+FormKey: 0009CF:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_HardenedNerves
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Health is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Hardened Nerves'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000818:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009F9:Zenderal - Prophecy.esp

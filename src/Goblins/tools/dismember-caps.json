@@ -1,0 +1,122 @@
+[
+  {
+    "variant": "Goblin",
+    "part": "L Calf",
+    "template": "Zenderal - Goblin - Actor addons data - L Calf",
+    "armo": "000814",
+    "arma": "000815",
+    "df_armo": "00083A",
+    "df_arma": "00083F",
+    "edid": "ZEN_Goblin_LCalf",
+    "art": "DF - Official Creature Pack.esp:0x850",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_Goblin.nif"
+  },
+  {
+    "variant": "Goblin",
+    "part": "R Calf",
+    "template": "Zenderal - Goblin - Actor addons data - R Calf",
+    "armo": "000816",
+    "arma": "000817",
+    "df_armo": "00083B",
+    "df_arma": "000840",
+    "edid": "ZEN_Goblin_RCalf",
+    "art": "DF - Official Creature Pack.esp:0x851",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_Goblin.nif"
+  },
+  {
+    "variant": "Goblin",
+    "part": "L Forearm",
+    "template": "Zenderal - Goblin - Actor addons data - L Forearm",
+    "armo": "000818",
+    "arma": "000819",
+    "df_armo": "00083C",
+    "df_arma": "000841",
+    "edid": "ZEN_Goblin_LForearm",
+    "art": "DF - Official Creature Pack.esp:0x852",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_Goblin.nif"
+  },
+  {
+    "variant": "Goblin",
+    "part": "R Forearm",
+    "template": "Zenderal - Goblin - Actor addons data - R Forearm",
+    "armo": "00081A",
+    "arma": "00081B",
+    "df_armo": "00083D",
+    "df_arma": "000842",
+    "edid": "ZEN_Goblin_RForearm",
+    "art": "DF - Official Creature Pack.esp:0x853",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_Goblin.nif"
+  },
+  {
+    "variant": "Goblin",
+    "part": "Head",
+    "template": "Zenderal - Goblin - Actor addons data - Head",
+    "armo": "00081C",
+    "arma": "00081D",
+    "df_armo": "00083E",
+    "df_arma": "000843",
+    "edid": "ZEN_Goblin_Head",
+    "art": "DF - Official Creature Pack.esp:0x854",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_Goblin.nif"
+  },
+  {
+    "variant": "GoblinWitch",
+    "part": "L Calf",
+    "template": "Zenderal - GoblinWitch - Actor addons data - L Calf",
+    "armo": "00081E",
+    "arma": "00081F",
+    "df_armo": "00083A",
+    "df_arma": "00083F",
+    "edid": "ZEN_GoblinWitch_LCalf",
+    "art": "DF - Official Creature Pack.esp:0x850",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_GoblinWitch.nif"
+  },
+  {
+    "variant": "GoblinWitch",
+    "part": "R Calf",
+    "template": "Zenderal - GoblinWitch - Actor addons data - R Calf",
+    "armo": "000820",
+    "arma": "000821",
+    "df_armo": "00083B",
+    "df_arma": "000840",
+    "edid": "ZEN_GoblinWitch_RCalf",
+    "art": "DF - Official Creature Pack.esp:0x851",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_GoblinWitch.nif"
+  },
+  {
+    "variant": "GoblinWitch",
+    "part": "L Forearm",
+    "template": "Zenderal - GoblinWitch - Actor addons data - L Forearm",
+    "armo": "000822",
+    "arma": "000823",
+    "df_armo": "00083C",
+    "df_arma": "000841",
+    "edid": "ZEN_GoblinWitch_LForearm",
+    "art": "DF - Official Creature Pack.esp:0x852",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_GoblinWitch.nif"
+  },
+  {
+    "variant": "GoblinWitch",
+    "part": "R Forearm",
+    "template": "Zenderal - GoblinWitch - Actor addons data - R Forearm",
+    "armo": "000824",
+    "arma": "000825",
+    "df_armo": "00083D",
+    "df_arma": "000842",
+    "edid": "ZEN_GoblinWitch_RForearm",
+    "art": "DF - Official Creature Pack.esp:0x853",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_GoblinWitch.nif"
+  },
+  {
+    "variant": "GoblinWitch",
+    "part": "Head",
+    "template": "Zenderal - GoblinWitch - Actor addons data - Head",
+    "armo": "000826",
+    "arma": "000827",
+    "df_armo": "00083E",
+    "df_arma": "000843",
+    "edid": "ZEN_GoblinWitch_Head",
+    "art": "DF - Official Creature Pack.esp:0x854",
+    "mesh": "DismemberingFramework\\Zenderal\\Goblins\\Dismembered_Addons_GoblinWitch.nif"
+  }
+]

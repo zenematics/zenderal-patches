@@ -1,0 +1,28 @@
+FormKey: 000E70:Shatterveil.esp
+EditorID: shvl_GlassWyrmWord3MGEF
+Name:
+  TargetLanguage: English
+  Value: Veil Wyrm
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+BaseCost: 1
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+CastingArt: 07331A:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 000AE0:Zenderal - Prophecy.esp
+Description:
+  TargetLanguage: English
+  Value: A wyrm forms over your shoulder and roars.

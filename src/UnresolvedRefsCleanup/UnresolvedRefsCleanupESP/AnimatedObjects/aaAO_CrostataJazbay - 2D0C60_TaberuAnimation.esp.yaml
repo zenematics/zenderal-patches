@@ -1,0 +1,9 @@
+FormKey: 2D0C60:TaberuAnimation.esp
+MajorRecordFlagsRaw: 512
+EditorID: aaAO_CrostataJazbay
+SkyrimMajorRecordFlags:
+- 0x200
+Model:
+  File: TaberuMono\CrostataRing.nif
+  Data: 0x020000000000000000000000
+UnloadEvent: EasUnequipAnimObj0

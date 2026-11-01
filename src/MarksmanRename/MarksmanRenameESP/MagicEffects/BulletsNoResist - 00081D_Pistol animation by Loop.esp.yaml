@@ -1,0 +1,32 @@
+FormKey: 00081D:Pistol animation by Loop.esp
+EditorID: BulletsNoResist
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 000817:Pistol animation by Loop.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.3
+TaperWeight: 0.3
+SpellmakingArea: 15
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deal <mag> armor-ignoring damage.Stagger targets if hit.This weapon is 0.34% more powerful per level of Marksman

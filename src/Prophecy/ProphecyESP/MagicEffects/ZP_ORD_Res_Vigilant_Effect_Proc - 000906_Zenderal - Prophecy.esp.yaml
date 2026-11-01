@@ -1,0 +1,33 @@
+FormKey: 000906:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_Vigilant_Effect_Proc
+Name:
+  TargetLanguage: English
+  Value: Vigilant
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 000907:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- HideInUI
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+PerkToApply: 000808:Zenderal - Prophecy.esp
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1

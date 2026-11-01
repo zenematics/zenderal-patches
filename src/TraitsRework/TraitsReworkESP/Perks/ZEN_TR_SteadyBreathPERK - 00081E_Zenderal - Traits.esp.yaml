@@ -1,0 +1,43 @@
+FormKey: 00081E:Zenderal - Traits.esp
+EditorID: ZEN_TR_SteadyBreathPERK
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsMovingConditionData
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.2
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsMovingConditionData
+      ComparisonValue: 1
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.85

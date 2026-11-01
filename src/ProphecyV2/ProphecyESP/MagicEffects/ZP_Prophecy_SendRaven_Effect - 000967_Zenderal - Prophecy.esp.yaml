@@ -1,0 +1,40 @@
+FormKey: 000967:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SendRaven_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_SendRavenEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Ravens
+      Object: 000968:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerFaction
+      Object: 000DB1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RavenBrain
+      Object: 00097D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BirdBase
+      Object: 00097F:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpawnSound
+      Object: 000981:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Andrasta's Owl
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

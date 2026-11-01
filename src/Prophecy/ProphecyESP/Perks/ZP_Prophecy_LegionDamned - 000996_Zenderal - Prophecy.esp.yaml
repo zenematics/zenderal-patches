@@ -1,0 +1,19 @@
+FormKey: 000996:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_LegionDamned
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Legion of the Damned" power: at the cost of 50% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.'
+Name:
+  TargetLanguage: English
+  Value: 'Legion of the Damned'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 0009ED:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009A2:Zenderal - Prophecy.esp

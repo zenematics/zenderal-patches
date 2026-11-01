@@ -1,0 +1,38 @@
+FormKey: 0008AA:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DarkWarriorSpike_UpgradedMGEF
+Name:
+  TargetLanguage: English
+  Value: Eclipse
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Keywords:
+- 001491:KittyClass_DarkWarrior.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+TaperWeight: 0.3
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 0008D2:KittyClass_DarkWarrior.esp
+Explosion: 000ADF:KittyClass_DarkWarrior.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> damage and another <mag> damage over <10> seconds. Knocks down targets.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

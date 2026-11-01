@@ -1,0 +1,22 @@
+FormKey: 143325:Skyrim.esm
+EditorID: _00E_A1_FireArrowWayfarerExp
+Version2: 1
+ObjectBounds:
+  First: -116, -116, -23
+  Second: 116, 116, 44
+Model:
+  File: Magic\FireStormAreaEffect.nif
+  Data: 0x020000000000000000000000
+ObjectEffect: 143324:Skyrim.esm
+Sound1: 08F3E7:Skyrim.esm
+ImpactDataSet: 026113:Skyrim.esm
+Force: 150
+Damage: 1
+Radius: 256
+ISRadius: 1024
+VerticalOffsetMult: 0.2
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

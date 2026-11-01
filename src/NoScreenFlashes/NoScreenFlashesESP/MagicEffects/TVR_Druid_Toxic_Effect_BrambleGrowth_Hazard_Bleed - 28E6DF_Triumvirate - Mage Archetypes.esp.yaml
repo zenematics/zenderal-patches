@@ -1,0 +1,51 @@
+FormKey: 28E6DF:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Druid_Toxic_Effect_BrambleGrowth_Hazard_Bleed
+Name:
+  TargetLanguage: English
+  Value: Bleed Damage
+MenuDisplayObject: 27F3AB:Triumvirate - Mage Archetypes.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 40
+MagicSkill: Restoration
+HitShader: 09EBCE:Triumvirate - Mage Archetypes.esp
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> bleed damage and poison damage for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013794:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013798:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsUndeadConditionData

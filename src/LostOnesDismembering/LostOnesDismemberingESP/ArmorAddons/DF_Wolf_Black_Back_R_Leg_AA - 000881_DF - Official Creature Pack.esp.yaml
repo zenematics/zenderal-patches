@@ -1,0 +1,23 @@
+FormKey: 000881:DF - Official Creature Pack.esp
+EditorID: DF_Wolf_Black_Back_R_Leg_AA
+BodyTemplate:
+  FirstPersonFlags:
+  - 0x800000
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 01320A:Skyrim.esm
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 23
+WorldModel:
+  Male:
+    File: DismemberingFramework\OfficialCreaturePack\Wolf\ArmorAddons\Dismembered_Addons.nif
+    Data: 0x020000000000000000000000
+AdditionalRaces:
+- 0133E3:Enderal - Forgotten Stories.esm
+- 0133EF:Enderal - Forgotten Stories.esm
+- 117FCC:Skyrim.esm

@@ -1,0 +1,40 @@
+FormKey: 0008AE:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_Tripwire_Activator
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_Tripwire_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Sne_Tripwire_Spell
+      Object: 0008AA:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Sne_Tripwire_Spell_Proc
+      Object: 0008AF:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+  - Name: Tripwire
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: blockActivate
+      Data: True
+    - MutagenObjectType: ScriptBoolProperty
+      Name: FiniteUse
+      Data: True
+    - MutagenObjectType: ScriptIntProperty
+      Name: TriggerCount
+      Data: 1
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TriggerSound
+      Object: 01D492:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Explosive Tripwire
+Model:
+  File: Traps\Tripwire\TrapTripwire01.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: Snap
+Flags: []

@@ -1,0 +1,44 @@
+FormKey: 000A2E:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HallowedFlareDescriptionMGEF
+Name:
+  TargetLanguage: English
+  Value: Smite
+MenuDisplayObject: 1097CA:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 2.3
+MagicSkill: Restoration
+CastingLight: 03F1B5:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 04C6D8:Skyrim.esm
+MinimumSkillLevel: 75
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 000A4C:Zenderal - Prophecy.esp
+Explosion: 000A54:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 01C859:Skyrim.esm
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000A5A:Zenderal - Prophecy.esp
+Description:
+  TargetLanguage: English
+  Value: A bolt of divine light smites the target, dealing up to <mag> points of damage. Undead targets take double damage.

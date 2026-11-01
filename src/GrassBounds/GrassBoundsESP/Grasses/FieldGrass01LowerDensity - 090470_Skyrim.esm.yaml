@@ -1,0 +1,21 @@
+FormKey: 090470:Skyrim.esm
+EditorID: FieldGrass01LowerDensity
+Version2: 1
+ObjectBounds:
+  First: -38, -35, 0
+  Second: 39, 23, 63
+Model:
+  File: Landscape\Grass\FieldGrass01.nif
+  Data: 0x020000000000000000000000
+Density: 40
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 30
+HeightRange: 0.3
+ColorRange: 0.2
+WavePeriod: 350
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

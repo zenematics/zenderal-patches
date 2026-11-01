@@ -1,0 +1,46 @@
+FormKey: 000890:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Effect_Proc
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_GrantXP_Script
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ORD_OnlyEnemy
+      Data: True
+    - MutagenObjectType: ScriptStringProperty
+      Name: ORD_School
+      Data: Smithing
+    - MutagenObjectType: ScriptIntProperty
+      Name: ORD_XP
+      Data: 1
+Name:
+  TargetLanguage: English
+  Value: Bthan-Drung Shell
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+Keywords:
+- 00088E:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- PowerAffectsMagnitude
+TaperWeight: 0.3
+SpellmakingArea: 10
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000894:Zenderal - Prophecy.esp
+Explosion: 000892:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 015C7B:Skyrim.esm
+DualCastScale: 1.1
+Sounds:
+- Type: Release
+  Sound: 000891:Zenderal - Prophecy.esp
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> points of damage.

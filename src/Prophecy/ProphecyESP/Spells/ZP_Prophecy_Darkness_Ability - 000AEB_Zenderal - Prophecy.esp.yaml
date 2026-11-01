@@ -1,0 +1,14 @@
+FormKey: 000AEB:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Darkness_Ability
+Name:
+  TargetLanguage: English
+  Value: Darkness
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000AEC:Zenderal - Prophecy.esp
+  Data: {}

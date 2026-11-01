@@ -1,0 +1,26 @@
+FormKey: 000815:Supernova.esl
+EditorID: _SS_Stardust
+Name:
+  TargetLanguage: English
+  Value: 'Falling Star'
+MenuDisplayObject: 000827:Supernova.esl
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 97
+Flags:
+- ManualCostCalc
+- NoDualCastModification
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C1:Skyrim.esm
+Effects:
+- BaseEffect: 00080A:Supernova.esl
+  Data:
+    Magnitude: 60
+- BaseEffect: 0F392D:Skyrim.esm
+  Data:
+    Magnitude: 99
+    Duration: 15

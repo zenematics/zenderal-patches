@@ -1,0 +1,21 @@
+FormKey: 000A4D:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_SunShardsProj
+ObjectBounds:
+  First: -43, -23, -38
+  Second: 43, 21, 39
+Model:
+  File: Lightpower\HolyBoltSmProj.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Cone
+Speed: 540
+Range: 1080
+Light: 000A4A:Zenderal - Prophecy.esp
+Sound: 057C61:Skyrim.esm
+FadeDuration: 0.5
+ConeSpread: -1.5
+CollisionRadius: 9
+RelaunchInterval: 0.625
+MuzzleFlashModel: ''
+SoundLevel: 1

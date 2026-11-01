@@ -1,0 +1,10 @@
+FormKey: 00083F:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihail1stgoblinstaff
+ObjectBounds:
+  First: -32, -45, -18
+  Second: 6, 70, 19
+Model:
+  File: Mihail Monsters and Animals\Human\Goblins\mihailgoblinstaff.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

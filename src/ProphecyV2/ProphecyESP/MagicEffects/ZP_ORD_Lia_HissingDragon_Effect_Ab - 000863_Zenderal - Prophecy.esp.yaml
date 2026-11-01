@@ -1,0 +1,54 @@
+FormKey: 000863:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Lia_HissingDragon_Effect_Ab
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_HissingDragon_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Lia_HissingDragon_FormList
+      Object: 00087D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ORD_Lia_HissingDragon_Message
+      Object: 00087C:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: ORD_Lia_HissingDragon_Spell_Proc
+      Objects:
+      - Name: ''
+        Object: 000879:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000876:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000873:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00086F:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 00086A:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000864:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Naruto Level Shit
+MenuDisplayObject: 000840:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- NoHitEffect
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm
+  ComparisonValue: 1

@@ -1,0 +1,43 @@
+FormKey: 000809:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DarkWarriorFlashStaminaMGEF
+Name:
+  TargetLanguage: English
+  Value: Soulrender
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Keywords:
+- 001491:KittyClass_DarkWarrior.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+TaperWeight: 0.3
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+  Type: Absorb
+Projectile: 000879:KittyClass_DarkWarrior.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 001586:KittyClass_DarkWarrior.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1

@@ -80,6 +80,8 @@ Thumbs.db
 !src/SkipPrologue/Scripts/compiled/*.pex
 !src/KataFixes/Scripts/compiled/
 !src/KataFixes/Scripts/compiled/*.pex
+!src/EGO21Compat/Scripts/compiled/
+!src/EGO21Compat/Scripts/compiled/*.pex
 !src/BrawlFixes/Scripts/compiled/
 !src/BrawlFixes/Scripts/compiled/*.pex
 !src/LearningBooks/Scripts/compiled/
@@ -123,3 +125,39 @@ __pycache__/
 .~lock.*#
 !src/Prophecy/Scripts/compiled/
 !src/Prophecy/Scripts/compiled/*.pex
+
+# KataAffinities21: extracted third-party BSA contents + generator temp dirs
+/src/KataAffinities21/build/
+!src/KataAffinities21/Scripts/compiled/
+!src/KataAffinities21/Scripts/compiled/*.pex
+
+# SKSE plugin CMake/vcpkg build trees (the shipped DLL lives in compiled/)
+/src/*/SKSEPlugin/build/
+/src/*/SKSEPlugin/build.log
+/src/*/build-ae.log
+!src/PerkOverhaul/Scripts/compiled/
+!src/PerkOverhaul/Scripts/compiled/*.pex
+!src/TraitsRework/Scripts/compiled/
+!src/TraitsRework/Scripts/compiled/*.pex
+!src/Goblins/Scripts/compiled/
+!src/Goblins/Scripts/compiled/*.pex
+
+# Curator artwork sources (large PNGs); src/TraitsRework/tools/02-build-icons.py reads outputs/trait-icons/
+/outputs/
+!src/ProphecyV2/Scripts/compiled/
+!src/ProphecyV2/Scripts/compiled/*.pex
+!src/TestingCheats/Scripts/compiled/
+!src/TestingCheats/Scripts/compiled/*.pex
+!src/CallCompanions/Scripts/compiled/
+!src/CallCompanions/Scripts/compiled/*.pex
+!src/ArkGateSiegeFix/Scripts/compiled/
+!src/ArkGateSiegeFix/Scripts/compiled/*.pex
+!src/UnskippableCinematics/Scripts/compiled/
+!src/UnskippableCinematics/Scripts/compiled/*.pex
+!src/FoggyNightsChance/Scripts/compiled/
+!src/FoggyNightsChance/Scripts/compiled/*.pex
+
+# Build output (build.ps1 staging) - commit source, not build artifacts
+/build/staging/
+# SureAI voice lines extracted for the trailer (copyrighted; never redistribute)
+/trailer-audio/

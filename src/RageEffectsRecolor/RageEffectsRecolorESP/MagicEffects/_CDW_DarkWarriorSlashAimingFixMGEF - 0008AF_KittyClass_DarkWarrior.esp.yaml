@@ -1,0 +1,30 @@
+FormKey: 0008AF:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DarkWarriorSlashAimingFixMGEF
+Name:
+  TargetLanguage: English
+  Value: Bloodletter
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Keywords:
+- 001491:KittyClass_DarkWarrior.esp
+Flags:
+- Detrimental
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+TaperWeight: 0.3
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 0ABEFD:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 0ABF01:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> points of Health.

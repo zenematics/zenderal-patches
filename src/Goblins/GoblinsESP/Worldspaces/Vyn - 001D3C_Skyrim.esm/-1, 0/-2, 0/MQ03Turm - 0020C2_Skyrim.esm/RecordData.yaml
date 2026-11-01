@@ -1,0 +1,41 @@
+FormKey: 0020C2:Skyrim.esm
+EditorID: MQ03Turm
+Flags:
+- HasWater
+Grid:
+  Point: -11, 4
+WaterHeight: 2200
+Regions:
+- 072780:Skyrim.esm
+- 0020F3:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A61:Zenderal - Goblins.esp
+  Base: 000833:Zenderal - Goblins.esp
+  Placement:
+    Position: -41130.7, 18048.0, 3819.9
+    Rotation: 0, 0, 1.4655
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A62:Zenderal - Goblins.esp
+  Base: 000811:Zenderal - Goblins.esp
+  Placement:
+    Position: -41088.0, 17962.7, 3785.2
+    Rotation: 0, 0, 1.4188
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A63:Zenderal - Goblins.esp
+  Base: 000810:Zenderal - Goblins.esp
+  Placement:
+    Position: -41237.3, 18090.7, 3834.9
+    Rotation: 0, 0, 0.1852
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A64:Zenderal - Goblins.esp
+  Base: 000811:Zenderal - Goblins.esp
+  Placement:
+    Position: -41344.0, 18154.7, 3834.7
+    Rotation: 0, 0, 0.9309
+- MutagenObjectType: PlacedNpc
+  FormKey: 000A65:Zenderal - Goblins.esp
+  Base: 000835:Zenderal - Goblins.esp
+  Placement:
+    Position: -41066.7, 17813.3, 3709.2
+    Rotation: 0, 0, 5.8232

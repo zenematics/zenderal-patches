@@ -1,0 +1,31 @@
+FormKey: 000958:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_NoDistractions_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_NoDistractionsEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Ward
+      Object: 085654:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicWard
+      Object: 01EA69:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: No Distractions
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

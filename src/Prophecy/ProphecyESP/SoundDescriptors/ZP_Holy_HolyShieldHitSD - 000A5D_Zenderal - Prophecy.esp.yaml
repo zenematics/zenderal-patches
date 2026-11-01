@@ -1,0 +1,15 @@
+FormKey: 000A5D:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HolyShieldHitSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\DLC01\FX\Explosions\AurielsSun\FX_Explosion_AurielsSun_Near_01.wav
+- Data\Sound\FX\DLC01\FX\Explosions\AurielsSun\FX_Explosion_AurielsSun_Near_02.wav
+OutputModel: 0B4246:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+PercentFrequencyShift: 10
+PercentFrequencyVariance: 2
+Priority: 88
+Variance: 3
+StaticAttenuation: 6.17

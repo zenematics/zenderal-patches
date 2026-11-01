@@ -1,0 +1,63 @@
+FormKey: 023A74:Skyrim.esm
+EditorID: FSTSprintArmorLightRImpactSet
+Impacts:
+- Material: 012F34:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 012F35:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 012F36:Skyrim.esm
+  Impact: 02CEDE:Skyrim.esm
+- Material: 012F38:Skyrim.esm
+  Impact: 02259D:Skyrim.esm
+- Material: 012F39:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 012F3C:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 012F3E:Skyrim.esm
+  Impact: 02259D:Skyrim.esm
+- Material: 012F40:Skyrim.esm
+  Impact: 02694D:Audio Overhaul Skyrim.esp
+- Material: 012F41:Skyrim.esm
+  Impact: 028ED8:Skyrim.esm
+- Material: 012F42:Skyrim.esm
+  Impact: 028ED8:Skyrim.esm
+- Material: 012F43:Skyrim.esm
+  Impact: 028ED8:Skyrim.esm
+- Material: 012F45:Skyrim.esm
+  Impact: 028EC0:Skyrim.esm
+- Material: 012F46:Skyrim.esm
+  Impact: 028EA7:Skyrim.esm
+- Material: 012F47:Skyrim.esm
+  Impact: 02DD6D:Skyrim.esm
+- Material: 012F48:Skyrim.esm
+  Impact: 028EB3:Skyrim.esm
+- Material: 01686A:Skyrim.esm
+  Impact: 032D7F:Skyrim.esm
+- Material: 01686B:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 01C151:Skyrim.esm
+  Impact: 028EB3:Skyrim.esm
+- Material: 02EE2C:Skyrim.esm
+  Impact: 032D79:Skyrim.esm
+- Material: 02EE2D:Skyrim.esm
+  Impact: 032D7F:Skyrim.esm
+- Material: 043DCC:Skyrim.esm
+  Impact: 028ED8:Skyrim.esm
+- Material: 052ED0:Skyrim.esm
+  Impact: 028EC0:Skyrim.esm
+- Material: 070343:Skyrim.esm
+  Impact: 032D79:Skyrim.esm
+- Material: 0876B5:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 0876B8:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 0AF63D:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 0C6FB1:Skyrim.esm
+  Impact: 028ECC:Skyrim.esm
+- Material: 0C8244:Skyrim.esm
+  Impact: 0C8241:Skyrim.esm
+- Material: 0D6C11:Skyrim.esm
+  Impact: 02742B:Audio Overhaul Skyrim.esp
+- Material: 0F7B68:Skyrim.esm
+  Impact: 0F75AC:Skyrim.esm

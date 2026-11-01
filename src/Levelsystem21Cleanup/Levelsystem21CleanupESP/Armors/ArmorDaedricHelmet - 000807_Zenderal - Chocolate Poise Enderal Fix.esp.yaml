@@ -1,0 +1,52 @@
+FormKey: 000807:Zenderal - Chocolate Poise Enderal Fix.esp
+EditorID: ArmorDaedricHelmet
+Version2: 3
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 02EF51:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 02EF56:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E0D:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -7, -5, -4
+  Second: 7, 17, 15
+Name:
+  TargetLanguage: English
+  Value: (Set of the Skybreaker) Ventail of the Skybreaker
+ObjectEffect: 02EF67:Enderal - Forgotten Stories.esm
+WorldModel:
+  Male:
+    Model:
+      File: Enderal\armor\Immersive Armors\Paladin\pallybarbut_nowings_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Hair
+  - Circlet
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06BBE6:Skyrim.esm
+- 06C0EE:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 0450D4:Skyrim.esm
+Value: 640
+Weight: 8
+ArmorRating: 42.2

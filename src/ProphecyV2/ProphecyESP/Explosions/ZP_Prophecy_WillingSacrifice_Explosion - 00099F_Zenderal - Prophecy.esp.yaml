@@ -1,0 +1,23 @@
+FormKey: 00099F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WillingSacrifice_Explosion
+Version2: 1
+ObjectBounds:
+  First: -222, -196, -26
+  Second: 222, 196, 52
+Name:
+  TargetLanguage: English
+  Value: A Willing Sacrifice
+Model:
+  File: Enderal\Magic\EldritchShockExplosion.nif
+  Data: 0x020000000000000000000000
+Sound1: 06A08E:Skyrim.esm
+Sound2: 06A090:Skyrim.esm
+ImpactDataSet: 06A08C:Skyrim.esm
+Force: 0
+Radius: 300
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap
+- NoControllerVibration
+SoundLevel: Normal

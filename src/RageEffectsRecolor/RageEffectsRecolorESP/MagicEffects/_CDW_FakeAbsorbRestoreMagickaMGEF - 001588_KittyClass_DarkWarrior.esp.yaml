@@ -1,0 +1,27 @@
+FormKey: 001588:KittyClass_DarkWarrior.esp
+EditorID: _CDW_FakeAbsorbRestoreMagickaMGEF
+Name:
+  TargetLanguage: English
+  Value: Absorb
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 001491:KittyClass_DarkWarrior.esp
+Flags:
+- NoArea
+- HideInUI
+- PowerAffectsMagnitude
+MagicSkill: Destruction
+TaperWeight: 1
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 0.33
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

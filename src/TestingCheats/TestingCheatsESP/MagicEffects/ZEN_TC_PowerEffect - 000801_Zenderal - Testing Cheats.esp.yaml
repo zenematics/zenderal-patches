@@ -1,0 +1,42 @@
+FormKey: 000801:Zenderal - Testing Cheats.esp
+EditorID: ZEN_TC_PowerEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_TC_MenuEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ConfirmMessage
+      Object: 000804:Zenderal - Testing Cheats.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EXPMult
+      Object: 008D2B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EXPMultSlope
+      Object: 0D0EDB:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MenuMessage
+      Object: 000802:Zenderal - Testing Cheats.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerExp
+      Object: 012596:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Testing Cheats
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Gain levels, experience or Prophecy points for testing.

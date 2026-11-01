@@ -1,0 +1,44 @@
+FormKey: 067252:Skyrim.esm
+EditorID: _00E_A1_FireArrowEnchME
+Version2: 4
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Fire Damage
+  - Language: Chinese
+    String: 火焰伤害
+  - Language: Korean
+    String: 화염 피해
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 0.9
+ResistValue: ResistFire
+TaperWeight: 0.2
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 01C2AF:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Does <mag> points of fire damage. Hit targets start burning and take damage over time.
+  - Language: Chinese
+    String: 造成<mag>点火焰伤害。被击中的目标会燃烧并造成持续伤害。
+  - Language: Korean
+    String: <mag>의 화염 피해를 입힘. 맞은 대상은 타오르며 지속 피해를 입음

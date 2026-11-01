@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - No Lightning Flash.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Black lightning on the 13 rain and storm weathers True Storms lights white, so strikes no longer relight the scene from a new sun angle. Thunder sounds kept.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: TrueStormsSE.esp
+    FileSize: 0
+  - Master: Enderal SE - Diverse Weathers.esp
+    FileSize: 0
+  - Master: Diverse Weather - True Storms.esp
+    FileSize: 0
+  INTV: 1

@@ -1,0 +1,24 @@
+FormKey: 017F72:Dawnguard.esm
+EditorID: DLC1KeeperDragonplateBootsAA
+BodyTemplate:
+  FirstPersonFlags:
+  - Feet
+  - Calves
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: True
+Unknown2: 22
+WorldModel:
+  Male:
+    File: udgp\armor\keeper\UDGPKeeperDragonboneBoots.nif
+    Data: 0x020000000000000000000000
+  Female:
+    File: Armor\Dragonbone\DragonboneBootsF_1.nif
+    Data: 0x020000000000000000000000
+FootstepSound: 021487:Skyrim.esm

@@ -1,0 +1,16 @@
+FormKey: 000A8C:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_EarthTotem
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Create Earth Totem" spell: a totem stands for 60 seconds and casts tremors that deal 120 damage every 7 seconds in combat. An Elementalism spell.'
+Name:
+  TargetLanguage: English
+  Value: 'Earth Totem'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A8A:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

@@ -1,0 +1,19 @@
+FormKey: 00088A:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Spell_Proc_Electrobolt
+Name:
+  TargetLanguage: English
+  Value: Electrobolt
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- AreaEffectIgnoresLOS
+CastType: FireAndForget
+TargetType: Aimed
+Effects:
+- BaseEffect: 00088B:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 80
+    Area: 6

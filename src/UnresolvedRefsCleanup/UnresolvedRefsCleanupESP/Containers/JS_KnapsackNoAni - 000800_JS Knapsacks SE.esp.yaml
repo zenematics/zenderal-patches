@@ -1,0 +1,26 @@
+FormKey: 000800:JS Knapsacks SE.esp
+VersionControl: 12588
+EditorID: JS_KnapsackNoAni
+Name:
+  TargetLanguage: English
+  Value: Knapsack
+Model:
+  File: clutter\containers\miscpouch_noani.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 04F78D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0876A5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 073FC5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 073FC4:Skyrim.esm
+    Count: 1
+Flags:
+- Respawns
+OpenSound: 0B2DD0:Skyrim.esm
+CloseSound: 0B2DD1:Skyrim.esm

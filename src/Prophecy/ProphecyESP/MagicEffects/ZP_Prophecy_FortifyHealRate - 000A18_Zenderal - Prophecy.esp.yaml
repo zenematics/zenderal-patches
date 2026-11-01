@@ -1,0 +1,29 @@
+FormKey: 000A18:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FortifyHealRate
+Version2: 10
+Name:
+  TargetLanguage: English
+  Value: Fortify Health Regeneration
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- HideInUI
+- PowerAffectsMagnitude
+BaseCost: 0.4
+HitShader: 0ABF07:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: HealRateMult
+DualCastScale: 1
+Sounds:
+- Sound: 03E957:Skyrim.esm
+- Type: Charge
+  Sound: 056622:Skyrim.esm
+- Type: Ready
+  Sound: 03F363:Skyrim.esm
+- Type: Release
+  Sound: 03F361:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

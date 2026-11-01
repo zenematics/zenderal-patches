@@ -1,0 +1,14 @@
+<patch>
+	<!-- The one edit of MichelKI's Death and Ragdoll Behavior Fix (Nexus 171129) that Pandora does not apply from its Nemesis
+	     patch (the author's page asks for it by hand in Pandora's own 0_master.xml; here it ships in our mod instead, so no
+	     third-party file is edited). Same value as the Nemesis patch: the human ragdoll CollisionListener fires nothing.
+	     The path names Element0 itself, so the replacement is the whole hkobject (a bare hkparam here built id 0). -->
+	<replace>
+		<edit path="#0260/contactEvent/Element0">
+			<hkobject>
+				<hkparam name="id">-1</hkparam>
+				<hkparam name="payload">null</hkparam>
+			</hkobject>
+		</edit>
+	</replace>
+</patch>

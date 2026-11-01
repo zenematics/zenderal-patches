@@ -1,0 +1,5 @@
+FormKey: 0DD9CF:Apocalypse - Magic of Skyrim.esp
+EditorID: WB_PrepareForAdventure_Litem_Staff
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount

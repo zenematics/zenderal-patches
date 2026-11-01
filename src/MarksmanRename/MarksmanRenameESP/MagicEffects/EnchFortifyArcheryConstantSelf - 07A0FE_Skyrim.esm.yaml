@@ -1,0 +1,23 @@
+FormKey: 07A0FE:Skyrim.esm
+EditorID: EnchFortifyArcheryConstantSelf
+Name:
+  TargetLanguage: English
+  Value: Fortify Marksman
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 074F69:Skyrim.esm
+Flags:
+- Recover
+- NoDuration
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 18
+EnchantShader: 092DEE:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: MarksmanModifier
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Bows do <mag>% more damage.

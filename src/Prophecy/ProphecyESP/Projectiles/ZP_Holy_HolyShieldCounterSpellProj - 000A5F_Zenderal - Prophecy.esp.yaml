@@ -1,0 +1,17 @@
+FormKey: 000A5F:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HolyShieldCounterSpellProj
+Model:
+  File: Lightpower\HolyShieldBeam.nif
+  Data: 0x020000000000000000000000
+Flags:
+- PassThroughSmallTransparent
+Type: Beam
+Speed: 20000
+Range: 3000
+Light: 000A4A:Zenderal - Prophecy.esp
+FadeDuration: 0.75
+ImpactForce: 10
+CollisionRadius: 10
+Lifetime: 0.5
+RelaunchInterval: 0.15
+MuzzleFlashModel: ''

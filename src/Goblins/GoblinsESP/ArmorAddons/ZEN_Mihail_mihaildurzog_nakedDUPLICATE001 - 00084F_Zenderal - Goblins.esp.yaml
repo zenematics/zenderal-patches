@@ -1,0 +1,23 @@
+FormKey: 00084F:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihaildurzog_nakedDUPLICATE001
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 00084E:Zenderal - Goblins.esp
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 17
+WorldModel:
+  Male:
+    File: Mihail Monsters and Animals\skeever\durzog\mihaildurzog1.nif
+    Data: 0x020000000000000000000000
+  Female:
+    File: Mihail Monsters and Animals\skeever\durzog\mihaildurzog2.nif
+    Data: 0x020000000000000000000000
+FootstepSound: 01F26F:Skyrim.esm

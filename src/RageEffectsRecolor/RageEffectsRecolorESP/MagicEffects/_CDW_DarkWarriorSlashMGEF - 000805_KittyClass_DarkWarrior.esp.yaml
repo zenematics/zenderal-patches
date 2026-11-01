@@ -1,0 +1,58 @@
+FormKey: 000805:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DarkWarriorSlashMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicAbsorbFXScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CasterVFX
+      Object: 001523:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fEffectDurationMax
+      Data: 2
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TargetVFX
+      Object: 001525:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TrapImod
+      Object: 000890:KittyClass_DarkWarrior.esp
+Name:
+  TargetLanguage: English
+  Value: Bloodletter
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Keywords:
+- 001491:KittyClass_DarkWarrior.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+TaperWeight: 0.3
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: Absorb
+Projectile: 00087A:KittyClass_DarkWarrior.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> points of Health.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 0008AF:KittyClass_DarkWarrior.esp

@@ -1,0 +1,60 @@
+FormKey: 103F39:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: DPassTurm
+Version2: 8
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Watchtower
+Flags:
+- IsInteriorCell
+- ShowSky
+Lighting:
+  AmbientColor: '#002B271E'
+  DirectionalColor: '#00241F1C'
+  FogNearColor: '#00373C3A'
+  FogFar: 5000
+  FogClipDistance: 5000
+  FogPower: 0.7
+  AmbientColors:
+    DirectionalXPlus: '#00464D4F'
+    DirectionalXMinus: '#003C4546'
+    DirectionalYPlus: '#00434647'
+    DirectionalYMinus: '#00434647'
+    DirectionalZPlus: '#0023231D'
+    DirectionalZMinus: '#00636670'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00373C3A'
+  FogMax: 0.8
+  Inherits:
+  - DirectionalColor
+LightingTemplate: 06AB01:Skyrim.esm
+WaterHeight: 0
+SkyAndWeatherFromRegion: 043C5D:Skyrim.esm
+AcousticSpace: 0C5B6B:Skyrim.esm
+Music: 01BECC:Skyrim.esm
+ImageSpace: 0A2687:Skyrim.esm
+Persistent:
+- MutagenObjectType: PlacedObject
+  FormKey: 1042FD:Skyrim.esm
+  MajorRecordFlagsRaw: 1024
+  EditorID: TurmLadderLower
+  Version2: 2
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 048E6C:Skyrim.esm
+  TeleportDestination:
+    Door: 1043D6:Skyrim.esm
+    Position: 22050.025, 40162.92, 13928.947
+    Rotation: 0, -0, 0.030000001
+  NavigationDoorLink:
+    NavMesh: 10438E:Skyrim.esm
+    TeleportMarkerTriangle: 31
+  Placement:
+    Position: -2457.1523, -1342.7075, 1132.2294
+    Rotation: 0, -0, 0.645
+MajorFlags:
+- 0x40000

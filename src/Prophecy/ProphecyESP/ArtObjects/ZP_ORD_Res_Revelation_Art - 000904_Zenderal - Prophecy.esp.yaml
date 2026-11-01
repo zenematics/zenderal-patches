@@ -1,0 +1,10 @@
+FormKey: 000904:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_Revelation_Art
+ObjectBounds:
+  First: -111, -3, -90
+  Second: 111, 71, 132
+Model:
+  File: Ordinator\Restoration_Art_Revelation.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

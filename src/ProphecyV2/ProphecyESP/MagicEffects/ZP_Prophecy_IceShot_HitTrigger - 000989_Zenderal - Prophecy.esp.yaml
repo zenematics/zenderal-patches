@@ -1,0 +1,37 @@
+FormKey: 000989:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_HitTrigger
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_IceShotTriggerEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Freeze
+      Object: 00098A:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FreezeEffect
+      Object: 000966:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LastShot
+      Object: 00098C:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Pending
+      Object: 00098D:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Ice Shot
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

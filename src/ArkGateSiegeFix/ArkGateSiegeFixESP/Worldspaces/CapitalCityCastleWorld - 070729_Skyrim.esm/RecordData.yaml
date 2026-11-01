@@ -1,0 +1,60 @@
+FormKey: 070729:Skyrim.esm
+EditorID: CapitalCityCastleWorld
+Name:
+  TargetLanguage: English
+  Value: Ark, Castle Quarters
+Location: 0A1A12:Skyrim.esm
+Parent:
+  Worldspace: 001D3C:Skyrim.esm
+  Flags:
+  - UseLandData
+  - UseLodData
+  - UseMapData
+  - UseWaterData
+  - UseClimateData
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -5, -5
+ObjectBoundsMax: 5, 6
+Music: 0B3671:Skyrim.esm
+TopCell:
+  FormKey: 07072C:Skyrim.esm
+  IsCompressed: True
+  MajorRecordFlagsRaw: 263168
+  SkyrimMajorRecordFlags:
+  - 0x400
+  - Compressed
+  Flags:
+  - HasWater
+  Grid:
+    Flags: -805661952
+  WaterHeight: 3.4028235E+38
+  Persistent:
+  - MutagenObjectType: PlacedObject
+    FormKey: 09EECD:Skyrim.esm
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    VirtualMachineAdapter:
+      Scripts:
+      - Name: _00E_ChestAndDoorLockScript
+        Flags: InheritedAndRemoved
+    Base: 11B116:Skyrim.esm
+    TeleportDestination:
+      Door: 096F6A:Skyrim.esm
+      Position: -4385.2627, -4651.8286, 5605.773
+      Rotation: 0, -0, 2.175007
+    Scale: 1.06
+    NavigationDoorLink:
+      NavMesh: 0CAFA0:Skyrim.esm
+      TeleportMarkerTriangle: 6
+    Placement:
+      Position: -4777.8496, -4443.4497, 5651.59
+      Rotation: 0, -0, 5.5581923
+  MajorFlags:
+  - Persistent
+  - 0x40000

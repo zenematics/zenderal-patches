@@ -1,0 +1,30 @@
+FormKey: 001E09:Skyrim.esm
+EditorID: ThalgardTrailer
+Version2: 1
+Flags:
+- HasWater
+Grid:
+  Point: 16, 9
+  Flags: -2048713216
+WaterHeight: 3.4028235E+38
+Regions:
+- 0022AB:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D34:Zenderal - Enemy Density.esp
+  Base: 141FF0:Skyrim.esm
+  Placement:
+    Position: 66636.6, 40093.3, 4586.1
+    Rotation: 0, 0, 5.4569
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D35:Zenderal - Enemy Density.esp
+  Base: 13F541:Skyrim.esm
+  Placement:
+    Position: 66741.3, 40069.5, 4552.6
+    Rotation: 0, 0, 5.0999
+- MutagenObjectType: PlacedNpc
+  FormKey: 000D36:Zenderal - Enemy Density.esp
+  Base: 141FF0:Skyrim.esm
+  Placement:
+    Position: 66560.0, 39978.7, 4658.4
+    Rotation: 0, 0, 1.7466

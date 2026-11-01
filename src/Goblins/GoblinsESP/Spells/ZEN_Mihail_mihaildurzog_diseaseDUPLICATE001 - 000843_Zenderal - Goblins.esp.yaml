@@ -1,0 +1,18 @@
+FormKey: 000843:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihaildurzog_diseaseDUPLICATE001
+Name:
+  TargetLanguage: English
+  Value: Rotbone
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Although less dangerous than Bone Break Fever, victims of Rotbone also suffer from loss of strength and stamina.
+Flags:
+- ManualCostCalc
+Type: Disease
+ChargeTime: 0.5
+TargetType: Touch
+Effects:
+- BaseEffect: 0B8776:Skyrim.esm
+  Data:
+    Magnitude: 12

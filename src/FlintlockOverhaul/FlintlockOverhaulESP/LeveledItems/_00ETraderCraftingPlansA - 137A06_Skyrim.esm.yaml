@@ -1,0 +1,259 @@
+FormKey: 137A06:Skyrim.esm
+EditorID: _00ETraderCraftingPlansA
+ChanceNone: 0.05
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 04614A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 046287:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 046291:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0467E5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 046B4E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 046D77:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0773EE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 097C13:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09CFDC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0B3657:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0BEC9B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0BEC9C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0DBF41:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4A5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4A6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4A7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4A8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4A9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4AA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4AB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4AC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4AD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4AE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4B0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4B1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4B2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4B3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11A4B5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11C4BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 11C4CE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3D0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3D4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3D5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3D6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3D7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3D8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3D9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 12E3DA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 139AED:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 139AEE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13B8FA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CA9C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CA9D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CA9E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CA9F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CAB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CAB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CAB5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CAB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CAB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13CAB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 13E0BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02F3F7:Enderal - Forgotten Stories.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001E62:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 001E68:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 002C57:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 002C75:Enderal SE - Gameplay Overhaul.esp
+    Count: 1
+- Data:
+    Level: 6
+    Reference: 000832:Enderal SE - Crossbows.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000800:AdventurerFlintlockPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000825:AdventurerFlintlockPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000826:AdventurerFlintlockPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000827:AdventurerFlintlockPack.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000828:AdventurerFlintlockPack.esp
+    Count: 1

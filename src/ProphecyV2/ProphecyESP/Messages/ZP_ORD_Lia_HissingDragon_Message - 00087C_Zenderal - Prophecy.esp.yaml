@@ -1,0 +1,27 @@
+FormKey: 00087C:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Lia_HissingDragon_Message
+Description:
+  TargetLanguage: English
+  Value: Train in which element?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Fire
+- Text:
+    TargetLanguage: English
+    Value: Frost
+- Text:
+    TargetLanguage: English
+    Value: Shock
+- Text:
+    TargetLanguage: English
+    Value: Poison
+- Text:
+    TargetLanguage: English
+    Value: Disease
+- Text:
+    TargetLanguage: English
+    Value: Sun

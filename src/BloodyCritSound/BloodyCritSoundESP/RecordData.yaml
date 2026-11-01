@@ -1,0 +1,18 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Bloody Crit Sound.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    The critical hit sound is a hard, bloody sword cut. Ships its own sound file, so it works with or
+    without Impactful Crits.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

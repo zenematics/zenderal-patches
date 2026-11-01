@@ -1,0 +1,134 @@
+FormKey: 000807:mihailmatingcrabs.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: mihailcrab_NPC_horse
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -39, -41, 0
+  Second: 39, 41, 56
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - DoesntAffectStealthMeter
+  - SimpleActor
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 1
+  SpeedMultiplier: 50
+  DispositionBase: 35
+  HealthOffset: -24
+Factions:
+- Faction: 000013:Skyrim.esm
+  Fluff: 0x000000
+Voice: 03E8A6:Skyrim.esm
+Race: 000808:mihailmatingcrabs.esp
+WornArmor: 000806:mihailmatingcrabs.esp
+AttackRace: 000800:mihailmatingcrabs.esp
+Items:
+- Item:
+    Item: 0009CE:mihailmatingcrabs.esp
+    Count: 1
+AIData:
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  AggroRadiusBehavior: True
+  Unused: 81
+  Warn: 500
+  WarnOrAttack: 500
+  Attack: 500
+Class: 0BB4B0:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Horseshoe Crab
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 1
+  Magicka: 4
+  Stamina: 25
+  GearedUpWeapons: 1
+CombatStyle: 0BB4AF:Skyrim.esm
+NAM5: 255
+Height: 0.4
+Weight: 30
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+DefaultPackageList: 0EB249:Skyrim.esm
+TextureLighting: '#007F7F7F'
+MajorFlags:
+- 0x40000

@@ -1,0 +1,18 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Frost Spider Mother Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Makes the Frostkrabblermutter visible again: EGO moved it to FrostbiteSpiderRaceLarge but left it on
+    the giant cold spider skin, whose body only rendered for FrostbiteSpiderRaceGiant.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

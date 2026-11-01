@@ -1,0 +1,10 @@
+FormKey: 000A9F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BlinkStep
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Blink Step" lesser power (35 Mana): you shatter like glass and re-form up to 33 feet ahead.'
+Name:
+  TargetLanguage: English
+  Value: 'Blink Step'
+NumRanks: 1
+Playable: True

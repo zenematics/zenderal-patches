@@ -1,0 +1,18 @@
+FormKey: 000937:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SeismicStomp_SlowTime
+Name:
+  TargetLanguage: English
+  Value: Seismic Stomp
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000938:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 0.3
+    Duration: 10

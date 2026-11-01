@@ -1,0 +1,25 @@
+FormKey: 001492:KataPUMBAffinities.esp
+EditorID: Kata_Affinity_AbAcrobat
+Name:
+  TargetLanguage: English
+  Value: 'Affinity: Acrobat'
+MenuDisplayObject: 10FEF4:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Raises Stamina by <30> points. Raises each of Sleight of Hand, Marksman and One-Handed by <7> points. Adds a <10>% chance to dodge incoming attacks.
+BaseCost: 124
+Type: Ability
+Effects:
+- BaseEffect: 0438DC:Skyrim.esm
+  Data:
+    Magnitude: 7
+- BaseEffect: 023166:Skyrim.esm
+  Data:
+    Magnitude: 7
+- BaseEffect: 001490:KataPUMBAffinities.esp
+  Data:
+    Magnitude: 30
+- BaseEffect: 023163:Skyrim.esm
+  Data:
+    Magnitude: 7

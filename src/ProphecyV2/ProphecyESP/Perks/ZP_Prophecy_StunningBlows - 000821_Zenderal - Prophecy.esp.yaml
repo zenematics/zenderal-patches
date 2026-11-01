@@ -1,0 +1,46 @@
+FormKey: 000821:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_StunningBlows
+Name:
+  TargetLanguage: English
+  Value: 'Stunning Blows'
+Description:
+  TargetLanguage: English
+  Value: 'Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies.'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 00081F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 0
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsStaggeredConditionData
+      ComparisonValue: 1
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.25
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 0
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 00085F:Zenderal - Prophecy.esp

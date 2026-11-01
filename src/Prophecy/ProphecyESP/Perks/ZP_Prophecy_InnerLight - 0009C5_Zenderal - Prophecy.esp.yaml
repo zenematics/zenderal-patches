@@ -1,0 +1,19 @@
+FormKey: 0009C5:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_InnerLight
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Mana is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Inner Light'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000810:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009EF:Zenderal - Prophecy.esp

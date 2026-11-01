@@ -1,0 +1,58 @@
+FormKey: 001F92:Enderal SE - Gameplay Overhaul.esp
+MajorRecordFlagsRaw: 4
+EditorID: _25E_LSet_PathfindersBoots_Unplayable
+SkyrimMajorRecordFlags:
+- NotPlayable
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_ArmorSetScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetBonusesList
+      Object: 13F4ED:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetGlobal
+      Object: 13F4EC:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: __Config_SetList
+      Object: 046E07:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+ObjectBounds:
+  First: -11, -9, 0
+  Second: 14, 14, 28
+Name:
+  TargetLanguage: English
+  Value: (Set des Fährtenlesers) Leiser Schritt des Fährtenlesers
+ObjectEffect: 13F4EA:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: armor\BosmerArmorMATY743\go\bootsgnd.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: armor\BosmerArmorMATY743\go\bootsgnd.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Feet
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD3:Skyrim.esm
+- 06BBDB:Skyrim.esm
+- 06C0ED:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 02A4DD:Enderal - Forgotten Stories.esm
+Value: 100
+Weight: 5
+ArmorRating: 13.66
+MajorFlags:
+- NonPlayable

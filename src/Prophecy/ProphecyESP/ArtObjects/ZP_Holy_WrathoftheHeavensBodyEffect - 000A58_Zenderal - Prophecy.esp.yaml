@@ -1,0 +1,10 @@
+FormKey: 000A58:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_WrathoftheHeavensBodyEffect
+ObjectBounds:
+  First: -63, -89, 11
+  Second: 63, 89, 12
+Model:
+  File: Lightpower\HolyAuraEffect.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

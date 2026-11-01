@@ -1,0 +1,36 @@
+FormKey: 000A35:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_WrathoftheHeavensMGEF
+Name:
+  TargetLanguage: English
+  Value: Wrath of the Lightborn
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 0B62E4:Skyrim.esm
+Flags:
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3.2
+MagicSkill: Restoration
+CastingLight: 03F1B5:Skyrim.esm
+TaperWeight: 0.3
+HitShader: 10B2DF:Skyrim.esm
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 2
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 000A42:Zenderal - Prophecy.esp
+CastType: FireAndForget
+CastingArt: 01C859:Skyrim.esm
+HitEffectArt: 000A58:Zenderal - Prophecy.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

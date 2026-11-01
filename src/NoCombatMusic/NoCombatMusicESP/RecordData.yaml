@@ -1,0 +1,16 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - No Combat Music.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Battles no longer start music: Enderal's generic battle music plays silence below every exploration type, so the area's music keeps playing. Quest-scripted music is unchanged."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

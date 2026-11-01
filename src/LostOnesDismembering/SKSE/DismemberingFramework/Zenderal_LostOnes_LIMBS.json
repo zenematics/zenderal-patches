@@ -1,0 +1,410 @@
+{
+  "Zenderal - Skeleton - L Calf": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - L Calf",
+      "Draugr - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x800"
+  },
+  "Zenderal - Skeleton - R Calf": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - R Calf",
+      "Draugr - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x801"
+  },
+  "Zenderal - Skeleton - L Forearm": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - L Forearm",
+      "Draugr - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x802"
+  },
+  "Zenderal - Skeleton - R Forearm": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - R Forearm",
+      "Draugr - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x803"
+  },
+  "Zenderal - Skeleton - Head": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x804"
+  },
+  "Zenderal - Minotaur - Calf_L - 805": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x805"
+  },
+  "Zenderal - Minotaur - Calf_R - 806": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x806"
+  },
+  "Zenderal - Minotaur - Forearm_L - 807": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x807"
+  },
+  "Zenderal - Minotaur - Forearm_R - 808": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x808"
+  },
+  "Zenderal - Minotaur - Head - 809": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x809"
+  },
+  "Zenderal - Minotaur - Calf_L - 80A": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x80A"
+  },
+  "Zenderal - Minotaur - Calf_R - 80B": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x80B"
+  },
+  "Zenderal - Minotaur - Forearm_L - 80C": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x80C"
+  },
+  "Zenderal - Minotaur - Forearm_R - 80D": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x80D"
+  },
+  "Zenderal - Minotaur - Head - 80E": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x80E"
+  },
+  "Zenderal - Minotaur - Calf_L - 80F": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x80F"
+  },
+  "Zenderal - Minotaur - Calf_R - 810": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x810"
+  },
+  "Zenderal - Minotaur - Forearm_L - 811": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x811"
+  },
+  "Zenderal - Minotaur - Forearm_R - 812": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x812"
+  },
+  "Zenderal - Minotaur - Head - 813": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x813"
+  },
+  "Zenderal - Minotaur - Calf_L - 814": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x814"
+  },
+  "Zenderal - Minotaur - Calf_R - 815": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x815"
+  },
+  "Zenderal - Minotaur - Forearm_L - 816": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x816"
+  },
+  "Zenderal - Minotaur - Forearm_R - 817": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x817"
+  },
+  "Zenderal - Minotaur - Head - 818": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x818"
+  },
+  "Zenderal - Minotaur - Calf_L - 819": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x819"
+  },
+  "Zenderal - Minotaur - Calf_R - 81A": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x81A"
+  },
+  "Zenderal - Minotaur - Forearm_L - 81B": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x81B"
+  },
+  "Zenderal - Minotaur - Forearm_R - 81C": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x81C"
+  },
+  "Zenderal - Minotaur - Calf_L - 81D": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x81D"
+  },
+  "Zenderal - Minotaur - Calf_R - 81E": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x81E"
+  },
+  "Zenderal - Minotaur - Forearm_L - 81F": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x81F"
+  },
+  "Zenderal - Minotaur - Forearm_R - 820": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x820"
+  },
+  "Zenderal - Minotaur - Calf_L - 821": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x821"
+  },
+  "Zenderal - Minotaur - Calf_R - 822": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x822"
+  },
+  "Zenderal - Minotaur - Forearm_L - 823": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x823"
+  },
+  "Zenderal - Minotaur - Forearm_R - 824": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x824"
+  },
+  "Zenderal - Minotaur - Calf_L - 825": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x825"
+  },
+  "Zenderal - Minotaur - Calf_R - 826": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x826"
+  },
+  "Zenderal - Minotaur - Forearm_L - 827": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x827"
+  },
+  "Zenderal - Minotaur - Forearm_R - 828": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x828"
+  },
+  "Zenderal - Minotaur - Calf_L - 829": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x829"
+  },
+  "Zenderal - Minotaur - Calf_R - 82A": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x82A"
+  },
+  "Zenderal - Minotaur - Forearm_L - 82B": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x82B"
+  },
+  "Zenderal - Minotaur - Forearm_R - 82C": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x82C"
+  },
+  "Zenderal - Minotaur - Head - 82D": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x82D"
+  },
+  "Zenderal - Minotaur - Calf_L - 82E": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Calf",
+      "Humanoid - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x82E"
+  },
+  "Zenderal - Minotaur - Calf_R - 82F": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Calf",
+      "Humanoid - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x82F"
+  },
+  "Zenderal - Minotaur - Forearm_L - 830": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - L Forearm",
+      "Humanoid - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x830"
+  },
+  "Zenderal - Minotaur - Forearm_R - 831": {
+    "Templates": [
+      "DF - Base data",
+      "Humanoid - Male - Base data - R Forearm",
+      "Humanoid - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x831"
+  },
+  "Zenderal - Minotaur - Head - 832": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x832"
+  }
+}

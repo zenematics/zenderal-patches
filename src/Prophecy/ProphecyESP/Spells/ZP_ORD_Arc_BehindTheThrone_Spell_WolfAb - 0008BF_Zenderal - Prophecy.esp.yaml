@@ -1,0 +1,15 @@
+FormKey: 0008BF:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_BehindTheThrone_Spell_WolfAb
+Name:
+  TargetLanguage: English
+  Value: Spirit Wolf Ability
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 0008C0:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 1

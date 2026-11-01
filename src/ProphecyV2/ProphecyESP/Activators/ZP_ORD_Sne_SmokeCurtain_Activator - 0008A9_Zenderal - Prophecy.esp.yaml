@@ -1,0 +1,13 @@
+FormKey: 0008A9:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Sne_SmokeCurtain_Activator
+ObjectBounds:
+  First: -917, -1687, -132
+  Second: 892, 1674, 1153
+Name:
+  TargetLanguage: English
+  Value: Smoke Curtain
+Model:
+  File: Ordinator\Sneak_Hazard_SmokeCurtain2.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []

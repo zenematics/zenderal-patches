@@ -1,0 +1,31 @@
+FormKey: 00086B:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Lia_HissingDragon_Effect_Proc_Disease
+Name:
+  TargetLanguage: English
+  Value: Amethyst Dragon
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 000868:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+ResistValue: ResistDisease
+HitShader: 00086E:Zenderal - Prophecy.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 00086D:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: Release
+  Sound: 00086C:Zenderal - Prophecy.esp
+Description:
+  TargetLanguage: English
+  Value: Your fists infect targets for <mag> points of disease damage per second for <dur> seconds.

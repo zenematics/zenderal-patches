@@ -1,0 +1,447 @@
+{
+    "name": "HW_WL_S",
+    "description": "Heavy-Armored Wall Lean - Shield/Torch",
+    "priority": 2130000107,
+    "replacementAnimDatas": [
+        {
+            "projectName": "DefaultFemale",
+            "path": "data\\meshes\\actors\\character\\animations\\OpenAnimationReplacer\\SDB_RSWL\\05_HA_WL_S\\female\\_variants_mt_idle",
+            "variantMode": 0,
+            "variantStateScope": 1,
+            "blendBetweenVariants": true,
+            "resetRandomOnLoopOrEcho": true,
+            "sharePlayedHistory": false,
+            "variants": [
+                {
+                    "filename": "SDB_RSWL_HA_TS.hkx",
+                    "playOnce": true
+                }
+            ]
+        },
+        {
+            "projectName": "DefaultMale",
+            "path": "data\\meshes\\actors\\character\\animations\\OpenAnimationReplacer\\SDB_RSWL\\05_HA_WL_S\\male\\_variants_mt_idle",
+            "variantMode": 0,
+            "variantStateScope": 1,
+            "blendBetweenVariants": true,
+            "resetRandomOnLoopOrEcho": true,
+            "sharePlayedHistory": false,
+            "variants": [
+                {
+                    "filename": "SDB_RSWL_HA_TS.hkx",
+                    "playOnce": true
+                }
+            ]
+        }
+    ],
+    "interruptible": true,
+    "replaceOnLoop": false,
+    "conditions": [
+        {
+            "condition": "AND",
+            "requiredVersion": "1.0.0.0",
+            "comment": "      Author Configured",
+            "Conditions": [
+                {
+                    "condition": "AND",
+                    "requiredVersion": "1.0.0.0",
+                    "comment": "Don't Modify",
+                    "Conditions": [
+                        {
+                            "condition": "AND",
+                            "requiredVersion": "1.0.0.0",
+                            "comment": "Player Interactions",
+                            "Conditions": [
+                                {
+                                    "condition": "CompareValues",
+                                    "requiredVersion": "1.0.0.0",
+                                    "negated": true,
+                                    "Value A": {
+                                        "graphVariable": "i1stPerson",
+                                        "graphVariableType": "Int"
+                                    },
+                                    "Comparison": "==",
+                                    "Value B": {
+                                        "value": 1.0
+                                    }
+                                },
+                                {
+                                    "condition": "IsInCombat",
+                                    "requiredVersion": "1.0.0.0",
+                                    "negated": true
+                                },
+                                {
+                                    "condition": "IsMenuOpen",
+                                    "requiredVersion": "1.3.0.0",
+                                    "negated": true,
+                                    "Menu name": "MagicMenu"
+                                },
+                                {
+                                    "condition": "IsMenuOpen",
+                                    "requiredVersion": "1.3.0.0",
+                                    "negated": true,
+                                    "Menu name": "InventoryMenu"
+                                }
+                            ]
+                        },
+                        {
+                            "condition": "AND",
+                            "requiredVersion": "1.0.0.0",
+                            "comment": "Raysense Conditions",
+                            "Conditions": [
+                                {
+                                    "condition": "RaySense_Wall",
+                                    "requiredPlugin": "Open Animation Replacer - RaySense",
+                                    "requiredVersion": "1.0.0.0",
+                                    "Sensor(0:F, 1:FL, 2:FR, 3:L, 4:R)": {
+                                        "value": 0.0
+                                    },
+                                    "Comparison": "<=",
+                                    "Distance": {
+                                        "value": 30.0
+                                    }
+                                },
+                                {
+                                    "condition": "RaySense_Obstacle",
+                                    "requiredPlugin": "Open Animation Replacer - RaySense",
+                                    "requiredVersion": "1.0.0.0",
+                                    "negated": true,
+                                    "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                        "value": 0.0
+                                    },
+                                    "Comparison": "==",
+                                    "Value": {
+                                        "value": 43.0
+                                    }
+                                },
+                                {
+                                    "condition": "RaySense_Obstacle",
+                                    "requiredPlugin": "Open Animation Replacer - RaySense",
+                                    "requiredVersion": "1.0.0.0",
+                                    "negated": true,
+                                    "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                        "value": 0.0
+                                    },
+                                    "Comparison": "==",
+                                    "Value": {
+                                        "value": 24.0
+                                    }
+                                },
+                                {
+                                    "condition": "OR",
+                                    "requiredVersion": "1.0.0.0",
+                                    "comment": "Raysense Obstacles Additional",
+                                    "Conditions": [
+                                        {
+                                            "condition": "RaySense_Obstacle",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 40.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Obstacle",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 29.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Obstacle",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 28.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Obstacle",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 34.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Obstacle",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 36.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Obstacle",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 38.0
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "condition": "OR",
+                                    "requiredVersion": "1.0.0.0",
+                                    "comment": "Stairs Wall Fix",
+                                    "Conditions": [
+                                        {
+                                            "condition": "IsOnStairs",
+                                            "requiredVersion": "2.3.0.0",
+                                            "negated": true
+                                        },
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": ">=",
+                                            "Value": {
+                                                "value": 111.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 0.0
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "condition": "OR",
+                                    "requiredVersion": "1.0.0.0",
+                                    "comment": "Raysense Rail Guard",
+                                    "Conditions": [
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 2.0
+                                            },
+                                            "Comparison": ">=",
+                                            "Value": {
+                                                "value": 6.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 2.0
+                                            },
+                                            "Comparison": "<=",
+                                            "Value": {
+                                                "value": 2.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": ">=",
+                                            "Value": {
+                                                "value": 100.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 0.0
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "condition": "OR",
+                                    "requiredVersion": "1.0.0.0",
+                                    "comment": "Objects Variables",
+                                    "Conditions": [
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "negated": true,
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "<=",
+                                            "Value": {
+                                                "value": 70.0
+                                            }
+                                        },
+                                        {
+                                            "condition": "RaySense_Ledge",
+                                            "requiredPlugin": "Open Animation Replacer - RaySense",
+                                            "requiredVersion": "1.0.0.0",
+                                            "Sensor(0:Height, 1:Dist, 2:Depth, 3:Type)": {
+                                                "value": 0.0
+                                            },
+                                            "Comparison": "==",
+                                            "Value": {
+                                                "value": 0.0
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "condition": "OR",
+                    "requiredVersion": "1.0.0.0",
+                    "disabled": true,
+                    "comment": "Heels Only Needed for LA Variants",
+                    "Conditions": [
+                        {
+                            "condition": "HasSpell",
+                            "requiredVersion": "1.0.0.0",
+                            "Spell": {
+                                "pluginName": "HighHeelsCondition.esp",
+                                "formID": "802"
+                            }
+                        },
+                        {
+                            "condition": "IsWornInSlotHasKeyword",
+                            "requiredVersion": "1.0.0.0",
+                            "Slot": {
+                                "value": 7.0
+                            },
+                            "Keyword": {
+                                "editorID": "HighHeel"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "condition": "XOR",
+                    "requiredVersion": "2.1.0.0",
+                    "comment": "Equipped Styles",
+                    "Conditions": [
+                        {
+                            "condition": "IsEquippedType",
+                            "requiredVersion": "1.0.0.0",
+                            "Type": {
+                                "value": 11.0
+                            },
+                            "Left hand": true
+                        },
+                        {
+                            "condition": "IsEquippedType",
+                            "requiredVersion": "1.0.0.0",
+                            "Type": {
+                                "value": 18.0
+                            },
+                            "Left hand": true
+                        }
+                    ]
+                },
+                {
+                    "condition": "IdleTime",
+                    "requiredVersion": "2.3.0.0",
+                    "Comparison": ">=",
+                    "Numeric value": {
+                        "value": 2.5
+                    },
+                    "State": {
+                        "shouldResetOnLoopOrEcho": false
+                    }
+                }
+            ]
+        },
+        {
+            "condition": "Random",
+            "requiredVersion": "2.3.0.0",
+            "comment": "   >> PICK 1 << Randomized Type Distribution",
+            "State": {
+                "scope": "Replacer mod",
+                "shouldResetOnLoopOrEcho": true
+            },
+            "Minimum random value": {
+                "value": 0.0
+            },
+            "Maximum random value": {
+                "value": 1.0
+            },
+            "Comparison": ">=",
+            "Numeric value": {
+                "value": 0.6700000166893005
+            }
+        },
+        {
+            "condition": "AND",
+            "requiredVersion": "1.0.0.0",
+            "disabled": true,
+            "comment": "      >> PICK 1 << Armor Type Distribution",
+            "Conditions": [
+                {
+                    "condition": "IsWornInSlotHasKeyword",
+                    "requiredVersion": "1.0.0.0",
+                    "negated": true,
+                    "Slot": {
+                        "value": 2.0
+                    },
+                    "Keyword": {
+                        "editorID": "ArmorLight"
+                    }
+                },
+                {
+                    "condition": "IsWornInSlotHasKeyword",
+                    "requiredVersion": "1.0.0.0",
+                    "Slot": {
+                        "value": 2.0
+                    },
+                    "Keyword": {
+                        "editorID": "ArmorHeavy"
+                    }
+                }
+            ]
+        }
+    ]
+}

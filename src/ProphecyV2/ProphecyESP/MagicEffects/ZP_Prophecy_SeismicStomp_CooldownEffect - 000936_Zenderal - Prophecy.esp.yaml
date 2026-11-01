@@ -1,0 +1,17 @@
+FormKey: 000936:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SeismicStomp_CooldownEffect
+Name:
+  TargetLanguage: English
+  Value: Seismic Stomp
+Flags:
+- Recover
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'Seismic Stomp can be used again in <dur> seconds.'

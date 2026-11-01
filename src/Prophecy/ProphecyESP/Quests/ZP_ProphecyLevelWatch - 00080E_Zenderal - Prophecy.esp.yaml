@@ -1,0 +1,21 @@
+FormKey: 00080E:Zenderal - Prophecy.esp
+EditorID: ZP_ProphecyLevelWatch
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 00080E:Zenderal - Prophecy.esp
+      Alias: 0
+    Scripts:
+    - Name: ZP_ProphecyLevelWatch
+Flags:
+- StartGameEnabled
+Priority: 20
+NextAliasID: 1
+Aliases:
+- Name: Player
+  Flags:
+  - Optional
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

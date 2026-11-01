@@ -1,0 +1,18 @@
+FormKey: 000824:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Bck_QuickReflexes_Spell_Self
+Name:
+  TargetLanguage: English
+  Value: Quick Reflexes
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000825:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 0.05
+    Duration: 1

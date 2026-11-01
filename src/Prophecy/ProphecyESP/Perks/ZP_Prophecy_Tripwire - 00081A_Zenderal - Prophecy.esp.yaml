@@ -1,0 +1,14 @@
+FormKey: 00081A:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Tripwire
+Name:
+  TargetLanguage: English
+  Value: 'Explosive Tripwire'
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Explosive Tripwire" power: at will, set a tripwire in front of you that lasts 120 seconds. When tripped, it snaps and knocks everyone it hits to the ground, and an enemy who trips it sets off an explosion that deals 40 damage.'
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Priority: 119
+  Ability: 0008AA:Zenderal - Prophecy.esp

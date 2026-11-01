@@ -1,0 +1,26 @@
+FormKey: 000812:Zenderal - Traits.esp
+EditorID: ZEN_TR_IronWillPERK
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: EPMagic_SpellHasSkillConditionData
+        ActorValue: Illusion
+      ComparisonValue: 1
+  EntryPoint: ModIncomingSpellMagnitude
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 0.5
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModPercentBlocked
+  PerkConditionTabCount: 1
+  Modification: Multiply
+  Value: 0.85

@@ -1,0 +1,28 @@
+FormKey: 000AD4:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DrowningOrb_AbsorbMana
+Name:
+  TargetLanguage: English
+  Value: Drowning Orb
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoDeathDispel
+- Painless
+MagicSkill: Destruction
+ResistValue: ResistMagic
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+  Type: Absorb
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Absorbs <mag> Mana per second.

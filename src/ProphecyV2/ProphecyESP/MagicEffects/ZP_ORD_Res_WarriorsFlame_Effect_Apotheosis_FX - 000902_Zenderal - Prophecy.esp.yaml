@@ -1,0 +1,29 @@
+FormKey: 000902:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Effect_Apotheosis_FX
+Name:
+  TargetLanguage: English
+  Value: Apotheosis
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 0008FD:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- NoDeathDispel
+BaseCost: 1
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+HitEffectArt: 000904:Zenderal - Prophecy.esp
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+ImageSpaceModifier: 000903:Zenderal - Prophecy.esp
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Casts Warrior's Flame on all nearby for <dur> seconds.

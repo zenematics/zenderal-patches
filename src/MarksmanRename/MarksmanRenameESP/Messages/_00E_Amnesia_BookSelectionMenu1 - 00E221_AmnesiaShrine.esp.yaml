@@ -1,0 +1,39 @@
+FormKey: 00E221:AmnesiaShrine.esp
+EditorID: _00E_Amnesia_BookSelectionMenu1
+Description:
+  TargetLanguage: English
+  Value: Select the skill below to learn. These skills require Learning points. You have %.0f points.
+Name:
+  TargetLanguage: English
+  Value: Book Selection Menu 1 - Combat
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Cancel
+- Text:
+    TargetLanguage: English
+    Value: Marksman
+- Text:
+    TargetLanguage: English
+    Value: Block
+- Text:
+    TargetLanguage: English
+    Value: One-Handed
+- Text:
+    TargetLanguage: English
+    Value: Two-Handed
+- Text:
+    TargetLanguage: English
+    Value: Heavy Armor
+- Text:
+    TargetLanguage: English
+    Value: Light Armor
+- Text:
+    TargetLanguage: English
+    Value: Sneak
+- Text:
+    TargetLanguage: English
+    Value: Next Set

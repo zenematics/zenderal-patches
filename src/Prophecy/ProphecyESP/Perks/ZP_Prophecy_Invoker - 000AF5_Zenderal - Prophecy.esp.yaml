@@ -1,0 +1,16 @@
+FormKey: 000AF5:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Invoker
+Description:
+  TargetLanguage: English
+  Value: 'Every 5th unarmed hit unleashes fire, frost or lightning on the enemy, at random: a fireball explosion, a freeze that holds it for 4 seconds, or chain lightning that leaps to nearby enemies. Each deals 60 damage.'
+Name:
+  TargetLanguage: English
+  Value: 'Invoker'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 0009D6:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

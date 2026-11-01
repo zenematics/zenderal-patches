@@ -1,0 +1,10 @@
+FormKey: 000A82:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Druidcraft
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Druidcraft" spell: cast it on a corpse and nature reclaims it, growing a plant you can harvest, and you heal 20 Health and gather a Goodberry.'
+Name:
+  TargetLanguage: English
+  Value: 'Druidcraft'
+NumRanks: 1
+Playable: True

@@ -1,0 +1,20 @@
+FormKey: 000873:Zenderal - Traits.esp
+EditorID: ZEN_TR_StatResistFireNeg
+Name:
+  TargetLanguage: English
+  Value: 'Trait: ResistFireNeg'
+Flags:
+- Recover
+- Detrimental
+- NoDuration
+- NoArea
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistFire
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Qyra Island EditorID Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Restores Enderal 2.1's EditorID FSNQ01QyraIsland on Qyra's island worldspace, which Ships of the First Vassals reverts to the 2.0 name (DynDOLOD "Worldspace Editor ID changed").
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Ships of the First Vassals.esp
+    FileSize: 0
+  INTV: 1

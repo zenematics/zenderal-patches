@@ -1,0 +1,21 @@
+FormKey: 000802:Zenderal - Testing Cheats.esp
+EditorID: ZEN_TC_Menu
+Description:
+  TargetLanguage: English
+  Value: Testing cheats
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Gain levels
+- Text:
+    TargetLanguage: English
+    Value: Add experience
+- Text:
+    TargetLanguage: English
+    Value: Add Prophecy points
+- Text:
+    TargetLanguage: English
+    Value: Cancel

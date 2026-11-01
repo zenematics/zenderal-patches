@@ -1,0 +1,16 @@
+FormKey: 000AC0:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Shadowbringer
+Description:
+  TargetLanguage: English
+  Value: 'Your standing power attacks with at least 8 Rage raise a pillar of dark fire: 60 damage, knocking down everyone it strikes. Spends 8 Rage.'
+Name:
+  TargetLanguage: English
+  Value: 'Shadowbringer'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000ABA:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

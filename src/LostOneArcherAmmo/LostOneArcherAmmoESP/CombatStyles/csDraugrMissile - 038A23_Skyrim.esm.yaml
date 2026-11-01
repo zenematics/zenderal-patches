@@ -1,0 +1,41 @@
+FormKey: 038A23:Skyrim.esm
+MajorRecordFlagsRaw: 524288
+EditorID: csDraugrMissile
+SkyrimMajorRecordFlags:
+- CantWait
+OffensiveMult: 1
+DefensiveMult: 0.15
+GroupOffensiveMult: 0.8
+EquipmentScoreMultMelee: 1
+EquipmentScoreMultMagic: 1
+EquipmentScoreMultRanged: 1.06
+EquipmentScoreMultShout: 1
+EquipmentScoreMultUnarmed: 1
+EquipmentScoreMultStaff: 1
+Melee:
+  AttackStaggeredMult: 1
+  PowerAttackStaggeredMult: 1
+  PowerAttackBlockingMult: 1.5
+  BashMult: 1.5
+  BashRecoilMult: 1
+  BashAttackMult: 1
+  BashPowerAttackMult: 1
+  SpecialAttackMult: 0.1
+CloseRange:
+  CircleMult: 0.05
+  FlankDistance: 0.2
+  StalkTime: 0.2
+LongRangeStrafeMult: 0.1
+Flight:
+  HoverChance: 0.33
+  DiveBombChance: 1
+  GroundAttackChance: 0.5
+  HoverTime: 0.5
+  GroundAttackTime: 0.5
+  PerchAttackChance: 0.5
+  PerchAttackTime: 0.5
+  FlyingAttackChance: 0.75
+Flags:
+- AllowDualWielding
+MajorFlags:
+- AllowDualWielding

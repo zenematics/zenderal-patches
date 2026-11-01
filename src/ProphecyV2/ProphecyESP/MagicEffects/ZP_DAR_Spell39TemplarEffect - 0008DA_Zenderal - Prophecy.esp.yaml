@@ -1,0 +1,26 @@
+FormKey: 0008DA:Zenderal - Prophecy.esp
+EditorID: ZP_DAR_Spell39TemplarEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: dar_OnEffectStartTriggerScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TriggerSpell0
+      Object: 0008DB:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Templar
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Recover
+- HideInUI
+TaperWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

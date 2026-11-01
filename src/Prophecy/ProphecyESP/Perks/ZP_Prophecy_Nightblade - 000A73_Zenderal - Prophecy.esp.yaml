@@ -1,0 +1,16 @@
+FormKey: 000A73:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Nightblade
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Nightblade" spell (4 Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing 15 more magic damage per point spent.'
+Name:
+  TargetLanguage: English
+  Value: 'Nightblade'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000A6F:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

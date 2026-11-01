@@ -1,0 +1,19 @@
+FormKey: 0009E8:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DarkStudies
+Description:
+  TargetLanguage: English
+  Value: 'Your Entropy skill is increased by 10.'
+Name:
+  TargetLanguage: English
+  Value: 'Dark Studies'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000992:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000A12:Zenderal - Prophecy.esp

@@ -1,0 +1,28 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Lost One Archer Ammo.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Lost One archers keep shooting: removes the single Old Iron Arrow Lost Ones Revised - EGO Patch adds beside their
+    real arrows, which EGO's NPCsUseAmmo bows could equip and fire only once.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Undead Creatures Replacer.esp
+    FileSize: 0
+  - Master: mihailancientskeletons.esp
+    FileSize: 0
+  - Master: Lost Ones Revised - EGO Patch.esp
+    FileSize: 0
+  INTV: 1

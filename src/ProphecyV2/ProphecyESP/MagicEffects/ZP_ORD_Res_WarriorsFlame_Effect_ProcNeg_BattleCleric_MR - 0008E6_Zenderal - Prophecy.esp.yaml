@@ -1,0 +1,35 @@
+FormKey: 0008E6:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_WarriorsFlame_Effect_ProcNeg_BattleCleric_MR
+Name:
+  TargetLanguage: English
+  Value: Battle Cleric - Magic Resist
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 0008E7:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- Detrimental
+- NoHitEvent
+- NoArea
+- HideInUI
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: ResistMagic
+  Association: 0008E7:Zenderal - Prophecy.esp
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    RunOnType: Target
+    Perk: 000808:Zenderal - Prophecy.esp
+  ComparisonValue: 1

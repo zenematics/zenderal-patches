@@ -1,0 +1,17 @@
+{
+  "name": "casting-bar-ae",
+  "version-string": "3.0.1",
+  "builtin-baseline": "ee12231b20c95013c6638d845d04c91559a1d1ff",
+  "dependencies": [
+    "directxmath",
+    "directxtk",
+    "fmt",
+    "magic-enum",
+    "nlohmann-json",
+    "rapidcsv",
+    "simpleini",
+    "spdlog",
+    "toml11",
+    "xbyak"
+  ]
+}

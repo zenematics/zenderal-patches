@@ -1,0 +1,15 @@
+FormKey: 0009FF:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_SteadyHands_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Steady Hands'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 091F77:Skyrim.esm
+  Data:
+    Magnitude: 25

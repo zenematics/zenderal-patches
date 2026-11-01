@@ -1,0 +1,7 @@
+FormKey: 00096F:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Enc_Spellscribe_Message_Fail_InCombat
+Description:
+  TargetLanguage: English
+  Value: This power cannot be used in combat.
+INAM: 0x00000000
+DisplayTime: 2

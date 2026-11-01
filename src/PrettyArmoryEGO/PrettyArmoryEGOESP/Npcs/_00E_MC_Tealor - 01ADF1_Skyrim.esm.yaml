@@ -22,6 +22,7 @@ Factions:
   Fluff: 0x000000
 Voice: 0CE2C9:Skyrim.esm
 Race: 013744:Skyrim.esm
+WornArmor: 000831:Malphas' Blessing - Enderal.esp
 Perks:
 - Perk: 001D2E:Enderal SE - Gameplay Overhaul.esp
   Rank: 1
@@ -130,10 +131,12 @@ PlayerSkills:
   Stamina: 31
   GearedUpWeapons: 1
 HeadParts:
-- 099D60:Skyrim.esm
+- 0C3CD0:Skyrim.esm
 - 0C716E:Skyrim.esm
-- 0D2E82:Skyrim.esm
 - 0E4DD3:Skyrim.esm
+- 0E7AEC:Skyrim.esm
+- 00083E:Malphas' Blessing - Enderal.esp
+- 00088E:Malphas' Blessing - Enderal.esp
 HairColor: 0A0437:Skyrim.esm
 CombatStyle: 086F4F:Skyrim.esm
 NAM5: 255

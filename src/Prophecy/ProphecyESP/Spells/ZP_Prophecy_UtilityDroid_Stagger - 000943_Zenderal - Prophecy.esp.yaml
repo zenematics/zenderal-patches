@@ -1,0 +1,18 @@
+FormKey: 000943:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_UtilityDroid_Stagger
+Name:
+  TargetLanguage: English
+  Value: Utility Droid
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: 000942:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 0.5

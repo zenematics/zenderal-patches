@@ -1,0 +1,9 @@
+FormKey: 000AE0:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_VeilWyrmGlassImpactSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\ZenProphecy\ZP_VeilWyrmGlassImpact.wav
+OutputModel: 07EDCA:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

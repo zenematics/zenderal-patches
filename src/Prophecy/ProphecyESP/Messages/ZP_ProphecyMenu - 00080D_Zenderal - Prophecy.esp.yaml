@@ -1,0 +1,45 @@
+FormKey: 00080D:Zenderal - Prophecy.esp
+EditorID: ZP_ProphecyMenu
+Description:
+  TargetLanguage: English
+  Value: Which prophecy will you read?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Faith
+- Text:
+    TargetLanguage: English
+    Value: Firearms
+- Text:
+    TargetLanguage: English
+    Value: Gadgets
+- Text:
+    TargetLanguage: English
+    Value: Shadow
+- Text:
+    TargetLanguage: English
+    Value: Martial Arts
+- Text:
+    TargetLanguage: English
+    Value: Glory
+- Text:
+    TargetLanguage: English
+    Value: Rage
+- Text:
+    TargetLanguage: English
+    Value: Druidic
+- Text:
+    TargetLanguage: English
+    Value: Arcane Archery
+- Text:
+    TargetLanguage: English
+    Value: Necromancy
+- Text:
+    TargetLanguage: English
+    Value: Sorcery
+- Text:
+    TargetLanguage: English
+    Value: Cancel

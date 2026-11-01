@@ -1,0 +1,46 @@
+FormKey: 0A017C:Apocalypse - Magic of Skyrim.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: WB_Dreamscape_Cell
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Quagmire
+Flags:
+- IsInteriorCell
+- HasWater
+- PublicArea
+- ShowSky
+- UseSkyLighting
+Lighting:
+  AmbientColor: '#00808080'
+  DirectionalColor: '#00000000'
+  FogNearColor: '#00000000'
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#008D8086'
+    DirectionalXMinus: '#0073807A'
+    DirectionalYPlus: '#00808680'
+    DirectionalYMinus: '#00807A80'
+    DirectionalZPlus: '#003D3D3A'
+    DirectionalZMinus: '#00C3C3C6'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+WaterHeight: 0
+Location: 0A01FA:Apocalypse - Magic of Skyrim.esp
+SkyAndWeatherFromRegion: 105F3F:Skyrim.esm
+AcousticSpace: 02F78E:Skyrim.esm
+EncounterZone: 0A01FB:Apocalypse - Magic of Skyrim.esp
+ImageSpace: 0421DB:Apocalypse - Magic of Skyrim.esp
+MajorFlags:
+- 0x40000

@@ -50,6 +50,8 @@ confirmed by compiling real Enderal scripts (`_00E_TalentLibrary`, `_00E_Game_Ta
 
 ## What's in `reference/base/` (built 2026-08-01, ~0.9 GB, gitignored)
 
+> **Enderal 2.1.4.4 (2026-10-20):** the 2.1 masters are serialized in `reference/base-2.1.4.4/{Skyrim,Update,EnderalFS}`; `reference/base/` below is still **2.0.12.4** until it is moved to `reference/base-2.0.12.4/`. Read 2.1 records from `base-2.1.4.4/` — see [`enderal-update-migration.md`](enderal-update-migration.md).
+
 Regenerate any of these with `/spriggit-decompile-reference`; the script trees are plain unzips.
 **Grep these instead of guessing a FormKey or a script signature.**
 
@@ -131,6 +133,11 @@ lookup copies are the same files — there is no second copy to drift.
   fine and keeps the conflict surface to the WRLD fields. Copy the file and cut it with a script —
   do not retype it (guardrail 4).
 
+- **A `PlacedObject`'s record flags are raw, not named.** **[verified 2026-10-18]** `MajorFlags: [DoNotHavokSettle]`
+  works on a `PlacedNpc` but is **silently dropped** on a `PlacedObject` (built REFR flags = 0). Write the
+  raw form right after `FormKey:`, as Spriggit itself serializes it:
+  `MajorRecordFlagsRaw: 536870912` plus `SkyrimMajorRecordFlags: [0x20000000]` (Don't Havok Settle).
+  Check the built REFR's header flags, not the YAML.
 - **YAML comments do not survive a re-serialize.** Spriggit rewrites the folder from the binary
   plugin, so any `#` comment you add to a record file is lost the next time anyone runs
   `/spriggit-serialize`. Put durable explanation in `arch-docs/`, not in the record YAML.

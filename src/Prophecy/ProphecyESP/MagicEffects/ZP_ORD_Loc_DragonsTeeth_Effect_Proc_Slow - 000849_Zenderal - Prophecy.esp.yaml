@@ -1,0 +1,32 @@
+FormKey: 000849:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Loc_DragonsTeeth_Effect_Proc_Slow
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ORD_CarryWeight_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ORD_CarryWeight
+      Data: 0.01
+Name:
+  TargetLanguage: English
+  Value: Slow
+MenuDisplayObject: 00083B:Zenderal - Prophecy.esp
+Keywords:
+- 00083A:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+ResistValue: ResistMagic
+SpellmakingArea: 8
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: SpeedMult
+Explosion: 00084A:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Slows by <mag>% for <dur> seconds in a small area.

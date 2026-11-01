@@ -1,0 +1,19 @@
+FormKey: 0009CD:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_LeatherDuster
+Description:
+  TargetLanguage: English
+  Value: 'Your armor rating is increased by 40.'
+Name:
+  TargetLanguage: English
+  Value: 'Leather Duster'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000817:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 0009F7:Zenderal - Prophecy.esp

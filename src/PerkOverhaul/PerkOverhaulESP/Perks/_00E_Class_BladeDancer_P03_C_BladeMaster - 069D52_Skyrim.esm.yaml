@@ -1,0 +1,35 @@
+FormKey: 069D52:Skyrim.esm
+EditorID: _00E_Class_BladeDancer_P03_C_BladeMaster
+Name:
+  TargetLanguage: English
+  Value: 'Klingentänzer: Klingenmeister'
+Description:
+  TargetLanguage: English
+  Value: Attacks with one-handed swords and daggers have an additional chance of 25 percent to do a critical hit. Critical hits with them restore 10 points of health.
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E711:Skyrim.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E713:Skyrim.esm
+      ComparisonValue: 1
+  EntryPoint: CalculateMyCriticalHitChance
+  PerkConditionTabCount: 3
+  Modification: Add
+  Value: 25
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000800:Zenderal - Perk Overhaul.esp

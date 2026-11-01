@@ -1,0 +1,23 @@
+FormKey: 000997:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DarkEffigy_Spell
+Name:
+  TargetLanguage: English
+  Value: Dark Effigy
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 100
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+- NoDualCastModification
+ChargeTime: 1.5
+CastType: FireAndForget
+TargetType: Self
+HalfCostPerk: 0C44BB:Skyrim.esm
+Effects:
+- BaseEffect: 000998:Zenderal - Prophecy.esp
+  Data:
+    Duration: 60

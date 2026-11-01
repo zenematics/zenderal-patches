@@ -1,0 +1,20 @@
+FormKey: 0F8EF5:Skyrim.esm
+EditorID: _00E_Heartland_Forestgrass01Withered_Less
+Version2: 1
+ObjectBounds:
+  First: -37, -22, 0
+  Second: 32, 38, 57
+Model:
+  File: Landscape\grass\NicoForestGrass01Withered.nif
+  Data: 0x020000000000000000000000
+Density: 35
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 7
+HeightRange: 0.4
+ColorRange: 0.4
+WavePeriod: 50
+Flags:
+- FitToSlope
+Unknown3: 0xCDCDCD

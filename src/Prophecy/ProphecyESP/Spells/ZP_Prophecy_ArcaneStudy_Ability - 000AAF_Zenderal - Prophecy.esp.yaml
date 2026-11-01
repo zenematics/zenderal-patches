@@ -1,0 +1,15 @@
+FormKey: 000AAF:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ArcaneStudy_Ability
+Name:
+  TargetLanguage: English
+  Value: 'Arcane Study'
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 02E1C4:Skyrim.esm
+  Data:
+    Magnitude: 10

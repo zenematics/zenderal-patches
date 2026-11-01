@@ -1,0 +1,23 @@
+FormKey: 07072B:Skyrim.esm
+EditorID: CapitalCityUpperCity
+Name:
+  TargetLanguage: English
+  Value: Ark, Nobles Quarter
+Location: 0A1A12:Skyrim.esm
+Parent:
+  Worldspace: 001D3C:Skyrim.esm
+  Flags:
+  - UseLandData
+  - UseLodData
+  - UseMapData
+  - UseWaterData
+  - UseClimateData
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -4, -5
+ObjectBoundsMax: 4, 2
+Music: 0B3671:Skyrim.esm

@@ -1,0 +1,46 @@
+FormKey: 00098B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_FrostDamage
+Name:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Frost Damage
+  - Language: Chinese
+    String: 寒霜伤害
+  - Language: Korean
+    String: 냉기 피해
+MenuDisplayObject: 09DB72:Skyrim.esm
+Keywords:
+- 01CEAE:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+BaseCost: 1.1
+MagicSkill: Destruction
+ResistValue: ResistFrost
+HitShader: 0435A3:Skyrim.esm
+EnchantShader: 04FA1D:Skyrim.esm
+SecondActorValueWeight: 2
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: DualValueModifier
+Projectile: 02F774:Skyrim.esm
+CastType: FireAndForget
+TargetType: TargetActor
+SecondActorValue: Stamina
+ImpactData: 032DA7:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: Does <mag> points of frost damage to Health and Stamina.
+  - Language: Chinese
+    String: 目标的生命和耐力受到<mag>点寒霜伤害。
+  - Language: Korean
+    String: 체력과 지구력에 <mag> 피해를 입히는 냉기 피해.

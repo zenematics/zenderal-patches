@@ -1,0 +1,23 @@
+FormKey: 07F13A:Stances - Dynamic Weapon Movesets SE.esp
+EditorID: stances_neutral_icon_mgef
+Name:
+  TargetLanguage: English
+  Value: stances_neutral_icon_mgef
+Flags:
+- Recover
+- NoHitEvent
+- NoMagnitude
+- NoArea
+- FXPersist
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

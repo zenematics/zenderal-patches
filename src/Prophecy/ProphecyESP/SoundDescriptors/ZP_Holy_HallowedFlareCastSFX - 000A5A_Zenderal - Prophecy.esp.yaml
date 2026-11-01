@@ -1,0 +1,14 @@
+FormKey: 000A5A:Zenderal - Prophecy.esp
+EditorID: ZP_Holy_HallowedFlareCastSFX
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\DLC01\FX\Explosions\AurielsBowHarkon\FX_Explosion_Auriel_Bow_Harkon_01.wav
+- Data\Sound\FX\DLC01\FX\Explosions\AurielsBowHarkon\FX_Explosion_Auriel_Bow_Harkon_02.wav
+OutputModel: 0E324B:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyShift: 75
+PercentFrequencyVariance: 5
+Priority: 128
+Variance: 4
+StaticAttenuation: 6.17

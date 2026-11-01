@@ -1,0 +1,15 @@
+FormKey: 000B01:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_DragonsBreath_Blast_Shock
+ObjectBounds:
+  First: -69, -174, 4
+  Second: 69, 174, 15
+Model:
+  File: Magic\ImpactShock02Explo.nif
+  Data: 0x020000000300000001000000ABEF3F336464730038973CEA043F90F464647300582C5533CF238B7F6464730038973CEA21000000
+ImpactDataSet: 059ED9:Skyrim.esm
+Force: 150
+Radius: 10
+Flags:
+- 0x1
+- Chain
+SoundLevel: Normal

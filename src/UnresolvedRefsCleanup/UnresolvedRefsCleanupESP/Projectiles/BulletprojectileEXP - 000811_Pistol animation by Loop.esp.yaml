@@ -1,0 +1,19 @@
+FormKey: 000811:Pistol animation by Loop.esp
+EditorID: BulletprojectileEXP
+Model:
+  File: Weapons\pistol animation by loop\Bullet_RED.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+- MuzzleFlash
+Type: Missile
+Gravity: 0.11
+Speed: 5555
+Range: 60000
+MuzzleFlashDuration: 0.07
+FadeDuration: 0.5
+ImpactForce: 1.9
+CollisionRadius: 1
+RelaunchInterval: 0.001
+MuzzleFlashModel: weapons\pistol animation by loop\gunfire.nif
+TextureFilesHashes: 0x020000000000000000000000

@@ -1,0 +1,29 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Armor Balance.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Puts three third-party armor sets on Enderal's crafting ladder. Adventurer Armor: Firm Leather
+    numbers, light leather keywords, Smithing 20 to craft. Grievous Rose: its craft book comes only from
+    Adila again. Jakal's Soldier Cuirass: 34.8 -> 26.6. Load after all three mods.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: _Fuse00_AdventurerArmor.esp
+    FileSize: 0
+  - Master: Grievous Rose Multicolor.esp
+    FileSize: 0
+  - Master: Pretty Pyrean Armory.esp
+    FileSize: 0
+  INTV: 1

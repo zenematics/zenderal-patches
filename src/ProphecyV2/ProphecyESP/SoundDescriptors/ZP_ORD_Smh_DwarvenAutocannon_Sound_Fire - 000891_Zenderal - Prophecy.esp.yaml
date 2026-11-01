@@ -1,0 +1,14 @@
+FormKey: 000891:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Smh_DwarvenAutocannon_Sound_Fire
+Type: Standard
+Category: 07F80B:Skyrim.esm
+SoundFiles:
+- fx\mag\firebolt\mag_firebolt_fire_2d.wav
+OutputModel: 07E5DD:Skyrim.esm
+LoopAndRumble:
+  Unknown: 4
+  RumbleValues: 1
+PercentFrequencyShift: 70
+PercentFrequencyVariance: 25
+Priority: 128
+StaticAttenuation: 11.45

@@ -1,0 +1,12 @@
+FormKey: 000845:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihaildurzog_sound_DUPLICATE001
+Type: Standard
+Category: 09F254:Skyrim.esm
+SoundFiles:
+- data\sound\fx\mihaildurzogs.esp\duzog.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyVariance: 10
+Priority: 128
+Variance: 2

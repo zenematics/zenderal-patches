@@ -1,0 +1,10 @@
+FormKey: 000969:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Res_MageWard_Art
+ObjectBounds:
+  First: -109, -48, -107
+  Second: 109, 107, 137
+Model:
+  File: Ordinator\Restoration_Art_MageWard.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

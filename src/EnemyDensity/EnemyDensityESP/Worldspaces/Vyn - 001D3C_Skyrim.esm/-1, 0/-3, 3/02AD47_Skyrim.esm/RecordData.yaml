@@ -1,0 +1,21 @@
+FormKey: 02AD47:Skyrim.esm
+Flags:
+- HasWater
+Grid:
+  Point: -20, 29
+WaterHeight: 3.4028235E+38
+Regions:
+- 0823E4:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedNpc
+  FormKey: 000BB5:Zenderal - Enemy Density.esp
+  Base: 150126:Skyrim.esm
+  Placement:
+    Position: -81685.3, 122773.3, 34466.6
+    Rotation: 0, 0, 4.1787
+- MutagenObjectType: PlacedNpc
+  FormKey: 000BB6:Zenderal - Enemy Density.esp
+  Base: 150126:Skyrim.esm
+  Placement:
+    Position: -81749.3, 122837.3, 34480.0
+    Rotation: 0, 0, 3.9138

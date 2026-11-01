@@ -1,0 +1,215 @@
+{
+    "name": "Hide_Shield_Front_L_Enter",
+    "priority": 2140000114,
+    "conditions": [
+        {
+            "condition": "IsSneaking",
+            "requiredVersion": "1.0.0.0",
+            "negated": true
+        },
+        {
+            "condition": "RaySense_Obstacle",
+            "requiredPlugin": "Open Animation Replacer - RaySense",
+            "requiredVersion": "1.0.0.0",
+            "Sensor(0:Fnd, 1:Lnd, 2:Rnd, 3:VaultDist)": {
+                "value": 0.0
+            },
+            "Comparison": "!=",
+            "Value": {
+                "value": 43.0
+            }
+        },
+        {
+            "condition": "RaySense_Wall",
+            "requiredPlugin": "Open Animation Replacer - RaySense",
+            "requiredVersion": "1.0.0.0",
+            "Sensor(0:F, 1:FL, 2:FR, 3:L, 4:R)": {
+                "value": 0.0
+            },
+            "Comparison": "<=",
+            "Distance": {
+                "value": 60.0
+            }
+        },
+        {
+            "condition": "RaySense_Wall",
+            "requiredPlugin": "Open Animation Replacer - RaySense",
+            "requiredVersion": "1.0.0.0",
+            "Sensor(0:F, 1:FL, 2:FR, 3:L, 4:R)": {
+                "value": 2.0
+            },
+            "Comparison": "<=",
+            "Distance": {
+                "value": 60.0
+            }
+        },
+        {
+            "condition": "OR",
+            "requiredVersion": "1.0.0.0",
+            "Conditions": [
+                {
+                    "condition": "RaySense_Wall",
+                    "requiredPlugin": "Open Animation Replacer - RaySense",
+                    "requiredVersion": "1.0.0.0",
+                    "Sensor(0:F, 1:FL, 2:FR, 3:L, 4:R)": {
+                        "value": 1.0
+                    },
+                    "Comparison": ">=",
+                    "Distance": {
+                        "value": 60.0
+                    }
+                },
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "Value A": {
+                        "value": 1.0
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "form": {
+                            "pluginName": "Cover Animation.esp",
+                            "formID": "806"
+                        }
+                    }
+                },
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "Value A": {
+                        "value": 1.0
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "form": {
+                            "pluginName": "Cover Animation.esp",
+                            "formID": "80B"
+                        }
+                    }
+                },
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "Value A": {
+                        "value": 1.0
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "form": {
+                            "pluginName": "Cover Animation.esp",
+                            "formID": "801"
+                        }
+                    }
+                },
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "Value A": {
+                        "value": 1.0
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "form": {
+                            "pluginName": "Cover Animation.esp",
+                            "formID": "80C"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "condition": "AND",
+            "requiredVersion": "1.0.0.0",
+            "Conditions": [
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "negated": true,
+                    "Value A": {
+                        "value": 1.0
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "form": {
+                            "pluginName": "Cover Animation.esp",
+                            "formID": "800"
+                        }
+                    }
+                },
+                {
+                    "condition": "CompareValues",
+                    "requiredVersion": "1.0.0.0",
+                    "negated": true,
+                    "Value A": {
+                        "value": 1.0
+                    },
+                    "Comparison": "==",
+                    "Value B": {
+                        "form": {
+                            "pluginName": "Cover Animation.esp",
+                            "formID": "809"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "condition": "OR",
+            "requiredVersion": "1.0.0.0",
+            "Conditions": [
+                {
+                    "condition": "IsEquippedType",
+                    "requiredVersion": "1.0.0.0",
+                    "Type": {
+                        "value": 11.0
+                    },
+                    "Left hand": true
+                },
+                {
+                    "condition": "IsEquippedType",
+                    "requiredVersion": "1.0.0.0",
+                    "Type": {
+                        "value": 1.0
+                    },
+                    "Left hand": true
+                },
+                {
+                    "condition": "IsEquippedType",
+                    "requiredVersion": "1.0.0.0",
+                    "Type": {
+                        "value": 2.0
+                    },
+                    "Left hand": true
+                },
+                {
+                    "condition": "IsEquippedType",
+                    "requiredVersion": "1.0.0.0",
+                    "Type": {
+                        "value": 3.0
+                    },
+                    "Left hand": true
+                },
+                {
+                    "condition": "IsEquippedType",
+                    "requiredVersion": "1.0.0.0",
+                    "Type": {
+                        "value": 4.0
+                    },
+                    "Left hand": true
+                },
+                {
+                    "condition": "IsEquippedType",
+                    "requiredVersion": "1.0.0.0",
+                    "Type": {
+                        "value": 18.0
+                    },
+                    "Left hand": true
+                }
+            ]
+        },
+        {
+            "condition": "IsWeaponDrawn",
+            "requiredVersion": "1.0.0.0"
+        }
+    ]
+}

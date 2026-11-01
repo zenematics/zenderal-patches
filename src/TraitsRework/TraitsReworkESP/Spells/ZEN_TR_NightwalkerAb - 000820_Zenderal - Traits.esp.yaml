@@ -1,0 +1,50 @@
+FormKey: 000820:Zenderal - Traits.esp
+EditorID: ZEN_TR_NightwalkerAb
+Name:
+  TargetLanguage: English
+  Value: Nightwalker
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: >-
+    From 20:00 to 05:00 you sneak better (+20) and regenerate Mana 25% faster.
+
+    During the day your Stamina regenerates 10% slower.
+Type: Ability
+Effects:
+- BaseEffect: 000821:Zenderal - Traits.esp
+  Data: {}
+- BaseEffect: 000875:Zenderal - Traits.esp
+  Data:
+    Magnitude: 25
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000038:Skyrim.esm
+    ComparisonValue: 20
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000038:Skyrim.esm
+    ComparisonValue: 5
+- BaseEffect: 000876:Zenderal - Traits.esp
+  Data:
+    Magnitude: 10
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000038:Skyrim.esm
+    ComparisonValue: 5
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000038:Skyrim.esm
+    ComparisonValue: 20

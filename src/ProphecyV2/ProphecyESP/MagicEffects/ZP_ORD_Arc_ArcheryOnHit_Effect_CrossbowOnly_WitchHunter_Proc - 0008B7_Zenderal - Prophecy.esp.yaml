@@ -1,0 +1,28 @@
+FormKey: 0008B7:Zenderal - Prophecy.esp
+EditorID: ZP_ORD_Arc_ArcheryOnHit_Effect_CrossbowOnly_WitchHunter_Proc
+Name:
+  TargetLanguage: English
+  Value: Repent!
+MenuDisplayObject: 000826:Zenderal - Prophecy.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- NoDeathDispel
+BaseCost: 4
+MagicSkill: Restoration
+HitShader: 000867:Zenderal - Prophecy.esp
+MinimumSkillLevel: 25
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+SkillUsageMultiplier: 0.66
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: The judgment of Stendarr inflicts <mag> points per second.

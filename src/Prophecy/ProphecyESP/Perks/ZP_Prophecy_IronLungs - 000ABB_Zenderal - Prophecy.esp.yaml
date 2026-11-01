@@ -1,0 +1,19 @@
+FormKey: 000ABB:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IronLungs
+Description:
+  TargetLanguage: English
+  Value: 'Your maximum Stamina is increased by 25.'
+Name:
+  TargetLanguage: English
+  Value: 'Iron Lungs'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000AB9:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000AC9:Zenderal - Prophecy.esp

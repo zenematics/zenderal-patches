@@ -35,16 +35,17 @@ and cancelled the block every 500 ms, so holding block flickered. 1.0.1 parses t
 the BOM, and stays inert (logs a warning) if `ParryKey` can't be read. Check the startup line in the
 log: `DWP ParryKey=258`.
 
-**1.0.1 → 1.0.2: map gamepad codes too.** [verified by the user 2026-10-17: holding LT flickered the
-block] 1.0.1 assumed controller blocking ran through vanilla `Left Attack/Block`. It does not: the
-controller controlmap binds that to **LB** (`0x0100`), and the list blocks on **LT** through DWP's
-`ParryKey2 = 280` (set by Custom Keybinds / CCS; SKSE numbering 266 = D-pad up … 280 = LT, 281 = RT).
-1.0.1 ignored every gamepad event that was not a vanilla attack, so a held LT read as "no block key
-held" and was cancelled every `kRetryMs` (500 ms), the same flicker as 1.0.0's. 1.0.2 converts the
-engine's XInput mask / trigger code (`0x9`/`0xA`) to SKSE's number before comparing it with `ParryKey`
-and `ParryKey2`.
+**1.0.1 → 1.0.2: gamepad DWP keys.** [verified from the log 2026-10-25] On controller, holding LT made the block
+stop and restart every 500 ms. The log showed `Ended stuck block … N ms after last block key-up` every 0.5 s while
+LT was held. Complete Controller Setup binds vanilla `Left Attack/Block` to LB, not LT; LT blocks through DWP's
+`ParryKey2 = 280`, and 1.0.1 only decoded DWP keys from keyboard and mouse. 1.0.2 maps gamepad buttons to DWP's
+266–281 numbering, copied from DWP's own switch (`lib/rebuilds/DWP/src/InputEventHandler.cpp:62-114`). Built with a
+plain PATH (an inherited PATH entry with `&` breaks `vcvars64.bat`), committed in `compiled/`, and deployed to
+`Zenderal - Block Release Fix` and `Zenderal - Patch Collection` (which carries a copy). 1.0.1 is backed up in
+`E:/Zenderal-backups/2026-10-25-blockreleasefix-1.0.1`.
+PR #4 (merged to `main` 2026-10-17) had fixed the same bug independently (the engine's XInput mask / trigger code converted to SKSE's number); merging `main` on 2026-11-01 kept this build, the one deployed in the list (both MO2 copies match `compiled/`).
 
 **Limits.** A mod that starts a block from script with no key held would have it
 ended after `GraceMs`; none is known in the list.
 
-Built and deployed 2026-10-13; 1.0.2 built and deployed 2026-10-17, **not yet verified in game**. Build note: `build.cmd` falls back to `vswhere` when the BuildTools path is absent (this machine has VS 18 Community); clone CommonLibSSE-NG into `lib/CommonLibNG` first.
+Built and deployed 2026-10-13; 1.0.2 built and deployed 2026-10-25. **1.0.2 not yet verified in game.** Build note: `build.cmd` falls back to `vswhere` when the BuildTools path is absent (VS 18 Community); clone CommonLibSSE-NG into `lib/CommonLibNG` first.

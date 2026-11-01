@@ -1,0 +1,19 @@
+FormKey: 00099B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WillingSacrifice_Power
+Name:
+  TargetLanguage: English
+  Value: A Willing Sacrifice
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: 00099C:Zenderal - Prophecy.esp
+  Data:
+    Duration: 30

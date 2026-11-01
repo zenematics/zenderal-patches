@@ -1,0 +1,21 @@
+FormKey: 08D981:Skyrim.esm
+EditorID: _00E_Heartland_Hagebutte
+Version2: 4
+ObjectBounds:
+  First: -44, -26, 0
+  Second: 38, 45, 67
+Model:
+  File: Landscape\grass\NicoHagebutte.nif
+  Data: 0x020000000000000000000000
+Density: 10
+MaxSlope: 45
+Unknown: 205
+Unknown2: 52685
+PositionRange: 40
+HeightRange: 0.55
+ColorRange: 0.4
+WavePeriod: 170
+Flags:
+- UniformScaling
+- FitToSlope
+Unknown3: 0xCDCDCD

@@ -1,0 +1,14 @@
+FormKey: 000802:Zenderal - Call Companions.esp
+EditorID: ZEN_CC_Init
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_CC_Init
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Power
+      Object: 000800:Zenderal - Call Companions.esp
+  FileName: ''
+Flags:
+- StartGameEnabled
+- RunOnce
+NextAliasID: 0

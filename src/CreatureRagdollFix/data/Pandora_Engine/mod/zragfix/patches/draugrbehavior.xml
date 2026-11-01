@@ -1,0 +1,16 @@
+<patch>
+	<!-- Zenderal Creature Ragdoll Fix: skeletons and draugr got up in a rigid A-pose (no get-up clip visible). Both get-up
+	     pose matchers start matching on "Ragdoll" (245), but that is the event that ENTERS the ragdoll state, so the matcher
+	     (active only inside it) never receives it, never matches, and plays the reference pose while hkbGetUpModifier turns
+	     the body upright. Start matching on GetUpBegin (248) instead, which arrives while the matcher is active - the same
+	     change MichelKI's Death and Ragdoll Behavior Fix makes to the human 0_master (#0217/#0226).
+	     Pandora-native: the path names the param replaced; event IDs are numeric (template indices). -->
+	<replace>
+		<edit path="#0113/startMatchingEventId">
+			<hkparam name="startMatchingEventId">248</hkparam>
+		</edit>
+		<edit path="#0122/startMatchingEventId">
+			<hkparam name="startMatchingEventId">248</hkparam>
+		</edit>
+	</replace>
+</patch>

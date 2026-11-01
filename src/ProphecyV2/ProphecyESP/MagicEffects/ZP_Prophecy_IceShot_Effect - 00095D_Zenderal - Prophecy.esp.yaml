@@ -1,0 +1,42 @@
+FormKey: 00095D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_IceShot_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_IceShotEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IceArrow
+      Object: 000960:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AmmoList
+      Object: 13E955:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OldAmmo
+      Object: 00098E:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Remaining
+      Object: 000991:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptIntProperty
+      Name: ArrowCount
+      Data: 3
+    - MutagenObjectType: ScriptFloatProperty
+      Name: MagickaCost
+      Data: 50
+Name:
+  TargetLanguage: English
+  Value: Ice Shot
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

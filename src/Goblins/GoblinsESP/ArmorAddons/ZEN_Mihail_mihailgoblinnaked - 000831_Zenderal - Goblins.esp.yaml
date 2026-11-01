@@ -1,0 +1,36 @@
+FormKey: 000831:Zenderal - Goblins.esp
+EditorID: ZEN_Mihail_mihailgoblinnaked
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000830:Zenderal - Goblins.esp
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown: 2
+Unknown2: 23
+WorldModel:
+  Male:
+    File: Mihail Monsters and Animals\Human\Goblins\mihailgoblin1.nif
+    Data: 0x020000000000000000000000
+  Female:
+    File: Mihail Monsters and Animals\Human\Goblins\mihailgoblin2.nif
+    Data: 0x020000000000000000000000
+AdditionalRaces:
+- 013741:Skyrim.esm
+- 013744:Skyrim.esm
+- 013746:Skyrim.esm
+- 013747:Skyrim.esm
+- 013748:Skyrim.esm
+- 088794:Skyrim.esm
+- 08883C:Skyrim.esm
+- 088844:Skyrim.esm
+- 088846:Skyrim.esm
+- 097A3D:Skyrim.esm
+- 0A82B9:Skyrim.esm
+FootstepSound: 04400B:Skyrim.esm
