@@ -9,7 +9,7 @@ list), i.e. above Zenderal - Input Defaults, Complete Controller Setup, Gamepad+
 Zenderal - Settings. Enable "Zenderal - Controller Layout.esp" (ESL, masters only Skyrim.esm).
 
 Works on an existing save: about 15 s after loading (out of menus) it writes the save-stored
-parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v2 applied".
+parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v3 applied".
 
 
 CONTROLLER
@@ -28,6 +28,7 @@ CONTROLLER
   B + Back                   Favourites
   B + Start                  Wait
   B + D-pad Right/Left/Down  Inventory / Magic / Map
+  A + D-pad Left/Up/Right    Health / Magicka / Stamina potion (Swift Potion)
 
   D-pad        tap                   double-tap        hold (weapon drawn)
   Up           favourite hotkey 7    -                 High stance
@@ -37,6 +38,9 @@ CONTROLLER
 
   Every D-pad press also uses that favourites slot, including the first press of a
   double-tap or hold.  B closes the Hero Menu.
+  Potions: hold A, tap the D-pad, and keep A held a moment (~0.3 s) - Gamepad++ only counts
+  the combo if A is still down when it decides the tap. Holding A for 0.5 s with nothing
+  targeted before you tap also toggles Quick Light.
 
   Inside Wheeler (X):
     D-pad Left / Right       previous / next item
@@ -72,7 +76,8 @@ KEYBOARD AND MOUSE
   H                          Hero Menu
   1-8                        Favourite hotkeys
   F1 / F2 / F3 / F4          High / mid / low / neutral stance
-  K                          Quick Light
+  K                          Quick Light (lantern on the hip by default; style in its MCM)
+  Left / Up / Right arrow    Health / Magicka / Stamina potion (Swift Potion)
   L                          Call horse (once you own the horse flute)
   Y                          Meditate (once you have the ability)
   Q                          Wheeler
@@ -109,7 +114,7 @@ Loose files (win by MO2 priority):
                                                        "Restore Default Settings"
 
 Script (ZEN_ControllerLayout) - things other mods keep IN THE SAVE, written once per save:
-  - Gamepad++ D-pad gestures (the table above)
+  - Gamepad++ D-pad gestures and A + D-pad potion combos (the tables above)
   - Quick Light's keyboard key L -> K (L is also Enderal's horse call)
   - B closes the Hero Menu
 

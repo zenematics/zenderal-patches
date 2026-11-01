@@ -36,6 +36,7 @@ else comes from the config files only.
 | B + Back | Favourites |
 | B + Start | Wait |
 | B + D-pad Right / Left / Down | Inventory / Magic / Map |
+| A + D-pad Left / Up / Right | Health / Magicka / Stamina potion (Swift Potion; Gamepad++ combo 1 sends ← ↑ →) |
 
 | D-pad | Tap | Double-tap | Hold (weapon drawn) |
 |---|---|---|---|
@@ -46,7 +47,9 @@ else comes from the config files only.
 
 Gamepad++ sends the keys shown in brackets. `ZenKeyTrace.dll` turns the stance keys into the
 Stances mod's switch spells. Every D-pad press also fires that button's favourites hotkey,
-including the first press of a double-tap or hold.
+including the first press of a double-tap or hold. **Potion combos:** hold A, tap the D-pad and
+keep A held about 0.3 s, because Gamepad++ checks A when its multi-tap delay ends. Holding A for 0.5 s
+with nothing targeted before tapping also toggles Quick Light, since both use A.
 
 **Inside Wheeler:** D-pad Left/Right previous/next item · D-pad Up/Down move entry · LT/RT
 previous/next wheel · RB/LB use right/left · Y add wheel · A add empty slot · L3/R3 move wheel ·
@@ -74,7 +77,8 @@ order in item lists · LT/RT sort column, or zoom on the map.
 | H | Hero Menu |
 | 1–8 | Favourite hotkeys |
 | F1 / F2 / F3 / F4 | High / mid / low / neutral stance |
-| K | Quick Light |
+| K | Quick Light (its default style is a lantern on the hip, which is Quick Light's own visual) |
+| ← / ↑ / → | Health / Magicka / Stamina potion (Swift Potion; set per save by Settings Applier) |
 | L | Call horse (Enderal, once you own the horse flute) |
 | Y | Meditate (Enderal, once you have the ability) |
 | Q | Wheeler |

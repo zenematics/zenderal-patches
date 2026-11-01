@@ -85,6 +85,15 @@ weapon drawn. Every switch logs `RemovePerk called with invalid Perk` (one stanc
 `remove` perk) and a `Dispel` error (ZenKeyTrace removes the ability on key-up first). Both come
 from the Stances mod and are harmless.
 
+## Swift Potion combos (v3)
+
+Combo key 1 is A (CCS's choice). `aiC1Actions` single-press slots 1/5/9 (Left/Right/Up) send
+203/205/200, which are Swift Potion Reborn's hotkeys as `Zenderal - Settings Applier`'s
+`HotkeyData.json` writes them (← health, ↑ mana, → stamina). Swift Potion keeps hotkeys in the
+save, so a player who rebinds them in its MCM breaks the match. `gpp_keyhandler.OnUpdate` reads
+`bIsC1Held` when the multi-tap delay (0.3 s) ends, so A must still be held then. Quick Light's
+hold-Activate (0.5 s, nothing targeted) shares A.
+
 ## Caveats
 
 - Turning the mod off does **not** undo the save-stored writes. To undo them, use Gamepad++ MCM →

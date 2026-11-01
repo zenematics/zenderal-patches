@@ -13,7 +13,7 @@ Items 1-2 are written ONCE per save (per LAYOUT_VERSION), so a player's later MC
 Bump LAYOUT_VERSION to push a changed layout into existing saves. Every target is looked up by
 plugin + FormID and cast, so a missing or changed mod is skipped, never written blindly.}
 
-Int Property LAYOUT_VERSION = 2 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light)
+Int Property LAYOUT_VERSION = 3 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions
 
 ; SKSE key codes
 Int Property KEY_ESC = 1 AutoReadOnly
@@ -32,6 +32,10 @@ Int Property SEND_STANCE_NEUTRAL = 26 AutoReadOnly   ; [ - Stances.ini stance_ne
 Int Property SEND_STANCE_MID = 43 AutoReadOnly       ; \ - Stances.ini stance_mid_pad (NOT ', No Compass In Dialogue's key)
 Int Property SEND_STANCE_HIGH = 27 AutoReadOnly      ; ] - Stances.ini stance_high_pad
 Int Property SEND_STANCE_LOW = 39 AutoReadOnly       ; ; - Stances.ini stance_low_pad
+; Swift Potion Reborn hotkeys, as Zenderal - Settings Applier's HotkeyData.json sets them
+Int Property SEND_POTION_HEALTH = 203 AutoReadOnly   ; Left arrow  - Restore Health
+Int Property SEND_POTION_MANA = 200 AutoReadOnly     ; Up arrow    - Restore Mana
+Int Property SEND_POTION_STAMINA = 205 AutoReadOnly  ; Right arrow - Restore Stamina
 
 Int Property MAX_TRIES = 8 AutoReadOnly
 
@@ -103,7 +107,7 @@ Int Function ApplyGamepadPlusPlus()
 		Return -1
 	EndIf
 
-	; Action keys = the four D-pad buttons. Combo key 1 = A with no combo actions, as CCS ships it.
+	; Action keys = the four D-pad buttons. Combo key 1 = A (as CCS ships it), carrying the potions.
 	kh.GPP_KEYCODE_A1 = PAD_DPAD_LEFT
 	kh.GPP_KEYCODE_A2 = PAD_DPAD_RIGHT
 	kh.GPP_KEYCODE_A3 = PAD_DPAD_UP
@@ -128,7 +132,13 @@ Int Function ApplyGamepadPlusPlus()
 	acts[8] = SEND_STANCE_HIGH      ; hold Up
 	acts[12] = SEND_STANCE_LOW      ; hold Down
 	kh.aiNonComboActions = acts
-	kh.aiC1Actions = NewEmptyActions()
+	; Hold A + tap a D-pad button = Swift Potion. Gamepad++ decides single vs double tap after its
+	; multi-tap delay (0.3 s), and only counts the combo if A is STILL held then.
+	Int[] combo = NewEmptyActions()
+	combo[1] = SEND_POTION_HEALTH   ; A + Left
+	combo[5] = SEND_POTION_STAMINA  ; A + Right
+	combo[9] = SEND_POTION_MANA     ; A + Up
+	kh.aiC1Actions = combo
 	kh.aiC2Actions = NewEmptyActions()
 	kh.aiC3Actions = NewEmptyActions()
 	kh.aiC4Actions = NewEmptyActions()
