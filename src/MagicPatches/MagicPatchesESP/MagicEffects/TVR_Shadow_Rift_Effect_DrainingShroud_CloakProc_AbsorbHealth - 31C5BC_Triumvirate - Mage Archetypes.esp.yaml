@@ -1,0 +1,62 @@
+FormKey: 31C5BC:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Rift_Effect_DrainingShroud_CloakProc_AbsorbHealth
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicAbsorbFXScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CasterVFX
+      Object: 3216C7:Triumvirate - Mage Archetypes.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TargetVFX
+      Object: 3216C8:Triumvirate - Mage Archetypes.esp
+Name:
+  TargetLanguage: English
+  Value: Absorb Health
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- HideInUI
+- PowerAffectsMagnitude
+- Painless
+BaseCost: 4
+MagicSkill: Conjuration
+ResistValue: ResistMagic
+TaperWeight: 1
+MinimumSkillLevel: 75
+SpellmakingCastingTime: 3
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: Absorb
+Projectile: 012FCF:Skyrim.esm
+CastType: Concentration
+TargetType: Aimed
+SkillUsageMultiplier: 0.6
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionGlobal
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetDistanceConditionData
+  ComparisonValue: 32682C:Triumvirate - Mage Archetypes.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm

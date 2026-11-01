@@ -43,6 +43,10 @@ Directional Movement, Wheeler, One Click Power Attack NG, TK Dodge RE, Classic S
 
 ## 3. Install "Zenderal - Controller Tweaks"
 
+> **RETIRED 2026-10-20** — this mod is no longer built or needed (source in commit `70c5322c`). Its
+> `controlmap.txt` now ships in the modlist's `Zenderal - Input Defaults` and `Zenderal - Patch
+> Collection`. Sections 3–4 are kept as history.
+
 Three third-party files need Enderal-specific edits. Since the source mods must stay pristine for
 Wabbajack, the edits ship as a small standalone mod that **overrides those files by conflict**.
 

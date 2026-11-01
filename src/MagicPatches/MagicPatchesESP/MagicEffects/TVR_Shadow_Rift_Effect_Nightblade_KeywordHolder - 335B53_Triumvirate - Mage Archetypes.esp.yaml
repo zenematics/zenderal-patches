@@ -1,0 +1,29 @@
+FormKey: 335B53:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Rift_Effect_Nightblade_KeywordHolder
+Name:
+  TargetLanguage: English
+  Value: Nightblade Keyword
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 330A38:Triumvirate - Mage Archetypes.esp
+- 38BD01:Triumvirate - Mage Archetypes.esp
+- 31C5B7:Triumvirate - Mage Archetypes.esp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- NoHitEffect
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

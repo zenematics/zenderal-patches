@@ -64,15 +64,17 @@ There are **11 perk trees** plus index 0 reserved for "no class". Registration, 
 | 0 | *(no class)* | `None` | — |
 | 1 | Bastion | `BastionPerks` `06686B:Skyrim.esm` | 22 |
 | 2 | Derwish *(Bladedancer)* | `DerwishPerks` `06686D:Skyrim.esm` | 22 |
-| 3 | Elementalism | `ElementalismPerks` `066875:Skyrim.esm` | — |
+| 3 | Elementalism | `ElementalismPerks` `066875:Skyrim.esm` | 21 ¹ |
 | 4 | Espionage *(Infiltrator)* | `EspionagePerks` `066889:Skyrim.esm` | 20 |
 | 5 | LifeAndDeath *(Sinistrope)* | `LifeAndDeathPerks` `066873:Skyrim.esm` | 23 |
 | 6 | Manipulation *(Thaumaturge)* | `ManipulationPerks` `06686A:Skyrim.esm` | 21 |
 | 7 | Rage *(Vandal)* | `RagePerks` `066887:Skyrim.esm` | 22 |
 | 8 | Trickery *(Rogue)* | `TrickeryPerks` `06687F:Skyrim.esm` | 21 |
-| 9 | Vagabond *(Vagrant)* | `VagabondPerks` `066877:Skyrim.esm` | 23 |
-| 10 | Phasmalist **(FS only)** | `FS_PhasmalistPerks` `044EEA:Skyrim.esm` | — |
-| 11 | Theriantrophist **(FS only)** | `FS_TheriantrophistPerks` `02EE04:Enderal - Forgotten Stories.esm` | — |
+| 9 | Vagabond *(Vagrant)* | `VagabondPerks` `066877:Skyrim.esm` | 23 (21 ¹ after EGO) |
+| 10 | Phasmalist **(FS only)** | `FS_PhasmalistPerks` `044EEA:Skyrim.esm` | 29 ¹ |
+| 11 | Theriantrophist **(FS only)** | `FS_TheriantrophistPerks` `02EE04:Enderal - Forgotten Stories.esm` | 29 ¹ |
+
+¹ Winning-record size in the Zenderal list, from [`../perks/perks.json`](../perks/perks.json). The other counts are base Enderal's.
 
 Trees 10 and 11 are registered **only when Forgotten Stories is active**
 (`_00E_FS_IsForgottenStoriesActivated == 1`); otherwise their indices are set but no FormList is
@@ -82,9 +84,20 @@ Each tree also has parallel **Talents** and **Words** FormLists — e.g. `Elemen
 `06686F:Skyrim.esm`, `ElementalismWords` `06687E:Skyrim.esm`. **[verified]** All nine base trees have
 the full triple.
 
-> **To add a perk to a tree, you must add it to that tree's FormList.** A Perk record that is not in
-> a `*Perks` FormList is invisible to the menu — `GetPerkDistribution()` counts points by walking
-> those FormLists. Creating the Perk alone does nothing, and nothing warns you.
+> **A perk needs two things, and they are separate.** **[verified]**
+> 1. **To be buyable**, it needs a *memory star*: a REFR carrying `_00E_Class_PerkScript` in the
+>    meditation cell `ClassMenue 0A7FBC:Skyrim.esm`. The script's properties (inherited from the
+>    base Activator unless the ref overrides them) name the perk(s), and the star's Message buttons
+>    carry the prerequisite/`TalentPoints` conditions. The trees are physical; every AVIF `PerkTree`
+>    in Enderal is empty.
+> 2. **To count toward the tree** (class name, the `>= 10` affinity unlocks, the full-tree
+>    achievement), it must be in that tree's winning `*Perks` FormList — `GetPerkDistribution()`
+>    walks only those.
+>
+> A perk with a star but no FormList entry is buyable and counts for nothing: FS's Arcane
+> Disassembling, and Sensitive Tongue ranks 2–3 once EGO's `VagabondPerks` override drops them.
+> Creating the Perk alone does neither, and nothing warns you. The full map of stars is in
+> [`../perks/`](../perks/README.md).
 
 ## Affinities (hybrid classes)
 
@@ -176,7 +189,8 @@ Consequences for patching:
 1. **Perks added to vanilla Skyrim perk trees are unreachable.** Enderal never draws the vanilla
    tree. The player cannot see or buy them. This is the single most common way a ported Skyrim
    combat mod silently does nothing.
-2. **To be buyable, a perk must be in a `*Perks` FormList** bound to a registered tree.
+2. **To be buyable, a perk needs a memory star** in `ClassMenue`, and to count toward a class it
+   must also be in that tree's `*Perks` FormList (see the box above).
 3. **To be granted without being bought**, hang it off a MGEF `PerkToApply`, a script `AddPerk`, or
    an affinity ability spell instead — and say so in the patch's notes.
 4. The class shown to the player comes from `GetPlayerClassName()`: the affinity name if one is

@@ -15,7 +15,7 @@ Flags:
 - NoAbsorbOrReflect
 ChargeTime: 3.8
 CastType: FireAndForget
-HalfCostPerk: 0C44BA:Skyrim.esm
+HalfCostPerk: 0C44C2:Skyrim.esm
 Effects:
 - BaseEffect: 097A48:Apocalypse - Magic of Skyrim.esp
   Data:

@@ -7,14 +7,14 @@ Load-order-winning values for every magic record in the installed Zenderal modli
 
 **70 enabled plugins have HEDR 1.71** and load only because *Backported Extended ESL Support* is installed. Records whose winner is one of them carry `winnerNeedsBees: true`. Remove BEES and this dataset is wrong for all of them with no error anywhere.
 
-Runtime corroboration: the BEES log reports **72** plugins emulated (log written 2026-10-11 23:33).
+Runtime corroboration: the BEES log reports **72** plugins emulated (log written 2026-10-13 20:12).
 
 ## Datasets
 
 | Dataset | Winning records | With overrides | New (non-master) |
 |---|---:|---:|---:|
 | `spells.json` (SPEL) | 2686 | 971 | 1545 |
-| `magic-effects.json` (MGEF) | 3329 | 499 | 2045 |
+| `magic-effects.json` (MGEF) | 3329 | 539 | 2045 |
 | `enchantments.json` (ENCH) | 870 | 289 | 160 |
 | `scrolls.json` (SCRL) | 180 | 34 | 146 |
 | `ingestibles.json` (ALCH) | 407 | 270 | 89 |
@@ -29,7 +29,7 @@ Plugins ranked by how many overridden magic records they end up winning:
 | Plugin | Conflicted records won |
 |---|---:|
 | Enderal SE - Gameplay Overhaul.esp | 1458 |
-| Zenderal - Magic Patches.esp | 281 |
+| Zenderal - Magic Patches.esp | 321 |
 | EGO - KataPUMB Spell Package.esp | 149 |
 | EGO SE - KataPUMB Hidden Powers.esp | 63 |
 | EGO SE - KataPUMB New Affinities.esp | 37 |
@@ -54,11 +54,11 @@ Plugins ranked by how many overridden magic records they end up winning:
 | School (Enderal name) | Actor value | Winning spells |
 |---|---|---:|
 | (none) | — | 1021 |
-| Elementalism | Destruction | 604 |
-| Entropy | Conjuration | 310 |
-| Mentalism | Alteration | 287 |
+| Elementalism | Destruction | 598 |
+| Entropy | Conjuration | 329 |
+| Mentalism | Alteration | 277 |
 | Light Magic | Restoration | 236 |
-| Psionics | Illusion | 226 |
+| Psionics | Illusion | 223 |
 | Block | Block | 2 |
 
 ## Cost model

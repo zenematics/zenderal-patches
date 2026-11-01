@@ -1,0 +1,44 @@
+FormKey: 19B464:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Warlock_Balefire_Effect_EldritchBlast
+Name:
+  TargetLanguage: English
+  Value: Raw Damage
+MenuDisplayObject: 19B45E:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 0A9B1F:Skyrim.esm
+- 19B468:Triumvirate - Mage Archetypes.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 15
+MagicSkill: Conjuration
+CastingLight: 19B45C:Triumvirate - Mage Archetypes.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 19B45F:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 191247:Triumvirate - Mage Archetypes.esp
+HitEffectArt: 00857B:Triumvirate - Mage Archetypes.esp
+ImpactData: 19B463:Triumvirate - Mage Archetypes.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1.1
+ImageSpaceModifier: 02CD7D:Triumvirate - Mage Archetypes.esp
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 115E18:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: Warping blast that deals <mag> raw damage.

@@ -16,7 +16,7 @@ Flags:
 ChargeTime: 5
 CastType: FireAndForget
 TargetType: Aimed
-HalfCostPerk: 0C44C6:Skyrim.esm
+HalfCostPerk: 0C44BE:Skyrim.esm
 Effects:
 - BaseEffect: 00B5B6:Apocalypse - Magic of Skyrim.esp
   Data:

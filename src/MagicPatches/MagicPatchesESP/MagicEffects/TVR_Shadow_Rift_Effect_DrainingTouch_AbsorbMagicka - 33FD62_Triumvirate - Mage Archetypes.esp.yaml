@@ -1,0 +1,52 @@
+FormKey: 33FD62:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Rift_Effect_DrainingTouch_AbsorbMagicka
+Name:
+  TargetLanguage: English
+  Value: Absorb Magicka
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 33FD63:Triumvirate - Mage Archetypes.esp
+Flags:
+- Hostile
+- Detrimental
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+BaseCost: 10
+MagicSkill: Conjuration
+ResistValue: ResistMagic
+CastingLight: 2FDF80:Triumvirate - Mage Archetypes.esp
+TaperWeight: 1
+SpellmakingCastingTime: 0.5
+TaperCurve: 1
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+  Type: Absorb
+Projectile: 30D2A0:Triumvirate - Mage Archetypes.esp
+CastType: FireAndForget
+TargetType: Aimed
+CastingArt: 2FDF70:Triumvirate - Mage Archetypes.esp
+HitEffectArt: 3216CC:Triumvirate - Mage Archetypes.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+ImageSpaceModifier: 01FD04:Skyrim.esm
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 023DF7:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 01397A:Skyrim.esm

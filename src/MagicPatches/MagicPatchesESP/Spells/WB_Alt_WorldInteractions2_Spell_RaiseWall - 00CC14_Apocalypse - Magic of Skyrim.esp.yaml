@@ -14,7 +14,7 @@ Flags:
 - NoDualCastModification
 ChargeTime: 0.5
 CastType: Concentration
-HalfCostPerk: 0C44B7:Skyrim.esm
+HalfCostPerk: 0C44BF:Skyrim.esm
 Effects:
 - BaseEffect: 09852E:Apocalypse - Magic of Skyrim.esp
   Data: {}

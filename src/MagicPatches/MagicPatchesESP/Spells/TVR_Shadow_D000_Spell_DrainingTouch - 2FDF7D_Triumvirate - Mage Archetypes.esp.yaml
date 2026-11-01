@@ -14,7 +14,7 @@ Flags:
 ChargeTime: 0.5
 CastType: FireAndForget
 TargetType: Aimed
-HalfCostPerk: 0F2CA8:Skyrim.esm
+HalfCostPerk: 0F2CA7:Skyrim.esm
 Effects:
 - BaseEffect: 33FD5C:Triumvirate - Mage Archetypes.esp
   Data:

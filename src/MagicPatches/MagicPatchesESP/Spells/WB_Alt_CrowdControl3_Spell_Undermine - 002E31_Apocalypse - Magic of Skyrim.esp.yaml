@@ -13,7 +13,7 @@ Flags:
 - ManualCostCalc
 CastType: FireAndForget
 TargetType: Aimed
-HalfCostPerk: 0C44B8:Skyrim.esm
+HalfCostPerk: 0C44C0:Skyrim.esm
 Effects:
 - BaseEffect: 098A93:Apocalypse - Magic of Skyrim.esp
   Data:

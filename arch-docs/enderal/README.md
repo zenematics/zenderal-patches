@@ -10,6 +10,7 @@ assume it.
 |---|---|
 | [`plugin-architecture.md`](plugin-architecture.md) | **Start here.** The two-ESM structure, why `Skyrim.esm` is not Skyrim, what a FormKey suffix actually means, record inventory |
 | [`progression-and-classes.md`](progression-and-classes.md) | XP/levels, the three point currencies, memory trees, talents, the affinity system, the custom character menu |
+| [`magic-schools.md`](magic-schools.md) | The three schools and five disciplines from Enderal's own books, their AVIF/memory-tree mapping, Arcane Fever lore, string vocabulary |
 | [`combat.md`](combat.md) | What a combat overhaul collides with: talents, combat styles, weapons, races, the stubbed brawl system |
 | [`visuals-and-world.md`](visuals-and-world.md) | Weathers, imagespaces, lighting templates, climates, worldspaces — and why ENB presets don't transfer |
 | [`crafting-alchemy-economy.md`](crafting-alchemy-economy.md) | Crafting benches, 1859 recipes, Arcane Fever, the potion economy |

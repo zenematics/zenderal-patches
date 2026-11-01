@@ -43,8 +43,9 @@ LT was held. Complete Controller Setup binds vanilla `Left Attack/Block` to LB, 
 plain PATH (an inherited PATH entry with `&` breaks `vcvars64.bat`), committed in `compiled/`, and deployed to
 `Zenderal - Block Release Fix` and `Zenderal - Patch Collection` (which carries a copy). 1.0.1 is backed up in
 `E:/Zenderal-backups/2026-10-25-blockreleasefix-1.0.1`.
+PR #4 (merged to `main` 2026-10-17) had fixed the same bug independently (the engine's XInput mask / trigger code converted to SKSE's number); merging `main` on 2026-11-01 kept this build, the one deployed in the list (both MO2 copies match `compiled/`).
 
 **Limits.** A mod that starts a block from script with no key held would have it
 ended after `GraceMs`; none is known in the list.
 
-Built and deployed 2026-10-13; 1.0.2 built and deployed 2026-10-25. **1.0.2 not yet verified in game.**
+Built and deployed 2026-10-13; 1.0.2 built and deployed 2026-10-25. **1.0.2 not yet verified in game.** Build note: `build.cmd` falls back to `vswhere` when the BuildTools path is absent (VS 18 Community); clone CommonLibSSE-NG into `lib/CommonLibNG` first.

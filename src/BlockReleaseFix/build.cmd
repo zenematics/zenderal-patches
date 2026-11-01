@@ -2,6 +2,7 @@
 rem Builds ZenBlockReleaseFix.dll (SSE 1.5.97) with the VS 2026 Build Tools' bundled CMake/Ninja/vcpkg.
 setlocal
 set "VSROOT=C:\Program Files (x86)\Microsoft Visual Studio\18\BuildTools"
+if not exist "%VSROOT%\VC\Auxiliary\Build\vcvars64.bat" for /f "usebackq delims=" %%i in (`"C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -property installationPath`) do set "VSROOT=%%i"
 set "PATH=D:\Claude & Tools\Git\cmd;C:\Program Files (x86)\Microsoft Visual Studio\Installer;%SystemRoot%\System32;%SystemRoot%;%PATH%"
 call "%VSROOT%\VC\Auxiliary\Build\vcvars64.bat"
 if errorlevel 1 exit /b 1
