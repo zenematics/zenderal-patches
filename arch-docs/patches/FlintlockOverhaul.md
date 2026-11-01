@@ -168,3 +168,198 @@ HWYA's aim (±0.03 deg on ~65 of them; the rest were shots fired while turning, 
 land 0.03-0.06 deg under the crosshair ray (e.g. -2.2 units at 2600, -0.8 at 1000), the same as third person. Still to
 check: a few muskets, the raise, a shot, a reload (with and without both reload perks) and sneak aim.
 Not done (curator's call): a zoom while aimed, hiding the crosshair while aimed.
+
+## Ramrod reload, third person (`tools/09`, 2026-11-01) — NOT SHIPPED until Zodd agrees
+
+**Curator's request:** the ramrod reload from *Zodd's 4 ramrod-loaded muskets animated* (Nexus 191481, Zodd) on all
+14 Ordo muskets. The mod is five third-person DAR clips (raise, aimed hold, hip hold, shot, reload) for four
+GLEN-MORIL muskets (`IsEquippedRight("Glenmoril.esm" | 0x2C9019)` in `90070009` "ramrod",
+`0x2E5FC3/4/5` in `90070010` "ramrod fat"; GLEN-MORIL is not in the list). No first-person clips, no anim object (the
+ramrod work is all in the hands). The shot fires at 0.2 s and **the shot clip is the reload**: 5.1 s carrying the
+whole ramrod work (`arrowAttach` at 1.567 s), 3.9 s at the graph's 1.3 Quick Reload/Rapid Shot speed. Traced
+(SpellAimTrace 1.3.0): after a shot the game never sends `reloadStart`, the 1hm graph stays in its attack state, plays
+the shot clip to its end and leaves on the clip's own `attackStop`. Zodd's separate reload clip (4.43 s) plays only
+when the game sends `reloadStart` (e.g. drawing an unloaded musket). Vanilla is built the same way (its 2.83 s
+release holds the reload).
+
+**Fit (measured, 3P skeleton from `Skyrim - Animations.bsa`):** the clips are made for a gun whose muzzle is ~55 units
+from its grip origin; the left hand pours at ~51, lifts the rod to 68-72 and rams. Ordo's muzzles: 33 (musketoons),
+37 (blunderbuss), 50 (double-barrels), 59-60 (Old Flintlocks), 74 (rifle), 78-89 (wheellocks, classic, long,
+matchlock). As-is only the Old Flintlocks and double-barrels fit; the long guns rammed mid-barrel, the short ones air.
+
+**Fix, per mesh** (MO2 mod `Zenderal - Musket Ramrod Reload`, clips not committed, read straight from the downloaded
+archive): in the shot and reload clips the gun slides along its own barrel through the right hand by
+`-w * (muzzle - 55)`, `w` = 0 while Zodd's right hand holds the stock wrist and 1 while it holds the barrel (it
+regrips during the reload; smoothstep from its position along the gun). The muzzle then sits where the left hand
+works; the right hand ends further up or down the barrel. Only the `Weapon` track changes. Zodd also swings the gun
+muzzle-down (47 deg) before the ram (reload 0.54-0.67 s): his gun clears the ground, the long Ordo guns dug in up to
+13 units, so the slide is bounded every frame to keep the gun's lowest point 1 unit above the actor's root (both
+directions: muzzle up limits the slide, muzzle down forces a brief slide back; 2-6 frames on the long guns). Hands:
+"ramrod fat" for muzzle radius >= 2.0 (blunderbuss, musketoons, double-barrels, Old Flintlocks), "ramrod" else. OAR
+submods keyed on each mesh's WEAPs: `Ramrod <mesh>` (432500+i) and `Ramrod <mesh>, both reload perks` (432550+i, the
+reload retimed with Quick Reload Stack's code). Sneak: see *Sneak* below; first person keeps the aim-down-sights set.
+
+**Permission.** Zodd's page asks for permission before modifying the files or using the assets; this mod holds
+modified copies. It is in `Zenderal.compiler_settings`' Ignore list (backup of the settings before:
+`E:/Zenderal-backups/2026-11-01-compiler-settings-pre-ramrod-ignore/`), so Wabbajack never compiles it in. Remove
+that entry only once Zodd has agreed, and credit Zodd.
+
+**Side effects:** third person gets Zodd's holds and raise too (made for GLEN-MORIL meshes); reload length differs by
+view until `tools/10` (below); `ZenMusketHandling`'s dodge lock caps at `MaxLockMs` 5000 (it is unticked in Ultra
+anyway). The `both reload perks` submods (here, the aim-down-sights set's and Quick Reload Stack's own) retime only the
+separate reload clip, which a shot never plays, so after a shot both perks reload no faster than one. **Verified in game
+2026-11-01**, standing and crouched, both views. Rerun `tools/09` after Ordo, PG Patcher Output or Quick
+Reload Stack changes, then `tools/10` and `tools/11` (09 rebuilds the mod folder).
+
+### First person (`tools/10`, same MO2 mod, same permission note)
+
+Zodd has no first-person clips, and Improved Camera can't show the third-person body for the reload alone: its
+`IsAiming` counts every crossbow attack state from the draw through `kBowAttached` (the reload) as aiming, and the one
+exception needs *Archery Gameplay Overhaul* (IC-NG source; the installed IC 2.0 build lacks even that). Copied
+as-is, the reload happens below a level first-person view (rendered: only the muzzle tip). In Zodd's video the camera
+follows the head, which looks down 10-20 deg and turns +-15-20 deg through the reload (measured on his clips).
+
+`tools/10` retargets each musket's fitted third-person shot and reload onto the first-person arms. The camera is the
+third-person `NPCEyeBone` facing the actor's forward. Everything under `NPC Spine2` is mapped into the first-person
+rig, keeping third-person local rotations, first-person bone lengths (the upper arm is 20.26 there vs 22.83; finger
+bases) and the slid gun. The arms are turned opposite the head's pitch and yaw relative to the clip's first frame,
+so the hands appear as with a head-following camera while the world stays level (`LIFT_EXTRA_DEG` adds more). Each arm
+is solved shoulder-elbow-hand onto its mapped third-person hand (exact on every frame, none out of reach),
+elbows toward the mapped elbows. The pauldron attach points have different parents in the two rigs and are placed at
+their mapped world. Bones above Spine2 and `Camera1st` stay at the aim-down-sights hold, so there's no camera kick. The
+shot clip holds aim-down-sights until 0.3 s (shot at 0.2) and blends into the ramrod motion by 0.8 s; the separate
+reload clip blends in from the idle hold over 0.3 s. Both blend into the first-person **idle hold**
+(`crossbow_idleheld.hkx`, vanilla's: DAR Rifles' 432101 set has none) over their last 1.0 s and end exactly on it
+(asserted): after either clip the 1hm graph is back in `1HM_Ready_State` (`attackStop` and `reloadStop` both lead
+there), which plays that hold. 1.1 ended on the aim-down-sights hold, so the gun snapped from the sights down to the
+hip in under 0.1 s as the clip ended (curator's recording 2026-11-01: "near the end the gun repositions"). 1.0 froze
+the shot clip on the reload clip's first pose after `arrowAttach`, assuming a hand-over that never happens ("starts
+but stops and just holds the gun"). The arms follow Zodd's head turn unsmoothed on purpose: his head tracks the gun
+through the fast muzzle-down swing, so following it steadies the gun on screen (smoothed over 0.15 s, the gun's peak
+on-screen speed rose from 35.8 to 39.4 units a frame). The swing itself (shot 1.07-1.25 s, the gun briefly leaves
+the view) is Zodd's motion. Timing and annotations are Zodd's, so first and third person reload alike (5.1 s, 3.9 s
+with Quick Reload or Rapid Shot). OAR, first
+person: `Ramrod 1P <mesh>` 432600+i (shot + reload) and `..., both reload perks` 432650+i, above the
+aim-down-sights set. Sneak: see *Sneak* below.
+
+Rendered from the first-person camera (FOV 100, the active IC profile's): the pour, rod and ram show in the upper
+left to centre of the screen. During Zodd's muzzle-down swing (shot 0.5-1.0 s, reload 0.4-0.9 s) the stock passes
+6-8 units from the camera (may clip at the near plane), and the gun dips below the view for ~0.3 s before rising into
+the sights at the end. **Verified in game 2026-11-01** ("the animation itself looks clean"). Keep IC's *Third Person
+Crossbow* off.
+
+### Ball and ramrod props (`tools/09` + `tools/11`, same MO2 mod, same permission note)
+
+Curator's request (2026-11-01): "a pellet and stick loading with the left hand". Zodd's clips mime both.
+
+**Mechanism, the list's own:** Eating Animations and Sounds (`TaberuAnimation.esp`) and JellyFish Animated Potions put
+props in hands with clip annotations `AnimObjLoad.<EditorID>` (EAS: 0.2 s before) `AnimObjDraw.<EditorID>`, unloaded
+by the ANIO's unload event (all 66 vanilla ANIO use `AnimObjectUnequip`). The annotation only fires if the graph lists
+the event: both 1hm behaviors (1P and 3P, Pandora output) list `AnimObjLoad`, `AnimObjDraw` and `AnimObjectUnequip`,
+and no transition listens to them. The prop mesh names its attach bone in an `NiStringExtraData` "Prn" on its
+`BSFadeNode` root (EAS: `prn` = a finger bone). Ours hang on `AnimObjectL` (child of the left hand), whose track the
+clips animate, so one bone carries the ball and then the rod wherever they need to be.
+
+**Beats** (found per mesh from the left middle finger against the bore, `phases()`; shot clip, all 14 alike within a
+frame; the reload clip is the same from 0.67 s on): hand at the hip pouch (lowest point, 1.51 s) → ball drawn; at the
+muzzle (closest, 2.31-2.38) → ball unloaded, after sliding from the thumb/index pinch into the muzzle over 0.15 s;
+hand under the barrel (2.79-2.89) → rod drawn in its stowed place (`ROD_GAP` below the barrel, top end 1 unit behind
+the muzzle); up past the muzzle (2.95) the rod moves into the bore line and rides the fist (3 units of rod above
+it), two strokes (peaks 3.05/3.42), back under the barrel (3.49-3.52) where it stops in its stowed place while the hand
+slides on, unloaded as the hand leaves for the stock (3.62). Every switch between the two lines takes at least 0.1 s.
+
+**Left hand:** Zodd's ramming hand works 8-16 units off Ordo's bores (his GLEN-MORIL muskets differ), so a rod in his
+fist would hang beside the barrel. From 0.15 s before the grab to 0.15 s after the stow the left hand is eased onto
+the rod line by shoulder-elbow-hand IK (its world rotation kept, elbow in its own plane), the fist held 2.5 units
+above the muzzle face while ramming (Zodd's went 7 below it, into the barrel). At the stroke tops his arm is already
+straight: the fist slides down the rod line to the nearest point in reach (the blunderbuss missed by up to 3.25
+units otherwise), so those strokes are a little shorter. First person inherits all of it from the 3P clips
+(annotations copied, `AnimObjectL` kept relative to the exactly-placed hand); the first-person arm is shorter, so where
+the stretched hand is out of its reach (15 frames on some guns) the hand slides along the rod's own axis, the rod with
+it (still in the bore).
+
+**Back to the stock (`carry()` in tools/09, 2026-11-01):** curator: "near the end of the animation after firing the
+rifle dips / clips below the left hand". Measured: from the stow Zodd's own hand (our clip matched his within 0.2
+units from 3.69 s) lets go under the barrel and passes back over the top of the gun, 8-17 units above it, while the gun
+swings from muzzle-up (+37 deg) to level under it, and takes the stock again only at 4.36 s, in both views. Now its
+pose relative to the gun eases (smoothstep, lerp/slerp) from where it let go (rod_off) to the first frame it stays
+within `REGRIP_DIST` 6 units of its last pose (3.66-4.40 s on most guns, to 4.73 s on the long ones), the arm solved
+onto it; where the forestock is out of reach it slides along the gun toward the stock (up to 17 units, long guns). The
+gun's quick muzzle-up settle right after (4.36-4.53 s, about 25 deg) is Zodd's own and stays. **First person** had a
+second drift: the last second's bone-by-bone blend into the idle hold swung the left hand up to 12-14 units beside the
+gun (4.4-4.6 s). tools/10's `left_on_gun()` re-solves the arm during that blend onto a grip blended from the motion's
+to the idle hold's (sliding along the gun where the shorter 1P arm can't reach). After both: 1P hand within 3.2-4.4
+units under and 2.4-3.2 beside the gun, never above it, contact depth no deeper than the idle hold's own (palm 1.6).
+Seen in game 2026-11-01 together with the post-shot fix ("looks great").
+
+**First person, right after the shot** (curator 2026-11-01: "the musket clips through the left hand"): the shot clip's
+blend out of the aim-down-sights hold (0.3-0.8 s) went bone by bone too. The left hand travels from the hold's
+forestock grip (13 units up the gun) to Zodd's at the stock wrist (1-3 units up, on the other side), and the per-bone
+slerp took it within 1.4-3.3 units of the gun's centre line, through the stock: finger joints inside the gun at 0.40,
+0.54 and 0.74 s (`ol_doublebarrelrifle03`, measured against the mesh surface). The same `left_on_gun()` now runs over
+that blend, from the hold's grip to the motion's: the hand stays 5.3-8 units out to the side of the gun, sliding back
+along the stock, fingers on its surface. Left as Zodd's: one frame at 1.07 s where his hand lifts off the stock for the
+pouch and two fingers graze it (third person too). Verified in game 2026-11-01 ("looks great").
+
+**Safety:** every clip in the submods starts with `AnimObjectUnequip`: 3P raise, holds, shot, reload; 1P shot and
+reload, plus copies of the 1P idle hold (vanilla's) and the aim-down-sights set's raise and aimed hold (with Dwarven
+names) in each `Ramrod 1P <mesh>` submod. A reload cut short (dodge, stagger) unloads its prop as soon as the gun
+returns to a hold.
+
+**Records and meshes (`tools/11`):** plugin `Zenderal - Musket Ramrod Reload.esp` (ESL, HEDR 1.7; YAML generated into
+`src/FlintlockOverhaul/RamrodReloadESP`, built with the pinned Spriggit CLI into the MO2 mod; **not in
+`build/manifest.json`**, it ships with the rest only after Zodd agrees): ANIO `ZEN_RamrodBall` 0x800 and
+`ZEN_Ramrod_<mesh>` 0x801-0x80E, unload event `AnimObjectUnequip`. Meshes under `meshes/Zenderal/MusketRamrod/`
+(generated, not committed): a 1.3-unit sphere (0.85 could barely be seen in the hand, 2026-11-01) of dark steel
+(curator's choice), shaded like the vanilla steel
+dagger's blade (`SteelDagger:0` from `Skyrim - Meshes1.bsa`: environment-map shader, `SteelDagger.dds`/`_n`/`_m`) with
+the blade's own `ShinyDull_e.dds` cubemap and every UV on the blade's flat (0.6084, 0.8955: diffuse 63 grey,
+reflection mask 105/255). The first build used the polished edge (diffuse 231, mask 206) under `ShinyBright_e.dds`
+and read white in first person (2026-11-01). Per musket, a rod of length muzzle - 12 (21-78 units)
+with a wider ramming head, shaded like that musket's barrel (the unskinned shape reaching furthest forward, one texel
+near its muzzle; skinned, model-space-normal and vertex-colour flags cleared). Textures are referenced, not copied.
+
+Rendered in both views (side view in 3P, the 1P camera): ball at the pouch, beside the hand and at the muzzle; rod
+along the barrel at the grab, out of the muzzle under the fist at both strokes, home under the barrel at the stow.
+**Tick `Zenderal - Musket Ramrod Reload.esp` in MO2's plugin list** (the mod alone is not enough). Run order:
+`tools/06` → `09` → `10` → `11` (09 rebuilds the mod folder).
+
+**In game, 2026-11-01** (traced, `SpellAimTrace` 1.4.x): with the plugin unticked, every `AnimObjLoad` named a
+missing record and nothing attached. Ticked: both props **load and attach in first and third person** (the game
+hangs them on the active view's `AnimObjectL`, hidden until `AnimObjDraw`); the rod showed, the first ball did not.
+That ball was a 0.7-unit sphere with Ordo's flying-ball shader (environment map, no cubemap or mask in the mesh) at
+the thumb/index **last joints**, i.e. inside the gloved fingertips. Now: the steel shader above, and centred between
+the tips (each `FINGER_TIP` 0.7 of its middle segment past the last joint) one radius out from the palm: 2.1-2.8
+units from the last joints. Verified in game 2026-11-01 ("Bullet looks good"; by then radius 1.3).
+
+### Sneak (`tools/09` + `tools/10`, same MO2 mod, same permission note)
+
+Curator, 2026-11-01: "can we apply these animations to the stealth / crouch too?" Zodd ships no sneak clips. While
+crouched the 1hm graph plays `sneakcrossbow_release` (the shot, which again carries the whole reload) and
+`sneakcrossbow_reload`, both from DAR Rifles' sneak hold (`432101`'s `sneakcrossbow_idledrawn`), and after them
+`SneakCrossBowLoweredState` -> **`sneakmtidle.hkx`** in both views (the bow's crouched idle too; vanilla wins for the
+muskets: Dynamic Bow Animation's sneak idles are `IsEquippedType` 7 = bow only, RaySense Cover is off, Beam Walking
+and Goetia's sneak magic don't apply). In that idle the hands hang apart (left hand ~58-68 units from the gun) and the
+musket hangs pointing back along the leg; the first-person camera node sits at 86.4 instead of 120.5.
+
+**Third person (`crouch()`, `settle()`):** Zodd's standing shot/reload with every bone outside `NPC Spine2`'s subtree
+(root, pelvis, legs, lower spine) from `sneakmtidle` (looped) and Spine2 turned so the chest keeps Zodd's orientation:
+arms, gun and props move as standing, just lower (eye ~112 -> ~93). Then the usual slide (its ground clamp now keeps
+the crouched gun's lowest point 1 unit up through the muzzle-down swing, up to 18 frames on the long guns), props and
+`carry()`. A gun whose butt would reach the ground before its muzzle meets the ramming hand crouches less (10% steps
+until the fit holds: `ol_musket_classic` 80%, `ol_musket_long` 90%, the rest 100%). `settle()` holds DAR's sneak
+hold until 0.3 s (the shot fires from it), blends into the motion by 0.8 s, and into `sneakmtidle` over the last
+second, bone by bone, with the left hand's grip blended relative to the gun only where the far pose holds the gun
+(`ON_GUN` 20 units): through the blend-in yes, into the crouched idle no (it lets go, moving steadily away from the
+gun). The sneak reload starts and ends on `sneakmtidle`. The sneak raise and hold stay DAR Rifles'.
+
+**First person:** the same motion retargeted from the standing third-person clips (arms relative to the eye are the
+same crouched; the standing slide needs no crouched ground clamp), starting on the aim-down-sights set's sneak hold
+and ending exactly on the first-person `sneakmtidle`; `left_on_gun()` only through blends whose far pose holds the gun.
+The aim-down-sights sneak raise/hold get the `AnimObjectUnequip` safety copies too.
+
+Built and checked offline (2026-11-01): 238 third-person and 294 first-person clips, hands on target in every frame,
+both views' left hand sliding along the stock's side through the blend-in (5-8 units out) and away from the gun into
+the idle; side-view render of the crouch (kneeling-style, upright chest; the classic's butt just clears the floor).
+The last half second turns the gun from Zodd's forward hold to `sneakmtidle`'s backward hang. **Verified in game
+2026-11-01** ("confirmed reload works in stealth now").

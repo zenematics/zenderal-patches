@@ -1,0 +1,5 @@
+FormKey: 000805:Zenderal - Musket Ramrod Reload.esp
+EditorID: ZEN_Ramrod_ol_matchlock
+Model:
+  File: Zenderal\MusketRamrod\ZenRamrod_ol_matchlock.nif
+UnloadEvent: AnimObjectUnequip

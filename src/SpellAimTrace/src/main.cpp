@@ -19,9 +19,20 @@
 //
 // 1.2.0: also traces the auto-aim launch-angle call Hit Where You Aim hooks (ID 44200 +0x201): its launch node,
 // origin and the angle before and after HWYA.
+//
+// 1.3.0 (ramrod reload stopping early): from a shot until 10 s later, logs every animation event the player's graphs
+// send (tagged 1P/3P, * = the active graph), every event the game sends into them (NotifyAnimationGraph: reloadStart
+// comes from code) and each attack-state change. The 1hm graph leaves its crossbow reload state only on reloadStop
+// (a clip trigger 0.195 s before the reload clip's end) or a dodge/recoil wildcard.
+//
+// 1.4.0 (ramrod props not showing although their AnimObjLoad/AnimObjDraw events fire): for each AnimObj* event, whether
+// its payload resolves to an ANIO by EditorID; and while recording, every 100 ms (logged when it changes), the nodes
+// named ZenRamrod* in the player's first- and third-person 3D (parent, world position, hidden) and what hangs on each
+// tree's AnimObjectL. 1.4.1: at data load, whether the prop plugin and its ANIO 0x800 loaded and whether vanilla/EAS/our
+// ANIO EditorIDs resolve.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 2, 0, 0 },
+	.Version = REL::Version{ 1, 4, 1, 0 },
 	.Name = "ZenSpellAimTrace"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -313,15 +324,199 @@ namespace
 		LaunchAngle::next = SKSE::GetTrampoline().write_call<5>(site, LaunchAngle::thunk);
 		SKSE::log::info("launch-angle call (44200 +0x201) traced after whatever hooked it before");
 	}
+
+	// ---- 1.3.0: the player's graph traffic around a shot ----------------------------------------------------------
+	using Clock = std::chrono::steady_clock;
+	const Clock::time_point             g_t0 = Clock::now();
+	std::atomic<long long>              g_windowEnd{ 0 };   // ms; record while now < this
+	std::atomic<std::uintptr_t>         g_graph[4]{};
+	std::atomic<bool>                   g_graphIs1P[4]{};
+	std::atomic<std::uint32_t>          g_activeGraph{ 99 };
+	std::atomic<int>                    g_attackState{ -1 };
+	constexpr long long                 kWindowMs = 10000;
+
+	long long NowMs() { return std::chrono::duration_cast<std::chrono::milliseconds>(Clock::now() - g_t0).count(); }
+	bool      Recording() { return NowMs() < g_windowEnd.load(); }
+
+	bool StartsWindow(std::string_view a_tag)
+	{
+		static constexpr std::array kTags{ "attackRelease"sv, "arrowRelease"sv, "bowAttackStart"sv, "crossbowAttackStart"sv };
+		for (auto t : kTags) {
+			if (a_tag.size() == t.size() && std::equal(t.begin(), t.end(), a_tag.begin(), [](char a, char b) { return std::tolower(a) == std::tolower(b); })) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	std::string GraphName(std::uintptr_t a_src)
+	{
+		for (std::uint32_t i = 0; i < 4; ++i) {
+			if (a_src && g_graph[i].load() == a_src) {
+				return std::string(g_graphIs1P[i].load() ? "1P" : "3P") + (i == g_activeGraph.load() ? "*" : " ");
+			}
+		}
+		return "? ";
+	}
+
+	struct GraphEventSink
+	{
+		static RE::BSEventNotifyControl thunk(RE::BSTEventSink<RE::BSAnimationGraphEvent>* a_this, const RE::BSAnimationGraphEvent* a_event,
+			RE::BSTEventSource<RE::BSAnimationGraphEvent>* a_source)
+		{
+			if (a_event && a_event->tag.c_str()) {
+				const std::string_view tag{ a_event->tag.c_str() };
+				if (StartsWindow(tag)) {
+					if (!Recording()) {
+						SKSE::log::info("{:>8} ---- window opens", NowMs());
+					}
+					g_windowEnd = NowMs() + kWindowMs;
+				}
+				if (Recording()) {
+					const std::string_view payload{ a_event->payload.c_str() ? a_event->payload.c_str() : "" };
+					SKSE::log::info("{:>8} GRAPH->  {} {}{}{}   [attack state {}]", NowMs(),
+						GraphName(reinterpret_cast<std::uintptr_t>(static_cast<RE::BShkbAnimationGraph*>(a_source))), tag, payload.empty() ? "" : " ",
+						payload, g_attackState.load());
+					if (tag.starts_with("AnimObj") && !payload.empty()) {
+						const auto anio = RE::TESForm::LookupByEditorID<RE::TESObjectANIO>(std::string(payload));
+						SKSE::log::info("{:>8}          ANIO '{}' by EditorID: {}", NowMs(), payload,
+							anio ? fmt::format("{:08X} model '{}'", anio->GetFormID(), anio->GetModel() ? anio->GetModel() : "") : "NOT FOUND"s);
+					}
+				}
+			}
+			return func(a_this, a_event, a_source);
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
+	struct NotifyGraph
+	{
+		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_event)
+		{
+			const bool ok = func(a_this, a_event);
+			if (a_event.c_str()) {
+				const std::string_view tag{ a_event.c_str() };
+				if (StartsWindow(tag)) {
+					g_windowEnd = NowMs() + kWindowMs;
+				}
+				if (Recording()) {
+					SKSE::log::info("{:>8} ->GRAPH  {} (accepted {})   [attack state {}]", NowMs(), tag, ok, g_attackState.load());
+				}
+			}
+			return ok;
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
+	// 1.4.0: where (if anywhere) the ramrod props are in the player's two 3D trees
+	void ScanProps(RE::PlayerCharacter* a_player)
+	{
+		static long long  last = 0;
+		static std::string seen[2];
+		if (!Recording() || NowMs() - last < 100) {
+			return;
+		}
+		last = NowMs();
+		for (int tree = 0; tree < 2; ++tree) {
+			const bool first = tree == 0;
+			auto       root = a_player->Get3D(first);
+			std::string line;
+			if (!root) {
+				line = "no 3D";
+			} else {
+				if (auto ao = root->GetObjectByName("AnimObjectL")) {
+					line += fmt::format("AnimObjectL at {} holds:", P3(ao->world.translate));
+					if (auto node = ao->AsNode()) {
+						for (auto& child : node->GetChildren()) {
+							if (child) {
+								line += fmt::format(" '{}'{}", child->name.c_str() ? child->name.c_str() : "",
+									child->GetFlags().any(RE::NiAVObject::Flag::kHidden) ? " (hidden)" : "");
+							}
+						}
+					}
+				} else {
+					line += "no AnimObjectL";
+				}
+				RE::BSVisit::TraverseScenegraphObjects(root, [&](RE::NiAVObject* a_obj) {
+					const char* name = a_obj->name.c_str();
+					if (name && std::string_view(name).starts_with("ZenRamrod")) {
+						line += fmt::format(" | '{}' under '{}' at {}{}", name,
+							a_obj->parent && a_obj->parent->name.c_str() ? a_obj->parent->name.c_str() : "-", P3(a_obj->world.translate),
+							a_obj->GetFlags().any(RE::NiAVObject::Flag::kHidden) ? " HIDDEN" : "");
+					}
+					return RE::BSVisit::BSVisitControl::kContinue;
+				});
+			}
+			if (line != seen[tree]) {
+				seen[tree] = line;
+				SKSE::log::info("{:>8} PROPS {}: {}", NowMs(), first ? "1P" : "3P", line);
+			}
+		}
+	}
+
+	struct PlayerUpdate
+	{
+		static void thunk(RE::PlayerCharacter* a_this, float a_delta)
+		{
+			func(a_this, a_delta);
+			ScanProps(a_this);
+			RE::BSTSmartPointer<RE::BSAnimationGraphManager> manager;
+			if (a_this->GetAnimationGraphManager(manager) && manager) {
+				std::uint32_t i = 0;
+				for (auto& graph : manager->graphs) {
+					if (i >= 4) {
+						break;
+					}
+					const auto ptr = reinterpret_cast<std::uintptr_t>(graph.get());
+					if (g_graph[i].exchange(ptr) != ptr && graph) {
+						std::string project{ graph->projectName.c_str() ? graph->projectName.c_str() : "" };
+						std::ranges::transform(project, project.begin(), [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
+						g_graphIs1P[i] = project.find("first") != std::string::npos;
+						SKSE::log::info("{:>8} graph {} = '{}' ({})", NowMs(), i, graph->projectName.c_str(), g_graphIs1P[i].load() ? "1P" : "3P");
+					}
+					++i;
+				}
+				g_activeGraph = manager->GetRuntimeData().activeGraph;
+			}
+			const int state = static_cast<int>(a_this->AsActorState()->GetAttackState());
+			if (g_attackState.exchange(state) != state && Recording()) {
+				SKSE::log::info("{:>8} attack state -> {}", NowMs(), state);
+			}
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
+	void InstallGraphTrace()
+	{
+		REL::Relocation<std::uintptr_t> sinkVtbl{ RE::VTABLE_PlayerCharacter[2] };
+		GraphEventSink::func = sinkVtbl.write_vfunc(0x1, GraphEventSink::thunk);
+		REL::Relocation<std::uintptr_t> holderVtbl{ RE::VTABLE_PlayerCharacter[3] };
+		NotifyGraph::func = holderVtbl.write_vfunc(0x1, NotifyGraph::thunk);
+		REL::Relocation<std::uintptr_t> playerVtbl{ RE::VTABLE_PlayerCharacter[0] };
+		PlayerUpdate::func = playerVtbl.write_vfunc(0xAD, PlayerUpdate::thunk);
+		SKSE::log::info("player graph events, NotifyAnimationGraph and Update hooked");
+	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenSpellAimTrace 1.2.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenSpellAimTrace 1.4.1 loading, runtime {}", REL::Module::get().version().string());
+	InstallGraphTrace();
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
 		if (a_msg->type == SKSE::MessagingInterface::kPostLoad) {
 			InstallLaunchAngle();
+		}
+		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {   // 1.4.1: is the prop plugin loaded, do ANIO names resolve?
+			const auto data = RE::TESDataHandler::GetSingleton();
+			const auto file = data->LookupModByName("Zenderal - Musket Ramrod Reload.esp");
+			const auto ball = data->LookupForm<RE::TESObjectANIO>(0x800, "Zenderal - Musket Ramrod Reload.esp");
+			SKSE::log::info("prop plugin {}; its ANIO 0x800 {}", file ? "loaded" : "NOT LOADED",
+				ball ? fmt::format("= {:08X} EditorID '{}'", ball->GetFormID(), ball->GetFormEditorID()) : "not found"s);
+			for (const char* name : { "AnimObjectDrinkPotion", "aaAO_WoodenSpoon", "ZEN_RamrodBall" }) {
+				const auto anio = RE::TESForm::LookupByEditorID<RE::TESObjectANIO>(name);
+				SKSE::log::info("ANIO '{}' by EditorID: {}", name, anio ? fmt::format("{:08X}", anio->GetFormID()) : "NOT FOUND"s);
+			}
 		}
 	});
 

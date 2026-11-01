@@ -41,6 +41,37 @@ crosshair ray; it flies 0.2-0.33 deg above the camera's forward, landing +1-2 un
 first-person rig's `Camera1st` sits exactly at the render camera; the render camera looks 2.5 deg higher than the
 player's own pitch.
 
+**1.3.0 (2026-11-01)**, for the ramrod reload stopping early: from a shot (`attackRelease`/`arrowRelease`/
+`bowAttackStart`/`crossbowAttackStart`) until 10 s later it logs every event the player's graphs send (`GRAPH->`,
+tagged 1P/3P, `*` = active graph, via PlayerCharacter's BSAnimationGraphEvent sink as in ZenParryTrace), every event
+the game sends into them (`->GRAPH`, NotifyAnimationGraph, vtable `PlayerCharacter[3]` 0x1) and attack-state changes
+(PlayerCharacter::Update 0xAD). Read from the 1hm behaviors (Pandora output, 64-bit, read with a small packfile
+reader): `1HM_Behavior`'s `CrossBow_AttackState` (139) leaves on `attackStop` (to ready) or `reloadStart` (to
+`CrossBow_ReloadState` 140, sent by code), and 140 leaves only on `reloadStop` (clip trigger 0.195 s before the
+reload clip's end) or the recoil/TK dodge wildcards. `CrossBow_Release` fires `bowEnd`/`attackStop` 0.06/0.04 s
+before its end; `CrossBow_Reload(Fast)` fires `Reload(Fast)` at its start; speed 1.0 / 1.3 (QuickShot perk).
+
+1.3.0 findings (first-person musket shot, ramrod build 1.0, Quick Reload): `BowReleaseFast`, `arrowRelease` +0.16 s,
+Zodd's reload sounds +0.74/+1.03/+2.15 s, `arrowAttach` +1.21 s with the attack state 12 → 9 (`kBowAttached`),
+`bowEnd`/`attackStop` +3.86 s, **no `reloadStart`**. After a shot the shot clip is the reload; the reload clip (and
+any retimed copy of it) plays only on `reloadStart`.
+
+**1.4.0 (2026-11-01)**, for the ramrod props ([`FlintlockOverhaul`](FlintlockOverhaul.md)) not showing although
+the first-person graph sends their `AnimObjLoad ZEN_RamrodBall` / `AnimObjDraw ZEN_Ramrod_<mesh>` /
+`AnimObjectUnequip` events on time (1.3.0 log, 19:38): each `AnimObj*` event also logs whether its payload resolves
+to an ANIO through `TESForm::LookupByEditorID`, and while recording, every 100 ms (logged only on change), `PROPS 1P` /
+`PROPS 3P` list what hangs on that tree's `AnimObjectL` and every `ZenRamrod*` node in it (parent, world position,
+hidden flag). Tells "record not found" from "attached to the hidden third-person body" from "attached but out of
+sight". 1.3.0 only ever showed `1P*` events while in first person: the inactive graph's events don't reach the
+player's sink.
+
+1.4.0 findings (19:45, one shot in each view): the props' events fire in both graphs (`3P*` in third person), every
+`AnimObj*` payload is `NOT FOUND` by EditorID, and nothing ever hangs on either `AnimObjectL`. Cause: the prop plugin
+was not active (no `*` in the profile's `plugins.txt`), so its ANIO records never loaded. **1.4.1** logs at data load
+whether `Zenderal - Musket Ramrod Reload.esp` and its ANIO 0x800 loaded, and whether a vanilla ANIO
+(`AnimObjectDrinkPotion`), EAS's `aaAO_WoodenSpoon` and ours resolve through `LookupByEditorID`, the control the
+1.4.0 lookups lacked.
+
 1.0.0's DLL is in `E:/Zenderal-backups/2026-11-01-spell-aim-trace-1.0.0/`. The MO2 mod now holds 1.1.0 unhidden;
 it stays off by being unticked in the profile.
 
