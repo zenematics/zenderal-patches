@@ -115,3 +115,4 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`DFSlowTimeGuard`](DFSlowTimeGuard.md) | `ZenDFSlowTimeGuard.dll`: stops DF's slow-mo reset cancelling Seismic Stomp's SlowTime | none (no plugin) |
 | [`SkeletonRagdollFix`](SkeletonRagdollFix.md) | generated loose `skeletons.hkx`: skeleton ragdoll limbs bend | none (no plugin) |
 | [`IEDPistolHolsters`](IEDPistolHolsters.md) | IED ExtraGearNodes file + generated IED export: pistols placed apart from staves | none (no plugin) |
+| [`ControllerLayout`](ControllerLayout.md) | `Zenderal - Controller Layout.esp` + `ZEN_ControllerLayout.pex` + every controller/keybind config file | `0x800` |

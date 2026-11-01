@@ -1,0 +1,20 @@
+FormKey: 000800:Zenderal - Controller Layout.esp
+EditorID: ZEN_ControllerLayoutQuest
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000800:Zenderal - Controller Layout.esp
+      Alias: 0
+    Scripts:
+    - Name: ZEN_ControllerLayout
+Flags:
+- StartGameEnabled
+- RunOnce
+NextAliasID: 1
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

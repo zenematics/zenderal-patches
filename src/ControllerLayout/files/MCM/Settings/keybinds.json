@@ -1,0 +1,20 @@
+{
+  "version": 15,
+  "keybinds": [
+    {
+      "keycode": 48,
+      "modName": "Helmet Toggle 2",
+      "id": "HT_ManageHelmet"
+    },
+    {
+      "keycode": 38,
+      "modName": "SWLToggle",
+      "id": "toggleLantern"
+    },
+    {
+      "keycode": 47,
+      "modName": "UltimateImmersionToggle",
+      "id": "ToggleUI"
+    }
+  ]
+}

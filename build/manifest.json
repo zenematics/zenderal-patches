@@ -1472,6 +1472,36 @@
           "dest": "Zenderal - Grass Bounds.esp"
         }
       ]
+    },
+    {
+      "$comment": "The whole controller (and shared keyboard) layout in one on/off mod; must have the HIGHEST priority of every input mod in MO2 (above Zenderal - Input Defaults, Complete Controller Setup, Zenderal - Settings). files/ = Input Defaults' winning configs + keybinds.json, with the mid-stance pad key moved ' -> \\ (' is No Compass In Dialogue's compass toggle, so hold D-pad Right also hid the compass), Gamepad++ double-tap Left L -> K (Quick Light) and Right K -> H (Hero Menu). OCPA stays 259: RT is Patch Collection's ZenOCPASecondKey. ZEN_ControllerLayout (player alias, ESL, masters only Skyrim.esm) writes the save-stored parts once per save per LAYOUT_VERSION: Gamepad++'s key-handler fields, Quick Light's key L -> K; and makes B + D-pad Up tap H for Enderal 2.1's native Hero Menu. Stubs in Scripts/stubs are compile-only.",
+      "name": "Zenderal - Controller Layout",
+      "archiveName": "Zenderal - Controller Layout",
+      "fomod": false,
+      "scripts": {
+        "from": "src/ControllerLayout/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "plugins": [
+        {
+          "yamlSource": "src/ControllerLayout/ControllerLayoutESP",
+          "dest": "Zenderal - Controller Layout.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/ControllerLayout/files",
+          "to": ""
+        },
+        {
+          "from": "src/ControllerLayout/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/ControllerLayout/readme - Zenderal - Controller Layout.txt",
+          "to": ""
+        }
+      ]
     }
   ]
 }
