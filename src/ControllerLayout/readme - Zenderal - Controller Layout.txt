@@ -103,7 +103,8 @@ WHAT IS IN HERE
 Loose files (win by MO2 priority):
   Interface\Controls\PC\controlmap.txt     CCS layout; Quick Stats + Auto-Move pad combos unbound;
                                            Back = Tween, B+Back = Favourites, B+Start = Wait
-  ControlMap_Custom.txt                    keyboard binds + gamepad block (same Tween/Wait)
+  Root\ControlMap_Custom.txt               keyboard binds + gamepad block (same Tween/Wait).
+                                           Under Root\ (Root Builder) so in-game rebinds persist.
   MCM\Settings\OCPA.ini                    power attack = Mouse 4 (259); RT is
                                            Patch Collection's ZenOCPASecondKey (281)
   MCM\Settings\keybinds.json               helmet B, UI toggle V (its lantern entry is

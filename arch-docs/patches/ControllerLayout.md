@@ -119,6 +119,21 @@ A + Up is free. B is sprint, so holding B while moving also sprints.
 Older docs that describe the Papyrus Hero Menu (`ControllerTweaks.md`, sections 3–6 of
 `zenderal-controller-setup.md`) predate Enderal 2.1.
 
+## `ControlMap_Custom.txt` ships under `Root\` (merge with main, 2026-11-01)
+
+Main's keybinds fix (`875e6480`, [`modlist/mod-gotchas.md`](../modlist/mod-gotchas.md)) found that any
+`Data\` copy of `ControlMap_Custom.txt` beats the game-root copy, while in-game rebinds are written to the
+game root. So a `Data\` copy resets rebinds on every launch. The mod therefore ships
+`Root/ControlMap_Custom.txt` and outranks `Zenderal - Settings/Root`. **This only works if no mod has a
+`Data\` copy.** Main hides Input Defaults', Personal Keybinds' and CCS's (`.mohidden`). On an install where
+they aren't hidden, theirs wins and the pad's Tween/Wait swap is lost. `GamepadCombos` reads only
+`Data/ControlMap_Custom.txt`. With no `Data\` copy it falls back to `controlmap.txt`, whose gamepad
+defaults here match the custom map.
+
+Main also records a separate 2026-10-25 pad layout in Input Defaults / Personal Keybinds
+([`zenderal-controller-setup.md`](../zenderal-controller-setup.md)). That is the list's default when this
+mod is off. This mod is opt-in for controller players, and when it's on it wins every input file.
+
 ## D-pad favourites and the Ammo Wheel (2026-11-01)
 
 D-pad taps are favourites **1–4** (Left 1, Up 2, Right 3, Down 4), moved from CCS's 5–8 at the
