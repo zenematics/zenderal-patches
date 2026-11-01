@@ -373,9 +373,13 @@ To release: `git tag v1.0 && git push origin v1.0`. The **`github-release`** ski
 curated flow: changelog from the previous tag, promote the CI-built assets, clean up the `build-*`
 tags.
 
-**PR test builds.** `.github/workflows/pr-build.yml` runs the *same* build on every pull request and
-attaches the archives as an Actions artifact named `pr-<number>-test-builds`, plus a sticky comment
-linking to the run. Each push replaces the previous artifact; merging or closing the PR deletes it.
+**PR test builds.** `.github/workflows/pr-build.yml` runs the *same* build for a pull request, but
+**only on demand**, because the full build is too large to run on every push. Start it from the
+Actions tab ("PR Test Build" → Run workflow → PR number) or with
+`gh workflow run pr-build.yml -f pr=<number>`. It builds the PR's head commit and attaches the
+archives as an Actions artifact named `pr-<number>-test-builds`, plus a sticky comment linking to the
+run. Each run replaces the previous artifact, and merging or closing the PR deletes it. That cleanup
+is the only part that runs automatically.
 A PR that produces no archives (docs/tooling only) skips the upload and comment instead of failing.
 Shared setup+build steps live in the composite action `.github/actions/build-mod-archives/`.
 
