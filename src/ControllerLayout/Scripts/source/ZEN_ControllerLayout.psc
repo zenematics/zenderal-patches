@@ -3,22 +3,23 @@ Scriptname ZEN_ControllerLayout extends ReferenceAlias
 handles the parts that other mods keep IN THE SAVE, where no file can reach them:
 
   1. Gamepad++ D-pad gestures - written straight into Gamepad++'s key handler, the same fields its
-     MCM "Load Preset" fills. Hold = stance, double-tap = Swift Potion, A + tap = Quick Light / horse / Hero Menu.
+     MCM "Load Preset" fills. Hold = stance, double-tap = Swift Potion, A + tap = Quick Light / horse.
   2. Quick Light's keyboard key moved from L to K: L is also Enderal's horse-call key. Its hold-Activate
      trigger (A / E) is switched OFF, so A + D-pad potions never toggle the light. (No lantern mod is
      installed; keybinds.json's SWLToggle is stale.)
-  3. B closes Enderal's Hero Menu. Gamepad++ cannot do this (it only sends keys), so this alias
-     listens for B and calls the Hero Menu script's own Esc path.
+  3. B + D-pad Up opens Enderal's Hero Menu and B closes it. This alias listens for B and D-pad Up
+     and calls the Hero Menu script's own H / Esc paths (Gamepad++ cannot close a menu).
 
 Items 1-2 are written ONCE per save (per LAYOUT_VERSION), so a player's later MCM changes stick.
 Bump LAYOUT_VERSION to push a changed layout into existing saves. Every target is looked up by
 plugin + FormID and cast, so a missing or changed mod is skipped, never written blindly.}
 
-Int Property LAYOUT_VERSION = 6 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off; 5: double-tap Up = horse; 6: double-tap <-> A + tap swapped
+Int Property LAYOUT_VERSION = 7 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off; 5: double-tap Up = horse; 6: double-tap <-> A + tap swapped; 7: Hero Menu -> B + Up, horse -> A + Right
 
 ; SKSE key codes
 Int Property KEY_ESC = 1 AutoReadOnly
 Int Property KEY_K = 37 AutoReadOnly
+Int Property KEY_HERO_MENU = 35 AutoReadOnly       ; H - Enderal's default iHeroMenuKeycode
 Int Property PAD_DPAD_UP = 266 AutoReadOnly
 Int Property PAD_DPAD_DOWN = 267 AutoReadOnly
 Int Property PAD_DPAD_LEFT = 268 AutoReadOnly
@@ -28,7 +29,6 @@ Int Property PAD_B = 277 AutoReadOnly
 
 ; Keys Gamepad++ presses (DirectInput scan codes)
 Int Property SEND_QUICK_LIGHT = 37 AutoReadOnly      ; K - Quick Light (set by ApplyQuickLight)
-Int Property SEND_HERO_MENU = 35 AutoReadOnly        ; H - Enderal's Hero Menu key
 Int Property SEND_STANCE_NEUTRAL = 26 AutoReadOnly   ; [ - Stances.ini stance_neutral_pad
 Int Property SEND_STANCE_MID = 43 AutoReadOnly       ; \ - Stances.ini stance_mid_pad (NOT ', No Compass In Dialogue's key)
 Int Property SEND_STANCE_HIGH = 27 AutoReadOnly      ; ] - Stances.ini stance_high_pad
@@ -43,6 +43,7 @@ Int Property MAX_TRIES = 8 AutoReadOnly
 
 Int iAppliedVersion = 0
 Int iTries = 0
+Bool bBHeld = False
 
 ; ---------------------------------------------------------------- lifecycle
 
@@ -55,7 +56,9 @@ Event OnPlayerLoadGame()
 EndEvent
 
 Function Setup()
+	bBHeld = False
 	RegisterForKey(PAD_B)
+	RegisterForKey(PAD_DPAD_UP)
 	If iAppliedVersion < LAYOUT_VERSION
 		iTries = 0
 		; Other mods' aliases initialise a few seconds into a new game; let them finish first.
@@ -83,18 +86,39 @@ EndEvent
 ; ---------------------------------------------------------------- Hero Menu: B closes
 
 Event OnKeyDown(Int KeyCode)
-	If KeyCode == PAD_B && UI.IsMenuOpen("CustomMenu")
-		Quest levelsystem = Game.GetFormFromFile(0x010AA2, "Skyrim.esm") As Quest
-		If levelsystem
-			_00E_Game_SkillmenuSC heroMenu = levelsystem.GetAlias(0) As _00E_Game_SkillmenuSC
+	If KeyCode == PAD_B
+		bBHeld = True
+		If UI.IsMenuOpen("CustomMenu")
+			_00E_Game_SkillmenuSC heroMenu = GetHeroMenu()
 			If heroMenu
 				; Enderal's handler closes only when its own MenuOpen flag is set, so B in any other
 				; custom menu is ignored there.
 				heroMenu.OnKeyDown(KEY_ESC)
 			EndIf
 		EndIf
+	ElseIf KeyCode == PAD_DPAD_UP && bBHeld && !Utility.IsInMenuMode()
+		; B + D-pad Up opens the Hero Menu through Enderal's own H-key path (its handler re-checks
+		; menu mode, text input, the dreamworld and its open cooldown).
+		_00E_Game_SkillmenuSC heroMenu = GetHeroMenu()
+		If heroMenu
+			heroMenu.OnKeyDown(KEY_HERO_MENU)
+		EndIf
 	EndIf
 EndEvent
+
+Event OnKeyUp(Int KeyCode, Float HoldTime)
+	If KeyCode == PAD_B
+		bBHeld = False
+	EndIf
+EndEvent
+
+_00E_Game_SkillmenuSC Function GetHeroMenu()
+	Quest levelsystem = Game.GetFormFromFile(0x010AA2, "Skyrim.esm") As Quest
+	If levelsystem
+		Return levelsystem.GetAlias(0) As _00E_Game_SkillmenuSC
+	EndIf
+	Return None
+EndFunction
 
 ; ---------------------------------------------------------------- Gamepad++
 ; Returns 1 applied, 0 Gamepad++ not installed (nothing to do), -1 not initialised yet (retry).
@@ -135,12 +159,11 @@ Int Function ApplyGamepadPlusPlus()
 	acts[10] = SEND_POTION_MANA     ; double-tap Up
 	acts[12] = SEND_STANCE_LOW      ; hold Down
 	kh.aiNonComboActions = acts
-	; Hold A + tap a D-pad button = Quick Light / horse / Hero Menu. Gamepad++ decides single vs double tap after its
+	; Hold A + tap a D-pad button = Quick Light / horse. Gamepad++ decides single vs double tap after its
 	; multi-tap delay (0.3 s), and only counts the combo if A is STILL held then.
 	Int[] combo = NewEmptyActions()
 	combo[1] = SEND_QUICK_LIGHT     ; A + Left
-	combo[5] = SEND_HERO_MENU       ; A + Right
-	combo[9] = SEND_HORSE_CALL      ; A + Up
+	combo[5] = SEND_HORSE_CALL      ; A + Right
 	kh.aiC1Actions = combo
 	kh.aiC2Actions = NewEmptyActions()
 	kh.aiC3Actions = NewEmptyActions()

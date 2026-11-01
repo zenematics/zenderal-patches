@@ -34,16 +34,17 @@ else comes from the config files only.
 | Start / Back | Journal / Tween menu |
 | B + Back | Favourites |
 | B + Start | Wait |
+| B + D-pad Up | Hero Menu; B closes it (`ZEN_ControllerLayout` calls Enderal's own H / Esc handler) |
 | B + D-pad Right / Left / Down | Inventory / Magic / Map |
 
 | D-pad | Tap | Double-tap | A + tap | Hold (weapon drawn) |
 |---|---|---|---|---|
-| Up | Favourite hotkey 3 | Magicka potion (`↑`) | Call horse (`L`; needs the horse flute) | High stance ✅ (`]`) |
-| Right | Favourite hotkey 1 | Stamina potion (`→`) | Hero Menu (`H`); B closes it | Mid stance ✅ (`\`) |
+| Up | Favourite hotkey 3 | Magicka potion (`↑`) | — | High stance ✅ (`]`) |
+| Right | Favourite hotkey 1 | Stamina potion (`→`) | Call horse (`L`; needs the horse flute) | Mid stance ✅ (`\`) |
 | Down | Favourite hotkey 4 | — | — | Low stance ✅ (`;`) |
 | Left | Favourite hotkey 2 | Health potion (`←`) | Quick Light (`K`) | Neutral stance ✅ (`[`) |
 
-v6 (2026-11-01) swapped double-tap and A + tap. Before the swap, double-tap ran Quick Light / horse /
+v7 (2026-11-01) moved the Hero Menu to B + D-pad Up and the horse to A + Right. v6 swapped double-tap and A + tap. Before the swap, double-tap ran Quick Light / horse /
 Hero Menu (Quick Light and Hero Menu tested ✅) and A + tap ran the potions. The swapped layout is not
 yet tested.
 

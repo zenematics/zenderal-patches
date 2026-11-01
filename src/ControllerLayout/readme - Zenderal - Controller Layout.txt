@@ -9,7 +9,7 @@ list), i.e. above Zenderal - Input Defaults, Complete Controller Setup, Gamepad+
 Zenderal - Settings. Enable "Zenderal - Controller Layout.esp" (ESL, masters only Skyrim.esm).
 
 Works on an existing save: about 15 s after loading (out of menus) it writes the save-stored
-parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v6 applied".
+parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v7 applied".
 
 
 CONTROLLER
@@ -27,16 +27,17 @@ CONTROLLER
   Start / Back               Journal / Tween menu
   B + Back                   Favourites
   B + Start                  Wait
+  B + D-pad Up               Hero Menu (B closes it)
   B + D-pad Right/Left/Down  Inventory / Magic / Map
 
   D-pad    tap                 double-tap          A + tap         hold (weapon drawn)
-  Up       favourite hotkey 3  Magicka potion      Call horse      High stance
-  Right    favourite hotkey 1  Stamina potion      Hero Menu       Mid stance
+  Up       favourite hotkey 3  Magicka potion      -               High stance
+  Right    favourite hotkey 1  Stamina potion      Call horse      Mid stance
   Down     favourite hotkey 4  -                   -               Low stance
   Left     favourite hotkey 2  Health potion       Quick Light     Neutral stance
 
   Every D-pad press also uses that favourites slot, including the first press of a
-  double-tap or hold.  B closes the Hero Menu.
+  double-tap or hold.
   A + tap: hold A, tap the D-pad, and keep A held a moment (~0.3 s) - Gamepad++ only counts
   the combo if A is still down when it decides the tap.
   Potions are Swift Potion's hotkeys. Quick Light has no hold-Activate trigger (switched off).
@@ -117,7 +118,7 @@ Loose files (win by MO2 priority):
 Script (ZEN_ControllerLayout) - things other mods keep IN THE SAVE, written once per save:
   - Gamepad++ D-pad gestures and A + D-pad potion combos (the tables above)
   - Quick Light's keyboard key L -> K (L is also Enderal's horse call), hold-Activate trigger off
-  - B closes the Hero Menu
+  - B + D-pad Up opens the Hero Menu, B closes it
 
 Fixed relative to the old setup:
   - Holding D-pad Right no longer toggles the compass. The mid stance used the ' key, which is

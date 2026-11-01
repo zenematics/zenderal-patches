@@ -103,6 +103,15 @@ save, so a player who rebinds them in its MCM breaks the match. `gpp_keyhandler.
 `bIsC1Held` when the multi-tap delay (0.3 s) ends, so A must still be held then. Before v4,
 Quick Light's hold-Activate also listened on A.
 
+## Hero Menu on B + D-pad Up (v7)
+
+`ZEN_ControllerLayout` registers B (277) and D-pad Up (266) and tracks B with `OnKeyDown`/`OnKeyUp`.
+D-pad Up while B is held, outside menu mode, calls `_00E_Game_SkillmenuSC.OnKeyDown(35)`, Enderal's
+own H path. That handler re-checks menu mode, text input, the dreamworld and its cooldown. This is
+instant, unlike Gamepad++ combos, and sends no keyboard H, so the keyboard Quick Stats bind on H
+never fires. A + Right sends L (horse), and A + Up is free. The D-pad Up tap still uses favourite 3,
+and B is sprint, so holding B to start the combo while moving also sprints.
+
 ## D-pad favourites and the Ammo Wheel (2026-11-01)
 
 D-pad taps are favourites **1–4** (Right 1, Left 2, Up 3, Down 4), moved from CCS's 5–8 at the
