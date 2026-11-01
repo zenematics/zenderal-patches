@@ -9,7 +9,7 @@ list), i.e. above Zenderal - Input Defaults, Complete Controller Setup, Gamepad+
 Zenderal - Settings. Enable "Zenderal - Controller Layout.esp" (ESL, masters only Skyrim.esm).
 
 Works on an existing save: about 15 s after loading (out of menus) it writes the save-stored
-parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v5 applied".
+parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v6 applied".
 
 
 CONTROLLER
@@ -28,19 +28,18 @@ CONTROLLER
   B + Back                   Favourites
   B + Start                  Wait
   B + D-pad Right/Left/Down  Inventory / Magic / Map
-  A + D-pad Left/Up/Right    Health / Magicka / Stamina potion (Swift Potion)
 
-  D-pad        tap                   double-tap        hold (weapon drawn)
-  Up           favourite hotkey 7    Call horse        High stance
-  Right        favourite hotkey 5    Hero Menu         Mid stance
-  Down         favourite hotkey 8    -                 Low stance
-  Left         favourite hotkey 6    Quick Light       Neutral stance
+  D-pad    tap                 double-tap          A + tap         hold (weapon drawn)
+  Up       favourite hotkey 7  Magicka potion      Call horse      High stance
+  Right    favourite hotkey 5  Stamina potion      Hero Menu       Mid stance
+  Down     favourite hotkey 8  -                   -               Low stance
+  Left     favourite hotkey 6  Health potion       Quick Light     Neutral stance
 
   Every D-pad press also uses that favourites slot, including the first press of a
   double-tap or hold.  B closes the Hero Menu.
-  Potions: hold A, tap the D-pad, and keep A held a moment (~0.3 s) - Gamepad++ only counts
+  A + tap: hold A, tap the D-pad, and keep A held a moment (~0.3 s) - Gamepad++ only counts
   the combo if A is still down when it decides the tap.
-  Quick Light is double-tap D-pad Left only (its hold-Activate trigger is switched off).
+  Potions are Swift Potion's hotkeys. Quick Light has no hold-Activate trigger (switched off).
 
   Inside Wheeler (X):
     D-pad Left / Right       previous / next item

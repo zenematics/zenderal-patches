@@ -3,7 +3,7 @@ Scriptname ZEN_ControllerLayout extends ReferenceAlias
 handles the parts that other mods keep IN THE SAVE, where no file can reach them:
 
   1. Gamepad++ D-pad gestures - written straight into Gamepad++'s key handler, the same fields its
-     MCM "Load Preset" fills. Hold = stance, double-tap Left = Quick Light, double-tap Right = Hero Menu.
+     MCM "Load Preset" fills. Hold = stance, double-tap = Swift Potion, A + tap = Quick Light / horse / Hero Menu.
   2. Quick Light's keyboard key moved from L to K: L is also Enderal's horse-call key. Its hold-Activate
      trigger (A / E) is switched OFF, so A + D-pad potions never toggle the light. (No lantern mod is
      installed; keybinds.json's SWLToggle is stale.)
@@ -14,7 +14,7 @@ Items 1-2 are written ONCE per save (per LAYOUT_VERSION), so a player's later MC
 Bump LAYOUT_VERSION to push a changed layout into existing saves. Every target is looked up by
 plugin + FormID and cast, so a missing or changed mod is skipped, never written blindly.}
 
-Int Property LAYOUT_VERSION = 5 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off; 5: double-tap Up = horse
+Int Property LAYOUT_VERSION = 6 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off; 5: double-tap Up = horse; 6: double-tap <-> A + tap swapped
 
 ; SKSE key codes
 Int Property KEY_ESC = 1 AutoReadOnly
@@ -128,19 +128,19 @@ Int Function ApplyGamepadPlusPlus()
 	; Single taps stay empty: the engine's own favourites hotkeys 5-8 own a D-pad tap.
 	Int[] acts = NewEmptyActions()
 	acts[0] = SEND_STANCE_NEUTRAL   ; hold Left
-	acts[2] = SEND_QUICK_LIGHT      ; double-tap Left
+	acts[2] = SEND_POTION_HEALTH    ; double-tap Left
 	acts[4] = SEND_STANCE_MID       ; hold Right
-	acts[6] = SEND_HERO_MENU        ; double-tap Right
+	acts[6] = SEND_POTION_STAMINA   ; double-tap Right
 	acts[8] = SEND_STANCE_HIGH      ; hold Up
-	acts[10] = SEND_HORSE_CALL      ; double-tap Up
+	acts[10] = SEND_POTION_MANA     ; double-tap Up
 	acts[12] = SEND_STANCE_LOW      ; hold Down
 	kh.aiNonComboActions = acts
-	; Hold A + tap a D-pad button = Swift Potion. Gamepad++ decides single vs double tap after its
+	; Hold A + tap a D-pad button = Quick Light / horse / Hero Menu. Gamepad++ decides single vs double tap after its
 	; multi-tap delay (0.3 s), and only counts the combo if A is STILL held then.
 	Int[] combo = NewEmptyActions()
-	combo[1] = SEND_POTION_HEALTH   ; A + Left
-	combo[5] = SEND_POTION_STAMINA  ; A + Right
-	combo[9] = SEND_POTION_MANA     ; A + Up
+	combo[1] = SEND_QUICK_LIGHT     ; A + Left
+	combo[5] = SEND_HERO_MENU       ; A + Right
+	combo[9] = SEND_HORSE_CALL      ; A + Up
 	kh.aiC1Actions = combo
 	kh.aiC2Actions = NewEmptyActions()
 	kh.aiC3Actions = NewEmptyActions()

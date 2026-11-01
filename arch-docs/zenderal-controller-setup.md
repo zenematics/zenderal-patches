@@ -35,20 +35,23 @@ else comes from the config files only.
 | B + Back | Favourites |
 | B + Start | Wait |
 | B + D-pad Right / Left / Down | Inventory / Magic / Map |
-| A + D-pad Left / Up / Right | Health / Magicka / Stamina potion (Swift Potion; Gamepad++ combo 1 sends ← ↑ →) |
 
-| D-pad | Tap | Double-tap | Hold (weapon drawn) |
-|---|---|---|---|
-| Up | Favourite hotkey 7 | Call horse (`L`; needs the horse flute) | High stance ✅ (`]`) |
-| Right | Favourite hotkey 5 | Hero Menu ✅ (`H`); B closes it | Mid stance ✅ (`\`) |
-| Down | Favourite hotkey 8 | — | Low stance ✅ (`;`) |
-| Left | Favourite hotkey 6 | Quick Light ✅ (`K`) | Neutral stance ✅ (`[`) |
+| D-pad | Tap | Double-tap | A + tap | Hold (weapon drawn) |
+|---|---|---|---|---|
+| Up | Favourite hotkey 7 | Magicka potion (`↑`) | Call horse (`L`; needs the horse flute) | High stance ✅ (`]`) |
+| Right | Favourite hotkey 5 | Stamina potion (`→`) | Hero Menu (`H`); B closes it | Mid stance ✅ (`\`) |
+| Down | Favourite hotkey 8 | — | — | Low stance ✅ (`;`) |
+| Left | Favourite hotkey 6 | Health potion (`←`) | Quick Light (`K`) | Neutral stance ✅ (`[`) |
+
+v6 (2026-11-01) swapped double-tap and A + tap. Before the swap, double-tap ran Quick Light / horse /
+Hero Menu (Quick Light and Hero Menu tested ✅) and A + tap ran the potions. The swapped layout is not
+yet tested.
 
 Gamepad++ sends the keys shown in brackets. `ZenKeyTrace.dll` turns the stance keys into the
 Stances mod's switch spells. Every D-pad press also fires that button's favourites hotkey,
-including the first press of a double-tap or hold. **Potion combos:** hold A, tap the D-pad and
-keep A held about 0.3 s, because Gamepad++ checks A when its multi-tap delay ends. Quick Light's
-hold-Activate trigger is switched off (v4), so the only way to toggle Quick Light is double-tap Left, or K on the keyboard.
+including the first press of a double-tap or hold. **A + tap:** hold A, tap the D-pad and keep A
+held about 0.3 s, because Gamepad++ checks A when its multi-tap delay ends. Quick Light's
+hold-Activate trigger is switched off (v4), so the only way to toggle Quick Light is A + Left, or K on the keyboard.
 
 **Inside Wheeler:** D-pad Left/Right previous/next item · D-pad Up/Down move entry · LT/RT
 previous/next wheel · RB/LB use right/left · Y add wheel · A add empty slot · L3/R3 move wheel ·

@@ -89,7 +89,12 @@ weapon drawn. Every switch logs `RemovePerk called with invalid Perk` (one stanc
 `remove` perk) and a `Dispel` error (ZenKeyTrace removes the ability on key-up first). Both come
 from the Stances mod and are harmless.
 
-## Swift Potion combos (v3)
+## Swift Potion and A + tap (v3, swapped in v6)
+
+**v6:** double-tap Left/Up/Right = health/mana/stamina potion (`aiNonComboActions` 2/10/6), and
+A + tap Left/Up/Right = Quick Light (K) / horse (L) / Hero Menu (H) (`aiC1Actions` 1/9/5). The
+notes below describe v3, which had the two the other way round.
+
 
 Combo key 1 is A (CCS's choice). `aiC1Actions` single-press slots 1/5/9 (Left/Right/Up) send
 203/205/200, which are Swift Potion Reborn's hotkeys as `Zenderal - Settings Applier`'s
