@@ -40,7 +40,9 @@ _spec.loader.exec_module(_bsa)
 
 STACK_FACTOR = 1.3  # extra speed when both perks are held (each alone: the graph's 1.3)
 MOD = 'Zenderal - Quick Reload Stack'
-PRIORITY_ALL = 432300     # above DAR Rifles' 432101-432103 and the Musket Aim Fix's 432200
+# src/FlintlockOverhaul/tools/06 imports STACK_FACTOR, BOTH_PERKS, retime, check, profile_mods, find_ci and _bsa
+# for its per-musket aim-down-sights reloads (432450+, above PRIORITY_MUSKET): rerun it after changing them.
+PRIORITY_ALL = 432300     # above DAR Rifles' 432101-432103
 PRIORITY_MUSKET = 432301
 CLIPS = ['crossbow_reload.hkx', 'sneakcrossbow_reload.hkx',
          'crossbow_reloaddwarven.hkx', 'sneakcrossbow_reloaddwarven.hkx']

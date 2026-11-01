@@ -11,9 +11,17 @@
 // point), with the angle between the launch direction and the direction from the origin to each of those.
 // After launch: the projectile's own position/angle for its first updates (UpdateImpl), and each AddImpact.
 // Nothing is written back.
+//
+// 1.1.0 (2026-11-01, first-person musket aim): arrow-type projectiles (bolts, Ordo's musket balls) are tracked too;
+// each launch logs where the first-person rig's `Camera1st [Cam1]` and `Weapon` nodes sit in the rendering
+// camera's frame, and each impact logs how far above/right of the launch-time crosshair ray it landed (units and
+// degrees), so a constant angle (a tilt) can be told from a constant height (a wrong launch point).
+//
+// 1.2.0: also traces the auto-aim launch-angle call Hit Where You Aim hooks (ID 44200 +0x201): its launch node,
+// origin and the angle before and after HWYA.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 0, 0 },
+	.Version = REL::Version{ 1, 2, 0, 0 },
 	.Name = "ZenSpellAimTrace"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -82,10 +90,41 @@ namespace
 			a_ref->IsDead() ? " DEAD" : "");
 	}
 
-	// Projectiles the player launched, by pointer, with how many updates have been logged.
-	std::mutex                                       g_lock;
-	std::unordered_map<RE::Projectile*, std::uint32_t> g_tracked;
-	constexpr std::uint32_t                          kUpdatesToLog = 4;
+	// The rendering camera's frame: its position and the camera root's axes (x right, y forward, z up).
+	struct CameraFrame
+	{
+		RE::NiPoint3 pos, right, fwd, up;
+
+		RE::NiPoint3 Local(const RE::NiPoint3& a_world) const
+		{
+			const auto d = a_world - pos;
+			return { d.Dot(right), d.Dot(fwd), d.Dot(up) };
+		}
+	};
+
+	std::optional<CameraFrame> GetCameraFrame()
+	{
+		auto* camera = RE::PlayerCamera::GetSingleton();
+		auto* world = RE::Main::WorldRootCamera();
+		if (!camera || !camera->cameraRoot || !world) {
+			return std::nullopt;
+		}
+		const auto& r = camera->cameraRoot->world.rotate;
+		return CameraFrame{ world->world.translate, { r.entry[0][0], r.entry[1][0], r.entry[2][0] }, { r.entry[0][1], r.entry[1][1], r.entry[2][1] },
+			{ r.entry[0][2], r.entry[1][2], r.entry[2][2] } };
+	}
+
+	std::string Local(const RE::NiPoint3& p) { return fmt::format("right {:+.2f} fwd {:+.2f} up {:+.2f}", p.x, p.y, p.z); }
+
+	// Projectiles the player launched, by pointer: how many updates have been logged, and the camera at launch.
+	struct Shot
+	{
+		std::uint32_t              updates{ 0 };
+		std::optional<CameraFrame> camera;
+	};
+	std::mutex                                g_lock;
+	std::unordered_map<RE::Projectile*, Shot> g_tracked;
+	constexpr std::uint32_t                   kUpdatesToLog = 4;
 
 	void LogContext(const RE::NiPoint3& a_origin, const RE::NiPoint3& a_dir)
 	{
@@ -97,6 +136,20 @@ namespace
 		for (const auto* name : { "NPC L MagicNode [LMag]", "NPC R MagicNode [RMag]" }) {
 			if (auto* node = player->GetNodeByName(name)) {
 				SKSE::log::info("  {} at {} (origin offset {:.1f})", name, P3(node->world.translate), (node->world.translate - a_origin).Length());
+			}
+		}
+
+		if (const auto frame = GetCameraFrame()) {
+			SKSE::log::info("  render camera at {} | launch origin in camera frame: {}", P3(frame->pos), Local(frame->Local(a_origin)));
+			if (auto* fp = player->Get3D(true)) {
+				for (const auto* name : { "Camera1st [Cam1]", "Weapon" }) {
+					if (auto* node = fp->GetObjectByName(name)) {
+						const auto& r = node->world.rotate;
+						const RE::NiPoint3 nodeFwd{ r.entry[0][1], r.entry[1][1], r.entry[2][1] };
+						SKSE::log::info("  1st-person {} in camera frame: {} | its +Y vs camera forward {:.2f} deg ({})", name, Local(frame->Local(node->world.translate)),
+							AngleBetween(nodeFwd, frame->fwd), Dir(nodeFwd));
+					}
+				}
 			}
 		}
 
@@ -148,7 +201,7 @@ namespace
 					P3(proj->GetPosition()), Degrees(proj->data.angle.x), Degrees(proj->data.angle.z), Dir(DirFromAngles(proj->data.angle.x, proj->data.angle.z)), Dir(rd.velocity),
 					AngleBetween(DirFromAngles(proj->data.angle.x, proj->data.angle.z), dir));
 				std::scoped_lock l{ g_lock };
-				g_tracked[proj.get()] = 0;
+				g_tracked[proj.get()] = Shot{ 0, GetCameraFrame() };
 			}
 		}
 		return result;
@@ -164,10 +217,10 @@ namespace
 			{
 				std::scoped_lock l{ g_lock };
 				const auto it = g_tracked.find(a_this);
-				if (it == g_tracked.end() || it->second >= kUpdatesToLog) {
+				if (it == g_tracked.end() || it->second.updates >= kUpdatesToLog) {
 					return;
 				}
-				n = ++it->second;
+				n = ++it->second.updates;
 			}
 			auto& rd = a_this->GetProjectileRuntimeData();
 			SKSE::log::info("  update {} {:08X}: pos {} angle x {:+.2f} z {:+.2f} (dir {}) velocity {} desiredTarget {}", n, a_this->GetFormID(), P3(a_this->GetPosition()),
@@ -183,15 +236,22 @@ namespace
 		static void thunk(RE::Projectile* a_this, RE::TESObjectREFR* a_ref, const RE::NiPoint3& a_loc, const RE::NiPoint3& a_velocity, RE::hkpCollidable* a_collidable,
 			std::int32_t a_arg6, std::uint32_t a_arg7)
 		{
-			bool tracked;
+			std::optional<Shot> shot;
 			{
 				std::scoped_lock l{ g_lock };
-				tracked = g_tracked.contains(a_this);
+				if (const auto it = g_tracked.find(a_this); it != g_tracked.end()) {
+					shot = it->second;
+				}
 			}
-			if (tracked) {
+			if (shot) {
 				const auto layer = a_collidable ? static_cast<int>(a_collidable->GetCollisionLayer()) : -1;
 				SKSE::log::info("  IMPACT {} {:08X}: ref {} at {} (dist from launch pos {:.1f}) layer {} velocity {}", TypeName(a_this), a_this->GetFormID(), RefName(a_ref), P3(a_loc),
 					(a_loc - a_this->GetPosition()).Length(), layer, Dir(a_velocity));
+				if (shot->camera) {
+					const auto l = shot->camera->Local(a_loc);
+					SKSE::log::info("  IMPACT vs launch crosshair ray: {:.1f} units out, {:+.2f} units above ({:+.3f} deg), {:+.2f} units right ({:+.3f} deg)", l.y, l.z,
+						Degrees(std::atan2(l.z, l.y)), l.x, Degrees(std::atan2(l.x, l.y)));
+				}
 			}
 			func(a_this, a_ref, a_loc, a_velocity, a_collidable, a_arg6, a_arg7);
 		}
@@ -205,12 +265,65 @@ namespace
 		UpdateHook<T>::func = vtbl.write_vfunc(0xAB, UpdateHook<T>::thunk);
 		ImpactHook<T>::func = vtbl.write_vfunc(0xBD, ImpactHook<T>::thunk);
 	}
+
+	// 1.2.0: the player's auto-aim launch-angle call (ID 44200 +0x201), which Hit Where You Aim hooks
+	// (PlayerProjectileCalculateLaunchAngleHook: calls the game, then aims from `a_origin`, or the launch node when
+	// there is none, at the crosshair ray). Chained after HWYA at kPostLoad; logs what goes in and what comes out.
+	struct LaunchAngle
+	{
+		using func_t = void(RE::PlayerCharacter*, RE::Projectile*, RE::NiAVObject*, float*, float*, RE::NiPoint3*, float, float);
+
+		static void thunk(RE::PlayerCharacter* a_player, RE::Projectile* a_proj, RE::NiAVObject* a_node, float* a_yaw, float* a_pitch, RE::NiPoint3* a_origin, float a_7,
+			float a_8)
+		{
+			const float yawIn = a_yaw ? *a_yaw : 0.0f;
+			const float pitchIn = a_pitch ? *a_pitch : 0.0f;
+			next(a_player, a_proj, a_node, a_yaw, a_pitch, a_origin, a_7, a_8);
+			const auto frame = GetCameraFrame();
+			if (!frame) {
+				return;
+			}
+			SKSE::log::info("LAUNCH ANGLE call: projectile {:08X} at {} | unk7 {:.3f} unk8 {:.3f}", a_proj ? a_proj->GetFormID() : 0,
+				a_proj ? Local(frame->Local(a_proj->GetPosition())) : "-", a_7, a_8);
+			SKSE::log::info("  launch node '{}' at {}", a_node ? a_node->name.c_str() : "(null)", a_node ? Local(frame->Local(a_node->world.translate)) : "-");
+			SKSE::log::info("  origin arg {}", a_origin ? Local(frame->Local(*a_origin)) : "(null) -> HWYA aims from the launch node");
+			if (a_yaw && a_pitch) {
+				const auto in = DirFromAngles(pitchIn, yawIn);
+				const auto out = DirFromAngles(*a_pitch, *a_yaw);
+				const auto li = frame->Local(frame->pos + in);
+				const auto lo = frame->Local(frame->pos + out);
+				SKSE::log::info("  angle in  x {:+.3f} z {:+.3f}: {:+.3f} deg above, {:+.3f} deg right of camera forward", Degrees(pitchIn), Degrees(yawIn),
+					Degrees(std::atan2(li.z, li.y)), Degrees(std::atan2(li.x, li.y)));
+				SKSE::log::info("  angle out x {:+.3f} z {:+.3f}: {:+.3f} deg above, {:+.3f} deg right of camera forward", Degrees(*a_pitch), Degrees(*a_yaw),
+					Degrees(std::atan2(lo.z, lo.y)), Degrees(std::atan2(lo.x, lo.y)));
+			}
+		}
+		static inline REL::Relocation<func_t> next;
+	};
+
+	void InstallLaunchAngle()
+	{
+		const auto site = REL::ID(44200).address() + 0x201;
+		const auto* code = reinterpret_cast<const std::uint8_t*>(site);
+		if (code[0] != 0xE8) {
+			SKSE::log::error("launch-angle call not found at {:X} (byte {:02X}); not traced", site, code[0]);
+			return;
+		}
+		SKSE::AllocTrampoline(14);
+		LaunchAngle::next = SKSE::GetTrampoline().write_call<5>(site, LaunchAngle::thunk);
+		SKSE::log::info("launch-angle call (44200 +0x201) traced after whatever hooked it before");
+	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenSpellAimTrace 1.0.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenSpellAimTrace 1.2.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
+		if (a_msg->type == SKSE::MessagingInterface::kPostLoad) {
+			InstallLaunchAngle();
+		}
+	});
 
 	g_launch = reinterpret_cast<Launch_t>(REL::Relocation<std::uintptr_t>{ RELOCATION_ID(42928, 44108) }.address());
 	DetourTransactionBegin();
@@ -222,6 +335,7 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	HookProjectileType<RE::BeamProjectile>();
 	HookProjectileType<RE::MissileProjectile>();
 	HookProjectileType<RE::ConeProjectile>();
-	SKSE::log::info("Beam/Missile/Cone UpdateImpl + AddImpact hooked");
+	HookProjectileType<RE::ArrowProjectile>();
+	SKSE::log::info("Beam/Missile/Cone/Arrow UpdateImpl + AddImpact hooked");
 	return true;
 }
