@@ -9,7 +9,7 @@ list), i.e. above Zenderal - Input Defaults, Complete Controller Setup, Gamepad+
 Zenderal - Settings. Enable "Zenderal - Controller Layout.esp" (ESL, masters only Skyrim.esm).
 
 Works on an existing save: about 15 s after loading (out of menus) it writes the save-stored
-parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v4 applied".
+parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v5 applied".
 
 
 CONTROLLER
@@ -31,7 +31,7 @@ CONTROLLER
   A + D-pad Left/Up/Right    Health / Magicka / Stamina potion (Swift Potion)
 
   D-pad        tap                   double-tap        hold (weapon drawn)
-  Up           favourite hotkey 7    -                 High stance
+  Up           favourite hotkey 7    Call horse        High stance
   Right        favourite hotkey 5    Hero Menu         Mid stance
   Down         favourite hotkey 8    -                 Low stance
   Left         favourite hotkey 6    Quick Light       Neutral stance

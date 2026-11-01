@@ -39,7 +39,7 @@ else comes from the config files only.
 
 | D-pad | Tap | Double-tap | Hold (weapon drawn) |
 |---|---|---|---|
-| Up | Favourite hotkey 7 | — | High stance ✅ (`]`) |
+| Up | Favourite hotkey 7 | Call horse (`L`; needs the horse flute) | High stance ✅ (`]`) |
 | Right | Favourite hotkey 5 | Hero Menu ✅ (`H`); B closes it | Mid stance ✅ (`\`) |
 | Down | Favourite hotkey 8 | — | Low stance ✅ (`;`) |
 | Left | Favourite hotkey 6 | Quick Light ✅ (`K`) | Neutral stance ✅ (`[`) |

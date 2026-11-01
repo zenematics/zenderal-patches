@@ -14,7 +14,7 @@ Items 1-2 are written ONCE per save (per LAYOUT_VERSION), so a player's later MC
 Bump LAYOUT_VERSION to push a changed layout into existing saves. Every target is looked up by
 plugin + FormID and cast, so a missing or changed mod is skipped, never written blindly.}
 
-Int Property LAYOUT_VERSION = 4 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off
+Int Property LAYOUT_VERSION = 5 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off; 5: double-tap Up = horse
 
 ; SKSE key codes
 Int Property KEY_ESC = 1 AutoReadOnly
@@ -33,6 +33,7 @@ Int Property SEND_STANCE_NEUTRAL = 26 AutoReadOnly   ; [ - Stances.ini stance_ne
 Int Property SEND_STANCE_MID = 43 AutoReadOnly       ; \ - Stances.ini stance_mid_pad (NOT ', No Compass In Dialogue's key)
 Int Property SEND_STANCE_HIGH = 27 AutoReadOnly      ; ] - Stances.ini stance_high_pad
 Int Property SEND_STANCE_LOW = 39 AutoReadOnly       ; ; - Stances.ini stance_low_pad
+Int Property SEND_HORSE_CALL = 38 AutoReadOnly       ; L - Enderal's horse call (_00E_HorseFlute_SC.iMountHotkey default)
 ; Swift Potion Reborn hotkeys, as Zenderal - Settings Applier's HotkeyData.json sets them
 Int Property SEND_POTION_HEALTH = 203 AutoReadOnly   ; Left arrow  - Restore Health
 Int Property SEND_POTION_MANA = 200 AutoReadOnly     ; Up arrow    - Restore Mana
@@ -131,6 +132,7 @@ Int Function ApplyGamepadPlusPlus()
 	acts[4] = SEND_STANCE_MID       ; hold Right
 	acts[6] = SEND_HERO_MENU        ; double-tap Right
 	acts[8] = SEND_STANCE_HIGH      ; hold Up
+	acts[10] = SEND_HORSE_CALL      ; double-tap Up
 	acts[12] = SEND_STANCE_LOW      ; hold Down
 	kh.aiNonComboActions = acts
 	; Hold A + tap a D-pad button = Swift Potion. Gamepad++ decides single vs double tap after its

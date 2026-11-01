@@ -27,6 +27,8 @@ Two halves:
      `ControlMap_Custom.txt`'s gamepad block (`TweenMenu 0x00000020`, `Wait 0x20000010`). Favourites
      is not remappable on a gamepad (7th column 0), so it lives only in `controlmap.txt`
      (`0x2000+0x0020`). Change both files together.
+   - **v5:** double-tap Up sends L, Enderal's horse call (`_00E_HorseFlute_SC.iMountHotkey`, default 38).
+     With Quick Light on K and no lantern mod installed, nothing else in the list listens for L.
    - Gamepad++ preset: double-tap Left `L` → `K`, double-tap Right `K` → `H`, hold Right `'` → `\`,
      and labels filled in.
 2. **`ZEN_ControllerLayout`** (a player-alias script) handles what other mods keep **in the save**:
