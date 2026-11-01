@@ -103,12 +103,20 @@ save, so a player who rebinds them in its MCM breaks the match. `gpp_keyhandler.
 `bIsC1Held` when the multi-tap delay (0.3 s) ends, so A must still be held then. Before v4,
 Quick Light's hold-Activate also listened on A.
 
+## D-pad favourites and the Ammo Wheel (2026-11-01)
+
+D-pad taps are favourites **1–4** (Right 1, Left 2, Up 3, Down 4), moved from CCS's 5–8 at the
+curator's request. `Hotkey1`–`8` are not remappable (7th column 0), so only `controlmap.txt` holds
+them; `ControlMap_Custom.txt` has no hotkey entries. Favourites 5–8 are keyboard only. Wheeler's
+`AmmoWheel.ini` had `ToggleKeyGamepad = 269` (D-pad Right), even though its display label said
+"Unbound". It is now `0`, and the keyboard toggle `ToggleKeyMKB = 5` (the `4` key) is kept.
+
 ## Caveats
 
 - Turning the mod off does **not** undo the save-stored writes. To undo them, use Gamepad++ MCM →
   Restore Default Settings.
 - Quick Light's MCM still *shows* L: its label is a private variable.
-- Every D-pad press also fires that button's favourites hotkey (5–8), including the first press of
+- Every D-pad press also fires that button's favourites hotkey, including the first press of
   a double-tap or hold. This is CCS's design and is unchanged.
 - If CCS, Input Defaults or a keybind mod changes upstream, re-copy the files and re-apply the
   three edits above. Otherwise this mod silently reverts the upstream fix.

@@ -30,10 +30,10 @@ CONTROLLER
   B + D-pad Right/Left/Down  Inventory / Magic / Map
 
   D-pad    tap                 double-tap          A + tap         hold (weapon drawn)
-  Up       favourite hotkey 7  Magicka potion      Call horse      High stance
-  Right    favourite hotkey 5  Stamina potion      Hero Menu       Mid stance
-  Down     favourite hotkey 8  -                   -               Low stance
-  Left     favourite hotkey 6  Health potion       Quick Light     Neutral stance
+  Up       favourite hotkey 3  Magicka potion      Call horse      High stance
+  Right    favourite hotkey 1  Stamina potion      Hero Menu       Mid stance
+  Down     favourite hotkey 4  -                   -               Low stance
+  Left     favourite hotkey 2  Health potion       Quick Light     Neutral stance
 
   Every D-pad press also uses that favourites slot, including the first press of a
   double-tap or hold.  B closes the Hero Menu.
@@ -73,7 +73,7 @@ KEYBOARD AND MOUSE
   I / F / J / M              Inventory / Favourites / Journal / Map
   T                          Wait
   H                          Hero Menu
-  1-8                        Favourite hotkeys
+  1-8                        Favourite hotkeys (1-4 are also the D-pad taps)
   F1 / F2 / F3 / F4          High / mid / low / neutral stance
   K                          Quick Light (lantern on the hip by default; style in its MCM)
   Left / Up / Right arrow    Health / Magicka / Stamina potion (Swift Potion)
@@ -93,6 +93,8 @@ KEYBOARD AND MOUSE
     - H is also the keyboard Quick Stats key and Theo's Render Pipeline's overlay toggle
       (ToggleOverlay=0x23). In practice it opens the Hero Menu.
     - keybinds.json still lists a lantern key, but no lantern mod is installed.
+    - Keyboard 4 opens Wheeler's Ammo Wheel as well as using favourite slot 4
+      (AmmoWheel.ini ToggleKeyMKB = 5). The Ammo Wheel has no controller button.
 
 
 WHAT IS IN HERE

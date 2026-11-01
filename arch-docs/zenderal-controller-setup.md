@@ -38,10 +38,10 @@ else comes from the config files only.
 
 | D-pad | Tap | Double-tap | A + tap | Hold (weapon drawn) |
 |---|---|---|---|---|
-| Up | Favourite hotkey 7 | Magicka potion (`↑`) | Call horse (`L`; needs the horse flute) | High stance ✅ (`]`) |
-| Right | Favourite hotkey 5 | Stamina potion (`→`) | Hero Menu (`H`); B closes it | Mid stance ✅ (`\`) |
-| Down | Favourite hotkey 8 | — | — | Low stance ✅ (`;`) |
-| Left | Favourite hotkey 6 | Health potion (`←`) | Quick Light (`K`) | Neutral stance ✅ (`[`) |
+| Up | Favourite hotkey 3 | Magicka potion (`↑`) | Call horse (`L`; needs the horse flute) | High stance ✅ (`]`) |
+| Right | Favourite hotkey 1 | Stamina potion (`→`) | Hero Menu (`H`); B closes it | Mid stance ✅ (`\`) |
+| Down | Favourite hotkey 4 | — | — | Low stance ✅ (`;`) |
+| Left | Favourite hotkey 2 | Health potion (`←`) | Quick Light (`K`) | Neutral stance ✅ (`[`) |
 
 v6 (2026-11-01) swapped double-tap and A + tap. Before the swap, double-tap ran Quick Light / horse /
 Hero Menu (Quick Light and Hero Menu tested ✅) and A + tap ran the potions. The swapped layout is not
@@ -77,7 +77,7 @@ order in item lists · LT/RT sort column, or zoom on the map.
 | I / F / J / M | Inventory / Favourites / Journal / Map |
 | T | Wait |
 | H | Hero Menu |
-| 1–8 | Favourite hotkeys |
+| 1–8 | Favourite hotkeys (1–4 are also the D-pad taps) |
 | F1 / F2 / F3 / F4 | High / mid / low / neutral stance |
 | K | Quick Light (its default style is a lantern on the hip, which is Quick Light's own visual) |
 | ← / ↑ / → | Health / Magicka / Stamina potion (Swift Potion; set per save by Settings Applier) |
@@ -98,6 +98,8 @@ order in item lists · LT/RT sort column, or zoom on the map.
 - **H is bound three times.** It's the Hero Menu, the keyboard Quick Stats key, and Theo's Render
   Pipeline's `ToggleOverlay=0x23`.
 - **`keybinds.json` still carries a `SWLToggle` lantern entry**, but no lantern mod is installed.
+- **Keyboard `4` also opens Wheeler's Ammo Wheel** (`AmmoWheel.ini` `ToggleKeyMKB = 5`, a DX code).
+  Its controller button was D-pad Right (`ToggleKeyGamepad = 269`, despite its "Unbound" label) and is now `0`.
 
 ## 1. Why this needs care on Enderal
 

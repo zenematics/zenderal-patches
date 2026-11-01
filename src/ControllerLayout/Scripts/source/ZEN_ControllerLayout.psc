@@ -125,7 +125,7 @@ Int Function ApplyGamepadPlusPlus()
 
 	; Index = button * 4 + press, button 0 Left 1 Right 2 Up 3 Down,
 	; press 0 HOLD, 1 single, 2 double, 3 triple (gpp_keyhandler.OnUpdate: i * 4 + iMultiTap).
-	; Single taps stay empty: the engine's own favourites hotkeys 5-8 own a D-pad tap.
+	; Single taps stay empty: the engine's own favourites hotkeys 1-4 own a D-pad tap (controlmap.txt).
 	Int[] acts = NewEmptyActions()
 	acts[0] = SEND_STANCE_NEUTRAL   ; hold Left
 	acts[2] = SEND_POTION_HEALTH    ; double-tap Left
