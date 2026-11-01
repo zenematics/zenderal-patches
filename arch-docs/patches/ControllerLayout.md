@@ -119,16 +119,16 @@ A + Up is free. B is sprint, so holding B while moving also sprints.
 Older docs that describe the Papyrus Hero Menu (`ControllerTweaks.md`, sections 3–6 of
 `zenderal-controller-setup.md`) predate Enderal 2.1.
 
-## `ControlMap_Custom.txt` ships under `Root\` (merge with main, 2026-11-01)
+## `ControlMap_Custom.txt` stays in `Data\` (decided 2026-11-01)
 
 Main's keybinds fix (`875e6480`, [`modlist/mod-gotchas.md`](../modlist/mod-gotchas.md)) found that any
 `Data\` copy of `ControlMap_Custom.txt` beats the game-root copy, while in-game rebinds are written to the
-game root. So a `Data\` copy resets rebinds on every launch. The mod therefore ships
-`Root/ControlMap_Custom.txt` and outranks `Zenderal - Settings/Root`. **This only works if no mod has a
-`Data\` copy.** Main hides Input Defaults', Personal Keybinds' and CCS's (`.mohidden`). On an install where
-they aren't hidden, theirs wins and the pad's Tween/Wait swap is lost. `GamepadCombos` reads only
-`Data/ControlMap_Custom.txt`. With no `Data\` copy it falls back to `controlmap.txt`, whose gamepad
-defaults here match the custom map.
+game root. So a `Data\` copy resets rebinds on every launch, and the list default now lives only in
+`Zenderal - Settings/Root`. This mod was briefly moved to `Root/` to match (`1457a4c9`). It was then put back
+in `Data\` on the curator's call: in `Root/` it loses to any unhidden `Data\` copy (Input Defaults', CCS's)
+whatever its MO2 priority, because `Data\` and the game root are different paths. In `Data\` it wins by
+priority on every install. **Accepted trade-off:** while this opt-in mod is enabled, Controls-menu rebinds
+don't persist. Players who want to rebind turn the mod off.
 
 Main also records a separate 2026-10-25 pad layout in Input Defaults / Personal Keybinds
 ([`zenderal-controller-setup.md`](../zenderal-controller-setup.md)). That is the list's default when this
