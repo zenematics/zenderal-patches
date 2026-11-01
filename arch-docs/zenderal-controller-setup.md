@@ -7,6 +7,92 @@ edited inside third-party mods.
 
 > **Update 2026-10-13:** Alpha 0.5 and 0.5.1 ship `bGamepadEnable=1`, with Auto Input Switch 1.1.2 (which loads on 1.5.97) switching between mouse and pad. Sections 1 and 5 below describe the earlier `=0` default.
 
+> **Update 2026-11-01:** every input binding now lives in one mod,
+> **[`Zenderal - Controller Layout`](patches/ControllerLayout.md)**, which must sit at top priority
+> over every input mod. The current layout is listed below. Sections 1–7 are the original setup
+> history.
+
+## Current layout (Zenderal - Controller Layout v2, 2026-11-01)
+
+Read from the files that win in the Ultra profile. ✅ = tested in game on 2026-11-01; everything
+else comes from the config files only.
+
+### Controller
+
+| Button | Action |
+|---|---|
+| Left stick / Right stick | Move / Look |
+| LB / RB | Left / Right hand attack and block |
+| LT | Parry (Dual Wield Parrying `ParryKey2 = 280`) |
+| RT | Power attack ✅ (Patch Collection's `ZenOCPASecondKey`, `iKeycode=281`) |
+| A | Activate |
+| Hold A (nothing targeted, 0.5 s) | Quick Light ✅ (Quick Light's default hold-Activate) |
+| A + LB / A + RB | Draw-sheathe weapon / Shout-power |
+| B | Sprint; tap to dodge (TK Dodge `EnableSprintKeyDodge`) |
+| X | Open Wheeler |
+| Y | Jump |
+| L3 / R3 | Sneak / Toggle view |
+| Start / Back | Journal / Wait |
+| B + Back | Tween menu |
+| B + Start | Favourites |
+| B + D-pad Right / Left / Down | Inventory / Magic / Map |
+
+| D-pad | Tap | Double-tap | Hold (weapon drawn) |
+|---|---|---|---|
+| Up | Favourite hotkey 7 | — | High stance ✅ (`]`) |
+| Right | Favourite hotkey 5 | Hero Menu ✅ (`H`); B closes it | Mid stance ✅ (`\`) |
+| Down | Favourite hotkey 8 | — | Low stance ✅ (`;`) |
+| Left | Favourite hotkey 6 | Quick Light ✅ (`K`) | Neutral stance ✅ (`[`) |
+
+Gamepad++ sends the keys shown in brackets. `ZenKeyTrace.dll` turns the stance keys into the
+Stances mod's switch spells. Every D-pad press also fires that button's favourites hotkey,
+including the first press of a double-tap or hold.
+
+**Inside Wheeler:** D-pad Left/Right previous/next item · D-pad Up/Down move entry · LT/RT
+previous/next wheel · RB/LB use right/left · Y add wheel · A add empty slot · L3/R3 move wheel ·
+B exit.
+
+**Menus:** A/B accept/back · RB/LB equip right/left · L3 drop · R3 inspect item, or flip sort
+order in item lists · LT/RT sort column, or zoom on the map.
+
+### Keyboard and mouse
+
+| Key | Action |
+|---|---|
+| W A S D | Move |
+| Left / Right click | Right / Left hand attack and block |
+| Mouse 4 | Power attack (OCPA `iKeycode = 259`) |
+| Mouse 5 | Parry |
+| Left Alt | Dodge (tapping Shift also dodges) |
+| E / R | Activate / Draw weapon; hold E (nothing targeted) = Quick Light |
+| Left Shift / Space / Left Ctrl | Sprint / Jump / Sneak |
+| Caps Lock / `.` | Always run / Auto-move |
+| Z / X | Toggle view / Shout |
+| Tab / Esc | Tween menu / Pause |
+| I / F / J / M | Inventory / Favourites / Journal / Map |
+| T | Wait |
+| H | Hero Menu |
+| 1–8 | Favourite hotkeys |
+| F1 / F2 / F3 / F4 | High / mid / low / neutral stance |
+| K | Quick Light |
+| L | Call horse (Enderal, once you own the horse flute) |
+| Y | Meditate (Enderal, once you have the ability) |
+| Q | Wheeler |
+| B | Helmet toggle |
+| V | Hide the whole UI (Ultimate Immersion Toggle) |
+| `'` | Compass toggle (No Compass In Dialogue) |
+| Shift + mouse wheel | Cycle targets (Better Third Person Selection) |
+| F7 | SKSE Menu Framework |
+| F5 / Pause | Quicksave / Quickload |
+| `~` | Console |
+
+### Gaps and clashes
+
+- **The keyboard has no Quick Magic key.** It's `0xff` in `ControlMap_Custom.txt`.
+- **H is bound three times.** It's the Hero Menu, the keyboard Quick Stats key, and Theo's Render
+  Pipeline's `ToggleOverlay=0x23`.
+- **`keybinds.json` still carries a `SWLToggle` lantern entry**, but no lantern mod is installed.
+
 ## 1. Why this needs care on Enderal
 
 1. **The list ships the gamepad disabled.** `EnderalPrefs.ini` carries `bGamepadEnable=0` — and

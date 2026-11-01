@@ -9,15 +9,15 @@ list), i.e. above Zenderal - Input Defaults, Complete Controller Setup, Gamepad+
 Zenderal - Settings. Enable "Zenderal - Controller Layout.esp" (ESL, masters only Skyrim.esm).
 
 Works on an existing save: about 15 s after loading (out of menus) it writes the save-stored
-parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v1 applied".
+parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v2 applied".
 
 
-LAYOUT (gameplay)
------------------
+CONTROLLER
+----------
   Left stick / Right stick   Move / Look
-  LB / RB                    Left / Right attack and block
+  LB / RB                    Left / Right hand attack and block
   LT                         Parry (Dual Wield Parrying)
-  RT                         Power attack (OCPA via ZenOCPASecondKey; Mouse 4 on keyboard)
+  RT                         Power attack (ZenOCPASecondKey)
   A                          Activate.  Hold A (nothing targeted, 0.5 s) = Quick Light
   A + LB / A + RB            Draw-sheathe weapon / Shout-power
   B                          Sprint; tap B to dodge (TK Dodge)
@@ -29,16 +29,66 @@ LAYOUT (gameplay)
   B + Start                  Favourites
   B + D-pad Right/Left/Down  Inventory / Magic / Map
 
-  D-pad        tap                   double-tap        hold
+  D-pad        tap                   double-tap        hold (weapon drawn)
   Up           favourite hotkey 7    -                 High stance
   Right        favourite hotkey 5    Hero Menu         Mid stance
   Down         favourite hotkey 8    -                 Low stance
   Left         favourite hotkey 6    Quick Light       Neutral stance
 
-  Hero Menu: B closes it (as do Tab / Esc on the keyboard).
-  Stances only switch with a weapon drawn.
-  Keyboard: Quick Light = K (or hold E), stances = F1-F4.
-  Menus: LT / RT change the sort column, R3 flips the sort order.
+  Every D-pad press also uses that favourites slot, including the first press of a
+  double-tap or hold.  B closes the Hero Menu.
+
+  Inside Wheeler (X):
+    D-pad Left / Right       previous / next item
+    D-pad Up / Down          move entry back / forward
+    LT / RT                  previous / next wheel
+    RB / LB                  use with right / left hand
+    Y / A                    add wheel / add empty slot
+    L3 / R3                  move wheel back / forward
+    B                        exit
+
+  Menus:
+    A / B                    accept / back
+    RB / LB                  equip right / left
+    L3                       drop
+    R3                       inspect item; flips sort order in item lists
+    LT / RT                  sort column; map zoom
+
+
+KEYBOARD AND MOUSE
+------------------
+  W A S D                    Move
+  Left / Right click         Right / Left hand attack and block
+  Mouse 4                    Power attack
+  Mouse 5                    Parry
+  Left Alt                   Dodge (tapping Shift also dodges)
+  E / R                      Activate / Draw weapon.  Hold E (nothing targeted) = Quick Light
+  Left Shift / Space / LCtrl Sprint / Jump / Sneak
+  Caps Lock / .              Always run / Auto-move
+  Z / X                      Toggle view / Shout
+  Tab / Esc                  Tween menu / Pause
+  I / F / J / M              Inventory / Favourites / Journal / Map
+  T                          Wait
+  H                          Hero Menu
+  1-8                        Favourite hotkeys
+  F1 / F2 / F3 / F4          High / mid / low / neutral stance
+  K                          Quick Light
+  L                          Call horse (once you own the horse flute)
+  Y                          Meditate (once you have the ability)
+  Q                          Wheeler
+  B                          Helmet toggle
+  V                          Hide the whole UI
+  '                          Compass toggle (No Compass In Dialogue)
+  Shift + mouse wheel        Cycle targets (Better Third Person Selection)
+  F7                         SKSE Menu Framework
+  F5 / Pause                 Quicksave / Quickload
+  ~                          Console
+
+  Gaps and clashes:
+    - No keyboard Quick Magic key (unbound); open Magic through Tab.
+    - H is also the keyboard Quick Stats key and Theo's Render Pipeline's overlay toggle
+      (ToggleOverlay=0x23). In practice it opens the Hero Menu.
+    - keybinds.json still lists a lantern key, but no lantern mod is installed.
 
 
 WHAT IS IN HERE
