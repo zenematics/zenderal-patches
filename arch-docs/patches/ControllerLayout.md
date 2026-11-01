@@ -118,7 +118,8 @@ D-pad taps are favourites **1–4** (Right 1, Left 2, Up 3, Down 4), moved from 
 curator's request. `Hotkey1`–`8` are not remappable (7th column 0), so only `controlmap.txt` holds
 them; `ControlMap_Custom.txt` has no hotkey entries. Favourites 5–8 are keyboard only. Wheeler's
 `AmmoWheel.ini` had `ToggleKeyGamepad = 269` (D-pad Right), even though its display label said
-"Unbound". It is now `0`, and the keyboard toggle `ToggleKeyMKB = 5` (the `4` key) is kept.
+"Unbound". It is now `0`. The keyboard toggle moved from `ToggleKeyMKB = 5` (the `4` key, which clashed with
+favourite 4) to `22` (`U`, which nothing else in the list uses). The `*Name` display labels are left as shipped.
 
 ## Caveats
 

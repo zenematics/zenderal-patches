@@ -85,6 +85,7 @@ order in item lists · LT/RT sort column, or zoom on the map.
 | L | Call horse (Enderal, once you own the horse flute) |
 | Y | Meditate (Enderal, once you have the ability) |
 | Q | Wheeler |
+| U | Ammo Wheel (Wheeler; `AmmoWheel.ini` `ToggleKeyMKB = 22`) |
 | B | Helmet toggle |
 | V | Hide the whole UI (Ultimate Immersion Toggle) |
 | `'` | Compass toggle (No Compass In Dialogue) |
@@ -99,8 +100,8 @@ order in item lists · LT/RT sort column, or zoom on the map.
 - **H is bound three times.** It's the Hero Menu, the keyboard Quick Stats key, and Theo's Render
   Pipeline's `ToggleOverlay=0x23`.
 - **`keybinds.json` still carries a `SWLToggle` lantern entry**, but no lantern mod is installed.
-- **Keyboard `4` also opens Wheeler's Ammo Wheel** (`AmmoWheel.ini` `ToggleKeyMKB = 5`, a DX code).
-  Its controller button was D-pad Right (`ToggleKeyGamepad = 269`, despite its "Unbound" label) and is now `0`.
+- **The Ammo Wheel has no controller button.** It was on D-pad Right (`ToggleKeyGamepad = 269`, despite its
+  "Unbound" label) and is now `0`. Its keyboard key moved from `4` (DX 5, which clashed with favourite 4) to `U` (22).
 
 ## 1. Why this needs care on Enderal
 

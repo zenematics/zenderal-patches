@@ -81,6 +81,7 @@ KEYBOARD AND MOUSE
   L                          Call horse (once you own the horse flute)
   Y                          Meditate (once you have the ability)
   Q                          Wheeler
+  U                          Ammo Wheel (Wheeler)
   B                          Helmet toggle
   V                          Hide the whole UI
   '                          Compass toggle (No Compass In Dialogue)
@@ -94,8 +95,7 @@ KEYBOARD AND MOUSE
     - H is also the keyboard Quick Stats key and Theo's Render Pipeline's overlay toggle
       (ToggleOverlay=0x23). In practice it opens the Hero Menu.
     - keybinds.json still lists a lantern key, but no lantern mod is installed.
-    - Keyboard 4 opens Wheeler's Ammo Wheel as well as using favourite slot 4
-      (AmmoWheel.ini ToggleKeyMKB = 5). The Ammo Wheel has no controller button.
+    - The Ammo Wheel has no controller button (keyboard U only).
 
 
 WHAT IS IN HERE
