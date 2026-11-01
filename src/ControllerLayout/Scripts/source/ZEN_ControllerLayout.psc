@@ -7,8 +7,8 @@ handles the parts that other mods keep IN THE SAVE, where no file can reach them
   2. Quick Light's keyboard key moved from L to K: L is also Enderal's horse-call key. Its hold-Activate
      trigger (A / E) is switched OFF, so A + D-pad potions never toggle the light. (No lantern mod is
      installed; keybinds.json's SWLToggle is stale.)
-  3. B + D-pad Up opens Enderal's Hero Menu and B closes it. This alias listens for B and D-pad Up
-     and calls the Hero Menu script's own H / Esc paths (Gamepad++ cannot close a menu).
+  3. B + D-pad Up opens Enderal's Hero Menu: this alias tracks B and taps H (the native menu's key)
+     when D-pad Up is pressed with B held. Instant - no Gamepad++ combo timing.
 
 Items 1-2 are written ONCE per save (per LAYOUT_VERSION), so a player's later MCM changes stick.
 Bump LAYOUT_VERSION to push a changed layout into existing saves. Every target is looked up by
@@ -17,7 +17,6 @@ plugin + FormID and cast, so a missing or changed mod is skipped, never written 
 Int Property LAYOUT_VERSION = 7 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off; 5: double-tap Up = horse; 6: double-tap <-> A + tap swapped; 7: Hero Menu -> B + Up, horse -> A + Right
 
 ; SKSE key codes
-Int Property KEY_ESC = 1 AutoReadOnly
 Int Property KEY_K = 37 AutoReadOnly
 Int Property KEY_HERO_MENU = 35 AutoReadOnly       ; H - Enderal's default iHeroMenuKeycode
 Int Property PAD_DPAD_UP = 266 AutoReadOnly
@@ -88,21 +87,10 @@ EndEvent
 Event OnKeyDown(Int KeyCode)
 	If KeyCode == PAD_B
 		bBHeld = True
-		If UI.IsMenuOpen("CustomMenu")
-			_00E_Game_SkillmenuSC heroMenu = GetHeroMenu()
-			If heroMenu
-				; Enderal's handler closes only when its own MenuOpen flag is set, so B in any other
-				; custom menu is ignored there.
-				heroMenu.OnKeyDown(KEY_ESC)
-			EndIf
-		EndIf
 	ElseIf KeyCode == PAD_DPAD_UP && bBHeld && !Utility.IsInMenuMode()
-		; B + D-pad Up opens the Hero Menu through Enderal's own H-key path (its handler re-checks
-		; menu mode, text input, the dreamworld and its open cooldown).
-		_00E_Game_SkillmenuSC heroMenu = GetHeroMenu()
-		If heroMenu
-			heroMenu.OnKeyDown(KEY_HERO_MENU)
-		EndIf
+		; B + D-pad Up = press H. Enderal 2.1's Hero Menu is native (EnderalSE.dll) and listens for the
+		; H key; the old Papyrus _00E_Game_SkillmenuSC no longer exists, so there is no script to call.
+		Input.TapKey(KEY_HERO_MENU)
 	EndIf
 EndEvent
 
@@ -111,14 +99,6 @@ Event OnKeyUp(Int KeyCode, Float HoldTime)
 		bBHeld = False
 	EndIf
 EndEvent
-
-_00E_Game_SkillmenuSC Function GetHeroMenu()
-	Quest levelsystem = Game.GetFormFromFile(0x010AA2, "Skyrim.esm") As Quest
-	If levelsystem
-		Return levelsystem.GetAlias(0) As _00E_Game_SkillmenuSC
-	EndIf
-	Return None
-EndFunction
 
 ; ---------------------------------------------------------------- Gamepad++
 ; Returns 1 applied, 0 Gamepad++ not installed (nothing to do), -1 not initialised yet (retry).

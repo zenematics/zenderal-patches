@@ -11,7 +11,7 @@ ModHeader:
   Author: Zenderal
   Description: >-
     Zenderal's whole controller layout in one mod. Writes the save-stored parts (Gamepad++ D-pad
-    gestures, Quick Light's key) once per save and lets B close the Hero Menu.
+    gestures, Quick Light's key) once per save. B + D-pad Up opens the Hero Menu.
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0

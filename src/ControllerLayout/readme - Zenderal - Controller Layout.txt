@@ -27,14 +27,14 @@ CONTROLLER
   Start / Back               Journal / Tween menu
   B + Back                   Favourites
   B + Start                  Wait
-  B + D-pad Up               Hero Menu (B closes it)
+  B + D-pad Up               Hero Menu
   B + D-pad Right/Left/Down  Inventory / Magic / Map
 
   D-pad    tap                 double-tap          A + tap         hold (weapon drawn)
-  Up       favourite hotkey 3  Magicka potion      -               High stance
-  Right    favourite hotkey 1  Stamina potion      Call horse      Mid stance
+  Up       favourite hotkey 2  Magicka potion      -               High stance
+  Right    favourite hotkey 3  Stamina potion      Call horse      Mid stance
   Down     favourite hotkey 4  -                   -               Low stance
-  Left     favourite hotkey 2  Health potion       Quick Light     Neutral stance
+  Left     favourite hotkey 1  Health potion       Quick Light     Neutral stance
 
   Every D-pad press also uses that favourites slot, including the first press of a
   double-tap or hold.
@@ -118,7 +118,7 @@ Loose files (win by MO2 priority):
 Script (ZEN_ControllerLayout) - things other mods keep IN THE SAVE, written once per save:
   - Gamepad++ D-pad gestures and A + D-pad potion combos (the tables above)
   - Quick Light's keyboard key L -> K (L is also Enderal's horse call), hold-Activate trigger off
-  - B + D-pad Up opens the Hero Menu, B closes it
+  - B + D-pad Up opens the Hero Menu (taps H for Enderal's native menu)
 
 Fixed relative to the old setup:
   - Holding D-pad Right no longer toggles the compass. The mid stance used the ' key, which is

@@ -40,10 +40,8 @@ Two halves:
      double-tap Left sends K. **v4:** `RegisterActivateKey(False)` turns off its hold-Activate trigger
      (the curator wants double-tap Left only). This persists, because Quick Light's `SetUp()` re-applies
      its own `UseHoldKey`, and that call sets it. The MCM's "Use hold key" toggle still *shows* on.
-   - **The Hero Menu.** The script registers for B (277). While `CustomMenu` is open, B calls
-     `_00E_Game_SkillmenuSC.OnKeyDown(1)` on `Levelsystem 010AA2` alias 0, which is Enderal's own
-     Esc close path. Enderal's handler closes only when its own `MenuOpen` flag is set, so B in any
-     other custom menu does nothing there.
+   - **The Hero Menu.** B + D-pad Up taps H for Enderal 2.1's native Hero Menu (see below). The
+     v1–v6 "B closes it" path called a Papyrus script that no longer exists, and has been removed.
 
    The Gamepad++ and Quick Light writes run **once per save per `LAYOUT_VERSION`**, 15 s after
    init or load, with up to 8 retries while Gamepad++'s arrays are still `None`. Later MCM changes
@@ -103,18 +101,27 @@ save, so a player who rebinds them in its MCM breaks the match. `gpp_keyhandler.
 `bIsC1Held` when the multi-tap delay (0.3 s) ends, so A must still be held then. Before v4,
 Quick Light's hold-Activate also listened on A.
 
-## Hero Menu on B + D-pad Up (v7)
+## Hero Menu on B + D-pad Up (v7, fixed 2026-11-01)
 
-`ZEN_ControllerLayout` registers B (277) and D-pad Up (266) and tracks B with `OnKeyDown`/`OnKeyUp`.
-D-pad Up while B is held, outside menu mode, calls `_00E_Game_SkillmenuSC.OnKeyDown(35)`, Enderal's
-own H path. That handler re-checks menu mode, text input, the dreamworld and its cooldown. This is
-instant, unlike Gamepad++ combos, and sends no keyboard H, so the keyboard Quick Stats bind on H
-never fires. A + Right sends L (horse), and A + Up is free. The D-pad Up tap still uses favourite 3,
-and B is sprint, so holding B to start the combo while moving also sprints.
+**Enderal 2.1's Hero Menu is native.** `EnderalSE.dll` opens it on the H key, and the Papyrus
+`_00E_Game_SkillmenuSC` is **gone**: it isn't in `E - Misc.bsa`, any loose `Scripts\`, or any mod archive.
+The Papyrus log reports `Cannot open store for class "_00e_game_skillmenusc", missing file?` on
+every load. The first v7 called that script's `OnKeyDown(35)`. The cast returned `None`, so B + Up did
+nothing in game. The v1–v6 "B closes the Hero Menu" path (`OnKeyDown(1)`) was dead for the same reason.
+
+Now `ZEN_ControllerLayout` registers B (277) and D-pad Up (266) and tracks B with
+`OnKeyDown`/`OnKeyUp`. D-pad Up while B is held, outside menu mode, calls `Input.TapKey(35)`. This is the
+same keypress Gamepad++'s double-tap Right used, and that was verified working. It is instant, unlike
+Gamepad++ combos. The B-close code is removed, because tapping H while the native menu closes on B
+could reopen it. **Whether the native menu closes on B is untested.** A + Right sends L (horse), and
+A + Up is free. B is sprint, so holding B while moving also sprints.
+
+Older docs that describe the Papyrus Hero Menu (`ControllerTweaks.md`, sections 3–6 of
+`zenderal-controller-setup.md`) predate Enderal 2.1.
 
 ## D-pad favourites and the Ammo Wheel (2026-11-01)
 
-D-pad taps are favourites **1–4** (Right 1, Left 2, Up 3, Down 4), moved from CCS's 5–8 at the
+D-pad taps are favourites **1–4** (Left 1, Up 2, Right 3, Down 4), moved from CCS's 5–8 at the
 curator's request. `Hotkey1`–`8` are not remappable (7th column 0), so only `controlmap.txt` holds
 them; `ControlMap_Custom.txt` has no hotkey entries. Favourites 5–8 are keyboard only. Wheeler's
 `AmmoWheel.ini` had `ToggleKeyGamepad = 269` (D-pad Right), even though its display label said
