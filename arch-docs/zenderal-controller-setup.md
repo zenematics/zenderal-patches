@@ -26,7 +26,6 @@ else comes from the config files only.
 | LT | Parry (Dual Wield Parrying `ParryKey2 = 280`) |
 | RT | Power attack ✅ (Patch Collection's `ZenOCPASecondKey`, `iKeycode=281`) |
 | A | Activate |
-| Hold A (nothing targeted, 0.5 s) | Quick Light ✅ (Quick Light's default hold-Activate) |
 | A + LB / A + RB | Draw-sheathe weapon / Shout-power |
 | B | Sprint; tap to dodge (TK Dodge `EnableSprintKeyDodge`) |
 | X | Open Wheeler |
@@ -48,8 +47,8 @@ else comes from the config files only.
 Gamepad++ sends the keys shown in brackets. `ZenKeyTrace.dll` turns the stance keys into the
 Stances mod's switch spells. Every D-pad press also fires that button's favourites hotkey,
 including the first press of a double-tap or hold. **Potion combos:** hold A, tap the D-pad and
-keep A held about 0.3 s, because Gamepad++ checks A when its multi-tap delay ends. Holding A for 0.5 s
-with nothing targeted before tapping also toggles Quick Light, since both use A.
+keep A held about 0.3 s, because Gamepad++ checks A when its multi-tap delay ends. Quick Light's
+hold-Activate trigger is switched off (v4), so the only way to toggle Quick Light is double-tap Left, or K on the keyboard.
 
 **Inside Wheeler:** D-pad Left/Right previous/next item · D-pad Up/Down move entry · LT/RT
 previous/next wheel · RB/LB use right/left · Y add wheel · A add empty slot · L3/R3 move wheel ·
@@ -67,7 +66,7 @@ order in item lists · LT/RT sort column, or zoom on the map.
 | Mouse 4 | Power attack (OCPA `iKeycode = 259`) |
 | Mouse 5 | Parry |
 | Left Alt | Dodge (tapping Shift also dodges) |
-| E / R | Activate / Draw weapon; hold E (nothing targeted) = Quick Light |
+| E / R | Activate / Draw weapon |
 | Left Shift / Space / Left Ctrl | Sprint / Jump / Sneak |
 | Caps Lock / `.` | Always run / Auto-move |
 | Z / X | Toggle view / Shout |

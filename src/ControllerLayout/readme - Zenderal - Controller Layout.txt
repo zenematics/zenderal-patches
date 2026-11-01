@@ -9,7 +9,7 @@ list), i.e. above Zenderal - Input Defaults, Complete Controller Setup, Gamepad+
 Zenderal - Settings. Enable "Zenderal - Controller Layout.esp" (ESL, masters only Skyrim.esm).
 
 Works on an existing save: about 15 s after loading (out of menus) it writes the save-stored
-parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v3 applied".
+parts. Check Papyrus.0.log for "[ZEN_ControllerLayout] layout v4 applied".
 
 
 CONTROLLER
@@ -18,7 +18,7 @@ CONTROLLER
   LB / RB                    Left / Right hand attack and block
   LT                         Parry (Dual Wield Parrying)
   RT                         Power attack (ZenOCPASecondKey)
-  A                          Activate.  Hold A (nothing targeted, 0.5 s) = Quick Light
+  A                          Activate
   A + LB / A + RB            Draw-sheathe weapon / Shout-power
   B                          Sprint; tap B to dodge (TK Dodge)
   X                          Wheeler
@@ -39,8 +39,8 @@ CONTROLLER
   Every D-pad press also uses that favourites slot, including the first press of a
   double-tap or hold.  B closes the Hero Menu.
   Potions: hold A, tap the D-pad, and keep A held a moment (~0.3 s) - Gamepad++ only counts
-  the combo if A is still down when it decides the tap. Holding A for 0.5 s with nothing
-  targeted before you tap also toggles Quick Light.
+  the combo if A is still down when it decides the tap.
+  Quick Light is double-tap D-pad Left only (its hold-Activate trigger is switched off).
 
   Inside Wheeler (X):
     D-pad Left / Right       previous / next item
@@ -66,7 +66,7 @@ KEYBOARD AND MOUSE
   Mouse 4                    Power attack
   Mouse 5                    Parry
   Left Alt                   Dodge (tapping Shift also dodges)
-  E / R                      Activate / Draw weapon.  Hold E (nothing targeted) = Quick Light
+  E / R                      Activate / Draw weapon
   Left Shift / Space / LCtrl Sprint / Jump / Sneak
   Caps Lock / .              Always run / Auto-move
   Z / X                      Toggle view / Shout
@@ -115,7 +115,7 @@ Loose files (win by MO2 priority):
 
 Script (ZEN_ControllerLayout) - things other mods keep IN THE SAVE, written once per save:
   - Gamepad++ D-pad gestures and A + D-pad potion combos (the tables above)
-  - Quick Light's keyboard key L -> K (L is also Enderal's horse call)
+  - Quick Light's keyboard key L -> K (L is also Enderal's horse call), hold-Activate trigger off
   - B closes the Hero Menu
 
 Fixed relative to the old setup:

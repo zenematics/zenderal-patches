@@ -4,8 +4,9 @@ handles the parts that other mods keep IN THE SAVE, where no file can reach them
 
   1. Gamepad++ D-pad gestures - written straight into Gamepad++'s key handler, the same fields its
      MCM "Load Preset" fills. Hold = stance, double-tap Left = Quick Light, double-tap Right = Hero Menu.
-  2. Quick Light's keyboard key moved from L to K: L is also Enderal's horse-call key. Hold Activate
-     (A / E) still casts Quick Light too. (The list has no lantern mod; keybinds.json's SWLToggle is stale.)
+  2. Quick Light's keyboard key moved from L to K: L is also Enderal's horse-call key. Its hold-Activate
+     trigger (A / E) is switched OFF, so A + D-pad potions never toggle the light. (No lantern mod is
+     installed; keybinds.json's SWLToggle is stale.)
   3. B closes Enderal's Hero Menu. Gamepad++ cannot do this (it only sends keys), so this alias
      listens for B and calls the Hero Menu script's own Esc path.
 
@@ -13,7 +14,7 @@ Items 1-2 are written ONCE per save (per LAYOUT_VERSION), so a player's later MC
 Bump LAYOUT_VERSION to push a changed layout into existing saves. Every target is looked up by
 plugin + FormID and cast, so a missing or changed mod is skipped, never written blindly.}
 
-Int Property LAYOUT_VERSION = 3 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions
+Int Property LAYOUT_VERSION = 4 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light); 3: A + D-pad potions; 4: Quick Light hold-A off
 
 ; SKSE key codes
 Int Property KEY_ESC = 1 AutoReadOnly
@@ -166,8 +167,10 @@ Function ApplyQuickLight()
 	EndIf
 	aaaQLPlayerAliasScript ql = q.GetAlias(0) As aaaQLPlayerAliasScript
 	If ql
-		; Default was L, the same key as the lantern and Enderal's horse call. Hold-Activate stays on.
+		; Default was L, the same key as Enderal's horse call. Hold-Activate (A / E, 0.5 s) is turned off:
+		; double-tap D-pad Left / K is the only trigger. Same call as the MCM's "Use hold key" toggle.
 		; (Quick Light's MCM keeps displaying L - its label is a private variable - but K is live.)
 		ql.SetLightKey(KEY_K)
+		ql.RegisterActivateKey(False)
 	EndIf
 EndFunction

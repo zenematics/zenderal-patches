@@ -35,7 +35,9 @@ Two halves:
      `RegisterKeys()`. These are exactly the fields the MCM's `loadPreset` fills
      (`gpp_mcm_gen.loadData`, `gpp_mcm_act.loadData`).
    - **Quick Light.** `aaaQLPlayerAliasScript.SetLightKey(37)` moves its key L → K, and Gamepad++'s
-     double-tap Left sends K. Hold-Activate stays on.
+     double-tap Left sends K. **v4:** `RegisterActivateKey(False)` turns off its hold-Activate trigger
+     (the curator wants double-tap Left only). This persists, because Quick Light's `SetUp()` re-applies
+     its own `UseHoldKey`, and that call sets it. The MCM's "Use hold key" toggle still *shows* on.
    - **The Hero Menu.** The script registers for B (277). While `CustomMenu` is open, B calls
      `_00E_Game_SkillmenuSC.OnKeyDown(1)` on `Levelsystem 010AA2` alias 0, which is Enderal's own
      Esc close path. Enderal's handler closes only when its own `MenuOpen` flag is set, so B in any
@@ -60,9 +62,9 @@ Two halves:
   in any enabled mod, and Input Defaults' preset had changed CCS's double-tap Right `H` to an
   unused `K`. Gamepad++ cannot close the menu. It only sends keys, and Enderal's exit keys are
   only Tab and Esc, so the close needs its own listener.
-- **Quick Light on hold A** is Quick Light's default (`UseHoldKey = true`). It is kept, because
-  players reported it as a feature. CCS's `MCM/Settings/QuickLight.ini` cannot change it, since
-  Quick Light uses a legacy SkyUI MCM and not MCM Helper.
+- **Quick Light on hold A** is Quick Light's default (`UseHoldKey = true`). v1–v3 kept it; v4 turns
+  it off from the script. CCS's `MCM/Settings/QuickLight.ini` cannot change it, since Quick Light
+  uses a legacy SkyUI MCM and not MCM Helper.
 
 ## Gamepad++ data layout (from the decompiled 1.2.1 scripts)
 
@@ -91,8 +93,8 @@ Combo key 1 is A (CCS's choice). `aiC1Actions` single-press slots 1/5/9 (Left/Ri
 203/205/200, which are Swift Potion Reborn's hotkeys as `Zenderal - Settings Applier`'s
 `HotkeyData.json` writes them (← health, ↑ mana, → stamina). Swift Potion keeps hotkeys in the
 save, so a player who rebinds them in its MCM breaks the match. `gpp_keyhandler.OnUpdate` reads
-`bIsC1Held` when the multi-tap delay (0.3 s) ends, so A must still be held then. Quick Light's
-hold-Activate (0.5 s, nothing targeted) shares A.
+`bIsC1Held` when the multi-tap delay (0.3 s) ends, so A must still be held then. Before v4,
+Quick Light's hold-Activate also listened on A.
 
 ## Caveats
 
