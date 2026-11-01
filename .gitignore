@@ -152,6 +152,10 @@ __pycache__/
 !src/CallCompanions/Scripts/compiled/*.pex
 !src/ArkGateSiegeFix/Scripts/compiled/
 !src/ArkGateSiegeFix/Scripts/compiled/*.pex
+!src/UnskippableCinematics/Scripts/compiled/
+!src/UnskippableCinematics/Scripts/compiled/*.pex
+!src/FoggyNightsChance/Scripts/compiled/
+!src/FoggyNightsChance/Scripts/compiled/*.pex
 
 # Build output (build.ps1 staging) - commit source, not build artifacts
 /build/staging/
