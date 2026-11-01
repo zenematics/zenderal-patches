@@ -3,9 +3,9 @@ Scriptname ZEN_ControllerLayout extends ReferenceAlias
 handles the parts that other mods keep IN THE SAVE, where no file can reach them:
 
   1. Gamepad++ D-pad gestures - written straight into Gamepad++'s key handler, the same fields its
-     MCM "Load Preset" fills. Hold = stance, double-tap Left = lantern, double-tap Right = Hero Menu.
-  2. Quick Light's keyboard key moved from L to K, so L only lights the lantern (and calls the horse,
-     Enderal's own default). Hold Activate (A / E) still casts Quick Light.
+     MCM "Load Preset" fills. Hold = stance, double-tap Left = Quick Light, double-tap Right = Hero Menu.
+  2. Quick Light's keyboard key moved from L to K: L is also Enderal's horse-call key. Hold Activate
+     (A / E) still casts Quick Light too. (The list has no lantern mod; keybinds.json's SWLToggle is stale.)
   3. B closes Enderal's Hero Menu. Gamepad++ cannot do this (it only sends keys), so this alias
      listens for B and calls the Hero Menu script's own Esc path.
 
@@ -13,7 +13,7 @@ Items 1-2 are written ONCE per save (per LAYOUT_VERSION), so a player's later MC
 Bump LAYOUT_VERSION to push a changed layout into existing saves. Every target is looked up by
 plugin + FormID and cast, so a missing or changed mod is skipped, never written blindly.}
 
-Int Property LAYOUT_VERSION = 1 AutoReadOnly
+Int Property LAYOUT_VERSION = 2 AutoReadOnly  ; 2: double-tap Left L -> K (Quick Light)
 
 ; SKSE key codes
 Int Property KEY_ESC = 1 AutoReadOnly
@@ -26,7 +26,7 @@ Int Property PAD_A = 276 AutoReadOnly
 Int Property PAD_B = 277 AutoReadOnly
 
 ; Keys Gamepad++ presses (DirectInput scan codes)
-Int Property SEND_LANTERN = 38 AutoReadOnly          ; L - Simple Wearable Lantern (MCM/Settings/keybinds.json)
+Int Property SEND_QUICK_LIGHT = 37 AutoReadOnly      ; K - Quick Light (set by ApplyQuickLight)
 Int Property SEND_HERO_MENU = 35 AutoReadOnly        ; H - Enderal's Hero Menu key
 Int Property SEND_STANCE_NEUTRAL = 26 AutoReadOnly   ; [ - Stances.ini stance_neutral_pad
 Int Property SEND_STANCE_MID = 43 AutoReadOnly       ; \ - Stances.ini stance_mid_pad (NOT ', No Compass In Dialogue's key)
@@ -122,7 +122,7 @@ Int Function ApplyGamepadPlusPlus()
 	; Single taps stay empty: the engine's own favourites hotkeys 5-8 own a D-pad tap.
 	Int[] acts = NewEmptyActions()
 	acts[0] = SEND_STANCE_NEUTRAL   ; hold Left
-	acts[2] = SEND_LANTERN          ; double-tap Left
+	acts[2] = SEND_QUICK_LIGHT      ; double-tap Left
 	acts[4] = SEND_STANCE_MID       ; hold Right
 	acts[6] = SEND_HERO_MENU        ; double-tap Right
 	acts[8] = SEND_STANCE_HIGH      ; hold Up

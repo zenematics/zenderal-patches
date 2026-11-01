@@ -17,7 +17,7 @@ LAYOUT (gameplay)
   Left stick / Right stick   Move / Look
   LB / RB                    Left / Right attack and block
   LT                         Parry (Dual Wield Parrying)
-  RT                         Power attack (One Click Power Attack)
+  RT                         Power attack (OCPA via ZenOCPASecondKey; Mouse 4 on keyboard)
   A                          Activate.  Hold A (nothing targeted, 0.5 s) = Quick Light
   A + LB / A + RB            Draw-sheathe weapon / Shout-power
   B                          Sprint; tap B to dodge (TK Dodge)
@@ -33,9 +33,11 @@ LAYOUT (gameplay)
   Up           favourite hotkey 7    -                 High stance
   Right        favourite hotkey 5    Hero Menu         Mid stance
   Down         favourite hotkey 8    -                 Low stance
-  Left         favourite hotkey 6    Lantern           Neutral stance
+  Left         favourite hotkey 6    Quick Light       Neutral stance
 
   Hero Menu: B closes it (as do Tab / Esc on the keyboard).
+  Stances only switch with a weapon drawn.
+  Keyboard: Quick Light = K (or hold E), stances = F1-F4.
   Menus: LT / RT change the sort column, R3 flips the sort order.
 
 
@@ -44,8 +46,10 @@ WHAT IS IN HERE
 Loose files (win by MO2 priority):
   Interface\Controls\PC\controlmap.txt     CCS layout; Quick Stats + Auto-Move pad combos unbound
   ControlMap_Custom.txt                    keyboard binds + CCS gamepad block
-  MCM\Settings\OCPA.ini                    power attack = RT (281)
-  MCM\Settings\keybinds.json               lantern L, helmet B, UI toggle V
+  MCM\Settings\OCPA.ini                    power attack = Mouse 4 (259); RT is
+                                           Patch Collection's ZenOCPASecondKey (281)
+  MCM\Settings\keybinds.json               helmet B, UI toggle V (its lantern entry is
+                                           stale - no lantern mod is installed)
   MCM\Settings\BetterThirdPersonSelection.ini, MCM\Config\SkyUI_SE\settings.ini
   SKSE\Plugins\dtryKeyUtil\config\custom\Stances.ini   F1-F4 keyboard; pad keys [ \ ; ]
   SKSE\Plugins\wheeler\Controls.ini, AmmoWheel.ini
@@ -55,20 +59,18 @@ Loose files (win by MO2 priority):
 
 Script (ZEN_ControllerLayout) - things other mods keep IN THE SAVE, written once per save:
   - Gamepad++ D-pad gestures (the table above)
-  - Quick Light's keyboard key L -> K, so L lights only the lantern
+  - Quick Light's keyboard key L -> K (L is also Enderal's horse call)
   - B closes the Hero Menu
 
 Fixed relative to the old setup:
   - Holding D-pad Right no longer toggles the compass. The mid stance used the ' key, which is
     also No Compass In Dialogue's toggle key; it now uses \.
-  - Double-tap D-pad Left no longer also fires Quick Light.
+  - Double-tap D-pad Left toggles Quick Light without also calling your horse (both were on L).
   - Double-tap D-pad Right opens the Hero Menu again (Input Defaults had changed it to K, which
     does nothing), and B now closes it.
-  - RT power attacks (Input Defaults had OCPA on Mouse 4, leaving RT doing nothing).
 
 Known, left alone:
-  - Keyboard L also calls your horse (Enderal's own default mount key), so double-tap Left does
-    too once you own the horse flute. Change it in Enderal's MCM if it bothers you.
+  - Keyboard L calls your horse (Enderal's own default mount key).
   - A D-pad tap always uses that favourites slot, including the first tap of a double-tap or hold.
   - Turning this mod OFF does not undo the save-stored parts; Gamepad++ MCM -> Presets & Info ->
     Restore Default Settings goes back to whichever preset then wins.

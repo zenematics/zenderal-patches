@@ -287,7 +287,7 @@ Full mechanism, history and postmortems per patch in [`arch-docs/patches/`](arch
 | [`IchorGooNoGlow`](arch-docs/patches/IchorGooNoGlow.md) → generated meshes (not committed) | none | Curator's taste: JS Ichor puddles without their particle haze + ENB light. Sort above JS in MO2 |
 | [`SilentPowerAttackGrunts`](arch-docs/patches/SilentPowerAttackGrunts.md) → 8 loose `.fuz` (not committed) | none | Curator's taste: female player power-attack yells silenced; other grunts kept |
 | [`NoScreenFlashes`](arch-docs/patches/NoScreenFlashes.md) → `Zenderal - No Screen Flashes.esp` | none | Curator's taste: drops full-screen blur/white-flash ISMs from enemy abilities (Wood Elemental call `0E41F1`) |
-| [`ControllerLayout`](arch-docs/patches/ControllerLayout.md) → `Zenderal - Controller Layout.esp` + `.pex` + every input config file | `0x800` | The whole pad layout as one on/off mod; must outrank every input mod. Writes Gamepad++/Quick Light save state once per `LAYOUT_VERSION`; B closes the Hero Menu |
+| [`ControllerLayout`](arch-docs/patches/ControllerLayout.md) → `Zenderal - Controller Layout.esp` + `.pex` + every input config file | `0x800` | The whole pad layout as one on/off mod; must outrank every input mod. Writes Gamepad++/Quick Light save state once per `LAYOUT_VERSION`; B closes the Hero Menu. Never set OCPA's key to RT (`ZenOCPASecondKey` owns it) |
 
 ### Useful FormKey constants
 
