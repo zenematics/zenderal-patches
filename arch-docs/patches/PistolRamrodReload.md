@@ -460,6 +460,28 @@ The reload is a cast of the empty gun, so the engine said "Your item has insuffi
 for every staff, so empty staves stay quiet too. No other plugin in the list overrides it. The Flintlock script's
 debug notifications are off (`DebugMode` False) since the same day.
 
+## The melee arm's hand-back (2026-11-02)
+
+Curator, first person: after a reload with a melee weapon in the other hand "the right hand reverts back to neutral
+holding weapon before changing to the actual stance idle" (a few frames). What it was (OAR's animation log written to
+its text log, `uAnimationActivateLogMode`/`uAnimationLoopLogMode` 2, with ZenBoneTrace, a dagger, Hair Trigger):
+- every time the right arm's idle started after a reload it was SIGMA's stance idle (`Daggers Low`), and it started
+  at the script's hand-back; no neutral SIGMA variant was ever picked;
+- the hand-back was a Papyrus timer (`STOW_RESET_AFTER`, scaled by `Pace`): it landed at ~2.0 s, after the Hair Trigger
+  clip had ended (1.95 s). For those frames the right arm still belonged to the magic graph (`fZenPistolRightArmIdle`
+  0), whose release state had given way to vanilla's first-person `staff_idle`: its right arm holds the weapon in a
+  generic pose, the "neutral". Without Hair Trigger the timer landed on the clip's held end, vanilla's one-handed idle.
+- With a staff in the left hand, first person's `1HM_Readied_BehaviorGraph` picks `1HM_Readied_Staff_State`
+  (`iLeftHandType` 8): the right arm is `1HM_1stPUpperBody`'s (for a sword its `1HM_1stP_BodyBehavior`: `1HM_Idle`, the
+  turn clips), the same clip names SIGMA's stance folders replace.
+
+**Fix:** the stow clips say `ZenPistolArmBack` (tools/01 `ARM_BACK`) `ARM_BACK_AFTER` 0.05 s after the regrip, when
+the weapon is in the hand again and out of its sheath; tools/04 copies it, tools/07 scales it, tools/03 lists it in
+magicbehavior and 0_master (both views; **rerun Pandora**). `StowReload` registers for it and the event hands the arm
+back (`OnAnimationEvent`, the first one of the two views'), while the draw still moves the arm, so it goes straight to
+the stance idle. The timer is only the fallback (no event, or the reload cut short). Verified in game 2026-11-02
+(curator: "all works amazing now").
+
 ## Loading sounds (2026-11-02)
 
 Curator: "add loading gun 5 and then 9 sounds at the point the ball goes into the barrel". tools/01 `SOUNDS`: the clip

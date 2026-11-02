@@ -459,13 +459,14 @@ LOADED_EVENTS = ['ZenPistolLoadedL', 'ZenPistolLoadedR']   # tools/01 LOADED: th
 # magic graph lists no bare `SoundPlay`, so the clip's loading sounds never fired (ZenBoneTrace, curator's test
 # 2026-11-02: "no reload sounds"). A bare `SoundPlay` there would wake every mod's magic-clip sound annotation too.
 SOUND_EVENTS = ['SoundPlay.ZEN_PistolLoadGun5', 'SoundPlay.ZEN_PistolLoadGun9']
+ARM_EVENTS = ['ZenPistolArmBack']   # tools/01 ARM_BACK: ZP_PistolReloadArmScript hands the melee arm back on it
 
 
 def prop_events(objs, cls, events=None):
     """The clip annotations' events appended to the graph's event list (the prop events, the loaded ones and the
     loading sounds by default)."""
     sd, gd = one_of(cls, 'hkbBehaviorGraphStringData'), one_of(cls, 'hkbBehaviorGraphData')
-    events = events or ['AnimObjLoad', 'AnimObjDraw', 'AnimObjectUnequip'] + LOADED_EVENTS + SOUND_EVENTS
+    events = events or ['AnimObjLoad', 'AnimObjDraw', 'AnimObjectUnequip'] + LOADED_EVENTS + SOUND_EVENTS + ARM_EVENTS
     for e in events:
         if '<hkcstring>%s</hkcstring>' % e in objs[sd]:
             sys.exit('%s already lists %s' % (sd, e))
@@ -545,7 +546,7 @@ def main():
           variable_appends(objs, cls, (VAR, VAR_LEFT, VAR_DUAL, VAR_STOW) + VAR_REQ, (ONE, ONE, 0, ONE, 0, 0)) + '\n' +
           blend + '\n' +
           root_staff_release(objs, cls, 41) + '\n' + stow_release(objs, cls, 61) + '\n' +
-          prop_events(objs, cls, LOADED_EVENTS + SOUND_EVENTS))
+          prop_events(objs, cls, LOADED_EVENTS + SOUND_EVENTS + ARM_EVENTS))
     objs, cls = objects(magic)
     wrap, (sel, dual, left, right) = dual_wrapper(objs, cls, 21)
     write('magicbehavior.xml', 'Zenderal - Pistol Ramrod Reload: the prop events the reload clip annotates (the 1hm graphs '
@@ -569,7 +570,7 @@ def main():
           variable_appends(objs, cls, (VAR, VAR_LEFT, VAR_DUAL, VAR_STOW) + VAR_REQ, (ONE, ONE, 0, ONE, 0, 0)) + '\n' +
           blend + '\n' +
           root_staff_release(objs, cls, 51) + '\n' + stow_release(objs, cls, 81) + '\n' +
-          prop_events(objs, cls, LOADED_EVENTS + SOUND_EVENTS))
+          prop_events(objs, cls, LOADED_EVENTS + SOUND_EVENTS + ARM_EVENTS))
     objs, cls = objects(magic1)
     wrap, (sel, dual, left, right) = dual_wrapper(objs, cls, 31)
     write('firstperson~magicbehavior.xml', 'Zenderal - Pistol Ramrod Reload, first person: the prop events the reload '

@@ -8,8 +8,12 @@
 		<hkcstring>ZenPistolLoadedR</hkcstring>
 		<hkcstring>SoundPlay.ZEN_PistolLoadGun5</hkcstring>
 		<hkcstring>SoundPlay.ZEN_PistolLoadGun9</hkcstring>
+		<hkcstring>ZenPistolArmBack</hkcstring>
 	</Append>
 	<Append path="#0079/eventInfos">
+		<hkobject>
+			<hkparam name="flags">0</hkparam>
+		</hkobject>
 		<hkobject>
 			<hkparam name="flags">0</hkparam>
 		</hkobject>

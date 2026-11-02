@@ -42,6 +42,12 @@ Float Property RESET_AFTER = 1.8 AutoReadOnly   ; the 2.1 s clip: the arm is at 
 ; hand-over is clip time ~3.0, in that hold
 Float Property DUAL_RESET_AFTER = 2.95 AutoReadOnly
 Float Property DUAL_LOCK = 2.95 AutoReadOnly    ; the other gun cannot fire until the body is handed back
+; a melee weapon's arm goes back to the game's idle on the clip's ARM_BACK_EVENT, just after the regrip (tools/01
+; ARM_BACK): on a timer the hand-back landed after the clip had ended (Hair Trigger's) or on its held end, and the arm
+; showed the staff idle's or vanilla's weapon-holding pose before the game's own (SIGMA's, by stance) came (curator
+; 2026-11-02). STOW_RESET_AFTER is the fallback: no event (Pandora not rerun) or the reload cut short.
+String Property ARM_BACK_EVENT = "ZenPistolArmBack" AutoReadOnly
+Float Property STOW_RESET_AFTER = 2.7 AutoReadOnly
 String Property LoopPlugin = "Pistol animation by Loop.esp" AutoReadOnly
 Int Property LOOP_KEYWORD_ID = 0x801 AutoReadOnly   ; Pistol_Animation_By_Loop
 String Property ProphecyPlugin = "Zenderal - Prophecy.esp" AutoReadOnly
@@ -56,6 +62,10 @@ Perk hairTrigger
 Int shots       ; the newest shot owns the reset, per hand
 Int shotsRight
 Int shotsDual
+Int stows       ; melee stows started; stowOpen: the one ARM_BACK_EVENT hands back (0: none)
+Int stowOpen
+String stowVariable
+Bool stowShare
 String resetSide      ; OnUpdate's: the request it clears after the release
 String resetRequest
 
@@ -201,26 +211,36 @@ Function HandleReload(Int slot, Int other)
 EndFunction
 
 ; A melee weapon in the other hand: that arm fades to the clip, which sheathes the weapon, reloads and draws it again
-; (the two-pistol timeline: handed back DUAL_RESET_AFTER after the shot, while the clip holds its last pose)
+; (the two-pistol timeline), and back to the game's idle on the clip's ARM_BACK_EVENT, right after the regrip, while
+; the draw still moves it (OnAnimationEvent); STOW_RESET_AFTER after the hand-over if no event came
 Function StowReload(Int slot)
-	If slot == LEFT_HAND
-		shots += 1
-		Int mine = shots
-		FadeOut(ARM_VARIABLE, True)
-		HoldReload(slot, DUAL_RESET_AFTER * Pace())
-		If mine == shots
-			FadeIn(ARM_VARIABLE, True)
-		EndIf
-	Else
-		shotsRight += 1
-		Int mineRight = shotsRight
-		FadeOut(STOW_VARIABLE, False)
-		HoldReload(slot, DUAL_RESET_AFTER * Pace())
-		If mineRight == shotsRight
-			FadeIn(STOW_VARIABLE, False)
-		EndIf
+	String var = ARM_VARIABLE
+	Bool share = True
+	If slot != LEFT_HAND
+		var = STOW_VARIABLE
+		share = False
+	EndIf
+	stows += 1
+	Int mine = stows
+	stowVariable = var
+	stowShare = share
+	stowOpen = mine
+	RegisterForAnimationEvent(PlayerRef, ARM_BACK_EVENT)    ; every time: the graph may be new since the last
+	FadeOut(var, share)
+	HoldReload(slot, STOW_RESET_AFTER * Pace())
+	If stowOpen == mine
+		stowOpen = 0
+		FadeIn(var, share)
 	EndIf
 EndFunction
+
+; The stow clip's ARM_BACK_EVENT (both views' clips carry it: the first one hands the arm back)
+Event OnAnimationEvent(ObjectReference akSource, String asEventName)
+	If asEventName == ARM_BACK_EVENT && stowOpen != 0
+		stowOpen = 0
+		FadeIn(stowVariable, stowShare)
+	EndIf
+EndEvent
 
 ; A free arm's variable from 1 to 0 over FADE_STEPS sets, one after the other with no wait (each Papyrus call takes a
 ; frame or so): the clip's share of the arm rises evenly. Four sets 0.03 s apart took ~4 frames each in game, and

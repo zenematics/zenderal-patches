@@ -203,6 +203,16 @@ LEVEL_OFF = (0.0, 7.0, 6.0)        # lower / raise: the grip this far right / fo
 # free arm's rest blends to the one-gun reload's (Variant.relaxed); the carry beats keep the hold's. The melee stows
 # already rest on the one-gun reload's shoulder (half the idle's).
 RELAX_SKIP = ('AnimObjectR', 'Weapon')    # the gun's node (pinned to the belt meanwhile) and the props' node
+# The melee arm's hand-back (2026-11-02, curator: after the reload "the right hand reverts back to neutral holding weapon
+# before changing to the actual stance idle"). ZP_PistolReloadArmScript handed the arm back on a Papyrus timer, which
+# landed after the clip had ended (Hair Trigger's: 1.95 s, the hand-back ~2.0; traced), so for those frames the arm was
+# the magic graph's, the plain staff idle's weapon-holding pose; without Hair Trigger it landed on the clip's held end,
+# vanilla's one-handed idle. The stow clips now say ARM_BACK ARM_BACK_AFTER seconds after the regrip (the weapon in the hand
+# again, out of its sheath), and the script hands the arm to the game's idle on it (SIGMA's, by stance: OAR's log
+# showed "Daggers Low" starting at the hand-back), while the draw still moves the arm. In the Pandora patch's event
+# lists (tools/03); tools/04 copies it, tools/07 scales it with the twins.
+ARM_BACK = 'ZenPistolArmBack'
+ARM_BACK_AFTER = 0.05
 CARRY_FOLLOW = 0.3                 # carrying: cost per degree the elbow leaves the beats' blended one ...
 CARRY_HOLD = 5.0                   # ... rising by this much toward an idle hold (exactly there it is the hold's own)
 CARRY_STEADY = 1.0                 # ... and per degree it moves from the last frame's
@@ -1494,6 +1504,9 @@ def build_clip(ctx, label, c, axis, radius, var):
         set_pose(anim, f, pose_at(anim, n_motion - 1))
     params = dict(params, attempt=attempt)
     added, prop_frames = props(ctx, anim, label, geo, beats)
+    if var.stow:      # the melee arm back to the game's idle (ZP_PistolReloadArmScript, ARM_BACK)
+        added.append((beats['regrip'] + ARM_BACK_AFTER, ARM_BACK))
+        anim.annotations.append(anim_skyrim.Annotation(time=round(added[-1][0], 4), text=ARM_BACK))
     info = dict(params, Lr=geo['Lr'], head_clear=clear, prop_frames=prop_frames, gun_scale=gun_scale, flip_clear=flip_clear,
                 flips=flips)
     if var.dual and not var.stow:

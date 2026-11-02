@@ -85,7 +85,7 @@ FREE_IDLE = ('SIGMA - Fisting animations - 1st person',
              ADS.ANIMS_1P + ['OpenAnimationReplacer', 'Sigma - fists', 'h', 'h2h_idle.hkx'])
 FREE_ARM = PR.RIGHT_HALF + PR.RIGHT_IDLE       # first person's RightArm mask, by name (tools/03 asserts the mask)
 PROP_EVENTS = ('AnimObjLoad.', 'AnimObjDraw.', PR.UNEQUIP, 'ZenPistolLoaded',   # + the loaded event (tools/01)
-               'SoundPlay.')                                                   # and its loading sounds (PR.SOUNDS)
+               'SoundPlay.', PR.ARM_BACK)                                      # its loading sounds, the melee arm back
 RIGHT = ' (right hand)'
 # per pistol hand: vanilla's first-person shot and idle, its aim clips, the gun's attach node, the free arm's bones
 FREE_ARM_LEFT = [PR.swap_side(n) for n in FREE_ARM]
