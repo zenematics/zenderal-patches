@@ -13,7 +13,9 @@ with the spriggit-decompile-reference skill):
     (00083F-000843) copied as new records: goblin-skinned model, race ZEN_GoblinRace, ARMO -> new ARMA.
 JSON (SKSE/DismemberingFramework/Zenderal_Goblins_*.json; DF parses every TEMPLATES, then LIMBS, then
 DATA file, so these may name the pack's Falmer base-data templates):
-  * TEMPLATES: one actor-addon template per cap (our ARMO + DF's Falmer blood art);
+  * TEMPLATES: one actor-addon template per cap (our ARMO + DF's Falmer blood art). With STUMP_CAPS
+    False (since 2026-11-01) they carry only the blood art, and Mihail's goblins get no-cap copies of
+    DF's actor-addon templates. The cap ARMO/ARMA records stay in the plugin, unused;
   * LIMBS: one limb per MiscItem, templates [DF - Base data, Falmer male base data, ours];
   * Mihail's goblins (04b): MiscItems from DF's naked male draugr limb items, LIMBS with DF's humanoid/draugr
     templates, DATA `ZEN_Mihail_mihailgoblinrace` -> each skin -> both sexes (first skin also `ANY`).
@@ -58,6 +60,12 @@ FALMER_LIMB_ITEM = {'Calf_L': '000844', 'Calf_R': '000845', 'Forearm_L': '000846
                     'Head': '000848'}
 MASTERS = ['Skyrim.esm', 'Update.esm', 'Enderal - Forgotten Stories.esm', 'Dismembering Framework.esm',
            DF_KEY, GOBLINS_KEY]
+# Stump caps OFF (2026-11-01). At every cut DF equips the cap ARMO on the dying actor
+# (ActorEquipManager::EquipObject), the step that reloaded Spider SE corpses' whole 3D. Five crashes on
+# goblins, Lost Ones and skeletons (SkyrimSE.exe+0FDDB2D, a weapon re-hung on a freed 3D root; see
+# arch-docs/patches/EnemyDensity.md) point at it. True restores the caps.
+STUMP_CAPS = False
+NO_CAP = 'Zenderal - Goblins - No cap - '
 
 
 def ref_file(folder, fid):
@@ -137,8 +145,8 @@ def main():
         fh.write('\n')
 
     # --- DF JSON ----------------------------------------------------------------------------------
-    templates = {c['template']: {'ActorArmorAddon': f'{MOD_KEY}:0x{int(c["armo"], 16):X}', 'ActorArtObject': c['art']}
-                 for c in caps}
+    templates = {c['template']: ({'ActorArmorAddon': f'{MOD_KEY}:0x{int(c["armo"], 16):X}'} if STUMP_CAPS else {})
+                 | {'ActorArtObject': c['art']} for c in caps}
     limbs, per_skin = {}, {}
     for e in limbs_plan:
         limb_id = f'Zenderal - Goblin - {e["limb"]} - {e["fid"][-3:]}'
@@ -166,7 +174,12 @@ def main():
     for e in mihail:
         limb_id = f'Zenderal - Mihail Goblin - {e["limb"]} - {e["fid"][-3:]}'
         assert e['base_template'] in known and e['addon_template'] in known, (e['base_template'], e['addon_template'])
-        limbs[limb_id] = {'Templates': ['DF - Base data', e['base_template'], e['addon_template']],
+        addon = e['addon_template']
+        assert 'ActorArmorAddon' in known[addon] and 'ActorArtObject' in known[addon], (addon, known[addon])
+        if not STUMP_CAPS:
+            templates[NO_CAP + addon] = {k: v for k, v in known[addon].items() if k != 'ActorArmorAddon'}
+            addon = NO_CAP + addon
+        limbs[limb_id] = {'Templates': ['DF - Base data', e['base_template'], addon],
                           'LimbFormID': f'{MOD_KEY}:0x{int(e["fid"], 16):X}'}
         for s in e['skins']:
             assert s['race'] == MIHAIL_RACE_EDID, s

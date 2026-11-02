@@ -116,4 +116,5 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`SkeletonRagdollFix`](SkeletonRagdollFix.md) | generated loose `skeletons.hkx`: skeleton ragdoll limbs bend | none (no plugin) |
 | [`IEDPistolHolsters`](IEDPistolHolsters.md) | IED ExtraGearNodes file + generated IED export: pistols placed apart from staves | none (no plugin) |
 | [`ControllerLayout`](ControllerLayout.md) | `Zenderal - Controller Layout.esp` + `ZEN_ControllerLayout.pex` + every controller/keybind config file | `0x800` |
+| [`CollisionMoppFix`](CollisionMoppFix.md) | 7 generated meshes, `Zenderal - Collision MOPP Fix`: Enderal's broken MOPP branches closed (SkyParkour `int3` crash) | none (no plugin) |
 | [`CompassNavigationOverhaulFork`](CompassNavigationOverhaulFork.md) | rebuilt `SKSE/Plugins/CompassNavigationOverhaul.dll`, copied into the third-party mod `Compass Navigation Overhaul - Enderal Patch` | none (no plugin) |

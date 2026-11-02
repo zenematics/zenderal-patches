@@ -4,31 +4,31 @@
       "Male": {
         "NPC R Forearm [RLar]": [
           {
-            "IDLimb": "Draugr - Male - Naked - R Forearm",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - R Forearm",
             "Priority": -100
           }
         ],
         "NPC L Forearm [LLar]": [
           {
-            "IDLimb": "Draugr - Male - Naked - L Forearm",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - L Forearm",
             "Priority": -100
           }
         ],
         "NPC R Calf [RClf]": [
           {
-            "IDLimb": "Draugr - Male - Naked - R Calf",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - R Calf",
             "Priority": -100
           }
         ],
         "NPC L Calf [LClf]": [
           {
-            "IDLimb": "Draugr - Male - Naked - L Calf",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - L Calf",
             "Priority": -100
           }
         ],
         "NPC Neck [Neck]": [
           {
-            "IDLimb": "Draugr - Male - Naked - Head BE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head BE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -37,7 +37,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head BE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head BE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -46,7 +46,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head HA1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head HA1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -55,7 +55,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head HA1 BE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head HA1 BE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -64,7 +64,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head HA1 BE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head HA1 BE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -73,7 +73,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head HA2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head HA2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -82,7 +82,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head HA2 BE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head HA2 BE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -91,7 +91,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head HA2 BE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head HA2 BE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -100,7 +100,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -109,7 +109,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE1 BE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE1 BE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -118,7 +118,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE1 BE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE1 BE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -127,7 +127,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -136,7 +136,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE2 BE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE2 BE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -145,7 +145,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE2 BE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE2 BE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -154,7 +154,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE3",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE3",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -163,7 +163,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE3 BE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE3 BE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -172,7 +172,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Armored - Head HE3 BE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Armored - Head HE3 BE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -181,7 +181,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Male - Naked - Head",
+            "IDLimb": "Zenderal - Lost One - Draugr - Male - Naked - Head",
             "Priority": -100
           }
         ]
@@ -189,31 +189,31 @@
       "Female": {
         "NPC R Forearm [RLar]": [
           {
-            "IDLimb": "Draugr - Female - Naked - R Forearm",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - Naked - R Forearm",
             "Priority": -100
           }
         ],
         "NPC L Forearm [LLar]": [
           {
-            "IDLimb": "Draugr - Female - Naked - L Forearm",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - Naked - L Forearm",
             "Priority": -100
           }
         ],
         "NPC R Calf [RClf]": [
           {
-            "IDLimb": "Draugr - Female - Naked - R Calf",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - Naked - R Calf",
             "Priority": -100
           }
         ],
         "NPC L Calf [LClf]": [
           {
-            "IDLimb": "Draugr - Female - Naked - L Calf",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - Naked - L Calf",
             "Priority": -100
           }
         ],
         "NPC Neck [Neck]": [
           {
-            "IDLimb": "Draugr - Female - Naked - Head HA1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - Naked - Head HA1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -222,7 +222,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Female - Naked - Head HA2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - Naked - Head HA2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -231,7 +231,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Female - ArmorLight - Head HE1",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - ArmorLight - Head HE1",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -240,7 +240,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Female - ArmorHeavy - Head HE2",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - ArmorHeavy - Head HE2",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -249,7 +249,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Female - ArmorHeavy - Head HE3",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - ArmorHeavy - Head HE3",
             "Conditions": [
               {
                 "Name": "IsEquipped",
@@ -258,7 +258,7 @@
             ]
           },
           {
-            "IDLimb": "Draugr - Female - Naked - Head",
+            "IDLimb": "Zenderal - Lost One - Draugr - Female - Naked - Head",
             "Priority": -100
           }
         ]

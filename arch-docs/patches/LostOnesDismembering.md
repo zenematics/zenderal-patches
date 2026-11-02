@@ -21,6 +21,32 @@ then skin, then sex. Its Official Creature Asset Pack only lists `DraugrRace` (E
 | `SkeletonRace` `0B7998:Skyrim.esm` | 11 | never dismembered | skeleton limbs |
 | `DraugrRace` | 9 | DF's draugr limbs | unchanged |
 
+### Stump caps off: a crash test (2026-11-01, deployed, unverified)
+
+**Lost Ones and skeletons are cut without a body cap.** So are both goblin races (see [`Goblins`](Goblins.md)); the
+cap equips even when its ARMA renders nothing, as on skeletons and Mihail's goblins.
+
+- **Why:** five crashes at `SkyrimSE.exe+0FDDB2D` (the game re-hangs a weapon on an actor's freed 3D root; see
+  [`EnemyDensity.md`](EnemyDensity.md)'s postmortems) were all on races this patch or Goblins Dismembering give
+  limbs.
+- **The suspect:** at every cut DF calls `EquipArmorAddon`, an `ActorEquipManager::EquipObject` of the cap ARMO on
+  the dying actor. That step is what reloaded Spider SE corpses' whole 3D (Spiders, below).
+- **The change:** `STUMP_CAPS = False` in `tools/01` (and in Goblins' `tools/06`).
+  - The Lost Ones' limbs are now our own copies of the pack's 32 draugr limbs (`Zenderal - Lost One - …`).
+  - Every Lost One and skeleton limb names a copy of its pack actor-addon template with only `ActorArtObject`
+    (blood kept). These copies are in `Zenderal_LostOnes_TEMPLATES.json`.
+  - DF reads a missing `ActorArmorAddon` as `""`, and `GetFormIDFromString("")` returns null without a log line
+    (`stoul` throws, caught), so `EquipArmorAddon` is skipped.
+  - Wolves, minotaurs and Arps keep their caps.
+- **Checked offline:** a resolver that applies DF's own merge (`limb.update(template)` per `Templates` entry)
+  across every enabled DF folder finds 32 Lost One, 50 + 40 goblin and 10 skeleton entries with no cap and with
+  blood art. Every other race is unchanged.
+- **Deployed** to Patch Collection's copy (the one that wins; the standalone mod is disabled) and the standalone
+  folder. Backups are in `E:/Zenderal-backups/2026-11-01-no-stump-caps/`.
+- **Trade-off:** Lost Ones and goblins show the open cut with no cap over it.
+- **Verdict rule:** if the `0FDDB2D` crash comes back on one of these races, caps were not the cause; set
+  `STUMP_CAPS = True` again and rerun both generators. If it stops for a few weeks of player reports, keep it.
+
 ### How DF is built (what the patch plugs into)
 
 - **Flying limb** = a MiscItem (`DFDefaultLimbRefScript` + five DF globals, keyword `000802:Dismembering Framework.esm`)

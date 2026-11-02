@@ -260,6 +260,10 @@ keep DF's own Falmer limbs.
   - Mihail's goblins: DF's draugr limb items copied;
   - 10 actor-addon templates (our cap + DF's blood art) and 35 limbs;
   - DATA: `ZEN_GoblinRace` → 4 skins + `ANY` (Plain), and `ZEN_Mihail_mihailgoblinrace` → 3 skins + `ANY`.
+- **Stump caps off since 2026-11-01 (crash test, unverified).** `STUMP_CAPS = False` in `06`: the 10 templates
+  carry only DF's blood art, and Mihail's limbs name no-cap copies of DF's humanoid/draugr addon templates. The
+  cap ARMO/ARMA records stay in the plugin, unused. The reason and the verdict rule are in
+  [`LostOnesDismembering`](LostOnesDismembering.md#stump-caps-off-a-crash-test-2026-11-01-deployed-unverified).
 
 ## Build
 

@@ -15,6 +15,9 @@ Asset Pack covers `DraugrRace` only, so no Lost One outside that race was ever d
   their RefNode, slot and Translation fit. The draugr body-cap ARMAs those templates equip are
   race-locked to DraugrRace (+ LostOneTemplateRace, 02-build-records.py), so on a skeleton they render
   nothing, which is what a bare skeleton needs.
+* With STUMP_CAPS False (since 2026-11-01) neither gets a body cap: the Lost Ones' limbs are copies of the
+  pack's draugr limbs, and every Lost One and skeleton limb names a copy of its pack actor-addon template
+  with only the blood art (Zenderal_LostOnes_TEMPLATES.json). Wolves and minotaurs keep theirs.
 
 DF parses every TEMPLATES file, then every LIMBS file, then every DATA file, so these files may
 reference the pack's templates and limb IDs.
@@ -42,6 +45,12 @@ SPIDER_PLAN = os.path.join(HERE, 'spider-limbs.json')        # 05-build-spider-l
 # body blinked out for ~8 s (see arch-docs/patches/LostOnesDismembering.md). 05-build-spider-limbs.py and
 # limbmesh's hull fitting are kept; set True to ship the spider legs again.
 SPIDERS = False
+# Stump caps OFF (2026-11-01). At every cut DF equips the cap ARMO on the dying actor
+# (ActorEquipManager::EquipObject), the step that reloaded Spider SE corpses' whole 3D. Five crashes on
+# Lost Ones, skeletons and goblins (SkyrimSE.exe+0FDDB2D, a weapon re-hung on a freed 3D root; see
+# arch-docs/patches/EnemyDensity.md) point at it. True restores the caps.
+STUMP_CAPS = False
+NO_CAP = 'Zenderal - Lost Ones - No cap - '
 MINOTAUR_FALLBACK = {'MinotaurRace': '00A818:1Minotaurs.esp',          # ArmorMinotaurCuirass1
                      'FeralMinotaurRace': '00A811:1Minotaurs.esp'}     # SkinFeralMinotaur
 # limb ID -> (DATA node, pack template suffix, FormID in PLUGIN); must match 02-build-records.py
@@ -78,7 +87,17 @@ def main():
                            'OfficialHumanoidPack_BaseData_TEMPLATES.json'), encoding='utf-8') as fh:
         humanoid_base = json.load(fh)
     addons = load(mods, 'OfficialCreaturePack_Draugr_ActorAddonsData_TEMPLATES.json')
+    pack_limbs = load(mods, 'OfficialCreaturePack_Draugr_LIMBS.json')
     draugr_nodes = set(any_skin['Male'])
+    templates = {}
+
+    def addon(name):
+        """The pack's actor-addon template, or (STUMP_CAPS False) our copy of it without the body cap."""
+        assert 'ActorArmorAddon' in addons[name] and 'ActorArtObject' in addons[name], (name, addons[name])
+        if STUMP_CAPS:
+            return name
+        templates[NO_CAP + name] = {k: v for k, v in addons[name].items() if k != 'ActorArmorAddon'}
+        return NO_CAP + name
 
     limbs = {}
     skeleton_nodes = {}
@@ -87,16 +106,33 @@ def main():
         a = f'Draugr - Male - Actor addons data - {part}'
         assert b in base and a in addons, (b, a)
         assert node in draugr_nodes, node
-        limbs[limb_id] = {'Templates': ['DF - Base data', b, a], 'LimbFormID': f'{PLUGIN}:0x{fid:X}'}
+        limbs[limb_id] = {'Templates': ['DF - Base data', b, addon(a)], 'LimbFormID': f'{PLUGIN}:0x{fid:X}'}
         skeleton_nodes[node] = [{'IDLimb': limb_id}]
     assert set(skeleton_nodes) == draugr_nodes, sorted(draugr_nodes ^ set(skeleton_nodes))
+
+    # Lost Ones: the pack's draugr entries, or (STUMP_CAPS False) our copies of its limbs on no-cap templates
+    lost_one = any_skin
+    if not STUMP_CAPS:
+        lost_one = {}
+        for sex, nodes in any_skin.items():
+            lost_one[sex] = {}
+            for node, entries in nodes.items():
+                lost_one[sex][node] = []
+                for e in entries:
+                    limb_id = 'Zenderal - Lost One - ' + e['IDLimb']
+                    if limb_id not in limbs:
+                        src = pack_limbs[e['IDLimb']]
+                        assert 'ActorArmorAddon' not in src, e['IDLimb']
+                        assert sum(t in addons for t in src['Templates']) == 1, (e['IDLimb'], src['Templates'])
+                        limbs[limb_id] = dict(src, Templates=[addon(t) if t in addons else t for t in src['Templates']])
+                    lost_one[sex][node].append(dict(e, IDLimb=limb_id))
 
     wolf = load(mods, 'OfficialCreaturePack_Wolf_DATA.json')
     assert list(wolf) == ['WolfRace'], list(wolf)
     assert 'ANY' in wolf['WolfRace'], list(wolf['WolfRace'])
 
     data = {
-        '|'.join(DRAUGR_RACES): {'ANY': any_skin},
+        '|'.join(DRAUGR_RACES): {'ANY': lost_one},
         '|'.join(SKELETON_RACES): {'ANY': {'Male': skeleton_nodes, 'Female': skeleton_nodes}},
         '|'.join(WOLF_RACES): wolf['WolfRace'],
     }
@@ -120,7 +156,6 @@ def main():
     for race in MINOTAUR_FALLBACK:
         assert 'ANY' in data.get(race, {}), race
 
-    templates = {}
     if SPIDERS:
         # Spiders: eight legs on every frostbite spider race, own base-data templates (05-build-spider-limbs.py)
         spider = json.load(open(SPIDER_PLAN, encoding='utf-8'))
@@ -142,7 +177,7 @@ def main():
     if templates:
         print(write('Zenderal_LostOnes_TEMPLATES.json', templates), f'({len(templates)} templates)')
     elif os.path.exists(tpl_path):
-        os.remove(tpl_path)                                  # only the spider legs used own templates
+        os.remove(tpl_path)                                  # only no-cap and spider templates are our own
     print(write('Zenderal_LostOnes_LIMBS.json', limbs), f'({len(limbs)} limbs)')
     print(write('Zenderal_LostOnes_DATA.json', data))
     n = sum(len(v) for sex in any_skin.values() for v in sex.values())

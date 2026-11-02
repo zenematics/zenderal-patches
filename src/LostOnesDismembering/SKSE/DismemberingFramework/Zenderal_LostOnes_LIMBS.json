@@ -3,7 +3,7 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - L Calf",
-      "Draugr - Male - Actor addons data - L Calf"
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - L Calf"
     ],
     "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x800"
   },
@@ -11,7 +11,7 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - R Calf",
-      "Draugr - Male - Actor addons data - R Calf"
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - R Calf"
     ],
     "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x801"
   },
@@ -19,7 +19,7 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - L Forearm",
-      "Draugr - Male - Actor addons data - L Forearm"
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - L Forearm"
     ],
     "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x802"
   },
@@ -27,7 +27,7 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - R Forearm",
-      "Draugr - Male - Actor addons data - R Forearm"
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - R Forearm"
     ],
     "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x803"
   },
@@ -35,9 +35,277 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - Head",
-      "Draugr - Male - Actor addons data - Head"
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
     ],
     "LimbFormID": "Zenderal - Lost Ones Dismembering.esp:0x804"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - R Forearm": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - R Forearm",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x813"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - L Forearm": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - L Forearm",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x812"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - R Calf": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - R Calf",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x811"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - L Calf": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - L Calf",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x810"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head BE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x822"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head BE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x823"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head HA1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x824"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head HA1 BE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x825"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head HA1 BE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x826"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head HA2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x827"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head HA2 BE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x828"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head HA2 BE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x829"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x815",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE1 BE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x818",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE1 BE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x819",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x816",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE2 BE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x81A",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE2 BE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x81B",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE3": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x817",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE3 BE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x81C",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Armored - Head HE3 BE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x81D",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Male - Naked - Head": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Male - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x814"
+  },
+  "Zenderal - Lost One - Draugr - Female - Naked - R Forearm": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - R Forearm",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - R Forearm"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x82D"
+  },
+  "Zenderal - Lost One - Draugr - Female - Naked - L Forearm": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - L Forearm",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - L Forearm"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x82C"
+  },
+  "Zenderal - Lost One - Draugr - Female - Naked - R Calf": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - R Calf",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - R Calf"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x82B"
+  },
+  "Zenderal - Lost One - Draugr - Female - Naked - L Calf": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - L Calf",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - L Calf"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x82A"
+  },
+  "Zenderal - Lost One - Draugr - Female - Naked - Head HA1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x82F"
+  },
+  "Zenderal - Lost One - Draugr - Female - Naked - Head HA2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x830"
+  },
+  "Zenderal - Lost One - Draugr - Female - ArmorLight - Head HE1": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x835",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Female - ArmorHeavy - Head HE2": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x838",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Female - ArmorHeavy - Head HE3": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x839",
+    "TypeOverride": "Heavy"
+  },
+  "Zenderal - Lost One - Draugr - Female - Naked - Head": {
+    "Templates": [
+      "DF - Base data",
+      "Draugr - Female - Base data - Head",
+      "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - Head"
+    ],
+    "LimbFormID": "DF - Official Creature Pack.esp:0x82E"
   },
   "Zenderal - Minotaur - Calf_L - 805": {
     "Templates": [

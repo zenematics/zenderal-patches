@@ -74,6 +74,14 @@ loaded — useful when the game will not start at all.
 > C:\Modlists\LoreRim\...`). The SKSE plugin logs (`skse64.log`, `TheosRenderPipeline.log`, `po3_*.log`)
 > DO still go to `…\My Games\Skyrim Special Edition\SKSE\`, and Documents may be OneDrive-redirected.
 
+### Crash signatures already explained
+
+| Signature (1.7.104) | Means | Doc |
+|---|---|---|
+| `EXCEPTION_BREAKPOINT` at `SkyrimSE.exe+0CC4904` (ID 67551+0xD14), Havok thread | Havok's MOPP VM met an opcode that doesn't exist: a mesh's collision MOPP is broken. SkyParkour's `ShapeCast` on the stack = its ledge check found it | [`patches/CollisionMoppFix.md`](../patches/CollisionMoppFix.md): rerun its `tools/01 --all-sources`, which reports every broken MOPP in the list |
+| `EXCEPTION_ACCESS_VIOLATION` at `SkyrimSE.exe+0FDDB2D` (ID 76207+0x6D, `call [rax+0x150]`), `15661` and `ImmersiveEquipmentDisplays.dll` on the stack | The game re-hangs an actor's weapon on a biped 3D root that was already freed. It is a use-after-free in vanilla code: IED is only the hook trampoline, and pistol holsters never reach this path. Seen 5 times (2026-10-24 to 11-01), always on undead or goblins whose races our DF patches give limbs. The cause is unproven; the lead is DF's stump-cap equip on the dying actor | [`patches/EnemyDensity.md`](../patches/EnemyDensity.md): see its third and fourth crash postmortems. Ask for `DismemberingFramework.log` before the player relaunches |
+| `D3DCOMPILER_47.dll` / `CommunityShaders.dll` `ShaderCache` frames, minutes after launch | Bottled Shaders' background shader compile on a cold cache (seen on the curator's and players' PCs); each compiled shader is cached, so a relaunch continues | — |
+
 ---
 
 ## Standalone xEdit reads its own game path

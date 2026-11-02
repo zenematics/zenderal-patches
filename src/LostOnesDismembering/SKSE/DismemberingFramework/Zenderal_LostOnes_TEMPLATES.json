@@ -1,0 +1,32 @@
+{
+  "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - L Calf": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80A"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - R Calf": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80B"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - L Forearm": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80C"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - R Forearm": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80D"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Male - Actor addons data - Head": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80F"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - R Forearm": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80D"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - L Forearm": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80C"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - R Calf": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80B"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - L Calf": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80A"
+  },
+  "Zenderal - Lost Ones - No cap - Draugr - Female - Actor addons data - Head": {
+    "ActorArtObject": "DF - Official Creature Pack.esp:0x80F"
+  }
+}

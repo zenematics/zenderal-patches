@@ -105,6 +105,93 @@ be chance. **Cause not proven.** The third build removes both suspects:
 Changing the tables re-rolled every region after Whisperwood (one shared random sequence), so most groups moved.
 If it crashes again with neither suspect left, the next step is turning IED off for a test run.
 
+## Postmortem: third crash, a player's, third build (2026-10-31)
+
+A player's `crash-2026-10-31-13-30-29.log` (53 min in) has the identical fault (`SkyrimSE.exe+0FDDB2D`,
+`call [rax+0x150]`, from `ImmersiveEquipmentDisplays.dll+0160DE7`), now on node `WeaponBack` (under `NPC Spine2`)
+of our ref `FE10FC7D` = `000C7D`, a "Lost Swordsman" (base `09286C`, cell `0052B7` -2,-2 in the build, on the coast).
+No Mihail skeleton was involved this time, so neither suspect above was the cause. The player blamed the
+pistol holsters ([`IEDPistolHolsters`](IEDPistolHolsters.md), 2026-10-29), but the first two crashes predate them.
+
+**What the code shows** (the list's `SkyrimSE.exe` 1.7.104 has the player's MD5, disassembled 2026-10-31):
+
+- The chain is the game's own `15656` → IED's hook → `15659` → `15661` → `76207`. IED only sits on the stack as the
+  hook trampoline; the fault is in vanilla code.
+- `15661` re-hangs a sheathed weapon. It reads the item (`[rdi]`, form type `0x29` = WEAP), **skips staff-type
+  weapons** (`cmp byte [weap+0x19D], 8`), takes the sheathe node name for the weapon type (`0x2887E0`) and calls
+  `76207(BipedAnim->root = [r13+8], name)`. r13 is the actor's `BipedAnim` (its `actorRef` handle is at `+0x2770`).
+- `76207` is a node lookup by name, a virtual call on that root. The root's vtable pointer was a heap address
+  (`0x1CF28E3C280`), so **the biped still pointed at a 3D root that had already been freed**. The weapon's own 3D
+  was still attached to a live `WeaponBack` node.
+- The pistols are staff-type weapons, so they never reach this path: **the holsters are not the cause.**
+- `76207` returns 0 for a null root, and `15661` checks `test r12, r12` before using the result. So a guard on
+  the call at `+0x2180F9` that answers "not found" when the root's vtable is not in the exe image takes a path
+  the game already handles.
+
+All three crashes were Enemy Density undead (Lost Ones/skeletons) loading in groups. Their races are all ones
+[`LostOnesDismembering`](LostOnesDismembering.md) gave DF limbs: the two Awoken skeletons were on
+`mihailancientskeletonrace 000800`, and the Lost Swordsman `_16ELostOneBlackVer1 09286C` is on `LostOneTemplateRace
+00398C` (Lost Ones Revised - EGO Patch's winning record). That patch was live from 2026-10-19, before the first
+crash. Those races are also almost all of Enemy Density's undead, though, so these crashes can't separate the two.
+**Next evidence to collect:** the player's `DismemberingFramework.log` from the crashing session, before
+relaunching. DF stamps its hit-time warnings with the time, so it shows whether DF was working at the second of
+the crash. What frees the root while the biped keeps it is **not known**. Candidates: Dismembering Framework (it rebuilds 3D; our Lost Ones Dismembering
+patch gave these races DF limbs), Next-Gen Decapitations, or many actors' 3D loading at once. Enemy Density makes
+it more frequent rather than causing it: its refs are plain (base, position and rotation, no flags).
+
+## Postmortem: fourth crash, a second player, at a Goblins pack (2026-10-31)
+
+Another player's `crash-2026-10-31-20-01-28.log` (1 h 51 min in, "after killing some goblins") has the same
+fault through the same chain: `15656` → IED → `15659` → `15661` → `76207`, `call [rax+0x150]`, on a job thread.
+This time the weapon hung on `WEAPON` under `NPC R Hand`. The log does not name the actor.
+
+- **The root was freed again.** The root's "vtable" `0x25333A27880` lies `0x180` below the root
+  `0x25333A27A00`. That is the free-list link of a freed block in the same size class. By the time Crash
+  Logger wrote the log, the block had been reused: it labels the root a tree `BSTriShape`.
+- **Enemy Density was not involved.** The player stood in Vyn -9,9 (`001F90`). The nearest group is
+  [`Goblins`](Goblins.md)' Old Dolesh pack at -9,8 (Mihail's goblins and 2 durzogs), and no Enemy Density group
+  is within 5 cells.
+- **DF is the leading suspect, but not proven.** All four crashes were on actors whose races our DF patches give
+  limbs: [`LostOnesDismembering`](LostOnesDismembering.md), and Goblins Dismembering for Mihail's goblins and ours.
+  That points at Dismembering Framework, or DF running our configs. These are also the only races Enemy Density
+  and Goblins spawn in numbers, though.
+- **A threading race is plausible but unshown.** DF 1.2.3 runs work on threads of its own (strings
+  `_beginthreadex`, `WaitAndCall`, `WaitUntilRagdollReady`), while `15661` runs on a job thread.
+
+## Postmortem: fifth crash, the same player, an Enemy Density skeleton (2026-11-01)
+
+The same player's `crash-2026-11-01-01-01-06.log` (3 h 14 min in) has the same fault and chain, this time with the
+actor named: our ref `FE10FB45` = `000B45`, a "Fleshless Lost One". That is Enderal's `_20E_Skelett_Range1500`
+(`048388`, EGO's record) on `SkeletonRace 0B7998`, in a Whisperwood undead horde at -24,6 near Abandoned Farm.
+[`LostOnesDismembering`](LostOnesDismembering.md)'s DATA covers `mihailancientskeletonrace|SkeletonRace`, so this is
+**five of five crashes on races our DF patches give limbs.**
+
+- **The ref flags differ between crashes.** Here they are `0x00450C0A`: `0x800` (the bit `IsDisabled()` reads) and
+  `0x400` are set. Pixel's Lost Swordsman had `0x00450408`, not disabled. So disabling is not common to all the crashes.
+- **The player's `DismemberingFramework.log` could not settle it.** It was taken from the crashing session (started
+  21:46:57) and is clean up to 00:51:19, 10 minutes before the crash. The only runtime lines are DF's
+  `The form obtained from the "IsEquipped" condition parameters is not valid` warnings. Those come from the 22
+  `IsEquipped` conditions in our `LostOneTemplateRace` neck entries, which name Skyrim draugr helmets
+  (`Skyrim.esm:0x1F6AD`…) that Enderal lacks. So they mark DF choosing a Lost One's head, nothing else. The
+  skeleton entry has no conditions, and DF logs nothing on a normal cut, so the log can neither show nor exclude a
+  cut at 01:01.
+- **DF's source has a mechanism that fits.** In `Seb263/SkyrimSE_DismemberingFramework` `eacedd8`, `Main.cpp`:
+  - each cut in `ProcessDismemberment`, run inside the game's hit processing, calls `DropTargetItem`. That is a
+    `RemoveItem(kDropping)` of the worn armour in the limb's slot.
+  - It then calls `EquipArmorAddon`, an `ActorEquipManager::EquipObject` of the stump-cap ARMO on the dying actor.
+
+  The stump-cap equip is the step that made Spider SE corpses vanish and reload their whole 3D for ~8 s
+  (LostOnesDismembering, spiders shelved). A whole-3D reload frees the old root, which is exactly what `15661`
+  then dereferences. Our goblin, Lost One and skeleton limbs all use cap templates. **Still a hypothesis:** no crash
+  has been timed to a cut. The one crash seen exactly at a cut, an Arp head on 2026-10-26, lost its log
+  ([`ArpDismembering`](ArpDismembering.md)).
+- **No-DLL test, deployed 2026-11-01:** our goblin, Lost One and skeleton limbs now use actor-addon templates with
+  only `ActorArtObject` (blood) and no `ActorArmorAddon`, as the spider plan already did. `STUMP_CAPS = False` in
+  LostOnesDismembering `tools/01` and Goblins `tools/06`. Details and the verdict rule are in
+  [`LostOnesDismembering`](LostOnesDismembering.md#stump-caps-off-a-crash-test-2026-11-01-deployed-unverified).
+  **Counterpoint:** human enemies (DF's humanoid pack) still get caps on every cut and have never shown this crash.
+  So the caps alone may not be it.
+
 ## What to check in game
 
 - Performance in Whisperwood (about 3.5 enemies per cell, hordes up to 14): frame rate and Papyrus load.
