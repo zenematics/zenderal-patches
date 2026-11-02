@@ -1,0 +1,624 @@
+diff --git a/include/HUDMarkerManager.h b/include/HUDMarkerManager.h
+index 1e9df89f3fabe47dd0df1f9428c8b621c16b8dc8..8527eab2985fa94b64e87307a269241a97c049b8 100644
+--- a/include/HUDMarkerManager.h
++++ b/include/HUDMarkerManager.h
+@@ -71,12 +71,20 @@ namespace CNO
+ 		RE::PlayerCamera* playerCamera = RE::PlayerCamera::GetSingleton();
+ 		RE::BSTimer* timeManager = RE::BSTimer::GetTimeManager();
+ 
++		// Zenderal rebuild: null-safe lookup. Enderal's Dawnguard.esm is an empty stub and its Skyrim.esm lacks the vanilla
++		// Civil War factions, so LookupByID can return nullptr; the original ->As<> on it crashed (the reason for the Enderal patch).
++		static const RE::TESFaction* LookupFaction(RE::FormID a_formID)
++		{
++			auto* form = RE::TESForm::LookupByID(a_formID);
++			return form ? form->As<RE::TESFaction>() : nullptr;
++		}
++
+ 		// Factions to lookup
+ 		// Reference: Creation Kit -> Skyrim.esm, Dawnguard.esm
+-		const RE::TESFaction* const imperialLegionFaction = RE::TESForm::LookupByID(0x0002BF9A)->As<RE::TESFaction>();
+-		const RE::TESFaction* const stormCloaksFaction = RE::TESForm::LookupByID(0x00028849)->As<RE::TESFaction>();
+-		const RE::TESFaction* const sonsOfSkyrimFaction = RE::TESForm::LookupByID(0x0002BF9B)->As<RE::TESFaction>();
+-		const RE::TESFaction* const dawnGuardFaction = RE::TESForm::LookupByID(0x02014217)->As<RE::TESFaction>();
+-		const RE::TESFaction* const vampireFaction = RE::TESForm::LookupByID(0x02003376)->As<RE::TESFaction>();
++		const RE::TESFaction* const imperialLegionFaction = LookupFaction(0x0002BF9A);
++		const RE::TESFaction* const stormCloaksFaction = LookupFaction(0x00028849);
++		const RE::TESFaction* const sonsOfSkyrimFaction = LookupFaction(0x0002BF9B);
++		const RE::TESFaction* const dawnGuardFaction = LookupFaction(0x02014217);
++		const RE::TESFaction* const vampireFaction = LookupFaction(0x02003376);
+ 	};
+ }
+\ No newline at end of file
+diff --git a/include/Hooks.h b/include/Hooks.h
+index a34c60077d9a11b7ad910f580854295598adedf4..552c40afca17cff1972cc686b6d8ea859a0de3d9 100644
+--- a/include/Hooks.h
++++ b/include/Hooks.h
+@@ -174,7 +174,7 @@ namespace hooks
+ 
+ 			static RE::GFxMovieDef* GetCompassMovieDef();
+ 
+-			static inline void Install(SKSE::WinAPI::HMODULE a_moduleHandle)
++			static inline void Install(::HMODULE a_moduleHandle)
+ 			{
+ 				// `ImportManager::SetupHUDMenu` call to a_movieView->GetMovieDef()
+ 				struct GetCompassMovieDefHook : Hook<6>
+@@ -184,7 +184,7 @@ namespace hooks
+ 					{}
+ 				};
+ 
+-				std::uintptr_t getCompassMovieDefHookAddress = SigScanner::FindPattern
++				std::uintptr_t getCompassMovieDefPattern = SigScanner::FindPattern
+ 				<
+ 					"4C 8B F1 "	// mov     r14, rcx
+ 					"48 8B 02 "	// mov     rax, [rdx]
+@@ -192,7 +192,16 @@ namespace hooks
+ 					"FF 50 08 "	// call    qword ptr [rax+8]
+ 					"?? 8B ?? "	// mov     ??, rax
+ 					"48 85 C0"	// test    rax, rax
+-				>(a_moduleHandle) + 6;
++				>(a_moduleHandle);
++
++				// Zenderal rebuild: the pattern only exists in the old MapMarkerFramework builds; CoMAP 2.2.x changed this code.
++				// Without this check a miss returned 0 and the hook was written at address 6 (crash at load).
++				if (!getCompassMovieDefPattern) {
++					SKSE::log::warn("MapMarkerFramework compatibility hook not applied: pattern not found in this MapMarkerFramework.dll");
++					return;
++				}
++
++				std::uintptr_t getCompassMovieDefHookAddress = getCompassMovieDefPattern + 6;
+ 
+ 				GetCompassMovieDefHook getCompassMovieDefHook{ getCompassMovieDefHookAddress };
+ 
+diff --git a/include/NND/API.h b/include/NND/API.h
+index ea0f307dc352996aee63e102f834638791b623f1..bd773a7701952213c22d58631462691f1e177e2c 100644
+--- a/include/NND/API.h
++++ b/include/NND/API.h
+@@ -81,7 +81,7 @@ namespace NND::API
+ 	/// <returns>The pointer to the API singleton, or nullptr if request failed</returns>
+ 	[[nodiscard]] inline void* RequestPluginAPI(const InterfaceVersion a_interfaceVersion = InterfaceVersion::kV1)
+ 	{
+-		const auto pluginHandle = SKSE::WinAPI::GetModuleHandle("NPCsNamesDistributor.dll");
++		const auto pluginHandle = ::GetModuleHandleA("NPCsNamesDistributor.dll")  /* Zenderal rebuild: SKSE::WinAPI removed in NG 11 */;
+ 
+ 		if (const _RequestPluginAPI requestAPIFunction = reinterpret_cast<_RequestPluginAPI>(GetProcAddress(pluginHandle, "RequestPluginAPI"))) {
+ 			return requestAPIFunction(a_interfaceVersion);
+diff --git a/include/utils/INISettingCollection.h b/include/utils/INISettingCollection.h
+index 0b70e788a38657ba7b7db71ab49cfa3775bba572..a222f1de218f5a002adb645fa0779b942b7ef1a2 100644
+--- a/include/utils/INISettingCollection.h
++++ b/include/utils/INISettingCollection.h
+@@ -52,7 +52,7 @@ namespace utils
+ 		template <>
+ 		std::int32_t GetSetting<std::int32_t>(const char* a_name) const
+ 		{
+-			return GetSetting(a_name)->GetSInt();
++			return GetSetting(a_name)->GetInteger();
+ 		}
+ 		template <>
+ 		RE::Color GetSetting<RE::Color>(const char* a_name) const
+@@ -67,7 +67,7 @@ namespace utils
+ 		template <>
+ 		std::uint32_t GetSetting<std::uint32_t>(const char* a_name) const
+ 		{
+-			return GetSetting(a_name)->GetUInt();
++			return GetSetting(a_name)->GetUnsignedInteger();
+ 		}
+ 
+ 		bool ReadFromFile(std::string_view a_fileName);
+diff --git a/include/utils/Setting.h b/include/utils/Setting.h
+index 29ea93b0400b95f7a62d3fa80c871378a4e6d9ae..ff56e32a59221d03bc1b7358517af565cc53b936 100644
+--- a/include/utils/Setting.h
++++ b/include/utils/Setting.h
+@@ -46,7 +46,7 @@ namespace utils
+ 						return;
+ 					}
+ 				} else if constexpr (std::is_same_v<T, int>) {
+-					if (GetType() == Type::kSignedInteger) {
++					if (GetType() == Type::kInteger) {
+ 						data.i = a_data;
+ 
+ 						return;
+diff --git a/include/utils/Trampoline.h b/include/utils/Trampoline.h
+index f1240ffa1a3f45d57d1120e71f469f63f6b83631..e6d0596d2e2f06fd0d2d91f65e6bc76d374e9f40 100644
+--- a/include/utils/Trampoline.h
++++ b/include/utils/Trampoline.h
+@@ -187,7 +187,7 @@ namespace hooks
+ 			inst->set_trampoline(base, a_size,
+ 				[](void* a_mem, std::size_t)
+ 				{
+-					SKSE::WinAPI::VirtualFree(a_mem, 0, MEM_RELEASE);
++					::VirtualFree(a_mem, 0, MEM_RELEASE);
+ 				});
+ 		}
+ 	};
+@@ -197,7 +197,7 @@ namespace hooks
+ 	public:
+ 
+ 		 template <SKSE::stl::nttp::string str>
+-		static std::uintptr_t FindPattern(SKSE::WinAPI::HMODULE a_moduleHandle)
++		static std::uintptr_t FindPattern(::HMODULE a_moduleHandle)
+ 		{
+ 			MODULEINFO moduleInfo;
+ 			GetModuleInformation(GetCurrentProcess(), reinterpret_cast<HMODULE>(a_moduleHandle), &moduleInfo, sizeof(MODULEINFO));
+diff --git a/source/HUDMarkerManager.cpp b/source/HUDMarkerManager.cpp
+index 3aa593f4b9e78e5183866c0666bb88ac90e2c560..2e849c7042504ca67d73e5c9c4fd7f5e51497d60 100644
+--- a/source/HUDMarkerManager.cpp
++++ b/source/HUDMarkerManager.cpp
+@@ -366,6 +366,10 @@ namespace CNO
+ 
+ 	bool HUDMarkerManager::IsPlayerAllyOfFaction(const RE::TESFaction* a_faction) const
+ 	{
++		if (!a_faction) {
++			return false;  // Zenderal rebuild: faction absent in Enderal
++		}
++
+ 		if (player->IsInFaction(a_faction)) 
+ 		{
+ 			return true;
+@@ -393,6 +397,10 @@ namespace CNO
+ 
+ 	bool HUDMarkerManager::IsPlayerOpponentOfFaction(const RE::TESFaction* a_faction) const
+ 	{
++		if (!a_faction) {
++			return false;  // Zenderal rebuild: faction absent in Enderal
++		}
++
+ 		return player->VisitFactions([a_faction](RE::TESFaction* a_visitedFaction, std::int8_t a_rank) -> bool
+ 		{
+ 			if (a_visitedFaction == a_faction && a_rank < 0)
+diff --git a/source/Hooks.cpp b/source/Hooks.cpp
+index eea2b80ff30ffd24eea08b21fd3f89ea1a642223..d00f285059b8fa73d7696bfb357ebc6bf17ed99f 100644
+--- a/source/Hooks.cpp
++++ b/source/Hooks.cpp
+@@ -21,9 +21,7 @@ namespace hooks
+ 
+ 			auto player = RE::PlayerCharacter::GetSingleton();
+ 
+-			RE::BSTArray<RE::BGSInstancedQuestObjective>& playerObjectives = REL::Module::IsVR() ?
+-																				player->GetVRPlayerRuntimeData().objectives :
+-																				player->GetPlayerRuntimeData().objectives;
++			RE::BSTArray<RE::BGSInstancedQuestObjective>& playerObjectives = player->GetPlayerRuntimeData().objectives;  // Zenderal rebuild: SE/AE-only build (NG 11 VR accessor is a pointer)
+ 
+ 			// The objectives are in oldest-to-newest order, so we iterate from newest-to-oldest
+ 			// to have it in the same order as in the journal
+diff --git a/source/MessageListeners.cpp b/source/MessageListeners.cpp
+index 89c536d44779720d6c2f242e138ff1299b80a645..a50428e5a72bcecd9876dbdd956743651607ce48 100644
+--- a/source/MessageListeners.cpp
++++ b/source/MessageListeners.cpp
+@@ -38,7 +38,7 @@ void SKSEMessageListener(SKSE::MessagingInterface::Message* a_msg)
+ 		if (mapMarkerFrameworkPluginInfo && mapMarkerFrameworkPluginInfo->version < 0x02020000)
+ 		{
+ 			logger::info("CoMAP detected. Loading compatibility patch...");
+-			hooks::compat::MapMarkerFramework::Install(SKSE::WinAPI::GetModuleHandle("MapMarkerFramework.dll"));
++			hooks::compat::MapMarkerFramework::Install(::GetModuleHandleA("MapMarkerFramework.dll"));
+ 			hooks::compat::MapMarkerFramework::pluginInfo = mapMarkerFrameworkPluginInfo;
+ 			logger::info("Successfully loaded compatibility patch for CoMAP!");
+ 		}
+diff --git a/source/RE/G/GFxValue.cpp b/source/RE/G/GFxValue.cpp
+index 93e1a65f66d386cce9f957d9cd4d48dd5b74056d..7834ce0667ef4a5cdf6410f183cd1e6471adaf43 100644
+--- a/source/RE/G/GFxValue.cpp
++++ b/source/RE/G/GFxValue.cpp
+@@ -352,49 +352,49 @@ namespace RE
+ 	void GFxValue::ObjectInterface::ObjectAddRef(GFxValue* a_val, void* a_obj)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::ObjectAddRef);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::ObjectAddRef };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80244, 82269) };
+ 		return func(this, a_val, a_obj);
+ 	}
+ 
+ 	void GFxValue::ObjectInterface::ObjectRelease(GFxValue* a_val, void* a_obj)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::ObjectRelease);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::ObjectRelease };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80245, 82270) };
+ 		return func(this, a_val, a_obj);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::HasMember(void* a_data, const char* a_name, bool a_isDObj) const
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::HasMember);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::HasMember };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80231, 82254) };
+ 		return func(this, a_data, a_name, a_isDObj);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::GetMember(void* a_data, const char* a_name, GFxValue* a_val, bool a_isDObj) const
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::GetMember);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::GetMember };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80222, 82245) };
+ 		return func(this, a_data, a_name, a_val, a_isDObj);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::SetMember(void* a_data, const char* a_name, const GFxValue& a_value, bool a_isDObj)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::SetMember);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::SetMember };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80268, 82292) };
+ 		return func(this, a_data, a_name, a_value, a_isDObj);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::Invoke(void* a_data, GFxValue* a_result, const char* a_name, const GFxValue* a_args, UPInt a_numArgs, bool isDObj)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::Invoke);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::Invoke };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80233, 82256) };
+ 		return func(this, a_data, a_result, a_name, a_args, a_numArgs, isDObj);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::DeleteMember(void* a_data, const char* a_name, bool a_isDObj)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::DeleteMember);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::DeleteMember };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80207, 82230) };
+ 		return func(this, a_data, a_name, a_isDObj);
+ 	}
+ 
+@@ -408,28 +408,28 @@ namespace RE
+ 	std::uint32_t GFxValue::ObjectInterface::GetArraySize(void* a_data) const
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::GetArraySize);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::GetArraySize };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80214, 82237) };
+ 		return func(this, a_data);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::SetArraySize(void* a_data, std::uint32_t a_size)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::SetArraySize);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::SetArraySize };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80261, 82285) };
+ 		return func(this, a_data, a_size);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::GetElement(void* a_data, std::uint32_t a_idx, GFxValue* a_val) const
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::GetElement);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::GetElement };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80218, 82241) };
+ 		return func(this, a_data, a_idx, a_val);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::SetElement(void* a_data, std::uint32_t a_idx, const GFxValue& a_val)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::SetElement);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::SetElement };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80265, 82289) };
+ 		return func(this, a_data, a_idx, a_val);
+ 	}
+ 
+@@ -443,35 +443,35 @@ namespace RE
+ 	bool GFxValue::ObjectInterface::PushBack(void* a_data, const GFxValue& a_value)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::PushBack);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::PushBack };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80248, 82273) };
+ 		return func(this, a_data, a_value);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::RemoveElements(void* a_data, std::uint32_t a_idx, std::int32_t a_count)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::RemoveElements);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::RemoveElements };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80252, 82280) };
+ 		return func(this, a_data, a_idx, a_count);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::GetDisplayInfo(void* a_data, DisplayInfo* a_info) const
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::GetDisplayInfo);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::GetDisplayInfo };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80216, 82239) };
+ 		return func(this, a_data, a_info);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::SetDisplayInfo(void* a_data, const DisplayInfo& a_info)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::SetDisplayInfo);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::SetDisplayInfo };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80263, 82287) };
+ 		return func(this, a_data, a_info);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::SetText(void* a_data, const char* a_text, bool a_isHTML)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::SetText);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::SetText };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80270, 82293) };
+ 		return func(this, a_data, a_text, a_isHTML);
+ 	}
+ 
+@@ -485,14 +485,14 @@ namespace RE
+ 	bool GFxValue::ObjectInterface::AttachMovie(void* a_data, GFxValue* a_movieClip, const char* a_symbolName, const char* a_instanceName, std::int32_t a_depth, const GFxValue* a_initObj)
+ 	{
+ 		using func_t = decltype(&GFxValue::ObjectInterface::AttachMovie);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::AttachMovie };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80197, 82219) };
+ 		return func(this, a_data, a_movieClip, a_symbolName, a_instanceName, a_depth, a_initObj);
+ 	}
+ 
+ 	bool GFxValue::ObjectInterface::GotoAndPlay(void* a_data, const char* a_frame, bool a_stop)
+ 	{
+ 		using func_t = bool (ObjectInterface::*)(void*, const char*, bool);
+-		REL::Relocation<func_t> func{ Offset::GFxValue::ObjectInterface::GotoAndPlay };
++		REL::Relocation<func_t> func{ RELOCATION_ID(80230, 82253) };
+ 		return func(this, a_data, a_frame, a_stop);
+ 	}
+ 
+diff --git a/source/RE/N/NiPoint3.cpp b/source/RE/N/NiPoint3.cpp
+index b5a96cb82523136ba79a607823f392e6ca186be6..96181b23fdafc2b79788cc3a7db50c8aab6c9168 100644
+--- a/source/RE/N/NiPoint3.cpp
++++ b/source/RE/N/NiPoint3.cpp
+@@ -2,164 +2,10 @@
+ 
+ #include <numbers>
+ 
++// Zenderal rebuild: CommonLibSSE-NG 11 already defines every other NiPoint3 member this file used to supply
++// (duplicates gave LNK2005); only CNO's own addition remains. Original kept as NiPoint3.cpp.orig.
+ namespace RE
+ {
+-	float& NiPoint3::operator[](std::size_t a_idx)
+-	{
+-		assert(a_idx < 3);
+-		return std::addressof(x)[a_idx];
+-	}
+-
+-	const float& NiPoint3::operator[](std::size_t a_idx) const
+-	{
+-		assert(a_idx < 3);
+-		return std::addressof(x)[a_idx];
+-	}
+-
+-	bool NiPoint3::operator==(const NiPoint3& a_rhs) const
+-	{
+-		return (x == a_rhs.x && y == a_rhs.y && z == a_rhs.z);
+-	}
+-
+-	bool NiPoint3::operator!=(const NiPoint3& a_rhs) const
+-	{
+-		return !operator==(a_rhs);
+-	}
+-
+-	NiPoint3 NiPoint3::operator+(const NiPoint3& a_rhs) const
+-	{
+-		return NiPoint3(x + a_rhs.x, y + a_rhs.y, z + a_rhs.z);
+-	}
+-
+-	NiPoint3 NiPoint3::operator-(const NiPoint3& a_rhs) const
+-	{
+-		return NiPoint3(x - a_rhs.x, y - a_rhs.y, z - a_rhs.z);
+-	}
+-
+-	float NiPoint3::operator*(const NiPoint3& a_rhs) const
+-	{
+-		return x * a_rhs.x + y * a_rhs.y + z * a_rhs.z;
+-	}
+-
+-	NiPoint3 NiPoint3::operator*(float a_scalar) const
+-	{
+-		return NiPoint3(x * a_scalar, y * a_scalar, z * a_scalar);
+-	}
+-
+-	NiPoint3 NiPoint3::operator/(float a_scalar) const
+-	{
+-		return operator*(1.0F / a_scalar);
+-	}
+-
+-	NiPoint3 NiPoint3::operator-() const
+-	{
+-		return NiPoint3(-x, -y, -z);
+-	}
+-
+-	NiPoint3& NiPoint3::operator+=(const NiPoint3& a_rhs)
+-	{
+-		x += a_rhs.x;
+-		y += a_rhs.y;
+-		z += a_rhs.z;
+-		return *this;
+-	}
+-
+-	NiPoint3& NiPoint3::operator-=(const NiPoint3& a_rhs)
+-	{
+-		x -= a_rhs.x;
+-		y -= a_rhs.y;
+-		z -= a_rhs.z;
+-		return *this;
+-	}
+-
+-	NiPoint3& NiPoint3::operator*=(const NiPoint3& a_rhs)
+-	{
+-		x *= a_rhs.x;
+-		y *= a_rhs.y;
+-		z *= a_rhs.z;
+-		return *this;
+-	}
+-
+-	NiPoint3& NiPoint3::operator/=(const NiPoint3& a_rhs)
+-	{
+-		x /= a_rhs.x;
+-		y /= a_rhs.y;
+-		z /= a_rhs.z;
+-		return *this;
+-	}
+-
+-	NiPoint3& NiPoint3::operator*=(float a_scalar)
+-	{
+-		x *= a_scalar;
+-		y *= a_scalar;
+-		z *= a_scalar;
+-		return *this;
+-	}
+-
+-	NiPoint3& NiPoint3::operator/=(float a_scalar)
+-	{
+-		return operator*=(1.0F / a_scalar);
+-	}
+-
+-	NiPoint3 NiPoint3::Cross(const NiPoint3& a_pt) const
+-	{
+-		return NiPoint3(
+-			y * a_pt.z - z * a_pt.y,
+-			z * a_pt.x - x * a_pt.z,
+-			x * a_pt.y - y * a_pt.x);
+-	}
+-
+-	float NiPoint3::Dot(const NiPoint3& a_pt) const
+-	{
+-		return x * a_pt.x + y * a_pt.y + z * a_pt.z;
+-	}
+-
+-	float NiPoint3::GetDistance(const NiPoint3& a_pt) const noexcept
+-	{
+-		return std::sqrtf(GetSquaredDistance(a_pt));
+-	}
+-
+-	float NiPoint3::GetSquaredDistance(const NiPoint3& a_pt) const noexcept
+-	{
+-		const float dx = a_pt.x - x;
+-		const float dy = a_pt.y - y;
+-		const float dz = a_pt.z - z;
+-		return dx * dx + dy * dy + dz * dz;
+-	}
+-
+-	float NiPoint3::Length() const
+-	{
+-		return std::sqrtf(x * x + y * y + z * z);
+-	}
+-
+-	float NiPoint3::SqrLength() const
+-	{
+-		return x * x + y * y + z * z;
+-	}
+-
+-	NiPoint3 NiPoint3::UnitCross(const NiPoint3& a_pt) const
+-	{
+-		auto cross = Cross(a_pt);
+-		cross.Unitize();
+-		return cross;
+-	}
+-
+-	float NiPoint3::Unitize()
+-	{
+-		auto length = Length();
+-		if (length == 1.f) {
+-			return length;
+-		} else if (length > FLT_EPSILON) {
+-			operator/=(length);
+-		} else {
+-			x = 0.0;
+-			y = 0.0;
+-			z = 0.0;
+-			length = 0.0;
+-		}
+-		return length;
+-	}
+-
+ 	float NiPoint3::GetHorizontalAngleTo(const NiPoint3& a_pt) const
+ 	{
+ 		NiPoint3 diff{ a_pt.x - x, a_pt.y - y, a_pt.z - z };
+diff --git a/source/RE/T/TESQuest.cpp b/source/RE/T/TESQuest.cpp
+index bd331b099a218b90e0bfaa28d07b62311c43d5d3..25f01095555c6afe30236f31437ffb18f38e67d4 100644
+--- a/source/RE/T/TESQuest.cpp
++++ b/source/RE/T/TESQuest.cpp
+@@ -30,7 +30,7 @@ namespace RE
+ 	bool TESQuest::EnsureQuestStarted(bool& a_result, bool a_startNow)
+ 	{
+ 		using func_t = decltype(&TESQuest::EnsureQuestStarted);
+-		REL::Relocation<func_t> func{ Offset::TESQuest::EnsureQuestStarted };
++		REL::Relocation<func_t> func{ RELOCATION_ID(24481, 25003) };
+ 		return func(this, a_result, a_startNow);
+ 	}
+ 
+@@ -77,7 +77,7 @@ namespace RE
+ 	void TESQuest::Reset()
+ 	{
+ 		using func_t = decltype(&TESQuest::Reset);
+-		REL::Relocation<func_t> func{ Offset::TESQuest::ResetQuest };
++		REL::Relocation<func_t> func{ RELOCATION_ID(24486, 25014) };
+ 		return func(this);
+ 	}
+ 
+diff --git a/zen-build.cmd b/zen-build.cmd
+new file mode 100644
+index 0000000000000000000000000000000000000000..5bb19534a80b3e330a185d051cdac66089d8fcb7
+--- /dev/null
++++ b/zen-build.cmd
+@@ -0,0 +1,6 @@
++@echo off
++rem Zenderal rebuild of Compass Navigation Overhaul 2.2.0 (Enderal-safe) for SE 1.5.97 + AE incl. 1.7.104.
++call "%~dp0..\_env.cmd"
++cd /d "%~dp0"
++cmake -S zen -B build-zen -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE="%VCPKG_ROOT%\scripts\buildsystems\vcpkg.cmake" -DVCPKG_TARGET_TRIPLET=x64-windows-static -DVCPKG_APPLOCAL_DEPS=OFF || exit /b 1
++cmake --build build-zen --config Release || exit /b 1
+diff --git a/zen/CMakeLists.txt b/zen/CMakeLists.txt
+new file mode 100644
+index 0000000000000000000000000000000000000000..aa236b2071c228e90b6874e70c13f59e399d1af1
+--- /dev/null
++++ b/zen/CMakeLists.txt
+@@ -0,0 +1,29 @@
++# Zenderal rebuild of Compass Navigation Overhaul (alexsylex, MIT) at 4055b00 (DLL code = f39e969, what the Enderal patch was
++# built from) with null-safe faction lookups, against CommonLibSSE-NG 11.0.0 for SE 1.5.97 + AE incl. 1.7.104.
++# Mirrors ../CMakeLists.txt; CommonLib source, runtime flags and Address Library declaration differ; no auto-deploy; LTCG off.
++cmake_minimum_required(VERSION 3.21)
++project(CompassNavigationOverhaul VERSION 2.2.0 LANGUAGES CXX)
++
++set(CMAKE_CXX_STANDARD 23)
++set(CMAKE_CXX_STANDARD_REQUIRED ON)
++set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
++
++set(ENABLE_SKYRIM_SE ON CACHE BOOL "" FORCE)
++set(ENABLE_SKYRIM_AE ON CACHE BOOL "" FORCE)
++set(ENABLE_SKYRIM_VR OFF CACHE BOOL "" FORCE)
++set(BUILD_TESTS OFF CACHE BOOL "" FORCE)
++set(SKSE_SUPPORT_PATCH_SAFETY OFF CACHE BOOL "" FORCE)
++set(SKSE_SUPPORT_XBYAK ON CACHE BOOL "" FORCE)  # CNO utils/Trampoline.h needs it
++add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/../../../CommonLibNG" CommonLibNG EXCLUDE_FROM_ALL)
++include("${CMAKE_CURRENT_SOURCE_DIR}/../../../CommonLibNG/cmake/CommonLibSSE.cmake")
++
++file(GLOB_RECURSE headers "../include/*.h")
++file(GLOB_RECURSE sources "../source/*.cpp")
++
++add_commonlibsse_plugin(${PROJECT_NAME} USE_ADDRESS_LIBRARY SOURCES ${headers} ${sources})
++target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../include")
++target_compile_definitions(${PROJECT_NAME} PRIVATE NOMINMAX)
++find_package(directxtk CONFIG REQUIRED)
++find_package(xbyak CONFIG REQUIRED)
++target_link_libraries(${PROJECT_NAME} PRIVATE CommonLibSSE::CommonLibSSE Microsoft::DirectXTK xbyak::xbyak)
++target_precompile_headers(${PROJECT_NAME} PRIVATE ../include/PCH.h)
+diff --git a/zen/vcpkg-configuration.json b/zen/vcpkg-configuration.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..0e42412a9857dd078f16792feefb22dcfb2e4a9c
+--- /dev/null
++++ b/zen/vcpkg-configuration.json
+@@ -0,0 +1,8 @@
++{
++  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg-configuration.schema.json",
++  "default-registry": {
++    "kind": "git",
++    "repository": "https://github.com/microsoft/vcpkg",
++    "baseline": "00c5775211f45cd08b37fce0484b4cb940e422ab"
++  }
++}
+diff --git a/zen/vcpkg.json b/zen/vcpkg.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..556ed6aca40015c5c725ea463133733065192600
+--- /dev/null
++++ b/zen/vcpkg.json
+@@ -0,0 +1,16 @@
++{
++  "name": "compassnavigationoverhaul",
++  "version-string": "2.2.0",
++  "builtin-baseline": "ee12231b20c95013c6638d845d04c91559a1d1ff",
++  "dependencies": [
++    "directxmath",
++    "directxtk",
++    "fmt",
++    "nlohmann-json",
++    "rapidcsv",
++    "simpleini",
++    "spdlog",
++    "toml11",
++    "xbyak"
++  ]
++}
+\ No newline at end of file
