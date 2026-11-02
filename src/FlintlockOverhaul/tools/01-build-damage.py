@@ -3,8 +3,8 @@ the ObjectEffects/, Weapons/, Statics/, MagicEffects/, Keywords/ or Perks/ folde
 
 A Gentleman's Flintlock Armoury fires a staff enchantment (`PMPistolShot`, flat 100-300 health damage)
 shared four ways across eight pistols. This script:
-  * gives each pistol its own enchantment (0x804-0x80B), copied verbatim from the one it used, with the
-    PMPistolShot magnitude set to MULT x the pistol's own Damage stat (the author's tier ranking), which
+  * gives each pistol its own enchantment (0x804-0x80B), copied verbatim from the one it used, with CHARGE_TIME and
+    the PMPistolShot magnitude set to MULT x the pistol's own Damage stat (the author's tier ranking), which
     puts each pistol just under the Ordo Legionis (Enderal) musket of its tier (weapon + ammo). That magnitude is the Archery-50 value, which is what NPCs fire;
   * overrides the eight weapons to point at them, and their eight
     FirstPersonModel statics (the equipped model in both views) at the rotated meshes for Loop's pistol
@@ -30,6 +30,9 @@ FP = 'AdventurerFlintlockPack.esp'
 EGO = 'Enderal SE - Gameplay Overhaul.esp'
 
 MULT = 1.2   # curator 2026-10-12: each pistol just under the Ordo musket of its tier (was 1.5 * 1.17)
+# the staff's charge before a shot can fire (the pack's 0.7 s; curator 2026-11-02: "remove the casting time", hold to
+# aim, release to fire): 0 = the cast is ready as it starts, so a held button aims and its release fires. NPCs too.
+CHARGE_TIME = 0.0
 SHOT_MGEF = '000802:' + FP
 
 # pistol FormID -> new enchantment FormID (contiguous block 0x804-0x80B, in weapon FormID order)
@@ -110,6 +113,7 @@ for pid, eid in zip(PISTOLS, ENCH_IDS):
     mag = round(MULT * dmg, 2)
     e = sub1(r'(- BaseEffect: %s\n  Data:\n    Magnitude: )[\d.]+$' % re.escape(SHOT_MGEF),
              r'\g<1>%s' % mag, e, eid + ' shot magnitude')
+    e = sub1(r'^ChargeTime: [\d.]+$', 'ChargeTime: %s' % CHARGE_TIME, e, eid + ' ChargeTime')
     write('ObjectEffects', '%s - %s_%s.yaml' % (edid, eid, ME), e)
     if pid == TEMPLATE_PISTOL:
         template_ench = e

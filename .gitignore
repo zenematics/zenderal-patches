@@ -158,6 +158,8 @@ __pycache__/
 !src/UnskippableCinematics/Scripts/compiled/*.pex
 !src/FoggyNightsChance/Scripts/compiled/
 !src/FoggyNightsChance/Scripts/compiled/*.pex
+!src/PistolRamrodReload/Scripts/compiled/
+!src/PistolRamrodReload/Scripts/compiled/*.pex
 
 # Build output (build.ps1 staging) - commit source, not build artifacts
 /build/staging/

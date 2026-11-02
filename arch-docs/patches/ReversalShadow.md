@@ -137,3 +137,8 @@ above, unverified); damage raised to the top tier on request. **Fix not yet run 
 (or `help "Reversal Shadow"` → `player.additem`), confirm the shot shows the musket ball and gunshot
 sound, the target burns with Witch Bolt for 60 s, the pistol reloads with a Flintlock Bullet, and the
 texture is black and silver in both hands. Load after `Zenderal - Flintlock Overhaul.esp`.
+
+2026-11-02: regenerated after the Flintlock Overhaul's `CHARGE_TIME` 0 (no cast time). The rerun also forwarded Eldritch
+Blast's half-cost perk from Magic Patches' copy: `0F2CA7` ConjurationNovice00 (Entropy, Magic Patches 2026-10-13).
+The deployed plugin still had `0F2CA8` DestructionNovice00 and overrode Magic Patches with it. Deployed to Patch
+Collection and the standalone mod (previous copies in `E:/Zenderal-backups/2026-11-02-pistol-charge-time`).

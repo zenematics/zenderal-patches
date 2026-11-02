@@ -363,3 +363,91 @@ both views' left hand sliding along the stock's side through the blend-in (5-8 u
 the idle; side-view render of the crouch (kneeling-style, upright chest; the classic's butt just clears the floor).
 The last half second turns the gun from Zodd's forward hold to `sneakmtidle`'s backward hang. **Verified in game
 2026-11-01** ("confirmed reload works in stealth now").
+
+## Prophecy's pistol talents in the reload script (2026-11-01)
+
+`ZP_FlintlockAmmoPlayerScript` now serves Prophecy's pistol branch ([`Prophecy`](Prophecy.md#firearms-the-pistol-branch-curator-2026-11-01))
+without mastering it. `Setup()` (every load) looks up two Prophecy forms with `GetFormFromFile`:
+- Hair Trigger's perk `0xB12`;
+- Fan the Hammer's marker effect `0xB21`.
+
+The reload delay is then:
+- `FanDelay` 0.1 s while Fan's effect is on;
+- `HairTriggerDelay` 1.2 s with Hair Trigger, only where no reload clip plays (since 2026-11-02);
+- otherwise `ReloadDelay` 2 s.
+
+Mod event `ZP_FlintlockReload`, sent by `ZenProphecyRage.dll` on Blade and Barrel's melee hits, loads every pending
+hand at once, at most once every `BladeReloadCooldown` 15 s (real time, counted from a reload it actually made,
+reset on load; curator 2026-11-01). Prophecy's `PISTOL['BladeReloadCooldown']` only feeds the talent text: change both. Without Prophecy the lookups are None and nothing changes.
+
+No property was added: the new values are `AutoReadOnly`. The loaded copy is Patch Collection's `Scripts/` (the old
+one is backed up in `E:/Zenderal-backups/pistol-talents-2026-11-01`). Compiled; unverified in game.
+
+**Holster (2026-11-02, for [`PistolRamrodReload`](PistolRamrodReload.md)'s two-pistol reload):** mod event
+`ZP_FlintlockHolster` (strArg the hand, "0" left / "1" right; numArg seconds) holds that hand's charge at 0 while the
+other gun's reload has it tucked in the belt, so it cannot fire, and fills it again afterwards if the same gun is still
+in that hand and loaded (per-hand tokens: a newer holster owns the release). `Setup` (every load) fills any loaded gun
+it finds at 0, so a save made mid-reload cannot leave a loaded gun dead. Only this script writes charge.
+
+**Overlapping holsters and loading by animation (2026-11-02):**
+- **Holsters:** each records its end time (`holsterUntilL/R`, real time), and only the one that ends last gives the
+  charge back. A gun loaded while holstered (`TryLoad`) is marked loaded with its charge left at 0 until then. Before
+  this, the timer refilled a tucked gun mid-reload. The end times are reset on every load, since real time restarts
+  with the game.
+- **Loading by animation** (curator: a dagger attack cut the reload short and the timer loaded the gun anyway):
+  `AnimatedReload` decides, per shot, whether Pistol Ramrod Reload plays a reload for it. That needs all of:
+  - the pistol carries Loop's keyword, with both Loop's plugin and the reload's present;
+  - the player isn't mounted, and Fan the Hammer's effect is off (Hair Trigger was excluded too until 2026-11-02:
+    with it a 1.2 s timer loaded every gun after the shot, no press needed; it now plays Pistol Ramrod Reload's
+    faster twins, [`PistolRamrodReload`](PistolRamrodReload.md#hair-trigger-2026-11-02));
+  - the other hand is empty, holds a one-handed melee weapon, or holds a Loop pistol;
+  - the player's graph has the `ZenPistolLoadedL` / `ZenPistolLoadedR` events (registered at each shot).
+
+  When it does, the gun loads on that event, sent where the clip rams the ball home. A reload cut short leaves the gun
+  empty, with no timer. Every other shot keeps its timer. Each hand has its own deadline (`loadAtL/R`, 0 = none,
+  `ScheduleLoad`); the old single `RegisterForSingleUpdate` let one hand's timer load the other.
+- **Reload on fire** (curator: something to prompt the shot denial and the reload start): `OnControlDown` on that
+  hand's attack (`Left/Right Attack/Block`), with the gun empty and reloading by animation, plays a click
+  (`UILockpickingCylinderStop 0C1912`) and sends `ZP_PistolDryReload`. Pistol Ramrod Reload then plays the reload.
+  It doesn't fire:
+  - while that hand's reload still plays (`IsCastingLeft`/`Right`: 1 through a full reload, 0 once an attack cuts it,
+    traced);
+  - within `DRY_LOCK` (0.5 s) of the last request (one request per press; the cast is on ~0.1 s after it);
+  - while the gun is holstered;
+  - while the other pistol casts (fires or reloads): one reload at a time.
+
+  Since 2026-11-02 this is the only way a reload starts: a shot plays Loop's shot alone, leaving the other hand free.
+  The request is gated in Pistol Ramrod Reload, with OAR on `fZenPistolReloadL/R`.
+
+  The requested reload is a cast with no shot. Its spell-fire action reaches `OnActorAction` like a shot, and the code
+  logs it as `reload started (asked for, no shot)` because the gun is already pending. No projectile launches, because
+  the gun has no charge. The clip's loaded event then loads the gun.
+
+  **No timer behind it.** The first build loaded the gun anyway if the reload wasn't seen starting within 1.6 s
+  (`DRY_CHECK`). In game, pressing fire and then attacking at once cut the requested reload before its fire point, and
+  that timer loaded the gun 1.6 s later: the exploit this was built against. A request the graph refuses (mid-attack)
+  now leaves the gun empty for the next press. `OnAnimationEvent` takes only the two loaded events by name. The first
+  build's `AnimObjLoad` registration lives on in saves, and is dropped in `Setup`.
+
+The loaded copy is Patch Collection's; the previous copy is in `E:/Zenderal-backups/2026-11-02-flintlock-load-on-anim`.
+Compiled; unverified in game.
+
+## No cast time: hold to aim, release to fire (2026-11-02)
+
+Curator: "remove the casting time to fire from pistols", "hold left click = aim, release left click fires". Every
+pistol's staff enchantment had the pack's `ChargeTime` 0.7. Traced, a real shot went: cast start, precharge (the gun
+raised, `MLh_PreChargeOut` 0.5 s), the engine's `MLh_SpellReady_event` at 0.7 s, then the release on the button's
+release, with the bullet 0.334 s into the release clip (`MLh_SpellFire_Event`, the staff release state's own trigger).
+`tools/01` `CHARGE_TIME` now writes 0.0 into all 12 enchantments (Reversal Shadow's copy follows through its
+`tools/02`). The cast is ready as it starts, so a held button aims and its release fires, with no minimum hold. NPCs
+use the same enchantments.
+
+Still there: the 0.334 s from release to bullet. That trigger lives in the shared staff release clip generator, and
+Loop's shot clip times its recoil to it, so moving it would change every staff and need trimmed shot clips.
+
+Built and byte-compared with the deployed copy: only the 12 `ChargeTime` floats differ (0.7 → 0.0). Deployed to Patch
+Collection (previous copy in `E:/Zenderal-backups/2026-11-02-pistol-charge-time`). Not opened in xEdit; unverified in
+game.
+
+`DebugMode` is False again since 2026-11-02 (the `[Flintlock]` notifications were for the reload tests). Deployed to
+Patch Collection.

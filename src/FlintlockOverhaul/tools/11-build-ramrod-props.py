@@ -138,9 +138,9 @@ def orient(verts, normals, tris):
     return verts, normals, out
 
 
-def write_prop(path, name, verts, normals, tris, uv, src_nif, src_shape, cubemap=None):
-    """One-shape prop on a BSFadeNode named `name`, hung on AnimObjectL, shaded like src_shape with every UV on `uv`
-    (and `cubemap` in its environment-map slot, if given)."""
+def write_prop(path, name, verts, normals, tris, uv, src_nif, src_shape, cubemap=None, prn='AnimObjectL'):
+    """One-shape prop on a BSFadeNode named `name`, hung on `prn`, shaded like src_shape with every UV on `uv`
+    (and `cubemap` in its environment-map slot, if given). src/PistolRamrodReload/tools/02 hangs its on AnimObjectR."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     dst = NifFile()
     dst.initialize('SKYRIMSE', path, 'BSFadeNode', name)
@@ -162,12 +162,12 @@ def write_prop(path, name, verts, normals, tris, uv, src_nif, src_shape, cubemap
     o.save_shader_attributes()
     for i, tex in enumerate(textures):
         nifly.setShaderTextureSlot(dst._handle, o._handle, i, tex.encode('utf-8'))
-    NiStringExtraData.New(dst, name='Prn', string_value='AnimObjectL', parent=dst.rootNode)
+    NiStringExtraData.New(dst, name='Prn', string_value=prn, parent=dst.rootNode)
     dst.save()
     back = NifFile(path)
-    prn = [e.string_data for e in back.rootNode.extra_data() if e.blockname == 'NiStringExtraData' and e.name == 'Prn']
-    if prn != ['AnimObjectL'] or len(back.shapes) != 1 or len(back.shapes[0].verts) != len(verts):
-        sys.exit('%s did not read back as written (Prn %s)' % (path, prn))
+    got = [e.string_data for e in back.rootNode.extra_data() if e.blockname == 'NiStringExtraData' and e.name == 'Prn']
+    if got != [prn] or len(back.shapes) != 1 or len(back.shapes[0].verts) != len(verts):
+        sys.exit('%s did not read back as written (Prn %s)' % (path, got))
 
 
 def barrel_shape(nif):

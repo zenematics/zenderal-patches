@@ -1,0 +1,24 @@
+FormKey: 000806:Zenderal - Pistol Ramrod Reload.esp
+EditorID: ZP_PistolReloadArmQuest
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000806:Zenderal - Pistol Ramrod Reload.esp
+      Alias: 0
+    Scripts:
+    - Name: ZP_PistolReloadArmScript
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+Flags:
+- StartGameEnabled
+- RunOnce
+NextAliasID: 1
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

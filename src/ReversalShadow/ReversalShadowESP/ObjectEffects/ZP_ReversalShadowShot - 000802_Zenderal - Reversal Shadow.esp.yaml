@@ -9,7 +9,7 @@ Flags:
 CastType: FireAndForget
 TargetType: Aimed
 EnchantType: StaffEnchantment
-ChargeTime: 0.7
+ChargeTime: 0.0
 Effects:
 - BaseEffect: 000803:Zenderal - Reversal Shadow.esp
   Data:

@@ -1,0 +1,9 @@
+MutagenObjectType: GameSettingString
+FormKey: 0D4BD8:Skyrim.esm
+EditorID: sMagicCastInsufficientItemCharge
+Version2: 3
+Data:
+  TargetLanguage: English
+  Values:
+  - Language: English
+    String: ' '

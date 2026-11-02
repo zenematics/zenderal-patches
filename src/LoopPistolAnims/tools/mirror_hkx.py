@@ -11,6 +11,10 @@ back to parent-local. At the rest pose the result is the rest pose. Exception: t
 `Weapon` takes the reflected `Shield` frame turned 180 deg about +Y, because the pistol mesh itself is not
 mirrored (plain reflection would put its grip up). Read/written with PyNifly's
 hkx/anim_skyrim.py (`pynifly` in tools.json); tracks map 1:1 to the XPMSSE skeleton's bones.
+
+Scale tracks follow the pose to the partner too (2026-11-02). Loop's clips scale `NPC R Hand` by 0.852 on every
+frame, which in his left-hand clips is the free hand (the one-handed idle owns it, so it never shows); left on its
+own bone, it landed on the right-hand set's GUN hand, and right-hand pistols showed at 85%.
 """
 import os, sys, json
 
@@ -83,6 +87,14 @@ class Mirror:
         for i, parent in enumerate(self.sk.parents):  # spine and its descendants (parents precede children)
             self.upper.append(i == spine or (parent >= 0 and self.upper[parent]))
 
+    @staticmethod
+    def _scale(anim, i, f):
+        """Track i's scale at frame f (a bone past the clip's tracks, or a short track, holds its last / unit scale)."""
+        if i >= len(anim.tracks) or not anim.tracks[i].scales:
+            return [1.0, 1.0, 1.0]
+        s = anim.tracks[i].scales
+        return list(s[min(f, len(s) - 1)])
+
     def _fk(self, local):
         world = []
         for i, parent in enumerate(self.sk.parents):
@@ -95,8 +107,10 @@ class Mirror:
                 world.append(((pt[0] + v[0], pt[1] + v[1], pt[2] + v[2]), qmul(pr, r)))
         return world
 
-    def mirror(self, src, dst, upper_only=False, half_cycle=False):
-        """upper_only: keep the hips and legs exactly as in the source (no mirror, no time shift) and mirror only
+    def mirror(self, src, dst, upper_only=False, half_cycle=False, turned='Weapon'):
+        """turned: the attach node that receives the gun (`Weapon` mirroring a left-hand clip to the right; `Shield`
+        the other way, src/PistolRamrodReload's right-hand build) takes the 180 deg turn about +Y.
+        upper_only: keep the hips and legs exactly as in the source (no mirror, no time shift) and mirror only
         the spine and everything above it, relative to the pelvis. v8 in game: fully mirrored locomotion made the
         legs snap into splits/crouches while running, because other layers (Smooth Moveset base locomotion,
         TDM) drive the legs on the ORIGINAL clips' timing; a mirrored lower body fights them.
@@ -121,6 +135,8 @@ class Mirror:
 
         new_t = [[] for _ in range(n_tracks)]
         new_r = [[] for _ in range(n_tracks)]
+        new_s = [[] for _ in range(n_tracks)]
+        turn = self.sk.bones.index(turned)
         for f in range(frames):
             world = self._fk(local_at(f))
             fs = (f + shift) % period if shift else f
@@ -144,7 +160,7 @@ class Mirror:
                     mworld.append(world[i])
                     continue
                 pt, pr = canon[self.pair[i]]
-                if i == self.weapon:
+                if i == turn:
                     # the gun hangs from this node and is not mirrored: reflecting the frame flips its grip axis
                     # (+X) up, so turn it 180 deg about the barrel axis (+Y) -> barrel and grip as on the left
                     rot = qmul(qmirror(pr), (0.0, 1.0, 0.0, 0.0))
@@ -168,11 +184,13 @@ class Mirror:
                     r = tuple(-c for c in r)
                 new_t[i].append(list(t))
                 new_r[i].append(list(r))
+                if upper_only and not self.upper[i]:
+                    new_s[i].append(self._scale(anim, i, f))
+                else:
+                    new_s[i].append(self._scale(anim, self.pair[i], fs))
         for i in range(n_tracks):
             tr = anim.tracks[i]
-            tr.translations, tr.rotations = new_t[i], new_r[i]
-            if len(tr.scales) != frames:
-                tr.scales = [tr.scales[min(f, len(tr.scales) - 1)] for f in range(frames)]
+            tr.translations, tr.rotations, tr.scales = new_t[i], new_r[i], new_s[i]
         # keep the source's spline block header (Havok: blockDuration = (maxFramesPerBlock - 1) * frameDuration).
         # Zeroing it made PyNifly write blockDuration = clip length, and right-handed running hopped (v11, 2026-10-17).
         anim_skyrim.write_skyrim_animation(dst, anim, ptr_size=8)
@@ -203,6 +221,7 @@ class Mirror:
 
         new_r = [[] for _ in range(n_tracks)]
         new_t = [[] for _ in range(n_tracks)]
+        new_s = [[] for _ in range(n_tracks)]
         for f in range(frames):
             here = local_at(f)
             fs = (f + shift) % period if shift else f
@@ -226,11 +245,10 @@ class Mirror:
                         lr = tuple(-c for c in lr)
                     new_r[i].append(list(lr))
                     new_t[i].append(list(t))
+                    new_s[i].append(self._scale(anim, self.pair[i], fs) if self.arm[i] else self._scale(anim, i, f))
         for i in range(n_tracks):
             tr = anim.tracks[i]
-            tr.translations, tr.rotations = new_t[i], new_r[i]
-            if len(tr.scales) != frames:
-                tr.scales = [tr.scales[min(f, len(tr.scales) - 1)] for f in range(frames)]
+            tr.translations, tr.rotations, tr.scales = new_t[i], new_r[i], new_s[i]
         # keep the source's spline block header (Havok: blockDuration = (maxFramesPerBlock - 1) * frameDuration).
         # Zeroing it made PyNifly write blockDuration = clip length, and right-handed running hopped (v11, 2026-10-17).
         anim_skyrim.write_skyrim_animation(dst, anim, ptr_size=8)

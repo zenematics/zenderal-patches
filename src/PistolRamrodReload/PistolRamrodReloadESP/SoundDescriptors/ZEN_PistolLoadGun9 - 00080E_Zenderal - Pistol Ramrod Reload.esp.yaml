@@ -1,0 +1,12 @@
+FormKey: 00080E:Zenderal - Pistol Ramrod Reload.esp
+EditorID: ZEN_PistolLoadGun9
+Version2: 6
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\Zenderal\PistolReload\ZEN_PistolLoadGun9.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+Priority: 64
+Variance: 2

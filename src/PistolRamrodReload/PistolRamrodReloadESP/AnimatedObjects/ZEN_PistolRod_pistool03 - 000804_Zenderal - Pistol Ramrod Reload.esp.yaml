@@ -1,0 +1,5 @@
+FormKey: 000804:Zenderal - Pistol Ramrod Reload.esp
+EditorID: ZEN_PistolRod_pistool03
+Model:
+  File: Zenderal\PistolRamrod\ZenPistolRod_pistool03.nif
+UnloadEvent: AnimObjectUnequip

@@ -131,3 +131,19 @@ etc. play from `Zenderal - Loop Pistol Animations`, and that the Flintlock Overh
 **Reversal Shadow (2026-10-18).** `tools/01` also matches `ZP_ReversalShadow 800:Zenderal - Reversal Shadow.esp` by
 form (`EXTRA_PISTOLS`). It carries the Loop keyword `801`, yet in game it did not get these animations with the keyword
 condition alone; why is open. Add any further pistol here by form, not by keyword.
+
+**Reload after the shot (2026-11-01):** [`PistolRamrodReload`](PistolRamrodReload.md) outranks the `Pistol` submod's
+shot clip with Loop's first 0.555 s plus our own ramrod reload (left hand, right hand empty); it reads Loop's clips from
+here. Since 2026-11-02 also the `Pistol (right hand)` one (right hand, left hand empty).
+
+**Right-hand pistols showed at 85% (found and fixed 2026-11-02).** Loop's clips scale `NPC R Hand` by 0.852 on every
+frame (left-hand shot, idle, aim, walk/run arms; vanilla's and Goetia's are 1.0). In his own clips that is the free
+hand, which the one-handed idle blend owns, so it never shows. `mirror_hkx.mirror`/`mirror_arms` mirrored translations
+and rotations to the partner bone but left each **scale track on its own bone**, so in the generated right-hand set the
+0.852 sat on the gun hand: the right hand and its pistol were 15% smaller than the left's. Both functions now take the
+partner's scale track too (from the same, half-stride-shifted, frame as its pose). Regenerated: 12 right-hand clips
+changed (`stfmagicright_*`, `staffright_idle` ×2, `staffmagicright_run/walkarm`, the crossbow release), scales only
+(every rotation and translation identical); the gun hand is 1.0 and the free left hand carries Loop's 0.852. Patch
+Collection's copy (byte-identical to the standalone mod before) replaced; the old one is in
+`E:/Zenderal-backups/2026-11-02-loop-pistol-right-hand-scale`. Loop's own `magcast_walkbackward` scales both hands and
+stays so. Unverified in game.
