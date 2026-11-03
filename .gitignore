@@ -88,6 +88,8 @@ Thumbs.db
 !src/LearningBooks/Scripts/compiled/*.pex
 !src/ZenTraitsFixes/Scripts/compiled/
 !src/ZenTraitsFixes/Scripts/compiled/*.pex
+!src/BlackLightWakeUpFix/Scripts/compiled/
+!src/BlackLightWakeUpFix/Scripts/compiled/*.pex
 !src/SettingsApplier/Scripts/compiled/
 !src/SettingsApplier/Scripts/compiled/*.pex
 !src/FeverDeathLatchFix/Scripts/compiled/

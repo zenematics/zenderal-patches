@@ -314,6 +314,27 @@
       ]
     },
     {
+      "$comment": "Script only - no plugin. Forks SureAI's _00E_MQ12c_Functions (Black Light, Part III; ScriptsEnderal.zip 2.1.4.4). After the dream, scene MQ12c_SC04_WakeUp 1345A9 only fades the screen back in once the player lies in bed 0A6F3A (phase 0 completion = IsInFurnitureState Lay); a player who never gets there stays on a black screen for good (user report 2026-11-03). StartSC04 now starts a watchdog: 15 s later it puts the player in the bed through the bed's own script, 15 s after that it fades in, gives the controls back and unblocks the bed. Same 66 properties as base Enderal's .pex; one function added. No other mod in the list ships this script. Credit: SureAI.",
+      "name": "Zenderal - Black Light Wake Up Fix",
+      "archiveName": "Zenderal - Black Light Wake Up Fix",
+      "fomod": false,
+      "plugins": [],
+      "scripts": {
+        "from": "src/BlackLightWakeUpFix/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "files": [
+        {
+          "from": "src/BlackLightWakeUpFix/Scripts/source",
+          "to": "Scripts/Source"
+        },
+        {
+          "from": "src/BlackLightWakeUpFix/readme.txt",
+          "to": ""
+        }
+      ]
+    },
+    {
       "$comment": "SPID config only - no plugin, no script, one _DISTR.ini at the archive root. Distributes Enderal's restore-health/mana/stamina potions and Ambrosia to humanoid NPCs, level-banded. Supersedes 'Zenderal - Enemy Potions.esp' - disable that mod, or bandits, Lost Ones and FS humans get potions from both.",
       "name": "Zenderal - NPC Potions",
       "archiveName": "Zenderal - NPC Potions",
