@@ -308,7 +308,9 @@ SHIELD_DOWN = tuple(range(0, 41, 5))
 SHIELD_OUT = (4.0, 8.0, 12.0, 16.0, 20.0)
 SHIELD_SIDE = (-6.0, 0.0, 6.0, 12.0, 18.0)
 SHIELD_ROLL = tuple(range(-90, 91, 15))
-SHIELD_WRIST = (65.0, 75.0)       # bend / roll at the let-go, as STOW_WRIST
+SHIELD_WRIST = (65.0, 75.0)       # bend / roll at the let-go, as STOW_WRIST ...
+SHIELD_APPROACH_WRIST = (75.0, 90.0)  # ... and at the approach, passed through on the way (inside WRIST_*_MAX): resting
+                                      # on the sword-and-shield arm, the female approach missed 65 by 0.01 deg
 SHIELD_APPROACH = (10.0, 8.0)     # 'lower' / 'raise_': the shield this much further toward the free side / out
 SHIELD_RIM = (0.0, 12.0, 20.0)    # the shield sampled on rings of these radii (8 points each), 4 into its face ...
 SHIELD_CLEAR = 7.0                # ... each at least this far from the spine and leg lines while the hand carries it
@@ -1121,27 +1123,32 @@ SHIELD_ARM_ROOT = 'NPC L Clavicle [LClv]'
 
 
 def shield_arm(ctx):
-    """The shield arm in the real world (tools/07, and the shield reloads' aim copies): {bone: (translation, rotation,
-    scale)} over the left clavicle's whole subtree, SHIELD_ARM_SOURCE at the frame the shield reload rests on."""
+    """The shield arm in the real world (tools/07, and the shield reloads' aim copies), set the way the shield reload
+    rests (Variant.rest, unmirror): {bone: (translation or None to keep the clip's, rotation, scale)} over the left
+    clavicle's subtree, SHIELD_ARM_SOURCE at the frame the reload rests on; the bone offsets stay the clip's but for
+    `Shield` (the grip, Variant.wl), and AnimObjectL (the props' node, which unmirror rebuilds on Loop's idle) stays
+    the clip's. Copying the source's offsets too put the thumb 2.6 units off the reload's ends."""
     src, (f,) = ctx.shield(False).real_rest
-    root = ctx.ix[SHIELD_ARM_ROOT]
+    root, grip, props = ctx.ix[SHIELD_ARM_ROOT], ctx.ix['Shield'], ctx.ix['AnimObjectL']
     pose = {}
     for b in range(len(ctx.rig.parents)):
         p = b
         while p >= 0 and p != root:
             p = ctx.rig.parents[p]
-        if p == root:
+        if p == root and b != props:
             tr = src.tracks[b]
-            pose[b] = (list(tr.translations[f]), list(tr.rotations[f]), list(tr.scales[f]))
+            pose[b] = (list(tr.translations[f]) if b == grip else None, list(tr.rotations[f]), list(tr.scales[f]))
     return pose
 
 
 def with_arm(anim, pose):
-    """A copy of `anim` with the bones of `pose` ({bone: (translation, rotation, scale)}) on it in every frame."""
+    """A copy of `anim` with the bones of `pose` ({bone: (translation or None, rotation, scale)}) on it in every
+    frame."""
     out = copy.deepcopy(anim)
     for b, (t, q, s) in pose.items():
         tr = out.tracks[b]
-        tr.translations = [list(t) for _ in range(out.num_frames)]
+        if t is not None:
+            tr.translations = [list(t) for _ in range(out.num_frames)]
         tr.rotations = [list(q) for _ in range(out.num_frames)]
         tr.scales = [list(s) for _ in range(out.num_frames)]
     return out
@@ -1169,9 +1176,9 @@ def shield_clearance(ctx, w, item):
 def shield_letgo(ctx, anim, var, body):
     """Where the free hand lets go of the shield behind the back, and the approach it comes in by: (let-go, approach),
     each a 4x4 in ShieldBack's frame. From SHIELD_DOWN / OUT / SIDE (body frame at 'tucked') and a turn in the shield's
-    plane (SHIELD_ROLL): the nearest to ShieldBack that the hand holds with the wrist inside SHIELD_WRIST and the shield
-    SHIELD_CLEAR off the body, at the approach too (that much further toward the free side and out). Cached on `var`
-    (the body at 'tucked' is the same for every pistol)."""
+    plane (SHIELD_ROLL): the nearest to ShieldBack that the hand holds with the wrist inside SHIELD_WRIST (at the approach
+    SHIELD_APPROACH_WRIST) and the shield SHIELD_CLEAR off the body, at the approach too (that much further toward the
+    free side and out). Cached on `var` (the body at 'tucked' is the same for every pistol)."""
     if var.letgo is not None:
         return var.letgo
     rig, fd = ctx.rig, anim.frame_duration
@@ -1191,7 +1198,7 @@ def shield_letgo(ctx, anim, var, body):
                     if found and cost0 >= found[0][0]:
                         continue
                     ok, hold_cost = True, 0.0
-                    for o in (off, app):
+                    for o, limit in ((off, SHIELD_WRIST), (app, SHIELD_APPROACH_WRIST)):
                         item = back.copy()
                         item[:3, 3] += o
                         item = item @ spin
@@ -1199,7 +1206,7 @@ def shield_letgo(ctx, anim, var, body):
                             ok = False
                             break
                         hold = stow_hold(ctx, w, item, body, False, rolls=(0,))
-                        if hold[4] > 0.05 or abs(hold[5][0]) > SHIELD_WRIST[0] or abs(hold[5][1]) > SHIELD_WRIST[1]:
+                        if hold[4] > 0.05 or abs(hold[5][0]) > limit[0] or abs(hold[5][1]) > limit[1]:
                             ok = False
                             break
                         hold_cost += hold[3]

@@ -32,6 +32,7 @@ String Property ARM_VARIABLE = "fZenPistolRightArmIdle" AutoReadOnly    ; pistol
 String Property LEFT_ARM_VARIABLE = "fZenPistolLeftArmIdle" AutoReadOnly ; pistol right: the free left arm (0_master)
 String Property DUAL_VARIABLE = "fZenPistolDualReload" AutoReadOnly     ; two pistols: -1 left gun's clip, +1 right's
 String Property STOW_VARIABLE = "fZenPistolLeftStow" AutoReadOnly       ; pistol right, melee weapon left (0_master)
+String Property SHIELD_VARIABLE = "fZenPistolShieldIdle" AutoReadOnly   ; pistol right, shield left, third person
 String Property REQUEST_L = "fZenPistolReloadL" AutoReadOnly   ; reload asked for: 1 while its clip starts (OAR)
 String Property REQUEST_R = "fZenPistolReloadR" AutoReadOnly
 Float Property REQUEST_HOLD = 0.4 AutoReadOnly     ; the request stays 1 this long after the release (its clip has started)
@@ -88,6 +89,27 @@ Function Setup()
 	PlayerRef.SetAnimationVariableFloat(STOW_VARIABLE, 1.0)
 	PlayerRef.SetAnimationVariableFloat(REQUEST_L, 0.0)
 	PlayerRef.SetAnimationVariableFloat(REQUEST_R, 0.0)
+	SyncShield()
+EndFunction
+
+Event OnObjectEquipped(Form akBaseObject, ObjectReference akReference)
+	SyncShield()
+EndEvent
+
+Event OnObjectUnequipped(Form akBaseObject, ObjectReference akReference)
+	SyncShield()
+EndEvent
+
+; Third person, a pistol in the right hand and a shield in the left (2026-11-03): SHIELD_VARIABLE at 0 hands the shield
+; hand to the magic graph, whose Loop clips carry the one-handed shield arm (the Pandora patch's MRh_Shield_Ready blend;
+; tools/07); 1 otherwise, vanilla. Blocking leaves that state, so the block plays its own shield block.
+Function SyncShield()
+	Float value = 1.0
+	Weapon gun = PlayerRef.GetEquippedWeapon(False)
+	If pistolKeyword && gun && gun.HasKeyword(pistolKeyword) && PlayerRef.GetEquippedItemType(LEFT_HAND) == TYPE_SHIELD
+		value = 0.0
+	EndIf
+	PlayerRef.SetAnimationVariableFloat(SHIELD_VARIABLE, value)
 EndFunction
 
 ; The Flintlock Overhaul's ammo script: fire pressed on that hand's empty gun. The reload clip plays the shot's release

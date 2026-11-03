@@ -381,11 +381,11 @@
 		<edit path="#0512/generators">
 			<hkparam name="generators" numelements="2">#zpistolreload$81 #zpistolreload$85</hkparam>
 		</edit>
-		<edit path="#0764/generator">
-			<hkparam name="generator">#zpistolreload$89</hkparam>
-		</edit>
 		<edit path="#1958/generators">
 			<hkparam name="generators" numelements="12">#1959 #zpistolreload$93 #zpistolreload$93 #zpistolreload$93 #zpistolreload$93 #1959 #1959 #1959 #1961 #1959 #1959 #1959</hkparam>
+		</edit>
+		<edit path="#0764/generator">
+			<hkparam name="generator">#zpistolreload$89</hkparam>
 		</edit>
 	</replace>
 	<Append path="#0095/eventNames">

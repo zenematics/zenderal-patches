@@ -634,10 +634,11 @@ variant on the two-pistol timeline, solved mirrored, one per sex (XPMSE's `Shiel
   along the shield's face (`SHIELD_OUT`), toward the free side (`SHIELD_SIDE`), and a turn in the shield's own plane
   (`SHIELD_ROLL`). The nearest one the hand holds with the wrist inside 65° / 75°, with the shield at least
   `SHIELD_CLEAR` (7) off the spine and leg lines there and at the approach (10 further toward the free side, 8 out).
-  Picked, male: **down 0, out 4, side −6, turned −90°** (the hand reaches up behind the back to the upper back; no
-  smaller turn reaches, −60° to +45° all fail); female: **down 15, out 4, side 0, turned +90°** (behind the waist,
-  then the shield rises 15 onto the back). Either way a kite shield spins a quarter turn as it settles (round and
-  heater shields show nothing).
+  First build (free arm resting on Loop's): male **down 0, out 4, side −6, turned −90°**, female **down 15, out 4,
+  side 0, +90°**; no smaller turn reached. Since the arm rests on the sword-and-shield idle's (tools/07, below), both
+  sexes: **down 5, out 4, side −6, turned +90°**, the approach checked against the looser `SHIELD_APPROACH_WRIST`
+  (75° / 90°; it had missed 65° by 0.01°). A kite shield spins a quarter turn as it settles (round and heater shields
+  show nothing).
 - The beats: `lower` = the approach (behind the hip), `tucked` = the let-go, the shield settles onto `ShieldBack`
   over `tucked` → `release` (0.1 s, `stowed_at`: position and turn blended in ShieldBack's frame), the hand goes to
   the pouch; back the same way before `regrip`.
@@ -674,18 +675,38 @@ too), so the left arm took the pose Loop gave his free arm, hanging wide at the 
   Loop`, `tools/01` `SHIELD_ARM_SOURCE`), the left clavicle's whole subtree (arm, twists, pauldron, hand, fingers,
   `Shield`, `AnimObjectL`, magic node) at its least swaying frame (250), held still.
 - **`tools/07`** writes OAR set `Zenderal - Pistol Shield Arm` (in Patch Collection): a twin of each of Loop's four
-  right-hand submods, `<name> (shield)`, 47 clips. Every clip is Loop's with that arm on every frame; the body, legs,
-  gun arm, timing and annotations are his (decoded: body within 0.05 units). The `Pistol (right hand)` twin also
-  carries `shd_blockidle.hkx`, so the hand pose `MRh_Shd_Blend` adds is the same arm's. Conditions: Loop's own, plus
-  `IsEquippedType` 11 in the left hand and not `IsBlocking` (the block graph plays `shd_blockidle` as the raised
-  shield). Priority Loop's + 155 (1000013500–503): above his, below the reloads. Float tracks: vanilla's same-name clip's
-  (Loop's right-hand clips carry none).
+  right-hand submods, `<name> (shield)`, 46 clips. Every clip is Loop's with that arm on every frame; the body, legs,
+  gun arm, timing and annotations are his (decoded: body within 0.05 units). Conditions: Loop's own, plus
+  `IsEquippedType` 11 in the left hand and not `IsBlocking`. Priority Loop's + 155 (1000013500–503): above his, below
+  the reloads. Float tracks: vanilla's same-name clip's (Loop's right-hand clips carry none).
+- **The hand, and blocking** (curator: "idle is fine but you forgot to add the actual block animation", then "the block
+  doesn't move to protect the body"). `MRh_Shd_Blend` lays `Shd_BlockIdle`'s winner on the left hand, fingers and
+  `Shield`; that hand on the sword-and-shield arm turns the shield 42–53°. The first build supplied its own
+  `shd_blockidle` (the idle with the shield arm). But blocking leaves `MRh_Shield_Ready` for `Magic_Block_State`
+  (0_master, on `blockStart`), which runs the whole block graph: for a right-hand staff `BlockRightHandTypeMSG` [8]
+  `StaffRightBlockBlend`, the shield block (`BlockIdle_MSG` [10]) with `StaffRight_Idle` on the right hand, fingers and
+  gun only, and that shield block is a clip named `shd_blockidle` too. OAR's `IsBlocking` is not up yet when it starts,
+  so the twin's low idle hold won the block and the shield never came up. A second try guarded on the graph variable
+  `iWantBlock` == 0 lost the idle as well: 0_master only tests it inside the magic block (on `bashExit`, `MagicBlock`
+  vs `MagicBlockShieldCharge`), and it is not 0 at idle (curator's recording).
+  Now the hand is taken off `MRh_Shd_Blend` instead: the Pandora patch (third person only, `tools/03` `VAR_SHIELD`)
+  wraps `MRh_Shield_Ready`'s generator in a blend on `fZenPistolShieldIdle` (default 1; at 0 `Magic_BFR`, Loop's
+  clips with the shield arm, owns the hand too), and `ZP_PistolReloadArmScript.SyncShield` holds it at 0 while a Loop
+  pistol is in the right hand and a shield in the left (on load and every equip change). `tools/07` supplies no
+  `shd_blockidle`, so the block graph plays its own: Goetia's "Shield & Staff" for a staff and a shield (shield 26
+  above the pelvis and 21 ahead, like vanilla's; Dynamic Block Hit's needs a one-handed melee weapon). First person
+  has no such variable and keeps its `1HM_Idle` shield arm. **Rerun Pandora.** **Verified in game 2026-11-03**
+  (curator, after the Pandora rerun: idle, moving and blocking "works").
 - **The reload rests on the same arm:** `Ctx.shield` now rests the whole free arm on that frame (it rested only the hand
   bones on vanilla's `Shd_BlockIdle`, the arm the clip's own), and the shield reloads' copies of Loop's aim clips get
-  the arm too (`shield_arm`, `with_arm`), so a reload starts and ends on what the idle shows.
+  the arm too (`shield_arm`, `with_arm`), so a reload starts and ends on what the idle shows. The arm is set the way
+  `Variant.rest` sets it: rotations and scales, the source's offset only for `Shield` (the grip), Loop's `AnimObjectL`
+  kept; copying the source's bone offsets too left the thumb 2.6 units off the reload's first and last frames.
+- Rebuilt 2026-11-03 (01 → 04 → 07, then 03 and 07 for the hand): every other reload clip byte-identical in both views.
 - Rendered: the shield is held front-left at the waist, angled, through idle, aim and shot (before: edge-on, out at the
   hip); the idle's shield stays 17.9 units off the spine and leg lines.
-- First person unchanged (its left arm with a shield is already the first-person `1HM_Idle`). Unverified in game.
+- First person unchanged (its left arm with a shield is already the first-person `1HM_Idle`). The shield reload itself
+  (slung on the back) is not yet confirmed in game.
 
 ## First-person aiming (`tools/05`, 2026-11-02)
 

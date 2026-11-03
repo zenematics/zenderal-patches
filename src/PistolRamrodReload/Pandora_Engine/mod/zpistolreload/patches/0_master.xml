@@ -5,10 +5,20 @@
 		<hkcstring>fZenPistolLeftArmIdle</hkcstring>
 		<hkcstring>fZenPistolDualReload</hkcstring>
 		<hkcstring>fZenPistolLeftStow</hkcstring>
+		<hkcstring>fZenPistolShieldIdle</hkcstring>
 		<hkcstring>fZenPistolReloadL</hkcstring>
 		<hkcstring>fZenPistolReloadR</hkcstring>
 	</Append>
 	<Append path="#0108/variableInfos">
+		<hkobject>
+			<hkparam name="role">
+				<hkobject>
+					<hkparam name="role">ROLE_DEFAULT</hkparam>
+					<hkparam name="flags">FLAG_NONE</hkparam>
+				</hkobject>
+			</hkparam>
+			<hkparam name="type">VARIABLE_TYPE_REAL</hkparam>
+		</hkobject>
 		<hkobject>
 			<hkparam name="role">
 				<hkobject>
@@ -73,6 +83,9 @@
 		</hkobject>
 		<hkobject>
 			<hkparam name="value">0</hkparam>
+		</hkobject>
+		<hkobject>
+			<hkparam name="value">1065353216</hkparam>
 		</hkobject>
 		<hkobject>
 			<hkparam name="value">1065353216</hkparam>
@@ -376,16 +389,54 @@
 			</hkparam>
 			<hkparam name="indexOfBindingToEnable">-1</hkparam>
 		</hkobject>
+		<hkobject name="#zpistolreload$77" class="hkbBlenderGenerator" signature="0x22df7147">
+			<hkparam name="variableBindingSet">#zpistolreload$80</hkparam>
+			<hkparam name="userData">0</hkparam>
+			<hkparam name="name">ZenPistol_MRh_Shd_Pistol</hkparam>
+			<hkparam name="referencePoseWeightThreshold">0.000000</hkparam>
+			<hkparam name="blendParameter">1.000000</hkparam>
+			<hkparam name="minCyclicBlendParameter">0.000000</hkparam>
+			<hkparam name="maxCyclicBlendParameter">1.000000</hkparam>
+			<hkparam name="indexOfSyncMasterChild">-1</hkparam>
+			<hkparam name="flags">24</hkparam>
+			<hkparam name="subtractLastChild">false</hkparam>
+			<hkparam name="children" numelements="2">#zpistolreload$78 #zpistolreload$79</hkparam>
+		</hkobject>
+		<hkobject name="#zpistolreload$78" class="hkbBlenderGeneratorChild" signature="0xe2b384b0">
+			<hkparam name="variableBindingSet">null</hkparam>
+			<hkparam name="generator">#1050</hkparam>
+			<hkparam name="boneWeights">null</hkparam>
+			<hkparam name="weight">0.000000</hkparam>
+			<hkparam name="worldFromModelWeight">1.000000</hkparam>
+		</hkobject>
+		<hkobject name="#zpistolreload$79" class="hkbBlenderGeneratorChild" signature="0xe2b384b0">
+			<hkparam name="variableBindingSet">null</hkparam>
+			<hkparam name="generator">#zpistolreload$69</hkparam>
+			<hkparam name="boneWeights">null</hkparam>
+			<hkparam name="weight">1.000000</hkparam>
+			<hkparam name="worldFromModelWeight">1.000000</hkparam>
+		</hkobject>
+		<hkobject name="#zpistolreload$80" class="hkbVariableBindingSet" signature="0x338ad4ff">
+			<hkparam name="bindings" numelements="1">
+				<hkobject>
+					<hkparam name="memberPath">blendParameter</hkparam>
+					<hkparam name="variableIndex">$variableID[fZenPistolShieldIdle]$</hkparam>
+					<hkparam name="bitIndex">-1</hkparam>
+					<hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
+				</hkobject>
+			</hkparam>
+			<hkparam name="indexOfBindingToEnable">-1</hkparam>
+		</hkobject>
 	</Append>
 	<replace>
 		<edit path="#0870/generators">
 			<hkparam name="generators" numelements="2">#zpistolreload$61 #zpistolreload$65</hkparam>
 		</edit>
-		<edit path="#1085/generator">
-			<hkparam name="generator">#zpistolreload$69</hkparam>
-		</edit>
 		<edit path="#2488/generators">
 			<hkparam name="generators" numelements="12">#2489 #zpistolreload$73 #zpistolreload$73 #zpistolreload$73 #zpistolreload$73 #2489 #2489 #2489 #2491 #2489 #2489 #2489</hkparam>
+		</edit>
+		<edit path="#1085/generator">
+			<hkparam name="generator">#zpistolreload$77</hkparam>
 		</edit>
 	</replace>
 	<Append path="#0106/eventNames">

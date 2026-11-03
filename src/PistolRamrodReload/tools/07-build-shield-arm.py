@@ -11,12 +11,15 @@ fingers, `Shield`, `AnimObjectL` and magic node only: a shield hand on an arm po
 
 Here each of Loop's right-hand submods gets a twin `<its name> (shield)`: every clip with the left arm (the clavicle's
 whole subtree: arm, twists, pauldron, hand, fingers, `Shield`, `AnimObjectL`, magic node) set on every frame to
-tools/01 SHIELD_ARM_SOURCE's at the frame tools/01's shield reload rests on (`shield_arm()`, which also puts it on the
-shield reloads' aim copies), so a reload starts and ends on the same arm. Every other bone, the timing and the annotations are Loop's. The `Pistol (right hand)`
-twin also carries `shd_blockidle.hkx` (its idle with the shield arm), whose hand bones are what MRh_Shd_Blend adds.
-Conditions: Loop's own, plus a shield in the left hand (OAR type tools/01 OAR_SHIELD) and not blocking (the block graph
-plays `shd_blockidle` as the shield raised). Priority: Loop's + SHIELD_STEP, so the twins keep his order and stay below
-the reloads (tools/01, 1000020000 and up).
+tools/01 SHIELD_ARM_SOURCE's at the frame tools/01's shield reload rests on, set the way the reload rests (`shield_arm()`:
+rotations and scales, the source's offset only for `Shield`, Loop's `AnimObjectL` kept; it also goes on the shield
+reloads' aim copies), so a reload starts and ends on the same arm. Every other bone, the timing and the annotations
+are Loop's. The hand: MRh_Shd_Blend lays Shd_BlockIdle on it, so the Pandora patch's VAR_SHIELD (tools/03, held at 0 by
+ZP_PistolReloadArmScript while a pistol and a shield are equipped) hands it to these clips. No shd_blockidle here: the
+block graph's shield block is that clip name too, and a twin of it (the first build, 2026-11-03) replaced the block
+("the block doesn't move to protect the body"). Conditions: Loop's own, plus a shield in the left hand (OAR type
+tools/01 OAR_SHIELD) and not blocking (the block graph's StaffRight_Idle keeps Loop's: only its hand is used there).
+Priority: Loop's + SHIELD_STEP, so the twins keep his order and stay below the reloads (tools/01, 1000020000 and up).
 
 Loop's right-hand clips carry no float tracks (LoopPistolAnims' mirror_hkx drops them); the twins get vanilla's same-name
 clip's (static node visibility 1.0, tools/hkx_floats), as tools/01's clips do, or none where vanilla has no such clip.
@@ -51,9 +54,10 @@ MOD = 'Zenderal - Pistol Shield Arm'
 OAR = PR.ANIMS_3P + ['OpenAnimationReplacer', MOD]
 LOOP_SUBS = ['Pistol (right hand)', 'Pistol moving idle (right hand)', 'Pistol standing turns (right hand)',
              'Crossbow release (right hand)']
-IDLE_SUB = 'Pistol (right hand)'        # its twin also carries BLOCK_IDLE
-BLOCK_IDLE = 'shd_blockidle.hkx'
+IDLE_SUB = 'Pistol (right hand)'        # the idle's (the shield's clearance is measured on it)
 SHIELD_STEP = 155                        # 1000013345-8 -> 1000013500-3
+# Not blocking. (2026-11-03: the graph variable iWantBlock == 0 lost the idle: 0_master only tests it inside the magic
+# block, on bashExit, MagicBlock vs MagicBlockShieldCharge, and it is not 0 at idle; curator's recording.)
 NOT_BLOCKING = {'condition': 'IsBlocking', 'requiredVersion': '1.0.0.0', 'negated': True}
 
 
@@ -75,7 +79,13 @@ def check(path, src, arm, pose, rig):
                                                                             for a in src.annotations):
         sys.exit('%s: annotations differ from Loop\'s' % path)
     ang = lambda a, b: math.degrees(2 * math.acos(min(1.0, abs(sum(x * y for x, y in zip(a, b))))))  # noqa: E731
-    keep = [b for b in range(len(got.tracks)) if b not in arm]
+    root = rig.index[PR.SHIELD_ARM_ROOT]
+
+    def in_arm(b):                       # the clavicle's subtree (AnimObjectL too: it rides the hand)
+        while b >= 0 and b != root:
+            b = rig.parents[b]
+        return b == root
+    keep = [b for b in range(len(got.tracks)) if not in_arm(b)]
     worst_body = worst_arm = 0.0
     for f in range(0, got.num_frames, max(1, got.num_frames // 12)):
         wg, ws = rig.world(got, f), rig.world(src, f)
@@ -105,7 +115,7 @@ def main():
         sub = os.path.join(out_set, name + ' (shield)')
         os.makedirs(sub)
         clips = sorted(c for c in os.listdir(sub_src) if c.lower().endswith('.hkx'))
-        jobs = [(c, c) for c in clips] + ([(PR.IDLE_RIGHT, BLOCK_IDLE)] if name == IDLE_SUB else [])
+        jobs = [(c, c) for c in clips]
         for clip, out_name in jobs:
             src = anim_skyrim.load_skyrim_animation(os.path.join(sub_src, clip))
             # his right-hand set (mirror_hkx) tracks the first 97 of the 99 bones, in skeleton order
@@ -125,8 +135,7 @@ def main():
                                               % cfg.get('description', name),
                                'priority': cfg['priority'] + SHIELD_STEP,
                                'conditions': shield_conditions(cfg['conditions'])})
-        print('%-36s %d clips%s, priority %d' % (name + ' (shield)', len(jobs), ' (+ ' + BLOCK_IDLE + ')'
-                                                 if name == IDLE_SUB else '', cfg['priority'] + SHIELD_STEP))
+        print('%-36s %d clips, priority %d' % (name + ' (shield)', len(jobs), cfg['priority'] + SHIELD_STEP))
     # how close the shield comes to the spine and legs in the idle (the source's own hold, on Loop's body)
     idle = anim_skyrim.load_skyrim_animation(os.path.join(out_set, IDLE_SUB + ' (shield)', PR.IDLE_RIGHT))
     clear = min(PR.shield_clearance(ctx, w, PR.unscaled(w[ix['Shield']]))
