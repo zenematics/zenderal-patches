@@ -12,11 +12,35 @@ FormList Property DroidList Auto
 Explosion Property DustExplosion Auto      ; _00E_FXDustExplosion
 Float Property BaseHealth = 100.0 Auto
 Float Property HealthPerLevel = 10.0 Auto
+Int Property RefundCost = 10 Auto          ; = the power's Cost (DROID['Cost'] in tools/01)
 
 Event OnInit()
 	Actor player = Game.GetPlayer()
 	PlaceAtMe(DustExplosion)
 	Utility.Wait(0.3)
+	; one droid at a time (GreaseLord 2026-11-03: two droids). A living droid here means the power did not see it - a
+	; second cast while this one flew, or a droid the list lost: that droid comes to the landing spot instead, and the
+	; Spare Parts the power took are given back (the free first droid never meets an older one).
+	Actor older = None
+	If DroidList.GetSize() > 0
+		older = DroidList.GetAt(0) as Actor
+	EndIf
+	If !older || older.IsDead() || older.IsDisabled()
+		older = ZP_UtilityDroidPowerEffect.FindLivingDroid(player)
+	EndIf
+	If older
+		older.MoveTo(self)
+		DroidList.Revert()
+		DroidList.AddForm(older)
+		MiscObject spareParts = Game.GetFormFromFile(0x0773ED, "Skyrim.esm") as MiscObject    ; _00E_CraftingPieces
+		If spareParts
+			player.AddItem(spareParts, RefundCost, true)
+		EndIf
+		Debug.Notification("Your Utility Droid returns to your side.")
+		Disable()
+		Delete()
+		Return
+	EndIf
 	Actor d = PlaceActorAtMe(Droid)
 	If d
 		d.SetAngle(0.0, 0.0, player.GetAngleZ())

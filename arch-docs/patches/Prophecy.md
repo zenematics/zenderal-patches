@@ -1267,6 +1267,15 @@ copy closure, and every ID after it, is unchanged (still 254 records copied). Th
 
   Spare Parts are paid before the throw. The call-back of a living droid is still a teleport. Previous plugin in
   `E:/Zenderal-backups/2026-10-23-prophecy-pre-droid-throw/`. Thrown in game (curator); landing spot fix unverified.
+- **One droid, really (2026-11-03, GreaseLord: "you can deploy more than one ... entering and exiting cells").**
+  The power only trusted `DroidList`. Two ways past it, both possible from the scripts (the actual trigger was not
+  reproduced; no Papyrus log lines): a second cast while a droid is still in the air (nothing remembered yet, and the
+  second placer's `Revert()` forgets the first droid), or a list that no longer resolves the living droid. Now the
+  power, when the list has no living droid, looks for one around the player (PO3 `FindAllReferencesOfType` of
+  `0x93F`, radius 50000) and recalls it for free. The placer, when a living droid already exists, moves that one to
+  the landing spot and gives back `RefundCost` (10) Spare Parts instead of placing a second. Script-only (the placer's
+  new `RefundCost` property is unfilled and uses its default). Unverified in game. A save that already has two keeps
+  both; `disable` one in the console.
 - **The heal shows (2026-10-23, curator: "an effect for when the droid heals me").** The droid now casts
   `ZP_Prophecy_UtilityDroid_Heal 0x9AF` at the player (`RemoteCast`, droid as source) instead of `RestoreActorValue`.
   The spell carries Enderal's heal-other effect `RestoreHealthFFActor 01CEA7` (`HealOther 012FD2`'s) at 15: the

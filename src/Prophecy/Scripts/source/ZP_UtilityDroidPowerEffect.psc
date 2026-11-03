@@ -22,7 +22,15 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	If DroidList.GetSize() > 0
 		current = DroidList.GetAt(0) as Actor
 	EndIf
-	If current && !current.IsDead() && !current.IsDisabled()
+	If !current || current.IsDead() || current.IsDisabled()
+		; a living droid the list lost (GreaseLord 2026-11-03: two droids after cell changes) is found and remembered
+		current = FindLivingDroid(player)
+		If current
+			DroidList.Revert()
+			DroidList.AddForm(current)
+		EndIf
+	EndIf
+	If current
 		current.MoveTo(player, 96.0 * Math.Sin(player.GetAngleZ()), 96.0 * Math.Cos(player.GetAngleZ()), 0.0)
 		Debug.Notification("Your Utility Droid returns to your side.")
 		Return
@@ -38,3 +46,21 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	ThrowSpell.Cast(player)
 	SwingSound.Play(player)
 EndEvent
+
+; Any living, enabled Utility Droid loaded around the player (powerofthree's Papyrus Extender), or None.
+Actor Function FindLivingDroid(Actor akPlayer) global
+	Form droidBase = Game.GetFormFromFile(0x00093F, "Zenderal - Prophecy.esp")    ; ZP_Prophecy_UtilityDroid
+	If !droidBase
+		Return None
+	EndIf
+	ObjectReference[] found = PO3_SKSEFunctions.FindAllReferencesOfType(akPlayer, droidBase, 50000.0)    ; wider than the loaded cells
+	Int i = 0
+	While found && i < found.Length
+		Actor a = found[i] as Actor
+		If a && !a.IsDead() && !a.IsDisabled()
+			Return a
+		EndIf
+		i += 1
+	EndWhile
+	Return None
+EndFunction
