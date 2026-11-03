@@ -1,0 +1,12 @@
+FormKey: 00080F:Zenderal - Musket Ramrod Reload.esp
+EditorID: ZEN_MusketLoad7
+Version2: 6
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\Zenderal\MusketReload\ZEN_MusketLoad7.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+Priority: 64
+Variance: 2

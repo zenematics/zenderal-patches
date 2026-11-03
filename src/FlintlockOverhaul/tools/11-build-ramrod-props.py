@@ -12,11 +12,12 @@ ramrod), so the meshes sit at their origin:
     wider ramming head at the far end, shaded like that musket's barrel (its shader, one texel near the muzzle).
 Textures are referenced, not copied: Ordo must stay installed (the muskets need it anyway).
 
-Records: `ZEN_RamrodBall` 0x800, the rods 0x801 up in label order; plugin `Zenderal - Musket Ramrod Reload.esp`, ESL,
-HEDR 1.7, YAML in src/FlintlockOverhaul/RamrodReloadESP (generated, never hand-edited), built with the pinned
-Spriggit CLI into the MO2 mod. Not in build/manifest.json: the mod ships nothing until Zodd agrees (tools/09).
+Records: `ZEN_RamrodBall` 0x800, the rods 0x801 up in label order, the loading sounds' SNDRs 0x80F up (tools/09
+SOUNDS, in order; tools/12 writes their .wavs); plugin `Zenderal - Musket Ramrod Reload.esp`, ESL, HEDR 1.7, YAML in
+src/FlintlockOverhaul/RamrodReloadESP (generated, never hand-edited), built with the pinned Spriggit CLI into the MO2
+mod. Not in build/manifest.json: the mod ships nothing until Zodd agrees (tools/09).
 
-Run order: 06 -> 09 -> 10 -> 11 (09 rebuilds the mod folder).
+Run order: 06 -> 09 -> 10 -> 11 -> 12 (09 rebuilds the mod folder).
 Usage:  python src/FlintlockOverhaul/tools/11-build-ramrod-props.py [<modlist root>]   (needs numpy)
 """
 import glob
@@ -60,6 +61,12 @@ ROD_RADIUS = 0.3
 HEAD_RADIUS = 0.42         # the ramming head ...
 HEAD_LENGTH = 1.5          # ... this long at the rod's far end
 SEGMENTS = 12
+# the loading sounds' SNDRs (tools/09 SOUNDS, in order, 2026-11-02): vanilla's bow nock (WPNBowNockSD: weapon category,
+# positional output) with one file each, as Pistol Ramrod Reload's; the .wavs tools/12 writes
+SOUND_ID = 0x80F           # after the rods
+SOUND_TEMPLATE = os.path.join(ROOT, 'reference', 'base', 'Skyrim', 'SoundDescriptors',
+                              'WPNBowNockSD - 03E7B4_Skyrim.esm.yaml')
+SOUND_PATH = 'Data\\Sound\\FX\\Zenderal\\MusketReload\\%s.wav'
 CRLF = '\r\n'
 SLSF1_SKINNED, SLSF1_ENVMAP, SLSF1_MSN = 0x2, 0x80, 0x1000
 SLSF2_VERTEX_COLORS = 0x20
@@ -189,6 +196,29 @@ def yaml_record(edid, local_id, mesh):
                       '  File: ' + mesh, 'UnloadEvent: ' + R3P.UNEQUIP, ''])
 
 
+def sound_record(edid, local_id):
+    """SOUND_TEMPLATE verbatim but for its FormKey, EditorID and SoundFiles (one: SOUND_PATH)."""
+    if not os.path.isfile(SOUND_TEMPLATE):
+        sys.exit('%s is missing: serialize Skyrim.esm into reference/base (spriggit-decompile-reference)' % SOUND_TEMPLATE)
+    out, files = [], False
+    for line in open(SOUND_TEMPLATE, encoding='utf-8').read().splitlines():
+        if files and line.startswith('- '):
+            continue
+        files = False
+        if line.startswith('FormKey:'):
+            line = 'FormKey: %06X:%s' % (local_id, R3P.PROP_PLUGIN)
+        elif line.startswith('EditorID:'):
+            line = 'EditorID: ' + edid
+        elif line.startswith('SoundFiles:'):
+            out += [line, '- ' + SOUND_PATH % edid]
+            files = True
+            continue
+        out.append(line)
+    if sum(x.startswith(('FormKey:', 'EditorID:', 'SoundFiles:')) for x in out) != 3:
+        sys.exit('%s: no FormKey / EditorID / SoundFiles to replace' % SOUND_TEMPLATE)
+    return CRLF.join(out + [''])
+
+
 def main():
     root = sys.argv[1] if len(sys.argv) > 1 else ADS.TOOLS['modlistRoot']
     mods_dir = os.path.join(root, 'mods')
@@ -251,6 +281,15 @@ def main():
         with open(os.path.join(OUT, 'AnimatedObjects', '%s - %06X_%s.yaml' % (edid, local_id, R3P.PROP_PLUGIN)),
                   'w', encoding='utf-8', newline='') as fh:
             fh.write(yaml_record(edid, local_id, mesh))
+    sounds = [(edid, SOUND_ID + i) for i, (edid, _) in enumerate(R3P.SOUNDS)]
+    ids = [i for _, i, _ in records] + [i for _, i in sounds]
+    if len(set(ids)) != len(ids) or max(ids) > 0xFFF:
+        sys.exit('ANIO / SNDR FormIDs collide or leave the ESL range: %s' % sorted('%03X' % i for i in ids))
+    os.makedirs(os.path.join(OUT, 'SoundDescriptors'))
+    for edid, local_id in sounds:
+        with open(os.path.join(OUT, 'SoundDescriptors', '%s - %06X_%s.yaml' % (edid, local_id, R3P.PROP_PLUGIN)), 'w',
+                  encoding='utf-8', newline='') as fh:
+            fh.write(sound_record(edid, local_id))
     esp = os.path.join(out_mod, R3P.PROP_PLUGIN)
     run = subprocess.run([ADS.TOOLS['spriggitCli'], 'deserialize', '--InputPath', OUT, '--OutputPath', esp],
                          capture_output=True, text=True)
@@ -260,8 +299,14 @@ def main():
     found = [e for e, _, _ in records if e.encode() + b'\0' in data]
     if len(found) != len(records) or data.count(b'ANIO') < len(records):
         sys.exit('%s: expected %d ANIO records, found %d EditorIDs' % (esp, len(records), len(found)))
-    print('built %s: %d ANIO records (0x800-0x%03X), %d meshes' % (esp, len(records), 0x800 + len(records) - 1,
-                                                                   len(records)))
+    if any(e.encode() + b'\0' not in data for e, _ in sounds) or data.count(b'SNDR') < len(sounds):
+        sys.exit('%s: a loading sound\'s SNDR is missing' % esp)
+    print('built %s: %d ANIO records (0x800-0x%03X), %d meshes; SNDR %s' % (
+        esp, len(records), 0x800 + len(records) - 1, len(records),
+        ', '.join('%s 0x%03X' % (e, i) for e, i in sounds)))
+    missing = [e for e, _ in sounds if not os.path.isfile(os.path.join(out_mod, *(SOUND_PATH % e).split('\\')[1:]))]
+    if missing:
+        print('NOTE: no .wav yet for %s: run tools/12 with the loading sounds' % ', '.join(missing))
 
 
 if __name__ == '__main__':

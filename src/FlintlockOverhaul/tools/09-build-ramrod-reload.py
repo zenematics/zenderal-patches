@@ -19,6 +19,8 @@ down the barrel. Nothing changes while the gun is held at the stock (raise, hold
 Props (curator's request 2026-11-01: "a pellet and stick loading with the left hand"): the shot and reload clips get
 a lead ball and a ramrod in the left hand through `AnimObjectL` (see props(); meshes and ANIO records by tools/11).
 Every clip in the submod starts with `AnimObjectUnequip`, so a reload cut short can't leave a prop in the hand.
+Loading sounds (2026-11-02): two `SoundPlay` events from the moment the ball reaches the muzzle (SOUNDS; the SNDRs by
+tools/11, the .wavs by tools/12).
 
 Per mesh, two OAR submods keyed on its WEAPs (IsEquipped, right hand), third person only:
   `Ramrod <mesh>`                       432500+i: raise, holds, shot, reload (variant by barrel thickness)
@@ -106,6 +108,13 @@ ROD_TOP_STOWED = -1.0      # the stowed rod's top end, along the bore from the m
 ROD_ABOVE_FIST = 3.0       # in the bore, this much rod shows above the fist
 FIST_ABOVE_MUZZLE = 2.5    # in the bore the fist stays this far above the muzzle face (Zodd's hand went 7 below it)
 REGRIP_DIST = 6.0          # the left hand holds the stock again from the frame it stays this close to its last pose
+# Loading sounds (2026-11-02, curator: "add load 7 then load 1 sound effect here when the reload animation puts the ball
+# in the barrel"): `SoundPlay.<SNDR>` as the ball reaches the muzzle, the second once the first has died away (Motion
+# Array's BBRealSound "Gun Reload And Load 7", its leading silence trimmed by tools/12, stays within 30 dB of its
+# loudest 50 ms for 1.20 s; tools/12 checks it). Both 1hm graphs list a bare `SoundPlay`, so no behavior patch is
+# needed; tools/10 copies the events into first person. The SNDRs are tools/11's, the .wavs tools/12's (licensed, not
+# committed).
+SOUNDS = (('ZEN_MusketLoad7', 0.0), ('ZEN_MusketLoad1', 1.2))   # (EditorID, seconds after the ball reaches the muzzle)
 
 
 class Rig3P:
@@ -331,7 +340,8 @@ def props(rig, anim, label, c, axis, radius):
     held FIST_ABOVE_MUZZLE over the muzzle face, slid back under the barrel and unloaded as the hand leaves for the
     stock. Zodd's ramming hand works 8-16 units off Ordo's bores (his muskets are built differently), so the left
     hand is eased onto the rod line (shoulder-elbow-hand IK, its rotation kept) from ROD_EASE before the grab to
-    ROD_EASE after the stow; tools/10 inherits all of it in first person."""
+    ROD_EASE after the stow; tools/10 inherits all of it in first person. The loading SOUNDS start as the ball reaches
+    the muzzle."""
     fd, n = anim.frame_duration, anim.num_frames
     iao, ih = rig.index['AnimObjectL'], rig.index['NPC L Hand [LHnd]']
     lf01, lf02 = rig.index['NPC L Finger01 [LF01]'], rig.index['NPC L Finger02 [LF02]']
@@ -416,11 +426,35 @@ def props(rig, anim, label, c, axis, radius):
     times = sorted(x for x, _ in added)
     if any(b - a < fd for a, b in zip(times, times[1:])) or load_rod <= t(ph['ball_off']):
         sys.exit('%s: prop beats overlap %s' % (label, beats))
+    sounds = [(t(ph['ball_off']) + after, 'SoundPlay.' + edid) for edid, after in SOUNDS]
+    if sounds[-1][0] > (n - 1) * fd:
+        sys.exit('%s: the last loading sound (%.2f s) is past the clip end' % (label, sounds[-1][0]))
+    added += sounds
     taken = [a.time for a in anim.annotations]
     added = [(x + fd if any(abs(x - y) < 0.01 for y in taken) else x, s) for x, s in added]
     for x, s in added:
         anim.annotations.append(anim_skyrim.Annotation(time=round(x, 4), text=s))
     return added, beats, worst
+
+
+def quick_clip(data, tmp, out):
+    """Quick Reload Stack's retime of a reload clip (its bytes), written to `out` and checked; the loading sounds after
+    the first keep their gap to it (SOUNDS: a sound is no shorter when the clip is)."""
+    anim, (dur, frames, anns) = QRS.retime(data, tmp)
+    first_name = 'SoundPlay.' + SOUNDS[0][0]
+    later = {'SoundPlay.' + e: after - SOUNDS[0][1] for e, after in SOUNDS[1:]}
+    first = next((a.time for a in anim.annotations if a.text == first_name), None)
+    if first is not None:
+        for i, a in enumerate(anim.annotations):
+            if a.text in later:
+                a.time = round(first + later[a.text], 4)
+                if a.time > anim.duration:
+                    sys.exit('%s: %s at %.3f s is past the faster clip\'s end (%.3f s)' % (out, a.text, a.time,
+                                                                                         anim.duration))
+                anns[i] = (a.time * QRS.STACK_FACTOR, a.text)   # QRS.check expects every time / STACK_FACTOR
+    anim_skyrim.write_skyrim_animation(out, ADS.havok_blocks(anim), ptr_size=8)
+    ADS.check_blocks(out)
+    QRS.check(out, (dur, frames, anns), tmp)
 
 
 def carry(rig, anim, rod_off):
@@ -693,11 +727,7 @@ def main():
         for reload_clip in ('crossbow_reload.hkx', 'sneakcrossbow_reload.hkx'):
             data = open(os.path.join(sub, 'dlc01', reload_clip), 'rb').read()
             for name in (reload_clip, DWARVEN[reload_clip]):
-                anim, before = QRS.retime(data, tmp)
-                out = os.path.join(quick, 'dlc01', name)
-                anim_skyrim.write_skyrim_animation(out, ADS.havok_blocks(anim), ptr_size=8)
-                ADS.check_blocks(out)
-                QRS.check(out, before, tmp)
+                quick_clip(data, tmp, os.path.join(quick, 'dlc01', name))
                 written += 1
         cond = ADS.or_equipped(weapons)
         ADS.write_config(sub, {

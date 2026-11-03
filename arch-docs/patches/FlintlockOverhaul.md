@@ -309,7 +309,8 @@ returns to a hold.
 **Records and meshes (`tools/11`):** plugin `Zenderal - Musket Ramrod Reload.esp` (ESL, HEDR 1.7; YAML generated into
 `src/FlintlockOverhaul/RamrodReloadESP`, built with the pinned Spriggit CLI into the MO2 mod; **not in
 `build/manifest.json`**, it ships with the rest only after Zodd agrees): ANIO `ZEN_RamrodBall` 0x800 and
-`ZEN_Ramrod_<mesh>` 0x801-0x80E, unload event `AnimObjectUnequip`. Meshes under `meshes/Zenderal/MusketRamrod/`
+`ZEN_Ramrod_<mesh>` 0x801-0x80E, unload event `AnimObjectUnequip`; the loading sounds' SNDR `ZEN_MusketLoad7` 0x80F
+and `ZEN_MusketLoad1` 0x810 (below). Meshes under `meshes/Zenderal/MusketRamrod/`
 (generated, not committed): a 1.3-unit sphere (0.85 could barely be seen in the hand, 2026-11-01) of dark steel
 (curator's choice), shaded like the vanilla steel
 dagger's blade (`SteelDagger:0` from `Skyrim - Meshes1.bsa`: environment-map shader, `SteelDagger.dds`/`_n`/`_m`) with
@@ -322,7 +323,7 @@ near its muzzle; skinned, model-space-normal and vertex-colour flags cleared). T
 Rendered in both views (side view in 3P, the 1P camera): ball at the pouch, beside the hand and at the muzzle; rod
 along the barrel at the grab, out of the muzzle under the fist at both strokes, home under the barrel at the stow.
 **Tick `Zenderal - Musket Ramrod Reload.esp` in MO2's plugin list** (the mod alone is not enough). Run order:
-`tools/06` → `09` → `10` → `11` (09 rebuilds the mod folder).
+`tools/06` → `09` → `10` → `11` → `12` (09 rebuilds the mod folder; 12 needs the two .wavs, see below).
 
 **In game, 2026-11-01** (traced, `SpellAimTrace` 1.4.x): with the plugin unticked, every `AnimObjLoad` named a
 missing record and nothing attached. Ticked: both props **load and attach in first and third person** (the game
@@ -331,6 +332,33 @@ That ball was a 0.7-unit sphere with Ordo's flying-ball shader (environment map,
 the thumb/index **last joints**, i.e. inside the gloved fingertips. Now: the steel shader above, and centred between
 the tips (each `FINGER_TIP` 0.7 of its middle segment past the last joint) one radius out from the palm: 2.1-2.8
 units from the last joints. Verified in game 2026-11-01 ("Bullet looks good"; by then radius 1.3).
+
+### Loading sounds (`tools/09` + `tools/11` + `tools/12`, 2026-11-02, same MO2 mod, same permission note)
+
+Curator: "add load 7 then load 1 sound effect here when the reload animation puts the ball in the barrel on
+Muskets": Motion Array's BBRealSound *Weapon Gun Reload And Load 7* and *... 1* (24-bit / 48 kHz stereo, the
+curator's licence; neither the files nor the converted copies are committed). The pistol's pattern
+([`PistolRamrodReload`](PistolRamrodReload.md), its tools/06):
+
+- **Events:** `SoundPlay.ZEN_MusketLoad7` as the ball reaches the muzzle (`ball_off`, the frame it is unloaded:
+  2.38 s in the shot clip, 1.71 s in the reload clip) and `SoundPlay.ZEN_MusketLoad1` 1.2 s later, once Load 7 has died
+  away (it stays within 30 dB of its loudest 50 ms for 1.20 s, as tools/12 measures it). In every shot and reload
+  clip, standing and sneak; tools/10 copies them into first person. Both 1hm graphs (1P and 3P) list a bare
+  `SoundPlay`, so `SoundPlay.<SNDR>` fires with no behavior patch (the pistol's magic graph lists none, hence its
+  Pandora events). The *both reload perks* copies are 1.3x shorter but keep Load 1 1.2 s after Load 7
+  (`quick_clip()`): a sound is no shorter when the clip is.
+- **Records (tools/11):** SNDR 0x80F/0x810 in `Zenderal - Musket Ramrod Reload.esp`, vanilla's bow nock
+  (`WPNBowNockSD`: weapon category, positional output model) verbatim with one file each,
+  `Data\Sound\FX\Zenderal\MusketReload\<EditorID>.wav`.
+- **Files (tools/12):** 16-bit / 44.1 kHz mono PCM (BloodyCritSound's resampler, channels averaged), with the digital
+  silence each file opens and closes on cut to 2 ms (Load 7 starts 0.62 s in, Load 1 0.33 s in), so each sound starts
+  on its event. It checks each sound has died away before the next one's event.
+- Zodd's own `SoundPlay.WPNCrossbowReload` events (0.97, 1.33 and 2.80 s in the shot clip) are left as they were.
+
+Run `tools/12 <..._Load_7.wav> <..._Load_1.wav>` after every tools/09 run (09 deletes the mod folder, sounds with it).
+Built and checked offline 2026-11-02: all 336 shot and reload clips (both views, standing and sneak, the faster copies)
+carry both events 1.2 s apart with Load 7 on the ball's unload frame, and every pose is identical to the build before
+(backup `E:/Zenderal-backups/2026-11-02-musket-ramrod-pre-sounds/`). **Unverified in game.**
 
 ### Sneak (`tools/09` + `tools/10`, same MO2 mod, same permission note)
 

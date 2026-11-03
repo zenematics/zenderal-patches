@@ -414,11 +414,7 @@ def main():
         for reload_clip in ('crossbow_reload.hkx', 'sneakcrossbow_reload.hkx'):
             data = open(os.path.join(sub, 'dlc01', reload_clip), 'rb').read()
             for name in (reload_clip, CLIPS[reload_clip]):
-                anim, before = QRS.retime(data, tmp)
-                out = os.path.join(quick, 'dlc01', name)
-                anim_skyrim.write_skyrim_animation(out, ADS.havok_blocks(anim), ptr_size=8)
-                ADS.check_blocks(out)
-                QRS.check(out, before, tmp)
+                R3P.quick_clip(data, tmp, os.path.join(quick, 'dlc01', name))
                 written += 1
         # a reload cut short (dodge, stagger) must not leave a prop in the hand: the holds it returns to unload props
         for name in [IDLE] + SAFETY_ADS:
