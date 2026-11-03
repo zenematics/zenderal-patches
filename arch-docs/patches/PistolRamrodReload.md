@@ -662,6 +662,33 @@ drawn, the group's pistol in the right hand, `IsEquippedType` 11 in the left, th
   `ZP_PistolReloadArmScript`) were recompiled and deployed to Patch Collection. Backup of the previous live files:
   `E:/Zenderal-backups/2026-11-03-pistol-shield`.
 
+### The shield kept on the arm (`SHIELD_STYLE = 'arm'`, 2026-11-03)
+
+Curator: "can we try the reload but with the shield on the arm?". `tools/01` `SHIELD_STYLE` picks the shield reload:
+`'back'` (the sling above, two clips a pistol by sex, on the two-pistol timeline) or `'arm'` (now built and deployed):
+the one-gun reload, one clip a pistol, `Reload <group> (shield) (right hand)`, the shield staying on the arm that loads
+and rams.
+- **In its grip it covered the work:** the shield's handle is at its centre, so with the hand at the muzzle the pistol
+  passed through it for 1.4 s (0.6 units at worst) and it rose beside the head. Sliding it up the forearm in the same
+  turn was worse.
+- **Strapped** (`SHIELD_STRAP`, `strap_at`): slid 18 units toward the elbow and turned 180° about the forearm, the
+  hand out past the rim and the shield on the forearm's outside (searched on the plain motion: the best of 60 for gun,
+  body, face and right-arm clearance), eased in over the first 0.25 s of the reload and back into the grip over the
+  last 0.25 s. The way round is chosen after the solve (whichever keeps it further off the body; a 180° blend picks
+  its own). The ramming hand's beats also keep the strapped shield `SHIELD_GUN_CLEAR` (4) off the gun's bore,
+  `SHIELD_BODY_CLEAR` (9) off the spine and leg lines and `SHIELD_FACE_CLEAR` (14) off the face (`solve_beat`
+  `avoid`).
+- **Built:** 5 clips per view; the shield at least about 4 units off the gun and 3.4 off the body lines (both minima
+  at the slide in or out, a frame or two past the left thigh; while loading 9–10 off the gun). Third-person renders read
+  well: the shield rides the outside of the raised forearm.
+- **First person takes the back sling** (curator: "back sling in 1P"). On the arm, the shield was in view from 0.4 to
+  1.8 s, over much of the left and centre of the screen, within 6 units of the camera (the loading happens in view by
+  design, on that arm). `SHIELD_STYLE_1P = 'back'`: `tools/01` also builds that style's third-person clips (two a
+  pistol, by sex) into `SHIELD_1P_SOURCES` (in `%TEMP%`, outside the mod, rebuilt every run), and `tools/04` retargets
+  its first-person shield reloads from there (`HANDS[...]['src']`), with their sexed conditions. The two views' shield
+  reloads differ in length (third person 2.11 s, first person 3.4 s); each view's clip plays in its own graph.
+- **Verified in game 2026-11-03** (curator: "works", both views).
+
 ### The shield arm, third person (`tools/07`, 2026-11-03)
 
 Curator: "change the 3rd person shield + pistol animation to look more natural, normal shield idle with a 1 handed

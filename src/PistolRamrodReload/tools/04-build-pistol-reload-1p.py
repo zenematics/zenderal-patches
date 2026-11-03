@@ -114,11 +114,16 @@ for _typ in sorted(PR.STOW):
 # A shield (tools/01 Ctx.shield, right-hand pistol only): first person's MRh_Shd_Blend gives the whole left arm to the
 # first-person 1HM_Idle standing (read 2026-11-03), so the free arm rests on vanilla's first-person one-handed idle,
 # frame 0; the shield on the back maps behind the view.
-for _female in (True, False):
+# First person's shield style is tools/01 SHIELD_STYLE_1P (2026-11-03: the back sling; on the arm the shield covered the
+# view), read from its third-person clips in SHIELD_1P_SOURCES when third person uses the other style (`src`).
+_back = PR.SHIELD_STYLE_1P == 'back'
+for _female in ((True, False) if _back else (None,)):    # 'arm': the one-gun reload, unsexed
     _sfx = PR.stow_suffix(PR.SHIELD, _female)
     HANDS['stow right' + _sfx] = dict(shot=PR.CLIP_RIGHT, idle=PR.IDLE_RIGHT, aim=PR.AIM_CLIPS_RIGHT, gun='Weapon',
                                       free=FREE_ARM_LEFT, suffix=_sfx + RIGHT, other=PR.FREE_IDLE_1HM,
-                                      beats=PR.DUAL_BEATS, motion_end=PR.DUAL_MOTION_END)
+                                      beats=PR.DUAL_BEATS if _back else PR.BEATS,
+                                      motion_end=PR.DUAL_MOTION_END if _back else None,
+                                      src=PR.SHIELD_1P_SOURCES if PR.SHIELD_STYLE_1P != PR.SHIELD_STYLE else None)
 
 
 def clip(tmp, data):
@@ -300,16 +305,18 @@ def main():
         template = os.path.join(os.environ.get('TEMP', '.'), '_pistol_reload_1p_%s.hkx' % hand)  # 1P track layout
         with open(template, 'wb') as fh:
             fh.write(_bsa.read(bsa[0], bsa[1]['\\'.join(ADS.ANIMS_1P).lower() + '\\' + h['shot']]))
-        # this kind's third-person submods: 'Reload <pistol group><suffix>' exactly
-        subs = sorted(d for d in os.listdir(oar3) if d.startswith('Reload ') and d.endswith(h['suffix'])
-                      and d[len('Reload '):len(d) - len(h['suffix'])] in muzzles)
+        # this kind's third-person submods: 'Reload <pistol group><suffix>' exactly (from the deployed set, or for
+        # first person's own shield style, tools/01's SHIELD_1P_SOURCES)
+        src3 = h.get('src') or oar3
+        subs = sorted(d for d in os.listdir(src3) if d.startswith('Reload ') and d.endswith(h['suffix'])
+                      and d[len('Reload '):len(d) - len(h['suffix'])] in muzzles) if os.path.isdir(src3) else []
         if len(subs) != len(muzzles):
-            sys.exit('%d third-person %s reloads in %s for %d pistol groups: run tools/01' % (len(subs), hand, oar3,
+            sys.exit('%d third-person %s reloads in %s for %d pistol groups: run tools/01' % (len(subs), hand, src3,
                                                                                           len(muzzles)))
         for sub3 in subs:
             label = sub3[len('Reload '):len(sub3) - len(h['suffix'])]
-            cfg3 = json.load(open(os.path.join(oar3, sub3, 'config.json'), encoding='utf-8'))
-            a3 = anim_skyrim.load_skyrim_animation(os.path.join(oar3, sub3, h['shot']))
+            cfg3 = json.load(open(os.path.join(src3, sub3, 'config.json'), encoding='utf-8'))
+            a3 = anim_skyrim.load_skyrim_animation(os.path.join(src3, sub3, h['shot']))
             added = [(a.time, a.text) for a in a3.annotations if a.text.startswith(PROP_EVENTS)]
             anim, worst, short, extra, dropped = build(rt, a3, vanilla[h['idle']], rest, template, muzzles[label],
                                                        h['gun'], h['beats'], h['motion_end'])

@@ -301,6 +301,26 @@ SHIELD_NODE = 'ShieldBack'
 # arm, whole (clavicle to fingers, Shield), so it starts and ends on what tools/07's idle shows.
 SHIELD_ARM_SOURCE = ('Smooth Moveset - OAR', ANIMS_3P + ['OpenAnimationReplacer', 'Smooth Moveset - 1hm Shield',
                                                          '1hm Shield Non-Combat idle Loop', '1hm_idle.hkx'])
+# How the shield reload treats the shield (2026-11-03, curator: "can we try the reload but with the shield on the
+# arm?"): 'back' slings it on ShieldBack on the two-pistol timeline (one clip per sex); 'arm' leaves it strapped in its
+# grip on the working forearm through the one-gun reload, the ramming hand's beats kept SHIELD_GUN_CLEAR off the gun
+# (solve_beat `avoid`; in the plain beats the shield passed 1.8 units from the pistol at the muzzle). One clip a pistol.
+SHIELD_STYLE = 'arm'
+# First person takes the other one (2026-11-03, curator: "back sling in 1P"): on the arm, the shield covered much of the
+# view for 1.4 s and came within 6 units of the camera. tools/04 builds first person from third-person clips, so the
+# first-person style's third-person clips are built too, into SHIELD_1P_SOURCES (outside the mod) when it differs.
+SHIELD_STYLE_1P = 'back'
+SHIELD_1P_SOURCES = os.path.join(os.environ.get('TEMP', '.'), 'zenderal-pistol-reload-shield-1p')
+SHIELD_GUN_CLEAR = 4.0
+# The grip's handle sits at the shield's centre, so in it the shield covered the muzzle the hand works at (the pistol
+# through it for 1.4 s). Strapped: slid SHIELD_STRAP[0] toward the elbow and turned SHIELD_STRAP[1] deg about the forearm
+# (the hand out past the rim, the shield on the forearm's outside; searched on the plain motion: 9 off the gun), eased in
+# over SHIELD_STRAP_EASE as the reload starts and back into the grip at its end. The beats also keep it SHIELD_BODY_CLEAR
+# off the spine and leg lines and SHIELD_FACE_CLEAR off the face.
+SHIELD_STRAP = (18.0, 180.0)
+SHIELD_STRAP_EASE = 0.25
+SHIELD_BODY_CLEAR = 9.0
+SHIELD_FACE_CLEAR = 14.0
 # where the hand may let go, from ShieldBack in the body's frame at the 'tucked' beat: down, out (along the shield's
 # face, away from the back), toward the free arm's side; the shield turned in its own plane by SHIELD_ROLL (it turns
 # back as it settles)
@@ -571,11 +591,12 @@ class Ctx:
         self._stows[key] = var
         return var
 
-    def shield(self, female):
+    def shield(self, female, style=None):
         """A shield in the free (left) hand, slung on the back for the reload: the right-hand pistol's variant, solved
         mirrored. The free arm rests, whole, on SHIELD_ARM_SOURCE's at its least swaying frame (tools/07's shield arm,
-        `shield_frame`). `female`: XPMSE's ShieldBack of that sex."""
-        key = ('shield', female)
+        `shield_frame`). `female`: XPMSE's ShieldBack of that sex. `style`: SHIELD_STYLE's by default."""
+        style = style or SHIELD_STYLE
+        key = ('shield', female, style)
         if key in self._stows:
             return self._stows[key]
         right_v = self.right
@@ -583,6 +604,20 @@ class Ctx:
         real = self.idle_clip(SHIELD_ARM_SOURCE)
         mir = self.mirrored(self.idle_path(SHIELD_ARM_SOURCE))
         f = self.still_frame(mir)
+        if style == 'arm':     # strapped on the working forearm: the one-gun reload
+            var = Variant(self, 'shield-right-arm', right_v.source, right_v.idle, self.free_arm_idle(mir), [],
+                          RIGHT_HALF + RIGHT_IDLE, wl=local_mat(mir, iw, f), shield=True)
+            # the strap: the grip slid toward the elbow and turned about the forearm (axis measured on the rest pose)
+            wm = self.rig.world(mir, f)
+            ih, ifa = self.ix[SIDES['R'][2]], self.ix[SIDES['R'][1]]
+            hand = unscaled(wm[ih])
+            axis = unit(hand[:3, :3].T @ (wm[ifa][:3, 3] - hand[:3, 3]))
+            var.strap_axis = axis
+            var.strap = strap_at(var, 1.0, 1.0)
+            var.real_rest = (real, [f])
+            self.shield_frame = f
+            self._stows[key] = var
+            return var
         anchor, L = self.sheath(SHIELD_NODE, female)
         ia = self.ix[anchor]
         wr, wm = self.rig.world(real, f), self.rig.world(mir, f)
@@ -743,6 +778,7 @@ class Variant:
         self.dual, self.gun_axes, self.wl, self.stow, self.shift = dual, gun_axes, wl, stow, shift
         self.relaxed, self.shield = relaxed, shield
         self.letgo = None         # a shield's let-go and approach (4x4 in ShieldBack's frame): shield_letgo()
+        self.strap = None         # a strapped shield's local in the hand while it reloads (SHIELD_STYLE 'arm')
         self.real_rest = self.real_sheath = None
         self.beats = {k: v + shift for k, v in (DUAL_BEATS if dual else BEATS).items()}
         lead = (DUAL_SHIFT if dual else 0.0) + shift
@@ -762,7 +798,7 @@ class Variant:
             b = ix[n]
             q, sc = self.free_rot[b]
             anim.tracks[b].rotations[f], anim.tracks[b].scales[f] = list(q), list(sc)
-        if self.stow:     # the weapon's grip where its idle holds it
+        if self.stow or self.shield:     # the item's grip where its idle holds it (a strapped shield all clip long)
             anim.tracks[ix['Weapon']].translations[f] = [float(x) for x in self.wl[:3, 3]]
 
 
@@ -938,11 +974,14 @@ def hand_at(ctx, kind, pos, hand_rot):
     return m
 
 
-def solve_beat(ctx, w, side, kind, pos, dirn, body, steps=24, roll_step=15, prev=None):
+def solve_beat(ctx, w, side, kind, pos, dirn, body, steps=24, roll_step=15, prev=None, avoid=None):
     """The least strained way for `side`'s hand to hold `kind` at `pos` along `dirn`: (hand rotation 3x3, elbow
     direction, cost, miss). Searched over the elbow's direction around the shoulder-wrist line; the hand starts from the
     forearm's straight wrist and turns the least way that lines its grip axis up with `dirn` (a fist also tries every
-    roll about the rod; a pinch only turns PINCH_AIM of the way: fingers roughly toward the muzzle is enough)."""
+    roll about the rod; a pinch only turns PINCH_AIM of the way: fingers roughly toward the muzzle is enough).
+    `avoid` (a shield strapped to this hand, SHIELD_STYLE 'arm'): (the gun's bore segment, the shield in the hand);
+    the shield is kept SHIELD_GUN_CLEAR off the gun (shield_gun_gap), SHIELD_BODY_CLEAR off the spine and legs and
+    SHIELD_FACE_CLEAR off the face."""
     rig = ctx.rig
     ih = rig.index[SIDES[side][2]]
     iu = rig.index[SIDES[side][0]]
@@ -976,9 +1015,51 @@ def solve_beat(ctx, w, side, kind, pos, dirn, body, steps=24, roll_step=15, prev
                     40.0 * max(0.0, HEAD_CLEAR - clear))
             if prev:   # neighbouring beats alike: the frames between them must not swing the wrist through a flip
                 cost += CONTINUITY * angle_between(prev[0], H) + 0.5 * CONTINUITY * angle_between_dirs(prev[1], elbow)
+            if avoid is not None:
+                hand = rot4(H)
+                hand[:3, 3] = pos - H @ off
+                sh = hand @ avoid[1]
+                cost += (40.0 * max(0.0, SHIELD_GUN_CLEAR - shield_gun_gap(sh, avoid[0])) +
+                         20.0 * max(0.0, SHIELD_BODY_CLEAR - shield_clearance(ctx, w, sh)) +
+                         20.0 * max(0.0, SHIELD_FACE_CLEAR - min(float(np.linalg.norm((sh @ p)[:3] - face_p))
+                                                                 for p in SHIELD_DISC)))
             if best is None or cost < best[2]:
                 best = (H, elbow, cost, miss)
     return best
+
+
+SHIELD_DISC = np.array([[r * math.cos(a), r * math.sin(a), 0.0, 1.0] for r in (0.0, 10.0, 20.0)
+                        for a in np.linspace(0.0, 2 * math.pi, 12 if r else 1, endpoint=False)])
+
+
+def strap_at(var, u, sign):
+    """A strapped shield's local in the hand `u` (0..1) of the way from its grip (var.wl) to the strap: turned sign *
+    SHIELD_STRAP[1] * u about the forearm (var.strap_axis, through the hand) and slid SHIELD_STRAP[0] * u toward the
+    elbow. Turned progressively, so the way round is `sign`'s (a 180 deg blend picks its own)."""
+    turn = rot_axis(var.strap_axis, sign * SHIELD_STRAP[1] * u)
+    grip = unscaled(var.wl)
+    m = np.eye(4)
+    m[:3, :3] = turn @ grip[:3, :3]
+    m[:3, 3] = turn @ grip[:3, 3] + var.strap_axis * SHIELD_STRAP[0] * u
+    return m
+
+
+def strap_ease(t, t_go, t_end):
+    """How far (0..1) a strapped shield is up the forearm at t: in over SHIELD_STRAP_EASE from the reload's start,
+    back into the grip over the last SHIELD_STRAP_EASE."""
+    return smooth((t - t_go) / SHIELD_STRAP_EASE) * (1 - smooth((t - (t_end - SHIELD_STRAP_EASE)) / SHIELD_STRAP_EASE))
+
+
+def set_item(anim, b, f, m):
+    anim.tracks[b].translations[f] = [float(x) for x in m[:3, 3]]
+    anim.tracks[b].rotations[f] = [float(x) for x in ADS.mat_quat(m[:3, :3])]
+
+
+def shield_gun_gap(shield, bore):
+    """The least distance from a shield (its node's 4x4 world; SHIELD_DISC, the mid plane) to the gun's bore segment
+    (grip point, muzzle point)."""
+    a, b = bore
+    return min(seg_dist((shield @ p)[:3], a, b) for p in SHIELD_DISC)
 
 
 def belt_pose(ctx, w, body, var):
@@ -1128,7 +1209,7 @@ def shield_arm(ctx):
     clavicle's subtree, SHIELD_ARM_SOURCE at the frame the reload rests on; the bone offsets stay the clip's but for
     `Shield` (the grip, Variant.wl), and AnimObjectL (the props' node, which unmirror rebuilds on Loop's idle) stays
     the clip's. Copying the source's offsets too put the thumb 2.6 units off the reload's ends."""
-    src, (f,) = ctx.shield(False).real_rest
+    src, (f,) = ctx.shield(None if SHIELD_STYLE == 'arm' else False).real_rest
     root, grip, props = ctx.ix[SHIELD_ARM_ROOT], ctx.ix['Shield'], ctx.ix['AnimObjectL']
     pose = {}
     for b in range(len(ctx.rig.parents)):
@@ -1378,6 +1459,9 @@ def build_clip(ctx, label, c, axis, radius, var):
                 tr.scales[f] = [float(x) for x in ADS.lerp(tr.scales[f], sc, w_relax)]
         if var.dual:     # the other gun in its hand as in its idle hold
             anim.tracks[iwp].translations[f] = [float(x) for x in var.wl[:3, 3]]
+        elif var.shield:     # a shield on the ramming arm: from its grip up the forearm and back (SHIELD_STRAP);
+            # the way round is chosen once the arm is solved (build_clip, below)
+            set_item(anim, iwp, f, strap_at(var, strap_ease(t, t_go, t_end), 1.0))
     w_keep = rig.world(anim, f_go)       # the body as the reload starts (= KEEP_FRAMES but for a shifted reload)
     # the gun hand's scale (RIGHT_GUN_SCALE): a scaled pistol's muzzle, barrel and rod scale with it
     gun_scale = float(np.linalg.norm(w_keep[ix['Shield']][:3, 0]))
@@ -1400,7 +1484,7 @@ def build_clip(ctx, label, c, axis, radius, var):
              'stroke_down', 'withdrawn', 'over_stow', 'stowed']
     carry = []
     grips = {}            # a carry beat's attach node in the hand (a melee weapon turns on its handle: STOW)
-    if var.shield:    # the shield behind the back, let go, settled onto ShieldBack, and back (Ctx.shield)
+    if var.shield and var.dual:    # the shield behind the back, let go, settled onto ShieldBack, and back
         ctx.carry_in_hand = var.wl
         right_, fwd_, up_ = body
         letgo, approach, _ = shield_letgo(ctx, anim, var, body)
@@ -1479,6 +1563,10 @@ def build_clip(ctx, label, c, axis, radius, var):
     # the reload's beats chain on from the hand letting go of the other item, except a relaxed free arm's (RELAX_SKIP),
     # which start fresh as the one-gun reload's do: chained on, the pouch kept the carrying elbow 20 in front
     chain = None if var.relaxed else carry_solved.get('release')
+    strapped = var.shield and not var.dual          # a shield on the ramming forearm (SHIELD_STYLE 'arm')
+
+    def avoid(load):        # solve_beat's: the gun's bore (grip to muzzle) in its load pose, the shield's grip
+        return (((load @ np.r_[0.0, 0, 0, 1])[:3], (load @ np.r_[c, 1])[:3]), var.strap) if strapped else None
     cands = []
     for cost, load, params in load_pose(ctx, w_load, c, axis, radius)[:LOAD_CANDIDATES]:
         ks, _ = targets(load, c, axis, radius, body_load, pelvis)
@@ -1486,7 +1574,7 @@ def build_clip(ctx, label, c, axis, radius, var):
         for name in order:
             kind, pos, dirn, _ = ks[name]
             H, pole, bc, miss = solve_beat(ctx, beat_w[name], 'R', kind, pos, dirn, body_load, steps=12, roll_step=30,
-                                           prev=prev)
+                                           prev=prev, avoid=avoid(load))
             if miss > 0.05:
                 break
             strain += bc
@@ -1509,7 +1597,8 @@ def build_clip(ctx, label, c, axis, radius, var):
         prev = chain
         for name in order:      # in order: each beat's hand stays near the last one's (CONTINUITY)
             kind, pos, dirn, fw = ks[name]
-            H, pole, cost, miss = solve_beat(ctx, beat_w[name], 'R', kind, pos, dirn, body_load, prev=prev)
+            H, pole, cost, miss = solve_beat(ctx, beat_w[name], 'R', kind, pos, dirn, body_load, prev=prev,
+                                             avoid=avoid(load))
             if miss > 0.05:
                 sys.exit('%s: the right hand misses %s by %.2f' % (label, name, miss))
             fore = arm_chain(rig, beat_w[name], 'R', pos - H @ grip_offset(ctx, kind)[0], pole)[3]
@@ -1530,7 +1619,8 @@ def build_clip(ctx, label, c, axis, radius, var):
         right_arm, clear = [ix[n] for n in SIDES['R'][:3]], math.inf
         carry_pole = None
         flip_sign, flip_clear = {}, math.inf        # a melee weapon's grip flips: which way, per segment
-        shield_clear = math.inf                     # a shield off the body while the hand carries it
+        shield_clear = math.inf                     # a shield off the body while the hand carries it ...
+        shield_gun = math.inf                       # ... a strapped one off the gun
         for f in range(KEEP_FRAMES + 1, n_motion):
             t = f * fd
             # elbows from the pose's own into the solved directions and back: no pop at Loop's last frame or into his idle
@@ -1570,8 +1660,8 @@ def build_clip(ctx, label, c, axis, radius, var):
             # roll its own way: 150 deg wrist rolls between two beats of 50), solved twice with the arm
             # a shield, strapped to the forearm, rides it from and to the idle's hold: the hand blends against its forearm
             # like the reload's beats (its world pose blended, the wrist bent 111 deg swinging the shield round the hip)
-            strapped = var.shield and (A is None or B is None)
-            if var.dual and all(x is None or x[0] == 'carry' for x in (A, B)) and not strapped:
+            from_hold = var.shield and var.dual and (A is None or B is None)
+            if var.dual and all(x is None or x[0] == 'carry' for x in (A, B)) and not from_hold:
                 # carrying the other gun (to the belt and back): the GUN's world pose blends, the hand under it, so the
                 # barrel turns the short way in the world (blended against the forearm, it swung back through the body)
                 wl = unscaled(var.wl)
@@ -1646,7 +1736,8 @@ def build_clip(ctx, label, c, axis, radius, var):
                 target = stowed_at(var, w, t, beats) if var.stow else belt
                 R3P.place(anim, iwp, f, w[irh], target)
                 w = rig.world(anim, f)
-            if var.shield and not (beats['release'] <= t <= beats['regrip'] - (beats['release'] - beats['tucked'])):
+            if var.shield and var.dual and not (beats['release'] <= t <= beats['regrip'] - (beats['release'] -
+                                                                                              beats['tucked'])):
                 shield_clear = min(shield_clear, shield_clearance(ctx, w, unscaled(w[iwp])))
             clear = min(clear, head_clearance(face(rig, w), *(w[i][:3, 3] for i in right_arm),
                                               (w[irh] @ ctx.fist_in_hand)[:3, 3]))
@@ -1688,6 +1779,22 @@ def build_clip(ctx, label, c, axis, radius, var):
             w = rig.world(anim, f)
             R3P.place(anim, iwp, f, w[irh], stowed_at(var, w, t, beats) if var.stow else belt)
     flips = deflick(ctx, anim, KEEP_FRAMES + 1, n_motion - 1, keep, repin)
+    if strapped:     # the shield's way round the forearm: whichever keeps it further off the body; then its gaps
+        def gaps(sign, frames):
+            body = gun = math.inf
+            for f in frames:
+                t = f * fd
+                w = rig.world(anim, f)
+                sh = unscaled(w[irh]) @ strap_at(var, strap_ease(t, t_go, t_end), sign)
+                g = unscaled(w[ish])
+                body = min(body, shield_clearance(ctx, w, sh))
+                gun = min(gun, shield_gun_gap(sh, ((g @ np.r_[0.0, 0, 0, 1])[:3], (g @ np.r_[c, 1])[:3])))
+            return body, gun
+        motion = range(KEEP_FRAMES + 1, n_motion)
+        sign = max((1.0, -1.0), key=lambda sg: gaps(sg, motion)[0])
+        for f in motion:
+            set_item(anim, iwp, f, strap_at(var, strap_ease(f * fd, t_go, t_end), sign))
+        shield_clear, shield_gun = gaps(sign, motion)
     for f in range(n_motion, n):     # the last pose held (two pistols: while the script hands the body back)
         set_pose(anim, f, pose_at(anim, n_motion - 1))
     params = dict(params, attempt=attempt)
@@ -1696,10 +1803,10 @@ def build_clip(ctx, label, c, axis, radius, var):
         added.append((beats['regrip'] + ARM_BACK_AFTER, ARM_BACK))
         anim.annotations.append(anim_skyrim.Annotation(time=round(added[-1][0], 4), text=ARM_BACK))
     info = dict(params, Lr=geo['Lr'], head_clear=clear, prop_frames=prop_frames, gun_scale=gun_scale, flip_clear=flip_clear,
-                flips=flips, shield_clear=shield_clear)
+                flips=flips, shield_clear=shield_clear, shield_gun=shield_gun)
     if var.dual and not var.stow:
         info.update(belt=belt, belt_params=belt_params)
-    if var.shield:
+    if var.shield and var.dual:
         info.update(letgo=var.letgo[2])
     return anim, info, added, misses, wrists, load
 
@@ -2103,17 +2210,22 @@ def main():
     written = 0
     pistols = [w for g in groups for w in g[2]]
     stows = [(typ, female) for typ in sorted(STOW) for female in ((True, False) if typ in STOW_SEXED else (None,))]
-    shields = [(SHIELD, female) for female in (True, False)]
+    sexes = lambda style: (True, False) if style == 'back' else (None,)  # noqa: E731
     shield_pose = shield_arm(ctx)
-    jobs = [(h, k) for k in [None, 'two'] for h in ('left', 'right')]
-    jobs += [(h, k) for k in stows for h in ('left', 'right')]
-    jobs += [('right', k) for k in shields]  # shields are left-hand only
-    for hand, kind in jobs:
+    jobs = [(h, k, None) for k in [None, 'two'] for h in ('left', 'right')]
+    jobs += [(h, k, None) for k in stows for h in ('left', 'right')]
+    # shields are left-hand only; first person's style, where it differs, into SHIELD_1P_SOURCES for tools/04
+    styles = [SHIELD_STYLE] + ([SHIELD_STYLE_1P] if SHIELD_STYLE_1P != SHIELD_STYLE else [])
+    jobs += [('right', (SHIELD, female), style) for style in styles for female in sexes(style)]
+    if os.path.isdir(SHIELD_1P_SOURCES):
+        shutil.rmtree(SHIELD_1P_SOURCES)
+    for hand, kind, style in jobs:
         right = hand == 'right'
         dual = kind is not None              # a pistol, a melee weapon or a shield in the other hand
         stow = kind if isinstance(kind, tuple) else None
+        out_set = oar if style in (None, SHIELD_STYLE) else SHIELD_1P_SOURCES
         if stow:
-            var = ctx.shield(stow[1]) if stow[0] == SHIELD else ctx.stow(right, *stow)
+            var = ctx.shield(stow[1], style) if stow[0] == SHIELD else ctx.stow(right, *stow)
             suffix = stow_suffix(*stow)
         else:
             var = {(False, False): ctx.left, (True, False): ctx.right, (False, True): ctx.dual_left,
@@ -2130,7 +2242,7 @@ def main():
                 sys.exit('%s %s: the gun hand is scaled %.3f, not %.3f: update RIGHT_GUN_SCALE (tools/02 sizes the '
                          'rods with it)' % (hand, label, info['gun_scale'], RIGHT_GUN_SCALE if right else 1.0))
             name = 'Reload %s%s%s' % (label, suffix, ' (right hand)' if right else '')
-            sub = os.path.join(oar, name)
+            sub = os.path.join(out_set, name)
             os.makedirs(sub)
             out = os.path.join(sub, CLIP_RIGHT if right else CLIP)
             floats = ctx.bsa_floats(CLIP_RIGHT if right else CLIP)  # vanilla's: Loop's shot clips carry none
@@ -2149,7 +2261,10 @@ def main():
                 got = densify(ctx, got)
             write_clip(out, ADS.havok_blocks(got), floats, reference=True)
             ADS.check_blocks(out)
-            if stow:
+            if stow and var.shield and not var.dual:
+                print('      shield on the arm: at least %.1f off the gun, %.1f off the spine and legs'
+                      % (info['shield_gun'], info['shield_clear']))
+            elif stow:
                 print('      sheath: the %s %.2f units / %.1f deg off it' % ((item_name(stow[0]),) +
                                                                        check_stow(ctx, out, var, right, DENSE)))
                 if var.shield:
@@ -2182,9 +2297,11 @@ def main():
             if stow and stow[0] == SHIELD:
                 cfg = {'name': name,
                        'description': 'Ramrod reload after the shot, right-hand pistol, a shield in the other hand: %s '
-                                      '(%s). The shield goes on the back for the ball and ramrod and is taken again.'
-                                      % (', '.join('%s %s' % w for w in weapons), os.path.basename(path)),
-                       'priority': PRIORITY_SHIELD_RIGHT + 10 * shields.index(stow) + i,
+                                      '(%s). %s' % (', '.join('%s %s' % w for w in weapons), os.path.basename(path),
+                                                    'The shield stays on the arm that loads the ball and rams.'
+                                                    if style == 'arm' else 'The shield goes on the back for '
+                                                    'the ball and ramrod and is taken again.'),
+                       'priority': PRIORITY_SHIELD_RIGHT + 10 * sexes(style).index(stow[1]) + i,
                        'conditions': conditions_stow(weapons, False, *stow)}
             elif stow:
                 cfg = {'name': name,
