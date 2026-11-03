@@ -16,4 +16,4 @@ CastType: FireAndForget
 Effects:
 - BaseEffect: 000930:Zenderal - Prophecy.esp
   Data:
-    Duration: 6
+    Duration: 8

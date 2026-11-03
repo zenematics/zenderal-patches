@@ -1,0 +1,16 @@
+FormKey: 000B12:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_HairTrigger
+Description:
+  TargetLanguage: English
+  Value: 'Your pistol shots are another 25% likelier to ricochet, and Elemental Rounds and Bleeding Shot work with your pistols too.'
+Name:
+  TargetLanguage: English
+  Value: 'Hair Trigger'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000B0E:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

@@ -84,7 +84,10 @@ SHAPES = {
         'nodes': {'gun1': (-4.0, 0.3), 'gst2': (-4.0, -0.75), 'gst1': (-2.6, 0.3),
                   'gun2': (-1.2, 0.4), 'gst3': (-1.75, 1.15), 'gun3': (-1.0, -0.4), 'gst4': (-0.5, -1.15),
                   'gun4': (0.3, 0.42), 'gst5': (2.6, -0.25), 'gst6': (2.0, 0.45), 'gun5': (4.0, 0.45),   # opened up 2026-10-27
-                  'gun6': (-2.6, -0.75)},                # Ricochet Rounds (2026-10-29), under Steady Aim
+                  'gun6': (-2.6, -0.75),                 # Ricochet Rounds (2026-10-29), under Steady Aim
+                  # the pistol branch (2026-11-01): a diamond hanging from Ricochet Rounds, Fan the Hammer at its foot
+                  'gun7': (-1.6, -1.6), 'gun8': (-0.2, -1.95), 'gun9': (0.6, -1.25),
+                  'gun10': (1.4, -1.95), 'gun11': (2.8, -1.6)},
         'via': {},
         'stars': [], 'lines': [],
     },
@@ -264,8 +267,10 @@ def _place_tree(t, k, n, weight, root_r_shared):
         assert s, f"{t['name']}: the radial map needs every tree shaped"
         pos = {int(i): tuple(p) for i, p in s['nodes'].items()}
         root = next(nd['index'] for nd in t['nodes'] if not nd['parents'])
-        cap = next(nd['index'] for nd in t['nodes'] if nd['minLevel'])
         rx, ry = pos[root]
+        # the figure's capstone: the furthest from the root (Firearms has a second, the pistol branch's Fan the Hammer)
+        cap = max((nd['index'] for nd in t['nodes'] if nd['minLevel']),
+                  key=lambda i: math.hypot(pos[i][0] - rx, pos[i][1] - ry))
         ang_fig = math.atan2(pos[cap][1] - ry, pos[cap][0] - rx)
         # balanced trees (2026-10-27): each figure scaled so it reaches RADIAL_LENGTH from its root - the long rifle and
         # sword no longer set the map's size while the compact figures stay cramped

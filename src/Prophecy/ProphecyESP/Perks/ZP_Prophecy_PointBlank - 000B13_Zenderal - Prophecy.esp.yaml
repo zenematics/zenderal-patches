@@ -1,0 +1,16 @@
+FormKey: 000B13:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_PointBlank
+Description:
+  TargetLanguage: English
+  Value: 'Your pistol hits on an enemy within 12 feet deal 50% more damage and stagger it.'
+Name:
+  TargetLanguage: English
+  Value: 'Point Blank'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000B12:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

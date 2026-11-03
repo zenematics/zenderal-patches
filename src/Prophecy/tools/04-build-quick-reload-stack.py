@@ -9,7 +9,8 @@ and crossbow release, so it stays on both perks.
 What this does: an OAR submod conditioned on HasPerk Quick Reload AND HasPerk Rapid Shot swaps in copies of
 the reload clips that would otherwise play, retimed STACK_FACTOR shorter. The graph still plays them at its
 1.3, so both perks give 1.3 * STACK_FACTOR; either perk alone is unchanged. Retiming scales duration, frame
-and block durations and annotation times; poses are untouched. The graph's own triggers are safe: reloadStop
+duration and annotation times and writes Havok's block header (blockDuration = (maxFramesPerBlock - 1) x
+frameDuration, asserted after writing); poses are untouched. The graph's own triggers are safe: reloadStop
 is relative to the end of the clip (-0.195 s) and Reload/ReloadFast fire at its start (1hm_behavior, 1st and
 3rd person).
 
@@ -109,8 +110,12 @@ def retime(src_bytes, tmp):
                 sys.exit('NaN in a source track - handle it before retiming')
     anim.duration /= STACK_FACTOR
     anim.frame_duration = anim.duration / max(1, anim.num_frames - 1)
-    anim.num_blocks = 0
-    anim.block_duration = 0
+    # Havok's own block header. Zeroing it let PyNifly write blockDuration = clip length, which Havok's spline
+    # decompressor uses to find frames (LoopPistolAnims v12 found legs sampling wrong frames that way).
+    fpb = anim.max_frames_per_block or 256
+    anim.max_frames_per_block = fpb
+    anim.num_blocks = max(1, math.ceil(anim.num_frames / fpb))
+    anim.block_duration = (fpb - 1) * anim.frame_duration
     for a in anim.annotations:
         a.time /= STACK_FACTOR
     return anim, before
@@ -122,6 +127,10 @@ def check(out, before, src_anim_path):
     dur, frames, anns = before
     assert abs(got.duration - dur / STACK_FACTOR) < 1e-3, (got.duration, dur)
     assert got.num_frames == frames, (got.num_frames, frames)
+    fpb = got.max_frames_per_block
+    assert got.num_blocks == max(1, math.ceil(frames / fpb)), (got.num_blocks, frames, fpb)
+    assert abs(got.block_duration - (fpb - 1) * got.frame_duration) < 1e-4, \
+        ('blockDuration not Havok\'s', got.block_duration, fpb, got.frame_duration)
     assert [a.text for a in got.annotations] == [t for _, t in anns], 'annotations changed'
     for a, (t, _) in zip(got.annotations, anns):
         assert abs(a.time - t / STACK_FACTOR) < 1e-3, (a.time, t)

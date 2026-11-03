@@ -671,6 +671,89 @@ another target."
   target's chest towards the second's (`desiredTarget` set, no auto-aim). Each pistol hit arrives as two hit events
   (two identical log lines in 1.3.0), so one bounce per victim per 0.15 s. Unverified in game.
 
+## Firearms: the pistol branch (curator, 2026-11-01)
+
+"More Pistol related talents in Prophecy's Firearms tree." Five talents hang from Ricochet Rounds; the musket talents
+stay muskets only.
+
+| Node | Perk | Talent | Parents |
+|---|---|---|---|
+| `gun7` | `0xB12` | Hair Trigger: pistol shots another 25% likelier to ricochet (so 50% with Ricochet Rounds' 25%); Elemental Rounds and Bleeding Shot work with pistols. Until 2026-11-02 it was a 1.2 s reload instead of 2 (curator: gone, the ramrod reload sets the pace) | Ricochet Rounds |
+| `gun8` | `0xB13` | Point Blank: a pistol hit within 12 ft (256 units) does +50% damage and staggers | Hair Trigger |
+| `gun9` | `0xB14` | Blade and Barrel: a melee hit reloads your pistols at once (at most once every 15 s); a pistol hit makes the next melee hit within 3 s do +25% | Hair Trigger |
+| `gun10` | `0xB15` | Coup de Grace: pistol hits do double damage to staggered, knocked-down, bleeding-out or sub-25%-Health enemies | Point Blank or Blade and Barrel |
+| `gun11` | `0xB16` | Fan the Hammer (capstone, level 30): lesser power, 50% Arcane Fever; for 6 s time slows, pistols reload at once, every pistol hit ricochets | Coup de Grace |
+
+All values are in `PISTOL` (`tools/01`). The records sit after everything else (`FIREARMS_LATE_NODES_2`,
+`PISTOL_RECORDS`, `0xB17–0xB22`). Fan the Hammer is the first second capstone in a tree: `EXTRA_CAPSTONES` gives
+it the level-30 requirement, and the v3 layout now aims each figure at its furthest capstone.
+
+**Where each part runs.** Pistols are staves firing the Flintlock Overhaul's shot enchantments, so weapon entry points
+never reach them.
+- **The reload.** That is [`FlintlockOverhaul`](FlintlockOverhaul.md)'s `ZP_FlintlockAmmoPlayerScript`. It looks up
+  Fan's marker effect `0xB21` with `GetFormFromFile` (so it does not master Prophecy) and answers mod event
+  `ZP_FlintlockReload` by loading every fired hand. **That ID is hardcoded in the script: never move it** (Hair
+  Trigger's `0xB12` was too until 2026-11-02, when its faster reload went; keep it where it is all the same).
+- **Hair Trigger's ricochet bonus** is the Rage DLL's Ricochet roll (JSON `ricochet.hairTriggerBonus`,
+  `RICOCHET['HairTriggerBonus']` 25): with the perk it is added to `chance` (curator: "another 25%", not a total).
+- **The hits.** `ZenProphecyRage.dll` 1.4.0 (JSON `pistols`), on the same pistol test as Ricochet, once per shot:
+  - **Hair Trigger** casts `ZP_Prophecy_HairTrigger_HitSpell 0xB17` at the target. It carries Seismic Stomp's
+    target-delivered bleed (gated on Bleeding Shot) and a target-delivered copy of `EnchFireDamageFFContact`
+    (`0xB18`, gated on Elemental Rounds, with no Destruction skill). The musket hit spell is Touch-delivered
+    (`ApplyCombatHitSpell`) and also carries Deadeye, so it is not reused.
+  - **Point Blank and Coup de Grace** add their fractions of the shot's damage and cast one damage spell
+    (`0xB19`/`0xB1A`) with that magnitude. The damage is each `ZP_FlintlockShot` effect's magnitude through
+    `HandleEntryPoint(kModSpellMagnitude, player, shot, target, &m)`, the engine's own call (ID 34053, entry `0x1D`,
+    caster/spell/target/value read from the disassembly), so Marksman and the bow-talent scaling count. Coup checks
+    the target before Point Blank's stagger (the Utility Droid's stagger spell) lands.
+  - **Blade and Barrel.** The DLL adds ability `0xB1B` on a pistol hit. `gun9`'s `ModAttackDamage` ×1.25 entry
+    reads its effect `0xB1C`. The ability comes off at the next melee hit's event (that hit's damage already had the
+    bonus), after 3 s, or on load. A melee hit with a pistol in either hand sends `ZP_FlintlockReload`.
+  - **Fan the Hammer.** `FanActive()` turns Ricochet to 100%, with or without Ricochet Rounds.
+- **Fan's power** is Wrath of the Lightborn's pattern: gate `0xB1E` (`ZP_WrathGate`, refused at 50% fever), spell
+  `0xB1F` (a copy of Seismic Stomp's slow time `0xB20` with its own 6 s dispel, plus marker `0xB21`), fever `0xB22`.
+  The perk also carries glo1's `ModPlayerMagicSlowdown` entry on the stomp's slow keyword, so the player keeps full
+  speed.
+- **Unverified in game.** Open questions: whether `CastSpellImmediate` of the target-delivered hit spells lands as it
+  does for Nightblade's damage, and the 6 s slow time's real length (the effect counts in game time). No card art yet
+  (Ricochet Rounds has none either).
+
+## Arcane Arsenal: elemental arrows (curator, 2026-11-01, reworked 2026-11-02)
+
+"Flaming arrows, freezing arrows, lightning arrows": the chosen element burns on the arrowhead, both while the arrow
+is nocked and while it flies.
+
+**1.5.0 failed (curator's test, 2026-11-02).** It applied the element's weapon-enchantment shader
+(`EnchFireFXShader 04E810` and the others) with `ApplyEffectShader` and the arrow as attach node. The log showed the
+right node (`Arrow:0`), but the engine draws a shader's membrane over the whole actor whatever the attach node, so a
+frost glow covered the player and the arrow looked plain. Never use an effect shader for a part of an actor.
+
+**Why no data-only version.** The vanilla hand arts (`FireCloakHandEffects` and the others) are *casting* arts: the
+engine pins them to the casting hand only while a spell is cast. An ability's conditions are re-checked only about
+once a second, about as long as a whole draw, and nothing in data reaches a projectile in flight.
+
+**How it works now.** `ZenProphecyRage.dll` 1.6.0 (JSON `arsenal`) runs every 20 ms. With Arcane Arsenal owned and its
+global `0x956` at 1–3, it places that element's art object on the arrowhead:
+- **nocked**: a bow in hand and attack state `kBowAttached` or `kBowDrawn`; the arrow mesh is found under the current
+  3D's `WEAPON` node;
+- **in flight**: every projectile in `Projectile::Manager` shot by the player from a bow with ammo, picked up within
+  its first 0.5 s, until it records an impact or is gone.
+
+The art hangs on a node of ours (`ZP_ArcaneArrowHead`) attached to the arrow mesh's parent, at the end of the mesh's
+bound along its Y axis that points the way the player faces (nocked) or the arrow flies, 15% short of the point.
+That node's scale (`ARSENAL_ART_SCALE` 0.3) shrinks the art. The arrow mesh is a lit (`BSLightingShaderProperty`)
+shape, preferring one named "arrow"/"bolt", so a flight model's tracer shapes are never used. `ApplyArtObject` gets
+that node as its attach node. The arts are new records `0xB23–0xB25` (`ARSENAL_ARTS`) using the vanilla spell-menu
+orbs: `Magic\FireballInvArt.nif`, `Magic\MAGINVIceSpellArt.nif`, `Magic\MAGINVShockSpellArt.nif`. They loop on their
+own without a behavior graph, and no meshes are shipped.
+
+An endless art would be written into a save, so all of ours are stopped on `kSaveGame` and again after a load or a
+new game (any model effect using one of the three arts).
+
+**Unverified in game:** that the art follows our node (nocked and in flight), its size, and whether the spell-menu orbs'
+particles look right in the world. If the arrow shows nothing, the log says `effect NOT made` or lists `WEAPON`'s
+children; if the orb is too big or too small, change `ARSENAL_ART_SCALE`.
+
 ## Rage, the eleventh tree (curator, 2026-10-27)
 
 It sits between Glory and Druid. Records are allocated after Sorcerer (`RAGE_FIRST_ID` `0xAB9`): 15 perks
@@ -909,15 +992,23 @@ Pandora's generated `1hm_behavior.hkx` (converted with `src/EnderalPairedAnims/t
 reloaded no faster than holding one. The mod's OAR submods (priority 432300, plus 432301 for first-person muskets
 with `DAR Rifles.esp 0x800`) require **HasPerk `0x815` AND HasPerk `069CD5`**. They swap in copies of the would-win
 reload clips (loose files by MO2 order, then `Skyrim - Animations.bsa`; first-person muskets from DAR 432101),
-retimed `STACK_FACTOR` 1.3 shorter. Duration, frame and block times and annotations are scaled, and poses are
-unchanged (≤0.07° re-encode drift, asserted). The graph's 1.3 still applies on top, for 1.69× total:
+retimed `STACK_FACTOR` 1.3 shorter. Duration, frame duration and annotations are scaled, and poses are
+unchanged (≤0.07° re-encode drift, asserted). The block header is Havok's (`blockDuration` = (maxFramesPerBlock − 1)
+× frameDuration, asserted on the written file). Until 2026-11-01 it was zeroed, and PyNifly then wrote `blockDuration` =
+clip length (2.05 s instead of 6.54 s). That is the latent frame-lookup issue [`LoopPistolAnims`](LoopPistolAnims.md)
+v12 found. Every source clip (vanilla BSA, DAR 432101, Zodd's) has the Havok header, and each rebuilt clip's value is
+the source's ÷ 1.3. The **loaded copy is Patch Collection's** (the standalone mod is disabled), so replace it after a
+rerun (old one backed up in `E:/Zenderal-backups/quick-reload-stack-header-2026-11-01/`). The graph's 1.3 still
+applies on top, for 1.69× total:
 
 | Reload | Neither | One perk | Both |
 |---|---|---|---|
 | 3rd person (Zodd's loose clip, 2.03 s) | 2.03 s | 1.56 s | 1.20 s |
 | 1st person (DAR 432101 musket / vanilla) | 2.67 s | 2.05 s | 1.58 s |
 
-Rerun the tool after any change to the crossbow animation mods. **Unverified in game.**
+Rerun the tool after any change to the crossbow animation mods, then copy its two `OpenAnimationReplacer/Zenderal -
+Quick Reload Stack` folders over Patch Collection's, and rerun `FlintlockOverhaul/tools/06` (it imports `retime`).
+**Unverified in game** (header fix included).
 
 **Known gaps:** pistols (staves) get neither gun hit effects nor faster reload — those need `FlintlockOverhaul`'s own
 shot enchantments/script to check the perks; Flow State's event registration is unverified (re-registers every 30 s);
@@ -1020,6 +1111,13 @@ without Surrounded keeps it.
   hostile within 400 units away from the player (`PushActorAway` 4). It casts a target-delivered copy (`0x933`/`0x934`)
   of Bleeding Shot's Monk bleed `0x829` (10/s for 5 s) on each one. The cooldown, 30 s since 2026-10-22 (was 60), uses Templar's
   pattern (`0x935`/`0x936`).
+  **Level gate (2026-10-31, curator, after a player found it too strong: "level gate the Stomp ... not knocked back
+  just a 3 second stagger").** Ice Shot's freeze rule: only enemies no higher than the player's level and not unique
+  (`GetLeveledActorBase().IsUnique()`) are pushed and launched. The others stay standing and take the Utility Droid's
+  stagger spell (`0x943`, Enderal's `StaggerAttackFFContact` as a target-actor effect, magnitude 0.5), cast at the
+  impact and again every `StaggerEvery` 1 s until `StaggerSeconds` 3 s (one stagger reaction is shorter than 3 s).
+  Every enemy hit still bleeds, and slow time still starts when any enemy is hit. The power's effect lasts 8 s (was 6)
+  so the script outlives the hold. Unverified in game.
   **Launch and slow time (2026-10-22, curator's request).** Once `PushActorAway` has ragdolled the targets, a
   0.1 s wait follows, then `ApplyHavokImpulse(0, 0, 1, LiftImpulse = 200)`. That's the technique Frozen
   Electrocuted Combustion uses to float ragdolls (50–100 per nudge, scaled by mass). 200 flew higher than the

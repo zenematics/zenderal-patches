@@ -1,0 +1,10 @@
+FormKey: 000B23:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ArcaneArrow_Fire
+FormVersion: 44
+ObjectBounds:
+  First: -8, -8, -8
+  Second: 8, 8, 8
+Model:
+  File: Magic\FireballInvArt.nif
+Type:
+- MagicHitEffect

@@ -1,0 +1,22 @@
+FormKey: 000B1A:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_PistolBonusDamageEffect
+Name:
+  TargetLanguage: English
+  Value: Firearms
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- NoDuration
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: <mag> extra damage.

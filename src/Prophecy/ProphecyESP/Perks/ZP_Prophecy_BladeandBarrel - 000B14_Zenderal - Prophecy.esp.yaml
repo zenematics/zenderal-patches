@@ -1,0 +1,30 @@
+FormKey: 000B14:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BladeandBarrel
+Description:
+  TargetLanguage: English
+  Value: 'A melee hit reloads your pistols at once (once every 15 seconds), and a pistol hit makes your next melee hit within 3 seconds deal 25% more damage.'
+Name:
+  TargetLanguage: English
+  Value: 'Blade and Barrel'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000B12:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 100
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000B1C:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.25

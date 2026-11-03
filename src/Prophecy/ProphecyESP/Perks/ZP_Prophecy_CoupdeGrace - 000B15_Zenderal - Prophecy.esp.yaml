@@ -1,0 +1,23 @@
+FormKey: 000B15:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_CoupdeGrace
+Description:
+  TargetLanguage: English
+  Value: 'Your pistol hits deal double damage to enemies that are staggered, knocked down, bleeding out or below 25% Health.'
+Name:
+  TargetLanguage: English
+  Value: 'Coup de Grace'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Flags:
+  - OR
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000B13:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000B14:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True

@@ -157,7 +157,17 @@ SORC_TUNE = {'000825:KittySpellPack02.esl': [('000817:KittySpellPack02.esl', 0, 
 EFFIGY_EVERY = 6.0   # Twin Effigies' chain lightning (curator 2026-10-29 "balance"): 3 s was 2 x 40 every 3 s for 30-60 s
 SORC = {'OrbDrain': 10, 'OrbRegen': 10, 'BurnSeconds': 20, 'CostMult': 0.5, 'RegenPerSecond': 10}
 # Ricochet Rounds (2026-10-29): chance per pistol hit, the second target's search radius (units, ~feet)
-RICOCHET = {'Chance': 25, 'Range': 960, 'Feet': 45, 'Cooldown': 1.0}
+RICOCHET = {'Chance': 25, 'Range': 960, 'Feet': 45, 'Cooldown': 1.0,
+            'HairTriggerBonus': 25}   # added with Hair Trigger (2026-11-02: its faster reload went; the ramrod reload is the pace)
+# The pistol branch (curator 2026-11-01: "more Pistol related talents"), under Ricochet Rounds. Both instant reloads
+# are the Flintlock Overhaul's reload script (it looks Fan's marker up by FormID);
+# the hits are ZenProphecyRage.dll 1.4.0 (write_rage's 'pistols'). PointBlankRange in units (~12 ft); bonuses are
+# fractions of the shot's own damage (its magnitude after the player's ModSpellMagnitude perks), dealt by one extra
+# damage spell. Fan the Hammer: FanSeconds of Seismic Stomp's slow time at FanSlow world speed, 50% Arcane Fever
+PISTOL = {'PointBlankRange': 256, 'PointBlankFeet': 12, 'PointBlankBonus': 0.5,
+          'BladeBonus': 1.25, 'BladeSeconds': 3.0, 'CoupBonus': 1.0, 'CoupHealth': 0.25,
+          'BladeReloadCooldown': 15,   # text only: the reload script's own BladeReloadCooldown is the real one
+          'FanSeconds': 6, 'FanSlow': 0.3, 'FanFever': 50}
 # The Hunt (2026-10-29): Goodberries spent per call; the wolves' summon lasts HUNT['Seconds'] - "until killed"
 HUNT = {'Berries': 5, 'Seconds': 100000}
 DRUID = {'CraftBerries': 1, 'CraftHeal': 20, 'FormFever': 50, 'FormSeconds': 60, 'FamiliarSeconds': 65, 'ExtraSummons': 4}
@@ -183,6 +193,13 @@ TREES = [
     # Ricochet Rounds (curator 2026-10-29): pistols, off Steady Aim (the root's stat talent), allocated last
     # (FIREARMS_LATE_NODES). ZenProphecyRage.dll does the bounce (write_rage's 'ricochet')
     ('gun6', 'Ricochet Rounds', f"Your pistol shots have a {RICOCHET['Chance']}% chance to ricochet off their target into another enemy up to {RICOCHET['Feet']} feet away, hitting it with the same shot.", None, [], ['gst1']),
+    # the pistol branch (curator 2026-11-01), allocated last (FIREARMS_LATE_NODES_2); Fan the Hammer is a second
+    # capstone (EXTRA_CAPSTONES)
+    ('gun7', 'Hair Trigger', f"Your pistol shots are another {RICOCHET['HairTriggerBonus']}% likelier to ricochet, and Elemental Rounds and Bleeding Shot work with your pistols too.", None, [], ['gun6']),
+    ('gun8', 'Point Blank', f"Your pistol hits on an enemy within {PISTOL['PointBlankFeet']} feet deal {round(PISTOL['PointBlankBonus'] * 100)}% more damage and stagger it.", None, [], ['gun7']),
+    ('gun9', 'Blade and Barrel', f"A melee hit reloads your pistols at once (once every {PISTOL['BladeReloadCooldown']} seconds), and a pistol hit makes your next melee hit within {PISTOL['BladeSeconds']:g} seconds deal {round((PISTOL['BladeBonus'] - 1) * 100)}% more damage.", None, [], ['gun7']),
+    ('gun10', 'Coup de Grace', f"Your pistol hits deal double damage to enemies that are staggered, knocked down, bleeding out or below {round(PISTOL['CoupHealth'] * 100)}% Health.", None, [], ['gun8', 'gun9']),
+    ('gun11', 'Fan the Hammer', f'Grants the "Fan the Hammer" power (no Mana, {PISTOL["FanFever"]}% Arcane Fever): for {PISTOL["FanSeconds"]} seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy. It cannot be used at {PISTOL["FanFever"]}% Arcane Fever or more.', None, [], ['gun10']),
     ('gun4', 'Run and Gun', 'You move at full speed while aiming a musket.', '058F63:Skyrim.esm', [], ['gun2', 'gun3']),
     ('gun5', 'Deadeye', "A musket shot at a target you haven't shot in the last 10 seconds is a critical strike that deals triple critical damage, and its weapon enchantments are twice as strong.", o('0064C0'), [], ['gun4']),
   ]),
@@ -227,7 +244,7 @@ TREES = [
   # Glory (2026-10-21, curator's design): all hand-built - see write_glory. Its records sit AFTER every other
   # block (GLORY_FIRST_ID) so adding it did not renumber the four older trees in existing saves.
   ('Glory', 'Charges, banners and hard-won grit.', [
-    ('glo1', 'Seismic Stomp', 'Grants the "Seismic Stomp" power: stomp the ground to send out a shockwave that hurls every enemy within 19 feet into the air and makes them bleed for 50 damage over 5 seconds, while time briefly slows. Usable once every 30 seconds.', None, [], []),
+    ('glo1', 'Seismic Stomp', 'Grants the "Seismic Stomp" power: stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead. Usable once every 30 seconds.', None, [], []),
     ('glo2', 'Second Wind', 'While you are at or below half Health, every hit you take restores 20 Stamina.', None, [], ['glo1']),
     ('glo3', 'Dragon Scale', 'You gain 25% resistance to fire, frost and lightning.', None, [], ['glo1']),
     ('glo5', 'Surrounded', 'While 3 or more enemies are near you, you regenerate 2 Stamina per second.', None, [], ['glo2', 'glo3']),
@@ -419,7 +436,9 @@ SHADOW_LATE_NODES = ('shd6',)            # Shade Veil (2026-10-28): allocated af
 SHADOW_LATE_NODES_2 = ('shd7',)          # Darkness (2026-10-28): allocated after the Darkness meter's records
 SHADOW_LATE = SHADOW_LATE_NODES + SHADOW_LATE_NODES_2
 MARTIAL_LATE_NODES = ('ma6',)
-FIREARMS_LATE_NODES = ('gun6',)          # Ricochet Rounds (2026-10-29): allocated after The Hunt's records            # Dragon's Breath (2026-10-28): allocated after Nightblade's records
+FIREARMS_LATE_NODES = ('gun6',)          # Ricochet Rounds (2026-10-29): allocated after The Hunt's records
+FIREARMS_LATE_NODES_2 = ('gun7', 'gun8', 'gun9', 'gun10', 'gun11')   # the pistol branch (2026-11-01): after The Hunt's summon art
+EXTRA_CAPSTONES = {'gun11'}              # capstones not after a W2 stat talent (Fan the Hammer: the pistol branch's)
 LATE_NODES = ('gad6',)                   # talents added after the stat talents: allocated after the Faith records                      # every capstone needs this player level (curator 2026-10-25; ZP_ProphecyMenu.LevelReq)
 STAT = {}                          # node id -> (kind, magnitude)
 
@@ -452,7 +471,7 @@ def weave_stats():
             at = next(i for i, n in enumerate(ns) if n[0] == after)
             ns.insert(at + 1, stat(s, [s[4]]))
         for s in [w1, w2] + sides: STAT[s[0]] = (s[2], s[3])
-        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES + SHADOW_LATE + MARTIAL_LATE_NODES + FIREARMS_LATE_NODES), (tree, len(ns))
+        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES + SHADOW_LATE + MARTIAL_LATE_NODES + FIREARMS_LATE_NODES + FIREARMS_LATE_NODES_2), (tree, len(ns))
         TREES[k] = (tree, desc, ns)
 
 
@@ -685,7 +704,7 @@ def main():
     glory_all = [n[0] for t, _, ns in TREES if t == GLORY for n in ns if n[0] not in STAT]
     glory_nodes = [nid for nid in glory_all if nid not in GLORY_LATE_NODES]
     for nid, n in nodes.items():                         # perks first, in tree order, for readable IDs
-        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES or nid in shadow_all or nid in druid_all or nid in DRUID_LATE_NODES or nid in DRUID_LATE_NODES_2 or nid in sorc_all or nid in rage_all or nid in SHADOW_LATE or nid in MARTIAL_LATE_NODES or nid in FIREARMS_LATE_NODES: continue
+        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES or nid in shadow_all or nid in druid_all or nid in DRUID_LATE_NODES or nid in DRUID_LATE_NODES_2 or nid in sorc_all or nid in rage_all or nid in SHADOW_LATE or nid in MARTIAL_LATE_NODES or nid in FIREARMS_LATE_NODES or nid in FIREARMS_LATE_NODES_2: continue
         if n[3]: newid[n[3]] = f'{nxt:06X}:{MOD}'
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     for a, nid in alias.items(): newid[a] = nodeperk[nid]
@@ -840,6 +859,14 @@ def main():
     # The Hunt's invisible summon art (2026-10-29). Append LAST
     assert nxt == 0xB11, f"The Hunt's summon art would not start at 0xB11 (0x{nxt:03X})"
     druid.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(HUNT_PORTAL_RECORDS)}); nxt += len(HUNT_PORTAL_RECORDS)
+    # Firearms, later (2026-11-01): the pistol branch's five perks, then its records. Append LAST
+    assert nxt == 0xB12, f"the pistol branch would not start at 0xB12 (0x{nxt:03X})"
+    for nid in FIREARMS_LATE_NODES_2:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    pistol = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(PISTOL_RECORDS)}; nxt += len(PISTOL_RECORDS)
+    # Arcane Arsenal's arrowhead art objects (2026-11-02). Append LAST
+    assert nxt == 0xB23, f"Arcane Arsenal's arrow arts would not start at 0xB23 (0x{nxt:03X})"
+    arc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(ARSENAL_ART_RECORDS)}); nxt += len(ARSENAL_ART_RECORDS)
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -1050,6 +1077,8 @@ def main():
                   '    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: EPMagic_SpellHasKeywordConditionData\n'
                   f"        Keyword: {glory['slowkw']}\n      ComparisonValue: 1\n  EntryPoint: ModPlayerMagicSlowdown\n"
                   '  PerkConditionTabCount: 2\n  Value: 1\n')
+        if nid in ('gun9', 'gun11'):
+            t = t.rstrip('\n') + '\n' + pistol_perk(nid, pistol, glory)
         write('Perks', t)
 
     # --- hand-built records
@@ -1060,7 +1089,7 @@ def main():
     write_dummies(write)
     # add_fever(newid, write, rec) - off since 2026-10-25 (curator): Faith's free heals no longer raise Arcane Fever
     add_tripwire_blast(newid, write, blast)
-    write_glory(glory, write)
+    write_glory(glory, write, droid['stg'])
     write_arcane(arc, newid, write, sharp)
     write_necro(nec, nodeperk, write)
     # Quick Reload's own weapon-speed ability: PerkAbQuickShot 106642 (Enderal SE - Crossbows' winning copy, shared with
@@ -1105,7 +1134,8 @@ Priority: 128
     write_sorcerer(sorc, write)
     write_unsold_tomes(write)
     write_dragons_breath(dragon, write, sharp, arc)
-    write_rage(rage, nodeperk, write, dragon, flowchain)
+    write_pistols(pistol, nodeperk, write, glory)
+    write_rage(rage, nodeperk, write, dragon, flowchain, pistol, droid['stg'], arc)
 
     if bad:
         for k, v in sorted(bad.items()): print('UNRESOLVED', v, k)
@@ -2205,6 +2235,14 @@ ARC_RECORDS = ('arspell', 'arme', 'armsg', 'arglob',                       # Arc
                'icepower', 'iceme', 'icecd', 'icecdme', 'icearrow', 'iceproj', 'iceball', 'iceballproj',
                'iceexp', 'iceench', 'freezeme',                           # Ice Shot (iceball*: reserved, bows only)
                'ravenme', 'ravenlist')                                    # Send a Raven
+# Arcane Arsenal's elemental arrows (2026-11-02): an art object on the arrowhead while it is nocked and in flight,
+# placed by ZenProphecyRage.dll 1.6.0. The models are the vanilla spell-menu orbs (looping, no behavior graph), shrunk by
+# the DLL to ARSENAL_ART_SCALE. 1.5.0's enchantment shaders covered the whole player, not the arrow (curator's test).
+ARSENAL_ART_RECORDS = ('arsfire', 'arsfrost', 'arsshock')
+ARSENAL_ARTS = {'arsfire': ('ZP_Prophecy_ArcaneArrow_Fire', r'Magic\FireballInvArt.nif'),
+                'arsfrost': ('ZP_Prophecy_ArcaneArrow_Frost', r'Magic\MAGINVIceSpellArt.nif'),
+                'arsshock': ('ZP_Prophecy_ArcaneArrow_Shock', r'Magic\MAGINVShockSpellArt.nif')}
+ARSENAL_ART_SCALE = 0.3
 ARC_ABILITY = {'arc1': 'arspell', 'arc2': 'ndab'}   # node -> what its perk grants (Ice Shot's shout: the menu, grants)
 ICE_LATE_RECORDS = ('iceshout', 'iceword')       # Ice Shot as a talent (2026-10-28), allocated after Sorcery's late records
 # Arcane Archery is bows only (curator 2026-10-23): the player's right-hand item type is 7 (crossbows/muskets: 12).
@@ -2566,7 +2604,7 @@ Priority: 128
     open(p[0], 'w', encoding='utf-8', newline='\r\n').write(t)
 
 
-def write_glory(g, write):
+def write_glory(g, write, stagger):
     """Glory's records (curator's design, 2026-10-21; Gap Closer became Seismic Stomp 2026-10-22).
     Seismic Stomp follows Enderal's own stomp beat (_00E_MQ15_Functions.TealorBreakWall: PlayIdle _00E_IdleStomp,
     wait 0.5 s, PlaceAtMe a shockwave, ShakeCamera) - the idle is Enderal's FNIS basic idle "Stomp" (stomp.hkx in
@@ -2599,7 +2637,7 @@ def write_glory(g, write):
 
     # --- Seismic Stomp: lesser power -> scripted stomp (idle, shockwave, knockback, bleed); 60 s cooldown effect
     write('Spells', spell(g['stompspell'], 'ZP_Prophecy_SeismicStomp_Power', 'Seismic Stomp', 'LesserPower', 'FireAndForget',
-                          f'- BaseEffect: {g["stompme"]}\n  Data:\n    Duration: 6\n', equip='025BEE:Skyrim.esm',   # outlasts the script's waits, even slowed
+                          f'- BaseEffect: {g["stompme"]}\n  Data:\n    Duration: 8\n', equip='025BEE:Skyrim.esm',   # outlasts the script's waits (3 s stagger hold), even slowed
                           extra='Flags:\n- IgnoreResistance\n- NoAbsorbOrReflect\n'))
     write('MagicEffects', mgef(g['stompme'], 'ZP_Prophecy_SeismicStomp_Effect', 'Seismic Stomp', '',
                                ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'], '  Type: Script\n',
@@ -2609,7 +2647,10 @@ def write_glory(g, write):
                                    ('Bleed', 'Object', g['bleedspell']),
                                    ('SlowTime', 'Object', g['slowspell']),
                                    ('Cooldown', 'Object', g['stompcd']),
-                                   ('CooldownEffect', 'Object', g['stompcdme'])])))
+                                   ('CooldownEffect', 'Object', g['stompcdme']),
+                                   # level gate (2026-10-31): enemies above the player's level or unique are held in
+                                   # the Utility Droid's stagger (Enderal's contact stagger) instead of launched
+                                   ('Stagger', 'Object', stagger)])))
     t = open(SHOCKWAVE, encoding='utf-8').read().replace('\r\n', '\n')
     t = re.sub(r'^FormKey: .*$', f'FormKey: {g["stompexp"]}', t, count=1, flags=re.M)
     t = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_SeismicStomp_Explosion', t, count=1, flags=re.M)
@@ -4384,7 +4425,292 @@ def write_dragons_breath(d, write, sharp, arc):
                           f"- BaseEffect: {d['Frostproj']}\n  Data:\n    Duration: {DRAGON_FREEZE_SECONDS}\n"))
 
 
-def write_rage(r, nodeperk, write, dragon, flowchain):
+# The pistol branch's records (2026-11-01), in order - append new ones LAST: Hair Trigger's hit spell (Elemental Rounds'
+# fire on its own target-delivered copy, Seismic Stomp's bleed), the extra damage (Point Blank, Coup de Grace), Blade
+# and Barrel's marker ability, Fan the Hammer's power, gate, spell, slow time, marker and fever
+PISTOL_RECORDS = ('pistolhit', 'pistolfire', 'bonusdmg', 'bonusdmgme', 'bbab', 'bbme',
+                  'fanpower', 'fangate', 'fanspell', 'fanslowme', 'fanme', 'fanfever')
+PISTOL_FIRE_SRC = os.path.join(REF, 'base', 'Skyrim', 'MagicEffects', 'EnchFireDamageFFContact - 04605A_Skyrim.esm.yaml')
+
+
+def pistol_perk(nid, p, glory):
+    if nid == 'gun9':    # Blade and Barrel: melee attacks x BladeBonus while the DLL's marker ability is on
+        return ('Effects:\n- MutagenObjectType: PerkEntryPointModifyValue\n  Priority: 100\n  Conditions:\n  - Conditions:\n'
+                '    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: HasMagicEffectConditionData\n'
+                f"        MagicEffect: {p['bbme']}\n      ComparisonValue: 1\n  EntryPoint: ModAttackDamage\n"
+                f"  PerkConditionTabCount: 3\n  Modification: Multiply\n  Value: {PISTOL['BladeBonus']}\n")
+    if nid == 'gun11':   # Fan the Hammer: the power; the player keeps full speed in its slow time (Seismic Stomp's keyword)
+        return ('Effects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + p['fanpower'] + '\n'
+                '- MutagenObjectType: PerkEntryPointModifyValue\n  Conditions:\n  - RunOnTabIndex: 1\n    Conditions:\n'
+                '    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: EPMagic_SpellHasKeywordConditionData\n'
+                f"        Keyword: {glory['slowkw']}\n      ComparisonValue: 1\n  EntryPoint: ModPlayerMagicSlowdown\n"
+                '  PerkConditionTabCount: 2\n  Value: 1\n')
+    return ''
+
+
+def write_pistols(p, nodeperk, write, glory):
+    """The pistol branch's records (curator 2026-11-01). Pistols are staves firing the Flintlock Overhaul's shot
+    enchantments, so weapon entry points never touch them: ZenProphecyRage.dll casts these on pistol hits."""
+    gate = lambda perk: ('  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: HasPerkConditionData\n'
+                         '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n'
+                         f'      Perk: {perk}\n    ComparisonValue: 1\n')
+    # Hair Trigger: Elemental Rounds' fire and Bleeding Shot's bleed on pistol hits. The musket hit spell's effects are
+    # Touch-delivered (ApplyCombatHitSpell); the DLL casts this one at the target, so both effects are target-delivered:
+    # Seismic Stomp's bleed (already a target copy of Bleeding Shot's) and a target copy of EnchFireDamageFFContact
+    write('Spells', f"""FormKey: {p['pistolhit']}
+EditorID: ZP_Prophecy_HairTrigger_HitSpell
+Name:
+  TargetLanguage: English
+  Value: Hair Trigger
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: {glory['bleedme']}
+  Data:
+    Magnitude: 10
+    Duration: 5
+  Conditions:
+{gate(nodeperk['gun3'])}- BaseEffect: {p['pistolfire']}
+  Data:
+    Magnitude: 10
+    Duration: 0
+  Conditions:
+{gate(nodeperk['gun2'])}""")
+    t = open(PISTOL_FIRE_SRC, encoding='utf-8').read().replace('\r\n', '\n')
+    for a, b in ((r'^FormKey: .*$', f"FormKey: {p['pistolfire']}"),
+                 (r'^EditorID: .*$', 'EditorID: ZP_Prophecy_HairTrigger_FireEffect'),
+                 (r'^Version2: .*\n', ''),
+                 (r'^Name:\n(?:  .*\n)+', 'Name:\n  TargetLanguage: English\n  Value: Elemental Rounds\n'),
+                 (r'^Description:\n(?:  .*\n)+', 'Description:\n  TargetLanguage: English\n  Value: Deals <mag> points of fire damage.\n'),
+                 (r'^TargetType: Touch$', 'TargetType: TargetActor'),
+                 # cast by the player's instant caster: no Destruction skill, so no Destruction perks or practice
+                 (r'^MagicSkill: Destruction\n', ''), (r'^MinimumSkillLevel: .*\n', '')):
+        t, n = re.subn(a, b, t, count=1, flags=re.M)
+        assert n == 1, f'pistol fire effect: {a}'
+    write('MagicEffects', t)
+    # Point Blank / Coup de Grace: the DLL sets the magnitude (a fraction of the shot's own damage)
+    write('Spells', f"""FormKey: {p['bonusdmg']}
+EditorID: ZP_Prophecy_PistolBonusDamage
+Name:
+  TargetLanguage: English
+  Value: Firearms
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: {p['bonusdmgme']}
+  Data:
+    Magnitude: 1
+""")
+    write('MagicEffects', f"""FormKey: {p['bonusdmgme']}
+EditorID: ZP_Prophecy_PistolBonusDamageEffect
+Name:
+  TargetLanguage: English
+  Value: Firearms
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- NoDuration
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: <mag> extra damage.
+""")
+    # Blade and Barrel: the DLL adds this ability on a pistol hit and removes it on the next melee hit (or after
+    # BladeSeconds); gun9's perk entry multiplies attack damage while its effect is on
+    write('Spells', f"""FormKey: {p['bbab']}
+EditorID: ZP_Prophecy_BladeAndBarrel_Ability
+Name:
+  TargetLanguage: English
+  Value: Blade and Barrel
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: {p['bbme']}
+  Data: {{}}
+""")
+    write('MagicEffects', f"""FormKey: {p['bbme']}
+EditorID: ZP_Prophecy_BladeAndBarrel_Effect
+Name:
+  TargetLanguage: English
+  Value: Blade and Barrel
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Recover
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Your next melee hit deals {round((PISTOL['BladeBonus'] - 1) * 100)}% more damage.
+""")
+    # Fan the Hammer: Wrath of the Lightborn's gate (fever checked once at cast), then the spell: Seismic Stomp's slow
+    # time (a copy with its own dispel delay) and the marker the reload script and the DLL look for
+    write('Spells', f"""FormKey: {p['fanpower']}
+EditorID: ZP_Prophecy_FanTheHammer_Power
+Name:
+  TargetLanguage: English
+  Value: Fan the Hammer
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: {p['fangate']}
+  Data: {{}}
+""")
+    write('MagicEffects', f"""FormKey: {p['fangate']}
+EditorID: ZP_Prophecy_FanTheHammer_Gate
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WrathGate
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CloakSpell
+      Object: {p['fanspell']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FeverSpell
+      Object: {p['fanfever']}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: MaxFever
+      Data: {float(PISTOL['FanFever'])}
+    - MutagenObjectType: ScriptStringProperty
+      Name: Refusal
+      Data: Your Arcane Fever is too high to fan the hammer.
+Name:
+  TargetLanguage: English
+  Value: Fan the Hammer
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+    write('Spells', f"""FormKey: {p['fanspell']}
+EditorID: ZP_Prophecy_FanTheHammer_Spell
+Name:
+  TargetLanguage: English
+  Value: Fan the Hammer
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: FireAndForget
+Effects:
+- BaseEffect: {p['fanslowme']}
+  Data:
+    Magnitude: {PISTOL['FanSlow']}
+    Duration: {PISTOL['FanSeconds']}
+- BaseEffect: {p['fanme']}
+  Data:
+    Duration: {PISTOL['FanSeconds']}
+""")
+    src = glob.glob(os.path.join(ESP, 'MagicEffects', f"* - {glory['slowme'].split(':')[0]}_*"))
+    assert len(src) == 1, 'Seismic Stomp slow-time effect not written yet'
+    t = open(src[0], encoding='utf-8').read().replace('\r\n', '\n')
+    assert t.count(glory['slowme']) == 2, 'slow-time effect: FormKey + its own no-recast condition'
+    t = t.replace(glory['slowme'], p['fanslowme'])
+    t = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_FanTheHammer_SlowTimeEffect', t, count=1, flags=re.M)
+    t2 = re.sub(r'(Name: ORD_DelayUntilDispel\n      Data: )\S+', lambda m: m.group(1) + str(PISTOL['FanSeconds']), t, count=1)
+    assert t2 != t, 'slow-time copy: no ORD_DelayUntilDispel'
+    write('MagicEffects', t2)
+    write('MagicEffects', f"""FormKey: {p['fanme']}
+EditorID: ZP_Prophecy_FanTheHammer_Effect
+Name:
+  TargetLanguage: English
+  Value: Fan the Hammer
+Flags:
+- NoMagnitude
+- NoArea
+- Recover
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Your pistols reload at once and every pistol hit ricochets into another enemy for <dur> seconds.
+""")
+    write('Spells', f"""FormKey: {p['fanfever']}
+EditorID: ZP_Prophecy_FanTheHammer_Fever
+Name:
+  TargetLanguage: English
+  Value: Fan the Hammer
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+Effects:
+- BaseEffect: {FEVER}
+  Data:
+    Magnitude: {PISTOL['FanFever']}
+    Duration: 1
+""")
+
+
+def write_rage(r, nodeperk, write, dragon, flowchain, pistol, stagger, arc):
+    for k in ARSENAL_ART_RECORDS:
+        edid, model = ARSENAL_ARTS[k]
+        write('ArtObjects', f"FormKey: {arc[k]}\nEditorID: {edid}\nFormVersion: 44\nObjectBounds:\n  First: -8, -8, -8\n"
+                            f"  Second: 8, 8, 8\nModel:\n  File: {model}\nType:\n- MagicHitEffect\n")
     write('Globals', f"MutagenObjectType: GlobalShort\nFormKey: {r['global']}\nEditorID: ZP_Rage\nData: 0\n")
     write('Spells', f"FormKey: {r['vehspell']}\nEditorID: ZP_Prophecy_Vehemence_Spell\nName:\n  TargetLanguage: English\n"
                     "  Value: Vehemence\nEquipmentType: 013F44:Skyrim.esm\nDescription:\n  TargetLanguage: English\n  Value: ''\n"
@@ -4448,9 +4774,25 @@ Description:
                           'spells': [hexid(dragon[f'{e}spell']) for e in DRAGON_ELEMENTS]},   # no fist bursts
         # Ricochet Rounds (Firearms, 2026-10-29): a pistol hit - the Flintlock Overhaul's shot enchantments all carry
         # PMPistolShot, tagged ZP_FlintlockShot - re-casts the same shot from the target at the next enemy
-        'ricochet': {'perk': hexid(nodeperk['gun6']), 'chance': RICOCHET['Chance'], 'range': RICOCHET['Range'],
+        'ricochet': {'perk': hexid(nodeperk['gun6']), 'chance': RICOCHET['Chance'],
+                     'hairTriggerBonus': RICOCHET['HairTriggerBonus'], 'range': RICOCHET['Range'],
                      'cooldown': RICOCHET['Cooldown'], 'keywordPlugin': 'Zenderal - Flintlock Overhaul.esp',
                      'keyword': '00080C'},
+        # the pistol branch (Firearms, 2026-11-01): pistol hits as Ricochet's; Hair Trigger's ricochet chance is in
+        # 'ricochet' above; the instant
+        # reloads are the Flintlock Overhaul's reload script (mod event ZP_FlintlockReload)
+        'pistols': {'hairTrigger': hexid(nodeperk['gun7']), 'pointBlank': hexid(nodeperk['gun8']),
+                    'bladeBarrel': hexid(nodeperk['gun9']), 'coup': hexid(nodeperk['gun10']),
+                    'hitSpell': hexid(pistol['pistolhit']), 'bonusSpell': hexid(pistol['bonusdmg']),
+                    'staggerSpell': hexid(stagger), 'bladeAbility': hexid(pistol['bbab']),
+                    'fanEffect': hexid(pistol['fanme']),
+                    'pointBlankRange': PISTOL['PointBlankRange'], 'pointBlankBonus': PISTOL['PointBlankBonus'],
+                    'coupBonus': PISTOL['CoupBonus'], 'coupHealth': PISTOL['CoupHealth'],
+                    'bladeSeconds': PISTOL['BladeSeconds']},
+        # Arcane Arsenal's elemental arrows (2026-11-02): the chosen element's art (global 1-3: fire, frost, lightning)
+        # on the arrowhead while a bow's arrow is nocked (BowAttached/BowDrawn) and on the player's arrows in flight
+        'arsenal': {'perk': hexid(nodeperk['arc1']), 'global': hexid(arc['arglob']),
+                    'arts': [hexid(arc[k]) for k in ARSENAL_ART_RECORDS], 'scale': ARSENAL_ART_SCALE},
         # Twin Effigies (Sorcery, 2026-10-29): Shatterveil's effigies cast the spells the player held when casting it
         'effigies': {'plugin': SHVL, 'spells': list(EFFIGY_CAST['Spells']), 'faction': EFFIGY_CAST['Faction'],
                      'base': EFFIGY_CAST['Base'], 'castEvery': EFFIGY_CAST['CastEvery'], 'range': EFFIGY_CAST['Range'],
@@ -4525,7 +4867,8 @@ def write_menu(nodes, nodeperk, write, grants):
     pos = {nid: k for k, nid in enumerate(order)}
     # capstones need level 30 (curator 2026-10-25): the talent after each tree's W2 stat talent
     caps = {n for n in order if nodes[n][5] and nodes[n][5][0] in {w2[0] for _, _, w2 in STAT_NODES.values()} | HAND_W2}
-    assert len(caps) == len(TREES), ('capstones', sorted(caps))
+    caps |= EXTRA_CAPSTONES
+    assert len(caps) == len(TREES) + len(EXTRA_CAPSTONES), ('capstones', sorted(caps))
     levelreq = [CAPSTONE_LEVEL if n in caps else 0 for n in order]
     pa = [pos[nodes[n][5][0]] if nodes[n][5] else -1 for n in order]
     pb = [pos[nodes[n][5][1]] if len(nodes[n][5]) > 1 else -1 for n in order]

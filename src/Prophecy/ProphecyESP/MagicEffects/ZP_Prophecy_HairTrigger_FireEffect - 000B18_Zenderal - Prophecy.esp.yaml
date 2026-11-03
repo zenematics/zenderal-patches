@@ -1,0 +1,34 @@
+FormKey: 000B18:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_HairTrigger_FireEffect
+Name:
+  TargetLanguage: English
+  Value: Elemental Rounds
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 0.9
+ResistValue: ResistFire
+TaperWeight: 0.2
+HitShader: 01B212:Skyrim.esm
+EnchantShader: 04E810:Skyrim.esm
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+ImpactData: 01C2AF:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> points of fire damage.

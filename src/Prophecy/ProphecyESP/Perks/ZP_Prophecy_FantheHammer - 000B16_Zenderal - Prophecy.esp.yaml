@@ -1,0 +1,31 @@
+FormKey: 000B16:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FantheHammer
+Description:
+  TargetLanguage: English
+  Value: 'Grants the "Fan the Hammer" power (no Mana, 50% Arcane Fever): for 6 seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy. It cannot be used at 50% Arcane Fever or more.'
+Name:
+  TargetLanguage: English
+  Value: 'Fan the Hammer'
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasPerkConditionData
+    Perk: 000B15:Zenderal - Prophecy.esp
+  ComparisonValue: 1
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000B1D:Zenderal - Prophecy.esp
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: EPMagic_SpellHasKeywordConditionData
+        Keyword: 000939:Zenderal - Prophecy.esp
+      ComparisonValue: 1
+  EntryPoint: ModPlayerMagicSlowdown
+  PerkConditionTabCount: 2
+  Value: 1

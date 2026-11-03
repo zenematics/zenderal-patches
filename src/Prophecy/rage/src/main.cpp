@@ -49,10 +49,33 @@
 // second (Projectile::Launch, shooter the player). 1.3.0's CastSpellImmediate from the target's instant caster fired
 // (logged) but showed no projectile (curator 2026-10-29). Each shot's hit arrives twice; one bounce per victim per
 // 0.15 s.
+//
+// The pistol branch (Firearms, 1.4.0, curator 2026-11-01). On a pistol hit (as Ricochet's, once per shot):
+// - Hair Trigger casts its hit spell at the target (Elemental Rounds' fire and Bleeding Shot's bleed, each gated on
+//   its own perk in the record);
+// - Point Blank (target within PointBlankRange of the player) and Coup de Grace (target staggered, knocked down,
+//   bleeding out or below CoupHealth of its Health) add fractions of the shot's damage, dealt as one extra damage
+//   spell. The shot's damage is each keyworded effect's magnitude through the ModSpellMagnitude entry point, as the
+//   engine computes it (ID 34053 calls HandleEntryPoint 0x1D with caster, spell, target, &magnitude); Point Blank also
+//   casts the Utility Droid's stagger;
+// - Blade and Barrel adds its marker ability (its perk's ModAttackDamage entry reads it) until the next melee hit or
+//   BladeSeconds; a melee hit with a pistol in either hand sends mod event ZP_FlintlockReload, which the Flintlock
+//   Overhaul's reload script answers by loading every fired pistol at once.
+// Fan the Hammer's effect makes every pistol hit ricochet (Ricochet Rounds owned or not); Hair Trigger raises the chance
+// (2026-11-02: its faster reload went - the ramrod reload sets the pace).
+//
+// Arcane Arsenal's elemental arrows (Arcane Archery, 1.6.0, curator 2026-11-02): with Arcane Arsenal's element global
+// at 1-3, that element's art object (a shrunk spell-menu orb: fire, frost, lightning) burns on the arrowhead
+// - while the player holds a bow with an arrow nocked (attack state BowAttached/BowDrawn), and
+// - on every arrow the player shoots from a bow, from launch until it hits something or is gone.
+// The art is attached (ApplyArtObject with an attach node) to a node of ours placed at the arrow's head: the head is
+// the end of the arrow mesh's bound along its Y axis that points the way the player faces (nocked) or the way the
+// arrow flies. 1.5.0 used the enchantment shaders, which the engine draws over the whole actor whatever the node.
+// Every 20 ms; our art effects are stopped before a save and after a load (an endless art would be saved).
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyRage.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 3, 3, 0 },
+	.Version = REL::Version{ 1, 6, 0, 0 },
 	.Name = "ZenProphecyRage"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -115,8 +138,29 @@ namespace
 		RE::BGSPerk*       ricochetPerk{ nullptr };
 		RE::BGSKeyword*    ricochetKeyword{ nullptr };
 		int                ricochetChance{ 25 };
+		int                ricochetHairTriggerBonus{ 25 };   // added to the chance with Hair Trigger (2026-11-02)
 		double             ricochetRange{ 960.0 };
 		double             ricochetCooldown{ 1.0 };
+		// the pistol branch
+		RE::BGSPerk*       hairTrigger{ nullptr };
+		RE::BGSPerk*       pointBlank{ nullptr };
+		RE::BGSPerk*       bladeBarrel{ nullptr };
+		RE::BGSPerk*       coup{ nullptr };
+		RE::SpellItem*     pistolHitSpell{ nullptr };
+		RE::SpellItem*     bonusSpell{ nullptr };
+		RE::SpellItem*     staggerSpell{ nullptr };
+		RE::SpellItem*     bladeAbility{ nullptr };
+		RE::EffectSetting* fanEffect{ nullptr };
+		double             pointBlankRange{ 256.0 };
+		double             pointBlankBonus{ 0.5 };
+		double             coupBonus{ 1.0 };
+		double             coupHealth{ 0.25 };
+		double             bladeSeconds{ 3.0 };
+		// Arcane Arsenal's elemental arrows
+		RE::BGSPerk*       arsenalPerk{ nullptr };
+		RE::TESGlobal*     arsenalGlobal{ nullptr };
+		std::vector<RE::BGSArtObject*> arsenalArts;   // fire, frost, lightning
+		float              arsenalScale{ 0.3f };
 	} g_cfg;
 
 	// state - touched only on the game's main thread (hit events and the tick task both run there)
@@ -200,9 +244,40 @@ namespace
 			c.ricochetPerk = Lookup<RE::BGSPerk>(plugin, r["perk"], "Ricochet Rounds perk");
 			c.ricochetKeyword = Lookup<RE::BGSKeyword>(r["keywordPlugin"].get<std::string>(), r["keyword"], "ZP_FlintlockShot keyword");
 			c.ricochetChance = r["chance"].get<int>();
+			c.ricochetHairTriggerBonus = r.value("hairTriggerBonus", 0);
 			c.ricochetRange = r["range"].get<double>();
 			c.ricochetCooldown = r["cooldown"].get<double>();
-			SKSE::log::info("Ricochet Rounds: {}% within {} units", c.ricochetChance, c.ricochetRange);
+			SKSE::log::info("Ricochet Rounds: {}% (+{}% with Hair Trigger) within {} units", c.ricochetChance,
+				c.ricochetHairTriggerBonus, c.ricochetRange);
+		}
+		if (j.contains("pistols")) {
+			auto& p = j["pistols"];
+			c.hairTrigger = Lookup<RE::BGSPerk>(plugin, p["hairTrigger"], "Hair Trigger perk");
+			c.pointBlank = Lookup<RE::BGSPerk>(plugin, p["pointBlank"], "Point Blank perk");
+			c.bladeBarrel = Lookup<RE::BGSPerk>(plugin, p["bladeBarrel"], "Blade and Barrel perk");
+			c.coup = Lookup<RE::BGSPerk>(plugin, p["coup"], "Coup de Grace perk");
+			c.pistolHitSpell = Lookup<RE::SpellItem>(plugin, p["hitSpell"], "Hair Trigger hit spell");
+			c.bonusSpell = Lookup<RE::SpellItem>(plugin, p["bonusSpell"], "pistol bonus damage spell");
+			c.staggerSpell = Lookup<RE::SpellItem>(plugin, p["staggerSpell"], "Point Blank stagger spell");
+			c.bladeAbility = Lookup<RE::SpellItem>(plugin, p["bladeAbility"], "Blade and Barrel ability");
+			c.fanEffect = Lookup<RE::EffectSetting>(plugin, p["fanEffect"], "Fan the Hammer effect");
+			c.pointBlankRange = p["pointBlankRange"].get<double>();
+			c.pointBlankBonus = p["pointBlankBonus"].get<double>();
+			c.coupBonus = p["coupBonus"].get<double>();
+			c.coupHealth = p["coupHealth"].get<double>();
+			c.bladeSeconds = p["bladeSeconds"].get<double>();
+			SKSE::log::info("pistol talents: point blank {} units +{}, coup +{} below {}, blade {} s", c.pointBlankRange,
+				c.pointBlankBonus, c.coupBonus, c.coupHealth, c.bladeSeconds);
+		}
+		if (j.contains("arsenal")) {
+			auto& a = j["arsenal"];
+			c.arsenalPerk = Lookup<RE::BGSPerk>(plugin, a["perk"], "Arcane Arsenal perk");
+			c.arsenalGlobal = Lookup<RE::TESGlobal>(plugin, a["global"], "Arcane Arsenal element global");
+			for (auto& s : a["arts"]) {
+				c.arsenalArts.push_back(Lookup<RE::BGSArtObject>(plugin, s, "Arcane Arsenal arrow art"));
+			}
+			c.arsenalScale = a.value("scale", 0.3f);
+			SKSE::log::info("Arcane Arsenal arrows: {} arts, scale {}", c.arsenalArts.size(), c.arsenalScale);
 		}
 		if (j.contains("effigies")) {
 			auto& e = j["effigies"];
@@ -781,12 +856,136 @@ namespace
 		return nullptr;
 	}
 
+	bool FanActive()
+	{
+		return g_cfg.fanEffect && Player()->AsMagicTarget()->HasMagicEffect(g_cfg.fanEffect);
+	}
+
+	// ---------------------------------------------------------------- the pistol branch
+	RE::FormID        g_pistolVictim = 0;       // each shot's hit arrives twice: one per victim per 0.15 s
+	Clock::time_point g_pistolVictimAt{};
+	bool              g_bladeOn = false;        // Blade and Barrel's ability is on the player
+	Clock::time_point g_bladeUntil{};
+
+	// the shot's damage on this target: its keyworded effects' magnitudes after the caster's ModSpellMagnitude perks
+	float ShotDamage(RE::MagicItem* a_shot, RE::Actor* a_player, RE::Actor* a_victim)
+	{
+		float total = 0.0f;
+		for (auto* e : a_shot->effects) {
+			if (e && e->baseEffect && e->baseEffect->HasKeyword(g_cfg.ricochetKeyword)) {
+				float m = e->effectItem.magnitude;
+				RE::BGSEntryPoint::HandleEntryPoint(RE::BGSEntryPoint::ENTRY_POINT::kModSpellMagnitude, a_player,
+					a_shot, a_victim, &m);
+				total += m;
+			}
+		}
+		return total;
+	}
+
+	bool Vulnerable(RE::Actor* a_victim)
+	{
+		auto* st = a_victim->AsActorState();
+		if (st->IsBleedingOut() || st->IsStaggered() || st->GetKnockState() != RE::KNOCK_STATE_ENUM::kNormal) {
+			return true;
+		}
+		auto*       av = a_victim->AsActorValueOwner();
+		const float max = av->GetPermanentActorValue(RE::ActorValue::kHealth);
+		return max > 0.0f && av->GetActorValue(RE::ActorValue::kHealth) < max * static_cast<float>(g_cfg.coupHealth);
+	}
+
+	void BladeOff(const char* a_why)
+	{
+		if (g_bladeOn && g_cfg.bladeAbility) {
+			Player()->RemoveSpell(g_cfg.bladeAbility);
+			SKSE::log::info("Blade and Barrel: marker off ({})", a_why);
+		}
+		g_bladeOn = false;
+	}
+
+	bool PistolInHand(RE::Actor* a_player)
+	{
+		for (bool left : { false, true }) {
+			if (auto* obj = a_player->GetEquippedObject(left); obj && PistolShot(obj->GetFormID())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	void PistolTalents(const RE::TESHitEvent* a_event)
+	{
+		auto& c = g_cfg;
+		auto* player = Player();
+		if (!c.ricochetKeyword || a_event->cause.get() != player || a_event->target.get() == player) {
+			return;
+		}
+		auto* victim = a_event->target->As<RE::Actor>();
+		if (!victim) {
+			return;
+		}
+		// a melee hit: Blade and Barrel spends its bonus (the hit's damage already had it) and reloads the pistols
+		if (IsMeleeWeapon(a_event->source)) {
+			BladeOff("melee hit");
+			if (Has(c.bladeBarrel) && PistolInHand(player)) {
+				SKSE::ModCallbackEvent ev{ "ZP_FlintlockReload", "", 0.0f, nullptr };
+				SKSE::GetModCallbackEventSource()->SendEvent(&ev);
+				SKSE::log::info("Blade and Barrel: melee hit on {:08X} - reload sent", victim->GetFormID());
+			}
+			return;
+		}
+		auto* shot = PistolShot(a_event->source);
+		if (!shot) {
+			return;
+		}
+		const auto now = Clock::now();
+		if (victim->GetFormID() == g_pistolVictim && Seconds(now - g_pistolVictimAt) < 0.15) {
+			return;
+		}
+		g_pistolVictim = victim->GetFormID();
+		g_pistolVictimAt = now;
+		auto* caster = player->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant);
+		if (Has(c.hairTrigger) && c.pistolHitSpell) {
+			caster->CastSpellImmediate(c.pistolHitSpell, false, victim, 1.0f, false, 0.0f, player);
+		}
+		double     bonus = 0.0;
+		const bool coup = Has(c.coup) && Vulnerable(victim);   // before Point Blank's own stagger
+		const auto dist = player->GetPosition().GetDistance(victim->GetPosition());
+		const bool close = Has(c.pointBlank) && dist <= c.pointBlankRange;
+		if (coup) {
+			bonus += c.coupBonus;
+		}
+		if (close) {
+			bonus += c.pointBlankBonus;
+		}
+		if (bonus > 0.0 && c.bonusSpell && !victim->IsDead()) {
+			const float dmg = ShotDamage(shot, player, victim) * static_cast<float>(bonus);
+			if (dmg > 0.0f) {
+				caster->CastSpellImmediate(c.bonusSpell, false, victim, 1.0f, false, dmg, player);
+			}
+			SKSE::log::info("pistol hit on {:08X} ({:.0f} units){}{}: +{:.1f}", victim->GetFormID(), dist,
+				coup ? " coup de grace" : "", close ? " point blank" : "", dmg);
+		}
+		if (close && c.staggerSpell && !victim->IsDead()) {
+			caster->CastSpellImmediate(c.staggerSpell, false, victim, 1.0f, false, 0.0f, player);
+		}
+		if (Has(c.bladeBarrel) && c.bladeAbility) {
+			if (!g_bladeOn) {
+				player->AddSpell(c.bladeAbility);
+			}
+			g_bladeOn = true;
+			g_bladeUntil = now + std::chrono::milliseconds(static_cast<long long>(c.bladeSeconds * 1000));
+		}
+	}
+
 	void Ricochet(const RE::TESHitEvent* a_event)
 	{
 		auto& c = g_cfg;
 		auto* player = Player();
-		if (!c.ricochetPerk || !c.ricochetKeyword || a_event->cause.get() != player || a_event->target.get() == player ||
-			!Has(c.ricochetPerk)) {
+		if (!c.ricochetKeyword || a_event->cause.get() != player || a_event->target.get() == player) {
+			return;
+		}
+		const bool fan = FanActive();   // 1.4.0: Fan the Hammer - every pistol hit ricochets
+		if (!fan && !Has(c.ricochetPerk)) {
 			return;
 		}
 		auto* victim = a_event->target->As<RE::Actor>();
@@ -804,7 +1003,8 @@ namespace
 		g_ricochetVictim = victim->GetFormID();
 		g_ricochetVictimAt = now;
 		static std::mt19937 rng{ std::random_device{}() };
-		if (std::uniform_int_distribution<int>(1, 100)(rng) > c.ricochetChance) {
+		const int chance = c.ricochetChance + (Has(c.hairTrigger) ? c.ricochetHairTriggerBonus : 0);
+		if (!fan && std::uniform_int_distribution<int>(1, 100)(rng) > chance) {
 			return;
 		}
 		RE::Actor* next = nullptr;
@@ -831,6 +1031,282 @@ namespace
 			victim->GetFormID(), next->GetFormID(), bestD);
 	}
 
+	// ---------------------------------------------------------------- Arcane Arsenal's elemental arrows
+	struct ArrowArt
+	{
+		RE::NiPointer<RE::ModelReferenceEffect> effect;
+		RE::NiPointer<RE::NiNode>               tip;      // our node at the arrowhead the art hangs on
+		RE::BGSArtObject*                       art{ nullptr };
+		bool                                    done{ false };   // flying arrow that hit: never again
+	};
+	ArrowArt                                   g_nocked;
+	RE::NiPointer<RE::NiAVObject>              g_nockedArrow;   // the arrow mesh g_nocked sits on
+	std::map<RE::FormID, ArrowArt>             g_flying;        // the player's arrows in flight
+	std::vector<RE::NiPointer<RE::NiNode>>     g_staleTips;     // detached on the next tick (after the art let go)
+	int                                        g_arrowMisses = 0;
+
+	std::string Lower(std::string_view a_s)
+	{
+		std::string s(a_s);
+		std::transform(s.begin(), s.end(), s.begin(), [](unsigned char ch) { return static_cast<char>(std::tolower(ch)); });
+		return s;
+	}
+
+	RE::NiAVObject* FindArrowIn(RE::NiAVObject* a_obj, const std::string& a_stem, int a_depth)
+	{
+		if (!a_obj || a_depth > 4) {
+			return nullptr;
+		}
+		const auto name = Lower(a_obj->name.c_str());
+		if (!name.empty() && ((!a_stem.empty() && name.find(a_stem) != std::string::npos) || name.find("arrow") != std::string::npos)) {
+			return a_obj;
+		}
+		if (auto* node = a_obj->AsNode()) {
+			for (auto& child : node->GetChildren()) {
+				if (auto* hit = FindArrowIn(child.get(), a_stem, a_depth + 1)) {
+					return hit;
+				}
+			}
+		}
+		return nullptr;
+	}
+
+	// The arrow's own mesh under a_obj: a lit (BSLightingShaderProperty) shape, preferring one named like an arrow;
+	// a flight model also holds effect-shader tracer shapes (trailShort, Flow), which are never picked.
+	RE::BSGeometry* ArrowMesh(RE::NiAVObject* a_obj, int a_depth = 0)
+	{
+		if (!a_obj || a_depth > 5) {
+			return nullptr;
+		}
+		if (auto* g = a_obj->AsGeometry()) {
+			return g->lightingShaderProp_cast() ? g : nullptr;
+		}
+		RE::BSGeometry* any = nullptr;
+		if (auto* node = a_obj->AsNode()) {
+			for (auto& child : node->GetChildren()) {
+				if (auto* g = ArrowMesh(child.get(), a_depth + 1)) {
+					const auto n = Lower(g->name.c_str());
+					if (n.find("arrow") != std::string::npos || n.find("bolt") != std::string::npos) {
+						return g;
+					}
+					if (!any) {
+						any = g;
+					}
+				}
+			}
+		}
+		return any;
+	}
+
+	void LogChildren(RE::NiAVObject* a_root, const char* a_name)
+	{
+		auto* at = a_root ? a_root->GetObjectByName(a_name) : nullptr;
+		auto* node = at ? at->AsNode() : nullptr;
+		std::string names;
+		if (node) {
+			for (auto& child : node->GetChildren()) {
+				if (child) {
+					names += fmt::format("'{}' ", child->name.c_str());
+				}
+			}
+		}
+		SKSE::log::info("Arcane Arsenal: {} {} children: {}", a_name, node ? "has" : "not found -", names);
+	}
+
+	RE::BSGeometry* NockedArrow(RE::PlayerCharacter* a_player)
+	{
+		auto* root = a_player->Get3D();
+		if (!root) {
+			return nullptr;
+		}
+		std::string stem;
+		if (auto* ammo = a_player->GetCurrentAmmo()) {
+			std::string m = Lower(ammo->GetModel() ? ammo->GetModel() : "");
+			if (auto s = m.find_last_of("\\/"); s != std::string::npos) {
+				m = m.substr(s + 1);
+			}
+			if (auto d = m.rfind('.'); d != std::string::npos) {
+				m = m.substr(0, d);
+			}
+			stem = m;
+		}
+		auto* weapon = root->GetObjectByName("WEAPON");
+		if (auto* hit = FindArrowIn(weapon, stem, 0); hit && hit != weapon) {
+			if (auto* mesh = ArrowMesh(hit)) {
+				return mesh;
+			}
+		}
+		if (g_arrowMisses++ < 5) {
+			SKSE::log::info("Arcane Arsenal: no nocked arrow mesh (ammo model '{}')", stem);
+			LogChildren(root, "WEAPON");
+		}
+		return nullptr;
+	}
+
+	// Our node at the arrowhead, under the mesh's parent. a_forward picks which end of the mesh is the head.
+	RE::NiNode* MakeTip(RE::BSGeometry* a_mesh, const RE::NiPoint3& a_forward)
+	{
+		auto* parent = a_mesh->parent;
+		if (!parent) {
+			return nullptr;
+		}
+		const auto& b = a_mesh->worldBound;
+		auto        axis = a_mesh->world.rotate * RE::NiPoint3{ 0.0f, 1.0f, 0.0f };
+		if (axis.Dot(a_forward) < 0.0f) {
+			axis = -axis;
+		}
+		const auto head = b.center + axis * (b.radius * 0.85f);   // on the arrowhead, not past its point
+		auto*      tip = RE::NiNode::Create(0);
+		tip->name = "ZP_ArcaneArrowHead";
+		tip->local.translate = parent->world.Invert() * head;
+		tip->local.rotate = a_mesh->local.rotate;
+		tip->local.scale = g_cfg.arsenalScale;
+		parent->AttachChild(tip, true);
+		RE::NiUpdateData ud{};
+		tip->Update(ud);
+		return tip;
+	}
+
+	void StopArt(ArrowArt& a_art)
+	{
+		if (a_art.effect) {
+			a_art.effect->finished = true;
+		}
+		if (a_art.tip) {
+			g_staleTips.push_back(a_art.tip);
+		}
+		a_art.effect.reset();
+		a_art.tip.reset();
+		a_art.art = nullptr;
+	}
+
+	bool StartArt(ArrowArt& a_art, RE::TESObjectREFR* a_on, RE::BSGeometry* a_mesh, const RE::NiPoint3& a_forward,
+		RE::BGSArtObject* a_artObject)
+	{
+		auto* tip = MakeTip(a_mesh, a_forward);
+		if (!tip) {
+			return false;
+		}
+		a_art.tip.reset(tip);
+		a_art.art = a_artObject;
+		a_art.effect.reset(a_on->ApplyArtObject(a_artObject, -1.0f, nullptr, false, false, tip, false));
+		return true;
+	}
+
+	// Before a save and after a load: no art of ours may be saved, or come back from a save without its node.
+	void StopAllArrowArts()
+	{
+		StopArt(g_nocked);
+		g_nockedArrow.reset();
+		for (auto& [id, a] : g_flying) {
+			StopArt(a);
+		}
+		g_flying.clear();
+		const auto& arts = g_cfg.arsenalArts;
+		if (arts.empty()) {
+			return;
+		}
+		RE::ProcessLists::GetSingleton()->ForEachModelEffect([&](RE::ModelReferenceEffect* a_effect) {
+			if (a_effect && std::find(arts.begin(), arts.end(), a_effect->artObject) != arts.end()) {
+				a_effect->finished = true;
+			}
+			return RE::BSContainer::ForEachResult::kContinue;
+		});
+	}
+
+	void ArsenalTick()
+	{
+		auto& c = g_cfg;
+		auto* player = Player();
+		for (auto& tip : g_staleTips) {
+			if (tip && tip->parent) {
+				tip->parent->DetachChild2(tip.get());
+			}
+		}
+		g_staleTips.clear();
+		if (!c.arsenalGlobal || c.arsenalArts.empty() || !player || !player->Is3DLoaded()) {
+			return;
+		}
+		RE::BGSArtObject* want = nullptr;
+		const auto element = static_cast<int>(c.arsenalGlobal->value);
+		if (element >= 1 && element <= static_cast<int>(c.arsenalArts.size()) && Has(c.arsenalPerk)) {
+			want = c.arsenalArts[element - 1];
+		}
+
+		// the nocked arrow
+		using AS = RE::ATTACK_STATE_ENUM;
+		const auto state = player->AsActorState()->GetAttackState();
+		auto*      weap = player->GetEquippedObject(false);
+		auto*      bow = weap ? weap->As<RE::TESObjectWEAP>() : nullptr;
+		RE::BSGeometry* mesh = nullptr;
+		if (want && bow && bow->IsBow() && (state == AS::kBowAttached || state == AS::kBowDrawn)) {
+			mesh = NockedArrow(player);
+		}
+		if (g_nocked.tip && (!mesh || g_nockedArrow.get() != mesh || g_nocked.art != want)) {
+			StopArt(g_nocked);
+			g_nockedArrow.reset();
+		}
+		if (mesh && !g_nocked.tip) {
+			const float h = player->GetAngleZ();
+			if (StartArt(g_nocked, player, mesh, { std::sin(h), std::cos(h), 0.0f }, want)) {
+				g_nockedArrow.reset(mesh);
+				SKSE::log::info("Arcane Arsenal: {:08X} on nocked '{}' (effect {})", want->GetFormID(), mesh->name.c_str(),
+					g_nocked.effect ? "made" : "NOT made");
+			}
+		}
+
+		// arrows in flight
+		std::vector<RE::FormID> seen;
+		auto*                   mgr = RE::Projectile::Manager::GetSingleton();
+		for (auto* list : { &mgr->unlimited, &mgr->limited, &mgr->pending }) {
+			for (auto& handle : *list) {
+				auto ptr = handle.get();
+				auto* proj = ptr.get();
+				if (!proj) {
+					continue;
+				}
+				auto& rd = proj->GetProjectileRuntimeData();
+				if (!rd.ammoSource || !rd.weaponSource || !rd.weaponSource->IsBow() || rd.shooter.get().get() != player) {
+					continue;
+				}
+				const auto id = proj->GetFormID();
+				seen.push_back(id);
+				auto it = g_flying.find(id);
+				if (it != g_flying.end()) {
+					if (!it->second.done && !rd.impacts.empty()) {
+						StopArt(it->second);
+						it->second.done = true;
+					}
+					continue;
+				}
+				if (!want || !rd.impacts.empty() || rd.livingTime > 0.5f) {
+					g_flying[id].done = true;   // shot without an element, or already old: leave it be
+					continue;
+				}
+				auto* root = proj->Get3D();
+				auto* flightMesh = root ? ArrowMesh(root) : nullptr;
+				if (!flightMesh) {
+					continue;   // its model may still be loading: next tick
+				}
+				auto fwd = rd.linearVelocity.SqrLength() > 1.0f ? rd.linearVelocity : rd.velocity;
+				ArrowArt a;
+				if (StartArt(a, proj, flightMesh, fwd, want)) {
+					SKSE::log::info("Arcane Arsenal: {:08X} on arrow {:08X} '{}' (effect {})", want->GetFormID(), id,
+						flightMesh->name.c_str(), a.effect ? "made" : "NOT made");
+					g_flying[id] = std::move(a);
+				}
+			}
+		}
+		for (auto it = g_flying.begin(); it != g_flying.end();) {
+			if (std::find(seen.begin(), seen.end(), it->first) == seen.end()) {
+				StopArt(it->second);
+				it = g_flying.erase(it);
+			} else {
+				++it;
+			}
+		}
+	}
+
 	class HitSink : public RE::BSTEventSink<RE::TESHitEvent>
 	{
 	public:
@@ -847,6 +1323,7 @@ namespace
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			DragonsBreath(a_event);
+			PistolTalents(a_event);
 			Ricochet(a_event);
 			if (!g_cfg.ready || !Has(g_cfg.root)) {
 				return RE::BSEventNotifyControl::kContinue;
@@ -1024,6 +1501,9 @@ namespace
 		const bool paused = RE::UI::GetSingleton()->GameIsPaused();
 		if (player && player->Is3DLoaded() && !paused) {
 			EffigyTick(player);
+			if (g_bladeOn && Clock::now() >= g_bladeUntil) {
+				BladeOff("timed out");
+			}
 		}
 		MeterKeepOpen();
 		if (auto view = MeterView()) {
@@ -1083,6 +1563,12 @@ namespace
 				SKSE::GetTaskInterface()->AddTask([] { Tick(); });
 			}
 		}).detach();
+		std::thread([] {   // Arcane Arsenal's arrows follow the draw and the launch closely
+			while (g_running) {
+				std::this_thread::sleep_for(20ms);
+				SKSE::GetTaskInterface()->AddTask([] { ArsenalTick(); });
+			}
+		}).detach();
 	}
 
 	void OnMessage(SKSE::MessagingInterface::Message* a_msg)
@@ -1100,6 +1586,9 @@ namespace
 			}
 			StartTicker();
 			break;
+		case SKSE::MessagingInterface::kSaveGame:
+			StopAllArrowArts();   // sent on the main thread before the save is written
+			break;
 		case SKSE::MessagingInterface::kPostLoadGame:
 		case SKSE::MessagingInterface::kNewGame:
 			MeterOpen();
@@ -1108,6 +1597,11 @@ namespace
 				g_vehemenceOn = false;
 				g_effigies.clear();
 				g_effigyLoadout.clear();
+				g_bladeOn = false;
+				StopAllArrowArts();
+				if (g_cfg.bladeAbility && Player()->HasSpell(g_cfg.bladeAbility)) {
+					Player()->RemoveSpell(g_cfg.bladeAbility);   // an ability is saved with the game
+				}
 				Publish();
 			});
 			break;
@@ -1120,7 +1614,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.3.3 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.6.0 loading, runtime {}", REL::Module::get().version().string());
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

@@ -1,0 +1,23 @@
+FormKey: 000B1F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FanTheHammer_Spell
+Name:
+  TargetLanguage: English
+  Value: Fan the Hammer
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000B20:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 0.3
+    Duration: 6
+- BaseEffect: 000B21:Zenderal - Prophecy.esp
+  Data:
+    Duration: 6

@@ -49,10 +49,37 @@
  "ricochet": {
   "perk": "000B0E",
   "chance": 25,
+  "hairTriggerBonus": 25,
   "range": 960,
   "cooldown": 1.0,
   "keywordPlugin": "Zenderal - Flintlock Overhaul.esp",
   "keyword": "00080C"
+ },
+ "pistols": {
+  "hairTrigger": "000B12",
+  "pointBlank": "000B13",
+  "bladeBarrel": "000B14",
+  "coup": "000B15",
+  "hitSpell": "000B17",
+  "bonusSpell": "000B19",
+  "staggerSpell": "000943",
+  "bladeAbility": "000B1B",
+  "fanEffect": "000B21",
+  "pointBlankRange": 256,
+  "pointBlankBonus": 0.5,
+  "coupBonus": 1.0,
+  "coupHealth": 0.25,
+  "bladeSeconds": 3.0
+ },
+ "arsenal": {
+  "perk": "00094E",
+  "global": "000956",
+  "arts": [
+   "000B23",
+   "000B24",
+   "000B25"
+  ],
+  "scale": 0.3
  },
  "effigies": {
   "plugin": "Shatterveil.esp",
