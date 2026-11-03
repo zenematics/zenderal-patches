@@ -13,7 +13,7 @@ ModHeader:
     MCO routing for For Honor Reforged: left/right/back power attacks send attackPowerStartInPlace
     (019B22-24); sprint attack idles (0EC3CC/CE/CF, 0F0A3E, 1038BF) lose the Critical Charge perk
     check; fists sprint-attack too (0F0A3E/0EC3CC accept type 0, AttackRightH2H 0870D6 not while
-    sprinting).
+    sprinting); fists power attack again (H2HRightHandPowerAttack 0E3F3D sends the H2H event).
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0

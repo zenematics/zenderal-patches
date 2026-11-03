@@ -59,3 +59,22 @@ Patch Collection carries this build.
 **Status:** verified in files (graph transitions, idle chain, OAR priorities, Spriggit round trip of the
 idle records). **Not yet verified in game.** Test: fists drawn, sprint, LMB → Brawler sprint attack;
 sprint + power attack → Brawler sprint power attack; standing LMB still punches normally.
+
+## Unarmed standing power attack (2026-11-03)
+
+**Symptom** (KaoticCoruption): fists drawn, RT does no power attack. That covers every power attack
+key, not only RT: OCPA, its second key and the engine's hold all fire `ActionRightPowerAttack`.
+
+**Cause:** with fists, the idle tree reaches only `H2HRightHandPowerAttack 0E3F3D`, because
+`PowerAttack 0E8456` (the parent of the directional idles) needs `GetEquippedItemType Right != 0`.
+`Attack_MCO.esp` changes `0E3F3D`'s event from `attackPowerStartForwardH2HRightHand` to
+`attackPowerStartInPlace`. Attack MCO-DXP's own graph patch (`amco/1hm_behavior/#4787`, Pandora output
+converted with hkxconv) only takes `attackPowerStartInPlace` from `1HM_Ready_State` when
+`iRightHandType > 0`, so it refuses that event for fists. The vanilla H2H event is still wired
+(`iRightHandType == 0 && bWantCastLeft == 0`): in third person it goes to the same nested state 5
+as the weapon power attack. The first-person graph has the same two conditions, and there the H2H
+event goes to nested state 19.
+
+**Fix:** `0E3F3D` is Attack_MCO's record verbatim, with only `AnimationEvent` changed back to
+`attackPowerStartForwardH2HRightHand`. Unverified in game. Test: fists drawn, standing, RT (or
+Mouse 4) → power punch, in both views.
