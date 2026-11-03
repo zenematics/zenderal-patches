@@ -57,12 +57,6 @@ Effects:
       Data:
         MutagenObjectType: GetEquippedItemTypeConditionData
         ItemSource: Right
-    - MutagenObjectType: ConditionFloat
-      CompareOperator: GreaterThan
-      Data:
-        MutagenObjectType: GetActorValueConditionData
-        ActorValue: SpeedMult
-      ComparisonValue: 100
   EntryPoint: CalculateMyCriticalHitDamage
   PerkConditionTabCount: 3
   ActorValue: Stamina

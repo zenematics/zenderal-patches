@@ -956,6 +956,13 @@ def main():
                 assert t2 != t, (nid, ep); t = t2
         if nid == 'ma3':     # Stunning Blows: Saboteur restricted to unarmed (right hand item type 0)
             t = add_unarmed(t)
+        if nid == 'ma4':     # Breaking Waves: Ordinator's crit damage also needed SpeedMult > 100, which no
+            # description mentions; the 40% of Stamina now always applies (curator 2026-11-03)
+            speed = ('    - MutagenObjectType: ConditionFloat\n      CompareOperator: GreaterThan\n      Data:\n'
+                     '        MutagenObjectType: GetActorValueConditionData\n        ActorValue: SpeedMult\n'
+                     '      ComparisonValue: 100\n')
+            assert t.count(speed) == 1, ('Breaking Waves speed condition', t.count(speed))
+            t = t.replace(speed, '')
         if nid in ('gun2', 'gun3'):
             t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit)
         if nid == 'ma5':

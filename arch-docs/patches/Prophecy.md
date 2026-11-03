@@ -830,6 +830,14 @@ cost, Corpse Fever reading it) stays: it is those talents' point.
 | Gadgets | Tripwire (ORD) | Smokescreen (ORD) | Utility Droid (was Bear Traps, ORD + Lockjaw; replaced 2026-10-23) | Clockwork Turret (ORD Dwarven Autocannon) | Overclock (ORD Firing Line + Spin Up folded) |
 | Martial Arts | Iron Fist (ORD, 15% of Stamina) | Hissing Dragon (ORD) | Stunning Blows (SoS Saboteur, unarmed only) | Breaking Waves (ORD) | Flow State (new) |
 
+**Breaking Waves has no speed condition (2026-11-03, curator).** Ordinator's crit-damage entry (40% of Stamina,
+`CalculateMyCriticalHitDamage`) also required `GetActorValue SpeedMult > 100`. Neither Ordinator's description nor ours
+mentions it, so the crit damage only landed while the player was faster than normal. `tools/01` drops it (`nid == 'ma4'`,
+asserts one match). The 15% crit chance with both hands empty is unchanged. The Wardancer always-crit entry stays gated on
+`ZP_Prophecy_Never`. Fists have no One-Handed skill (`Unarmed 0001F4` has no `Skill`), so Martial Arts, the Kata Monk
+affinity (+15 `UnarmedDamage`) and the all-attack bonuses are what raise unarmed damage. Deployed into Patch Collection
+(previous plugin in `E:/Zenderal-backups/2026-11-03-prophecy-pre-breaking-waves/`). Unverified in game.
+
 **How the generator copies a perk:** the picked perk plus every record it reaches (spells, effects, activators,
 explosions, sounds, art, recipes that unlock on it), renumbered into our plugin; refs to unpicked source perks →
 `ZP_Prophecy_Never 0x808` (never owned, so their `HasPerk` conditions read false); Skyrim forms Enderal lacks go
