@@ -8,6 +8,9 @@ For each ARMA that Skyrim.esm or FS defines, this compares the WINNING override'
 with the defining record's. It reports each winner missing 013746 or 013748 that the base record has.
 Feed the result to 02-build-armor-addons.py's ADDONS (only records whose winner we have YAML for).
 
+Addons a mod defines itself have no 2.1 record to compare with: for those it reports each winner
+that lists an old race (033899 / 033898) but not its 2.1 twin. Feed those to 02's MOD_ADDONS.
+
 Usage:  python -I 00-scan-arma-races.py
 """
 import os, struct, zlib
@@ -17,6 +20,7 @@ MODS = r'E:/Zenderal/mods'
 GAME_DATA = r'E:/Zenderal/Stock Game/Data'
 BASE = ('skyrim.esm', 'enderal - forgotten stories.esm')
 NEW_RACES = {0x013746: 'NordRace', 0x013748: 'RedguardRace'}
+TWINS = {0x033899: 0x013746, 0x033898: 0x013748}
 
 
 def plugin_paths():
@@ -76,8 +80,6 @@ for name, path in plugin_paths():
         if typ != b'ARMA':
             continue
         key = resolve(struct.unpack_from('<I', data, p + 12)[0], mast, name)
-        if key[0] not in BASE:
-            continue
         body = data[p + 24:p + 24 + size]
         if struct.unpack_from('<I', data, p + 8)[0] & 0x40000:
             body = zlib.decompress(body[4:])
@@ -94,8 +96,11 @@ for name, path in plugin_paths():
 hits = 0
 for key in sorted(winner):
     name, races = winner[key]
-    missing = [f'{r:06X}' for r in NEW_RACES if r in base.get(key, ()) and r not in races]
+    if key[0] in BASE:
+        missing = [f'{r:06X}' for r in NEW_RACES if r in base.get(key, ()) and r not in races]
+    else:
+        missing = [f'{new:06X}' for old, new in TWINS.items() if old in races and new not in races]
     if missing:
         hits += 1
         print(f'{key[1]:06X}:{key[0]}  winner {name}  missing {" ".join(missing)}')
-print(f'{hits} winning ARMAs missing a 2.1 playable race ({len(winner)} base ARMAs scanned)')
+print(f'{hits} winning ARMAs missing a 2.1 playable race ({len(winner)} ARMAs scanned)')

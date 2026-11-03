@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Dark Valley Sun Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Dark Valley stays sunless again. The Weathers of Enderal gave its four fog and storm weathers a visible sun that ENB sun rays turned into a white-out; Enderal's black sun and no glare are back, everything else is TWoE's.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal Weather - HDR.esp
+    FileSize: 0
+  INTV: 1

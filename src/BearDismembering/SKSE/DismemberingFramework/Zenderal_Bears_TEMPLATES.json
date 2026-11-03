@@ -1,0 +1,67 @@
+{
+  "Zenderal - Bear - Base data - Front L Leg": {
+    "RefNode": "NPC LArm2",
+    "BipedSlot": 37,
+    "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+    "Translation": {
+      "x": -0.056672,
+      "y": -2.573017,
+      "z": -19.977814
+    }
+  },
+  "Zenderal - Bear - Actor addons data - Front L Leg": {
+    "ActorArtObject": "Zenderal - Bear Dismembering.esp:0x800"
+  },
+  "Zenderal - Bear - Base data - Front R Leg": {
+    "RefNode": "NPC RArm2",
+    "BipedSlot": 37,
+    "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+    "Translation": {
+      "x": -0.056671,
+      "y": -2.573015,
+      "z": -19.977823
+    }
+  },
+  "Zenderal - Bear - Actor addons data - Front R Leg": {
+    "ActorArtObject": "Zenderal - Bear Dismembering.esp:0x801"
+  },
+  "Zenderal - Bear - Base data - Back L Leg": {
+    "RefNode": "NPC LLeg2",
+    "BipedSlot": 37,
+    "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+    "Translation": {
+      "x": -0.413937,
+      "y": -9.657281,
+      "z": -26.129848
+    }
+  },
+  "Zenderal - Bear - Actor addons data - Back L Leg": {
+    "ActorArtObject": "Zenderal - Bear Dismembering.esp:0x802"
+  },
+  "Zenderal - Bear - Base data - Back R Leg": {
+    "RefNode": "NPC RLeg2",
+    "BipedSlot": 37,
+    "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+    "Translation": {
+      "x": 0.655512,
+      "y": -9.657268,
+      "z": -26.124903
+    }
+  },
+  "Zenderal - Bear - Actor addons data - Back R Leg": {
+    "ActorArtObject": "Zenderal - Bear Dismembering.esp:0x803"
+  },
+  "Zenderal - Bear - Base data - Head": {
+    "RefNode": "NPC Head",
+    "BipedSlot": 31,
+    "LimbArtObject": "DF - Official Creature Pack.esp:0x8A4",
+    "Translation": {
+      "x": 0.001095,
+      "y": -1.821545,
+      "z": -9.334633
+    }
+  },
+  "Zenderal - Bear - Actor addons data - Head": {
+    "ActorArtObject": "Zenderal - Bear Dismembering.esp:0x804"
+  }
+}

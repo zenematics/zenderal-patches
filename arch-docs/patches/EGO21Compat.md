@@ -5,7 +5,8 @@
 - **Ships:** `Zenderal - EGO 2.1 Compatibility.esp` (ESL)
 - **FormID block:** none (overrides only)
 - **Status:** races done 2026-10-20, built and deployed; **unverified in game**. 4 armor addons done
-  2026-10-22, built, not deployed, unverified in game. NPC / FormList remaps not started (see "Still to do").
+  2026-10-22; 22 mod-defined addons (Kata, Pretty, EAM) added 2026-11-01, built and deployed; unverified
+  in game. NPC / FormList remaps not started (see "Still to do").
 
 ## Why it exists
 
@@ -43,7 +44,8 @@ by it):
 
 Masters: `Skyrim.esm`, `Update.esm`, `Enderal - Forgotten Stories.esm` (two head-part preset NPCs
 `03029B`… live there), `EGO SE - DS Movement Stamina UNIQUE RACES.esp` (mastered only to force load
-order — no record of it is referenced).
+order — no record of it is referenced). Since 2026-11-01 also the six plugins whose own armor addons it
+overrides (see "Mod-defined armor addons").
 
 The source `reference/mods/EGODSRaces` matched a fresh serialization of the installed plugin
 (2026-10-20). Re-serialize and re-run the generator whenever DS Unique Races or EGO updates — and
@@ -73,6 +75,35 @@ Thalmor/Redguard/Yarl/barkeeper/blacksmith shoes, Venturer gloves) also lack the
 `Audio Overhaul - Enderal patch.esp` or a Pretty plugin wins them with both races present — they are
 fine and deliberately not overridden. Re-run 00 → 02 after EGO or any armor mod changes.
 Unverified in game.
+
+## Mod-defined armor addons (2026-11-01)
+
+Reported (MadArthur): with the Arcanist robe on, the character looked naked. The item was Kata's
+**Arcanist Robes** (`Kata_ArcanistSet_Robes 0098CF:KataPUMB_SpellPackage.esp`, crafted from a
+Handicraft 20 blueprint), not Enderal's own bloody "Arcanist Robe" `0EAD54`, which checked out
+(winning records consistent, all races, meshes and textures present). Its addon
+`Kata_NehrimeseSet_RobesAA 0098CE` lists the old `033899`/`033898` and not `013746`/`013748`.
+
+The 2026-10-22 scan only compared addons that Skyrim.esm or FS define, so new addons from mods were
+never checked. `tools/00` now also reports, for those, every winner that lists an old race without its
+2.1 twin. **22 of 1,890** winning addons did, none overridden by anything (each mod's own record wins):
+
+| Plugin | Addons |
+|---|---|
+| `KataPUMB_SpellPackage.esp` | 11: the Arcanist/Nehrimese set `0098C8`/`CA`/`CC`/`CE`, Black Mage robe `00571D`, 6 hip spellbooks `00223F`–`002245` |
+| `Pretty Holy Order Armory.esp` | 4: High Mater's hat `000803`, Arcanist boots `000804`, Novice boots `000805`, Mage's boots `00080F` |
+| `EAM SE - Enderal Apothecarii Monastery.esp` | 4: EAM's Righteous Path set `05041C`–`05041F` |
+| `Pretty Common Armory.esp` | 1: reinforced hide shield `000800` |
+| `Pretty Mages Armory.esp` | 1: Kurmai robe `000800` |
+| `KataPUMBSpellPack.esp` | 1: Warlock hood `002E50` |
+
+`tools/02`'s `MOD_ADDONS` writes each mod's record verbatim with each 2.1 twin inserted right after its
+old race (these lists are not sorted, unlike Enderal's). Sources: `reference/mods/{Pretty/*, EAM,
+KataPUMB}` (each addon checked identical to a fresh serialization of the installed plugin, 2026-11-01)
+and the new `reference/mods/KataPUMBSpellPackage`. Six more masters, all of which load before this
+plugin in Ultra (EAM 92 … Pretty Holy Order 257; this plugin 276). Built plugin round-trips to the
+source; deployed to Patch Collection's copy (the live one) and the standalone mod; after deploy `tools/00`
+reports 0 of 1,890. Unverified in game.
 
 ## Still to do (the rest of EGO vs 2.1)
 

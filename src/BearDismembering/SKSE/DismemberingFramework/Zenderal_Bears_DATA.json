@@ -1,0 +1,126 @@
+{
+  "BearBrownRace": {
+    "Skyrim.esm:0x868FD": {
+      "Male|Female": {
+        "NPC LArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front L Leg - 805"
+          }
+        ],
+        "NPC RArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front R Leg - 806"
+          }
+        ],
+        "NPC LLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back L Leg - 807"
+          }
+        ],
+        "NPC RLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back R Leg - 808"
+          }
+        ],
+        "NPC Neck2": [
+          {
+            "IDLimb": "Zenderal - Bear - Head - 809"
+          }
+        ]
+      }
+    }
+  },
+  "BearBrownRaceHoher": {
+    "Skyrim.esm:0xEAA5B": {
+      "Male|Female": {
+        "NPC LArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front L Leg - 805"
+          }
+        ],
+        "NPC RArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front R Leg - 806"
+          }
+        ],
+        "NPC LLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back L Leg - 807"
+          }
+        ],
+        "NPC RLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back R Leg - 808"
+          }
+        ],
+        "NPC Neck2": [
+          {
+            "IDLimb": "Zenderal - Bear - Head - 809"
+          }
+        ]
+      }
+    }
+  },
+  "BearBlackRace": {
+    "Skyrim.esm:0x187FE": {
+      "Male|Female": {
+        "NPC LArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front L Leg - 80A"
+          }
+        ],
+        "NPC RArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front R Leg - 80B"
+          }
+        ],
+        "NPC LLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back L Leg - 80C"
+          }
+        ],
+        "NPC RLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back R Leg - 80D"
+          }
+        ],
+        "NPC Neck2": [
+          {
+            "IDLimb": "Zenderal - Bear - Head - 80E"
+          }
+        ]
+      }
+    }
+  },
+  "BearSnowRace": {
+    "Skyrim.esm:0x187FD": {
+      "Male|Female": {
+        "NPC LArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front L Leg - 80F"
+          }
+        ],
+        "NPC RArm2": [
+          {
+            "IDLimb": "Zenderal - Bear - Front R Leg - 810"
+          }
+        ],
+        "NPC LLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back L Leg - 811"
+          }
+        ],
+        "NPC RLeg2": [
+          {
+            "IDLimb": "Zenderal - Bear - Back R Leg - 812"
+          }
+        ],
+        "NPC Neck2": [
+          {
+            "IDLimb": "Zenderal - Bear - Head - 813"
+          }
+        ]
+      }
+    }
+  }
+}

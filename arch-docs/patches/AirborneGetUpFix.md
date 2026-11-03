@@ -84,3 +84,52 @@ actor in `kGetUp` without a controller. Not seen in the log yet; check the trace
 Run with `Zenderal - Ragdoll Trace` on. Expect `GetUpBegin held` / `GetUpBegin sent after … (settled)` lines in this
 plugin's log. In the trace log, `GetUpStart` should come only once the pelvis z has stopped changing, followed by
 `GetUpEnd` and `AddCharacterControllerToWorld`.
+
+## 1.2.0 (2026-11-01): released once landed
+
+Players reported that after Seismic Stomp, enemies took "next to no damage after the first hit". ZenRagdollTrace 1.2.0
+measured a Highwayman:
+- one sword hit landed while he was still flying (knock 1, full damage);
+- he landed about 1 s after the stomp, but was held in knock state 5 for about 4 s more, because his body kept sliding
+  slowly and the 1 s / 4-unit settle check failed;
+- the curator kept swinging the whole time and no hit registered: Precision's swings are physical and pass over a
+  body lying flat;
+- hits landed again as soon as he started getting up (knock 6), at normal damage.
+
+The damage itself was never reduced.
+
+A held GetUpBegin is now also sent once the body has **landed**: its pelvis has dropped `kLandedDrop` 24 units below
+the highest point seen since the hold began, and has then stayed within `kLandedRange` 6 units over `kLandedWindow`
+400 ms. At the top of the arc there is no drop yet, so the short window cannot release a body mid-air, which was the
+original bug. The 1 s / 4-unit rule and the 8 s timeout stay. The log says which rule released it (`settled`,
+`landed`, `timeout`) and the peak.
+
+The copy that loads is Patch Collection's (the standalone mod is disabled). Replaced; 1.1.1 kept in
+`E:/Zenderal-backups/AirborneGetUpFix-1.1.1-2026-11-01`. Unverified in game.
+
+## 1.3.0 (2026-11-01): melee hits reach actors queued to get up
+
+The bear test showed that 1.2.0's cause was only part of it. A Young Black Bear (no human pelvis bone, so this plugin
+never tracked it) was launched by Seismic Stomp and hit once mid-air (10.2 damage, knock 1). 56 ms later the engine
+queued its get-up (`GetUpBegin`, knock 5) **while it was still flying**. It then stayed in knock 5 for 7 s
+(SlowTime: the engine waits for the body to rest in game time). Precision registered six blade contacts in that time
+(`Precision_HitR/B/L` sent to its graph), but none produced a hit event or damage. Hits landed again in knock 6.
+
+**The gate is in the engine.** The hit processing, ID 38586 (called by `DealDamage` ID 38627, Precision's damage
+call), starts with:
+
+    mov eax, [rcx+0xC8]; and eax, 0xE000000; cmp eax, 0xA000000; je <return>
+
+So it returns, with no damage and no hit event, when the target's knock state is `kQueued` (5). In vanilla that
+window is a split second. Here it starts with the first hit on a flying body and lasts until the actor stands.
+
+**Fix.** 1.3.0 hooks only the melee call, ID 38627 +0x4A8 → 38586 (checked: `E8`, target = 38586). For an alive,
+ragdolled target in `kQueued`, it shows the knock state as `kExplode` (the flying state, in which hits worked) for
+that one call, then restores `kQueued` unless the hit changed it. The 7 other callers of 38586 (projectiles and other
+paths) are untouched. The first 50 uses are logged: "melee hit let through while queued to get up". Unverified in game.
+
+**1.3.1 (same day).** 1.3.0 never installed. In game the log said "melee hit call not found": another plugin already
+hooks that call (Precision doesn't; checked its `AttackHooks`), and 1.3.0 accepted only the game's own target. The
+curator's bear test therefore still showed one mid-air hit (15.2), then 8 s of knock 5 with no damage. 1.3.1 chains
+onto any `E8` call there (ours runs first, then whatever was there, which ends in 38586). It installs at `kPostLoad`,
+after every plugin's load-time hooks, and logs which module the call led to. Unverified in game.

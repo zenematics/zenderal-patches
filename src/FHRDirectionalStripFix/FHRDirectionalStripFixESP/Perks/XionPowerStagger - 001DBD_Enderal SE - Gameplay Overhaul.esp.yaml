@@ -1,0 +1,331 @@
+FormKey: 001DBD:Enderal SE - Gameplay Overhaul.esp
+EditorID: XionPowerStagger
+Name:
+  TargetLanguage: English
+  Value: Power Attack Stagger
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 002E32:KataHiddenPowers.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsPowerAttackingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasPerkConditionData
+        Perk: 069D47:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E8:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000883:For Honor Balance Patch.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000881:For Honor Balance Patch.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000882:For Honor Balance Patch.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000880:For Honor Balance Patch.esp
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0172AC:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0008C7:Enderal SE - Gameplay Overhaul.esp
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 001D15:Enderal SE - Gameplay Overhaul.esp
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 002E32:KataHiddenPowers.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsPowerAttackingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasPerkConditionData
+        Perk: 069D47:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E8:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000883:For Honor Balance Patch.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000881:For Honor Balance Patch.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000882:For Honor Balance Patch.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000880:For Honor Balance Patch.esp
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000801:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsBlockingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000801:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 0008BC:For Honor Balance Patch.esp
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0172AC:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0008C7:Enderal SE - Gameplay Overhaul.esp
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 001D15:Enderal SE - Gameplay Overhaul.esp
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 002E32:KataHiddenPowers.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsPowerAttackingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasPerkConditionData
+        Perk: 069D47:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E8:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000883:For Honor Balance Patch.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000881:For Honor Balance Patch.esp
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000882:For Honor Balance Patch.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000880:For Honor Balance Patch.esp
+      ComparisonValue: 1
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000802:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsBlockingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000802:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 0008BC:For Honor Balance Patch.esp
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0172AC:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0008C7:Enderal SE - Gameplay Overhaul.esp
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 001D15:Enderal SE - Gameplay Overhaul.esp
+- MutagenObjectType: PerkEntryPointSelectSpell
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 002E32:KataHiddenPowers.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsPowerAttackingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasPerkConditionData
+        Perk: 069D47:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsAttackTypeConditionData
+        Keyword: 0914E8:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000883:For Honor Balance Patch.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000881:For Honor Balance Patch.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000882:For Honor Balance Patch.esp
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000880:For Honor Balance Patch.esp
+      ComparisonValue: 1
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 01E715:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000801:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsBlockingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000801:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 0008BC:For Honor Balance Patch.esp
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000802:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsBlockingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Flags:
+      - OR
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000802:Reforged Directional Combat.esp
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 0008BC:For Honor Balance Patch.esp
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0172AC:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 0008C7:Enderal SE - Gameplay Overhaul.esp
+  EntryPoint: ApplyCombatHitSpell
+  PerkConditionTabCount: 3
+  Spell: 001D15:Enderal SE - Gameplay Overhaul.esp

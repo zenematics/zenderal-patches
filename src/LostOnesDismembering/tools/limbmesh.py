@@ -127,6 +127,113 @@ def cut_shape(nif, shape, ref_bone, bone_set, all_shapes):
                 shape=shape)
 
 
+def cut_loops(shape, bone_set):
+    """Loops of the open edge the cut leaves on `shape`, as vertex indices of cut_shape's piece (same keep/remap).
+    A cut edge is used by one kept and one dropped triangle. Vertices are welded by position first, so UV seams
+    (split vertices at one position) don't break a loop or count as cut edges."""
+    dom = dominant_bones(shape)
+    keep = [t for t in shape.tris if all(dom.get(v) in bone_set for v in t)]
+    used = sorted({v for t in keep for v in t})
+    remap = {v: i for i, v in enumerate(used)}
+    wid, weld = {}, {}
+    for v, xyz in enumerate(shape.verts):
+        weld[v] = wid.setdefault(tuple(round(x, 3) for x in xyz), len(wid))
+
+    def edges(tris):
+        out = {}
+        for a, b, c in tris:
+            for e in ((a, b), (b, c), (c, a)):
+                k = tuple(sorted((weld[e[0]], weld[e[1]])))
+                out[k] = out.get(k, 0) + 1
+        return out
+    full, kept = edges(shape.tris), edges(keep)
+    cut = [e for e, n in kept.items() if n == 1 and full.get(e) == 2]
+    rep = {}
+    for v in used:
+        rep.setdefault(weld[v], remap[v])
+    adj = {}
+    for a, b in cut:
+        adj.setdefault(a, []).append(b)
+        adj.setdefault(b, []).append(a)
+    chains, seen = [], set()
+
+    def walk(cur, prev):
+        out = []
+        while True:
+            nxt = [x for x in adj[cur] if x != prev and x not in seen]
+            if not nxt:
+                return out
+            prev, cur = cur, nxt[0]
+            seen.add(cur)
+            out.append(cur)
+    for start in adj:
+        if start in seen:
+            continue
+        seen.add(start)
+        fwd = walk(start, None)
+        back = walk(start, fwd[0] if fwd else None)
+        chains.append(back[::-1] + [start] + fwd)
+    # branch vertices (degree > 2) can still split one ring into chains: join chains end to end, nearest first
+    pos = {w: np.array(xyz) for xyz, w in wid.items()}
+    loops = []
+    while chains:
+        cur = chains.pop(0)
+        while chains:
+            best = min(((float(np.linalg.norm(pos[cur[-1]] - pos[c[e]])), k, e) for k, c in enumerate(chains)
+                        for e in (0, -1)))
+            gap, k, e = best
+            if gap > max(5.0, 0.5 * float(np.linalg.norm(pos[cur[-1]] - pos[cur[0]]))):
+                break
+            nxt = chains.pop(k)
+            cur += nxt if e == 0 else nxt[::-1]
+        if len(cur) >= 3:
+            loops.append([rep[w] for w in cur])
+    return loops
+
+
+def gore_caps(piece, loops, container_nif, all_verts):
+    """One cap piece closing every loop: a fan from the loop centroid, both windings (the cap is seen from both
+    sides when the limb rolls), planar UVs over the loop, shader/textures of the DF container's own Gore shape."""
+    gore = [s for s in container_nif.shapes if s.name.endswith(':Gore')]
+    assert len(gore) == 1, [s.name for s in container_nif.shapes]
+    gore = gore[0]
+    inside = np.mean(all_verts, axis=0)
+    verts, normals, uvs, tris = [], [], [], []
+    for loop in loops:
+        P = np.array([piece['verts'][i] for i in loop])
+        c = P.mean(0)
+        _, vecs = np.linalg.eigh(np.cov((P - c).T))
+        n, u, w = vecs[:, 0], vecs[:, 2], vecs[:, 1]
+        if n @ (c - inside) < 0:
+            n = -n
+        r = max(float(np.linalg.norm(q - c)) for q in P) or 1.0
+        for side, nrm in ((0, n), (1, -n)):
+            base = len(verts)
+            for q in [c] + list(P):
+                verts.append(tuple(q))
+                normals.append(tuple(nrm))
+                uvs.append((float((q - c) @ u / (2 * r) + 0.5), float((q - c) @ w / (2 * r) + 0.5)))
+            k = len(P)
+            for i in range(k):
+                a, b = base + 1 + i, base + 1 + (i + 1) % k
+                front = np.cross(P[i] - c, P[(i + 1) % k] - c) @ n > 0
+                tris.append((base, a, b) if front != bool(side) else (base, b, a))
+    return dict(name='Gore', verts=verts, normals=normals, uvs=uvs, tris=tris, shape=gore,
+                textures=[gore.shader._readtexture(container_nif._handle, gore._handle, i + 1) for i in range(9)])
+
+
+def closed_rings(piece, loops):
+    """The loops that actually close: the step from the last vertex back to the first is no longer than 1.5x the
+    longest step along the loop. Alpha cloth/fur leaves partial edges that don't."""
+    out = []
+    for loop in loops:
+        P = np.array([piece['verts'][i] for i in loop])
+        steps = np.linalg.norm(np.diff(np.vstack([P, P[:1]]), axis=0), axis=1)
+        if steps[-1] <= 1.5 * max(float(steps[:-1].max()), 1.0):
+            out.append(loop)
+    return out
+
+
 HAVOK_SCALE = 69.99125      # game units per Havok unit (SSE); DF's wolf leg hull * this == its mesh
 
 

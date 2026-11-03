@@ -30,3 +30,8 @@ and this plugin cannot lock it.** `Enabled=0` keeps the log for comparison.
 ## Status
 
 Built 2026-10-21, deployed to `E:\Zenderal\mods\Zenderal - Aim Facing Lock`. **Unverified in game.**
+
+**Not in the list any more** (2026-11-01: no copy anywhere in `E:\Zenderal\mods`). Its last log (2026-10-21) showed
+the heading moving at most ~3° while aiming, so the turn was never the heading. The report was then narrowed to
+female characters: the turn is in Smooth Combat's female crossbow walks, fixed by
+[`FemaleCrossbowAimWalk`](FemaleCrossbowAimWalk.md).

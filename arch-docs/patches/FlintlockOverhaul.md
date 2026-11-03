@@ -157,7 +157,8 @@ Reload clips also carry an `arrowRelease` annotation and are left alone.
 The build re-decodes every clip and fails unless the front sight is within 0.3 deg of its target, the roll under
 0.3 deg and no point of the gun in the line of sight; result: within 0.03 deg / 0.02 deg / none, on all 14.
 Clips keep Havok's block header (`blockDuration` = (maxFramesPerBlock - 1) x frameDuration): v4 zeroed it, the
-latent issue [`LoopPistolAnims`](LoopPistolAnims.md) v12 found. Quick Reload Stack's own clips still zero it.
+latent issue [`LoopPistolAnims`](LoopPistolAnims.md) v12 found. Quick Reload Stack's `retime()` writes the same
+header since 2026-11-01, so the `havok_blocks()` call after it is now a no-op kept for safety.
 
 **Rerun** after DAR Rifles, Ordo Legionis, PG Patcher Output or Quick Reload Stack changes (needs numpy).
 Backup of v4: `E:/Zenderal-backups/2026-11-01-musket-aim-fix-v4/`. **In game (2026-11-01, first build):** upright

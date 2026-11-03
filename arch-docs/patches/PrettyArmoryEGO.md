@@ -68,4 +68,6 @@ we lacked, now folded in:**
   `PEA - EGO Patch` the plugin and `textures/cubemaps/metalic_e.dds` are `.mohidden` (that cubemap is shared with ERA
   Part 1, Pretty Rune and four Pretty texture BSAs; PEA sits at the top of the MO2 order and would win it).
 
-Result: 153 records (was 141). Round-trip identical. Unverified in game.
+Result: 153 records (was 141). Round-trip identical. Deployed 2026-10-30 into `Zenderal - Patch Collection` (the
+only copy; previous one and the Ultra `modlist.txt` in `E:/Zenderal-backups/2026-10-30-pretty-armory-ego-unique-sets/`)
+and `PEA - EGO Patch` enabled in Ultra (its plugin stays hidden, so `plugins.txt` is unchanged). Unverified in game.

@@ -28,10 +28,14 @@
 // refused (reported as not accepted, as the graph itself does for events it has no transition for).
 // 1.1.1: dead actors too. A Fleshless Lost Archer and Warrior killed by Seismic Stomp itself got Ragdoll already dead,
 // then staggerStart 0.08-0.13 s later; 1.1.0 skipped the dead, so the graph took it and the corpse hung stiff mid-air.
+// 1.2.0 (2026-11-01): enemies launched by Seismic Stomp lay on the ground for ~4 s (the body kept sliding, so the 1 s /
+// 4-unit check failed), and Precision's physical swings passed over a body lying flat: players saw no damage after the
+// first hit (ZenRagdollTrace 1.2.0: no player hit in knock state 5, hits again at 6). A held GetUpBegin is now also
+// sent once the body has landed: kLandedDrop below its peak since the hold, then still to kLandedRange over kLandedWindow.
 // Log: My Games/Skyrim Special Edition/SKSE/ZenAirborneGetUpFix.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 1, 1, 0 },
+	.Version = REL::Version{ 1, 3, 1, 0 },
 	.Name = "ZenAirborneGetUpFix"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -44,6 +48,11 @@ namespace
 	constexpr auto  kWindow = std::chrono::milliseconds(1000);  // the settle check looks back this far
 	constexpr float kSettleRange = 4.0f;                        // pelvis z may vary at most this much over the window
 	constexpr auto  kTimeout = std::chrono::milliseconds(8000);  // a held GetUpBegin is sent after this long regardless
+	// 1.2.0: landed = dropped at least kLandedDrop below the highest pelvis z seen since the hold began, then within
+	// kLandedRange over the last kLandedWindow. Near the top of the arc it has not dropped yet, so the short window is safe there
+	constexpr auto  kLandedWindow = std::chrono::milliseconds(400);
+	constexpr float kLandedRange = 6.0f;
+	constexpr float kLandedDrop = 24.0f;
 
 	struct Sample
 	{
@@ -57,6 +66,7 @@ namespace
 		bool               held{ false };
 		Clock::time_point  heldAt{};
 		float              heldAtZ{ 0.0f };
+		float              peakZ{ 0.0f };      // highest pelvis z since the hold began (1.2.0)
 		float              lastDelta{ 0.0f };  // Update's float argument, logged only
 	};
 
@@ -97,6 +107,26 @@ namespace
 		return hi - lo <= kSettleRange;
 	}
 
+	bool Landed(const Ragdoll& a_ragdoll)
+	{
+		if (!a_ragdoll.held || a_ragdoll.history.empty()) {
+			return false;
+		}
+		const auto  now = a_ragdoll.history.back().at;
+		const float z = a_ragdoll.history.back().z;
+		if (now - a_ragdoll.history.front().at < kLandedWindow || a_ragdoll.peakZ - z < kLandedDrop) {
+			return false;
+		}
+		float lo = z, hi = z;
+		for (auto& s : a_ragdoll.history) {
+			if (now - s.at <= kLandedWindow) {
+				lo = std::min(lo, s.z);
+				hi = std::max(hi, s.z);
+			}
+		}
+		return hi - lo <= kLandedRange;
+	}
+
 	struct NotifyAnimationGraph
 	{
 		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_eventName)
@@ -121,6 +151,7 @@ namespace
 							r.held = true;
 							r.heldAt = Clock::now();
 							r.heldAtZ = r.history.back().z;
+							r.peakZ = std::ranges::max(r.history | std::views::transform(&Sample::z));
 							SKSE::log::info("{:08X} '{}': GetUpBegin held, still moving (pelvis z {:.0f}, Update arg {})",
 								actor->GetFormID(), actor->GetName(), r.heldAtZ, r.lastDelta);
 						}
@@ -172,11 +203,14 @@ namespace
 					r.history.pop_front();  // keep exactly one sample at or beyond the window's start
 				}
 				if (r.held) {
+					r.peakZ = std::max(r.peakZ, *z);
 					const auto heldFor = now - r.heldAt;
 					const bool settled = Settled(r);
-					if (settled || heldFor >= kTimeout) {
-						SKSE::log::info("{:08X} '{}': GetUpBegin sent after {:.2f} s ({}), pelvis z {:.0f} -> {:.0f}",
-							a_this->GetFormID(), a_this->GetName(), Seconds(heldFor), settled ? "settled" : "timeout", r.heldAtZ, *z);
+					const bool landed = !settled && Landed(r);
+					if (settled || landed || heldFor >= kTimeout) {
+						SKSE::log::info("{:08X} '{}': GetUpBegin sent after {:.2f} s ({}), pelvis z {:.0f} -> {:.0f} (peak {:.0f})",
+							a_this->GetFormID(), a_this->GetName(), Seconds(heldFor), settled ? "settled" : landed ? "landed" : "timeout",
+							r.heldAtZ, *z, r.peakZ);
 						r.held = false;
 						send = true;
 					}
@@ -193,12 +227,71 @@ namespace
 		}
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
+
+	// 1.3.0: the engine's hit processing (ID 38586) returns at once - no damage, no hit event - when the target's knock
+	// state is kQueued (actorState1 & 0xE000000 == 0xA000000, read at +0x68). The first hit on a flying ragdoll queues a
+	// get-up mid-air, so every later melee hit was lost until the actor stood (Seismic Stomp under SlowTime: 7 s on a
+	// bear). For the melee path only (DealDamage, ID 38627 +0x4A8), an alive, ragdolled target in kQueued is shown as
+	// kExplode - the flying state its hits worked in - for this one call, then put back if nothing else changed it.
+	struct ProcessHit
+	{
+		static std::uintptr_t thunk(RE::Actor* a_target, void* a_hitData)
+		{
+			auto* state = a_target ? a_target->AsActorState() : nullptr;
+			if (!state || state->actorState1.knockState != RE::KNOCK_STATE_ENUM::kQueued || a_target->IsDead() ||
+				!a_target->IsInRagdollState()) {
+				return func(a_target, a_hitData);
+			}
+			state->actorState1.knockState = RE::KNOCK_STATE_ENUM::kExplode;
+			const auto result = func(a_target, a_hitData);
+			if (state->actorState1.knockState == RE::KNOCK_STATE_ENUM::kExplode) {
+				state->actorState1.knockState = RE::KNOCK_STATE_ENUM::kQueued;
+			}
+			static std::atomic<int> logged{ 0 };
+			if (logged++ < 50) {
+				SKSE::log::info("{:08X} '{}': melee hit let through while queued to get up (knock now {})", a_target->GetFormID(),
+					a_target->GetName(), std::to_underlying(state->GetKnockState()));
+			}
+			return result;
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
+	void InstallProcessHit()
+	{
+		const REL::Relocation<std::uintptr_t> site{ REL::ID(38627), 0x4A8 };
+		const REL::Relocation<std::uintptr_t> target{ REL::ID(38586) };
+		const auto* bytes = reinterpret_cast<const std::uint8_t*>(site.address());
+		const auto  dest = site.address() + 5 + *reinterpret_cast<const std::int32_t*>(bytes + 1);
+		auto module = [](std::uintptr_t a_addr) {
+			HMODULE mod = nullptr;
+			char    name[MAX_PATH]{};
+			if (GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+					reinterpret_cast<LPCSTR>(a_addr), &mod) && mod) {
+				GetModuleFileNameA(mod, name, MAX_PATH);
+			}
+			return std::string{ name };
+		};
+		// 1.3.1: another plugin already hooks this call (1.3.0 required the game's own target and so never installed);
+		// any call is chained - ours runs first, then whatever was there, which ends in 38586
+		if (bytes[0] != 0xE8) {
+			SKSE::log::error("melee hit call at ID 38627 +0x4A8 is not a call ({:02X} {:02X} {:02X} {:02X} {:02X}, {}) - hits on "
+							 "actors queued to get up stay blocked",
+				bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], module(site.address()));
+			return;
+		}
+		SKSE::AllocTrampoline(14);
+		ProcessHit::func = SKSE::GetTrampoline().write_call<5>(site.address(), ProcessHit::thunk);
+		SKSE::log::info("melee hit processing hooked (ID 38627 +0x4A8): the call led to {} ({}); hits reach ragdolled actors "
+						"queued to get up",
+			dest == target.address() ? "the game's 38586"s : std::format("{:X}", dest), module(dest));
+	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenAirborneGetUpFix 1.1.1 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenAirborneGetUpFix 1.3.1 loading, runtime {}", REL::Module::get().version().string());
 
 	// Character's vtables: [0] TESForm/Actor, [3] IAnimationGraphManagerHolder. The player (PlayerCharacter) is not touched.
 	REL::Relocation<std::uintptr_t> actorVtbl{ RE::VTABLE_Character[0] };
@@ -207,5 +300,11 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	NotifyAnimationGraph::func = graphVtbl.write_vfunc(0x1, NotifyAnimationGraph::thunk);
 	SKSE::log::info("Character Update and NotifyAnimationGraph hooked; window {} ms, settle range {}, timeout {} ms",
 		kWindow.count(), kSettleRange, kTimeout.count());
+	// at kPostLoad, after every plugin's own load-time hooks (1.3.1)
+	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
+		if (a_msg->type == SKSE::MessagingInterface::kPostLoad) {
+			InstallProcessHit();
+		}
+	});
 	return true;
 }

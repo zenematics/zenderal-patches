@@ -1,0 +1,49 @@
+diff --git a/src/MakeupApi.cpp b/src/MakeupApi.cpp
+index b85dcfa..aeb315b 100644
+--- a/src/MakeupApi.cpp
++++ b/src/MakeupApi.cpp
+@@ -70,7 +70,17 @@ namespace OS::MakeupApi {
+                 return 0;
+             }
+             const auto base = reinterpret_cast<std::uintptr_t>(a_player);
+-            return base + (REL::Module::IsAE() ? 0xB18u : 0xB10u);
++            if (!REL::Module::IsAE()) {
++                return base + 0xB10u;
++            }
++            // Zenderal (2026-11-02): AE 1.7.99 gave PlayerCharacter another base
++            // class, so every runtime-data member sits 8 bytes later than on
++            // 1.6.x (CommonLibSSE-NG's kAE1799ShiftBytes): the list is at 0xB20
++            // and its overlay pointer at 0xB38. Reading 0xB18 on 1.7.104 took the
++            // array's SIZE field (0x24, 36 layers) for the overlay pointer and
++            // dereferenced it in CollectMasks on every save load
++            // (FittingRoom.dll+0x167D64, two crash logs, 2026-11-02).
++            return base + (REL::Module::IsAtLeast(SKSE::RUNTIME_SSE_1_7_99) ? 0xB20u : 0xB18u);
+         }
+ 
+         // BSTArray is data at +0x00, capacity at +0x08 and size at +0x10. Both
+diff --git a/src/MakeupApi.h b/src/MakeupApi.h
+index 86f07fa..7d2a516 100644
+--- a/src/MakeupApi.h
++++ b/src/MakeupApi.h
+@@ -26,6 +26,8 @@ namespace RE {
+ //
+ //   SE 1.5.97  GetTintMask 39612 / GetNumTints 39614:  data 0xB10, size 0xB20
+ //   AE 1.6.1170 GetTintMask 40698 / GetNumTints 40700: data 0xB18, size 0xB28
++//   AE 1.7.99+  (Zenderal, 2026-11-02) one more base class in PlayerCharacter,
++//               CommonLibSSE-NG kAE1799ShiftBytes = 8:   data 0xB20, size 0xB30
+ //
+ // and a third AE site, the character dump that prints "TintMask%d:%08X:%f",
+ // reads the same 0xB18. So the published member is the SE layout and is eight
+diff --git a/src/plugin.cpp b/src/plugin.cpp
+index 50422f5..d47ab8f 100644
+--- a/src/plugin.cpp
++++ b/src/plugin.cpp
+@@ -105,7 +105,7 @@ namespace {
+ #ifdef FR_DIAG
+     constexpr auto kVersion = "1.2.0-diag4";
+ #else
+-    constexpr auto kVersion = "1.2.0";
++    constexpr auto kVersion = "1.2.0-zen1";  // Zenderal rebuild: AE 1.7.99+ tint-list offset (MakeupApi.cpp)
+ #endif
+ 
+     // Resolve where the log goes, and never fail silently.

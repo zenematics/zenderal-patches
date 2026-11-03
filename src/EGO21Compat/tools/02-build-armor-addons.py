@@ -15,6 +15,12 @@ ADDONS is the output of 00-scan-arma-races.py (2026-10-22: 4 of 919 base ARMAs, 
 Source: reference/mods/EGO (Spriggit 0.40.0 serialization of Enderal SE - Gameplay Overhaul.esp).
 Re-run 00 and this after EGO or any armor mod changes.
 
+MOD_ADDONS (2026-11-01): 22 addons that mods define themselves list the old 033899 / 033898 but not
+2.1's twin, so the same armor is invisible on a 2.1 player (MadArthur: Kata's Arcanist Robes left him
+naked). 00 only compares base-defined addons, so these were found by a scan of every winning ARMA for
+"old race present, its 2.1 twin missing". Each is the mod's own record (it wins: nothing overrides
+them) with each twin inserted right after its old race; masters of this plugin must include the mod.
+
 Usage:  python 02-build-armor-addons.py
 """
 import os, shutil
@@ -31,6 +37,19 @@ ADDONS = [
     '01E_07_SteelShieldAA - 14587A_Skyrim.esm.yaml',
     '02E_18_PyreanShieldAA - 0E35C7_Skyrim.esm.yaml',
     '_50E_LSet_VenturerArmorAA - 14483D_Skyrim.esm.yaml',
+]
+
+MODS = os.path.join(REPO, 'reference', 'mods')
+TWINS = {'033899': '013746', '033898': '013748'}
+# (reference/mods folder, plugin, [FormIDs]) -- 2026-11-01 scan of every winning ARMA in Ultra.
+MOD_ADDONS = [
+    ('Pretty/Pretty Common Armory', 'Pretty Common Armory.esp', ['000800']),
+    ('KataPUMB', 'KataPUMBSpellPack.esp', ['002E50']),
+    ('KataPUMBSpellPackage', 'KataPUMB_SpellPackage.esp',
+     ['00223F', '002240', '002241', '002243', '002244', '002245', '00571D', '0098C8', '0098CA', '0098CC', '0098CE']),
+    ('Pretty/Pretty Mages Armory', 'Pretty Mages Armory.esp', ['000800']),
+    ('Pretty/Pretty Holy Order Armory', 'Pretty Holy Order Armory.esp', ['000803', '000804', '000805', '00080F']),
+    ('EAM', 'EAM SE - Enderal Apothecarii Monastery.esp', ['05041C', '05041D', '05041E', '05041F']),
 ]
 
 
@@ -72,7 +91,35 @@ for name in ADDONS:
     added += len(missing)
     print(f'wrote {name} (+{" ".join(m[:6] for m in missing)})')
 
+mod_count = 0
+for folder, plugin, ids in MOD_ADDONS:
+    src = os.path.join(MODS, folder, 'ArmorAddons')
+    for fid in ids:
+        names = [n for n in os.listdir(src) if n.endswith(f' - {fid}_{plugin}.yaml')]
+        if len(names) != 1:
+            raise SystemExit(f'{folder}: expected one ArmorAddon {fid}_{plugin}, found {names}')
+        name = names[0]
+        lines = read(os.path.join(src, name))
+        start = lines.index('AdditionalRaces:') + 1
+        end = start
+        while end < len(lines) and lines[end].startswith('- '):
+            end += 1
+        races = [l[2:8] for l in lines[start:end] if l.endswith(':Skyrim.esm')]
+        twins = [(old, new) for old, new in TWINS.items() if old in races and new not in races]
+        if not twins:
+            raise SystemExit(f'{name}: no old race missing its 2.1 twin -- rescan and update MOD_ADDONS')
+        for old, new in twins:
+            i = lines.index(f'- {old}:Skyrim.esm', start, end)
+            lines.insert(i + 1, f'- {new}:Skyrim.esm')
+            end += 1
+            added += 1
+        with open(os.path.join(OUT, name), 'wb') as f:
+            f.write('\r\n'.join(lines).encode('utf-8'))
+        mod_count += 1
+        print(f'wrote {name} (+{" ".join(n for _, n in twins)})')
+
 written = len(os.listdir(OUT))
-if written != len(ADDONS) or added != len(NEW_RACES) * len(ADDONS):
-    raise SystemExit(f'expected {len(ADDONS)} addons / {len(NEW_RACES) * len(ADDONS)} races, got {written} / {added}')
+expect_races = len(NEW_RACES) * (len(ADDONS) + mod_count)
+if written != len(ADDONS) + mod_count or mod_count != 22 or added != expect_races:
+    raise SystemExit(f'expected {len(ADDONS) + 22} addons / {expect_races} races, got {written} / {added}')
 print(f'{written} armor addon overrides written to {OUT}')

@@ -256,6 +256,11 @@ Phasmalism is a class in Enderal, not a school; the summons are Entropy. ⚠ It 
 ### Melee and ranged
 
 **7. Cornered Wolf**: below 30% Health you deal 25% more damage and take 10% less; above 75% you deal 10% less. **[Cond]** `GetActorValuePercent Health`.
+**Buffed 2026-10-30 (curator: "70% as its starting point and strongest at below 50% health"):** the bonus starts below
+70% Health and climbs in exclusive 5% bands (`CORNERED_WOLF_BANDS`), a fifth of it per band: +5/10/15/20% damage dealt
+and −2/4/6/8% taken from 70% down to 50%, then the full +25% / −10% below 50%. Entry points can't scale with Health,
+hence bands (10 entries, one per band and direction). The penalty above 75% is unchanged. Previous plugin in
+`E:/Zenderal-backups/2026-10-30-traits-pre-cornered-wolf/`. Unverified in game.
 
 **8. Heavy Hand**: power attacks deal 30% more damage; normal attacks deal 10% less; sprinting costs 20% more Stamina. **[Cond][Test]**
 `Mod Attack Damage` + `IsPowerAttacking`. FHR/MCO in this list change power-attack handling, so test that the condition still fires.

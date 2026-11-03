@@ -1,0 +1,1419 @@
+{
+ "000801:Pretty Pyrean Armory.esp": {
+  "anim": 1,
+  "chain": [
+   "Pretty Pyrean Armory.esp"
+  ],
+  "crit_damage": 4,
+  "crit_mult": 1.0,
+  "damage": 7,
+  "edid": "_D_PyreanSword_Unplayable",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 35,
+  "weight": 7.0
+ },
+ "000810:mihailancientskeletons.esp": {
+  "anim": 1,
+  "chain": [
+   "mihailancientskeletons.esp"
+  ],
+  "crit_damage": 3,
+  "crit_mult": 0.0,
+  "damage": 6,
+  "edid": "mihailskeletonsword",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 25,
+  "weight": 9.0
+ },
+ "000873:KittyClass_DarkWarrior.esp": {
+  "anim": 1,
+  "chain": [
+   "KittyClass_DarkWarrior.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 13,
+  "edid": "_CDW_ShadeSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 985,
+  "weight": 14.0
+ },
+ "000900:Dynamic Things Alternative.esp": {
+  "anim": 1,
+  "chain": [
+   "Dynamic Things Alternative.esp",
+   "Zenderal - Unresolved References Cleanup.esp"
+  ],
+  "crit_damage": 2,
+  "crit_mult": 1.0,
+  "damage": 3,
+  "edid": "dtaFishingPole01",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.2,
+  "template": false,
+  "value": 10,
+  "weight": 3.0
+ },
+ "001CEB:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 1,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 4,
+  "crit_mult": 1.0,
+  "damage": 5,
+  "edid": "XionRustySilverSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 63,
+  "weight": 8.0
+ },
+ "001D07:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 1,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 13,
+  "crit_mult": 1.0,
+  "damage": 18,
+  "edid": "XionBannfluchDUPLICATE001",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 750,
+  "weight": 12.0
+ },
+ "001F41:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 1,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Zenderal - Moonsteel Pretty Patch.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 14,
+  "edid": "_02E_19SilberstahlschwertDesGiftes",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 155,
+  "weight": 9.0
+ },
+ "001F76:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 1,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 16,
+  "crit_mult": 1.0,
+  "damage": 21,
+  "edid": "_03E_27WegesschwertDesGiftes",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 220,
+  "weight": 15.0
+ },
+ "001F94:Enderal SE - Gameplay Overhaul.esp": {
+  "anim": 1,
+  "chain": [
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Zenderal - Moonsteel Pretty Patch.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 14,
+  "edid": "_02E_19SilberstahlschwertDesLichts",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 155,
+  "weight": 9.0
+ },
+ "0028CF:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 3,
+  "crit_mult": 1.0,
+  "damage": 4,
+  "edid": "_01E_02_IronSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 12,
+  "weight": 4.0
+ },
+ "0030C9:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Pretty Common Armory.esp",
+   "Pretty Enderal Armory - Fixes.esp",
+   "Zenderal - Pretty Armory EGO Patch.esp"
+  ],
+  "crit_damage": 3,
+  "crit_mult": 1.0,
+  "damage": 5,
+  "edid": "_01E_05_IronSwordOfFlames",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 12,
+  "weight": 4.0
+ },
+ "00F233:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "WB_ConjureXivilaiSorcerer_Weapon",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 666,
+  "weight": 15.0
+ },
+ "00F234:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "WB_ConjureXivilaiSorcerer_Weapon_Enchanted",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": true,
+  "value": 666,
+  "weight": 15.0
+ },
+ "019B33:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "crit_damage": 9,
+  "crit_mult": 1.0,
+  "damage": 35,
+  "edid": "WB_DaedricCrescent1h_Weapon_Enchanted",
+  "enchanted": true,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": true,
+  "value": 2000,
+  "weight": 20.0
+ },
+ "019B34:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "crit_damage": 9,
+  "crit_mult": 1.0,
+  "damage": 35,
+  "edid": "WB_DaedricCrescent1h_Weapon",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 20.0
+ },
+ "019E82:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 5,
+  "crit_mult": 1.0,
+  "damage": 7,
+  "edid": "_01E_07_SteelSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 36,
+  "weight": 7.0
+ },
+ "01EB8E:Enderal - Forgotten Stories.esm": {
+  "anim": 1,
+  "chain": [
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Pretty Unique Armory.esp",
+   "Zenderal - Pretty Armory EGO Patch.esp"
+  ],
+  "crit_damage": 16,
+  "crit_mult": 1.0,
+  "damage": 22,
+  "edid": "_05E_40_FS_NQR04_VoiceOfTheLostOnes",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 750,
+  "weight": 9.0
+ },
+ "020163:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm"
+  ],
+  "crit_damage": 0,
+  "crit_mult": 0.0,
+  "damage": 10,
+  "edid": "DummyDagger",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 0.0
+ },
+ "0240C5:Enderal - Forgotten Stories.esm": {
+  "anim": 1,
+  "chain": [
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Pretty Unique Armory.esp",
+   "Zenderal - Pretty Armory EGO Patch.esp"
+  ],
+  "crit_damage": 15,
+  "crit_mult": 1.0,
+  "damage": 20,
+  "edid": "_03E_27_Unique_SwordOfTheMesmer",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 265,
+  "weight": 15.0
+ },
+ "0240F7:Enderal - Forgotten Stories.esm": {
+  "anim": 1,
+  "chain": [
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 26,
+  "crit_mult": 1.0,
+  "damage": 35,
+  "edid": "_06E_55_Unique_Thoriumsword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 1600,
+  "weight": 10.0
+ },
+ "02E190:Enderal - Forgotten Stories.esm": {
+  "anim": 1,
+  "chain": [
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 22,
+  "crit_mult": 1.0,
+  "damage": 30,
+  "edid": "_00E_FS_NQR05_ZarAhSabre",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 175,
+  "weight": 10.0
+ },
+ "02E6D1:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Pretty Factions Armory.esp",
+   "Zenderal - Pretty Armory EGO Patch.esp"
+  ],
+  "crit_damage": 16,
+  "crit_mult": 1.0,
+  "damage": 21,
+  "edid": "_00E_MendedSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 67,
+  "weight": 16.0
+ },
+ "02EE3E:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 9,
+  "edid": "_01E_07_DunevilleSteelSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 50,
+  "weight": 10.0
+ },
+ "036A1C:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 20,
+  "crit_mult": 1.0,
+  "damage": 27,
+  "edid": "_05E_45_Unique_KileanFalcata",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 330,
+  "weight": 10.0
+ },
+ "03A43B:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 13,
+  "edid": "_03E_25_Unique_KorsSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.05,
+  "template": false,
+  "value": 125,
+  "weight": 10.0
+ },
+ "03A43D:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "_02E_15_Unique_Epicura",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 700,
+  "weight": 10.0
+ },
+ "044FB8:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 2,
+  "crit_mult": 1.0,
+  "damage": 3,
+  "edid": "_00E_MQ01_AltesSchwert",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 8,
+  "weight": 6.0
+ },
+ "045DBF:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 24,
+  "crit_mult": 1.0,
+  "damage": 32,
+  "edid": "_00E_BoundWeaponSword5",
+  "enchanted": true,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 0.0
+ },
+ "045ED7:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "_01E_07_DunevilleSteelSwordForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 100,
+  "weight": 10.0
+ },
+ "058F5F:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 6,
+  "crit_mult": 1.0,
+  "damage": 8,
+  "edid": "_00E_BoundWeaponSword1",
+  "enchanted": true,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 0.0
+ },
+ "05C26D:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 6,
+  "crit_mult": 1.0,
+  "damage": 8,
+  "edid": "_01E_07_CityGuardSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 40,
+  "weight": 7.0
+ },
+ "0670F2:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 21,
+  "crit_mult": 1.0,
+  "damage": 28,
+  "edid": "_03E_25_Unique_SoulbladeSilentStorm",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 125,
+  "weight": 10.0
+ },
+ "06A24B:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Pretty Unique Armory.esp",
+   "Zenderal - Pretty Armory EGO Patch.esp"
+  ],
+  "crit_damage": 4,
+  "crit_mult": 1.0,
+  "damage": 5,
+  "edid": "_01E_05_CultistSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 12,
+  "weight": 4.0
+ },
+ "06FEE0:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 14,
+  "edid": "_03E_25_Unique_Boneripper",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 150,
+  "weight": 10.0
+ },
+ "072784:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 5,
+  "crit_mult": 1.0,
+  "damage": 7,
+  "edid": "_01E_07_SteelSwordOfTheBlaze",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 51,
+  "weight": 7.0
+ },
+ "07A91A:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm"
+  ],
+  "crit_damage": 5,
+  "crit_mult": 1.0,
+  "damage": 11,
+  "edid": "_02E_15_Scimitar",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 5,
+  "weight": 10.0
+ },
+ "07C991:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 18,
+  "crit_mult": 1.0,
+  "damage": 24,
+  "edid": "_04E_31Aeternaschwert",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 285,
+  "weight": 13.0
+ },
+ "07C999:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 16,
+  "crit_mult": 1.0,
+  "damage": 21,
+  "edid": "_03E_27Wegesschwert",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 240,
+  "weight": 15.0
+ },
+ "07C99F:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Zenderal - Moonsteel Pretty Patch.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 14,
+  "edid": "_02E_19Silberstahlschwert",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 155,
+  "weight": 9.0
+ },
+ "07C9A2:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 9,
+  "edid": "_02E_16Silberschwert",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 205,
+  "weight": 9.0
+ },
+ "07C9A5:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 9,
+  "edid": "_02E_11_RuneSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 90,
+  "weight": 10.0
+ },
+ "0AAC3C:EAM SE - Enderal Apothecarii Monastery.esp": {
+  "anim": 1,
+  "chain": [
+   "EAM SE - Enderal Apothecarii Monastery.esp"
+  ],
+  "crit_damage": 6,
+  "crit_mult": 1.0,
+  "damage": 23,
+  "edid": "_03E_27_SwordOfTheRighteousPath_EAMdaedric",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 265,
+  "weight": 17.0
+ },
+ "0B1C15:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "crit_damage": 5,
+  "crit_mult": 1.0,
+  "damage": 25,
+  "edid": "WB_ConjureCraftlord_Weapon",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 135,
+  "weight": 12.0
+ },
+ "0B21A8:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "crit_damage": 4,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "WB_ConjureCatTotem_Weapon",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 150,
+  "weight": 9.0
+ },
+ "0B781C:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp"
+  ],
+  "crit_damage": 5,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "WB_ConjureDeadeyeCaptain_Weapon",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 5,
+  "weight": 10.0
+ },
+ "0BBF05:Apocalypse - Magic of Skyrim.esp": {
+  "anim": 1,
+  "chain": [
+   "Apocalypse - Magic of Skyrim.esp",
+   "Zenderal - Unresolved References Cleanup.esp"
+  ],
+  "crit_damage": 4,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "WB_ConjureBattlemage_Weapon",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 500,
+  "weight": 10.0
+ },
+ "0D22A9:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 12,
+  "crit_mult": 1.0,
+  "damage": 16,
+  "edid": "_02E_15_Unique_SkaiNuasHeads",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 400,
+  "weight": 10.0
+ },
+ "0DD764:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 13,
+  "crit_mult": 1.0,
+  "damage": 18,
+  "edid": "_04E_30_Unique_SolSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 240,
+  "weight": 12.0
+ },
+ "0EBDDB:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 9,
+  "edid": "_02E_16SilberschwertDesFrostzorns",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 205,
+  "weight": 9.0
+ },
+ "10A6C1:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 5,
+  "crit_mult": 1.0,
+  "damage": 7,
+  "edid": "_01E_07_SteelSword_Unplayable",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 35,
+  "weight": 7.0
+ },
+ "1181C1:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 9,
+  "edid": "_02E_11RunenschwertDesFlammenzorns",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 90,
+  "weight": 11.0
+ },
+ "119BC2:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 4,
+  "crit_mult": 1.0,
+  "damage": 5,
+  "edid": "_01E_02_IronSwordForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 65,
+  "weight": 4.0
+ },
+ "127D6F:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 9,
+  "edid": "_02E_16SilberschwertDesFlammenzorns",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 205,
+  "weight": 9.0
+ },
+ "129735:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Zenderal - Moonsteel Pretty Patch.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 14,
+  "edid": "_02E_19SilberstahlschwertDesFrostzorns",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 155,
+  "weight": 9.0
+ },
+ "12E2DA:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm"
+  ],
+  "crit_damage": 8,
+  "crit_mult": 1.0,
+  "damage": 17,
+  "edid": "_02E_19_SkaraggSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 70,
+  "weight": 13.0
+ },
+ "12E361:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 16,
+  "crit_mult": 1.0,
+  "damage": 21,
+  "edid": "_03E_27WegesschwertDesFeuerzorns",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 240,
+  "weight": 15.0
+ },
+ "135777:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 13,
+  "crit_mult": 1.0,
+  "damage": 18,
+  "edid": "_03E_21_Sternlingsschwert",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 180,
+  "weight": 12.0
+ },
+ "136FFB:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Pretty Unique Armory.esp",
+   "Zenderal - Pretty Armory EGO Patch.esp"
+  ],
+  "crit_damage": 11,
+  "crit_mult": 1.0,
+  "damage": 15,
+  "edid": "_03E_25_Unique_KileanFalcata",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 150,
+  "weight": 10.0
+ },
+ "137940:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 14,
+  "edid": "_00E_BoundWeaponSword2",
+  "enchanted": true,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 0.0
+ },
+ "137941:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 19,
+  "crit_mult": 1.0,
+  "damage": 26,
+  "edid": "_00E_BoundWeaponSword4",
+  "enchanted": true,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 0.0
+ },
+ "137943:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 15,
+  "crit_mult": 1.0,
+  "damage": 20,
+  "edid": "_00E_BoundWeaponSword3",
+  "enchanted": true,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 0.0
+ },
+ "139AEC:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm"
+  ],
+  "crit_damage": 4,
+  "crit_mult": 1.0,
+  "damage": 8,
+  "edid": "_01E_07_SteelSwordForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 169,
+  "weight": 7.0
+ },
+ "13B5F2:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm"
+  ],
+  "crit_damage": 3,
+  "crit_mult": 1.0,
+  "damage": 75,
+  "edid": "_00E_Debug_Sword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 2.0,
+  "template": false,
+  "value": 12,
+  "weight": 4.0
+ },
+ "13B5F4:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Bug Fixes.esp",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 9,
+  "edid": "_03E_20_KeeperLongsword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 100,
+  "weight": 8.0
+ },
+ "13EF66:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "_02E_16SilberschwertForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 430,
+  "weight": 9.0
+ },
+ "13F1B7:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 18,
+  "crit_mult": 1.0,
+  "damage": 24,
+  "edid": "_04E_31AeternaschwertDesFLammenzorns",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 285,
+  "weight": 13.0
+ },
+ "141576:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal - Forgotten Stories.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 10,
+  "crit_mult": 1.0,
+  "damage": 14,
+  "edid": "_03E_20_Unique_BlueIslandsThorn",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 800,
+  "weight": 7.0
+ },
+ "144817:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 18,
+  "crit_mult": 1.0,
+  "damage": 24,
+  "edid": "_04E_31AeternaschwertDesFrostzorns",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 285,
+  "weight": 13.0
+ },
+ "147996:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Pretty Factions Armory.esp",
+   "Zenderal - Pretty Armory EGO Patch.esp"
+  ],
+  "crit_damage": 15,
+  "crit_mult": 1.0,
+  "damage": 20,
+  "edid": "_03E_28_SunbornSword",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 80,
+  "weight": 11.0
+ },
+ "148755:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 22,
+  "crit_mult": 1.0,
+  "damage": 23,
+  "edid": "_04E_35_Unique_Lightbringer",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 1000,
+  "weight": 10.0
+ },
+ "1489CE:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 7,
+  "crit_mult": 1.0,
+  "damage": 10,
+  "edid": "_02E_11_RuneSwordForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 320,
+  "weight": 10.0
+ },
+ "148A24:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 14,
+  "crit_mult": 1.0,
+  "damage": 19,
+  "edid": "_03E_21_SternlingsschwertForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 450,
+  "weight": 12.0
+ },
+ "148A5E:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp",
+   "Zenderal - Moonsteel Pretty Patch.esp"
+  ],
+  "crit_damage": 11,
+  "crit_mult": 1.0,
+  "damage": 15,
+  "edid": "_02E_19SilberstahlschwertForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 375,
+  "weight": 9.0
+ },
+ "148A7E:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 16,
+  "crit_mult": 1.0,
+  "damage": 22,
+  "edid": "_03E_27WegesschwertForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 600,
+  "weight": 15.0
+ },
+ "148A99:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 19,
+  "crit_mult": 1.0,
+  "damage": 25,
+  "edid": "_04E_31AeternaschwertForged",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 700,
+  "weight": 13.0
+ },
+ "15037A:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 17,
+  "crit_mult": 1.0,
+  "damage": 23,
+  "edid": "_05E_45_Unique_MoralasGrace",
+  "enchanted": true,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 135,
+  "weight": 10.0
+ },
+ "15037B:Skyrim.esm": {
+  "anim": 1,
+  "chain": [
+   "Skyrim.esm",
+   "Enderal SE - Gameplay Overhaul.esp"
+  ],
+  "crit_damage": 31,
+  "crit_mult": 1.0,
+  "damage": 41,
+  "edid": "_05E_45_Unique_AlRashimsHeritage",
+  "enchanted": false,
+  "nonplayable": false,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 35,
+  "weight": 10.0
+ },
+ "46FD59:Triumvirate - Mage Archetypes.esp": {
+  "anim": 1,
+  "chain": [
+   "Triumvirate - Mage Archetypes.esp"
+  ],
+  "crit_damage": 5,
+  "crit_mult": 0.0,
+  "damage": 10,
+  "edid": "TVR_Ancestors_Weapon_ShittySword",
+  "enchanted": false,
+  "nonplayable": true,
+  "reach": 1.0,
+  "speed": 1.0,
+  "template": false,
+  "value": 0,
+  "weight": 9.0
+ }
+}

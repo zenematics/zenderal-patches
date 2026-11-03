@@ -1,0 +1,326 @@
+{
+  "arts": [
+    {
+      "fid": "000800",
+      "limb": "Front_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\BloodFX_Front_L_Leg.nif",
+      "node": "NPC LArm2"
+    },
+    {
+      "fid": "000801",
+      "limb": "Front_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\BloodFX_Front_R_Leg.nif",
+      "node": "NPC RArm2"
+    },
+    {
+      "fid": "000802",
+      "limb": "Back_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\BloodFX_Back_L_Leg.nif",
+      "node": "NPC LLeg2"
+    },
+    {
+      "fid": "000803",
+      "limb": "Back_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\BloodFX_Back_R_Leg.nif",
+      "node": "NPC RLeg2"
+    },
+    {
+      "fid": "000804",
+      "limb": "Head",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\BloodFX_Head.nif",
+      "node": "NPC Neck2"
+    }
+  ],
+  "limbs": [
+    {
+      "fid": "000805",
+      "limb": "Front_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Front_L_Leg_805.nif",
+      "ref_node": "NPC LArm2",
+      "node": "NPC LArm2",
+      "translation": {
+        "x": -0.056672,
+        "y": -2.573017,
+        "z": -19.977814
+      },
+      "skins": [
+        {
+          "skin": "0868FD:Skyrim.esm",
+          "race": "BearBrownRace"
+        },
+        {
+          "skin": "0EAA5B:Skyrim.esm",
+          "race": "BearBrownRaceHoher"
+        }
+      ]
+    },
+    {
+      "fid": "000806",
+      "limb": "Front_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Front_R_Leg_806.nif",
+      "ref_node": "NPC RArm2",
+      "node": "NPC RArm2",
+      "translation": {
+        "x": -0.056671,
+        "y": -2.573015,
+        "z": -19.977823
+      },
+      "skins": [
+        {
+          "skin": "0868FD:Skyrim.esm",
+          "race": "BearBrownRace"
+        },
+        {
+          "skin": "0EAA5B:Skyrim.esm",
+          "race": "BearBrownRaceHoher"
+        }
+      ]
+    },
+    {
+      "fid": "000807",
+      "limb": "Back_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Back_L_Leg_807.nif",
+      "ref_node": "NPC LLeg2",
+      "node": "NPC LLeg2",
+      "translation": {
+        "x": -0.413937,
+        "y": -9.657281,
+        "z": -26.129848
+      },
+      "skins": [
+        {
+          "skin": "0868FD:Skyrim.esm",
+          "race": "BearBrownRace"
+        },
+        {
+          "skin": "0EAA5B:Skyrim.esm",
+          "race": "BearBrownRaceHoher"
+        }
+      ]
+    },
+    {
+      "fid": "000808",
+      "limb": "Back_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Back_R_Leg_808.nif",
+      "ref_node": "NPC RLeg2",
+      "node": "NPC RLeg2",
+      "translation": {
+        "x": 0.655512,
+        "y": -9.657268,
+        "z": -26.124903
+      },
+      "skins": [
+        {
+          "skin": "0868FD:Skyrim.esm",
+          "race": "BearBrownRace"
+        },
+        {
+          "skin": "0EAA5B:Skyrim.esm",
+          "race": "BearBrownRaceHoher"
+        }
+      ]
+    },
+    {
+      "fid": "000809",
+      "limb": "Head",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Head_809.nif",
+      "ref_node": "NPC Head",
+      "node": "NPC Neck2",
+      "translation": {
+        "x": 0.001095,
+        "y": -1.821545,
+        "z": -9.334633
+      },
+      "skins": [
+        {
+          "skin": "0868FD:Skyrim.esm",
+          "race": "BearBrownRace"
+        },
+        {
+          "skin": "0EAA5B:Skyrim.esm",
+          "race": "BearBrownRaceHoher"
+        }
+      ]
+    },
+    {
+      "fid": "00080A",
+      "limb": "Front_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Front_L_Leg_80A.nif",
+      "ref_node": "NPC LArm2",
+      "node": "NPC LArm2",
+      "translation": {
+        "x": -0.056672,
+        "y": -2.573017,
+        "z": -19.977814
+      },
+      "skins": [
+        {
+          "skin": "0187FE:Skyrim.esm",
+          "race": "BearBlackRace"
+        }
+      ]
+    },
+    {
+      "fid": "00080B",
+      "limb": "Front_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Front_R_Leg_80B.nif",
+      "ref_node": "NPC RArm2",
+      "node": "NPC RArm2",
+      "translation": {
+        "x": -0.056671,
+        "y": -2.573015,
+        "z": -19.977823
+      },
+      "skins": [
+        {
+          "skin": "0187FE:Skyrim.esm",
+          "race": "BearBlackRace"
+        }
+      ]
+    },
+    {
+      "fid": "00080C",
+      "limb": "Back_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Back_L_Leg_80C.nif",
+      "ref_node": "NPC LLeg2",
+      "node": "NPC LLeg2",
+      "translation": {
+        "x": -0.413937,
+        "y": -9.657281,
+        "z": -26.129848
+      },
+      "skins": [
+        {
+          "skin": "0187FE:Skyrim.esm",
+          "race": "BearBlackRace"
+        }
+      ]
+    },
+    {
+      "fid": "00080D",
+      "limb": "Back_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Back_R_Leg_80D.nif",
+      "ref_node": "NPC RLeg2",
+      "node": "NPC RLeg2",
+      "translation": {
+        "x": 0.655512,
+        "y": -9.657268,
+        "z": -26.124903
+      },
+      "skins": [
+        {
+          "skin": "0187FE:Skyrim.esm",
+          "race": "BearBlackRace"
+        }
+      ]
+    },
+    {
+      "fid": "00080E",
+      "limb": "Head",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Head_80E.nif",
+      "ref_node": "NPC Head",
+      "node": "NPC Neck2",
+      "translation": {
+        "x": 0.001095,
+        "y": -1.821545,
+        "z": -9.334633
+      },
+      "skins": [
+        {
+          "skin": "0187FE:Skyrim.esm",
+          "race": "BearBlackRace"
+        }
+      ]
+    },
+    {
+      "fid": "00080F",
+      "limb": "Front_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Front_L_Leg_80F.nif",
+      "ref_node": "NPC LArm2",
+      "node": "NPC LArm2",
+      "translation": {
+        "x": -0.056672,
+        "y": -2.573017,
+        "z": -19.977814
+      },
+      "skins": [
+        {
+          "skin": "0187FD:Skyrim.esm",
+          "race": "BearSnowRace"
+        }
+      ]
+    },
+    {
+      "fid": "000810",
+      "limb": "Front_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Front_R_Leg_810.nif",
+      "ref_node": "NPC RArm2",
+      "node": "NPC RArm2",
+      "translation": {
+        "x": -0.056671,
+        "y": -2.573015,
+        "z": -19.977823
+      },
+      "skins": [
+        {
+          "skin": "0187FD:Skyrim.esm",
+          "race": "BearSnowRace"
+        }
+      ]
+    },
+    {
+      "fid": "000811",
+      "limb": "Back_L_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Back_L_Leg_811.nif",
+      "ref_node": "NPC LLeg2",
+      "node": "NPC LLeg2",
+      "translation": {
+        "x": -0.413937,
+        "y": -9.657281,
+        "z": -26.129848
+      },
+      "skins": [
+        {
+          "skin": "0187FD:Skyrim.esm",
+          "race": "BearSnowRace"
+        }
+      ]
+    },
+    {
+      "fid": "000812",
+      "limb": "Back_R_Leg",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Back_R_Leg_812.nif",
+      "ref_node": "NPC RLeg2",
+      "node": "NPC RLeg2",
+      "translation": {
+        "x": 0.655512,
+        "y": -9.657268,
+        "z": -26.124903
+      },
+      "skins": [
+        {
+          "skin": "0187FD:Skyrim.esm",
+          "race": "BearSnowRace"
+        }
+      ]
+    },
+    {
+      "fid": "000813",
+      "limb": "Head",
+      "mesh": "DismemberingFramework\\Zenderal\\Bears\\Bear_Head_813.nif",
+      "ref_node": "NPC Head",
+      "node": "NPC Neck2",
+      "translation": {
+        "x": 0.001095,
+        "y": -1.821545,
+        "z": -9.334633
+      },
+      "skins": [
+        {
+          "skin": "0187FD:Skyrim.esm",
+          "race": "BearSnowRace"
+        }
+      ]
+    }
+  ]
+}

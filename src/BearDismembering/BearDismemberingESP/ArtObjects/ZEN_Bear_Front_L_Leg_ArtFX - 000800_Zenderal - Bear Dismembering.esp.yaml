@@ -1,0 +1,7 @@
+FormKey: 000800:Zenderal - Bear Dismembering.esp
+EditorID: ZEN_Bear_Front_L_Leg_ArtFX
+Model:
+  File: DismemberingFramework\Zenderal\Bears\BloodFX_Front_L_Leg.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

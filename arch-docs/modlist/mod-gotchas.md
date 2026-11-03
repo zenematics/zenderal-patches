@@ -153,6 +153,17 @@ List-wide traps that are not tied to one Zenderal patch.
   `Enable Async` off for one boot. Never blame a plugin enabled the same session (it happened before the
   RageEffectsRecolor and ramrod-prop plugins existed).
 
+- **Random objects drawn flat white/grey (a sack, ground-cover plants, a different few each session) = Bottled
+  Shaders' HiZ Occlusion Culling (v0.3.0, BETA). Off since 2026-10-30.** **[verified in game 2026-10-30]**
+  The textures were loaded the whole time (`ZenTextureTrace` found nothing; the files, shader cache, VRAM and
+  Theo's Neural Rendering were all ruled out first); turning the feature off in the Bottled Shaders menu fixed it.
+  It defaults to on (`enableHiZCulling: true` in Bottled Shaders' defaults) and `Zenderal - Settings`' 
+  `SKSE/Plugins/CommunityShaders/SettingsUser.json` had no `HiZ Occlusion Culling` section, so every player had it.
+  That file now carries the section with `enableHiZCulling: false` (backup `E:/Zenderal-backups/2026-10-30-hiz-off/`).
+  Recheck after a Bottled Shaders update before turning it back on. Found on the way: `SFO Complex Grass ENB`
+  (complex-grass textures, colour in the top half and the normal map in the bottom, for ENB) under ordinary grass
+  meshes that sample the whole texture; disabled in Ultra the same day, though it was not this bug.
+
 - **NPCs Use Potions strips every corpse** when re-enabled — see [`patches/NpcPotions.md`](../patches/NpcPotions.md).
 
 - **`Fix Lip Sync` (Nexus 75951) is a 32-bit Skyrim LE DLL** and never loads: `skse64.log` shows `couldn't load plugin LipSyncFix.dll (Error 193)`. Player lip sync under DBVO + CCC: see [`patches/DBVOPlayerLipSync.md`](../patches/DBVOPlayerLipSync.md).
@@ -262,3 +273,18 @@ List-wide traps that are not tied to one Zenderal patch.
   finished (not proven; that run's log was overwritten). **Fix: Bottled Shaders menu → Unified Water → Debug →
   Regenerate Caches**, then check `BottledShaders.log` for `Vyn: Cache generated` and `18 / 18 complete`. Logs are now
   `SKSE/BottledShaders.log`; `CommunityShaders.log` is stale.
+- **Break Stagger is off for NPCs (2026-10-31, curator's decision).** Break Stagger 1.0.2 (Nexus 178745,
+  [source](https://github.com/vinymayan/Break-Stagger)) ran on its built-in defaults (no settings file anywhere): on
+  every NPC `staggerStart` it counted the actor's staggers (count reset after 5 s) and sent `staggerStop`
+  `2000 − 350 × (count − 1)` ms later (`src/Events.cpp` `HandleStaggerStart`): 2.00 s, 1.65, 1.30, 0.95, 0.60, 0.25,
+  then 0 s + 3 s immunity at the 7th. That also cut FHR's parry knockdown (a 2.17 s stagger replacement), so
+  enemies "got up in a split second". `Zenderal - Settings` now ships `Viny Mods/Break Stagger/Settings.json` =
+  `{"player": {"enabled": true}, "npc": {"enabled": false}}` (the loader reads only the keys present; a disabled
+  profile returns before counting). The player keeps the default anti-stun-lock. Its in-game page (SKSE Menu
+  Framework) saves into that same file through MO2. FHR already rations NPC knockdowns with its own 10 s cooldowns.
+  See [`FHRFirstPerson`](../patches/FHRFirstPerson.md). Unverified in game.
+
+- **MCM Helper - Enderal Patch re-applies Enderal's MCM on every load** (2026-11-01): its `_00E_EnderalMCM` reads
+  MCM Helper's ini in `OnGameReload`, so any plugin default or applier value for kill moves or the companion
+  panel loses to its config default (both `1`). List defaults for Enderal's MCM go in `Zenderal - Settings`'
+  `MCM/Settings/Enderal - Forgotten Stories.ini`. Details in [`SettingsApplier`](../patches/SettingsApplier.md).

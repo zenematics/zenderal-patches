@@ -180,3 +180,18 @@ Stealth is retuned hard:
 
 Light now matters at full strength (`fSneakLightMult` 0.3 → 1.0) while distance matters much less
 outdoors — a deliberate shift from "crouch anywhere in daylight" to "stay out of the light".
+
+In the list (checked 2026-11-01 against the `Ultra` profile):
+
+- **`Enderal SE - Stealth Overhaul.esp`** (Nexus Enderal SE mod 12, "a light weight version of EGO's
+  stealth changes") loads after EGO and re-sets 17 of these GMSTs to EGO's values. Only
+  `fSneakSleepBonus` differs (−0.15, so it overrides EGO's −0.2). It is a full plugin, not ESL. **[verified]**
+- **EGO also lowers the player's starting Sneak from 15 to 5** (`Player 000007`, all skills 5). Playable
+  races carry no skill boosts. The optional `EGO SE - Higher Starting Skills.esp` (all skills 10)
+  overrides the whole Player record and is disabled in the list. **[verified]**
+- EGO's two new weight GMSTs replace the engine defaults 12 / 0.5 **[upstream: UESP Skyrim:Sneak]**,
+  so footstep noise goes from `12 + 0.5 × armor weight` to `1.2 × (5 + armor weight)` (the 1.2 is
+  `fSneakSoundsMult`). Cloth is quieter than in Enderal; an iron set (39) is about 68% louder.
+  `fSneakDistanceAttenuationExponent` 3 replaces the engine's 2, which helps at range.
+- `SkyrimSE.exe` is DRM-packed, so the detection formula above comes from UESP, not from disassembly.
+  The visual (light) term is not documented there.

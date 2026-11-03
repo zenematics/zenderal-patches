@@ -282,9 +282,9 @@ PRIORITY_STOW_RIGHT = 1000025000
 # A shield in the other hand (2026-11-03, curator: "Shields + pistol are allowing players to infinitely shoot with no
 # reload": no clip played, so the Flintlock script loaded the gun on its old timer; the curator chose the shield slung on
 # the back). Shields are left-hand only: a right-hand pistol, solved mirrored like the others. In third person 0_master's
-# MRh_Shield_Ready -> MRh_Shd_Blend puts vanilla's Shd_BlockIdle on the left hand, its fingers, Shield, AnimObjectL and
-# the magic node only (SHIELD_IDLE_BONES, mirrored names); the arm above is the magic graph's, our clip's (read
-# 2026-11-03). The Pandora patch frees it with fZenPistolLeftStow (tools/03 stow_release). On the two-pistol timeline the
+# MRh_Shield_Ready -> MRh_Shd_Blend puts Shd_BlockIdle on the left hand, its fingers, Shield, AnimObjectL and the magic
+# node only; the arm above is the magic graph's, our clip's (read 2026-11-03). The Pandora patch frees it with
+# fZenPistolLeftStow (tools/03 stow_release). The free arm rests on SHIELD_ARM_SOURCE's (below). On the two-pistol timeline the
 # free hand carries the shield (strapped: the grip never turns) behind the back, lets go where it reaches with an easy
 # wrist (shield_letgo), and the shield settles onto XPMSE's ShieldBack (the node a sheathed shield hangs on, below
 # Spine2; 4 units apart by sex, so a clip per sex) over DUAL_TUCKED -> DUAL_RELEASE, the way back the same. The shield
@@ -293,8 +293,14 @@ PRIORITY_STOW_RIGHT = 1000025000
 SHIELD = 10                       # GetEquippedItemType (Papyrus) ...
 OAR_SHIELD = 11                   # ... and OAR's IsEquippedType (214 of the list's shield submods use 11, crossbows 9)
 SHIELD_NODE = 'ShieldBack'
-SHIELD_IDLE = 'shd_blockidle.hkx'
-SHIELD_IDLE_BONES = ['NPC R Hand [RHnd]', 'AnimObjectR', 'Weapon', 'NPC R MagicNode [RMag]'] + R_FINGERS
+# The shield arm (2026-11-03, curator: "change the 3rd person shield + pistol animation to look more natural, normal
+# shield idle with a 1 handed weapon"): with a shield, Loop's right-hand clips move the whole left arm (posed by him as
+# a free arm) and Shd_BlockIdle's winner (Dynamic Block Hit, Goetia's "Shield & Staff") only the hand, so the shield hand
+# sat on an arm posed for nothing. tools/07 gives every Loop right-hand clip, and Shd_BlockIdle, the left arm of Smooth
+# Moveset's sword-and-shield idle at its least swaying frame (SHIELD_ARM_SOURCE); the shield reload rests on the same
+# arm, whole (clavicle to fingers, Shield), so it starts and ends on what tools/07's idle shows.
+SHIELD_ARM_SOURCE = ('Smooth Moveset - OAR', ANIMS_3P + ['OpenAnimationReplacer', 'Smooth Moveset - 1hm Shield',
+                                                         '1hm Shield Non-Combat idle Loop', '1hm_idle.hkx'])
 # where the hand may let go, from ShieldBack in the body's frame at the 'tucked' beat: down, out (along the shield's
 # face, away from the back), toward the free arm's side; the shield turned in its own plane by SHIELD_ROLL (it turns
 # back as it settles)
@@ -565,30 +571,26 @@ class Ctx:
 
     def shield(self, female):
         """A shield in the free (left) hand, slung on the back for the reload: the right-hand pistol's variant, solved
-        mirrored. The free hand rests as the game shows it: vanilla's Shd_BlockIdle on SHIELD_IDLE_BONES (its least
-        swaying frame), the rest of the arm the clip's own. `female`: XPMSE's ShieldBack of that sex."""
+        mirrored. The free arm rests, whole, on SHIELD_ARM_SOURCE's at its least swaying frame (tools/07's shield arm,
+        `shield_frame`). `female`: XPMSE's ShieldBack of that sex."""
         key = ('shield', female)
         if key in self._stows:
             return self._stows[key]
         right_v = self.right
         iw = self.ix['Weapon']
-        tmp = os.path.join(os.environ.get('TEMP', '.'), '_pistol_reload_shd.hkx')
-        with open(tmp, 'wb') as fh:
-            fh.write(_bsa.read(self.bsa[0], self.bsa[1]['\\'.join(ANIMS_3P).lower() + '\\' + SHIELD_IDLE]))
-        real = anim_skyrim.load_skyrim_animation(tmp)
-        mir = self.mirrored(tmp)
-        os.remove(tmp)
-        f = self.still_frame(mir, SHIELD_IDLE_BONES)
+        real = self.idle_clip(SHIELD_ARM_SOURCE)
+        mir = self.mirrored(self.idle_path(SHIELD_ARM_SOURCE))
+        f = self.still_frame(mir)
         anchor, L = self.sheath(SHIELD_NODE, female)
         ia = self.ix[anchor]
         wr, wm = self.rig.world(real, f), self.rig.world(mir, f)
         fix = lambda r, m: np.linalg.inv(REFLECT @ unscaled(wr[self.ix[r]])) @ unscaled(wm[self.ix[m]])  # noqa: E731
         P = np.linalg.inv(fix(anchor, anchor)) @ L @ fix('Shield', 'Weapon')
         name = 'shield-right%s' % ('-female' if female else '-male')
-        var = Variant(self, name, right_v.source, right_v.idle, self.free_arm_idle(mir, SHIELD_IDLE_BONES), [],
-                      SHIELD_IDLE_BONES, dual=True, wl=local_mat(mir, iw, f), stow=lambda w: unscaled(w[ia]) @ P,
-                      shield=True)
+        var = Variant(self, name, right_v.source, right_v.idle, self.free_arm_idle(mir), [], RIGHT_HALF + RIGHT_IDLE,
+                      dual=True, wl=local_mat(mir, iw, f), stow=lambda w: unscaled(w[ia]) @ P, shield=True)
         var.real_rest = (real, [f])
+        self.shield_frame = f
         var.real_sheath = (ia, L)
         self._stows[key] = var
         return var
@@ -1113,6 +1115,36 @@ def stow_glide(t, beats):
     if t <= beats['release']:
         return 1.0 - smooth((t - beats['tucked']) / glide)
     return smooth((t - (beats['regrip'] - glide)) / glide)
+
+
+SHIELD_ARM_ROOT = 'NPC L Clavicle [LClv]'
+
+
+def shield_arm(ctx):
+    """The shield arm in the real world (tools/07, and the shield reloads' aim copies): {bone: (translation, rotation,
+    scale)} over the left clavicle's whole subtree, SHIELD_ARM_SOURCE at the frame the shield reload rests on."""
+    src, (f,) = ctx.shield(False).real_rest
+    root = ctx.ix[SHIELD_ARM_ROOT]
+    pose = {}
+    for b in range(len(ctx.rig.parents)):
+        p = b
+        while p >= 0 and p != root:
+            p = ctx.rig.parents[p]
+        if p == root:
+            tr = src.tracks[b]
+            pose[b] = (list(tr.translations[f]), list(tr.rotations[f]), list(tr.scales[f]))
+    return pose
+
+
+def with_arm(anim, pose):
+    """A copy of `anim` with the bones of `pose` ({bone: (translation, rotation, scale)}) on it in every frame."""
+    out = copy.deepcopy(anim)
+    for b, (t, q, s) in pose.items():
+        tr = out.tracks[b]
+        tr.translations = [list(t) for _ in range(out.num_frames)]
+        tr.rotations = [list(q) for _ in range(out.num_frames)]
+        tr.scales = [list(s) for _ in range(out.num_frames)]
+    return out
 
 
 def stowed_at(var, w, t, beats):
@@ -2065,6 +2097,7 @@ def main():
     pistols = [w for g in groups for w in g[2]]
     stows = [(typ, female) for typ in sorted(STOW) for female in ((True, False) if typ in STOW_SEXED else (None,))]
     shields = [(SHIELD, female) for female in (True, False)]
+    shield_pose = shield_arm(ctx)
     jobs = [(h, k) for k in [None, 'two'] for h in ('left', 'right')]
     jobs += [(h, k) for k in stows for h in ('left', 'right')]
     jobs += [('right', k) for k in shields]  # shields are left-hand only
@@ -2120,6 +2153,8 @@ def main():
                 print('      belt: %s; the tucked gun drifts %.2f' % (info['belt_params'], drift))
             for clip in aim_clips:
                 a = anim_skyrim.load_skyrim_animation(os.path.join(loop_dir, clip))
+                if stow and stow[0] == SHIELD:      # the arm tools/07 gives Loop's clips with a shield
+                    a = with_arm(a, shield_pose)
                 a.annotations.append(anim_skyrim.Annotation(time=0.0, text=UNEQUIP))
                 write_clip(os.path.join(sub, clip), ADS.havok_blocks(a), HF.read_file(os.path.join(loop_dir, clip)))
                 ADS.check_blocks(os.path.join(sub, clip))

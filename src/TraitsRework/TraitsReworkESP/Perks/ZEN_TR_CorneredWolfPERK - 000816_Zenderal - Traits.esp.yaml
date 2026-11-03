@@ -14,7 +14,83 @@ Effects:
       Data:
         MutagenObjectType: GetActorValuePercentConditionData
         ActorValue: Health
-      ComparisonValue: 0.3
+      ComparisonValue: 0.7
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.65
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.05
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.65
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.6
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.1
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.6
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.55
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.15
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.55
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.5
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.2
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.5
   EntryPoint: ModAttackDamage
   PerkConditionTabCount: 3
   Modification: Multiply
@@ -27,7 +103,83 @@ Effects:
       Data:
         MutagenObjectType: GetActorValuePercentConditionData
         ActorValue: Health
-      ComparisonValue: 0.3
+      ComparisonValue: 0.7
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.65
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.98
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.65
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.6
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.96
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.6
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.55
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.94
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.55
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: GreaterThanOrEqualTo
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.5
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.92
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThan
+      Data:
+        MutagenObjectType: GetActorValuePercentConditionData
+        ActorValue: Health
+      ComparisonValue: 0.5
   EntryPoint: ModIncomingDamage
   PerkConditionTabCount: 3
   Modification: Multiply

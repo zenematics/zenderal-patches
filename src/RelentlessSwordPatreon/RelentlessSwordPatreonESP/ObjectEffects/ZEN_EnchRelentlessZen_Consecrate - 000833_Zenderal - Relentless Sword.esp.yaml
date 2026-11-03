@@ -1,0 +1,14 @@
+FormKey: 000833:Zenderal - Relentless Sword.esp
+EditorID: ZEN_EnchRelentlessZen_Consecrate
+Name:
+  TargetLanguage: English
+  Value: Consecrate Dead
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 000832:Zenderal - Relentless Sword.esp
+  Data:
+    Magnitude: 30

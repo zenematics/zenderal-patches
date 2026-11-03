@@ -90,3 +90,38 @@ Cost: LOD4 draws about 43% more 3D trees than before (28,605 instead of 20,015).
 whose bases are 3D everywhere else. LODGen `Code: 0` in all five worlds. **Verified in game the same day** (curator): the trees look right; some 3D trees
 are a little dark, left as is (`CrownBrightness`/`TrunkBrightness` 0.7 in `DynDOLOD_ENDERALSE.ini` is the knob, then
 rerun DynDOLOD only).
+
+## Brighter foliage for the near-black trees (2026-10-31)
+
+The curator found the Meadow Ash trees around Golden Mare Mill (Riverville) almost black at dusk in LOD. Measured per
+LOD model as leaf texture brightness (opaque pixels) × foliage vertex colour, across the 150 3D models in Vyn:
+
+| Model | Texture | Foliage vertex colour | Product (/255) |
+|---|---|---|---|
+| Scots pines (Arboreal's + Golden Forest) | ~20 | 0.53–0.74 | 12–15 |
+| King's tree `kingstree01` / `03` | 29 / 43 | 0.49–0.50 | 14 / 21 |
+| Meadow Ash `whispertree01–07` | 43 | 0.50–0.61 | 22–26 |
+| Whispering tree (looks right) | 44 | 1.00 | 44 |
+
+The meshes bake shading into the leaves' vertex colours. The full tree's foliage lighting hides it; LOD does not.
+`tools/02`'s `BRIGHTEN` list (Meadow Ash + King's trees, every installed CRC32 variant: 29 models) writes their
+winning LOD model into *Zenderal - Tree LOD 3D* with the leaf shapes' (shader flag `Tree_Anim`) vertex colour RGB ×
+`FOLIAGE_GAIN` 2.0, capped at 1.0. Trunks, geometry (asserted), textures and shaders are untouched. The mod outranks
+Arboreal's in MO2, and Arboreal's files are not edited. After: Meadow Ash 40–42, King's tree 03 38–39, King's tree 01
+28–29. The Scots pines are still the darkest (their texture itself is ~20). Add them to `BRIGHTEN` if they bother;
+vertex colour alone tops out at about 20 for them.
+
+**The maroon trees were rhododendrons, not Meadow Ash.** After the first rerun the curator saw no change, and the built
+LOD block showed why. In `Vyn.4.-25.-7.bto`, the Meadow Ash leaf vertices (atlas `DynDOLOD_Vyn_Alpha00`, the
+`whispertreebranch` rectangle) were already at vertex colour **0.70**, the same as the Whispering trees: LODGen writes
+the model's colour × `CrownBrightness` 0.7, so the change had landed. But Meadow Ash leaves are green (40, 53, 35). The
+dark red trees are the tree-sized **rhododendron wide bushes**: Pink/Violet use `rhodleaves.dds` (68, 41, 45), Red uses
+`rhodleaves_red.dds` (70, 42, 35), and their LOD leaves were at 0.48 in the block (model ~0.7 × 0.7). Confirmed in
+game: `_00E_MeadowRhododenronBushWideViolet` (`000ACE51`, `RhodBroadViolet.nif`). `rhodbroad*` (our own `tools/02`
+models, all colours) was added to `BRIGHTEN`: leaf vertex colour 0.7 → 1.0, red/violet LOD foliage 35 → 49–52. Needs a
+DynDOLOD rerun. Unverified in game.
+
+To check that a brightness change reached the game, read the LOD block rather than the model. Find the texture's
+rectangle in `Export/LODGen_EnderalSE_ObjectAtlasMap_Vyn.txt`, then average the vertex colours of the `.bto` vertices
+whose UVs fall inside it.
+

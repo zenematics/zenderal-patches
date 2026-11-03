@@ -1,0 +1,7 @@
+FormKey: 000804:Zenderal - Bear Dismembering.esp
+EditorID: ZEN_Bear_Head_ArtFX
+Model:
+  File: DismemberingFramework\Zenderal\Bears\BloodFX_Head.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

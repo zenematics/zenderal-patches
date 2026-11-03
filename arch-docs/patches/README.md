@@ -19,6 +19,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`ChocolatePoiseEnderal`](ChocolatePoiseEnderal.md) | `Zenderal - Chocolate Poise Enderal Fix.esp` + `ZenCPRFactionFix.dll` (NSF) | `0x800–0x808` |
 | [`BrawlFixes`](BrawlFixes.md) | *(no plugin — two recompiled scripts)* | _(none)_ |
 | [`NpcPotions`](NpcPotions.md) | `Zenderal - NPC Potions_DISTR.ini` | _(none — SPID config, no plugin)_ |
+| [`FittingRoom`](FittingRoom.md) | `Zenderal - Fitting Room_DISTR.ini` + rebuilt `FittingRoom.dll` (1.2.0-zen1, GPL) | _(none — SPID config + a DLL, no plugin)_ |
 | [`ControllerTweaks`](ControllerTweaks.md) | **RETIRED 2026-10-20**, was *(no plugin — three file overrides)* | _(none)_ |
 | [`OldTempleWeather`](OldTempleWeather.md) | `Zenderal - Old Temple Weather.esp` | none (overrides only) |
 | [`BakaHeroMenu`](BakaHeroMenu.md) | **RETIRED 2026-10-14**, was *(no plugin — `SKSE/Plugins/BakaHeroMenu.dll`)* | _(none)_ |
@@ -68,6 +69,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`EppiRivervilleCobbleRemoval`](EppiRivervilleCobbleRemoval.md) | `Zenderal - EPPI Riverville Cobble Removal.esp` | none (overrides only) |
 | [`LastWatchTrapdoorFix`](LastWatchTrapdoorFix.md) | `Zenderal - Last Watch Trapdoor Fix.esp` | none (overrides only) |
 | [`NoLightningFlash`](NoLightningFlash.md) | `Zenderal - No Lightning Flash.esp` | none (overrides only) |
+| [`DarkValleySunFix`](DarkValleySunFix.md) | `Zenderal - Dark Valley Sun Fix.esp` | none (overrides only) |
 | [`Levelsystem21Cleanup`](Levelsystem21Cleanup.md) | `Zenderal - 2.1 Levelsystem Cleanup.esp` | none (overrides only) |
 | [`QyraIslandEditorIdFix`](QyraIslandEditorIdFix.md) | `Zenderal - Qyra Island EditorID Fix.esp` | none (overrides only) |
 | [`UnresolvedRefsCleanup`](UnresolvedRefsCleanup.md) | `Zenderal - Unresolved References Cleanup.esp` | none (overrides only) |
@@ -117,6 +119,11 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`IEDPistolHolsters`](IEDPistolHolsters.md) | IED ExtraGearNodes file + generated IED export: pistols placed apart from staves | none (no plugin) |
 | [`ControllerLayout`](ControllerLayout.md) | `Zenderal - Controller Layout.esp` + `ZEN_ControllerLayout.pex` + every controller/keybind config file | `0x800` |
 | [`CollisionMoppFix`](CollisionMoppFix.md) | 7 generated meshes, `Zenderal - Collision MOPP Fix`: Enderal's broken MOPP branches closed (SkyParkour `int3` crash) | none (no plugin) |
+| [`ConvexPlanesFix`](ConvexPlanesFix.md) | 29 generated meshes, `Zenderal - Convex Planes Fix`: zero-normal convex hulls (JS Cages etc.) rebuilt — Ark bank vault stack-overflow crash | none (no plugin) |
+| [`FHRFirstPerson`](FHRFirstPerson.md) | generated OAR mod `Zenderal - FHR First Person`: FHR 2.4 directional attacks + parry in first person on SIGMA's clips | none (no plugin) |
+| [`ZenParryTrace`](ZenParryTrace.md) | `ZenParryTrace.dll`: testing tool, logs FHR's parry chain for the player | none (no plugin) |
+| [`FHRDirectionalStripFix`](FHRDirectionalStripFix.md) | `Zenderal - FHR Directional Strip Fix.esp`: side attacks strip FHR's empowered-attack arrows (1P heavy strips; EGO's stagger yields the hit-spell slot) | none (overrides only) |
+| [`FemaleCrossbowAimWalk`](FemaleCrossbowAimWalk.md) | generated OAR mod `Zenderal - Female Crossbow Aim Walk`: female characters aim muskets/crossbows on the vanilla walks (no W+A turn) | none (no plugin) |
 | [`PistolRamrodReload`](PistolRamrodReload.md) | `Zenderal - Pistol Ramrod Reload.esp` (12 ANIO, arm quest, 2 SNDR, 1 GMST) + generated OAR clips/props, MO2 mod `Zenderal - Pistol Ramrod Reload`, Pandora patch `zpistolreload`: our own ramrod reload after a pistol shot (either hand, other hand empty; third and first person) | `0x800–0x80C` |
 | [`ZenBoneTrace`](ZenBoneTrace.md) | `ZenBoneTrace.dll`: testing tool, logs the player's 3P arm bones every frame after a spell-fire, to diff against a clip | none (no plugin) |
 | [`CompassNavigationOverhaulFork`](CompassNavigationOverhaulFork.md) | rebuilt `SKSE/Plugins/CompassNavigationOverhaul.dll`, copied into the third-party mod `Compass Navigation Overhaul - Enderal Patch` | none (no plugin) |

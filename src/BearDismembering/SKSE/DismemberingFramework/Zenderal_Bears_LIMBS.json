@@ -1,0 +1,122 @@
+{
+  "Zenderal - Bear - Front L Leg - 805": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Front L Leg",
+      "Zenderal - Bear - Actor addons data - Front L Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x805"
+  },
+  "Zenderal - Bear - Front R Leg - 806": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Front R Leg",
+      "Zenderal - Bear - Actor addons data - Front R Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x806"
+  },
+  "Zenderal - Bear - Back L Leg - 807": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Back L Leg",
+      "Zenderal - Bear - Actor addons data - Back L Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x807"
+  },
+  "Zenderal - Bear - Back R Leg - 808": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Back R Leg",
+      "Zenderal - Bear - Actor addons data - Back R Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x808"
+  },
+  "Zenderal - Bear - Head - 809": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Head",
+      "Zenderal - Bear - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x809"
+  },
+  "Zenderal - Bear - Front L Leg - 80A": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Front L Leg",
+      "Zenderal - Bear - Actor addons data - Front L Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x80A"
+  },
+  "Zenderal - Bear - Front R Leg - 80B": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Front R Leg",
+      "Zenderal - Bear - Actor addons data - Front R Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x80B"
+  },
+  "Zenderal - Bear - Back L Leg - 80C": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Back L Leg",
+      "Zenderal - Bear - Actor addons data - Back L Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x80C"
+  },
+  "Zenderal - Bear - Back R Leg - 80D": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Back R Leg",
+      "Zenderal - Bear - Actor addons data - Back R Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x80D"
+  },
+  "Zenderal - Bear - Head - 80E": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Head",
+      "Zenderal - Bear - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x80E"
+  },
+  "Zenderal - Bear - Front L Leg - 80F": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Front L Leg",
+      "Zenderal - Bear - Actor addons data - Front L Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x80F"
+  },
+  "Zenderal - Bear - Front R Leg - 810": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Front R Leg",
+      "Zenderal - Bear - Actor addons data - Front R Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x810"
+  },
+  "Zenderal - Bear - Back L Leg - 811": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Back L Leg",
+      "Zenderal - Bear - Actor addons data - Back L Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x811"
+  },
+  "Zenderal - Bear - Back R Leg - 812": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Back R Leg",
+      "Zenderal - Bear - Actor addons data - Back R Leg"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x812"
+  },
+  "Zenderal - Bear - Head - 813": {
+    "Templates": [
+      "DF - Base data",
+      "Zenderal - Bear - Base data - Head",
+      "Zenderal - Bear - Actor addons data - Head"
+    ],
+    "LimbFormID": "Zenderal - Bear Dismembering.esp:0x813"
+  }
+}

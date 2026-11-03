@@ -1,0 +1,63 @@
+FormKey: 000832:Zenderal - Relentless Sword.esp
+EditorID: ZEN_RelentlessZen_ConsecrateMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _LIP_ConsecrateScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HealSelfSpell
+      Object: 000A41:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicEffectShaderA
+      Object: 000A53:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicEffectShaderB
+      Object: 000A52:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ShaderDuration
+      Data: 3.5
+  - Name: ZP_HolyPlaceExplosion
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExplosionRef
+      Object: 000A56:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Consecrate Dead
+MenuDisplayObject: 1097CA:Skyrim.esm
+Keywords:
+- 0A9B1E:Skyrim.esm
+Flags:
+- Recover
+- FXPersist
+- PowerAffectsDuration
+BaseCost: 2
+MagicSkill: Restoration
+HitShader: 04D6B5:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 01C2AF:Skyrim.esm
+DualCastScale: 1
+Description:
+  TargetLanguage: English
+  Value: Striking a dead body cleanses and destroys it. Restores <mag> points of Health, Magicka, and Stamina.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 000832:Zenderal - Relentless Sword.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectConditionData
+    MagicEffect: 000A30:Zenderal - Prophecy.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 06F6FB:Skyrim.esm

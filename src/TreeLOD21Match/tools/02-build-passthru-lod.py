@@ -19,6 +19,13 @@ writes `<model>_<CRC32>passthru_lod.nif` (dyndolod.info *3D Tree LOD Model*). SS
 Every output is re-read and must keep the source's static shapes vertex for vertex. `--selftest` rebuilds Arboreal's
 own Nehrimese aspen model from the 2.0 mesh and compares.
 
+Brighter foliage for the trees whose LOD reads near-black (BRIGHTEN): their meshes carry ~0.5-0.7 vertex colours on
+the leaves (baked shading the full tree's foliage lighting hides, LOD does not) on an already dark leaf texture -- Meadow
+Ash `whispertree*` foliage 43 x 0.5 = ~23/255, King's tree 29 x 0.5 = ~14, red/pink/violet rhododendron wide bushes
+~50 x 0.7 = ~35 (the Whispering trees, which look right, are 44 x 1.0). Their winning LOD model (Arboreal's, or our own) is written to this mod with the leaf shapes' (Tree_Anim)
+vertex colour RGB x FOLIAGE_GAIN, capped at 1.0; trunks, geometry, textures and shaders untouched. This mod outranks
+Arboreal in MO2, so its same-named copy wins; Arboreal's files stay as they are.
+
 Re-run after an Enderal update, a tree mesh mod change or a DynDOLOD run, then rerun DynDOLOD.
 
 Usage (repo root):  python src/TreeLOD21Match/tools/02-build-passthru-lod.py
@@ -48,6 +55,10 @@ NODE_TYPES = {'NiNode', 'BSFadeNode', 'BSLeafAnimNode', 'BSTreeNode', 'BSMultiBo
 SHAPE_TYPES = {'BSTriShape', 'NiTriShape'}
 OK_SHADER_TYPES = {0, 2}                   # Default, Glow (dyndolod.info: the engine supports these in LOD)
 IDENT9 = (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0)
+# LOD models whose foliage reads near-black (curator, 2026-10-31, Riverville/Golden Mare Mill): Meadow Ash, King's trees,
+# and the tree-sized rhododendron wide bushes (the maroon ones: red/pink/violet leaves at vertex colour ~0.7)
+BRIGHTEN = re.compile(r'(?i)^(whispertree0[1-7](_2bone)?|kingstree0[13](_3bone)?|rhodbroad[a-z]+)_[0-9a-f]{8}passthru_lod\.nif$')
+FOLIAGE_GAIN = 2.0
 
 
 class Refuse(Exception):
@@ -323,6 +334,59 @@ def build(nif):
     return bytes(out)
 
 
+def brighten(d, gain):
+    """Leaf shapes' (shader flag Tree_Anim) vertex colour RGB x gain, capped; same bytes otherwise. Returns (bytes, n)."""
+    nif = Nif(d)
+    buf = bytearray(d)
+    n = 0
+    for i, (typ, p, sz) in enumerate(nif.blocks):
+        if typ not in SHAPE_TYPES:
+            continue
+        skin, shader, alpha, data, a, q = shape_refs(nif, i)
+        if shader < 0 or nif.blocks[shader][0] != 'BSLightingShaderProperty':
+            continue
+        sb = nif.body(shader)
+        q0 = objnet(sb, 4)[3]
+        f2, = struct.unpack_from('<I', sb, q0 + 4)
+        if not f2 >> 29 & 1:                        # SLSF2_Tree_Anim marks the foliage
+            continue
+        if typ == 'BSTriShape':
+            q2 = q + 28
+            desc, = struct.unpack_from('<Q', nif.body(i), q2)
+            ntri, nvert = struct.unpack_from('<HH', nif.body(i), q2 + 8)
+            if not (desc >> 44) & 0x20:             # no vertex colours
+                continue
+            vs, off = (desc & 0xF) * 4, ((desc >> 24) & 0xF) * 4
+            base = p + q2 + 16
+            for k in range(nvert):
+                for c in range(3):
+                    j = base + k * vs + off + c
+                    buf[j] = min(255, int(round(buf[j] * gain)))
+        else:
+            dp = nif.blocks[data][1]
+            db = nif.body(data)
+            q3 = 4
+            nv, = struct.unpack_from('<H', db, q3); q3 += 4
+            hv = db[q3]; q3 += 1 + 12 * nv * hv
+            vf, = struct.unpack_from('<H', db, q3); q3 += 6
+            hn = db[q3]; q3 += 1 + 12 * nv * hn
+            if hn and vf & 0x1000:
+                q3 += 24 * nv
+            q3 += 16
+            if not db[q3]:
+                continue
+            q3 += 1
+            for k in range(nv):
+                at = dp + q3 + 16 * k
+                r, g, b_, al = struct.unpack_from('<4f', buf, at)
+                struct.pack_into('<4f', buf, at, min(1.0, r * gain), min(1.0, g * gain), min(1.0, b_ * gain), al)
+        n += 1
+    out = bytes(buf)
+    if sorted(geometry(Nif(out))) != sorted(geometry(nif)):
+        raise Refuse('brighten changed geometry')
+    return out, n
+
+
 def verify(src, out):
     """The output re-reads, has exactly the source's static shapes (by name, vertices, triangles), nothing else."""
     a, b = Nif(src), Nif(out)
@@ -439,6 +503,23 @@ def main():
     for ed, name, crc, why in refused:
         print('refuse %-44s %s_%s  %s' % (ed, name, crc, why))
     print('%d 3D tree LOD models built (%d refused)' % (len(made), len(refused)))
+    files = {'%s_%spassthru_lod.nif' % (name, crc.upper()): out for ed, name, crc, n, out in made}
+
+    # brighter foliage: our own builds, and the winning copy of every installed model BRIGHTEN names
+    winners = {}
+    for m in mods:                                  # highest priority first: the first copy of a name wins
+        d = os.path.join(root, 'mods', m, *LOD_DIR)
+        if os.path.isdir(d):
+            for f in os.listdir(d):
+                winners.setdefault(f.lower(), (f, os.path.join(d, f)))
+    for low, (f, path) in sorted(winners.items()):
+        if BRIGHTEN.match(f) and not any(k.lower() == low for k in files):
+            files[f] = open(path, 'rb').read()
+    for f in sorted(files):
+        if BRIGHTEN.match(f):
+            files[f], n = brighten(files[f], FOLIAGE_GAIN)
+            print('brighter foliage x%.1f: %-46s %d leaf shapes' % (FOLIAGE_GAIN, f, n))
+
     if a.dry_run:
         for ed, name, crc, n, out in made:
             print('  %-44s %s_%s  %d shapes, %d bytes' % (ed, name, crc.upper(), n, len(out)))
@@ -447,9 +528,9 @@ def main():
         shutil.rmtree(os.path.join(a.out, 'meshes'))
     d = os.path.join(a.out, *LOD_DIR)
     os.makedirs(d, exist_ok=True)
-    for ed, name, crc, n, out in made:
-        open(os.path.join(d, '%s_%spassthru_lod.nif' % (name, crc.upper())), 'wb').write(out)
-    print('wrote %d files to %s' % (len(made), d))
+    for f, out in files.items():
+        open(os.path.join(d, f), 'wb').write(out)
+    print('wrote %d files to %s' % (len(files), d))
 
 
 if __name__ == '__main__':

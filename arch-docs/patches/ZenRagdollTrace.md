@@ -72,3 +72,36 @@ Leads before the trace (settings read 2026-10-30, web search):
   added to `Zenderal - Settings/MCM/Settings/Precision.ini`; original in `E:/Zenderal-backups/Precision-killimpulse-2026-10-30`).
   Curator's symptom then: on a dismember the corpse jumps in a blink instead of falling. Unverified in game.
 - FSMP: an hdtSMP64 issue (#104) reports corpses warped away at huge speed by SMP physics on the body.
+
+## 1.2.0 (2026-11-01): player damage after Seismic Stomp
+
+Two players reported that after Seismic Stomp, enemies take "next to no damage after the first hit". Ruled out
+offline first:
+- Precision has no damage scaling for ragdolled targets. Its only damage scaling is the sweep falloff, and the list's
+  `uSweepAttackMode` is 0 (unlimited).
+- No game setting or perk in the list keys incoming damage on knock state (only Ordinator, which is not installed,
+  uses `GetKnockedState`).
+- The stomp's bleed is plain Health damage.
+
+1.2.0 adds two line types, and every player hit or player damage also starts a trace of its target:
+- `HIT`: every `TESHitEvent` caused by the player, with its source, hit flags, knock/ragdoll state and Health.
+- `DAMAGE`: every Health damage the player deals (`Actor::HandleHealthDamage`, Character vfunc `0x104`), with the
+  amount and Health before and after.
+
+`STATE` lines now carry Health too. The log shows whether hits after the stomp arrive, what the engine applies, and in
+which knock state (and so whether Airborne Get-Up Fix's hold is involved). Results: pending.
+
+## 1.3.0 (2026-11-01): corpses standing in the air after a cell reload
+
+Player report (GreaseLord, 2026-10-31): Vatyrs killed, then the player entered an interior and came back out, and
+the corpses stood upright in mid-air. Vatyrs (`VatyrRace 0133E4` + Large/Giant, EGO's records) use the werewolf
+skeleton (XPMSE's winning `skeleton.nif`/`.hkx`) and the werewolf behaviour Pandora built on 2026-10-29, with Precision's
+edits in it. Dismembering Framework has no werewolf or Vatyr entry, and no Zenderal plugin touches the race or NPCs.
+*Vatyrs can hit you - Precision* only enlarges their attack capsules.
+
+A corpse that comes back with its cell gets no `TESDeathEvent`, so 1.2.0 never traced it. 1.3.0 listens to
+`TESObjectLoadedEvent`: whenever a dead actor's 3D loads or unloads it writes a `CORPSE loaded/unloaded` line with a
+`DEATH` snapshot, and on load it starts the usual 15 s `DEATH` trace. `DEATH` lines now also carry `charCtrl` and the
+pelvis height over the reference (`+N over ref`): a lying corpse sits near the reference, a standing one far above it.
+The unload snapshot shows the pose the corpse was saved in. A kill's own `IN`/`OUT` lines show whether Airborne Get-Up
+Fix was holding a `GetUpBegin` when the actor died. Results: pending. Re-enabled in Ultra 2026-11-01; disable after use.

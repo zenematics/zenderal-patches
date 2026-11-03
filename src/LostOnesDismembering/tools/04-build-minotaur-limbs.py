@@ -41,7 +41,8 @@ REPO = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
 sys.path.insert(0, PYN)
 sys.path.insert(0, HERE)
 from pyn.pynifly import NifFile  # noqa: E402
-from limbmesh import build_nif, cut_shape, descendants  # noqa: E402
+import numpy as np  # noqa: E402
+from limbmesh import build_nif, closed_rings, cut_loops, cut_shape, descendants, gore_caps  # noqa: E402
 
 BS = chr(92)
 MODS = os.path.join(ROOT, 'mods')
@@ -217,12 +218,23 @@ def main():
             if sig not in by_sig:
                 mesh = f'Minotaur_{limb}_{fid:03X}.nif'
                 translation = tuple(tpl[base_t]['Translation'][k] for k in 'xyz')
-                build_nif(containers[cont], pieces, translation, os.path.join(out_dir, mesh))
+                # the meat layer: close each cut ring of the opaque skin/body shapes (alpha fur and cloth leave
+                # partial edges), or the severed limb shows its hollow inside. Added after `sig`, so plan unchanged.
+                all_verts = np.vstack([p['verts'] for p in pieces])
+                caps = []
+                for pc in pieces:
+                    if pc['shape'].has_alpha_property:
+                        continue
+                    rings = closed_rings(pc, cut_loops(pc['shape'], bone_sets[(race, limb)]))
+                    if rings:
+                        caps.append(gore_caps(pc, rings, NifFile(containers[cont]), all_verts))
+                assert caps, (race, skin, limb, 'no closed cut ring to cap')
+                build_nif(containers[cont], pieces + caps, translation, os.path.join(out_dir, mesh))
                 entry = dict(fid=f'{fid:06X}', limb=limb, mesh=MESH_REL + BS + mesh, node=node,
                              base_template=base_t, addon_template=addon_t, skins=[])
                 by_sig[sig] = entry
                 plan.append(entry)
-                print(f'    {limb}: {ntris} tris from {len(pieces)} shapes -> {mesh}')
+                print(f'    {limb}: {ntris} tris from {len(pieces)} shapes + {len(caps)} cap(s) -> {mesh}')
                 fid += 1
             else:
                 print(f'    {limb}: same as {by_sig[sig]["mesh"].split(BS)[-1]}')

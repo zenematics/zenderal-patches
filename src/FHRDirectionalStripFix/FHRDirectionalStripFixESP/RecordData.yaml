@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - FHR Directional Strip Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.71
+  Author: Zenderal
+  Description: >-
+    Side attacks strip For Honor Reforged's empowered-attack arrows again: a side power attack strips the
+    matching heavy arrow (in first person too), and a strip no longer loses to EGO's power-attack stagger.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: KataHiddenPowers.esp
+    FileSize: 0
+  - Master: For Honor Balance Patch.esp
+    FileSize: 0
+  - Master: Reforged Directional Combat.esp
+    FileSize: 0
+  INTV: 1

@@ -85,6 +85,18 @@ That means IED created the holster nodes and offered them for positioning. **Ver
 "all working"). **Note:** the saved default is newer than the export, so never copy
 the export over `DefaultConfigUser.json`. That would undo the in-game positioning.
 
+**Export overwritten (2026-11-03):** an in-game File → Export under the name `Zenderal - Pistol Holsters` writes
+through MO2 into the shipped import file (now in `Zenderal - Patch Collection`). The 00:33 export had **no** holster
+setup (no `ZenPistol*` transforms or overrides; the player's `WeaponStaff`/`WeaponStaffLeft` both on
+`MOV BOLTLeftHipBolt`), so players following the import instructions would have lost the holsters. The shipped export
+is now a copy of `DefaultConfigUser.json` (md5 `999a4697`); the 00:33 file is in `E:/Zenderal-backups/2026-11-03-ied-export/`.
+**Export under another name** when experimenting.
+The same day the curator's `Zen's Gun Preset v3` export (01:09, md5 `d8765de4`) became the default and the shipped
+import file (Patch Collection's `DefaultConfigUser.json` + `Exports/Zenderal - Pistol Holsters.json`, and
+`overwrite`'s default): the holster setup plus new player holster positions (`ZenPistolRight` `[43, -7, 15]`,
+`ZenPistolLeft` `[-36.5, 2.5, 24.5]`), bow display changes and small back/shield-back offsets. The 29 Oct default is
+in the same backup folder.
+
 **Hotfix miss (2026-10-29):** the hotfix shipped the nodes and the export but **not** the default, because IED saved
 `DefaultConfigUser.json` into MO2's `overwrite`, which Wabbajack never ships. Players' pistols stayed on the back. Fixed
 by copying it into the mod (`SKSE/Plugins/IED/DefaultConfigUser.json`, md5 `999a4697…`). **Whenever the default is

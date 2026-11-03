@@ -18,7 +18,7 @@
 // Log: My Games/Skyrim Special Edition/SKSE/ZenRagdollTrace.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 1, 0, 0 },
+	.Version = REL::Version{ 1, 3, 0, 0 },
 	.Name = "ZenRagdollTrace"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -123,6 +123,56 @@ namespace
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
 
+	float Health(RE::Actor* a_actor)
+	{
+		return a_actor->AsActorValueOwner()->GetActorValue(RE::ActorValue::kHealth);
+	}
+
+	std::string State(RE::Actor* a_actor)
+	{
+		return std::format("knock={} ragdoll={} dead={} health={:.1f}", std::to_underlying(a_actor->AsActorState()->GetKnockState()),
+			a_actor->IsInRagdollState(), a_actor->IsDead(), Health(a_actor));
+	}
+
+	// 1.2.0 (2026-11-01): after Seismic Stomp, enemies seemed to take next to no damage after the first hit. Every
+	// player hit and every Health damage the player deals is logged (and starts a trace of the target), so the log
+	// shows whether the hits arrive, how much damage the engine applies and in which knock state.
+	struct HitSink : RE::BSTEventSink<RE::TESHitEvent>
+	{
+		RE::BSEventNotifyControl ProcessEvent(const RE::TESHitEvent* a_event, RE::BSTEventSource<RE::TESHitEvent>*) override
+		{
+			if (!a_event || !a_event->cause || !a_event->cause->IsPlayerRef() || !a_event->target) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			auto* actor = a_event->target->As<RE::Actor>();
+			if (!actor) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			const auto now = NowMs();
+			Touch(actor, "ragdoll (player hit)", now);
+			auto* source = RE::TESForm::LookupByID(a_event->source);
+			SKSE::log::info("{:>8} {:08X} HIT   source {:08X} '{}' flags {:#x} {}", now, actor->GetFormID(), a_event->source,
+				source ? source->GetName() : "", a_event->flags.underlying(), State(actor));
+			return RE::BSEventNotifyControl::kContinue;
+		}
+	};
+
+	struct HandleHealthDamage
+	{
+		static void thunk(RE::Character* a_this, RE::Actor* a_attacker, float a_damage)
+		{
+			const float before = Health(a_this);
+			func(a_this, a_attacker, a_damage);
+			if (a_attacker && a_attacker->IsPlayerRef()) {
+				const auto now = NowMs();
+				Touch(a_this, "ragdoll (player damage)", now);
+				SKSE::log::info("{:>8} {:08X} DAMAGE {:.1f} (health {:.1f} -> {:.1f}) {}", now, a_this->GetFormID(), a_damage, before,
+					Health(a_this), State(a_this));
+			}
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
 	struct CharacterUpdate
 	{
 		static void thunk(RE::Character* a_this, float a_delta)
@@ -148,9 +198,8 @@ namespace
 			}
 			bool animDriven = false;
 			a_this->GetGraphVariableBool("bAnimationDriven"sv, animDriven);
-			SKSE::log::info("{:>8} {:08X} STATE knock={} ragdoll={} dead={} charCtrl={} animDriven={} z={:.1f} pelvisZ={}",
-				now, a_this->GetFormID(), std::to_underlying(a_this->AsActorState()->GetKnockState()),
-				a_this->IsInRagdollState(), a_this->IsDead(), a_this->GetCharController() != nullptr, animDriven,
+			SKSE::log::info("{:>8} {:08X} STATE {} charCtrl={} animDriven={} z={:.1f} pelvisZ={}",
+				now, a_this->GetFormID(), State(a_this), a_this->GetCharController() != nullptr, animDriven,
 				a_this->GetPosition().z, hasPelvis ? std::format("{:.1f}", pelvisZ) : "none"s);
 		}
 		static inline REL::Relocation<decltype(thunk)> func;
@@ -206,18 +255,19 @@ namespace
 		std::string pelvis = "none";
 		if (root) {
 			if (auto* p = root->GetObjectByName("NPC Pelvis [Pelv]"sv)) {
-				pelvis = std::format("{:.0f},{:.0f},{:.0f}", p->world.translate.x, p->world.translate.y, p->world.translate.z);
+				pelvis = std::format("{:.0f},{:.0f},{:.0f} (+{:.0f} over ref)", p->world.translate.x, p->world.translate.y,
+					p->world.translate.z, p->world.translate.z - pos.z);
 			} else {
 				pelvis = std::format("root {:.0f},{:.0f},{:.0f}", root->world.translate.x, root->world.translate.y, root->world.translate.z);
 			}
 		}
 		auto* player = RE::PlayerCharacter::GetSingleton();
 		SKSE::log::info("{:>8} {:08X} DEATH 3D={}{} rootCulled={} geom={}/{} hidden disabled={} deleted={} alpha={:.2f} "
-						"ragdoll={} knock={} pos={:.0f},{:.0f},{:.0f} moved={:.0f} pelvis={} distPlayer={:.0f} cell={:08X}",
+						"ragdoll={} knock={} charCtrl={} pos={:.0f},{:.0f},{:.0f} moved={:.0f} pelvis={} distPlayer={:.0f} cell={:08X}",
 			a_now, a_id, root ? "yes" : "NO", ptr != a_trace.last3D && a_trace.last3D ? " (NEW 3D)" : "",
 			root ? root->GetAppCulled() : false, hidden, total, actor->IsDisabled(), actor->IsMarkedForDeletion(),
 			actor->GetAlpha(), actor->IsInRagdollState(), std::to_underlying(actor->AsActorState()->GetKnockState()),
-			pos.x, pos.y, pos.z, pos.GetDistance(a_trace.startPos), pelvis,
+			actor->GetCharController() != nullptr, pos.x, pos.y, pos.z, pos.GetDistance(a_trace.startPos), pelvis,
 			player ? pos.GetDistance(player->GetPosition()) : -1.0f, actor->GetParentCell() ? actor->GetParentCell()->GetFormID() : 0);
 		a_trace.last3D = ptr;
 	}
@@ -243,6 +293,35 @@ namespace
 				it->second = DeathTrace{ now, 0, actor->GetPosition(), reinterpret_cast<std::uintptr_t>(actor->Get3D()) };
 			}
 			SampleDeath(actor->GetFormID(), it->second, now);
+			return RE::BSEventNotifyControl::kContinue;
+		}
+	};
+
+	// 1.3.0 (2026-11-01): Vatyr corpses (werewolf skeleton) found standing in the air after leaving a cell and coming
+	// back. A corpse that returns with its cell gets no TESDeathEvent, so every dead actor's 3D load or unload logs a
+	// snapshot and (on load) starts the DEATH trace: pelvis height over the reference tells standing from lying.
+	struct LoadSink : RE::BSTEventSink<RE::TESObjectLoadedEvent>
+	{
+		RE::BSEventNotifyControl ProcessEvent(const RE::TESObjectLoadedEvent* a_event, RE::BSTEventSource<RE::TESObjectLoadedEvent>*) override
+		{
+			if (!a_event) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			auto* actor = RE::TESForm::LookupByID<RE::Actor>(a_event->formID);
+			if (!actor || actor->IsPlayerRef() || !actor->IsDead()) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			const auto now = NowMs();
+			SKSE::log::info("{:>8} {:08X} CORPSE {} {}", now, actor->GetFormID(), a_event->loaded ? "loaded" : "unloaded", Describe(actor));
+			std::scoped_lock l{ g_lock };
+			auto [it, fresh] = g_deaths.try_emplace(actor->GetFormID());
+			if (a_event->loaded && (fresh || now - it->second.startMs > kDeathTraceMs)) {
+				it->second = DeathTrace{ now, 0, actor->GetPosition(), reinterpret_cast<std::uintptr_t>(actor->Get3D()) };
+			}
+			SampleDeath(actor->GetFormID(), it->second, now);
+			if (!a_event->loaded && fresh) {
+				g_deaths.erase(it);
+			}
 			return RE::BSEventNotifyControl::kContinue;
 		}
 	};
@@ -276,12 +355,13 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenRagdollTrace 1.1.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenRagdollTrace 1.3.0 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::log::info("knock: 0 normal, 1 explode, 2 explodeLeadIn, 3 out, 4 outLeadIn, 5 queued, 6 getUp, 7 down");
 
 	// Character's vtables: [0] TESForm/Actor, [2] BSTEventSink<BSAnimationGraphEvent>, [3] IAnimationGraphManagerHolder.
 	REL::Relocation<std::uintptr_t> actorVtbl{ RE::VTABLE_Character[0] };
 	CharacterUpdate::func = actorVtbl.write_vfunc(0xAD, CharacterUpdate::thunk);
+	HandleHealthDamage::func = actorVtbl.write_vfunc(0x104, HandleHealthDamage::thunk);
 	REL::Relocation<std::uintptr_t> sinkVtbl{ RE::VTABLE_Character[2] };
 	GraphEventSink::func = sinkVtbl.write_vfunc(0x1, GraphEventSink::thunk);
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_Character[3] };
@@ -294,7 +374,13 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {
 			static DeathSink sink;
 			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESDeathEvent>(&sink);
+			static HitSink hits;
+			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESHitEvent>(&hits);
+			SKSE::log::info("hit sink registered; HIT = player hits, DAMAGE = Health damage the player deals (1.2.0)");
 			SKSE::log::info("death event sink registered; DEATH lines: 3D, culled, visible geometry, position, pelvis");
+				static LoadSink loads;
+				RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESObjectLoadedEvent>(&loads);
+				SKSE::log::info("load sink registered; CORPSE = a dead actor's 3D loaded/unloaded, then a DEATH trace (1.3.0)");
 		}
 	});
 	return true;

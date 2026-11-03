@@ -106,6 +106,10 @@ def health_pct(op, value):
     return C("GetActorValuePercent", {"ActorValue": "Health"}, op=op, value=value)
 
 
+# Cornered Wolf's Health bands, (below, at or above), weakest first: each gives one fifth more of the full bonus
+CORNERED_WOLF_BANDS = [(0.70, 0.65), (0.65, 0.60), (0.60, 0.55), (0.55, 0.50), (0.50, None)]
+
+
 def goblin(match=True):
     """Any Goblin Slayer race (OR chain), or none of them (AND chain)."""
     if match:
@@ -281,12 +285,17 @@ TRAITS = [
       EP("ModPercentBlocked", 0.85)],
      []),
 
+    # Cornered Wolf (curator 2026-10-30: starts at 70% Health, strongest below 50%; it was below 30% only). Entry
+    # points can't scale with Health, so the bonus climbs in exclusive 5% bands, a fifth of it per band.
     ("CorneredWolf", "Cornered Wolf",
-     "Below 30% Health, your weapons deal 25% more damage and you take 10% less damage.\n\n"
+     "Below 70% Health, your weapons deal more damage and you take less, growing as your Health falls: up to 25% more "
+     "damage dealt and 10% less taken below 50% Health.\n\n"
      "Above 75% Health, your weapons deal 10% less damage.",
-     [EP("ModAttackDamage", 1.25, {0: [health_pct("LessThan", 0.3)]}),
-      EP("ModIncomingDamage", 0.9, {0: [health_pct("LessThan", 0.3)]}),
-      EP("ModAttackDamage", 0.9, {0: [health_pct("GreaterThan", 0.75)]})],
+     [EP(entry, round(1 + sign * full * step / 5, 4),
+         {0: [health_pct("LessThan", hi)] + ([health_pct("GreaterThanOrEqualTo", lo)] if lo else [])})
+      for entry, sign, full in (("ModAttackDamage", 1, 0.25), ("ModIncomingDamage", -1, 0.10))
+      for step, (hi, lo) in enumerate(CORNERED_WOLF_BANDS, start=1)] +
+     [EP("ModAttackDamage", 0.9, {0: [health_pct("GreaterThan", 0.75)]})],
      []),
 
     ("HeavyHand", "Heavy Hand",

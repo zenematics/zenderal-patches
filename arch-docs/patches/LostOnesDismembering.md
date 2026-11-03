@@ -177,6 +177,20 @@ Traps the generator handles:
   meshes' by up to 1.6 units, so it is not used.
 - `ArmorMinotaurCuirassForsworn` `000826` is worn by no NPC and gets no entry (`ANY` covers it).
 
+**Meat cap (added 2026-11-01).** DF's containers bring their own `Gore`/`Bone` cut caps, but they are shaped for
+humans and draugr and are detached with the container's other shapes, so the first build showed each severed
+limb's hollow inside (seen on bears).
+- `04` now closes each cut with `limbmesh.cut_loops` → `closed_rings` → `gore_caps`, shared with
+  [`BearDismembering`](BearDismembering.md). The cap is a fan over the cut ring, in both windings, with the
+  container's own `Gore` shader (DF's `DismemberedLimbGore.dds`).
+- **Only opaque shapes are capped.** In every minotaur cut the opaque skin/body shape leaves exactly one closed
+  ring. Alpha fur and cloth leave partial edges, and capping them would make lids that float in the air.
+- All 46 meshes got one cap each. The caps are added after the dedup signature, so `minotaur-limbs.json`, the
+  plugin and the JSON are unchanged.
+- **The live copy is Patch Collection's** (the standalone mod is disabled in Ultra). The 46 meshes were copied
+  there, and the old ones were backed up to `E:/Zenderal-backups/2026-11-01-minotaur-gore-caps/`.
+- Unverified in game.
+
 Test: `help EncMinotaur 4` in the console lists the NPC IDs, then `player.placeatme <id>`.
 
 ## Arps (moved out 2026-10-26)

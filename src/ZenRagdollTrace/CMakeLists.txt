@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.25)
 # Zenderal Ragdoll Trace (testing tool, not part of the list): logs the animation graph events going into and out
 # of every non-player actor that ragdolls, gets up or dies, plus a 4 Hz sample of its knock/ragdoll state, to find
 # what holds creatures rigid mid-air. AE (Address Library), CommonLibSSE-NG.
-project(ZenRagdollTrace VERSION 1.1.0 LANGUAGES CXX)
+project(ZenRagdollTrace VERSION 1.2.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

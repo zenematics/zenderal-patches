@@ -51,3 +51,19 @@ although the curator turns it off: Enderal's own MCM keeps the choice in the sav
 both (`companion_panel` in `data/settings.json`): global 0, then `UnregisterEvents()`; on later loads the widget's
 `OnGameReload` sees the global at 0 and never registers. Like every applier entry it runs once per save, so saves
 where the applier already ran keep the panel; players switch it off in Enderal's MCM. Compiled clean; unverified in game.
+
+## MCM Helper re-applied both every load (2026-11-01)
+
+Player report (GreaseLord, 2026-11-01): kill moves and kill cams were back, with no way to turn them off. The two
+fixes above never held, because *MCM Helper - Enderal Patch* replaces `_00E_EnderalMCM.pex`. Its `OnConfigInit`
+**and** `OnGameReload` call `UpdateSettings()`, which reads `bKillMoves` and `bCompanionHealthBars` from MCM Helper's
+ini and writes them into `KillMoveConfig`/`KillMove` (via `_00E_KillMove.SetValue`) and the companion panel. Its
+shipped defaults (`MCM/Config/Enderal - Forgotten Stories/settings.ini`) are `bKillMoves=1` and
+`bCompanionHealthBars=1`. So on every load, both of our plugin defaults and the applier's values were overwritten.
+The curator's own `0` choices lived only in MO2's `overwrite/MCM/Settings/Enderal - Forgotten Stories.ini`, which
+the list does not ship.
+
+Fix: that file (`[Gameplay]` `bKillMoves = 0`, `bCompanionHealthBars = 0`) now ships in the **Zenderal - Settings**
+mod at `MCM/Settings/Enderal - Forgotten Stories.ini`. MCM Helper reads user values from `MCM/Settings/` over the
+config defaults, and the values apply on every load, so existing saves get them too. A player who switches the
+toggle in the MCM writes their own copy to overwrite, which outranks ours. Unverified in game.

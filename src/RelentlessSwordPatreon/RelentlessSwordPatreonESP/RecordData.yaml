@@ -12,10 +12,14 @@ ModHeader:
   Description: >-
     Relentless Sword SE by johnskyrim, converted for Enderal: Forgotten Stories SE by Zenderal.
     Eight blades, including the Patreon-only Zen design. Requires johnskyrim's Patreon ZEN
-    build installed for its meshes and textures; disable its own .esp.
+    build installed for its meshes and textures; disable its own .esp. Relentless Zen is silver,
+    out-stats every one-handed sword in the list, and consecrates corpses it strikes (Prophecy's
+    Consecrate Dead).
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0
   - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Zenderal - Prophecy.esp
     FileSize: 0
   INTV: 1
