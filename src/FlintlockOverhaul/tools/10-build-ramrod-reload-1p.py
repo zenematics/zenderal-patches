@@ -284,9 +284,10 @@ def blend(la, lb, w):
     return out
 
 
-def build(rt, a3, ads_hold, idle, hold_path, clip):
+def build(rt, a3, ads_hold, idle, hold_path, clip, blend_out=BLEND_OUT):
     """First-person clip for one third-person clip; returns (anim, max hand error, frames solved short).
-    The shot clip starts on the aim-down-sights hold, the reload clip on the idle hold; both end on the idle hold."""
+    The shot clip starts on the aim-down-sights hold, the reload clip on the idle hold; both end on the idle hold,
+    blended into it over the clip's last `blend_out` (tools/09's short shot: over its own lowering, SHOT_BLEND)."""
     shot = 'release' in clip
     end = rt.locals1(idle, 0)
     w_end = rt.world1(end)
@@ -308,7 +309,7 @@ def build(rt, a3, ads_hold, idle, hold_path, clip):
             w_in = smooth((t_s - HOLD_ADS) / (BLEND_IN - HOLD_ADS))
         else:
             w_in = smooth(t_s / BLEND_IN_RELOAD)
-        w_out = smooth((t_s - (a3.duration - BLEND_OUT)) / BLEND_OUT)
+        w_out = smooth((t_s - (a3.duration - blend_out)) / blend_out)
         lift_pitch = (head[0, 0] - head[f, 0]) + LIFT_EXTRA_DEG * w_in * (1 - w_out)
         loc, w1, targets = rt.pose(a3, f, start, lift_pitch, head[f, 1] - head[0, 1])
         for _, _, hand in ARM_SIDES:
@@ -344,9 +345,15 @@ def main():
     root = sys.argv[1] if len(sys.argv) > 1 else ADS.TOOLS['modlistRoot']
     mods_dir = os.path.join(root, 'mods')
     oar3 = os.path.join(mods_dir, R3P.MOD, *R3P.OAR)
-    ads_oar = os.path.join(mods_dir, ADS.MOD, *ADS.OAR)
     if not os.path.isdir(oar3):
         sys.exit('run tools/09 first: %s is missing' % oar3)
+    # the aim-down-sights set from the highest enabled mod that has it: tools/06's own MO2 mod, or since 2026-11-03 the
+    # copy inside Zenderal - Patch Collection (the standalone mod is gone from the list)
+    ads_oar = next((p for p in (QRS.find_ci(os.path.join(mods_dir, m), ADS.OAR) for m in QRS.profile_mods(root)[1])
+                    if p), None)
+    if not ads_oar:
+        sys.exit('run tools/06 first: no enabled mod has %s' % '/'.join(ADS.OAR))
+    print('aim-down-sights set: %s' % ads_oar)
     bsa = _bsa.listing(os.path.join(root, 'Stock Game', 'Data', 'Skyrim - Animations.bsa'))
     tmp = os.path.join(os.environ.get('TEMP', '.'), '_ramrod1p.hkx')
     with open(tmp, 'wb') as fh:
@@ -392,7 +399,9 @@ def main():
             sneak = clip in R3P.SNEAK
             a3 = anim_skyrim.load_skyrim_animation(os.path.join(oar3, 'Ramrod %s' % label, 'dlc01', R3P.SNEAK.get(clip, clip)))
             end_idle = sneak_idle if sneak else idle
-            anim, worst, short, kept = build(rt, a3, ads_sneak if sneak else ads_hold, end_idle, hold_path, clip)
+            out_blend = R3P.SHOT_BLEND if R3P.SHOT_ONLY and 'release' in clip else BLEND_OUT
+            anim, worst, short, kept = build(rt, a3, ads_sneak if sneak else ads_hold, end_idle, hold_path, clip,
+                                             out_blend)
             for name in (clip, dwarven):
                 out = os.path.join(sub, 'dlc01', name)
                 anim_skyrim.write_skyrim_animation(out, anim, ptr_size=8)

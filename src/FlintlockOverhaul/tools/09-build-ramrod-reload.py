@@ -21,6 +21,8 @@ a lead ball and a ramrod in the left hand through `AnimObjectL` (see props(); me
 Every clip in the submod starts with `AnimObjectUnequip`, so a reload cut short can't leave a prop in the hand.
 Loading sounds (2026-11-02): two `SoundPlay` events from the moment the ball reaches the muzzle (SOUNDS; the SNDRs by
 tools/11, the .wavs by tools/12).
+Reload on demand (2026-11-03, SHOT_ONLY): the shot clips (standing and crouched) are the shot alone (shorten()), and
+ZenMusketHandling 1.2.0 plays Zodd's separate reload clip on the next attack press; see SHOT_ONLY.
 
 Per mesh, two OAR submods keyed on its WEAPs (IsEquipped, right hand), third person only:
   `Ramrod <mesh>`                       432500+i: raise, holds, shot, reload (variant by barrel thickness)
@@ -33,7 +35,8 @@ PERMISSION: Zodd's page asks for permission before modifying the files or using 
 modified copies, so it is in `Zenderal.compiler_settings`' Ignore list (never compiled into the list) until Zodd
 agrees. Nothing third-party is committed: clips are read from the downloaded archive and written to the MO2 mod.
 
-Usage:  python src/FlintlockOverhaul/tools/09-build-ramrod-reload.py [<modlist root>]   (needs numpy)
+Usage:  python src/FlintlockOverhaul/tools/09-build-ramrod-reload.py [<modlist root> [<Zodd's archive>]]   (needs numpy)
+        (the archive defaults to the one ARCHIVE matches in <modlist root>/downloads)
 """
 import glob
 import importlib.util
@@ -115,6 +118,16 @@ REGRIP_DIST = 6.0          # the left hand holds the stock again from the frame 
 # needed; tools/10 copies the events into first person. The SNDRs are tools/11's, the .wavs tools/12's (licensed, not
 # committed).
 SOUNDS = (('ZEN_MusketLoad7', 0.0), ('ZEN_MusketLoad1', 1.2))   # (EditorID, seconds after the ball reaches the muzzle)
+# Reload on demand (2026-11-03, curator: "the reload mechanic we did for pistols, where they don't immediately reload
+# until you press the fire button again"): the shot clip is the shot alone, with no `arrowAttach` (the engine's
+# "loaded" beat), ball, rod or reload sounds. The engine then fires the musket again unloaded (traced, SpellAimTrace),
+# so ZenMusketHandling 1.2.0 (src/MusketHandling, `[Reload] OnDemand`) turns the next attack press on the empty
+# musket into `reloadStart`, which plays Zodd's separate reload clip. The two go together. Measured on both hand
+# variants: the shot is back on the sights by 0.74 s (recoil 0.27-0.6 s); from 0.8 s the gun tips up for the reload.
+# Standing and crouched alike; both views end on the graph's next pose over SHOT_BLEND. Verified in game 2026-11-03.
+SHOT_ONLY = True
+SHOT_CUT = 0.74            # the short shot keeps Zodd's frames up to here ...
+SHOT_BLEND = 0.5           # ... then eases from that pose into the clip's own last pose (the hip hold) over this long
 
 
 class Rig3P:
@@ -539,25 +552,57 @@ def crouch(rig, anim, low, depth):
         set_rotation(anim, s2, f, rig.world(anim, f)[s1][:3, :3].T @ (chest / np.linalg.norm(chest[:, 0])))
 
 
-def settle(rig, anim, start, end, hold, blend_in):
+def grip(rig, w):
+    """The left hand's pose relative to the gun: (translation, rotation quaternion)."""
+    m = np.linalg.inv(w[rig.weapon]) @ w[rig.index[LEFT_ARM[2]]]
+    return m[:3, 3], ADS.mat_quat(m[:3, :3] / np.linalg.norm(m[:3, 0]))
+
+
+def mix(a, b, s):
+    """(translation, rotation[, scale]) blended."""
+    out = (ADS.lerp(a[0], b[0], s), ADS.slerp(a[1], b[1], s))
+    if len(a) == 3:
+        k = a[2][0] + (b[2][0] - a[2][0]) * s
+        out += ([k, k, k],)
+    return out
+
+
+def shorten(rig, anim, cut, blend):
+    """The shot alone (SHOT_ONLY): Zodd's frames up to `cut`, then that pose eased bone by bone into the clip's own last
+    pose (what the whole clip ends on, so the graph's next state takes over as before) over `blend`, the left hand's
+    grip on the gun blended and the arm solved onto it, as in settle(). Annotations from `cut` on and every
+    `arrowAttach` go: the gun is not reloaded. Returns (last frame kept from Zodd, worst hand miss)."""
+    fd = anim.frame_duration
+    fc, nb = int(round(cut / fd)), int(round(blend / fd))
+    ih = rig.index[LEFT_ARM[2]]
+    hold, end = frame_pose(anim, fc), frame_pose(anim, anim.num_frames - 1)
+    g_hold, g_end = grip(rig, pose_world(rig, hold)), grip(rig, pose_world(rig, end))
+    for tr in anim.tracks:
+        for seq in (tr.translations, tr.rotations, tr.scales):
+            del seq[fc + nb + 1:]
+    anim.num_frames = fc + nb + 1
+    anim.duration = (anim.num_frames - 1) * fd
+    worst = 0.0
+    for k in range(1, nb + 1):
+        f, s = fc + k, smooth(k / nb)
+        for i, tr in enumerate(anim.tracks):
+            tr.translations[f], tr.rotations[f], tr.scales[f] = [list(map(float, x)) for x in mix(hold[i], end[i], s)]
+        if k < nb:
+            g = mix(g_hold, g_end, s)
+            w = rig.world(anim, f)
+            target = w[rig.weapon] @ ADS.trs(g[0], g[1], 1.0)
+            worst = max(worst, reach(rig, anim, f, target[:3, 3] - w[ih][:3, 3], target[:3, :3]))
+    anim.annotations = [a for a in anim.annotations if a.time < cut and a.text != 'arrowAttach']
+    return fc, worst
+
+
+def settle(rig, anim, start, end, hold, blend_in, blend_out=BLEND_OUT):
     """Bone-by-bone blends of a crouched clip: `start` (a pose) until `hold`, into the motion by `blend_in`, and into
-    `end` (what the graph plays next) over the last BLEND_OUT. Bone by bone the left hand would pass through the gun
+    `end` (what the graph plays next) over the last `blend_out`. Bone by bone the left hand would pass through the gun
     (first person, 2026-11-01), so its grip relative to the gun is blended instead and the arm solved onto it (as
     tools/10's left_on_gun). Returns the worst hand miss."""
     ih = rig.index[LEFT_ARM[2]]
-
-    def grip(w):
-        m = np.linalg.inv(w[rig.weapon]) @ w[ih]
-        return m[:3, 3], ADS.mat_quat(m[:3, :3] / np.linalg.norm(m[:3, 0]))
-
-    def mix(a, b, s):            # (translation, rotation[, scale]) blended
-        out = (ADS.lerp(a[0], b[0], s), ADS.slerp(a[1], b[1], s))
-        if len(a) == 3:
-            k = a[2][0] + (b[2][0] - a[2][0]) * s
-            out += ([k, k, k],)
-        return out
-
-    g_start, g_end = grip(pose_world(rig, start)), grip(pose_world(rig, end))
+    g_start, g_end = grip(rig, pose_world(rig, start)), grip(rig, pose_world(rig, end))
     # only a pose whose left hand is on the gun gets the grip blend: `sneakmtidle` (the bow's crouched idle too) hangs
     # it at the hip, ~68 units from the gun, so the hand leaves the gun into it bone by bone
     on_start, on_end = (np.linalg.norm(g[0]) < ON_GUN for g in (g_start, g_end))
@@ -565,10 +610,10 @@ def settle(rig, anim, start, end, hold, blend_in):
     for f in range(anim.num_frames):
         t = f * anim.frame_duration
         w_in = smooth((t - hold) / (blend_in - hold))
-        w_out = smooth((t - (anim.duration - BLEND_OUT)) / BLEND_OUT)
+        w_out = smooth((t - (anim.duration - blend_out)) / blend_out)
         if w_in >= 1 and w_out <= 0:
             continue
-        g = grip(rig.world(anim, f))
+        g = grip(rig, rig.world(anim, f))
         for i, tr in enumerate(anim.tracks):
             m = (tr.translations[f], tr.rotations[f], tr.scales[f])
             m = mix(mix(start[i], m, w_in), end[i], w_out)
@@ -589,8 +634,8 @@ def main():
     root = sys.argv[1] if len(sys.argv) > 1 else ADS.TOOLS['modlistRoot']
     mods_dir = os.path.join(root, 'mods')
     profile, mods = QRS.profile_mods(root)
-    found = glob.glob(os.path.join(root, 'downloads', ARCHIVE))
-    if len(found) != 1:
+    found = sys.argv[2:3] or glob.glob(os.path.join(root, 'downloads', ARCHIVE))
+    if len(found) != 1 or not os.path.isfile(found[0]):
         sys.exit('expected one %s in %s/downloads, found %d' % (ARCHIVE, root, len(found)))
     zf = zipfile.ZipFile(found[0])
     names = {n.replace('\\', '/'): n for n in zf.namelist()}
@@ -667,7 +712,17 @@ def main():
                 depth = round(depth - CROUCH_STEP, 2)
             if sneak:
                 print('  %-24s crouched to %d%%' % (clip, round(100 * depth)))
-            if source in SLIDE:
+            short = SHOT_ONLY and source == 'crossbow_release.hkx'
+            kept = anim.num_frames - 1
+            if short:   # the shot alone: no props, no reload (ZenMusketHandling plays it on the next press)
+                kept, miss = shorten(rig, anim, SHOT_CUT, SHOT_BLEND)
+                print('  %-24s shot only: Zodd to %.2f s, its last pose by %.2f s, left hand kept on the gun within %.2f'
+                      % (clip, kept * anim.frame_duration, anim.duration, miss))
+                if miss > 0.5:
+                    sys.exit('%s %s: the left hand cannot stay on the gun (%.2f units short)' % (label, clip, miss))
+                added = [(0.0, UNEQUIP)]
+                anim.annotations.append(anim_skyrim.Annotation(time=0.0, text=UNEQUIP))
+            elif source in SLIDE:
                 added, beats, miss = props(rig, anim, label, bore_c, bore_axis, bore_r)
                 print('  %-24s props: %s; left hand within %.2f of the rod' % (
                     clip, ', '.join('%s %.2f' % (k, v) for k, v in beats.items()), miss))
@@ -684,7 +739,8 @@ def main():
             if sneak:
                 shot = source == 'crossbow_release.hkx'
                 miss = settle(rig, anim, sneak_hold if shot else low_pose, low_pose,
-                              HOLD_SHOT if shot else 0.0, BLEND_IN if shot else BLEND_IN_RELOAD)
+                              HOLD_SHOT if shot else 0.0, BLEND_IN if shot else BLEND_IN_RELOAD,
+                              SHOT_BLEND if short else BLEND_OUT)
                 print('  %-24s crouched; %s -> motion -> %s, left hand kept on the gun within %.2f'
                       % (clip, 'sneak hold' if shot else SNEAK_IDLE, SNEAK_IDLE, miss))
                 if miss > 0.5:
@@ -696,18 +752,28 @@ def main():
                 written += 1
             got = anim_skyrim.load_skyrim_animation(os.path.join(sub, 'dlc01', clip))
             src = load_zodd(variant, source)
-            if got.num_frames != src.num_frames or abs(got.duration - src.duration) > 1e-4 or \
+            frames_meant = kept + int(round(SHOT_BLEND / src.frame_duration)) + 1 if short else src.num_frames
+            src_anns = [(round(a.time, 4), a.text) for a in src.annotations
+                        if not short or (a.time < SHOT_CUT and a.text != 'arrowAttach')]
+            if got.num_frames != frames_meant or abs(got.duration - (frames_meant - 1) * src.frame_duration) > 1e-4 or \
                     sorted((round(a.time, 4), a.text) for a in got.annotations) != \
-                    sorted([(round(a.time, 4), a.text) for a in src.annotations] + [(round(x, 4), s) for x, s in added]):
+                    sorted(src_anns + [(round(x, 4), s) for x, s in added]):
                 sys.exit('%s: timing or annotations changed' % clip)
+            if short and not sneak:   # ends on the whole clip's last pose (crouched: on SNEAK_IDLE, by settle())
+                gap = max(np.linalg.norm(a[:3, 3] - b[:3, 3]) for a, b in
+                          zip(rig.world(got, got.num_frames - 1), rig.world(src, src.num_frames - 1)))
+                if gap > 0.05:
+                    sys.exit('%s %s: the short shot ends %.2f units off the whole clip\'s last pose' % (label, clip, gap))
             # every bone but the Weapon (and the left arm, moved onto the ramrod) must be the source's; crouched, the
             # right hand relative to the chest, between the blends
             s2 = rig.index['NPC Spine2 [Spn2]']
             for b in (rig.rhand,) if source in SLIDE else (rig.rhand, rig.lfinger):
+                out_from = got.duration - (SHOT_BLEND if short else BLEND_OUT)
                 frames = [f for f in range(0, got.num_frames, 5)
-                          if not sneak or BLEND_IN <= f * got.frame_duration <= got.duration - BLEND_OUT]
+                          if (not sneak or BLEND_IN <= f * got.frame_duration <= out_from) and (not short or f <= kept)]
                 rel = (lambda w: np.linalg.inv(w[s2]) @ w[b]) if sneak else (lambda w: w[b])
-                worst = max(np.linalg.norm(rel(rig.world(got, f))[:3, 3] - rel(rig.world(src, f))[:3, 3]) for f in frames)
+                worst = max((np.linalg.norm(rel(rig.world(got, f))[:3, 3] - rel(rig.world(src, f))[:3, 3])
+                             for f in frames), default=0.0)   # a crouched short shot has no frame outside its blends
                 if worst > 0.5:
                     sys.exit('%s: bone %d moved %.2f units' % (clip, b, worst))
             if source in SLIDE:

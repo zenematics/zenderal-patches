@@ -57,6 +57,32 @@ carry-weight change forces, so each change is followed by a ±0.1 CarryWeight nu
 (`ZMSH`/`SLOW`) is undone on load. Uninstalling mid-aim is the one way to keep it: aim nothing while
 saving before removing the DLL.
 
+## 3. Reload on demand (1.2.0, 2026-11-03)
+
+**Curator:** "the reload mechanic we did for pistols, where they don't immediately reload until you press the fire
+button again". [`FlintlockOverhaul`](FlintlockOverhaul.md)'s ramrod reload now plays the shot alone (its *Reload on
+demand* section), and the engine fires a musket whose shot did not reload it: five shots in 6.8 s, no `reloadStart`
+(traced 2026-11-03, SpellAimTrace 1.4.1). So:
+
+- **A shot empties the musket.** The same detection as the dodge lock (attack state into kBowReleasing/kBowReleased
+  with a drawn musket) records that weapon's FormID as empty.
+- **The next press reloads it.** While that musket is drawn and empty, the engine's attack press
+  (`crossbowAttackStart` through `NotifyAnimationGraph`, `[Reload] AttackEvents`) is dropped, so it never fires, and
+  `reloadStart` is sent in its place. Both 1hm graphs take that from `1HM_Ready_State` and from `CrossBow_AttackState`
+  (a press during the short shot clip) into `CrossBow_ReloadState`, Zodd's reload clip with the ball, rod and loading
+  sounds. That state has no `reloadStart` transition of its own, so the engine's repeats while the button is held,
+  and presses during the reload, are refused and restart nothing.
+- **The reload clip's `reloadStop` loads it** (its clip trigger, 0.195 s before the end), heard through the
+  player's own `BSAnimationGraphEvent` sink (`VTABLE_PlayerCharacter[2]`, vfunc 0x01, as SpellAimTrace). A reload cut
+  short (dodge, stagger, sheathe) leaves the musket empty, and the next press starts it again.
+- The empty musket is kept in the co-save (`ZMSH`/`EMPT`, its FormID). Another musket drawn is loaded (the engine's
+  draw loads it); the emptied one stays empty until its reload. NPCs are untouched.
+- Quick Reload / Rapid Shot now count after a shot: the reload state plays `CrossBow_ReloadFast` (1.3x), and the
+  ramrod mod's *both reload perks* copies retime exactly that clip.
+- `[Reload] OnDemand=0` turns it off (then use shot clips that reload, or every shot fires again unloaded).
+
+The dodge lock is unchanged: `LockAfterShotMs` still holds 2.3 s after a shot, now longer than the 1.24 s shot clip.
+
 ## Tuning
 
 All in `ZenMusketHandling.ini`: `LockAfterShotMs`, `MaxLockMs`, `BlockedEvents`, `SpeedMultPenalty` (0 = off),
@@ -70,6 +96,12 @@ and absent from Alpha 0.6, and no `ZenMusketHandling.log` existed on 2026-10-21.
 address IDs; the list runs 1.7.104) and copied to the MO2 mod 2026-10-21; tick it in the profile.
 **Unverified in game:** that the lock covers the whole visible reload (both first and third person),
 and that the SpeedMult change is felt at once while aiming.
+
+**The live copy is Patch Collection's** (`Zenderal - Patch Collection/SKSE/Plugins/`; the standalone MO2 mod is gone
+from the list). 1.1.0 ran there on 2026-11-03 (its log caught all five test shots). **1.2.0** (reload on demand) built
+and copied over it 2026-11-03; 1.1.0's DLL and ini are in `E:/Zenderal-backups/2026-11-03-musket-handling-1.1.0/`.
+**Reload on demand verified in game 2026-11-03** (curator: "Musket reload works great"; its log: 6 shots, 5 presses
+turned into reloads, each loaded on `reloadStop` 2.46 s later; no shot fired empty).
 
 ## If it misbehaves
 

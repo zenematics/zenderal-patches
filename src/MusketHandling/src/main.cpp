@@ -22,9 +22,19 @@
 //    change only takes effect once the engine recomputes movement speed, which a carry-weight change
 //    forces. The penalty is lifted before every save (kSaveGame) and the amount still applied is kept in
 //    the co-save and undone on load, so a save made mid-aim cannot keep it.
+//
+// 3. Reload on demand (1.2.0, 2026-11-03, curator: like the pistols, a musket reloads only when fire is pressed
+//    again). Zenderal - Musket Ramrod Reload's shot clips carry no reload any more, and the engine fires a musket
+//    whose shot did not reload it (traced, SpellAimTrace 1.4.1: five shots in 6.8 s, no reloadStart). So a shot
+//    marks that musket empty; while it is drawn and empty, the engine's attack press (crossbowAttackStart, sent
+//    through NotifyAnimationGraph) is dropped and reloadStart sent instead, which both 1hm graphs take from
+//    1HM_Ready_State and CrossBow_AttackState into CrossBow_ReloadState (Zodd's reload clip). That state has no
+//    reloadStart transition of its own, so presses while it plays are refused; a reload cut short leaves the graph
+//    ready, and the next press starts it again. The reload clip's reloadStop (its clip trigger 0.195 s before the
+//    end), heard through the player's BSAnimationGraphEvent sink, loads it. The empty musket is kept in the co-save.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 1, 0, 0 },
+	.Version = REL::Version{ 1, 2, 0, 0 },
 	.Name = "ZenMusketHandling"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -35,6 +45,7 @@ namespace
 	constexpr auto          kIniPath = "Data/SKSE/Plugins/ZenMusketHandling.ini";
 	constexpr std::uint32_t kCosaveId = 'ZMSH';
 	constexpr std::uint32_t kCosaveSlow = 'SLOW';
+	constexpr std::uint32_t kCosaveEmpty = 'EMPT';
 	constexpr std::uint32_t kCosaveVersion = 1;
 
 	std::uint32_t            g_lockAfterShotMs{ 2300 };
@@ -43,8 +54,14 @@ namespace
 	float                    g_speedMultPenalty{ 35.0f };
 	std::vector<std::string> g_musketPlugins{ "OrdoLegionisMuskets.esp" };
 	bool                     g_log{ true };
+	bool                     g_onDemand{ true };
+	std::vector<std::string> g_attackEvents{ "crossbowAttackStart" };
+	std::string              g_reloadEvent{ "reloadStart" };
+	std::string              g_loadedEvent{ "reloadStop" };
 
 	std::uint64_t         g_shotAtMs{ 0 };  // 0 = no musket shot being locked out
+	std::atomic<RE::FormID> g_emptyForm{ 0 };  // the musket the last shot emptied (0 = none), loaded by its reload's
+	                                           // g_loadedEvent; graph events arrive on worker threads
 	RE::ATTACK_STATE_ENUM g_prevState{ RE::ATTACK_STATE_ENUM::kNone };
 	float                 g_appliedPenalty{ 0.0f };  // SpeedMult currently taken away by this plugin (temporary modifier, as magic effects use)
 
@@ -55,23 +72,39 @@ namespace
 		return std::ranges::equal(a, b, [](char x, char y) { return std::tolower(static_cast<unsigned char>(x)) == std::tolower(static_cast<unsigned char>(y)); });
 	}
 
-	bool HoldingDrawnMusket(RE::PlayerCharacter* a_player)
+	bool StartsWithAny(std::string_view a_name, const std::vector<std::string>& a_prefixes)
+	{
+		return std::ranges::any_of(a_prefixes, [&](const std::string& p) {
+			return a_name.size() >= p.size() && IEquals(a_name.substr(0, p.size()), p);
+		});
+	}
+
+	// The right-hand musket, if one is drawn
+	const RE::TESObjectWEAP* DrawnMusket(RE::PlayerCharacter* a_player)
 	{
 		const auto* state = a_player->AsActorState();
 		if (!state || state->GetWeaponState() != RE::WEAPON_STATE::kDrawn) {
-			return false;
+			return nullptr;
 		}
 		const auto* object = a_player->GetEquippedObject(false);
 		const auto* weap = object ? object->As<RE::TESObjectWEAP>() : nullptr;
 		if (!weap || !weap->IsCrossbow()) {
-			return false;
+			return nullptr;
 		}
 		const auto* file = weap->GetFile(0);
 		if (!file) {
-			return false;
+			return nullptr;
 		}
 		const auto name = file->GetFilename();
-		return std::ranges::any_of(g_musketPlugins, [&](const std::string& p) { return IEquals(name, p); });
+		return std::ranges::any_of(g_musketPlugins, [&](const std::string& p) { return IEquals(name, p); }) ? weap : nullptr;
+	}
+
+	bool HoldingDrawnMusket(RE::PlayerCharacter* a_player) { return DrawnMusket(a_player) != nullptr; }
+
+	bool HoldingEmptyMusket(RE::PlayerCharacter* a_player)
+	{
+		const auto* weap = g_emptyForm ? DrawnMusket(a_player) : nullptr;
+		return weap && weap->GetFormID() == g_emptyForm.load();
 	}
 
 	bool DodgeLocked()
@@ -131,8 +164,12 @@ namespace
 		};
 		if (musket && isRelease(attack) && !isRelease(prev)) {
 			g_shotAtMs = NowMs();
+			if (g_onDemand) {
+				g_emptyForm = DrawnMusket(a_player)->GetFormID();
+			}
 			if (g_log) {
-				SKSE::log::info("Musket shot: dodge locked for {} ms", g_lockAfterShotMs);
+				SKSE::log::info("Musket shot: dodge locked for {} ms{}", g_lockAfterShotMs,
+					g_onDemand ? std::format(", {:08X} empty until reloaded", g_emptyForm.load()) : std::string{});
 			}
 		}
 
@@ -152,15 +189,26 @@ namespace
 	};
 
 	// IAnimationGraphManagerHolder::NotifyAnimationGraph (vfunc 0x01) on the player's vtable [3]. TK Dodge
-	// sends its dodge through this; a dropped event plays nothing and costs no stamina.
+	// sends its dodge through this; a dropped event plays nothing and costs no stamina. The engine sends the
+	// attack press through it too: on an empty musket that becomes the reload (3.).
 	struct PlayerNotifyAnimationGraph
 	{
 		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_eventName)
 		{
 			const std::string_view name{ a_eventName.c_str() ? a_eventName.c_str() : "" };
-			const bool dodge = std::ranges::any_of(g_blockedEventPrefixes, [&](const std::string& p) {
-				return name.size() >= p.size() && IEquals(name.substr(0, p.size()), p);
-			});
+			if (g_onDemand && g_emptyForm && StartsWithAny(name, g_attackEvents)) {
+				auto* player = RE::PlayerCharacter::GetSingleton();
+				if (player && HoldingEmptyMusket(player)) {
+					// refused while the reload plays (its state takes no reloadStart), so a held or repeated
+					// press restarts nothing; the empty musket never fires
+					const bool started = func(a_this, RE::BSFixedString{ g_reloadEvent.c_str() });
+					if (started && g_log) {
+						SKSE::log::info("{} on empty musket {:08X}: {} sent instead", name, g_emptyForm.load(), g_reloadEvent);
+					}
+					return false;
+				}
+			}
+			const bool dodge = StartsWithAny(name, g_blockedEventPrefixes);
 			if (dodge && DodgeLocked()) {
 				if (g_log) {
 					SKSE::log::info("Dropped {} {} ms after a musket shot", name, NowMs() - g_shotAtMs);
@@ -172,11 +220,37 @@ namespace
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
 
+	// BSTEventSink<BSAnimationGraphEvent>::ProcessEvent (vfunc 0x01) on the player's vtable [2]: every event the
+	// player's graphs (1P and 3P) send. The reload clip's g_loadedEvent loads the empty musket.
+	struct PlayerGraphEvent
+	{
+		static RE::BSEventNotifyControl thunk(RE::BSTEventSink<RE::BSAnimationGraphEvent>* a_this, const RE::BSAnimationGraphEvent* a_event,
+			RE::BSTEventSource<RE::BSAnimationGraphEvent>* a_source)
+		{
+			if (g_emptyForm && a_event && a_event->tag.c_str() && IEquals(a_event->tag.c_str(), g_loadedEvent)) {
+				auto* player = RE::PlayerCharacter::GetSingleton();
+				if (player && HoldingEmptyMusket(player)) {
+					if (g_log) {
+						SKSE::log::info("{}: musket {:08X} loaded", g_loadedEvent, g_emptyForm.load());
+					}
+					g_emptyForm = 0;
+				}
+			}
+			return func(a_this, a_event, a_source);
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
 	void OnSave(SKSE::SerializationInterface* a_intfc)
 	{
 		// Normally 0 here: kSaveGame lifted the penalty before the game wrote the save.
 		if (a_intfc->OpenRecord(kCosaveSlow, kCosaveVersion)) {
 			a_intfc->WriteRecordData(g_appliedPenalty);
+		}
+		// the empty musket stays empty in a save (0: none)
+		if (a_intfc->OpenRecord(kCosaveEmpty, kCosaveVersion)) {
+			const RE::FormID empty = g_emptyForm;
+			a_intfc->WriteRecordData(empty);
 		}
 	}
 
@@ -184,6 +258,14 @@ namespace
 	{
 		std::uint32_t type, version, length;
 		while (a_intfc->GetNextRecordInfo(type, version, length)) {
+			if (type == kCosaveEmpty && version == kCosaveVersion) {
+				RE::FormID saved = 0, resolved = 0;
+				if (a_intfc->ReadRecordData(saved) && saved && a_intfc->ResolveFormID(saved, resolved)) {
+					g_emptyForm = resolved;
+					SKSE::log::info("Save carried empty musket {:08X}", resolved);
+				}
+				continue;
+			}
 			float saved = 0.0f;
 			if (type != kCosaveSlow || version != kCosaveVersion || !a_intfc->ReadRecordData(saved) || saved == 0.0f) {
 				continue;
@@ -201,6 +283,7 @@ namespace
 		// The game state about to be loaded (or a new game) never carries our in-memory penalty.
 		g_appliedPenalty = 0.0f;
 		g_shotAtMs = 0;
+		g_emptyForm = 0;
 		g_prevState = RE::ATTACK_STATE_ENUM::kNone;
 	}
 
@@ -289,22 +372,30 @@ namespace
 		g_blockedEventPrefixes = ReadIniList("Dodge"sv, "BlockedEvents"sv, { "TKDodge" });
 		g_speedMultPenalty = std::max(0.0f, ReadIniNumber<float>("Aim"sv, "SpeedMultPenalty"sv, 35.0f));
 		g_log = ReadIniNumber<std::uint32_t>("General"sv, "Log"sv, 1) != 0;
+		g_onDemand = ReadIniNumber<std::uint32_t>("Reload"sv, "OnDemand"sv, 1) != 0;
+		g_attackEvents = ReadIniList("Reload"sv, "AttackEvents"sv, { "crossbowAttackStart" });
+		g_reloadEvent = ReadIniValue(kIniPath, "Reload"sv, "ReloadEvent"sv).value_or("reloadStart");
+		g_loadedEvent = ReadIniValue(kIniPath, "Reload"sv, "LoadedEvent"sv).value_or("reloadStop");
 		SKSE::log::info("Muskets=[{}] LockAfterShotMs={} MaxLockMs={} BlockedEvents=[{}] SpeedMultPenalty={} Log={}",
 			Join(g_musketPlugins), g_lockAfterShotMs, g_maxLockMs, Join(g_blockedEventPrefixes), g_speedMultPenalty, g_log);
+		SKSE::log::info("Reload OnDemand={} AttackEvents=[{}] ReloadEvent={} LoadedEvent={}", g_onDemand, Join(g_attackEvents),
+			g_reloadEvent, g_loadedEvent);
 	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenMusketHandling 1.1.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenMusketHandling 1.2.0 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };
 	PlayerUpdate::func = vtbl.write_vfunc(0xAD, PlayerUpdate::thunk);
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	PlayerNotifyAnimationGraph::func = graphVtbl.write_vfunc(0x1, PlayerNotifyAnimationGraph::thunk);
-	SKSE::log::info("PlayerCharacter::Update and NotifyAnimationGraph hooked");
+	REL::Relocation<std::uintptr_t> sinkVtbl{ RE::VTABLE_PlayerCharacter[2] };
+	PlayerGraphEvent::func = sinkVtbl.write_vfunc(0x1, PlayerGraphEvent::thunk);
+	SKSE::log::info("PlayerCharacter::Update, NotifyAnimationGraph and its graph event sink hooked");
 
 	const auto* serialization = SKSE::GetSerializationInterface();
 	serialization->SetUniqueID(kCosaveId);

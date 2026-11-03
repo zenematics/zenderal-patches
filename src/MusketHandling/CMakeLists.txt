@@ -2,9 +2,10 @@ cmake_minimum_required(VERSION 3.25)
 
 # Zenderal Musket Handling: muskets (Ordo Legionis' crossbow-animated WEAPs) are slower to use than bows.
 # After a musket shot the player cannot dodge until the reload clip has played (TK Dodge's dodge cut the
-# reload short), and aiming a musket lowers SpeedMult. Bows and plain crossbows are untouched.
+# reload short), aiming a musket lowers SpeedMult, and an empty musket reloads on the next attack press (1.2.0).
+# Bows and plain crossbows are untouched.
 # SSE 1.5.97 only, CommonLibSSE-NG.
-project(ZenMusketHandling VERSION 1.0.0 LANGUAGES CXX)
+project(ZenMusketHandling VERSION 1.2.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

@@ -360,6 +360,48 @@ Built and checked offline 2026-11-02: all 336 shot and reload clips (both views,
 carry both events 1.2 s apart with Load 7 on the ball's unload frame, and every pose is identical to the build before
 (backup `E:/Zenderal-backups/2026-11-02-musket-ramrod-pre-sounds/`). **Unverified in game.**
 
+### Reload on demand (`tools/09` `SHOT_ONLY` + `tools/10` + [`MusketHandling`](MusketHandling.md) 1.2.0, 2026-11-03)
+
+Curator: "can we add the reload mechanic we did for pistols, where they don't immediately reload until you press the
+fire button again". The pistols' way ([`PistolRamrodReload`](PistolRamrodReload.md), *Reload on demand*) is a staff
+cast with no shot; a musket is a crossbow, whose loading the engine itself tracks: the shot clip's `arrowAttach`
+(1.567 s in Zodd's) is the beat that loads it (attack state 12 → 9 `kBowAttached`, SpellAimTrace 1.3.0), and
+`CrossBow_AttackState` (139) leaves on `attackStop` or on a `reloadStart` the engine sends by code, into
+`CrossBow_ReloadState` (140), which plays Zodd's separate reload clip (ball, rod and sounds already fitted). What the
+engine does with a musket whose shot did **not** reload it is not known: send `reloadStart` at once (no on-demand
+without holding it back), on the next press (on-demand for free), or fire it again unloaded. Holding back or
+redirecting would need native code; `ZenMusketHandling.dll` (shipped inside Patch Collection) already hooks the
+player's `NotifyAnimationGraph`.
+
+**Shot clips:** the shot clip (both views, standing and crouched, all 14 muskets) is the shot alone (`shorten()`):
+Zodd's frames to `SHOT_CUT` 0.74 s (the recoil, 0.27-0.6 s, has settled; from 0.8 s he tips the gun up for the
+reload, both hand variants), then that pose eased into the whole clip's last pose (the hip hold the graph plays next)
+over `SHOT_BLEND` 0.5 s, the left hand's grip blended and the arm solved onto it (within 0.5 units). No
+`arrowAttach`, no props, no reload sounds; 1.24 s in all. First person retargets it as before and blends into the
+idle hold over the same 0.5 s. Crouched, both views blend into `sneakmtidle` over those 0.5 s (`settle()`'s
+blend-out, otherwise 1 s: with 1 s the first-person crouched shot's hands missed their targets by up to 12.6 units).
+`tools/09` takes Zodd's archive as an optional second argument
+(the copy in `downloads` was gone on 2026-11-03), and `tools/10` reads the aim-down-sights set from the highest
+enabled mod that has it: the standalone `Zenderal - Musket Aim Fix` is gone from the list, and its clips now ship
+inside `Zenderal - Patch Collection`. Backup of the build before:
+`E:/Zenderal-backups/2026-11-03-musket-ramrod-pre-shot-only/`.
+
+**Result (traced 2026-11-03 16:42, SpellAimTrace 1.4.1, first person): the engine fires an unloaded musket.** Five
+shots in 6.8 s (55.30, 57.09, 58.57, 00.37, 02.12), each a full `crossbowAttackStart` → `attackRelease` →
+`arrowRelease` → launch, attack state 8 → 10 → 11 → 12 → (13) → 0, with no `reloadStart` and no `arrowAttach`
+anywhere: nothing in the engine remembers that the shot did not reload. A press 0.3 s into the short shot clip
+(state 12) was taken too. So on-demand needs the press itself redirected: while the musket is empty, drop the
+engine's `crossbowAttackStart` and send `reloadStart`, which both 1hm graphs (1P and 3P) accept from
+`1HM_Ready_State` (and from `CrossBow_AttackState`) into `CrossBow_ReloadState`; load the gun on that clip's
+`reloadStop` (a reload cut short stays empty, as the pistols). Only native code can drop the event (Papyrus can't);
+the alternative, unequipping the ammo while empty, juggles the player's ammo.
+
+**Built (2026-11-03): [`MusketHandling`](MusketHandling.md) 1.2.0 does exactly that** (its section 3), in Patch
+Collection's copy of the DLL. The short shot clips stay: `SHOT_ONLY` and `[Reload] OnDemand` go together (either one
+alone either reloads twice or fires unloaded). **Verified in game 2026-11-03** (curator: "Musket reload works
+great"; ZenMusketHandling.log: 6 shots and 5 presses after them, each press turned into one reload and loaded on
+`reloadStop` 2.46 s later, the both-perks reload by its length; no shot fired empty).
+
 ### Sneak (`tools/09` + `tools/10`, same MO2 mod, same permission note)
 
 Curator, 2026-11-01: "can we apply these animations to the stealth / crouch too?" Zodd ships no sneak clips. While
