@@ -8,7 +8,8 @@ Loop meshes) or its ZP_FlintlockWeapons list change.
   801 STAT 1stPersonReversalShadow   <- 1stPersonPMDuelingPistol02 00080A
   802 ENCH ZP_ReversalShadowShot     <- ZP_FlintlockShot_PriestsDuelingPistol 000805 + Witch Bolt's effects
   803 MGEF ZP_ReversalShadowBullet   <- PMPistolShot 000802, BaseCost 1.2 -> 50
-  804 COBJ ZP_RecipeReversalShadow   Priest's Dueling Pistol + 2 Silver Ingots, Smithing >= 50
+  804 retired (was COBJ ZP_RecipeReversalShadow, a forge recipe; removed 2026-11-03: the pistol is
+           unique, found at Old Crosswatch only). Never reuse 804.
   805 COBJ ZP_TemperReversalShadow   <- PMTemperDueling02 000830
   806 MGEF ZP_EldritchBlastWitchBoltBonus <- TVR_Warlock_Balefire_Effect_EldritchBlast 19B464 (Triumvirate):
            20 extra raw damage, flat (no PowerAffectsMagnitude, DualCastScale 1), no hit art and no
@@ -49,8 +50,6 @@ NAME = 'Reversal Shadow'
 LOOP_KEYWORD = '000801:Pistol animation by Loop.esp'   # Pistol_Animation_By_Loop; LoopPistolAnims' OAR submods match it
 WITCHBOLT_DAMAGE = '1BEBB6:Triumvirate - Mage Archetypes.esp'   # TVR_Warlock_Balefire_Effect_WitchBolt
 BIND_SPIRIT = '19B46E:Triumvirate - Mage Archetypes.esp'        # TVR_Warlock_Balefire_Effect_BindSpirit_FFAimed
-SILVER_INGOT = '05ACE3:Skyrim.esm'
-PRIESTS_PISTOL = '000817:AdventurerFlintlockPack.esp'
 # Curator 2026-10-18: top of the pistol range. The Flintlock Overhaul's best pistol (PMFlintlockPistool04 00083A)
 # has Damage 30 / critical 20; the shot magnitude follows its tools/01 rule, MULT 1.2 x Damage.
 DAMAGE = 30
@@ -253,29 +252,6 @@ def main():
         '    Duration: 60',
     ]) + '\r\n'
     write('ObjectEffects', 'ZP_ReversalShadowShot', '000802', e)
-
-    # 804 COBJ craft
-    write('ConstructibleObjects', 'ZP_RecipeReversalShadow', '000804', '\r\n'.join([
-        f'FormKey: 000804:{ME}',
-        'EditorID: ZP_RecipeReversalShadow',
-        'Items:',
-        '- Item:',
-        f'    Item: {PRIESTS_PISTOL}',
-        '    Count: 1',
-        '- Item:',
-        f'    Item: {SILVER_INGOT}',
-        '    Count: 2',
-        'Conditions:',
-        '- MutagenObjectType: ConditionFloat',
-        '  CompareOperator: GreaterThanOrEqualTo',
-        '  Data:',
-        '    MutagenObjectType: GetActorValueConditionData',
-        '    ActorValue: Smithing',
-        '  ComparisonValue: 50',
-        f'CreatedObject: 000800:{ME}',
-        'WorkbenchKeyword: 088105:Skyrim.esm',
-        'CreatedObjectCount: 1',
-    ]) + '\r\n')
 
     # 805 COBJ temper (Priest's temper verbatim, new product)
     t = read(os.path.join(GENTLEMAN, 'ConstructibleObjects', 'PMTemperDueling02 - 000830_AdventurerFlintlockPack.esp.yaml'))

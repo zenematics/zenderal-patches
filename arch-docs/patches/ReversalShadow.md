@@ -18,7 +18,7 @@ a recoloured texture.
 | `801` | STAT `1stPersonZP_ReversalShadow` | `1stPersonPMDuelingPistol02 00080A` verbatim; Model → `ReversalShadow1st.nif` |
 | `802` | ENCH `ZP_ReversalShadowShot` "Witch Bolt Shot" | `ZP_FlintlockShot_PriestsDuelingPistol 000805`, bullet magnitude 14.4 → 36.0 (1.2 × Damage, the Flintlock Overhaul's rule) + Witch Bolt's two effects |
 | `803` | MGEF `ZP_ReversalShadowBullet` | `PMPistolShot 000802` verbatim; BaseCost 1.2 → 50; description "Fires a Flintlock bullet." (was "Fires a musket ball"; the full stop separates it from Witch Bolt's text on the item card) |
-| `804` | COBJ `ZP_RecipeReversalShadow` | forge: Priest's Dueling Pistol + 2 Silver Ingots `05ACE3`, Smithing ≥ 50 |
+| `804` | **retired 2026-11-03, never reuse** | was COBJ `ZP_RecipeReversalShadow` (forge: Priest's Dueling Pistol + 2 Silver Ingots, Smithing ≥ 50); removed because the pistol is unique |
 | `805` | COBJ `ZP_TemperReversalShadow` | `PMTemperDueling02 000830` verbatim, new product |
 | override | FLST `ZP_FlintlockWeapons 000802:Zenderal - Flintlock Overhaul.esp` | the Flintlock Overhaul's 8 pistols + `800` |
 | `806` | MGEF `ZP_EldritchBlastWitchBoltBonus` "Witch Bolt Resonance" | `TVR_Warlock_Balefire_Effect_EldritchBlast 19B464` verbatim; flat (no `PowerAffectsMagnitude`, DualCastScale 1), BaseCost 0, no hit art / imagespace, no `IsBalefireSpell` keyword |
@@ -133,7 +133,7 @@ pistol, and `tools/01` after LoopPistolAnims' `tools/02` regenerates its rotated
 ## Status
 
 Built 2026-10-18 (deserializes clean, HEDR 1.7, ESL). First in-game look: Loop animations missing (fixed by form match
-above, unverified); damage raised to the top tier on request. **Fix not yet run in game.** To check: craft it
+above, unverified); damage raised to the top tier on request. **Fix not yet run in game.** To check: take it from the Old Crosswatch shelf
 (or `help "Reversal Shadow"` → `player.additem`), confirm the shot shows the musket ball and gunshot
 sound, the target burns with Witch Bolt for 60 s, the pistol reloads with a Flintlock Bullet, and the
 texture is black and silver in both hands. Load after `Zenderal - Flintlock Overhaul.esp`.
@@ -142,3 +142,8 @@ texture is black and silver in both hands. Load after `Zenderal - Flintlock Over
 Blast's half-cost perk from Magic Patches' copy: `0F2CA7` ConjurationNovice00 (Entropy, Magic Patches 2026-10-13).
 The deployed plugin still had `0F2CA8` DestructionNovice00 and overrode Magic Patches with it. Deployed to Patch
 Collection and the standalone mod (previous copies in `E:/Zenderal-backups/2026-11-02-pistol-charge-time`).
+
+2026-11-03: **no longer craftable** (curator: it is a unique weapon). The forge recipe `804` is gone from
+`tools/02`; the temper recipe `805` stays, so it can still be improved at a grindstone. The only copy in the world is
+the one on the Old Crosswatch shelf. A pistol already crafted on a save stays. Deployed to Patch Collection (the
+previous plugin is in `E:/Zenderal-backups/2026-11-03-reversal-shadow-recipe`). Unverified in game.
