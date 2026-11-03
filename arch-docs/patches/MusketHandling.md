@@ -83,6 +83,25 @@ demand* section), and the engine fires a musket whose shot did not reload it: fi
 
 The dodge lock is unchanged: `LockAfterShotMs` still holds 2.3 s after a shot, now longer than the 1.24 s shot clip.
 
+**1.3.0 (2026-11-03, curator: "users are also exploiting unequipping muskets and pistols to avoid the reload"):**
+1.2.0 kept one FormID, the musket the last shot emptied. Re-equipping that one kept it empty, but firing a second
+musket replaced the record, so two muskets swapped back and forth never needed a reload. Now:
+- The musket in hand (drawn or not) and whether it is empty (`g_handForm`, `g_handEmpty`); every musket put away
+  empty is kept by base form with a count (`g_stowedEmpty`). `SyncHand`, once a frame in the player's update, sees
+  the hand change: a swap and back inside the inventory menu changes nothing.
+- Taken up again, a musket is empty if **every** one of its form the player has out of the hand is. The engine
+  doesn't say which of several alike it equipped, so a loaded one is assumed while the player has any (a second
+  loaded musket of the same kind is a fair spare). Counts are capped by what the player still has: one sold or
+  dropped counts as a loaded one gone.
+- Co-save `ZMSH`/`EMPT` version 2: the hand's musket and flag, then (FormID, count) pairs. A 1.2.0 save's single
+  FormID (version 1) loads as one musket put away empty, which the first frame takes up if it is in hand.
+- Only the musket's own reload (`reloadStop` with it in hand) loads it; NPCs untouched.
+
+Built 2026-11-03 (backup of 1.2.0's source and DLL in `E:/Zenderal-backups/2026-11-03-musket-handling-1.2.0/`).
+**Verified in game 2026-11-03**: the curator's musket ↔ pistols swaps; its log took the musket up `EMPTY` after every
+swap and the next press played the reload. The pistols got the same in the Flintlock script ([`FlintlockOverhaul`](FlintlockOverhaul.md),
+*Put away empty*).
+
 ## Tuning
 
 All in `ZenMusketHandling.ini`: `LockAfterShotMs`, `MaxLockMs`, `BlockedEvents`, `SpeedMultPenalty` (0 = off),

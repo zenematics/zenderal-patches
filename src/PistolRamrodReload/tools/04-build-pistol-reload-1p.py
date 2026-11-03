@@ -111,6 +111,14 @@ for _typ in sorted(PR.STOW):
         HANDS['stow right' + _sfx] = dict(shot=PR.CLIP_RIGHT, idle=PR.IDLE_RIGHT, aim=PR.AIM_CLIPS_RIGHT, gun='Weapon',
                                           free=FREE_ARM_LEFT, suffix=_sfx + RIGHT, other=PR.FREE_IDLE_DW,
                                           beats=PR.DUAL_BEATS, motion_end=PR.DUAL_MOTION_END)
+# A shield (tools/01 Ctx.shield, right-hand pistol only): first person's MRh_Shd_Blend gives the whole left arm to the
+# first-person 1HM_Idle standing (read 2026-11-03), so the free arm rests on vanilla's first-person one-handed idle,
+# frame 0; the shield on the back maps behind the view.
+for _female in (True, False):
+    _sfx = PR.stow_suffix(PR.SHIELD, _female)
+    HANDS['stow right' + _sfx] = dict(shot=PR.CLIP_RIGHT, idle=PR.IDLE_RIGHT, aim=PR.AIM_CLIPS_RIGHT, gun='Weapon',
+                                      free=FREE_ARM_LEFT, suffix=_sfx + RIGHT, other=PR.FREE_IDLE_1HM,
+                                      beats=PR.DUAL_BEATS, motion_end=PR.DUAL_MOTION_END)
 
 
 def clip(tmp, data):
@@ -254,7 +262,7 @@ def check(rt, path, idle, rest, added):
 def main():
     root = sys.argv[1] if len(sys.argv) > 1 else ADS.TOOLS['modlistRoot']
     mods_dir = os.path.join(root, 'mods')
-    oar3 = os.path.join(mods_dir, PR.MOD, *PR.OAR)
+    oar3 = os.path.join(mods_dir, PR.DEPLOY, *PR.OAR)
     if not os.path.isdir(oar3):
         sys.exit('run tools/01 first: %s is missing' % oar3)
     bsa = _bsa.listing(os.path.join(root, 'Stock Game', 'Data', 'Skyrim - Animations.bsa'))
@@ -281,7 +289,7 @@ def main():
                  % (FREE_IDLE[0], profile))
     free_idle = anim_skyrim.load_skyrim_animation(QRS.find_ci(os.path.join(mods_dir, FREE_IDLE[0]), FREE_IDLE[1]))
     rest_at = lambda a, bones: {b: (list(a.tracks[b].rotations[0]), a.tracks[b].scales[0][0]) for b in bones}  # noqa: E731
-    oar1 = os.path.join(mods_dir, PR.MOD, *OAR_1P)
+    oar1 = os.path.join(mods_dir, PR.DEPLOY, *OAR_1P)
     if os.path.isdir(oar1):
         shutil.rmtree(oar1)
     muzzles = {g[0]: g[3][0] for g in PR.pistol_groups(mods_dir, mods)}

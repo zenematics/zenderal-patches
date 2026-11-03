@@ -129,7 +129,7 @@ def main():
     root = sys.argv[1] if len(sys.argv) > 1 else ADS.TOOLS['modlistRoot']
     mods_dir = os.path.join(root, 'mods')
     _, mods = ADS.QRS.profile_mods(root)
-    out_mod = os.path.join(mods_dir, PR.MOD)
+    out_mod = os.path.join(mods_dir, PR.DEPLOY)
     if not os.path.isdir(os.path.join(out_mod, *PR.OAR)):
         sys.exit('run tools/01 first: %s has no clips' % out_mod)
     meshes = os.path.join(out_mod, 'meshes', *MESH_DIR.split('\\'))

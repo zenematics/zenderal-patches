@@ -2,14 +2,13 @@ Scriptname ZP_FlintlockAmmoPlayerScript extends ReferenceAlias
 {Zenderal - Flintlock Overhaul. A Gentleman's Flintlock Armoury's pistols are staves, so their
 "ammo" is enchantment charge. This script owns that charge on the PLAYER's pistols:
   - a pistol in hand is either LOADED (charge = max) or EMPTY (charge = 0), tracked here;
-  - firing empties it, and 2 s later one Flintlock Bullet is taken to load it again;
-  - equipping a pistol ignores its stored charge and loads it from a bullet;
+  - firing empties it; it loads again from one Flintlock Bullet when the player reloads it (below);
+  - equipping a pistol ignores its stored charge and loads it from a bullet, unless it was put away fired and not
+    reloaded (2026-11-03: it stays empty out of the hand, Sync);
   - unequipping a loaded pistol gives the bullet back;
   - charge added by a soul gem in the inventory menu is removed again.
 Also adds the hidden perk that scales shot damage like a bow.
-Prophecy's pistol talents (2026-11-01), looked up by FormID so this plugin does not master Prophecy: Hair Trigger's
-reloads are animated like any other (2026-11-02, curator: skipped, they let the guns spam), Pistol Ramrod Reload playing
-faster clips for it (its tools/07), and only where no clip plays it loads by timer in HairTriggerDelay; while Fan the
+Prophecy's pistol talents (2026-11-01), looked up by FormID so this plugin does not master Prophecy: while Fan the
 Hammer's effect is on a pistol reloads in FanDelay, by timer, with no animation (the power's text); mod event
 ZP_FlintlockReload (ZenProphecyRage.dll, Blade and Barrel's melee hits) loads every pending hand at once, at most
 once every BladeReloadCooldown seconds (counted from a reload it actually made; curator 2026-11-01).
@@ -27,8 +26,11 @@ Pistol Ramrod Reload for the reload (mod event ZP_PistolDryReload): a cast with 
 reaches OnActorAction like a shot (no projectile: the gun has no charge) and whose clip loads the gun. No timer behind
 it (2026-11-02: a 1.6 s fallback loaded a gun whose requested reload an attack cut short); a request the graph refuses
 (mid-attack) leaves the gun empty for the next press. Not while its reload still plays (IsCastingLeft / Right), while
-the other pistol fires or reloads (one reload at a time), within DRY_LOCK of the last request, or holstered. Elsewhere
-ReloadDelay's timer, as before. Per hand.
+the other pistol fires or reloads (one reload at a time), within DRY_LOCK of the last request, or holstered. A shield in
+the other hand (2026-11-03) has its reload too (Pistol Ramrod Reload slings it on the back; shields are left-hand only,
+so a right-hand gun). Elsewhere (a spell or torch in the other hand, mounted, no Pandora rerun) the same press clicks
+and starts ReloadDelay's timer: until 2026-11-03 that timer ran from the shot, so with a shield the gun reloaded itself
+and fired every 2 s with no reload (curator). Fan the Hammer still reloads by its own timer from the shot. Per hand.
 NPCs are untouched.}
 
 Actor Property PlayerRef Auto
@@ -36,11 +38,9 @@ FormList Property ZP_FlintlockWeapons Auto
 MiscObject Property ZP_FlintlockBullet Auto
 Perk Property ZP_FlintlockArcheryScaling Auto  ; shot damage scales with Archery + bow talents
 Float Property ReloadDelay = 2.0 Auto
-Float Property HairTriggerDelay = 1.2 AutoReadOnly
 Float Property FanDelay = 0.1 AutoReadOnly
 Float Property BladeReloadCooldown = 15.0 AutoReadOnly   ; Prophecy's PISTOL['BladeReloadCooldown'] (its text)
 String Property ProphecyPlugin = "Zenderal - Prophecy.esp" AutoReadOnly
-Int Property HAIR_TRIGGER_ID = 0xB12 AutoReadOnly   ; ZP_Prophecy_HairTrigger
 Int Property FAN_EFFECT_ID = 0xB21 AutoReadOnly     ; ZP_Prophecy_FanTheHammer_Effect
 Bool Property DebugMode = False AutoReadOnly  ; ReadOnly: not stored in saves, so flipping it takes effect everywhere
 String Property ReloadPlugin = "Zenderal - Pistol Ramrod Reload.esp" AutoReadOnly
@@ -52,6 +52,7 @@ String Property OLD_PROP_EVENT = "AnimObjLoad" AutoReadOnly  ; registered by the
 Float Property DRY_LOCK = 0.5 AutoReadOnly         ; one request per press: its cast is on (IsCasting) ~0.1 s after
 Int Property DRY_CLICK_ID = 0x0C1912 AutoReadOnly  ; UILockpickingCylinderStop (Skyrim.esm): the empty gun's click
 Int Property TYPE_STAFF = 8 AutoReadOnly           ; GetEquippedItemType
+Int Property TYPE_SHIELD = 10 AutoReadOnly
 
 ; Hand 0 = left, 1 = right (SKSE's WornObject / OnActorAction slot numbering)
 Weapon wepL
@@ -60,7 +61,6 @@ Bool loadedL
 Bool loadedR
 Bool pendingL
 Bool pendingR
-Perk hairTrigger      ; None without Prophecy; looked up again on every load
 MagicEffect fanEffect
 Float lastBladeReload = -1000.0   ; real time of Blade and Barrel's last reload
 Int holsterL        ; holsters started, per hand
@@ -69,8 +69,8 @@ Float holsterUntilL ; real time the latest holster on that hand ends (0: none; r
 Float holsterUntilR
 Float loadAtL       ; real time a fired gun loads by timer (0: no timer)
 Float loadAtR
-Bool animL          ; that hand's pending gun reloads by animation (AnimatedReload at its shot)
-Bool animR
+Weapon[] stowedGuns ; fired pistols put away before their reload, by base form ...
+Int[] stowedCounts  ; ... and how many of it (two of the same pistol are told apart only by number)
 Float dryAtL        ; real time of that hand's last reload request (OnControlDown)
 Float dryAtR
 Sound dryClick
@@ -103,7 +103,10 @@ Function Setup()
 	dryClick = Game.GetFormFromFile(DRY_CLICK_ID, "Skyrim.esm") as Sound
 	dryAtL = -1000.0
 	dryAtR = -1000.0
-	hairTrigger = None
+	If !stowedGuns
+		stowedGuns = new Weapon[64]
+		stowedCounts = new Int[64]
+	EndIf
 	fanEffect = None
 	lastBladeReload = -1000.0     ; real time starts again with every game launch
 	holsterUntilL = 0.0           ; ... so a saved holster's end means nothing now (repaired below)
@@ -112,20 +115,15 @@ Function Setup()
 	If Game.GetModByName(LoopPlugin) != 255 && Game.GetModByName(ReloadPlugin) != 255
 		loopKeyword = Game.GetFormFromFile(LOOP_KEYWORD_ID, LoopPlugin) as Keyword
 	EndIf
-	; a gun fired before the save: its timer is gone with the old session's real time (one reloading by animation
-	; waits for the attack button, as when its reload is cut short)
+	; a gun fired before the save: its timer is gone with the old session's real time, so it waits for the attack
+	; button, as when its reload is cut short
 	Int pend = 0
 	While pend < 2
-		If IsPending(pend) && !IsAnimated(pend)
-			SetLoadAt(pend, Utility.GetCurrentRealTime() + CurrentDelay())
-		Else
-			SetLoadAt(pend, 0.0)
-		EndIf
+		SetLoadAt(pend, 0.0)
 		pend += 1
 	EndWhile
 	ScheduleLoad()
 	If Game.GetModByName(ProphecyPlugin) != 255
-		hairTrigger = Game.GetFormFromFile(HAIR_TRIGGER_ID, ProphecyPlugin) as Perk
 		fanEffect = Game.GetFormFromFile(FAN_EFFECT_ID, ProphecyPlugin) as MagicEffect
 	EndIf
 	Sync()
@@ -158,17 +156,16 @@ Event OnActorAction(Int actionType, Actor akActor, Form source, Int slot)
 	SetCharge(slot, 0.0)
 	SetLoaded(slot, False)
 	SetPending(slot, True)
-	If AnimatedReload(slot, w)
-		SetAnimated(slot, True)
-		SetLoadAt(slot, 0.0)         ; loaded by the clip's event, or by asking again (OnControlDown)
+	If fanEffect && PlayerRef.HasMagicEffect(fanEffect)
+		SetLoadAt(slot, Utility.GetCurrentRealTime() + FanDelay)   ; Fan the Hammer: by timer, no animation
 	Else
-		SetAnimated(slot, False)
-		SetLoadAt(slot, Utility.GetCurrentRealTime() + CurrentDelay())
+		SetLoadAt(slot, 0.0)         ; the attack button reloads it: its clip, or its timer where none plays
 	EndIf
 	ScheduleLoad()
 EndEvent
 
-; That hand's attack on its empty gun (its reload cut short): a click, and the reload asked for again
+; That hand's attack on its empty gun: a click, and the reload asked for (its clip), or its timer started where no clip
+; plays (decided at the press: what the other hand holds now)
 Event OnControlDown(String control)
 	Int hand = 1
 	If control == "Left Attack/Block"
@@ -176,7 +173,17 @@ Event OnControlDown(String control)
 	ElseIf control != "Right Attack/Block"
 		Return
 	EndIf
-	If Utility.IsInMenuMode() || !IsPending(hand) || !IsAnimated(hand) || !IsPistol(WeaponIn(hand))
+	Weapon gun = WeaponIn(hand)
+	If Utility.IsInMenuMode() || !IsPending(hand) || !IsPistol(gun) || LoadAt(hand) > 0.0
+		Return                       ; nothing to reload, or its timer already runs
+	EndIf
+	If !AnimatedReload(hand, gun)
+		SetLoadAt(hand, Utility.GetCurrentRealTime() + CurrentDelay())
+		If dryClick
+			dryClick.Play(PlayerRef)
+		EndIf
+		ScheduleLoad()
+		Dbg("hand " + hand + " empty: reloading by timer (no reload clip here)")
 		Return
 	EndIf
 	String casting = "IsCastingRight"
@@ -210,13 +217,15 @@ Bool Function AnimatedReload(Int slot, Weapon w)
 		Dbg("no loaded events in the player's graph: reloading by timer")
 		Return False
 	EndIf
-	If fanEffect && PlayerRef.HasMagicEffect(fanEffect)    ; Hair Trigger's reloads are animated too (faster clips)
+	If fanEffect && PlayerRef.HasMagicEffect(fanEffect)    ; Fan the Hammer reloads by its own timer, no clip
 		Return False
 	EndIf
 	Int other = 1 - slot
 	Int t = PlayerRef.GetEquippedItemType(other)
 	If t >= 0 && t <= 4                 ; empty, or a one-handed melee weapon (sheathed for the reload)
 		Return True
+	ElseIf t == TYPE_SHIELD             ; slung on the back for the reload (left-hand only: the right gun's clips)
+		Return slot == 1
 	ElseIf t == TYPE_STAFF
 		Weapon o = WeaponIn(other)
 		Return o && o.HasKeyword(loopKeyword)
@@ -248,6 +257,13 @@ Function SetLoadAt(Int hand, Float t)
 	EndIf
 EndFunction
 
+Float Function LoadAt(Int hand)
+	If hand == 0
+		Return loadAtL
+	EndIf
+	Return loadAtR
+EndFunction
+
 ; the next timer load among the pending hands
 Function ScheduleLoad()
 	Float now = Utility.GetCurrentRealTime()
@@ -275,8 +291,6 @@ EndFunction
 Float Function CurrentDelay()
 	If fanEffect && PlayerRef.HasMagicEffect(fanEffect)
 		Return FanDelay
-	ElseIf hairTrigger && PlayerRef.HasPerk(hairTrigger)
-		Return HairTriggerDelay
 	EndIf
 	Return ReloadDelay
 EndFunction
@@ -397,32 +411,105 @@ EndEvent
 
 ; Re-reads both hands. A hand whose weapon changed refunds the old pistol's loaded bullet and
 ; loads the new pistol from scratch, ignoring whatever charge was stored on it.
+; A fired pistol stays empty out of the hand (2026-11-03, curator: unequipping and equipping it again skipped the
+; reload): it is kept in stowedGuns, and taken up again it waits for the attack button like after a shot. Both hands'
+; outgoing pistols are put away before either incoming one is looked at, so an empty gun moved to the other hand in one
+; go stays empty.
 Function Sync()
+	Weapon nowL = WeaponIn(0)
+	Weapon nowR = WeaponIn(1)
+	Bool changedL = nowL != wepL
+	Bool changedR = nowR != wepR
 	Int hand = 0
 	While hand < 2
-		Weapon now = WeaponIn(hand)
 		Weapon was = wepL
+		Bool changed = changedL
 		If hand == 1
 			was = wepR
+			changed = changedR
 		EndIf
-		If now != was
+		If changed
 			If IsPistol(was) && IsLoaded(hand)
 				PlayerRef.AddItem(ZP_FlintlockBullet, 1, True)
+			ElseIf IsPistol(was) && IsPending(hand)
+				StowEmpty(was)
 			EndIf
 			SetLoaded(hand, False)
 			SetPending(hand, False)
-			If hand == 0
-				wepL = now
-			Else
-				wepR = now
+			SetLoadAt(hand, 0.0)
+		EndIf
+		hand += 1
+	EndWhile
+	wepL = nowL
+	wepR = nowR
+	hand = 0
+	While hand < 2
+		Weapon now = nowL
+		Bool changed = changedL
+		If hand == 1
+			now = nowR
+			changed = changedR
+		EndIf
+		If changed && IsPistol(now)
+			; the ones of its form out of both hands before it came in: not the other hand's if that one was in hand
+			; already, or came in just before it (the left is looked at first). With the same pistol in both hands
+			; coming in together, the left counted the right's as in hand and took the only empty one: the right then
+			; loaded (curator 2026-11-03, after a musket swap: "the right hand pistol is always loaded")
+			Int pool = PlayerRef.GetItemCount(now)
+			If (hand == 0 && nowR == now && !changedR) || (hand == 1 && nowL == now)
+				pool -= 1
 			EndIf
-			If IsPistol(now)
-				SetCharge(hand, 0.0)
+			SetCharge(hand, 0.0)
+			If TakeEmpty(now, pool)
+				SetPending(hand, True)       ; loaded by the attack button, as after a shot (OnControlDown)
+				Dbg("hand " + hand + " took up an empty pistol: fire to reload")
+			Else
 				TryLoad(hand)
 			EndIf
 		EndIf
 		hand += 1
 	EndWhile
+EndFunction
+
+; A fired, unloaded pistol leaves the hand
+Function StowEmpty(Weapon w)
+	Int i = stowedGuns.Find(w)
+	If i < 0
+		i = stowedGuns.Find(None)
+		If i < 0
+			Return                           ; 64 kinds of empty pistol put away: this one is forgotten
+		EndIf
+		stowedGuns[i] = w
+		stowedCounts[i] = 0
+	EndIf
+	stowedCounts[i] = stowedCounts[i] + 1
+	Debug.Trace("[ZP Flintlock] put away empty: " + w + " (" + stowedCounts[i] + " of its form)")
+EndFunction
+
+; The pistol just taken in hand is an empty one: every one of its form in the `pool` it came from (the player's out of
+; both hands, Sync) is (the engine does not say which it took, so a loaded one is assumed while there is any). Counts
+; are capped by the pool (one sold or dropped counts as a loaded one gone).
+Bool Function TakeEmpty(Weapon w, Int pool)
+	Int i = stowedGuns.Find(w)
+	If i < 0
+		Return False
+	EndIf
+	Int empty = stowedCounts[i]
+	If empty > pool
+		empty = pool
+	EndIf
+	Bool taken = empty > 0 && empty >= pool
+	Debug.Trace("[ZP Flintlock] taken up " + w + ": " + empty + " of " + pool + " out of hand empty, this one " + taken)
+	If taken
+		empty -= 1
+	EndIf
+	If empty > 0
+		stowedCounts[i] = empty
+	Else
+		stowedGuns[i] = None
+		stowedCounts[i] = 0
+	EndIf
+	Return taken
 EndFunction
 
 Function TryLoad(Int hand)
@@ -446,20 +533,6 @@ EndFunction
 
 ; ---------------------------------------------------------------- helpers
 
-Bool Function IsAnimated(Int hand)
-	If hand == 0
-		Return animL
-	EndIf
-	Return animR
-EndFunction
-
-Function SetAnimated(Int hand, Bool b)
-	If hand == 0
-		animL = b
-	Else
-		animR = b
-	EndIf
-EndFunction
 
 Float Function DryAt(Int hand)
 	If hand == 0

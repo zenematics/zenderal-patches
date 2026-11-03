@@ -437,13 +437,12 @@ The last half second turns the gun from Zodd's forward hold to `sneakmtidle`'s b
 ## Prophecy's pistol talents in the reload script (2026-11-01)
 
 `ZP_FlintlockAmmoPlayerScript` now serves Prophecy's pistol branch ([`Prophecy`](Prophecy.md#firearms-the-pistol-branch-curator-2026-11-01))
-without mastering it. `Setup()` (every load) looks up two Prophecy forms with `GetFormFromFile`:
-- Hair Trigger's perk `0xB12`;
-- Fan the Hammer's marker effect `0xB21`.
+without mastering it. `Setup()` (every load) looks up one Prophecy form with `GetFormFromFile`: Fan the Hammer's
+marker effect `0xB21`. (Hair Trigger's perk `0xB12` was looked up too until 2026-11-02, for a 1.2 s `HairTriggerDelay`;
+the curator took the faster reload out of the talent, which now raises the ricochet chance instead.)
 
 The reload delay is then:
 - `FanDelay` 0.1 s while Fan's effect is on;
-- `HairTriggerDelay` 1.2 s with Hair Trigger, only where no reload clip plays (since 2026-11-02);
 - otherwise `ReloadDelay` 2 s.
 
 Mod event `ZP_FlintlockReload`, sent by `ZenProphecyRage.dll` on Blade and Barrel's melee hits, loads every pending
@@ -467,15 +466,40 @@ it finds at 0, so a save made mid-reload cannot leave a loaded gun dead. Only th
 - **Loading by animation** (curator: a dagger attack cut the reload short and the timer loaded the gun anyway):
   `AnimatedReload` decides, per shot, whether Pistol Ramrod Reload plays a reload for it. That needs all of:
   - the pistol carries Loop's keyword, with both Loop's plugin and the reload's present;
-  - the player isn't mounted, and Fan the Hammer's effect is off (Hair Trigger was excluded too until 2026-11-02:
-    with it a 1.2 s timer loaded every gun after the shot, no press needed; it now plays Pistol Ramrod Reload's
-    faster twins, [`PistolRamrodReload`](PistolRamrodReload.md#hair-trigger-2026-11-02));
-  - the other hand is empty, holds a one-handed melee weapon, or holds a Loop pistol;
+  - the player isn't mounted, and Fan the Hammer's effect is off (Hair Trigger was excluded too for a while on
+    2026-11-02, then given faster twins, then its faster reload was dropped from the talent altogether:
+    [`PistolRamrodReload`](PistolRamrodReload.md#hair-trigger-2026-11-02));
+  - the other hand is empty, holds a one-handed melee weapon, or holds a Loop pistol, or (a right-hand gun, since
+    2026-11-03) a shield (`TYPE_SHIELD` 10; Pistol Ramrod Reload slings it on the back);
   - the player's graph has the `ZenPistolLoadedL` / `ZenPistolLoadedR` events (registered at each shot).
 
   When it does, the gun loads on that event, sent where the clip rams the ball home. A reload cut short leaves the gun
-  empty, with no timer. Every other shot keeps its timer. Each hand has its own deadline (`loadAtL/R`, 0 = none,
-  `ScheduleLoad`); the old single `RegisterForSingleUpdate` let one hand's timer load the other.
+  empty, with no timer. Each hand has its own deadline (`loadAtL/R`, 0 = none, `ScheduleLoad`); the old single
+  `RegisterForSingleUpdate` let one hand's timer load the other.
+- **No reload by itself (2026-11-03,** curator: "Shields + pistol are allowing players to infinitely shoot with no
+  reload"**):** every other shot kept the 2 s timer from the shot, so with a shield (or a spell or torch) in the other
+  hand the gun loaded itself while Loop's shot played and fired every ~2 s. Now only Fan the Hammer starts a timer at
+  the shot (`FanDelay`, the power's text). Elsewhere, with no reload clip, the attack button on the empty gun clicks
+  and starts `ReloadDelay`'s timer (`OnControlDown`; a second press while it runs does nothing), and a save keeps no
+  timer (`Setup`: every pending gun waits for the press). Shields themselves now get a clip (above). Whether the
+  reload plays a clip or runs the timer is decided at the press (`OnControlDown`), from what the other hand holds then.
+- **Put away empty (2026-11-03,** curator: "users are also exploiting unequipping muskets and pistols to avoid the
+  reload"**):** `Sync` loaded every pistol it saw equipped from a bullet, so unequipping a fired pistol and equipping
+  it again reloaded it at once. Now a fired, unloaded pistol leaving a hand is kept in `stowedGuns` / `stowedCounts`
+  (64 kinds; by base form, with a count, since two of the same pistol are told apart only by number). Taken up again
+  it is empty (charge 0, pending, no bullet taken) if every one of its form out of both hands is; the engine doesn't
+  say which of several alike it equipped, so a loaded one is assumed while the player has any, and counts are capped
+  by what the player still has (one sold or dropped counts as a loaded one gone). It then reloads on the attack
+  button like after a shot. Both hands' outgoing pistols are put away before either incoming one is looked at, so an
+  empty gun moved to the other hand stays empty. A loaded pistol still gives its bullet back when unequipped and takes
+  one when equipped. **First test (curator, same day): after a musket swap the right pistol of a pair came back
+  loaded every time** (Papyrus log: `RightItemCharge 0 -> 2` right after each musket put-away, the left reloaded by
+  its clip). With the same pistol in both hands coming in together, the left was looked at first and counted the
+  right's copy as already in hand, so it capped the two empty ones to one and took it, and the right found none.
+  Fixed: each incoming pistol's pool leaves out the other hand's copy only if that one was in hand already or came in
+  just before it. `put away empty` / `taken up` lines now go to the Papyrus log (`[ZP Flintlock]`) whatever
+  `DebugMode` says. Muskets: the same in [`MusketHandling`](MusketHandling.md) 1.3.0. **Verified in game 2026-11-03**
+  (curator, musket ↔ two pistols swaps after firing all three: "works").
 - **Reload on fire** (curator: something to prompt the shot denial and the reload start): `OnControlDown` on that
   hand's attack (`Left/Right Attack/Block`), with the gun empty and reloading by animation, plays a click
   (`UILockpickingCylinderStop 0C1912`) and sends `ZP_PistolDryReload`. Pistol Ramrod Reload then plays the reload.

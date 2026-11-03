@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.25)
 # reload short), aiming a musket lowers SpeedMult, and an empty musket reloads on the next attack press (1.2.0).
 # Bows and plain crossbows are untouched.
 # SSE 1.5.97 only, CommonLibSSE-NG.
-project(ZenMusketHandling VERSION 1.2.0 LANGUAGES CXX)
+project(ZenMusketHandling VERSION 1.3.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

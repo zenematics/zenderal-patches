@@ -32,9 +32,14 @@
 //    reloadStart transition of its own, so presses while it plays are refused; a reload cut short leaves the graph
 //    ready, and the next press starts it again. The reload clip's reloadStop (its clip trigger 0.195 s before the
 //    end), heard through the player's BSAnimationGraphEvent sink, loads it. The empty musket is kept in the co-save.
+//    1.3.0 (2026-11-03, curator: players unequipped a fired musket to skip the reload): 1.2.0 remembered only the last
+//    musket a shot emptied, so firing a second musket made the first loaded again. Every musket put away empty is
+//    now kept (by base form, with a count: two of the same musket are told apart only by number), and taken up again
+//    it stays empty until its own reload. The engine does not say which of several alike it equips, so a loaded one
+//    is assumed while the player has any (SyncHand).
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 2, 0, 0 },
+	.Version = REL::Version{ 1, 3, 0, 0 },
 	.Name = "ZenMusketHandling"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -47,6 +52,7 @@ namespace
 	constexpr std::uint32_t kCosaveSlow = 'SLOW';
 	constexpr std::uint32_t kCosaveEmpty = 'EMPT';
 	constexpr std::uint32_t kCosaveVersion = 1;
+	constexpr std::uint32_t kCosaveEmptyVersion = 2;  // 1.2.0 wrote version 1: one FormID
 
 	std::uint32_t            g_lockAfterShotMs{ 2300 };
 	std::uint32_t            g_maxLockMs{ 5000 };  // a stuck attack state never locks the dodge for longer
@@ -60,8 +66,12 @@ namespace
 	std::string              g_loadedEvent{ "reloadStop" };
 
 	std::uint64_t         g_shotAtMs{ 0 };  // 0 = no musket shot being locked out
-	std::atomic<RE::FormID> g_emptyForm{ 0 };  // the musket the last shot emptied (0 = none), loaded by its reload's
-	                                           // g_loadedEvent; graph events arrive on worker threads
+	// The musket in the right hand (drawn or not, 0 = none) and whether it is empty, loaded by its reload's
+	// g_loadedEvent (graph events arrive on worker threads); the empty muskets out of the hand by base form, counted
+	// (main thread only: Update and the co-save callbacks).
+	std::atomic<RE::FormID>             g_handForm{ 0 };
+	std::atomic<bool>                   g_handEmpty{ false };
+	std::map<RE::FormID, std::uint32_t> g_stowedEmpty;
 	RE::ATTACK_STATE_ENUM g_prevState{ RE::ATTACK_STATE_ENUM::kNone };
 	float                 g_appliedPenalty{ 0.0f };  // SpeedMult currently taken away by this plugin (temporary modifier, as magic effects use)
 
@@ -79,15 +89,11 @@ namespace
 		});
 	}
 
-	// The right-hand musket, if one is drawn
-	const RE::TESObjectWEAP* DrawnMusket(RE::PlayerCharacter* a_player)
+	// The right-hand musket, drawn or not
+	RE::TESObjectWEAP* EquippedMusket(RE::PlayerCharacter* a_player)
 	{
-		const auto* state = a_player->AsActorState();
-		if (!state || state->GetWeaponState() != RE::WEAPON_STATE::kDrawn) {
-			return nullptr;
-		}
-		const auto* object = a_player->GetEquippedObject(false);
-		const auto* weap = object ? object->As<RE::TESObjectWEAP>() : nullptr;
+		auto* object = a_player->GetEquippedObject(false);
+		auto* weap = object ? object->As<RE::TESObjectWEAP>() : nullptr;
 		if (!weap || !weap->IsCrossbow()) {
 			return nullptr;
 		}
@@ -99,12 +105,61 @@ namespace
 		return std::ranges::any_of(g_musketPlugins, [&](const std::string& p) { return IEquals(name, p); }) ? weap : nullptr;
 	}
 
+	// The right-hand musket, if one is drawn
+	const RE::TESObjectWEAP* DrawnMusket(RE::PlayerCharacter* a_player)
+	{
+		const auto* state = a_player->AsActorState();
+		if (!state || state->GetWeaponState() != RE::WEAPON_STATE::kDrawn) {
+			return nullptr;
+		}
+		return EquippedMusket(a_player);
+	}
+
 	bool HoldingDrawnMusket(RE::PlayerCharacter* a_player) { return DrawnMusket(a_player) != nullptr; }
 
 	bool HoldingEmptyMusket(RE::PlayerCharacter* a_player)
 	{
-		const auto* weap = g_emptyForm ? DrawnMusket(a_player) : nullptr;
-		return weap && weap->GetFormID() == g_emptyForm.load();
+		const auto* weap = g_handEmpty ? DrawnMusket(a_player) : nullptr;
+		return weap && weap->GetFormID() == g_handForm.load();
+	}
+
+	// The musket in hand changed (seen once a frame, so a swap and back inside a menu changes nothing): an empty one
+	// put away is kept in g_stowedEmpty, and the one taken up is empty if every one of its form the player has out of
+	// the hand is (the count includes it; one sold or dropped counts as a loaded one gone)
+	void SyncHand(RE::PlayerCharacter* a_player)
+	{
+		auto*            weap = EquippedMusket(a_player);
+		const RE::FormID now = weap ? weap->GetFormID() : 0;
+		const RE::FormID was = g_handForm;
+		if (now == was) {
+			return;
+		}
+		if (was && g_handEmpty) {
+			const auto kept = ++g_stowedEmpty[was];
+			if (g_log) {
+				SKSE::log::info("Musket {:08X} put away empty ({} of its form)", was, kept);
+			}
+		}
+		bool empty = false;
+		if (const auto it = g_stowedEmpty.find(now); now && it != g_stowedEmpty.end()) {
+			const auto counts = a_player->GetInventoryCounts([&](RE::TESBoundObject& a_obj) { return &a_obj == weap; });
+			const auto found = counts.find(weap);
+			const auto owned = static_cast<std::uint32_t>(std::max(1, found != counts.end() ? found->second : 1));
+			it->second = std::min(it->second, owned);
+			empty = it->second >= owned;
+			if (empty) {
+				--it->second;
+			}
+			if (g_log) {
+				SKSE::log::info("Musket {:08X} taken up {} ({} of {} out of the hand were empty)", now,
+					empty ? "EMPTY" : "loaded", it->second + (empty ? 1 : 0), owned);
+			}
+			if (it->second == 0) {
+				g_stowedEmpty.erase(it);
+			}
+		}
+		g_handForm = now;
+		g_handEmpty = empty;
 	}
 
 	bool DodgeLocked()
@@ -155,6 +210,7 @@ namespace
 		if (!state) {
 			return;
 		}
+		SyncHand(a_player);
 		const auto attack = state->GetAttackState();
 		const auto prev = std::exchange(g_prevState, attack);
 		const bool musket = HoldingDrawnMusket(a_player);
@@ -165,11 +221,11 @@ namespace
 		if (musket && isRelease(attack) && !isRelease(prev)) {
 			g_shotAtMs = NowMs();
 			if (g_onDemand) {
-				g_emptyForm = DrawnMusket(a_player)->GetFormID();
+				g_handEmpty = true;
 			}
 			if (g_log) {
 				SKSE::log::info("Musket shot: dodge locked for {} ms{}", g_lockAfterShotMs,
-					g_onDemand ? std::format(", {:08X} empty until reloaded", g_emptyForm.load()) : std::string{});
+					g_onDemand ? std::format(", {:08X} empty until reloaded", g_handForm.load()) : std::string{});
 			}
 		}
 
@@ -196,14 +252,14 @@ namespace
 		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_eventName)
 		{
 			const std::string_view name{ a_eventName.c_str() ? a_eventName.c_str() : "" };
-			if (g_onDemand && g_emptyForm && StartsWithAny(name, g_attackEvents)) {
+			if (g_onDemand && g_handEmpty && StartsWithAny(name, g_attackEvents)) {
 				auto* player = RE::PlayerCharacter::GetSingleton();
 				if (player && HoldingEmptyMusket(player)) {
 					// refused while the reload plays (its state takes no reloadStart), so a held or repeated
 					// press restarts nothing; the empty musket never fires
 					const bool started = func(a_this, RE::BSFixedString{ g_reloadEvent.c_str() });
 					if (started && g_log) {
-						SKSE::log::info("{} on empty musket {:08X}: {} sent instead", name, g_emptyForm.load(), g_reloadEvent);
+						SKSE::log::info("{} on empty musket {:08X}: {} sent instead", name, g_handForm.load(), g_reloadEvent);
 					}
 					return false;
 				}
@@ -227,13 +283,13 @@ namespace
 		static RE::BSEventNotifyControl thunk(RE::BSTEventSink<RE::BSAnimationGraphEvent>* a_this, const RE::BSAnimationGraphEvent* a_event,
 			RE::BSTEventSource<RE::BSAnimationGraphEvent>* a_source)
 		{
-			if (g_emptyForm && a_event && a_event->tag.c_str() && IEquals(a_event->tag.c_str(), g_loadedEvent)) {
+			if (g_handEmpty && a_event && a_event->tag.c_str() && IEquals(a_event->tag.c_str(), g_loadedEvent)) {
 				auto* player = RE::PlayerCharacter::GetSingleton();
 				if (player && HoldingEmptyMusket(player)) {
 					if (g_log) {
-						SKSE::log::info("{}: musket {:08X} loaded", g_loadedEvent, g_emptyForm.load());
+						SKSE::log::info("{}: musket {:08X} loaded", g_loadedEvent, g_handForm.load());
 					}
-					g_emptyForm = 0;
+					g_handEmpty = false;
 				}
 			}
 			return func(a_this, a_event, a_source);
@@ -247,10 +303,18 @@ namespace
 		if (a_intfc->OpenRecord(kCosaveSlow, kCosaveVersion)) {
 			a_intfc->WriteRecordData(g_appliedPenalty);
 		}
-		// the empty musket stays empty in a save (0: none)
-		if (a_intfc->OpenRecord(kCosaveEmpty, kCosaveVersion)) {
-			const RE::FormID empty = g_emptyForm;
-			a_intfc->WriteRecordData(empty);
+		// empty muskets stay empty in a save: the one in hand (0: none) and whether it is, then the ones put away
+		if (a_intfc->OpenRecord(kCosaveEmpty, kCosaveEmptyVersion)) {
+			const RE::FormID    hand = g_handForm;
+			const std::uint8_t  handEmpty = g_handEmpty ? 1 : 0;
+			const std::uint32_t kinds = static_cast<std::uint32_t>(g_stowedEmpty.size());
+			a_intfc->WriteRecordData(hand);
+			a_intfc->WriteRecordData(handEmpty);
+			a_intfc->WriteRecordData(kinds);
+			for (const auto& [form, count] : g_stowedEmpty) {
+				a_intfc->WriteRecordData(form);
+				a_intfc->WriteRecordData(count);
+			}
 		}
 	}
 
@@ -258,12 +322,38 @@ namespace
 	{
 		std::uint32_t type, version, length;
 		while (a_intfc->GetNextRecordInfo(type, version, length)) {
-			if (type == kCosaveEmpty && version == kCosaveVersion) {
+			if (type == kCosaveEmpty && version == 1) {
+				// 1.2.0: the one musket the last shot emptied, in hand or not; the first frame's SyncHand takes it up
 				RE::FormID saved = 0, resolved = 0;
 				if (a_intfc->ReadRecordData(saved) && saved && a_intfc->ResolveFormID(saved, resolved)) {
-					g_emptyForm = resolved;
-					SKSE::log::info("Save carried empty musket {:08X}", resolved);
+					g_stowedEmpty[resolved] = 1;
+					SKSE::log::info("Save (1.2.0) carried empty musket {:08X}", resolved);
 				}
+				continue;
+			}
+			if (type == kCosaveEmpty && version == kCosaveEmptyVersion) {
+				RE::FormID    hand = 0, resolved = 0;
+				std::uint8_t  handEmpty = 0;
+				std::uint32_t kinds = 0;
+				if (!a_intfc->ReadRecordData(hand) || !a_intfc->ReadRecordData(handEmpty) || !a_intfc->ReadRecordData(kinds)) {
+					continue;
+				}
+				if (hand && a_intfc->ResolveFormID(hand, resolved)) {
+					g_handForm = resolved;
+					g_handEmpty = handEmpty != 0;
+				}
+				for (std::uint32_t i = 0; i < kinds; ++i) {
+					RE::FormID    form = 0;
+					std::uint32_t count = 0;
+					if (!a_intfc->ReadRecordData(form) || !a_intfc->ReadRecordData(count)) {
+						break;
+					}
+					if (count && a_intfc->ResolveFormID(form, resolved)) {
+						g_stowedEmpty[resolved] += count;
+					}
+				}
+				SKSE::log::info("Save carried musket {:08X} in hand{}, {} kinds put away empty", g_handForm.load(),
+					g_handEmpty ? " (empty)" : "", g_stowedEmpty.size());
 				continue;
 			}
 			float saved = 0.0f;
@@ -283,7 +373,9 @@ namespace
 		// The game state about to be loaded (or a new game) never carries our in-memory penalty.
 		g_appliedPenalty = 0.0f;
 		g_shotAtMs = 0;
-		g_emptyForm = 0;
+		g_handForm = 0;
+		g_handEmpty = false;
+		g_stowedEmpty.clear();
 		g_prevState = RE::ATTACK_STATE_ENUM::kNone;
 	}
 
@@ -386,7 +478,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenMusketHandling 1.2.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenMusketHandling 1.3.0 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };

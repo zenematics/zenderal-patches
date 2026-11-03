@@ -246,7 +246,7 @@ def main():
             print('%s: hand misses its aim by %.2f' % (a.h['gun'], a.locals()[1]))
         preview(rt, aims, V, out_png)
         return
-    oar = os.path.join(mods_dir, PR.MOD, *OAR_AIM)
+    oar = os.path.join(mods_dir, PR.DEPLOY, *OAR_AIM)
     if os.path.isdir(oar):
         shutil.rmtree(oar)
     written = 0

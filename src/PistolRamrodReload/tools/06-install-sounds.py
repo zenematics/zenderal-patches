@@ -49,7 +49,7 @@ def main():
         frames = bytearray()
         for v in mono:
             frames += struct.pack('<h', max(-32768, min(32767, int(round(v * gain * 32767 + rnd.random() - rnd.random())))))
-        out = os.path.join(root, 'mods', PR.MOD, *SOUND_DIR, edid.lower() + '.wav')
+        out = os.path.join(root, 'mods', PR.DEPLOY, *SOUND_DIR, edid.lower() + '.wav')
         os.makedirs(os.path.dirname(out), exist_ok=True)
         with wave.open(out, 'wb') as w:
             w.setnchannels(1)

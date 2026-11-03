@@ -20,11 +20,12 @@ when the reload is cut short (HoldReload). A reload cut short leaves the gun emp
 A one-handed melee weapon in the other hand (2026-11-02): the clip sheathes it on the two-pistol timeline. Pistol left:
 the right arm is 1hm_behavior's, as for an empty hand (ARM_VARIABLE). Pistol right: 0_master's MRh_1HM idle and the
 root's grip override hold the left arm and weapon, which the patch hands over with STOW_VARIABLE (default 1). The
-arm's idle there is whatever moveset wins, so both fade over FADE_STEPS instead of switching.
-Prophecy's Hair Trigger (2026-11-02, curator: with it no reload was needed, the guns spammed): its reloads play tools/07's
-twins of the clips, HAIR_TRIGGER_SPEED faster, so every time here is that much shorter with the perk (Pace).
-Pistols are recognised by Loop's keyword (KID gives it to the Gentleman's pistols; Reversal Shadow carries it), Hair
-Trigger by Prophecy's perk; both looked up by FormID, so this plugin masters neither.}
+arm's idle there is whatever moveset wins, so both fade over FADE_STEPS instead of switching. A shield in the left
+hand (2026-11-03) is the same for a right-hand pistol: the clip slings it on the back, and STOW_VARIABLE frees the shield
+pose (0_master's MRh_Shd_Blend).
+Pistols are recognised by Loop's keyword (KID gives it to the Gentleman's pistols; Reversal Shadow carries it), looked
+up by FormID, so this plugin does not master Loop's. (Prophecy's Hair Trigger played faster twins of the clips for a
+few hours on 2026-11-02; the curator took its faster reload out of the talent, so every reload is one pace.)}
 
 Actor Property PlayerRef Auto
 String Property ARM_VARIABLE = "fZenPistolRightArmIdle" AutoReadOnly    ; pistol left: the free right arm (1hm_behavior)
@@ -50,15 +51,12 @@ String Property ARM_BACK_EVENT = "ZenPistolArmBack" AutoReadOnly
 Float Property STOW_RESET_AFTER = 2.7 AutoReadOnly
 String Property LoopPlugin = "Pistol animation by Loop.esp" AutoReadOnly
 Int Property LOOP_KEYWORD_ID = 0x801 AutoReadOnly   ; Pistol_Animation_By_Loop
-String Property ProphecyPlugin = "Zenderal - Prophecy.esp" AutoReadOnly
-Int Property HAIR_TRIGGER_ID = 0xB12 AutoReadOnly   ; ZP_Prophecy_HairTrigger: its reloads play faster clips
-Float Property HAIR_TRIGGER_SPEED = 1.75 AutoReadOnly  ; tools/07 SPEED: the 2.11 s reload in 1.2 s (the talent's text)
 Int Property LEFT_HAND = 0 AutoReadOnly              ; the Flintlock script's hand / GetEquippedItemType hand
 Int Property RIGHT_HAND = 1 AutoReadOnly
 Int Property TYPE_STAFF = 8 AutoReadOnly             ; GetEquippedItemType
+Int Property TYPE_SHIELD = 10 AutoReadOnly
 
 Keyword pistolKeyword
-Perk hairTrigger
 Int shots       ; the newest shot owns the reset, per hand
 Int shotsRight
 Int shotsDual
@@ -81,12 +79,8 @@ Function Setup()
 	UnregisterForActorAction(2)    ; the first builds handed the arms over at the shot's spell-fire (saves keep it)
 	RegisterForModEvent("ZP_PistolDryReload", "OnDryReload")
 	pistolKeyword = None
-	hairTrigger = None
 	If Game.GetModByName(LoopPlugin) != 255
 		pistolKeyword = Game.GetFormFromFile(LOOP_KEYWORD_ID, LoopPlugin) as Keyword
-	EndIf
-	If Game.GetModByName(ProphecyPlugin) != 255
-		hairTrigger = Game.GetFormFromFile(HAIR_TRIGGER_ID, ProphecyPlugin) as Perk
 	EndIf
 	PlayerRef.SetAnimationVariableFloat(ARM_VARIABLE, 1.0)
 	PlayerRef.SetAnimationVariableFloat(LEFT_ARM_VARIABLE, 1.0)
@@ -158,14 +152,6 @@ String Function Casting(Int slot)
 	Return "IsCastingRight"
 EndFunction
 
-; how much of each time a reload takes: 1, or less with Hair Trigger (its clips play HAIR_TRIGGER_SPEED faster)
-Float Function Pace()
-	If hairTrigger && PlayerRef.HasPerk(hairTrigger)
-		Return 1.0 / HAIR_TRIGGER_SPEED
-	EndIf
-	Return 1.0
-EndFunction
-
 ; `seconds` while that hand's reload plays: a cut-short reload (an attack, the other hand) ends it, so the arms come
 ; back at once
 Function HoldReload(Int slot, Float seconds)
@@ -188,6 +174,11 @@ Function HandleReload(Int slot, Int other)
 	ElseIf otherType >= 1 && otherType <= 4     ; sword, dagger, axe, mace: sheathed for the reload
 		StowReload(slot)
 		Return
+	ElseIf otherType == TYPE_SHIELD             ; slung on the back (shields are left-hand only: a right-hand pistol)
+		If slot == RIGHT_HAND
+			StowReload(slot)
+		EndIf
+		Return
 	ElseIf otherType != 0
 		Return
 	EndIf
@@ -195,7 +186,7 @@ Function HandleReload(Int slot, Int other)
 		shots += 1
 		Int mine = shots
 		PlayerRef.SetAnimationVariableFloat(ARM_VARIABLE, 0.0)
-		HoldReload(slot, RESET_AFTER * Pace())
+		HoldReload(slot, RESET_AFTER)
 		If mine == shots
 			PlayerRef.SetAnimationVariableFloat(ARM_VARIABLE, 1.0)
 		EndIf
@@ -203,7 +194,7 @@ Function HandleReload(Int slot, Int other)
 		shotsRight += 1
 		Int mineRight = shotsRight
 		PlayerRef.SetAnimationVariableFloat(LEFT_ARM_VARIABLE, 0.0)
-		HoldReload(slot, RESET_AFTER * Pace())
+		HoldReload(slot, RESET_AFTER)
 		If mineRight == shotsRight
 			PlayerRef.SetAnimationVariableFloat(LEFT_ARM_VARIABLE, 1.0)
 		EndIf
@@ -227,7 +218,7 @@ Function StowReload(Int slot)
 	stowOpen = mine
 	RegisterForAnimationEvent(PlayerRef, ARM_BACK_EVENT)    ; every time: the graph may be new since the last
 	FadeOut(var, share)
-	HoldReload(slot, STOW_RESET_AFTER * Pace())
+	HoldReload(slot, STOW_RESET_AFTER)
 	If stowOpen == mine
 		stowOpen = 0
 		FadeIn(var, share)
@@ -283,8 +274,8 @@ Function DualReload(Int slot, Int other)
 		side = 1.0
 	EndIf
 	PlayerRef.SetAnimationVariableFloat(DUAL_VARIABLE, side)
-	PlayerRef.SendModEvent("ZP_FlintlockHolster", other as String, DUAL_LOCK * Pace())
-	HoldReload(slot, DUAL_RESET_AFTER * Pace())
+	PlayerRef.SendModEvent("ZP_FlintlockHolster", other as String, DUAL_LOCK)
+	HoldReload(slot, DUAL_RESET_AFTER)
 	If mine == shotsDual
 		PlayerRef.SetAnimationVariableFloat(DUAL_VARIABLE, 0.0)
 	EndIf
