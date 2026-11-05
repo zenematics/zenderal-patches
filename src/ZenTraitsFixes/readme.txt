@@ -1,9 +1,10 @@
 Zenderal - Zen Traits Fixes
 ===========================
 
-One recompiled script. No plugin, no records, no ESP.
+Two recompiled scripts. No plugin, no records, no ESP.
 
-  Scripts\_00e_ambrosiaeffect.pex    (+ Scripts\Source\ .psc)
+  Scripts\_00e_ambrosiaeffect.pex                  (+ Scripts\Source\ .psc)
+  Scripts\_00e_arkanistenfieberblitzheilungscn.pex (+ Scripts\Source\ .psc)
 
   Base: Shazdeh's Zen Traits source, verbatim (upstream main @ 1ae67a8).
   Change: one line, marked "; ZP".
@@ -37,3 +38,15 @@ win the loose-script file conflict. If it sorts below, the game runs normally
 and Ambrosia stays broken.
 
 Drop this mod once Zen Traits ships the fix itself.
+
+THE SECOND BUG (2026-11-05)
+-------------------------
+Health potions raised Arcane Fever by an odd amount and said it had lessened.
+Enderal 2.1 made the potion fever effect (_00E_AlchIncreaseArcaneFever, 02F21D)
+change the fever itself; Zen Traits' _00e_arkanistenfieberblitzheilungscn.pex is
+from Enderal 2.0, when the script did it, so it changed the fever a second time.
+The fork leaves a LastFlattered value-modifier effect to the engine and adds only
+Zen Traits' trait multipliers (Night Fever, Purified Blood, Arcane Addict) on top,
+with the "increased" message. Every other effect using the script (EGO's script-type
+and Health/Mana/Stamina fever effects) keeps Zen Traits' behaviour.
+Needs powerofthree's Papyrus Extender (GetPrimaryActorValue).

@@ -61,3 +61,20 @@
 >   `Skyrim.esm` — which NUP's whitelist covers. So NUP is probably already handing out Enderal's
 >   restore potions on its own, which would make our three potion lines largely redundant.
 >   **Unverified** — NUP's `EnableLogging` is off; one run with it on would settle it.
+
+## Known issue: looted potions are marked stolen (2026-11-05, open)
+
+Reversal Shadow (2026-10-13): potions looted from bodies show the red stolen hand. **Cause, confirmed in SPID's
+source** (master, `SPID/src/Distribute.cpp`): every `Item =` goes in through
+`npc->AddObjectsToContainer(a_objects, npc)` with the NPC base as the owner, and `DeathItem =` takes the same path
+(`DeathDistribution.cpp`). An owned item taken from a corpse is stolen. The Morning Air potions in the screenshot
+only come from this config (Smart NPC Potions adds no stamina potions). No SPID setting changes it; no Nexus mod
+was found that does (searched 2026-11-05).
+
+Ruled out: death-item leveled lists. A load-order scan of the winning NPC records found **1,595 of 1,709 humanoid
+NPCs with no death item** (106 use `02F32B:Enderal - Forgotten Stories.esm`), so that route keeps ~6% of the drops,
+and giving the rest a death item means owning ~1,600 NPC overrides.
+
+Untested option kept for later: SPID also gives a hidden ability whose script, on death, removes the distributed
+potions and re-adds them with `AddItem`, which should leave them unowned. Test first: console `additem 28C8 1` on
+a placed bandit, kill it, loot; no red hand = the route works. The curator chose to leave it for now.
