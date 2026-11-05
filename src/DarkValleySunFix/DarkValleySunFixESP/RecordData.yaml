@@ -9,7 +9,7 @@ ModHeader:
   Stats:
     Version: 1.7
   Author: Zenderal
-  Description: Dark Valley stays sunless again. The Weathers of Enderal gave its four fog and storm weathers a visible sun that ENB sun rays turned into a white-out; Enderal's black sun and no glare are back, everything else is TWoE's.
+  Description: Enderal's sunless weathers stay sunless again. The Weathers of Enderal gave 32 fog, rain, storm and snow weathers (Dark Valley's, Ark's rain) a visible sun and glare that ENB sun rays turned into a white-out; Enderal's sun and glare are back, everything else is TWoE's.
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0
