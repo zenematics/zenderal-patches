@@ -288,3 +288,11 @@ List-wide traps that are not tied to one Zenderal patch.
   MCM Helper's ini in `OnGameReload`, so any plugin default or applier value for kill moves or the companion
   panel loses to its config default (both `1`). List defaults for Enderal's MCM go in `Zenderal - Settings`'
   `MCM/Settings/Enderal - Forgotten Stories.ini`. Details in [`SettingsApplier`](../patches/SettingsApplier.md).
+- **Vel'dun UI 1.7's "Oblivion Icons patch 3 beta" fontconfig drops the `$Mage` font** (2026-11-05, Vini: three
+  boxes above "Tier I" on Enderal talent cards). Vel'dun's item card (`skyui/itemcard.swf`, all variants) draws a
+  talent's word, e.g. Steel Tempest's "Klo", in `<font face="$Mage">`, not `$DragonFont`. Vel'dun's own fontconfig
+  loads `Interface\Mage.swf` and maps `$Mage` = `Mage`; the patch-3-beta fontconfig (the winning one, from
+  `Veldun fomod files`, priority above `Vel'dun UI Enderal Default`) has neither, so every letter is a box.
+  Fixed by adding those two lines to `Veldun fomod files/Interface/fontconfig.txt` (original in
+  `E:/Zenderal-backups/2026-11-05-veldun-mage-font/`). **Re-add them after any Vel'dun reinstall or update**, or
+  until upstream restores them. `fontconfig_ru.txt` never mapped `$Mage` and is left as Vel'dun ships it.
