@@ -1,0 +1,25 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Ancient Ruins Water Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Ancient Ruins (Myths and Legends VI - The Forgotten One) without the courtyard's white mist walls and black
+    sea-floor sponges: 7 mist beams, the low mist, 9 sponges and 6 shore-foam strips are disabled; the pond stays.
+    Requires Myths and Legends VI - The Forgotten One.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Myths and Legends VI - The Forgotten One.esp
+    FileSize: 0
+  INTV: 1

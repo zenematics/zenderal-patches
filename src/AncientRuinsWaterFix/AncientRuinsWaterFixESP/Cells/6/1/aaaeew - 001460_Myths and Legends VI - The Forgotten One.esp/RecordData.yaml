@@ -1,0 +1,391 @@
+FormKey: 001460:Myths and Legends VI - The Forgotten One.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 786432
+EditorID: aaaeew
+SkyrimMajorRecordFlags:
+- Compressed
+- CantWait
+Name:
+  TargetLanguage: English
+  Value: Ancient Ruins
+Flags:
+- IsInteriorCell
+- HasWater
+Lighting:
+  AmbientColor: '#00423A28'
+  DirectionalColor: '#00444F51'
+  FogNearColor: '#004B6361'
+  FogNear: 1500
+  FogFar: 6000
+  DirectionalRotationZ: 90
+  FogClipDistance: 6000
+  FogPower: 0.7
+  AmbientColors:
+    DirectionalXPlus: '#00314F56'
+    DirectionalXMinus: '#00284F4F'
+    DirectionalYPlus: '#002D5253'
+    DirectionalYMinus: '#002D4B53'
+    DirectionalZPlus: '#00152525'
+    DirectionalZMinus: '#00447880'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00608A87'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - FogMax
+LightingTemplate: 0195D2:Skyrim.esm
+WaterHeight: 0
+AcousticSpace: 01989F:Skyrim.esm
+Music: 09CFDD:Skyrim.esm
+ImageSpace: 02E522:Enderal - Forgotten Stories.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 0222AD:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 493.52313, 662.481, -30000
+    Rotation: 0, 0, 2.7831945
+- MutagenObjectType: PlacedObject
+  FormKey: 022339:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -62.032745, 703.2866, -30000
+    Rotation: 0, 0, 5.183195
+- MutagenObjectType: PlacedObject
+  FormKey: 02233A:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -216.05173, -214.84981, -30000
+    Rotation: 0, 0, 5.183195
+- MutagenObjectType: PlacedObject
+  FormKey: 02233B:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -684.6953, -157.84862, -30000
+    Rotation: 0, 0, 2.683203
+- MutagenObjectType: PlacedObject
+  FormKey: 02233C:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -824.92413, -751.1498, -30000
+    Rotation: 0, 0, 2.9832006
+- MutagenObjectType: PlacedObject
+  FormKey: 02233D:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -777.974, 308.15976, -30000
+    Rotation: 0, 0, 5.683197
+- MutagenObjectType: PlacedObject
+  FormKey: 02233E:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 851.6916, -62.23248, -30000
+    Rotation: 0, 0, 1.7000117
+- MutagenObjectType: PlacedObject
+  FormKey: 02233F:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 373.19598, -271.1567, -30000
+    Rotation: 0, 0, 5.5831947
+- MutagenObjectType: PlacedObject
+  FormKey: 022340:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0F8F8C:Skyrim.esm
+  Scale: 0.71
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -1.234964, -1085.3844, -30000
+    Rotation: 0, 0, 5.5831947
+- MutagenObjectType: PlacedObject
+  FormKey: 02237E:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0BEC29:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 704.1192, 214.96083, -30000
+    Rotation: 0, 0, 4.983189
+- MutagenObjectType: PlacedObject
+  FormKey: 02237F:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0BEC22:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -768.24445, -543.8265, -30000
+    Rotation: 0, 0, 3.783193
+- MutagenObjectType: PlacedObject
+  FormKey: 022380:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0C560E:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -744.7713, 392.96606, -30000
+    Rotation: 0, 0, 2.0000007
+- MutagenObjectType: PlacedObject
+  FormKey: 022381:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0C560D:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 91.76763, 930.95337, -30000
+    Rotation: 0, 0, 6.083186
+- MutagenObjectType: PlacedObject
+  FormKey: 022382:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0BEC26:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 799.2888, -474.23953, -30000
+    Rotation: 0, 0, 5.4831877
+- MutagenObjectType: PlacedObject
+  FormKey: 022383:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0BEC29:Skyrim.esm
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 223.03127, -1131.2389, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 022384:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0B944D:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 3.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 55.173134, -79.804596, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 022385:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0777B2:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 2.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -185.53766, -430.8846, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 022386:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0777B2:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 2.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 168.88815, -167.57092, -30000
+- MutagenObjectType: PlacedObject
+  FormKey: 022387:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0777B2:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 2.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -109.36993, 182.67099, -30000
+    Rotation: 0, 0, 1.1999993
+- MutagenObjectType: PlacedObject
+  FormKey: 022388:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0777B2:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 2.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: -483.21747, 417.59598, -30000
+    Rotation: 0, 0, 1.1999993
+- MutagenObjectType: PlacedObject
+  FormKey: 022389:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0777B2:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 2.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 387.66095, 554.1499, -30000
+    Rotation: 0, 0, 5.9831896
+- MutagenObjectType: PlacedObject
+  FormKey: 02238A:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0777B2:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 2.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 126.87823, 197.85796, -30000
+    Rotation: 0, 0, 5.9831896
+- MutagenObjectType: PlacedObject
+  FormKey: 02238B:Myths and Legends VI - The Forgotten One.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0777B2:Skyrim.esm
+  Emittance: 074543:Skyrim.esm
+  Scale: 2.22
+  EnableParent:
+    Reference: 000014:Skyrim.esm
+    Flags:
+    - SetEnableStateToOppositeOfParent
+    Unknown: 0x000000
+  Placement:
+    Position: 611.5191, 102.33742, -30000
+    Rotation: 0, 0, 5.9831896
