@@ -170,6 +170,9 @@ VirtualMachineAdapter:
       Name: MQ04
       Object: 02EBA2:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
+      Name: MyradTripPrice
+      Object: 0493E1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
       Name: PlayerRef
       Object: 000014:Skyrim.esm
     - MutagenObjectType: ScriptIntProperty

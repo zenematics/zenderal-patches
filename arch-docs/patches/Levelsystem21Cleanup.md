@@ -38,6 +38,13 @@ mirrors what base 2.1 itself does on the same record or script (checked per reco
 | `xion_playerhouse_document` property `Player` = `010AA2` alias 0 (Seaview, Wellwatch deeds) — 2 | repointed to `CustomNameControlQuest 0493BE` alias 0 | 2.1 made exactly this repoint on its own `_00E_Game_Playerhouse_*` deeds |
 | MESG `Quest: 010AA2` — 6 | removed | 2.1's `_00E_Levelsystem_s*` messages have no Quest |
 
+**One 2.1 property added (2026-11-06, `MISSING_21_PROPERTIES` in tools/01):** this plugin owns
+`MyradFlight_ControlQuest 0D9B17`, so it is the only place a property 2.1's script needs can be filled. EGO's 2.0
+record gives `_00E_MyradSystem02` an int `Price` = 50, which 2.1's script no longer reads; 2.1's `PortPlayer` removes
+`MyradTripPrice` (global `0493E1` = 25) gold, and EGO's record left that property unfilled. tools/01 now inserts
+`MyradTripPrice` → `0493E1` after `MQ04` (asserted: exactly one added). Half of the Myrad 25-penny fix; the
+dialogue gates are [`MyradFlightPrice`](MyradFlightPrice.md). Unverified in game.
+
 Known leftover: records with scripts 2.1 deleted (the hidden-slot chests, EGO's `Player` with
 `_00E_PlayerSetUpScript`) still carry those scripts. That only logs Papyrus warnings; forwarding 2.1's
 script set onto EGO's records is a separate, larger job.

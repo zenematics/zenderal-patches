@@ -1,0 +1,8 @@
+FormKey: 12E0EC:Skyrim.esm
+EditorID: MyradDialogue_StartTopic_T1Topic01
+Name:
+  TargetLanguage: English
+  Value: I need a flight. (25 pennies)
+Branch: 12E2A5:Skyrim.esm
+Quest: 07547A:Skyrim.esm
+SubtypeName: CUST

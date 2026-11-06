@@ -53,13 +53,43 @@ def drop_dead_properties(lines, rec):
     return out, removed, repointed
 
 
+# 2.1 script properties a 2.0-era winner never fills. This plugin owns these records (it loads last), so it is the
+# only place they can be filled. MyradFlight_ControlQuest 0D9B17: EGO's 2.0 record gives _00E_MyradSystem02 an
+# int Price = 50 that 2.1's script no longer reads; 2.1 charges MyradTripPrice (global 0493E1 = 25, what the
+# flight topic's text promises) and EGO's record leaves it unfilled (GreaseLord 2026-11-06; curator chose 25).
+MISSING_21_PROPERTIES = {
+    "0D9B17": ("_00E_MyradSystem02", "MQ04", ["ScriptObjectProperty", "MyradTripPrice", "Object: 0493E1:Skyrim.esm"]),
+}
+
+
+def add_missing_21_properties(lines, rec_id):
+    """Insert a 2.1 property after `after` in `script`'s Properties, if missing. Returns (lines, added)."""
+    if rec_id not in MISSING_21_PROPERTIES:
+        return lines, 0
+    script, after, (kind, name, value) = MISSING_21_PROPERTIES[rec_id]
+    s = [k for k, l in enumerate(lines) if l == f"  - Name: {script}"]
+    if len(s) != 1:
+        raise SystemExit(f"{rec_id}: script {script} found {len(s)} times")
+    end = next((k for k in range(s[0] + 1, len(lines)) if lines[k].startswith("  - Name: ") or not lines[k].startswith("  ")), len(lines))
+    block = lines[s[0]:end]
+    if any(l.strip() == f"Name: {name}" for l in block):
+        return lines, 0
+    a = [k for k in range(s[0], end) if lines[k].strip() == f"Name: {after}"]
+    if len(a) != 1:
+        raise SystemExit(f"{rec_id}: property {after} found {len(a)} times in {script}")
+    k = a[0] + 1
+    while k < end and not lines[k].startswith("    - "):
+        k += 1
+    return lines[:k] + [f"    - MutagenObjectType: {kind}", f"      Name: {name}", f"      {value}"] + lines[k:], 1
+
+
 winners = json.load(open(WINNERS, encoding="utf-8"))
 for d in ("RecordData.yaml", "spriggit-meta.json"):
     pass
 for e in os.listdir(OUT) if os.path.isdir(OUT) else []:
     if e not in ("RecordData.yaml", "spriggit-meta.json"):
         shutil.rmtree(os.path.join(OUT, e))
-tot = {"records": 0, "removed": 0, "repointed": 0, "quest": 0}
+tot = {"records": 0, "removed": 0, "repointed": 0, "quest": 0, "added": 0}
 for w in winners:
     src_dir = os.path.join(SER, re.sub(r"[^A-Za-z0-9]", "", w["winner"]))
     hits = glob.glob(os.path.join(src_dir, "*", f"* - {w['id']}_{w['origin']}.yaml"))
@@ -72,6 +102,8 @@ for w in winners:
     q = [k for k, l in enumerate(lines) if l == "Quest: " + DEAD]
     for k in reversed(q):
         del lines[k]
+    lines, added = add_missing_21_properties(lines, w["id"])
+    tot["added"] += added
     out = nl.join(lines)
     if DEAD in out:
         raise SystemExit(f"{w['edid']} ({w['id']}:{w['origin']}): 010AA2 still referenced after cleanup")
@@ -88,3 +120,5 @@ print(tot)
 EXPECTED = len(winners)
 if tot["records"] != EXPECTED:
     raise SystemExit(f"expected {EXPECTED} records")
+if tot["added"] != len(MISSING_21_PROPERTIES):
+    raise SystemExit(f"expected {len(MISSING_21_PROPERTIES)} 2.1 properties added, got {tot['added']}")
