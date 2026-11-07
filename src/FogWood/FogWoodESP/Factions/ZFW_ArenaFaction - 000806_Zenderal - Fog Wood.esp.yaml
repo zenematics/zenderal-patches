@@ -1,0 +1,11 @@
+FormKey: 000806:Zenderal - Fog Wood.esp
+EditorID: ZFW_ArenaFaction
+Name:
+  TargetLanguage: English
+  Value: Fog Wood Horde
+Relations:
+- Target: 000806:Zenderal - Fog Wood.esp
+  Reaction: Ally
+- Target: 000DB1:Skyrim.esm
+  Reaction: Enemy
+Flags: []

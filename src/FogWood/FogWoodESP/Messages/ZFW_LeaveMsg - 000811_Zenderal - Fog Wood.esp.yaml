@@ -1,0 +1,15 @@
+FormKey: 000811:Zenderal - Fog Wood.esp
+EditorID: ZFW_LeaveMsg
+Description:
+  TargetLanguage: English
+  Value: 'Leave the Fog Wood? The run ends here.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: 'Leave'
+- Text:
+    TargetLanguage: English
+    Value: 'Stay'

@@ -130,3 +130,38 @@ in the Spriggit YAML**, so most sessions never open it. If you do:
   Spriggit/Mutagen 0.40 stores every line break in a script string property as CRLF, even a lone `\r` from the YAML.
   B612's plain-text card description showed a stored `\n\n` as a huge gap. A Papyrus `"\n"` literal compiles to a lone
   LF (check the `.pex` string table). Prophecy's card header is built this way in `ZP_ProphecyMenu`.
+
+## Never compare an array to None (2026-11-06)
+
+`If myArray == None` compiles but is a **fatal runtime error** (`Error: Cannot cast from None to Actor[]` in the
+Papyrus log) that aborts the whole function at that line; everything after it silently never runs. Test arrays as
+booleans instead: `If !myArray` is true for a None array and for an empty one, `If myArray` for one with elements.
+Found in the Fog Wood arena, whose load handler died before it could move the entry stone
+([`patches/FogWood.md`](../patches/FogWood.md)).
+
+## Quest script property values live in the save (2026-11-06)
+
+A property's value is read from the plugin only when the script instance is created; from then on the save holds
+it, and a rebuilt plugin with a new value changes nothing for an existing save. Anything a later build must be able
+to change (a position, a FormID, a version number) belongs in an `AutoReadOnly` property, which the compiler bakes
+into the `.pex` as a literal, and a form looked up by `Game.GetFormFromFile`. New properties (absent from the save)
+do initialise from the plugin. Found when the Fog Wood stone would not move
+([`patches/FogWood.md`](../patches/FogWood.md)).
+
+## `<Global=...>` in objective text needs `UpdateCurrentInstanceGlobal` (2026-11-06)
+
+The tag reads the quest instance's snapshot of the global, not its live value; call
+`UpdateCurrentInstanceGlobal(theGlobal)` on the quest after changing it and before `SetObjectiveDisplayed`
+(37 Enderal scripts do). A tag the engine does not replace reaches the HUD as `<Global=...>`, and the HUD's
+Scaleform text field treats it as HTML: the tag and everything after it vanish, so "Wave <Global=X> cleared"
+shows as "Wave ". Found by the Fog Wood banner ([`patches/FogWood.md`](../patches/FogWood.md)).
+
+## `<Global=...>` needs the quest's Text Display Globals, captured at quest start (2026-11-06)
+
+Correction to the entry above: `UpdateCurrentInstanceGlobal` refreshes only globals the quest record lists in its
+**Text Display Globals** (QTGL; Spriggit `TextDisplayGlobals:`), which the quest instance captures when it starts.
+A global missing from QTGL is never replaced, and a quest that started (in a save) before QTGL named the global
+never captures it: the quest must be stopped and started again once. The Fog Wood does that from the Fogbound
+Stone's own script (outside the quest), after the quest parks what must survive in a FormList
+([`patches/FogWood.md`](../patches/FogWood.md)). The same restart is what makes a rebuilt plugin's new or changed
+script property values reach an old save.

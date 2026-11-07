@@ -1,0 +1,412 @@
+FormKey: 000802:Enderal - Forgotten Stories.esm
+Version2: 1
+NavMeshVersion: 12
+MapInfos:
+- NavigationMesh: 000910:Zenderal - Fog Wood.esp
+  Point: -10240, -10240, 21.3149
+  MergedTo:
+  - 000911:Zenderal - Fog Wood.esp
+  - 000916:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -3, -3
+- NavigationMesh: 000911:Zenderal - Fog Wood.esp
+  Point: -10240, -6144, -16.083
+  MergedTo:
+  - 000910:Zenderal - Fog Wood.esp
+  - 000912:Zenderal - Fog Wood.esp
+  - 000917:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -2, -3
+- NavigationMesh: 000912:Zenderal - Fog Wood.esp
+  Point: -10240, -2048, 3.2111
+  MergedTo:
+  - 000911:Zenderal - Fog Wood.esp
+  - 000913:Zenderal - Fog Wood.esp
+  - 000918:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -1, -3
+- NavigationMesh: 000913:Zenderal - Fog Wood.esp
+  Point: -10240, 2048, 12.5398
+  MergedTo:
+  - 000912:Zenderal - Fog Wood.esp
+  - 000914:Zenderal - Fog Wood.esp
+  - 000919:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 0, -3
+- NavigationMesh: 000914:Zenderal - Fog Wood.esp
+  Point: -10240, 6144, -23.1696
+  MergedTo:
+  - 000913:Zenderal - Fog Wood.esp
+  - 000915:Zenderal - Fog Wood.esp
+  - 00091A:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 1, -3
+- NavigationMesh: 000915:Zenderal - Fog Wood.esp
+  Point: -10240, 10240, 22.3391
+  MergedTo:
+  - 000914:Zenderal - Fog Wood.esp
+  - 00091B:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 2, -3
+- NavigationMesh: 000916:Zenderal - Fog Wood.esp
+  Point: -6144, -10240, -12.6782
+  MergedTo:
+  - 000910:Zenderal - Fog Wood.esp
+  - 000917:Zenderal - Fog Wood.esp
+  - 00091C:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -3, -2
+- NavigationMesh: 000917:Zenderal - Fog Wood.esp
+  Point: -6144, -6144, 11.2941
+  MergedTo:
+  - 000911:Zenderal - Fog Wood.esp
+  - 000916:Zenderal - Fog Wood.esp
+  - 000918:Zenderal - Fog Wood.esp
+  - 00091D:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -2, -2
+- NavigationMesh: 000918:Zenderal - Fog Wood.esp
+  Point: -6144, -2048, -3.2941
+  MergedTo:
+  - 000912:Zenderal - Fog Wood.esp
+  - 000917:Zenderal - Fog Wood.esp
+  - 000919:Zenderal - Fog Wood.esp
+  - 00091E:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -1, -2
+- NavigationMesh: 000919:Zenderal - Fog Wood.esp
+  Point: -6144, 2048, -7.9723
+  MergedTo:
+  - 000913:Zenderal - Fog Wood.esp
+  - 000918:Zenderal - Fog Wood.esp
+  - 00091A:Zenderal - Fog Wood.esp
+  - 00091F:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 0, -2
+- NavigationMesh: 00091A:Zenderal - Fog Wood.esp
+  Point: -6144, 6144, 15.4187
+  MergedTo:
+  - 000914:Zenderal - Fog Wood.esp
+  - 000919:Zenderal - Fog Wood.esp
+  - 00091B:Zenderal - Fog Wood.esp
+  - 000920:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 1, -2
+- NavigationMesh: 00091B:Zenderal - Fog Wood.esp
+  Point: -6144, 10240, -13.4256
+  MergedTo:
+  - 000915:Zenderal - Fog Wood.esp
+  - 00091A:Zenderal - Fog Wood.esp
+  - 000921:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 2, -2
+- NavigationMesh: 00091C:Zenderal - Fog Wood.esp
+  Point: -2048, -10240, -7.2803
+  MergedTo:
+  - 000916:Zenderal - Fog Wood.esp
+  - 00091D:Zenderal - Fog Wood.esp
+  - 000922:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -3, -1
+- NavigationMesh: 00091D:Zenderal - Fog Wood.esp
+  Point: -2048, -6144, 3.9585
+  MergedTo:
+  - 000917:Zenderal - Fog Wood.esp
+  - 00091C:Zenderal - Fog Wood.esp
+  - 00091E:Zenderal - Fog Wood.esp
+  - 000923:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -2, -1
+- NavigationMesh: 00091E:Zenderal - Fog Wood.esp
+  Point: -2048, -2048, -0.4152
+  MergedTo:
+  - 000918:Zenderal - Fog Wood.esp
+  - 00091D:Zenderal - Fog Wood.esp
+  - 00091F:Zenderal - Fog Wood.esp
+  - 000924:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -1, -1
+- NavigationMesh: 00091F:Zenderal - Fog Wood.esp
+  Point: -2048, 2048, -3.4602
+  MergedTo:
+  - 000919:Zenderal - Fog Wood.esp
+  - 00091E:Zenderal - Fog Wood.esp
+  - 000920:Zenderal - Fog Wood.esp
+  - 000925:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 0, -1
+- NavigationMesh: 000920:Zenderal - Fog Wood.esp
+  Point: -2048, 6144, 6.8927
+  MergedTo:
+  - 00091A:Zenderal - Fog Wood.esp
+  - 00091F:Zenderal - Fog Wood.esp
+  - 000921:Zenderal - Fog Wood.esp
+  - 000926:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 1, -1
+- NavigationMesh: 000921:Zenderal - Fog Wood.esp
+  Point: -2048, 10240, -8.1938
+  MergedTo:
+  - 00091B:Zenderal - Fog Wood.esp
+  - 000920:Zenderal - Fog Wood.esp
+  - 000927:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 2, -1
+- NavigationMesh: 000922:Zenderal - Fog Wood.esp
+  Point: 2048, -10240, 20.955
+  MergedTo:
+  - 00091C:Zenderal - Fog Wood.esp
+  - 000923:Zenderal - Fog Wood.esp
+  - 000928:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -3, 0
+- NavigationMesh: 000923:Zenderal - Fog Wood.esp
+  Point: 2048, -6144, -16.5536
+  MergedTo:
+  - 00091D:Zenderal - Fog Wood.esp
+  - 000922:Zenderal - Fog Wood.esp
+  - 000924:Zenderal - Fog Wood.esp
+  - 000929:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -2, 0
+- NavigationMesh: 000924:Zenderal - Fog Wood.esp
+  Point: 2048, -2048, 3.5156
+  MergedTo:
+  - 00091E:Zenderal - Fog Wood.esp
+  - 000923:Zenderal - Fog Wood.esp
+  - 000925:Zenderal - Fog Wood.esp
+  - 00092A:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -1, 0
+- NavigationMesh: 000925:Zenderal - Fog Wood.esp
+  Point: 2048, 2048, 12.6505
+  MergedTo:
+  - 00091F:Zenderal - Fog Wood.esp
+  - 000924:Zenderal - Fog Wood.esp
+  - 000926:Zenderal - Fog Wood.esp
+  - 00092B:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 0, 0
+- NavigationMesh: 000926:Zenderal - Fog Wood.esp
+  Point: 2048, 6144, -23.474
+  MergedTo:
+  - 000920:Zenderal - Fog Wood.esp
+  - 000925:Zenderal - Fog Wood.esp
+  - 000927:Zenderal - Fog Wood.esp
+  - 00092C:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 1, 0
+- NavigationMesh: 000927:Zenderal - Fog Wood.esp
+  Point: 2048, 10240, 22.2007
+  MergedTo:
+  - 000921:Zenderal - Fog Wood.esp
+  - 000926:Zenderal - Fog Wood.esp
+  - 00092D:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 2, 0
+- NavigationMesh: 000928:Zenderal - Fog Wood.esp
+  Point: 6144, -10240, -16.8858
+  MergedTo:
+  - 000922:Zenderal - Fog Wood.esp
+  - 000929:Zenderal - Fog Wood.esp
+  - 00092E:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -3, 1
+- NavigationMesh: 000929:Zenderal - Fog Wood.esp
+  Point: 6144, -6144, 14.4221
+  MergedTo:
+  - 000923:Zenderal - Fog Wood.esp
+  - 000928:Zenderal - Fog Wood.esp
+  - 00092A:Zenderal - Fog Wood.esp
+  - 00092F:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -2, 1
+- NavigationMesh: 00092A:Zenderal - Fog Wood.esp
+  Point: 6144, -2048, -2.9619
+  MergedTo:
+  - 000924:Zenderal - Fog Wood.esp
+  - 000929:Zenderal - Fog Wood.esp
+  - 00092B:Zenderal - Fog Wood.esp
+  - 000930:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -1, 1
+- NavigationMesh: 00092B:Zenderal - Fog Wood.esp
+  Point: 6144, 2048, -10.9619
+  MergedTo:
+  - 000925:Zenderal - Fog Wood.esp
+  - 00092A:Zenderal - Fog Wood.esp
+  - 00092C:Zenderal - Fog Wood.esp
+  - 000931:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 0, 1
+- NavigationMesh: 00092C:Zenderal - Fog Wood.esp
+  Point: 6144, 6144, 19.0173
+  MergedTo:
+  - 000926:Zenderal - Fog Wood.esp
+  - 00092B:Zenderal - Fog Wood.esp
+  - 00092D:Zenderal - Fog Wood.esp
+  - 000932:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 1, 1
+- NavigationMesh: 00092D:Zenderal - Fog Wood.esp
+  Point: 6144, 10240, -15.4187
+  MergedTo:
+  - 000927:Zenderal - Fog Wood.esp
+  - 00092C:Zenderal - Fog Wood.esp
+  - 000933:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 2, 1
+- NavigationMesh: 00092E:Zenderal - Fog Wood.esp
+  Point: 10240, -10240, -2.519
+  MergedTo:
+  - 000928:Zenderal - Fog Wood.esp
+  - 00092F:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -3, 2
+- NavigationMesh: 00092F:Zenderal - Fog Wood.esp
+  Point: 10240, -6144, 1.5502
+  MergedTo:
+  - 000929:Zenderal - Fog Wood.esp
+  - 00092E:Zenderal - Fog Wood.esp
+  - 000930:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -2, 2
+- NavigationMesh: 000930:Zenderal - Fog Wood.esp
+  Point: 10240, -2048, -0.9965
+  MergedTo:
+  - 00092A:Zenderal - Fog Wood.esp
+  - 00092F:Zenderal - Fog Wood.esp
+  - 000931:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: -1, 2
+- NavigationMesh: 000931:Zenderal - Fog Wood.esp
+  Point: 10240, 2048, -0.2215
+  MergedTo:
+  - 00092B:Zenderal - Fog Wood.esp
+  - 000930:Zenderal - Fog Wood.esp
+  - 000932:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 0, 2
+- NavigationMesh: 000932:Zenderal - Fog Wood.esp
+  Point: 10240, 6144, 3.4325
+  MergedTo:
+  - 00092C:Zenderal - Fog Wood.esp
+  - 000931:Zenderal - Fog Wood.esp
+  - 000933:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 1, 2
+- NavigationMesh: 000933:Zenderal - Fog Wood.esp
+  Point: 10240, 10240, -5.4256
+  MergedTo:
+  - 00092D:Zenderal - Fog Wood.esp
+  - 000932:Zenderal - Fog Wood.esp
+  Unknown2: -1511415748
+  Parent:
+    MutagenObjectType: NavigationMapInfoWorldParent
+    ParentWorldspace: 000800:Zenderal - Fog Wood.esp
+    ParentWorldspaceCoord: 2, 2

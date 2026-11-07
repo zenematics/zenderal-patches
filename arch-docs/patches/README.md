@@ -127,3 +127,4 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`PistolRamrodReload`](PistolRamrodReload.md) | `Zenderal - Pistol Ramrod Reload.esp` (12 ANIO, arm quest, 2 SNDR, 1 GMST) + generated OAR clips/props, MO2 mod `Zenderal - Pistol Ramrod Reload`, Pandora patch `zpistolreload`: our own ramrod reload after a pistol shot (either hand, other hand empty; third and first person) | `0x800–0x80C` |
 | [`ZenBoneTrace`](ZenBoneTrace.md) | `ZenBoneTrace.dll`: testing tool, logs the player's 3P arm bones every frame after a spell-fire, to diff against a clip | none (no plugin) |
 | [`CompassNavigationOverhaulFork`](CompassNavigationOverhaulFork.md) | rebuilt `SKSE/Plugins/CompassNavigationOverhaul.dll`, copied into the third-party mod `Compass Navigation Overhaul - Enderal Patch` | none (no plugin) |
+| [`FogWood`](FogWood.md) | `Zenderal - Fog Wood.esp` (full plugin; + scripts, to come) | `0x800–0x337A` |

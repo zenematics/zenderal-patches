@@ -1,0 +1,20 @@
+FormKey: 000802:Zenderal - Fog Wood.esp
+EditorID: ZFW_FogWoodClimate
+Version2: 7
+WeatherTypes:
+- Weather: 000803:Zenderal - Fog Wood.esp
+  Chance: 100
+SunTexture: Sky\Sun.dds
+SunGlareTexture: Sky\SunGlare.dds
+Model:
+  File: Sky\Stars.nif
+  Data: 0x020000000000000000000000
+SunriseBegin: 05:00:00.0000000
+SunriseEnd: 10:50:00.0000000
+SunsetBegin: 16:40:00.0000000
+SunsetEnd: 21:10:00.0000000
+Volatility: 38
+Moons:
+- Masser
+- Secunda
+PhaseLength: 3

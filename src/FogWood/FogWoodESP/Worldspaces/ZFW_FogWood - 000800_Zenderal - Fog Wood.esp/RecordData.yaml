@@ -1,0 +1,517 @@
+FormKey: 000800:Zenderal - Fog Wood.esp
+EditorID: ZFW_FogWood
+Name:
+  TargetLanguage: English
+  Value: The Fog Wood
+Climate: 000802:Zenderal - Fog Wood.esp
+Water: 000018:Skyrim.esm
+LodWater: 000018:Skyrim.esm
+LodWaterHeight: -30000
+LandDefaults:
+  DefaultLandHeight: -2048
+  DefaultWaterHeight: -30000
+MapData:
+  CameraMinHeight: 50000
+  CameraMaxHeight: 80000
+  CameraInitialPitch: 50
+WorldMapOffsetScale: 1
+DistantLodMultiplier: 1
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -4, -4
+ObjectBoundsMax: 3, 3
+Music: 097C29:Skyrim.esm
+TopCell:
+  FormKey: 000801:Zenderal - Fog Wood.esp
+  MajorRecordFlagsRaw: 1024
+  Version2: 3
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Persistent:
+  - MutagenObjectType: PlacedObject
+    FormKey: 000954:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 0, 0, 72
+      Rotation: 0, 0, 0
+  - MutagenObjectType: PlacedObject
+    FormKey: 000955:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 2304, 0, 32
+      Rotation: 0, 0, 3.1416
+  - MutagenObjectType: PlacedObject
+    FormKey: 000956:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 2048, 1024, 48
+      Rotation: 0, 0, -2.6779
+  - MutagenObjectType: PlacedObject
+    FormKey: 000957:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1024, 2048, 16
+      Rotation: 0, 0, -2.0344
+  - MutagenObjectType: PlacedObject
+    FormKey: 000958:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 0, 2304, 32
+      Rotation: 0, 0, -1.5708
+  - MutagenObjectType: PlacedObject
+    FormKey: 000959:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1024, 2048, 48
+      Rotation: 0, 0, -1.1071
+  - MutagenObjectType: PlacedObject
+    FormKey: 00095A:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -2048, 1024, 16
+      Rotation: 0, 0, -0.4636
+  - MutagenObjectType: PlacedObject
+    FormKey: 00095B:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -2304, 0, -40
+      Rotation: 0, 0, 0
+  - MutagenObjectType: PlacedObject
+    FormKey: 00095C:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -2048, -1024, 0
+      Rotation: 0, 0, 0.4636
+  - MutagenObjectType: PlacedObject
+    FormKey: 00095D:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1024, -2048, -8
+      Rotation: 0, 0, 1.1071
+  - MutagenObjectType: PlacedObject
+    FormKey: 00095E:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 0, -2304, 8
+      Rotation: 0, 0, 1.5708
+  - MutagenObjectType: PlacedObject
+    FormKey: 00095F:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1280, -2048, 24
+      Rotation: 0, 0, 2.1294
+  - MutagenObjectType: PlacedObject
+    FormKey: 000960:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 2048, -1024, 72
+      Rotation: 0, 0, 2.6779
+  - MutagenObjectType: PlacedObject
+    FormKey: 000961:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000805:Zenderal - Fog Wood.esp
+    Placement:
+      Position: 0, 320, 48
+      Rotation: 0, 0, 3.1416
+  - MutagenObjectType: PlacedObject
+    FormKey: 000962:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -256, 1024, 24
+      Rotation: 0, 0, 3.2459
+  - MutagenObjectType: PlacedObject
+    FormKey: 000963:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -2560, 512, -40
+      Rotation: 0, 0, 2.0935
+  - MutagenObjectType: PlacedObject
+    FormKey: 000964:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -512, -1792, -24
+      Rotation: 0, 0, 0.7985
+  - MutagenObjectType: PlacedObject
+    FormKey: 000965:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 0, -1792, -8
+      Rotation: 0, 0, 5.917
+  - MutagenObjectType: PlacedObject
+    FormKey: 000966:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 512, -1024, 16
+      Rotation: 0, 0, 2.341
+  - MutagenObjectType: PlacedObject
+    FormKey: 000967:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1536, 0, -24
+      Rotation: 0, 0, 2.1716
+  - MutagenObjectType: PlacedObject
+    FormKey: 000968:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1280, 768, 0
+      Rotation: 0, 0, 0.8128
+  - MutagenObjectType: PlacedObject
+    FormKey: 000969:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 256, 1280, 24
+      Rotation: 0, 0, 1.5733
+  - MutagenObjectType: PlacedObject
+    FormKey: 00096A:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1792, -1792, 32
+      Rotation: 0, 0, 5.0364
+  - MutagenObjectType: PlacedObject
+    FormKey: 00096B:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1536, -2048, -24
+      Rotation: 0, 0, 3.9337
+  - MutagenObjectType: PlacedObject
+    FormKey: 00096C:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -768, 1536, 40
+      Rotation: 0, 0, 5.716
+  - MutagenObjectType: PlacedObject
+    FormKey: 00096D:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1536, 256, 48
+      Rotation: 0, 0, 3.0993
+  - MutagenObjectType: PlacedObject
+    FormKey: 00096E:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 768, 1024, 32
+      Rotation: 0, 0, 1.3452
+  - MutagenObjectType: PlacedObject
+    FormKey: 00096F:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 0, -1280, -8
+      Rotation: 0, 0, 5.5108
+  - MutagenObjectType: PlacedObject
+    FormKey: 000970:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -2048, -1536, -16
+      Rotation: 0, 0, 5.0622
+  - MutagenObjectType: PlacedObject
+    FormKey: 000971:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 2304, 512, 16
+      Rotation: 0, 0, 1.5827
+  - MutagenObjectType: PlacedObject
+    FormKey: 000972:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -512, 2304, 16
+      Rotation: 0, 0, 1.3684
+  - MutagenObjectType: PlacedObject
+    FormKey: 000973:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1536, -1536, -32
+      Rotation: 0, 0, 0.3703
+  - MutagenObjectType: PlacedObject
+    FormKey: 000974:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1792, -256, 32
+      Rotation: 0, 0, 1.916
+  - MutagenObjectType: PlacedObject
+    FormKey: 000975:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1536, -512, -16
+      Rotation: 0, 0, 1.265
+  - MutagenObjectType: PlacedObject
+    FormKey: 000976:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1024, 1536, 8
+      Rotation: 0, 0, 0.7054
+  - MutagenObjectType: PlacedObject
+    FormKey: 000977:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 256, 1792, 16
+      Rotation: 0, 0, 2.2346
+  - MutagenObjectType: PlacedObject
+    FormKey: 000978:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 512, -2048, 8
+      Rotation: 0, 0, 5.3438
+  - MutagenObjectType: PlacedObject
+    FormKey: 000979:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1536, 1792, -8
+      Rotation: 0, 0, 2.4031
+  - MutagenObjectType: PlacedObject
+    FormKey: 00097A:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 512, -1536, 16
+      Rotation: 0, 0, 2.8148
+  - MutagenObjectType: PlacedObject
+    FormKey: 00097B:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -256, 1792, 32
+      Rotation: 0, 0, 3.0998
+  - MutagenObjectType: PlacedObject
+    FormKey: 00097C:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1536, 1792, 24
+      Rotation: 0, 0, 0.3072
+  - MutagenObjectType: PlacedObject
+    FormKey: 00097D:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1536, 1280, 24
+      Rotation: 0, 0, 6.0388
+  - MutagenObjectType: PlacedObject
+    FormKey: 00097E:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -512, -1024, -8
+      Rotation: 0, 0, 5.471
+  - MutagenObjectType: PlacedObject
+    FormKey: 00097F:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1280, 1024, 32
+      Rotation: 0, 0, 3.2334
+  - MutagenObjectType: PlacedObject
+    FormKey: 000980:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1024, 256, 8
+      Rotation: 0, 0, 0.2955
+  - MutagenObjectType: PlacedObject
+    FormKey: 000981:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1536, -768, 48
+      Rotation: 0, 0, 3.7341
+  - MutagenObjectType: PlacedObject
+    FormKey: 000982:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1024, -1280, 40
+      Rotation: 0, 0, 5.8324
+  - MutagenObjectType: PlacedObject
+    FormKey: 000983:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1024, -1024, -16
+      Rotation: 0, 0, 2.0868
+  - MutagenObjectType: PlacedObject
+    FormKey: 000984:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -512, -2304, -8
+      Rotation: 0, 0, 5.0663
+  - MutagenObjectType: PlacedObject
+    FormKey: 000985:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1024, -768, 40
+      Rotation: 0, 0, 5.6357
+  - MutagenObjectType: PlacedObject
+    FormKey: 000986:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1280, -256, 40
+      Rotation: 0, 0, 4.2757
+  - MutagenObjectType: PlacedObject
+    FormKey: 000987:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 2304, -512, 32
+      Rotation: 0, 0, 5.9004
+  - MutagenObjectType: PlacedObject
+    FormKey: 000988:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: -1024, -256, 8
+      Rotation: 0, 0, 3.836
+  - MutagenObjectType: PlacedObject
+    FormKey: 000989:Zenderal - Fog Wood.esp
+    MajorRecordFlagsRaw: 1024
+    SkyrimMajorRecordFlags:
+    - 0x400
+    Base: 000034:Skyrim.esm
+    Placement:
+      Position: 1536, -1280, 56
+      Rotation: 0, 0, 0.2492

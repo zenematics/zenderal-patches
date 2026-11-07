@@ -1,0 +1,1154 @@
+FormKey: 000804:Zenderal - Fog Wood.esp
+EditorID: ZFW_Arena
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZFW_ArenaQuest
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ArenaFaction
+      Object: 000806:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FogStone
+      Object: 000805:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StoneAnchor
+      Object: 132F43:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EntryMarker
+      Object: 000954:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: SpawnMarkers
+      Objects:
+      - Name: ''
+        Object: 000955:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000956:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000957:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000958:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000959:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00095A:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00095B:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00095C:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00095D:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00095E:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00095F:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000960:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FogWoodWorld
+      Object: 000800:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Tier1
+      Object: 000807:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Tier2
+      Object: 000808:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Tier3
+      Object: 000809:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Tier4
+      Object: 00080A:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Tier5
+      Object: 00080B:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HealthPotions
+      Object: 00080D:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ManaPotions
+      Object: 000817:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Ambrosia
+      Object: 0FEC69:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Themes
+      Object: 000818:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WaveSize
+      Object: 000819:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ChestBase
+      Object: 00081A:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CachePotions
+      Object: 00081B:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StaminaPotion
+      Object: 11A52F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: CacheMarkers
+      Objects:
+      - Name: ''
+        Object: 000962:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000963:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000964:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000965:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000966:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000967:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000968:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000969:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00096A:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00096B:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00096C:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00096D:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00096E:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00096F:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000970:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000971:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000972:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000973:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000974:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000975:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000976:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000977:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000978:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000979:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00097A:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00097B:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00097C:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00097D:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00097E:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 00097F:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000980:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000981:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000982:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000983:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000984:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000985:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000986:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000987:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000988:Zenderal - Fog Wood.esp
+      - Name: ''
+        Object: 000989:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: QuestVersion
+      Object: 00081C:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Persist
+      Object: 00081D:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BestWave
+      Object: 00080E:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CurrentWave
+      Object: 00080F:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EnterMsg
+      Object: 000810:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LeaveMsg
+      Object: 000811:Zenderal - Fog Wood.esp
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 0
+    Scripts:
+    - Name: ZFW_PlayerAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 1
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 2
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 3
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 4
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 5
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 6
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 7
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 8
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 9
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 10
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 11
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 12
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 13
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 14
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 15
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 16
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 17
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 18
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 19
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 20
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 21
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 22
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 23
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 24
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 25
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 26
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 27
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 28
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 29
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 30
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 31
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 32
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 33
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 34
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 35
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 36
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 37
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 38
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 39
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+  - Property:
+      Name: ''
+      Object: 000804:Zenderal - Fog Wood.esp
+      Alias: 40
+    Scripts:
+    - Name: ZFW_SpawnAlias
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Arena
+        Object: 000804:Zenderal - Fog Wood.esp
+Name:
+  TargetLanguage: English
+  Value: The Fog Wood
+Flags:
+- StartGameEnabled
+Type: Misc
+TextDisplayGlobals:
+- 00080F:Zenderal - Fog Wood.esp
+- 000819:Zenderal - Fog Wood.esp
+- 00080E:Zenderal - Fog Wood.esp
+NextAliasID: 41
+Objectives:
+- Index: 1
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave> cleared. The fog stirs...'
+  Targets: []
+- Index: 2
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'The Fog Wood. The first wave comes.'
+  Targets: []
+- Index: 3
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'The fog has left new caches in the wood.'
+  Targets: []
+- Index: 10
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Fleshless Lost Ones'
+  Targets: []
+- Index: 11
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Lost Ones'
+  Targets: []
+- Index: 12
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Goblins'
+  Targets: []
+- Index: 13
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Wolves and Werewolves'
+  Targets: []
+- Index: 14
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Arps'
+  Targets: []
+- Index: 15
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Goblin Warband'
+  Targets: []
+- Index: 16
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Lost One Warband'
+  Targets: []
+- Index: 17
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Fleshless Host'
+  Targets: []
+- Index: 18
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Vatyrs'
+  Targets: []
+- Index: 19
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Pus Beetles'
+  Targets: []
+- Index: 20
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Withered Lost Ones'
+  Targets: []
+- Index: 21
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Spiders'
+  Targets: []
+- Index: 22
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Hunting Cats'
+  Targets: []
+- Index: 23
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Snow Wolves and Werewolves'
+  Targets: []
+- Index: 24
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Cave Trolls'
+  Targets: []
+- Index: 25
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Bears'
+  Targets: []
+- Index: 26
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Spirits'
+  Targets: []
+- Index: 27
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Vatyr Warband'
+  Targets: []
+- Index: 28
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Lords of the Lost Ones and their Dead'
+  Targets: []
+- Index: 29
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Elder Vatyrs'
+  Targets: []
+- Index: 30
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Ice Bears'
+  Targets: []
+- Index: 31
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Grotesque Lost Ones'
+  Targets: []
+- Index: 32
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Bandits'
+  Targets: []
+- Index: 33
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Marauders'
+  Targets: []
+- Index: 34
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Wild Mages and Thralls'
+  Targets: []
+- Index: 35
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Global=ZFW_WaveSize> Restless Spirits'
+  Targets: []
+- Index: 50
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Fleshless Lost Ones'
+  Targets: []
+- Index: 51
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Lost Ones'
+  Targets: []
+- Index: 52
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Goblins'
+  Targets: []
+- Index: 53
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Wolves and Werewolves'
+  Targets: []
+- Index: 54
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Arps'
+  Targets: []
+- Index: 55
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Goblin Warband'
+  Targets: []
+- Index: 56
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Lost One Warband'
+  Targets: []
+- Index: 57
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Fleshless Host'
+  Targets: []
+- Index: 58
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Vatyrs'
+  Targets: []
+- Index: 59
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Pus Beetles'
+  Targets: []
+- Index: 60
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Withered Lost Ones'
+  Targets: []
+- Index: 61
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Spiders'
+  Targets: []
+- Index: 62
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Hunting Cats'
+  Targets: []
+- Index: 63
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Snow Wolves and Werewolves'
+  Targets: []
+- Index: 64
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Cave Trolls'
+  Targets: []
+- Index: 65
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Bears'
+  Targets: []
+- Index: 66
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Spirits'
+  Targets: []
+- Index: 67
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Vatyr Warband'
+  Targets: []
+- Index: 68
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Lords of the Lost Ones and their Dead'
+  Targets: []
+- Index: 69
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Elder Vatyrs'
+  Targets: []
+- Index: 70
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Ice Bears'
+  Targets: []
+- Index: 71
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Grotesque Lost Ones'
+  Targets: []
+- Index: 72
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Bandits'
+  Targets: []
+- Index: 73
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Marauders'
+  Targets: []
+- Index: 74
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Wild Mages and Thralls'
+  Targets: []
+- Index: 75
+  Flags: []
+  DisplayText:
+    TargetLanguage: English
+    Value: 'Wave <Global=ZFW_CurrentWave>: <Alias=ZFW_Spawn01> leads <Global=ZFW_WaveSize> Restless Spirits'
+  Targets: []
+Aliases:
+- ID: 0
+  Name: ZFW_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null
+- ID: 1
+  Name: ZFW_Spawn01
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 2
+  Name: ZFW_Spawn02
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 3
+  Name: ZFW_Spawn03
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 4
+  Name: ZFW_Spawn04
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 5
+  Name: ZFW_Spawn05
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 6
+  Name: ZFW_Spawn06
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 7
+  Name: ZFW_Spawn07
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 8
+  Name: ZFW_Spawn08
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 9
+  Name: ZFW_Spawn09
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 10
+  Name: ZFW_Spawn10
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 11
+  Name: ZFW_Spawn11
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 12
+  Name: ZFW_Spawn12
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 13
+  Name: ZFW_Spawn13
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 14
+  Name: ZFW_Spawn14
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 15
+  Name: ZFW_Spawn15
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 16
+  Name: ZFW_Spawn16
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 17
+  Name: ZFW_Spawn17
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 18
+  Name: ZFW_Spawn18
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 19
+  Name: ZFW_Spawn19
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 20
+  Name: ZFW_Spawn20
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 21
+  Name: ZFW_Spawn21
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 22
+  Name: ZFW_Spawn22
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 23
+  Name: ZFW_Spawn23
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 24
+  Name: ZFW_Spawn24
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 25
+  Name: ZFW_Spawn25
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 26
+  Name: ZFW_Spawn26
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 27
+  Name: ZFW_Spawn27
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 28
+  Name: ZFW_Spawn28
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 29
+  Name: ZFW_Spawn29
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 30
+  Name: ZFW_Spawn30
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 31
+  Name: ZFW_Spawn31
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 32
+  Name: ZFW_Spawn32
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 33
+  Name: ZFW_Spawn33
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 34
+  Name: ZFW_Spawn34
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 35
+  Name: ZFW_Spawn35
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 36
+  Name: ZFW_Spawn36
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 37
+  Name: ZFW_Spawn37
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 38
+  Name: ZFW_Spawn38
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 39
+  Name: ZFW_Spawn39
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 40
+  Name: ZFW_Spawn40
+  Flags:
+  - Optional
+  VoiceTypes: Null

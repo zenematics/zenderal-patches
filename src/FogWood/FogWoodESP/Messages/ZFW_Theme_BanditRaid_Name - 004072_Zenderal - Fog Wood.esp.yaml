@@ -1,0 +1,11 @@
+FormKey: 004072:Zenderal - Fog Wood.esp
+EditorID: ZFW_Theme_BanditRaid_Name
+Name:
+  TargetLanguage: English
+  Value: 'Bandits'
+Description:
+  TargetLanguage: English
+  Value: 'Bandits'
+INAM: 0x00000000
+Flags: []
+MenuButtons: []

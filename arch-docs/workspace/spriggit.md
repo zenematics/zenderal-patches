@@ -133,6 +133,20 @@ lookup copies are the same files — there is no second copy to drift.
   fine and keeps the conflict surface to the WRLD fields. Copy the file and cut it with a script —
   do not retype it (guardrail 4).
 
+- **A quest alias script binds only when its VMAD `Property` carries `Object: <the quest's own FormKey>`** next to
+  `Alias: <id>`. Without the `Object` line the plugin builds and the quest runs, but the Papyrus log says `Unable to
+  bind script X to <nullptr alias> (0) on <nullptr quest> (00000000)` and no alias event ever fires. Every SureAI
+  quest has it (`Abilities 0EEE9B`). Cost the Fog Wood a death test. **[verified 2026-11-06]**
+- **A generated navmesh that only drops triangles keeps the blocked vertices**, and Papyrus Extender's
+  `MoveToNearestNavmeshLocation` snaps to the nearest **vertex**: a ref snapped near a tree can land exactly on the
+  trunk. Place on your own markers instead (Fog Wood caches, 2026-11-06).
+- **Navmesh parent cells are written Y, X.** **[verified 2026-11-05]** A NAVM's `Parent.Coordinates` and a NAVI
+  entry's `ParentWorldspaceCoord` hold the cell as `Y, X` (SureAI's navmesh in cell (-21, 4) reads
+  `Coordinates: 4, -21`; all 3,001 Vyn navmeshes and 5,823 NAVI entries checked). Writing `X, Y` registers every
+  off-diagonal navmesh under the transposed cell, and the Fog Wood's first fresh build crashed every save load in an
+  unrelated NPC's movement controller (`SkyrimSE.exe+1215C4B`). And **every NAVM needs a NAVI entry**: a build
+  without the NAVI record crashed at boot in `NavMeshInfoMap` init (`SkyrimSE.exe+04E0234`).
+  → [`../patches/FogWood.md`](../patches/FogWood.md)
 - **A `PlacedObject`'s record flags are raw, not named.** **[verified 2026-10-18]** `MajorFlags: [DoNotHavokSettle]`
   works on a `PlacedNpc` but is **silently dropped** on a `PlacedObject` (built REFR flags = 0). Write the
   raw form right after `FormKey:`, as Spriggit itself serializes it:

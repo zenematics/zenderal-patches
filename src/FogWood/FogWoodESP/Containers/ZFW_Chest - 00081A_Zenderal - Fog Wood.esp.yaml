@@ -1,0 +1,17 @@
+FormKey: 00081A:Zenderal - Fog Wood.esp
+MajorRecordFlagsRaw: 134217728
+EditorID: ZFW_Chest
+Version2: 9
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Value: Fogbound Cache
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x02000000020000000000000045DAC1AB64647300B3B824948F26217C64647300B3B82494
+MajorFlags:
+- NavMeshGenerationBoundingBox

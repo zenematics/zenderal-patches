@@ -1,0 +1,20 @@
+FormKey: 000805:Zenderal - Fog Wood.esp
+EditorID: ZFW_FogStone
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZFW_StoneScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Arena
+      Object: 000804:Zenderal - Fog Wood.esp
+ObjectBounds:
+  First: -64, -64, -16
+  Second: 64, 64, 320
+Name:
+  TargetLanguage: English
+  Value: Fogbound Stone
+Model:
+  File: Clutter\PowerShrines\PowerShrine01\ShadowStone.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []

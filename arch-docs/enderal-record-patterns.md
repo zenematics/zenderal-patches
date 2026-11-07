@@ -359,3 +359,14 @@ Run through this before packaging. The `spriggit-formkey-auditor` subagent can c
 **And the rule that supersedes all of the above:** a clean deserialize, a clean xEdit report, and a
 clean Papyrus compile prove the patch *builds*. They prove nothing about whether it *runs*. Deploy
 to a real Zenderal profile and look at it with your own eyes before you call it done.
+
+## A faction's members are not allies unless the faction is Ally to itself (2026-11-06)
+
+A new FACT with `Relations: [PlayerFaction: Enemy]` and nothing else makes its members **neutral** to each other,
+not allies: the engine reads only the interfaction relations, and there is no implicit self-relation. A neutral
+hit by a stray swing or an area spell is being attacked and fights back (`IgnoreFriendlyHits` covers friendly
+hits only). Enderal's data shows the pattern: 102 of its 339 factions carry `Reaction: Ally` with their own
+FormKey as target (`UndeadFaction 005104`, `AnimalFaction 046E73`; `Creature_WolfFaction 103D94` has that as
+its *only* relation). Found by the Fog Wood arena after three guessed fixes
+([`patches/FogWood.md`](patches/FogWood.md), postmortem). Any faction you create for a group that must not
+fight itself: add the faction to its own `Relations` as `Ally`.

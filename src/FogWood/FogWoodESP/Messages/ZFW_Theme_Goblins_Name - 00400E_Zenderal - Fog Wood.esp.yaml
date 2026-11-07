@@ -1,0 +1,11 @@
+FormKey: 00400E:Zenderal - Fog Wood.esp
+EditorID: ZFW_Theme_Goblins_Name
+Name:
+  TargetLanguage: English
+  Value: 'Goblins'
+Description:
+  TargetLanguage: English
+  Value: 'Goblins'
+INAM: 0x00000000
+Flags: []
+MenuButtons: []
