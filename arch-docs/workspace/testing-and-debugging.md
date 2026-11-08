@@ -58,6 +58,30 @@ Two fields to read first, before the call stack:
 The plugin list in a `.ess` save is a second, independent source for what the engine actually
 loaded — useful when the game will not start at all.
 
+**When Crash Logger writes nothing, Windows usually still caught it.** **[verified 2026-11-06]** On the curator's
+PC a crash in Better Third Person Selection left no `crash-*.log`. Two places still had it:
+
+- **The WER report** `C:\ProgramData\Microsoft\Windows\WER\ReportArchive\AppCrash_SkyrimSE.exe_*\Report.wer`
+  (UTF-16). It names the fault module, its version and timestamp, the exception code and the offset (`Sig[3]`–`Sig[7]`).
+  `EventTime` is a FILETIME in UTC.
+- **A minidump** in `%LOCALAPPDATA%\CrashDumps\SkyrimSE.exe.<pid>.dmp` (WER LocalDumps is on here).
+  - Python's `minidump` package reads the exception record, the faulting thread's registers and every thread's
+    stack. Resolve the stack values against the module list, and disassemble the module at the offset.
+  - These dumps hold stacks and modules but **not the heap**, so they cannot name a reference or a node.
+
+The previous session's Papyrus log is `Papyrus.1.log`, kept after the relaunch, while every SKSE plugin log is
+rewritten.
+
+**A freeze leaves no crash log at all, but Shatterveil's watchdog dumps it.** Once the main thread has been silent for
+10 s, it writes `C:\Users\frien\AppData\Local\Shatterveil\hang-<date>-<time>.dmp` (see `Shatterveil.log`; the main
+thread's id is in that log line).
+
+- Read every thread with the `minidump` package. A job thread has `SkyrimSE.exe+CEB1DD` (ID 68445) at its base.
+- The thread whose RIP is **not** in an `ntdll` wait is the one the main loop is waiting on.
+- Resolve its frames with the format-5 `versionlib-1-7-104-0.bin` (a plain offset array indexed by ID).
+- Most of these dumps are 10 s stalls the game recovered from (shader compiles, LightPlacer). Only one the player had
+  to kill is a real freeze.
+
 > **Since the 1.7.104 update (2026-10-21) the list's crash logs come from Crash Logger SSE again.**
 > **[verified 2026-10-23]** `CrashLoggerSSE v1-25-0-0` writes
 > `C:\Users\frien\OneDrive\Documents\My Games\Skyrim Special Edition\SKSE\crash-<timestamp>.log` (Documents is
@@ -80,6 +104,9 @@ loaded — useful when the game will not start at all.
 |---|---|---|
 | `EXCEPTION_BREAKPOINT` at `SkyrimSE.exe+0CC4904` (ID 67551+0xD14), Havok thread | Havok's MOPP VM met an opcode that doesn't exist: a mesh's collision MOPP is broken. SkyParkour's `ShapeCast` on the stack = its ledge check found it | [`patches/CollisionMoppFix.md`](../patches/CollisionMoppFix.md): rerun its `tools/01 --all-sources`, which reports every broken MOPP in the list |
 | `EXCEPTION_ACCESS_VIOLATION` at `SkyrimSE.exe+0FDDB2D` (ID 76207+0x6D, `call [rax+0x150]`), `15661` and `ImmersiveEquipmentDisplays.dll` on the stack | The game re-hangs an actor's weapon on a biped 3D root that was already freed. It is a use-after-free in vanilla code: IED is only the hook trampoline, and pistol holsters never reach this path. Seen 5 times (2026-10-24 to 11-01), always on undead or goblins whose races our DF patches give limbs. The cause is unproven; the lead is DF's stump-cap equip on the dying actor | [`patches/EnemyDensity.md`](../patches/EnemyDensity.md): see its third and fourth crash postmortems. Ask for `DismemberingFramework.log` before the player relaunches |
+| `EXCEPTION_STACK_OVERFLOW` at `SkyrimSE.exe+07E98BB` (ID 43870+0xAB, `comiss xmm4, [rcx]`), RSI around −16000, Havok/raycast frames | The game's raycast-hit quicksort ran off the stack on a NaN hit distance. The NaN came from a convex hull with zero plane normals: seen three times in the Ark bank vault (JS Common Cages' cage), from a guard's foot IK or the player's crosshair pick | [`patches/ConvexPlanesFix.md`](../patches/ConvexPlanesFix.md): rerun its `tools/01` to rescan the list |
+| **Freeze** (no crash log): Shatterveil hang dump with a job thread running in `SkyrimSE.exe+B47660–B4766C` (ID 60796+0x54E), under `TtRayCstCached`/`TtworldCastRayCollector`/`TtPickObject` and `BGSImpactManager::PlayImpactEffect` (36215) | A ray cast with a non-finite or absurd value: the loop `while (x >= (float)i) i++` never ends for +inf or anything above ~2.1e9, while NaN exits. Seen once (2026-11-06, Fog Wood arena), with `edx` at 1.13 billion. The call was almost certainly FEC's creature death script, `victim.PlayImpactEffect(set, "MagicEffectsNode", 0, 0, -1, 512, true, true)`: its 512.0/-1.0 arguments are on the stack, and it runs on every creature death. Why that corpse's node had a non-finite transform is **unknown** | — |
+| `EXCEPTION_ACCESS_VIOLATION` at `oxygenMeter2.dll+0016FC3` (`mov r8, [rsi+0x60]`, RSI 0), `oxygenMenu*` on the stack, job threads in `kLoadScreen` | Oxygen Meter 2's breath-meter update (the winning copy is Nexus 195918's 1.7.104 rebuild, GPL-3.0) reads the PlayerCharacter singleton (ID 403521) without a null check. During some loading screens it is null. Seen 5 times on the curator's PC (2026-10-28 to 11-07): three at ~40 s after launch, one at 74 s, one 6 min in. It is the DLL's only read of the player (function `+16E90`). Its "no value" exit is `+1717E`, and fixed by a null-check stub in the 21-byte `int3` run at `+955DB` | [`patches/OxygenMeterLoadFix.md`](../patches/OxygenMeterLoadFix.md) |
 | `D3DCOMPILER_47.dll` / `CommunityShaders.dll` `ShaderCache` frames, minutes after launch | Bottled Shaders' background shader compile on a cold cache (seen on the curator's and players' PCs); each compiled shader is cached, so a relaunch continues | — |
 
 ---

@@ -76,6 +76,17 @@ Rerunning the fix on the output finds nothing to do (checked on all 29).
 
 ## Status
 
-Built and written to `E:/Zenderal/mods/Zenderal - Convex Planes Fix` 2026-11-03; not yet placed and enabled in
-Ultra (MO2 was open). **Unverified in game.** The crash needs a ray to reach the cage, so "no crash" in one visit
+Built and written to `E:/Zenderal/mods/Zenderal - Convex Planes Fix` 2026-11-03. It is enabled in Ultra directly
+above PG Patcher Output. **Unverified in game.** The crash needs a ray to reach the cage, so "no crash" in one visit
 proves little. A bank crash with the same stack after this mod is enabled would prove the diagnosis wrong.
+
+**Shipping:** the meshes are generated, so Wabbajack can match them to no download. On 2026-11-05 the mod got an
+`Include` rule in `Zenderal.compiler_settings`, next to Collision MOPP Fix's (backup:
+`E:/Zenderal-backups/2026-11-05-convex-include/`). Without it, the compile reports the 29 meshes as unmatched.
+
+**Third log (2026-11-04, a player without the fix):** the same fault, `EXCEPTION_STACK_OVERFLOW` at
+`SkyrimSE.exe+07E98BB` (43870+0xAB), RSI = −16074, in `CapitalCityBankSafe 00990F`.
+
+- This time the ray was the **player's crosshair pick** (`26127` from Improved Camera's `CrossHairPickData_Pick`
+  hook, `40620`). The guards' foot IK is not the only way to reach it: any ray into the vault can.
+- The player was on the list release from before 2026-11-03, so this is not evidence against the fix.
