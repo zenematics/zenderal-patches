@@ -1,0 +1,20 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - FHR Directional Frequency.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Enemies charge For Honor Reforged's empowered side attacks (the arrows) more often: light 10% -> 30%, heavy 15% -> 40% per side attack."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: For Honor Balance Patch.esp
+    FileSize: 0
+  - Master: Reforged Directional Combat.esp
+    FileSize: 0
+  INTV: 1
