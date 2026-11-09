@@ -163,7 +163,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - L Calf",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - L Calf"
+      "Humanoid - Male - Actor addons data - L Calf"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x828"
   },
@@ -171,7 +171,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - R Calf",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - R Calf"
+      "Humanoid - Male - Actor addons data - R Calf"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x829"
   },
@@ -179,7 +179,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - L Forearm",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - L Forearm"
+      "Humanoid - Male - Actor addons data - L Forearm"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82A"
   },
@@ -187,7 +187,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - R Forearm",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - R Forearm"
+      "Humanoid - Male - Actor addons data - R Forearm"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82B"
   },
@@ -195,7 +195,7 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - Head",
-      "Zenderal - Goblins - No cap - Draugr - Male - Actor addons data - Head"
+      "Draugr - Male - Actor addons data - Head"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82C"
   },
@@ -203,7 +203,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - L Calf",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - L Calf"
+      "Humanoid - Male - Actor addons data - L Calf"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82D"
   },
@@ -211,7 +211,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - R Calf",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - R Calf"
+      "Humanoid - Male - Actor addons data - R Calf"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82E"
   },
@@ -219,7 +219,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - L Forearm",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - L Forearm"
+      "Humanoid - Male - Actor addons data - L Forearm"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x82F"
   },
@@ -227,7 +227,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - R Forearm",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - R Forearm"
+      "Humanoid - Male - Actor addons data - R Forearm"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x830"
   },
@@ -235,7 +235,7 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - Head",
-      "Zenderal - Goblins - No cap - Draugr - Male - Actor addons data - Head"
+      "Draugr - Male - Actor addons data - Head"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x831"
   },
@@ -243,7 +243,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - L Calf",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - L Calf"
+      "Humanoid - Male - Actor addons data - L Calf"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x832"
   },
@@ -251,7 +251,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - R Calf",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - R Calf"
+      "Humanoid - Male - Actor addons data - R Calf"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x833"
   },
@@ -259,7 +259,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - L Forearm",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - L Forearm"
+      "Humanoid - Male - Actor addons data - L Forearm"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x834"
   },
@@ -267,7 +267,7 @@
     "Templates": [
       "DF - Base data",
       "Humanoid - Male - Base data - R Forearm",
-      "Zenderal - Goblins - No cap - Humanoid - Male - Actor addons data - R Forearm"
+      "Humanoid - Male - Actor addons data - R Forearm"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x835"
   },
@@ -275,7 +275,7 @@
     "Templates": [
       "DF - Base data",
       "Draugr - Male - Base data - Head",
-      "Zenderal - Goblins - No cap - Draugr - Male - Actor addons data - Head"
+      "Draugr - Male - Actor addons data - Head"
     ],
     "LimbFormID": "Zenderal - Goblins Dismembering.esp:0x836"
   }

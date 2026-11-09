@@ -192,6 +192,36 @@ actor named: our ref `FE10FB45` = `000B45`, a "Fleshless Lost One". That is Ende
   **Counterpoint:** human enemies (DF's humanoid pack) still get caps on every cut and have never shown this crash.
   So the caps alone may not be it.
 
+## Postmortem: sixth crash, a player's, in the Fog Wood arena, stump caps off (2026-11-07)
+
+A player's `crash-2026-11-07-05-00-46.log` (28 min in, same exe MD5) has the same fault through the same chain:
+`15656` → `ImmersiveEquipmentDisplays.dll+0160DE7` → `15659` → `15661` → `76207+0x6D` `call [rax+0x150]` on a job
+thread (`69378`/`69380` → `36468`/`36477`), the weapon on `WEAPON` under `NPC R Hand`. Three things are new:
+
+- **It is a [`FogWood`](FogWood.md) arena spawn, not Enemy Density.** The actor is `FF0012FB` "Decayed Lost one",
+  a `PlaceAtMe` ref of EGO's `_25E_Skelett02`/`03` (`090BBF`/`090BBE`, the arena's skeleton theme in `tools/02`) on
+  `SkeletonRace 0B7998`; its parent cell is Fog Wood's `Wilderness 0x85000874`. Sixth crash, sixth DF-limbed race.
+- **The actor was already deleted.** Its flags are `0x00570D2A`: `0x20` (deleted) and `0x800` (disabled). That is
+  the arena's `ClearCorpses()` / `ClearSpawns()`: `Disable()` then `Delete()` back to back, for every corpse of the
+  wave in one Papyrus frame, and `SpawnWave` in the same tick. A deleted actor's 3D is freed while the weapon
+  re-hang job for it is still queued, which is exactly the freed root `15661` dereferences. The five earlier
+  victims were not deleted (`0x00450C0A`, `0x00450408`), so deletion is the arena's trigger, not the common cause.
+- **The stump caps were off.** Patch Collection 1.8 (installed 2026-11-06 16:53) ships
+  `Zenderal_LostOnes_TEMPLATES.json` with no `ActorArmorAddon`, and Fog Wood ships only inside that build, which the
+  player's load order has. **By the verdict rule in
+  [`LostOnesDismembering`](LostOnesDismembering.md#stump-caps-off-a-crash-test-2026-11-01-deployed-unverified), the
+  caps were not the cause**; `STUMP_CAPS = True` again in both generators the same day, output identical to the
+  caps-on backups, deployed into Patch Collection.
+
+**Arena mitigation, applied 2026-11-07 (script only, no DLL):** `ClearCorpses()`/`ClearSpawns()` now `Doom()` a body
+(disable it and queue it) and `DeleteDoomed()` runs on the next 1 s tick and at the end of `EndRun`, so no body is
+disabled and deleted in the same frame, and none in the tick that spawns the next wave. **Caveat:** the fifth
+victim was disabled but not deleted, so a disable alone (the 3D release) can be enough to free the root; if the
+arena crash recurs with the split in place, the Delete half is cleared and the remaining levers are not unloading
+corpses during a run or IED's handling of dead actors. Does not touch the vanilla use-after-free.
+A `TempleCutContent.esp` "Perversion" sits deeper in the same stack (`RSP+328`, a different frame of the job
+thread's loop) and is not involved.
+
 ## What to check in game
 
 - Performance in Whisperwood (about 3.5 enemies per cell, hordes up to 14): frame rate and Papyrus load.

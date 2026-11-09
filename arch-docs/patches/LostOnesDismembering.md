@@ -46,6 +46,13 @@ cap equips even when its ARMA renders nothing, as on skeletons and Mihail's gobl
 - **Trade-off:** Lost Ones and goblins show the open cut with no cap over it.
 - **Verdict rule:** if the `0FDDB2D` crash comes back on one of these races, caps were not the cause; set
   `STUMP_CAPS = True` again and rerun both generators. If it stops for a few weeks of player reports, keep it.
+- **Verdict (2026-11-07): it came back.** A player's `crash-2026-11-07-05-00-46.log` has the same fault on a
+  `SkeletonRace` arena spawn with Patch Collection 1.8's cap-less templates loaded (Fog Wood ships only in that
+  build). The caps were not the cause. **Caps back on the same day:** `STUMP_CAPS = True` in `tools/01` and
+  Goblins' `tools/06`, both rerun; the output is byte-identical to the 2026-11-01 backups of the caps-on files,
+  `Zenderal_LostOnes_TEMPLATES.json` is gone again, and the plugins are unchanged. Deployed into Patch Collection
+  (the only copy now; the standalone mods no longer exist). Details in [`EnemyDensity.md`](EnemyDensity.md)'s
+  sixth postmortem (the actor had been `Delete()`d by the arena).
 
 ### How DF is built (what the patch plugs into)
 
@@ -240,6 +247,13 @@ dismembered spider vanished whole (reported in game 2026-10-19): the default evi
 the spider's single body ARMA `NakedFrostbiteSpiderAA` covers Head (30) + Body (32). Wolves never
 showed it because their skin ARMA is Body only. 37 is unused on a spider. **Rule for any new race:**
 set an explicit `BipedSlot` that the race's skin ARMAs do not cover.
+
+> **Correction (2026-11-06, from DF 1.2.3's source, commit `eacedd8` = the shipped build):** `BipedSlot` hides
+> nothing. `Main.cpp` reads it only to pick the worn armour (`GetWornArmor`) for the `IsEquippedKeyword` /
+> `IsEquippedItemWeightClass` conditions, the undocumented `DropItem` key and the heavy-armour cut sound; the cut
+> is the bone scale (`ToggleNode`, −0.01) plus the stump ARMO equip. The explicit `BipedSlot` is still right to set
+> (the conditions need it), but the spider's vanishing was not a slot hide — see the 3D-rebuild paragraph below and
+> [`mod-gotchas.md`](../modlist/mod-gotchas.md) ("Dismembering Framework never strips armour").
 
 **That was not the whole story: the corpse still vanished on cut hits, never on a console `kill`**
 (tested in game 2026-10-19). DF's detailed log (`iVerboseMode = 2`) showed clean data and a normal

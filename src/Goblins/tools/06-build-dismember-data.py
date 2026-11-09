@@ -14,8 +14,9 @@ with the spriggit-decompile-reference skill):
 JSON (SKSE/DismemberingFramework/Zenderal_Goblins_*.json; DF parses every TEMPLATES, then LIMBS, then
 DATA file, so these may name the pack's Falmer base-data templates):
   * TEMPLATES: one actor-addon template per cap (our ARMO + DF's Falmer blood art). With STUMP_CAPS
-    False (since 2026-11-01) they carry only the blood art, and Mihail's goblins get no-cap copies of
-    DF's actor-addon templates. The cap ARMO/ARMA records stay in the plugin, unused;
+    False (2026-11-01 to 2026-11-07, a crash test that cleared the caps) they carry only the blood art,
+    and Mihail's goblins get no-cap copies of DF's actor-addon templates; the cap ARMO/ARMA records stay
+    in the plugin either way;
   * LIMBS: one limb per MiscItem, templates [DF - Base data, Falmer male base data, ours];
   * Mihail's goblins (04b): MiscItems from DF's naked male draugr limb items, LIMBS with DF's humanoid/draugr
     templates, DATA `ZEN_Mihail_mihailgoblinrace` -> each skin -> both sexes (first skin also `ANY`).
@@ -64,7 +65,9 @@ MASTERS = ['Skyrim.esm', 'Update.esm', 'Enderal - Forgotten Stories.esm', 'Disme
 # (ActorEquipManager::EquipObject), the step that reloaded Spider SE corpses' whole 3D. Five crashes on
 # goblins, Lost Ones and skeletons (SkyrimSE.exe+0FDDB2D, a weapon re-hung on a freed 3D root; see
 # arch-docs/patches/EnemyDensity.md) point at it. True restores the caps.
-STUMP_CAPS = False
+# 2026-11-07: back to True. The sixth crash (a player, Fog Wood arena) came with the caps already off, so
+# they were not the cause (EnemyDensity.md, sixth postmortem; LostOnesDismembering.md, verdict).
+STUMP_CAPS = True
 NO_CAP = 'Zenderal - Goblins - No cap - '
 
 

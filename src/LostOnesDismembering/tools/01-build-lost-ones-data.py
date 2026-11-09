@@ -15,9 +15,10 @@ Asset Pack covers `DraugrRace` only, so no Lost One outside that race was ever d
   their RefNode, slot and Translation fit. The draugr body-cap ARMAs those templates equip are
   race-locked to DraugrRace (+ LostOneTemplateRace, 02-build-records.py), so on a skeleton they render
   nothing, which is what a bare skeleton needs.
-* With STUMP_CAPS False (since 2026-11-01) neither gets a body cap: the Lost Ones' limbs are copies of the
-  pack's draugr limbs, and every Lost One and skeleton limb names a copy of its pack actor-addon template
-  with only the blood art (Zenderal_LostOnes_TEMPLATES.json). Wolves and minotaurs keep theirs.
+* With STUMP_CAPS False (2026-11-01 to 2026-11-07, a crash test that cleared the caps) neither gets a body
+  cap: the Lost Ones' limbs are copies of the pack's draugr limbs, and every Lost One and skeleton limb names
+  a copy of its pack actor-addon template with only the blood art (Zenderal_LostOnes_TEMPLATES.json, which
+  only exists in that mode). Wolves and minotaurs keep theirs either way.
 
 DF parses every TEMPLATES file, then every LIMBS file, then every DATA file, so these files may
 reference the pack's templates and limb IDs.
@@ -49,7 +50,9 @@ SPIDERS = False
 # (ActorEquipManager::EquipObject), the step that reloaded Spider SE corpses' whole 3D. Five crashes on
 # Lost Ones, skeletons and goblins (SkyrimSE.exe+0FDDB2D, a weapon re-hung on a freed 3D root; see
 # arch-docs/patches/EnemyDensity.md) point at it. True restores the caps.
-STUMP_CAPS = False
+# 2026-11-07: back to True. The sixth crash (a player, Fog Wood arena) came with the caps already off, so
+# they were not the cause (EnemyDensity.md, sixth postmortem; LostOnesDismembering.md, verdict).
+STUMP_CAPS = True
 NO_CAP = 'Zenderal - Lost Ones - No cap - '
 MINOTAUR_FALLBACK = {'MinotaurRace': '00A818:1Minotaurs.esp',          # ArmorMinotaurCuirass1
                      'FeralMinotaurRace': '00A811:1Minotaurs.esp'}     # SkinFeralMinotaur
