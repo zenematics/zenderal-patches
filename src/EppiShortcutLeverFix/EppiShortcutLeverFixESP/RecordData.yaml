@@ -1,0 +1,24 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - EPPI Shortcut Lever Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: EPPI's shortcut gate in Vyn cell (-27, 3) can no longer be opened through the bars - its pull bar moved 64 units further in, out of activation reach. Load after Water for Enderal CS and Zenderal - Last Watch Trapdoor Fix, before DynDOLOD.esp.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: EPPIareadividerandconnectors.esp
+    FileSize: 0
+  - Master: Water for Enderal CS.esp
+    FileSize: 0
+  INTV: 1
