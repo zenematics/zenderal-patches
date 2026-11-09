@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Meditation Water Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: No water in the meditation worldspace (Akropolis). Its cells had water just under the platforms, which Unified Water drew as floating sheets. Cell headers only; load after Water for Enderal CS and AmnesiaShrine.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Water for Enderal CS.esp
+    FileSize: 0
+  INTV: 1

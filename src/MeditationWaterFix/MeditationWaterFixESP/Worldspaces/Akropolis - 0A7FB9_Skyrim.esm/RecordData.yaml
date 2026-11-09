@@ -1,0 +1,24 @@
+FormKey: 0A7FB9:Skyrim.esm
+EditorID: Akropolis
+Name:
+  TargetLanguage: English
+  Value: A Strange Place
+Location: 05BD1F:Skyrim.esm
+Parent:
+  Worldspace: 001D3C:Skyrim.esm
+  Flags:
+  - UseMapData
+Water: 015159:Skyrim.esm
+LodWater: 000800:Water for Enderal CS.esp
+LodWaterHeight: 0
+LandDefaults:
+  DefaultLandHeight: -2048
+WorldMapOffsetScale: 1
+WorldMapCellOffset: 0, 0, 100000.16
+DistantLodMultiplier: 1
+Flags:
+- SmallWorld
+- CannotFastTravel
+ObjectBoundsMin: -2, -1
+ObjectBoundsMax: 3, 3
+Music: 02ECEB:Enderal - Forgotten Stories.esm

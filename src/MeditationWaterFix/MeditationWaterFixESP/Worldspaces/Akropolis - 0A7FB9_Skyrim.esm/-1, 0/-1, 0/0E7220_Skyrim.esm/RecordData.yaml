@@ -1,0 +1,8 @@
+FormKey: 0E7220:Skyrim.esm
+Version2: 1
+Grid:
+  Point: -1, 1
+  Flags: -1281212928
+WaterHeight: -30000
+Regions:
+- 108078:Skyrim.esm
