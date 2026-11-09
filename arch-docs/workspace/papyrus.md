@@ -131,6 +131,15 @@ in the Spriggit YAML**, so most sessions never open it. If you do:
   B612's plain-text card description showed a stored `\n\n` as a huge gap. A Papyrus `"\n"` literal compiles to a lone
   LF (check the `.pex` string table). Prophecy's card header is built this way in `ZP_ProphecyMenu`.
 
+## A script's events run concurrently: guard a long tick (2026-11-09)
+
+Every event (and every external call) runs on its own thread, and the same script can run several at once;
+nothing serialises them. A loop that re-arms `RegisterForSingleUpdate` at the top of `OnUpdate` so that an error
+cannot kill it therefore gets a second `OnUpdate` running while a long first one (a 30-actor `PlaceAtMe` loop) is
+still going: the Fog Wood spawned two themes at once. Re-arm first, then run the body under a `Bool InTick` flag
+with a timeout (an aborted tick never clears its flag), as `ZFW_ArenaQuest.OnUpdate` does
+([`patches/FogWood.md`](../patches/FogWood.md)).
+
 ## Never compare an array to None (2026-11-06)
 
 `If myArray == None` compiles but is a **fatal runtime error** (`Error: Cannot cast from None to Actor[]` in the

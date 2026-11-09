@@ -270,6 +270,15 @@ A `PATCH`x`PATCH` (6x6) cell arena, cells -3..2 on both axes (24,576 units squar
   It used to register at the end, so one aborting error (a fatal cast, a stack dump) anywhere in the tick ended
   the loop for the rest of the run: no deaths processed, no next wave. A tester's wave 3 never came after wave 2's
   werewolves (2026-11-07); whether this or a lost werewolf was the cause is unknown, both are covered now.
+  **Postmortem (2026-11-09): registering first made the tick reentrant.** Papyrus runs every event on its own
+  thread, so the tick that arrived a second later ran while `SpawnWave` was still placing its 20-30 actors (a
+  `PlaceAtMe` per actor, several seconds), saw `WaveActive` still false and the wave time passed, and spawned a
+  second theme on top of the first (the curator: "multiple factions spawn in at the same time"); concurrent
+  `ProcessDeaths` would also have paid a death's drops twice. The tick body is `Tick()` now, run under an `InTick`
+  flag: a tick that finds the flag up returns, unless the flag is older than `TICK_TIMEOUT` (30 s), which means
+  the earlier tick died of an error and never cleared it. `SpawnWave` also stops placing when the run ended under
+  it (a bleedout from the alias, the console). The registration-first build shipped only in Patch Collection,
+  not in a list release.
 - **The last few are gathered** (2026-11-07): with `LAST_FEW` (3) or fewer alive and no kill for `NO_KILL_SECONDS`
   (20), every live spawn farther than `NO_KILL_RANGE` (600) is `Relocate`d to the clear marker nearest the
   player (`GatherLastFew`, `ZFW: gathering` lines); nearer ones are left alone, so a long boss fight is not

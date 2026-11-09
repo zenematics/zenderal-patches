@@ -107,6 +107,8 @@ Float Property FAR_RANGE = 1800.0 AutoReadOnly
  marker nearest the player, at least NEAR_MIN away, and restarted on them. The fog shows 2,500 units.}
 Int Property FAR_SECONDS = 5 AutoReadOnly
 Float Property NEAR_MIN = 500.0 AutoReadOnly
+Float Property TICK_TIMEOUT = 30.0 AutoReadOnly
+{A tick that has not finished in this long died of an error (its InTick flag never cleared): the next one runs.}
 Int Property LAST_FEW = 3 AutoReadOnly
 {Gather (tester report, 2026-11-07: a wave's last enemies could not be found, so the next wave never came): with
  this many or fewer alive and no kill for NO_KILL_SECONDS, every live spawn farther than NO_KILL_RANGE from the
@@ -142,6 +144,8 @@ Bool WaveActive = False
 Int Wave = 0
 Float NextWaveAt = 0.0
 Float LastKillAt = 0.0
+Bool InTick = False
+Float TickStarted = 0.0
 Int EPRank = 0
 Actor[] Spawned
 Bool[] SpawnedElite
@@ -230,6 +234,7 @@ Function OnGameLoaded()
 	EndIf
 	EnsureStone()
 	If Running
+		InTick = False
 		FriendlyFire(True)
 		RegisterForMenu("Console")
 		RegisterForSingleUpdate(1.0)
@@ -341,6 +346,7 @@ Function StartRun()
 	ShowBanner(OBJ_START)
 	Debug.Trace("ZFW: run started")
 	NextWaveAt = Utility.GetCurrentRealTime() + FIRST_WAVE_DELAY
+	InTick = False
 	Busy = False
 	RegisterForSingleUpdate(1.0)
 EndFunction
@@ -408,6 +414,21 @@ Event OnUpdate()
 	EndIf
 	RegisterForSingleUpdate(1.0)                ; FIRST: an error anywhere below used to end the loop, and with it the waves
 	                                            ; (a tester cleared wave 2 and nothing more came, 2026-11-07)
+	Float now = Utility.GetCurrentRealTime()
+	If InTick
+		If now - TickStarted < TICK_TIMEOUT
+			Return                              ; the previous tick is still running (placing a wave takes seconds)
+		EndIf
+		Debug.Trace("ZFW: a tick did not finish in " + TICK_TIMEOUT + " s; the loop takes over")
+	EndIf
+	InTick = True                               ; Papyrus runs every event on its own thread: without this flag the tick
+	TickStarted = now                           ; that arrived while SpawnWave was still placing saw no active wave and
+	Tick()                                      ; started a second theme on top of the first (curator, 2026-11-09)
+	InTick = False
+EndEvent
+
+Function Tick()
+	{One second of the run. Never two at once: OnUpdate's InTick guard.}
 	DeleteDoomed()                              ; the bodies ClearCorpses() disabled on the previous tick
 	If Busy
 		Return
@@ -448,7 +469,7 @@ Event OnUpdate()
 		RotateDrops()
 		SpawnWave(Wave + 1)
 	EndIf
-EndEvent
+EndFunction
 
 Int Function ProcessDeaths()
 	{Counts the living; a dead spawn is stripped, drops its loot once, leaves its alias and joins the corpse list;
@@ -591,6 +612,9 @@ Function SpawnWave(Int aiWave)
 	String bossName = ""
 	Int i = 0
 	While i < count && i < Spawned.Length
+		If !Running || Busy
+			Return                              ; the run ended under us (alias bleedout, console): place no more
+		EndIf
 		ObjectReference marker = SpawnMarkers[order[i % nMarkers]]
 		Bool boss = bossWave && i == 0
 		Bool elite = !boss && i >= count - nElites
@@ -630,6 +654,9 @@ Function SpawnWave(Int aiWave)
 		EndIf
 		i += 1
 	EndWhile
+	If !Running || Busy
+		Return
+	EndIf
 	WaveActive = True
 	LastKillAt = Utility.GetCurrentRealTime()
 	If bossWave
