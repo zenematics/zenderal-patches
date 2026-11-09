@@ -1,0 +1,63 @@
+FormKey: 0A5894:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: AltIshmartepL1
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Old Ishmartep
+Flags:
+- IsInteriorCell
+- HasWater
+Lighting:
+  AmbientColor: '#002C251F'
+  DirectionalColor: '#00000000'
+  FogNearColor: '#0025211B'
+  FogFar: 6000
+  FogPower: 1.5
+  AmbientColors:
+    DirectionalXPlus: '#00302520'
+    DirectionalXMinus: '#0027251D'
+    DirectionalYPlus: '#00322C23'
+    DirectionalYMinus: '#002C231F'
+    DirectionalZPlus: '#0025201B'
+    DirectionalZMinus: '#0043382F'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#0028200D'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - FogMax
+  - LightFadeDistances
+WaterHeight: 0
+Location: 028FB2:Enderal - Forgotten Stories.esm
+AcousticSpace: 102774:Skyrim.esm
+Music: 01BECD:Skyrim.esm
+ImageSpace: 0ADFD6:Skyrim.esm
+MajorFlags:
+- 0x40000
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 029953:Enderal - Forgotten Stories.esm
+  Version2: 2
+  Base: 10A17A:Skyrim.esm
+  Placement:
+    Position: -4348.3647, 9072.843, -324.89246
+- MutagenObjectType: PlacedObject
+  FormKey: 000806:man_DaedricShrines_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0FFF4E:Skyrim.esm
+  Scale: 1.4
+  Placement:
+    Position: -4362.361, 9172.558, -501.59464
+    Rotation: 0, -0, 3.1088026

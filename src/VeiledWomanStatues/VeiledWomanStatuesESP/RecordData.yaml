@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Veiled Woman Statues.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "The Veiled Woman statues back where SureAI placed them: re-enables the six Meridia statues Mandragorasprouts' Statues for Enderal replaced with Nocturnal or Kynareth and disables those replacements. Its other statues stay."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: man_DaedricShrines_Enderal.esp
+    FileSize: 0
+  - Master: Castle Bleakstar.esp
+    FileSize: 0
+  - Master: EVGAT_Enderal.esp
+    FileSize: 0
+  INTV: 1

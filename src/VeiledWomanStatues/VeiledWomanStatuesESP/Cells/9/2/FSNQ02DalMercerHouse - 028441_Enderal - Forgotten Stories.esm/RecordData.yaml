@@ -1,0 +1,67 @@
+FormKey: 028441:Enderal - Forgotten Stories.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 786432
+EditorID: FSNQ02DalMercerHouse
+SkyrimMajorRecordFlags:
+- Compressed
+- CantWait
+Name:
+  TargetLanguage: English
+  Value: Ark, Dal'Mercer's Estate
+Flags:
+- IsInteriorCell
+- PublicArea
+Lighting:
+  AmbientColor: '#0034251F'
+  DirectionalColor: '#002B221E'
+  FogNearColor: '#0021211D'
+  FogFar: 7000
+  FogClipDistance: 6000
+  FogPower: 1.6
+  AmbientColors:
+    DirectionalXPlus: '#00392520'
+    DirectionalXMinus: '#002E251D'
+    DirectionalYPlus: '#0034261F'
+    DirectionalYMinus: '#0034231F'
+    DirectionalZPlus: '#0018110E'
+    DirectionalZMinus: '#004F382F'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00253238'
+  FogMax: 3.9
+  Inherits:
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - FogMax
+  - LightFadeDistances
+LightingTemplate: 0504DD:Skyrim.esm
+WaterHeight: 0
+Location: 028FB2:Enderal - Forgotten Stories.esm
+Owner: 028E6E:Enderal - Forgotten Stories.esm
+AcousticSpace: 0C5B6B:Skyrim.esm
+Music: 0E48AF:Skyrim.esm
+ImageSpace: 02ED19:Enderal - Forgotten Stories.esm
+MajorFlags:
+- 0x40000
+- CantWait
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 02977A:Enderal - Forgotten Stories.esm
+  Base: 10A17A:Skyrim.esm
+  Scale: 0.2
+  Placement:
+    Position: 643.78345, -1210.2103, 4969.937
+    Rotation: 0, -0, 3.9831915
+- MutagenObjectType: PlacedObject
+  FormKey: 000805:man_DaedricShrines_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0FFF4E:Skyrim.esm
+  Scale: 0.35
+  Placement:
+    Position: 626.0952, -1239.6594, 4925.8384
+    Rotation: 0, -0, 0.70880264

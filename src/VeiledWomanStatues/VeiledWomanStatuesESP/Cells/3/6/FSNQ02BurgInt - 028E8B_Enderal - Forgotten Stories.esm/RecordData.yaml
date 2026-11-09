@@ -1,0 +1,106 @@
+FormKey: 028E8B:Enderal - Forgotten Stories.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: FSNQ02BurgInt
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Castle Bleakstar
+Flags:
+- IsInteriorCell
+- HasWater
+- ShowSky
+Lighting:
+  AmbientColor: '#0015120D'
+  DirectionalColor: '#00101214'
+  FogNearColor: '#00141B1B'
+  FogNear: 8
+  DirectionalFade: 0.1
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#0016130E'
+    DirectionalXMinus: '#000B0B06'
+    DirectionalYPlus: '#0015130D'
+    DirectionalYMinus: '#00110F0B'
+    DirectionalZPlus: '#000E0D07'
+    DirectionalZMinus: '#001A170F'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00121B1A'
+  FogMax: 1
+  Inherits:
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - FogMax
+  - LightFadeDistances
+LightingTemplate: 03128D:Skyrim.esm
+WaterHeight: 0
+Location: 028FB2:Enderal - Forgotten Stories.esm
+XWCN: 0x03000000
+WaterVelocity:
+  Angle: 0.5, 8, 0.1
+  Unknown2: 0x0000000000000000000000000000000000000000
+SkyAndWeatherFromRegion: 043C5D:Skyrim.esm
+AcousticSpace: 102774:Skyrim.esm
+Music: 01BECD:Skyrim.esm
+ImageSpace: 0F1CB8:Skyrim.esm
+MajorFlags:
+- 0x40000
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 029766:Enderal - Forgotten Stories.esm
+  Base: 10A17A:Skyrim.esm
+  Scale: 0.2
+  Placement:
+    Position: 1471.5178, 3910.7837, 271.4655
+- MutagenObjectType: PlacedObject
+  FormKey: 029768:Enderal - Forgotten Stories.esm
+  Base: 10A17A:Skyrim.esm
+  Scale: 0.4
+  Placement:
+    Position: -586.17377, 1925.3077, 135.52022
+    Rotation: 0, -0, 0.4
+- MutagenObjectType: PlacedObject
+  FormKey: 029B8E:Enderal - Forgotten Stories.esm
+  Base: 10A17A:Skyrim.esm
+  Scale: 0.3
+  Placement:
+    Position: 828.34485, -1312.7836, 308.0227
+    Rotation: 0, -0, 3.1831942
+- MutagenObjectType: PlacedObject
+  FormKey: 029B8F:Enderal - Forgotten Stories.esm
+  Base: 08B876:Skyrim.esm
+  Placement:
+    Position: 831.74524, -1300.0557, 271.53214
+- MutagenObjectType: PlacedObject
+  FormKey: 000807:man_DaedricShrines_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0FFF4E:Skyrim.esm
+  Scale: 0.3
+  Placement:
+    Position: 1466.0001, 3928.9216, 268.6
+    Rotation: 0, -0, 3.004085
+- MutagenObjectType: PlacedObject
+  FormKey: 00080E:man_DaedricShrines_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0FFF4E:Skyrim.esm
+  Scale: 0.8
+  Placement:
+    Position: -602.222, 2003.7985, 27.043373
+    Rotation: 0, -0, 3.083197
+- MutagenObjectType: PlacedObject
+  FormKey: 00080F:man_DaedricShrines_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 0FFF4E:Skyrim.esm
+  Scale: 0.4
+  Placement:
+    Position: 847.6863, -1331.1083, 273.07242
+    Rotation: 0, -0, 5.7831864

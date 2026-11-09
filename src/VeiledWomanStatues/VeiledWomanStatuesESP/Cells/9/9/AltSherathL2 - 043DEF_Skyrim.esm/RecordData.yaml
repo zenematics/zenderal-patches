@@ -1,0 +1,65 @@
+FormKey: 043DEF:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: AltSherathL2
+Version2: 12
+SkyrimMajorRecordFlags:
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Old Sherath, Assembly Chambers
+Flags:
+- IsInteriorCell
+- HasWater
+Lighting:
+  AmbientColor: '#00222433'
+  DirectionalColor: '#0032363F'
+  FogNearColor: '#00000000'
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#00252435'
+    DirectionalXMinus: '#001E2430'
+    DirectionalYPlus: '#00222533'
+    DirectionalYMinus: '#00222233'
+    DirectionalZPlus: '#00101117'
+    DirectionalZMinus: '#0033364E'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - FogColor
+  - FogNear
+  - FogFar
+  - DirectionalRotation
+  - DirectionalFade
+  - ClipDistance
+  - FogPower
+  - FogMax
+LightingTemplate: 0B9E23:Skyrim.esm
+WaterHeight: 0
+Water: 0CC7B7:Skyrim.esm
+WaterEnvironmentMap: data\textures\cubemaps\duncaveruingreen_e.dds
+AcousticSpace: 010897:Skyrim.esm
+Music: 01BECD:Skyrim.esm
+ImageSpace: 0F1CB8:Skyrim.esm
+MajorFlags:
+- 0x40000
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 0440BF:Skyrim.esm
+  Base: 10A17A:Skyrim.esm
+  Scale: 0.68
+  Placement:
+    Position: -11748.893, -21310.982, -5464.643
+    Rotation: 0, -0, 4.720006
+- MutagenObjectType: PlacedObject
+  FormKey: 000808:man_DaedricShrines_Enderal.esp
+  MajorRecordFlagsRaw: 2048
+  SkyrimMajorRecordFlags:
+  - InitiallyDisabled
+  Base: 000801:man_DaedricShrines_Enderal.esp
+  Scale: 1.7
+  Placement:
+    Position: -11777.608, -21310.768, -5484.7295
+    Rotation: 0, -0, 4.500007
