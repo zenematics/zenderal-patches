@@ -2,7 +2,7 @@ FormKey: 000810:Zenderal - Fog Wood.esp
 EditorID: ZFW_EnterMsg
 Description:
   TargetLanguage: English
-  Value: 'The stone hums under your hand. Beyond it lies the Fog Wood, where the fog sends wave after wave against whoever stands in it. Nothing you kill there feeds you: no experience, no loot but what you need to keep fighting. Fall, and the fog returns you here. Loot left lying is swept two waves on: keep what you mean to keep on you.'
+  Value: 'The stone hums under your hand. Beyond it lies the Fog Wood, where the fog sends wave after wave against whoever stands in it. Nothing you kill there feeds you: no experience, no loot but what you need to keep fighting. Fall, and the fog returns you here. The fog sweeps the ground before every wave: keep what you mean to keep on you.'
 INAM: 0x00000000
 Flags:
 - MessageBox

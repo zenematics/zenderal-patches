@@ -107,6 +107,11 @@ Float Property FAR_RANGE = 1800.0 AutoReadOnly
  marker nearest the player, at least NEAR_MIN away, and restarted on them. The fog shows 2,500 units.}
 Int Property FAR_SECONDS = 5 AutoReadOnly
 Float Property NEAR_MIN = 500.0 AutoReadOnly
+Float Property CORPSE_WIPE_DELAY = 2.0 AutoReadOnly
+{Curator, 2026-11-09: the ground is cleaned each wave. Corpses go this long after the wave clears (a fresh corpse
+ may still have IED's weapon job queued, see Doom); loot and every loose piece of gear go when the next wave comes.}
+Float Property SWEEP_RADIUS = 24000.0 AutoReadOnly
+{SweepGround's reach from the player: the whole 6x6-cell wood from anywhere in it (loaded refs only).}
 Float Property TICK_TIMEOUT = 30.0 AutoReadOnly
 {A tick that has not finished in this long died of an error (its InTick flag never cleared): the next one runs.}
 Int Property LAST_FEW = 3 AutoReadOnly
@@ -144,6 +149,7 @@ Bool WaveActive = False
 Int Wave = 0
 Float NextWaveAt = 0.0
 Float LastKillAt = 0.0
+Float CorpseWipeAt = 0.0
 Bool InTick = False
 Float TickStarted = 0.0
 Int EPRank = 0
@@ -459,15 +465,22 @@ Function Tick()
 				PlaceChests(CHESTS_PER_BOSS)
 				Debug.Notification("The fog has left new caches in the wood.")
 			EndIf
+			CorpseWipeAt = Utility.GetCurrentRealTime() + CORPSE_WIPE_DELAY
 			NextWaveAt = Utility.GetCurrentRealTime() + NEXT_WAVE_DELAY
 		ElseIf alive <= LAST_FEW && Utility.GetCurrentRealTime() - LastKillAt > NO_KILL_SECONDS
 			GatherLastFew(alive)
 			LastKillAt = Utility.GetCurrentRealTime()
 		EndIf
-	ElseIf Utility.GetCurrentRealTime() >= NextWaveAt
-		ClearCorpses()
-		RotateDrops()
-		SpawnWave(Wave + 1)
+	Else
+		If CorpseCount > 0 && Utility.GetCurrentRealTime() >= CorpseWipeAt
+			ClearCorpses()                      ; the ground is cleaned each wave (curator, 2026-11-09)
+		EndIf
+		If Utility.GetCurrentRealTime() >= NextWaveAt
+			ClearCorpses()
+			ClearDrops()
+			SweepGround()
+			SpawnWave(Wave + 1)
+		EndIf
 	EndIf
 EndFunction
 
@@ -544,7 +557,7 @@ EndFunction
 
 Function Drop(ObjectReference akCorpse, Form akItem, Int aiCount)
 	{Puts the item into the corpse and drops it out onto the ground; the dropped ref is remembered so the wood
-	 is swept two waves later.}
+	 is swept when the next wave comes.}
 	If akItem == None
 		Return
 	EndIf
@@ -1066,6 +1079,40 @@ Function RotateDrops()
 EndFunction
 
 Function ClearDrops()
+	{Both generations go: at every new wave (since 2026-11-09, the curator: the ground is cleaned each wave; before,
+	 a drop survived one wave) and at the run's end.}
 	RotateDrops()
 	RotateDrops()
+EndFunction
+
+Function SweepGround()
+	{Every loose weapon, armour piece, ammo stack and potion lying in the wood goes: what the dead dropped from their
+	 hands (the engine's own drop, never in Drops), severed limbs' gear, and what the player set down (the entry
+	 message says so). Containers, the stones and the markers are other form types and stay.}
+	SweepType(41)                               ; WEAP
+	SweepType(26)                               ; ARMO
+	SweepType(42)                               ; AMMO
+	SweepType(46)                               ; ALCH
+EndFunction
+
+Function SweepType(Int aiFormType)
+	ObjectReference[] found = PO3_SKSEFunctions.FindAllReferencesOfFormType(PlayerRef, aiFormType, SWEEP_RADIUS)
+	If !found
+		Return
+	EndIf
+	Int swept = 0
+	Int i = 0
+	While i < found.Length
+		ObjectReference r = found[i]
+		If r != None && !r.IsDisabled() && r.GetWorldSpace() == FogWoodWorld
+			r.Disable()
+			r.Delete()
+			swept += 1
+		EndIf
+		i += 1
+	EndWhile
+	If swept > 0 && TraceBudget > 0
+		TraceBudget -= 1
+		Debug.Trace("ZFW: swept " + swept + " loose refs of form type " + aiFormType)
+	EndIf
 EndFunction

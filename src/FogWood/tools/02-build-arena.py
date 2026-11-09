@@ -550,7 +550,7 @@ def main():
         ID_ENTER_MSG, 'ZFW_EnterMsg',
         'The stone hums under your hand. Beyond it lies the Fog Wood, where the fog sends wave after wave against '
         'whoever stands in it. Nothing you kill there feeds you: no experience, no loot but what you need to keep fighting. '
-        'Fall, and the fog returns you here. Loot left lying is swept two waves on: keep what you mean to keep on you.',
+        'Fall, and the fog returns you here. The fog sweeps the ground before every wave: keep what you mean to keep on you.',
         ['Enter the Fog Wood', 'Not now']))
     write(os.path.join(OUT, 'Messages', 'ZFW_LeaveMsg - %06X_%s.yaml' % (ID_LEAVE_MSG, PLUGIN)), message(
         ID_LEAVE_MSG, 'ZFW_LeaveMsg', 'Leave the Fog Wood? The run ends here.', ['Leave', 'Stay']))

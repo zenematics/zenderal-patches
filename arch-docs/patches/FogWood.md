@@ -53,8 +53,8 @@ stuck / far relocation; the friendly-fire GMSTs). (2) and (3) got the 2026-11-07
 next tick FIRST (an error anywhere in `OnUpdate` used to end the loop and with it the waves), a wave's last
 few are gathered to the player after 20 s without a kill, a spawn outside the walls is brought back, the
 caches give back anything that is not the fog's stock, and the entry message warns that loot left lying is
-swept. Nothing in the script deletes an item the player drops (`RotateDrops` sweeps only the fog's own drops,
-two waves on), so why the tester's items were gone is open: the sweep of unlooted drops is the likeliest
+swept. Nothing in the script deleted an item the player dropped until 2026-11-09 (the sweep took only the fog's
+own drops, two waves on), so why the tester's items were gone is open: the sweep of unlooted drops is the likeliest
 reading of "dropping items". All unverified in game.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
@@ -214,7 +214,13 @@ A `PATCH`x`PATCH` (6x6) cell arena, cells -3..2 on both axes (24,576 units squar
   `02E-05E_Manatrank`; never `01E_Lebenstrank`, the Rancid one the first build used): a boss drops 2 health potions,
   an Ambrosia `0FEC69` and a mana potion; an elite a health potion, 50% an Ambrosia, 30% a mana potion; a regular
   10% a health potion. Corpses are deleted when the next wave spawns; dropped items that were not picked up are
-  swept one wave later (`RotateDrops`, two generations of 128 refs) and at the end of the run.
+  swept when the next wave comes and at the end of the run. **The ground is cleaned each wave** (curator,
+  2026-11-09): corpses are doomed `CORPSE_WIPE_DELAY` (2 s) after the wave clears, and before the next wave spawns
+  `ClearDrops` takes both drop generations and `SweepGround` deletes every loose weapon, armour piece, ammo stack
+  and potion in the wood (Papyrus Extender `FindAllReferencesOfFormType` within `SWEEP_RADIUS` 24,000 of the
+  player, loaded refs only): the weapons the dead dropped from their hands, severed limbs' gear, and anything the
+  player set down, which the entry message warns of. Until then a drop survived one wave (`RotateDrops`, two
+  generations of 128 refs).
 - **Practice death:** the player is essential for the run, so 0 Health is bleedout; `ZFW_PlayerAlias.OnEnterBleedout`
   **and** the 1 s loop (`IsBleedingOut()` or Health <= 0: Enderal has no health regeneration, so an essential player
   never gets up on their own, as the first death showed) end the run: spawns, corpses and drops deleted,
