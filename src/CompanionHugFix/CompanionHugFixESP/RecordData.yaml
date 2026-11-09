@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Companion Hug Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Immersive Interactions no longer plays its follower/spouse hug, which in Enderal is a romance scene (pa_HugA plays Enderal's paired_hugb). AR_hugspouse defaults to 0. Load after ImmersiveInteractions.esp.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: ImmersiveInteractions.esp
+    FileSize: 0
+  INTV: 1
