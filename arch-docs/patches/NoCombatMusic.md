@@ -55,8 +55,8 @@ are engine behaviour this workspace has not verified. A plain MUSC field edit do
 ## Load order
 
 No enabled plugin overrides `0773F1`, and none overrides the DOBJ after `Update.esm` (`tools/00-scan-music.py`, Ultra,
-2026-10-26). The plugin's position doesn't matter: it sits after `Zenderal - Pus Beetle Fixes.esp`. Re-run `tools/00` if a music
-mod is added.
+2026-10-26). The plugin's position doesn't matter. When a user ticks the mod, MO2 appends the plugin at the end of the load order,
+after the two `Cleanup` plugins; that is fine, since neither of them touches `0773F1`. Re-run `tools/00` if a music mod is added.
 
 ## Regenerating
 
@@ -67,7 +67,19 @@ python -I src/NoCombatMusic/tools/01-build-no-combat-music.py
 
 ## Status
 
-Built with Spriggit 0.40.0 on 2026-10-26. Round trip is identical, ESL, HEDR 1.7. It is deployed as MO2 mod
-`Zenderal - No Combat Music`, enabled in Ultra (profile backup in `E:/Zenderal-backups/ultra-profile-20261026-112625-no-combat-music`).
-**Unverified in game.** To test, start a fight in the open world and in a dungeon. The exploration track should carry on, and
-a quest fight such as the MQP02 or arena fights should still get its own music.
+Built with Spriggit 0.40.0 on 2026-10-26. Round trip is identical, ESL, HEDR 1.7.
+
+**Shipping shape (2026-11-03): a standalone, opt-in MO2 mod.** `Zenderal - No Combat Music` is its own MO2 mod, **unticked by
+default** in Ultra, so a user who wants unscored battles ticks it. It had been merged into `Zenderal - Patch Collection` on
+2026-11-03 with most of our plugins and was pulled back out the same day, because the curator wants it toggleable. The Patch
+Collection 1.7 Nexus archive still carries the `.esp`; the local Patch Collection folder's copy was deleted (Wabbajack ships only
+what the folder holds), and **the next Patch Collection upload must leave it out**. Wabbajack: `Zenderal.compiler_settings` lists
+`mods\Zenderal - No Combat Music` under both `Include` and `AlwaysEnabled`, the pair the disabled Vel'dun aspect patches use.
+Wabbajack drops every mod that is unticked in the compiled profile unless it is `AlwaysEnabled` (its *IgnoreDisabledMods* step;
+the list already relies on this for the Vel'dun patches) **[community]**, so without the second rule an unticked mod never ships;
+`Include` keeps the `.esp` sourced from this folder instead of hash-matched into the Patch Collection archive. Backups of the
+profile files, the compiler settings and the plugin: `E:/Zenderal-backups/2026-11-03-no-combat-music-standalone/`. MO2 was open
+and picked the folder up by itself (new folders arrive unticked at the highest priority, the bottom of the left pane).
+
+**Unverified in game.** To test, tick the mod, start a fight in the open world and in a dungeon. The exploration track should carry
+on, and a quest fight such as the MQP02 or arena fights should still get its own music.

@@ -193,6 +193,15 @@ List-wide traps that are not tied to one Zenderal patch.
   **Tuning does not fix it (tested in game 2026-10-23):** Sky Sync on with `ShadowTransitionDuration` 0 still swept, and so did `UseAlternateSunPath` false (transition back at 300). The sweep comes from Sky Sync's always-on job of deriving the light direction from the sun's sky position, which a strike moves; its other options only cover dawn/dusk/night. **Decision: Sky Sync stays off** (Disable at Boot). Re-enable only if Bottled Shaders fixes it (worth reporting: reproducible in any storm with lightning, unaffected by those two settings).
   **Superseded 2026-10-29:** the curator turned Sky Sync back on. A trace ([`patches/ZenSkySyncTrace.md`](../patches/ZenSkySyncTrace.md)) showed the explanation above was wrong: the sun never moves. The strike tilts the *directional light* to about 85° for the 0.5 s flash, and the sun shadows follow it up and down. [`patches/SkySyncLightningFix.md`](../patches/SkySyncLightningFix.md) holds the light on its pre-strike direction during flashes; verified in game 2026-10-29. **Sky Sync stays on.**
 
+- **With Sky Sync on, rivers and waterfalls flickered at exactly 10 Hz = Bottled Shaders' *Throttle Water Reflection
+  Cubemap* (fixed 2026-11-05, verified in game).** The curator's 120 fps capture (2026-10-30): the river's brightness
+  jumped ~57 → 85 for 4 frames of every 12 while the rocks beside it held steady. Moving water reflects the water
+  cubemap, and the throttle refreshes it at a reduced rate. Changing Sky Sync's sun position changed how strong the
+  flicker was, which pointed at a reflection of the sun rather than at the water meshes. **Keep `"Throttle Water
+  Cubemap": false`** in *Zenderal - Settings*' `SKSE/Plugins/CommunityShaders/SettingsUser.json` (menu: Advanced →
+  *Throttle Water Reflection Cubemap*). Bottled Shaders' own `SettingsDefault.json` ships it `true`, so a reset of the
+  user settings brings the flicker back. Cost not measured.
+
 - **Enderal Retexture Project - PBR Conversion (Enderal Nexus 1063, "SPR PBR" 1.0.0) is installed without its landscape
   half (2026-10-24, curator's test).** Why: SRP's own `brickwall01` (Silvergrove/desert walls, `wall02.nif`) is SureAI's 2014
   art upscaled; SRP's mesh asks for a `_p` it never ships, so it parallaxed against our flat-grey filler and looked flat.
@@ -296,6 +305,62 @@ List-wide traps that are not tied to one Zenderal patch.
   Fixed by adding those two lines to `Veldun fomod files/Interface/fontconfig.txt` (original in
   `E:/Zenderal-backups/2026-11-05-veldun-mage-font/`). **Re-add them after any Vel'dun reinstall or update**, or
   until upstream restores them. `fontconfig_ru.txt` never mapped `$Mage` and is left as Vel'dun ships it.
+  Since 2026-11-09 the winning fontconfig is [`VeldunFuturaFont`](../patches/VeldunFuturaFont.md)'s, which
+  carries the `$Mage` lines too.
+- **The same patch-3-beta fontconfig moves the whole UI from Futura to Lato** (2026-11-09, curator): it maps all
+  five menu fonts to `"lato"`; Vel'dun's own config maps them to `"Futura Book BT"`. Fixed by the override mod
+  `Zenderal - Vel'dun Futura Font` ([`VeldunFuturaFont`](../patches/VeldunFuturaFont.md)), which must outrank
+  every mod shipping `Interface/fontconfig.txt`.
+- **Dismembering Framework never strips armour; a corpse that loses its clothes was stripped by a script**
+  (2026-11-06, curator: Fog Wood bandits lost their clothing/armour "when dismembered"). Checked against DF 1.2.3's
+  source (`Seb263/SkyrimSE_DismemberingFramework`, commit `eacedd8` = the shipped build), its JSON and the records:
+  - **No cut variant → a generic limb, never a hidden piece.** `Main.cpp` `ProcessDismemberment` walks the node's
+    DATA entries by `Priority` and takes the first whose `Conditions` pass. The humanoid pack's
+    `OfficialHumanoidPack_Skyrim_DATA.json` matches vanilla armours by `IsEquipped` at −50; an Enderal armour matches
+    none, so `OfficialHumanoidPack_DEFAULT_DATA.json` decides: `IsEquippedItemWeightClass` Heavy → the Iron limb,
+    Light → Stormcloaks (forearm) / Hide (calf), Clothing → DefaultClothing (all −90), else the Naked limb (−100).
+    The worn piece is left alone: the only code that touches it is `DropTargetItem`, gated on the LIMBS/TEMPLATES
+    key `DropItem` (`"All"` / `"Armor"`, undocumented), and **no `_LIMBS`/`_TEMPLATES` file in the list sets it**
+    (grep of `E:/Zenderal/mods`). `BipedSlot` (33 forearm, 37 calf) only picks which worn armour the weight-class and
+    keyword conditions, `DropItem` and the heavy-armour cut sound look at (`GetWornArmor`); it hides nothing. The cut
+    itself scales the limb bone to −0.01 (`ToggleNode`), which collapses every mesh skinned to it, armour included.
+    **[verified in source]**
+  - **What DF does equip: the stump cap.** `EquipArmorAddon` adds and equips the template's `ActorArmorAddon`, in the
+    humanoid pack `DF_Humanoid_Naked_*_AR` `0x804/0x806/0x808/0x80A` — Clothing, NonPlayable, on biped slots **54 (L
+    calf), 53 (R calf), 58 (L forearm), 59 (R forearm)**, ARMA priority 10 (`reference/mods/DFOfficialHumanoidPack`).
+    Enderal's cuirass ARMAs are Body/Forearms/Amulet/Calves like vanilla's, so no overlap, but **five Enderal ARMAs
+    do sit on a stump slot**: `02E_10_FineSteelBootsAA 0E4AD9` (53; Fine Steel Boots `02AE7D`, in the bandit outfit
+    `00E_FeinstahlWithoutHelmet 0EAC1D`), `SheogorathBootsAA 0C7CBC` (53), `_00E_LeatherArmor_Cuirass_Var02_AA 14159F`
+    (59; Leather Cuirass `01CBFC` + Forged), `_05E_40_Unique_MoralasBlessingAA 150375` (53) and FS's
+    `_00E_FS_MQ18c_JesparBootsAA 01BEB1` (53). On the matching cut the engine must pick one of two priority-10 addons
+    for that slot; which one shows is **[unverified in game]**. One ARMO carries a stump slot: the Father's
+    `_00E_Father_BurntSkin 03834F` (Body/Hands/Feet + 59), so a right-forearm cut on him equips an ARMO on his own
+    slot and unequips the burnt skin — the ordinary equip-slot rule, the one case where DF really does take armour off. The DF log's `The form obtained from the "IsEquipped"
+    condition parameters is not valid` lines (10 per cut) are the Skyrim-only armour FormIDs in the Skyrim DATA that
+    Enderal lacks (`Skyrim.esm:0x59E73` dragonscale etc., warned at load); harmless.
+  - **The Fog Wood case is the arena's own strip.** `ZFW_ArenaQuest.GiveDrops` calls `akCorpse.RemoveAllItems()` on
+    every dead spawn within a second of its death (`ProcessDeaths`, 1 s update), and `RemoveAllItems` on an actor
+    removes worn items too — SureAI's own scripts re-dress right after it (`_00E_MQ05_Functions` prisoner rags,
+    `_00E_FS_MQ18c_Functions` `akCompanion.RemoveAllItems()`). The waves before 2026-11-06 were creatures, so the
+    strip showed for the first time with the bandit theme, the same day as the report. Whether a non-dismembered
+    corpse shows the strip at once or only after DF's stump equip rebuilds its 3D is **[unverified in game]**; either
+    way the fix is in the arena script (block the corpse's activation, or remove only unworn items), not in DF, and
+    there is no DF setting, JSON key or keyword that would keep armour on a cut actor — it already does. **Applied
+    the same day:** `GiveDrops` now calls `akCorpse.BlockActivation(True)` (no corpse menu, so still no loot), the
+    `.pex` recompiled and deployed to MO2 mod `Zenderal - Fog Wood` at 14:42; unverified in game.
+    See [`FogWood`](../patches/FogWood.md). **Rule: a corpse that loses its gear was stripped by a script — grep the
+    list's `.psc` for `RemoveAllItems`/`UnequipAll` before blaming the dismemberment.**
+- **Half Races Armor Patch for Enderal Steam Version (`EnderalHalfRacesArmorBugFix.esp`) removed from the list**
+  (2026-11-06): it loaded at 459 and overrode, with 2.0-era copies, the Rat Catcher boots addon
+  `_15E_HSet_BonejudgeBootsAA 0BEB5F` and Jespar's boots addon `1448D9` (identical to base 2.1), plus the old half
+  races `033898`/`033899`, which [`EGO21Compat`](../patches/EGO21Compat.md) owns. On `0BEB5F` it dropped Pretty Unique
+  Sets' **Calves** slot. Pretty's boot mesh keeps the mid-calf shaft in an `SBP_38_CALVES` partition, and **a mesh
+  partition draws only when its own addon claims that slot**, so the boots showed as ankle shoes. Verified in game:
+  with the mod removed, the boots reach mid-calf. A test patch that instead removed Calves from the cuirass addon
+  `0BEB5B` hid the cuirass's own lower leggings (bare shins). That disproved the opposite rule ("another item's slot
+  claim hides your partition"). The mod is redundant on 2.1, whose playable half races are `013746`/`013748`.
+  **Rule: when an armor piece draws only partly, compare each partition's slot with the addon's `FirstPersonFlags`, and
+  check which plugin last overrode that addon.**
 - **CINEMACAM 2.0.1 changes the FOV around sprinting, in first person too.** Its Camera Noise sections carry *Sprint
   Effects*: `SprintZoomEnabled` / `SprintZoom=5` (a 5-degree FOV kick when a sprint starts, 0.15 s in, 0.35 s back) and
   `IdleZoomEnabled` / `IdleZoom=3` (a 3-degree zoom-in when a sprint stops straight to standing), each in
