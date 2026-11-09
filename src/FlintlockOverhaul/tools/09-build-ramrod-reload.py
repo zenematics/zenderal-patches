@@ -21,11 +21,15 @@ a lead ball and a ramrod in the left hand through `AnimObjectL` (see props(); me
 Every clip in the submod starts with `AnimObjectUnequip`, so a reload cut short can't leave a prop in the hand.
 Loading sounds (2026-11-02): two `SoundPlay` events from the moment the ball reaches the muzzle (SOUNDS; the SNDRs by
 tools/11, the .wavs by tools/12).
-Reload on demand (2026-11-03, SHOT_ONLY): the shot clips (standing and crouched) are the shot alone (shorten()), and
-ZenMusketHandling 1.2.0 plays Zodd's separate reload clip on the next attack press; see SHOT_ONLY.
+Reload on demand (2026-11-03, SHOT_ONLY): the player's shot clips (standing and crouched) are the shot alone
+(shorten(), `Ramrod <mesh>, player`), and ZenMusketHandling plays Zodd's separate reload clip on the next attack
+press; see SHOT_ONLY. NPCs keep the whole shot with the reload in it (2026-11-05: with the short shot they fired
+every 1.5 s, nothing reloading them).
 
-Per mesh, two OAR submods keyed on its WEAPs (IsEquipped, right hand), third person only:
-  `Ramrod <mesh>`                       432500+i: raise, holds, shot, reload (variant by barrel thickness)
+Per mesh, OAR submods keyed on its WEAPs (IsEquipped, right hand), third person only:
+  `Ramrod <mesh>`                       432500+i: raise, holds, shot, reload (variant by barrel thickness); the
+                                        shot with the whole reload in it, which NPCs play
+  `Ramrod <mesh>, player`               432530+i: the player's shot alone (SHOT_ONLY, standing and crouched)
   `Ramrod <mesh>, both reload perks`    432550+i: the reload retimed like Quick Reload Stack (src/Prophecy/tools/04)
 Sneak (2026-11-01): Zodd ships no sneak clips, so `sneakcrossbow_release`/`_reload` are his standing ones crouched
 (crouch(): lower body from `sneakmtidle`, chest kept upright, as deep as the gun's fit allows: 80-90% for the two
@@ -94,6 +98,9 @@ SLIDE = ('crossbow_release.hkx', 'crossbow_reload.hkx')
 GROUND_CLEARANCE = 1.0     # the gun's lowest point stays this far above the actor's root (the ground)
 PRIORITY = 432500          # above DAR Rifles' 432101-432103 and Quick Reload Stack's 432300/432301
 PRIORITY_QUICK = 432550
+PRIORITY_PLAYER = 432530   # the player's shot alone (SHOT_ONLY), over `Ramrod <mesh>`'s whole shot, which NPCs keep
+PLAYER = {'condition': 'IsActorBase', 'requiredVersion': '1.0.0.0',
+          'Actor base': {'pluginName': 'Skyrim.esm', 'formID': '7'}}   # as Smooth Moveset's player-only submods
 # Props (tools/11 writes their meshes and ANIO records): a ball and a ramrod in the left hand, through `AnimObjectL`
 PROP_PLUGIN = 'Zenderal - Musket Ramrod Reload.esp'
 BALL_EDID = 'ZEN_RamrodBall'
@@ -683,13 +690,17 @@ def main():
         delta = ymuz - ZODD_MUZZLE
         sub = os.path.join(oar, 'Ramrod %s' % label)
         quick = os.path.join(oar, 'Ramrod %s, both reload perks' % label)
+        player = os.path.join(oar, 'Ramrod %s, player' % label)
         os.makedirs(os.path.join(sub, 'dlc01'))
         os.makedirs(os.path.join(quick, 'dlc01'))
+        if SHOT_ONLY:
+            os.makedirs(os.path.join(player, 'dlc01'))
         print('%s (%s): muzzle %.1f units out (delta %+.1f), radius %.2f -> %s hands; bore yaw %+.1f tilt %+.1f deg'
               % (label, ', '.join(e for e, _ in weapons), ymuz, delta, radius, variant,
                  math.degrees(math.atan2(bore_axis[0], bore_axis[1])), math.degrees(math.atan2(-bore_axis[2], bore_axis[1]))))
-        def build_clip(clip, source, sneak):
+        def build_clip(clip, source, sneak, short=False):
             nonlocal written
+            dest = player if short else sub
             depth = 1.0
             while True:   # crouched, the long guns' butts reach the ground before their muzzles reach the ramming hand
                 anim = load_zodd(variant, source)
@@ -712,7 +723,6 @@ def main():
                 depth = round(depth - CROUCH_STEP, 2)
             if sneak:
                 print('  %-24s crouched to %d%%' % (clip, round(100 * depth)))
-            short = SHOT_ONLY and source == 'crossbow_release.hkx'
             kept = anim.num_frames - 1
             if short:   # the shot alone: no props, no reload (ZenMusketHandling plays it on the next press)
                 kept, miss = shorten(rig, anim, SHOT_CUT, SHOT_BLEND)
@@ -746,11 +756,11 @@ def main():
                 if miss > 0.5:
                     sys.exit('%s %s: the left hand cannot stay on the gun in the blends (%.2f units short)' % (label, clip, miss))
             for name in [clip] + ([DWARVEN[clip]] if clip in DWARVEN else []):
-                out = os.path.join(sub, 'dlc01', name)
+                out = os.path.join(dest, 'dlc01', name)
                 anim_skyrim.write_skyrim_animation(out, anim, ptr_size=8)
                 ADS.check_blocks(out)
                 written += 1
-            got = anim_skyrim.load_skyrim_animation(os.path.join(sub, 'dlc01', clip))
+            got = anim_skyrim.load_skyrim_animation(os.path.join(dest, 'dlc01', clip))
             src = load_zodd(variant, source)
             frames_meant = kept + int(round(SHOT_BLEND / src.frame_duration)) + 1 if short else src.num_frames
             src_anns = [(round(a.time, 4), a.text) for a in src.annotations
@@ -790,6 +800,9 @@ def main():
             build_clip(clip, clip, False)
         for clip, source in SNEAK.items():
             build_clip(clip, source, True)
+        if SHOT_ONLY:   # the player's shot alone: Musket Handling reloads on the next press; NPCs keep the whole shot
+            build_clip('crossbow_release.hkx', 'crossbow_release.hkx', False, short=True)
+            build_clip('sneakcrossbow_release.hkx', SNEAK['sneakcrossbow_release.hkx'], True, short=True)
         for reload_clip in ('crossbow_reload.hkx', 'sneakcrossbow_reload.hkx'):
             data = open(os.path.join(sub, 'dlc01', reload_clip), 'rb').read()
             for name in (reload_clip, DWARVEN[reload_clip]):
@@ -811,6 +824,15 @@ def main():
             'priority': PRIORITY_QUICK + i,
             'conditions': QRS.BOTH_PERKS + [cond],
         })
+        if SHOT_ONLY:
+            ADS.write_config(player, {
+                'name': 'Ramrod %s, player' % label,
+                'description': 'The player only: the shot alone (Zodd to %.2f s, then the hold); ZenMusketHandling '
+                               "plays the reload on the next attack press. NPCs keep Ramrod %s's whole shot, the "
+                               'reload in it.' % (SHOT_CUT, label),
+                'priority': PRIORITY_PLAYER + i,
+                'conditions': [PLAYER, cond],
+            })
     ADS.write_config(oar, {
         'name': MOD, 'author': 'Zenderal',
         'description': "Zodd's ramrod reload (Zodd's 4 ramrod-loaded muskets animated, Nexus 191481) fitted to each "

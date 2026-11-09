@@ -381,7 +381,7 @@ def main():
     oar1 = os.path.join(mods_dir, R3P.MOD, *OAR_1P)
     if os.path.isdir(oar1):
         shutil.rmtree(oar1)
-    labels = sorted(d[len('Ramrod '):] for d in os.listdir(oar3) if d.startswith('Ramrod ') and 'perks' not in d)
+    labels = sorted(d[len('Ramrod '):] for d in os.listdir(oar3) if d.startswith('Ramrod ') and ',' not in d)
     written = 0
     for i, label in enumerate(labels):
         cfg3 = os.path.join(oar3, 'Ramrod %s' % label, 'config.json')
@@ -397,7 +397,10 @@ def main():
         os.makedirs(os.path.join(quick, 'dlc01'))
         for clip, dwarven in CLIPS.items():
             sneak = clip in R3P.SNEAK
-            a3 = anim_skyrim.load_skyrim_animation(os.path.join(oar3, 'Ramrod %s' % label, 'dlc01', R3P.SNEAK.get(clip, clip)))
+            # first person is the player's: its shots come from the player's short shot (tools/09 SHOT_ONLY), not
+            # from the whole shot NPCs keep
+            sub3 = 'Ramrod %s, player' % label if R3P.SHOT_ONLY and 'release' in clip else 'Ramrod %s' % label
+            a3 = anim_skyrim.load_skyrim_animation(os.path.join(oar3, sub3, 'dlc01', R3P.SNEAK.get(clip, clip)))
             end_idle = sneak_idle if sneak else idle
             out_blend = R3P.SHOT_BLEND if R3P.SHOT_ONLY and 'release' in clip else BLEND_OUT
             anim, worst, short, kept = build(rt, a3, ads_sneak if sneak else ads_hold, end_idle, hold_path, clip,

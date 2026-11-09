@@ -399,7 +399,21 @@ the alternative, unequipping the ammo while empty, juggles the player's ammo.
 
 **Built (2026-11-03): [`MusketHandling`](MusketHandling.md) 1.2.0 does exactly that** (its section 3), in Patch
 Collection's copy of the DLL. The short shot clips stay: `SHOT_ONLY` and `[Reload] OnDemand` go together (either one
-alone either reloads twice or fires unloaded). **Verified in game 2026-11-03** (curator: "Musket reload works
+alone either reloads twice or fires unloaded).
+
+**NPCs keep the whole shot (2026-11-05).** Player report relayed by the curator: "enemy's with muskets still have the
+old musket reload speeds. And animation" (curator: "enemies need the same reloads or it is unbalanced"). The ramrod
+submods match any actor holding one of the 14 Ordo muskets, and the Flintlock NPC rebuild arms enemies with exactly
+those, so from 2026-11-03 musket enemies played the short shot too, and nothing reloads an NPC on demand (Musket
+Handling only hooks the player): the engine fired them again every ~1.5 s with no reload. Now `Ramrod <mesh>`
+(432500+i, every actor) carries the whole shot again, Zodd's 5.1 s with the ball, ramrod and loading sounds in it, as
+before 2026-11-03, and the short shot moved to `Ramrod <mesh>, player` (432530+i, `IsActorBase` `Skyrim.esm` `7` =
+the player, Smooth Moveset's own player test) for standing and crouched shots. First person is the player's only and
+builds from the player submod. So an NPC needs ~5.1 s a shot, the player 1.24 s shot + 4.43 s reload (3.4 s with
+Quick Reload or Rapid Shot, 2.6 s with both: NPCs have neither perk). **Verified in game 2026-11-05** (curator: "it
+works").
+
+**Verified in game 2026-11-03** (curator: "Musket reload works
 great"; ZenMusketHandling.log: 6 shots and 5 presses after them, each press turned into one reload and loaded on
 `reloadStop` 2.46 s later, the both-perks reload by its length; no shot fired empty).
 
@@ -471,7 +485,11 @@ it finds at 0, so a save made mid-reload cannot leave a loaded gun dead. Only th
     2026-11-02, then given faster twins, then its faster reload was dropped from the talent altogether:
     [`PistolRamrodReload`](PistolRamrodReload.md#hair-trigger-2026-11-02));
   - the other hand is empty, holds a one-handed melee weapon, or holds a Loop pistol, or (a right-hand gun, since
-    2026-11-03) a shield (`TYPE_SHIELD` 10; Pistol Ramrod Reload slings it on the back);
+    2026-11-03) a shield (`TYPE_SHIELD` 10; Pistol Ramrod Reload slings it on the back), or (since 2026-11-05) a
+    torch (`TYPE_TORCH` 11; Pistol Ramrod Reload lowers it into a loop on the belt, still lit, and takes it back,
+    [`PistolRamrodReload`](PistolRamrodReload.md#a-torch-in-the-other-hand-2026-11-05)), or (since 2026-11-07, either
+    hand) a spell (`TYPE_SPELL` 9; the spell hand loads and rams,
+    [`PistolRamrodReload`](PistolRamrodReload.md#a-spell-in-the-other-hand-2026-11-07));
   - the player's graph has the `ZenPistolLoadedL` / `ZenPistolLoadedR` events (registered at each shot).
 
   When it does, the gun loads on that event, sent where the clip rams the ball home. A reload cut short leaves the gun

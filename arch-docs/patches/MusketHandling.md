@@ -80,6 +80,10 @@ demand* section), and the engine fires a musket whose shot did not reload it: fi
 - Quick Reload / Rapid Shot now count after a shot: the reload state plays `CrossBow_ReloadFast` (1.3x), and the
   ramrod mod's *both reload perks* copies retime exactly that clip.
 - `[Reload] OnDemand=0` turns it off (then use shot clips that reload, or every shot fires again unloaded).
+- **NPCs reload inside their shot.** This plugin only hooks the player, so the short shot clips are the player's
+  alone (`Ramrod <mesh>, player`, 2026-11-05); musket NPCs play Zodd's whole shot with the reload in it. Before that
+  they had the short shot too and fired every ~1.5 s ([`FlintlockOverhaul`](FlintlockOverhaul.md), *NPCs keep the
+  whole shot*). Verified in game 2026-11-05.
 
 The dodge lock is unchanged: `LockAfterShotMs` still holds 2.3 s after a shot, now longer than the 1.24 s shot clip.
 
