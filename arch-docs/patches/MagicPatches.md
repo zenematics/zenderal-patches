@@ -124,3 +124,29 @@ Deliberately untouched, with the evidence:
   `.esp` (the `Zenderal - Apocalypse NAVI Fix` hotfix) except for its dropped NAVI record.
 
 Verified: builds clean (355 records), round-trips record-for-record. **Not yet tested in game.**
+
+## Gargoyles in Enderal summons (2026-11-08)
+
+Player report (NickyBoy, 2026-11-05): Summon Gargoyle, from a tome in the Ark catacombs (`ArkTomb 1421B6`), cost 387
+while other spells cost far less. `GargoylesInEnderal.esp` ports Dawnguard's Conjure Gargoyle untouched:
+`ManualCostCalc`, BaseCost **160** (Summon Gargoyle `000830`) and **240** (Summon Gargoyle Guardian `000875`), no Arcane
+Fever. No list plugin overrides either.
+
+`tools/12-balance-gargoyle-summons.py` writes both spells from `reference/mods/GargoylesInEnderal`. Only `BaseCost`
+changes, keeping the mod's 2:3 ratio:
+
+| Spell | Was | Now | Reference point |
+|---|---:|---:|---|
+| Summon Gargoyle (level 13) | 160 | **100** | median of the list's laddered adept summons (Lich 107, Ravagor 104, Pit Fighter 100) |
+| Summon Gargoyle Guardian (level 30) | 240 | **150** | between the master summons' low and middle (Dremora Mentor 155) |
+
+- `ManualCostCalc`, the vanilla half-cost perk and the 60 s duration stay verbatim.
+- No Arcane Fever, like every other summon in the list.
+- The step writes and deletes only `*_GargoylesInEnderal.esp.yaml` files in `Spells/`, so it is independent of the other
+  steps' order.
+- **Magic Patches now masters `GargoylesInEnderal.esp`** (nine masters); it already loads after it.
+- The tomes are placed in the Ark catacombs by the mod itself and sold nowhere, so distribution is unchanged.
+
+Verified: the new plugin differs from the previous build only by these two spells and the master (both re-serialized and
+compared). Deployed to Patch Collection; previous copy in `E:/Zenderal-backups/2026-11-08-gargoyle-summons`.
+**Unverified in game.**

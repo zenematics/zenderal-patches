@@ -1,0 +1,19 @@
+FormKey: 000875:GargoylesInEnderal.esp
+EditorID: aaaDLC1ConjureGargoyleCalcite
+Name:
+  TargetLanguage: English
+  Value: Summon Gargoyle Guardian
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 150
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+CastDuration: 1
+HalfCostPerk: 0C44BE:Skyrim.esm
+Effects:
+- BaseEffect: 000876:GargoylesInEnderal.esp
+  Data:
+    Duration: 60

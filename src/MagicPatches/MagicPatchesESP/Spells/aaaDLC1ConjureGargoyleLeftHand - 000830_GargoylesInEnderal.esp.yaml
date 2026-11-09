@@ -1,0 +1,19 @@
+FormKey: 000830:GargoylesInEnderal.esp
+EditorID: aaaDLC1ConjureGargoyleLeftHand
+Name:
+  TargetLanguage: English
+  Value: Summon Gargoyle
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 100
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+CastDuration: 1
+HalfCostPerk: 0C44BC:Skyrim.esm
+Effects:
+- BaseEffect: 00082F:GargoylesInEnderal.esp
+  Data:
+    Duration: 60
