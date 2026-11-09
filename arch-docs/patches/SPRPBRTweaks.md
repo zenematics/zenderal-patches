@@ -28,12 +28,22 @@ stretch itself is SureAI's/Bethesda's mapping and stays.
 
 ## Load order
 
-Sort **above** `SPR PBR - Architecture Dungeons Misc`, then rerun PGPatcher. `--scale S` changes the value
-(0 = flat PBR, no depth). Rerun `tools/01` if SPR PBR updates.
+Must **outrank** `SPR PBR - Architecture Dungeons Misc`: directly **below** it in MO2's left pane (directly above it in
+`modlist.txt`, whose top line wins), then rerun PGPatcher. `--scale S` changes the value (0 = flat PBR, no depth).
+Rerun `tools/01` if SPR PBR updates.
 
 ## Status
 
 Generated 2026-10-24. Unverified in game.
+
+**It never applied until 2026-11-06.** "Sort above" was read as the left pane's above, so the mod sat at lower priority
+than SPR PBR from the start (`modlist.txt` line 122 against SPR PBR's 35), and the 2026-11-03 merge moved the JSONs
+into Patch Collection, which also loses to SPR PBR. PGPatcher always read SPR PBR's own values: PG Patcher Output's
+Duenenhaim meshes (2026-10-30) carry full parallax. On 2026-11-06 the 8 JSONs went back into their own MO2 mod
+`Zenderal - SPR PBR Tweaks`, directly over SPR PBR (Wabbajack `Include`), and out of Patch Collection 1.8.
+PGPatcher was rerun on 2026-11-09 (01:18): the tower mesh `sandoldcitytower02.nif` now has `loamwall01` without a
+`_p` slot and no PG Patcher Output mesh references `loamwall01/02_p` (parallax off applied); `sandstone01` keeps its
+`_p` (0.3). Ships from list 0.9.5. Unverified in game.
 
 ## 62 incomplete PBR colour maps hidden (2026-10-26)
 
