@@ -16,6 +16,8 @@ Futura, as the game's own menus do, instead of Futura Condensed.
   Falling back to 'Futura Condensed (EN)' from Interface\fonts_en.swf". **[verified]** (SMF 3.14 log, DLL strings)
 - Vel'dun UI (Enderal Default) maps the game's menu fonts to regular **Futura Book BT** from its
   `Interface/fonts_futura.swf`, but SMF's SWF font reader loads 0 faces from that file. **[verified]**
+  (Vel'dun 1.7's OII 3 beta option maps them to Lato instead; [`VeldunFuturaFont`](VeldunFuturaFont.md) puts them
+  back on Futura, 2026-11-09.)
 - `01-build-font.py` reads that DefineFont3 tag (267 glyphs, full ASCII + 169 more; quadratic outlines on a 1024 em
   at 20x, the same curve type TrueType uses, so the conversion is exact) and writes a TrueType file by hand: head,
   hhea, maxp, OS/2 v4, hmtx, cmap format 4, loca, glyf, name, post. SWF y runs down (flipped); its contour directions

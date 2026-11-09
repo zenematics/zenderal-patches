@@ -131,4 +131,5 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`ZenBoneTrace`](ZenBoneTrace.md) | `ZenBoneTrace.dll`: testing tool, logs the player's 3P arm bones every frame after a spell-fire, to diff against a clip | none (no plugin) |
 | [`CompassNavigationOverhaulFork`](CompassNavigationOverhaulFork.md) | rebuilt `SKSE/Plugins/CompassNavigationOverhaul.dll`, copied into the third-party mod `Compass Navigation Overhaul - Enderal Patch` | none (no plugin) |
 | [`FogWood`](FogWood.md) | `Zenderal - Fog Wood.esp` (full plugin; + scripts, to come) | `0x800–0x337A` |
+| [`VeldunFuturaFont`](VeldunFuturaFont.md) | **no plugin**: MO2 mod `Zenderal - Vel'dun Futura Font` (`Interface/fontconfig.txt`): Vel'dun UI's menus back on Futura Book BT (its OII 3 beta patch maps them to Lato) | none |
 | [`ResponsiveGroundsEnderal`](ResponsiveGroundsEnderal.md) | **no plugin**: MO2 mod `Zenderal - Responsive Grounds Enderal` (`SKSE/Plugins/ResponsiveGrounds.json`): Responsive Grounds' per-texture settings for Enderal's sand, beaches, dry ground, paths and desert rock | none |
