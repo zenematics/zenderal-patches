@@ -4,9 +4,11 @@ MajorRecordFlagsRaw: 262144
 EditorID: ClassMenue
 SkyrimMajorRecordFlags:
 - Compressed
+Flags:
+- HasWater
 Grid:
   Flags: 1914432000
-WaterHeight: -30000
+WaterHeight: 0
 Regions:
 - 0A8260:Skyrim.esm
 Music: 0BC9EC:Skyrim.esm

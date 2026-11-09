@@ -7,7 +7,21 @@
 - **FormID block:** none (overrides only)
 - **Owns:** the WRLD header `Akropolis 0A7FB9:Skyrim.esm` (Water for Enderal CS's, verbatim) and all 18 of its cell
   headers, including `ClassMenue 0A7FBC`
-- **Status:** built and round-trip clean 2026-11-07, deployed. Unverified in game.
+- **Status:** v2 (explicit water height 0, water kept) deployed 2026-11-09, **verified in game** the same day.
+
+## v1 was wrong (2026-11-09)
+
+v1 (below) removed `HasWater` and dropped the water to −30000. In game (curator, 2026-11-09) that showed the bare
+land at −2048 as light-grey slabs, with dark water strips past the 18 cells: **the sea under the platforms belongs
+there** ("the entire water is missing"). The claim below that vanilla shows no water there was never checked.
+
+**v2:** every cell keeps `HasWater`. Only its water height changes, from the "use the worldspace default" marker
+`3.4028235E+38` to an explicit `0`, which is the height the engine already used. **Verified in game 2026-11-09** (curator: "confirmed
+fixed", after Regenerate Caches): one continuous sea, no sheets. So Unified Water's cache builder evidently reads
+that marker as a literal height, which left `Akropolis_cache.wc` empty. Other worldspaces whose cells carry the marker
+may show the same sheets; the same fix applies. After deploying: Bottled Shaders → Unified Water → Debug →
+**Regenerate Caches**, then check the area. If the sheets still pop, the next suspect is the worldspace's grid origin
+(cells start at −2, −1, the misalignment [`UnifiedWaterGridFix`](UnifiedWaterGridFix.md) handles for Vyn).
 
 ## Why
 

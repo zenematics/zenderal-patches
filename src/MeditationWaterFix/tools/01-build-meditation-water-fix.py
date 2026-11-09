@@ -25,7 +25,7 @@ WRLD = os.path.join(ROOT, "reference", "mods", "WaterForEnderalCS", "Worldspaces
 OVERRIDES = [os.path.join(ROOT, "reference", *p, "Worldspaces", WS) for p in (
     ("base-2.1.4.4", "EnderalFS"), ("mods", "EGO"), ("mods", "AkropolisCamping"), ("mods", "AmnesiaShrine"))]
 OUT = os.path.join(ROOT, "src", "MeditationWaterFix", "MeditationWaterFixESP", "Worldspaces", WS)
-LOW = "-30000"
+WATER_HEIGHT = "0"  # v1 used -30000 without HasWater: that removed the sea
 SUBLISTS = ("Persistent:", "Temporary:", "Landscape:", "NavigationMeshes:")
 
 
@@ -47,14 +47,16 @@ def header_only(text):
 
 
 def dewater(text, where):
+    """v2 (2026-11-09): keep the water (the curator: the sea under the platforms belongs there; v1's removal showed
+    the bare land at -2048). Only the water height changes: the 'use the worldspace default' sentinel 3.4028235E+38
+    becomes an explicit 0 (the same height the engine already uses), so Unified Water's cache builder reads a real
+    height (hypothesis: it took the sentinel literally, which left Akropolis_cache.wc empty)."""
     text, nl = header_only(text)
     if text.count(f"{nl}- HasWater{nl}") != 1:
         raise SystemExit(f"{where}: expected exactly one HasWater")
-    text = text.replace(f"{nl}- HasWater{nl}", nl)
-    text = re.sub(rf"^Flags:{nl}(?=[A-Za-z])", "", text, flags=re.M)  # empty list: Spriggit omits it
     if text.count(f"WaterHeight: 3.4028235E+38{nl}") != 1:
         raise SystemExit(f"{where}: water height is not the default")
-    return text.replace(f"WaterHeight: 3.4028235E+38{nl}", f"WaterHeight: {LOW}{nl}")
+    return text.replace(f"WaterHeight: 3.4028235E+38{nl}", f"WaterHeight: {WATER_HEIGHT}{nl}")
 
 
 def winner(rel):

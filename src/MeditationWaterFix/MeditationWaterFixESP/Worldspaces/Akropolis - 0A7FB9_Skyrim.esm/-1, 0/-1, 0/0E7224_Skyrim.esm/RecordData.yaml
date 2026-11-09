@@ -1,5 +1,7 @@
 FormKey: 0E7224:Skyrim.esm
+Flags:
+- HasWater
 Grid:
   Point: -2, 0
   Flags: -1281213184
-WaterHeight: -30000
+WaterHeight: 0
