@@ -1,0 +1,16 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Whisperwood Footsteps.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Footsteps on the Whisperwood soil: its two dirt landscape textures had the flesh material MaterialOrganicLarge, which no footstep set maps; now MaterialDirt."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1

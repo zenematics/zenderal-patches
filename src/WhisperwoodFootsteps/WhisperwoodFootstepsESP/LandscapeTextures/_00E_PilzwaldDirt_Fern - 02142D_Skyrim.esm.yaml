@@ -1,0 +1,9 @@
+FormKey: 02142D:Skyrim.esm
+EditorID: _00E_PilzwaldDirt_Fern
+TextureSet: 021710:Skyrim.esm
+MaterialType: 012F38:Skyrim.esm
+HavokFriction: 3
+TextureSpecularExponent: 100
+Grasses:
+- 05B5A8:Skyrim.esm
+Flags: []

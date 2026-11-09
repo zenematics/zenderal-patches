@@ -1,0 +1,11 @@
+FormKey: 016680:Skyrim.esm
+EditorID: _00E_PilzwaldDirt
+Version2: 1
+TextureSet: 021710:Skyrim.esm
+MaterialType: 012F38:Skyrim.esm
+HavokFriction: 3
+TextureSpecularExponent: 100
+Grasses:
+- 01CC70:Skyrim.esm
+- 04013C:Skyrim.esm
+Flags: []
