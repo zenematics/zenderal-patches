@@ -61,7 +61,8 @@ BLEND_IN = 0.2             # from the first-person hold into the retargeted relo
 BLEND_OUT = 0.34           # into vanilla's first-person staff_idle over the clip's last seconds (stowed at 2.32)
 SHOT, IDLE = PR.CLIP, PR.IDLE
 STOW_SHORT = 3.0           # a melee stow's free hand may fall this short (the sheath, cross-body at the hip, below the
-                           # view: the first-person arms are shorter; the left sword's reach missed by 1.5 on 4 frames)
+                           # view: the first-person arms are shorter; the left sword's reach missed by 1.5 on 4 frames;
+                           # a spell with a left pistol: 0.77 at the hip pouch, 81-111 deg under the view, 2026-11-07)
 MUZZLE_BELOW = 14.0        # extra arm lift (per barrel) so the muzzle sits this far below the view's centre while
                            # ramming: the head's look-down alone left the whole loading below the screen (rendered
                            # 2026-11-02; at 21:9 and 85 deg the view reaches ~21 deg down)
@@ -124,6 +125,37 @@ for _female in ((True, False) if _back else (None,)):    # 'arm': the one-gun re
                                       beats=PR.DUAL_BEATS if _back else PR.BEATS,
                                       motion_end=PR.DUAL_MOTION_END if _back else None,
                                       src=PR.SHIELD_1P_SOURCES if PR.SHIELD_STYLE_1P != PR.SHIELD_STYLE else None)
+
+
+# A torch (tools/01 Ctx.torch, right-hand pistol only, 2026-11-05): first person's MRh_Torch_Blend has the third
+# person's bone weights (read 2026-11-05), so the free arm rests on vanilla's first-person staffright_idle (the magic
+# graph's arm, frame 0) under the first-person tor_idle at its least-swaying frame, by tools/01 TORCH_SHARE (`share`);
+# the torch in the belt maps below the view like a sheathed weapon.
+_sfx = PR.stow_suffix(PR.TORCH, None)
+HANDS['stow right' + _sfx] = dict(shot=PR.CLIP_RIGHT, idle=PR.IDLE_RIGHT, aim=PR.AIM_CLIPS_RIGHT, gun='Weapon',
+                                  free=FREE_ARM_LEFT, suffix=_sfx + RIGHT, other=PR.TORCH_IDLE, share=PR.TORCH_SHARE,
+                                  beats=PR.DUAL_BEATS, motion_end=PR.DUAL_MOTION_END)
+
+
+# A spell in the other hand (tools/01 SPELL, 2026-11-07): first person shows SIGMA - Magic animations' idle for the
+# spell's school in that hand (its submods Mag<school>L / R, conditioned on that hand's school alone; vanilla's for a
+# spell of no school), and the five hold the hand up to 10 units and 70 deg apart (measured 2026-11-07). So every school
+# gets its own submod from the same third-person clip (`src_suffix`): the free arm rests on that school's idle at its
+# least-swaying frame (`other_src`), with SIGMA's own condition added and SPELL_SCHOOL_BUMP more priority; the generic
+# one rests on vanilla's idle (`rest_still`).
+SPELL_SIGMA = ('SIGMA - Magic animations - 1st person', ADS.ANIMS_1P + ['OpenAnimationReplacer', 'Sigma - Magic'])
+SPELL_SCHOOLS = ('Alt', 'Con', 'Des', 'Ill', 'Res')
+SPELL_SCHOOL_BUMP = 100
+for _right in (False, True):
+    _side, _r, _idle = ('right', RIGHT, 'mlh_idle.hkx') if _right else ('left', '', 'mrh_idle.hkx')
+    _base = dict(shot=PR.CLIP_RIGHT if _right else PR.CLIP, idle=PR.IDLE_RIGHT if _right else PR.IDLE,
+                 aim=PR.AIM_CLIPS_RIGHT if _right else PR.AIM_CLIPS, gun='Weapon' if _right else 'Shield',
+                 free=FREE_ARM_LEFT if _right else FREE_ARM, beats=PR.BEATS, motion_end=None, src_suffix=PR.SPELL + _r)
+    HANDS['spell ' + _side] = dict(_base, suffix=PR.SPELL + _r, other=_idle, rest_still=True)
+    for _k, _school in enumerate(SPELL_SCHOOLS):
+        HANDS['spell %s %s' % (_side, _school)] = dict(
+            _base, suffix=' (spell, %s)%s' % (_school.lower(), _r), other=None, bump=SPELL_SCHOOL_BUMP * (_k + 1),
+            other_src=(SPELL_SIGMA[0], SPELL_SIGMA[1] + ['Mag%s%s' % (_school, 'L' if _right else 'R'), _idle]))
 
 
 def clip(tmp, data):
@@ -265,9 +297,18 @@ def check(rt, path, idle, rest, added):
 
 
 def main():
-    root = sys.argv[1] if len(sys.argv) > 1 else ADS.TOOLS['modlistRoot']
+    """[<modlist root>] [--only=<item>] [--out=<mod folder>]: tools/01's options (--only: just that other-hand item's
+    submods, the rest of the set left as it is; --out: read the third-person set from and write to that mod)."""
+    opts = dict(a[2:].split('=', 1) for a in sys.argv[1:] if a.startswith('--'))
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    root = args[0] if args else ADS.TOOLS['modlistRoot']
+    only = opts.get('only')
+    hands = {k: h for k, h in HANDS.items() if not only or h['suffix'].startswith(' (%s' % only)}
+    if not hands:
+        sys.exit('--only=%s matches no other-hand item' % only)
     mods_dir = os.path.join(root, 'mods')
-    oar3 = os.path.join(mods_dir, PR.DEPLOY, *PR.OAR)
+    out_mod = opts.get('out') or os.path.join(mods_dir, PR.DEPLOY)
+    oar3 = os.path.join(out_mod, *PR.OAR)
     if not os.path.isdir(oar3):
         sys.exit('run tools/01 first: %s is missing' % oar3)
     bsa = _bsa.listing(os.path.join(root, 'Stock Game', 'Data', 'Skyrim - Animations.bsa'))
@@ -281,7 +322,7 @@ def main():
     rt = R10.Retarget(sk1, sk3)
     profile, mods = QRS.profile_mods(root)
     vanilla, floats = {}, {}
-    for name in sorted({n for h in HANDS.values() for n in [h['shot'], h['idle']] + h['aim'] + [h['other'] or h['idle']]}):
+    for name in sorted({n for h in hands.values() for n in [h['shot'], h['idle']] + h['aim'] + [h['other'] or h['idle']]}):
         src, data = QRS.winner(mods_dir, mods, bsa, ADS.ANIMS_1P + [name])
         vanilla[name] = clip(tmp, data)
         floats[name] = PR.HF.read(data)  # node visibility: written back into every clip made from it (PR.write_clip)
@@ -294,36 +335,60 @@ def main():
                  % (FREE_IDLE[0], profile))
     free_idle = anim_skyrim.load_skyrim_animation(QRS.find_ci(os.path.join(mods_dir, FREE_IDLE[0]), FREE_IDLE[1]))
     rest_at = lambda a, bones: {b: (list(a.tracks[b].rotations[0]), a.tracks[b].scales[0][0]) for b in bones}  # noqa: E731
-    oar1 = os.path.join(mods_dir, PR.DEPLOY, *OAR_1P)
-    if os.path.isdir(oar1):
+    oar1 = os.path.join(out_mod, *OAR_1P)
+    if os.path.isdir(oar1) and not only:
         shutil.rmtree(oar1)
     muzzles = {g[0]: g[3][0] for g in PR.pistol_groups(mods_dir, mods)}
     written, built = 0, 0
-    for hand, h in HANDS.items():
+    for hand, h in hands.items():
         bones = [rt.i1[n] for n in h['free']]
-        rest = rest_at(vanilla[h['other']], bones) if h['other'] else rest_pose(free_idle, bones)
+        extra_cond = []    # conditions on top of the third-person submod's (a spell school's: SIGMA's own)
+        if h.get('other_src'):
+            mod, parts = h['other_src']
+            src_path = QRS.find_ci(os.path.join(mods_dir, mod), parts) if mod in mods else None
+            if not src_path:
+                sys.exit('%s: %s is not enabled in %s or has no %s' % (hand, mod, profile, '/'.join(parts)))
+            rest = rest_pose(anim_skyrim.load_skyrim_animation(src_path), bones)
+            extra_cond = json.load(open(os.path.join(os.path.dirname(src_path), 'config.json'),
+                                        encoding='utf-8'))['conditions']
+            if [c['condition'] for c in extra_cond] != ['IsEquippedType']:
+                sys.exit('%s: %s\'s conditions are not one IsEquippedType: %s' % (hand, src_path, extra_cond))
+        elif h.get('rest_still'):
+            rest = rest_pose(vanilla[h['other']], bones)
+        else:
+            rest = rest_at(vanilla[h['other']], bones) if h['other'] else rest_pose(free_idle, bones)
+        if h.get('share'):     # a torch: the shot's idle (the magic graph's arm) under `other` by bone
+            over, under = rest_pose(vanilla[h['other']], bones), rest_at(vanilla[h['idle']], bones)
+            rest = {}
+            for n in h['free']:
+                b, s = rt.i1[n], h['share'][n]
+                rest[b] = ([float(x) for x in ADS.slerp(under[b][0], over[b][0], s)],
+                           under[b][1] + (over[b][1] - under[b][1]) * s)
         template = os.path.join(os.environ.get('TEMP', '.'), '_pistol_reload_1p_%s.hkx' % hand)  # 1P track layout
         with open(template, 'wb') as fh:
             fh.write(_bsa.read(bsa[0], bsa[1]['\\'.join(ADS.ANIMS_1P).lower() + '\\' + h['shot']]))
         # this kind's third-person submods: 'Reload <pistol group><suffix>' exactly (from the deployed set, or for
         # first person's own shield style, tools/01's SHIELD_1P_SOURCES)
         src3 = h.get('src') or oar3
-        subs = sorted(d for d in os.listdir(src3) if d.startswith('Reload ') and d.endswith(h['suffix'])
-                      and d[len('Reload '):len(d) - len(h['suffix'])] in muzzles) if os.path.isdir(src3) else []
+        sfx3 = h.get('src_suffix', h['suffix'])     # the third-person submods' suffix (a spell school's: the spell's)
+        subs = sorted(d for d in os.listdir(src3) if d.startswith('Reload ') and d.endswith(sfx3)
+                      and d[len('Reload '):len(d) - len(sfx3)] in muzzles) if os.path.isdir(src3) else []
         if len(subs) != len(muzzles):
             sys.exit('%d third-person %s reloads in %s for %d pistol groups: run tools/01' % (len(subs), hand, src3,
                                                                                           len(muzzles)))
         for sub3 in subs:
-            label = sub3[len('Reload '):len(sub3) - len(h['suffix'])]
+            label = sub3[len('Reload '):len(sub3) - len(sfx3)]
             cfg3 = json.load(open(os.path.join(src3, sub3, 'config.json'), encoding='utf-8'))
             a3 = anim_skyrim.load_skyrim_animation(os.path.join(src3, sub3, h['shot']))
             added = [(a.time, a.text) for a in a3.annotations if a.text.startswith(PROP_EVENTS)]
             anim, worst, short, extra, dropped = build(rt, a3, vanilla[h['idle']], rest, template, muzzles[label],
                                                        h['gun'], h['beats'], h['motion_end'])
-            if short and (worst > STOW_SHORT or not hand.startswith('stow')):
+            if short and (worst > STOW_SHORT or not hand.startswith(('stow', 'spell'))):
                 sys.exit('%s %s: %d hand targets out of reach (worst %.2f)' % (hand, label, short, worst))
             name = 'Reload 1P %s%s' % (label, h['suffix'])
             sub = os.path.join(oar1, name)
+            if only and os.path.isdir(sub):
+                shutil.rmtree(sub)
             os.makedirs(sub)
             out = os.path.join(sub, h['shot'])
             PR.write_clip(out, anim, floats[h['shot']], reference=True)
@@ -339,7 +404,7 @@ def main():
             cfg = {'name': name,
                    'description': 'First person: %s, retargeted from the third-person reload (tools/04).'
                                   % cfg3['description'],
-                   'priority': cfg3['priority'], 'conditions': cfg3['conditions']}
+                   'priority': cfg3['priority'] + h.get('bump', 0), 'conditions': cfg3['conditions'] + extra_cond}
             ADS.write_config(sub, cfg)
             print('1P %-9s %-18s hands on target (worst %.3f); arms lifted %+.1f deg; elbow down on %d frames (up to '
                   '%.2f); %.2f s; end %.2f off the idle' % (hand, label, worst, extra, dropped[0], dropped[1],

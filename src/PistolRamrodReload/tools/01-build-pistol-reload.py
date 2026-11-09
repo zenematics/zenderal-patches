@@ -335,6 +335,81 @@ SHIELD_APPROACH = (10.0, 8.0)     # 'lower' / 'raise_': the shield this much fur
 SHIELD_RIM = (0.0, 12.0, 20.0)    # the shield sampled on rings of these radii (8 points each), 4 into its face ...
 SHIELD_CLEAR = 7.0                # ... each at least this far from the spine and leg lines while the hand carries it
 PRIORITY_SHIELD_RIGHT = 1000026000
+# A torch in the other hand (2026-11-05, curator: "add animation that lowers the torch to put it away rather than just
+# spawning and despawning the torch"; the first answer unequipped it for the empty hand's reload). Torches are left-hand
+# only: a right-hand pistol, solved mirrored. Both views' 0_master: MRh_Shield_OR_Torch_ReadyBehavior -> MRh_Torch_Ready
+# -> MRh_Torch_Blend lays Tor_Idle over the magic graph (read 2026-11-05): the hand's fingers, `Shield` (the torch's
+# attach node; XPMSE has no torch node) and the magic node whole, the arm partly (TORCH_SHARE: its bone weights against
+# the magic graph's 1.0, normalised); no root grip override (DualWieldShieldBoneRootMSG is on iLeftHandType, a torch's
+# 11 slot plain). The Pandora patch frees it with fZenPistolLeftStow (tools/03 torch_release). On the two-pistol
+# timeline the free hand lowers the torch, pushes it down into a loop on the belt at the back of the left hip (flame up,
+# tilted back and out: torch_place), lets go, rams, and draws it back up: a melee stow whose sheath is that place, the
+# grip never reversed. It stays lit. The free arm starts and ends on what the blend shows (Loop's idle arm under
+# vanilla's tor_idle by TORCH_SHARE); UNDERDOG's torch idles and EVG Animation Variance swap in variants of tor_idle,
+# which the arm script's fade covers.
+TORCH = 11                        # GetEquippedItemType (Papyrus) ...
+OAR_TORCH = 18                    # ... and OAR's IsEquippedType (UNDERDOG - Animations' torch module: left hand, 18)
+TORCH_IDLE = 'tor_idle.hkx'
+# the torch's share of each bone under MRh_Torch_Blend (its weights #1123: clavicle 0.5, upper arm and its twists 0.6,
+# forearm and its twists 0.7, hand 0.85, AnimObjectL 1, pauldron 0.5 against the magic graph's 1.0; Shield, the
+# magic node and the fingers torch only; first person's #0800 the same), by the real (left) bone
+TORCH_SHARE = dict({'NPC L Clavicle [LClv]': 0.5 / 1.5, 'NPC L Pauldron': 0.5 / 1.5,
+                    'NPC L UpperArm [LUar]': 0.6 / 1.6, 'NPC L UpperarmTwist1 [LUt1]': 0.6 / 1.6,
+                    'NPC L UpperarmTwist2 [LUt2]': 0.6 / 1.6, 'NPC L Forearm [LLar]': 0.7 / 1.7,
+                    'NPC L ForearmTwist1 [LLt1]': 0.7 / 1.7, 'NPC L ForearmTwist2 [LLt2]': 0.7 / 1.7,
+                    'NPC L Hand [LHnd]': 0.85 / 1.85, 'AnimObjectL': 0.5, 'Shield': 1.0, 'NPC L MagicNode [LMag]': 1.0},
+                   **{'NPC L Finger%d%d [LF%d%d]' % (a, b, a, b): 1.0 for a in range(5) for b in range(3)})
+# Where the torch hangs (torch_place): a loop on the belt TORCH_OUT to the left, TORCH_BACK behind and TORCH_UP above
+# the pelvis (body frame), holding the handle TORCH_LOOP along the torch from its grip (torch.nif runs along +Y from
+# the grip: handle to -10, flame to +42); the torch tilted TORCH_TILT_BACK back and TORCH_TILT_OUT out from upright.
+# The nearest the hand reaches (wrist inside STOW_WRIST, pushed in no more than TORCH_DEPTH_MAX short of it) with the
+# torch (TORCH_SAMPLES along it) TORCH_CLEAR off the spine and leg lines. The search alone picked 10 out, 9 back, 15
+# deg back (2026-11-05): nearly upright beside the hip, its top half by the shoulder, and the working arm passed 0.4
+# from it on its way to the pouch. Trial builds (first pistol group) then measured the torch against the working arm
+# and the body over the whole clip (torch_clearance): 35-45 deg back cleared the arm (4-10), the handle's foot came
+# closest to the thigh; 14 out, 12 back, 35 back, 15 out gave 10.8 / 9.2, the torch upright enough to sit behind the
+# hip rather than stick out behind. So the grid is that one place, kept as a search so a changed skeleton or clip
+# fails here (and in torch_clearance) instead of hanging the torch in the body.
+TORCH_ANCHOR = 'NPC Pelvis [Pelv]'
+TORCH_LOOP = -4.0
+TORCH_OUT = (14.0,)
+TORCH_BACK = (12.0,)
+TORCH_UP = (0.0,)
+TORCH_TILT_BACK = (35.0,)
+TORCH_TILT_OUT = (15.0,)
+TORCH_SAMPLES = (-10.0, 0.0, 10.0, 20.0, 30.0, 42.0)
+TORCH_CLEAR = 9.0
+TORCH_DEPTH_MAX = 12.0
+TORCH_ARM_CLEAR = 6.0              # the stowed torch off the working arm (upper arm to fingers), the clip fails nearer
+TORCH_ARM_SKIP = 0.1               # ... from this long after the hand lets go to this long before it takes it again
+# A spell in the other hand (2026-11-07, a player: "No reload animation when holding a pistol and spell in the other
+# hand"): no clip played, so the gun loaded on the Flintlock script's timer. magicbehavior (both views, read 2026-11-07):
+# a pistol (a staff) and a spell take the staff-and-spell CastBlendDamped blends (RHStaff_And_MLh_Blend,
+# MRh_And_LHStaff_Blend), whose Equal_Magic_Blend gives the spell hand's graph that arm whole (and the spine half) while
+# the gun casts. The Pandora patch wraps both on fZenPistolDualReload (tools/03 spell_wrappers), which
+# ZP_PistolReloadArmScript.SpellReload fades to the gun's side, so the clip owns the body: the one-gun reload, the free
+# arm resting on the spell hand's idle. Third person: Goetia Magic Spell Casting's loose mlh_idle (no OAR/DAR replacer
+# applies with a staff in the other hand: Smooth Combat's want a right melee type or keyword; Dynamic Random Spell Idle
+# and Smooth Magic Casting are disabled); the right hand's Goetia Enchanted Staves' "Staves blend override" mrh_idle
+# (OAR 68360: drawn, a staff in either hand). OAR's IsEquippedType numbers spells by school (12-16, scrolls 17: the
+# list's DAR spell idles), so the submods test the graph's own hand type, SPELL_TYPE in iLeftHandType / iRightHandType,
+# the value its LeftHandMagicCast_MSG routes; first person rests per school (tools/04, SIGMA's idles).
+SPELL = ' (spell)'
+SPELL_TYPE = 9
+SPELL_IDLE_LEFT = ('Goetia Animations - Magic Spell Casting', ANIMS_3P + ['mlh_idle.hkx'])
+SPELL_IDLE_RIGHT = ('Goetia Animations - Enchanted Magic Staves', ANIMS_3P + ['OpenAnimationReplacer', 'Enchanted Staves',
+                                                                            'Staves blend override', 'mrh_idle.hkx'])
+# The spell idle holds the whole arm, clavicle and upper arm too, raised in front; resting on it the ramming wrist
+# rolled 112 deg between the pouch and the muzzle on every load pose (first build, 2026-11-07). So between the start
+# and the pouch, and from the stowed rod to the end, the free arm blends onto the one-gun reload's rest and back
+# (`relaxed`, as for two pistols and the torch: the reload itself is the verified one-gun reload). The clip then holds
+# its last pose (the spell idle) SPELL_HOLD more, while ZP_PistolReloadArmScript hands the body back
+# (SPELL_RESET_AFTER there: inside the hold); after the clip the gun's graph shows Loop's idle, whose free arm is not
+# the spell's.
+SPELL_HOLD = 0.5
+PRIORITY_SPELL = 1000028000
+PRIORITY_SPELL_RIGHT = 1000029000
+PRIORITY_TORCH_RIGHT = 1000027000
 # Keys (2026-11-02, curator: the dagger jittered in first person). The engine interpolates each bone's local track
 # linearly between keys (PyNifly writes degree-1 splines), and Loop's clips, so ours, run at 28.8 keys a second. A
 # weapon pinned in its sheath or the belt hangs on its hand's attach node with a large, fast-changing local offset, so
@@ -632,6 +707,75 @@ class Ctx:
         self._stows[key] = var
         return var
 
+    def torch(self):
+        """A torch in the free (left) hand, pushed into a loop on the belt for the reload (TORCH_*): the right-hand
+        pistol's variant, solved mirrored, a melee stow whose sheath is torch_place's. The free arm rests on what
+        MRh_Torch_Blend shows: Loop's right-hand idle (the magic graph's after the reload, frame 0) under vanilla's
+        tor_idle at its least swaying frame, by TORCH_SHARE."""
+        key = ('torch',)
+        if key in self._stows:
+            return self._stows[key]
+        right_v = self.right
+        iw, ia = self.ix['Weapon'], self.ix[TORCH_ANCHOR]
+        tmp = os.path.join(os.environ.get('TEMP', '.'), '_pistol_reload_torch.hkx')
+        with open(tmp, 'wb') as fh:
+            fh.write(_bsa.read(self.bsa[0], self.bsa[1]['\\'.join(ANIMS_3P).lower() + '\\' + TORCH_IDLE]))
+        real = anim_skyrim.load_skyrim_animation(tmp)
+        mir = self.mirrored(tmp)
+        os.remove(tmp)
+        f = self.still_frame(mir)
+        loop = right_v.idle
+        free = {}
+        for n in RIGHT_HALF + RIGHT_IDLE:
+            b, s = self.ix[n], TORCH_SHARE[swap_side(n)]
+            free[b] = ([float(x) for x in ADS.slerp(loop.tracks[b].rotations[0], mir.tracks[b].rotations[f], s)],
+                       [float(x) for x in ADS.lerp(loop.tracks[b].scales[0], mir.tracks[b].scales[f], s)])
+        # between letting go of the torch and taking it again the free arm rests on the one-gun reload's (`relaxed`,
+        # as two pistols): on the torch's blend, its clavicle and upper arm raised toward tor_idle's, the reload took a
+        # second-best load pose and the rod missed the bore by 0.57 (build 2026-11-05)
+        var = Variant(self, 'torch-right', right_v.source, right_v.idle, free, [], RIGHT_HALF + RIGHT_IDLE, dual=True,
+                      wl=local_mat(mir, iw, f), torch=True, relaxed=right_v)
+        wr, wm = self.rig.world(real, f), self.rig.world(mir, f)
+        fix = lambda r, m: np.linalg.inv(REFLECT @ unscaled(wr[self.ix[r]])) @ unscaled(wm[self.ix[m]])  # noqa: E731
+        L, var.torch_params = torch_place(self, var, wr, fix(TORCH_ANCHOR, TORCH_ANCHOR), fix('Shield', 'Weapon'))
+        P = np.linalg.inv(fix(TORCH_ANCHOR, TORCH_ANCHOR)) @ L @ fix('Shield', 'Weapon')
+        var.stow = lambda w: unscaled(w[ia]) @ P
+        # check_right's rest in the real world: tor_idle's frame with the same blend on the real left arm (Loop's real
+        # right-hand idle, frame 0; the double mirror is the identity)
+        loop_real = anim_skyrim.load_skyrim_animation(os.path.join(self.right_dir, IDLE_RIGHT))
+        rest_real = copy.deepcopy(real)
+        for n in RIGHT_HALF + RIGHT_IDLE:
+            b, s = self.ix[swap_side(n)], TORCH_SHARE[swap_side(n)]
+            rest_real.tracks[b].rotations[f] = [float(x) for x in ADS.slerp(loop_real.tracks[b].rotations[0],
+                                                                           real.tracks[b].rotations[f], s)]
+        var.real_rest = (rest_real, [f])
+        var.real_sheath = (ia, L)
+        self._stows[key] = var
+        return var
+
+    def spell(self, right):
+        """A spell in the free hand (SPELL_*): the one-gun reload with the free arm resting, whole, on that hand's spell
+        idle at its least swaying frame; the right-hand pistol's solved mirrored, its real rest kept for check_right."""
+        key = ('spell', right)
+        if key in self._stows:
+            return self._stows[key]
+        if right:
+            right_v = self.right
+            real = self.idle_clip(SPELL_IDLE_LEFT)
+            mir = self.mirrored(self.idle_path(SPELL_IDLE_LEFT))
+            var = Variant(self, 'spell-right', right_v.source, right_v.idle, self.free_arm_idle(mir), [],
+                          RIGHT_HALF + RIGHT_IDLE)
+            var.real_rest = (real, [self.still_frame(mir)])
+        else:
+            var = Variant(self, 'spell-left', lambda: self.loop_clip(CLIP), self.idle,
+                          self.free_arm_idle(self.idle_clip(SPELL_IDLE_RIGHT)), [], RIGHT_HALF + RIGHT_IDLE)
+        # relaxed onto the one-gun reload's rest from the start to the pouch and from the stowed rod to the end, then
+        # SPELL_HOLD on the spell idle (the motion still ends at BEATS' end)
+        var.relaxed = self.right if right else self.left
+        var.beats = dict(var.beats, release=TRIM, regrip=BEATS['end'], end=BEATS['end'] + SPELL_HOLD)
+        self._stows[key] = var
+        return var
+
     @property
     def dual_left(self):
         """Two pistols, the left one fired: the right hand tucks its gun, from Loop's right idle, frame 0 (traced)."""
@@ -772,11 +916,12 @@ class Variant:
     `shield`: ShieldBack, Ctx.shield). A two-pistol variant's free arm rests on the one-gun variant `relaxed` while its
     gun is in the belt (RELAX_SKIP)."""
     def __init__(self, ctx, name, source, idle, free_rot, half, full, dual=False, gun_axes=(1.0, 1.0), wl=None,
-                 stow=None, shift=0.0, relaxed=None, shield=False):
+                 stow=None, shift=0.0, relaxed=None, shield=False, torch=False):
         self.ctx, self.name, self.source, self.idle = ctx, name, source, idle
         self.free_rot, self.half, self.full = free_rot, half, full
         self.dual, self.gun_axes, self.wl, self.stow, self.shift = dual, gun_axes, wl, stow, shift
-        self.relaxed, self.shield = relaxed, shield
+        self.relaxed, self.shield, self.torch = relaxed, shield, torch   # torch: a stow never gripped reversed
+        self.torch_params = None
         self.letgo = None         # a shield's let-go and approach (4x4 in ShieldBack's frame): shield_letgo()
         self.strap = None         # a strapped shield's local in the hand while it reloads (SHIELD_STYLE 'arm')
         self.real_rest = self.real_sheath = None
@@ -1191,6 +1336,81 @@ def blade_clearance(ctx, w, item):
     return min(seg_dist(p, a, b) for p in pts for a, b in segs)
 
 
+def torch_place(ctx, var, wr, fix_anchor, fix_item):
+    """Where the torch hangs on the belt (TORCH_*): (its attach node's 4x4 in the real pelvis's frame, parameters).
+    Candidates are laid out in the real world on tor_idle's body `wr` (left = the torch's side, the torch's +Y on the
+    tilted axis by the least turn from its hold in tor_idle, so it keeps its turn about the handle) and measured in the
+    mirrored world on the reload's body (Loop's idle, frame 0; fix_anchor / fix_item: Ctx's mirror per node): the
+    whole torch (TORCH_SAMPLES) TORCH_CLEAR off the spine and leg lines, then, nearest first (cheapest), the first the
+    free hand holds within TORCH_DEPTH_MAX above the loop with the wrist inside STOW_WRIST."""
+    rig, ix = ctx.rig, ctx.ix
+    ia = ix[TORCH_ANCHOR]
+    right, fwd, up = body_frame(wr, ix)
+    left = -right
+    pelvis_r = unscaled(wr[ia])
+    held = unscaled(wr[ix['Shield']])[:3, :3]
+    w_body = rig.world(var.idle, 0)
+    body = body_frame(w_body, ix)
+    segs = [(w_body[ix[a]][:3, 3], w_body[ix[b]][:3, 3]) for a, b in BODY_SEGMENTS]
+    anchor_m = unscaled(w_body[ia]) @ np.linalg.inv(fix_anchor)
+    cands = []
+    for out in TORCH_OUT:
+        for back in TORCH_BACK:
+            for upo in TORCH_UP:
+                for tb in TORCH_TILT_BACK:
+                    for to in TORCH_TILT_OUT:
+                        b_, o_ = math.radians(tb), math.radians(to)
+                        axis = unit(up * math.cos(b_) * math.cos(o_) - fwd * math.sin(b_) +
+                                    left * math.cos(b_) * math.sin(o_))
+                        loop = pelvis_r[:3, 3] + left * out - fwd * back + up * upo
+                        T = np.eye(4)
+                        T[:3, :3] = R3P.rot_between(held @ np.array([0, 1.0, 0]), axis) @ held
+                        T[:3, 3] = loop - axis * TORCH_LOOP
+                        L = np.linalg.inv(pelvis_r) @ T
+                        S = anchor_m @ L @ fix_item
+                        clear = min(seg_dist((S @ np.r_[0.0, y, 0.0, 1.0])[:3], a, b)
+                                    for y in TORCH_SAMPLES for a, b in segs)
+                        if clear < TORCH_CLEAR:
+                            continue
+                        cost = 0.5 * out + 0.3 * back + 0.2 * upo + 0.05 * abs(tb - 30.0) + 0.05 * to
+                        cands.append((cost, L, S, dict(out=out, back=back, up=upo, tilt_back=tb, tilt_out=to,
+                                                       clear=round(clear, 1))))
+    if not cands:
+        sys.exit('%s: no torch place on the belt is %.0f off the body' % (var.name, TORCH_CLEAR))
+    cands.sort(key=lambda c: c[0])
+    ctx.carry_in_hand = var.wl
+    for _, L, S, params in cands:
+        sign = 1.0 if S[:3, 1] @ body[2] > 0 else -1.0
+        for depth in np.arange(0.0, TORCH_DEPTH_MAX + 1e-6, STOW_DEPTH_STEP):
+            item = S @ ADS.trs([0.0, sign * depth, 0.0], [0, 0, 0, 1.0], 1.0)
+            hold = stow_hold(ctx, w_body, item, body, False)
+            if hold[4] <= 0.05 and abs(hold[5][0]) <= STOW_WRIST[0] and abs(hold[5][1]) <= STOW_WRIST[1]:
+                return L, dict(params, depth=float(depth), candidates=len(cands))
+    sys.exit('%s: the hand holds the torch at none of %d belt places' % (var.name, len(cands)))
+
+
+def torch_clearance(ctx, anim, var):
+    """A built torch clip (mirrored world): (the torch's least distance to the spine and leg lines over the motion,
+    the stowed torch's to the working arm from TORCH_ARM_SKIP after the let-go to as long before the regrip), each
+    (distance, clip time before TRIM)."""
+    ix, rig = ctx.ix, ctx.rig
+    ys = np.linspace(TORCH_SAMPLES[0], TORCH_SAMPLES[-1], 14)
+    arm = [(SIDES['R'][0], SIDES['R'][1]), (SIDES['R'][1], SIDES['R'][2]), (SIDES['R'][2], 'NPC R Finger21 [RF21]')]
+    beats, fd = var.beats, anim.frame_duration
+    body, near = (math.inf, 0.0), (math.inf, 0.0)
+    for f in range(KEEP_FRAMES, int(round(var.motion_end / fd)) + 1):
+        t = f * fd
+        w = rig.world(anim, f)
+        m = unscaled(w[ix['Weapon']])
+        pts = [(m @ np.r_[0.0, y, 0.0, 1.0])[:3] for y in ys]
+        d = min(seg_dist(p, w[ix[a]][:3, 3], w[ix[b]][:3, 3]) for p in pts for a, b in BODY_SEGMENTS)
+        body = min(body, (d, t))
+        if beats['release'] + TORCH_ARM_SKIP <= t <= beats['regrip'] - TORCH_ARM_SKIP:
+            d = min(seg_dist(p, w[ix[a]][:3, 3], w[ix[b]][:3, 3]) for p in pts for a, b in arm)
+            near = min(near, (d, t))
+    return body, near
+
+
 def stow_glide(t, beats):
     """How far (0..1) the weapon is out of the sheath at t while the hand is off it: out as the hand left it at
     'tucked', in by 'release', out again by 'regrip'."""
@@ -1513,7 +1733,7 @@ def build_clip(ctx, label, c, axis, radius, var):
         # (blade-down weapons: the reverse grip keeps the wrist nearly straight right at the sheath; the axe the idle's)
         found = None
         for depth in np.arange(0.0, STOW_DEPTH_MAX + 1e-6, STOW_DEPTH_STEP):
-            for reverse in (False, True):
+            for reverse in ((False,) if var.torch else (False, True)):     # a torch's flame stays up
                 w_in, item_in, sign = sheathed('tucked', depth)
                 hold = stow_hold(ctx, w_in, item_in, body, reverse)
                 if hold[4] <= 0.05 and abs(hold[5][0]) <= STOW_WRIST[0] and abs(hold[5][1]) <= STOW_WRIST[1]:
@@ -1808,6 +2028,8 @@ def build_clip(ctx, label, c, axis, radius, var):
         info.update(belt=belt, belt_params=belt_params)
     if var.shield and var.dual:
         info.update(letgo=var.letgo[2])
+    if var.torch:
+        info['torch_body'], info['torch_arm'] = torch_clearance(ctx, anim, var)
     return anim, info, added, misses, wrists, load
 
 
@@ -2150,6 +2372,17 @@ def conditions(weapons, left):
             requested(left)]
 
 
+def conditions_spell(weapons, left):
+    """Drawn, one of `weapons` in the pistol hand (`left`), a spell in the other (the graph's hand type SPELL_TYPE, any
+    school), asked for."""
+    return [LOOP.DRAWN,
+            LOOP.any_of([LOOP.equipped(p, f, left) for p, f in weapons]),
+            {'condition': 'CompareValues', 'requiredVersion': '1.0.0.0', 'Value A': {'value': float(SPELL_TYPE)},
+             'Comparison': '==', 'Value B': {'graphVariable': 'iRightHandType' if left else 'iLeftHandType',
+                                            'graphVariableType': 'Int'}},
+            requested(left)]
+
+
 def conditions_dual(weapons, left, pistols):
     """Drawn, one of `weapons` in the firing hand (`left`), any of `pistols` in the other, asked for."""
     return [LOOP.DRAWN,
@@ -2159,8 +2392,8 @@ def conditions_dual(weapons, left, pistols):
 
 
 def item_name(typ):
-    """'sword', 'dagger', 'axe', 'mace' (STOW) or 'shield' (SHIELD)."""
-    return 'shield' if typ == SHIELD else STOW[typ][0]
+    """'sword', 'dagger', 'axe', 'mace' (STOW), 'shield' (SHIELD) or 'torch' (TORCH)."""
+    return {SHIELD: 'shield', TORCH: 'torch'}.get(typ) or STOW[typ][0]
 
 
 def stow_suffix(typ, female):
@@ -2169,13 +2402,13 @@ def stow_suffix(typ, female):
 
 
 def conditions_stow(weapons, left, typ, female):
-    """Drawn, one of `weapons` in the pistol hand (`left`), a one-handed melee weapon of type `typ` (or a SHIELD) in the
-    other, the player's sex where the sheath depends on it (`female`, None for either), asked for. OAR numbers the
-    melee types as Papyrus does, a shield OAR_SHIELD."""
+    """Drawn, one of `weapons` in the pistol hand (`left`), a one-handed melee weapon of type `typ` (or a SHIELD or a
+    TORCH) in the other, the player's sex where the sheath depends on it (`female`, None for either), asked for. OAR
+    numbers the melee types as Papyrus does, a shield OAR_SHIELD, a torch OAR_TORCH."""
     out = [LOOP.DRAWN,
            LOOP.any_of([LOOP.equipped(p, f, left) for p, f in weapons]),
            {'condition': 'IsEquippedType', 'requiredVersion': '1.0.0.0',
-            'Type': {'value': float(OAR_SHIELD if typ == SHIELD else typ)}, 'Left hand': not left},
+            'Type': {'value': float({SHIELD: OAR_SHIELD, TORCH: OAR_TORCH}.get(typ, typ))}, 'Left hand': not left},
            requested(left)]
     if female is not None:
         out.append({'condition': 'IsFemale', 'requiredVersion': '1.0.0.0', 'negated': not female})
@@ -2199,14 +2432,20 @@ def check_belt(ctx, path, belt_t, mirrored, beats=DUAL_BEATS, dense=1):
 
 
 def main():
-    root = sys.argv[1] if len(sys.argv) > 1 else ADS.TOOLS['modlistRoot']
+    """[<modlist root>] [--only=<item>] [--out=<mod folder>]: --only rebuilds just that other-hand item's submods
+    (sword, dagger, axe, mace, shield, torch) in the set, leaving the rest; --out writes the mod there instead of
+    DEPLOY (a scratch build)."""
+    opts = dict(a[2:].split('=', 1) for a in sys.argv[1:] if a.startswith('--'))
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    root = args[0] if args else ADS.TOOLS['modlistRoot']
+    only = opts.get('only')
     ctx = Ctx(root)
     groups = pistol_groups(ctx.mods_dir, ctx.mods)
-    out_mod = os.path.join(ctx.mods_dir, DEPLOY)
+    out_mod = opts.get('out') or os.path.join(ctx.mods_dir, DEPLOY)
     oar = os.path.join(out_mod, *OAR)
-    if os.path.isdir(oar):
+    if os.path.isdir(oar) and not only:
         shutil.rmtree(oar)
-    os.makedirs(oar)
+    os.makedirs(oar, exist_ok=True)
     written = 0
     pistols = [w for g in groups for w in g[2]]
     stows = [(typ, female) for typ in sorted(STOW) for female in ((True, False) if typ in STOW_SEXED else (None,))]
@@ -2217,16 +2456,29 @@ def main():
     # shields are left-hand only; first person's style, where it differs, into SHIELD_1P_SOURCES for tools/04
     styles = [SHIELD_STYLE] + ([SHIELD_STYLE_1P] if SHIELD_STYLE_1P != SHIELD_STYLE else [])
     jobs += [('right', (SHIELD, female), style) for style in styles for female in sexes(style)]
-    if os.path.isdir(SHIELD_1P_SOURCES):
+    jobs += [('right', (TORCH, None), None)]       # torches are left-hand only too
+    jobs += [(h, 'spell', None) for h in ('left', 'right')]
+    if only:
+        jobs = [j for j in jobs if (isinstance(j[1], tuple) and item_name(j[1][0]) == only) or j[1] == only]
+        if not jobs:
+            sys.exit('--only=%s matches no other-hand item' % only)
+    if os.path.isdir(SHIELD_1P_SOURCES) and any(s not in (None, SHIELD_STYLE) for _, _, s in jobs):
         shutil.rmtree(SHIELD_1P_SOURCES)
     for hand, kind, style in jobs:
         right = hand == 'right'
-        dual = kind is not None              # a pistol, a melee weapon or a shield in the other hand
+        spell = kind == 'spell'              # a spell: the one-gun reload, the free arm on the spell idle
+        dual = kind is not None and not spell    # a pistol, a melee weapon, a shield or a torch in the other hand
         stow = kind if isinstance(kind, tuple) else None
         out_set = oar if style in (None, SHIELD_STYLE) else SHIELD_1P_SOURCES
-        if stow:
-            var = ctx.shield(stow[1], style) if stow[0] == SHIELD else ctx.stow(right, *stow)
+        if spell:
+            var = ctx.spell(right)
+            suffix = SPELL
+        elif stow:
+            var = {SHIELD: lambda: ctx.shield(stow[1], style), TORCH: ctx.torch}.get(
+                stow[0], lambda: ctx.stow(right, *stow))()
             suffix = stow_suffix(*stow)
+            if var.torch:
+                print('torch on the belt: %s' % var.torch_params)
         else:
             var = {(False, False): ctx.left, (True, False): ctx.right, (False, True): ctx.dual_left,
                    (True, True): ctx.dual_right}[(right, dual)]
@@ -2243,6 +2495,8 @@ def main():
                          'rods with it)' % (hand, label, info['gun_scale'], RIGHT_GUN_SCALE if right else 1.0))
             name = 'Reload %s%s%s' % (label, suffix, ' (right hand)' if right else '')
             sub = os.path.join(out_set, name)
+            if only and os.path.isdir(sub):
+                shutil.rmtree(sub)
             os.makedirs(sub)
             out = os.path.join(sub, CLIP_RIGHT if right else CLIP)
             floats = ctx.bsa_floats(CLIP_RIGHT if right else CLIP)  # vanilla's: Loop's shot clips carry none
@@ -2270,6 +2524,13 @@ def main():
                 if var.shield:
                     print('      shield: let go %s; carried at least %.1f off the spine and legs'
                           % (info['letgo'], info['shield_clear']))
+                if var.torch:
+                    (tb, tt), (ta, at) = info['torch_body'], info['torch_arm']
+                    print('      torch: at least %.1f off the spine and legs (%.2f s), %.1f off the working arm while '
+                          'stowed (%.2f s)' % (tb, tt - TRIM, ta, at - TRIM))
+                    if tb < TORCH_CLEAR - 0.5 or ta < TORCH_ARM_CLEAR:
+                        sys.exit('%s: the torch comes within %.1f of the body / %.1f of the working arm (TORCH_*)'
+                                 % (label, tb, ta))
             elif dual:
                 drift = check_belt(ctx, out, info['belt'], right, var.beats, DENSE)
                 print('      belt: %s; the tucked gun drifts %.2f' % (info['belt_params'], drift))
@@ -2294,7 +2555,22 @@ def main():
                 sys.exit('%s: a wrist bends or rolls past %d / %d deg' % (label, WRIST_BEND_MAX, WRIST_ROLL_MAX))
             if info['head_clear'] < HEAD_CLEAR_MIN:
                 sys.exit('%s: the ramming arm comes within %.1f of the face' % (label, info['head_clear']))
-            if stow and stow[0] == SHIELD:
+            if spell:
+                cfg = {'name': name,
+                       'description': 'Ramrod reload after the shot, %s-hand pistol, a spell in the other hand: %s (%s). '
+                                      'The spell hand loads the ball and rams, starting and ending on its spell idle.'
+                                      % (hand, ', '.join('%s %s' % w for w in weapons), os.path.basename(path)),
+                       'priority': (PRIORITY_SPELL_RIGHT if right else PRIORITY_SPELL) + i,
+                       'conditions': conditions_spell(weapons, not right)}
+            elif stow and stow[0] == TORCH:
+                cfg = {'name': name,
+                       'description': 'Ramrod reload after the shot, right-hand pistol, a torch in the other hand: %s '
+                                      '(%s). The torch goes into a loop on the belt for the ball and ramrod, still lit, '
+                                      'and is taken again.' % (', '.join('%s %s' % w for w in weapons),
+                                                               os.path.basename(path)),
+                       'priority': PRIORITY_TORCH_RIGHT + i,
+                       'conditions': conditions_stow(weapons, False, *stow)}
+            elif stow and stow[0] == SHIELD:
                 cfg = {'name': name,
                        'description': 'Ramrod reload after the shot, right-hand pistol, a shield in the other hand: %s '
                                       '(%s). %s' % (', '.join('%s %s' % w for w in weapons), os.path.basename(path),

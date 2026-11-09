@@ -23,6 +23,14 @@ root's grip override hold the left arm and weapon, which the patch hands over wi
 arm's idle there is whatever moveset wins, so both fade over FADE_STEPS instead of switching. A shield in the left
 hand (2026-11-03) is the same for a right-hand pistol: the clip slings it on the back, and STOW_VARIABLE frees the shield
 pose (0_master's MRh_Shd_Blend).
+A torch in the left hand (2026-11-05) is the same as a shield: the clip lowers it into a loop on the belt, still lit,
+reloads and takes it back up, and STOW_VARIABLE frees the torch pose (0_master's MRh_Torch_Blend). (The first answer
+the same day unequipped it into the inventory for the empty hand's reload and equipped it again: curator, "add
+animation that lowers the torch to put it away rather than just spawning and despawning the torch".)
+A spell in the other hand (2026-11-07; a player: "No reload animation when holding a pistol and spell in the other
+hand"): the magic graph's staff-and-spell blend keeps the spell hand's arm on its own graph while the gun casts. The
+patch wraps it on DUAL_VARIABLE too, which SpellReload fades to the gun's side for the reload (its clip then owns the
+body: the one-gun reload, resting on the spell idle) and back SPELL_RESET_AFTER later.
 Pistols are recognised by Loop's keyword (KID gives it to the Gentleman's pistols; Reversal Shadow carries it), looked
 up by FormID, so this plugin does not master Loop's. (Prophecy's Hair Trigger played faster twins of the clips for a
 few hours on 2026-11-02; the curator took its faster reload out of the talent, so every reload is one pace.)}
@@ -56,8 +64,14 @@ Int Property LEFT_HAND = 0 AutoReadOnly              ; the Flintlock script's ha
 Int Property RIGHT_HAND = 1 AutoReadOnly
 Int Property TYPE_STAFF = 8 AutoReadOnly             ; GetEquippedItemType
 Int Property TYPE_SHIELD = 10 AutoReadOnly
+Int Property TYPE_TORCH = 11 AutoReadOnly
+Int Property TYPE_SPELL = 9 AutoReadOnly
+; a spell reload's clip (tools/01 SPELL_HOLD): the motion ends at 2.11 s after the hand-over, then it holds the spell
+; idle 0.5 s more; the body goes back inside that hold (after the clip the gun's graph shows Loop's free arm)
+Float Property SPELL_RESET_AFTER = 2.2 AutoReadOnly
 
 Keyword pistolKeyword
+Int shotsSpell  ; spell reloads started: the newest owns the reset
 Int shots       ; the newest shot owns the reset, per hand
 Int shotsRight
 Int shotsDual
@@ -196,10 +210,13 @@ Function HandleReload(Int slot, Int other)
 	ElseIf otherType >= 1 && otherType <= 4     ; sword, dagger, axe, mace: sheathed for the reload
 		StowReload(slot)
 		Return
-	ElseIf otherType == TYPE_SHIELD             ; slung on the back (shields are left-hand only: a right-hand pistol)
+	ElseIf otherType == TYPE_SHIELD || otherType == TYPE_TORCH  ; on the arm or back / in the belt (left-hand only items)
 		If slot == RIGHT_HAND
 			StowReload(slot)
 		EndIf
+		Return
+	ElseIf otherType == TYPE_SPELL              ; the spell hand loads and rams
+		SpellReload(slot)
 		Return
 	ElseIf otherType != 0
 		Return
@@ -285,6 +302,32 @@ Float Function ArmWeight(Float s, Bool share)
 		Return 0.01 * (1.0 - s) / s
 	EndIf
 	Return 1.0 - s
+EndFunction
+
+; A spell in the other hand: DUAL_VARIABLE (the Pandora patch's wrapper round the staff-and-spell blend) fades to the
+; gun's side over FADE_STEPS sets, so its clip takes the whole body, and back SPELL_RESET_AFTER after the hand-over,
+; inside the clip's held end on the spell idle. A fade, not a switch, so a spell idle the clip did not rest on (a
+; moving or sneaking one) blends in instead of snapping
+Function SpellReload(Int slot)
+	shotsSpell += 1
+	Int mine = shotsSpell
+	Float side = -1.0
+	If slot == RIGHT_HAND
+		side = 1.0
+	EndIf
+	Int i = 1
+	While i <= FADE_STEPS
+		PlayerRef.SetAnimationVariableFloat(DUAL_VARIABLE, side * i / FADE_STEPS)
+		i += 1
+	EndWhile
+	HoldReload(slot, SPELL_RESET_AFTER)
+	If mine == shotsSpell
+		i = FADE_STEPS - 1
+		While i >= 0
+			PlayerRef.SetAnimationVariableFloat(DUAL_VARIABLE, side * i / FADE_STEPS)
+			i -= 1
+		EndWhile
+	EndIf
 EndFunction
 
 ; A pistol in each hand: the reloading gun's clip takes the whole body, the other gun goes in the belt and cannot fire

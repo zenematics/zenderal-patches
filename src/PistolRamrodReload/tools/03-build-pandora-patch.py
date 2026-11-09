@@ -260,55 +260,77 @@ def left_hand_1p(objs, cls, hm_xml):
     return body, (body_child, bset, magic_bw, right)
 
 
-def dual_wrapper(objs, cls, first):
-    """magicbehavior: `LHStaff_RHMagicCast_MSG`[8] (`DualStaff_Blend`) inside a parametric blender on VAR_DUAL: -1 the
-    left hand's graph, 0 the vanilla blend, +1 the right hand's; flags 16 (parametric) | 8 (children at weight 0 keep
-    running). New nodes numbered from `first`. Returns the patch body."""
-    sel = [k for k in objs if cls[k] == 'hkbManualSelectorGenerator' and name(objs[k]) == 'LHStaff_RHMagicCast_MSG']
-    if len(sel) != 1:
-        sys.exit('LHStaff_RHMagicCast_MSG not found once: %s' % sel)
-    sel = sel[0]
-    gens = re.search(r'name="generators" numelements="(\d+)">(.*?)</hkparam>', objs[sel], re.S)
-    gens = gens.group(2).split()
-    dual = gens[8]
-    if name(objs[dual]) != 'DualStaff_Blend' or len(gens) != 10:
-        sys.exit('%s[8] is not DualStaff_Blend: %s' % (sel, gens))
-    left, right = gens[0], None
-    for k in objs:
-        if name(objs[k]) == 'MRh_ReadyCast_Behavior' and cls[k] == 'hkbStateMachine':
-            right = k
-    if name(objs[left]) != 'MLh_ReadyCast_Behavior' or not right:
-        sys.exit('the hands\' graphs not found: %s %s' % (left, right))
-    if 'blendParameter</hkparam>' not in objs[re.search(r'variableBindingSet">(#\d+)', objs[dual]).group(1)]:
-        sys.exit('DualStaff_Blend is not bound on its blendParameter')
-    n = lambda i: '#%s$%d' % (MOD, first - 1 + i)  # noqa: E731
-    new = list(gens)
-    new[8] = n(1)
+def wrapper_nodes(nodes, left, mid, right, label):
+    """A parametric blender on VAR_DUAL (nodes: blender, three children, binding set): -1 `left` (the left hand's
+    graph), 0 `mid` (the vanilla blend), +1 `right` (the right hand's); flags 16 (parametric) | 8 (children at weight 0
+    keep running). Returns the hkobjects' text."""
     child = lambda node, gen, w: '\n'.join([  # noqa: E731
         '\t\t<hkobject name="%s" class="hkbBlenderGeneratorChild" signature="0xe2b384b0">' % node,
         '\t\t\t<hkparam name="variableBindingSet">null</hkparam>', '\t\t\t<hkparam name="generator">%s</hkparam>' % gen,
         '\t\t\t<hkparam name="boneWeights">null</hkparam>', '\t\t\t<hkparam name="weight">%.6f</hkparam>' % w,
         '\t\t\t<hkparam name="worldFromModelWeight">1.000000</hkparam>', '\t\t</hkobject>'])
-    body = '\n'.join([
-        '\t<Append path="">',
-        '\t\t<hkobject name="%s" class="hkbBlenderGenerator" signature="0x22df7147">' % n(1),
-        '\t\t\t<hkparam name="variableBindingSet">%s</hkparam>' % n(5), '\t\t\t<hkparam name="userData">0</hkparam>',
-        '\t\t\t<hkparam name="name">ZenPistol_DualReload_Blend</hkparam>',
+    b, c1, c2, c3, bind = nodes
+    return '\n'.join([
+        '\t\t<hkobject name="%s" class="hkbBlenderGenerator" signature="0x22df7147">' % b,
+        '\t\t\t<hkparam name="variableBindingSet">%s</hkparam>' % bind, '\t\t\t<hkparam name="userData">0</hkparam>',
+        '\t\t\t<hkparam name="name">%s</hkparam>' % label,
         '\t\t\t<hkparam name="referencePoseWeightThreshold">0.000000</hkparam>',
         '\t\t\t<hkparam name="blendParameter">0.000000</hkparam>',
         '\t\t\t<hkparam name="minCyclicBlendParameter">-1.000000</hkparam>',
         '\t\t\t<hkparam name="maxCyclicBlendParameter">1.000000</hkparam>',
         '\t\t\t<hkparam name="indexOfSyncMasterChild">-1</hkparam>', '\t\t\t<hkparam name="flags">24</hkparam>',
         '\t\t\t<hkparam name="subtractLastChild">false</hkparam>',
-        '\t\t\t<hkparam name="children" numelements="3">%s %s %s</hkparam>' % (n(2), n(3), n(4)), '\t\t</hkobject>',
-        child(n(2), left, -1.0), child(n(3), dual, 0.0), child(n(4), right, 1.0),
-        '\t\t<hkobject name="%s" class="hkbVariableBindingSet" signature="0x338ad4ff">' % n(5),
+        '\t\t\t<hkparam name="children" numelements="3">%s %s %s</hkparam>' % (c1, c2, c3), '\t\t</hkobject>',
+        child(c1, left, -1.0), child(c2, mid, 0.0), child(c3, right, 1.0),
+        '\t\t<hkobject name="%s" class="hkbVariableBindingSet" signature="0x338ad4ff">' % bind,
         '\t\t\t<hkparam name="bindings" numelements="1">', '\t\t\t\t<hkobject>',
         '\t\t\t\t\t<hkparam name="memberPath">blendParameter</hkparam>',
         '\t\t\t\t\t<hkparam name="variableIndex">$variableID[%s]$</hkparam>' % VAR_DUAL,
         '\t\t\t\t\t<hkparam name="bitIndex">-1</hkparam>',
         '\t\t\t\t\t<hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>', '\t\t\t\t</hkobject>',
-        '\t\t\t</hkparam>', '\t\t\t<hkparam name="indexOfBindingToEnable">-1</hkparam>', '\t\t</hkobject>',
+        '\t\t\t</hkparam>', '\t\t\t<hkparam name="indexOfBindingToEnable">-1</hkparam>', '\t\t</hkobject>'])
+
+
+def hand_graphs(objs, cls):
+    """The two hands' magic graphs: (MLh_ReadyCast_Behavior, MRh_ReadyCast_Behavior)."""
+    left = [k for k in objs if cls[k] == 'hkbStateMachine' and name(objs[k]) == 'MLh_ReadyCast_Behavior']
+    right = [k for k in objs if cls[k] == 'hkbStateMachine' and name(objs[k]) == 'MRh_ReadyCast_Behavior']
+    if len(left) != 1 or len(right) != 1:
+        sys.exit('the hands\' graphs not found once: %s %s' % (left, right))
+    return left[0], right[0]
+
+
+def selector_slot(objs, cls, sel_name, slot, want, count):
+    """(selector node, its generators, the generator in `slot`), asserting its name `want` and `count` slots, and that
+    it is a blend bound on its blendParameter (the vanilla CastBlendDamped blends)."""
+    sel = [k for k in objs if cls[k] == 'hkbManualSelectorGenerator' and name(objs[k]) == sel_name]
+    if len(sel) != 1:
+        sys.exit('%s not found once: %s' % (sel_name, sel))
+    gens = re.search(r'name="generators" numelements="(\d+)">(.*?)</hkparam>', objs[sel[0]], re.S).group(2).split()
+    if len(gens) != count or name(objs[gens[slot]]) != want:
+        sys.exit('%s[%d] is not %s: %s' % (sel_name, slot, want, gens))
+    if 'blendParameter</hkparam>' not in objs[re.search(r'variableBindingSet">(#\d+)', objs[gens[slot]]).group(1)]:
+        sys.exit('%s is not bound on its blendParameter' % want)
+    return sel[0], gens, gens[slot]
+
+
+def dual_wrapper(objs, cls, first, also=None):
+    """magicbehavior: `LHStaff_RHMagicCast_MSG`[8] (`DualStaff_Blend`) inside a parametric blender on VAR_DUAL: -1 the
+    left hand's graph, 0 the vanilla blend, +1 the right hand's (wrapper_nodes). New nodes numbered from `first`.
+    `also`: {slot: node} of the same selector's other wrapped slots (spell_wrappers), written in the same edit. Returns
+    the patch body."""
+    sel, gens, dual = selector_slot(objs, cls, 'LHStaff_RHMagicCast_MSG', 8, 'DualStaff_Blend', 10)
+    left, right = hand_graphs(objs, cls)
+    if gens[0] != left:
+        sys.exit('LHStaff_RHMagicCast_MSG[0] is not MLh_ReadyCast_Behavior')
+    n = lambda i: '#%s$%d' % (MOD, first - 1 + i)  # noqa: E731
+    new = list(gens)
+    new[8] = n(1)
+    for slot, node in (also or {}).items():
+        new[slot] = node
+    body = '\n'.join([
+        '\t<Append path="">',
+        wrapper_nodes([n(1), n(2), n(3), n(4), n(5)], left, dual, right, 'ZenPistol_DualReload_Blend'),
         '\t</Append>',
         '\t<replace>',
         '\t\t<edit path="%s/generators">' % sel,
@@ -316,6 +338,34 @@ def dual_wrapper(objs, cls, first):
         '\t\t</edit>',
         '\t</replace>'])
     return body, (sel, dual, left, right)
+
+
+def spell_wrappers(objs, cls, first):
+    """magicbehavior, a pistol in one hand and a spell in the other (2026-11-07, a player: "No reload animation when
+    holding a pistol and spell in the other hand"): LeftHandMagicCast_MSG (on iLeftHandType) sends a left spell (9) to
+    RightHandMagicCast_MSG (on iRightHandType), whose [8] (a right staff) is `RHStaff_And_MLh_Blend`, and a left staff
+    (8) to LHStaff_RHMagicCast_MSG, whose [9] (a right spell) is `MRh_And_LHStaff_Blend`: the same CastBlendDamped
+    blends as DualStaff_Blend (-1 / 0 / +1: one hand's graph favoured, Equal_Magic_Blend, the other's), so the spell
+    hand's graph keeps its arm while the gun's clip plays. Each inside the same wrapper on VAR_DUAL (wrapper_nodes),
+    which ZP_PistolReloadArmScript.SpellReload fades to the gun's side. New nodes from `first` (5 each). Returns (the
+    patch body, {slot: wrapper} for dual_wrapper's edit of LHStaff_RHMagicCast_MSG)."""
+    left, right = hand_graphs(objs, cls)
+    n = lambda i: '#%s$%d' % (MOD, first - 1 + i)  # noqa: E731
+    sel_r, gens_r, blend_r = selector_slot(objs, cls, 'RightHandMagicCast_MSG', 8, 'RHStaff_And_MLh_Blend', 10)
+    _, _, blend_l = selector_slot(objs, cls, 'LHStaff_RHMagicCast_MSG', 9, 'MRh_And_LHStaff_Blend', 10)
+    new_r = list(gens_r)
+    new_r[8] = n(1)
+    body = '\n'.join([
+        '\t<Append path="">',
+        wrapper_nodes([n(1), n(2), n(3), n(4), n(5)], left, blend_r, right, 'ZenPistol_SpellReload_Blend_RightGun'),
+        wrapper_nodes([n(6), n(7), n(8), n(9), n(10)], left, blend_l, right, 'ZenPistol_SpellReload_Blend_LeftGun'),
+        '\t</Append>',
+        '\t<replace>',
+        '\t\t<edit path="%s/generators">' % sel_r,
+        '\t\t\t<hkparam name="generators" numelements="%d">%s</hkparam>' % (len(new_r), ' '.join(new_r)),
+        '\t\t</edit>',
+        '\t</replace>'])
+    return body, {9: n(6)}
 
 
 def root_staff_release(objs, cls, first):
@@ -366,6 +416,13 @@ def root_staff_release(objs, cls, first):
     return '\n'.join(['\t<Append path="">'] + parts + ['\t</Append>', '\t<replace>'] + edits + ['\t</replace>'])
 
 
+# The stow wrappers' blend flags (2026-11-07): 16 = parametric only. They were 24 (| 8, children at weight 0 keep
+# running), but child 0 (the magic graph) is also inside child 1 (the torch / shield / melee pose blend), so the magic
+# graph ran in two places at once outside a reload. Player report (GreaseLord, 2026-11-06), confirmed by the curator:
+# with a pistol and a torch a dodge plays in place, its root motion lost. Suspected cause; unverified in game.
+STOW_FLAGS = 16
+
+
 def param_blend(nodes, gens, var, label, flags):
     """A parametric blender (nodes: blender, one child per generator, binding set) on `var`: gens[k] at key k (0, 1),
     linear between. Returns the hkobjects."""
@@ -408,7 +465,7 @@ def stow_release(objs, cls, first, shield_var=None):
       - the root's `DualWieldShieldBoneRootMSG` [1..4] (left one-handers): `DualWieldShieldBone_BoneSwitchGen` sets
         the grip node `Shield` from DW_ShieldAdjustment over every behaviour, so the weapon could not leave the hand
         (the two-pistol tuck's lesson): a blend of the plain graph (at 0) and the switch (at 1), one child at a time.
-    Parametric, children kept running (flags 24) but the root's (16, as root_staff_release). New nodes from `first`.
+    Parametric, one child active at a time (STOW_FLAGS = 16, 2026-11-07; was 24). New nodes from `first`.
     `shield_var` (third person: VAR_SHIELD, 2026-11-03): that shield wrapper inside one more blend on it, of `Magic_BFR`
     (at 0) and the wrapper (at 1). With a pistol and a shield, tools/07 puts Smooth Moveset's sword-and-shield arm on
     Loop's clips, but MRh_Shd_Blend laid Shd_BlockIdle's winner on the hand (its hand on that arm turned the shield
@@ -433,7 +490,7 @@ def stow_release(objs, cls, first, shield_var=None):
         if name(objs[switch]) != want or name(objs[magic]) != '1HM_MagicBFR':
             sys.exit('%s[%d] is not %s over 1HM_MagicBFR' % (sel, slot, want))
         parts += param_blend([n(k), n(k + 1), n(k + 2), n(k + 3)], [magic, switch], VAR_STOW,
-                             'ZenPistol_%s_Stow' % want, 24)
+                             'ZenPistol_%s_Stow' % want, STOW_FLAGS)
         new[slot] = n(k)
         k += 4
     edits += ['\t\t<edit path="%s/generators">' % sel,
@@ -446,7 +503,7 @@ def stow_release(objs, cls, first, shield_var=None):
     magic = re.search(r'name="generator">(#\d+)', objs[first_child]).group(1)
     if name(objs[magic]) != 'Magic_BFR':
         sys.exit('MRh_Shd_Blend\'s first child is %s, not Magic_BFR' % name(objs[magic]))
-    parts += param_blend([n(k), n(k + 1), n(k + 2), n(k + 3)], [magic, shd[0]], VAR_STOW, 'ZenPistol_MRh_Shd_Stow', 24)
+    parts += param_blend([n(k), n(k + 1), n(k + 2), n(k + 3)], [magic, shd[0]], VAR_STOW, 'ZenPistol_MRh_Shd_Stow', STOW_FLAGS)
     shield_ready, shd_stow = states[0], n(k)
     k += 4
     sel = one('DualWieldShieldBoneRootMSG')
@@ -463,10 +520,39 @@ def stow_release(objs, cls, first, shield_var=None):
     ready_gen = shd_stow
     if shield_var:
         parts += param_blend([n(k), n(k + 1), n(k + 2), n(k + 3)], [magic, shd_stow], shield_var,
-                             'ZenPistol_MRh_Shd_Pistol', 24)
+                             'ZenPistol_MRh_Shd_Pistol', STOW_FLAGS)
         ready_gen = n(k)
     edits += ['\t\t<edit path="%s/generator">' % shield_ready,
               '\t\t\t<hkparam name="generator">%s</hkparam>' % ready_gen, '\t\t</edit>']
+    return '\n'.join(['\t<Append path="">'] + parts + ['\t</Append>', '\t<replace>'] + edits + ['\t</replace>'])
+
+
+def torch_release(objs, cls, first):
+    """0_master, a right-hand pistol with a torch in the left hand (2026-11-05, curator: lower the torch to put it away
+    instead of unequipping it): `MRh_Torch_Ready`'s `MRh_Torch_Blend` lays Tor_Idle over the magic graph (the hand's
+    fingers, `Shield` (the torch) and the magic node whole, the clavicle to the hand partly), so a clip could not move
+    the torch. It becomes a blend of its `Magic_BFR` (at 0) and it (at 1) on VAR_STOW, as the shield's MRh_Shd_Blend
+    (stow_release): at 0 the reload clip lowers the torch into the belt and takes it back. A torch has no root grip
+    override: `DualWieldShieldBoneRootMSG` (on iLeftHandType) has the plain graph in its slot 11 (asserted). Same in both
+    views. New nodes from `first`. Returns the patch body."""
+    n = lambda i: '#%s$%d' % (MOD, first - 1 + i)  # noqa: E731
+    blend = [x for x in objs if cls[x] == 'hkbBlenderGenerator' and name(objs[x]) == 'MRh_Torch_Blend']
+    states = [x for x in objs if cls[x] == 'hkbStateMachineStateInfo' and name(objs[x]) == 'MRh_Torch_Ready']
+    if len(blend) != 1 or len(states) != 1 or re.search(r'name="generator">(#\d+)', objs[states[0]]).group(1) != blend[0]:
+        sys.exit('MRh_Torch_Ready -> MRh_Torch_Blend not found once: %s %s' % (blend, states))
+    first_child = re.search(r'name="children" numelements="\d+">(#\d+)', objs[blend[0]]).group(1)
+    magic = re.search(r'name="generator">(#\d+)', objs[first_child]).group(1)
+    if name(objs[magic]) != 'Magic_BFR':
+        sys.exit('MRh_Torch_Blend\'s first child is %s, not Magic_BFR' % name(objs[magic]))
+    sel = [x for x in objs if cls[x] == 'hkbManualSelectorGenerator' and name(objs[x]) == 'DualWieldShieldBoneRootMSG']
+    if len(sel) != 1:
+        sys.exit('DualWieldShieldBoneRootMSG not found once: %s' % sel)
+    gens = re.search(r'name="generators" numelements="\d+">(.*?)</hkparam>', objs[sel[0]], re.S).group(1).split()
+    if len(gens) < 12 or gens[11] != gens[0]:
+        sys.exit('DualWieldShieldBoneRootMSG[11] (a torch) is not the plain graph: %s' % gens)
+    parts = param_blend([n(1), n(2), n(3), n(4)], [magic, blend[0]], VAR_STOW, 'ZenPistol_MRh_Torch_Stow', STOW_FLAGS)
+    edits = ['\t\t<edit path="%s/generator">' % states[0], '\t\t\t<hkparam name="generator">%s</hkparam>' % n(1),
+             '\t\t</edit>']
     return '\n'.join(['\t<Append path="">'] + parts + ['\t</Append>', '\t<replace>'] + edits + ['\t</replace>'])
 
 
@@ -563,13 +649,16 @@ def main():
                            (ONE, ONE, 0, ONE, ONE, 0, 0)) + '\n' +
           blend + '\n' +
           root_staff_release(objs, cls, 41) + '\n' + stow_release(objs, cls, 61, VAR_SHIELD) + '\n' +
+          torch_release(objs, cls, 101) + '\n' +
           prop_events(objs, cls, LOADED_EVENTS + SOUND_EVENTS + ARM_EVENTS))
     objs, cls = objects(magic)
-    wrap, (sel, dual, left, right) = dual_wrapper(objs, cls, 21)
+    spells, also = spell_wrappers(objs, cls, 111)
+    wrap, (sel, dual, left, right) = dual_wrapper(objs, cls, 21, also)
     write('magicbehavior.xml', 'Zenderal - Pistol Ramrod Reload: the prop events the reload clip annotates (the 1hm graphs '
           'list them, the magic graph did not); %s (default 0) and two pistols: %s[8] (%s) inside a blend on it '
-          '(-1 %s, +1 %s). Generated by tools/03.' % (VAR_DUAL, sel, dual, left, right),
-          prop_events(objs, cls) + '\n' + variable_appends(objs, cls, (VAR_DUAL,), (0,)) + '\n' + wrap)
+          '(-1 %s, +1 %s); a pistol and a spell: the staff-and-spell blends the same way. Generated by tools/03.'
+          % (VAR_DUAL, sel, dual, left, right),
+          prop_events(objs, cls) + '\n' + variable_appends(objs, cls, (VAR_DUAL,), (0,)) + '\n' + wrap + '\n' + spells)
     # first person: Pandora's pack files `firstperson~<name>`
     objs, cls = objects(hm1)
     body, (body_child, bset, magic_bw, right) = left_hand_1p(objs, cls, hm1)
@@ -587,12 +676,15 @@ def main():
           variable_appends(objs, cls, (VAR, VAR_LEFT, VAR_DUAL, VAR_STOW) + VAR_REQ, (ONE, ONE, 0, ONE, 0, 0)) + '\n' +
           blend + '\n' +
           root_staff_release(objs, cls, 51) + '\n' + stow_release(objs, cls, 81) + '\n' +
+          torch_release(objs, cls, 105) + '\n' +
           prop_events(objs, cls, LOADED_EVENTS + SOUND_EVENTS + ARM_EVENTS))
     objs, cls = objects(magic1)
-    wrap, (sel, dual, left, right) = dual_wrapper(objs, cls, 31)
+    spells, also = spell_wrappers(objs, cls, 121)
+    wrap, (sel, dual, left, right) = dual_wrapper(objs, cls, 31, also)
     write('firstperson~magicbehavior.xml', 'Zenderal - Pistol Ramrod Reload, first person: the prop events the reload '
-          'clip annotates; %s and the two-pistol blend on it around %s[8] (%s). Generated by tools/03.'
-          % (VAR_DUAL, sel, dual), prop_events(objs, cls) + '\n' + variable_appends(objs, cls, (VAR_DUAL,), (0,)) + '\n' + wrap)
+          'clip annotates; %s and the two-pistol blend on it around %s[8] (%s); a pistol and a spell the same way. '
+          'Generated by tools/03.' % (VAR_DUAL, sel, dual),
+          prop_events(objs, cls) + '\n' + variable_appends(objs, cls, (VAR_DUAL,), (0,)) + '\n' + wrap + '\n' + spells)
 
 
 if __name__ == '__main__':

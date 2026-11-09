@@ -28,9 +28,12 @@ it (2026-11-02: a 1.6 s fallback loaded a gun whose requested reload an attack c
 (mid-attack) leaves the gun empty for the next press. Not while its reload still plays (IsCastingLeft / Right), while
 the other pistol fires or reloads (one reload at a time), within DRY_LOCK of the last request, or holstered. A shield in
 the other hand (2026-11-03) has its reload too (Pistol Ramrod Reload slings it on the back; shields are left-hand only,
-so a right-hand gun). Elsewhere (a spell or torch in the other hand, mounted, no Pandora rerun) the same press clicks
-and starts ReloadDelay's timer: until 2026-11-03 that timer ran from the shot, so with a shield the gun reloaded itself
-and fired every 2 s with no reload (curator). Fan the Hammer still reloads by its own timer from the shot. Per hand.
+so a right-hand gun), and a torch (2026-11-05; curator: with a torch the gun "would allow pistols to constantly fire with
+no reload", the timer below): Pistol Ramrod Reload lowers it into the belt for the reload and takes it back up. A
+spell in the other hand (2026-11-07; a player: the gun reloaded "there's just no animation") too, either hand: the
+spell hand loads and rams. Elsewhere (mounted, no Pandora rerun) the same press clicks and starts ReloadDelay's timer:
+until 2026-11-03 that timer ran from the shot, so with a shield the gun reloaded itself and fired every 2 s with no
+reload (curator). Fan the Hammer still reloads by its own timer from the shot. Per hand.
 NPCs are untouched.}
 
 Actor Property PlayerRef Auto
@@ -53,6 +56,8 @@ Float Property DRY_LOCK = 0.5 AutoReadOnly         ; one request per press: its 
 Int Property DRY_CLICK_ID = 0x0C1912 AutoReadOnly  ; UILockpickingCylinderStop (Skyrim.esm): the empty gun's click
 Int Property TYPE_STAFF = 8 AutoReadOnly           ; GetEquippedItemType
 Int Property TYPE_SHIELD = 10 AutoReadOnly
+Int Property TYPE_TORCH = 11 AutoReadOnly
+Int Property TYPE_SPELL = 9 AutoReadOnly
 
 ; Hand 0 = left, 1 = right (SKSE's WornObject / OnActorAction slot numbering)
 Weapon wepL
@@ -226,6 +231,10 @@ Bool Function AnimatedReload(Int slot, Weapon w)
 		Return True
 	ElseIf t == TYPE_SHIELD             ; slung on the back for the reload (left-hand only: the right gun's clips)
 		Return slot == 1
+	ElseIf t == TYPE_TORCH              ; into the belt for the reload (left-hand only: the right gun's clips)
+		Return slot == 1
+	ElseIf t == TYPE_SPELL              ; the spell hand loads and rams (either hand)
+		Return True
 	ElseIf t == TYPE_STAFF
 		Weapon o = WeaponIn(other)
 		Return o && o.HasKeyword(loopKeyword)

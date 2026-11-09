@@ -246,7 +246,7 @@
 			<hkparam name="minCyclicBlendParameter">0.000000</hkparam>
 			<hkparam name="maxCyclicBlendParameter">1.000000</hkparam>
 			<hkparam name="indexOfSyncMasterChild">-1</hkparam>
-			<hkparam name="flags">24</hkparam>
+			<hkparam name="flags">16</hkparam>
 			<hkparam name="subtractLastChild">false</hkparam>
 			<hkparam name="children" numelements="2">#zpistolreload$62 #zpistolreload$63</hkparam>
 		</hkobject>
@@ -284,7 +284,7 @@
 			<hkparam name="minCyclicBlendParameter">0.000000</hkparam>
 			<hkparam name="maxCyclicBlendParameter">1.000000</hkparam>
 			<hkparam name="indexOfSyncMasterChild">-1</hkparam>
-			<hkparam name="flags">24</hkparam>
+			<hkparam name="flags">16</hkparam>
 			<hkparam name="subtractLastChild">false</hkparam>
 			<hkparam name="children" numelements="2">#zpistolreload$66 #zpistolreload$67</hkparam>
 		</hkobject>
@@ -322,7 +322,7 @@
 			<hkparam name="minCyclicBlendParameter">0.000000</hkparam>
 			<hkparam name="maxCyclicBlendParameter">1.000000</hkparam>
 			<hkparam name="indexOfSyncMasterChild">-1</hkparam>
-			<hkparam name="flags">24</hkparam>
+			<hkparam name="flags">16</hkparam>
 			<hkparam name="subtractLastChild">false</hkparam>
 			<hkparam name="children" numelements="2">#zpistolreload$70 #zpistolreload$71</hkparam>
 		</hkobject>
@@ -398,7 +398,7 @@
 			<hkparam name="minCyclicBlendParameter">0.000000</hkparam>
 			<hkparam name="maxCyclicBlendParameter">1.000000</hkparam>
 			<hkparam name="indexOfSyncMasterChild">-1</hkparam>
-			<hkparam name="flags">24</hkparam>
+			<hkparam name="flags">16</hkparam>
 			<hkparam name="subtractLastChild">false</hkparam>
 			<hkparam name="children" numelements="2">#zpistolreload$78 #zpistolreload$79</hkparam>
 		</hkobject>
@@ -437,6 +437,51 @@
 		</edit>
 		<edit path="#1085/generator">
 			<hkparam name="generator">#zpistolreload$77</hkparam>
+		</edit>
+	</replace>
+	<Append path="">
+		<hkobject name="#zpistolreload$101" class="hkbBlenderGenerator" signature="0x22df7147">
+			<hkparam name="variableBindingSet">#zpistolreload$104</hkparam>
+			<hkparam name="userData">0</hkparam>
+			<hkparam name="name">ZenPistol_MRh_Torch_Stow</hkparam>
+			<hkparam name="referencePoseWeightThreshold">0.000000</hkparam>
+			<hkparam name="blendParameter">1.000000</hkparam>
+			<hkparam name="minCyclicBlendParameter">0.000000</hkparam>
+			<hkparam name="maxCyclicBlendParameter">1.000000</hkparam>
+			<hkparam name="indexOfSyncMasterChild">-1</hkparam>
+			<hkparam name="flags">16</hkparam>
+			<hkparam name="subtractLastChild">false</hkparam>
+			<hkparam name="children" numelements="2">#zpistolreload$102 #zpistolreload$103</hkparam>
+		</hkobject>
+		<hkobject name="#zpistolreload$102" class="hkbBlenderGeneratorChild" signature="0xe2b384b0">
+			<hkparam name="variableBindingSet">null</hkparam>
+			<hkparam name="generator">#1050</hkparam>
+			<hkparam name="boneWeights">null</hkparam>
+			<hkparam name="weight">0.000000</hkparam>
+			<hkparam name="worldFromModelWeight">1.000000</hkparam>
+		</hkobject>
+		<hkobject name="#zpistolreload$103" class="hkbBlenderGeneratorChild" signature="0xe2b384b0">
+			<hkparam name="variableBindingSet">null</hkparam>
+			<hkparam name="generator">#1121</hkparam>
+			<hkparam name="boneWeights">null</hkparam>
+			<hkparam name="weight">1.000000</hkparam>
+			<hkparam name="worldFromModelWeight">1.000000</hkparam>
+		</hkobject>
+		<hkobject name="#zpistolreload$104" class="hkbVariableBindingSet" signature="0x338ad4ff">
+			<hkparam name="bindings" numelements="1">
+				<hkobject>
+					<hkparam name="memberPath">blendParameter</hkparam>
+					<hkparam name="variableIndex">$variableID[fZenPistolLeftStow]$</hkparam>
+					<hkparam name="bitIndex">-1</hkparam>
+					<hkparam name="bindingType">BINDING_TYPE_VARIABLE</hkparam>
+				</hkobject>
+			</hkparam>
+			<hkparam name="indexOfBindingToEnable">-1</hkparam>
+		</hkobject>
+	</Append>
+	<replace>
+		<edit path="#1120/generator">
+			<hkparam name="generator">#zpistolreload$101</hkparam>
 		</edit>
 	</replace>
 	<Append path="#0106/eventNames">

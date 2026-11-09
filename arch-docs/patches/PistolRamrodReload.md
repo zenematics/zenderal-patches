@@ -735,6 +735,122 @@ too), so the left arm took the pose Loop gave his free arm, hanging wide at the 
 - First person unchanged (its left arm with a shield is already the first-person `1HM_Idle`). The shield reload itself
   (slung on the back) is not yet confirmed in game.
 
+## A torch in the other hand (2026-11-05)
+
+Curator: "Torch + Pistol has the same issue the shield had where it would allow pistols to constantly fire with no
+reload. First make this combo require a reload then have the Torch be put away during a reload". With a torch no reload
+clip played, so the fire press on the empty gun started the Flintlock script's 2 s timer: a click, then the gun loaded
+with no animation.
+
+A torch counts as an animated reload for a right-hand gun (torches are left-hand only;
+`ZP_FlintlockAmmoPlayerScript.AnimatedReload`, Papyrus `GetEquippedItemType` 11), so the gun loads only on the reload
+clip's `ZenPistolLoadedR`. Mounted or under Fan the Hammer the timer still applies.
+
+**First answer, the same day (replaced):** script only. `ZP_PistolReloadArmScript.OnDryReload` unequipped the torch into
+the inventory, waited for the hand to empty, played the empty hand's reload and equipped the torch again. The graph
+plays no put-away for a scripted unequip: curator, "add animation that lowers the torch to put it away rather than
+just spawning and despawning the torch".
+
+**Now: the torch goes into the belt** (`tools/01` `Ctx.torch`, `TORCH_*`). A torch reload is a melee stow on the
+two-pistol timeline whose sheath is a loop on the belt: the free hand lowers the torch, pushes it down into the loop,
+lets go, loads and rams, and draws it back up. The torch stays equipped and lit throughout; nothing is unequipped.
+- **What the graph does with a torch** (both views' 0_master, read 2026-11-05 from Pandora's templates):
+  `MRh_Shield_OR_Torch_ReadyBehavior` → `MRh_Torch_Ready` → `MRh_Torch_Blend` lays `Tor_Idle` over the magic graph.
+  - Its bone weights (#1123 third person, #0800 first person, the same) against the magic graph's 1.0: clavicle and
+    pauldron 0.5, upper arm and its twists 0.6, forearm and its twists 0.7, hand 0.85, `AnimObjectL` 1.
+  - `Shield` (the torch's attach node: XPMSE has no torch node), the magic node and the fingers belong to the torch
+    alone.
+  - No root grip override: `DualWieldShieldBoneRootMSG` (on `iLeftHandType`) has the plain graph in slot 11.
+  - `tools/03` `torch_release` wraps `MRh_Torch_Blend` in a parametric blend on `fZenPistolLeftStow`, as the shield's
+    (nodes `$101`–`$104` third person, `$105`–`$108` first person). **Rerun Pandora.**
+- **OAR numbers a torch 18** in `IsEquippedType` (UNDERDOG - Animations' torch module: left hand, 18). Submods
+  `Reload <group> (torch) (right hand)`, priority 1000027000+, and `Reload 1P <group> (torch) (right hand)`.
+- **The free arm starts and ends on what the blend shows:** Loop's right-hand idle (frame 0) under vanilla's
+  `tor_idle` at its least swaying frame, by the normalised weights (`TORCH_SHARE`); first person the same from its
+  own clips (`tools/04` `share`). UNDERDOG's torch idles and EVG Animation Variance swap in variants of `tor_idle`. The
+  arm script's six-step fade covers the difference.
+- **Between letting go and taking the torch again, the arm rests on the one-gun reload's** (`relaxed`, as for two
+  pistols). On the torch's blend the shoulder sat raised toward `tor_idle`, the reload took a second-best load pose,
+  and the rod missed the bore by 0.57.
+- **The grip never reverses** (the flame stays up). The torch runs along +Y from its grip (`torch.nif`: handle to
+  −10, flame to +42).
+- **The place** (`torch_place`): a loop holding the handle 4 below the grip. Measured over the whole clip by
+  `torch_clearance` on the first pistol group:
+
+  | Place (out / back / up, tilt back / out) | Off the spine and leg lines | Off the working arm while stowed |
+  |---|---|---|
+  | 10 / 9 / 0, 15° / 0° (the first search's pick, nearly upright) | 8.6 | 0.4 (forearm through it, on the way to the pouch) |
+  | 12 / 6 / 0, 45° / 10° | 5.2 (the handle's foot at the thigh) | 6.4 |
+  | 16 / 9 / 0, 45° / 15° | 9.8 | 9.1 |
+  | **14 / 12 / 0, 35° / 15° (chosen)** | **10.8** | **9.2** |
+
+  The grid is now that one place, still run as a search, so a changed skeleton or clip fails the build (clearance,
+  reach, and `TORCH_ARM_CLEAR` 6 / `TORCH_CLEAR` in `main`) instead of hanging the torch in the body. It hangs from the
+  pelvis, which Loop's stance turns about 30° from the shoulders, so seen square to the shoulders it also leans out.
+- **The script** (`ZP_PistolReloadArmScript.HandleReload`): a torch takes `StowReload`, as a shield does. It fades
+  `fZenPistolLeftStow` to 0, hands the arm back on the clip's `ZenPistolArmBack`, and falls back to `STOW_RESET_AFTER`.
+  The unequip code (`PutTorchAway`, `TakeTorchBack`, `torchOut`, `TORCH_*`) is gone.
+- `tools/01` and `tools/04` take `--only=<item>` (rebuild one other-hand item's submods, leave the rest) and
+  `--out=<mod folder>` (a scratch build) since this change.
+- **Built 2026-11-05** (`--only=torch` into a scratch folder, then copied into Patch Collection with the regenerated
+  Pandora patch and both scripts; backup of the previous live patch and scripts: `E:/Zenderal-backups/2026-11-05-torch-belt`):
+  - Third person, all five groups: the torch 0.08 units / 0.2° off its loop while the hand is off it, at least 10.8 off
+    the spine and leg lines, 9.2 off the working arm, no misses, ends 0.01 off the idle.
+  - First person: the torch rests upper left (the game's hold) and is 90–112° to the left and 31° below the view while
+    it is in the belt.
+- **Unverified in game.**
+
+## A spell in the other hand (2026-11-07)
+
+A player on the list's Discord: "No reload animation when holding a pistol and spell in the other hand … the gun still
+reloads there's just no animation". No clip matched a spell hand, so the fire press on the empty gun started the
+Flintlock script's 2 s timer. Now a spell counts as an animated reload for either hand
+(`ZP_FlintlockAmmoPlayerScript.AnimatedReload`, Papyrus `GetEquippedItemType` 9), and the spell hand loads and rams.
+
+- **What the graph does with a spell** (both views' magicbehavior, read 2026-11-07 from Pandora's templates):
+  - `LeftHandMagicCast_MSG` (on `iLeftHandType`) sends a left spell (9) to `RightHandMagicCast_MSG`, whose [8] (a
+    right staff) is `RHStaff_And_MLh_Blend`. It sends a left staff (8) to `LHStaff_RHMagicCast_MSG`, whose [9] (a right
+    spell) is `MRh_And_LHStaff_Blend`.
+  - Both are `CastBlendDamped` blends shaped like the two-staff `DualStaff_Blend` (−1 / 0 / +1: one hand's graph
+    favoured, `Equal_Magic_Blend`, the other's). At rest, `Equal_Magic_Blend` gives the spell hand's graph that whole
+    arm and half the spine.
+  - 0_master adds nothing for a spell hand: its root staff switch is off while the gun casts, as for the other reloads.
+- **The Pandora patch** (`tools/03` `spell_wrappers`) wraps both blends on `fZenPistolDualReload`, as the two-pistol
+  wrapper does (nodes `$111`–`$120` third person, `$121`–`$130` first person; slot 9 shares the two-pistol edit of
+  `LHStaff_RHMagicCast_MSG`, `dual_wrapper(also=)`). `ZP_PistolReloadArmScript.SpellReload` fades it to the gun's side
+  over six sets, so the gun's clip owns the body, and back `SPELL_RESET_AFTER` (2.2 s) after the hand-over.
+  **Rerun Pandora.**
+- **Conditions:** OAR's `IsEquippedType` numbers spells by school (12–16, scrolls 17: the list's DAR spell idles). So
+  the submods test the graph's own `iLeftHandType` / `iRightHandType` == 9 (`CompareValues`, Int), the value
+  `LeftHandMagicCast_MSG` routes on. That catches every spell, whatever its school. Third person `Reload <group> (spell)[ (right hand)]`,
+  priority 1000028000+ / 1000029000+.
+- **The clip** (`tools/01` `Ctx.spell`) is the one-gun reload, with the free arm resting, whole, on the spell hand's idle:
+  - third person, left spell: Goetia Magic Spell Casting's loose `mlh_idle`. No OAR or DAR replacer applies with a staff
+    in the other hand: Smooth Combat's want a right melee type or keyword, and Dynamic Random Spell Idle and Smooth
+    Magic Casting are disabled.
+  - third person, right spell: Goetia Enchanted Staves' "Staves blend override" `mrh_idle` (OAR 68360: drawn, a staff in
+    either hand).
+  - **First build failed:** on that rest (the spell idle holds the clavicle and upper arm raised in front) the ramming
+    wrist rolled 112° between the pouch and the muzzle on every load pose. The spike was at solve time only;
+    `deflick` brought the written clip to 50°, but the gate rejects it.
+  - So the free arm relaxes onto the one-gun reload's rest between the start and the pouch, and back between the
+    stowed rod and the end (`relaxed`, beats `release` = the start, `regrip` = the end). Built: ramming wrist 51–56° bend,
+    80–90° roll.
+  - The clip then holds the spell idle `SPELL_HOLD` (0.5 s): 2.60 s in all. After it ends, the gun's graph shows Loop's
+    idle, whose free arm is not the spell's, so the script hands the body back inside the hold.
+- **First person** (`tools/04`): SIGMA - Magic animations replaces `mlh_idle` / `mrh_idle` per school (`Mag<school>L/R`,
+  conditioned on that hand's school only). The five hold the hand up to 10 units and 70° apart (measured), so each school
+  gets its own submod from the same third-person clip:
+  - `Reload 1P <group> (spell, <school>)[ (right hand)]`, resting on that school's idle at its least-swaying frame;
+  - SIGMA's own `IsEquippedType` added to the conditions, priority +100 to +500;
+  - a generic `(spell)` one on vanilla's idle for spells of no school.
+  - The left pistol's spell hand falls 0.77 short at the hip pouch, 81–111° under the view (allowed, as for the
+    sheathe variants: `STOW_SHORT`).
+- **Built 2026-11-07** (`--only=spell` into scratch, copied into Patch Collection with the regenerated Pandora patch and
+  both scripts; backup `E:/Zenderal-backups/2026-11-07-pistol-spell`): 10 third-person and 60 first-person submods, every
+  end within 0.03 of its idle. The spell's own hand art (fire, frost…) stays on the hand while it reloads. Casting the
+  spell mid-reload isn't handled: the clip holds the body until the hand-back. **Unverified in game.**
+
 ## First-person aiming (`tools/05`, 2026-11-02)
 
 Curator: "first person aiming animations, nothing crazy just arms extended" (a screenshot of two pistols held out low,
@@ -844,3 +960,26 @@ Open:
 - The first-person free arm's rest pose (SIGMA's `h2h_idle`) is a reading of the graph, not a trace.
 - ~~A Hair Trigger version (retimed); a reload sound.~~ Both done 2026-11-02 (below, and Loading sounds); the Hair
   Trigger version was undone the same day when the talent lost its faster reload.
+
+## Dodging in place with a torch, a shield or a melee weapon (2026-11-07)
+
+Player report (GreaseLord, 2026-11-06), confirmed by the curator: with a pistol and a torch, a dodge plays its
+animation but goes nowhere.
+
+**Suspected cause (not proven):** every stow wrapper in both views' `0_master` was a parametric blend with flags 24
+(| 8, children at weight 0 keep running). Its child 0 (`Magic_BFR` / `1HM_MagicBFR`, the magic graph) is also inside its
+child 1 (`MRh_Torch_Blend`, `MRh_Shd_Blend`, the melee bone switch). So outside a reload the magic graph, where TK
+Dodge's dodge and its root motion play, ran in two places at once.
+
+**Change:** `tools/03` `STOW_FLAGS` = 16 (parametric only: a child at weight 0 is not run). It applies to the wrappers
+`ZenPistol_MRh_1HM_Idle_BoneSwitch_3rdP_Stow` / `_1stP_Stow`, `ZenPistol_MRh_Shd_Stow`, `ZenPistol_MRh_Shd_Pistol`
+(third person) and `ZenPistol_MRh_Torch_Stow`: 5 nodes in `0_master.xml`, 4 in `firstperson~0_master.xml`. The
+generated files were edited to match without a template rerun (asserted counts); repo and Patch Collection are
+identical. `DW_Shield_Stow` and the root staff releases were already 16.
+
+The magicbehavior wrappers (`ZenPistol_DualReload_Blend`, `ZenPistol_SpellReload_Blend_*`) keep 24. The report is about
+torch + pistol only; two pistols have the same shared-child shape and are the next suspect if they dodge in place.
+
+**Rerun Pandora**, then dodge with torch + pistol, shield + pistol and melee + pistol. Also check that a reload still
+stows and takes back the torch, shield and melee weapon: during the fade both children run, as before. Unverified in
+game. Backup of the previous live patch files: `E:/Zenderal-backups/2026-11-07-pistol-stow-flags`.
