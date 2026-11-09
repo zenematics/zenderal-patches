@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "greenLeaves": {
+    "textures": {
+      "tropicalforestfloor.dds": {
+        "enabled": true,
+        "strength": 0.6
+      },
+      "tropicalforestfloor02.dds": {
+        "enabled": true,
+        "strength": 0.6
+      }
+    }
+  },
+  "dust": {
+    "textures": {
+      "(hyperactivexchild)sand_beach_01.dds": {
+        "enabled": true,
+        "strength": 0.5
+      },
+      "cavebaseground01.dds": {
+        "enabled": true,
+        "strength": 0.6
+      },
+      "coastbeach01.dds": {
+        "enabled": true,
+        "strength": 0.3
+      },
+      "coastbeach02.dds": {
+        "enabled": true,
+        "strength": 0.3
+      },
+      "cobblestone02.dds": {
+        "enabled": true,
+        "strength": 0.15
+      },
+      "desertdunes.dds": {
+        "enabled": true,
+        "strength": 0.7
+      },
+      "desertdunes02.dds": {
+        "enabled": true,
+        "strength": 0.7
+      },
+      "desertdunes03.dds": {
+        "enabled": true,
+        "strength": 0.7
+      },
+      "dryground01.dds": {
+        "enabled": true,
+        "strength": 0.7
+      },
+      "ground_wet_sand01_dxt1.dds": {
+        "enabled": true,
+        "strength": 0.4
+      },
+      "ground_wet_sand02_dxt1.dds": {
+        "enabled": true,
+        "strength": 0.4
+      },
+      "rockpath02_dxt1.dds": {
+        "enabled": true,
+        "strength": 0.2
+      },
+      "rockpath_dxt1.dds": {
+        "enabled": true,
+        "strength": 0.2
+      },
+      "stonepath.dds": {
+        "enabled": true,
+        "strength": 0.15
+      },
+      "tropicalbeach01.dds": {
+        "enabled": true,
+        "strength": 0.5
+      },
+      "tropicalbeach02.dds": {
+        "enabled": true,
+        "strength": 0.5
+      },
+      "tropicalfloor.dds": {
+        "enabled": true,
+        "strength": 0.7
+      },
+      "tropicalforestfloor.dds": {
+        "enabled": true,
+        "strength": 0.2
+      },
+      "tropicalforestfloor02.dds": {
+        "enabled": true,
+        "strength": 0.2
+      },
+      "tropicalstonepath.dds": {
+        "enabled": true,
+        "strength": 0.2
+      }
+    }
+  },
+  "rocks": {
+    "textures": {
+      "coastbeach01.dds": {
+        "enabled": true,
+        "strength": 0.3
+      },
+      "coastbeach02.dds": {
+        "enabled": true,
+        "strength": 0.3
+      },
+      "mountainslab01desert.dds": {
+        "enabled": true,
+        "strength": 0.6
+      },
+      "riverbededge.dds": {
+        "enabled": true,
+        "strength": 0.5
+      },
+      "rockpath02_dxt1.dds": {
+        "enabled": true,
+        "strength": 0.25
+      },
+      "rockpath_dxt1.dds": {
+        "enabled": true,
+        "strength": 0.25
+      },
+      "rockpathiced_dxt1.dds": {
+        "enabled": false,
+        "strength": 1.0
+      },
+      "tropicalstonepath.dds": {
+        "enabled": true,
+        "strength": 0.25
+      }
+    }
+  },
+  "snow": {
+    "textures": {
+      "cavebaseground02.dds": {
+        "enabled": true,
+        "strength": 0.5
+      },
+      "rockpathiced_dxt1.dds": {
+        "enabled": true,
+        "strength": 0.4
+      }
+    }
+  }
+}
