@@ -23,10 +23,17 @@
 // Skip list (optional): Data/SKSE/Plugins/ZenAspectLayout_Skip.txt, one Data-relative path per line, files this DLL
 // never writes. MO2's VFS writes into whichever mod wins a file, so a personal settings mod that wins it (the curator's
 // own ultrawide mod, which carries this list and is not shipped) would otherwise be overwritten.
-// Config: Data/SKSE/Plugins/ZenAspectLayout.ini ([General] Layout = auto|16x9|21x9|32x9, AutoResolution = 1).
+//   0. DPI (1.3.0): SkyrimSE.exe declares no DPI awareness, so with Windows display scaling above 100% (150% is the
+//      default on 4K) Windows stretches the game's full-resolution window by the scale: a zoomed, cut-off picture,
+//      and DLSS / frame generation get the wrong output size. This marks the game per-monitor DPI-aware before it
+//      creates its window (the docs' manual "Override high DPI scaling: Application" step). Process-wide when Windows
+//      still allows it; otherwise for the thread loading SKSE plugins, the game's main thread, which later creates
+//      the game window (Desktop Splash Screen creates its own window before this DLL loads).
+// Config: Data/SKSE/Plugins/ZenAspectLayout.ini ([General] Layout = auto|16x9|21x9|32x9, AutoResolution = 1,
+// DpiAware = 1).
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 2, 0, 0 },
+	.Version = REL::Version{ 1, 3, 0, 0 },
 	.Name = "ZenAspectLayout"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -87,6 +94,63 @@ namespace
 	bool Skipped(const fs::path& a_rel)
 	{
 		return g_skip.contains(Key(a_rel));
+	}
+
+	// DPI awareness. user32's DPI functions are looked up at run time (Windows 10 1607/1703 or later) and the context
+	// handles are spelled out, so the build does not depend on the Windows SDK's WINVER.
+	using DpiContext = void*;
+	const auto kPerMonitorV2 = reinterpret_cast<DpiContext>(static_cast<std::intptr_t>(-4));
+	const auto kPerMonitor = reinterpret_cast<DpiContext>(static_cast<std::intptr_t>(-3));
+
+	const char* AwarenessName(int a_awareness)
+	{
+		switch (a_awareness) {
+		case 0:
+			return "unaware";
+		case 1:
+			return "system-aware";
+		case 2:
+			return "per-monitor aware";
+		default:
+			return "unknown";
+		}
+	}
+
+	void MakeDpiAware()
+	{
+		const auto user32 = GetModuleHandleW(L"user32.dll");
+		if (!user32) {
+			SKSE::log::error("DPI: user32.dll not loaded; left to Windows");
+			return;
+		}
+		const auto setProcess = reinterpret_cast<BOOL(WINAPI*)(DpiContext)>(GetProcAddress(user32, "SetProcessDpiAwarenessContext"));
+		const auto setThread = reinterpret_cast<DpiContext(WINAPI*)(DpiContext)>(GetProcAddress(user32, "SetThreadDpiAwarenessContext"));
+		const auto getThread = reinterpret_cast<DpiContext(WINAPI*)()>(GetProcAddress(user32, "GetThreadDpiAwarenessContext"));
+		const auto awarenessOf = reinterpret_cast<int(WINAPI*)(DpiContext)>(GetProcAddress(user32, "GetAwarenessFromDpiAwarenessContext"));
+		const auto dpiForSystem = reinterpret_cast<UINT(WINAPI*)()>(GetProcAddress(user32, "GetDpiForSystem"));
+		const auto current = [&]() { return (getThread && awarenessOf) ? awarenessOf(getThread()) : -1; };
+
+		const int before = current();
+		std::string how;
+		if (before >= 1) {
+			how = std::format("already {} (compatibility setting or another plugin); left alone", AwarenessName(before));
+		} else if (setProcess && (setProcess(kPerMonitorV2) || setProcess(kPerMonitor))) {
+			how = "set process-wide";
+		} else {
+			const DWORD processError = setProcess ? GetLastError() : ERROR_PROC_NOT_FOUND;
+			if (setThread && (setThread(kPerMonitorV2) || setThread(kPerMonitor))) {
+				how = std::format("set for the main thread (process-wide refused, error {})", processError);
+			} else if (!setProcess && SetProcessDPIAware()) {
+				how = "set process-wide (legacy SetProcessDPIAware)";
+			} else {
+				SKSE::log::error("DPI: could not make the game DPI-aware (error {}); Windows scaling may stretch the game window",
+					processError);
+				return;
+			}
+		}
+		const UINT dpi = dpiForSystem ? dpiForSystem() : 0;
+		SKSE::log::info("DPI: game {} - {}; Windows display scaling {}%", AwarenessName(current()), how,
+			dpi ? (dpi * 100 + 48) / 96 : 0);
 	}
 
 	// Primary monitor's current mode, in physical pixels (EnumDisplaySettings ignores DPI scaling).
@@ -222,13 +286,18 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenAspectLayout 1.2.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenAspectLayout 1.3.0 loading, runtime {}", REL::Module::get().version().string());
 
 	CSimpleIniA ini;
 	ini.SetUnicode();
 	ini.LoadFile((kPlugins / "ZenAspectLayout.ini").string().c_str());
 	const std::string forced = ini.GetValue("General", "Layout", "auto");
 	const bool autoResolution = ini.GetBoolValue("General", "AutoResolution", true);
+	if (ini.GetBoolValue("General", "DpiAware", true)) {
+		MakeDpiAware();
+	} else {
+		SKSE::log::info("DPI: DpiAware = 0; left to Windows");
+	}
 	LoadSkipList();
 
 	std::uint32_t width = 0, height = 0;

@@ -19,6 +19,7 @@ tinkering.
 
 In `SKSEPlugin_Load`, before the mods that read these files load:
 
+0. (1.3.0) Marks the game DPI-aware, so Windows display scaling does not stretch its window. See *DPI awareness* below.
 1. Reads the primary monitor's current mode (`EnumDisplaySettingsW`, physical pixels).
 2. `AutoResolution = 1`: writes `SKSE/Plugins/SSEDisplayTweaks_custom.ini` (`[Render] Resolution=WxH`) when it differs.
    SSE Display Tweaks 0.5.25 reads it during its own load ("Custom configuration loaded", "Resolution override").
@@ -42,7 +43,7 @@ Of the three patches' files, 11 are identical (shipped once, static) and 12 diff
 patches (e.g. 16x9's `SkyUI_SE.ini` = Zenderal - Settings', its map/loading menu = Vel'dun UI Enderal Default's); if
 nothing provides it (`main-menu-wallpaper.dds`, referenced only by 32x9's own logo mesh), the manifest says `keep`.
 `OxygenMeter2.ini` is identical in all three (Oxygen Meter writes its settings back into the winning copy).
-**Rerun `tools/01` then `tools/02` after any Vel'dun patch update.** `01` deletes the whole mod folder, so copy
+**Rerun `tools/01` then `tools/02` then `tools/03` after any Vel'dun patch update.** `01` deletes the whole mod folder, so copy
 `_ZenAspectLayout.dll` + `ZenAspectLayout.ini` back afterwards (from `compiled/` and the repo root), and move
 `overwrite/SKSE/Plugins/ZenAspectLayout/applied.txt` away: the regenerated active files are the 16x9 set, and with the
 old marker still saying e.g. `21x9` the DLL would skip re-applying. **But first save the curator's in-game edits:**
@@ -87,6 +88,60 @@ list's wallpaper, which is why ultrawide looked right. `tools/02-fit-16x9-wallpa
 aspect, BC7). Players already marked 16x9 get it without deleting anything: their active wallpaper is the 21x9 copy,
 which 1.2.0 re-copies. Classic Enderal Main Menu Background 4K **outranks this mod** for that file, so the DLL's
 copy is written into Classic's file through MO2's VFS: keep this mod above it (swapped in Ultra 2026-10-29). **Verified in game** 2026-10-29: the 1920x1080 player installed the fitted wallpaper as a test mod and the menu was right.
+
+## DPI awareness (1.3.0, 2026-11-09)
+
+**Why.** A 4K player on Discord (2026-11-08): borderless/fullscreen looked zoomed with the wrong aspect, windowed
+flickered nonstop, and the in-game picture "repeated itself" while the menus looked right after they set 4K by hand.
+That is what Windows display scaling does to this game. `SkyrimSE.exe` (1.7.104, Stock Game) has no `dpiAware` in its
+manifest and never calls a DPI-awareness API **[verified: manifest + import strings]**, so at 150% scaling (Windows'
+default on 4K) Windows treats the game as DPI-unaware: it sees a 2560x1440 desktop, and the 3840x2160 window Display
+Tweaks asks for is bitmap-stretched 1.5x. Result: a zoomed, cut-off picture, and DLSS/frame generation get the wrong
+output size. The docs site already told players to set *Override high DPI scaling → Application* on `SkyrimSE.exe`
+by hand (DLSS & Frame Gen page, step 6). This DLL already reads the monitor through `EnumDisplaySettingsW`, which
+returns physical pixels, so the resolution it writes was right all along. The window was what got stretched.
+
+**What it does.** First thing in `SKSEPlugin_Load`, if `DpiAware = 1` (the default; ini key added):
+1. If the game is already DPI-aware (the compatibility override, or another plugin), it leaves it alone.
+2. Otherwise `SetProcessDpiAwarenessContext(PER_MONITOR_AWARE_V2)`, then V1. Per-monitor rather than system-aware, so
+   a game on a second monitor with different scaling is not stretched either.
+3. If Windows refuses the process-wide call: `SetThreadDpiAwarenessContext` on the loading thread. SKSE loads plugins
+   on the game's main thread, the same thread ID that later logs TRP's `D3D11CreateDeviceAndSwapChain`, so the game
+   window would still be created per-monitor aware.
+4. Logs `DPI: game <awareness> - <how>; Windows display scaling N%`. Player logs now show the scale.
+
+The user32 functions are looked up with `GetProcAddress`, so the only new static import is `SetProcessDPIAware`
+(Vista-era, the last resort if the context APIs are missing).
+
+**Splash screen.** Desktop Splash Screen's `_SplashScreen.dll` loads first and creates a layered window
+(`CreateWindowExA`). A test program (2026-11-09, this PC) created that kind of window first and then called
+`SetProcessDpiAwarenessContext(PMv2)`. The call **succeeded**, and windows created afterwards were per-monitor aware.
+An existing window does not lock the process setting, so step 3 should never be needed.
+
+At 100% scaling a DPI-aware process gets the same coordinates as an unaware one, so 100% setups see no change.
+Built and deployed 2026-11-09; **unverified in game**, and the 150% case untested. To test: set Windows scale to
+150%, launch through MO2, and check that `ZenAspectLayout.log` says `per-monitor aware - set process-wide;
+Windows display scaling 150%`, that the picture fills the screen unstretched, and that the TRP/Bottled Shaders/SKSE
+Menu Framework menus take mouse clicks where the cursor is. The docs site's step 6 can then be dropped.
+
+## Main menu logo (tools/03, 2026-11-06)
+
+The Zenderal logo above the main-menu buttons is `Interface/deardiary_dm/startmenu/startmenu_logo.swf`, which
+Dear Diary's start menu (Vel'dun UI) loads. Its winning copy is this mod's: the three Vel'dun Zenderal patches ship
+it identical (the old orb-and-ZENDERAL artwork), so `01` copies it in as a static file and the DLL never rewrites it.
+Inside: a 2560x1440 stage, one DefineBitsLossless2 bitmap (`id 12`, 1536x1024 ARGB, premultiplied, zlib) drawn by
+one shape (bitmap px = 0.375 stage px) inside a sprite scaled 1.875x under a **black glow filter** (blur 10, so the
+logo gets a dark halo on bright wallpaper), placed once. The old artwork filled bitmap x 96-1507, y 51-871.
+
+`tools/03-build-startmenu-logo.py` rebuilds that SWF from the Vel'dun patch's copy (always the template, never this
+mod's) with `src/AspectLayout/assets/startmenu_logo.webp` (the curator's white gothic wordmark, 2000x666) cropped to
+its alpha and fitted into the old artwork's box - same width (1411 px), centred, so 1411x456 at (96, 233) - and only
+the bitmap tag changes: the script asserts every other tag is byte-identical and the bitmap round-trips. It writes
+this mod's copy and, when present, the curator's `Zen's Ultrawide - 3360x1440 - Do not use` copy (that mod outranks
+this one in Ultra, so without it the curator would keep seeing the old logo). Vel'dun UI Enderal Default and
+`Veldun fomod files` carry a different 10 KB `startmenu_logo.swf` (not the list's logo); the three Vel'dun Zenderal
+patches keep the old one, which is where to look for it. The mod folder is a Wabbajack `Include`, so the new SWF
+ships with it. Unverified in game.
 
 ## Load order
 
