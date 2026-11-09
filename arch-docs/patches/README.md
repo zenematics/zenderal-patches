@@ -118,9 +118,10 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`SkeletonRagdollFix`](SkeletonRagdollFix.md) | generated loose `skeletons.hkx`: skeleton ragdoll limbs bend | none (no plugin) |
 | [`IEDPistolHolsters`](IEDPistolHolsters.md) | IED ExtraGearNodes file + generated IED export: pistols placed apart from staves | none (no plugin) |
 | [`ControllerLayout`](ControllerLayout.md) | `Zenderal - Controller Layout.esp` + `ZEN_ControllerLayout.pex` + every controller/keybind config file | `0x800` |
-| [`CollisionMoppFix`](CollisionMoppFix.md) | 7 generated meshes, `Zenderal - Collision MOPP Fix`: Enderal's broken MOPP branches closed (SkyParkour `int3` crash) | none (no plugin) |
+| [`CollisionMoppFix`](CollisionMoppFix.md) | 18 generated meshes, `Zenderal - Collision MOPP Fix`: Enderal's broken MOPP branches closed (SkyParkour `int3` crash), and leaf keys past a compressed mesh dropped (aim-ray crash at `+10E675B`, desert palms) | none (no plugin) |
 | [`ConvexPlanesFix`](ConvexPlanesFix.md) | 29 generated meshes, `Zenderal - Convex Planes Fix`: zero-normal convex hulls (JS Cages etc.) rebuilt — Ark bank vault stack-overflow crash | none (no plugin) |
 | [`OxygenMeterLoadFix`](OxygenMeterLoadFix.md) | patched `oxygenMeter2.dll`, MO2 mod `Oxygen Meter 2 - Load Screen Fix (Zenderal)`: null-player check, the loading-screen crash at `+0x16FC3` | none (no plugin) |
+| [`CoreImpactRemovedTargetFix`](CoreImpactRemovedTargetFix.md) | patched `CoreImpactFramework.dll`, MO2 mod `Core Impact Framework - Removed Target Fix (Zenderal)`: a projectile hit on an already torn-down actor leaves instead of calling `IsBlocking(null)` | none (no plugin) |
 | [`FHRFirstPerson`](FHRFirstPerson.md) | generated OAR mod `Zenderal - FHR First Person`: FHR 2.4 directional attacks + parry in first person on SIGMA's clips | none (no plugin) |
 | [`ZenParryTrace`](ZenParryTrace.md) | `ZenParryTrace.dll`: testing tool, logs FHR's parry chain for the player | none (no plugin) |
 | [`FHRDirectionalStripFix`](FHRDirectionalStripFix.md) | `Zenderal - FHR Directional Strip Fix.esp`: side attacks strip FHR's empowered-attack arrows (1P heavy strips; EGO's stagger yields the hit-spell slot) | none (overrides only) |

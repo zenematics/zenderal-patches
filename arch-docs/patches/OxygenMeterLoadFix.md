@@ -2,8 +2,8 @@
 
 - **Source:** `src/OxygenMeterLoadFix/tools/01-patch-dll.py`. It is a byte patch with every original byte asserted.
   The DLL is GPL-3.0, so this script is the published change.
-- **Ships:** MO2 mod *Oxygen Meter 2 - Load Screen Fix (Zenderal)*, directly **above** *Oxygen Meter 2 SKSE
-  1.7.104.0* in the left pane. It holds `SKSE/Plugins/oxygenMeter2.dll` (a patched copy, generated, not committed) and
+- **Ships:** MO2 mod *Oxygen Meter 2 - Load Screen Fix (Zenderal)*, which must **outrank** *Oxygen Meter 2 SKSE
+  1.7.104.0*: directly below it in MO2's left pane, directly above it in `modlist.txt`. It holds `SKSE/Plugins/oxygenMeter2.dll` (a patched copy, generated, not committed) and
   the rebuild's `LICENSE.txt`. It has a Wabbajack `Include` rule, because the patched DLL matches no download.
 - **FormID block:** _(none)_
 

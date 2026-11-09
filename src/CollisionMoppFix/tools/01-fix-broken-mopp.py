@@ -35,6 +35,20 @@ documentation. Each entry: length in bytes, and where the walk continues ("next"
 Checked on all 2398 MOPPs in Enderal's E - Meshes/E - Update archives: opcodes and arguments never
 overlap, and only the 6 meshes this script exists for go wrong.
 
+Second fault (2026-11-09): a well-formed MOPP whose leaf hands out a key no triangle has. A MOPP over a
+bhkCompressedMeshShape yields shape keys, which the engine decodes like this (ID 80699, +0x10E5950):
+  section = key >> bitsPerWIndex; i = key & wIndexMask
+  section 0 -> big triangle i; section all ones -> convex piece i (Skyrim's data has none);
+  else chunk section - 1 (or that chunk's `reference` when it is not 0xFFFF), whose triangle reads
+  indices[i & indexMask], [+1], [+2], each times 3 into the chunk's quantized vertices (ID 80713).
+Nothing checks i against the chunk's index count, so a key past the end reads whatever follows the index
+array as a vertex number and runs off the vertex array: EXCEPTION_ACCESS_VIOLATION at SkyrimSE.exe+10E675B.
+A player's log (2026-11-09) had Hit Where You Aim's crosshair ray in a Mangrove Fan Palm whose MOPP
+gives key 000400C6 (index 198) for a chunk of 24 indices; R14 held the 198. Every such leaf is closed
+with 00 as well (one byte; refused if the same instruction also yields a valid key on another path), and
+the leaf set afterwards must be the old one minus exactly the bad keys (asserted). 11 meshes in the list
+(2026-11-09), all SureAI's or Bethesda's own data, one bad key each.
+
 Scope: the WINNING copy of every mesh in the list (loose file by MO2 priority, overwrite first;
 else the last archive in load order that has it). The meshes are other authors' work (SureAI's,
 and whatever mod's copy wins), so they are generated from the install, never committed. Re-run
@@ -78,10 +92,13 @@ def oplen(op):
 JUMPS = {0x05, 0x06, 0x07, 0x0C, 0x70}            # one successor, no test
 
 
-def walk(code):
+def walk(code, leaves=None):
     """Every path from the root, with the leaf-key offset carried per path.
-    -> (opcode positions, argument positions, leaf keys, problems [(kind, position, parent position)])"""
+    -> (opcode positions, argument positions, leaf keys, problems [(kind, position, parent position)])
+    leaves: a dict to fill with {leaf instruction position: set of keys it yields}"""
     starts, args, keys, problems = set(), set(), set(), []
+    if leaves is None:
+        leaves = {}
     todo, seen = [(0, 0, None)], set()
     while todo:
         i, off, parent = todo.pop()
@@ -108,8 +125,10 @@ def walk(code):
             continue
         if 0x30 <= op <= 0x4F:
             keys.add(off + op - 0x30)
+            leaves.setdefault(i, set()).add(off + op - 0x30)
         elif 0x50 <= op <= 0x53:
             keys.add(off + val)
+            leaves.setdefault(i, set()).add(off + val)
         elif op in (0x09, 0x0A, 0x0B):
             todo.append((nxt, off + val, i))
         elif op in (0x05, 0x06, 0x07):
@@ -131,8 +150,8 @@ def walk(code):
 
 # --- NIF: block table only; a bhkMoppBvTreeShape's code starts 41 bytes in (shape ref, 12 unused,
 # shape scale, code size, origin, scale, build type) for both SE (BS 100) and LE (BS 83) files -------
-def mopp_blocks(data):
-    """-> [(absolute offset of the MOPP code, code size)]"""
+def nif_blocks(data):
+    """-> [(block type, absolute offset, size)] of every block"""
     d = data
     p = d.index(b'\n') + 1
     ver, = struct.unpack_from('<I', d, p); p += 5
@@ -153,25 +172,95 @@ def mopp_blocks(data):
     ngroups, = struct.unpack_from('<I', d, p); p += 4 + 4 * ngroups
     out = []
     for i in range(nblocks):
-        if types[tidx[i] & 0x7FFF] == 'bhkMoppBvTreeShape':
-            size, = struct.unpack_from('<I', d, p + 20)
-            head = sizes[i] - size                  # 41 with the build-type byte, 40 without
-            assert head in (40, 41), ('MOPP block size', size, sizes[i])
-            out.append((p + head, size))
+        out.append((types[tidx[i] & 0x7FFF], p, sizes[i]))
         p += sizes[i]
     assert p + 4 <= len(d), 'block table runs past the end of the file'
     return out
 
 
+def mopp_blocks(data, blocks=None):
+    """-> [(absolute offset of the MOPP code, code size, block index of the shape it wraps)]"""
+    out = []
+    for t, p, s in blocks if blocks is not None else nif_blocks(data):
+        if t == 'bhkMoppBvTreeShape':
+            size, = struct.unpack_from('<I', data, p + 20)
+            head = s - size                         # 41 with the build-type byte, 40 without
+            assert head in (40, 41), ('MOPP block size', size, s)
+            shape, = struct.unpack_from('<i', data, p)
+            out.append((p + head, size, shape))
+    return out
+
+
+# --- compressed mesh: which keys name a triangle (layout: nif.xml bhkCompressedMeshShapeData) ----------
+def compressed_mesh(data, blocks, shape):
+    """The bhkCompressedMeshShapeData behind block `shape`, or None if it is not a compressed mesh."""
+    if not 0 <= shape < len(blocks) or blocks[shape][0] != 'bhkCompressedMeshShape':
+        return None
+    _, sp, ss = blocks[shape]
+    ref, = struct.unpack_from('<i', data, sp + ss - 4)      # Data, the shape's last field
+    assert 0 <= ref < len(blocks) and blocks[ref][0] == 'bhkCompressedMeshShapeData', ('CMS data ref', ref)
+    _, p, size = blocks[ref]
+    end = p + size
+    bpi, bpw, maskw, maski = struct.unpack_from('<4I', data, p)
+    p += 16 + 4 + 32 + 2                                    # error, bounds min/max, welding + material type
+    for _ in range(3):                                      # materials 32 / 16 / 8
+        n, = struct.unpack_from('<I', data, p); p += 4 + 4 * n
+    n, = struct.unpack_from('<I', data, p); p += 4 + 8 * n  # chunk materials
+    n, = struct.unpack_from('<I', data, p); p += 4          # named materials
+    assert n == 0, 'named materials'
+    n, = struct.unpack_from('<I', data, p); p += 4 + 32 * n  # chunk transforms
+    nbv, = struct.unpack_from('<I', data, p); p += 4 + 16 * nbv
+    nbt, = struct.unpack_from('<I', data, p); p += 4
+    for t in range(nbt):
+        tri = struct.unpack_from('<3H', data, p + 12 * t)
+        if max(tri) >= nbv:
+            raise ValueError('big triangle %d names vertex %d of %d' % (t, max(tri), nbv))
+    p += 12 * nbt
+    nch, = struct.unpack_from('<I', data, p); p += 4
+    chunks = []
+    for c in range(nch):
+        p += 16 + 4                                         # translation, material index
+        reference, = struct.unpack_from('<H', data, p); p += 4  # + transform index
+        nv, = struct.unpack_from('<I', data, p); p += 4 + 2 * nv
+        ni, = struct.unpack_from('<I', data, p); p += 4
+        idx = struct.unpack_from('<%dH' % ni, data, p); p += 2 * ni
+        if idx and max(idx) >= nv // 3:
+            raise ValueError('chunk %d index names vertex %d of %d' % (c, max(idx), nv // 3))
+        n, = struct.unpack_from('<I', data, p); p += 4 + 2 * n  # strips
+        n, = struct.unpack_from('<I', data, p); p += 4 + 2 * n  # welding
+        chunks.append((reference, ni))
+    n, = struct.unpack_from('<I', data, p); p += 4          # convex pieces
+    assert n == 0 and p == end, ('CMS data layout', n, p - end)
+    return dict(bpw=bpw, maskw=maskw, maski=maski, nbt=nbt, chunks=chunks)
+
+
+def key_names_triangle(cms, key):
+    section, i = key >> cms['bpw'], key & cms['maskw']
+    if section == 0:
+        return i < cms['nbt']
+    if section == (1 << (32 - cms['bpw'])) - 1:             # convex piece: there are none
+        return False
+    if section - 1 >= len(cms['chunks']):
+        return False
+    reference, ni = cms['chunks'][section - 1]
+    if reference != 0xFFFF:
+        if reference >= len(cms['chunks']):
+            return False
+        reference, ni = cms['chunks'][reference]
+    return (i & cms['maski']) + 2 < ni
+
+
 def fix(data):
     """-> (fixed bytes or None, report lines). Raises on anything the one-byte fix can't handle."""
     out, report = bytearray(data), []
-    for start, size in mopp_blocks(data):
+    blocks = nif_blocks(data)
+    for start, size, shape in mopp_blocks(data, blocks):
         code = bytes(data[start:start + size])
-        starts, args, keys, problems = walk(code)
-        if not problems:
-            continue
         new = bytearray(code)
+        cms = compressed_mesh(data, blocks, shape)
+        starts, args, keys, problems = walk(code)
+        if not problems and not (cms and any(not key_names_triangle(cms, k) for k in keys)):
+            continue
         for kind, i, parent in sorted(set(problems), key=lambda x: x[1]):
             if parent is not None and code[parent] in JUMPS and parent not in args:
                 # reached through a plain jump (one successor, no test): close the branch at the jump,
@@ -188,6 +277,20 @@ def fix(data):
         s2, a2, k2, p2 = walk(bytes(new))
         assert not p2, ('still broken', p2)
         assert k2 == keys, ('leaf keys changed', len(keys), len(k2))
+        if cms:                                     # leaves whose key names no triangle
+            leaves = {}
+            s2, a2, k2, p2 = walk(bytes(new), leaves)
+            bad = {k for k in k2 if not key_names_triangle(cms, k)}
+            for i in sorted(p for p, ks in leaves.items() if ks & bad):
+                if not leaves[i] <= bad or i in a2:
+                    raise ValueError('leaf at %d also yields a valid key, or is an argument: not handled' % i)
+                report.append('MOPP %d bytes: leaf %02X at %d gives key %s, past its compressed mesh -> 00'
+                              % (size, new[i], i, ' '.join('%08X' % k for k in sorted(leaves[i]))))
+                new[i] = 0x00
+            if bad:
+                s3, a3, k3, p3 = walk(bytes(new))
+                assert not p3, ('broken after closing bad leaves', p3)
+                assert k3 == k2 - bad, ('leaf keys after closing bad leaves', len(k2), len(bad), len(k3))
         out[start:start + size] = new
     if not report:
         return None, []
