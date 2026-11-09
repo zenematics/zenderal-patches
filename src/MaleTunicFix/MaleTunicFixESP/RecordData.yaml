@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Male Tunic Fix.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Male characters get Enderal's miner tunic again in Forgotten Homeland (Pretty Enderal Clothing made it a dancer's outfit for both sexes). Women keep Pretty's. Load after Pretty Enderal Clothing.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Pretty Enderal Clothing.esp
+    FileSize: 0
+  INTV: 1
