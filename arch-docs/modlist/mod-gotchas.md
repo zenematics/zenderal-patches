@@ -296,3 +296,90 @@ List-wide traps that are not tied to one Zenderal patch.
   Fixed by adding those two lines to `Veldun fomod files/Interface/fontconfig.txt` (original in
   `E:/Zenderal-backups/2026-11-05-veldun-mage-font/`). **Re-add them after any Vel'dun reinstall or update**, or
   until upstream restores them. `fontconfig_ru.txt` never mapped `$Mage` and is left as Vel'dun ships it.
+- **CINEMACAM 2.0.1 changes the FOV around sprinting, in first person too.** Its Camera Noise sections carry *Sprint
+  Effects*: `SprintZoomEnabled` / `SprintZoom=5` (a 5-degree FOV kick when a sprint starts, 0.15 s in, 0.35 s back) and
+  `IdleZoomEnabled` / `IdleZoom=3` (a 3-degree zoom-in when a sprint stops straight to standing), each in
+  `[NoiseThirdPerson]` and `[NoiseFirstPerson]`, on by default; with SmoothCam loaded CINEMACAM leaves camera positions
+  to SmoothCam but its FOV effects still apply (its own strings say so). Its settings file is runtime-written
+  `Data/SKSE/Plugins/Cinemacam.ini` - on the curator's PC that is MO2's `overwrite/`, the list ships none, so players
+  get the plugin's defaults. 2026-11-09: the curator noticed the sprint FOV change in first person once Improved
+  Camera stopped rewriting the camera FOV every frame (ZenICSheatheFix 1.5.4 `CameraFOV=0`); all four zooms turned
+  off in that ini (`SprintZoomEnabled=0`, `IdleZoomEnabled=0` in both `[NoiseFirstPerson]` and `[NoiseThirdPerson]`,
+  the curator's choice for both views); the sprint camera-noise rotation stays. **Shipped since 2026-11-09:** the
+  ini was moved out of `overwrite/` into `Zenderal - Settings/SKSE/Plugins/` (the whole mod is Wabbajack-included), so
+  players get it and CINEMACAM's in-game saves now land there through MO2's VFS, like IC's Zen.json. `[Camera] CustomFov=0` there, so CINEMACAM's own 85/85 FOV values are not applied.
+
+- **Improved Camera 2.0 is body-only (2026-11-08, curator's decision).** IC SE 2.0.0.2226 keeps its settings in
+  JSON profiles, not the 1.x ini: `mods/ImprovedCameraSE/SKSE/Plugins/ImprovedCameraSE/ImprovedCameraSE.json` names
+  the active profile (`"active": "Zen"`) and the live profile is
+  **`Zenderal - Settings/SKSE/Plugins/ImprovedCameraSE/Profiles/Zen.json`** (the IC mod itself ships only
+  `Default.json`). The `Zenderal.ini` beside it is a dead IC 1.x profile: 2.0's DLL reads only `Profiles\*.json`
+  (its strings checked). Zen.json was IC's defaults plus FOV 100 in every state; on 2026-11-08 it lost every feature
+  but the body: camera transitions, free look (the head twisted up to 80° before the body shuffled round), yaw
+  smoothing, directional sway and the walk/run/sprint sway intensities and the extra tfc controls (free camera).
+  Camera transitions and Stabilization were tried ON again the same evening (with them off a chair's head camera
+  copies the sit idle's head motion, does not follow the body's turn, and a bite cuts to the head anchor), and
+  **reverted within the hour**: the curator rejects both as "IC doing more than the body". Open conflict. Kept:
+  body + vanilla first-person arms (the list's 1P animation work — SIGMA, FHR First Person, musket ADS, pistol
+  reload — needs them), head hidden, near-distance/anchor/restrict-angle body mechanics, bow/quiver/2H hidden on the
+  back; dialogue camera, idle camera, letterbox and zoom were already off. **IC always applies its FOV table (2.0 has no master switch) - third person included:**
+  `CAMERA::Manager::UpdateFOV` lerps the camera FOV to the profile's value every frame in every IC camera state
+  but Free and Cinematic, so SmoothCam's per-state FOV offsets never showed (traced 2026-11-08: third person sat
+  at 90-94 and flickered; the Apostate preset wants 69). ZenICSheatheFix 1.2.0
+  ([`ImprovedCameraSheatheFix`](../patches/ImprovedCameraSheatheFix.md)) makes IC's ThirdPerson state hands-off
+  (`[ImprovedCamera2] HandsOffFOVStates`; more states can be listed without a rebuild). The profile's 20 FOV
+  entries are 94 = the list's `Enderal.ini` (`fDefaultWorldFOV`/`fDefault1stPersonFOV`); they were 100 until
+  2026-11-08. **First Person FOV and Tween Menu Fix SKSE sorts ABOVE `Zenderal - Settings` in MO2** (modlist.txt
+  line 55 vs 57), so its own ini (100/100 + a third-person override at 90) won and Settings' 94/94 copy was dead
+  - which is why eating and cutscene chairs (IC's Animation/Furniture states at 94) zoomed in from 100.
+  Settings' copy now also turns the third-person override off; the mod was moved directly below Settings in `modlist.txt` on 2026-11-08 21:08
+  (MO2 closed; backup in `E:/Zenderal-backups/ultra-profile-20261108-210803-fov-mod-order`) and Settings' copy
+  now says 100/100 = IC's Zen profile (the curator's choice). Keep IC's table and Settings' `FirstPersonFOV.ini`
+  at one value, or the two fight every frame in first person. Saving from IC's in-game menu writes Zen.json back into Zenderal - Settings through the VFS. The
+  profile is verified loaded; the FOV patch and the ini fix are unverified in game. **IC 2.0 also forces first
+  person in its Animation camera state** (sitting, sleeping, bathing, fishing, boat/cart rides, scripted idles:
+  each of its camera states asks for "third-person body" through a Modifier byte (`manager+0x30`) that SetMode
+  honours by taking the third-person camera and zooming it onto the head - mode 2, no profile switch; found with a
+  hardware write watch after three byte patches on the wrong path), which is why Immersive Interactions' *Force 3rd
+  Person* did nothing and a chair looked first person. ZenICSheatheFix 1.5.x `ThirdPersonBody=0` NOPs the
+  Furniture/Animation entry zoom + force sites (the head camera needs that zoom), so a chair, a bed, a mount are the
+  vanilla / SmoothCam camera (verified in game 2026-11-08). The FOV drop on a chair or a bite (100 -> 91-95) was IC's
+  first-person-state FOV store writing its lagging lerp every frame, hidden by the First Person FOV mod until the
+  frame the camera leaves first person (camera-FOV write watch, 1.5.3); 1.5.4 `CameraFOV=0` NOPs both of IC's
+  camera-FOV stores, so IC never writes the camera FOV and its FOV sliders are inert. Under that, the base FOV
+  outside first person was the **save game's** (90, the FOV mod's old override): the engine saves
+  `PlayerCamera::worldFOV`, so Settings' `FirstPersonFOV.ini` keeps the third-person override ON at 100 - one base
+  everywhere, written every frame (SmoothCam offsets the frustum on top, it never writes worldFOV). Last piece:
+  SmoothCam's standing `fovOffset -15` applies to the ThirdPersonState IC's head camera rides, which from the
+  eyes reads as a zoom - 1.5.5 holds SmoothCam's camera control (its API) exactly while IC's mode is 2 (1.5.6: also
+  while IC's pending flag is up, one frame earlier). **Verified in game 2026-11-08 22:14:** a bench is the vanilla
+  furniture camera at a constant FOV 100; a bite is IC's head camera at FOV 100 for the whole animation. The
+  curator then switched chairs to the head camera as well (`ThirdPersonBody=1`, 1.5.7, the hold also starting on
+  the actor's sit/sleep state; **verified 22:23: chair = head camera at FOV 100 from the first frame**) - `=0` is
+  the vanilla furniture camera. 1.5.8 tried the hold in a `PlayerCamera::Update` vtable hook: **the game never calls
+  that slot** (the hold never fired, SmoothCam's offset was back) - 1.5.9 is back on `PlayerCharacter::Update`,
+  which runs after the camera update; 1.6.0 also decides it in the late-frame `HUDMenu::AdvanceMovie` tick, which
+  the traces show already sees IC's pending flag a frame before IC's camera update: **verified 22:48, the bite's
+  first-frame offset is gone.** Final choice that night: **vanilla chairs** (`ThirdPersonBody=0`), head camera for
+  scripted animations only. The bite's "height cut" measured with `[campos]` is (a) ONE frame of the vanilla
+  third-person camera from behind the player (IC enters its ThirdPersonState in that frame but writes its position
+  from the next) and (b) a steady ~10-unit forward jump: IC's head camera = `SmoothHeadAnchor(head) + (forward + 8)
+  × bodyForward + right × bodyRight + (up + 1) × bodyUp`, the offsets being the profile's `Camera/Firstperson`
+  (`ThirdPersonState::OnUpdate` → Modifier → `Manager::BasePosition`; they reach IC's own first person only in
+  head-bob mode 1). Zen.json `Camera/Firstperson/forward = -10` (main + Combat) since 2026-11-08 night, and
+  ZenICSheatheFix **1.7.0** `HoldCameraOnHeadCameraEntry=1` keeps the previous frame's camera-root transform on
+  that one frame. **Both verified in game 23:21 (5 bites): the held frame logs once per bite and sits at the
+  first-person position; the head camera then starts within 1.7 units of it.** Still there: the END of a bite cuts
+  4-11 units back (the head leans forward at the animation's end; only an exit blend could hide it, not built), and
+  bite 2 fell to IC mode 3 (plain third-person camera, SmoothCam's offset back) for 0.6 s mid-animation with the
+  body request still up - SetMode's zoom check is the only path to that, a wheel tick the suspect, cause open.
+  `Body/Action/*` offsets are body-vs-camera offsets, not the camera's. **1.8.0 (2026-11-09)**: in the head camera
+  IC's `UpdateNearDistance` runs its first-person pitch rule (near plane 15 looking level, 4 at 50 deg down), and
+  the mouth is ~10 units ahead of the camera, so a bite's food and hand were sliced by the near plane (recording);
+  `HeadCameraNearDistance=4` caps the plane while IC's mode is 2, plain first person untouched. Verified 2026-11-09. A *scripted* forced third person (Eating Animations and
+  Sounds always does one when you eat in first person; Immersive Interactions on *Force 3rd Person*) is a separate
+  path (IC's Papyrus-side hook + a pending flag) and keeps IC's head camera by default (1.5.1), because the
+  first-person arms have no eating/idle animations; `TakeOverForcedThirdPerson=0` + `IgnorePendingThirdPerson=1`
+  make those a real third person instead. The zoom inside that head camera is the First Person FOV mod's
+  third-person override (camera is technically kThirdPerson) - off in Settings' ini once that mod sorts below
+  Settings. No Furniture Camera (modlist line 128) did not keep the furniture camera first person in the traces.
