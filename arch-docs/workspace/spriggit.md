@@ -137,6 +137,8 @@ lookup copies are the same files — there is no second copy to drift.
   `Alias: <id>`. Without the `Object` line the plugin builds and the quest runs, but the Papyrus log says `Unable to
   bind script X to <nullptr alias> (0) on <nullptr quest> (00000000)` and no alias event ever fires. Every SureAI
   quest has it (`Abilities 0EEE9B`). Cost the Fog Wood a death test. **[verified 2026-11-06]**
+- **Alias packages are `PackageData:`** on the alias (a list of PACK FormKeys, between `Flags` and `VoiceTypes`),
+  not `Packages`; 52 FS quests carry them (`Abilities 0EEE9B` alias 19). **[verified 2026-11-09]**
 - **A generated navmesh that only drops triangles keeps the blocked vertices**, and Papyrus Extender's
   `MoveToNearestNavmeshLocation` snaps to the nearest **vertex**: a ref snapped near a tree can land exactly on the
   trunk. Place on your own markers instead (Fog Wood caches, 2026-11-06).

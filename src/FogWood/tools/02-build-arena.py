@@ -228,6 +228,14 @@ MANA_POTIONS = ['019E3B' + SK, '090892' + SK, '09B6CB' + SK, '1037F7' + SK]
 AMBROSIA = '0FEC69' + SK          # _00E_Ambrosia
 ID_MANA_POTIONS = 0x817
 SPAWN_SLOTS = 40                  # spawn aliases ZFW_Spawn01-40 (alias IDs 1-40), script ZFW_SpawnAlias
+# Every spawn alias carries this package (alias PackageData), which outranks the actor's own package list. The
+# Vagrant _10E_Bandit05_Range2500 02F48C (the one base of 145 in THEMES) has no AIPackages template flag and its own
+# package is _DefaultSitLinkedRef 0DD723, whose InterruptOverride is Combat: it runs INSTEAD of the combat behaviour,
+# and a spawned copy has no linked chair, so she stood in combat, target set, never moving (curator, 2026-11-09;
+# Enderal places her with a linked ref at the Eisbrecherwarte). _DefaultSandboxEditorLocation512: no override, so the
+# combat behaviour runs in combat and a sandbox round the spawn point otherwise. combat_override_packages() lists
+# such bases at build time.
+SPAWN_PACKAGE = '01B217:Skyrim.esm'
 
 # ZFW_Werewolf / ZFW_WerewolfAlpha: Skyrim's werewolf records Enderal's Skyrim.esm keeps
 WW_RACE = '0CDD84' + SK           # WerewolfBeastRace (skin SkinNakedWerewolfBeast, WerewolfBeastProject.hkx)
@@ -377,6 +385,46 @@ def winning_race(key):
     return found
 
 
+def _ref_text(sub, key):
+    """The winning serialized record of a FormKey among the list's overriders (reference/mods), else the base's."""
+    local, master = key.split(':', 1)
+    pattern = ' - %s_%s.yaml' % (local, master)
+    roots = [os.path.join(ROOT, 'reference', 'base-2.1.4.4', 'Skyrim' if master == 'Skyrim.esm' else 'EnderalFS', sub)]
+    roots += [os.path.join(ROOT, 'reference', 'mods', m, sub) for m in OVERRIDERS]
+    found = ''
+    for d in roots:
+        if not os.path.isdir(d):
+            continue
+        for fn in os.listdir(d):
+            if fn.endswith(pattern):
+                found = open(os.path.join(d, fn), 'rb').read().decode('utf-8').replace('\r\n', '\n')
+    return found
+
+
+def combat_override_packages(key, depth=0):
+    """[(package EditorID, InterruptOverride)] of the base's effective packages (its own, or the template's when the
+    AIPackages template flag is set) whose InterruptOverride is not None: such a package runs instead of that behaviour."""
+    text = _ref_text('Npcs', key)
+    if not text or depth > 6:
+        return []
+    flags = re.search(r'^  TemplateFlags:\n((?:  - .*\n)+)', text, re.M)
+    flags = re.findall(r'^  - (\w+)', flags.group(1), re.M) if flags else []
+    template = re.search(r'^Template: (.+?)$', text, re.M)
+    if 'AIPackages' in flags and template:
+        return combat_override_packages(template.group(1), depth + 1)
+    packages = re.search(r'^Packages:\n((?:- .*\n)+)', text, re.M)
+    out = []
+    for pkey in re.findall(r'^- (.+?)$', packages.group(1), re.M) if packages else []:
+        ptext = _ref_text('Packages', pkey)
+        if not ptext:
+            continue
+        edid = re.search(r'^EditorID: (.*)$', ptext, re.M)
+        override = re.search(r'^InterruptOverride: (\w+)', ptext, re.M)
+        if override:
+            out.append((edid.group(1) if edid else pkey, override.group(1)))
+    return out
+
+
 def main():
     for sub in ('Quests', 'Activators', 'Factions', 'FormLists', 'Globals', 'Messages', 'Npcs', 'Containers'):
         if os.path.isdir(os.path.join(OUT, sub)):
@@ -405,7 +453,8 @@ def main():
     aliases = ['- ID: 0', '  Name: ZFW_Player', '  Flags: []', '  UniqueActor: ' + PLAYER, '  VoiceTypes: Null']
     for n in range(1, SPAWN_SLOTS + 1):
         bindings += alias_binding(n, 'ZFW_SpawnAlias')
-        aliases += ['- ID: %d' % n, '  Name: ZFW_Spawn%02d' % n, '  Flags:', '  - Optional', '  VoiceTypes: Null']
+        aliases += ['- ID: %d' % n, '  Name: ZFW_Spawn%02d' % n, '  Flags:', '  - Optional',
+                    '  PackageData:', '  - ' + SPAWN_PACKAGE, '  VoiceTypes: Null']
     def objective(index, text):
         return ['- Index: %d' % index, '  Flags: []', '  DisplayText:', '    TargetLanguage: English',
                 '    Value: ' + quoted(text), '  Targets: []']
@@ -449,6 +498,7 @@ def main():
     tiers = {t: [] for t in range(1, 6)}
     seen = set()
     mihail = []
+    overriding = []
     for n, (edid, shown, in_tiers, pack, regulars, elites, bosses) in enumerate(THEMES):
         assert edid not in seen, edid
         seen.add(edid)
@@ -458,6 +508,8 @@ def main():
                 race = winning_race(key)
                 if race.endswith(':' + MIHAIL):
                     mihail.append((edid, key))
+                for pedid, override in combat_override_packages(key):
+                    overriding.append((edid, key, pedid, override))
         base = ID_THEME0 + THEME_STRIDE * n
         t_id, r_id, e_id, b_id, m_id = base, base + 1, base + 2, base + 3, base + 4
         write(os.path.join(OUT, 'FormLists', 'ZFW_Theme_%s_Regulars - %06X_%s.yaml' % (edid, r_id, PLUGIN)),
@@ -505,6 +557,10 @@ def main():
     print('arena records written: quest 0x%X (%d spawn aliases), stone 0x%X, faction 0x%X, %d themes (0x%X-0x%X) in %s, %d werewolf bases, %d+%d potions, messages, globals'
           % (ID_QUEST, SPAWN_SLOTS, ID_STONE, ID_FACTION, len(THEMES), ID_THEME0, ID_THEME0 + THEME_STRIDE * len(THEMES) - 1,
              ' / '.join('T%d:%d' % (t, len(v)) for t, v in sorted(tiers.items())), len(WEREWOLVES), len(HEALTH_POTIONS), len(MANA_POTIONS)))
+    if overriding:
+        print('NOTE: %d base(s) whose own package overrides a behaviour; the spawn aliases\' PackageData (%s) outranks it:' % (len(overriding), SPAWN_PACKAGE))
+        for edid, key, pedid, override in overriding:
+            print('  %s: %s has %s [InterruptOverride %s]' % (edid, key, pedid, override))
     if mihail:
         print('WARNING: %d bases whose winning record is on the Mihail skeleton race (Enemy Density refuses these):' % len(mihail))
         for edid, key in mihail:

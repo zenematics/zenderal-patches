@@ -279,6 +279,16 @@ A `PATCH`x`PATCH` (6x6) cell arena, cells -3..2 on both axes (24,576 units squar
   the earlier tick died of an error and never cleared it. `SpawnWave` also stops placing when the run ended under
   it (a bleedout from the alias, the console). The registration-first build shipped only in Patch Collection,
   not in a list release.
+- **Every spawn alias carries a package** (`PackageData` = `_DefaultSandboxEditorLocation512 01B217`, 2026-11-09).
+  The Vagrant `_10E_Bandit05_Range2500 02F48C` stood in combat, target set, never moving, every time she spawned
+  (curator, 2026-11-09). She is the one base of the 145 in `THEMES` whose own package overrides combat: no
+  `AIPackages` template flag (the working `_10E_Bandit09_Range2500 02F44A` has it), own package
+  `_DefaultSitLinkedRef 0DD723`, whose **`InterruptOverride: Combat`** makes the package run *instead of* the
+  combat behaviour, and a `PlaceAtMe` copy has no linked chair to sit on (Enderal places her with a linked ref at
+  the Eisbrecherwarte). An alias package outranks an actor's own list, so every spawn now runs a plain sandbox out
+  of combat and the engine's combat behaviour in it; `tools/02` prints the bases with such packages
+  (`combat_override_packages`). The stuck Vagrant in the 12:25 log was the ranged `02F442` (crossbow, 15 bolts:
+  an archer holding position), a different base. Unverified in game.
 - **The last few are gathered** (2026-11-07): with `LAST_FEW` (3) or fewer alive and no kill for `NO_KILL_SECONDS`
   (20), every live spawn farther than `NO_KILL_RANGE` (600) is `Relocate`d to the clear marker nearest the
   player (`GatherLastFew`, `ZFW: gathering` lines); nearer ones are left alone, so a long boss fight is not

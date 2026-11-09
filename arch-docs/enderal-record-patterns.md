@@ -370,3 +370,14 @@ FormKey as target (`UndeadFaction 005104`, `AnimalFaction 046E73`; `Creature_Wol
 its *only* relation). Found by the Fog Wood arena after three guessed fixes
 ([`patches/FogWood.md`](patches/FogWood.md), postmortem). Any faction you create for a group that must not
 fight itself: add the faction to its own `Relations` as `Ally`.
+
+## A package with `InterruptOverride: Combat` runs instead of combat (2026-11-09)
+
+A package's Interrupt Override (PKDT; Spriggit `InterruptOverride`: None / Spectator / ObserveDead / GuardWarn /
+Combat) names a behaviour the package replaces while it is the actor's current package. SureAI's
+`_DefaultSitLinkedRef 0DD723` carries `Combat`, and `_10E_Bandit05_Range2500 02F48C` (EGO's Vagrant) uses it as
+her own package, without the `AIPackages` template flag that lets her sisters take their templates' packages. A
+spawned copy has no linked chair, so in combat she stood where she was, target set, never moving
+(Fog Wood, 2026-11-09). Before reusing an Enderal NPC base by `PlaceAtMe`, read its effective packages (own, or
+the template's when `AIPackages` is set) for an override; a quest alias package (`PackageData:` on the alias)
+outranks the actor's own list and is the cheapest cure ([`patches/FogWood.md`](patches/FogWood.md)).
