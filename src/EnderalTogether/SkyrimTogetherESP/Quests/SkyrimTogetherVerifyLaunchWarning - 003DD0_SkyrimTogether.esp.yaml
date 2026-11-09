@@ -1,0 +1,27 @@
+FormKey: 003DD0:SkyrimTogether.esp
+EditorID: SkyrimTogetherVerifyLaunchWarning
+VirtualMachineAdapter:
+  Scripts:
+  - Name: SkyrimTogetherVerifyLaunchScript
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 003DD0:SkyrimTogether.esp
+      Alias: 0
+    Scripts:
+    - Name: SkyrimTogetherPlayerAliasScript
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: VerifyLaunchScript
+        Object: 003DD0:SkyrimTogether.esp
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+NextAliasID: 1
+Aliases:
+- Name: SkyrimTogetherPlayerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

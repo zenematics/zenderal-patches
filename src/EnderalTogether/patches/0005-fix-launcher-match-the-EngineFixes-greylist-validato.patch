@@ -1,0 +1,33 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Zenderal <noreply@zenderal.local>
+Date: Mon, 9 Nov 2026 14:15:54 +0000
+Subject: [PATCH 5/7] fix(launcher): match the EngineFixes greylist validators
+ per line
+
+EngineFixes.toml starts with a comment, and the validators are ^-anchored line
+patterns searched over the whole file, so neither matched and EngineFixes.dll
+was blocked even though the EF7 entry is meant to accept it unchanged.
+---
+ Code/immersive_launcher/stubs/DllBlocklist.cpp | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Code/immersive_launcher/stubs/DllBlocklist.cpp b/Code/immersive_launcher/stubs/DllBlocklist.cpp
+index 9eaea50c..4e94f91a 100644
+--- a/Code/immersive_launcher/stubs/DllBlocklist.cpp
++++ b/Code/immersive_launcher/stubs/DllBlocklist.cpp
+@@ -131,7 +131,11 @@ GreyListDisposition IsConfigOK(const std::filesystem::path& aPath, const DllGrey
+     {   // std::regex constructors can throw exceptions, so must be used inside try/catch
+         // subblock to throw away the temps
+         {
+-            const std::regex validatorRegex(aEntry.m_configValidator, std::regex_constants::icase);
++            // Zenderal: the validators are line patterns ("^bVerboseLogging\s*="), but they search the whole file,
++            // where ^ only matches the first character. EngineFixes.toml opens with a comment line, so neither
++            // matched and EngineFixes.dll was blocked (STATUS_INVALID_IMAGE_HASH). multiline makes ^ match each line.
++            const std::regex validatorRegex(aEntry.m_configValidator,
++                std::regex_constants::ECMAScript | std::regex_constants::icase | std::regex_constants::multiline);
+             const std::string configStr = configStream.str();
+             std::smatch vmatch;
+             if (!std::regex_search(configStr.begin(), configStr.end(), vmatch, validatorRegex))
+-- 
+2.55.0.windows.3
+

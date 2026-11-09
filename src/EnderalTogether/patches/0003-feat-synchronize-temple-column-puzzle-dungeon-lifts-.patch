@@ -1,0 +1,697 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Artyom <artyom@local>
+Date: Sat, 31 Oct 2026 21:59:49 +0300
+Subject: [PATCH 3/7] feat: synchronize temple column puzzle, dungeon lifts,
+ and isolate meditation
+
+(cherry picked from commit 534b7d2acff52b1b0e2b4aaa891ea806593c1ac7)
+---
+ CHANGELOG_DEV.md                              | 102 ++++++++++++++
+ .../scripts/_00E_MQ00TemplePuzzleSCN.pex      | Bin 0 -> 7492 bytes
+ .../_00e_class_openclassmenuscript.pex        | Bin 0 -> 4181 bytes
+ .../Skyrim/scripts/_00e_dungeonliftscript.pex | Bin 0 -> 3186 bytes
+ .../scripts/_00e_mqp03_exitdoorscript.pex     | Bin 0 -> 1007 bytes
+ .../source/_00E_MQ00TemplePuzzleSCN.psc       | 131 ++++++++++++++++++
+ .../source/_00e_class_openclassmenuscript.psc | 125 +++++++++++++++++
+ .../scripts/source/_00e_dungeonliftscript.psc |  94 +++++++++++++
+ .../source/_00e_mqp03_exitdoorscript.psc      |  15 ++
+ 9 files changed, 467 insertions(+)
+ create mode 100644 CHANGELOG_DEV.md
+ create mode 100644 GameFiles/Skyrim/scripts/_00E_MQ00TemplePuzzleSCN.pex
+ create mode 100644 GameFiles/Skyrim/scripts/_00e_class_openclassmenuscript.pex
+ create mode 100644 GameFiles/Skyrim/scripts/_00e_dungeonliftscript.pex
+ create mode 100644 GameFiles/Skyrim/scripts/_00e_mqp03_exitdoorscript.pex
+ create mode 100644 GameFiles/Skyrim/scripts/source/_00E_MQ00TemplePuzzleSCN.psc
+ create mode 100644 GameFiles/Skyrim/scripts/source/_00e_class_openclassmenuscript.psc
+ create mode 100644 GameFiles/Skyrim/scripts/source/_00e_dungeonliftscript.psc
+ create mode 100644 GameFiles/Skyrim/scripts/source/_00e_mqp03_exitdoorscript.psc
+
+diff --git a/CHANGELOG_DEV.md b/CHANGELOG_DEV.md
+new file mode 100644
+index 00000000..e95b07e1
+--- /dev/null
++++ b/CHANGELOG_DEV.md
+@@ -0,0 +1,102 @@
++# Enderal Together Reborn â€” Developer Change Log & Architecture Tracker
++
++> **Notice:** This document is the primary source of truth across development sessions. Always consult and update this file when making changes or investigating bugs.
++
++---
++
++## 1. Project Overview & Environment
++
++* **Target Game:** *Enderal: Forgotten Stories (Special Edition)* v2.1.4 (Steam)
++* **Underlying Engine:** Bethesda Skyrim Special Edition runtime `1.7.104.0` (AE binary layout)
++* **Base Multiplayer Codebase:** *Tilted Evolution* / *Skyrim Together Reborn* (branch `feature/legacy-1.5.97-on-1.8.7` adapted for Enderal 1.7.104)
++* **Local Source Tree:** `C:\Users\Artyom\Documents\antigravity\proud-hopper\skyrim\EnderalTogether-src`
++* **Local Branch:** `feature/enderal-together`
++* **Remote Repository:** [https://github.com/Frelm/EnderalTogetherReborn](https://github.com/Frelm/EnderalTogetherReborn) (`main`)
++* **Distribution Staging:** `C:\Users\Artyom\Documents\antigravity\proud-hopper\EnderalTogether-Release\`
++* **Installed Test Locations:**
++  * MO2 Instance 1: `C:\Users\Artyom\AppData\Local\ModOrganizer\Enderal Special Edition\mods\EnderalTogetherReborn\`
++  * MO2 Instance 2: `C:\Users\Artyom\AppData\Local\ModOrganizer\Enderal Special Edition (2)\mods\EnderalTogetherReborn\`
++  * Base Game / Vortex: `H:\SteamLibrary\steamapps\common\Enderal Special Edition\Data\SkyrimTogetherRuntime\`
++
++---
++
++## 2. Completed Milestones & Historical Fixes
++
++### 2.1 Launcher Target & Engine Binary Compatibility
++* **Issue:** Initially built the `SkyrimImmersiveLauncherLegacy` target targeting 1.5.97, triggering version mismatch popups.
++* **Fix:** Configured and compiled the modern `SkyrimImmersiveLauncher` targeting `1.7.104.0`.
++
++### 2.2 Registry Key & Multi-Install Isolation
++* **Issue:** Default launcher read `HKCU\Software\TiltedPhoques\TiltedEvolution\Skyrim Special Edition`, overriding the user's regular Skyrim SE install and launching vanilla Skyrim instead of Enderal.
++* **Fix:** Isolated registry path in `Code/immersive_launcher/TargetConfig.h` to `L"Enderal Special Edition"`, completely isolating registry keys and game paths.
++
++### 2.3 Null Pointer Guards for Enderal Engine Quirks
++* **Issue:** Crash loops within 5 minutes of gameplay due to missing vanilla Skyrim global variables.
++* **Fix:**
++  * Guarded `WorldEventsEnabled` (`0xB8EC1`) in `PlayerService.cpp`.
++  * Guarded `KillMove` (`0x100F19`) in `PartyService.cpp`.
++
++### 2.4 Quest Synchronization & Exploration Mode
++* **Issue:** Quest sync desynced Enderal's heavily scripted story, Meditation worldspace, and custom Papyrus alias mechanics.
++* **Fix:**
++  * Set `bDisableQuestSync = true` in `EnderalTogether.ini`.
++  * Added Enderal core quest blacklist (`_00E_PlayerQuest`, `_00E_LevelUpQuest`, `_00E_MeditationQuest`, `_00E_AffinityQuest`, `_00E_FatigueQuest`, `_00E_ArkanistenfieberQuest`, etc.) in `QuestService.cpp`.
++  * Configured Exploration & Combat Co-op Mode as default.
++
++### 2.5 EngineFixes Memory Manager Compatibility
++* **Issue:** Instant CTD (`EngineFixes.dll+0x96e34`) upon actor/player spawning due to memory pool conflicts with STR's custom `ExActor` extensions.
++* **Fix:** Provided pre-configured `SKSE/Plugins/EngineFixes.toml` disabling `[MemoryManager]` overrides (`bOverrideMemoryManager = false`).
++
++### 2.6 Network Protocol Synchronization & Opcode Alignment
++* **Issue:** Server handshake rejected with `v1.8.4` vs `legacy-test` error; remote players invisible and empty Player Manager list due to packet opcode misalignment between server and client.
++* **Fix:**
++  * Pinned `BUILD_COMMIT` to `"v1.8.4"` in `BuildInfo.h.in`.
++  * Added dynamic INI protocol configuration (`sProtocolVersion = v1.8.4`) and auto-adoption in `TransportService.cpp`.
++  * Recompiled both `SkyrimTogether.exe`, `SkyrimTogetherServer.exe`, and `STServer.dll` from the exact same source tree.
++
++### 2.7 Packaging & Distribution
++* **Archives Built:**
++  * `EnderalTogetherReborn.zip` (All-in-One: Client mod structure + `Server\` folder + pre-configured `EngineFixes.toml`).
++  * `EnderalTogetherReborn-Client-v1.8.4.zip` (Client only).
++  * `EnderalTogether-Server-v1.8.4.zip` (Dedicated server only).
++* **Source Published:** Pushed to GitHub repository [Frelm/EnderalTogetherReborn](https://github.com/Frelm/EnderalTogetherReborn).
++
++---
++
++## 3. Active Investigation: Dungeon & Puzzle Synchronization
++
++### 3.1 First Case: The Temple Columns / Skeleton Key Puzzle (`_00E_MQ00TemplePuzzleSCN`)
++* **Symptom:** In the early temple ruins, when one player inserts the Temple Key (Skeleton Key) to raise stone columns/pillars, the columns only rise for the activating player. The remote player sees nothing happen.
++* **Root Cause Found in Enderal Script:**
++  * The puzzle is handled by `_00E_MQ00TemplePuzzleSCN.psc`.
++  * Lines 4â€“6:
++    ```papyrus
++    Event OnActivate(ObjectReference akActionRef)
++        Actor PlayerRef = Game.GetForm(0x14) as Actor
++        if akActionRef == PlayerRef && !Activated && (PlayerRef.GetItemCount(_00E_MQ00TempleKey) >= 1)
++    ```
++  * In Skyrim Together:
++    1. Player 1 activates the pedestal. Player 1 is `Game.GetForm(0x14)` on their machine, has the key, and triggers the animation/translation of linked columns.
++    2. Player 1's client sends `ActivateRequest` to the server, which broadcasts `NotifyActivate` to Player 2.
++    3. Player 2's client executes `pObject->Activate(pActor, 0, nullptr, 1, 0)` in `ObjectService::OnActivateNotify`, where `pActor` is **Player 1's remote actor**.
++    4. On Player 2's machine, the Papyrus engine executes `OnActivate(akActionRef)`.
++    5. On Player 2's machine, `PlayerRef = Game.GetForm(0x14)` evaluates to **Player 2**.
++    6. Therefore, `akActionRef == PlayerRef` **FAILS**, and `PlayerRef.GetItemCount` also fails!
++    7. As a result, the puzzle logic never executes on Player 2's game.
++
++### 3.2 Meditation Synchronization Observation
++* **Symptom:** When one player meditates to spend Memory Points, the other player is also transported to the meditation temple.
++* **Root Cause Found:**
++  * Meditating triggers `_00E_Class_Meditate` / `_00E_Class_OpenClassMenuSpell`.
++  * `MagicService` replicates spell target additions across the network.
++  * When Player 2 receives the magic effect, `_00E_Class_OpenClassMenuScript.psc` executes `PlayerREF.MoveTo(_00E_ClassMenuOrigin)`, where `PlayerREF` is the local player (`0x14`).
++* **Design Decision:** Non-critical for now. Focus primarily on dungeon progression and puzzle synchronization.
++
++---
++
++## 4. Work In Progress & Next Steps
++* [ ] Design a clean, robust solution for Enderal puzzle activators:
++  * Pattern A: A companion `.esp` / Papyrus patch (`SkyrimTogetherEnderalPatches.esp` or patched `.pex` scripts) using `SkyrimTogetherUtils.IsPlayer(actorRef)` so both local and remote players can satisfy the activation condition.
++  * Pattern B: Engine-level activation helper in `ObjectService.cpp`.
++* [ ] Audit other common Enderal dungeon puzzles (pillar wheels, pressure plates, pull levers, barrier gates).
++* [ ] Verify fix in-game with test instances.
+diff --git a/GameFiles/Skyrim/scripts/_00E_MQ00TemplePuzzleSCN.pex b/GameFiles/Skyrim/scripts/_00E_MQ00TemplePuzzleSCN.pex
+new file mode 100644
+index 0000000000000000000000000000000000000000..781d14e651f5302b2a5fdde04e3993d585ec3bde
+GIT binary patch
+literal 7492
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/GameFiles/Skyrim/scripts/_00e_class_openclassmenuscript.pex b/GameFiles/Skyrim/scripts/_00e_class_openclassmenuscript.pex
+new file mode 100644
+index 0000000000000000000000000000000000000000..33164eb3213cc874d6f9091b236b469ae88ec841
+GIT binary patch
+literal 4181
+zcmbtVYg-$~6@C{a?pK?e0b@a&IB6RP8%(g07z+@D*cif1NgPL6qyeqH+L3oxrhMy9
+z>o4iYe(N7dzx17%9bLe!`y@M$R%gzf>wC_e{jKo#e{^=h0iW0ZeEe@L6c-os#SPz$
+zqT*gn1e)3vLH)24dbRj|Eh?ca7si*eik@eCyZgsS`2*B3M?Fz2X+23jO;xEEX+4_n
+z*%t9(?8XAU+cK7h9NY`?XJ?|MPQn;N`5+cy!zTvwfA!+#w!b8UvKM<YaD8-DymDCt
+z7<Egr_fAyZbFU<{E%axzyWj6GE*0OoA<}Q_B8u@zHmg(H6|~?g8^vhD4dP@kUdRhA
+z-dz<@<em%6CJGJr&t=KzDXTqxvcsKr!=kw5g;BgO!iX-E=+L<@PhFp+=brik1KI4p
+z?_P?~oQC2|gak~uzUM}`+v>KckZ(qODC<GlBo!$Vw{4=vpayZ*4c{cThvn&OV%zY5
+z&lBTE6~SPFIFz-D7sW-RUSJ#-(my+JOG0}|g`_ZZHNl+k%L`!wxp(!@nA(YsgfD6`
+zjJ@Do+nP=U513~`hJJZ3^v*ql(6B}1AirhOV@+j<xkN{oKx479ySKTc;?`m}JXT#q
+zHAY#LW$(-rA*`Q9*;@SEZx8lb4-~w(k`F}H6Op#xWs<?9>85KSBlDq_!c@zBQpIc}
+zfbmvcQA|L^t#)=xGhwW0OPMl>VWORDyA+?c8v0+UCU&nB2J@}@B59Gfx+1M{!96Yc
+z;hxe%!VZ`BbT)bo!t4U1UdVuxf<}+r@La^2+;Ag~2Xtq%v8dJ-E%5-Ubt!$jeTejy
+zFWuPgm(ZKdDsv~ijEU|tI@v~c_Xwk>oAOY^u`f2|MNn|P#@UJ$`qC1sNS(V?HO54o
+zG>DpQC$3)?=%E!ujgq%f4|%oKa61<}o9Nw%4(dU`D}i*bR`V~>U5`EAi!YJVKD&11
+zJ8>knm7HIzxEQ6qD^><}qMe{o=5D%C7Z&|C29;Rqup%$erzAII^^{<wBH^Fe6dt3;
+zVEACMK|N?t57Bid!|Kad4bBpV#oM}9tBLZF3`-ReVSLkz)HpK;Y)Ew}{Rn+qJQoMz
+zj9E-EqFlf`s-`W$*W*uDYS4>X8+()uB#PPtC%iI*!NZDh<BBK<w<bB{wFGBEsbVFD
+zjsvY>14^k#FsTx6vAr#1Rm9;XMs#2;CwRP75BTYjK_;%aaVEO(VwD+pUX(GDGZRa0
+zMJB3=k{U1NOr*bHJ%PAjQTZ+FI*dbA&psLCgR<eV#|$wbgLT0nXLk46{e>c~hk<e@
+zG9}X|)_PK#<p%zb8q^BX8@^y8kL82+z;CiVs(4}9e1R~0K$Q3a%+>kLb>9j5ss9(!
+z{3tu<P@jH9bXp<>tYRQpgBZkcV~t=0H@L<y(YB^=3)7gvELTRad9<$ue8hE^>tlSv
+z^(oh%v4{s;%Umh~26Pi^$Z>7xmB%*MxA>0h8P{{{;sy4wuf@B-xK6kV_yIrSC%nYZ
+zc!gi|DxwIN$#pyEQMUPXzd^5|_#Q?d`V|*UbkGn(<mzVxqlUP_fb=tlaYIaC(hw?T
+z{Y+co8B5GsncJ8%GIxlHe&+4bf^|AfSZ*c(64|>HFwqj=k13RF28db4Ztmb7eI+N;
+zM6$6N!Dmea^Y{}pO2mc;cf;BO{?Zhi#pg`}Gq_J&5}iJL!7P)_6st9EH)AZ@oZZ|e
+zp{kd{L&E}rU*h>PfBksG_X@sbQ$0qOzpp6vHNL?U^49o!N*_7?uPd2b4mKQYI(Ve}
+zaoE9%gJo{}G_^9pKXuYMjWPA_OghLrm~pVG6^0ySTQpa>{coC9RGHY)Cce@ZsWRwb
+zEv@+54ygXMwm7OI(DX2M8CNqJihip_pV%mP{KN*^&Ep*hcN`cGskOfW%=9}4&zd}D
+zL%HV;ZYR97g9%<n5Lo-tLG3n0I<%>@Qhd?$@2DWgG(M9&+0*hmGRMIX6MABT)2y46
+z*w+$Ib?k&Z=isS>DJDrOH_o3rNm1~72h$c03a(q)h^{l?hUkHVf#kTinZW-+Y4A;T
+z6>x_-wsjpF?Q24XLi-DU)P4u;5apu;aN|@lyIPoZx~9B$UaQzsqO49Frf=Ghs_m_`
+z%6rkc6`Vo3`;U3~PT1`Q-Uc(ezTxot5jRcu|D1%=n`Urajkm^tzK#hAJ-u>p!?q8Z
+z<ou$sI?*w8ph(ezgA)_fNK>>xKfgL~d8R}=sFlW?gCF#c_`f7gnNtU)M23y?vgw&k
+zI-8gye8*RcnpSuuF_s;SIrvFOWMcgAMOa!|V#w_mVg8yAgO#vZrPYPv=r~IltQUbl
+zXL@`bRN(QgMo%Ygziufn(|yBpa{U%ACzyw-(bg8&_HWSDTFVpy)=_ejDYG@!Q;mhd
+z)W+m3le`03|9yGSUdx-N-ai1|HrpY=B22L8)or9&DOoD4M5YO#ns>b4>=PX}c)x3w
+W<{hXhC3Ob~a%4d^?QfW|W&Q`bkRvhx
+
+literal 0
+HcmV?d00001
+
+diff --git a/GameFiles/Skyrim/scripts/_00e_dungeonliftscript.pex b/GameFiles/Skyrim/scripts/_00e_dungeonliftscript.pex
+new file mode 100644
+index 0000000000000000000000000000000000000000..ffa62135c64dec837a9f41c8e3aac0b344956d1e
+GIT binary patch
+literal 3186
+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
+E581VcLjV8(
+
+literal 0
+HcmV?d00001
+
+diff --git a/GameFiles/Skyrim/scripts/_00e_mqp03_exitdoorscript.pex b/GameFiles/Skyrim/scripts/_00e_mqp03_exitdoorscript.pex
+new file mode 100644
+index 0000000000000000000000000000000000000000..88cdca9631f7bd763eed876b924c5c37593afad1
+GIT binary patch
+literal 1007
+zcma)4%Tg0T6unI*VUq9=5=2yFd{nux%8KH~*?|O#vJfObmZ@=aNg9&w(9;1~`(u8I
+zOFzPur@IqNcTQJNoqPJ6liN4*>+|;?r8yFW=lo~-j5fQiR=a!j{-m|tZGV+^Pixc3
+zjU3zO<07ZZj<Gj-MDg3>qmz#x+Nbn{HeliI=yD7T!_tGL@D_x|2W&ewvrN?kZFPXP
+zW3`i8dFAMOu2oN3sZ}<l%0TvdtZ4c8%Q@%vl+W0(%9)})t?=H}dPwy&4gFnZhRT-{
+zE-aNjL(w}Yt7jK3UMu)%K20r;#w{vmxz%P?znFoSGq61auPBBT2~bD<Y~)&Jdos*!
+z*ifUmxG{2Mb)W5k&BV%KLGfWRJznXseKRp=+TFU(hkI1%SR+-Rp6*YS?<%o_%qE8I
+z#Ha!VCwXurg&!0;4r6-#ucNq@HXpFF$Rg2xLW$Krp%`;6&m{Mz8L{H)5K>K3H<VA9
+zRZXk5>IFI~cz8w&TJ3UQD$mV6f-NfHj}tWKJ_-k1=|M!aPV-ptf2=Ciu;!>NsNzyw
+z!Z&z5^6@cM9a|>o>JB;C0-%@7gB4gMifA!V?tBRm6<VfSv;wq>hz52Odkx(BlAvXX
+z76q*VZ3wz8XdTGk0f#HV5UfIj0=tO<(xwwso!j{v!Cv#I0Tx69Ne!neA@z<RyuC?4
+z8x+kDH`O=)=n;e8i-Tx&Mn`Dtt{@zS7#F>dzT>h81ZH=S?t`5^0_shSW04*NM$i@%
+Yf)Y?Aq&*b$2$jDof;Mpu_VHirZ@yTyEdT%j
+
+literal 0
+HcmV?d00001
+
+diff --git a/GameFiles/Skyrim/scripts/source/_00E_MQ00TemplePuzzleSCN.psc b/GameFiles/Skyrim/scripts/source/_00E_MQ00TemplePuzzleSCN.psc
+new file mode 100644
+index 00000000..d88f5c1b
+--- /dev/null
++++ b/GameFiles/Skyrim/scripts/source/_00E_MQ00TemplePuzzleSCN.psc
+@@ -0,0 +1,131 @@
++Scriptname _00E_MQ00TemplePuzzleSCN extends ObjectReference	  
++;DRSTG08AStoneSecretDoorOpenM
++
++Event OnActivate(ObjectReference akActionRef)
++	Actor PlayerRef = Game.GetForm(0x14) as Actor
++	Actor actActor = akActionRef as Actor
++	bool isLocal = (akActionRef == PlayerRef)
++	bool isRemote = (actActor != None && (SkyrimTogetherUtils.IsRemotePlayer(actActor) || (actActor != PlayerRef && SkyrimTogetherUtils.IsPlayer(actActor))))
++
++	if !Activated && ((isLocal && PlayerRef.GetItemCount(_00E_MQ00TempleKey) >= 1) || isRemote)
++		if isLocal
++			PlayerRef.RemoveItem(_00E_MQ00TempleKey, 1)
++		endif
++		MoveStone = true
++		Runenstein.enable()
++		Self.GetNthLinkedRef(1).enable(True)
++		Self.GetNthLinkedRef(2).TranslateTo(3231.4490, 9968.7236, 1104.0, 0.0, 0.0, 270, 20)
++		StoneSound = DRSStoneRotatingDiscLPM.Play(Self.GetNthLinkedRef(2))
++		Sound.SetInstanceVolume(StoneSound, 5)
++		Utility.Wait(2.0)
++		Self.GetNthLinkedRef(3).enable(True)
++		Self.GetNthLinkedRef(4).TranslateTo(3104, 10080, 1184.0, 0.0, 0.0, 180, 20)
++		Utility.Wait(3.0)
++		Self.GetNthLinkedRef(5).enable(True)
++		Self.GetNthLinkedRef(6).TranslateTo(3040, 10272, 1200, 0.0, 0.0, 90, 25)
++		Self.GetNthLinkedRef(1).Disable(True)
++		Utility.Wait(3.0)
++		Self.GetNthLinkedRef(7).enable(True)
++		Self.GetNthLinkedRef(3).Disable(True)
++		Self.GetNthLinkedRef(8).TranslateTo(3040, 10464, 1280, 0.0, 0.0, 250, 30)
++		Utility.Wait(3.0)
++		Self.GetNthLinkedRef(9).enable(True)
++		Self.GetNthLinkedRef(5).Disable(True)
++		Self.GetNthLinkedRef(10).TranslateTo(3088, 10624, 1216, 0.0, 0.0, 90, 35)
++		Utility.Wait(4.5)
++		Self.GetNthLinkedRef(7).Disable(True)
++		Utility.Wait(4.9)
++		Self.GetNthLinkedRef(9).Disable(True)
++		Activated = True
++	ElseIf !MoveStone && isLocal
++		_00E_MQP03_sMechanismSomethingMissing.Show()
++	EndIf
++EndEvent
++
++Event OnLoad()
++	if Count == False
++		_00E_Questshader.Play(Self)
++		Count = True
++	endif
++    ; Failsave to ensure that leaving the cell does not stop the
++    ; pillars from rising.
++	if MoveStone == true
++		if ( Self.GetNthLinkedRef(2).GetPositionZ() < 1100 || Self.GetNthLinkedRef(4).GetPositionZ() < 1180 || Self.GetNthLinkedRef(6).GetPositionZ() < 1197 || Self.GetNthLinkedRef(8).GetPositionZ() < 1276 || Self.GetNthLinkedRef(10).GetPositionZ() < 1214 )
++			Self.GetNthLinkedRef(1).enable(True)
++			Self.GetNthLinkedRef(2).TranslateTo(3231.4490, 9968.7236, 1104.0, 0.0, 0.0, 270, 20)
++			StoneSound = DRSStoneRotatingDiscLPM.Play(Self.GetNthLinkedRef(2))
++			Sound.SetInstanceVolume(StoneSound, 5)
++			Utility.Wait(2.0)
++			Self.GetNthLinkedRef(3).enable(True)
++			Self.GetNthLinkedRef(4).TranslateTo(3104, 10080, 1184.0, 0.0, 0.0, 180, 20)
++			Utility.Wait(3.0)
++			Self.GetNthLinkedRef(5).enable(True)
++			Self.GetNthLinkedRef(6).TranslateTo(3040, 10272, 1200, 0.0, 0.0, 90, 25)
++			Self.GetNthLinkedRef(1).Disable(True)
++			Utility.Wait(3.0)
++			Self.GetNthLinkedRef(7).enable(True)
++			Self.GetNthLinkedRef(3).Disable(True)
++			Self.GetNthLinkedRef(8).TranslateTo(3040, 10464, 1280, 0.0, 0.0, 250, 30)
++			Utility.Wait(3.0)
++			Self.GetNthLinkedRef(9).enable(True)
++			Self.GetNthLinkedRef(5).Disable(True)
++			Self.GetNthLinkedRef(10).TranslateTo(3088, 10624, 1216, 0.0, 0.0, 90, 35)
++			Utility.Wait(4.5)
++			Self.GetNthLinkedRef(7).Disable(True)
++			Utility.Wait(4.9)
++			Self.GetNthLinkedRef(9).Disable(True)
++			Activated = True
++		endif
++	endif
++EndEvent
++
++Event OnCellAttach()
++    ; Failsave to ensure that leaving the cell does not stop the
++    ; pillars from rising.
++	if MoveStone == true
++		if ( Self.GetNthLinkedRef(2).GetPositionZ() < 1100 || Self.GetNthLinkedRef(4).GetPositionZ() < 1180 || Self.GetNthLinkedRef(6).GetPositionZ() < 1197 || Self.GetNthLinkedRef(8).GetPositionZ() < 1276 || Self.GetNthLinkedRef(10).GetPositionZ() < 1214 )
++			Self.GetNthLinkedRef(1).enable(True)
++			Self.GetNthLinkedRef(2).TranslateTo(3231.4490, 9968.7236, 1104.0, 0.0, 0.0, 270, 20)
++			StoneSound = DRSStoneRotatingDiscLPM.Play(Self.GetNthLinkedRef(2))
++			Sound.SetInstanceVolume(StoneSound, 5)
++			Utility.Wait(2.0)
++			Self.GetNthLinkedRef(3).enable(True)
++			Self.GetNthLinkedRef(4).TranslateTo(3104, 10080, 1184.0, 0.0, 0.0, 180, 20)
++			Utility.Wait(3.0)
++			Self.GetNthLinkedRef(5).enable(True)
++			Self.GetNthLinkedRef(6).TranslateTo(3040, 10272, 1200, 0.0, 0.0, 90, 25)
++			Self.GetNthLinkedRef(1).Disable(True)
++			Utility.Wait(3.0)
++			Self.GetNthLinkedRef(7).enable(True)
++			Self.GetNthLinkedRef(3).Disable(True)
++			Self.GetNthLinkedRef(8).TranslateTo(3040, 10464, 1280, 0.0, 0.0, 250, 30)
++			Utility.Wait(3.0)
++			Self.GetNthLinkedRef(9).enable(True)
++			Self.GetNthLinkedRef(5).Disable(True)
++			Self.GetNthLinkedRef(10).TranslateTo(3088, 10624, 1216, 0.0, 0.0, 90, 35)
++			Utility.Wait(4.5)
++			Self.GetNthLinkedRef(7).Disable(True)
++			Utility.Wait(4.9)
++			Self.GetNthLinkedRef(9).Disable(True)
++			Activated = True
++		endif
++	endif
++endevent
++
++Function StopSound()
++	Sound.StopInstance(StoneSound)
++EndFunction
++
++Message Property _00E_MQP03_sMechanismTriggered Auto
++Message Property _00E_MQP03_sMechanismSomethingMissing Auto
++
++Int StoneSound 
++MiscObject Property _00E_MQ00TempleKey Auto
++ObjectReference Property Runenstein Auto
++EffectShader Property _00E_Questshader Auto
++Sound Property DRSTG08AStoneSecretDoorOpenM Auto
++Sound Property DRSStoneLabyrinthianCloseM Auto
++Sound Property DRSStoneRotatingDiscLPM Auto
++Bool Activated = False
++Bool Count = False
++bool MoveStone
+diff --git a/GameFiles/Skyrim/scripts/source/_00e_class_openclassmenuscript.psc b/GameFiles/Skyrim/scripts/source/_00e_class_openclassmenuscript.psc
+new file mode 100644
+index 00000000..0a6bb258
+--- /dev/null
++++ b/GameFiles/Skyrim/scripts/source/_00e_class_openclassmenuscript.psc
+@@ -0,0 +1,125 @@
++Scriptname _00E_Class_OpenClassMenuScript extends activemagiceffect  
++
++Import Utility
++Import Game
++
++;=====================================================================================
++;              							EVENTS                  					 
++;=====================================================================================
++
++Event OnEffectStart(Actor TheTarget, Actor TheCaster)
++	; Enderal Together: Only the player who actually cast meditation should enter the meditation temple
++	If TheCaster != Game.GetPlayer()
++		Return
++	EndIf
++	If _00E_Meditate_PlayerIsTeleporting.GetValue() != 0
++		Return
++	EndIf
++	_00E_Meditate_PlayerIsTeleporting.SetValue(1)
++	
++	Bool bDoSettleDownWait = True
++
++	If (MQP03.GetCurrentStageID() <= 15) && (MQP03.IsRunning())
++	
++		_00E_Class_MenuIMODIntro.Apply()
++		Wait(0.5)
++		PlayerREF.MoveTo(MQP03_PlayerStartMarker)
++		PlayerREF.SetAlpha(1.0)
++		MQP03.SetCurrentStageID(20)
++		
++	Else
++	
++		if !(PlayerREF.IsInLocation(_00E_ClassMenuLocation))
++			If PlayerREF.GetRace() == _00E_Theriantrophist_PlayerWerewolfRace || _00E_Meditate_Allowed.GetValueInt() == 0
++				_00E_Meditation_sCantMeditateNow.Show()
++				bDoSettleDownWait = False
++			ElseIf PlayerREF.IsInCombat()
++				_00E_Meditation_sCantMeditateWithEnemies.Show()
++				bDoSettleDownWait = False
++			Else
++				EnterClassMenu()
++			EndIf
++		else	
++			ExitClassMenu()
++		endif
++		
++	EndIf
++
++	If bDoSettleDownWait ; Give a few moments for things to settle down before allowing another teleport
++		Wait(0.75)
++	EndIf
++
++	_00E_Meditate_PlayerIsTeleporting.SetValue(0)
++
++EndEvent
++
++
++;=====================================================================================
++;              							FUNCTIONS                  					 
++;=====================================================================================
++
++Function EnterClassMenu()
++	
++	Game.DisablePlayerControls(abMovement = false, abFighting = true, abCamSwitch = true, abLooking = false, abSneaking = true, abMenu = true, abActivate = false, abJournalTabs = true, aiDisablePOVType = 0)
++	
++	Player.ForceRefTo(PlayerREF)
++	
++	_00E_Meditate_FirstPerson.SetValue(PlayerREF.GetAnimationVariableBool("isFirstPerson") as float)
++	
++	_00E_EquipControl.SheatheWeapon(PlayerREF, false)
++
++	Form[] equippedTorches = New Form[2]
++	_00E_TorchControl.UnequipTorches(equippedTorches)
++
++	_00E_RealWorldOrigin.MoveTo(playerREF)
++	_00E_Class_MenuMeditationSound.Play(PlayerREF)
++	_00E_Class_MenuIMODIntro.Apply()
++	Wait(0.7)
++	PlayerREF.MoveTo(_00E_ClassMenuOrigin)
++	Game.ShowFirstPersonGeometry(False)
++	ForceFirstPerson()
++	
++EndFunction
++
++Function ExitClassMenu()
++
++	_00E_Class_MenuMeditationSound.Play(PlayerREF)
++	_00E_Class_MenuIMODIntro.Apply()
++	Wait(0.7)
++	PlayerREF.MoveTo(_00E_RealWorldOrigin)
++	PlayerREF.SetAlpha(1.0)
++	Player.Clear()
++	Game.EnablePlayerControls()
++	Game.ShowFirstPersonGeometry(True)
++	If _00E_Meditate_FirstPerson.GetValueInt() == 0
++		Game.ForceThirdPerson()
++	EndIf
++	Game.RequestAutoSave()
++	
++EndFunction
++
++;=====================================================================================
++;              							PROPERTIES                  					 
++;=====================================================================================
++
++Actor Property PlayerREF Auto
++ImagespaceModifier Property _00E_Class_MenuIMODIntro Auto
++
++Quest Property MQP03 Auto
++
++Sound Property _00E_Class_MenuMeditationSound Auto
++Location property _00E_ClassMenuLocation Auto
++ObjectReference Property _00E_ClassMenuOrigin Auto
++ObjectReference Property _00E_RealWorldOrigin Auto
++ObjectReference Property MQP03_PlayerStartMarker Auto
++
++Message Property _00E_Meditation_sCantMeditateWithEnemies Auto
++Message Property _00E_Meditation_sCantMeditateNow Auto
++
++GlobalVariable Property _00E_Meditate_PlayerIsTeleporting Auto
++GlobalVariable Property _00E_Meditate_FirstPerson Auto
++GlobalVariable Property _00E_Meditate_Allowed Auto
++
++ReferenceAlias Property Player Auto
++
++Race Property _00E_Theriantrophist_PlayerWerewolfRace Auto
+diff --git a/GameFiles/Skyrim/scripts/source/_00e_dungeonliftscript.psc b/GameFiles/Skyrim/scripts/source/_00e_dungeonliftscript.psc
+new file mode 100644
+index 00000000..7a706ba9
+--- /dev/null
++++ b/GameFiles/Skyrim/scripts/source/_00e_dungeonliftscript.psc
+@@ -0,0 +1,94 @@
++Scriptname _00E_DungeonLiftScript extends ObjectReference  
++{Place this on a lift platform (and follow the tutorial in the comments!) to make a platform move when a trigger is activated.}
++
++Event OnActivate(ObjectReference akActionRef)
++    Actor actActor = akActionRef as Actor
++    bool isAllowed = (akActionRef == Game.GetPlayer()) || (actActor != None && SkyrimTogetherUtils.IsPlayer(actActor)) || (akActionRef != None && !(akActionRef as Actor))
++
++    if isAllowed
++        
++        if DisablePlayerControlsDuringRide == True && akActionRef == Game.GetPlayer()
++            Game.DisablePlayerControls()
++        EndIf
++
++        if UpDown == 0
++            LiftMarkerTop.SetAngle(self.GetAngleX(), self.GetAngleY(), self.GetAngleZ())
++            self.TranslateToRef(LiftMarkerTop, MovementSpeed, 10.0)
++        ElseIf UpDown == 1
++            self.TranslateToRef(LiftMarkerBottom, MovementSpeed, 10.0)
++            LiftMarkerBottom.SetAngle(self.GetAngleX(), self.GetAngleY(), self.GetAngleZ())
++        EndIf
++
++        if doubleclick == False
++            if MechanicalLift == True
++                MoveSound = _00E_SternenstadtLifeSoundMarker.Play(Self)
++            Else
++                MoveSound = DRSStoneRotatingDiscLPM.Play(Self)
++            EndIf
++            doubleclick = True
++        endif
++    EndIf
++	
++EndEvent
++
++Event OnTranslationAlmostComplete()
++
++    if DisablePlayerControlsDuringRide == True
++        Game.EnablePlayerControls()
++    EndIf
++
++    Sound.StopInstance(MoveSound) ; Stops the loop Sound
++
++    if UpDown == 0
++        UpDown = 1
++    ElseIf UpDown == 1
++        UpDown = 0
++    EndIf
++    
++    doubleclick = False
++
++EndEvent
++
++
++int UpDown ; 1 = Lift is at the top, 0 = Lift is at the bottom
++int MoveSound
++bool doubleclick = False ; True = player is activating while the lift is in
++                         ; motion (hence, don't play sound again)
++float Property MovementSpeed = 100.0 Auto
++{How fast the platform should move - Start at 100.0 and work your way up! 1 is barely visible to the human eye.}
++Bool Property DisablePlayerControlsDuringRide Auto
++{Should the player controls be disabled once the switch has been hit?}
++Bool Property MechanicalLift = False Auto ; Check this if the lift is mechanical
++{Set this to true if the lift should play a mechanical sound instead of a "crumbling stone"-sound}
++ObjectReference Property LiftMarkerTop Auto
++{The X-Marker Reference where the lift will stop moving at the top}
++ObjectReference Property LiftMarkerBottom Auto
++{The X-Marker Reference where the lift will stop moving at the bottom (Set this XMarker's coordinates to match the platforms coordinates!}
++Sound Property DRSStoneRotatingDiscLPM Auto
++Sound Property _00E_SternenstadtLifeSoundMarker Auto
++
++
++;"WICHTIG!
++
++;- Lifte nirgendwo platzieren, wo es GEGNER gibt!
++;- KEIN Navmesh auf der Liftplattform , da sich Navmesh nicht mitbewegt! Ergo keine Litftplattformen in Dungeons für Begleiter!
++
++
++;TUTORIAL ZUM ERSTELLEN BEWEGBARER PLATTFORMEN!
++
++;1.) Sucht das .nif des Objektes, das ihr als Plattform verwenden wollt
++;2.) Öffnet es mit NifSkope
++;3.) Ändert in den bhkRigidBody settings des Objektes folgendes:
++;	- Layer: OL_STATIC in OL_ANIM_STATIC unändern
++;	- Layer Copy: OL_STATIC in OL_ANIM_STATIC umändern
++;	- Motion System: MO_SYS_BOX_STAILIZED in MO_SYS_BOX umändern
++;4.) Speichert das .nif ab, unter dem Pfad meshes/Enderal/Dungeons/NameEuresObjektes.nif
++;5.) Erstellt ein neues MoveableStatic mit dem Objekt als .nif
++;6.) Legt dieses Skript auf die Referenz der Plattform, d.h. geht zu eurem Dungeon, platziert die Plattform, doppelklickt sie und geht zum Tab "Scripts" und fügt dieses Skript zu
++;7.) Drückt auf Properties, drückt Auto-Fill, die Sound-Properties sollte nun gefüllt sein
++;8.) Setzt die "DisablePlayer..." und "MechanicalLift" Properties auf TRUE wenn sie es sein sollen - Das heißt, wenn der Spieler sich während der Liftfahrt nicht bewegen können soll oder der Lift mechanisch ist.
++;9.) Weißt dem LiftMarkerTop und dem LiftMarkerBottom jeweils zwei XMarker zu, die ihr an den Start und an den Endpunkten des Liftes platziert. Der Liftmarker Bottom sollte GENAU dieselben Koordinaten wie die Liftplattform
++;	im Ursprungszustand haben
++;10.) Nun platziert eine Kette, einen Hebel, oder eine Triggerbox (oder sonst etwas), mit dem der Lift aktiviert werden soll. Nun doppelklickt ihr den Lift und geht zum Tab "ActivateParents". Dort doppelklickt ihr
++;	und wählt die Kette oder den Hebel aus.
++; 11.) Alles sollte klappen. Hurra! :)@"
+\ No newline at end of file
+diff --git a/GameFiles/Skyrim/scripts/source/_00e_mqp03_exitdoorscript.psc b/GameFiles/Skyrim/scripts/source/_00e_mqp03_exitdoorscript.psc
+new file mode 100644
+index 00000000..a388fb21
+--- /dev/null
++++ b/GameFiles/Skyrim/scripts/source/_00e_mqp03_exitdoorscript.psc
+@@ -0,0 +1,15 @@
++Scriptname _00E_MQP03_ExitDoorScript extends ObjectReference  
++
++bool Done = False
++
++Event OnActivate(ObjectReference akActionRef)
++
++	Actor actActor = akActionRef as Actor
++	if (akActionRef == Game.GetPlayer() || (actActor != None && SkyrimTogetherUtils.IsPlayer(actActor))) && !Done
++		MQP03.SetCurrentStageID(70)
++		Done = True
++	EndIf	
++
++EndEvent
++
++Quest Property MQP03 Auto
+\ No newline at end of file
+-- 
+2.55.0.windows.3
+

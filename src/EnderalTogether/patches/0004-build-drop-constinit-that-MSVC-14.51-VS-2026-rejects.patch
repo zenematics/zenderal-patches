@@ -1,0 +1,28 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Zenderal <noreply@zenderal.local>
+Date: Mon, 9 Nov 2026 14:15:54 +0000
+Subject: [PATCH 4/7] build: drop constinit that MSVC 14.51 (VS 2026) rejects
+ on a reinterpret_cast
+
+---
+ Code/immersive_launcher/loader/MemoryLayout.cpp | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Code/immersive_launcher/loader/MemoryLayout.cpp b/Code/immersive_launcher/loader/MemoryLayout.cpp
+index 3f7a7b71..1997c06f 100644
+--- a/Code/immersive_launcher/loader/MemoryLayout.cpp
++++ b/Code/immersive_launcher/loader/MemoryLayout.cpp
+@@ -32,7 +32,9 @@ namespace
+ {
+ extern "C" const IMAGE_DOS_HEADER __ImageBase;
+ 
+-constinit const uint8_t* pBasePtr = reinterpret_cast<const uint8_t*>(&__ImageBase);
++// Zenderal build: MSVC 14.51 (VS 2026) rejects constinit on a reinterpret_cast (never a constant expression);
++// VS 2022 accepted it. An address constant is still statically initialized without it.
++const uint8_t* pBasePtr = reinterpret_cast<const uint8_t*>(&__ImageBase);
+ const uint8_t* kpImageEnd{pBasePtr + ((PIMAGE_NT_HEADERS)(pBasePtr + __ImageBase.e_lfanew))->OptionalHeader.SizeOfImage};
+ 
+ bool InRange(const uint8_t* apObj, const uint8_t* apLo, const uint8_t* apHi)
+-- 
+2.55.0.windows.3
+

@@ -1,0 +1,13 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: SkyrimTogether.esp
+GameRelease: EnderalSE
+ModHeader:
+  Author: DEFAULT
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  INTV: 1

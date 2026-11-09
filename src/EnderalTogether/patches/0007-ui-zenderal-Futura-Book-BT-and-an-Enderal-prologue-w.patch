@@ -1,0 +1,273 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Zenderal <noreply@zenderal.local>
+Date: Mon, 9 Nov 2026 15:13:54 +0000
+Subject: [PATCH 7/7] ui(zenderal): Futura Book BT and an Enderal prologue
+ warning
+
+The font stack starts with 'futura-book', declared in index.html and supplied at
+packaging time (commercial font, not committed); without it the UI falls back to
+futura-condensed-medium. The connect dialog warns about Enderal's prologue
+instead of Helgen; the other languages fall back to the English line.
+---
+ Code/skyrim_ui/src/assets/i18n/cs.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/de.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/en.json    | 2 +-
+ Code/skyrim_ui/src/assets/i18n/es.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/fr.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/ja.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/ko.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/nl.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/no.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/pl.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/ru.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/sv.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/tr.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/uk.json    | 3 +--
+ Code/skyrim_ui/src/assets/i18n/zh-CN.json | 3 +--
+ Code/skyrim_ui/src/env.scss               | 2 +-
+ Code/skyrim_ui/src/index.html             | 7 +++++++
+ 17 files changed, 23 insertions(+), 30 deletions(-)
+
+diff --git a/Code/skyrim_ui/src/assets/i18n/cs.json b/Code/skyrim_ui/src/assets/i18n/cs.json
+index 3ed3a172..cfb62c6d 100644
+--- a/Code/skyrim_ui/src/assets/i18n/cs.json
++++ b/Code/skyrim_ui/src/assets/i18n/cs.json
+@@ -7,8 +7,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Připojení k serveru pomocí jeho úplné adresy. Použijte format <strong>adresa:port</strong>. Výchozí port je <strong>10578</strong>.",
+-        "HELGEN": "Nepřipojujte se k žádnému serveru, pokud se stále nacházíte v úvodní sekvenci hry. Nejprve se ujistěte, že jste právě utekli z Helgenu."
++        "SERVER_ADDRESS": "Připojení k serveru pomocí jeho úplné adresy. Použijte format <strong>adresa:port</strong>. Výchozí port je <strong>10578</strong>."
+       },
+       "ADDRESS": "Adresa",
+       "PASSWORD": "Heslo",
+diff --git a/Code/skyrim_ui/src/assets/i18n/de.json b/Code/skyrim_ui/src/assets/i18n/de.json
+index cd9e5bd2..54c1ded5 100644
+--- a/Code/skyrim_ui/src/assets/i18n/de.json
++++ b/Code/skyrim_ui/src/assets/i18n/de.json
+@@ -7,8 +7,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Verbinden dich mit einem Server über dessen vollständige Adresse. Verwende das Format  <strong>addresse:port</strong>. Standardwert für den Port ist <strong>10578</strong>.",
+-        "HELGEN": "Stelle KEINE Verbindung zu einem Server her, wenn du dich noch in der Helgen-Intro-Sequenz befindest. Vergewissere dich, dass du bereits aus Helgen entkommen bist."
++        "SERVER_ADDRESS": "Verbinden dich mit einem Server über dessen vollständige Adresse. Verwende das Format  <strong>addresse:port</strong>. Standardwert für den Port ist <strong>10578</strong>."
+       },
+       "ADDRESS": "Adresse",
+       "PASSWORD": "Passwort",
+diff --git a/Code/skyrim_ui/src/assets/i18n/en.json b/Code/skyrim_ui/src/assets/i18n/en.json
+index 1f03d698..482cae2b 100644
+--- a/Code/skyrim_ui/src/assets/i18n/en.json
++++ b/Code/skyrim_ui/src/assets/i18n/en.json
+@@ -10,7 +10,7 @@
+     "CONNECT": {
+       "INFO": {
+         "SERVER_ADDRESS": "Connect to a server using its full address. Use the format <strong>address:port</strong>. The port defaults to <strong>10578</strong>.",
+-        "HELGEN": "Do NOT connect to any server if you are still in the Helgen intro sequence. Make sure you just escaped Helgen first."
++        "HELGEN": "Do NOT connect to any server during the prologue. Wait until you have woken up at Jespar's camp."
+       },
+       "ADDRESS": "Address",
+       "PASSWORD": "Password",
+diff --git a/Code/skyrim_ui/src/assets/i18n/es.json b/Code/skyrim_ui/src/assets/i18n/es.json
+index fba16704..874ceb14 100644
+--- a/Code/skyrim_ui/src/assets/i18n/es.json
++++ b/Code/skyrim_ui/src/assets/i18n/es.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Conéctate a un servidor utilizando la dirección completa. Usa el formato <strong>dirección:puerto</strong>. El puerto por defecto es: <strong>10578</strong>.",
+-        "HELGEN": "NO te conectes a ningún servidor si todavía te encuentras en la misión de introducción de Helgen. Asegúrate de haber escapado de Helgen primero."
++        "SERVER_ADDRESS": "Conéctate a un servidor utilizando la dirección completa. Usa el formato <strong>dirección:puerto</strong>. El puerto por defecto es: <strong>10578</strong>."
+       },
+       "ADDRESS": "Dirección",
+       "PASSWORD": "Contraseña",
+diff --git a/Code/skyrim_ui/src/assets/i18n/fr.json b/Code/skyrim_ui/src/assets/i18n/fr.json
+index f5b8c9c4..8dfbc38f 100644
+--- a/Code/skyrim_ui/src/assets/i18n/fr.json
++++ b/Code/skyrim_ui/src/assets/i18n/fr.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Connectez-vous à un serveur en utilisant son adresse complète. Utilisez le format  <strong>addresse:port</strong>. Le port par défaut est : <strong>10578</strong>.",
+-        "HELGEN": "Ne vous connectez PAS à un serveur si vous êtes toujours dans la séquence d'introduction de Helgen. Assurez-vous d'abord d'avoir fui Helgen."
++        "SERVER_ADDRESS": "Connectez-vous à un serveur en utilisant son adresse complète. Utilisez le format  <strong>addresse:port</strong>. Le port par défaut est : <strong>10578</strong>."
+       },
+       "ADDRESS": "Addresse",
+       "PASSWORD": "Mot de passe",
+diff --git a/Code/skyrim_ui/src/assets/i18n/ja.json b/Code/skyrim_ui/src/assets/i18n/ja.json
+index 03e0baa9..cd3de42c 100644
+--- a/Code/skyrim_ui/src/assets/i18n/ja.json
++++ b/Code/skyrim_ui/src/assets/i18n/ja.json
+@@ -7,8 +7,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "IPv4アドラスを入力してサーバーに入ります。 形式は、 <strong>IPアドレス：ポート</strong>。 デフォルトのポート番号は<strong>10578</strong>。",
+-        "HELGEN": "ヘルゲンの脱出チュートリアルが終わってからサーバーに接続してください。脱出する前に接続するとバッグが発生します。"
++        "SERVER_ADDRESS": "IPv4アドラスを入力してサーバーに入ります。 形式は、 <strong>IPアドレス：ポート</strong>。 デフォルトのポート番号は<strong>10578</strong>。"
+       },
+       "ADDRESS": "IPアドレス",
+       "PASSWORD": "パスワード",
+diff --git a/Code/skyrim_ui/src/assets/i18n/ko.json b/Code/skyrim_ui/src/assets/i18n/ko.json
+index e1fd35c6..a3149abe 100644
+--- a/Code/skyrim_ui/src/assets/i18n/ko.json
++++ b/Code/skyrim_ui/src/assets/i18n/ko.json
+@@ -7,8 +7,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "전체 주소를 사용하여 서버에 연결합니다. <strong>주소:포트</strong> 형식을 사용하세요. 포트의 기본값은 <strong>10578</strong>입니다.",
+-        "HELGEN": "아직 헬겐 인트로 시퀀스에 있는 경우 서버에 연결하지 마세요. 먼저 헬겐에서 탈출했는지 확인하세요."
++        "SERVER_ADDRESS": "전체 주소를 사용하여 서버에 연결합니다. <strong>주소:포트</strong> 형식을 사용하세요. 포트의 기본값은 <strong>10578</strong>입니다."
+       },
+       "ADDRESS": "주소",
+       "PASSWORD": "암호",
+diff --git a/Code/skyrim_ui/src/assets/i18n/nl.json b/Code/skyrim_ui/src/assets/i18n/nl.json
+index 5d9435b2..53cc63cc 100644
+--- a/Code/skyrim_ui/src/assets/i18n/nl.json
++++ b/Code/skyrim_ui/src/assets/i18n/nl.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Verbind met een server door het volledige adres te gebruiken. Gebruik het formaat <strong>adres:poort</strong>. De standaard poort is <strong>10578</strong>.",
+-        "HELGEN": "Verbind niet met een server wanneer je nog in de Helgen introductie bent. Zorg ervoor dat je eerst uit Helgen vlucht."
++        "SERVER_ADDRESS": "Verbind met een server door het volledige adres te gebruiken. Gebruik het formaat <strong>adres:poort</strong>. De standaard poort is <strong>10578</strong>."
+       },
+       "ADDRESS": "Adres",
+       "PASSWORD": "Wachtwoord",
+diff --git a/Code/skyrim_ui/src/assets/i18n/no.json b/Code/skyrim_ui/src/assets/i18n/no.json
+index 8fb1f3df..c2725cce 100644
+--- a/Code/skyrim_ui/src/assets/i18n/no.json
++++ b/Code/skyrim_ui/src/assets/i18n/no.json
+@@ -7,8 +7,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Koble til en server med nettaddressen. Bruk formatet <strong>addresse:port</strong>. Standardporten er <strong>10578</strong>.",
+-        "HELGEN": "Du må IKKE koble til en server før du er ferdig med introen. Du må ha flyktet fra Helgen først."
++        "SERVER_ADDRESS": "Koble til en server med nettaddressen. Bruk formatet <strong>addresse:port</strong>. Standardporten er <strong>10578</strong>."
+       },
+       "ADDRESS": "Nettadresse",
+       "PASSWORD": "Passord",
+diff --git a/Code/skyrim_ui/src/assets/i18n/pl.json b/Code/skyrim_ui/src/assets/i18n/pl.json
+index 1a8d36eb..92b5e014 100644
+--- a/Code/skyrim_ui/src/assets/i18n/pl.json
++++ b/Code/skyrim_ui/src/assets/i18n/pl.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "połącz się do serwera używając jego pełnego adresu. Użyj formatu <strong>address:port</strong>. Standardowy port to <strong>10578</strong>.",
+-        "HELGEN": "NIE Podłączaj się do żadnego serwera, kiedy jesteś w sekwencji intra w Helgen. Upewnij się, że wpierw uciekłeś z Helgen"
++        "SERVER_ADDRESS": "połącz się do serwera używając jego pełnego adresu. Użyj formatu <strong>address:port</strong>. Standardowy port to <strong>10578</strong>."
+       },
+       "ADDRESS": "Adres",
+       "PASSWORD": "Hasło",
+diff --git a/Code/skyrim_ui/src/assets/i18n/ru.json b/Code/skyrim_ui/src/assets/i18n/ru.json
+index 6a8fea97..5dac409f 100644
+--- a/Code/skyrim_ui/src/assets/i18n/ru.json
++++ b/Code/skyrim_ui/src/assets/i18n/ru.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Для подключения используйте полный формат адреса: <strong>айпи-адрес:порт</strong>. Стандартный порт: <strong>10578</strong>.",
+-        "HELGEN": "НЕ подключайтесь ни к какому серверу, если вы не прошли вступительное задание \"На свободу!\". Убедитесь, что вы покинули Хелген."
++        "SERVER_ADDRESS": "Для подключения используйте полный формат адреса: <strong>айпи-адрес:порт</strong>. Стандартный порт: <strong>10578</strong>."
+       },
+       "ADDRESS": "Айпи-адрес",
+       "PASSWORD": "Пароль",
+diff --git a/Code/skyrim_ui/src/assets/i18n/sv.json b/Code/skyrim_ui/src/assets/i18n/sv.json
+index 4a736544..fe48539c 100644
+--- a/Code/skyrim_ui/src/assets/i18n/sv.json
++++ b/Code/skyrim_ui/src/assets/i18n/sv.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Anslut till en server med hela adressen. Använd formatet <strong>address:port</strong>. Standardporten är <strong>10578</strong>.",
+-        "HELGEN": "Anslut INTE till någon server om du fortfarande är i Helgen eller introsekvensen. Kontrollera att du flytt från Helgen och är utanför grottan."
++        "SERVER_ADDRESS": "Anslut till en server med hela adressen. Använd formatet <strong>address:port</strong>. Standardporten är <strong>10578</strong>."
+       },
+       "ADDRESS": "Adress",
+       "PASSWORD": "Lösenord",
+diff --git a/Code/skyrim_ui/src/assets/i18n/tr.json b/Code/skyrim_ui/src/assets/i18n/tr.json
+index 29d7fdd8..717d58c3 100644
+--- a/Code/skyrim_ui/src/assets/i18n/tr.json
++++ b/Code/skyrim_ui/src/assets/i18n/tr.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Sunucunun tam adresine bağlanın. <strong>address:port</strong> Formatını kullanın. Varsayılan port <strong>10578</strong>.",
+-        "HELGEN": "Helgen introsunu bitirmediyseniz hiçbir sunucuya BAĞLANMAYIN. İlk öne Helgen'den kaçtığınıza emin olun."
++        "SERVER_ADDRESS": "Sunucunun tam adresine bağlanın. <strong>address:port</strong> Formatını kullanın. Varsayılan port <strong>10578</strong>."
+       },
+       "ADDRESS": "Adres",
+       "PASSWORD": "Şifre",
+diff --git a/Code/skyrim_ui/src/assets/i18n/uk.json b/Code/skyrim_ui/src/assets/i18n/uk.json
+index 985626bd..dce1f26a 100644
+--- a/Code/skyrim_ui/src/assets/i18n/uk.json
++++ b/Code/skyrim_ui/src/assets/i18n/uk.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "Підключіться до сервера, використовуючи його повну адресу. Використовуйте формат <strong>адреса:порт</strong>. Порт за замовчуванням <strong>10578</strong>.",
+-        "HELGEN": "НЕ підключайтесь ні до якого сервера, якщо ви все ще перебуваєте в вступній послідовності Гельґену. Переконайтеся, що ви спочатку втекли з Гельґену."
++        "SERVER_ADDRESS": "Підключіться до сервера, використовуючи його повну адресу. Використовуйте формат <strong>адреса:порт</strong>. Порт за замовчуванням <strong>10578</strong>."
+       },
+       "ADDRESS": "Адреса",
+       "PASSWORD": "Пароль",
+diff --git a/Code/skyrim_ui/src/assets/i18n/zh-CN.json b/Code/skyrim_ui/src/assets/i18n/zh-CN.json
+index 89176f1e..36a6b7c2 100644
+--- a/Code/skyrim_ui/src/assets/i18n/zh-CN.json
++++ b/Code/skyrim_ui/src/assets/i18n/zh-CN.json
+@@ -9,8 +9,7 @@
+     },
+     "CONNECT": {
+       "INFO": {
+-        "SERVER_ADDRESS": "使用完整的地址连接至服务器。格式为<strong>IP地址:端口</strong>。默认端口为<strong>10578</strong>。",
+-        "HELGEN": "如果您在海尔根序章中，<strong>不要</strong>连接至任何服务器。请先逃出海尔根。"
++        "SERVER_ADDRESS": "使用完整的地址连接至服务器。格式为<strong>IP地址:端口</strong>。默认端口为<strong>10578</strong>。"
+       },
+       "ADDRESS": "地址",
+       "PASSWORD": "密码",
+diff --git a/Code/skyrim_ui/src/env.scss b/Code/skyrim_ui/src/env.scss
+index 228a63b5..d9406191 100644
+--- a/Code/skyrim_ui/src/env.scss
++++ b/Code/skyrim_ui/src/env.scss
+@@ -5,7 +5,7 @@ $-size-gap: 1rem;
+ 
+ $-color-background: #000000;
+ 
+-$-font-default: 'futura-condensed-medium', 'Roboto Condensed', 'Trebutchet MS',
++$-font-default: 'futura-book', 'futura-condensed-medium', 'Roboto Condensed', 'Trebutchet MS',
+   'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+ 
+ $-time-transition: 200ms;
+diff --git a/Code/skyrim_ui/src/index.html b/Code/skyrim_ui/src/index.html
+index 74d14830..c6d75814 100644
+--- a/Code/skyrim_ui/src/index.html
++++ b/Code/skyrim_ui/src/index.html
+@@ -13,6 +13,13 @@
+       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+       rel="stylesheet"
+     />
++    <style>
++      /* Zenderal: Futura Book BT, supplied at packaging time (src/EnderalTogether/tools/01-package-mo2.py). */
++      @font-face {
++        font-family: 'futura-book';
++        src: url(assets/futura-book.ttf) format('truetype');
++      }
++    </style>
+   </head>
+   <body>
+     <app-root class="dark"></app-root>
+-- 
+2.55.0.windows.3
+

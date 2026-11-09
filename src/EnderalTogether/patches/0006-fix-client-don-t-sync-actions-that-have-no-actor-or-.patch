@@ -1,0 +1,40 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Zenderal <noreply@zenderal.local>
+Date: Mon, 9 Nov 2026 15:05:57 +0000
+Subject: [PATCH 6/7] fix(client): don't sync actions that have no actor or no
+ BGSAction
+
+HookPerformAction read apAction->action->formID unconditionally; in Enderal an
+NPC's action came through with action == nullptr and crashed the game.
+---
+ Code/client/Games/Animation.cpp | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/Code/client/Games/Animation.cpp b/Code/client/Games/Animation.cpp
+index 0714b2b8..751245bf 100644
+--- a/Code/client/Games/Animation.cpp
++++ b/Code/client/Games/Animation.cpp
+@@ -22,11 +22,20 @@ thread_local bool g_forceAnimation = false;
+ 
+ uint8_t TP_MAKE_THISCALL(HookPerformAction, ActorMediator, TESActionData* apAction)
+ {
++    // Zenderal: the game also performs actions with no actor or no BGSAction; there is nothing to sync then, so the
++    // game handles them alone. In Enderal an NPC's TESActionData came through with action == nullptr and crashed on
++    // the formID read below (Crash Logger: mov ecx, [rax+0x14], rax = 0, this file's ActionId line).
++    if (!apAction || !static_cast<Actor*>(apAction->actor))
++        return TiltedPhoques::ThisCall(RealPerformAction, apThis, apAction);
++
+     auto pActor = apAction->actor;
+     const auto pExtension = pActor->GetExtension();
+ 
+     if (!pExtension->IsRemote() || g_forceAnimation)
+     {
++        if (!apAction->action)
++            return TiltedPhoques::ThisCall(RealPerformAction, apThis, apAction);
++
+         ActionEvent action;
+         action.State1 = pActor->actorState.flags1;
+         action.State2 = pActor->actorState.flags2;
+-- 
+2.55.0.windows.3
+

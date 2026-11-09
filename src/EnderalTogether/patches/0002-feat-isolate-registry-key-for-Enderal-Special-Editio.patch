@@ -1,0 +1,54 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Artyom <artyom@local>
+Date: Fri, 30 Oct 2026 13:58:42 +0300
+Subject: [PATCH 2/7] feat: isolate registry key for Enderal Special Edition
+
+(cherry picked from commit d97f29418b35a40a0e304325717e998078d7b8b3)
+---
+ Code/immersive_launcher/TargetConfig.h         | 3 +++
+ Code/immersive_launcher/oobe/PathArgument.cpp  | 2 +-
+ Code/immersive_launcher/oobe/PathSelection.cpp | 2 +-
+ 3 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/Code/immersive_launcher/TargetConfig.h b/Code/immersive_launcher/TargetConfig.h
+index 8ca059cb..6b7f2bed 100644
+--- a/Code/immersive_launcher/TargetConfig.h
++++ b/Code/immersive_launcher/TargetConfig.h
+@@ -22,5 +22,8 @@ static constexpr TargetConfig CurrentTarget{ L"Skyrim Special Edition", 489830,
+ #define TARGET_NAME_A "SkyrimSE"
+ #define PRODUCT_NAME L"Skyrim Together"
+ #define SHORT_NAME L"Skyrim Special Edition"
++// Registry key under Software\TiltedPhoques\TiltedEvolution that remembers the selected game.
++// Enderal keeps its own key so it never picks up, or overwrites, a Skyrim SE install.
++#define TILTED_REGISTRY_NAME L"Enderal Special Edition"
+ 
+ // clang-format on
+diff --git a/Code/immersive_launcher/oobe/PathArgument.cpp b/Code/immersive_launcher/oobe/PathArgument.cpp
+index 38daaaee..1d208daa 100644
+--- a/Code/immersive_launcher/oobe/PathArgument.cpp
++++ b/Code/immersive_launcher/oobe/PathArgument.cpp
+@@ -13,7 +13,7 @@ using namespace TiltedPhoques;
+ 
+ namespace
+ {
+-constexpr wchar_t kTiltedRegistryPath[] = LR"(Software\TiltedPhoques\TiltedEvolution\)" SHORT_NAME;
++constexpr wchar_t kTiltedRegistryPath[] = LR"(Software\TiltedPhoques\TiltedEvolution\)" TILTED_REGISTRY_NAME;
+ 
+ #define DIE_NOW(err)    \
+     {                   \
+diff --git a/Code/immersive_launcher/oobe/PathSelection.cpp b/Code/immersive_launcher/oobe/PathSelection.cpp
+index d5428c3e..38e85b9c 100644
+--- a/Code/immersive_launcher/oobe/PathSelection.cpp
++++ b/Code/immersive_launcher/oobe/PathSelection.cpp
+@@ -19,7 +19,7 @@ using namespace TiltedPhoques;
+ namespace
+ {
+ constexpr wchar_t kBethesdaRegistryPath[] = LR"(Software\Wow6432Node\Bethesda Softworks\)" SHORT_NAME;
+-constexpr wchar_t kTiltedRegistryPath[] = LR"(Software\TiltedPhoques\TiltedEvolution\)" SHORT_NAME;
++constexpr wchar_t kTiltedRegistryPath[] = LR"(Software\TiltedPhoques\TiltedEvolution\)" TILTED_REGISTRY_NAME;
+ 
+ std::wstring SuggestTitlePath()
+ {
+-- 
+2.55.0.windows.3
+
