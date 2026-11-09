@@ -4,15 +4,17 @@ Name:
   TargetLanguage: English
   Value: Fan the Hammer
 MenuDisplayObject: 0435A5:Skyrim.esm
-EquipmentType: 025BEE:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
 Description:
   TargetLanguage: English
   Value: ''
 Flags:
 - IgnoreResistance
 - NoAbsorbOrReflect
-Type: LesserPower
+Type: Voice
 CastType: FireAndForget
 Effects:
 - BaseEffect: 000B1E:Zenderal - Prophecy.esp
+  Data: {}
+- BaseEffect: 000B46:Zenderal - Prophecy.esp
   Data: {}

@@ -14,8 +14,11 @@ Flags:
 - IgnoreResistance
 - NoAbsorbOrReflect
 ChargeTime: 0.5
+Type: Voice
 CastType: FireAndForget
 HalfCostPerk: 0C44CA:Skyrim.esm
 Effects:
 - BaseEffect: 000A6A:Zenderal - Prophecy.esp
+  Data: {}
+- BaseEffect: 000B49:Zenderal - Prophecy.esp
   Data: {}

@@ -138,7 +138,8 @@ BLINK_SWOOSH_FILE = r'Data\Sound\FX\ZenProphecy\ZP_BlinkStepSwoosh.wav'
 GW_ABSORB = 20
 GW_HAZARD_SPELL = '000826:KittySpellPack01.esl'
 GW_COOLDOWN_MGEF = '000810:KittySpellPack01.esl'
-WYRM_COOLDOWN_MULT = 2   # the Veil Wyrm's word recovery times (Shatterveil's 20/35/50 s) x this
+WYRM_COOLDOWN_MULT = 2   # the Veil Wyrm's word recovery times (Shatterveil's 20/35/50 s) x this - until 2026-11-05:
+WYRM_COOLDOWN = 600      # now one 10-minute cooldown of its own (curator), any word; the words share SHOUT_RECOVERY
 # Balance pass (curator 2026-10-29: "match up with similar tiered spells in EGO"). Every Sorcery spell sits on EGO's
 # 97-Mana rung (Expert); EGO's damage at that rung, base magnitudes from arch-docs/magic: single target Blazing Spark VI
 # 78.5 (85 Mana), Firebolt VI 62 (68); area Fireball III 63 (90, area 12), Chain Lightning III 75 (107, area 20),
@@ -157,6 +158,24 @@ SORC_TUNE = {'000825:KittySpellPack02.esl': [('000817:KittySpellPack02.esl', 0, 
 EFFIGY_EVERY = 6.0   # Twin Effigies' chain lightning (curator 2026-10-29 "balance"): 3 s was 2 x 40 every 3 s for 30-60 s
 SORC = {'OrbDrain': 10, 'OrbRegen': 10, 'BurnSeconds': 20, 'CostMult': 0.5, 'RegenPerSecond': 10}
 # Ricochet Rounds (2026-10-29): chance per pistol hit, the second target's search radius (units, ~feet)
+# The 50%-fever powers are shouts (curator 2026-11-05: "All the 50% arcane fever powers change to Shouts with 200s
+# cooldowns ... also do this for Seismic stomp with 150s timer"): no Arcane Fever, the shout's recovery time instead.
+# (node, EditorID stem, cooldown s). convert_powers_to_shouts() retypes each power spell to Voice, strips the perk's
+# PerkAbilityEffect (the menu grants the shout, as Ice Shot's), zeroes the fever in its effect, and writes Word + Shout.
+SHOUT_COOLDOWN = 200
+STOMP_COOLDOWN = 150
+# Every talent its own timer (curator 2026-11-05: "individual shouts have their own cooldowns"): a shout's RecoveryTime
+# is one shared clock for every shout, so each word gets SHOUT_RECOVERY and the talent's effect script runs its own
+# cooldown spell (CooldownSpell / CooldownEffect / NotReady on ZP_WrathGate, ZP_LegionEffect, ZP_ForceOfNatureEffect,
+# ZP_IceShotEffect; Seismic Stomp already had one, now STOMP_COOLDOWN long). Ice Shot (ARC['IceCooldown']) joins.
+SHOUT_RECOVERY = 3
+# Wrath of the Lightborn and Legion of the Damned (curator 2026-11-05): 10 minutes and 25% Arcane Fever each.
+LONG_COOLDOWN = 600
+LONG_FEVER = 25
+# (node, EditorID stem, cooldown s, Arcane Fever per use - 0 = none)
+POWER_SHOUTS = [('faith4', 'ZP_Prophecy_WrathoftheLightborn', LONG_COOLDOWN, LONG_FEVER), ('glo1', 'ZP_Prophecy_SeismicStomp', STOMP_COOLDOWN, 0),
+                ('dru7', 'ZP_Prophecy_ForceOfNature', SHOUT_COOLDOWN, 0), ('nec5', 'ZP_Prophecy_LegionDamned', LONG_COOLDOWN, LONG_FEVER),
+                ('gun11', 'ZP_Prophecy_FanTheHammer', SHOUT_COOLDOWN, 0)]
 RICOCHET = {'Chance': 25, 'Range': 960, 'Feet': 45, 'Cooldown': 1.0,
             'HairTriggerBonus': 25}   # added with Hair Trigger (2026-11-02: its faster reload went; the ramrod reload is the pace)
 # The pistol branch (curator 2026-11-01: "more Pistol related talents"), under Ricochet Rounds. Both instant reloads
@@ -183,7 +202,7 @@ TREES = [
     ('faith1', 'Consecrate Dead', 'Grants the "Consecrate Dead" spell: cast it on a corpse to burn it to ash with holy light and restore 30 Health, Mana and Stamina. Undead it strikes take 15 damage and stagger.', o('01435F'), [], []),
     ('faith2', 'Righteous Path', 'While you block with a spell or nothing in your left hand, a ward of sunlight surrounds you: you gain 25% resistance to magic and immunity to disease, and each attacker you block is struck by a beam of light that leaps between enemies for 20 damage, for 10 Mana (with less, you simply block).', '0581F9:Skyrim.esm', [], ['faith1']),
     ('faith3', 'Smite', 'Your hits with silver weapons have a 15% chance to call down a pillar of holy light on the target: 40 damage, while beams of light strike the enemies around it for 10 each. Undead take double damage.', '0581F8:Skyrim.esm', [], ['faith1']),
-    ('faith4', 'Wrath of the Lightborn', 'Grants the "Wrath of the Lightborn" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more.', s('000820'), [], ['faith5']),
+    ('faith4', 'Wrath of the Lightborn', f'Grants the "Wrath of the Lightborn" talent ({LONG_COOLDOWN // 60} minutes cooldown, {LONG_FEVER}% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage.', s('000820'), [], ['faith5']),
     ('faith5', 'Templar', 'Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health.', s('000849'), [], ['faith2', 'faith3']),
   ]),
   ('Firearms', 'Muskets, powder and lead.', [
@@ -199,7 +218,7 @@ TREES = [
     ('gun8', 'Point Blank', f"Your pistol hits on an enemy within {PISTOL['PointBlankFeet']} feet deal {round(PISTOL['PointBlankBonus'] * 100)}% more damage and stagger it.", None, [], ['gun7']),
     ('gun9', 'Blade and Barrel', f"A melee hit reloads your pistols at once (once every {PISTOL['BladeReloadCooldown']} seconds), and a pistol hit makes your next melee hit within {PISTOL['BladeSeconds']:g} seconds deal {round((PISTOL['BladeBonus'] - 1) * 100)}% more damage.", None, [], ['gun7']),
     ('gun10', 'Coup de Grace', f"Your pistol hits deal double damage to enemies that are staggered, knocked down, bleeding out or below {round(PISTOL['CoupHealth'] * 100)}% Health.", None, [], ['gun8', 'gun9']),
-    ('gun11', 'Fan the Hammer', f'Grants the "Fan the Hammer" power (no Mana, {PISTOL["FanFever"]}% Arcane Fever): for {PISTOL["FanSeconds"]} seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy. It cannot be used at {PISTOL["FanFever"]}% Arcane Fever or more.', None, [], ['gun10']),
+    ('gun11', 'Fan the Hammer', f'Grants the "Fan the Hammer" talent ({SHOUT_COOLDOWN} seconds cooldown): for {PISTOL["FanSeconds"]} seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy.', None, [], ['gun10']),
     ('gun4', 'Run and Gun', 'You move at full speed while aiming a musket.', '058F63:Skyrim.esm', [], ['gun2', 'gun3']),
     ('gun5', 'Deadeye', "A musket shot at a target you haven't shot in the last 10 seconds is a critical strike that deals triple critical damage, and its weapon enchantments are twice as strong.", o('0064C0'), [], ['gun4']),
   ]),
@@ -211,7 +230,7 @@ TREES = [
     ('gad6', 'Chaff', 'Your Smokescreen cloud also blinds automatons: mechanical spiders, spheres and centurions inside it can no longer see you.', None, [], ['gad2']),
     # gad3 was Bear Traps (Ordinator 0306CB + Lockjaw 030C45). Utility Droid replaced it 2026-10-23; the seed and the
     # folded perk stay so the copy closure, and every ID after it, is unchanged. The perk itself is rewritten (DROID_NODE).
-    ('gad3', 'Utility Droid', 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.', o('0306CB'), [o('030C45')], ['gad1']),
+    ('gad3', 'Utility Droid', 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you, staggers enemies around it and now and then finds a Spare Part for you (at most one every 3 hours). It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.', o('0306CB'), [o('030C45')], ['gad1']),
     ('gad4', 'Clockwork Turret', 'You can build Clockwork Turrets at a forge, and you receive one when you learn this. The "Clockwork Turret" power deploys it for 30 seconds: it turns and fires at your target, or the nearest enemy in combat, dealing damage equal to 30% of your Handicraft skill.', o('056C92'), [], ['gad2', 'gad3']),
     ('gad5', 'Overclock', 'Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.', None, [o('056C9F'), o('056CA7')], ['gad4']),
   ]),
@@ -244,7 +263,7 @@ TREES = [
   # Glory (2026-10-21, curator's design): all hand-built - see write_glory. Its records sit AFTER every other
   # block (GLORY_FIRST_ID) so adding it did not renumber the four older trees in existing saves.
   ('Glory', 'Charges, banners and hard-won grit.', [
-    ('glo1', 'Seismic Stomp', 'Grants the "Seismic Stomp" power: stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead. Usable once every 30 seconds.', None, [], []),
+    ('glo1', 'Seismic Stomp', f'Grants the "Seismic Stomp" talent ({STOMP_COOLDOWN} seconds cooldown): stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead.', None, [], []),
     ('glo2', 'Second Wind', 'While you are at or below half Health, every hit you take restores 20 Stamina.', None, [], ['glo1']),
     ('glo3', 'Dragon Scale', 'You gain 25% resistance to fire, frost and lightning.', None, [], ['glo1']),
     ('glo5', 'Surrounded', 'While 3 or more enemies are near you, you regenerate 2 Stamina per second.', None, [], ['glo2', 'glo3']),
@@ -300,7 +319,7 @@ TREES = [
     ('dru10', "Nature's Way", 'You can have one more totem standing at a time.', None, [], ['dru5']),
     ('dru6', 'Earth Totem', 'Grants the "Create Earth Totem" spell: a totem stands for 60 seconds and casts tremors that deal 120 damage every 7 seconds in combat. An Elementalism spell.', None, [], ['dru5']),
     ('vst6', 'Heart of the Grove', None, None, [], ['dru3', 'dru6']),
-    ('dru7', 'Force of Nature', f'Grants the "Force of Nature" power (no Mana, {DRUID["FormFever"]}% Arcane Fever): for {DRUID["FormSeconds"]} seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends. It cannot be used when the fever would reach 100%.', None, [], ['vst6']),
+    ('dru7', 'Force of Nature', f'Grants the "Force of Nature" talent ({SHOUT_COOLDOWN} seconds cooldown): for {DRUID["FormSeconds"]} seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends.', None, [], ['vst6']),
   ]),
   # Arcane Archery (2026-10-23, curator's design): hand-built but Lion's Arrow (Ordinator's, its own description).
   # Every record of this tree - its perks, write_arcane's records and Lion's Arrow's copied closure - is allocated
@@ -319,7 +338,7 @@ TREES = [
     ('nec2', 'Dark Effigy', f'Grants the "Dark Effigy" spell ({NEC["EffigyCost"]} Magicka): raise a dark totem for {NEC["EffigySeconds"]} seconds. You and your undead summons near it heal {NEC["EffigyHeal"]} Health per second, and you and your allies near it gain {NEC["EffigyArmor"]} armor.', None, [], ['nec1']),
     ('nec3', 'A Willing Sacrifice', f'Grants the "A Willing Sacrifice" power: every summon you command explodes, dealing damage equal to half its maximum Health to each enemy within 14 feet of it. Usable once every {NEC["SacrificeCooldown"]} seconds.', None, [], ['nec1']),
     ('nec4', "The Dead Don't Forget", f'A Willing Sacrifice restores {NEC["DeadMagicka"]} Magicka for every enemy it hits.', None, [], ['nec3']),
-    ('nec5', 'Legion of the Damned', f'Grants the "Legion of the Damned" power: at the cost of {NEC["LegionFever"]}% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for {NEC["LegionSeconds"] // 60} minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.', None, [], ['nec4']),
+    ('nec5', 'Legion of the Damned', f'Grants the "Legion of the Damned" talent ({LONG_COOLDOWN // 60} minutes cooldown, {LONG_FEVER}% Arcane Fever): raise six skeletons (two warriors, two archers and two mages) that fight at your side for {NEC["LegionSeconds"] // 60} minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.', None, [], ['nec4']),
   ]),
   # Sorcerer (2026-10-27, curator's design): Kittytails' Obscure Magic, Elemental Mastery Magic and Constellation Magic,
   # installed and mastered (src/KittytailsPacksClean), their spells granted by the menu and renamed for Enderal
@@ -344,7 +363,7 @@ TREES = [
     ('sor7', 'Gravity Well', f'Grants the "Gravity Well" spell: a well of gravity pulls nearby enemies into it and staggers them, and drains {GW_ABSORB} Health from each into you.', None, [], ['sor5']),
     ('sor8', 'Falling Star', 'Grants the "Falling Star" spell: a falling star strikes for 60 damage and staggers; a target with more Mana than Health also loses Mana.', None, [], ['sor3', 'sor6']),
     ('cst6', 'Arcane Tide', None, None, [], ['sor8']),
-    ('sor9', 'Veil Wyrm', f'Grants the "Veil Wyrm" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for {SORC["BurnSeconds"]} seconds: your spells cost half as much Mana and you restore {SORC["RegenPerSecond"]} Mana per second. One word recovers in {20 * WYRM_COOLDOWN_MULT} seconds, two in {35 * WYRM_COOLDOWN_MULT}, three in {50 * WYRM_COOLDOWN_MULT}.', None, [], ['cst6']),
+    ('sor9', 'Veil Wyrm', f'Grants the "Veil Wyrm" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for {SORC["BurnSeconds"]} seconds: your spells cost half as much Mana and you restore {SORC["RegenPerSecond"]} Mana per second. Any word starts its {WYRM_COOLDOWN // 60} minute cooldown.', None, [], ['cst6']),
   ]),
 ]
 
@@ -603,6 +622,10 @@ EDITORID = {'gad1': 'ZP_Prophecy_Tripwire', 'glo5': 'ZP_Prophecy_DeathorGlory', 
             'nec3': 'ZP_Prophecy_WillingSacrifice', 'nec4': 'ZP_Prophecy_DeadDontForget', 'nec5': 'ZP_Prophecy_LegionDamned'}
 # Exact display strings renamed on the copied records (the power, its effect, the wire, its quest).
 RENAME = {'Tripwire': 'Explosive Tripwire'}
+# A copied record's script replaced by one of ours, keeping its properties (EditorID -> ((from, to), ...)).
+# The wire: vanilla's Tripwire script takes the player as a trigger, and the wire lands inside its own volume's reach
+# of the kneeling player (GreaseLord 2026-11-04); ZP_TripwireTrigger extends it and refuses the player.
+SCRIPT_SWAP = {'ZP_ORD_Sne_Tripwire_Activator': (('Tripwire', 'ZP_TripwireTrigger'),)}
 
 
 def perk_edid(node):
@@ -867,6 +890,26 @@ def main():
     # Arcane Arsenal's arrowhead art objects (2026-11-02). Append LAST
     assert nxt == 0xB23, f"Arcane Arsenal's arrow arts would not start at 0xB23 (0x{nxt:03X})"
     arc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(ARSENAL_ART_RECORDS)}); nxt += len(ARSENAL_ART_RECORDS)
+    # The 50%-fever powers as shouts (2026-11-05): a Word + Shout per power. Append LAST
+    assert nxt == 0xB26, f"the power shouts would not start at 0xB26 (0x{nxt:03X})"
+    shouts = {}
+    for nid, _, _, _ in POWER_SHOUTS:
+        shouts[nid] = {'word': f'{nxt:06X}:{MOD}', 'shout': f'{nxt + 1:06X}:{MOD}'}; nxt += 2
+    # each talent's own cooldown spell + effect (2026-11-05), Ice Shot's too. Append LAST
+    assert nxt == 0xB30, f"the talent cooldowns would not start at 0xB30 (0x{nxt:03X})"
+    for nid in [n for n, _, _, _ in POWER_SHOUTS] + ['arc3']:
+        shouts.setdefault(nid, {}).update({'cdspell': f'{nxt:06X}:{MOD}', 'cdme': f'{nxt + 1:06X}:{MOD}'}); nxt += 2
+    # Veil Wyrm's own cooldown (2026-11-05): three gate spells (one per word) + one cooldown. Append LAST
+    assert nxt == 0xB3C, f"Veil Wyrm's gates would not start at 0xB3C (0x{nxt:03X})"
+    sorc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(WYRM_GATE_RECORDS)}); nxt += len(WYRM_GATE_RECORDS)
+    # Sounds on Fan the Hammer and Wrath of the Lightborn (curator's files, 2026-11-05). Append LAST
+    assert nxt == 0xB44, f"the new power sounds would not start at 0xB44 (0x{nxt:03X})"
+    psound2 = {}
+    for key, _, _ in NEW_POWER_SOUNDS:
+        psound2[key] = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(('sound', 'marker', 'mgef'))}; nxt += 3
+    # Bleeding Shot's musket bleed relay (2026-11-08). Append LAST
+    assert nxt == 0xB4A, f"the bleed relay would not start at 0xB4A (0x{nxt:03X})"
+    gunhit_extra = {'bleedrelay': f'{nxt:06X}:{MOD}'}; nxt += 1
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -899,6 +942,9 @@ def main():
 
     def write(ty, t):
         t = marksman(t)
+        for script_from, script_to in SCRIPT_SWAP.get(ed(t), ()):
+            assert t.count(f'- Name: {script_from}\n') == 1, (ed(t), script_from)
+            t = t.replace(f'- Name: {script_from}\n', f'- Name: {script_to}\n')
         fk = re.search(r'^FormKey: (.+?)\s*$', t, re.M).group(1)
         h = fk.split(':')[0]
         os.makedirs(os.path.join(ESP, ty), exist_ok=True)
@@ -1082,7 +1128,7 @@ def main():
         write('Perks', t)
 
     # --- hand-built records
-    write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, sharp)
+    write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, sharp, glory, gunhit_extra)
     write_flow(flowab, flowme, newid, write, nova, flowchain, dragon['Shockme'])
     write_droid(droid, write)
     write_never(write)
@@ -1136,6 +1182,11 @@ Priority: 128
     write_dragons_breath(dragon, write, sharp, arc)
     write_pistols(pistol, nodeperk, write, glory)
     write_rage(rage, nodeperk, write, dragon, flowchain, pistol, droid['stg'], arc)
+    shout_grants = convert_powers_to_shouts(shouts, nodeperk, write, {'faith4': newid[htm('000829')]})
+    add_talent_cooldown('ZP_Prophecy_IceShot', 'Ice Shot', arc['icepower'], ARC['IceCooldown'], shouts['arc3'], write)
+    for key, name, wav in NEW_POWER_SOUNDS:
+        add_sound_to_spell(write, psound2[key], key, {'Fan the Hammer': pistol['fanpower'],
+                                                      'Wrath of the Lightborn': newid[htm('000829')]}[name], name, wav)
 
     if bad:
         for k, v in sorted(bad.items()): print('UNRESOLVED', v, k)
@@ -1147,7 +1198,8 @@ Priority: 128
                                         **SHADOW_GRANTS, 'shd7': shadow['dspell'], **DRUID_GRANTS, 'dru1': druid['craftspell'],
                                         **{nid: s[1] for nid, s in SORC_SPELLS.items()},
                                         'arc3': arc['iceshout'],                # a shout: the menu teaches its word
-                                        'sor9': WYRM_SHOUT})                    # Veil Wyrm: all three words
+                                        'sor9': WYRM_SHOUT,                     # Veil Wyrm: all three words
+                                        **shout_grants})                        # the 50%-fever powers, as shouts (replaces faith4's spell)
     print(f'records copied {len(copy)}, perks {len(nodes)}, next free ID 0x{nxt:03X}, models {len(models)}, scripts {len(scripts)}')
 
 
@@ -1419,6 +1471,14 @@ def write_holy(hidx, hcopy, remap, write, faith):
         hits['hazard script'] += n
         t, n = re.subn(r'^    - MutagenObjectType: ScriptObjectProperty\n      Name: AshPileObject\n      Object: .*\n', '', t, flags=re.M)
         hits['ash pile'] += n
+        # Consecrate Dead on skeletons (curator 2026-11-08: "doesn't work on skeletons"): the corpse effect refused any
+        # body whose race carries MagicNoReanimate 06F6FB, which Enderal's SkeletonRace and Mihail's skeleton race do;
+        # the condition goes (the undead damage/stagger parts key on ActorTypeUndead, which skeletons have)
+        if ed(t) == '_LIP_ConsecrateMGEF':
+            t, n = re.subn(r'- MutagenObjectType: ConditionFloat\n  Data:\n    MutagenObjectType: HasKeywordConditionData\n'
+                           r'    Keyword: 06F6FB:Skyrim\.esm\n', '', t)
+            assert n == 1, ('Consecrate MagicNoReanimate condition', n)
+            hits['consecrate skeletons'] += 1
         t = remap(t, ed(t), vanilla_ok=True)
         t = re.sub(r'^EditorID: _LIP_', 'EditorID: ZP_Holy_', t, count=1, flags=re.M)
         def rename(m):
@@ -1431,7 +1491,7 @@ def write_holy(hidx, hcopy, remap, write, faith):
             hits['wrath'] += 1
         write(ty, t)
     assert hits == {'edit': len(HOLY_EDITS), 'cost': len(HOLY_COST), 'explosion script': 4, 'hazard script': 1,
-                    'ash pile': 1, 'wrath': 1}, hits
+                    'ash pile': 1, 'wrath': 1, 'consecrate skeletons': 1}, hits
 
 
 def copy_holy_assets(hidx, hcopy):
@@ -1507,7 +1567,7 @@ def gun_hit_effect(spell):
             f'  Spell: {spell}\n')
 
 
-def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late):
+def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late, glory, extra):
     """One hit spell for both gun perks (ApplyCombatHitSpell applies a single spell per hit): Monk's bleed
     effect gated on Bleeding Shot, Enderal's weapon fire-enchant effect gated on Elemental Rounds."""
     monk_spell = newid[f'000879:{SOS}']
@@ -1525,7 +1585,22 @@ def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late):
     eff = re.search(r'^Effects:\n((?:[- ].*\n)*)', t, re.M)
     assert eff, 'Monk spell has no Effects'
     body = eff.group(1)
-    body = re.sub(r'(- BaseEffect: .*\n(?:  Data:\n(?:    .*\n)*)?)', lambda m: m.group(1) + gate(nodeperk['gun3']) + MUSKET_IN_HAND, body, count=1)
+    # Bleeding Shot's bleed (2026-11-08, GreaseLord: the bleed stopped when the player switched weapons, muskets
+    # only): the Monk bleed sat here gated on MUSKET_IN_HAND, and the engine re-checks an active effect's conditions,
+    # so the 5 s bleed died with the musket unequipped. Now a 1 s relay effect carries those conditions and its script
+    # (ZP_CastOnTargetEffect) casts Seismic Stomp's bleed spell - the one the pistol branch applies, no conditions -
+    # on the target. The Monk bleed effect leaves this spell.
+    first = re.match(r'- BaseEffect: .*\n(?:  Data:\n(?:    .*\n)*)?', body)
+    assert first and be in first.group(0), 'the Monk bleed is not the first effect'
+    body = body[first.end():]
+    write('MagicEffects', f"FormKey: {extra['bleedrelay']}\nEditorID: ZP_Prophecy_BleedingShot_Relay\n"
+                          "VirtualMachineAdapter:\n  Scripts:\n  - Name: ZP_CastOnTargetEffect\n    Properties:\n"
+                          f"    - MutagenObjectType: ScriptObjectProperty\n      Name: SpellToCast\n      Object: {glory['bleedspell']}\n"
+                          "Name:\n  TargetLanguage: English\n  Value: Bleeding Shot\nFlags:\n- NoMagnitude\n- NoArea\n- HideInUI\n- Painless\n"
+                          "Archetype:\n  MutagenObjectType: MagicEffectArchetype\n  Type: Script\nCastType: FireAndForget\nTargetType: Touch\n"
+                          "DualCastScale: 1\nCastingSoundLevel: Silent\nSounds: []\nDescription:\n  TargetLanguage: English\n  Value: ''\n")
+    body = f"- BaseEffect: {extra['bleedrelay']}\n  Data:\n    Duration: 1\n" + gate(nodeperk['gun3']) + MUSKET_IN_HAND + body
+    be = glory['bleedme']       # the bleed now running on the target: Seismic Stomp's (the proc sound's "not while one runs")
     body += (f'- BaseEffect: {FIRE_ENCH}\n  Data:\n    Magnitude: 10\n    Duration: 0\n' + gate(nodeperk['gun2']) + MUSKET_IN_HAND)
     # Deadeye shares this spell (2026-10-23). ApplyCombatHitSpell applies one spell per hit and owning Deadeye means
     # owning both gun perks, so Ordinator's own Deadeye hit spell competed with this one. Its other 11 effects are all
@@ -1738,6 +1813,21 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptFloatProperty
       Name: StaggerRadius
       Data: {DROID['StaggerRadius']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpareParts
+      Object: 0773ED:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: ScavengeInterval
+      Data: {DROID['ScavengeInterval']}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ScavengeChance
+      Data: {DROID['ScavengeChance']}
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ScavengeHours
+      Data: {DROID['ScavengeHours']}
+    - MutagenObjectType: ScriptIntProperty
+      Name: ScavengeCount
+      Data: {DROID['ScavengeCount']}
 Name:
   TargetLanguage: English
   Value: Utility Droid
@@ -2023,12 +2113,24 @@ POWER_SOUNDS = [
 ]
 
 
+# Sounds on our own powers (curator's files, 2026-11-05; tools/07 converts them, not committed): (key, power, file)
+NEW_POWER_SOUNDS = [
+    ('FanTheHammer_Cast', 'Fan the Hammer', r'Data\Sound\FX\ZenProphecy\ZP_FanTheHammerCast.wav'),
+    ('WrathoftheLightborn_Bells', 'Wrath of the Lightborn', r'Data\Sound\FX\ZenProphecy\ZP_WrathBells.wav'),
+]
+
+
 def add_power_sound(newid, write, r, key, spell_src, name, wav):
     """A sound when a power is used (Explosive Tripwire's ratchet as the player kneels, Smokescreen's burst; both
     ship silent from Ordinator). An extra effect on the power whose script plays one sound - Ordinator's own scripts
     stay untouched."""
+    add_sound_to_spell(write, r, key, newid[spell_src], name, wav)
+
+
+def add_sound_to_spell(write, r, key, spell_fk, name, wav):
+    """sound_records + the sound effect appended to the (already written) spell's effects."""
     sound_records(write, r, key, name, wav)
-    h = newid[spell_src].split(':')[0]
+    h = spell_fk.split(':')[0]
     p = glob.glob(os.path.join(ESP, 'Spells', f'* - {h}_*'))[0]
     t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
     assert r['mgef'] not in t
@@ -2215,7 +2317,10 @@ STARLING_DUMMY = {k: os.path.join(REF, 'base', 'Skyrim', d, f) for k, d, f in [
     ('throwexp', 'Explosions', '_00E_A2_StarlingdummyExp - 069836_Skyrim.esm.yaml'),
     ('placer', 'Activators', '_00E_A2_StarlingdummyPlacer - 06983E_Skyrim.esm.yaml')]}
 DROID = {'Cost': 10, 'HealAmount': 15.0, 'HealInterval': 4, 'HealRadius': 640.0, 'StaggerInterval': 6,
-         'StaggerRadius': 300.0, 'StaggerMagnitude': 0.5, 'BaseHealth': 100.0, 'HealthPerLevel': 10.0}
+         'StaggerRadius': 300.0, 'StaggerMagnitude': 0.5, 'BaseHealth': 100.0, 'HealthPerLevel': 10.0,
+         'ScavengeInterval': 60, 'ScavengeChance': 15.0, 'ScavengeHours': 3.0, 'ScavengeCount': 1}
+# Spare Parts found for the player (2026-11-05, curator: "random but limited to only 1 per 3 hours"): a roll every
+# ScavengeInterval s out of combat, ScavengeChance %, never twice within ScavengeHours game hours
 DROID_BASE_NPC = os.path.join(REF, 'mods', 'EGO - Enderal Gameplay Overhaul', 'Npcs',
                               '_00E_StarshipCaveHelpfulSpiderPatrol01 - 130AE8_Skyrim.esm.yaml')   # Starling Spider
 STAGGER_CONTACT_MGEF = os.path.join(REF, 'base', 'Skyrim', 'MagicEffects', 'StaggerAttackFFContact - 07809B_Skyrim.esm.yaml')
@@ -2396,7 +2501,7 @@ def write_arcane(a, newid, write, late):
                     "MenuDisplayObject: 04E264:Skyrim.esm\nDescription:\n  TargetLanguage: English\n"
                     f"  Value: 'Adds {ARC['IceArrows']} ice arrows to your quiver: {ARC['IceDamage']} frost damage, and the target freezes"
                     f" for {ARC['FreezeSeconds']} seconds until your next arrow shatters it.'\n"
-                    f"WordsOfPower:\n- Word: {a['iceword']}\n  Spell: {a['icepower']}\n  RecoveryTime: {ARC['IceCooldown']}\n")
+                    f"WordsOfPower:\n- Word: {a['iceword']}\n  Spell: {a['icepower']}\n  RecoveryTime: {SHOUT_RECOVERY}\n")   # its own timer: the cooldown spell
     write('MagicEffects', mgef(a['iceme'], 'ZP_Prophecy_IceShot_Effect', 'Ice Shot', '', ['NoMagnitude', 'NoArea', 'HideInUI', 'Painless'],
                                '  Type: Script\n', vmad=script('ZP_IceShotEffect', [
                                    ('IceArrow', 'Object', a['icearrow']),
@@ -2702,7 +2807,7 @@ Priority: 128
                           f'- BaseEffect: {g["slowme"]}\n  Data:\n    Magnitude: {STOMP_SLOW[0]}\n    Duration: {STOMP_SLOW[1]}\n',
                           extra='Flags:\n- NoAbsorbOrReflect\n'))
     write('Spells', spell(g['stompcd'], 'ZP_Prophecy_SeismicStomp_Cooldown', 'Seismic Stomp', None, 'FireAndForget',
-                          f'- BaseEffect: {g["stompcdme"]}\n  Data:\n    Duration: 30\n', extra='Flags:\n- NoAbsorbOrReflect\n'))
+                          f'- BaseEffect: {g["stompcdme"]}\n  Data:\n    Duration: {STOMP_COOLDOWN}\n', extra='Flags:\n- NoAbsorbOrReflect\n'))
     write('MagicEffects', mgef(g['stompcdme'], 'ZP_Prophecy_SeismicStomp_CooldownEffect', 'Seismic Stomp',
                                'Seismic Stomp can be used again in <dur> seconds.', ['Recover'], '  Type: Script\n'))
 
@@ -3749,6 +3854,8 @@ SHVL_LATE_RECORDS = ('tierburst', 'tierburstme', 'tiertwin', 'tiertwinme', 'orbi
 # effect's apply event; whether a dispel also takes them away is the DLL's (unverified)
 ORBIT_WARD = f'000E55:{SHVL}'      # shvl_PrismWardSpell
 WYRM_SHOUT = f'000E6A:{SHVL}'      # shvl_GlassWyrmShout, Sorcery's capstone (sor9); the menu teaches all three words
+WYRM_WORD_SPELLS = [f'000E6B:{SHVL}', f'000E6C:{SHVL}', f'000E6D:{SHVL}']    # shvl_GlassWyrmWord1-3, its words' spells
+WYRM_GATE_RECORDS = ('wyrmgate1', 'wyrmgateme1', 'wyrmgate2', 'wyrmgateme2', 'wyrmgate3', 'wyrmgateme3', 'wyrmcdspell', 'wyrmcdme')
 # The shout's slow time is Shatterveil's spell shvl_VeilWyrmSlowTime, whose effect is vanilla VoiceSlowTime 048ACD -
 # not in Enderal, so the engine dropped it (0 effects in game, 2026-10-28 probe) and the DLL skipped slow time. Prophecy
 # overrides the spell onto Enderal's own SlowTime effect (_00E_Game_SlowTimeME, its slow-time ability's); the DLL sets
@@ -4186,12 +4293,34 @@ Description:
   TargetLanguage: English
   Value: ''
 """)
-    # the shout's recovery times x WYRM_COOLDOWN_MULT
+    # One 10-minute cooldown of its own (2026-11-05), the way the other talents have theirs: every word recovers in
+    # SHOUT_RECOVERY (the shout clock is shared by all shouts), and each word's spell is a gate (ZP_WrathGate, no fever)
+    # that refuses while the cooldown effect is on, else casts Shatterveil's word spell and the cooldown. Shatterveil's
+    # word effects are Script-archetype with no Papyrus (its DLL reacts to them), so a script cast applies them alike.
     ty, sh = sorc_record(WYRM_SHOUT)
     olds = [int(x) for x in re.findall(r'^  RecoveryTime: (\d+)$', sh, re.M)]
     assert olds == [20, 35, 50], f'Veil Wyrm recovery times {olds}'
-    sh = re.sub(r'^  RecoveryTime: (\d+)$', lambda m: f'  RecoveryTime: {int(m.group(1)) * WYRM_COOLDOWN_MULT}', sh, flags=re.M)
+    sh = re.sub(r'^  RecoveryTime: (\d+)$', f'  RecoveryTime: {SHOUT_RECOVERY}', sh, flags=re.M)
+    for i, word_spell in enumerate(WYRM_WORD_SPELLS, 1):
+        assert sh.count(f'  Spell: {word_spell}\n') == 1, (word_spell, 'in the shout')
+        sh = sh.replace(f'  Spell: {word_spell}\n', f"  Spell: {s[f'wyrmgate{i}']}\n")
+        write('Spells', f"FormKey: {s[f'wyrmgate{i}']}\nEditorID: ZP_Prophecy_VeilWyrm_Word{i}_Gate\nName:\n  TargetLanguage: English\n"
+                        f"  Value: Veil Wyrm\nMenuDisplayObject: 0435A5:Skyrim.esm\nEquipmentType: 013F44:Skyrim.esm\n"
+                        "Description:\n  TargetLanguage: English\n  Value: ''\nFlags:\n- IgnoreResistance\n- NoAbsorbOrReflect\n"
+                        f"Type: Voice\nCastType: FireAndForget\nEffects:\n- BaseEffect: {s[f'wyrmgateme{i}']}\n  Data: {{}}\n")
+        write('MagicEffects', f"FormKey: {s[f'wyrmgateme{i}']}\nEditorID: ZP_Prophecy_VeilWyrm_Word{i}_GateEffect\n"
+                              "VirtualMachineAdapter:\n  Scripts:\n  - Name: ZP_WrathGate\n    Properties:\n"
+                              f"    - MutagenObjectType: ScriptObjectProperty\n      Name: CloakSpell\n      Object: {word_spell}\n"
+                              "    - MutagenObjectType: ScriptFloatProperty\n      Name: MaxFever\n      Data: 1000.0\n"
+                              f"    - MutagenObjectType: ScriptObjectProperty\n      Name: CooldownSpell\n      Object: {s['wyrmcdspell']}\n"
+                              f"    - MutagenObjectType: ScriptObjectProperty\n      Name: CooldownEffect\n      Object: {s['wyrmcdme']}\n"
+                              "    - MutagenObjectType: ScriptStringProperty\n      Name: NotReady\n      Data: Veil Wyrm is not ready yet.\n"
+                              "Name:\n  TargetLanguage: English\n  Value: Veil Wyrm\nFlags:\n- NoMagnitude\n- NoArea\n- NoDuration\n- Painless\n- HideInUI\n"
+                              "Archetype:\n  MutagenObjectType: MagicEffectArchetype\n  Type: Script\n"
+                              "CastType: FireAndForget\nDualCastScale: 1\nCastingSoundLevel: Silent\nSounds: []\n"
+                              "Description:\n  TargetLanguage: English\n  Value: ''\n")
     write(ty, sh)
+    cooldown_records(write, 'ZP_Prophecy_VeilWyrm', 'Veil Wyrm', {'cdspell': s['wyrmcdspell'], 'cdme': s['wyrmcdme']}, WYRM_COOLDOWN)
     # the shout's glass impact (WYRM_SOUND_FILE) as each word effect's Release sound
     write('SoundDescriptors', f"""FormKey: {s['wyrmsnd']}
 EditorID: ZP_Prophecy_VeilWyrmGlassImpactSD
@@ -4835,6 +4964,109 @@ def gift_props(esp, perk_index):
         idx.append(perk_index[nid])
         items.append(re.search(r'^FormKey: (.+?)\s*$', open(hit[0], encoding='utf-8').read(), re.M).group(1))
     return idx, items
+
+
+def cooldown_records(write, edid, name, ids, cooldown):
+    """A talent's cooldown: a self spell whose Recover effect lasts `cooldown` s, shown in Active Effects with its
+    timer (the shape of the writers' nested spell()/mgef() helpers, as A Willing Sacrifice's cooldown)."""
+    write('Spells', f"FormKey: {ids['cdspell']}\nEditorID: {edid}_Cooldown\nName:\n  TargetLanguage: English\n  Value: {name}\n"
+                    "MenuDisplayObject: 0435A5:Skyrim.esm\nEquipmentType: 013F44:Skyrim.esm\n"
+                    "Description:\n  TargetLanguage: English\n  Value: ''\nFlags:\n- NoAbsorbOrReflect\n"
+                    f"CastType: FireAndForget\nEffects:\n- BaseEffect: {ids['cdme']}\n  Data:\n    Duration: {cooldown}\n")
+    write('MagicEffects', f"FormKey: {ids['cdme']}\nEditorID: {edid}_CooldownEffect\nName:\n  TargetLanguage: English\n  Value: {name}\n"
+                          "Flags:\n- Recover\nArchetype:\n  MutagenObjectType: MagicEffectArchetype\n  Type: Script\n"
+                          "CastType: FireAndForget\nDualCastScale: 1\nCastingSoundLevel: Silent\nSounds: []\n"
+                          f"Description:\n  TargetLanguage: English\n  Value: '{name} can be used again in <dur> seconds.'\n")
+
+
+def add_talent_cooldown(edid, name, power, cooldown, ids, write):
+    """The talent's own cooldown (2026-11-05): a self spell whose Recover effect lasts `cooldown` s (shown in Active
+    Effects with its timer), and CooldownSpell / CooldownEffect / NotReady on the power effect's script, which refuses
+    while the effect is on and casts it when the talent fires. Patches the written effect file."""
+    cooldown_records(write, edid, name, ids, cooldown)
+    sp = glob.glob(os.path.join(ESP, 'Spells', f'* - {power.split(":")[0]}_*'))[0]
+    effect = re.search(r'^- BaseEffect: (.+?)\s*$', open(sp, encoding='utf-8').read(), re.M).group(1)
+    mp = glob.glob(os.path.join(ESP, 'MagicEffects', f'* - {effect.split(":")[0]}_*'))[0]
+    mt = open(mp, encoding='utf-8').read()
+    m = re.search(r'^  - Name: (ZP_WrathGate|ZP_LegionEffect|ZP_ForceOfNatureEffect|ZP_IceShotEffect)\n    Properties:\n', mt, re.M)
+    assert m, (edid, 'no cooldown-aware script on the effect')
+    assert '      Name: CooldownSpell\n' not in mt, (edid, 'cooldown already set')
+    props = (f"    - MutagenObjectType: ScriptObjectProperty\n      Name: CooldownSpell\n      Object: {ids['cdspell']}\n"
+             f"    - MutagenObjectType: ScriptObjectProperty\n      Name: CooldownEffect\n      Object: {ids['cdme']}\n"
+             f"    - MutagenObjectType: ScriptStringProperty\n      Name: NotReady\n      Data: {name} is not ready yet.\n")
+    mt = mt[:m.end()] + props + mt[m.end():]
+    open(mp, 'w', encoding='utf-8', newline='\r\n').write(mt)
+
+
+def convert_powers_to_shouts(shouts, nodeperk, write, extra_powers):
+    """POWER_SHOUTS: each lesser power becomes the one word of a shout with that cooldown (curator 2026-11-05), the way
+    Enderal's own talents and Ice Shot are built (_00E_A1_Firearrow: a Voice spell on a word with RecoveryTime).
+    On the written files: the perk loses its PerkAbilityEffect (perk_powers would AddSpell the Voice spell; the menu
+    grants the shout instead, and Give() takes the old power back from a save), the power spell becomes Type Voice on
+    the voice equip slot, and its effect's fever goes: ZP_WrathGate's FeverSpell dropped + MaxFever 1000 (Wrath, Fan),
+    FeverCost 0 (Legion, Force of Nature; their scripts skip the fever at 0). Returns {node: shout FormKey}."""
+    names = {n[0]: (n[1], n[2]) for _, _, ns in TREES for n in ns}
+    grants = {}
+    for nid, edid, cooldown, fever in POWER_SHOUTS:
+        # the perk: its power, then no PerkAbilityEffect
+        pp = glob.glob(os.path.join(ESP, 'Perks', f'* - {nodeperk[nid].split(":")[0]}_*'))[0]
+        pt = open(pp, encoding='utf-8').read()
+        m = re.findall(r'- MutagenObjectType: PerkAbilityEffect\n  Ability: ([^\n]+)\n', pt)
+        if not m and nid in extra_powers:        # Wrath: the perk never carried it; the menu granted the spell
+            power = extra_powers[nid]
+        else:
+            assert len(m) == 1, (nid, 'perk abilities', m)
+            power = m[0]
+            pt = pt.replace(f'- MutagenObjectType: PerkAbilityEffect\n  Ability: {power}\n', '', 1)
+        pt = re.sub(r'^Effects:\n(?=[A-Za-z]|\Z)', '', pt, flags=re.M)     # a list emptied (Legion's perk only had the power)
+        open(pp, 'w', encoding='utf-8', newline='\r\n').write(pt)
+        # the power: a Voice spell
+        sp = glob.glob(os.path.join(ESP, 'Spells', f'* - {power.split(":")[0]}_*'))[0]
+        st = open(sp, encoding='utf-8').read()
+        if '\nType: LesserPower\n' in st:
+            st = st.replace('\nType: LesserPower\n', '\nType: Voice\n')
+        else:                                    # Wrath: a plain spell (no Type line = Spell)
+            assert '\nType: ' not in st, (nid, 'spell type')
+            st = st.replace('\nCastType: ', '\nType: Voice\nCastType: ', 1)
+        st = st.replace('\nEquipmentType: 025BEE:Skyrim.esm\n', '\nEquipmentType: 013F44:Skyrim.esm\n')
+        icon = re.search(r'^MenuDisplayObject: (.+?)\s*$', st, re.M).group(1)
+        effect = re.search(r'^- BaseEffect: (.+?)\s*$', st, re.M).group(1)
+        open(sp, 'w', encoding='utf-8', newline='\r\n').write(st)
+        # its effect: no fever
+        mp = glob.glob(os.path.join(ESP, 'MagicEffects', f'* - {effect.split(":")[0]}_*'))[0]
+        mt = open(mp, encoding='utf-8').read()
+        if '      Name: FeverSpell\n' in mt:
+            if fever > 0:      # the fever spell's magnitude becomes the cost; refused where that cost would reach 100%
+                fs = re.search(r'      Name: FeverSpell\n      Object: ([^\n]+)\n', mt).group(1)
+                fp = glob.glob(os.path.join(ESP, 'Spells', f'* - {fs.split(":")[0]}_*'))[0]
+                ft, n = re.subn(r'(    Magnitude: )[\d.]+\n', rf'\g<1>{fever}\n', open(fp, encoding='utf-8').read())
+                assert n == 1, (nid, 'fever magnitude')
+                open(fp, 'w', encoding='utf-8', newline='\r\n').write(ft)
+                mt, n = re.subn(r'(      Name: MaxFever\n      Data: )[\d.]+\n', rf'\g<1>{float(100 - fever)}\n', mt)
+            else:
+                mt, n = re.subn(r'    - MutagenObjectType: ScriptObjectProperty\n      Name: FeverSpell\n      Object: [^\n]+\n', '', mt)
+                assert n == 1, (nid, 'FeverSpell')
+                mt, n = re.subn(r'(      Name: MaxFever\n      Data: )[\d.]+\n', r'\g<1>1000.0\n', mt)
+            assert n == 1, (nid, 'MaxFever')
+        elif '      Name: FeverCost\n' in mt:
+            mt, n = re.subn(r'(      Name: FeverCost\n      Data: )[\d.]+\n', rf'\g<1>{float(fever)}\n', mt)
+            assert n == 1, (nid, 'FeverCost')
+        else:
+            assert nid == 'glo1', (nid, 'no fever property found')      # Seismic Stomp never cost fever
+        open(mp, 'w', encoding='utf-8', newline='\r\n').write(mt)
+        # the word and the shout
+        name, text = names[nid]
+        desc = text.split(': ', 1)[1] if ': ' in text else text
+        desc = desc[:1].upper() + desc[1:]
+        write('WordsOfPower', f"FormKey: {shouts[nid]['word']}\nEditorID: {edid}_Word\nName:\n  TargetLanguage: English\n"
+                              f"  Value: {name}\nTranslation:\n  TargetLanguage: English\n  Value: {name}\n")
+        write('Shouts', f"FormKey: {shouts[nid]['shout']}\nEditorID: {edid}_Shout\nName:\n  TargetLanguage: English\n  Value: {name}\n"
+                        f"MenuDisplayObject: {icon}\nDescription:\n  TargetLanguage: English\n  Value: '{desc.replace(chr(39), chr(39) * 2)}'\n"
+                        f"WordsOfPower:\n- Word: {shouts[nid]['word']}\n  Spell: {power}\n  RecoveryTime: {SHOUT_RECOVERY}\n")
+        if nid != 'glo1':      # Seismic Stomp runs its own cooldown spell already (STOMP_COOLDOWN)
+            add_talent_cooldown(edid, name, power, cooldown, shouts[nid], write)
+        grants[nid] = shouts[nid]['shout']
+    return grants
 
 
 def write_menu(nodes, nodeperk, write, grants):

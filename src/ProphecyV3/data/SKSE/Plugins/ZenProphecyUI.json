@@ -273,7 +273,7 @@
      "index": 8,
      "perk": 2067,
      "name": "Wrath of the Lightborn",
-     "description": "Grants the \"Wrath of the Lightborn\" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more.",
+     "description": "Grants the \"Wrath of the Lightborn\" talent (10 minutes cooldown, 25% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_WrathoftheLightborn.dds",
      "parents": [
       7
@@ -608,7 +608,7 @@
      "index": 19,
      "perk": 2834,
      "name": "Hair Trigger",
-     "description": "You reload pistols in 1.2 seconds instead of 2, and Elemental Rounds and Bleeding Shot work with your pistols too.",
+     "description": "Your pistol shots are another 25% likelier to ricochet, and Elemental Rounds and Bleeding Shot work with your pistols too.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_HairTrigger.dds",
      "parents": [
       18
@@ -677,7 +677,7 @@
      "index": 23,
      "perk": 2838,
      "name": "Fan the Hammer",
-     "description": "Grants the \"Fan the Hammer\" power (no Mana, 50% Arcane Fever): for 6 seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy. It cannot be used at 50% Arcane Fever or more.",
+     "description": "Grants the \"Fan the Hammer\" talent (200 seconds cooldown): for 6 seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_FantheHammer.dds",
      "parents": [
       22
@@ -937,7 +937,7 @@
      "index": 34,
      "perk": 2076,
      "name": "Utility Droid",
-     "description": "Grants the \"Utility Droid\" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.",
+     "description": "Grants the \"Utility Droid\" power: throw out a mechanical spider that follows you, heals you, staggers enemies around it and now and then finds a Spare Part for you (at most one every 3 hours). It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_UtilityDroid.dds",
      "parents": [
       29
@@ -1758,7 +1758,7 @@
      "index": 65,
      "perk": 2326,
      "name": "Seismic Stomp",
-     "description": "Grants the \"Seismic Stomp\" power: stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead. Usable once every 30 seconds.",
+     "description": "Grants the \"Seismic Stomp\" talent (150 seconds cooldown): stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_SeismicStomp.dds",
      "parents": [],
      "x": 0.0,
@@ -2679,7 +2679,7 @@
      "index": 106,
      "perk": 2702,
      "name": "Force of Nature",
-     "description": "Grants the \"Force of Nature\" power (no Mana, 50% Arcane Fever): for 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends. It cannot be used when the fever would reach 100%.",
+     "description": "Grants the \"Force of Nature\" talent (200 seconds cooldown): for 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_ForceofNature.dds",
      "parents": [
       105
@@ -3212,7 +3212,7 @@
      "index": 128,
      "perk": 2454,
      "name": "Legion of the Damned",
-     "description": "Grants the \"Legion of the Damned\" power: at the cost of 50% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.",
+     "description": "Grants the \"Legion of the Damned\" talent (10 minutes cooldown, 25% Arcane Fever): raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_LegionDamned.dds",
      "parents": [
       127
@@ -3573,7 +3573,7 @@
      "index": 144,
      "perk": 2734,
      "name": "Veil Wyrm",
-     "description": "Grants the \"Veil Wyrm\" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for 20 seconds: your spells cost half as much Mana and you restore 10 Mana per second. One word recovers in 40 seconds, two in 70, three in 100.",
+     "description": "Grants the \"Veil Wyrm\" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for 20 seconds: your spells cost half as much Mana and you restore 10 Mana per second. Any word starts its 10 minute cooldown.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_VeilWyrm.dds",
      "parents": [
       143

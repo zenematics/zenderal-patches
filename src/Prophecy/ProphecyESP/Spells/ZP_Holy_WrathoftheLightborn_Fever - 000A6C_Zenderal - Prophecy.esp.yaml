@@ -13,5 +13,5 @@ CastType: FireAndForget
 Effects:
 - BaseEffect: 11A4B6:Skyrim.esm
   Data:
-    Magnitude: 50
+    Magnitude: 25
     Duration: 1

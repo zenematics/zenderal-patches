@@ -5,7 +5,7 @@ Name:
   Value: 'Utility Droid'
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.'
+  Value: 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you, staggers enemies around it and now and then finds a Spare Part for you (at most one every 3 hours). It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.'
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:

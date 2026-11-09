@@ -5,6 +5,15 @@ VirtualMachineAdapter:
   - Name: ZP_LegionEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownSpell
+      Object: 000B36:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownEffect
+      Object: 000B37:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: NotReady
+      Data: Legion of the Damned is not ready yet.
+    - MutagenObjectType: ScriptObjectProperty
       Name: Warrior
       Object: 0009A4:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptObjectProperty
@@ -33,7 +42,7 @@ VirtualMachineAdapter:
       Object: 14C018:Skyrim.esm
     - MutagenObjectType: ScriptFloatProperty
       Name: FeverCost
-      Data: 50
+      Data: 25.0
     - MutagenObjectType: ScriptFloatProperty
       Name: BaseHealth
       Data: 80

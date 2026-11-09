@@ -5,6 +5,15 @@ VirtualMachineAdapter:
   - Name: ZP_WrathGate
     Properties:
     - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownSpell
+      Object: 000B30:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownEffect
+      Object: 000B31:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: NotReady
+      Data: Wrath of the Lightborn is not ready yet.
+    - MutagenObjectType: ScriptObjectProperty
       Name: CloakSpell
       Object: 000A6B:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptObjectProperty
@@ -12,7 +21,7 @@ VirtualMachineAdapter:
       Object: 000A6C:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptFloatProperty
       Name: MaxFever
-      Data: 50.0
+      Data: 75.0
 Name:
   TargetLanguage: English
   Value: Wrath of the Lightborn

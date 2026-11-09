@@ -4,14 +4,14 @@ Name:
   TargetLanguage: English
   Value: Force of Nature
 MenuDisplayObject: 191249:Triumvirate - Mage Archetypes.esp
-EquipmentType: 025BEE:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
 Description:
   TargetLanguage: English
   Value: ''
 Flags:
 - IgnoreResistance
 - NoAbsorbOrReflect
-Type: LesserPower
+Type: Voice
 CastType: FireAndForget
 Effects:
 - BaseEffect: 000A98:Zenderal - Prophecy.esp

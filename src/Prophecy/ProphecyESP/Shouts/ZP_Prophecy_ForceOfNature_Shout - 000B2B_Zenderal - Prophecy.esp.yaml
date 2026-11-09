@@ -1,0 +1,13 @@
+FormKey: 000B2B:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ForceOfNature_Shout
+Name:
+  TargetLanguage: English
+  Value: Force of Nature
+MenuDisplayObject: 191249:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: 'For 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends.'
+WordsOfPower:
+- Word: 000B2A:Zenderal - Prophecy.esp
+  Spell: 000A97:Zenderal - Prophecy.esp
+  RecoveryTime: 3

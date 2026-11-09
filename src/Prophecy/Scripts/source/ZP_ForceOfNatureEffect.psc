@@ -29,6 +29,9 @@ Float Property FeverCost = 50.0 Auto
 Float Property PollSeconds = 1.0 Auto
 String Property Refusal = "Your Arcane Fever is too high to call on the Force of Nature." Auto
 Bool Property StripArmor = False Auto
+Spell Property CooldownSpell Auto         ; the talent's own cooldown (2026-11-05): the shout's recovery is shared, so
+MagicEffect Property CooldownEffect Auto  ; each talent runs its own timer - refused while this effect is on the caster
+String Property NotReady = "That talent is not ready yet." Auto
 Armor Property FormSkin Auto              ; the form race's skin, worn by the player's actor base during the form
 
 Actor player
@@ -46,23 +49,32 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	If !player || !FormSpell
 		Return
 	EndIf
-	ZenTraits_ArcaneFeverScript zen = (Game.GetFormFromFile(0x802, "Zen Traits.esp") as Quest) as ZenTraits_ArcaneFeverScript
-	Float cost = FeverCost
-	If zen
-		cost = -zen.ApplyIncreaseFeverMods(-FeverCost)
-	ElseIf player.HasPerk(MentalExpert)
-		cost = cost * 0.67
-	EndIf
-	If -player.GetActorValue("LastFlattered") + cost >= 100.0
-		Debug.Notification(Refusal)
+	If CooldownEffect && player.HasMagicEffect(CooldownEffect)
+		Debug.Notification(NotReady)
 		Return
 	EndIf
-	If zen
-		zen.ModFever(-FeverCost, True)
-	Else
-		player.ModActorValue("LastFlattered", -cost)
-		FeverMessage.Show(cost, -player.GetActorValue("LastFlattered"))
-		FeverImod.Apply()
+	If FeverCost > 0.0        ; a shout with a cooldown since 2026-11-05 (FeverCost 0): no fever, no refusal
+		ZenTraits_ArcaneFeverScript zen = (Game.GetFormFromFile(0x802, "Zen Traits.esp") as Quest) as ZenTraits_ArcaneFeverScript
+		Float cost = FeverCost
+		If zen
+			cost = -zen.ApplyIncreaseFeverMods(-FeverCost)
+		ElseIf player.HasPerk(MentalExpert)
+			cost = cost * 0.67
+		EndIf
+		If -player.GetActorValue("LastFlattered") + cost >= 100.0
+			Debug.Notification(Refusal)
+			Return
+		EndIf
+		If zen
+			zen.ModFever(-FeverCost, True)
+		Else
+			player.ModActorValue("LastFlattered", -cost)
+			FeverMessage.Show(cost, -player.GetActorValue("LastFlattered"))
+			FeverImod.Apply()
+		EndIf
+	EndIf
+	If CooldownSpell
+		CooldownSpell.Cast(player, player)
 	EndIf
 	If StripArmor
 		StripWornArmor()

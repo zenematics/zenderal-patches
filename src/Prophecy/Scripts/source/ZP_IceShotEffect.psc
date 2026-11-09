@@ -12,9 +12,16 @@ FormList Property OldAmmo Auto               ; the ammo to put back once the ice
 GlobalVariable Property Remaining Auto       ; ice shots left from this cast - ZP_IceShotWatcherEffect counts it down
 Int Property ArrowCount = 3 Auto
 Float Property MagickaCost = 50.0 Auto
+Spell Property CooldownSpell Auto         ; the talent's own cooldown (2026-11-05): the shout's recovery is shared, so
+MagicEffect Property CooldownEffect Auto  ; each talent runs its own timer - refused while this effect is on the caster
+String Property NotReady = "That talent is not ready yet." Auto
 
 Event OnEffectStart(Actor akTarget, Actor akCaster)
 	Actor player = akCaster
+	If CooldownEffect && player.HasMagicEffect(CooldownEffect)
+		Debug.Notification(NotReady)
+		Return
+	EndIf
 	If player.GetEquippedItemType(1) != 7
 		Debug.Notification("Ice Shot needs a bow.")
 		Return
@@ -24,6 +31,9 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 		Return
 	EndIf
 	player.DamageActorValue("Magicka", MagickaCost)
+	If CooldownSpell
+		CooldownSpell.Cast(player, player)
+	EndIf
 	Ammo current = FindEquippedAmmo(player)
 	If current && current != IceArrow
 		OldAmmo.Revert()

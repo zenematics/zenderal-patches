@@ -1,0 +1,17 @@
+FormKey: 000B35:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_ForceOfNature_CooldownEffect
+Name:
+  TargetLanguage: English
+  Value: Force of Nature
+Flags:
+- Recover
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'Force of Nature can be used again in <dur> seconds.'

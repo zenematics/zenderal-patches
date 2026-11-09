@@ -22,29 +22,41 @@ Float Property FeverCost = 50.0 Auto
 Float Property BaseHealth = 80.0 Auto
 Float Property HealthPerLevel = 8.0 Auto
 Float Property SpawnDistance = 160.0 Auto
+Spell Property CooldownSpell Auto         ; the talent's own cooldown (2026-11-05): the shout's recovery is shared, so
+MagicEffect Property CooldownEffect Auto  ; each talent runs its own timer - refused while this effect is on the caster
+String Property NotReady = "That talent is not ready yet." Auto
 
 Event OnEffectStart(Actor akTarget, Actor akCaster)
 	Actor player = akCaster
+	If CooldownEffect && player.HasMagicEffect(CooldownEffect)
+		Debug.Notification(NotReady)
+		Return
+	EndIf
 	; the fever goes through Zen Traits (curator 2026-10-24), as every fever change in this list does: its
 	; ApplyIncreaseFeverMods applies Mental Expert, Night Fever, Purified Blood and Arcane Addict, and ModFever applies
 	; the same math, then shows Enderal's fever message, sound and screen effect. Without Zen Traits: Mental Expert only.
-	ZenTraits_ArcaneFeverScript zen = (Game.GetFormFromFile(0x802, "Zen Traits.esp") as Quest) as ZenTraits_ArcaneFeverScript
-	Float cost = FeverCost
-	If zen
-		cost = -zen.ApplyIncreaseFeverMods(-FeverCost)
-	ElseIf player.HasPerk(MentalExpert)
-		cost = cost * 0.67
+	If FeverCost > 0.0        ; a shout with a cooldown since 2026-11-05 (FeverCost 0): no fever, no refusal
+		ZenTraits_ArcaneFeverScript zen = (Game.GetFormFromFile(0x802, "Zen Traits.esp") as Quest) as ZenTraits_ArcaneFeverScript
+		Float cost = FeverCost
+		If zen
+			cost = -zen.ApplyIncreaseFeverMods(-FeverCost)
+		ElseIf player.HasPerk(MentalExpert)
+			cost = cost * 0.67
+		EndIf
+		If -player.GetActorValue("LastFlattered") + cost >= 100.0
+			Debug.Notification("Your Arcane Fever is too high to raise the Legion.")
+			Return
+		EndIf
+		If zen
+			zen.ModFever(-FeverCost, True)
+		Else
+			player.ModActorValue("LastFlattered", -cost)
+			FeverMessage.Show(cost, -player.GetActorValue("LastFlattered"))
+			FeverImod.Apply()
+		EndIf
 	EndIf
-	If -player.GetActorValue("LastFlattered") + cost >= 100.0
-		Debug.Notification("Your Arcane Fever is too high to raise the Legion.")
-		Return
-	EndIf
-	If zen
-		zen.ModFever(-FeverCost, True)
-	Else
-		player.ModActorValue("LastFlattered", -cost)
-		FeverMessage.Show(cost, -player.GetActorValue("LastFlattered"))
-		FeverImod.Apply()
+	If CooldownSpell
+		CooldownSpell.Cast(player, player)
 	EndIf
 	; the old Legion crumbles (its skeletons leave the list as they die)
 	Int i = LegionList.GetSize()

@@ -5,6 +5,15 @@ VirtualMachineAdapter:
   - Name: ZP_IceShotEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownSpell
+      Object: 000B3A:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownEffect
+      Object: 000B3B:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: NotReady
+      Data: Ice Shot is not ready yet.
+    - MutagenObjectType: ScriptObjectProperty
       Name: IceArrow
       Object: 000960:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptObjectProperty

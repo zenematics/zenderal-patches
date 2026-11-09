@@ -1,0 +1,28 @@
+FormKey: 000B4A:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_BleedingShot_Relay
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_CastOnTargetEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellToCast
+      Object: 000933:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Bleeding Shot
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

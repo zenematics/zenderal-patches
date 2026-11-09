@@ -1,0 +1,28 @@
+FormKey: 000B49:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WrathoftheLightborn_BellsEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_PlaySoundEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SoundToPlay
+      Object: 000B48:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Wrath of the Lightborn
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

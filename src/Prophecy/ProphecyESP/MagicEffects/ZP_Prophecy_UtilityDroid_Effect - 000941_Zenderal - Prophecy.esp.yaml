@@ -25,6 +25,21 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptFloatProperty
       Name: StaggerRadius
       Data: 300.0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpareParts
+      Object: 0773ED:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: ScavengeInterval
+      Data: 60
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ScavengeChance
+      Data: 15.0
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ScavengeHours
+      Data: 3.0
+    - MutagenObjectType: ScriptIntProperty
+      Name: ScavengeCount
+      Data: 1
 Name:
   TargetLanguage: English
   Value: Utility Droid

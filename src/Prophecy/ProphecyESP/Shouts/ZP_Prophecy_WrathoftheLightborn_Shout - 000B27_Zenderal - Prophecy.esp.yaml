@@ -1,0 +1,13 @@
+FormKey: 000B27:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_WrathoftheLightborn_Shout
+Name:
+  TargetLanguage: English
+  Value: Wrath of the Lightborn
+MenuDisplayObject: 1097CA:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: 'For 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage.'
+WordsOfPower:
+- Word: 000B26:Zenderal - Prophecy.esp
+  Spell: 000A43:Zenderal - Prophecy.esp
+  RecoveryTime: 3

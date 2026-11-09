@@ -88,6 +88,13 @@ holy line at the same tier (Holy Ray, Holy Cross, Holy Sun Burst). The mod's "un
 | Sanctuary (Master) | 700; 8→24/s over 30 s | 124; 6→18/s |
 | Wrath of the Heavens (Master) | 925; 120 s, bolts 80 | 160; 60 s, bolts 40 (they share Hallowed Flare's bolt spells) |
 
+**Consecrate Dead burns skeletons too (curator, 2026-11-08: "doesn't work on skeletons").** Holy Templar's corpse
+effect `_LIP_ConsecrateMGEF` (`0xA30`) carried a condition *target has no `MagicNoReanimate 06F6FB`*, and every
+skeleton race carries that keyword (Enderal's `SkeletonRace 0B7998`, Mihail's `mihailancientskeletonrace`, which
+Lost Ones Revised's skeletons use), so their corpses were refused. `write_holy` drops the condition
+(`hits['consecrate skeletons']`); the undead damage and stagger parts key on `ActorTypeUndead 013796`, which those
+races have, so they already worked on living skeletons. Unverified in game.
+
 No Arcane Fever on Consecrate's heal (Faith stays fever-free, except Wrath's stated cost). The original mod can be
 disabled: everything it does that works in Enderal is now in this plugin. Sun Shards, Sanctuary and the Hallowed Flare
 spell itself are converted but granted by nothing.
@@ -555,6 +562,13 @@ proc with its cone range 128 → 350 (~5 m), spread 10 → 30, speed 768 → 102
 keyword `000868` removed (so nothing keyed to Hissing Dragon takes them for its own). Frost and shock keep their
 Stamina / Magicka half (dual value).
 
+**A staff fired it (cptflame, 2026-11-06: "the staff of electrosphere is triggering Invoker and i get a free
+fire/frost/lightning cast").** The DLL only tested the hit's source: a hand-to-hand WEAP. A hit the engine blames
+on the player that has no weapon of its own - the Staff of Electrospheres' spheres (Apocalypse `07A7A1`, a Staff-type
+WEAP firing projectile `001873`), any placed hazard - carries the empty hand's fist as its source, so it read as a
+punch. **1.6.2** also requires both hands free of weapons at the hit (a WEAP that is not hand-to-hand in either hand
+refuses it and logs `blamed on the fist while ... is in the ... hand`); spells in hand are fine. Unverified in game.
+
 The count lives in `ZenProphecyRage.dll` 1.1.0 (`DragonsBreath`, same TESHitEvent sink, run before Rage's own
 root-perk gate, so it works without the Rage tree): player hits whose source is a hand-to-hand WEAP, hits closer
 than 0.15 s counted as one swing; every 5th casts a random spell with `CastSpellImmediate` from the player at the
@@ -671,6 +685,61 @@ another target."
   target's chest towards the second's (`desiredTarget` set, no auto-aim). Each pistol hit arrives as two hit events
   (two identical log lines in 1.3.0), so one bounce per victim per 0.15 s. Unverified in game.
 
+## The 50%-fever powers are shouts (curator, 2026-11-05)
+
+"All the 50% arcane fever powers change to Shouts with 200s cooldowns ... also do this for Seismic stomp with 150s
+timer." Wrath of the Lightborn, Force of Nature, Legion of the Damned and Fan the Hammer (the four that cost 50% Arcane
+Fever) and Seismic Stomp (30 s cooldown) are now talents the way Enderal's own are (`_00E_A1_Firearrow`) and Ice Shot
+is: one Word of Power + one Shout whose `RecoveryTime` is the cooldown (200 s; Stomp 150 s), the shout's spell being
+the old power record retyped `Type: Voice` on the voice equip slot. Records `0xB26–0xB2F` (`POWER_SHOUTS`,
+`SHOUT_COOLDOWN`, `STOMP_COOLDOWN` in `tools/01`; `convert_powers_to_shouts()` rewrites the already-written files):
+- the perk's `PerkAbilityEffect` is dropped (`perk_powers` would hand out the Voice spell); the menu grants the shout
+  (`grants`, as Ice Shot) and `Give()` takes the old power back from a save that has it (`GetNthSpell(0)`);
+- no Arcane Fever: Wrath's and Fan's `ZP_WrathGate` lose `FeverSpell` and get `MaxFever` 1000; Legion's and Force of
+  Nature's `FeverCost` is 0 and their scripts skip the whole fever block at 0 (recompiled against Zen Traits' source);
+- Nightfall is not one of them (it costs the Darkness meter, no fever).
+Talent texts say "(N seconds cooldown)"; v3's `ZenProphecyUI.json` regenerated.
+
+**Each talent its own timer (curator, same day: "individual shouts have their own cooldowns ... use 1 and a different
+one with their own independent cooldowns").** A shout's `RecoveryTime` is one clock shared by every shout on the actor,
+so it cannot do that. Every talent word (Ice Shot's too) now has `SHOUT_RECOVERY` 3 s, and the cooldown is the
+talent's own: a self spell whose `Recover` effect lasts the cooldown (`<name> can be used again in <dur> seconds.`,
+visible in Active Effects), records `0xB30–0xB3B` (`add_talent_cooldown`). The talent's effect script carries
+`CooldownSpell` / `CooldownEffect` / `NotReady`: it refuses while the effect is on the caster and casts the cooldown
+when it fires - `ZP_WrathGate` (Wrath, Fan the Hammer), `ZP_LegionEffect`, `ZP_ForceOfNatureEffect`, `ZP_IceShotEffect`
+(all recompiled). Seismic Stomp already worked this way; its cooldown spell is `STOMP_COOLDOWN` 150 s now.
+
+**Wrath of the Lightborn and Legion of the Damned: 10 minutes and 25% Arcane Fever** (curator, same day;
+`LONG_COOLDOWN` 600, `LONG_FEVER` 25 in `POWER_SHOUTS`): Wrath's fever spell `0xA6C` carries magnitude 25 and its gate
+refuses at 75% (`MaxFever` = 100 − cost); Legion's `FeverCost` is 25 (its script refuses where cost would reach 100%).
+Force of Nature and Fan the Hammer stay at 200 s and no fever.
+
+**Veil Wyrm: one 10-minute cooldown of its own** (curator, same day; `WYRM_COOLDOWN` 600, records `0xB3C–0xB43`).
+Shatterveil's shout keeps its three words, each at `SHOUT_RECOVERY` 3 s; each word's spell is now a gate of ours
+(`ZP_Prophecy_VeilWyrm_Word1-3_Gate`, `ZP_WrathGate` with `MaxFever` 1000) that refuses while the shared cooldown effect
+is on and otherwise script-casts Shatterveil's word spell (`shvl_GlassWyrmWord1-3`) and the cooldown. Shatterveil's
+word effects are Script-archetype with no Papyrus (its DLL reacts to them), so a script cast should apply them like
+the shout did; `WYRM_COOLDOWN_MULT` is history. **Unverified: that the DLL's wyrm still fires from a script cast.**
+
+**Cast sounds (curator's files, 2026-11-05, `NEW_POWER_SOUNDS` `0xB44–0xB49`):** Fan the Hammer plays
+`ZP_FanTheHammerCast.wav` (Motion Array "RocketLauncherTargetAcquired_4", 1.4 s) and Wrath of the Lightborn
+`ZP_WrathBells.wav` ("ChurchBellsRinging_4", 16 s), each a `sound_records` effect appended to the power spell;
+`tools/07-build-sounds.py` converts them (24-bit → 16-bit) into the Patch Collection mod (pass its folder; the
+default is the v3 mod). Not committed. Unverified in game.
+
+## Bleeding Shot's bleed survives a weapon switch (GreaseLord, 2026-11-08)
+
+"Bleeding shot is supposed to do 50 damage over 5 seconds however if you switch to another weapon the bleeding will
+stop [this only happens to muskets] ... the bleeding that's applied from the pistol seems to transfer over." The gun hit
+spell `0x910` is shared by the musket and bow talents, so each of its effects is gated on the player's right-hand
+item type (`MUSKET_IN_HAND`, 12). The engine re-evaluates an active effect's conditions while it runs (the same trap
+as Wrath's fever gate), so the Monk bleed (5 s) died the moment the musket left the hand, and the total fell short of
+50. The pistol branch's hit spell has no item-type gate, hence the difference. Now the hit spell carries a 1 s relay
+effect `ZP_Prophecy_BleedingShot_Relay 0xB4A` (gated on Bleeding Shot + `MUSKET_IN_HAND`; read once, at the hit) whose
+script `ZP_CastOnTargetEffect` casts Seismic Stomp's bleed spell `ZP_Prophecy_SeismicStomp_Bleed` (10/s for 5 s,
+MGEF `0x934`, the one the pistol branch applies) on the target; that bleed has no condition. The Monk bleed effect
+left the hit spell; the proc sound's "not while a bleed runs" check reads `0x934` now. Unverified in game.
+
 ## Firearms: the pistol branch (curator, 2026-11-01)
 
 "More Pistol related talents in Prophecy's Firearms tree." Five talents hang from Ricochet Rounds; the musket talents
@@ -750,9 +819,20 @@ own without a behavior graph, and no meshes are shipped.
 An endless art would be written into a save, so all of ours are stopped on `kSaveGame` and again after a load or a
 new game (any model effect using one of the three arts).
 
-**Unverified in game:** that the art follows our node (nocked and in flight), its size, and whether the spell-menu orbs'
-particles look right in the world. If the arrow shows nothing, the log says `effect NOT made` or lists `WEAPON`'s
-children; if the orb is too big or too small, change `ARSENAL_ART_SCALE`.
+**1.6.0 crashed on every first draw (iDeeSign, 2026-11-04, `crash-2026-11-04-14-24-14.log`: "Crash when using Arcane
+Arsenal, no matter which elements ... when trying to shoot an arrow").** `EXCEPTION_ACCESS_VIOLATION` at
+`ZenProphecyRage.dll+32540`, `lock inc [rcx+8]` with `rcx = 1`, with `ZP_ArcaneArrowHead`, `WEAPON` and `Arrow:0` on the
+stack. Disassembled: at `+2CCAA` the DLL calls the engine's `ApplyArtObject` (ID 22769), which on 1.7.104 returns a
+**bool** (`rax = 1`), not the `ModelReferenceEffect*` CommonLib's header declares; 1.6.0 stored that 1 in an
+`NiPointer` and crashed bumping its refcount. **1.6.1** never keeps the return (used only as "applied"); to stop an
+art it runs `ProcessLists::ForEachModelEffect` and finishes the effects carrying our art object on that reference
+(`FinishArt`). The call site now reads the return as a bool (disassembled after the build). Never treat
+`ApplyArtObject`'s return as a pointer on this runtime.
+
+**Verified in game (curator, 2026-11-05, 1.6.1):** "Arcane arsenal fix works" - all three elements, nocked
+(`Arrow:0`) and in flight (`SilverArrowFlight:0`), every application logged `applied`, no crash. If an arrow ever shows
+nothing, the log says `NOT applied` or lists `WEAPON`'s children; if the orb is too big or too small, change
+`ARSENAL_ART_SCALE`.
 
 ## Rage, the eleventh tree (curator, 2026-10-27)
 
@@ -847,6 +927,17 @@ It sits between Glory and Druid. Records are allocated after Sorcerer (`RAGE_FIR
 - **Verified in game (curator, 2026-10-27, 1.0.6):** the Rage actions trigger by direction, and the meter shows
   under the compass at the health bar's width (`width` 63: 69 was too wide). Not yet confirmed: Vehemence, and the
   talent-array length check past 128 (no message box reported).
+- **1.6.3: a power attack's hit is recognised by its start, not only by the hit's flag (curator, 2026-11-09: "a lot
+  of Rage talents aren't triggering in first person, especially one-handed").** The day's log (third person unknown)
+  had six power attacks whose hits landed with Rage above the cost and fired nothing (12:08:35 back at Rage 7,
+  12:09:58 side at 9, 12:10:00/03 back at 10-11, 12:10:05 forward at 12, 12:10:42 side at 12-13), and four starts
+  during Vehemence with no hit event at all. The DLL only fired actions when `TESHitEvent` carried `kPowerAttack`,
+  which the engine copies from the attacker's current attack data at the hit, so those hits arrived unflagged. Now the
+  graph hook also records whether the LAST attack start of any kind (`attackStart*` light, `attackPowerStart*` power,
+  never `bash*`) was a power attack, and a melee hit within 2.5 s of a power start with no light start since counts
+  as a power-attack hit whatever the flag says. Every player hit is logged with its flags, view (1st/3rd person),
+  the engine's attack data name and power flag, and the time since the last start - the next log says whether first
+  person loses the flag or the hit event. Unverified in game.
 - **Talent count:** 134 now, past 128. `ZP_ProphecyMenu.Refresh` now checks the property arrays' lengths against
   `TreeStart` and shows a message box if the game cut them short. The first menu open in game is the test.
 - **Untested risks:**
@@ -1043,6 +1134,18 @@ feet: `ZP_Prophecy_TripwireBlast 0x913` = Enderal's `FireBallExp01 0439C0` + `Da
 Ordinator's Tripwire Snap spell (the one its untouched wire script remote-casts on whoever trips it), conditioned
 `IsHostileToActor PlayerRef`; one blast per 0.5 s (`ZP_Prophecy_TripwireBlastTime 0x915`) so a snap catching several
 actors explodes once. Damage is flat; Tripwire's perk text still describes only the knockdown. Unverified in game.
+**The player tripped their own wire (GreaseLord, 2026-11-04: "pc still ends up triggering the trap at the end of the
+animation ... only way I've found to get trap wire to work now is in uneven terrain").** Ordinator's wire activator
+carries two scripts: its own `ORD_Tripwire_Script` (`OnActivate` → remote-casts the Snap spell) and vanilla's
+`Tripwire` (`TrapTriggerBase`), whose trigger volume fires `OnTriggerEnter` for any actor - `acceptableTrigger`
+only excludes the owning faction / actor base, never the player. The spawner puts the wire 48 units in front of the
+kneeling player, inside that volume's reach, so standing up after the placing scene trips it; on uneven ground the
+wire sits above or below the player's feet and the volume misses. Fix: the activator's `Tripwire` script is swapped
+for `ZP_TripwireTrigger` (extends `Tripwire`; `SCRIPT_SWAP` in `tools/01`, the properties `blockActivate`,
+`FiniteUse`, `TriggerCount`, `TriggerSound` unchanged), which overrides `acceptableTrigger` to refuse the player and
+defer everything else to the parent. Enemies trip it as before; an arrow or a swing still snaps it (`OnHit`). Each
+cast places a fresh wire from the base record, so existing saves get it too. Unverified in game.
+
 **Placing animation (fixed 2026-10-21).** Ordinator's kneel while the wire is laid is a quest scene,
 `ORD_Tripwire_Quest_Scene_Placement 0379A9`. It runs package `0379A7` (idle `IdleSearchBody`, a kneel, on the
 `HoldPosition` template) until the 5 s Tripwire Scene effect ends. The scene points at the quest, never the other
@@ -1274,8 +1377,25 @@ copy closure, and every ID after it, is unchanged (still 254 records copied). Th
   power, when the list has no living droid, looks for one around the player (PO3 `FindAllReferencesOfType` of
   `0x93F`, radius 50000) and recalls it for free. The placer, when a living droid already exists, moves that one to
   the landing spot and gives back `RefundCost` (10) Spare Parts instead of placing a second. Script-only (the placer's
-  new `RefundCost` property is unfilled and uses its default). Unverified in game. A save that already has two keeps
-  both; `disable` one in the console.
+  new `RefundCost` property is unfilled and uses its default). Unverified in game.
+- **Existing saves too (2026-11-05, curator: "I need the droid fix to work on existing saves").** The two fixes above
+  only act when the power is cast or a droid lands, so a save that already held two kept both. Now the droid's own
+  ability script (`ZP_UtilityDroidEffect`, ticking once a second on every droid) checks `DroidList` `0x946` (looked up
+  by ID: a property added to a running effect stays None): if the list names another living, enabled droid, this one
+  is a duplicate and removes itself (`Disable` + `Delete`, a `Debug.Trace` line); if it names none or a dead one, this
+  one claims the list. Two claimants converge (the later claim wins, the other sees it next tick). It runs wherever
+  the droid is, so extras in any cell go the moment they tick after the load. Script-only. Unverified in game.
+- **Spare Parts (2026-11-05, curator: "find spare parts for the player ... random but limited to only 1 per 3
+  hours").** Every `ScavengeInterval` (60 s) the droid's ability, when the droid is out of combat, within `HealRadius`
+  of the player and at least `ScavengeHours` (3) game hours after its last find, rolls `ScavengeChance` (15%) to add
+  `ScavengeCount` (1) `_00E_CraftingPieces 0773ED` to the player's inventory with a notification (`Scavenge()`); the
+  last find is a game-time day kept in the save. A droid out since before the properties looks the item up by ID.
+  `DROID['Scavenge*']`; the talent text says "now and then ... at most one every 3 hours". Unverified in game.
+- **Existing saves, all of it (2026-11-05, curator).** The one-droid check and the scavenging both live in the droid's
+  own ability script, so recompiling reaches droids already out; but a running effect only ever got the record's
+  property values at its first apply, so a property added later reads 0 / None there. `Defaults()` (every tick) fills
+  each tunable that reads as unset with the shipped number and looks `SpareParts` `0773ED` and `StaggerSpell` `0x943` up
+  by ID. New casts place a fresh droid with the record's values. Unverified in game.
 - **The heal shows (2026-10-23, curator: "an effect for when the droid heals me").** The droid now casts
   `ZP_Prophecy_UtilityDroid_Heal 0x9AF` at the player (`RemoteCast`, droid as source) instead of `RestoreActorValue`.
   The spell carries Enderal's heal-other effect `RestoreHealthFFActor 01CEA7` (`HealOther 012FD2`'s) at 15: the

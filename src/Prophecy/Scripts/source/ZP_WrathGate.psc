@@ -10,6 +10,9 @@ Spell Property CloakSpell Auto
 Spell Property FeverSpell Auto
 Float Property MaxFever = 50.0 Auto
 String Property Refusal = "Your Arcane Fever is too high to call down the Wrath of the Lightborn." Auto
+Spell Property CooldownSpell Auto         ; the talent's own cooldown (2026-11-05): the shout's recovery is shared, so
+MagicEffect Property CooldownEffect Auto  ; each talent runs its own timer - refused while this effect is on the caster
+String Property NotReady = "That talent is not ready yet." Auto
 
 Event OnEffectStart(Actor akTarget, Actor akCaster)
 	Actor who = akCaster
@@ -19,6 +22,12 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	If !who || !CloakSpell
 		Return
 	EndIf
+	If CooldownEffect && who.HasMagicEffect(CooldownEffect)
+		If who == Game.GetPlayer()
+			Debug.Notification(NotReady)
+		EndIf
+		Return
+	EndIf
 	If -who.GetActorValue("LastFlattered") >= MaxFever
 		If who == Game.GetPlayer()
 			Debug.Notification(Refusal)
@@ -26,6 +35,9 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 		Return
 	EndIf
 	CloakSpell.Cast(who, who)
+	If CooldownSpell
+		CooldownSpell.Cast(who, who)
+	EndIf
 	If FeverSpell
 		FeverSpell.Cast(who, who)
 	EndIf

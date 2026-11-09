@@ -50,7 +50,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasMagicEffectConditionData
-      MagicEffect: 000829:Zenderal - Prophecy.esp
+      MagicEffect: 000934:Zenderal - Prophecy.esp
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
@@ -58,10 +58,9 @@ Effects:
       Reference: 000014:Skyrim.esm
       ItemSource: Right
     ComparisonValue: 12
-- BaseEffect: 000829:Zenderal - Prophecy.esp
+- BaseEffect: 000B4A:Zenderal - Prophecy.esp
   Data:
-    Magnitude: 10
-    Duration: 5
+    Duration: 1
   Conditions:
   - MutagenObjectType: ConditionFloat
     Data:

@@ -13,7 +13,7 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: PlayerRef
       Object: 000014:Skyrim.esm
-  - Name: Tripwire
+  - Name: ZP_TripwireTrigger
     Properties:
     - MutagenObjectType: ScriptBoolProperty
       Name: blockActivate

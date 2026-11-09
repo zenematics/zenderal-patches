@@ -1,0 +1,13 @@
+FormKey: 000B2D:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_LegionDamned_Shout
+Name:
+  TargetLanguage: English
+  Value: Legion of the Damned
+MenuDisplayObject: 0435A5:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: 'Raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one.'
+WordsOfPower:
+- Word: 000B2C:Zenderal - Prophecy.esp
+  Spell: 0009A2:Zenderal - Prophecy.esp
+  RecoveryTime: 3

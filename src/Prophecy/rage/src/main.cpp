@@ -72,10 +72,14 @@
 // the end of the arrow mesh's bound along its Y axis that points the way the player faces (nocked) or the way the
 // arrow flies. 1.5.0 used the enchantment shaders, which the engine draws over the whole actor whatever the node.
 // Every 20 ms; our art effects are stopped before a save and after a load (an endless art would be saved).
+// 1.6.1 (2026-11-05, player crash log): the engine's ApplyArtObject (ID 22769) returns a BOOL on 1.7.104, not the
+// ModelReferenceEffect* CommonLib's header says (rax = 1 at the call, disassembled); 1.6.0 kept that 1 as a pointer and
+// crashed on its refcount at every first draw. The effect is never kept now: it is found again when it has to stop
+// (ProcessLists::ForEachModelEffect: our art object on that reference).
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyRage.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 6, 0, 0 },
+	.Version = REL::Version{ 1, 6, 3, 0 },
 	.Name = "ZenProphecyRage"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -577,6 +581,21 @@ namespace
 	std::string       g_paDirection;
 	Clock::time_point g_paAt{};
 	constexpr double  kPaWindow = 2.5;   // seconds from the start event to the hit
+	// 1.6.3 (curator, 2026-11-09: "a lot of Rage talents aren't triggering in first person, especially one-handed"):
+	// the log showed power attacks whose hits landed, with Rage to spare, and fired nothing - the hit event came
+	// without its PowerAttack flag. The flag is read from the attacker's current attack data at the hit, and in first
+	// person that is not reliably the power attack's. So the graph hook also remembers whether the LAST attack start
+	// of any kind was a power attack, and a melee hit inside kPaWindow of a power start with no light start since
+	// counts as a power-attack hit whatever the flag says.
+	bool              g_lastStartPower = false;
+	Clock::time_point g_lastStartAt{};
+
+	// an attack start of any kind (light or power, either hand), never a bash
+	bool IsAttackStart(std::string a_event)
+	{
+		std::ranges::transform(a_event, a_event.begin(), [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
+		return (a_event.starts_with("attackstart") || a_event.starts_with("attackpowerstart")) && !a_event.starts_with("bash");
+	}
 
 	std::string DirectionOf(std::string a_event)
 	{
@@ -614,6 +633,10 @@ namespace
 		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_event)
 		{
 			if (a_event.c_str()) {
+				if (IsAttackStart(a_event.c_str())) {
+					g_lastStartPower = !DirectionOf(a_event.c_str()).empty();
+					g_lastStartAt = Clock::now();
+				}
 				if (auto dir = DirectionOf(a_event.c_str()); !dir.empty()) {
 					// 1.0.5's test: every non-sprint power attack starts as attackPowerStartInPlace - the list picks
 					// the directional swing itself, from the movement input at the attack (OAR: For Honor Reforged in
@@ -767,6 +790,18 @@ namespace
 			SKSE::log::info("Dragon's Breath: hit on {:08X} by {:08X} (form type {}) - not unarmed",
 				a_event->target->GetFormID(), a_event->source, kind);
 			return;
+		}
+		// 1.6.2 (cptflame, 2026-11-06: the Staff of Electrospheres fired Invoker): a hit the engine blames on the
+		// player with no weapon of its own (a staff's spheres, a placed hazard) carries the empty hand's fist as its
+		// source, so the source alone does not prove a punch. Both hands must be free of weapons (spells are fine).
+		for (const bool left : { false, true }) {
+			auto* held = player->GetEquippedObject(left);
+			auto* heldWeap = held ? held->As<RE::TESObjectWEAP>() : nullptr;
+			if (heldWeap && !heldWeap->IsHandToHandMelee()) {
+				SKSE::log::info("Dragon's Breath: hit on {:08X} blamed on the fist while {:08X} is in the {} hand - not a punch",
+					victim->GetFormID(), heldWeap->GetFormID(), left ? "left" : "right");
+				return;
+			}
 		}
 		const auto now = Clock::now();
 		if (Seconds(now - g_dragonLastHit) < kDragonSwing) {
@@ -1034,10 +1069,11 @@ namespace
 	// ---------------------------------------------------------------- Arcane Arsenal's elemental arrows
 	struct ArrowArt
 	{
-		RE::NiPointer<RE::ModelReferenceEffect> effect;
-		RE::NiPointer<RE::NiNode>               tip;      // our node at the arrowhead the art hangs on
-		RE::BGSArtObject*                       art{ nullptr };
-		bool                                    done{ false };   // flying arrow that hit: never again
+		RE::NiPointer<RE::NiNode> tip;              // our node at the arrowhead the art hangs on
+		RE::BGSArtObject*         art{ nullptr };
+		RE::FormID                on{ 0 };          // the reference the art was applied to
+		bool                      applied{ false };
+		bool                      done{ false };    // flying arrow that hit: never again
 	};
 	ArrowArt                                   g_nocked;
 	RE::NiPointer<RE::NiAVObject>              g_nockedArrow;   // the arrow mesh g_nocked sits on
@@ -1167,17 +1203,35 @@ namespace
 		return tip;
 	}
 
+	// Ends every model effect carrying a_art on reference a_on (none kept: see the top).
+	void FinishArt(RE::BGSArtObject* a_art, RE::FormID a_on)
+	{
+		if (!a_art || !a_on) {
+			return;
+		}
+		RE::ProcessLists::GetSingleton()->ForEachModelEffect([&](RE::ModelReferenceEffect* a_effect) {
+			if (a_effect && a_effect->artObject == a_art) {
+				auto target = a_effect->target.get();
+				if (target && target->GetFormID() == a_on) {
+					a_effect->finished = true;
+				}
+			}
+			return RE::BSContainer::ForEachResult::kContinue;
+		});
+	}
+
 	void StopArt(ArrowArt& a_art)
 	{
-		if (a_art.effect) {
-			a_art.effect->finished = true;
+		if (a_art.applied) {
+			FinishArt(a_art.art, a_art.on);
 		}
 		if (a_art.tip) {
 			g_staleTips.push_back(a_art.tip);
 		}
-		a_art.effect.reset();
 		a_art.tip.reset();
 		a_art.art = nullptr;
+		a_art.on = 0;
+		a_art.applied = false;
 	}
 
 	bool StartArt(ArrowArt& a_art, RE::TESObjectREFR* a_on, RE::BSGeometry* a_mesh, const RE::NiPoint3& a_forward,
@@ -1189,7 +1243,9 @@ namespace
 		}
 		a_art.tip.reset(tip);
 		a_art.art = a_artObject;
-		a_art.effect.reset(a_on->ApplyArtObject(a_artObject, -1.0f, nullptr, false, false, tip, false));
+		a_art.on = a_on->GetFormID();
+		// the engine returns a bool here (1.6.1): never treat it as a pointer
+		a_art.applied = a_on->ApplyArtObject(a_artObject, -1.0f, nullptr, false, false, tip, false) != nullptr;
 		return true;
 	}
 
@@ -1250,8 +1306,8 @@ namespace
 			const float h = player->GetAngleZ();
 			if (StartArt(g_nocked, player, mesh, { std::sin(h), std::cos(h), 0.0f }, want)) {
 				g_nockedArrow.reset(mesh);
-				SKSE::log::info("Arcane Arsenal: {:08X} on nocked '{}' (effect {})", want->GetFormID(), mesh->name.c_str(),
-					g_nocked.effect ? "made" : "NOT made");
+				SKSE::log::info("Arcane Arsenal: {:08X} on nocked '{}' ({})", want->GetFormID(), mesh->name.c_str(),
+					g_nocked.applied ? "applied" : "NOT applied");
 			}
 		}
 
@@ -1291,8 +1347,8 @@ namespace
 				auto fwd = rd.linearVelocity.SqrLength() > 1.0f ? rd.linearVelocity : rd.velocity;
 				ArrowArt a;
 				if (StartArt(a, proj, flightMesh, fwd, want)) {
-					SKSE::log::info("Arcane Arsenal: {:08X} on arrow {:08X} '{}' (effect {})", want->GetFormID(), id,
-						flightMesh->name.c_str(), a.effect ? "made" : "NOT made");
+					SKSE::log::info("Arcane Arsenal: {:08X} on arrow {:08X} '{}' ({})", want->GetFormID(), id,
+						flightMesh->name.c_str(), a.applied ? "applied" : "NOT applied");
 					g_flying[id] = std::move(a);
 				}
 			}
@@ -1333,12 +1389,27 @@ namespace
 			auto* target = a_event->target.get();
 			if (cause == player && target != player) {
 				auto* victim = target->As<RE::Actor>();
-				if (!victim || !IsMeleeWeapon(a_event->source) || !Counts(cause, target)) {
+				const bool melee = IsMeleeWeapon(a_event->source);
+				const bool flagged = a_event->flags.any(Flag::kPowerAttack);
+				const auto sinceStart = Seconds(Clock::now() - g_lastStartAt);
+				const bool byStart = !flagged && g_lastStartPower && sinceStart <= kPaWindow;
+				{   // 1.6.3 diagnostics: what the hit looked like (first person vs third, the engine's attack data)
+					auto* proc = player->GetActorRuntimeData().currentProcess;
+					auto* ad = (proc && proc->high) ? proc->high->attackData.get() : nullptr;
+					auto* cam = RE::PlayerCamera::GetSingleton();
+					SKSE::log::info("player hit on {:08X} by {:08X}: flags {:#x}{}{}, {}, attack data '{}'{}, {:.2f} s after a {} start{}",
+						target->GetFormID(), a_event->source, a_event->flags.underlying(), flagged ? " power" : "",
+						melee ? "" : " (not a melee weapon)", (cam && cam->IsInFirstPerson()) ? "1st person" : "3rd person",
+						ad ? ad->event.c_str() : "none",
+						(ad && ad->data.flags.any(RE::AttackData::AttackFlag::kPowerAttack)) ? " (power)" : "",
+						sinceStart, g_lastStartPower ? "power" : "light", byStart ? " -> power attack by its start" : "");
+				}
+				if (!victim || !melee || !Counts(cause, target)) {
 					return RE::BSEventNotifyControl::kContinue;
 				}
 				g_lastHit = Clock::now();
 				// actions first, on the Rage the swing started with; then the hit's own stack
-				if (a_event->flags.any(Flag::kPowerAttack)) {
+				if (flagged || byStart) {
 					FireActions(victim);
 				}
 				SetRage(g_rage + 1, "hit landed");
@@ -1614,7 +1685,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.6.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.6.3 loading, runtime {}", REL::Module::get().version().string());
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

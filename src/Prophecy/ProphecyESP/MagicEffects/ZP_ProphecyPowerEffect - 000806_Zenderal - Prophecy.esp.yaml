@@ -311,7 +311,7 @@ VirtualMachineAdapter:
       - "Your hits with silver weapons have a 15% chance to call down a pillar of holy light on the target: 40 damage, while beams of light strike the enemies around it for 10 each. Undead take double damage."
       - "Your Health regenerates 25 percent faster."
       - "You gain 10% resistance to magic."
-      - "Grants the \"Wrath of the Lightborn\" spell (no Mana, 50% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage. It cannot be cast at 50% Arcane Fever or more."
+      - "Grants the \"Wrath of the Lightborn\" talent (10 minutes cooldown, 25% Arcane Fever): for 60 seconds, bolts of sunlight strike enemies within 20 feet of you for 40 damage each. Undead take double damage."
       - "Once every 90 seconds, dropping below 25% Health makes you immune to damage for 6 seconds, then heals you for 100 Health."
       - "Your Mana regenerates 10 percent faster."
       - "You reload muskets 30% faster."
@@ -326,7 +326,7 @@ VirtualMachineAdapter:
       - "Your pistol hits on an enemy within 12 feet deal 50% more damage and stagger it."
       - "A melee hit reloads your pistols at once (once every 15 seconds), and a pistol hit makes your next melee hit within 3 seconds deal 25% more damage."
       - "Your pistol hits deal double damage to enemies that are staggered, knocked down, bleeding out or below 25% Health."
-      - "Grants the \"Fan the Hammer\" power (no Mana, 50% Arcane Fever): for 6 seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy. It cannot be used at 50% Arcane Fever or more."
+      - "Grants the \"Fan the Hammer\" talent (200 seconds cooldown): for 6 seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy."
       - "You move at full speed while aiming a musket."
       - "Your carry weight is increased by 25."
       - "Your maximum Health is increased by 25."
@@ -337,7 +337,7 @@ VirtualMachineAdapter:
       - "Grants the \"Smokescreen\" power: once a day, create a 35-foot cloud of smoke for 180 seconds and turn invisible for 10 seconds. Those inside the cloud are blinded and cannot see sneaking targets, and your sneak attacks against them deal 50% more damage."
       - "You gain 15% resistance to poison."
       - "Your Smokescreen cloud also blinds automatons: mechanical spiders, spheres and centurions inside it can no longer see you."
-      - "Grants the \"Utility Droid\" power: throw out a mechanical spider that follows you, heals you and staggers enemies around it. It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts."
+      - "Grants the \"Utility Droid\" power: throw out a mechanical spider that follows you, heals you, staggers enemies around it and now and then finds a Spare Part for you (at most one every 3 hours). It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts."
       - "Your armor rating is increased by 40."
       - "You can build Clockwork Turrets at a forge, and you receive one when you learn this. The \"Clockwork Turret\" power deploys it for 30 seconds: it turns and fires at your target, or the nearest enemy in combat, dealing damage equal to 30% of your Handicraft skill."
       - "You gain 15% resistance to lightning."
@@ -368,7 +368,7 @@ VirtualMachineAdapter:
       - "Your maximum Health is increased by 25."
       - "You gain 10% resistance to magic."
       - "Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 8 seconds)."
-      - "Grants the \"Seismic Stomp\" power: stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead. Usable once every 30 seconds."
+      - "Grants the \"Seismic Stomp\" talent (150 seconds cooldown): stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead."
       - "Your maximum Health is increased by 25."
       - "Your Blocking skill is increased by 10."
       - "While you are at or below half Health, every hit you take restores 20 Stamina."
@@ -409,7 +409,7 @@ VirtualMachineAdapter:
       - "You can have one more totem standing at a time."
       - "Grants the \"Create Earth Totem\" spell: a totem stands for 60 seconds and casts tremors that deal 120 damage every 7 seconds in combat. An Elementalism spell."
       - "Your maximum Mana is increased by 25."
-      - "Grants the \"Force of Nature\" power (no Mana, 50% Arcane Fever): for 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends. It cannot be used when the fever would reach 100%."
+      - "Grants the \"Force of Nature\" talent (200 seconds cooldown): for 60 seconds you take the form of a Horned Lord, whose power attacks steal Mana, and a raven, a snow leopard and two rattlesnakes fight at your side until they are killed or the form ends."
       - "Grants the \"Arcane Arsenal\" power: choose Fire, Frost or Lightning, and your bow hits deal 10 extra damage of that element."
       - "Your maximum Mana is increased by 25."
       - "Your Marksman skill is increased by 10."
@@ -431,7 +431,7 @@ VirtualMachineAdapter:
       - "A Willing Sacrifice restores 50 Magicka for every enemy it hits."
       - "You gain 15% resistance to frost."
       - "Your armor rating is increased by 40."
-      - "Grants the \"Legion of the Damned\" power: at the cost of 50% Arcane Fever, raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one."
+      - "Grants the \"Legion of the Damned\" talent (10 minutes cooldown, 25% Arcane Fever): raise six skeletons (two warriors, two archers and two mages) that fight at your side for 5 minutes. They do not count against your summon limit, and A Willing Sacrifice can explode them. A new Legion replaces the old one."
       - "Grants the \"Blink Step\" lesser power (35 Mana): you shatter like glass and re-form up to 33 feet ahead."
       - "Your Elementalism skill is increased by 10."
       - "Your maximum Mana is increased by 75."
@@ -447,7 +447,7 @@ VirtualMachineAdapter:
       - "Grants the \"Gravity Well\" spell: a well of gravity pulls nearby enemies into it and staggers them, and drains 20 Health from each into you."
       - "Grants the \"Falling Star\" spell: a falling star strikes for 60 damage and staggers; a target with more Mana than Health also loses Mana."
       - "Your Mana regenerates 10 percent faster."
-      - "Grants the \"Veil Wyrm\" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for 20 seconds: your spells cost half as much Mana and you restore 10 Mana per second. One word recovers in 40 seconds, two in 70, three in 100."
+      - "Grants the \"Veil Wyrm\" shout, all three words: a wyrm of glass forms over your shoulder and roars. Its shockwaves cut and stagger every enemy around you and slow time; two words bring a Veilblade - a copy of you with your weapons - out of the burst to fight for you, three words two of them and throw your enemies back, and you vanish in the shards for 10 seconds. Then blue flames of Mana burn around you for 20 seconds: your spells cost half as much Mana and you restore 10 Mana per second. Any word starts its 10 minute cooldown."
     - MutagenObjectType: ScriptStringListProperty
       Name: Images
       Data:
@@ -895,20 +895,16 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptIntListProperty
       Name: PowerPerk
       Data:
-      - 23
       - 28
       - 31
       - 34
       - 36
       - 52
-      - 65
       - 75
       - 94
-      - 106
       - 107
       - 117
       - 123
-      - 128
       - 121
       - 0
       - 8
@@ -932,11 +928,13 @@ VirtualMachineAdapter:
       - 142
       - 112
       - 144
+      - 65
+      - 106
+      - 128
+      - 23
     - MutagenObjectType: ScriptObjectListProperty
       Name: PowerSpell
       Objects:
-      - Name: ''
-        Object: 000B1D:Zenderal - Prophecy.esp
       - Name: ''
         Object: 0008AA:Zenderal - Prophecy.esp
       - Name: ''
@@ -948,13 +946,9 @@ VirtualMachineAdapter:
       - Name: ''
         Object: 000A7F:Zenderal - Prophecy.esp
       - Name: ''
-        Object: 00092F:Zenderal - Prophecy.esp
-      - Name: ''
         Object: 000921:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000B08:Zenderal - Prophecy.esp
-      - Name: ''
-        Object: 000A97:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000953:Zenderal - Prophecy.esp
       - Name: ''
@@ -962,13 +956,11 @@ VirtualMachineAdapter:
       - Name: ''
         Object: 00099B:Zenderal - Prophecy.esp
       - Name: ''
-        Object: 0009A2:Zenderal - Prophecy.esp
-      - Name: ''
         Object: 000997:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000A40:Zenderal - Prophecy.esp
       - Name: ''
-        Object: 000A43:Zenderal - Prophecy.esp
+        Object: 000B27:Zenderal - Prophecy.esp
       - Name: ''
         Object: 3727BF:Triumvirate - Mage Archetypes.esp
       - Name: ''
@@ -1009,6 +1001,14 @@ VirtualMachineAdapter:
         Object: 000AD8:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000E6A:Shatterveil.esp
+      - Name: ''
+        Object: 000B29:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B2B:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B2D:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B2F:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptIntListProperty
       Name: TreeStart
       Data:

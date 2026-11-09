@@ -62,7 +62,3 @@ Conditions:
   Data:
     MutagenObjectType: HasMagicEffectConditionData
     MagicEffect: 000A30:Zenderal - Prophecy.esp
-- MutagenObjectType: ConditionFloat
-  Data:
-    MutagenObjectType: HasKeywordConditionData
-    Keyword: 06F6FB:Skyrim.esm

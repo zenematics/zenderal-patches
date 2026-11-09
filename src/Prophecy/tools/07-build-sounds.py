@@ -25,6 +25,10 @@ SOUNDS = {
     r'Sound\FX\ZenProphecy\ZP_BlinkStepSwoosh.wav': [('MA_Originals_FastSwooshTransitions_5.wav', 0.0)],
     # The Hunt's howl (2026-10-29): one clip, only converted to 16-bit
     r'Sound\FX\ZenProphecy\ZP_TheHuntHowl.wav': [('MA_Studiobell_WolfHowl_Version (2).wav', 0.0)],
+    # Fan the Hammer's cast (2026-11-05): one clip, converted
+    r'Sound\FX\ZenProphecy\ZP_FanTheHammerCast.wav': [('MA_SoundsByGFXSounds_RocketLauncherTargetAcquired_4.wav', 0.0)],
+    # Wrath of the Lightborn's cast (2026-11-05): church bells, one clip, converted
+    r'Sound\FX\ZenProphecy\ZP_WrathBells.wav': [('MA_SoundsByGFXSounds_ChurchBellsRinging_4.wav', 0.0)],
 }
 MOD = r'E:\Zenderal\mods\Zenderal - Prophecy v3 (Constellation)'
 

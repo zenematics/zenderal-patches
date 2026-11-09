@@ -1,0 +1,13 @@
+FormKey: 000B2F:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_FanTheHammer_Shout
+Name:
+  TargetLanguage: English
+  Value: Fan the Hammer
+MenuDisplayObject: 0435A5:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: 'For 6 seconds time slows around you, your pistols reload at once and every pistol hit ricochets into another enemy.'
+WordsOfPower:
+- Word: 000B2E:Zenderal - Prophecy.esp
+  Spell: 000B1D:Zenderal - Prophecy.esp
+  RecoveryTime: 3

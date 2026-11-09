@@ -5,6 +5,15 @@ VirtualMachineAdapter:
   - Name: ZP_ForceOfNatureEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownSpell
+      Object: 000B34:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownEffect
+      Object: 000B35:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptStringProperty
+      Name: NotReady
+      Data: Force of Nature is not ready yet.
+    - MutagenObjectType: ScriptObjectProperty
       Name: FormSpell
       Object: 28E6EB:Triumvirate - Mage Archetypes.esp
     - MutagenObjectType: ScriptObjectProperty
@@ -24,7 +33,7 @@ VirtualMachineAdapter:
       Object: 069D07:Skyrim.esm
     - MutagenObjectType: ScriptFloatProperty
       Name: FeverCost
-      Data: 50.0
+      Data: 0.0
     - MutagenObjectType: ScriptBoolProperty
       Name: StripArmor
       Data: True

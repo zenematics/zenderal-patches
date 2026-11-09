@@ -2,15 +2,13 @@ FormKey: 000916:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_SeismicStomp
 Description:
   TargetLanguage: English
-  Value: 'Grants the "Seismic Stomp" power: stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead. Usable once every 30 seconds.'
+  Value: 'Grants the "Seismic Stomp" talent (150 seconds cooldown): stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead.'
 Name:
   TargetLanguage: English
   Value: 'Seismic Stomp'
 NumRanks: 1
 Playable: True
 Effects:
-- MutagenObjectType: PerkAbilityEffect
-  Ability: 00092F:Zenderal - Prophecy.esp
 - MutagenObjectType: PerkEntryPointModifyValue
   Conditions:
   - RunOnTabIndex: 1
