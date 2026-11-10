@@ -153,6 +153,11 @@ class Packfile:
             self.data += struct.pack('<f4xQ', time, 0)
         strings = []
         for _, text in new:
+            # Each string on a 16-byte boundary, as Havok writes them: hkStringPtr keeps an "owned" flag in bit 0
+            # of the pointer, so a string at an odd address is read from one byte earlier - the previous string's
+            # NUL - and the annotation arrives as an empty event (LSdFHighStance 2026-11-10: every appended tag at
+            # an odd offset never fired in game; every one at an even offset did).
+            self.data += b'\0' * (_align(len(self.data), 16) - len(self.data))
             pos = len(self.data)
             self.data += text.encode('utf-8') + b'\0'
             strings.append(pos)
@@ -195,10 +200,22 @@ def annotate(src, dst, new):
     for item in new:
         if not any(abs(t - item[0]) < 1e-6 and x == item[1] for t, x in have):
             raise AssertionError(f'{dst}: {item} missing after write')
+    check_string_alignment(check, dst)
     if len(have) != len(pf.annotations()):
         raise AssertionError(f'{dst}: annotation count changed on re-read')
     with open(dst, 'wb') as fh:
         fh.write(out)
+
+
+def check_string_alignment(pf, label):
+    """Every annotation text must start at an even offset (hkStringPtr's bit 0 is a flag, see Packfile.add)."""
+    ptr = dict(pf.local)
+    for track, items in pf.tracks():
+        arr = ptr.get(track + 8)
+        for i in range(len(items)):
+            s = ptr.get(arr + i * ANNOTATION_SIZE + 8)
+            if s is not None and s % 2:
+                raise AssertionError(f'{label}: annotation {items[i]} text at odd offset {s}: the game reads it empty')
 
 
 def read(path):

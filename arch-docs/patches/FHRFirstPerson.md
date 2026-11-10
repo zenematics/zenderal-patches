@@ -71,6 +71,14 @@ which SIGMA's OAR block sets outrank, so they never played. So:
   `82A`/`811`, whose conditions then failed. FHR's own clips stack tags at the same time too. Now every PIE tag in a
   clip is at least `TAG_GAP` = 0.1 s from any other (the generator refuses otherwise): parry `$ParrySpell` 0.10 s
   (FHR's time) + `$BackLight` 0.20 s; power `$…Heavy` 0.10 s + `$FHFX` 0.20 s; riposte `$BackLight` 0.05 s.
+  **Corrected 2026-11-10: the time was not the cause.** `hkx_annotate.py` wrote the new strings back to back, and
+  Havok's `hkStringPtr` uses bit 0 of the pointer as a flag, so any string at an odd offset is read from one byte
+  earlier (an empty tag, no event). `$ParrySpell` came second; moving the tags apart changed which strings landed odd.
+  Proven on LSdFHighStance's trace (every odd-offset tag lost, every even one fired; [`LSdFHighStance`](LSdFHighStance.md)
+  postmortem). The deployed clips (Patch Collection copy, built before the fix) still lose **all 378 `$ParryKnockdown`
+  and 168 of 252 `$FHFX`** tags — the likely cause of the "short parry knockdown" left open below. The tool now aligns
+  every string to 16 bytes and refuses odd offsets; **rerun `tools/01` and redeploy into Patch Collection.** The 0.1 s
+  gap can stay (harmless).
 - **An attack after a parry replayed the parry.** The second attack (~0.2 s after the first ended) logged
   `$BackLight` 84 ms in, i.e. the parry submod matched again; the parry clips carry no root motion
   (no `hkaDefaultAnimatedReferenceFrame`), so the v2 direction test (`DMK == 5`, or `DMK == 0` and moving back)
