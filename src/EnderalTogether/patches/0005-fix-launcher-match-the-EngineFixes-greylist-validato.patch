@@ -1,8 +1,8 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From 1c6b46dbee59df3ee145da0ecd76f7d671db595f Mon Sep 17 00:00:00 2001
 From: Zenderal <noreply@zenderal.local>
 Date: Mon, 9 Nov 2026 14:15:54 +0000
-Subject: [PATCH 5/7] fix(launcher): match the EngineFixes greylist validators
- per line
+Subject: [PATCH 05/12] fix(launcher): match the EngineFixes greylist
+ validators per line
 
 EngineFixes.toml starts with a comment, and the validators are ^-anchored line
 patterns searched over the whole file, so neither matched and EngineFixes.dll

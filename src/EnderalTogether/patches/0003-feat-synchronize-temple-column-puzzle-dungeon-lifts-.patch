@@ -1,7 +1,7 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From a5659d19eb4d6860a630a5bfd87fedeeee58e452 Mon Sep 17 00:00:00 2001
 From: Artyom <artyom@local>
 Date: Sat, 31 Oct 2026 21:59:49 +0300
-Subject: [PATCH 3/7] feat: synchronize temple column puzzle, dungeon lifts,
+Subject: [PATCH 03/12] feat: synchronize temple column puzzle, dungeon lifts,
  and isolate meditation
 
 (cherry picked from commit 534b7d2acff52b1b0e2b4aaa891ea806593c1ac7)

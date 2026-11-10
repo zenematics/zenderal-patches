@@ -1,7 +1,7 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From 217e90fbe8e18ff59a95735c6888c2826936e1cd Mon Sep 17 00:00:00 2001
 From: Zenderal <noreply@zenderal.local>
 Date: Mon, 9 Nov 2026 14:15:54 +0000
-Subject: [PATCH 4/7] build: drop constinit that MSVC 14.51 (VS 2026) rejects
+Subject: [PATCH 04/12] build: drop constinit that MSVC 14.51 (VS 2026) rejects
  on a reinterpret_cast
 
 ---

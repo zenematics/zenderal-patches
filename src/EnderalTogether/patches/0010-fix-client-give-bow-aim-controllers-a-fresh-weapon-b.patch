@@ -1,0 +1,93 @@
+From ddabde219383b44084a54aa550585e2bc38f8492 Mon Sep 17 00:00:00 2001
+From: Zenderal <noreply@zenderal.local>
+Date: Mon, 9 Nov 2026 19:35:39 +0000
+Subject: [PATCH 10/12] fix(client): give bow aim controllers a fresh weapon
+ bone
+
+The game builds a ranged combat context's CombatProjectileAimController from
+the node ID 37586 returns: the AI process's cached weapon bone (a raw, uncounted
+NiNode* in the middle-high process data) when set, otherwise a lookup in the
+actor's 3D. The controller holds a counted reference and releases it in its
+destructor. The game clears the cache only on its own equip and 3D-load paths,
+so a node freed some other way stays cached; in two-player Enderal sessions the
+destructor released freed memory and called a null vtable slot
+(SkyrimSE.exe+080D627, twice in one evening, both archers).
+
+The hook drops the cache before calling the game's function, so the node always
+comes from the actor's current 3D, and logs when the cached pointer differed.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ .../Games/Skyrim/Combat/WeaponBoneCache.cpp   | 60 +++++++++++++++++++
+ 1 file changed, 60 insertions(+)
+ create mode 100644 Code/client/Games/Skyrim/Combat/WeaponBoneCache.cpp
+
+diff --git a/Code/client/Games/Skyrim/Combat/WeaponBoneCache.cpp b/Code/client/Games/Skyrim/Combat/WeaponBoneCache.cpp
+new file mode 100644
+index 00000000..2510f7c0
+--- /dev/null
++++ b/Code/client/Games/Skyrim/Combat/WeaponBoneCache.cpp
+@@ -0,0 +1,60 @@
++// Zenderal: bow and crossbow aim controllers must never take a stale weapon bone.
++//
++// Each actor's AI process caches its bow/crossbow launch node as a raw, uncounted NiNode* (CommonLibSSE-NG:
++// MiddleHighProcessData::weaponBone, +0x150 of AIProcess::middleProcess; get ID 39825, set ID 39826). The getter
++// below (ID 37586) returns that cache when it is set and looks the node up in the actor's 3D only when it is empty;
++// its one caller (ID 33135) builds the CombatProjectileAimController of a ranged combat context, which takes a counted
++// reference to the node and releases it in its destructor (ID 44403). The game clears the cache on its own equip and
++// 3D-load paths only, so a node freed some other way stays cached. In two-player Enderal sessions (2026-11-09, Fog
++// Wood, archers whose equipment and 3D the session kept changing) the destructor then released freed memory and
++// called a null vtable slot. Dropping the cache before the lookup makes the controller take the node from the actor's
++// current 3D every time; the lookup is a name search that runs only when an archer enters a ranged combat context.
++
++#include <Games/Skyrim/Actor.h>
++#include <AI/AIProcess.h>
++
++struct NiNode;
++struct TESObjectWEAP;
++
++TP_THIS_FUNCTION(TGetAimWeaponBone, NiNode*, Actor, TESObjectWEAP* apWeapon);
++static TGetAimWeaponBone* RealGetAimWeaponBone = nullptr;
++
++namespace
++{
++constexpr size_t kWeaponBoneOffset = 0x150; // MiddleHighProcessData::weaponBone
++
++NiNode** GetWeaponBoneCache(Actor* apActor) noexcept
++{
++    AIProcess* pProcess = apActor ? apActor->currentProcess : nullptr;
++    if (!pProcess || !pProcess->middleProcess)
++        return nullptr;
++    return reinterpret_cast<NiNode**>(reinterpret_cast<uint8_t*>(pProcess->middleProcess) + kWeaponBoneOffset);
++}
++} // namespace
++
++NiNode* TP_MAKE_THISCALL(HookGetAimWeaponBone, Actor, TESObjectWEAP* apWeapon)
++{
++    NiNode** ppCache = GetWeaponBoneCache(apThis);
++    if (!ppCache)
++        return TiltedPhoques::ThisCall(RealGetAimWeaponBone, apThis, apWeapon);
++
++    NiNode* pCached = *ppCache;
++    *ppCache = nullptr;
++    NiNode* pFresh = TiltedPhoques::ThisCall(RealGetAimWeaponBone, apThis, apWeapon);
++
++    if (pCached && pCached != pFresh)
++        spdlog::warn("Weapon bone cache of actor {:X} was stale (cached {}, now {}); using the node in its current 3D",
++                     apThis->formID, static_cast<void*>(pCached), static_cast<void*>(pFresh));
++
++    return pFresh;
++}
++
++static TiltedPhoques::Initializer s_weaponBoneCacheHooks(
++    []()
++    {
++        POINTER_SKYRIMSE(TGetAimWeaponBone, s_getAimWeaponBone, 37586);
++
++        RealGetAimWeaponBone = s_getAimWeaponBone.Get();
++
++        TP_HOOK(&RealGetAimWeaponBone, HookGetAimWeaponBone);
++    });
+-- 
+2.55.0.windows.3
+

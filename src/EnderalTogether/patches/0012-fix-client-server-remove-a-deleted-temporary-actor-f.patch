@@ -1,0 +1,221 @@
+From 710103ab5770a67c491cbc81dd6c3dc7b4a3eac4 Mon Sep 17 00:00:00 2001
+From: friendlycocktails-lgtm
+ <268690865+friendlycocktails-lgtm@users.noreply.github.com>
+Date: Tue, 10 Nov 2026 18:16:11 +0000
+Subject: [PATCH 12/12] fix(client,server): remove a deleted temporary actor
+ for every player
+
+CancelServerAssignment released every owned actor that left the game with
+RequestOwnershipTransfer{Relinquish}, unloaded or deleted alike, and the
+server handed it to the next player in range, removing it only when nobody
+could take it. A runtime (FF) actor a script deletes - Enderal's Fog Wood
+arena deletes its wave corpses - lived on with another player, and the
+server sent them all back as dead CharacterSpawnRequests when the deleter
+re-entered the area (89 in seven seconds, four-player session 2026-11-10).
+
+New OwnershipReleaseReason::Deleted (appended; a plain uint8_t on the
+wire). The client sends it for an owned temporary that is deleted or
+disabled when the removal scan drops it (the form is still readable
+there); an unloaded actor still relinquishes. A temporary deleted while
+its assignment is in flight is cancelled as before, with a Deleted flag on
+WaitingForAssignmentComponent, so a grant that arrives afterwards is
+released as Deleted instead of declined (which would also have handed it
+on). The server accepts Deleted from the current owner and, for a
+temporary (no FormIdComponent, not a player), triggers
+CharacterRemoveEvent as it does for a player summon: NotifyRemoveCharacter
+to every player, whose client already deletes a temporary it does not own.
+A plugin-placed actor is handed on as before: the clients only
+SetRemote(false) on removal and keep it.
+
+Client and server both change: every player needs the new exe, the host
+the new server.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+---
+ .../WaitingForAssignmentComponent.h           |  3 ++
+ .../Services/Generic/CharacterService.cpp     | 53 ++++++++++++++++---
+ .../Messages/RequestOwnershipTransfer.h       |  5 +-
+ Code/server/Services/CharacterService.cpp     | 26 +++++++--
+ 4 files changed, 76 insertions(+), 11 deletions(-)
+
+diff --git a/Code/client/Components/WaitingForAssignmentComponent.h b/Code/client/Components/WaitingForAssignmentComponent.h
+index 1dfe4aff..d77eb648 100644
+--- a/Code/client/Components/WaitingForAssignmentComponent.h
++++ b/Code/client/Components/WaitingForAssignmentComponent.h
+@@ -8,4 +8,7 @@ struct WaitingForAssignmentComponent
+ {
+     uint32_t Cookie;
+     bool Cancelled{false};
++    // Cancelled because the actor is a temporary that was deleted (or disabled) while the request was in flight: if the
++    // answer makes us its owner, ask the server to remove it instead of declining the grant.
++    bool Deleted{false};
+ };
+diff --git a/Code/client/Services/Generic/CharacterService.cpp b/Code/client/Services/Generic/CharacterService.cpp
+index 1f4a727c..21fdd13a 100644
+--- a/Code/client/Services/Generic/CharacterService.cpp
++++ b/Code/client/Services/Generic/CharacterService.cpp
+@@ -383,7 +383,9 @@ void CharacterService::OnAssignCharacter(const AssignCharacterResponse& acMessag
+     }
+ 
+     const auto cEntity = *itor;
+-    const bool isCancelled = view.get<WaitingForAssignmentComponent>(cEntity).Cancelled;
++    const auto& waitingComponent = view.get<WaitingForAssignmentComponent>(cEntity);
++    const bool isCancelled = waitingComponent.Cancelled;
++    const bool isDeleted = waitingComponent.Deleted;
+ 
+     m_world.remove<WaitingForAssignmentComponent>(cEntity);
+ #if (!IS_MASTER)
+@@ -393,7 +395,22 @@ void CharacterService::OnAssignCharacter(const AssignCharacterResponse& acMessag
+     if (isCancelled)
+     {
+         if (acMessage.Owner)
+-            DeclineOwnership(acMessage.ServerId, acMessage.OwnershipEpoch);
++        {
++            if (isDeleted)
++            {
++                // The server just made us the owner of an actor our game has already deleted: have it removed everywhere
++                // (see CancelServerAssignment) rather than declined, which would hand it to the next player in range.
++                RequestOwnershipTransfer request{};
++                request.ServerId = acMessage.ServerId;
++                request.OwnershipEpoch = acMessage.OwnershipEpoch;
++                request.Reason = OwnershipReleaseReason::Deleted;
++                m_transport.Send(request);
++
++                spdlog::info("Deleted temporary actor while its assignment was pending, server id: {:X}, epoch: {}", acMessage.ServerId, acMessage.OwnershipEpoch);
++            }
++            else
++                DeclineOwnership(acMessage.ServerId, acMessage.OwnershipEpoch);
++        }
+ 
+         if (m_world.valid(cEntity))
+             m_world.destroy(cEntity);
+@@ -1560,6 +1577,13 @@ void CharacterService::RequestServerAssignment(const entt::entity aEntity) const
+     }
+ }
+ 
++// A script deleted a runtime (FF) actor, or disabled it as the first step of deleting it: the removal scan still finds the
++// form with these flags set, while an actor that merely left the loaded area has them clear and is handed on as before.
++static bool IsDeletedTemporary(const Actor& acActor) noexcept
++{
++    return acActor.IsTemporary() && (acActor.IsDeleted() || acActor.IsDisabled());
++}
++
+ void CharacterService::CancelServerAssignment(const entt::entity aEntity, const uint32_t aFormId) const noexcept
+ {
+     if (m_world.all_of<RemoteComponent>(aEntity))
+@@ -1589,6 +1613,11 @@ void CharacterService::CancelServerAssignment(const entt::entity aEntity, const
+     {
+         auto& waitingComponent = m_world.get<WaitingForAssignmentComponent>(aEntity);
+         waitingComponent.Cancelled = true;
++
++        // The actor is gone by the time the answer arrives, so decide now whether it was deleted (OnAssignCharacter).
++        if (const Actor* pActor = Cast<Actor>(TESForm::GetById(aFormId)); pActor && IsDeletedTemporary(*pActor))
++            waitingComponent.Deleted = true;
++
+         return;
+     }
+ 
+@@ -1603,7 +1632,14 @@ void CharacterService::CancelServerAssignment(const entt::entity aEntity, const
+ 
+         if (Actor* pActor = Cast<Actor>(TESForm::GetById(aFormId)))
+         {
+-            if (!pActor->IsTemporary())
++            if (IsDeletedTemporary(*pActor))
++            {
++                // Zenderal: a deleted temporary is removed on the server for every player. Relinquishing it handed the
++                // Fog Wood's deleted corpses to the next player in range, who kept them, and the server sent them all back
++                // as dead spawns when their deleter re-entered the area.
++                request.Reason = OwnershipReleaseReason::Deleted;
++            }
++            else if (!pActor->IsTemporary())
+             {
+                 auto& modSystem = m_world.GetModSystem();
+ 
+@@ -1623,10 +1659,13 @@ void CharacterService::CancelServerAssignment(const entt::entity aEntity, const
+             }
+         }
+ 
+-        spdlog::info(
+-            "Transferring ownership of local actor, server id: {:X}, epoch: {}, worldspace: {:X}, cell: {:X}, position: "
+-            "({}, {}, {})",
+-            request.ServerId, request.OwnershipEpoch, request.WorldSpaceId.BaseId, request.CellId.BaseId, request.Position.x, request.Position.y, request.Position.z);
++        if (request.Reason == OwnershipReleaseReason::Deleted)
++            spdlog::info("Deleted temporary actor, server id: {:X}, epoch: {}, form id: {:X}", request.ServerId, request.OwnershipEpoch, aFormId);
++        else
++            spdlog::info(
++                "Transferring ownership of local actor, server id: {:X}, epoch: {}, worldspace: {:X}, cell: {:X}, position: "
++                "({}, {}, {})",
++                request.ServerId, request.OwnershipEpoch, request.WorldSpaceId.BaseId, request.CellId.BaseId, request.Position.x, request.Position.y, request.Position.z);
+ 
+         m_transport.Send(request);
+ 
+diff --git a/Code/encoding/Messages/RequestOwnershipTransfer.h b/Code/encoding/Messages/RequestOwnershipTransfer.h
+index bfcb7795..81e8023a 100644
+--- a/Code/encoding/Messages/RequestOwnershipTransfer.h
++++ b/Code/encoding/Messages/RequestOwnershipTransfer.h
+@@ -8,7 +8,10 @@
+ enum class OwnershipReleaseReason : uint8_t
+ {
+     Relinquish,
+-    DeclineGrant
++    DeclineGrant,
++    // The owner's game deleted a temporary actor (a script's Delete, or the Disable that precedes it): remove the
++    // character for every player instead of handing it to the next owner in range.
++    Deleted
+ };
+ 
+ struct RequestOwnershipTransfer final : ClientMessage
+diff --git a/Code/server/Services/CharacterService.cpp b/Code/server/Services/CharacterService.cpp
+index 21c4b237..ac6a30f9 100644
+--- a/Code/server/Services/CharacterService.cpp
++++ b/Code/server/Services/CharacterService.cpp
+@@ -269,7 +269,9 @@ void CharacterService::OnOwnershipTransferRequest(const PacketEvent<RequestOwner
+         return;
+     }
+ 
+-    if (message.Reason != OwnershipReleaseReason::Relinquish && message.Reason != OwnershipReleaseReason::DeclineGrant)
++    // Deleted is a release too: the owner's game no longer has the actor at all.
++    const bool isRelease = message.Reason == OwnershipReleaseReason::Relinquish || message.Reason == OwnershipReleaseReason::Deleted;
++    if (!isRelease && message.Reason != OwnershipReleaseReason::DeclineGrant)
+     {
+         spdlog::warn("Ignored ownership release with invalid reason from player {:X} for actor {:X}", acMessage.pPlayer->GetId(), message.ServerId);
+         return;
+@@ -283,7 +285,25 @@ void CharacterService::OnOwnershipTransferRequest(const PacketEvent<RequestOwner
+         return;
+     }
+ 
+-    if (message.Reason == OwnershipReleaseReason::Relinquish && (message.WorldSpaceId || message.CellId))
++    if (message.Reason == OwnershipReleaseReason::Deleted)
++    {
++        // Zenderal: a temporary (a runtime FF actor, so no FormIdComponent: PlaceAtMe spawns such as the Fog Wood's waves)
++        // exists on the other clients only as the copy this server gave them, which they delete on NotifyRemoveCharacter.
++        // Removing the character drops it everywhere; handing it to the next player in range kept every deleted corpse
++        // alive and sent them all back as dead spawns when the deleter re-entered the area.
++        if (!m_world.try_get<FormIdComponent>(cEntity) && !characterComponent.IsPlayer())
++        {
++            spdlog::info("Removing temporary actor {:X} deleted by its owner {:X}", message.ServerId, acMessage.pPlayer->GetId());
++            m_world.GetDispatcher().trigger(CharacterRemoveEvent(message.ServerId));
++            return;
++        }
++
++        // A plugin-placed actor a quest disabled or deleted: the clients only SetRemote(false) on removal and keep the actor,
++        // so removing the character would just leave their copies unsynced. Released like a plain Relinquish instead.
++        spdlog::debug("Deleted actor {:X} from player {:X} is not temporary, handing it on instead", message.ServerId, acMessage.pPlayer->GetId());
++    }
++
++    if (isRelease && (message.WorldSpaceId || message.CellId))
+     {
+         const auto* pFormIdComponent = m_world.try_get<FormIdComponent>(cEntity);
+         if (pFormIdComponent)
+@@ -308,7 +328,7 @@ void CharacterService::OnOwnershipTransferRequest(const PacketEvent<RequestOwner
+ 
+     // A normal release starts a fresh search. A declined grant continues the current
+     // search, retaining failed candidates so unloaded clients cannot bounce ownership.
+-    if (message.Reason == OwnershipReleaseReason::Relinquish)
++    if (isRelease)
+         ownerComponent.InvalidOwners.clear();
+ 
+     ownerComponent.InvalidOwners.push_back(acMessage.pPlayer);
+-- 
+2.55.0.windows.3
+

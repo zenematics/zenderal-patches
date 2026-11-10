@@ -1,7 +1,7 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From a900f717d183cfe339fd73ff5ac6a8b829b18408 Mon Sep 17 00:00:00 2001
 From: Zenderal <noreply@zenderal.local>
 Date: Mon, 9 Nov 2026 15:13:54 +0000
-Subject: [PATCH 7/7] ui(zenderal): Futura Book BT and an Enderal prologue
+Subject: [PATCH 07/12] ui(zenderal): Futura Book BT and an Enderal prologue
  warning
 
 The font stack starts with 'futura-book', declared in index.html and supplied at

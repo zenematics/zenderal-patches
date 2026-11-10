@@ -1,0 +1,114 @@
+From 64b1a366ade1b016c7986ba176acca17e446cb9b Mon Sep 17 00:00:00 2001
+From: Zenderal <noreply@zenderal.local>
+Date: Mon, 9 Nov 2026 19:23:33 +0000
+Subject: [PATCH 09/12] fix(client): don't keep the caster in the queued
+ SpellCastEvent
+
+HookSpellCast queued a SpellCastEvent holding the raw ActorMagicCaster*, and
+MagicService::OnSpellCastEvent read it on the next World update. An actor's
+caster can be destroyed in between (the actor unloads or is deleted): in a
+two-player Enderal session the event's caster had been freed and reused, its
+pCasterActor read 0x3E924C40, and the vtable read crashed the game
+(MagicService.cpp, the pCasterActor->GetNiNode() check).
+
+The event now carries the caster's form ID, casting source and dual-cast flag,
+read at cast time, and OnSpellCastEvent looks the actor up again by form ID.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ Code/client/Events/SpellCastEvent.h              | 16 +++++++++++-----
+ .../Games/Skyrim/Magic/ActorMagicCaster.cpp      |  4 +++-
+ Code/client/Services/Generic/MagicService.cpp    | 11 +++++++----
+ 3 files changed, 21 insertions(+), 10 deletions(-)
+
+diff --git a/Code/client/Events/SpellCastEvent.h b/Code/client/Events/SpellCastEvent.h
+index 20776f13..ab252d5f 100644
+--- a/Code/client/Events/SpellCastEvent.h
++++ b/Code/client/Events/SpellCastEvent.h
+@@ -1,20 +1,26 @@
+ #pragma once
+ 
+-struct ActorMagicCaster;
+-
+ /**
+  * @brief Dispatched when a spell has been cast locally.
++ *
++ * The event is queued and handled on the next World update, so it carries plain values read at cast time and never
++ * the caster itself: an actor's MagicCaster can be destroyed in between (an actor unloading or being deleted), and
++ * reading a freed caster crashed MagicService::OnSpellCastEvent (Zenderal, 2026-11-09).
+  */
+ struct SpellCastEvent
+ {
+-    SpellCastEvent(ActorMagicCaster* apCaster, uint32_t aSpellId, uint32_t aDesiredTargetID)
+-        : pCaster(apCaster)
++    SpellCastEvent(uint32_t aCasterFormId, int32_t aCastingSource, bool aIsDualCasting, uint32_t aSpellId, uint32_t aDesiredTargetID)
++        : CasterFormId(aCasterFormId)
++        , CastingSource(aCastingSource)
++        , IsDualCasting(aIsDualCasting)
+         , SpellId(aSpellId)
+         , DesiredTargetID(aDesiredTargetID)
+     {
+     }
+ 
+-    ActorMagicCaster* pCaster;
++    uint32_t CasterFormId;
++    int32_t CastingSource;
++    bool IsDualCasting;
+     uint32_t SpellId;
+     uint32_t DesiredTargetID;
+ };
+diff --git a/Code/client/Games/Skyrim/Magic/ActorMagicCaster.cpp b/Code/client/Games/Skyrim/Magic/ActorMagicCaster.cpp
+index 12ff6482..eb2b2013 100644
+--- a/Code/client/Games/Skyrim/Magic/ActorMagicCaster.cpp
++++ b/Code/client/Games/Skyrim/Magic/ActorMagicCaster.cpp
+@@ -40,8 +40,10 @@ void TP_MAKE_THISCALL(HookSpellCast, ActorMagicCaster, bool abSuccess, int32_t a
+         }
+     }
+ 
++    // Read everything the event needs now: it is handled on the next World update, when this caster may be gone.
+     if (apSpell)
+-        World::Get().GetRunner().Trigger(SpellCastEvent(apThis, apSpell->formID, targetFormId));
++        World::Get().GetRunner().Trigger(SpellCastEvent(apThis->pCasterActor->formID, static_cast<int32_t>(apThis->GetCastingSource()),
++                                                        apThis->GetIsDualCasting(), apSpell->formID, targetFormId));
+ 
+     TiltedPhoques::ThisCall(RealSpellCast, apThis, abSuccess, auiTargetCount, apSpell);
+ }
+diff --git a/Code/client/Services/Generic/MagicService.cpp b/Code/client/Services/Generic/MagicService.cpp
+index 52ac017b..51c88238 100644
+--- a/Code/client/Services/Generic/MagicService.cpp
++++ b/Code/client/Services/Generic/MagicService.cpp
+@@ -62,7 +62,10 @@ void MagicService::OnSpellCastEvent(const SpellCastEvent& acEvent) const noexcep
+     if (!m_transport.IsConnected())
+         return;
+ 
+-    if (!acEvent.pCaster->pCasterActor || !acEvent.pCaster->pCasterActor->GetNiNode())
++    // The caster is looked up again by form ID: the event was queued at cast time and the actor's MagicCaster may
++    // have been destroyed since.
++    Actor* pCasterActor = acEvent.CasterFormId ? Cast<Actor>(TESForm::GetById(acEvent.CasterFormId)) : nullptr;
++    if (!pCasterActor || !pCasterActor->GetNiNode())
+     {
+         spdlog::warn("Spell cast event has no actor or actor is not loaded");
+         return;
+@@ -89,7 +92,7 @@ void MagicService::OnSpellCastEvent(const SpellCastEvent& acEvent) const noexcep
+         }
+     }
+ 
+-    uint32_t formId = acEvent.pCaster->pCasterActor->formID;
++    uint32_t formId = acEvent.CasterFormId;
+ 
+     auto view = m_world.view<FormIdComponent, LocalComponent>();
+     const auto casterEntityIt = std::find_if(std::begin(view), std::end(view), [formId, view](entt::entity entity) { return view.get<FormIdComponent>(entity).Id == formId; });
+@@ -102,8 +105,8 @@ void MagicService::OnSpellCastEvent(const SpellCastEvent& acEvent) const noexcep
+     SpellCastRequest request{};
+ 
+     request.CasterId = localComponent.Id;
+-    request.CastingSource = acEvent.pCaster->GetCastingSource();
+-    request.IsDualCasting = acEvent.pCaster->GetIsDualCasting();
++    request.CastingSource = acEvent.CastingSource;
++    request.IsDualCasting = acEvent.IsDualCasting;
+ 
+     if (!m_world.GetModSystem().GetServerModId(acEvent.SpellId, request.SpellFormId))
+     {
+-- 
+2.55.0.windows.3
+

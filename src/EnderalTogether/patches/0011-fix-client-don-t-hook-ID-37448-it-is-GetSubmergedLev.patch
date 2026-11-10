@@ -1,0 +1,47 @@
+From ab4fcc9f5e3f5611d7a51fd730d06998341a6fe8 Mon Sep 17 00:00:00 2001
+From: friendlycocktails-lgtm
+ <268690865+friendlycocktails-lgtm@users.noreply.github.com>
+Date: Mon, 9 Nov 2026 23:33:22 +0000
+Subject: [PATCH 11/12] fix(client): don't hook ID 37448, it is
+ GetSubmergedLevel, not attribute regen
+
+HookRegenAttributes treated ID 37448 as RegenAttributes(Actor*, int aId,
+float aValue). It is Actor::GetSubmergedLevel(float aZ, TESObjectCELL*
+apCell) (CommonLibSSE-NG RelocationID(36452, 37448)): on 1.7.104 it keeps
+the float from xmm1 and the cell from r8, compares the cell with the
+actor's parentCell and calls the cell's water-height check.
+
+Whenever edx happened to be 24 (kHealth) the hook took its health path,
+whose calls clobber xmm1 and r8, and the game then read the water height
+of a garbage cell: access violation at SkyrimSE.exe+2BEE00
+(movzx edx, word ptr [rcx+0x40], rcx 0x7FFFFFFFFFFFFFFC), same registers
+on two PCs. The hook is no longer installed; health still syncs through
+the damage and effect hooks and ActorValueService's broadcast.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ Code/client/Games/Skyrim/Actor.cpp | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/Code/client/Games/Skyrim/Actor.cpp b/Code/client/Games/Skyrim/Actor.cpp
+index 00fb1d2f..b49d70b1 100644
+--- a/Code/client/Games/Skyrim/Actor.cpp
++++ b/Code/client/Games/Skyrim/Actor.cpp
+@@ -1350,7 +1350,13 @@ static TiltedPhoques::Initializer s_actorHooks(
+         TP_HOOK(&RealSpawnActorInWorld, HookSpawnActorInWorld);
+         TP_HOOK(&RealDamageActor, HookDamageActor);
+         TP_HOOK(&RealApplyActorEffect, HookApplyActorEffect);
+-        TP_HOOK(&RealRegenAttributes, HookRegenAttributes);
++        // Zenderal: not installed. ID 37448 is Actor::GetSubmergedLevel(float aZ, TESObjectCELL* apCell)
++        // (CommonLibSSE-NG RelocationID(36452, 37448); on 1.7.104 it takes the float in xmm1, compares r8 with
++        // the actor's parentCell and calls the cell's water-height check), not a regen function. Whenever edx
++        // happened to be 24 (kHealth) the hook's extra calls clobbered xmm1/r8, and the game read the water
++        // height of a garbage cell (SkyrimSE.exe+2BEE00, rcx 0x7FFFFFFFFFFFFFFC; two PCs, 2026-11-09).
++        // Health still syncs through the damage/effect hooks and ActorValueService's broadcast.
++        // TP_HOOK(&RealRegenAttributes, HookRegenAttributes);
+         TP_HOOK(&RealAddInventoryItem, HookAddInventoryItem);
+         TP_HOOK(&RealPickUpObject, HookPickUpObject);
+         TP_HOOK(&RealDropObject, HookDropObject);
+-- 
+2.55.0.windows.3
+

@@ -1,8 +1,8 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From e79426adf27498c4d73a5a37b26f2cbfe2fe112f Mon Sep 17 00:00:00 2001
 From: Zenderal <noreply@zenderal.local>
 Date: Mon, 9 Nov 2026 15:05:57 +0000
-Subject: [PATCH 6/7] fix(client): don't sync actions that have no actor or no
- BGSAction
+Subject: [PATCH 06/12] fix(client): don't sync actions that have no actor or
+ no BGSAction
 
 HookPerformAction read apAction->action->formID unconditionally; in Enderal an
 NPC's action came through with action == nullptr and crashed the game.

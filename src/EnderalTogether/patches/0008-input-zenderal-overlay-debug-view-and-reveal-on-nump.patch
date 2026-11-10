@@ -1,0 +1,106 @@
+From f3c42b194c5db9093e8ef09f0cd71d8c01f77615 Mon Sep 17 00:00:00 2001
+From: Zenderal <noreply@zenderal.local>
+Date: Mon, 9 Nov 2026 16:24:11 +0000
+Subject: [PATCH 08/12] input(zenderal): overlay, debug view and reveal on
+ numpad 7/8/9 instead of F2/F3/F4
+
+F1-F4 are the list's stance keys. Numpad 7 opens the overlay (Right Ctrl still
+toggles it); while it is open the numpad types, so only Right Ctrl and Escape
+close it. Numpad 8/9 replace the F3/F4 GetAsyncKeyState polls with flags set
+from the raw-input handler, which maps the numpad Num Lock-independently.
+---
+ Code/client/Services/Debug/DebugService.cpp   |  4 +++-
+ Code/client/Services/Generic/InputService.cpp | 23 +++++++++++++++----
+ Code/client/Services/Generic/MagicService.cpp |  4 +++-
+ Code/client/TiltedOnlineApp.cpp               |  3 ++-
+ 4 files changed, 27 insertions(+), 7 deletions(-)
+
+diff --git a/Code/client/Services/Debug/DebugService.cpp b/Code/client/Services/Debug/DebugService.cpp
+index c36d6693..55641dad 100644
+--- a/Code/client/Services/Debug/DebugService.cpp
++++ b/Code/client/Services/Debug/DebugService.cpp
+@@ -165,7 +165,9 @@ void DebugService::OnUpdate(const UpdateEvent& acUpdateEvent) noexcept
+     static std::atomic<bool> s_f7Pressed = false;
+     static std::atomic<bool> s_f6Pressed = false;
+ 
+-    if (GetAsyncKeyState(VK_F3) & 0x01)
++    // Zenderal: numpad 8 (was F3, a stance key in the list); set by InputService's raw-input handler.
++    extern std::atomic<bool> g_zenDebugKeyPressed;
++    if (g_zenDebugKeyPressed.exchange(false))
+     {
+         m_showDebugStuff = !m_showDebugStuff;
+     }
+diff --git a/Code/client/Services/Generic/InputService.cpp b/Code/client/Services/Generic/InputService.cpp
+index 558ead84..910d8b63 100644
+--- a/Code/client/Services/Generic/InputService.cpp
++++ b/Code/client/Services/Generic/InputService.cpp
+@@ -86,10 +86,17 @@ uint32_t GetCefModifiers(uint16_t aVirtualKey)
+     return modifiers;
+ }
+ 
+-// remember to update this when updating toggle keys
+-bool IsToggleKey(int aKey) noexcept
++// Zenderal: F1-F4 are the list's stance keys, so the overlay opens on numpad 7 (was F2), the debug view on numpad 8
++// (was F3) and "reveal players" on numpad 9 (was F4). While the overlay is open the numpad types (server addresses),
++// so there only Right Ctrl and Escape close it. ProcessKeyboard maps a non-E0 Home/Up/Page Up to VK_NUMPAD7/8/9
++// first, so all three work with Num Lock on or off.
++std::atomic<bool> g_zenDebugKeyPressed{false};
++std::atomic<bool> g_zenRevealKeyPressed{false};
++
++// remember to update this when updating toggle keys (TiltedOnlineApp::InstallHooks2's DInput toggle keys)
++bool IsToggleKey(int aKey, bool aActive) noexcept
+ {
+-    return aKey == VK_RCONTROL || aKey == VK_F2;
++    return aKey == VK_RCONTROL || (aKey == VK_NUMPAD7 && !aActive);
+ }
+ 
+ bool IsDisableKey(int aKey) noexcept
+@@ -191,7 +198,15 @@ void ProcessKeyboard(uint16_t aKey, uint16_t aScanCode, cef_key_event_type_t aTy
+ 
+     spdlog::debug("ProcessKey, type: {}, key: {}, active: {}", aType, aKey, active);
+ 
+-    if (aType != KEYEVENT_CHAR && (IsToggleKey(aKey) || (IsDisableKey(aKey) && active)))
++    if (aType == KEYEVENT_KEYDOWN && !active)
++    {
++        if (aKey == VK_NUMPAD8)
++            g_zenDebugKeyPressed = true;
++        else if (aKey == VK_NUMPAD9)
++            g_zenRevealKeyPressed = true;
++    }
++
++    if (aType != KEYEVENT_CHAR && (IsToggleKey(aKey, active) || (IsDisableKey(aKey) && active)))
+     {
+         if (!overlay.GetInGame())
+         {
+diff --git a/Code/client/Services/Generic/MagicService.cpp b/Code/client/Services/Generic/MagicService.cpp
+index cfbbe104..52ac017b 100644
+--- a/Code/client/Services/Generic/MagicService.cpp
++++ b/Code/client/Services/Generic/MagicService.cpp
+@@ -645,7 +645,9 @@ void MagicService::UpdateRevealOtherPlayersEffect(bool aForceTrigger) noexcept
+     static std::chrono::steady_clock::time_point revealStartTimePoint;
+     static std::chrono::steady_clock::time_point lastSendTimePoint;
+ 
+-    const bool shouldActivate = aForceTrigger || GetAsyncKeyState(VK_F4) & 0x01;
++    // Zenderal: numpad 9 (was F4, a stance key in the list); set by InputService's raw-input handler.
++    extern std::atomic<bool> g_zenRevealKeyPressed;
++    const bool shouldActivate = aForceTrigger || g_zenRevealKeyPressed.exchange(false);
+ 
+     if (shouldActivate && !m_revealingOtherPlayers)
+     {
+diff --git a/Code/client/TiltedOnlineApp.cpp b/Code/client/TiltedOnlineApp.cpp
+index 98b6c65b..09641898 100644
+--- a/Code/client/TiltedOnlineApp.cpp
++++ b/Code/client/TiltedOnlineApp.cpp
+@@ -147,7 +147,8 @@ void TiltedOnlineApp::InstallHooks2()
+     TiltedPhoques::Initializer::RunAll();
+ 
+     TiltedPhoques::DInputHook::Install();
+-    TiltedPhoques::DInputHook::Get().SetToggleKeys({DIK_F2, DIK_RCONTROL});
++    // Zenderal: numpad 7 instead of F2 (the list's stance keys are F1-F4); DIK codes are scan codes, Num Lock-proof.
++    TiltedPhoques::DInputHook::Get().SetToggleKeys({DIK_NUMPAD7, DIK_RCONTROL});
+ }
+ 
+ void TiltedOnlineApp::UninstallHooks()
+-- 
+2.55.0.windows.3
+
