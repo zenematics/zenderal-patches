@@ -137,5 +137,34 @@ its doc. Disable `Zenderal - Water Trace (testing)` after use. Worth reporting u
 Rebuild against a Bottled Shaders update. The DLL refuses to hook if Attach no longer carries Unified Water's jump. It
 depends on Unified Water's cache format and tile layout (`WaterCache.cpp`, `UnifiedWater.cpp`, dev branch 2026-10).
 
+**1.5.1 (2026-11-09), for Bottled Shaders 1.0.27.** Source diff `f9a357c1` (1.0.22) → `15b72841` (1.0.27):
+`WaterCache.cpp/.h` and the Attach/Detach hooks are unchanged, and `GetLODCoords` still assumes 0-aligned chunks, so
+the DLL is still needed and still hooks. One change hit code copied here: Bottled now records the reflection/normals
+array sizes before each tile's `AddWater` and **always** removes the entries that call created, even when another
+thread holds a transient reference (before, `RefCount != 1` kept them listed, still pointing at the tile's material).
+1.5.1 ports that line for line (`RemoveOrphanedEntry`'s `a_firstNew`); nothing else changed. **The live copy is in
+*Zenderal - Patch Collection*** (`SKSE/Plugins/ZenUnifiedWaterGrid.dll`); the MO2 mod named above no longer exists.
+1.5.0 kept in `E:/Zenderal-backups/2026-11-09-bottled-1.0.27-update/`. Unverified in game.
+
 Upstream: worth reporting to Bottled Shaders. `GetLODCoords` (and `GenerateInstructions`' chunking) should use the
 worldspace's LOD origin from its `.lod` file, not 0.
+
+**1.5.2 (2026-11-10): the hook failed under 1.0.27.** Curator's report: the tan band across the distant sea was back
+(Old Three River Watch). `ZenUnifiedWaterGrid.log` from the 2026-11-09 launch: `hooked BGSTerrainBlock::Attach and
+Detach after Unified Water: FAILED`. So 1.5.1 never ran and Vyn's water was back on Unified Water's 0-aligned chunks.
+- Bottled's hook code (`stl::detour_thunk`, `include/PCH.h`) is the same in 1.0.22 and 1.0.27.
+- Both thunks' prologues are byte-identical (read through each build's PDB with dbghelp).
+- The Detours error code was not logged, so the cause is still unknown.
+
+1.5.2:
+- hooks Attach and Detach in separate transactions;
+- logs each site's first 8 bytes and the Detours error;
+- **on failure, redirects Unified Water's own entry jump** (the `E9`/`FF 25` its Detours wrote at the game function)
+  through an SKSE trampoline to ours, and calls the jump's old destination. That is the same chain (ours → Unified
+  Water's → the game's), and none of Bottled's code is touched.
+
+The log says which path was taken (`hooked with Detours` / `jump redirected`). Unverified in game.
+
+**The plugin order had also slipped again** (2026-11-10): in both Ultra and *Ultra - Co-op (testing)*,
+`DynDOLOD.esp` + `Occlusion.esp` loaded after `Zenderal - Vyn Full Extend.esp`. That is the 2026-10-31 slip, see
+[`UnifiedWaterEnderal`](UnifiedWaterEnderal.md): Occlusion's Vyn bounds won.

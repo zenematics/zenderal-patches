@@ -50,3 +50,9 @@ update** (it refuses if the constant has moved or gone).
 **Enabled 2026-10-26** in Ultra: `modlist.txt` line 56, directly ahead of Bottled Shaders (57). The compiled cache `overwrite/ShaderCache` (13,201 files) was moved to `E:/Zenderal-backups/2026-10-26-parallax-distance/` so the next launch recompiles from the new source (slow first load).
 
 **Came back 2026-10-27.** Load order and the override files were still right, but Bottled Shaders' 275 shader files had been rewritten at 01:54 (a reinstall during that night's Vanta Core / Bottled add-on tests), so they were newer than the override's copies, and `overwrite/ShaderCache` had been rebuilt until 10:25. Treated as a stale compiled cache: `tools/01` rerun (fresh file dates, same 3 one-line changes against 1.0.22) and the cache moved to `E:/Zenderal-backups/2026-10-27-parallax-cache/`. **After any Bottled Shaders reinstall: rerun `tools/01` and clear the shader cache.** **Verified in game 2026-10-27: the line is gone again** after the recompile, so a stale compiled cache was the cause.
+
+**Regenerated from Bottled Shaders 1.0.27 (2026-11-09).** Until then the mod still held 1.0.22's three files, which
+outranked 1.0.27's own (a mixed shader tree). The three lines are unchanged in 1.0.27 (`ExtendedMaterials.hlsli` 35,
+`ExtendedMaterialsParallaxCore.hlsli` 69, `Lighting.hlsl` 1542); each output differs from 1.0.27's file in exactly that
+line. `overwrite/ShaderCache` (7,433 files, 279 MB) moved to `E:/Zenderal-backups/2026-11-09-bottled-1.0.27-update/`,
+so the next launch recompiles everything (slow first load). Unverified in game with 1.0.27.

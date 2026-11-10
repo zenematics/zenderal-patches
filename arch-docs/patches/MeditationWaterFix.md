@@ -69,3 +69,6 @@ If a new mod edits Akropolis cells, add it to `OVERRIDES` in load order.
 
 With Unified Water **on**, enter the meditation area (the Prophecy/Memory Point space) and look around and below the
 platforms with `tfc`: there should be no flat sheets. The perk stars and the ruins should look unchanged.
+
+Bottled Shaders 1.0.27 (2026-11-09): `WaterCache.cpp/.h`, which reads each cell's water height (the default-height
+marker this fix replaces), is unchanged from 1.0.22, so v2 still applies as is.

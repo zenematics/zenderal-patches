@@ -152,6 +152,12 @@ List-wide traps that are not tied to one Zenderal patch.
   cached; if it repeats every launch, lower `Compiler Threads` / `Background Compiler Threads` (Advanced) or turn
   `Enable Async` off for one boot. Never blame a plugin enabled the same session (it happened before the
   RageEffectsRecolor and ramrod-prop plugins existed).
+  **Cause found and fixed by updating (2026-11-09, seen again that day):** upstream Community Shaders #2977
+  (2026-10-25) made the shader map hold `com_ptr<ID3DBlob>`, and d3dcompiler's blobs count references non-atomically,
+  so concurrent compile threads freed cached blobs. Upstream #3026 (merged 2026-10-27) wraps them in a `SharedBlob`
+  that counts atomically. Bottled Shaders 1.0.22 (source `f9a357c1`) lacked it; **1.0.27 has it** (RTTI
+  `.?AVSharedBlob` in its `CommunityShaders.dll`), installed 2026-11-09. The thread-count advice above is moot from
+  1.0.27 on. See the 1.0.27 entry below.
 
 - **Random objects drawn flat white/grey (a sack, ground-cover plants, a different few each session) = Bottled
   Shaders' HiZ Occlusion Culling (v0.3.0, BETA). Off since 2026-10-30.** **[verified in game 2026-10-30]**
@@ -160,7 +166,8 @@ List-wide traps that are not tied to one Zenderal patch.
   It defaults to on (`enableHiZCulling: true` in Bottled Shaders' defaults) and `Zenderal - Settings`' 
   `SKSE/Plugins/CommunityShaders/SettingsUser.json` had no `HiZ Occlusion Culling` section, so every player had it.
   That file now carries the section with `enableHiZCulling: false` (backup `E:/Zenderal-backups/2026-10-30-hiz-off/`).
-  Recheck after a Bottled Shaders update before turning it back on. Found on the way: `SFO Complex Grass ENB`
+  Recheck after a Bottled Shaders update before turning it back on. **Since then** the file has `"HiZOcclusion": true`
+  under *Disable at Boot* instead of that section (the feature never loads); still so with 1.0.27 (2026-11-09). Found on the way: `SFO Complex Grass ENB`
   (complex-grass textures, colour in the top half and the normal map in the bottom, for ENB) under ordinary grass
   meshes that sample the whole texture; disabled in Ultra the same day, though it was not this bug.
 
@@ -200,7 +207,34 @@ List-wide traps that are not tied to one Zenderal patch.
   flicker was, which pointed at a reflection of the sun rather than at the water meshes. **Keep `"Throttle Water
   Cubemap": false`** in *Zenderal - Settings*' `SKSE/Plugins/CommunityShaders/SettingsUser.json` (menu: Advanced →
   *Throttle Water Reflection Cubemap*). Bottled Shaders' own `SettingsDefault.json` ships it `true`, so a reset of the
-  user settings brings the flicker back. Cost not measured.
+  user settings brings the flicker back. Cost not measured. **Found `true` again on 2026-11-09** (the shipped file had
+  been rewritten at 12:38 that day, most likely by a *Save* in the in-game menu, which writes the whole live state);
+  set back to `false`. Check this key after any in-game settings save.
+
+- **Bottled Shaders 1.0.22 → 1.0.27 (2026-11-09).** Installed through MO2 over the old folder (no leftovers: the folder
+  matches the 1.0.27 archive file for file; rollback = the 1.0.22 archive still in `downloads/`). Source: releases are
+  built from `InTheBottle/Bottled-Shaders@Bottle-Compendium`; by shader-file hashes **1.0.22 = `f9a357c1`** (275/275
+  files) and **1.0.27 = `15b72841`** (293/293). What was re-checked, with the result:
+  - [`SkySyncLightningFix`](../patches/SkySyncLightningFix.md): Sky Sync still hooks `Sky::Update` (25682/26229) the
+    same way; the new Procedural Lightning only reads `sky->flash`. No rebuild.
+  - [`UnifiedWaterGridFix`](../patches/UnifiedWaterGridFix.md): hooks and the cache format (`WaterCache.*`) unchanged;
+    Bottled fixed a race in its tile registration, ported as 1.5.1.
+  - [`TerrainParallaxShadowDistance`](../patches/TerrainParallaxShadowDistance.md): its three lines are unchanged;
+    regenerated from 1.0.27 (the old 1.0.22 copies outranked 1.0.27's files). Shader cache moved out.
+  - [`SteaminTWoEWeatherList`](../patches/SteaminTWoEWeatherList.md): Effects 11's `WeatherManager` unchanged.
+  - All 121 keys of *Zenderal - Settings*' `SettingsUser.json` still exist in 1.0.27, so no setting falls back to a
+    default; `Version` stays `1-9-0-0`.
+  - **New features, all default on, kept on (curator's choice):** Camera FX (replaces every imagespace modifier,
+    including Enderal's scripted fades, and adds lens/combat effects: impact flash, hit blur, hit shake, blood and
+    poison; it counters No Screen Flashes' intent, so it is the first suspect for any odd screen effect or fade),
+    Capsule Shadows, Heat Haze, Procedural Lightning, Procedural Night Sky (replaces the stars and aurora). Detail Maps
+    is on but draws nothing without its separate pack (not installed). Developer Tools is core (RenderDoc loading as
+    before). Remote Control and RenderDoc are gone as features.
+  - **Changed defaults:** Screen Space GI's `EnableExperimentalSpecularGI` false → **true** (kept on, curator's
+    choice); screenshots now copy to the clipboard and replace the vanilla screenshot.
+  - For the next update, run the same list: hash-match the installed shaders to a commit, `git diff` the old and new
+    commits over `src/Features/UnifiedWater*`, `SkySync*` and `Effects11/WeatherManager*`, rerun the parallax tool,
+    and grep `SettingsUser.json`'s keys against the new source.
 
 - **Enderal Retexture Project - PBR Conversion (Enderal Nexus 1063, "SPR PBR" 1.0.0) is installed without its landscape
   half (2026-10-24, curator's test).** Why: SRP's own `brickwall01` (Silvergrove/desert walls, `wall02.nif`) is SureAI's 2014
@@ -448,3 +482,34 @@ List-wide traps that are not tied to one Zenderal patch.
   make those a real third person instead. The zoom inside that head camera is the First Person FOV mod's
   third-person override (camera is technically kThirdPerson) - off in Settings' ini once that mod sorts below
   Settings. No Furniture Camera (modlist line 128) did not keep the furniture camera first person in the traces.
+- **Enderal's own `SkyrimRedirector.dll` breaks every `CopyFile`/`CopyFileEx` call in the game, so Skyrim
+  Runtime Extender can never load its plugins (Reversed-Z).** **[verified 2026-11-09, on the shipped DLL]**
+  SkyrimRedirector 1.4.0 (Davipb, MIT, last changed 2022) ships with Enderal SE in `Data\SKSE\Plugins` and
+  turns the game's `Skyrim.ini`/`SkyrimPrefs.ini`/`plugins.txt` paths into Enderal's. It detours `CopyFileA`,
+  `CopyFileW`, `CopyFileExA` and `CopyFileExW`, and each detour stores the redirected *destination* in the
+  source argument (`lpExistingFileName = TryRedirectW(lpNewFileName);`, `Redirections.c` lines 343-369 at
+  HEAD). Every copy in the game process therefore copies the destination onto itself, and a new destination
+  fails with error 2, *The system cannot find the file specified*. Test: a scratch copy of the shipped DLL
+  (md5 `7fcf3e081a9fd827a7c93880207e56ec`) loaded into a test process: `CopyFileExW` and `CopyFileW` copy
+  fine before its `SKSEPlugin_Load` and fail with 2 after it. **MO2's VFS is not the cause:** Rust's
+  exact `remove_dir_all` + `create_dir_all` + `fs::copy` sequence succeeds under a private usvfs 0.5.6.1
+  instance mapped like the profile (mods recursive, overwrite as create target), with or without a
+  leftover `.loaded`. Skyrim Runtime Extender 1.0.3 runs every plugin from a copy
+  (`Data\SKSE\Plugins\skyrim-runtime-extender\.loaded\<name>.1.dll`, for hot reload; no setting skips it,
+  `host/mod.rs` `read_plugins` → `host/reload.rs` `copy`), so its log says `skipped reversed_z.dll: copy:
+  The system cannot find the file specified. (os error 2)` (seen in a Skyrim Together session at 19:29 and a
+  normal `skse64_loader` launch at 20:57) and `reversed-z.log` has never been written since both were
+  installed (2026-11-09 01:22).
+  `CopyFile2` is not detoured, so MSVC's `std::filesystem::copy_file` works; anything that calls
+  `CopyFile[Ex]W` at runtime does not (25 enabled DLLs import it, Theo's Render Pipeline `CopyFileExW`; most
+  import `CopyFileW` through a shared library and may never call it). Without a loaded plugin, SRE gives
+  players nothing but stays live code: a second crash handler with a watchdog thread, an F11 overlay that
+  takes Escape, console opcode `0x10b` (ToggleSafeZone) taken over, checks of 20 hook sites, and a timing DLL
+  (`!!!skyrim-runtime-extender-timing.dll`) that rewrites SKSE's `GetProcAddress` import to wrap every
+  plugin's `SKSEPlugin_Load` and message listeners. **Both removed from the list on 2026-11-09** (curator's
+  decision): Reversed-Z never ran because of this bug, and SRE did nothing without it. Unticked in `Ultra`,
+  `Ultra - Co-op (testing)` and `Ultra - EF Memory Off`; the mod folders stay, and no Wabbajack rule
+  (Include, NoMatchInclude, AlwaysEnabled) names them, so they don't ship. Bringing Reversed-Z back would need
+  a SkyrimRedirector with the four detours fixed, shipped over Stock game's copy, and then a first test of
+  Reversed-Z itself (its Community Shaders support is "experimental" for stock CS 1.9.1; Bottled Shaders and
+  DLSS are untested).

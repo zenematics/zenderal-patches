@@ -21,7 +21,7 @@
 // quarter, and a quarter's tiles are hidden while any finer chunk is attached in it.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 5, 0, 0 },
+	.Version = REL::Version{ 1, 5, 2, 0 },
 	.Name = "ZenUnifiedWaterGrid"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -204,21 +204,28 @@ namespace
 		return out;
 	}
 
-	// Bottled Shaders' helpers (UnifiedWater.cpp at cfcac91ad), copied as they are
+	// Bottled Shaders' helpers (UnifiedWater.cpp at 15b72841 = Bottled Shaders 1.0.27), copied as they are
 	void QueueDeferredRelease(RE::NiPointer<RE::NiRefObject>& a_object)
 	{
 		static REL::Relocation<void(RE::NiPointer<RE::NiRefObject>*)> func{ REL::RelocationID(69180, 70544) };
 		func(&a_object);
 	}
 
+	// a_firstNew: the array's size before the tile's AddWater. Entries from that index on were created by it and are
+	// always removed (1.5.1, Bottled Shaders 1.0.27's fix): such an entry points at the tile's material, so a
+	// transient reference from another thread must not keep it listed past the tile. Older entries go only when the
+	// array holds their last reference, as TESWaterSystem::RemoveWater does.
 	template <class Entry>
-	void RemoveOrphanedEntry(RE::BSTArray<RE::NiPointer<Entry>>& a_entries, const Entry* a_entry)
+	void RemoveOrphanedEntry(RE::BSTArray<RE::NiPointer<Entry>>& a_entries, const Entry* a_entry, std::uint32_t a_firstNew)
 	{
-		if (!a_entry || a_entry->GetRefCount() != 1) {
+		if (!a_entry) {
 			return;
 		}
 		const auto it = std::ranges::find_if(a_entries, [&](const auto& a_candidate) { return a_candidate.get() == a_entry; });
 		if (it == a_entries.end()) {
+			return;
+		}
+		if (static_cast<std::uint32_t>(it - a_entries.begin()) < a_firstNew && a_entry->GetRefCount() != 1) {
 			return;
 		}
 		RE::NiPointer<RE::NiRefObject> released{ it->get() };
@@ -383,18 +390,20 @@ namespace
 			auto*       shape = built[i];
 			const auto& t = tiles[i];
 			{
-				// Bottled Shaders' own registration (UnifiedWater.cpp at cfcac91ad): AddWater under the water system's
+				// Bottled Shaders' own registration (UnifiedWater.cpp, 1.0.27): AddWater under the water system's
 				// lock, then take the object back off the list and release the reflection and normals entries it left
 				// behind. Those keep raw pointers to the tile's material; 1.1.0 left them (upstream's older code), and
 				// every Vyn tile is built here, so tiles drew from stale reflection/normals state.
 				RE::BSSpinLockGuard guard(ws->lock);
+				const auto          firstNewReflection = ws->waterReflections.size();
+				const auto          firstNewNormals = ws->waterNormals.size();
 				ws->AddWater(shape, t.form, t.height, nullptr, true, false);
 				if (!ws->waterObjects.empty() && ws->waterObjects.back()->shape.get() == shape) {
 					const auto reflections = ws->waterObjects.back()->reflections.get();
 					const auto normals = ws->waterObjects.back()->normals.get();
 					ws->waterObjects.pop_back();
-					RemoveOrphanedEntry(ws->waterReflections, reflections);
-					RemoveOrphanedEntry(ws->waterNormals, normals);
+					RemoveOrphanedEntry(ws->waterReflections, reflections, firstNewReflection);
+					RemoveOrphanedEntry(ws->waterNormals, normals, firstNewNormals);
 				}
 			}
 			if (const auto prop = shape->GetGeometryRuntimeData().shaderProperty.get(); prop && prop->GetRTTI() &&
@@ -502,12 +511,53 @@ namespace
 		return g_mesh != nullptr;
 	}
 
+	// Hook a function Unified Water has already detoured, so ours runs first and then calls Unified Water's.
+	// 1.5.2: Detours first (as before), each function in its own transaction, logging the error code and the bytes.
+	// Under Bottled Shaders 1.0.27 the joint commit failed (log 2026-11-09: "FAILED", code not logged) although both
+	// thunks have the same prologue as in 1.0.22. If Detours fails, redirect the jump Unified Water's Detours wrote at
+	// the function's start through an SKSE trampoline, and call its old destination: the same chain, nothing of
+	// Bottled Shaders' code touched.
+	bool Chain(std::string_view a_name, std::uintptr_t a_target, Attach_t& a_original, Attach_t a_hook)
+	{
+		const auto* b = reinterpret_cast<const std::uint8_t*>(a_target);
+		SKSE::log::info("{} at {:X}: {:02X} {:02X} {:02X} {:02X} {:02X} {:02X} {:02X} {:02X}", a_name, a_target - REL::Module::get().base(),
+			b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7]);
+		a_original = reinterpret_cast<Attach_t>(a_target);
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
+		const auto attachErr = DetourAttach(reinterpret_cast<PVOID*>(&a_original), reinterpret_cast<PVOID>(a_hook));
+		const auto err = attachErr == NO_ERROR ? DetourTransactionCommit() : (DetourTransactionAbort(), attachErr);
+		if (err == NO_ERROR) {
+			SKSE::log::info("{}: hooked with Detours", a_name);
+			return true;
+		}
+		SKSE::log::warn("{}: Detours failed (DetourAttach {}, result {}); redirecting Unified Water's jump instead", a_name, attachErr, err);
+
+		std::uintptr_t old = 0;
+		auto&          tramp = SKSE::GetTrampoline();
+		if (b[0] == 0xE9) {
+			old = a_target + 5 + *reinterpret_cast<const std::int32_t*>(b + 1);
+			a_original = reinterpret_cast<Attach_t>(old);  // set before the jump moves: attaches run on other threads
+			tramp.write_branch<5>(a_target, reinterpret_cast<std::uintptr_t>(a_hook));
+		} else if (b[0] == 0xFF && b[1] == 0x25) {
+			old = *reinterpret_cast<const std::uintptr_t*>(a_target + 6 + *reinterpret_cast<const std::int32_t*>(b + 2));
+			a_original = reinterpret_cast<Attach_t>(old);
+			tramp.write_branch<6>(a_target, reinterpret_cast<std::uintptr_t>(a_hook));
+		} else {
+			a_original = nullptr;
+			return false;
+		}
+		SKSE::log::info("{}: jump redirected, Unified Water's entry at {:X}", a_name, old);
+		return true;
+	}
+
 	void Install()
 	{
 		if (!GetModuleHandleW(L"CommunityShaders.dll")) {
 			SKSE::log::info("CommunityShaders.dll not loaded; nothing to fix");
 			return;
 		}
+		SKSE::AllocTrampoline(64);
 		if (!LoadMesh()) {
 			SKSE::log::error("could not load meshes\\water\\watermesh.nif; not installing");
 			return;
@@ -527,21 +577,22 @@ namespace
 			SKSE::log::info("BGSTerrainBlock::Detach is not hooked (first byte {:02X}): Unified Water inactive, not installing", detachBytes[0]);
 			return;
 		}
-		g_attach = reinterpret_cast<Attach_t>(target);
-		g_detach = reinterpret_cast<Attach_t>(detachTarget);
-		DetourTransactionBegin();
-		DetourUpdateThread(GetCurrentThread());
-		DetourAttach(reinterpret_cast<PVOID*>(&g_attach), reinterpret_cast<PVOID>(&AttachHook));
-		DetourAttach(reinterpret_cast<PVOID*>(&g_detach), reinterpret_cast<PVOID>(&DetachHook));
-		const auto err = DetourTransactionCommit();
-		SKSE::log::info("hooked BGSTerrainBlock::Attach and Detach after Unified Water: {}", err == NO_ERROR ? "ok"sv : "FAILED"sv);
+		const bool attachOk = Chain("Attach", target, g_attach, &AttachHook);
+		const bool detachOk = Chain("Detach", detachTarget, g_detach, &DetachHook);
+		if (attachOk && !detachOk) {
+			// without the detach hook, coarse tiles would stay hidden after their finer chunks go: still better than
+			// no grid fix at all, but say so
+			SKSE::log::warn("Detach not hooked: coarse-tile hiding may lag behind detaches");
+		}
+		SKSE::log::info("hooked BGSTerrainBlock::Attach and Detach after Unified Water: {}",
+			attachOk && detachOk ? "ok"sv : (attachOk ? "Attach only"sv : "FAILED"sv));
 	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenUnifiedWaterGrid 1.5.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenUnifiedWaterGrid 1.5.2 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
 		if (a_msg->type == SKSE::MessagingInterface::kDataLoaded) {
 			Install();

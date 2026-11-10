@@ -97,3 +97,6 @@ curator's video shows whole rectangles of sea vanishing and returning as the cam
 data. [`ZenWaterTrace`](ZenWaterTrace.md) found the cause: Unified Water assumes 0-aligned LOD chunks, and Vyn's grid
 starts at −69, −55. It is fixed at runtime by [`UnifiedWaterGridFix`](UnifiedWaterGridFix.md), verified in game
 2026-10-28. **Both are needed:** this plugin supplies the data, the DLL puts it on the right chunks.
+
+Bottled Shaders 1.0.27 (2026-11-09): Unified Water's cache builder (`WaterCache.cpp/.h`) and its WRLD-bounds rule are
+unchanged from 1.0.22, so this plugin needs nothing. The grid fix went to 1.5.1 for a registration race fix.

@@ -48,3 +48,7 @@ Enderal - Forgotten Stories.esm, SkyUI_SE.esp — so FS is `07`, not 05), then `
 
 Generated and installed 2026-10-23; the mod must be enabled **above Steamin ENB** (MO2 was open). Unverified in game
 (check in Effects 11's editor: *Weather files* should list the file for these weathers instead of "no weather file").
+
+Bottled Shaders 1.0.27 (2026-11-09): `Effects11/WeatherManager.cpp/.h` (where `_weatherlist.ini` is read and
+`WeatherIDs` parsed) is unchanged from 1.0.22, so the file needs no rebuild for the update itself. The update changed
+no plugin, so the runtime IDs stand.

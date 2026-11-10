@@ -84,3 +84,12 @@ The light was already at its pre-strike direction when this hook ran, both on th
 tilt is not written inside `Sky::Update` itself. The fix still removes it, and which code wrote it was not investigated
 further. If a Bottled Shaders update brings the sweep back, re-run [`ZenSkySyncTrace`](ZenSkySyncTrace.md) with the fix
 on and with it off.
+
+**Re-checked against Bottled Shaders 1.0.27 (2026-11-09), no rebuild.** Source diff `f9a357c1` (1.0.22) → `15b72841`
+(1.0.27): Sky Sync still installs `stl::detour_thunk<Sky_Update>` at ID 25682/26229, so the first-byte jump check and
+the chained hook are unchanged. Its 1.0.27 changes are moon/caster fades, sky rotation reset when disabled, fewer
+transition resets on cell change and the alternate sun path's night half; none touches the flash or the light's
+direction. The new **Procedural Lightning** (default on, kept on) draws bolts from a render hook (ID 99940/106585) and
+only *reads* `sky->flash` and the flash start time, so the hold still keys on the same flash. The live copy is in
+*Zenderal - Patch Collection* (`SKSE/Plugins`, byte-identical to `compiled/`), not a mod of its own. Storm check in
+game still to do with 1.0.27.
