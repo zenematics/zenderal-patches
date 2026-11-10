@@ -7,6 +7,20 @@
   Archetypes as a master** (Send a Raven's silent raven copy). Prophecy loads well after it (433 vs 291 in Ultra).
   Custom Skills Framework is NOT used
 
+## Respec (curator, 2026-11-09)
+
+A **Respec** button refunds every Prophecy point. In Prophecy v3's window it sits next to the point count and asks
+first (a modal with the learned count); the DLL (`ZenProphecyUI` 1.1.0) sends the mod event `ZP_ProphecyRespec`,
+which `ZP_ProphecyMenu` registers for at every open next to `ZP_ProphecyLearn`. In v1's tree-choice box it is the
+button after the trees, before Cancel (index = number of trees in `OnUpdate`), confirmed by the message
+`ZP_ProphecyRespecConfirm 0xB4B` (`RESPEC_MSG` in the generator, looked up by ID from the script: never move it).
+`Respec()` undoes exactly what `TryLearn` did: `RemovePerk` on every owned talent (the engine also takes back the
+abilities a perk's `PerkAbilityEffect`s added: stat talents, the Rage ability, the gun hit spell...) and
+`RemoveSpell`/`RemoveShout` on every form in `PowerPerk`/`PowerSpell` (the powers, the granted Triumvirate /
+Kittytails / Shatterveil spells, the shouts), then adds the count to `ZP_ProphecyPoints`. The ledger
+(`ZP_ProphecyPointsEarned`) is untouched, so points + learned stays what the save was given. Gifts (the turret) stay,
+and `giftDone` keeps them from being handed out again; taught words of power stay taught. Unverified in game.
+
 ## Postmortem: points re-awarded on every opening (2026-10-24)
 
 Report: Prophecy points kept going up each time the menu opened, without the levels for them. Papyrus log

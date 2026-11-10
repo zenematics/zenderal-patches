@@ -19,7 +19,7 @@
 // queued task into a snapshot under a mutex; Render only reads the snapshot.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 0, 0 },
+	.Version = REL::Version{ 1, 1, 0, 0 },
 	.Name = "ZenProphecyUI"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -637,6 +637,16 @@ namespace
 		});
 	}
 
+	// the Respec button (curator, 2026-11-09): ZP_ProphecyMenu.OnProphecyRespec forgets every talent and refunds its point
+	void SendRespec()
+	{
+		SKSE::GetTaskInterface()->AddTask([] {
+			SKSE::ModCallbackEvent ev{ "ZP_ProphecyRespec", "", 0.0f, nullptr };
+			SKSE::GetModCallbackEventSource()->SendEvent(&ev);
+			SKSE::log::info("respec request");
+		});
+	}
+
 	void SendLearn(int a_index)
 	{
 		SKSE::GetTaskInterface()->AddTask([a_index] {
@@ -1141,6 +1151,30 @@ namespace
 
 	// A popup is found by its name in the current ID stack: opening it inside the tab item and drawing it outside
 	// the tab bar never matched, so clicks did nothing (curator, 2026-10-25). Open and draw it at the same level.
+	bool g_openRespec = false;   // render thread only
+
+	void RespecPopup(const Snapshot& a_s)
+	{
+		if (g_openRespec) {
+			g_openRespec = false;
+			ig::OpenPopup("Respec##zp");
+		}
+		if (!ig::BeginPopupModal("Respec##zp")) return;
+		int learned = 0;
+		for (bool b : a_s.learned) learned += b ? 1 : 0;
+		ig::TextUnformatted(std::format("Forget every Prophecy talent and take back all your points?\n{} talent(s) learned, {} point(s) to refund.", learned, learned).c_str());
+		ig::Dummy(ImVec2{ 0.0f, 6.0f });
+		if (ig::Button("Forget them all", ImVec2{ 150.0f, 0.0f })) {
+			SendRespec();
+			ig::CloseCurrentPopup();
+		}
+		ig::SameLine();
+		if (ig::Button("Keep them", ImVec2{ 150.0f, 0.0f })) {
+			ig::CloseCurrentPopup();
+		}
+		ig::EndPopup();
+	}
+
 	void ConfirmPopup()
 	{
 		if (g_openConfirm) {
@@ -1201,6 +1235,10 @@ namespace
 		if (ig::Begin("The Prophecy##ZenProphecyUI", &open, flags)) {
 			ig::TextColored(ImVec4{ 0.84f, 0.70f, 0.38f, 1.0f }, std::format("Prophecy points: {}", s.points).c_str());
 			ig::SameLine();
+			if (ig::Button("Respec##zp")) {
+				g_openRespec = true;   // opened by RespecPopup, in the same ID scope that draws it
+			}
+			ig::SameLine();
 			if (g_radial.on) {
 				ig::TextColored(ImVec4{ 0.55f, 0.53f, 0.50f, 1.0f },
 					"   Drag to move, scroll to zoom. Hover a star to read it; click a lit one to learn it.");
@@ -1229,6 +1267,7 @@ namespace
 				ig::EndTabBar();
 			}
 			ConfirmPopup();
+			RespecPopup(s);
 		}
 		ig::End();
 		if (!open || (g_pending < 0 && ig::IsKeyPressed(kKeyEscape))) {
@@ -1387,7 +1426,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyUI 1.0.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyUI 1.1.0 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
 		switch (a_msg->type) {
 		case SKSE::MessagingInterface::kPostLoad:

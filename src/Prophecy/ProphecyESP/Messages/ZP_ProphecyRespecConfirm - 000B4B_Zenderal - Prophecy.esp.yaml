@@ -1,0 +1,15 @@
+FormKey: 000B4B:Zenderal - Prophecy.esp
+EditorID: ZP_ProphecyRespecConfirm
+Description:
+  TargetLanguage: English
+  Value: Forget every Prophecy talent and take back all your points?
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Forget them all
+- Text:
+    TargetLanguage: English
+    Value: Keep them

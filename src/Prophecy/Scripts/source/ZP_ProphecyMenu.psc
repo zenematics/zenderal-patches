@@ -99,6 +99,7 @@ Event OnUpdate()
 	; perk with the mod event ZP_ProphecyLearn (numArg = the perk's index in these arrays); learning stays TryLearn.
 	If SKSE.GetPluginVersion("ZenProphecyUI") > 0
 		RegisterForModEvent("ZP_ProphecyLearn", "OnProphecyLearn")
+		RegisterForModEvent("ZP_ProphecyRespec", "OnProphecyRespec")
 		SendModEvent("ZP_ProphecyUI_Open")
 		busy = False
 		Return
@@ -109,12 +110,62 @@ Event OnUpdate()
 		tree = ZP_ProphecyMenuMsg.Show()
 		If tree >= 0 && tree < TreeStart.Length - 1
 			ShowTree(tree)
+		ElseIf tree == TreeStart.Length - 1
+			; the Respec button sits after the trees, before Cancel (curator, 2026-11-09)
+			Message confirm = Game.GetFormFromFile(0xB4B, "Zenderal - Prophecy.esp") as Message
+			If confirm && confirm.Show() == 0
+				Respec()
+			EndIf
 		Else
 			tree = -1
 		EndIf
 	EndWhile
 	busy = False
 EndEvent
+
+; Prophecy v3's window: its Respec button, after its confirm box.
+Event OnProphecyRespec(String asEventName, String asStrArg, Float afNumArg, Form akSender)
+	If busy
+		Return
+	EndIf
+	Respec()
+EndEvent
+
+; Forgets every Prophecy talent and refunds its point (curator, 2026-11-09). Undoes exactly what TryLearn did:
+; the perk (RemovePerk also takes back the abilities its PerkAbilityEffects added - the stat talents, the Rage
+; ability...) and every form the menu granted for it (powers, spells, shouts: PowerPerk/PowerSpell). Gifts (the
+; turret) stay, and giftDone keeps them from being handed out again. Taught words of power stay taught; without
+; the shout they do nothing. The ledger is untouched: points + learned stays what the save was given.
+Function Respec()
+	Actor player = Game.GetPlayer()
+	Int refunded = 0
+	Int i = 0
+	While i < Perks.Length
+		If Perks[i] && player.HasPerk(Perks[i])
+			player.RemovePerk(Perks[i])
+			refunded += 1
+		EndIf
+		i += 1
+	EndWhile
+	Int k = 0
+	While k < PowerPerk.Length
+		Form f = PowerSpell[k]
+		Shout sh = f as Shout
+		If sh
+			If player.HasSpell(sh)
+				player.RemoveShout(sh)
+			EndIf
+		ElseIf f && player.HasSpell(f)
+			player.RemoveSpell(f as Spell)
+		EndIf
+		k += 1
+	EndWhile
+	If refunded > 0
+		ZP_ProphecyPoints.SetValue(ZP_ProphecyPoints.GetValueInt() + refunded)
+	EndIf
+	Debug.Notification("Prophecy: " + refunded + " talent(s) forgotten, " + ZP_ProphecyPoints.GetValueInt() + " points to spend.")
+	Debug.Trace("ZP_ProphecyMenu: respec - " + refunded + " perks removed, points " + ZP_ProphecyPoints.GetValueInt())
+EndFunction
 
 ; Called on opening the menu and whenever a message box closes outside it (Enderal's level-up box closes, then
 ; _00E_EPUpdateFunctions.levelUp calls Game.SetPlayerLevel): grants each newly reached point level with its prompt.

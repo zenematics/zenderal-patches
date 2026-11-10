@@ -23,7 +23,9 @@ points left") and the description; clicking a gold star asks to confirm. Escape 
   `ZP_ProphecyLearn` and sends `ZP_ProphecyUI_Open` instead of showing the card menu. The DLL opens its window on
   that event, and a confirmed click sends `ZP_ProphecyLearn` with the node's index; `OnProphecyLearn` calls the same
   `TryLearn` the cards use, so points, powers, shouts and gifts never left Papyrus. A runtime check, not a script
-  property: saves keep a property's stored value, so a v1 save would never switch.
+  property: saves keep a property's stored value, so a v1 save would never switch. **1.1.0 (2026-11-09): a Respec
+  button** next to the point count; its modal sends `ZP_ProphecyRespec`, and `ZP_ProphecyMenu.Respec` forgets every
+  talent and refunds the points (see Prophecy.md, "Respec").
 - **Data.** `tools/01-build-layout.py` reads the menu quest `ZP_ProphecyInit 0x807` that the plugin ships (`Perks`,
   `Descriptions`, `Images`, `ParentA`/`ParentB`, `TreeStart`), so a node's index is the script's array index. Names
   come from the perk records, tree names from v1's `TREES`. Run it after `src/Prophecy/tools/01-build-trees.py`.

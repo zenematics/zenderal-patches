@@ -42,4 +42,7 @@ MenuButtons:
     Value: Sorcery
 - Text:
     TargetLanguage: English
+    Value: Respec
+- Text:
+    TargetLanguage: English
     Value: Cancel

@@ -910,6 +910,9 @@ def main():
     # Bleeding Shot's musket bleed relay (2026-11-08). Append LAST
     assert nxt == 0xB4A, f"the bleed relay would not start at 0xB4A (0x{nxt:03X})"
     gunhit_extra = {'bleedrelay': f'{nxt:06X}:{MOD}'}; nxt += 1
+    # the respec confirm box (curator 2026-11-09; ZP_ProphecyMenu looks it up by this ID). Append LAST
+    assert nxt == RESPEC_MSG, f"the respec message would not be 0x{RESPEC_MSG:03X} (0x{nxt:03X})"
+    nxt += 1
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -5069,6 +5072,9 @@ def convert_powers_to_shouts(shouts, nodeperk, write, extra_powers):
     return grants
 
 
+RESPEC_MSG = 0xB4B     # ZP_ProphecyRespecConfirm, read by ID in ZP_ProphecyMenu: never move it
+
+
 def write_menu(nodes, nodeperk, write, grants):
     """The perk menu is Enderal's UIExtensions list menu, run by ZP_ProphecyMenu on quest ZP_ProphecyInit 0x807.
     Custom Skills Framework was dropped 2026-10-21: the Skyrim perk screen it draws on does not work in Enderal 2.1
@@ -5123,9 +5129,15 @@ def write_menu(nodes, nodeperk, write, grants):
     starts.append(k)
     btn = lambda s: f'- Text:\n    TargetLanguage: English\n    Value: {s}\n'
     for p in glob.glob(os.path.join(ESP, 'Messages', '* - 00080D_*')): os.remove(p)
+    # buttons: the trees, then Respec (index = number of trees), then Cancel (ZP_ProphecyMenu.OnUpdate reads them so)
     write('Messages', f'FormKey: 00080D:{MOD}\nEditorID: ZP_ProphecyMenu\nDescription:\n  TargetLanguage: English\n'
                       '  Value: Which prophecy will you read?\nINAM: 0x00000000\nFlags:\n- MessageBox\nMenuButtons:\n' +
-                      ''.join(btn(t) for t, _, _ in TREES) + btn('Cancel'))
+                      ''.join(btn(t) for t, _, _ in TREES) + btn('Respec') + btn('Cancel'))
+    # the respec confirm box (curator 2026-11-09): button 0 = yes
+    for p in glob.glob(os.path.join(ESP, 'Messages', f'* - {RESPEC_MSG:06X}_*')): os.remove(p)
+    write('Messages', f'FormKey: {RESPEC_MSG:06X}:{MOD}\nEditorID: ZP_ProphecyRespecConfirm\nDescription:\n  TargetLanguage: English\n'
+                      '  Value: Forget every Prophecy talent and take back all your points?\nINAM: 0x00000000\nFlags:\n- MessageBox\nMenuButtons:\n' +
+                      btn('Forget them all') + btn('Keep them'))
     # The menu arrays go on the quest (what a new save starts with) AND on the power's effect, whose instance is
     # created from the plugin on every cast and passed to ZP_ProphecyMenu.Refresh: a running quest keeps its old
     # property values in the save, so without this new perks never reached existing saves (2026-10-22).
