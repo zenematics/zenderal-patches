@@ -14,6 +14,42 @@
 > creature floats any more.** Hit impulse stays off. The fork also fixed the float with impulse on
 > (2026-10-12), so turning impulse back on is now just a matter of taste.
 
+## Unarmed attacks reach small creatures (2026-11-10, patch `0003`)
+
+**Symptom (player report 2026-11-10):** fists miss rats and wolves most of the time; weapons hit them.
+
+**Cause, read in the installed files [verified]:** Precision only registers a melee hit where an attack capsule
+touches the target, and every unarmed capsule in the list sits on the arm:
+
+| Source | Unarmed capsules |
+|---|---|
+| For Honor Reforged, OAR `Brawler/Normal Attacks` (priority 8070050, `IsEquippedType` 0): the 3rd-person fist moveset | `Collision_Add.Node(NPC R/L Hand)\|ID(1)\|Scale(3)\|LengthMult(1.5)` + forearm + upper arm (Scale 1); MCO_Attack10 forearm + upper arm only |
+| SIGMA - Fisting animations - 1st person | hand, `Scale(5.0)` |
+| `Precision_base.toml`, Enderal's H2H events `AttackStartH2HLeft/Right`, `attackPowerStartForwardH2H*Hand` | hand, Scale 3, Translation ±25/0/15 |
+
+A punch travels at shoulder height, so these pass over a rat (`SkeeverRace`) or a wolf. A sword's capsule is the
+blade (~100 units) and its swings go down. (Side note, not investigated: FHR's `Left/Right Light Attack` Brawler clips
+carry no Precision event at all, only `preHitFrame`/`FakeHit`.)
+
+**Fix (`src/ZenUnarmedReach.{h,cpp}` + `// ZP` lines in `AttackCollision.{h,cpp}`, `Havok/ContactListener.cpp`,
+`Hooks.cpp`):** every hand/forearm collision (`NPC R/L Hand`, `NPC R/L Forearm`) of a humanoid
+(`DefaultBodyPartData 00001D`) whose hand holds nothing, a spell or a hand-to-hand weapon gets a second capsule on the
+**same** `AttackCollision` (same hit refs, ID, damage mult, lifetime, removal). It hangs straight down from the middle
+of the fist capsule to the attacker's feet (radius 15 x scale) and sweeps along under the punch. It only hits
+**actors** (contacts with ground, objects, projectiles and other attack capsules are disabled, so no dust or deflected
+arrows) and only actors at most `fMaxTargetHeightRatio` (0.8) x the attacker's height (`Actor::GetHeight`, the engine's
+cached height), so fist fights between humanoids are exactly as before. The reach node is a child of the hand bone;
+`AttackCollision::Update` turns it world-aligned once a frame. Precision's update runs at the start of the frame,
+before animation, so its tilt lags the hand by one frame's rotation (a few degrees on a fast punch). Switches:
+`[UnarmedReach]` in `Precision_ZenderalFixes.ini` (`bEnable`, `fRadius`, `fMaxTargetHeightRatio`, `bLog`).
+
+**Status: built and deployed to `Zenderal - Patch Collection` 2026-11-10 (previous DLL + ini in
+`E:/Zenderal-backups/2026-11-10-precision-fork-pre-unarmed-reach/`). Unverified in game.** Shipped with `bLog = true`
+for the test: `Precision.log` must show `ZenUnarmedReach: enable true, radius 15, ...` at load, `reach capsule N units
+down` per unarmed collision, and per target `... (height H): hit` (rats, wolves) or `too tall, ignored` (humanoids).
+Precision's MCM debug *Display weapon capsule* draws it in red under the fist. Set `bLog = false` once verified.
+Rebuild: apply `0001` then `0003` to `upstream/` at `9ef45e0d8d`, run `build.cmd` (`0002` is the rolled-back ragdoll patch below, never applied).
+
 > Moved out of `CLAUDE.md` on 2026-10-13. Text is verbatim; `[verified]` marks and dates are as originally recorded.
 
 - **Source:** `src/PrecisionFork/`
