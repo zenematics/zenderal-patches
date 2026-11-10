@@ -275,6 +275,16 @@ Endfunction
 bool function receiveEP(int amount)
 {Adds the given amount of EP to the player and displays it as notification}
 	
+	; ZP: a player outside EPFaction (039DCE) earns no EP at all, decided before the lock below. _00E_EPOnDeath
+	; ZP: pays kill EP only when the killer is in that faction - or when the killer is None, which every death
+	; ZP: Skyrim Together syncs from another player is. The Fog Wood takes the player out of the faction for a run,
+	; ZP: so a co-op host got 225 EP per synced kill, and 100+ of these calls spun on the lock at once (Papyrus
+	; ZP: stack dumps every minute, 2026-11-10), starving every other script. GetForm, not a property: this script
+	; ZP: ships without its plugin, so its property set must stay base Enderal's.
+	If Player.GetFactionRank(Game.GetForm(0x00039DCE) as Faction) < 0
+		Return False
+	EndIf
+	
 	_LockLevelUpSystem()
 	PlayerExp.Mod(amount)
 	Int iLevelUpCount = getLevelUpCount()

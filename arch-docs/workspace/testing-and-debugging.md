@@ -110,8 +110,25 @@ thread's id is in that log line).
 | `EXCEPTION_ACCESS_VIOLATION` at `oxygenMeter2.dll+0016FC3` (`mov r8, [rsi+0x60]`, RSI 0), `oxygenMenu*` on the stack, job threads in `kLoadScreen` | Oxygen Meter 2's breath-meter update (the winning copy is Nexus 195918's 1.7.104 rebuild, GPL-3.0) reads the PlayerCharacter singleton (ID 403521) without a null check. During some loading screens it is null. Seen 5 times on the curator's PC (2026-10-28 to 11-07): three at ~40 s after launch, one at 74 s, one 6 min in. It is the DLL's only read of the player (function `+16E90`). Its "no value" exit is `+1717E`, and fixed by a null-check stub in the 21-byte `int3` run at `+955DB` | [`patches/OxygenMeterLoadFix.md`](../patches/OxygenMeterLoadFix.md) |
 | `EXCEPTION_ACCESS_VIOLATION` at `SkyrimSE.exe+06AEF73` (ID 37952+0x13, `mov r9, [rbx+0x38]`, RBX 0) under `CoreImpactFramework.dll` frames, inside a projectile impact; the hit actor on the stack has FormID `0x00000000` | `Actor::IsBlocking` called on null by Core Impact Framework's `SetDeferredHit` (`DeferredHit.hpp`): its `GetValidReference` rejects an actor already torn down (FormID 0 / `FFFFFFFF` / Deleted) and the code uses it anyway. Still in CIF 2.0.9. Seen once (a player, 2026-11-08, pistol bullet on a Fleshless Lost One in Old Aisolon); why the skeleton was already gone is unknown | [`patches/CoreImpactRemovedTargetFix.md`](../patches/CoreImpactRemovedTargetFix.md) |
 | `D3DCOMPILER_47.dll` / `CommunityShaders.dll` `ShaderCache` frames, minutes after launch | Bottled Shaders' background shader compile on a cold cache (seen on the curator's and players' PCs); each compiled shader is cached, so a relaunch continues | — |
+| `EXCEPTION_ACCESS_VIOLATION` inside `nvwgf2umx.dll` on a thread that starts in the driver (`KERNEL32+2DDA7` → five or six `nvwgf2umx` frames, Thread Priority 1), no game or mod frame anywhere; or a `DX::com_exception` with `HRESULT 0x887A0005 (DXGI_ERROR_DEVICE_REMOVED)` thrown from Bottled Shaders | NVIDIA's D3D11 driver crashing in its own worker thread on a garbage pointer (e.g. `rbx = 0x24200000001`), or the GPU device lost. The log cannot name a cause. Two players (2026-11-07 RTX 4060 Ti + **i7-14700F**, device-removed at 8 min then this at 5 min; 2026-11-10 RTX 4070 + **i7-13700KF**, at 4 min) share the exact driver path (`+06A480F`, `+06A4770`, `+06991AD`, `+0B9430A`, `+0FD36D6`: same driver version). Both are 13th/14th-gen Intel, whose voltage degradation is known to surface as exactly these driver crashes; **unproven, two samples**. Everything list-side on those logs (Bottled Shaders 1.9, Streamline/FidelityFX DLLs, NVIDIA and Steam overlays) is in every NVIDIA player's log, crash or not. The curator's own (2026-11-09, RTX 5090 + Ryzen, co-op, different driver path) is a separate single sample | Ask the player: CPU model, BIOS date (Intel microcode `0x12B` or later), driver version, and whether they turned on Bottled Shaders' frame generation. Suggest a BIOS update + clean driver install before anything list-side |
 
 ---
+
+## Reading a Papyrus stack dump (`Suspended stack count is over our warning threshold`)
+
+When more than 100 Papyrus stacks are suspended at once, the VM writes `Suspended stack count is over our warning
+threshold, dumping stacks:` and then every suspended stack (`Dumping stack N:` … `Stack trace:` with each frame's
+locals), and repeats it about every minute while it lasts. It means the script budget is gone: every other
+script's latent calls (`Disable`, `Delete`, `MoveTo`, `RegisterForSingleUpdate` ticks) queue behind the
+suspended ones, so a working script looks dead. Read it as: (1) group the dumped stacks by their *bottom* frame
+(the event or function that started them) and their *top* frame (what they wait in); (2) the locals matter -
+on 2026-11-10 every one of 100+ `_00e_epondeath.OnDeath()` frames carried `[akKiller]: None`, which named the
+cause (deaths synced by Skyrim Together) and the gate to add; (3) a *spinlock* (`While flag / WaitMenuMode(0.1)`)
+turns N callers into N suspended stacks waking ten times a second - Enderal's `_00E_EPUpdateFunctions.
+_LockLevelUpSystem` is one. The dumped `Return register` / `[::tempN]` lines also surface FormIDs of forms the
+scripts hold, which is how to tell an actor is still alive in the VM. Runtime `FF` FormIDs are **reused** after a
+ref is deleted, so an `FF` ID seen late in a log may be a different ref than the same ID seen early. Postmortem:
+[`patches/FogWood.md`](../patches/FogWood.md).
 
 ## Standalone xEdit reads its own game path
 

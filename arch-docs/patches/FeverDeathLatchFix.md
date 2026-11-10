@@ -22,3 +22,19 @@ same spot (right after `Int iArcaneFever = ...`). 2.1 itself only added `Debug.S
 `ComputeNeededExp` out to `_00E_Func_ComputeNeededExp` and swapped help messages to `_00E_HelpMessage`;
 all of that is 2.1's code, untouched. Compiled clean against `papyrus-source/enderal-2.1.4.4`;
 deployed to *Zenderal - Patch Collection* and *Zenderal - Fever Death Latch Fix*. Unverified in game.
+
+## No EP outside EPFaction (2026-11-10)
+
+Second `; ZP` block, at the top of `receiveEP`: **a player whose `GetFactionRank(EPFaction 039DCE)` is below 0
+earns nothing, decided before `_LockLevelUpSystem`.** `EPFaction` is Enderal's own switch for kill EP
+(`_00E_EPOnDeath` pays only a killer in it), and the Fog Wood takes the player out of it for a run. The hole:
+`_00E_EPOnDeath` also pays when `akKiller` is **None**, and every death Skyrim Together syncs from another
+player arrives with no killer, so a co-op host in the arena got 225 EP per synced kill, and because each call
+spins on the lock with `Utility.WaitMenuMode(0.1)`, 100+ of them at once put the VM over its suspended-stack
+threshold (stack dumps every minute from 01:07:19 on 2026-11-10; `Papyrus.1.log`) and starved every other
+script - the arena's corpse wipe among them ([`FogWood.md`](FogWood.md), postmortem). The faction is read with
+`Game.GetForm(0x00039DCE) as Faction`, not a new property: this script ships without its plugin and its property
+set must stay base Enderal's. Outside the arena the player is always in the faction (rank 0; the arena restores
+rank and membership in `EndRun` and on any load that finds the player out of the wood), so vanilla EP is
+unchanged. Compiled against `papyrus-source/enderal-2.1.4.4`; deployed to *Zenderal - Patch Collection*
+(the only copy in the list). Unverified in game.

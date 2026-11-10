@@ -56,6 +56,14 @@ caches give back anything that is not the fog's stock, and the entry message war
 swept. Nothing in the script deleted an item the player dropped until 2026-11-09 (the sweep took only the fog's
 own drops, two waves on), so why the tester's items were gone is open: the sweep of unlooted drops is the likeliest
 reading of "dropping items". All unverified in game.
+
+**Co-op session, 2026-11-10 ("Fog wood isn't clearing up bodies"):** the curator ran two arena runs (00:56 and 01:06)
+as host of a Skyrim Together session with three other players (GreaseBall, Yamato SenJi, Monk MAN; the host's
+`tp_client.log` 00:48-01:11). The script's own path was sound (no error on any `Doom`/`Delete`, the loop ticked),
+and the bodies still stood, for two co-op reasons found in the logs - postmortem below. Fixed on the Papyrus side
+the same night (`SweepCorpses`; the EP fork's `receiveEP` gate in [`FeverDeathLatchFix.md`](FeverDeathLatchFix.md)),
+deployed into Patch Collection 01:45, **unverified in game**; the Skyrim Together side (a deleted temporary actor
+should be removed on the server, not handed on) is a separate task on the co-op fork.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -305,6 +313,14 @@ A `PATCH`x`PATCH` (6x6) cell arena, cells -3..2 on both axes (24,576 units squar
   the end of `EndRun`, so no body is disabled and deleted in one frame and none in the tick that spawns the next
   wave: a player's crash (2026-11-07) freed an arena skeleton's 3D while IED's weapon re-hang job for it was still
   queued (the `0FDDB2D` chain; postmortem in [`EnemyDensity.md`](EnemyDensity.md)).
+- **Every dead arena actor in the wood is swept, listed or not** (`SweepCorpses`, from `ClearCorpses`, 2026-11-10):
+  Papyrus Extender `FindAllReferencesOfFormType(PlayerRef, 43, SWEEP_RADIUS)` (NPC_ bases = every actor), then
+  dead + in `ZFW_ArenaFaction` + in the wood + not the player → `Doom`. It catches the corpses Skyrim Together sends
+  back (postmortem below; spawned characters get their factions back, so the faction test finds them) and any
+  body the 80-slot list never held. Companions, summons and remote players are not in the faction. `ClearCorpses`
+  now traces once per call outside the budget (`ZFW: doomed N listed corpses, swept M other dead arena actors`),
+  and the wave clear traces `ZFW: wave N cleared, K corpses listed`: the 2026-11-10 log could not say whether the
+  wipe had run because the `ZFW target:`/`ZFW hit:` lines had spent `TRACE_BUDGET` in the first wave.
 
 ## Postmortem: the alias script never bound (2026-11-06)
 
@@ -351,6 +367,43 @@ with its source and the victim's hostility before and after; the next run's `ZFW
 are the cause, the fix is to make the spawns unable to hit each other (a perk on each spawn with `Mod Attack
 Damage` x0 against the arena faction does not stop the hit event; a cleaner route is a dedicated combat style
 or spacing the archers so the ring does not fire through itself).
+
+## Postmortem: the bodies that came back (co-op, 2026-11-10)
+
+Two mechanisms, both outside the arena script, both read off the host's logs of the 2026-11-10 session (Papyrus
+`Papyrus.1.log` 00:40-01:11, `overwrite/SkyrimTogetherReborn/logs/tp_client.log` 00:48-01:11).
+
+**1. Skyrim Together hands a deleted corpse to another player instead of removing it.** When any local actor
+leaves the game - unloaded *or* deleted - the client's `OnActorRemoved` → `CancelServerAssignment` sends the server
+`RequestOwnershipTransfer{Relinquish}` for an actor it owns (`Transferring ownership of local actor`, 202 times that
+session); the server's `OnOwnershipTransferRequest` then looks for the next player in range and only removes the
+character when nobody can take it (`TransferToNextOwner`; a *player summon* is the one case it removes at once). So
+every corpse `Doom`/`DeleteDoomed` deleted on the host lived on, owned by GreaseBall or Yamato, visible on their
+screens, and when the host left and re-entered the wood the server sent them all back as
+`CharacterSpawnRequest ... dead: true` - **89 of them within seven seconds at 01:06**, right as the second run began.
+With quest sync off each player's arena is its own quest, so the other players' waves' corpses arrive the same
+way. Host-side answer: `SweepCorpses` (above) deletes them locally each wave; they return on the next re-entry
+until the client tells the server a *deleted* temporary should be removed everywhere (the client can tell: the
+removal scan still sees `IsDeleted()`/`IsDisabled()` on the actor; the server already deletes temporaries on
+`NotifyRemoveCharacter`). That is the Skyrim Together task, not this patch's.
+
+**2. Every synced death pays the host EP, and 100+ of those spun on Enderal's level-up lock.** Enderal's
+`_00E_EPOnDeath.OnDeath(akKiller)` pays `RewardExp` when the killer is in `EPFaction` **or when `akKiller` is None**.
+A death another player caused reaches the host as a state change (`Killing actor ... to match server state`, or the
+health broadcast), with no killer actor - every one of the 455 `OnDeath` frames in the session's stack dumps had
+`[akKiller]: None`. The arena takes the host out of `EPFaction`, which stops the host's *own* kills from paying,
+and nothing else: each synced kill called `_00E_EPHandler.GiveEP(225)` → `receiveEP` → `_LockLevelUpSystem`, a
+spinlock on `Utility.WaitMenuMode(0.1)`. From 01:07:19 the VM logged `Suspended stack count is over our warning
+threshold` every minute with 103-123 of these stacks waiting, which is the Papyrus budget gone: our one-second
+loop, `Disable()` and `Delete()` crawl behind them. Fixed in the shipped fork of `_00E_EPUpdateFunctions`
+(`receiveEP` returns before the lock when the player is outside `EPFaction 039DCE`,
+[`FeverDeathLatchFix.md`](FeverDeathLatchFix.md)). Solo, the player is the killer, so neither the EP nor the
+storm happened; this is why the 2026-11-05 solo tests never showed it.
+
+Also in that log: the host's companions/co-players in the hit traces are the `FF` actors named GreaseBall,
+Yamato SenJi and Monk MAN (Skyrim Together builds remote players as runtime actors); the arena's `StartCombat` and
+relocations only bind spawns the host still owns. What the waves should chase with several players in the wood is
+an open design question, not a bug of this build.
 
 ## FormID layout
 

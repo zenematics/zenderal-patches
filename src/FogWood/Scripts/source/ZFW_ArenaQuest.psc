@@ -460,6 +460,7 @@ Function Tick()
 		Int alive = ProcessDeaths()
 		If alive == 0
 			WaveActive = False
+			Debug.Trace("ZFW: wave " + Wave + " cleared, " + CorpseCount + " corpses listed")
 			ShowBanner(OBJ_CLEARED)
 			If Wave % BOSS_EVERY == 0
 				PlaceChests(CHESTS_PER_BOSS)
@@ -1016,6 +1017,9 @@ Function ClearSpawns()
 EndFunction
 
 Function ClearCorpses()
+	{The listed corpses, then every other dead arena actor in the wood (SweepCorpses). One trace per call, outside
+	 the budget: the 2026-11-10 log could not say whether the wipe ran, the target/hit traces had spent it.}
+	Int listed = CorpseCount
 	Int i = 0
 	While i < CorpseCount
 		If Corpses[i] != None
@@ -1025,6 +1029,33 @@ Function ClearCorpses()
 		i += 1
 	EndWhile
 	CorpseCount = 0
+	Int swept = SweepCorpses()
+	If listed > 0 || swept > 0
+		Debug.Trace("ZFW: doomed " + listed + " listed corpses, swept " + swept + " other dead arena actors")
+	EndIf
+EndFunction
+
+Int Function SweepCorpses()
+	{Every dead actor of the arena faction in the wood that the corpse list did not hold. Co-op (curator, 2026-11-10):
+	 when the host's script deletes a corpse, Skyrim Together relinquishes its ownership instead of removing it, the
+	 server hands the dead character to another player, and sends it back to the host as a dead spawn when the host
+	 re-enters the wood (89 at one run's start in tp_client.log). Spawned characters get their factions back, so the
+	 faction test finds them; the player, companions, remote players and summons are not in it. Returns the count.}
+	ObjectReference[] found = PO3_SKSEFunctions.FindAllReferencesOfFormType(PlayerRef, 43, SWEEP_RADIUS)    ; 43 = NPC_ bases: every actor
+	If !found
+		Return 0
+	EndIf
+	Int swept = 0
+	Int i = 0
+	While i < found.Length
+		Actor a = found[i] as Actor
+		If a != None && a != PlayerRef && !a.IsDisabled() && a.IsDead() && a.IsInFaction(ArenaFaction) && a.GetWorldSpace() == FogWoodWorld
+			Doom(a)
+			swept += 1
+		EndIf
+		i += 1
+	EndWhile
+	Return swept
 EndFunction
 
 Function Doom(Actor akBody)
