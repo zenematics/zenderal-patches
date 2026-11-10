@@ -83,6 +83,18 @@ every power attack as standing. Its `_CDW_ClassAbMonitorScript` casts more on hi
 `00088A` and art `00089F`. `tools/02` overrides it inert (no script, perk, shader or art), so only Rage drives the actions.
 The plugin holds 20 records.
 
+**The side slashes themselves were gone (curator, 2026-11-10: "an X pattern slice ... never plays").** Kittytails draws
+the slash shapes as a smoke texture (`fxsmokesub.dds`, in `CLOUD_TEXTURES`) masked through a palette: Soulrender's X is
+`DarkWarriorFlashProj`'s strip particles `pStrips01` (palette `gradheal`), Bloodletter's slash its four `SlashGeometry`
+pieces and `pStrips01` (`graddiscolightbeam` / `gradillusiondark01`). The cloud-texture rule detached all six, so a side
+power attack showed only the ripple cuts and sparks (Soulrender fired in the Rage log all along). Now a shape whose
+shader has a palette is never a cloud: its colour is our recoloured `gradientz` copy. The texture rule only fires on
+palette-less shaders (`shader_textures(..., palette_only=True)`); the name rule (`Vapor01`, `Darkness01`) and
+`CLOUD_SHAPES` (`Sparkle01`) are unchanged. BeamSlash / BeamSlash_Upgraded each still lose one palette-less cloud.
+**The live copy is inside Patch Collection** (meshes + textures copied there 2026-11-09; the standalone MO2 folder holds
+only its `meta.ini`): after a rerun, copy `meshes/` and `textures/` from the tool's output mod into Patch Collection.
+Unverified in game.
+
 **A boot crash right after the plugin was enabled (2026-10-27 19:17) was not the plugin.** It was in Community Shaders'
 shader compiler (`ShaderCache::GetCompletedShader`, a grass shader, 24 s in), the same as a crash at 12:17 before
 the plugin existed. The plugin has two records, which nothing reads at boot.

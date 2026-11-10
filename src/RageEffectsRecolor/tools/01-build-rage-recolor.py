@@ -128,7 +128,7 @@ def avobject_end(r):
     r.skip(4 + 12 + 36 + 4 + 4)                              # flags, translation, rotation, scale, collision
 
 
-def shader_textures(n, idx):
+def shader_textures(n, idx, palette_only=False):
     typ, p, _ = n.blocks[idx]
     if typ != 'BSEffectShaderProperty':
         return set()
@@ -137,7 +137,7 @@ def shader_textures(n, idx):
     n1 = r.take('I'); src = bytes(n.data[r.p:r.p + n1]).decode('latin1'); r.skip(n1)
     r.skip(20 + 16 + 8)                                      # flags/falloff, base colour, scale, soft depth
     n2 = r.take('I'); grey = bytes(n.data[r.p:r.p + n2]).decode('latin1')
-    return {t.lower().split('\\')[-1] for t in (src, grey) if t}
+    return {t.lower().split('\\')[-1] for t in ((grey,) if palette_only else (src, grey)) if t}
 
 
 # Dark Deluge's meshes keep every shape: the curator wanted its beam back, and detaching the vapour shape alone did not
@@ -158,7 +158,14 @@ def detach_clouds(n, extra=()):
             avobject_end(r)
             r.skip(16 + 4)                                   # bounding sphere, skin
             shader = r.take('i')
-            if (0 <= shader < len(n.blocks) and shader_textures(n, shader) & CLOUD_TEXTURES) or name.startswith(CLOUD_NAMES) or name in extra:
+            # 2026-11-10 (curator: Soulrender's X-shaped slice never played): Kittytails draws the slashes themselves
+            # as a smoke texture masked through a palette (Flash's X = pStrips01 with gradheal; Bloodletter's four
+            # SlashGeometry pieces and its strips with graddiscolightbeam/gradillusiondark01), so the cloud-texture rule
+            # had removed every side slash. A shape whose shader has a palette is coloured by OUR recoloured gradientz
+            # copy, never a cloud: the texture rule now only fires on palette-less shaders.
+            has_palette = 0 <= shader < len(n.blocks) and bool(shader_textures(n, shader, palette_only=True))
+            cloud_tex = 0 <= shader < len(n.blocks) and not has_palette and bool(shader_textures(n, shader) & CLOUD_TEXTURES)
+            if cloud_tex or name.startswith(CLOUD_NAMES) or name in extra:
                 clouds.add(i)
     done = 0
     for typ, p, _ in n.blocks:
