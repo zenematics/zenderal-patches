@@ -121,3 +121,12 @@ Check a run with: Pandora output's `animationsetdatasinglefile.txt` must contain
   Steam Enderal SE install (`E:/Steam/steamapps/common/Enderal Special Edition/Data`, verified
   identical). Run Pandora only from MO2. Launching it through MO2's CLI from a Claude session fails
   anyway (usvfs launch: `ERROR_ACCESS_DENIED`).
+- **2026-11-11: packaged as a standalone Nexus file, *Enderal Paired Animations for Pandora*** (a
+  Nexus commenter asked for it on its own). It is the only Zenderal fix here that needs nothing from
+  the list: just Enderal (its `fnis_enderal_list.txt` ships loose in base Enderal's `Data`) and
+  Pandora 5.0.0-beta. Same files as Patch Collection's copy except the two Pandora entry names
+  (`Enderal Paired Animations for Pandora` and `… (anim sets)`), changed in a copy staged for the
+  upload only. The mod codes `zpaired`/`zpairset` are unchanged, so installing both overwrites
+  identical files. The manifest entry still builds the Zenderal-named archive; after a regenerate,
+  build the standalone the same way. Its page warns Immersive Interactions users about the companion
+  hug (see [`CompanionHugFix`](CompanionHugFix.md)).
