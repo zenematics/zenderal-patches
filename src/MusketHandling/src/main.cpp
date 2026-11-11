@@ -37,9 +37,23 @@
 //    now kept (by base form, with a count: two of the same musket are told apart only by number), and taken up again
 //    it stays empty until its own reload. The engine does not say which of several alike it equips, so a loaded one
 //    is assumed while the player has any (SyncHand).
+//
+// 4. Enemies' pistol reloads (1.4.0, 2026-11-11). Zenderal - Pistol Ramrod Reload's ZP_PistolReloadArmNPCEffect
+//    reloads an NPC's empty flintlock pistol the way the player's script does: the hand's request variable
+//    (fZenPistolReloadL/R) at 1, then bWantCast<side> false -> true, then M?h_SpellAimedStart and
+//    M?h_SpellRelease_Event. The graph turns the edge into BeginCast<side> on its own update, enters its casting state,
+//    and leaves it again on the next update unless an aimed cast has begun (CastStop). An NPC's graph takes the edge
+//    ~0.1-0.2 s later than Papyrus sends the events, so they were refused (ZenPistolNPCTrace, 2026-11-11: of a dozen
+//    reloads asked for, the one that played had its M?h_SpellAimedStart land in the same millisecond as
+//    BeginCastLeft). So the graph's BeginCast<side> of a non-player actor whose request variable is set is answered at
+//    once from that actor's BSAnimationGraphEvent sink with M?h_SpellAimedStart (+ MRh_SpellReady_Event, the right
+//    hand's aimed cast releases only from its ready state) and M?h_SpellRelease_Event, as the engine answers its own
+//    casts on the same thread. The AI's own casts leave the request variable at 0 and are untouched; the player is a
+//    PlayerCharacter (its own vtable, sections 1-3) and never comes through here. 1.4.1: the request is cleared as it
+//    is answered (one answer per reload: a second BeginCast with the request still set fired a real shot mid-reload).
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 3, 0, 0 },
+	.Version = REL::Version{ 1, 4, 1, 0 },
 	.Name = "ZenMusketHandling"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -64,6 +78,7 @@ namespace
 	std::vector<std::string> g_attackEvents{ "crossbowAttackStart" };
 	std::string              g_reloadEvent{ "reloadStart" };
 	std::string              g_loadedEvent{ "reloadStop" };
+	bool                     g_npcPistolReload{ true };  // section 4
 
 	std::uint64_t         g_shotAtMs{ 0 };  // 0 = no musket shot being locked out
 	// The musket in the right hand (drawn or not, 0 = none) and whether it is empty, loaded by its reload's
@@ -297,6 +312,47 @@ namespace
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
 
+	// Section 4: BSTEventSink<BSAnimationGraphEvent>::ProcessEvent (vfunc 0x01) on the Character vtable [2], every
+	// non-player actor's graph events. BeginCast<side> with that hand's reload request set: the aimed cast and its
+	// release, sent at once.
+	struct NpcGraphEvent
+	{
+		static RE::BSEventNotifyControl thunk(RE::BSTEventSink<RE::BSAnimationGraphEvent>* a_this, const RE::BSAnimationGraphEvent* a_event,
+			RE::BSTEventSource<RE::BSAnimationGraphEvent>* a_source)
+		{
+			const auto result = func(a_this, a_event, a_source);
+			if (!g_npcPistolReload || !a_event || !a_event->tag.c_str()) {
+				return result;
+			}
+			const std::string_view tag{ a_event->tag.c_str() };
+			const bool             left = IEquals(tag, "BeginCastLeft"sv);
+			if (!left && !IEquals(tag, "BeginCastRight"sv)) {
+				return result;
+			}
+			auto* actor = static_cast<RE::TESObjectREFR*>(a_this)->As<RE::Actor>();
+			float request = 0.0f;
+			if (!actor || actor->IsPlayerRef() ||
+				!actor->GetGraphVariableFloat(left ? "fZenPistolReloadL"sv : "fZenPistolReloadR"sv, request) || request < 0.5f) {
+				return result;
+			}
+			// 1.4.1: one answer per request. The script held its request (and bWantCast) for a second, the graph raised a
+			// second BeginCast after the first cast was thrown away, and its answer fired a real shot mid-reload
+			// (ZenPistolNPCTrace, 2026-11-11 22:06:26.8)
+			actor->SetGraphVariableFloat(left ? "fZenPistolReloadL"sv : "fZenPistolReloadR"sv, 0.0f);
+			const auto prefix = left ? "MLh_"s : "MRh_"s;
+			const bool aimed = actor->NotifyAnimationGraph((prefix + "SpellAimedStart").c_str());
+			const bool ready = left || actor->NotifyAnimationGraph("MRh_SpellReady_Event");
+			const bool release = actor->NotifyAnimationGraph((prefix + "SpellRelease_Event").c_str());
+			if (g_log) {
+				SKSE::log::info("NPC {:08X} '{}': {} with its pistol reload asked for: {}SpellAimedStart {}, {}SpellRelease_Event {}{}",
+					actor->GetFormID(), actor->GetName(), tag, prefix, aimed ? "taken" : "REFUSED", prefix, release ? "taken" : "REFUSED",
+					left ? "" : (ready ? " (ready taken)" : " (ready REFUSED)"));
+			}
+			return result;
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
 	void OnSave(SKSE::SerializationInterface* a_intfc)
 	{
 		// Normally 0 here: kSaveGame lifted the penalty before the game wrote the save.
@@ -468,17 +524,19 @@ namespace
 		g_attackEvents = ReadIniList("Reload"sv, "AttackEvents"sv, { "crossbowAttackStart" });
 		g_reloadEvent = ReadIniValue(kIniPath, "Reload"sv, "ReloadEvent"sv).value_or("reloadStart");
 		g_loadedEvent = ReadIniValue(kIniPath, "Reload"sv, "LoadedEvent"sv).value_or("reloadStop");
+		g_npcPistolReload = ReadIniNumber<std::uint32_t>("Pistols"sv, "NpcReloadCast"sv, 1) != 0;
 		SKSE::log::info("Muskets=[{}] LockAfterShotMs={} MaxLockMs={} BlockedEvents=[{}] SpeedMultPenalty={} Log={}",
 			Join(g_musketPlugins), g_lockAfterShotMs, g_maxLockMs, Join(g_blockedEventPrefixes), g_speedMultPenalty, g_log);
 		SKSE::log::info("Reload OnDemand={} AttackEvents=[{}] ReloadEvent={} LoadedEvent={}", g_onDemand, Join(g_attackEvents),
 			g_reloadEvent, g_loadedEvent);
+		SKSE::log::info("Pistols NpcReloadCast={}", g_npcPistolReload);
 	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenMusketHandling 1.3.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenMusketHandling 1.4.1 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };
@@ -488,6 +546,9 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	REL::Relocation<std::uintptr_t> sinkVtbl{ RE::VTABLE_PlayerCharacter[2] };
 	PlayerGraphEvent::func = sinkVtbl.write_vfunc(0x1, PlayerGraphEvent::thunk);
 	SKSE::log::info("PlayerCharacter::Update, NotifyAnimationGraph and its graph event sink hooked");
+	REL::Relocation<std::uintptr_t> npcSinkVtbl{ RE::VTABLE_Character[2] };
+	NpcGraphEvent::func = npcSinkVtbl.write_vfunc(0x1, NpcGraphEvent::thunk);
+	SKSE::log::info("Character graph event sink hooked (section 4: enemies' pistol reload casts)");
 
 	const auto* serialization = SKSE::GetSerializationInterface();
 	serialization->SetUniqueID(kCosaveId);

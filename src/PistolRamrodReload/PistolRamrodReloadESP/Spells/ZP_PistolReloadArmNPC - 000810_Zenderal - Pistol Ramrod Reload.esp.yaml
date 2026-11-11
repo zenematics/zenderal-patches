@@ -1,0 +1,28 @@
+FormKey: 000810:Zenderal - Pistol Ramrod Reload.esp
+EditorID: ZP_PistolReloadArmNPC
+Name:
+  TargetLanguage: English
+  Value: Pistol Reload
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 00080F:Zenderal - Pistol Ramrod Reload.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Left
+    ComparisonValue: 8
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetEquippedItemTypeConditionData
+      ItemSource: Right
+    ComparisonValue: 8

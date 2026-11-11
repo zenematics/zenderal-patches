@@ -106,6 +106,27 @@ Built 2026-11-03 (backup of 1.2.0's source and DLL in `E:/Zenderal-backups/2026-
 swap and the next press played the reload. The pistols got the same in the Flintlock script ([`FlintlockOverhaul`](FlintlockOverhaul.md),
 *Put away empty*).
 
+## 4. Enemies' pistol reload casts (1.4.0, 2026-11-11)
+
+Not about muskets: [`PistolRamrodReload`](PistolRamrodReload.md)'s enemy script (*Enemies reload too*) starts an NPC's
+pistol reload the way the player's script does (the hand's request variable `fZenPistolReloadL/R` at 1, `bWantCast<side>`
+false → true, `M?h_SpellAimedStart`, `M?h_SpellRelease_Event`). [`ZenPistolNPCTrace`](ZenPistolNPCTrace.md) showed
+why most were refused: an NPC's graph takes the `bWantCast` edge on its own update, 0.1–0.2 s after Papyrus sent the
+events, so they reached it before `BeginCastLeft` and were refused, and the graph then left its casting state
+(`CastStop`). The one reload that played had `M?h_SpellAimedStart` land in the same millisecond as `BeginCastLeft`.
+
+So this hooks the `Character` graph event sink (`VTABLE_Character[2]` vfunc 0x01: every non-player actor) and answers
+`BeginCastLeft` / `BeginCastRight` of an actor whose request variable is set, at once, with `M?h_SpellAimedStart`
+(+ `MRh_SpellReady_Event` for the right hand) and `M?h_SpellRelease_Event`. The engine answers its own casts the same
+way, on the same thread (trace: the AI's `MLh_SpellAimedStart` in the same millisecond, same thread, as its
+`BeginCastLeft`). The AI's own casts leave the request at 0 and are untouched; the player is a `PlayerCharacter` and
+never comes through here. `[Pistols] NpcReloadCast` (1) turns it off; with `Log=1` each answer is logged with whether
+the graph took the events. 1.3.0's DLL and ini are in `E:/Zenderal-backups/2026-11-11-musket-handling-1.3.0/`.
+Built and deployed to Patch Collection 2026-11-11. Ninth test: every enemy reload asked for started, the events taken.
+**1.4.1 (same day):** the request is cleared as it is answered, one answer per reload. With the request still set, a
+second `BeginCast` (the graph raises one when a cast is thrown away and `bWantCast` is still on) was answered too, and
+that cast, at a charge that pays for a bullet, fired a real shot mid-reload (eleventh test). Unverified in game.
+
 ## Tuning
 
 All in `ZenMusketHandling.ini`: `LockAfterShotMs`, `MaxLockMs`, `BlockedEvents`, `SpeedMultPenalty` (0 = off),

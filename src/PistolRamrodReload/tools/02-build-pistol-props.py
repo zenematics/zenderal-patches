@@ -13,7 +13,8 @@ Textures are referenced, not copied: the Gentleman's Flintlock Armoury stays ins
 
 Records: `ZEN_PistolBall` 0x800, the rods 0x801 up in tools/01's group order; the quest 0x806; the AnimObjectL copies
 `ZEN_PistolBallL` 0x807, the rods 0x808 up; the loading sounds' SNDRs 0x80D up (tools/01 SOUNDS; run tools/06 first for
-their .wavs); plugin `Zenderal - Pistol Ramrod Reload.esp`, ESL, HEDR 1.7, YAML in src/PistolRamrodReload/PistolRamrodReloadESP (generated, never hand-edited), built
+their .wavs); the enemies' reload, effect `ZP_PistolReloadArmNPCEffect` 0x80F and ability `ZP_PistolReloadArmNPC`
+0x810 (given to every NPC by spid/Zenderal - Pistol Ramrod Reload_DISTR.ini, copied to the mod's root); plugin `Zenderal - Pistol Ramrod Reload.esp`, ESL, HEDR 1.7, YAML in src/PistolRamrodReload/PistolRamrodReloadESP (generated, never hand-edited), built
 with the pinned Spriggit CLI into the MO2 mod.
 
 Run order: 01 -> 02 (01 rebuilds the OAR folder only; this rebuilds the meshes and the plugin).
@@ -56,6 +57,16 @@ CRLF = '\r\n'
 QUEST_ID, QUEST_EDID = 0x806, 'ZP_PistolReloadArmQuest'   # after the AnimObjectR ANIO block (0x800-0x805)
 SCRIPT = 'ZP_PistolReloadArmScript'                       # hands the right arm to the clip for a reload (see its source)
 PEX = os.path.join(ROOT, 'src', 'PistolRamrodReload', 'Scripts', 'compiled', SCRIPT + '.pex')
+# Enemies (2026-11-11): this ability's script empties an enemy's pistol at its shot and reloads it the way the player's
+# script does (the player's reload clips, asked for through the request variable). A Script effect (Prophecy's Ice
+# Shot watcher's shape) on a constant ability, active only while either hand holds a staff; SPID gives the ability to
+# every NPC (never the player: SPID skips it).
+NPC_EFFECT_ID, NPC_EFFECT_EDID = 0x80F, 'ZP_PistolReloadArmNPCEffect'
+NPC_SPELL_ID, NPC_SPELL_EDID = 0x810, 'ZP_PistolReloadArmNPC'
+NPC_SCRIPT = 'ZP_PistolReloadArmNPCEffect'
+NPC_PEX = os.path.join(ROOT, 'src', 'PistolRamrodReload', 'Scripts', 'compiled', NPC_SCRIPT + '.pex')
+SPID = os.path.join(ROOT, 'src', 'PistolRamrodReload', 'spid', 'Zenderal - Pistol Ramrod Reload_DISTR.ini')
+TYPE_STAFF = 8                 # GetEquippedItemType
 # the loading sounds' SNDRs (tools/01 SOUNDS, in order, 2026-11-02): vanilla's bow nock (WPNBowNockSD, weapon category,
 # positional output) copied with one file each, the .wavs tools/06 writes
 SOUND_ID = 0x80D
@@ -123,6 +134,30 @@ def quest_record():
         '        Name: PlayerRef', '        Object: 000014:Skyrim.esm', 'Flags:', '- StartGameEnabled', '- RunOnce',
         'NextAliasID: 1', 'Aliases:', '- Name: PlayerAlias', '  Flags: []', '  ForcedReference: 000014:Skyrim.esm',
         '  VoiceTypes: Null', ''])
+
+
+def npc_effect_record():
+    """ZP_PistolReloadArmNPCEffect: a hidden Script effect running ZP_PistolReloadArmNPCEffect."""
+    return CRLF.join([
+        'FormKey: %06X:%s' % (NPC_EFFECT_ID, PR.PROP_PLUGIN), 'EditorID: ' + NPC_EFFECT_EDID,
+        'VirtualMachineAdapter:', '  Scripts:', '  - Name: ' + NPC_SCRIPT, 'Name:', '  TargetLanguage: English',
+        '  Value: Pistol Reload', 'Flags:', '- NoMagnitude', '- NoArea', '- NoDuration', '- HideInUI', '- Painless',
+        'Archetype:', '  MutagenObjectType: MagicEffectArchetype', '  Type: Script', 'CastType: ConstantEffect',
+        'DualCastScale: 1', 'CastingSoundLevel: Silent', 'Sounds: []', 'Description:', '  TargetLanguage: English',
+        "  Value: ''", ''])
+
+
+def npc_spell_record():
+    """ZP_PistolReloadArmNPC: a constant ability with that effect while either hand holds a staff (a pistol)."""
+    cond = lambda hand, first: ['  - MutagenObjectType: ConditionFloat'] + (['    Flags:', '    - OR'] if first else []) + [  # noqa: E731
+        '    Data:', '      MutagenObjectType: GetEquippedItemTypeConditionData', '      ItemSource: ' + hand,
+        '    ComparisonValue: %d' % TYPE_STAFF]
+    return CRLF.join([
+        'FormKey: %06X:%s' % (NPC_SPELL_ID, PR.PROP_PLUGIN), 'EditorID: ' + NPC_SPELL_EDID, 'Name:',
+        '  TargetLanguage: English', '  Value: Pistol Reload', 'MenuDisplayObject: 0435A5:Skyrim.esm',
+        'EquipmentType: 013F44:Skyrim.esm', 'Description:', '  TargetLanguage: English', "  Value: ''", 'Type: Ability',
+        'CastType: ConstantEffect', 'Effects:', '- BaseEffect: %06X:%s' % (NPC_EFFECT_ID, PR.PROP_PLUGIN), '  Data: {}',
+        '  Conditions:'] + cond('Left', True) + cond('Right', False) + [''])
 
 
 def main():
@@ -197,9 +232,10 @@ def main():
             fh.write(yaml_record(edid, local_id, mesh))
     sounds = [(edid, SOUND_ID + i) for i, (edid, _) in enumerate(PR.SOUNDS)]
     ids = [i for _, i, _ in records] + [i for _, i in sounds]
-    if QUEST_ID in ids or len(set(ids)) != len(ids) or max(ids) > 0xFFF:
-        sys.exit('ANIO / SNDR FormIDs collide with each other or the quest\'s %03X: %s'
-                 % (QUEST_ID, sorted('%03X' % i for i in ids)))
+    fixed = (QUEST_ID, NPC_EFFECT_ID, NPC_SPELL_ID)
+    if any(i in ids for i in fixed) or len(set(ids)) != len(ids) or max(ids) > 0xFFF:
+        sys.exit('ANIO / SNDR FormIDs collide with each other or the quest / NPC ability\'s %s: %s'
+                 % (' '.join('%03X' % i for i in fixed), sorted('%03X' % i for i in ids)))
     os.makedirs(os.path.join(OUT, 'GameSettings'))
     with open(os.path.join(OUT, 'GameSettings', 'sMagicCastInsufficientItemCharge - 0D4BD8_Skyrim.esm.yaml'), 'w',
               encoding='utf-8', newline='') as fh:
@@ -216,10 +252,23 @@ def main():
     with open(os.path.join(OUT, 'Quests', '%s - %06X_%s.yaml' % (QUEST_EDID, QUEST_ID, PR.PROP_PLUGIN)), 'w',
               encoding='utf-8', newline='') as fh:
         fh.write(quest_record())
-    if not os.path.isfile(PEX):
-        sys.exit('%s is not compiled (Scripts/source -> Scripts/compiled, papyrus-compile)' % PEX)
-    os.makedirs(os.path.join(out_mod, 'Scripts'), exist_ok=True)
-    shutil.copyfile(PEX, os.path.join(out_mod, 'Scripts', SCRIPT + '.pex'))
+    os.makedirs(os.path.join(OUT, 'MagicEffects'))
+    with open(os.path.join(OUT, 'MagicEffects', '%s - %06X_%s.yaml' % (NPC_EFFECT_EDID, NPC_EFFECT_ID, PR.PROP_PLUGIN)),
+              'w', encoding='utf-8', newline='') as fh:
+        fh.write(npc_effect_record())
+    os.makedirs(os.path.join(OUT, 'Spells'))
+    with open(os.path.join(OUT, 'Spells', '%s - %06X_%s.yaml' % (NPC_SPELL_EDID, NPC_SPELL_ID, PR.PROP_PLUGIN)),
+              'w', encoding='utf-8', newline='') as fh:
+        fh.write(npc_spell_record())
+    for pex, script in ((PEX, SCRIPT), (NPC_PEX, NPC_SCRIPT)):
+        if not os.path.isfile(pex):
+            sys.exit('%s is not compiled (Scripts/source -> Scripts/compiled, papyrus-compile)' % pex)
+        os.makedirs(os.path.join(out_mod, 'Scripts'), exist_ok=True)
+        shutil.copyfile(pex, os.path.join(out_mod, 'Scripts', script + '.pex'))
+    spid = open(SPID, encoding='utf-8').read()
+    if 'Spell = 0x%X~%s|' % (NPC_SPELL_ID, PR.PROP_PLUGIN) not in spid:
+        sys.exit('%s does not give 0x%X~%s' % (SPID, NPC_SPELL_ID, PR.PROP_PLUGIN))
+    shutil.copyfile(SPID, os.path.join(out_mod, os.path.basename(SPID)))     # archive root: SPID is non-recursive
     esp = os.path.join(out_mod, PR.PROP_PLUGIN)
     run = subprocess.run([ADS.TOOLS['spriggitCli'], 'deserialize', '--InputPath', OUT, '--OutputPath', esp],
                          capture_output=True, text=True)
@@ -231,6 +280,9 @@ def main():
         sys.exit('%s: expected %d ANIO records, found %d EditorIDs' % (esp, len(records), len(found)))
     if QUEST_EDID.encode() + b'\0' not in data or SCRIPT.encode() not in data:
         sys.exit('%s: the quest %s or its script is missing' % (esp, QUEST_EDID))
+    if any(e.encode() + b'\0' not in data for e in (NPC_EFFECT_EDID, NPC_SPELL_EDID)) or b'MGEF' not in data \
+            or b'SPEL' not in data or NPC_SCRIPT.encode() not in data:
+        sys.exit('%s: the NPC ability %s / %s or its script is missing' % (esp, NPC_SPELL_EDID, NPC_EFFECT_EDID))
     if any(e.encode() + b'\0' not in data for e, _ in sounds) or data.count(b'SNDR') < len(sounds):
         sys.exit('%s: a loading sound\'s SNDR is missing' % esp)
     if b'sMagicCastInsufficientItemCharge\0' not in data or b'DATA\x02\x00 \x00' not in data:
