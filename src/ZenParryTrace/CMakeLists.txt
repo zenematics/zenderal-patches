@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.25)
 # the PIE/attack events each of the player's two behaviour graphs sends, FHR's parry effects switching on and off,
 # FHR effect applications and hits to/from the player - to find where the first-person parry stops.
 # AE (Address Library), CommonLibSSE-NG.
-project(ZenParryTrace VERSION 1.3.0 LANGUAGES CXX)
+project(ZenParryTrace VERSION 1.4.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

@@ -14,6 +14,10 @@
   (`801`–`806`) on every loaded actor, on change, with the player's `[fx]` and time since the player's hit; the
   player's side markers `880`–`883` in `[fx]`; and at load one `SETUP hit spell entry` line per `ApplyCombatHitSpell`
   entry the player has (priority, rank, condition count, perk → spell) — the entries competing for the one hit spell.
+  1.4.0 (2026-11-10), for first-person unarmed power attacks that never start: `IN` = every attack/power/block/H2H/equip
+  event sent **into** the player's graphs (PlayerCharacter's `IAnimationGraphManagerHolder::NotifyAnimationGraph`,
+  vtable `[3]` slot 1) with `(NOT ACCEPTED)` when the manager refused it; `VARS` = each graph's `iState` tag and the
+  variables the H2H attack transitions test (`iRightHandType`, `iLeftHandType`, `bWantCastLeft`, `iWantBlock`), on change.
   An `APPLY` line alone does not prove an effect took: the apply event fires before the effect's conditions are
   checked (the v3 log shows `803`'s mutually exclusive `874` and `82A` applied together).
 
@@ -44,6 +48,8 @@ Each link can fail silently, so this logs all of them instead of guessing.
 | `SETUP` | load | whether the player has perk `876` and quest `806` runs |
 | `DIR` (1.1.0) | player update, on change; also appended to each `ATTACK state 0 -> 1` | DMK's `DirecionalCycleMoveset` in each graph (`absent` = not injected), PaulMix's `KDForward/KDLeft/KDBack/KDRight` per graph, Keytrace's held-key effects 801–804 and the actor's moving flags, as `FLBR` masks |
 | `GRAPH` / `CAMERA` / `ATTACK` | player update | the player's graphs' project names, active graph, view, melee attack state |
+| `IN` (1.4.0) | PlayerCharacter's `NotifyAnimationGraph` | attack/power/block/H2H/equip events sent into the player's graphs, and whether they were accepted |
+| `VARS` (1.4.0) | player update, on change | per graph: `iState`, `iRightHandType`, `iLeftHandType`, `bWantCastLeft`, `iWantBlock` |
 
 ## How to read a parry attempt
 

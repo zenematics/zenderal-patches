@@ -26,7 +26,7 @@
 // Log: My Games/Skyrim Special Edition/SKSE/ZenParryTrace.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 3, 0, 0 },
+	.Version = REL::Version{ 1, 4, 0, 0 },
 	.Name = "ZenParryTrace"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -306,6 +306,59 @@ namespace
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
 
+	// 1.4.0: events sent INTO the player's graphs (idles, scripts, SKSE plugins) with the manager's answer. Built for
+	// first-person unarmed power attacks that never start (2026-11-10): shows whether attackPowerStartForwardH2HRightHand
+	// arrives at all and whether the graphs take it.
+	bool PlayerInInteresting(std::string_view a_name)
+	{
+		const auto l = Lower(a_name);
+		static constexpr std::array kWords{ "attack"sv, "power"sv, "bash"sv, "block"sv, "h2h"sv, "equip"sv };
+		return std::ranges::any_of(kWords, [&](std::string_view w) { return l.find(w) != std::string::npos; });
+	}
+
+	struct PlayerNotifyGraph
+	{
+		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_eventName)
+		{
+			const bool result = func(a_this, a_eventName);
+			if (a_eventName.c_str() && PlayerInInteresting(a_eventName.c_str())) {
+				auto* player = static_cast<RE::PlayerCharacter*>(a_this);
+				SKSE::log::info("{:>8} IN    {}{}   [cam {}, attackState {}]", NowMs(), a_eventName.c_str(),
+					result ? "" : " (NOT ACCEPTED)", g_firstPerson.load() ? "1P" : "3P",
+					std::to_underlying(player->AsActorState()->GetAttackState()));
+			}
+			return result;
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
+	// 1.4.0: each graph's iState tag and the variables the H2H attack transitions test, read on the main thread.
+	std::string GraphVarsSnapshot(RE::BSAnimationGraphManager* a_manager)
+	{
+		std::string out;
+		if (!a_manager) {
+			return out;
+		}
+		std::uint32_t i = 0;
+		for (auto& graph : a_manager->graphs) {
+			if (!graph) {
+				++i;
+				continue;
+			}
+			int  iState = -1, right = -1, left = -1, wantBlock = -1;
+			bool castLeft = false;
+			graph->GetGraphVariableInt(RE::BSFixedString{ "iState" }, iState);
+			graph->GetGraphVariableInt(RE::BSFixedString{ "iRightHandType" }, right);
+			graph->GetGraphVariableInt(RE::BSFixedString{ "iLeftHandType" }, left);
+			graph->GetGraphVariableInt(RE::BSFixedString{ "iWantBlock" }, wantBlock);
+			graph->GetGraphVariableBool(RE::BSFixedString{ "bWantCastLeft" }, castLeft);
+			out += std::format("{}[iState={} R={} L={} castL={} wantBlock={}] ", g_graphIs1P[i < 4 ? i : 0].load() ? "1P" : "3P",
+				iState, right, left, castLeft ? 1 : 0, wantBlock);
+			++i;
+		}
+		return out;
+	}
+
 	struct GraphEventSink
 	{
 		static RE::BSEventNotifyControl thunk(RE::BSTEventSink<RE::BSAnimationGraphEvent>* a_this,
@@ -387,6 +440,13 @@ namespace
 				SKSE::log::info("{:>8} FX    on [{}] off [{}] now [{}] attackState={} blocking={}", now, MaskText(mask & ~old),
 					MaskText(old & ~mask), MaskText(mask), std::to_underlying(a_this->AsActorState()->GetAttackState()),
 					a_this->IsBlocking());
+			}
+
+			const auto vars = GraphVarsSnapshot(manager.get());
+			static std::string lastVars;
+			if (vars != lastVars) {
+				SKSE::log::info("{:>8} VARS  {}  attackState={}", now, vars, std::to_underlying(a_this->AsActorState()->GetAttackState()));
+				lastVars = vars;
 			}
 
 			const auto dir = DirectionSnapshot(a_this, manager.get());
@@ -556,6 +616,9 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	EnemyGraphEvent::func = enemySinkVtbl.write_vfunc(0x1, EnemyGraphEvent::thunk);
 	REL::Relocation<std::uintptr_t> enemyGraphVtbl{ RE::VTABLE_Character[3] };
 	EnemyNotifyGraph::func = enemyGraphVtbl.write_vfunc(0x1, EnemyNotifyGraph::thunk);
+	// 1.4.0: PlayerCharacter's own IAnimationGraphManagerHolder vtable ([3], as for Character): events into the player.
+	REL::Relocation<std::uintptr_t> playerGraphVtbl{ RE::VTABLE_PlayerCharacter[3] };
+	PlayerNotifyGraph::func = playerGraphVtbl.write_vfunc(0x1, PlayerNotifyGraph::thunk);
 	SKSE::log::info("player graph event sink and update hooked; Character graph events hooked for followed targets");
 
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {
