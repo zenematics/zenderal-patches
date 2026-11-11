@@ -1,0 +1,35 @@
+FormKey: 00F82B:Dawnguard.esm
+MajorRecordFlagsRaw: 134217728
+EditorID: DLC1VendorChestFlorentius
+Version2: 5
+SkyrimMajorRecordFlags:
+- 0x8000000
+ObjectBounds:
+  First: -48, -25, 0
+  Second: 48, 24, 48
+Name:
+  TargetLanguage: English
+  Value: Chest
+Model:
+  File: Clutter\Containers\Chest01\Chest01.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 034CDF:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 04B0BA:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 04DA25:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 000886:KittySpellPack01.esl
+    Count: 1
+- Item:
+    Item: 000887:KittySpellPack01.esl
+    Count: 1
+Flags:
+- Respawns
+MajorFlags:
+- NavMeshGenerationBoundingBox

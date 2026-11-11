@@ -1,0 +1,62 @@
+FormKey: 0013A1:KittyClass_DarkWarrior.esp
+EditorID: _CDW_LetterHaven3
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _CDW_DefaultOnReadAdvanceGlobalScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GlobalVarToAdvance
+      Object: 001306:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myQuest
+    - MutagenObjectType: ScriptIntProperty
+      Name: StageToSet
+      Data: 51
+    - MutagenObjectType: ScriptIntProperty
+      Name: StageToSet_Take
+      Data: 52
+    - MutagenObjectType: ScriptIntProperty
+      Name: threshold
+      Data: 3
+    - MutagenObjectType: ScriptIntProperty
+      Name: Threshold_Take
+      Data: 3
+ObjectBounds:
+  First: -8, -5, 0
+  Second: 8, 5, 0
+Name:
+  TargetLanguage: English
+  Value: Brand's Letter to Mist
+Model:
+  File: Clutter\Books\Note04.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face="$HandwrittenFont">
+
+    Nothing aches my heart more than the realization that many with some kind of conscience still walk this earth. I despise their kind and everything about them.
+
+
+    They imagine us weak, that the strength of spirits can only come from the pursuit of righteous justice. It is self-absorbed arrogance of the highest order.
+
+
+    I am not blind, nor am I weak. I am simply unafraid of my own ambitions, unlike those children who have yet to realize that empathy is a weakness and virtue is a cage.
+
+
+    I'm interested in investing in rulers who seek to nurture a society that puts such people under everyone else, where they belong. And by the Nine, I would pay a heavy sum to see such people crumble under their own weight and be tormented into despair.
+
+
+    I presume you will be able to grant me my wish in exchange for my assistance?
+
+
+    -Brand
+PickUpSound: 0C7A54:Skyrim.esm
+Keywords:
+- 0937A2:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+InventoryArt: 015421:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

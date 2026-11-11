@@ -14,3 +14,5 @@
 *PEA - EGO Patch*'s meshes at `meshes/dlc02/weapons/nordic/*` (its plugin and shared cubemap hidden), and Tharael's
 Bow `02C5E9:FS` is owned by `Zenderal - Pretty Armory EGO Patch.esp` (`tools/04`, Pretty's NordHeroBow). The three
 battleaxes are this plugin's alone: Pretty Armory EGO no longer overrides them. See `PrettyArmoryEGO.md`.
+
+**2026-11-11 (Pretty Enderal Armory 2.1):** Pretty 2.1 ships loose files and no BSA, so `tools/02` now copies the two loose NordHero arrow meshes from `Pretty Common Armory` and takes the target MO2 mod as a second argument (the live copy is in `Zenderal - Patch Collection`; ERA Part 1 still outranks Pretty Common Armory, so the copy is still needed). 2.1's meshes are byte-identical to the 2.0 ones already deployed. No Pretty 2.1 plugin overrides any of the 22 records; `tools/01` output unchanged, plugin not rebuilt.

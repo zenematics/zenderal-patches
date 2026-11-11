@@ -1,0 +1,38 @@
+FormKey: 01CB08:Enderal - Forgotten Stories.esm
+EditorID: _00E_FS_RhalataRobes_NoviceWithHood
+Name:
+  TargetLanguage: English
+  Value: Robe of the Rhalâim (with Hood)
+WorldModel:
+  Male:
+    Model:
+      File: enderal\forgottenstories\rhalata\acolyt\m\robe_novice_gnd.nif
+      Data: 0x020000000000000000000000
+  Female:
+    Model:
+      File: enderal\forgottenstories\rhalata\acolyt\m\robe_novice_gnd.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Hair
+  - Body
+  - LongHair
+  - Circlet
+  ArmorType: Clothing
+  ActsLike44: True
+PickUpSound: 03E879:Skyrim.esm
+PutDownSound: 03E909:Skyrim.esm
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBE8:Skyrim.esm
+- 08F95B:Skyrim.esm
+- 0A8657:Skyrim.esm
+- 01CB0A:Enderal - Forgotten Stories.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00082E:Pretty Factions Armory.esp
+- 01CB07:Enderal - Forgotten Stories.esm
+Value: 5
+Weight: 1

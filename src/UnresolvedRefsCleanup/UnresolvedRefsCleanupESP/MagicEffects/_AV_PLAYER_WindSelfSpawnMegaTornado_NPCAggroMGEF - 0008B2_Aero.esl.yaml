@@ -1,0 +1,39 @@
+FormKey: 0008B2:Aero.esl
+EditorID: _AV_PLAYER_WindSelfSpawnMegaTornado_NPCAggroMGEF
+Name:
+  TargetLanguage: English
+  Value: Annihilation
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 0806E1:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- HideInUI
+- NoRecast
+BaseCost: 6
+MagicSkill: Destruction
+CastingLight: 020BF4:Skyrim.esm
+TaperWeight: 0.3
+MinimumSkillLevel: 100
+SpellmakingCastingTime: 3
+TaperCurve: 2
+TaperDuration: 3
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Explosion: 0E41F0:Skyrim.esm
+CastType: FireAndForget
+SkillUsageMultiplier: 3
+DualCastScale: 1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 07C71F:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 000890:Aero.esl
+Description:
+  TargetLanguage: English
+  Value: ''

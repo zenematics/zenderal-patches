@@ -1,5 +1,8 @@
 FormKey: 147996:Skyrim.esm
 EditorID: _03E_28_SunbornSword
+ObjectBounds:
+  First: -6, -20, -2
+  Second: 6, 72, 2
 Name:
   TargetLanguage: English
   Value: Sunborn Sword

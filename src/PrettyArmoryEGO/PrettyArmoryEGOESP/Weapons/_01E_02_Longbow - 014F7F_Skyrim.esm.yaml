@@ -1,5 +1,8 @@
 FormKey: 014F7F:Skyrim.esm
 EditorID: _01E_02_Longbow
+ObjectBounds:
+  First: -15, -57, -1
+  Second: 1, 57, 1
 Name:
   TargetLanguage: English
   Value: Longbow

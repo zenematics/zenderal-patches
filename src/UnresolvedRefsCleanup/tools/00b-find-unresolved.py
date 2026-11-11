@@ -88,7 +88,10 @@ for p, keys in files.items():
     t = open(p, encoding="utf-8").read().replace("\r", "")
     lines = t.split("\n")
     # split into record blocks: top-level record (indent 0 FormKey) + nested list items
-    starts = [(i, re.match(r"^(\s*)", l).group(1)) for i, l in enumerate(lines) if re.match(r"^\s*(- MutagenObjectType: \w+$|FormKey: )", l)]
+    # Only record types start a nested block. Before 2026-11-11 any typed item did (an effect's ConditionFloat), and
+    # the last one's block ran to the end of the file, so later lines were never checked (Aero 000812's 2nd effect).
+    starts = [(i, re.match(r"^(\s*)", l).group(1)) for i, l in enumerate(lines)
+              if re.match(r"^\s*(- MutagenObjectType: (Placed\w*|APlaced\w*|NavigationMesh|Landscape|Cell)$|FormKey: )", l)]
     blocks = []
     for j, (i, ind) in enumerate(starts):
         if lines[i].lstrip().startswith("FormKey:") and i > 0 and lines[i - 1].lstrip().startswith("- MutagenObjectType"):
@@ -105,6 +108,15 @@ for p, keys in files.items():
             continue
         # only lines of this block that are not inside a nested child record block
         child = [(a, b2) for fk2, a, b2 in blocks if a > i and b2 <= end and fk2 != fk]
+        # Conditions stay untouched (a condition on a missing form is false in game; dropping it would make it
+        # true). Each condition item ends at the next line indented no deeper than its own "- ".
+        for a in range(i, end):
+            mc = re.match(r"^(\s*)- MutagenObjectType: Condition\w*$", lines[a])
+            if mc:
+                b2 = a + 1
+                while b2 < end and (not lines[b2].strip() or len(re.match(r"^(\s*)", lines[b2]).group(1)) > len(mc.group(1))):
+                    b2 += 1
+                child.append((a, b2))
         for ln in range(i, end):
             if any(a <= ln < b2 for a, b2 in child):
                 continue

@@ -1,0 +1,204 @@
+FormKey: 0008AC:Aero.esl
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _AV_AeroAtronach_Summon
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _AV_AeroAtronachActorScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BodyFX
+      Object: 00080A:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EyesGlowForLaser
+      Object: 00083C:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EyesGlowForShurikensAOE
+      Object: 00083C:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EyesGlowForTornado
+      Object: 000847:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EyesSpinFX
+      Object: 000844:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Invisibility
+      Object: 00082D:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LaserMegaSpell
+      Object: 000833:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LaserSpell
+      Object: 000818:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LaserSpellMini
+      Object: 000837:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ShurikenSpell
+      Object: 000817:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ShurikenSpellAnimController
+      Object: 00082A:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SummonSpell
+      Object: 00084D:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TornadoHazard
+      Object: 00081C:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TornadoHazardWarn
+      Object: 00081D:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WindBlastSpell
+      Object: 000830:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WindBlastSpell_Invis
+      Object: 00086B:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: XMarker
+      Object: 000838:Aero.esl
+  - Name: _AV_AeroAtronachGiveSpellScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EntranceExp
+      Object: 0008AF:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Patch14_PerkToAdd
+      Object: 000853:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Patch14_SpellToAdd
+      Object: 00084D:Aero.esl
+  - Name: defaultIgnoreFriendlyHits
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - Summonable
+  MagickaOffset: 900
+  StaminaOffset: 100
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 66
+  SpeedMultiplier: 133
+  DispositionBase: 35
+  HealthOffset: 1800
+Factions:
+- Faction: 000820:Aero.esl
+  Fluff: 0x000000
+Race: 000800:Aero.esl
+ActorEffect:
+- 000804:Aero.esl
+WornArmor: 000805:Aero.esl
+AttackRace: 000800:Aero.esl
+Perks:
+- Perk: 05820C:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 00080C:Aero.esl
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Class: 0AD237:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Fallingstar Thrasher
+ShortName:
+  TargetLanguage: English
+  Value: Thrasher
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 100
+  - Key: TwoHanded
+    Value: 100
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 100
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 100
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 100
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 2641
+  Magicka: 1417
+  Stamina: 617
+  GearedUpWeapons: 1
+CombatStyle: 00080B:Aero.esl
+NAM5: 255
+Height: 1.01
+Weight: 50
+SoundLevel: Silent
+Sound:
+  MutagenObjectType: NpcInheritSound
+DefaultPackageList: 10D483:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

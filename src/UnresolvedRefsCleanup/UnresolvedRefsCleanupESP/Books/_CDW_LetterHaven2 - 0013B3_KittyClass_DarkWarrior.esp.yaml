@@ -1,0 +1,50 @@
+FormKey: 0013B3:KittyClass_DarkWarrior.esp
+EditorID: _CDW_LetterHaven2
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _CDW_DefaultOnReadAdvanceGlobalScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GlobalVarToAdvance
+      Object: 001306:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myQuest
+    - MutagenObjectType: ScriptIntProperty
+      Name: StageToSet
+      Data: 51
+    - MutagenObjectType: ScriptIntProperty
+      Name: threshold
+      Data: 3
+ObjectBounds:
+  First: -8, -5, 0
+  Second: 8, 5, 0
+Name:
+  TargetLanguage: English
+  Value: Letter from Mist
+Model:
+  File: Clutter\Books\Note02.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face="$HandwrittenFont">
+
+    I understand you specialize in all manner of intermediary work. I'm sure the name Mist rings a bell.
+
+
+    There's something I require involving the East Empire Company. Send this very letter to Whiterun if this piques your interest. My company and I will meet you at Bloated Man's Grotto as soon as we're able.
+
+
+    Here's hoping for a beautiful new partnership.
+
+
+    -Mist
+PickUpSound: 0C7A54:Skyrim.esm
+Keywords:
+- 0937A2:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+InventoryArt: 01541B:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

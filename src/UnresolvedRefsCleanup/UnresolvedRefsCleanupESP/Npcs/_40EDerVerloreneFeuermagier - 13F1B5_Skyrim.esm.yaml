@@ -1,0 +1,188 @@
+FormKey: 13F1B5:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _40EDerVerloreneFeuermagier
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_CombatSoundtrackScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_Music_Combat_Regular
+      Object: 0773F1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeBoss
+      Object: 090CA9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerLevel
+      Object: 012595:Skyrim.esm
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 330
+  - Name: masterambushscript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ambushOnTrigger
+      Data: True
+ObjectBounds:
+  First: -29, -34, 0
+  Second: 29, 34, 144
+Configuration:
+  Flags:
+  - Female
+  MagickaOffset: 325
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 45
+  CalcMaxLevel: 100
+  SpeedMultiplier: 100
+  HealthOffset: 650
+Factions:
+- Faction: 005104:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 03C755:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 03AD7F:Skyrim.esm
+Voice: 01F1CD:Skyrim.esm
+Race: 00398C:Undead Creatures Replacer.esp
+ActorEffect:
+- 07D997:Skyrim.esm
+- 0DE511:Skyrim.esm
+- 13F1B6:Skyrim.esm
+AttackRace: 000D53:Skyrim.esm
+Perks:
+- Perk: 001E9B:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 02E4FB:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0508C6:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 077381:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 13F1B7:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 13F1B8:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+Packages:
+- 09448B:Skyrim.esm
+- 088978:Skyrim.esm
+- 09BCBD:Skyrim.esm
+Keywords:
+- 090CA9:Skyrim.esm
+Class: 023C0C:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Lost Fire Mage
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 20
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 30
+  - Key: TwoHanded
+    Value: 30
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 90
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 50
+  Stamina: 80
+  GearedUpWeapons: 1
+CombatStyle: 038A24:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 01D0F7:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

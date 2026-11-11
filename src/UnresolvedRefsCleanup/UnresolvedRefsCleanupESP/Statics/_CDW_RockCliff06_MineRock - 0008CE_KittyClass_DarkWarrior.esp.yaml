@@ -1,0 +1,10 @@
+FormKey: 0008CE:KittyClass_DarkWarrior.esp
+EditorID: _CDW_RockCliff06_MineRock
+ObjectBounds:
+  First: -428, -344, -29
+  Second: 428, 344, 706
+Model:
+  File: _pgpatcher_dups\1\landscape\rocks\rockcliff06.nif
+  Data: 0x020000000000000000000000
+MaxAngle: 90
+Unused: 0x000000

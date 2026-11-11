@@ -1,5 +1,8 @@
 FormKey: 07C97F:Skyrim.esm
 EditorID: _02E_11_OakBow
+ObjectBounds:
+  First: -17, -57, -2
+  Second: 4, 57, 2
 Name:
   TargetLanguage: English
   Value: Oak Bow

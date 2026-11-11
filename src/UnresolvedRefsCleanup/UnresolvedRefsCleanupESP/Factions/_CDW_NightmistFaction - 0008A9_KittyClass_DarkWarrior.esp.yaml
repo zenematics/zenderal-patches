@@ -1,0 +1,22 @@
+FormKey: 0008A9:KittyClass_DarkWarrior.esp
+EditorID: _CDW_NightmistFaction
+Relations:
+- Target: 044EF6:Skyrim.esm
+  Reaction: Friend
+- Target: 086DDB:Skyrim.esm
+  Reaction: Enemy
+- Target: 0AE026:Skyrim.esm
+  Reaction: Ally
+- Target: 0D0025:Skyrim.esm
+  Reaction: Enemy
+- Target: 0E0CD9:Skyrim.esm
+  Reaction: Ally
+- Target: 0008A9:KittyClass_DarkWarrior.esp
+  Reaction: Ally
+Flags:
+- HiddenFromPC
+- CanBeOwner
+CrimeValues:
+  Arrest: True
+  AttackOnSight: True
+VendorValues: {}

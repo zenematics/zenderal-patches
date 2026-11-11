@@ -1,0 +1,70 @@
+FormKey: 00144E:KittyClass_DarkWarrior.esp
+EditorID: _CDW_MainQuest_MistCastZombieOnEmbla
+Flags:
+- MustComplete
+- IgnoreCombat
+Type: Package
+PreferredSpeed: Run
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+PackageTemplate: 0504F5:Skyrim.esm
+DataInputVersion: 1
+Data:
+- Key: 2
+  Value:
+    MutagenObjectType: PackageDataLocation
+    Location:
+      Target:
+        MutagenObjectType: LocationFallback
+        Type: NearSelf
+      Radius: 1536
+- Key: 3
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Target:
+      MutagenObjectType: PackageTargetObjectID
+      Reference: 001413:KittyClass_DarkWarrior.esp
+- Key: 5
+  Value:
+    MutagenObjectType: PackageDataBool
+    Data: True
+- Key: 6
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 1
+- Key: 7
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 1
+- Key: 8
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 1
+- Key: 9
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Data: 1
+- Key: 10
+  Value:
+    MutagenObjectType: PackageDataInt
+    Data: 1
+- Key: 11
+  Value:
+    MutagenObjectType: PackageDataInt
+    Data: 1
+- Key: 12
+  Value:
+    MutagenObjectType: PackageDataBool
+XnamMarker: 0x0D
+OnBegin:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnEnd:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnChange:
+  Topics:
+  - MutagenObjectType: TopicReference

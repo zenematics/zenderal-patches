@@ -21,6 +21,9 @@ naked). 00 only compares base-defined addons, so these were found by a scan of e
 "old race present, its 2.1 twin missing". Each is the mod's own record (it wins: nothing overrides
 them) with each twin inserted right after its old race; masters of this plugin must include the mod.
 
+2026-11-11: Pretty Enderal Armory 2.1 lists both 2.1 races on its own six addons (Common 000800, Mages
+000800, Holy Order 000803/804/805/80F), so they were dropped here (22 -> 16) along with the three Pretty masters.
+
 Usage:  python 02-build-armor-addons.py
 """
 import os, shutil
@@ -43,12 +46,9 @@ MODS = os.path.join(REPO, 'reference', 'mods')
 TWINS = {'033899': '013746', '033898': '013748'}
 # (reference/mods folder, plugin, [FormIDs]) -- 2026-11-01 scan of every winning ARMA in Ultra.
 MOD_ADDONS = [
-    ('Pretty/Pretty Common Armory', 'Pretty Common Armory.esp', ['000800']),
     ('KataPUMB', 'KataPUMBSpellPack.esp', ['002E50']),
     ('KataPUMBSpellPackage', 'KataPUMB_SpellPackage.esp',
      ['00223F', '002240', '002241', '002243', '002244', '002245', '00571D', '0098C8', '0098CA', '0098CC', '0098CE']),
-    ('Pretty/Pretty Mages Armory', 'Pretty Mages Armory.esp', ['000800']),
-    ('Pretty/Pretty Holy Order Armory', 'Pretty Holy Order Armory.esp', ['000803', '000804', '000805', '00080F']),
     ('EAM', 'EAM SE - Enderal Apothecarii Monastery.esp', ['05041C', '05041D', '05041E', '05041F']),
 ]
 
@@ -120,6 +120,6 @@ for folder, plugin, ids in MOD_ADDONS:
 
 written = len(os.listdir(OUT))
 expect_races = len(NEW_RACES) * (len(ADDONS) + mod_count)
-if written != len(ADDONS) + mod_count or mod_count != 22 or added != expect_races:
-    raise SystemExit(f'expected {len(ADDONS) + 22} addons / {expect_races} races, got {written} / {added}')
+if written != len(ADDONS) + mod_count or mod_count != 16 or added != expect_races:
+    raise SystemExit(f'expected {len(ADDONS) + 16} addons / {expect_races} races, got {written} / {added}')
 print(f'{written} armor addon overrides written to {OUT}')

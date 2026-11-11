@@ -1,0 +1,27 @@
+FormKey: 000828:mihailirongolem.esp
+EditorID: mihailirongolem_AB_fire1_fx
+VirtualMachineAdapter:
+  Scripts:
+  - Name: mihail_general_attachSPELLandFX
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: crSprigganCallCreatures
+      Object: 03AE9F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SprigganFXAttachEffect
+Name:
+  TargetLanguage: English
+  Value: Ghost Visuals
+Flags:
+- NoDuration
+- FXPersist
+HitShader: 060DB7:Skyrim.esm
+EnchantShader: 060DB7:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

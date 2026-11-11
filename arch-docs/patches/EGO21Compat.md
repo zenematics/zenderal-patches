@@ -147,3 +147,5 @@ is an old base, not a design choice — 2.1's `Steam.UnlockAchievement` is kept.
 not stacking the pre-transform value). *Enderal SE - Bug Fixes*' copy (its stamina fix is a subset of
 EGO's) is superseded. Compiled clean; deployed to this mod's `Scripts/`, which sorts above EGO.
 Unverified in game.
+
+**2026-11-11 (Pretty Enderal Armory 2.1):** Pretty 2.1 lists `013746`/`013748` on its own six addons (Common `000800`, Mages `000800`, Holy Order `000803`/`804`/`805`/`80F`), so `tools/02`'s `MOD_ADDONS` drops them (22 → 16 mod addons, 20 ARMA overrides in all) and the three Pretty masters are gone; the overrides would only have reverted Pretty 2.1's own records. Every other record unchanged (built plugin compared record by record). Redeployed to Patch Collection (the only live copy); `tools/00` reports 0 of 1,939 winning ARMAs missing a 2.1 race.

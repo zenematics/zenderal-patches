@@ -9,7 +9,7 @@ Name:
 WorldModel:
   Male:
     Model:
-      File: Clothes\Monk\MonkRobesGND.nif
+      File: Clothes\Monk\cultist\MonkRobesGND.nif
       Data: 0x020000000000000000000000
 BodyTemplate:
   FirstPersonFlags:
@@ -28,6 +28,6 @@ Description:
   TargetLanguage: English
   Value: ''
 Armature:
-- 000812:Pretty Holy Order Armory.esp
+- 000824:Pretty Mages Armory.esp
 Value: 3
 Weight: 1

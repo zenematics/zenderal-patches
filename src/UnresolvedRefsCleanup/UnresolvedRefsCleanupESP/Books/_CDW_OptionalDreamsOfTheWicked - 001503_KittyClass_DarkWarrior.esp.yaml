@@ -1,0 +1,22 @@
+FormKey: 001503:KittyClass_DarkWarrior.esp
+EditorID: _CDW_OptionalDreamsOfTheWicked
+Name:
+  TargetLanguage: English
+  Value: Dreams of the Wicked
+Model:
+  File: clutter\books\bookmq103lowpoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: Sadly, this book has been cut from the mod because it doesn't really serve any purpose.
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+  RawContent: 0
+Value: 18
+Weight: 1
+Description:
+  TargetLanguage: English
+  Value: ''

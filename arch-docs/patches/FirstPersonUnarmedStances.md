@@ -79,8 +79,25 @@ Boxing's jabs had none that fires (see there), so `01` also writes **copies of B
 `h2h_attackleft.hkx`** into the overlay mod, at the same path, each with one annotation added by
 `hkx_annotate` (binary edit; the compressed animation is byte for byte the author's): `AttackWinStart` /
 `AttackWinStartLeft` at 0.54 s. `01` refuses if the clip's length changed or it already has the marker. These two
-files are the only derived animation assets here: **shipping them needs modbom1's permission**, unlike the
-`user.json` overlays.
+files are the only derived animation assets here, so they need modbom1's permission, unlike the `user.json` overlays.
+**Since 2026-11-11 they ship in Patch Collection** (`fpu_sources.CLIP_MARKERS_MOD`; PC outranks First-Person Boxing
+in MO2), curator's call: shipped while permission is asked, **removed from Patch Collection if modbom1 declines**
+(then Boxing still plays in F3, but its punches don't chain on left click). `01` writes only those two files into
+Patch Collection; `FirstPersonFistCombo/tools/01-verify.py` reads them there.
+
+## Alternatives to Boxing for F3 (searched 2026-11-11)
+
+modbom1's page asks for permission before his files are modified, and he had not answered, so the two marked jab
+copies cannot ship yet. Nexus has **no other complete first-person fist set**: the four in use are all there is.
+*First Person Unarmed Animation* (87971) has idles, blocks and dodges but no punches; *First Person Unarmed Punches
+Reposed* (179803) only re-poses the vanilla jabs (loose files, cannot be stance-gated); FPCAO 2.0 (45177), Modern
+first-person animation overhaul (115525) and *Stances based animations for 1st person combat* (65309) are weapons
+only. The one unused complete set is inside CFPAO: `CFPAO/UnarmedKhajiit` and `UnarmedArgonian` (gated to beast
+races, which Enderal has none of), byte-identical but for the two-handed power punch. Its 1.17 s jabs pass the
+vanilla `AttackWinStart` (0.70 s), so left-click combos chain with no clip edit, but the hands swing **open**:
+fingertip-to-hand distance on the right jab is 0.83–0.90 of the bind pose, against 0.64–0.71 for JellyFish, CFPAO's
+default set and Boxing (fists; SIGMA not measured). Without the marked copies Boxing
+still plays untouched (overlays only); what is lost is the left-click chain, so every click is a fresh right jab.
 
 ## Known gaps / open
 

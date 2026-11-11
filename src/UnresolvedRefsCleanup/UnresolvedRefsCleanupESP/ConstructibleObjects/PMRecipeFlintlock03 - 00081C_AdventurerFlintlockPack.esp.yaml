@@ -1,0 +1,34 @@
+FormKey: 00081C:AdventurerFlintlockPack.esp
+EditorID: PMRecipeFlintlock03
+Items:
+- Item:
+    Item: 05ACE5:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 06F993:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0773ED:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0DB8A2:Skyrim.esm
+    Count: 2
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ActorValue: Smithing
+  ComparisonValue: 30
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    RunOnType: Reference
+    Reference: 02A3DB:Enderal - Forgotten Stories.esm
+    ItemOrList: 000820:AdventurerFlintlockPack.esp
+  ComparisonValue: 1
+WorkbenchKeyword: 088105:Skyrim.esm
+CreatedObjectCount: 1

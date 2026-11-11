@@ -1,0 +1,14 @@
+FormKey: 00081F:KittySpellPack01.esl
+EditorID: _K01_AedricScepterEnch
+Name:
+  TargetLanguage: English
+  Value: Holy Retribution
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 00080A:KittySpellPack01.esl
+  Data:
+    Magnitude: 30

@@ -1,0 +1,9 @@
+FormKey: 000CFA:KittyClass_DarkWarrior.esp
+EditorID: _CDW_MistLSpells
+Flags:
+- UseAllSpells
+Entries:
+- Data:
+    Level: 30
+    Reference: 0B62EE:Skyrim.esm
+    Count: 1

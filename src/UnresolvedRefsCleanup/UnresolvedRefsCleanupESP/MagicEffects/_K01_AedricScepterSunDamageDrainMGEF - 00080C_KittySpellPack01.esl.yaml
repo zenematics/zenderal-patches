@@ -1,0 +1,46 @@
+FormKey: 00080C:KittySpellPack01.esl
+EditorID: _K01_AedricScepterSunDamageDrainMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicAbsorbFXScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CasterVFX
+      Object: 000857:KittySpellPack01.esl
+Name:
+  TargetLanguage: English
+  Value: Sun Damage
+Flags:
+- Hostile
+- Detrimental
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1
+TaperWeight: 0.3
+HitShader: 000859:KittySpellPack01.esl
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+  Type: Absorb
+Projectile: 0ABEFD:Skyrim.esm
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 0.5
+DualCastScale: 1.1
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03F2EA:Skyrim.esm
+- Type: OnHit
+  Sound: 000883:KittySpellPack01.esl
+Description:
+  TargetLanguage: English
+  Value: ''

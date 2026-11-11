@@ -1,0 +1,15 @@
+FormKey: 10BFF1:Skyrim.esm
+EditorID: LItemVigilantBooks
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 00088A:KittySpellPack01.esl
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000889:KittySpellPack01.esl
+    Count: 1

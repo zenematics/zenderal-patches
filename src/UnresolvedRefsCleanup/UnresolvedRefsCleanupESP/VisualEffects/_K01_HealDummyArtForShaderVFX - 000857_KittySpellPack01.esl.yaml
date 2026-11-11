@@ -1,0 +1,5 @@
+FormKey: 000857:KittySpellPack01.esl
+EditorID: _K01_HealDummyArtForShaderVFX
+Shader: 012FD9:Skyrim.esm
+Flags:
+- RotateToFaceTarget

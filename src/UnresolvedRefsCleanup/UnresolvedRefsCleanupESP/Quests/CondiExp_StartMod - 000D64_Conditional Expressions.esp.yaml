@@ -1,0 +1,588 @@
+FormKey: 000D64:Conditional Expressions.esp
+EditorID: CondiExp_StartMod
+VirtualMachineAdapter:
+  Scripts:
+  - Name: condiexp_MCM
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: arousalExpr
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 8
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_ColdMethod
+      Object: 00081D:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_CurrentlyBusy
+      Object: 00081B:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CondiExp_Effects
+      Object: 000D61:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_ExpressionStr
+      Object: 00084A:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_FollowersUpdateInterval
+      Object: 000847:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalArousalModifiers
+      Object: 000859:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalArousalModifiersNotifications
+      Object: 00085A:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalAroused
+      Object: 000843:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalCold
+      Object: 000818:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalCombat
+      Object: 000805:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalDirty
+      Object: 000837:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalDrunk
+      Object: 000804:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalEating
+      Object: 000814:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalMana
+      Object: 000821:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalNoClothes
+      Object: 000802:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalPain
+      Object: 000806:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalRandom
+      Object: 000816:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalSkooma
+      Object: 000803:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalSneaking
+      Object: 000807:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalStamina
+      Object: 000800:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalTrauma
+      Object: 00082F:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_GlobalWater
+      Object: 000801:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_HKPause
+      Object: 000857:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_HKRegisterFollowers
+      Object: 000858:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_ModifierStr
+      Object: 000849:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_PhonemeStr
+      Object: 00084B:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_PO3ExtenderInstalled
+      Object: 00084E:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_Sounds
+      Object: 000828:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_UpdateInterval
+      Object: 000841:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Condiexp_Verbose
+      Object: 000845:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CondiExpFollowerQuest
+      Object: 000846:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CondiExpQuest
+      Object: 000D64:Conditional Expressions.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dirtyExpr
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 10
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Go
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 0
+    - MutagenObjectType: ScriptObjectProperty
+      Name: KhajiitRace
+      Object: 013745:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: KhajiitRaceVampire
+      Object: 088845:Skyrim.esm
+    - MutagenObjectType: ScriptStringProperty
+      Name: ModName
+      Data: Conditional Expressions
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OrcRace
+      Object: 013747:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: OrcRaceVampire
+      Object: 0A82B9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: painExpr
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 11
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: randomExpr
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 12
+    - MutagenObjectType: ScriptObjectProperty
+      Name: traumaExpr
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 9
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 0
+    Scripts:
+    - Name: CondiExp_StartMod
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: arousalExpr
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 8
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ColdGlobal
+        Object: 000818:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ColdMethod
+        Object: 00081D:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyAroused
+        Object: 00083F:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyBusy
+        Object: 00081B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyBusyImmediate
+        Object: 00084C:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyCold
+        Object: 000819:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyDirty
+        Object: 000838:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyTrauma
+        Object: 000831:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_Drinks
+        Object: 00080D:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_Drugs
+        Object: 00080B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_Fatigue1
+        Object: 000D61:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_FollowersUpdateInterval
+        Object: 000847:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalArousalModifiers
+        Object: 000859:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalArousalModifiersNotifications
+        Object: 00085A:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalAroused
+        Object: 000843:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalCold
+        Object: 000818:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalDirty
+        Object: 000837:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalEating
+        Object: 000814:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalTrauma
+        Object: 00082F:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_HKPause
+        Object: 000857:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_HKRegisterFollowers
+        Object: 000858:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_MinAroused
+        Object: 000842:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_MinDirty
+        Object: 000840:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_MinTrauma
+        Object: 00081F:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ModSuspended
+        Object: 00081E:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_PlayerIsDrunk
+        Object: 00080E:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_PlayerIsHigh
+        Object: 00080C:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PlayerJustAte
+        Object: 000815:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PO3ExtenderInstalled
+        Object: 00084E:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Sounds
+        Object: 000828:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_SuspendedByDhlpEvent
+        Object: 00084F:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_SuspendedByKey
+        Object: 000856:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_TraumaZBFFactionEnabled
+        Object: 00084D:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_UpdateInterval
+        Object: 000841:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Verbose
+        Object: 000845:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExpFollowerQuest
+        Object: 000846:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dirtyExpr
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 10
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DiseaseAtaxia
+        Object: 0B877C:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DiseaseBoneBreakFever
+        Object: 0B877E:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DiseaseBrainRot
+        Object: 0B877F:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DiseaseRattles
+        Object: 0B8781:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DiseaseRockjoint
+        Object: 0B8782:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DiseaseSanguinareVampiris
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DiseaseWitbane
+        Object: 0B8783:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: KhajiitRace
+        Object: 013745:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: KhajiitRaceVampire
+        Object: 088845:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: OrcRace
+        Object: 013747:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: OrcRaceVampire
+        Object: 0A82B9:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: painExpr
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 11
+      - MutagenObjectType: ScriptObjectProperty
+        Name: pctracking
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 13
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: randomExpr
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 12
+      - MutagenObjectType: ScriptObjectProperty
+        Name: TrapDiseaseAtaxia
+      - MutagenObjectType: ScriptObjectProperty
+        Name: TrapDiseaseBoneBreakFever
+      - MutagenObjectType: ScriptObjectProperty
+        Name: TrapDiseaseBrainRot
+      - MutagenObjectType: ScriptObjectProperty
+        Name: TrapDiseaseRattles
+      - MutagenObjectType: ScriptObjectProperty
+        Name: TrapDiseaseRockjoint
+      - MutagenObjectType: ScriptObjectProperty
+        Name: TrapDiseaseWitbane
+      - MutagenObjectType: ScriptObjectProperty
+        Name: traumaExpr
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 9
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Vampire
+        Object: 0A82BB:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: VendorItemFood
+        Object: 08CDEA:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: VendorItemIngredient
+        Object: 08CDEB:Skyrim.esm
+    - Name: SKI_PlayerLoadGameAlias
+  - Property:
+      Name: ''
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 8
+    Scripts:
+    - Name: condiexp_baseexpression
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ExpressionStr
+        Object: 00084A:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ModifierStr
+        Object: 000849:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PhonemeStr
+        Object: 00084B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Verbose
+        Object: 000845:Conditional Expressions.esp
+      - MutagenObjectType: ScriptStringProperty
+        Name: name
+        Data: aroused
+      - MutagenObjectType: ScriptObjectProperty
+        Name: pctracking
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 13
+  - Property:
+      Name: ''
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 9
+    Scripts:
+    - Name: condiexp_baseexpression
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ExpressionStr
+        Object: 00084A:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ModifierStr
+        Object: 000849:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PhonemeStr
+        Object: 00084B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Verbose
+        Object: 000845:Conditional Expressions.esp
+      - MutagenObjectType: ScriptStringProperty
+        Name: name
+        Data: trauma
+      - MutagenObjectType: ScriptObjectProperty
+        Name: pctracking
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 13
+  - Property:
+      Name: ''
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 10
+    Scripts:
+    - Name: condiexp_baseexpression
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ExpressionStr
+        Object: 00084A:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ModifierStr
+        Object: 000849:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PhonemeStr
+        Object: 00084B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Verbose
+        Object: 000845:Conditional Expressions.esp
+      - MutagenObjectType: ScriptStringProperty
+        Name: name
+        Data: dirty
+      - MutagenObjectType: ScriptObjectProperty
+        Name: pctracking
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 13
+  - Property:
+      Name: ''
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 11
+    Scripts:
+    - Name: condiexp_baseexpression
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ExpressionStr
+        Object: 00084A:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ModifierStr
+        Object: 000849:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PhonemeStr
+        Object: 00084B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Verbose
+        Object: 000845:Conditional Expressions.esp
+      - MutagenObjectType: ScriptStringProperty
+        Name: name
+        Data: pain
+      - MutagenObjectType: ScriptObjectProperty
+        Name: pctracking
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 13
+  - Property:
+      Name: ''
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 12
+    Scripts:
+    - Name: condiexp_baseexpression
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ExpressionStr
+        Object: 00084A:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ModifierStr
+        Object: 000849:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PhonemeStr
+        Object: 00084B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Verbose
+        Object: 000845:Conditional Expressions.esp
+      - MutagenObjectType: ScriptStringProperty
+        Name: name
+        Data: Random
+      - MutagenObjectType: ScriptObjectProperty
+        Name: pctracking
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 13
+  - Property:
+      Name: ''
+      Object: 000D64:Conditional Expressions.esp
+      Alias: 13
+    Scripts:
+    - Name: CondiExp_PCTracking
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyBusy
+        Object: 00081B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_CurrentlyBusyImmediate
+        Object: 00084C:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_Drinks
+        Object: 00080D:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_Drugs
+        Object: 00080B:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_GlobalEating
+        Object: 000814:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_ModSuspended
+        Object: 00081E:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_PlayerIsDrunk
+        Object: 00080E:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExp_PlayerIsHigh
+        Object: 00080C:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_PlayerJustAte
+        Object: 000815:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Sounds
+        Object: 000828:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Condiexp_Verbose
+        Object: 000845:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: CondiExpFollowerQuest
+        Object: 000846:Conditional Expressions.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: KhajiitRace
+        Object: 013745:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: KhajiitRaceVampire
+        Object: 088845:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: OrcRace
+        Object: 013747:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: OrcRaceVampire
+        Object: 0A82B9:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: sm
+        Object: 000D64:Conditional Expressions.esp
+        Alias: 0
+      - MutagenObjectType: ScriptObjectProperty
+        Name: Vampire
+        Object: 0A82BB:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: VendorItemFood
+        Object: 08CDEA:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: VendorItemFoodRaw
+        Object: 0A0E56:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: VendorItemIngredient
+        Object: 08CDEB:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Quest Conditional Expressions
+Flags:
+- StartGameEnabled
+- 0x10
+NextAliasID: 14
+Aliases:
+- Name: MrPlayer
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null
+- ID: 8
+  Name: ArousalExpr
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 9
+  Name: TraumaExpr
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 10
+  Name: DirtyExpr
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 11
+  Name: PainExpr
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 12
+  Name: RandomExpr
+  Flags:
+  - Optional
+  VoiceTypes: Null
+- ID: 13
+  Name: TrackingPlayer
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

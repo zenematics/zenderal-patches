@@ -1,0 +1,17 @@
+FormKey: 001350:KittyClass_DarkWarrior.esp
+EditorID: _CDW_MainQuest_MistBarrierAttach
+Name:
+  TargetLanguage: English
+  Value: Cantilad
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 792
+Type: Ability
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 00134D:KittyClass_DarkWarrior.esp
+  Data:
+    Magnitude: 100

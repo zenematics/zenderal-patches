@@ -1,0 +1,197 @@
+FormKey: 0012E7:KittyClass_DarkWarrior.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _CDW_VanillaFacegen_MQIntroMiner
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _CDW_FakeCastSpellsOnHitScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AllowedExecutor
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExpToPlace
+      Object: 00088F:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptBoolProperty
+      Name: KillActor
+      Data: True
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ShakeDuration
+      Data: 1
+    - MutagenObjectType: ScriptFloatProperty
+      Name: ShakeStrength
+      Data: 0.5
+    - MutagenObjectType: ScriptObjectProperty
+      Name: spellToCast
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - LoopedScript
+  - LoopedAudio
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 1
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Race: 088794:Skyrim.esm
+AttackRace: 013746:Skyrim.esm
+Perks:
+- Perk: 0012FB:KittyClass_DarkWarrior.esp
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsFriendsAndAllies
+Class: 01326D:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Miner
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 20
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 50
+  Magicka: 50
+  Stamina: 50
+HeadParts:
+- 08555F:Skyrim.esm
+- 099D7E:Skyrim.esm
+- 0C7170:Skyrim.esm
+- 0CDCBE:Skyrim.esm
+HairColor: 0A0437:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 40
+SoundLevel: Normal
+DefaultOutfit: 09595B:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+HeadTexture: 0D071D:Skyrim.esm
+TextureLighting: '#00C6B0A8'
+FaceMorph:
+  NoseLongVsShort: -0.48000002
+  NoseUpVsDown: 0.38
+  JawUpVsDown: 0.9
+  JawNarrowVsWide: -0.4
+  CheeksUpVsDown: 0.6
+  CheeksForwardVsBack: 0.6
+  EyesUpVsDown: -0.4
+  EyesInVsOut: -0.8
+  BrowsUpVsDown: -0.8
+  BrowsInVsOut: -0.2
+  BrowsForwardVsBack: 0.2
+  LipsUpVsDown: 0.26
+  LipsInVsOut: 0.2
+  ChinNarrowVsWide: 0.3
+  ChinUpVsDown: 0.3
+  ChinUnderbiteVsOverbite: -0.28
+  EyesForwardVsBack: -0.6
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 22
+  Unknown: 4294967295
+  Eyes: 11
+  Mouth: 20
+TintLayers:
+- Index: 1
+  Color: '#00C6B0A8'
+  InterpolationValue: 1
+  Preset: 1
+- Index: 2
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 13
+- Index: 3
+  Color: '#00500901'
+  InterpolationValue: 0.91
+  Preset: 22
+- Index: 5
+  Color: '#00212B52'
+  InterpolationValue: 0.35
+  Preset: 31
+- Index: 8
+  Color: '#00070C3D'
+  InterpolationValue: 0.56
+  Preset: 50
+- Index: 19
+  Color: '#00000000'
+  InterpolationValue: 0.58
+  Preset: 437
+MajorFlags:
+- 0x40000

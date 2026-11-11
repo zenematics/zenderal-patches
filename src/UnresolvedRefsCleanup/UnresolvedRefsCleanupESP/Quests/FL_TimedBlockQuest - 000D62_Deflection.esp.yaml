@@ -1,0 +1,140 @@
+FormKey: 000D62:Deflection.esp
+EditorID: FL_TimedBlockQuest
+VirtualMachineAdapter:
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000D62:Deflection.esp
+      Alias: 0
+    Scripts:
+    - Name: FL_TimedBlockScript
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DA13Spellbreaker
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_AllowArrow
+        Data: True
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_AllowMagic
+        Data: True
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_AllowMagicStagger
+        Data: True
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_AllowMeleeStagger
+        Data: True
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_AllowProjectileOnHit
+        Data: True
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_ArrowBlockAnimation
+        Data: True
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_BlockCoolDown
+        Data: 2
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_BlockMagicPerk
+        Object: 000811:Deflection.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_BlockPerk
+        Object: 000813:Deflection.esp
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_BlockTime
+        Data: 0.5
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_DebugOn
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_FXControllerSpell
+        Object: 0008A7:Deflection.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_FXHitStopSpell
+        Object: 0008A6:Deflection.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_FXSpellEngine
+        Object: 00080B:Deflection.esp
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_GlobalMEssageBoxModifier
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_ignoreConSpell
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_IgnoreConSpellOnHit
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_iRandom
+        Data: 1
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_MagicBlockAnimation
+        Data: True
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_MagicDamage
+        Data: 5
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_MinMagicka
+        Data: 10
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_MinStamina
+        Data: 10
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_NoPlayerStagger
+        Data: True
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_NPCStaggerOnHitStrength
+        Data: 3
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_NPCStaggerTime
+        Data: 0.75
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_NpcVFX
+        Object: 000F41:Deflection.esp
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_RandomStaggerChance
+        Data: 50
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_ReflectMagic
+        Data: True
+      - MutagenObjectType: ScriptBoolProperty
+        Name: FL_RequireSpellbreaker
+        Data: True
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_SlowTimeLength
+        Data: 0.25
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_SlowTimeSpell
+        Object: 000D42:Deflection.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_SoundBlock
+        Object: 000D41:Deflection.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_SpellList
+        Object: 000819:Deflection.esp
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_StaggerOnHitCoolDown
+        Data: 3
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_StaminaDamage
+        Data: 5
+      - MutagenObjectType: ScriptStringProperty
+        Name: FL_Status
+        Data: Not Ready
+      - MutagenObjectType: ScriptObjectProperty
+        Name: FL_Ward
+        Object: 00080A:Deflection.esp
+      - MutagenObjectType: ScriptFloatProperty
+        Name: FL_XP
+        Data: 25
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: FL_TimedBlockQuest
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+NextAliasID: 2
+Aliases:
+- Name: FL_Player
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null

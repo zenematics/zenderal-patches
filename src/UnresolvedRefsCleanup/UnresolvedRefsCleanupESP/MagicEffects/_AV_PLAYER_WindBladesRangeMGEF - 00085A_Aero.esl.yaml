@@ -1,0 +1,49 @@
+FormKey: 00085A:Aero.esl
+EditorID: _AV_PLAYER_WindBladesRangeMGEF
+Name:
+  TargetLanguage: English
+  Value: Dancing Blades
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 1.2
+MagicSkill: Destruction
+ResistValue: DamageResist
+CastingLight: 020BF4:Skyrim.esm
+TaperWeight: 0.3
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 00087B:Aero.esl
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 00088A:Aero.esl
+SkillUsageMultiplier: 1
+DualCastScale: 1
+ImageSpaceModifier: 07E8FD:Skyrim.esm
+Sounds:
+- Sound: 03C8F8:Skyrim.esm
+- Type: Charge
+  Sound: 07C71F:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 03EAC6:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Blades projectile dealing up to <mag> points of damage to targets with under <100> points of Damage Resistance.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThan
+  Data:
+    MutagenObjectType: GetActorValueConditionData
+    ActorValue: DamageResist

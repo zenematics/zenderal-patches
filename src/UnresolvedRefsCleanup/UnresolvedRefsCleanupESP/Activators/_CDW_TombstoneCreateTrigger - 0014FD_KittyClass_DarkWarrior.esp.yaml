@@ -1,0 +1,30 @@
+FormKey: 0014FD:KittyClass_DarkWarrior.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: _CDW_TombstoneCreateTrigger
+SkyrimMajorRecordFlags:
+- 0x4000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: dunBloatedManSetStageOnActivate
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myQuest
+    - MutagenObjectType: ScriptIntProperty
+      Name: prereqStageOPT
+      Data: 90
+    - MutagenObjectType: ScriptIntProperty
+      Name: stage
+      Data: 100
+ObjectBounds:
+  First: -64, -64, -64
+  Second: 64, 64, 64
+Name:
+  TargetLanguage: English
+  Value: Here
+MarkerColor: '#0095F8FF'
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: Make Tombstone
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

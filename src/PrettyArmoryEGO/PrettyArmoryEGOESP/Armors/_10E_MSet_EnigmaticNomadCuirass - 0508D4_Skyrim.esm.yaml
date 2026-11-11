@@ -14,6 +14,9 @@ VirtualMachineAdapter:
       Name: __Config_SetList
       Object: 046E01:Skyrim.esm
     - MutagenObjectType: ScriptObjectProperty
+      Name: ArmorSetListener
+      Object: 0493BF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
       Name: PlayerRef
       Object: 000014:Skyrim.esm
 Name:

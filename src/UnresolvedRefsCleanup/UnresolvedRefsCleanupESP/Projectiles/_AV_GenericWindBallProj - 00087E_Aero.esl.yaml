@@ -1,0 +1,20 @@
+FormKey: 00087E:Aero.esl
+EditorID: _AV_GenericWindBallProj
+ObjectBounds:
+  First: -50, -142, -74
+  Second: 50, 16, 73
+Model:
+  File: Aero\GenericWindProj.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Explosion
+Type: Missile
+Speed: 2500
+Range: 10000
+Explosion: 0008B5:Aero.esl
+FadeDuration: 0.5
+ImpactForce: 1.5
+CollisionRadius: 18
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

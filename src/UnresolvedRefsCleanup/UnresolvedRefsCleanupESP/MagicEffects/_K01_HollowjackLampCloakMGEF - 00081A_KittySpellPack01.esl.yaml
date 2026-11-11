@@ -1,0 +1,40 @@
+FormKey: 00081A:KittySpellPack01.esl
+EditorID: _K01_HollowjackLampCloakMGEF
+Name:
+  TargetLanguage: English
+  Value: Hollowjack Lantern
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 0B62E4:Skyrim.esm
+Flags:
+- DispelWithKeywords
+- NoArea
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3.2
+MagicSkill: Illusion
+CastingLight: 0140EC:Skyrim.esm
+TaperWeight: 0.3
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+TaperCurve: 2
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 00082D:KittySpellPack01.esl
+CastType: FireAndForget
+CastingArt: 000878:KittySpellPack01.esl
+SkillUsageMultiplier: 0.1
+DualCastScale: 1
+Sounds:
+- Sound: 07BBAB:Skyrim.esm
+- Type: Charge
+  Sound: 06F6D3:Skyrim.esm
+- Type: Ready
+  Sound: 07C720:Skyrim.esm
+- Type: Release
+  Sound: 081971:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Nearby creatures and people up to level <14> flee from combat for <10> seconds.

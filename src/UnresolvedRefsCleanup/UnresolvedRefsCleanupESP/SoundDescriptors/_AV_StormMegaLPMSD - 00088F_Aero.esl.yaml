@@ -1,0 +1,10 @@
+FormKey: 00088F:Aero.esl
+EditorID: _AV_StormMegaLPMSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Aero\StormSequence.wav
+LoopAndRumble:
+  Loop: EnvelopeFast
+PercentFrequencyShift: 18
+Priority: 128

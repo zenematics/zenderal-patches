@@ -1,0 +1,109 @@
+FormKey: 000800:Immersive Interactions-1st.esp
+EditorID: QS_II1Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: II1_MCM
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsBallad01Scene
+      Object: 083DA2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsBallad01WithIntroScene
+      Object: 0CF8FB:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsDrinkingSong01Scene
+      Object: 0CF8FA:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsDrinkingSong01WithIntroScene
+      Object: 0CF8FC:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsDrinkingSong02Scene
+      Object: 0D0843:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsDrinkingSong02WithIntroScene
+      Object: 0D0845:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsDrinkingSong03Scene
+      Object: 0D0842:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsDrinkingSong03WithIntroScene
+      Object: 0D0844:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalBard2Drum01
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalBard2Drum02
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalDrum01
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalDrum02
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalFlute01
+      Object: 06E5AE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalFlute02
+      Object: 106007:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalFluteonly01
+      Object: 108ED2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalFluteonly02
+      Object: 108ED3:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalLuteonly01
+      Object: 095889:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalLuteonly02
+      Object: 1069C2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalWedding01
+      Object: 10C67A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BardSongsInstrumentalWedding02
+      Object: 10C67B:Skyrim.esm
+    - MutagenObjectType: ScriptFloatProperty
+      Name: DetectionRange
+      Data: 200
+    - MutagenObjectType: ScriptObjectProperty
+      Name: II1_ControllerKey
+      Object: 000805:Immersive Interactions-1st.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: II1_ControllerModifier
+      Object: 000806:Immersive Interactions-1st.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: II1_Key
+      Object: 000803:Immersive Interactions-1st.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: II1_Modifier
+      Object: 000804:Immersive Interactions-1st.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: II1_Prayers
+      Object: 000807:Immersive Interactions-1st.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: II1_State
+      Object: 000802:Immersive Interactions-1st.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: II1_Trigger
+      Object: 000801:Immersive Interactions-1st.esp
+    - MutagenObjectType: ScriptFloatProperty
+      Name: PollInterval
+      Data: 0.3
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000800:Immersive Interactions-1st.esp
+      Alias: 0
+    Scripts:
+    - Name: SKI_PlayerLoadGameAlias
+Name:
+  TargetLanguage: English
+  Value: II1Quest
+Flags:
+- StartGameEnabled
+- 0x10
+NextAliasID: 1
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  UniqueActor: 000007:Skyrim.esm
+  VoiceTypes: Null

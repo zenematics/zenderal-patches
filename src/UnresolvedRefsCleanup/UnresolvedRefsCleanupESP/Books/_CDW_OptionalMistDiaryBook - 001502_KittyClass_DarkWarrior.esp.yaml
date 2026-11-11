@@ -1,0 +1,125 @@
+FormKey: 001502:KittyClass_DarkWarrior.esp
+EditorID: _CDW_OptionalMistDiaryBook
+Name:
+  TargetLanguage: English
+  Value: The True Path
+Model:
+  File: clutter\books\bookmq103lowpoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    [pagebreak]
+
+    <p align="center"><font face="$HandwrittenBold"><font size='25'>
+
+
+
+
+    The True Path</p>.</font>
+
+
+    [pagebreak]
+
+    <font face="$HandwrittenBold"><font size='19'>
+
+
+    Once upon a time, there lived a girl in the slums gifted with the power to weave light to her will.
+
+
+    Gertrude was a quiet child, preferring solitude to the chaos of the streets. She rarely displayed her talent to anyone, keeping her magic hidden like a precious secret. But there was one thing everyone in the slum knew her for; it was her disdain for the rich and the nobility.
+
+    She was the type to distribute meals equally among the hungry rather than hoarding them for herself. When bread was scarce, she ensured the orphans ate before she did. When the temple gave out blankets in winter, she made certain the elderly received them first. Naturally, she had grown to resent those who refused to share, those who lived in castles while others starved in the gutters below.
+
+
+    She had a best friend. They were inseparable, always together, going on small adventures or picking the pockets of nobles who wouldn't miss a few coins. While passing the time on rooftops or in hidden courtyards, they would complain and criticize the actions and policies of those in power.
+
+    The nobility seemed always to occupy their thoughts and their conversations. Yet many troubles also came from those around them. The slum had its own predators.
+
+    They were adept pickpockets, which made them targets. They would get robbed by slum thugs, beaten for their earnings. One night, when her friend was rushed by a man with a knife, she acted on instinct. She wove light into a shimmering shield, repelling the attacker with such force that he was thrown against a wall and did not rise again.
+
+    It was a protective spell so powerful that not even fully-fledged wizards could penetrate. It was powerful because she had poured all of her love into it, love for the only person who had never abandoned her.
+
+    They both saw her talent as a blessing from the divines. It gave them what most in the slum had resigned themselves to never having: security. Safety. And perhaps, a way to make a living through legal means.
+
+
+    Her first business was a small bakery. Her friend became her assistant and partner. They used the money they had pilfered over the years to fund the operation.
+
+    Her friend wanted more from her magic. "You could be a court mage," they would say. "You could even work for the Jarl." But Gertrude only wanted to feed more mouths.
+
+    It was moderately successful, good enough to keep the doors open and maybe to expand. With hard work and patience, it did grow, and after about a decade, it became a household name. People would come from across the city for their cheap and high-grade products.
+
+
+    And then the pillars of her life came crashing down. It happened suddenly, with no warning.
+
+    Her friend fired her from their business. Took control of it all.
+
+    "You've been a liability," her friend said through the door. "We're a business. Giving away product to beggars has ruined our reputation!"
+
+    Her friend had done precisely what she had always criticized the rich for doing.
+
+    It was then that Gertrude, now a woman standing in the rain outside the bakery she had built, understood a truth:
+
+    Her friend had never despised the nobility for their wrongdoings against humanity. They despised her only for personally hurting them, for keeping them down.
+
+
+    With nothing but the clothes on her back, she set out on a journey.
+
+    Her hope and faith in her fellow people unraveled as she began seeing more of the wider world.
+
+    No matter where she visited - from the ports of Hammerfell to the golden fields of Cyrodiil - most people paid little heed to suffering beyond their immediate vicinity.
+
+    Most were uninformed and willfully ignorant of politics and the ways of the world. They would give chances to all kinds of people or factions equally, not because they were kind, but because they didn't know any better, and they were so often taken advantage of.
+
+    She swore to never be like them.
+
+
+    Many tolerated their oppression, thinking there was nothing they could do. "That's just how things are," they would say, shrugging as they returned to their meager meals and backbreaking labor.
+
+    Many even grew to love their chains. They found reasons to defend the system that crushed them because it affirmed their way of life, gave them a sense of order in chaos.
+
+    She swore to never be like them.
+
+
+    Eventually, her lost faith grew into an intense hatred for the common people.
+
+    They were of little difference from those in power, she realized. They were not noble victims waiting to be saved. They were simply held back by law and social order from wreaking havoc upon one another. Remove the guards and the threat of punishment, and they would devour each other like starving wolves.
+
+
+    When her journey was complete, she made a vow to never shield others again.
+
+    She discarded her old identity and personality like a worn cloak, stepping into a new life. It was to be one with many names, one of taking, not giving, and one of making the best use of her assets instead of squandering them.
+
+
+    And now, standing here with all the wealth and power one could possess in this realm, I know that I see the world for what it truly is: A perpetual game of hunting.
+
+    Lions may dine upon hares with no consequences. This is nature. This is truth.
+
+    Lions who abstain from the feast will starve and die.
+
+    In a world with no inherent justice, mercy is a weakness. Kindness is a vulnerability. Love is a liability.
+
+    And I know that even when I pass from this world, this natural order will never change.
+
+    The strong will always prey upon the weak.
+
+    The clever will always exploit the foolish.
+
+    And those who refuse to see this truth will always be devoured.
+
+    I have made my peace with this.
+
+    I have become the lion.
+
+    And I will never go hungry again.</font>
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+  RawContent: 0
+Value: 10
+Weight: 1
+Description:
+  TargetLanguage: English
+  Value: ''

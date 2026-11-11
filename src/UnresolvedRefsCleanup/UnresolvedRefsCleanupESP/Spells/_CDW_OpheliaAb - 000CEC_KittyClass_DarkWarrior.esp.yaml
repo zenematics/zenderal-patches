@@ -1,0 +1,28 @@
+FormKey: 000CEC:KittyClass_DarkWarrior.esp
+EditorID: _CDW_OpheliaAb
+Name:
+  TargetLanguage: English
+  Value: Aura of Darkness
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 2381
+Type: Ability
+ChargeTime: 0.5
+Effects:
+- BaseEffect: 0FEAAA:Skyrim.esm
+  Data:
+    Magnitude: 0.16
+- BaseEffect: 000CFF:KittyClass_DarkWarrior.esp
+  Data:
+    Magnitude: 100
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsInCombatConditionData
+    ComparisonValue: 1
+- BaseEffect: 000D00:KittyClass_DarkWarrior.esp
+  Data:
+    Magnitude: 100

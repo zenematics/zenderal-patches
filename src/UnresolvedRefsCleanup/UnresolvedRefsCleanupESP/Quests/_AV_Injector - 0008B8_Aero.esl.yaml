@@ -1,0 +1,72 @@
+FormKey: 0008B8:Aero.esl
+EditorID: _AV_Injector
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _AV_InjectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV100Destruction
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV25DestructionA
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV25DestructionB
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV50DestructionA
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV50DestructionB
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV50DestructionDLC
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75DestructionA
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75DestructionB
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75DestructionDLC
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LootWarlockSpellTomes00All15
+      Object: 04C165:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv100P
+      Object: 000875:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv100W
+      Object: 00089C:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv25P
+      Object: 0008A7:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv25W
+      Object: 000876:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv50P1
+      Object: 000878:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv50P2
+      Object: 000874:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv50W1
+      Object: 000871:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv50W2
+      Object: 000872:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv75P1
+      Object: 0008A8:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv75P2
+      Object: 000873:Aero.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv75W
+      Object: 000877:Aero.esl
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+Stages:
+- Flags:
+  - StartUpStage
+NextAliasID: 2

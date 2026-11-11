@@ -1,0 +1,30 @@
+FormKey: 0008B0:Aero.esl
+EditorID: _AV_PowerTomeSpawnBoss_X
+ObjectBounds:
+  First: -22, -16, -3
+  Second: 0, 16, 6
+Name:
+  TargetLanguage: English
+  Value: 'Power Tome: Summon Fallingstar Thrasher'
+Model:
+  File: clutter\books\bookmq103lowpoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face'$HandwrittenFont'><font size='40'><p align='center'>
+
+    Summon Fallingstar Thrasher
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 0008AE:Aero.esl
+Value: 666
+Weight: 1
+Description:
+  TargetLanguage: English
+  Value: ''

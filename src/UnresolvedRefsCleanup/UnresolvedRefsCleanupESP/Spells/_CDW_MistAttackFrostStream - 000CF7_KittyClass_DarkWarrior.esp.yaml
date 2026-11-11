@@ -1,0 +1,15 @@
+FormKey: 000CF7:KittyClass_DarkWarrior.esp
+EditorID: _CDW_MistAttackFrostStream
+Name:
+  TargetLanguage: English
+  Value: Frost Stream
+MenuDisplayObject: 09DB72:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 200
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+TargetType: Aimed

@@ -1,0 +1,103 @@
+FormKey: 000804:Supernova.esl
+EditorID: _SS_SelfFX
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _SS_SetWeatherMagicEffectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BeginFX
+      Object: 000834:Supernova.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EndFX
+      Object: 000835:Supernova.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EndWeatherForm
+      Object: 000832:Supernova.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MidWeatherForm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WeatherExceptionList
+      Object: 000998:Update.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WeatherForm
+      Object: 000831:Supernova.esl
+  - Name: magicProjectileStormScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CastingImod
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDelay
+      Data: 29
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fHeight
+      Data: 6000
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fRecast
+      Data: 0.25
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fRecastRand
+      Data: 1
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fStartDelayRand
+      Data: 0.5
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fXYBaseRandom
+      Data: 3200
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MAGProjectileStormVar
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlacedActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlacedTargetActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SoundFX
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellRef
+      Object: 00080F:Supernova.esl
+Name:
+  TargetLanguage: English
+  Value: Aetherius Fever
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 0806E1:Skyrim.esm
+- 0A9B1F:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+CastingLight: 04C6DC:Skyrim.esm
+TaperWeight: 1
+MinimumSkillLevel: 100
+Archetype:
+  MutagenObjectType: MagicEffectSpawnHazardArchetype
+  Association: 00082F:Supernova.esl
+Projectile: 06F793:Skyrim.esm
+Explosion: 0E41F0:Skyrim.esm
+CastType: FireAndForget
+CastingArt: 036342:Skyrim.esm
+HitEffectArt: 00083F:Supernova.esl
+SkillUsageMultiplier: 8
+DualCastScale: 1
+ImageSpaceModifier: 00083D:Supernova.esl
+CastingSoundLevel: VeryLoud
+Sounds:
+- Sound: 03F2C1:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000849:Supernova.esl
+Description:
+  TargetLanguage: English
+  Value: Tears a rupture into the Aetherius and brings forth volatile energy of pure devastation.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInInteriorConditionData
+    RunOnType: Target

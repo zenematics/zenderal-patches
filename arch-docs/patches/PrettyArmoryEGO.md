@@ -71,3 +71,48 @@ we lacked, now folded in:**
 Result: 153 records (was 141). Round-trip identical. Deployed 2026-10-30 into `Zenderal - Patch Collection` (the
 only copy; previous one and the Ultra `modlist.txt` in `E:/Zenderal-backups/2026-10-30-pretty-armory-ego-unique-sets/`)
 and `PEA - EGO Patch` enabled in Ultra (its plugin stays hidden, so `plugins.txt` is unchanged). Unverified in game.
+
+## Pretty 2.1 (2026-11-11)
+
+A Nexus comment from Pretty's author: the uploaded patch mastered `Pretty Enderal Armory - Fixes.esp`, which
+Pretty 2.x no longer ships, so it would not load for players on 2.x.
+
+**What changed in the list:**
+- The list moved to Pretty 2.1: the FOMOD All in One (`FOMOD All in One 1072 2.1 2026-10-24T23-02Z kRAb8iuYn.7z`),
+  installed into the per-pack MO2 folders with the list's existing choices:
+  - Unique Sets: Honorable Knight;
+  - Pyrean and Grandmaster: the vanilla plugins.
+- Gone: Fixes, Pretty Enderal Backpacks (now in Clothing) and the Clothing Hotfix.
+- New: `Pretty Rune Armory.esp`. All 2.1 plugins are ESL at HEDR 1.71. No record here references a Pretty form
+  below `0x800`, so the patch stays 1.7.
+
+**2.1 is loose, 2.0 was BSAs**, so a Pretty file now beats lower-priority loose mods it used to lose to:
+- 79 such files were left out of the install to keep the old winners: shared cubemaps against TB's HD /
+  Seamless Cubemaps, plus single textures from SMIM, Tempered Skins, Fluffworks, SRP and others.
+- Also left out: 3 Pretty-vs-Pretty files where MO2 order would pick a different copy than the FOMOD's order.
+- Not left out: CBBE (about 230 female meshes) and ERA Part 1 (Righteous Path paths). Pretty was always meant to
+  win those, so `Zenderal - Pretty Female Mesh Restores` is retired (unticked).
+- The list of left-out files and the install script are in `E:/Zenderal-backups/2026-11-11-pretty-2.0/`, with the
+  2.0 folders.
+
+**Generator changes:**
+- **01 stops at this patch's own load position.** Plugins after it win anyway, and mastering one breaks load order.
+  `Zenderal - 2.1 Levelsystem Cleanup.esp` had been loading before this patch (line 415 vs 438, against its own
+  "load last" rule), so this patch mastered it and 7 records came from it. It now loads just before Unresolved
+  References Cleanup, in all three Ultra profiles, and its cleanup applies after this patch.
+- `PG_1.esp` (PG Patcher, late) wins 2 Rhalata robes, which is why rerunning PG Patcher matters.
+- **01 `--standalone` + `05-build-nexus-standalone.py`: the Nexus build is Pretty × EGO only.**
+  - Its chains hold only base + EGO/donors + Pretty plugins, and it skips 03.
+  - It masters no list-only mod. The list build masters Malphas' Blessing (Tealor's face, 03) and ERA Heavy
+    Leather (2 winners).
+  - 05 puts the list's record folders back and writes `E:/Nexus uploads/Zenderal - Pretty Armory EGO Patch.7z`.
+  - Run it after every list regeneration.
+
+**Result:** 158 records, against 153 before:
+- removed: the 4 Fixes-only records (Barkeeper shoes addon, Zaraah's three playable pieces; EGO now wins them
+  directly) and the Mended Sword (2.1 no longer touches it);
+- added: 9 records 2.1 now covers: 5 circlets, Circlet of Shadows, the Meadow Spirits amulet, and the Rhalata
+  novice robes (PEA's former "not taken" hookups).
+
+Masters: base, EGO, the 11 Pretty plugins, Malphas' Blessing, ERA Heavy Leather. Deployed into Patch Collection.
+The Nexus copy masters base + EGO + the 11 Pretty plugins. Unverified in game.

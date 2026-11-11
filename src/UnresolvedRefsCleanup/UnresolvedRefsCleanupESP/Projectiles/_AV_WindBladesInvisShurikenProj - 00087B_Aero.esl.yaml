@@ -1,0 +1,23 @@
+FormKey: 00087B:Aero.esl
+EditorID: _AV_WindBladesInvisShurikenProj
+ObjectBounds:
+  First: -368, -95, -79
+  Second: 368, 177, 175
+Model:
+  File: Aero\WindBladesProj.nif
+  Data: 0x020000000000000000000000
+Flags:
+- Supersonic
+- PassThroughSmallTransparent
+Type: Cone
+Gravity: -0.15
+Speed: 2400
+Range: 18000
+MuzzleFlashDuration: 1.5
+FadeDuration: 0.5
+ImpactForce: 1
+ConeSpread: 2
+CollisionRadius: 18
+RelaunchInterval: 0.125
+MuzzleFlashModel: ''
+SoundLevel: 1

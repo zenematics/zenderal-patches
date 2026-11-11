@@ -1,0 +1,35 @@
+FormKey: 00085D:KittyClass_DarkWarrior.esp
+MajorRecordFlagsRaw: 4
+EditorID: _CDW_ShadeGauntlets
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Obsidian Gauntlets
+WorldModel:
+  Male:
+    Model:
+      File: DLC02\Armor\StahlrimHeavy\GauntletsGND.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Hands
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 06C0EF:Skyrim.esm
+- 08F959:Skyrim.esm
+- 02C178:Skyrim.esm
+- 002ED9:Update.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00089A:KittyClass_DarkWarrior.esp
+Value: 450
+Weight: 7
+ArmorRating: 17
+MajorFlags:
+- NonPlayable

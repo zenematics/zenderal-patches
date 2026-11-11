@@ -85,3 +85,5 @@ python -I src/ArmorBalance/tools/01-build-armor-balance.py
 Re-serialize a source mod into `reference/mods/` (`Fuse00AdventurerArmor`, `GrievousRoseMulticolor`,
 `PrettyPyreanArmory`) after it updates. `tools/00`'s report is also the starting point for the next armor
 check: it lists every mod-added armor with its recipe gates next to the base game's range for its slot.
+
+**2026-11-11 (Pretty Enderal Armory 2.1):** `000810:Pretty Pyrean Armory.esp` (Jakal's Soldier Cuirass) still exists in 2.1, still 34.8 and won only by Pretty; `tools/01` now reads it from the 2.1 serialization `reference/mods/Pretty/Pretty Pyrean Armory` (the old `reference/mods/PrettyPyreanArmory` was 2.0; the record is identical). Rerun 00 → 01: output unchanged, so the deployed plugin was not rebuilt.

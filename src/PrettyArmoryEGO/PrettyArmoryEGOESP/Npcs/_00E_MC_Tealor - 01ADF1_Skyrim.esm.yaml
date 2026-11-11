@@ -51,6 +51,9 @@ Class: 042DC6:Skyrim.esm
 Name:
   TargetLanguage: English
   Value: Tealor Arantheal
+ShortName:
+  TargetLanguage: English
+  Value: Tealor
 PlayerSkills:
   SkillValues:
   - Key: OneHanded

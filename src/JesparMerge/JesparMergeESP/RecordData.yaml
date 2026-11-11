@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Jespar Merge.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Jespar with Hands of the Prophet's face, EGO's stats and perks, and Jespar Has Better Steel's daggers. Load after Hands of the Prophet and Jespar Has Better Steel.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Jespar Has Better Steel - Malphas' Blessing.esp
+    FileSize: 0
+  - Master: Hands of the Prophet - A Jespar and Calia NPC Replacer.esp
+    FileSize: 0
+  INTV: 1

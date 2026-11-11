@@ -1,0 +1,40 @@
+FormKey: 000812:Supernova.esl
+EditorID: _SS_Supernova
+Name:
+  TargetLanguage: English
+  Value: Supernova
+MenuDisplayObject: 000826:Supernova.esl
+EquipmentType: 013F45:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 4900
+Flags:
+- ManualCostCalc
+- AreaEffectIgnoresLOS
+- IgnoreResistance
+- NoAbsorbOrReflect
+- NoDualCastModification
+CastType: FireAndForget
+HalfCostPerk: 0C44C2:Skyrim.esm
+Effects:
+- BaseEffect: 000804:Supernova.esl
+  Data:
+    Magnitude: 1
+    Duration: 120
+- BaseEffect: 000803:Supernova.esl
+  Data:
+    Magnitude: 30
+    Duration: 120
+- BaseEffect: 000808:Supernova.esl
+  Data:
+    Magnitude: 30
+    Duration: 120
+- BaseEffect: 000805:Supernova.esl
+  Data:
+    Magnitude: 30
+    Duration: 120
+- BaseEffect: 000806:Supernova.esl
+  Data:
+    Magnitude: 30
+    Duration: 120

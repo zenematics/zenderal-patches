@@ -1,0 +1,192 @@
+FormKey: 018A9A:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _00E_MC_Jespar
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Essential
+  - Unique
+  - DoesntAffectStealthMeter
+  - IsGhost
+  StaminaOffset: 120
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 25
+  SpeedMultiplier: 135
+  DispositionBase: 35
+  HealthOffset: 200
+Factions:
+- Faction: 039BD7:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 039DCE:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 03C6BF:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 03C755:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 047DBC:Skyrim.esm
+  Fluff: 0x000000
+Voice: 02B45E:Skyrim.esm
+Race: 033899:Skyrim.esm
+WornArmor: 00081B:Hands of the Prophet - A Jespar and Calia NPC Replacer.esp
+AttackRace: 013741:Skyrim.esm
+Perks:
+- Perk: 069D5A:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001D60:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001DBB:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 000800:Jespar Has Better Steel - Malphas' Blessing.esp
+    Count: 2
+- Item:
+    Item: 0EAA0D:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 021684:Skyrim.esm
+- 0CE2B6:Skyrim.esm
+- 04836A:Skyrim.esm
+Keywords:
+- 13A197:Skyrim.esm
+- 001E5A:Enderal SE - Gameplay Overhaul.esp
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Jespar Dal'Varek
+ShortName:
+  TargetLanguage: English
+  Value: Jespar
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 5
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 5
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 5
+  - Key: Conjuration
+    Value: 5
+  - Key: Destruction
+    Value: 5
+  - Key: Illusion
+    Value: 5
+  - Key: Restoration
+    Value: 5
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 30
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Magicka: 16256
+  GearedUpWeapons: 1
+HeadParts:
+- 000800:Hands of the Prophet - A Jespar and Calia NPC Replacer.esp
+- 000803:Hands of the Prophet - A Jespar and Calia NPC Replacer.esp
+- 000807:Hands of the Prophet - A Jespar and Calia NPC Replacer.esp
+- 000809:Hands of the Prophet - A Jespar and Calia NPC Replacer.esp
+- 00080C:Hands of the Prophet - A Jespar and Calia NPC Replacer.esp
+HairColor: 0A0438:Skyrim.esm
+CombatStyle: 086F4F:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 70
+SoundLevel: Normal
+DefaultOutfit: 0C41E0:Skyrim.esm
+TextureLighting: '#009C887A'
+FaceMorph:
+  NoseLongVsShort: -0.24
+  JawUpVsDown: -0.88
+  JawNarrowVsWide: -0.9
+  JawForwardVsBack: -0.06
+  CheeksUpVsDown: 0.7
+  CheeksForwardVsBack: -0.4
+  EyesUpVsDown: -0.2
+  EyesInVsOut: -0.28
+  BrowsUpVsDown: 0.62
+  BrowsInVsOut: -0.4
+  BrowsForwardVsBack: 0.2
+  ChinNarrowVsWide: -0.54
+  ChinUpVsDown: -0.12
+  ChinUnderbiteVsOverbite: 0.1
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 16
+TintLayers:
+- Index: 1
+  Color: '#009C887A'
+  InterpolationValue: 1
+  Preset: -1
+MajorFlags:
+- 0x40000

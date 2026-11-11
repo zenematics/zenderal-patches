@@ -1,0 +1,35 @@
+FormKey: 00085C:KittyClass_DarkWarrior.esp
+MajorRecordFlagsRaw: 4
+EditorID: _CDW_ShadeHelmet
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: Obsidian Helmet
+WorldModel:
+  Male:
+    Model:
+      File: DLC02\Armor\StahlrimHeavy\HelmetGND.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Hair
+  - Circlet
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD2:Skyrim.esm
+- 08F959:Skyrim.esm
+- 06C0EE:Skyrim.esm
+- 002ED9:Update.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00089B:KittyClass_DarkWarrior.esp
+Value: 1135
+Weight: 7
+ArmorRating: 22
+MajorFlags:
+- NonPlayable

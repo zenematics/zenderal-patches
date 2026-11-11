@@ -1,0 +1,411 @@
+FormKey: 0008E3:FEC.esp
+EditorID: FEC_DeathEffectsPC
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FEC_DeathEffectsPC
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeAnimal
+      Object: 013798:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeCreature
+      Object: 013795:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActorTypeDragon
+      Object: 035D59:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ArgonianRace
+      Object: 013740:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ArgonianRaceVampire
+      Object: 08883A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1dunHarkonAshPile
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1dunHarkonDeathFXAct
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1SunFireCloakFXShader
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1SunFireFXShader
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1SunFireImpactFXShader
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1VampireBeastRace
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1VampireBleedHarkonDeathFXS
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1VampireBleedHarkonFireFXS
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1VampireSkeletonFXArmor
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDefaultDeathCamDuration
+      Data: 5
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AcidAshPile
+      Object: 00091A:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AcidDisintegrateFXS
+      Object: 00087B:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AcidPCToggle
+      Object: 000928:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AshPile
+      Object: 000830:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_BlankFXS
+      Object: 000804:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_BlankTXST
+      Object: 000867:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_BloodImpactSet
+      Object: 000856:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DeathCameraDuration
+      Object: 00082C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DeathCameraExtendToggle
+      Object: 000829:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultSkeleBody00
+      Object: 00089D:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultSkeleBody01
+      Object: 00089C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultSkeleFeet
+      Object: 000899:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultSkeleHands
+      Object: 0008A1:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultSkeleHead
+      Object: 0008A2:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DizonaInstalled
+      Object: 0008AB:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DragonSoulAbsorbPCEffect
+      Object: 00082D:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainBody00
+      Object: 000832:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainBody01
+      Object: 000897:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainDisintegrateSkinFXS
+      Object: 000831:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainFeet
+      Object: 000863:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainHands
+      Object: 000838:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainHead
+      Object: 0008AF:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainHeadDecap
+      Object: 0008B2:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainModes
+      Object: 0008AA:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainPCToggle
+      Object: 000879:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DrainSmokeFXS
+      Object: 000824:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireBurnClothingToggle
+      Object: 00082B:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharBody00
+      Object: 000882:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharBody01
+      Object: 000886:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharFeet
+      Object: 000883:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharFXS
+      Object: 00080C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharHands
+      Object: 000884:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharHead
+      Object: 0008AE:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharHeadDecap
+      Object: 0008B3:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharInstantFXS
+      Object: 000834:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireDisintegrateFXS
+      Object: 0008E2:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireDisintegrateSkinFXS
+      Object: 000887:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireDisintegrateSkinLongFXS
+      Object: 000896:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireFXS
+      Object: 000806:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireHeatRefractionEffect
+      Object: 0008C5:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireHeavyFXS
+      Object: 000826:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireImpactSet
+      Object: 0008D6:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireModes
+      Object: 000857:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FirePCToggle
+      Object: 00080A:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSkeleBody00
+      Object: 000846:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSkeleBody01
+      Object: 000895:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSkeleFeet
+      Object: 000892:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSkeleHands
+      Object: 000893:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSkeleHead
+      Object: 00088D:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSmokeFXS
+      Object: 000819:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FlyingBitsFXS
+      Object: 000800:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FlyingBitsLiteFXS
+      Object: 000801:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostExplosion
+      Object: 00081B:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostFXS
+      Object: 00080D:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostIceFormFXS
+      Object: 000827:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostImpactSet
+      Object: 00086C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostModes
+      Object: 000858:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostPCToggle
+      Object: 000814:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListHairColor
+      Object: 000820:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListSkinColor
+      Object: 00083C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonMode
+      Object: 000868:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonOpacityAutoCalc
+      Object: 0008F6:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonOpacityColor
+      Object: 00083E:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonPCToggle
+      Object: 000816:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonVeinFXS
+      Object: 000810:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonWispsFXS
+      Object: 000864:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockExpFXS
+      Object: 000841:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockExplosion
+      Object: 000840:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockFXS
+      Object: 00080B:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockModes
+      Object: 000859:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockPCToggle
+      Object: 000815:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockXRayBody
+      Object: 000847:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockXRayHead
+      Object: 0008BF:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SmokeFXS
+      Object: 000802:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SootFXS
+      Object: 000823:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SootInstantFXS
+      Object: 000861:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SoulAbsorbFireFXS
+      Object: 00082F:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SoulAbsorbPCToggle
+      Object: 000828:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SoulPowerAbsorbFXS
+      Object: 000803:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SteamFXS
+      Object: 000918:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SunDisintegrateFXS
+      Object: 000807:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SunPCToggle
+      Object: 00087A:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_VampireLordPCToggle
+      Object: 000929:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_WaterImpactSet
+      Object: 000917:FEC.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: FrostBodyParts
+      Objects:
+      - Name: ''
+        Object: 00081C:FEC.esp
+      - Name: ''
+        Object: 00086F:FEC.esp
+      - Name: ''
+        Object: 00081D:FEC.esp
+      - Name: ''
+        Object: 00086E:FEC.esp
+      - Name: ''
+        Object: 00081E:FEC.esp
+      - Name: ''
+        Object: 00086D:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: HarkonDeathExplosion
+    - MutagenObjectType: ScriptObjectProperty
+      Name: KhajiitRace
+      Object: 013745:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: KhajiitRaceVampire
+      Object: 088845:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicDamageFire
+      Object: 01CEAD:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicDamageFrost
+      Object: 01CEAE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicDamageShock
+      Object: 01CEAF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NPCDragonDeathSequenceExplosion
+      Object: 05300E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NPCDragonDeathSequenceWind
+      Object: 053011:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: ShockBodyParts
+      Objects:
+      - Name: ''
+        Object: 000849:FEC.esp
+      - Name: ''
+        Object: 000851:FEC.esp
+      - Name: ''
+        Object: 00084A:FEC.esp
+      - Name: ''
+        Object: 000853:FEC.esp
+      - Name: ''
+        Object: 00083F:FEC.esp
+      - Name: ''
+        Object: 000852:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinBodyFemaleOld
+      Object: 06838E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinBodyMaleOld
+      Object: 067CD9:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHandFemaleOld
+      Object: 06838F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHandMaleOld
+      Object: 067CDF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHeadFemaleArgonianOld
+      Object: 0B30F2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHeadFemaleKhajiitOld
+      Object: 0F1239:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHeadFemaleOld
+      Object: 068390:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHeadMaleArgonianOld
+      Object: 0B3047:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHeadMaleKhajiitOld
+      Object: 0F123A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SkinHeadMaleOld
+      Object: 067CDC:Skyrim.esm
+    - MutagenObjectType: ScriptIntListProperty
+      Name: slotsToSkip
+      Data:
+      - 32
+      - 64
+      - 512
+      - 4096
+      - 16384
+      - 65536
+      - 524288
+      - 8388608
+      - 67108864
+      - 536870912
+Name:
+  TargetLanguage: English
+  Value: FEC - PC Death Effects
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- NoDeathDispel
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

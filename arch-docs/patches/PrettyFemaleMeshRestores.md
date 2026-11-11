@@ -5,6 +5,7 @@
 - **Source:** `src/PrettyFemaleMeshRestores/`
 - **Ships:** *(no plugin — loose meshes, MO2 mod `Zenderal - Pretty Female Mesh Restores`)*
 - **FormID block:** _(none)_
+- **Status:** **Retired 2026-11-11** (unticked in the three Ultra profiles): Pretty 2.1 ships loose files above CBBE in MO2, so Pretty's meshes win on their own, and this mod's 2.0 copies would have overridden 2.1. See [`PrettyArmoryEGO`](PrettyArmoryEGO.md#pretty-21-2026-11-11).
 
 ## What it does
 

@@ -1,0 +1,50 @@
+FormKey: 000871:KittyClass_DarkWarrior.esp
+EditorID: _CDW_ShadeGreatsword
+ObjectBounds:
+  First: -7, -23, -3
+  Second: 7, 95, 3
+Name:
+  TargetLanguage: English
+  Value: Ancient Obsidian Greatsword
+Model:
+  File: KittyClass_DarkWarrior\Stahlrim\stahlrimgreatsword.nif
+  Data: 0x020000000000000000000000
+EquipmentType: 013F45:Skyrim.esm
+BlockBashImpact: 0183FF:Skyrim.esm
+AlternateBlockMaterial: 097786:Skyrim.esm
+Keywords:
+- 08F958:Skyrim.esm
+- 06D931:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 0949D5:Skyrim.esm
+FirstPersonModel: 00086E:KittyClass_DarkWarrior.esp
+AttackFailSound: 0E4CAC:Skyrim.esm
+EquipSound: 03C8A9:Skyrim.esm
+UnequipSound: 03C8AA:Skyrim.esm
+BasicStats:
+  Value: 1970
+  Weight: 21
+  Damage: 23
+Data:
+  AnimationType: TwoHandSword
+  Unused: 0x000000
+  Speed: 0.7
+  Reach: 1.3
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1067869798
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: TwoHanded
+  Stagger: 1.2
+Critical:
+  Damage: 11
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Loud

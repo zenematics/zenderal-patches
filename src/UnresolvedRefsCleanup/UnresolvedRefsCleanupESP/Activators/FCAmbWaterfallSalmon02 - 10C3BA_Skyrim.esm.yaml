@@ -1,0 +1,46 @@
+FormKey: 10C3BA:Skyrim.esm
+EditorID: FCAmbWaterfallSalmon02
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FXfakeCritterScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myContainer
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myExplosion
+      Object: 01A13C:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myFakeForceExplosion
+      Object: 10B038:Skyrim.esm
+    - MutagenObjectType: ScriptStringProperty
+      Name: myFakeForceExplosionOffset
+      Data: FishController02
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myFlora
+      Object: 10C3B5:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myFood
+      Object: 065C9F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myIngredient
+    - MutagenObjectType: ScriptStringProperty
+      Name: myLocationOffset
+      Data: FishController01
+    - MutagenObjectType: ScriptIntProperty
+      Name: numberOfIngredientsOnCatch
+      Data: 1
+ObjectBounds:
+  First: -25, -161, -63
+  Second: 25, 246, 162
+Name:
+  TargetLanguage: English
+  Value: Salmon
+Model:
+  File: Effects\FXAmbWaterfallSalmon02.nif
+  Data: 0x020000000200000000000000499A1EBE64647300484A40BFCC3D48A664647300484A40BF
+MarkerColor: '#00CC4C33'
+ActivationSound: 10F21C:Skyrim.esm
+ActivateTextOverride:
+  TargetLanguage: English
+  Value: <font face="Iconographia">S</Font>
+Flags: []

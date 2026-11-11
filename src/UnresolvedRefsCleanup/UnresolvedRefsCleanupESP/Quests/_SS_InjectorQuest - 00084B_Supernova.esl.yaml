@@ -1,0 +1,43 @@
+FormKey: 00084B:Supernova.esl
+VersionControl: 11961
+EditorID: _SS_InjectorQuest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _SS_InjectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV100Destruction
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75AlterationA
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75AlterationB
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75DestructionA
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75DestructionB
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListLV75DestructionDLC
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookAlterationLv75
+      Object: 000822:Supernova.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv100
+      Object: 00081F:Supernova.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv75A
+      Object: 000820:Supernova.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookDestructionLv75B
+      Object: 000821:Supernova.esl
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Flags:
+- StartGameEnabled
+- RunOnce
+Stages:
+- Flags:
+  - StartUpStage
+  - ShutDownStage
+NextAliasID: 0

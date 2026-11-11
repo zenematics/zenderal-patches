@@ -1,0 +1,64 @@
+FormKey: 007183:KataPUMB_SpellPackage.esp
+EditorID: Kata_AddSpellsAndItemsToLeveledLists
+VirtualMachineAdapter:
+  Scripts:
+  - Name: Kata_Enderal_SpellPackageAddToLLists
+    Properties:
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: ArmorLI
+      Objects:
+      - Name: ''
+        Object: 13745D:Skyrim.esm
+      - Name: ''
+        Object: 1376D8:Skyrim.esm
+      - Name: ''
+        Object: 0559F7:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Armors
+      Object: 007181:KataPUMB_SpellPackage.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Books
+      Object: 007180:KataPUMB_SpellPackage.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CraftingPlanes
+      Object: 00A5FE:KataPUMB_SpellPackage.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: CraftingPlanesLI
+      Objects:
+      - Name: ''
+        Object: 137A06:Skyrim.esm
+      - Name: ''
+        Object: 148ABD:Skyrim.esm
+      - Name: ''
+        Object: 148ABE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DoYouWannaCheat
+      Object: 007182:KataPUMB_SpellPackage.esp
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: SpellTomesLI
+      Objects:
+      - Name: ''
+        Object: 13798C:Skyrim.esm
+      - Name: ''
+        Object: 118209:Skyrim.esm
+      - Name: ''
+        Object: 13798D:Skyrim.esm
+      - Name: ''
+        Object: 11820A:Skyrim.esm
+      - Name: ''
+        Object: 1447A2:Skyrim.esm
+      - Name: ''
+        Object: 1376C8:Skyrim.esm
+      - Name: ''
+        Object: 1447A3:Skyrim.esm
+      - Name: ''
+        Object: 14479B:Skyrim.esm
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+NextAliasID: 0

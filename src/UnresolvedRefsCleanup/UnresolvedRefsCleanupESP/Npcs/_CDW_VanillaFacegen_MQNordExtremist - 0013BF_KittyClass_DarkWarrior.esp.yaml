@@ -1,0 +1,167 @@
+FormKey: 0013BF:KittyClass_DarkWarrior.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _CDW_VanillaFacegen_MQNordExtremist
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _CDW_CombatNeverForgiveScript
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Female
+  - AutoCalcStats
+  - Unique
+  - Protected
+  StaminaOffset: 300
+  Level:
+    MutagenObjectType: PcLevelMult
+    LevelMult: 1
+  CalcMinLevel: 16
+  CalcMaxLevel: 30
+  SpeedMultiplier: 100
+  HealthOffset: 300
+Voice: 0013C3:KittyClass_DarkWarrior.esp
+Race: 013746:Skyrim.esm
+AttackRace: 013746:Skyrim.esm
+Perks:
+- Perk: 0012D0:KittyClass_DarkWarrior.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 001501:KittyClass_DarkWarrior.esp
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsFriendsAndAllies
+Packages:
+- 001361:KittyClass_DarkWarrior.esp
+Class: 01CE17:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Nord Extremist
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 52
+  - Key: TwoHanded
+    Value: 58
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 42
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 26
+  - Key: LightArmor
+    Value: 42
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 515
+  Magicka: 50
+  Stamina: 410
+  GearedUpWeapons: 1
+HeadParts:
+- 0E4D9F:Skyrim.esm
+- 0F5009:Skyrim.esm
+- 040224:Skyrim.esm
+- 0EAA71:Skyrim.esm
+- 08555F:Skyrim.esm
+HairColor: 0A0438:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 80
+SoundLevel: Normal
+HeadTexture: 0EAFA4:Skyrim.esm
+TextureLighting: '#00DDDDDD'
+FaceMorph:
+  NoseLongVsShort: -0.33999997
+  NoseUpVsDown: 0.22000003
+  JawUpVsDown: -0.3
+  JawNarrowVsWide: -0.07999998
+  JawForwardVsBack: -0.24000001
+  CheeksUpVsDown: 0.64
+  CheeksForwardVsBack: 0.26
+  EyesUpVsDown: -0.18
+  EyesInVsOut: -0.36
+  BrowsUpVsDown: 0.01999998
+  BrowsInVsOut: -0.39999998
+  BrowsForwardVsBack: 0.17999995
+  LipsUpVsDown: 0.46000004
+  LipsInVsOut: -0.68
+  ChinNarrowVsWide: -0.5
+  ChinUpVsDown: -0.6
+  ChinUnderbiteVsOverbite: 0.29999995
+  EyesForwardVsBack: -0.04000002
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 9
+  Unknown: 4294967295
+  Eyes: 18
+  Mouth: 13
+MajorFlags:
+- 0x40000

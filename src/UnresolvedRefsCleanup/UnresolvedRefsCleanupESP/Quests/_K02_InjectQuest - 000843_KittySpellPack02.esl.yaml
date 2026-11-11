@@ -1,0 +1,56 @@
+FormKey: 000843:KittySpellPack02.esl
+EditorID: _K02_InjectQuest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _K02_InjectScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListScroll100
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListScroll75
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListSpellBook100
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListSpellBook75
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ListSpellBook75A
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ScrollA
+      Object: 000831:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ScrollB
+      Object: 000832:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ScrollC
+      Object: 000833:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ScrollMaster
+      Object: 000830:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookA
+      Object: 000836:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookB
+      Object: 000835:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookC
+      Object: 000837:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellBookMaster
+      Object: 000834:KittySpellPack02.esl
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SummonLightningRailActorsPerk
+      Object: 000846:KittySpellPack02.esl
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+Stages:
+- Flags:
+  - StartUpStage
+  - ShutDownStage
+NextAliasID: 0

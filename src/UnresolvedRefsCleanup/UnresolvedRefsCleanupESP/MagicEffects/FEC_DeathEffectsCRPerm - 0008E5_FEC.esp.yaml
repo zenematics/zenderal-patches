@@ -1,0 +1,249 @@
+FormKey: 0008E5:FEC.esp
+EditorID: FEC_DeathEffectsCRPerm
+VirtualMachineAdapter:
+  Scripts:
+  - Name: fec_deatheffectscr
+    Properties:
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: BipedalCreatureFactions
+      Objects:
+      - Name: ''
+        Object: 02430D:Skyrim.esm
+      - Name: ''
+        Object: 04359A:Skyrim.esm
+      - Name: ''
+        Object: 04359E:Skyrim.esm
+      - Name: ''
+        Object: 02D1DF:Skyrim.esm
+      - Name: ''
+        Object: 0435A1:Skyrim.esm
+      - Name: ''
+        Object: 043594:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DisintegrationMainImmunityList
+      Object: 0F6534:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AcidAshPile
+      Object: 00091A:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AcidDisintegrateFXS
+      Object: 00087B:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AcidRandomChanceCr
+      Object: 00091D:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_AshPile
+      Object: 000830:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_CollisionScaleToggle
+      Object: 0008FC:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_CookedFoodToggle
+      Object: 000872:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultDraugrFemaleTXST
+      Object: 0008DC:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultDraugrMaleTXST
+      Object: 0008DB:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultSkeleBeastTXST
+      Object: 000866:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_DefaultSkeleTXST
+      Object: 000865:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharCrFXS
+      Object: 000811:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharFemaleTXST
+      Object: 0008DA:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharFXS
+      Object: 00080C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharMaleTXST
+      Object: 0008D9:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCharSkeleTXST
+      Object: 000874:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireCorpseSpell
+      Object: 0008C7:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireDamageToggle
+      Object: 0008D8:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireDisintegrateFXS
+      Object: 0008E2:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireFXS
+      Object: 000806:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireHeatRefractionEffectCR
+      Object: 000905:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireHeatRefractionEffectCRQuad
+      Object: 00090A:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireHeavyFXS
+      Object: 000826:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireImpactSet
+      Object: 0008D6:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireModesCr
+      Object: 0008F2:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireRandomChanceCr
+      Object: 00091F:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSkeleBeastTXST
+      Object: 000875:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FireSmokeFXS
+      Object: 000819:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FlyingBitsFXS
+      Object: 000800:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FlyingBitsLiteFXS
+      Object: 000801:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostContainerCorpseCr
+      Object: 000876:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostContainerCorpseCrQuad
+      Object: 000908:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostContainerPouch
+      Object: 000825:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostExplosion
+      Object: 00081B:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostFXS
+      Object: 00080D:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostIceFormFXS
+      Object: 000827:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostIceShaderObject
+      Object: 0008F4:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostImpactSet
+      Object: 00086C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostModesCr
+      Object: 00082A:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostRandomChanceCr
+      Object: 000920:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FrostShaderCrToggle
+      Object: 0008F5:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_GenericTriggerEffect
+      Object: 0008ED:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_GenericTriggerEffectCR
+      Object: 000907:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListFoodCooked
+      Object: 000871:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListFoodRaw
+      Object: 000870:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListKeywordMagic
+      Object: 000934:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListKeywordMagicFrozen
+      Object: 000935:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListKeywordWeapon
+      Object: 0008B4:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonRandomChanceCr
+      Object: 000921:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PostDeathEffectsCrToggle
+      Object: 00087E:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockCorpseSpell
+      Object: 0008E9:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockDamageToggle
+      Object: 0008EA:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockFXS
+      Object: 00080B:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockImpactSet
+      Object: 0008E1:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ShockRandomChanceCr
+      Object: 000922:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SmokeFXS
+      Object: 000802:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SootFXS
+      Object: 000823:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SteamFXS
+      Object: 000918:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SunDisintegrateFXS
+      Object: 000807:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SunRandomChanceCr
+      Object: 000923:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_WaterImpactSet
+      Object: 000917:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IsBeastRace
+      Object: 0D61D1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicDamageFire
+      Object: 01CEAD:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicDamageFrost
+      Object: 01CEAE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MagicDamageShock
+      Object: 01CEAF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: FEC - CR Effects Perm
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+- NoDeathDispel
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013794:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0008B5:FEC.esp

@@ -59,3 +59,20 @@ plugin, and tools/01 refuses records where nothing was removed (a stale `winners
 2. Serialize each plugin it lists with Spriggit 0.40.0 into `<scratch>/<name, alphanumerics only>/`.
 3. `python src/Levelsystem21Cleanup/tools/01-build-levelsystem-cleanup.py <scratch> <scratch>/winners.json`
 4. Update `RecordData.yaml`'s masters if the set of winners changed, then deserialize.
+
+## Pretty 2.1 regeneration (2026-11-11)
+
+**Load order:** this plugin had drifted to load **before** `Zenderal - Pretty Armory EGO Patch.esp` (line 415 vs
+438 in Ultra). The EGO patch mastered it and copied 7 of its records. It now loads just before
+`Zenderal - Unresolved References Cleanup.esp` in the three Ultra profiles, after every other generated patch.
+
+**Rerun after Pretty Enderal Armory 2.1:** 78 records, against 92 before.
+- Out: 18 Pretty Unique Sets armor-set records. Pretty 2.1 dropped the `Levelsystem` property itself, so their
+  winners are clean.
+- In: Marksman Rename's two Marksman learning-book effects (`085646`/`085647`).
+- Masters: base 3 + the 11 current winners in load order. Pretty Unique Sets is out, Marksman Rename is in.
+
+Deployed to Patch Collection. The previous copy is in `E:/Zenderal-backups/2026-11-11-pretty-2.0/`.
+
+**Folder names in step 2** keep the `esp`: `re.sub('[^A-Za-z0-9]', '', 'Castle Bleakstar.esp')` →
+`CastleBleakstaresp`.

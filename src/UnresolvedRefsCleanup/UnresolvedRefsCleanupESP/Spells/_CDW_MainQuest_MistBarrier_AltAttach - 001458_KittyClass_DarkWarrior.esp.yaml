@@ -1,0 +1,21 @@
+FormKey: 001458:KittyClass_DarkWarrior.esp
+EditorID: _CDW_MainQuest_MistBarrier_AltAttach
+Name:
+  TargetLanguage: English
+  Value: Cantilad Nero
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 792
+Type: Ability
+Effects:
+- BaseEffect: 001457:KittyClass_DarkWarrior.esp
+  Data:
+    Magnitude: 100
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasLoaded3DConditionData
+    ComparisonValue: 1

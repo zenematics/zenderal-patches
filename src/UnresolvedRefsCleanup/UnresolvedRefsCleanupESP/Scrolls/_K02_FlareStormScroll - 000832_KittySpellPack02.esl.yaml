@@ -1,0 +1,27 @@
+FormKey: 000832:KittySpellPack02.esl
+EditorID: _K02_FlareStormScroll
+ObjectBounds:
+  First: -16, -4, -4
+  Second: 16, 4, 4
+Name:
+  TargetLanguage: English
+  Value: Scroll of Flare Storm
+Keywords:
+- 0A0E57:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Model:
+  File: Clutter\Common\Scroll01.nif
+  Data: 0x0200000002000000000000006BC0AC7B646473008EAEA792B406448A646473008EAEA792
+Value: 250
+Weight: 0.5
+Flags:
+- ManualCostCalc
+CastType: 3
+TargetType: Aimed
+Effects:
+- BaseEffect: 00081E:KittySpellPack02.esl
+  Data:
+    Magnitude: 40

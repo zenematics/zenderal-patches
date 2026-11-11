@@ -90,6 +90,8 @@ Thumbs.db
 !src/ZenTraitsFixes/Scripts/compiled/*.pex
 !src/BlackLightWakeUpFix/Scripts/compiled/
 !src/BlackLightWakeUpFix/Scripts/compiled/*.pex
+!src/MQ17GeneratorGunFix/Scripts/compiled/
+!src/MQ17GeneratorGunFix/Scripts/compiled/*.pex
 !src/SettingsApplier/Scripts/compiled/
 !src/SettingsApplier/Scripts/compiled/*.pex
 !src/FogWood/Scripts/compiled/

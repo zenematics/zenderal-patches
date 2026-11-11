@@ -1,0 +1,36 @@
+FormKey: 001428:KittyClass_DarkWarrior.esp
+EditorID: _CDW_MainQuest_OpheliaGrottoUseFurniture
+Flags:
+- MustComplete
+- PreferredSpeed
+Type: Package
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetStageConditionData
+    Quest: 0012D8:KittyClass_DarkWarrior.esp
+  ComparisonValue: 62
+PackageTemplate: 0A9277:Skyrim.esm
+DataInputVersion: 2
+Data:
+- Key: 3
+  Value:
+    MutagenObjectType: PackageDataFloat
+- Key: 4
+  Value:
+    MutagenObjectType: PackageDataBool
+XnamMarker: 0x11
+OnBegin:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnEnd:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnChange:
+  Topics:
+  - MutagenObjectType: TopicReference

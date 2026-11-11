@@ -32,7 +32,7 @@ FUSE = '_Fuse00_AdventurerArmor.esp'
 ROSE = 'Grievous Rose Multicolor.esp'
 PRETTY = 'Pretty Pyrean Armory.esp'
 MASTERS = {'Skyrim.esm', 'Update.esm', 'Enderal - Forgotten Stories.esm', FUSE, ROSE, PRETTY}
-SOURCES = {FUSE: 'Fuse00AdventurerArmor', ROSE: 'GrievousRoseMulticolor', PRETTY: 'PrettyPyreanArmory'}
+SOURCES = {FUSE: 'Fuse00AdventurerArmor', ROSE: 'GrievousRoseMulticolor', PRETTY: os.path.join('Pretty', 'Pretty Pyrean Armory')}  # 2.1 serialization (2026-11-11)
 
 ARMOR_HEAVY, ARMOR_LIGHT = '06BBD2:Skyrim.esm', '06BBD3:Skyrim.esm'
 MATERIAL_IRON, MATERIAL_LEATHER = '06BBE3:Skyrim.esm', '06BBDB:Skyrim.esm'

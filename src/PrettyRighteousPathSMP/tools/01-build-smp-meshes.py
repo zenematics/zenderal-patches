@@ -5,7 +5,8 @@ has a front and a rear tabard flap, the shape `SkirtB`, already skinned to XPMSE
 (`SkirtFBone02/03`, `SkirtBBone02/03`) but with nothing simulating them, so they stay glued to the pelvis.
 
 The Cuirass of the Righteous Keeper (`0365C7`) is the same model with black `_alt` textures: Pretty Semi-Unique
-Armory points it at its own ARMA `000817` -> `armor\\ebony\\alt\\{f,m}\\cuirass_{0,1}.nif`, packed in that mod's BSA.
+Armory points it at its own ARMA `000817` -> `armor\\ebony\\alt\\{f,m}\\cuirass_{0,1}.nif`, in that mod's BSA up
+to Pretty 2.0 and loose since 2.1 (2026-11-11). Loose files are read first, the 2.0 BSA only as a fallback.
 
 This copies the eight meshes and appends one `NiStringExtraData` "HDT Skinned Mesh Physics Object" to each scene
 root, pointing at `ZenRighteousPathFlaps.xml` (committed in `../assets/`, copied alongside). Every other byte of
@@ -27,9 +28,11 @@ from nif import Reader  # noqa: E402
 sys.path.insert(0, HERE)
 from bsa import Bsa  # noqa: E402
 
-MOD = 'Zenderal - Pretty Righteous Path SMP'
+# The live copy ships inside Patch Collection (the standalone `Zenderal - Pretty Righteous Path SMP` is no longer in
+# the list); Patch Collection outranks ERA Part 1 and both Pretty mods in MO2, as the loose 2.1 files require.
+MOD = 'Zenderal - Patch Collection'
 DIR = os.path.join('meshes', 'armor', 'ebony')
-# (source mod, BSA inside it or None for loose files, subfolder under armor\ebony)
+# (source mod, Pretty 2.0's BSA, read only if the loose 2.1 file is missing, subfolder under armor\ebony)
 SOURCES = [
     ('Pretty Righteous Path Armory', None, ''),                                   # Path, Forged (red)
     ('Pretty Semi-Unique Armory', 'Pretty Semi-Unique Armory.bsa', 'alt'),        # Keeper (black)
@@ -151,14 +154,18 @@ def main():
     dry = '--dry-run' in sys.argv
     mods = args[0] if args else 'E:/Zenderal/mods'
     for src_mod, archive, sub in SOURCES:
-        bsa = Bsa(os.path.join(mods, src_mod, archive)) if archive else None
+        bsa_path = os.path.join(mods, src_mod, archive) if archive else None
+        bsa = Bsa(bsa_path) if bsa_path and os.path.isfile(bsa_path) else None
         for m in MESHES:
             rel = os.path.join(DIR, sub, m)
-            if bsa:
+            loose = os.path.join(mods, src_mod, rel)
+            if os.path.isfile(loose):
+                with open(loose, 'rb') as f:
+                    data = f.read()
+            elif bsa:
                 data = bsa.read(rel)
             else:
-                with open(os.path.join(mods, src_mod, rel), 'rb') as f:
-                    data = f.read()
+                raise SystemExit(f'{src_mod}: {rel} not found loose or in a BSA')
             add_smp(data, f'{src_mod}: {rel}', os.path.join(mods, MOD, rel), dry)
     if not dry:
         shutil.copyfile(os.path.join(HERE, '..', 'assets', XML), os.path.join(mods, MOD, DIR, XML))

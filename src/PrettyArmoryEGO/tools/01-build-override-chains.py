@@ -24,6 +24,9 @@ TYPES = {b"ARMO", b"WEAP", b"AMMO", b"ARMA", b"OUTF", b"NPC_", b"STAT", b"PROJ"}
 BASE = ["Skyrim.esm", "Update.esm", "Enderal - Forgotten Stories.esm"]
 # The patch itself is skipped: once enabled it would otherwise become every chain's winner.
 SELF = "Zenderal - Pretty Armory EGO Patch.esp"
+# = 02's DONORS: their values are forwarded, never mastered.
+STANDALONE_DONORS = {"Enderal SE - Gameplay Overhaul.esp", "Enderal SE - Bug Fixes.esp",
+                     "Audio Overhaul Skyrim.esp", "Audio Overhaul - Enderal patch.esp"}
 
 
 def tools():
@@ -95,14 +98,24 @@ def scan(path):
 def main():
     t = tools()
     mlroot = t["modlistRoot"]
-    pname = sys.argv[1] if len(sys.argv) > 1 else selected_profile(mlroot)
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    # --standalone: the Nexus build. Only Pretty plugins and the gameplay donors count, so the patch
+    # masters nothing but the base game, EGO and Pretty (no list-only mods such as ERA or Malphas).
+    standalone = "--standalone" in sys.argv
+    pname = args[0] if args else selected_profile(mlroot)
     prof = os.path.join(mlroot, "profiles", pname)
     game_data = t.get("gameDataDir") or os.path.join(mlroot, "Stock Game", "Data")
     paths = plugin_paths(mlroot, prof, game_data)
     order = list(BASE)
     for l in open(os.path.join(prof, "plugins.txt"), encoding="utf-8"):
         l = l.strip()
-        if l.startswith("*") and l[1:] not in order and l[1:] != SELF:
+        # Plugins after the patch win over it anyway, and mastering one would break load order
+        # (2026-11-11: 2.1 Levelsystem Cleanup and PG_1.esp, both late, became 'visual winners').
+        if l.lstrip("*") == SELF:
+            break
+        if standalone and not (l[1:].startswith("Pretty") or l[1:] in STANDALONE_DONORS):
+            continue
+        if l.startswith("*") and l[1:] not in order:
             order.append(l[1:])
     chain = {}
     missing = []

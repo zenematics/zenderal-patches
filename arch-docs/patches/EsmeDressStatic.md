@@ -2,8 +2,8 @@
 
 - **Source:** `src/EsmeDressStatic/` (generated: `tools/01-build-esme-dress-static.py`)
 - **Ships:** MO2 mod `Zenderal - Esme Dress Static`, two generated meshes, not committed (they are Pretty's and
-  Fuse00's work, built from the user's own install). No plugin. Loose files beat Pretty's BSA, so its MO2 position
-  doesn't matter (no other mod ships these paths loose). Wabbajack: `NoMatchInclude` in `Zenderal.compiler_settings`.
+  Fuse00's work, built from the user's own install). No plugin. **Must outrank Pretty Enderal Clothing in MO2**: since
+  Pretty 2.1 its meshes are loose too (in the Ultra profile it already sits far above Pretty). Wabbajack: `NoMatchInclude` in `Zenderal.compiler_settings`.
 - **FormID block:** none
 - **Status:** built and deployed 2026-11-09, not yet enabled in MO2 (MO2 was open). Unverified in game.
 
@@ -40,8 +40,14 @@ Curator's choice: a static dress rather than chasing the trigger.
 
 ## Upkeep
 
-After a Pretty Enderal Clothing update, rerun `python src/EsmeDressStatic/tools/01-build-esme-dress-static.py`. It
-needs the `lz4` package, so run it without `-I`.
+After a Pretty Enderal Clothing update, rerun `python src/EsmeDressStatic/tools/01-build-esme-dress-static.py`. Only
+the Pretty 2.0 BSA fallback needs the `lz4` package (run it without `-I` then).
+
+**2026-11-11, Pretty 2.1:** Pretty ships loose files now (no BSAs). The generator reads the loose meshes first and
+keeps the 2.0 BSA reader as a fallback. 2.1's `huntertorsof_1.nif` and `hoodf_1.nif` are byte-identical to 2.0's
+(same SHA-1), still Fuse00's Adventurer meshes with the FSMP marker (`Adv_body.xml` / `Adv_hood.xml`), so the patch is
+still needed. Rerun: output byte-identical to the previous build; 2.0-era output backed up in
+`E:/Zenderal-backups/2026-11-11-pretty-2.0/generated/EsmeDressStatic/`.
 
 ## To verify in game
 

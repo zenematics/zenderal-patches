@@ -1,0 +1,35 @@
+FormKey: 00155C:KittyClass_DarkWarrior.esp
+EditorID: _CDW_ClassScaleDamagePerkNecklace
+VirtualMachineAdapter:
+  Scripts:
+  - Name: SilverSwordScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SilverPerk
+      Object: 001524:KittyClass_DarkWarrior.esp
+Name:
+  TargetLanguage: English
+  Value: Amulet of Darkside
+WorldModel:
+  Male:
+    Model:
+      File: DLC01\Armor\AmuletsandRings\VampireAmulet04_GND.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Amulet
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 013749:Skyrim.esm
+Keywords:
+- 06BBE9:Skyrim.esm
+- 08F95A:Skyrim.esm
+- 0A8664:Skyrim.esm
+- 10CD0A:Skyrim.esm
+- 001574:KittyClass_DarkWarrior.esp
+Description:
+  TargetLanguage: English
+  Value: >
+    Dark Warrior abilities and Vehemence deal more damage based on your Destruction, One-Handed, and Two-Handed skills.
+Value: 1000
+Weight: 0.5

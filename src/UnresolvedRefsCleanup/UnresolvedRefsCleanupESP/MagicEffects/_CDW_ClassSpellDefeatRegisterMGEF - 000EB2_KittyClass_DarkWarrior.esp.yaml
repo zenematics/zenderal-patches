@@ -1,0 +1,52 @@
+FormKey: 000EB2:KittyClass_DarkWarrior.esp
+EditorID: _CDW_ClassSpellDefeatRegisterMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _CDW_ClassAttacksDefeatRegisterScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _CDW_ClassProgression_Optional
+      Object: 000803:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _CDW_DarkWarriorBarrier_CastBuffer
+      Object: 00152B:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ClassMGEF
+      Object: 00080B:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ClassSpell
+      Object: 000837:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DefeatedFoesTotal
+      Object: 000802:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: UnlockQuest
+    - MutagenObjectType: ScriptFloatProperty
+      Name: UnlockThreshold1
+      Data: 20
+    - MutagenObjectType: ScriptFloatProperty
+      Name: UnlockThreshold2
+      Data: 40
+    - MutagenObjectType: ScriptFloatProperty
+      Name: UnlockThreshold3
+      Data: 60
+Name:
+  TargetLanguage: English
+  Value: Defeat Register
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Flags:
+- HideInUI
+- Painless
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 0008D3:KittyClass_DarkWarrior.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

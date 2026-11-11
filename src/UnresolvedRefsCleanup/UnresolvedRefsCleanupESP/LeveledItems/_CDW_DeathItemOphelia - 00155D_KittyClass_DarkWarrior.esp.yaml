@@ -1,0 +1,17 @@
+FormKey: 00155D:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DeathItemOphelia
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 034CDD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA02C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00155C:KittyClass_DarkWarrior.esp
+    Count: 1

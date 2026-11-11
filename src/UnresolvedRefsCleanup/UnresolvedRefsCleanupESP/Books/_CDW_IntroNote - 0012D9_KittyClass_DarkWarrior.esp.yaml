@@ -1,0 +1,46 @@
+FormKey: 0012D9:KittyClass_DarkWarrior.esp
+EditorID: _CDW_IntroNote
+VirtualMachineAdapter:
+  Scripts:
+  - Name: DefaultOnReadSetQuestStageNotAlias
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myQuest
+    - MutagenObjectType: ScriptIntProperty
+      Name: myStage
+      Data: 1
+ObjectBounds:
+  First: -8, -5, 0
+  Second: 8, 5, 0
+Name:
+  TargetLanguage: English
+  Value: Local Warning
+Model:
+  File: Clutter\Books\Note04.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    Let it be known that strange happenings plague the road north of Ivarstead.
+
+
+    Iron Hollow Mine may have fallen under some kind of magical influence. Those who pass by the old mining road speak of unnatural glows emanating from the entrance at night.
+
+
+    Some speak of travelers who set out toward the mine and never returned. Their horses were found wandering the road but the riders had vanished without a trace.
+
+
+    The Jarl's men have been notified, but with the war consuming their attention, no investigation has been mounted.
+
+
+    Travel at your own risk. Keep to the main road. Do not approach the mine after dark.
+Keywords:
+- 0937A2:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+  RawContent: 0
+Value: 1
+InventoryArt: 015421:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,165 @@
+FormKey: 0012D2:KittyClass_DarkWarrior.esp
+IsCompressed: True
+MajorRecordFlagsRaw: 537133056
+EditorID: _CDW_Embla
+SkyrimMajorRecordFlags:
+- Compressed
+- 0x20000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _CDW_CombatNeverForgiveScript
+    Properties:
+    - MutagenObjectType: ScriptIntProperty
+      Name: FightStage2
+      Data: 67
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myQuest
+    - MutagenObjectType: ScriptIntProperty
+      Name: PreFightStage2Max
+      Data: 66
+    - MutagenObjectType: ScriptIntProperty
+      Name: PreFightStage2Min
+      Data: 63
+  - Name: _CDW_CombatOnBleedoutSetStageScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myQuest
+    - MutagenObjectType: ScriptIntProperty
+      Name: StageToAdvance1
+      Data: 65
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Essential
+  - AutoCalcStats
+  - Unique
+  - BleedoutOverride
+  StaminaOffset: 200
+  Level:
+    MutagenObjectType: PcLevelMult
+    LevelMult: 1
+  CalcMinLevel: 16
+  CalcMaxLevel: 60
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 200
+Voice: 0012D1:KittyClass_DarkWarrior.esp
+Race: 013746:Skyrim.esm
+ActorEffect:
+- 0013A0:KittyClass_DarkWarrior.esp
+AttackRace: 013746:Skyrim.esm
+Perks:
+- Perk: 0012D0:KittyClass_DarkWarrior.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 04F78D:Skyrim.esm
+    Count: 1
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Assistance: HelpsFriendsAndAllies
+Class: 000CEE:KittyClass_DarkWarrior.esp
+Name:
+  TargetLanguage: English
+  Value: Embla
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 36
+  - Key: TwoHanded
+    Value: 42
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 32
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 30
+  - Key: LightArmor
+    Value: 35
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 27
+  - Key: Conjuration
+    Value: 27
+  - Key: Destruction
+    Value: 30
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 21
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 453
+  Magicka: 50
+  Stamina: 272
+  GearedUpWeapons: 1
+HeadParts:
+- 017506:Skyrim.esm
+- 024245:Skyrim.esm
+- 051508:Skyrim.esm
+- 000CFE:KittyClass_DarkWarrior.esp
+- 0012D4:KittyClass_DarkWarrior.esp
+HairColor: 0A042E:Skyrim.esm
+CombatStyle: 03DECF:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 40
+SoundLevel: Normal
+DefaultOutfit: 0012D3:KittyClass_DarkWarrior.esp
+TextureLighting: '#00966E5F'
+MajorFlags:
+- 0x40000
+- BleedoutOverride

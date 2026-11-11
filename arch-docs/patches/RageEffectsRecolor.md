@@ -87,10 +87,17 @@ The plugin holds 20 records.
 the slash shapes as a smoke texture (`fxsmokesub.dds`, in `CLOUD_TEXTURES`) masked through a palette: Soulrender's X is
 `DarkWarriorFlashProj`'s strip particles `pStrips01` (palette `gradheal`), Bloodletter's slash its four `SlashGeometry`
 pieces and `pStrips01` (`graddiscolightbeam` / `gradillusiondark01`). The cloud-texture rule detached all six, so a side
-power attack showed only the ripple cuts and sparks (Soulrender fired in the Rage log all along). Now a shape whose
-shader has a palette is never a cloud: its colour is our recoloured `gradientz` copy. The texture rule only fires on
-palette-less shaders (`shader_textures(..., palette_only=True)`); the name rule (`Vapor01`, `Darkness01`) and
-`CLOUD_SHAPES` (`Sparkle01`) are unchanged. BeamSlash / BeamSlash_Upgraded each still lose one palette-less cloud.
+power attack showed only the ripple cuts and sparks (Soulrender fired in the Rage log all along). A first fix exempted every
+palette shader from the texture rule, which brought back far more than the slash: the strips, and Shadow Carve's four
+`Claw01` sheets (`cloud2` through a palette), which lay as long red bands along the ground in the curator's screenshot
+("still happens"). Final shape: the texture rule is as it was, and `KEEP_NAMES` exempts Bloodletter's four
+`SlashGeometry` pieces by exact name. Every other mesh is back to its 2026-10-27 state.
+**Then the long red trail (curator's recording, 21:54 the same day):** with the strips back, every side power attack
+left long red streaks hanging round the player for 3+ seconds. That is `pStrips01` itself: both side meshes emit strip
+particles from a 700-unit ring mesh (`pStripEmitter03:0`, scale 10; 320 a second for 0.47 s, ~3 s life). Back off (the texture
+rule, as before); Bloodletter keeps its `SlashGeometry` slash, Soulrender its `BCut01`/`BCut01B` ripple cuts, exactly as
+before 2026-11-10. So the X the curator remembers from Kittytails' showcase is most likely the strips themselves, and
+the only X that could ship would be a cut-down copy of them (small emitter ring, sub-second life): not built.
 **The live copy is inside Patch Collection** (meshes + textures copied there 2026-11-09; the standalone MO2 folder holds
 only its `meta.ini`): after a rerun, copy `meshes/` and `textures/` from the tool's output mod into Patch Collection.
 Unverified in game.

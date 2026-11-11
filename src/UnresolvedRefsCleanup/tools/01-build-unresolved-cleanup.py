@@ -27,6 +27,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")
 OUT = os.path.join(ROOT, "src", "UnresolvedRefsCleanup", "UnresolvedRefsCleanupESP")
 SER, JS = sys.argv[1], sys.argv[2]
 XMARKER = "000034:Skyrim.esm"
+RECORD_ITEM = re.compile(r"^\s*- MutagenObjectType: (Placed\w*|APlaced\w*|NavigationMesh|Landscape|Cell)\s*$")
 SECTIONS = re.compile(r"^(Temporary|Persistent|NavigationMeshes|Landscape|SubCells|TopCell|MajorFlags):")
 
 bad = json.load(open(JS, encoding="utf-8"))
@@ -136,7 +137,9 @@ for path, items in by_file.items():
     for b in items:
         assert b["ref"].split(":")[0] in lines[b["line"]], (path, b)
         op = plan(lines, b["line"], b["field"])
-        if op[0] == "del" and any(lines[x].lstrip().startswith("- MutagenObjectType") for x in range(op[1], op[2])):
+        # Records are list items only inside cell files (placed refs, navmeshes, landscape). Nested typed items
+        # (an effect's ConditionFloat, 2026-11-11: Aero 000812) are part of the item being dropped, not records.
+        if op[0] == "del" and any(RECORD_ITEM.match(lines[x]) for x in range(op[1], op[2])):
             raise SystemExit(f"refusing to drop a record: {path}:{b['line']} {b}")
         ops.append(op)
         stats["set" if op[0] == "set" else ("entry" if op[2] - op[1] == 1 and lines[op[1]].lstrip().startswith("- ") else "item/field")] += 1

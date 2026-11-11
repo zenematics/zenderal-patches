@@ -1,0 +1,38 @@
+FormKey: 000821:KittyClass_DarkWarrior.esp
+EditorID: _CDW_DarkWarriorSummonShadeAttachVFXMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: DLC1FXDeathHoundSCRIPT
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DeathHoundDeathFXShader
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDeathHoundEffect
+      Object: 000888:KittyClass_DarkWarrior.esp
+  - Name: DraugrFXScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DraugrFemaleEyeGlowFX
+      Object: 000887:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DraugrMaleEyeGlowFX
+      Object: 000887:KittyClass_DarkWarrior.esp
+Name:
+  TargetLanguage: English
+  Value: VFX
+MenuDisplayObject: 0008CF:KittyClass_DarkWarrior.esp
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 5
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

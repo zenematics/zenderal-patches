@@ -1,8 +1,8 @@
 FormKey: 13E9B5:Skyrim.esm
 EditorID: _02E_15_NehrimeseHelmet
 ObjectBounds:
-  First: -7, -10, -1
-  Second: 7, 12, 27
+  First: -12, -11, 0
+  Second: 12, 15, 14
 Name:
   TargetLanguage: English
   Value: Nehrimese Helmet

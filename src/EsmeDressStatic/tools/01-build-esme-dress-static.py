@@ -5,22 +5,22 @@ ground. Pretty Enderal Clothing swaps the female Hunter's Armor cuirass (`hunter
 (`hoodf_1.nif`) for Fuse00's Adventurer outfit, whose FSMP cloth physics (`Adv_body.xml`, `Adv_hood.xml`) flings the
 skirt, sleeve, strap and hood bones when it blows up. Only Esme wears them (outfits 02A46C and 029780).
 
-This copies both meshes out of Pretty's BSA with the FSMP marker renamed: FSMP finds a mesh's physics through a
+This copies both meshes out of Pretty Enderal Clothing (loose since Pretty 2.1; 2.0's BSA as a fallback) with the
+FSMP marker renamed: FSMP finds a mesh's physics through a
 NiStringExtraData named "HDT Skinned Mesh Physics Object", and the header string is replaced by a same-length name,
 so every offset in the file stays put. The bones then hold their bind pose: Pretty's look, no simulation.
 Asserted: each mesh has the marker string exactly once and the output differs from the source only in those bytes.
 
 The meshes are Pretty's (and Fuse00's) work, so they are generated from the user's own install, never committed.
-Usage: python 01-build-esme-dress-static.py [<mods dir>]   (default E:/Zenderal/mods; needs the lz4 package)
+Usage: python 01-build-esme-dress-static.py [<mods dir>]   (default E:/Zenderal/mods; the 2.0 BSA fallback needs lz4)
 """
 import os
 import struct
 import sys
 
-import lz4.frame
-
 MODS = sys.argv[1] if len(sys.argv) > 1 else 'E:/Zenderal/mods'
-BSA = os.path.join(MODS, 'Pretty Enderal Clothing', 'Pretty Enderal Clothing.bsa')
+SRC_MOD = os.path.join(MODS, 'Pretty Enderal Clothing')
+BSA = os.path.join(SRC_MOD, 'Pretty Enderal Clothing.bsa')  # Pretty 2.0 only
 OUT_MOD = os.path.join(MODS, 'Zenderal - Esme Dress Static')
 FOLDER = r'meshes\enderal\armor\immersive armors\hunter'
 FILES = ('huntertorsof_1.nif', 'hoodf_1.nif')
@@ -31,6 +31,7 @@ assert len(OLD) == len(NEW)
 
 def read_bsa(path, wanted):
     """Return {lowercase path: bytes} for the wanted files of an SSE (v105) BSA."""
+    import lz4.frame
     d = open(path, 'rb').read()
     magic, ver, off, aflags, nfold, nfile, _fold_names, file_names, _ = struct.unpack_from('<4sIIIIIIII', d, 0)
     if magic != b'BSA\0' or ver != 105:
@@ -66,10 +67,17 @@ def read_bsa(path, wanted):
 
 
 wanted = {FOLDER + '\\' + f for f in FILES}
-found = read_bsa(BSA, wanted)
+# Pretty 2.1 (2026-11-11) ships its meshes loose; 2.0 packed them in its BSA. Loose first, BSA as the fallback.
+found = {}
+for full in wanted:
+    loose = os.path.join(SRC_MOD, *full.split('\\'))
+    if os.path.isfile(loose):
+        found[full] = open(loose, 'rb').read()
+if len(found) < len(wanted) and os.path.isfile(BSA):
+    found.update(read_bsa(BSA, wanted - set(found)))
 missing = wanted - set(found)
 if missing:
-    raise SystemExit(f'not in {BSA}: {sorted(missing)}')
+    raise SystemExit(f'not in {SRC_MOD} (loose or BSA): {sorted(missing)}')
 for full, data in sorted(found.items()):
     if data.count(OLD) != 1:
         raise SystemExit(f'{full}: expected the FSMP marker once, found {data.count(OLD)}')

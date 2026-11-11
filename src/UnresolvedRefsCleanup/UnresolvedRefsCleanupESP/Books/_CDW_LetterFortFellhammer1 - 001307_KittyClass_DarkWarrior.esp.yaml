@@ -1,0 +1,53 @@
+FormKey: 001307:KittyClass_DarkWarrior.esp
+EditorID: _CDW_LetterFortFellhammer1
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _CDW_DefaultOnReadAdvanceGlobalScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GlobalVarToAdvance
+      Object: 001306:KittyClass_DarkWarrior.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: myQuest
+    - MutagenObjectType: ScriptIntProperty
+      Name: StageToSet
+      Data: 21
+    - MutagenObjectType: ScriptIntProperty
+      Name: threshold
+      Data: 2
+ObjectBounds:
+  First: -8, -5, 0
+  Second: 8, 5, 0
+Name:
+  TargetLanguage: English
+  Value: Mist's Proposal
+Model:
+  File: Clutter\Books\Note03.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face="$HandwrittenFont">
+
+    To V and others-
+
+
+    I am residing within the halls of Fellhammer Keep for the time being. This mine here will dry up one day, and what then? The unsavory rabble bound by contract will be freed. I say it is a waste of assets and potential.
+
+
+    My charm enchantment, placed upon the Iron Hollow Mine north of Ivarstead a decade ago, still functions like new. It continues to lure in passing travelers to dig, requiring only a handful of my mercenaries to sustain the operation. I would say that our venture there has proved far more profitable than our efforts here.
+
+
+    Through your efforts to seed nationalistic propaganda throughout the land and its culture, the people of Skyrim remain desperate and blind. Let me ask - what better time than now to expand our business? The authorities are consumed by war and foreign affairs while bandits roam the roads with leisure. There is no one with a conscience patrolling the wilderness to notice our operations in this era of strife.
+
+
+    -Mist
+PickUpSound: 0C7A54:Skyrim.esm
+Keywords:
+- 0937A2:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+InventoryArt: 01541C:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

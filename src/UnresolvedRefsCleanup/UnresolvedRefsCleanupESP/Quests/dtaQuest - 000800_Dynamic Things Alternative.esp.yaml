@@ -1,0 +1,87 @@
+FormKey: 000800:Dynamic Things Alternative.esp
+EditorID: dtaQuest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: dtaQuestScript
+    Properties:
+    - MutagenObjectType: ScriptStringProperty
+      Name: ModName
+      Data: Dynamic Things Alternative
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerAlias
+      Object: 000800:Dynamic Things Alternative.esp
+      Alias: 0
+    - MutagenObjectType: ScriptBoolProperty
+      Name: targetsEnabled
+      Data: True
+    - MutagenObjectType: ScriptFloatProperty
+      Name: targetsMultiplier
+      Data: 0.5
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000800:Dynamic Things Alternative.esp
+      Alias: 0
+    Scripts:
+    - Name: ski_playerloadgamealias
+    - Name: dtaMainAliasScript
+      Properties:
+      - MutagenObjectType: ScriptObjectProperty
+        Name: AntlersLarge
+        Object: 06BC0A:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: AntlersSmall
+        Object: 06BC0B:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: BoneHumanSkullFull
+        Object: 0AF5FD:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DLC1SilverGobletBlood01
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DLC1SilverGobletBlood02
+      - MutagenObjectType: ScriptObjectProperty
+        Name: DLC1SilverJugBlood01
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dtaAntlersLarge
+        Object: 000837:Dynamic Things Alternative.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dtaBloodPotion
+        Object: 00088B:Dynamic Things Alternative.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dtaDummies
+        Object: 000825:Dynamic Things Alternative.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dtaFishingRods
+        Object: 000903:Dynamic Things Alternative.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dtaHumanSkulls
+        Object: 00085A:Dynamic Things Alternative.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dtaQuest
+        Object: 000800:Dynamic Things Alternative.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: dtaTargets
+        Object: 000826:Dynamic Things Alternative.esp
+      - MutagenObjectType: ScriptObjectProperty
+        Name: PlayerRef
+        Object: 000014:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: SilverGoblet01
+        Object: 098620:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: SilverGoblet02
+        Object: 098621:Skyrim.esm
+      - MutagenObjectType: ScriptObjectProperty
+        Name: SilverJug01
+        Object: 098623:Skyrim.esm
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+NextAliasID: 1
+Aliases:
+- Name: playerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

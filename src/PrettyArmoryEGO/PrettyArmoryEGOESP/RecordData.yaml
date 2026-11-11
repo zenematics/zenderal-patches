@@ -21,13 +21,13 @@ ModHeader:
     FileSize: 0
   - Master: Pretty Common Armory.esp
     FileSize: 0
-  - Master: Pretty Enderal Armory - Fixes.esp
-    FileSize: 0
   - Master: Pretty Pyrean Armory.esp
     FileSize: 0
   - Master: Pretty Semi-Unique Armory.esp
     FileSize: 0
   - Master: Pretty Unique Armory.esp
+    FileSize: 0
+  - Master: Pretty Rune Armory.esp
     FileSize: 0
   - Master: Pretty Enderal Clothing.esp
     FileSize: 0
@@ -42,8 +42,6 @@ ModHeader:
   - Master: Pretty Unique Sets.esp
     FileSize: 0
   - Master: Malphas' Blessing - Enderal.esp
-    FileSize: 0
-  - Master: Zenderal - 2.1 Levelsystem Cleanup.esp
     FileSize: 0
   - Master: Enderal Remastered Armory - Heavy Leather.esp
     FileSize: 0

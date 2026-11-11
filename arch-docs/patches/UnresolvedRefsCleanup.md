@@ -101,3 +101,29 @@ replaced too (done 2026-10-26, backup in `.../patch-collection/`). Saves made ne
 mods were installed still crash on load (Engine Fixes in region-sound code, then Oxygen Meter 2 on a null player):
 their loaded crystal elementals use the removed golem forms. Older saves load. Reinstalling the two golem mods from
 MO2's downloads would bring those saves back.
+
+## Regeneration after Pretty 2.1, and two scan fixes (2026-11-11)
+
+This was a full rerun (00a → 00b → 01) after the Pretty Enderal Armory 2.1 update and the other regenerated patches.
+It is now **1192 references in 511 winning records** (it was 529 in 219), with 48 masters.
+
+The growth has two causes:
+
+- **Mods added since 2026-10-21:** Kittytails' cleaned packs (Aero, KittySpellPack01/02, Supernova,
+  KittyClass_DarkWarrior), True Storms and others.
+- **00b had been missing references.** It split each file into nested-record blocks at every
+  `- MutagenObjectType: …` line, including script properties, conditions and effects. It skipped those blocks, and
+  the last one ran to the end of the file. Everything after the first typed item went unchecked: Aero `000812`'s
+  second effect, and script properties pointing at missing forms.
+  - Now only real record items start a nested block: Placed*, NavigationMesh, Landscape and Cell.
+  - **Conditions are still skipped, on purpose.** A condition on a missing form evaluates false in game, and
+    dropping it would make it true.
+
+01's "refusing to drop a record" guard had the same over-reach. It refused to drop an effect because of the
+effect's own nested `ConditionFloat`, so it now checks for those record types too.
+
+**Script properties pointing at missing forms are dropped.** The engine already fills them with None.
+
+Verified: a rescan with the new plugin in place finds 0 unresolved references outside conditions. Deployed to
+Patch Collection; the previous copy is in `E:/Zenderal-backups/2026-11-11-pretty-2.0/`. DynDOLOD and the game
+are not re-run.

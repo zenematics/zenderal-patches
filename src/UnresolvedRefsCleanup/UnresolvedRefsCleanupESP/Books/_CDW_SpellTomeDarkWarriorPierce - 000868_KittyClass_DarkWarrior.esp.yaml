@@ -1,0 +1,26 @@
+FormKey: 000868:KittyClass_DarkWarrior.esp
+EditorID: _CDW_SpellTomeDarkWarriorPierce
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Dark Deluge'
+Model:
+  File: clutter\books\bookmq103lowpoly.nif
+  Data: 0x020000000000000000000000
+BookText:
+  TargetLanguage: English
+  Value: >-
+    <font face'$HandwrittenFont'><font size='40'><p align='center'>
+
+    Dark Warrior
+Keywords:
+- 0937A2:Skyrim.esm
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 0008C1:KittyClass_DarkWarrior.esp
+Weight: 1
+Description:
+  TargetLanguage: English
+  Value: ''

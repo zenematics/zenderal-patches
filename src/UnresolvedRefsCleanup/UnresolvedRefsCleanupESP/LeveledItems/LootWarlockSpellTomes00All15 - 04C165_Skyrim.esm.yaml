@@ -1,0 +1,12 @@
+FormKey: 04C165:Skyrim.esm
+EditorID: LootWarlockSpellTomes00All15
+Version2: 3
+ChanceNone: 0.85
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0008AC:KittySpellPack01.esl
+    Count: 1

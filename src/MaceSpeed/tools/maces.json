@@ -6,6 +6,13 @@
   ],
   "speed": 0.8
  },
+ "00084A:KittySpellPack01.esl": {
+  "anim": 4,
+  "chain": [
+   "KittySpellPack01.esl"
+  ],
+  "speed": 1.0
+ },
  "001DDD:Enderal SE - Gameplay Overhaul.esp": {
   "anim": 4,
   "chain": [

@@ -1,0 +1,78 @@
+FormKey: 000808:Supernova.esl
+EditorID: _SS_SmallExpBFX
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicProjectileStormScript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: bDontHitCaster
+      Data: True
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CastingImod
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fDelay
+      Data: 27.5
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fHeight
+      Data: 6000
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fRecast
+      Data: 0.6
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fRecastRand
+      Data: 0.4
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fStartDelayRand
+      Data: 0.5
+    - MutagenObjectType: ScriptFloatProperty
+      Name: fXYBaseRandom
+      Data: 3200
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MAGProjectileStormVar
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlacedActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlacedTargetActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SoundFX
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellRef
+      Object: 000813:Supernova.esl
+Name:
+  TargetLanguage: English
+  Value: Aetherius Fever II
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+- NoDeathDispel
+CastingLight: 04C6DC:Skyrim.esm
+TaperWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectSpawnHazardArchetype
+  Association: 00082F:Supernova.esl
+Projectile: 06F793:Skyrim.esm
+Explosion: 0E41F0:Skyrim.esm
+CastType: FireAndForget
+CastingArt: 036342:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: VeryLoud
+Sounds:
+- Sound: 03F2C1:Skyrim.esm
+- Type: Charge
+  Sound: 03C8F9:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 000849:Supernova.esl
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsInInteriorConditionData
+    RunOnType: Target

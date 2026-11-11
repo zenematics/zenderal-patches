@@ -146,9 +146,16 @@ KEEP_SHAPES = {'darkwarriorpiercehazard.nif', 'darkwarriorpiercehazardcastproj.n
 # the side power attack's cloud (Bloodletter + Soulrender), still there once recoloured - the curator wanted it gone:
 # 'Sparkle01', a 64-unit wisp puff (fxmagicwisps01.dds). Exact names: their small 'Sparkle01B' sparks stay
 CLOUD_SHAPES = {'darkwarriorslashproj.nif': {'sparkle01'}, 'darkwarriorflashproj.nif': {'sparkle01'}}
+# Shapes the texture rule must NOT remove (2026-11-10): Kittytails draws Bloodletter's slash itself as a smoke texture
+# (fxsmokesub) masked through a palette, and the rule had taken all four pieces, so a side power attack showed only
+# sparks and Soulrender's ripple cuts. A first fix exempted EVERY palette shader, which brought back the strip particles
+# (pStrips01 in both side meshes: 700-unit ring emitter, ~3 s life = long red streaks round the player, the curator's
+# recording) and Shadow Carve's four Claw01 sheets (cloud2 through a palette: long red bands along the ground, the
+# curator's screenshot) - all rejected. So: exact names only.
+KEEP_NAMES = {'darkwarriorslashproj.nif': {'slashgeometry:0', 'slashgeometry:1', 'slashgeometry:2', 'slashgeometry:3'}}
 
 
-def detach_clouds(n, extra=()):
+def detach_clouds(n, extra=(), keep=()):
     """Every drawn block whose shader uses a cloud texture, or named in extra: its parent's child ref -> -1. Returns how many."""
     clouds = set()
     for i, (typ, p, _) in enumerate(n.blocks):
@@ -158,14 +165,9 @@ def detach_clouds(n, extra=()):
             avobject_end(r)
             r.skip(16 + 4)                                   # bounding sphere, skin
             shader = r.take('i')
-            # 2026-11-10 (curator: Soulrender's X-shaped slice never played): Kittytails draws the slashes themselves
-            # as a smoke texture masked through a palette (Flash's X = pStrips01 with gradheal; Bloodletter's four
-            # SlashGeometry pieces and its strips with graddiscolightbeam/gradillusiondark01), so the cloud-texture rule
-            # had removed every side slash. A shape whose shader has a palette is coloured by OUR recoloured gradientz
-            # copy, never a cloud: the texture rule now only fires on palette-less shaders.
-            has_palette = 0 <= shader < len(n.blocks) and bool(shader_textures(n, shader, palette_only=True))
-            cloud_tex = 0 <= shader < len(n.blocks) and not has_palette and bool(shader_textures(n, shader) & CLOUD_TEXTURES)
-            if cloud_tex or name.startswith(CLOUD_NAMES) or name in extra:
+            if name in keep:
+                continue
+            if (0 <= shader < len(n.blocks) and shader_textures(n, shader) & CLOUD_TEXTURES) or name.startswith(CLOUD_NAMES) or name in extra:
                 clouds.add(i)
     done = 0
     for typ, p, _ in n.blocks:
@@ -226,7 +228,7 @@ def main():
             if is_cool(r, g, b):
                 struct.pack_into('<3f', nf.data, off, *warm(r, g, b))
                 tinted += 1
-        gone = 0 if name in KEEP_SHAPES else detach_clouds(nf, CLOUD_SHAPES.get(name, ()))
+        gone = 0 if name in KEEP_SHAPES else detach_clouds(nf, CLOUD_SHAPES.get(name, ()), KEEP_NAMES.get(name, ()))
         if tinted or gone:
             open(dst, 'wb').write(bytes(nf.data))
         print(f'{want[name]}: {n} palette paths repointed, {tinted} shader colours warmed, {gone} cloud effects removed')

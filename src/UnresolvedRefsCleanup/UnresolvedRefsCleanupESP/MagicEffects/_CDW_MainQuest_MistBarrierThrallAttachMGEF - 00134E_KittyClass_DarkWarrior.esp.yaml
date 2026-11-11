@@ -1,0 +1,30 @@
+FormKey: 00134E:KittyClass_DarkWarrior.esp
+EditorID: _CDW_MainQuest_MistBarrierThrallAttachMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: DLC1FXDeathHoundSCRIPT
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DeathHoundDeathFXShader
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDeathHoundEffect
+      Object: 001352:KittyClass_DarkWarrior.esp
+Name:
+  TargetLanguage: English
+  Value: VFX
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 5
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

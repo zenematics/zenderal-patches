@@ -7,7 +7,7 @@ ModHeader:
   Flags:
   - Small
   Author: Zenderal
-  Description: Removes references to forms no loaded plugin defines (mostly vanilla Skyrim/DLC leftovers in mods ported from Skyrim) from 222 winning records, so xEdit and DynDOLOD load cleanly. Load last.
+  Description: Removes references to forms no loaded plugin defines (mostly vanilla Skyrim/DLC leftovers in mods ported from Skyrim) from 511 winning records, so xEdit and DynDOLOD load cleanly. Load last.
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0
@@ -27,13 +27,17 @@ ModHeader:
     FileSize: 0
   - Master: Pistol animation by Loop.esp
     FileSize: 0
+  - Master: Aero.esl
+    FileSize: 0
+  - Master: KittySpellPack01.esl
+    FileSize: 0
+  - Master: KittySpellPack02.esl
+    FileSize: 0
   - Master: PGPatcher.esp
     FileSize: 0
-  - Master: HPP - Vaermina's Torpor.esp
+  - Master: Supernova.esl
     FileSize: 0
-  - Master: DeadlySpellImpacts.esp
-    FileSize: 0
-  - Master: S3DRocks.esp
+  - Master: Enderal SE - Gameplay Overhaul.esp
     FileSize: 0
   - Master: EAM SE - Enderal Apothecarii Monastery.esp
     FileSize: 0
@@ -53,15 +57,21 @@ ModHeader:
     FileSize: 0
   - Master: mihailirongolem.esp
     FileSize: 0
+  - Master: Undead Creatures Replacer.esp
+    FileSize: 0
   - Master: Dynamic Things Alternative.esp
     FileSize: 0
   - Master: JS Knapsacks SE.esp
     FileSize: 0
   - Master: Skyking Mountain Flowers.esp
     FileSize: 0
-  - Master: Audio Overhaul Skyrim.esp
+  - Master: KataPUMB_SpellPackage.esp
     FileSize: 0
-  - Master: Audio Overhaul - Enderal patch.esp
+  - Master: Triumvirate - Mage Archetypes.esp
+    FileSize: 0
+  - Master: KittyClass_DarkWarrior.esp
+    FileSize: 0
+  - Master: Audio Overhaul Skyrim.esp
     FileSize: 0
   - Master: BeardMaskFix.esp
     FileSize: 0
@@ -70,6 +80,8 @@ ModHeader:
   - Master: 1Minotaurs.esp
     FileSize: 0
   - Master: DAR Rifles.esp
+    FileSize: 0
+  - Master: AdventurerFlintlockPack.esp
     FileSize: 0
   - Master: OrdoLegionisMuskets.esp
     FileSize: 0
@@ -83,6 +95,14 @@ ModHeader:
     FileSize: 0
   - Master: Apocalypse - Magic of Skyrim.esp
     FileSize: 0
-  - Master: PG_1.esp
+  - Master: mihailancientskeletons.esp
+    FileSize: 0
+  - Master: Conditional Expressions.esp
+    FileSize: 0
+  - Master: Helmet Toggle 2.esp
+    FileSize: 0
+  - Master: TrueStormsSE.esp
+    FileSize: 0
+  - Master: Immersive Interactions-1st.esp
     FileSize: 0
   INTV: 1

@@ -1,0 +1,32 @@
+FormKey: 00080B:KittySpellPack01.esl
+EditorID: _K01_AedricScepterMGEF
+Name:
+  TargetLanguage: English
+  Value: Aedric Scepter
+Keywords:
+- 0A9B1E:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- 0x40000
+- PowerAffectsDuration
+BaseCost: 3.05
+MagicSkill: Restoration
+CastingLight: 03F1B5:Skyrim.esm
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectBoundArchetype
+  Association: 00084A:KittySpellPack01.esl
+CastType: FireAndForget
+SkillUsageMultiplier: 10
+DualCastScale: 1
+Sounds:
+- Sound: 03F269:Skyrim.esm
+- Type: Ready
+  Sound: 03C8FA:Skyrim.esm
+- Type: Release
+  Sound: 03E5E5:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: Summons a mace of divine light that deals sun damage, extra damage to Undead, and heals you for the amount done. It lasts for <dur> seconds.

@@ -22,8 +22,8 @@ sys.path.insert(0, os.path.join(HERE, '..', '..', 'FHRFirstPerson', 'tools'))
 import hkx_annotate  # noqa: E402
 
 MODS = 'E:/Zenderal/mods'
-# FirstPersonUnarmedStances' overlay mod outranks the sets and carries marked copies of some clips (CLIP_MARKERS)
-OVERLAY = f'{MODS}/Zenderal - 1P Unarmed Stance Overlays'
+# FirstPersonUnarmedStances' marked copies of some clips (CLIP_MARKERS) ship in Patch Collection, which outranks the sets
+OVERLAY = f'{MODS}/Zenderal - Patch Collection'
 OAR = 'meshes/actors/character/_1stperson/animations/OpenAnimationReplacer'
 # set -> (folder of its light punches, whether its submod keeps the vanilla clip generator triggers)
 SETS = {

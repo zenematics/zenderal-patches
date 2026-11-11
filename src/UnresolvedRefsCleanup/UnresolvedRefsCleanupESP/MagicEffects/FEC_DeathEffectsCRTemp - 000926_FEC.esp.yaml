@@ -1,0 +1,79 @@
+FormKey: 000926:FEC.esp
+EditorID: FEC_DeathEffectsCRTemp
+VirtualMachineAdapter:
+  Scripts:
+  - Name: FEC_DeathEffectsCRTemp
+    Properties:
+    - MutagenObjectType: ScriptObjectListProperty
+      Name: BipedalCreatureFactions
+      Objects:
+      - Name: ''
+        Object: 04359E:Skyrim.esm
+      - Name: ''
+        Object: 04359A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_FearRandomChanceCr
+      Object: 00091E:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListHairColor
+      Object: 000820:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_ListSkinColor
+      Object: 00083C:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonMode
+      Object: 000868:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonOpacityAutoCalc
+      Object: 0008F6:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonOpacityColor
+      Object: 00083E:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonRandomChanceCr
+      Object: 000921:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonVeinFXS
+      Object: 000810:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_PoisonWispsFXS
+      Object: 000864:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SoulTrapFXS
+      Object: 000925:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SoulTrapRandomChanceCr
+      Object: 000924:FEC.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FEC_SoulTrapSkinFXS
+      Object: 00083D:FEC.esp
+Name:
+  TargetLanguage: English
+  Value: FEC - CR Effects Temp
+Flags:
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+- NoDeathDispel
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013794:Skyrim.esm
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 0008B5:FEC.esp

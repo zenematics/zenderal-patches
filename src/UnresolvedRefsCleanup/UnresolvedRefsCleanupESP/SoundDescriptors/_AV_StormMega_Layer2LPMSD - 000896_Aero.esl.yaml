@@ -1,0 +1,10 @@
+FormKey: 000896:Aero.esl
+EditorID: _AV_StormMega_Layer2LPMSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\Sound\FX\DLC02\MAG\Destruction\Whirlwind\MAG_Whirlwind_Ready_LP.wav
+LoopAndRumble:
+  Loop: Loop
+PercentFrequencyShift: -64
+Priority: 128

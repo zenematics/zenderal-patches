@@ -60,6 +60,21 @@ Order needed (MO2 left pane, top to bottom = low to high priority): ERA Part 1 â
 [`KnightOfThePath`](KnightOfThePath.md), and this order is set in the Ultra profile. The Keeper's `alt` meshes have no loose competitor (Semi-Unique ships them
 in its BSA, which any loose file beats), so they work at any position.
 
+## Pretty 2.1 (2026-11-11)
+
+Pretty 2.1 ships loose files (no BSAs), including Semi-Unique's `armor\ebony\alt\` cuirasses. The generator reads
+the loose meshes first, Semi-Unique's 2.0 BSA only as a fallback. All eight 2.1 source cuirasses are byte-identical to
+2.0's, the flap asserts pass, and the rebuilt output is byte-identical to the previous one, so nothing changed in game.
+Two things the docs above predate:
+
+- **The live copy is in `Zenderal - Patch Collection`**, not a standalone `Zenderal - Pretty Righteous Path SMP` mod
+  (that mod is no longer in the list); the tool now writes there. Patch Collection outranks ERA Part 1 and both Pretty
+  mods in Ultra.
+- Semi-Unique's `alt` meshes are now loose too, so the "any position" note for them no longer holds: the mod carrying
+  the SMP meshes must also outrank Pretty Semi-Unique Armory (Patch Collection does).
+
+Previous output backed up in `E:/Zenderal-backups/2026-11-11-pretty-2.0/generated/PrettyRighteousPathSMP/`.
+
 ## Status
 
 Red set verified in game by the curator (2026-10-26, after sorting it above Pretty). Keeper (`alt`) set built,

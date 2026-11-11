@@ -1,0 +1,27 @@
+FormKey: 01D8D5:Dragonborn.esm
+EditorID: DLC2SpellBookWhirlwindCloak
+Version2: 2
+ChanceNone: 1
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 10
+    Reference: 000876:Aero.esl
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000872:Aero.esl
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000871:Aero.esl
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000877:Aero.esl
+    Count: 1
+- Data:
+    Level: 40
+    Reference: 00089C:Aero.esl
+    Count: 1

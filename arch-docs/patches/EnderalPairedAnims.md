@@ -98,7 +98,11 @@ Pandora's template set list:
 
 ```
 python src/EnderalPairedAnims/tools/02-build-animset-patch.py "<Pandora>/Pandora_Engine/Skyrim/Template/animationsetdatasinglefile.txt" src/EnderalPairedAnims/data/Nemesis_Engine/mod/zpairset
+python src/EnderalPairedAnims/tools/03-verify-cache-sets.py "<Pandora>/Pandora_Engine/Skyrim/Template/animationsetdatasinglefile.txt" src/EnderalPairedAnims/data/Nemesis_Engine/mod/zpairset
 ```
+
+Since 2026-11-11 `02` writes each set twice: the plain list 5.0.0-beta reads and the Nemesis cache
+form the 5.0.0 preview builds read (see Status); `03` checks the cache form.
 
 Tick **both** entries in Pandora: *Zenderal - Enderal Paired Animations* and *… (anim sets)*.
 Check a run with: Pandora output's `animationsetdatasinglefile.txt` must contain `679778984`.
@@ -130,3 +134,37 @@ Check a run with: Pandora output's `animationsetdatasinglefile.txt` must contain
   identical files. The manifest entry still builds the Zenderal-named archive; after a regenerate,
   build the standalone the same way. Its page warns Immersive Interactions users about the companion
   hug (see [`CompanionHugFix`](CompanionHugFix.md)).
+- **Pandora preview builds since `2c7dace` (2026-10-14) drop `zpairset`** **[upstream, read from the
+  source 2026-11-11]**. A Nexus user on `5.0.0-preview-2c7dace` (both entries ticked) had no
+  `679778984` in the output. That preview moved Nemesis anim-set patches to a new
+  `NemesisCachePatcher` (PR #660/#663); `NemesisAssembler.AssemblePatch` now `continue`s past every
+  `animationsetdata*` folder, so the old list reader (`PandoraAssembler.AssembleAnimSetDataPatch`)
+  is never called. The new reader takes only Nemesis cache files: per-project folders
+  (`DefaultMaleData~DefaultMale`), each set a full `V3` document with `<!-- MOD_CODE ~x~ OPEN -->` …
+  `<!-- CLOSE -->` blocks; files without markers are skipped silently, and root `<project>.txt`
+  files are never read (Pandora's own bundled `snusnu` uses that form). A matching set file
+  **replaces the whole set** (`AnimSet.ReplaceContents`), so two mods patching one set: the last
+  one applied wins. Still the case on the `preview` branch head `baf97f0` (2026-10-26).
+- **2026-11-11: `zpairset` ships both forms** (standalone 1.1.0). `tools/02` also writes the cache
+  form: `DefaultMaleData~DefaultMale/` and `DefaultFemaleData~DefaultFemale/`, each of the 748 sets
+  the template set verbatim plus one marked block with our six `679778984 / <name CRC> / 7891816`
+  triples. 5.0.0-beta skips those folders (`ProjectManager.TryGetProject` is a plain name lookup);
+  the preview skips the plain lists (no markers). `tools/03-verify-cache-sets.py` is a line-for-line
+  port of the preview's reader (`ApplyAnimSets` → `ReadSet`): it asserts every human set reads back
+  as template + our six with triggers/conditions/attacks unchanged and the other 242 sets untouched
+  (it failed on three deliberately broken copies). Running Pandora's own unit tests on this PC was
+  refused by the permission check, so the preview is verified only through that port, **not in a
+  Pandora run or in game**.
+  - **Last mod wins on the preview.** Cache patches apply in ascending `Priority` = the row number
+    in Pandora's list (`RecalculatePriorities`, row 1 = 1), so the mod **lowest in the list** keeps
+    its additions on any set two mods share. SkyParkour 3rd person (`sppftp`) and Ultimate Animated
+    Potions NG (`itmuse`) both patch the same 34 equipment sets (`1HM*`, `2HM`, `H2H*`, `Bow`, …),
+    exactly the sets active in play, so on the preview they already overwrite each other, and ours
+    makes a third. A Pandora preview bug (it should apply blocks against the current set, not
+    replace it).
+  - **Found on the way, for the list (5.0.0-beta):** beta skips every `<X>Data~<X>` anim-set folder,
+    so SkyParkour's and Animated Potions' set additions are missing from the list's Pandora output
+    (1 of 15 and 1 of 5 of their `H2HSolo` additions present, 2026-11-11). Whether their animations
+    still play in game is unchecked.
+  - Patch Collection's live copy has only the plain lists; the list runs 5.0.0-beta, so it needs
+    nothing else.

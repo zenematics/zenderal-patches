@@ -1,14 +1,15 @@
-"""Rebuild the `Zenderal - Dragon Priest Staff Swap` MO2 mod from Pretty Mages Armory's BSA.
+"""Rebuild the `Zenderal - Dragon Priest Staff Swap` MO2 mod from Pretty Mages Armory.
 
-Pretty Mages Armory replaces the vanilla Dragon Priest staff meshes (by path, inside its BSA) with its
-Maelstrom Staff design. Every staff that still uses that path gets it: Enderal's Fire Wrath (07C982,
+Pretty Mages Armory replaces the vanilla Dragon Priest staff meshes (by path) with its Maelstrom Staff
+design: inside its BSA up to Pretty 2.0, as loose files since 2.1 (2026-11-11). Every staff that still
+uses that path gets it: Enderal's Fire Wrath (07C982,
 07C9AD, 03990E), Frostbite (07C9B0), Grounding (07C980, 07C9B1), Lightning (07C9AA) and the Destruction
 template (0BE11F), plus 19 Apocalypse and 7 Triumvirate staffs. This mod ships Pretty's own Staff of Chain
-Lightning mesh LOOSE at both Dragon Priest paths instead; a loose file beats every BSA, so the mod only
-needs to be enabled (sort it directly above Pretty Mages Armory for readability).
+Lightning mesh LOOSE at both Dragon Priest paths instead. Since Pretty 2.1 Pretty's copies are loose too, so this mod
+must OUTRANK Pretty Mages Armory in MO2 (below it in the left pane).
 
 Pretty uses that single mesh for both the 3rd-person model and the 1st-person static of its Chain
-Lightning staff, so one file serves both paths here too. Its textures resolve from Pretty's own BSA.
+Lightning staff, so one file serves both paths here too. Its textures resolve from Pretty's own files.
 
 The mesh is Pretty's, so it is extracted from the user's own install, never committed.
 
@@ -36,7 +37,12 @@ TARGETS = [
 
 def main():
     mods = sys.argv[1] if len(sys.argv) > 1 else 'E:/Zenderal/mods'
-    blob = read_from_bsa(os.path.join(mods, SOURCE_MOD, SOURCE_BSA), SOURCE)
+    loose = os.path.join(mods, SOURCE_MOD, *SOURCE.split(chr(92)))
+    if os.path.isfile(loose):                   # Pretty 2.1+: loose
+        with open(loose, 'rb') as fh:
+            blob = fh.read()
+    else:                                       # Pretty 2.0: in its BSA
+        blob = read_from_bsa(os.path.join(mods, SOURCE_MOD, SOURCE_BSA), SOURCE)
     assert blob.startswith(b'Gamebryo File Format, Version 20.2.0.7'), 'not an SSE-era NIF'
     out_root = os.path.join(mods, MOD)
     for rel in TARGETS:

@@ -1,0 +1,51 @@
+FormKey: 000804:KittySpellPack01.esl
+EditorID: _K01_RadiantOppressionProc2MGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: magicPlaceExplosionScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExplosionRef
+      Object: 00085E:KittySpellPack01.esl
+Name:
+  TargetLanguage: English
+  Value: Radiant Oppression
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 3
+MagicSkill: Restoration
+ResistValue: ResistMagic
+CastingLight: 03F1B5:Skyrim.esm
+TaperWeight: 1
+MinimumSkillLevel: 75
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 00084C:KittySpellPack01.esl
+CastType: Concentration
+TargetType: Aimed
+HitEffectArt: 000873:KittySpellPack01.esl
+ImpactData: 026113:Skyrim.esm
+SkillUsageMultiplier: 1.4
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Type: OnHit
+  Sound: 0FA735:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetActorValuePercentConditionData
+    ActorValue: Health
+  ComparisonValue: 0.5

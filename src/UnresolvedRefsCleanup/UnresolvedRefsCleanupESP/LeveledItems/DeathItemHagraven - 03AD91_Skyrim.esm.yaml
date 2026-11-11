@@ -1,0 +1,14 @@
+FormKey: 03AD91:Skyrim.esm
+EditorID: DeathItemHagraven
+Version2: 3
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 03AD66:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000888:KittySpellPack01.esl
+    Count: 1

@@ -1,0 +1,32 @@
+FormKey: 13F3BD:Skyrim.esm
+EditorID: _04E_35_CircletoftheElementalist
+ObjectBounds:
+  First: -6, -9, -2
+  Second: 6, 9, 2
+Name:
+  TargetLanguage: English
+  Value: Circlet of the Elementarist
+ObjectEffect: 0AD459:Skyrim.esm
+WorldModel:
+  Male:
+    Model:
+      File: enderal\armor\circlets\crown_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Circlet
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBE9:Skyrim.esm
+- 08F95A:Skyrim.esm
+- 0A8664:Skyrim.esm
+- 10CD08:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00082B:Pretty Unique Armory.esp
+Value: 150
+Weight: 2

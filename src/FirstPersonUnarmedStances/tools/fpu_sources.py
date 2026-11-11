@@ -27,6 +27,9 @@ DOWNLOADS = os.path.join(ROOT, 'downloads')
 OVERWRITE = os.path.join(ROOT, 'overwrite')
 OAR_1P = ('meshes', 'actors', 'character', '_1stperson', 'animations', 'OpenAnimationReplacer')
 OVERLAY_MOD = 'Zenderal - 1P Unarmed Stance Overlays'
+# CLIP_MARKERS' copies ship in Patch Collection (2026-11-11, curator: shipped pending modbom1's OK; remove them from
+# there if he declines). Patch Collection outranks First-Person Boxing Animation in MO2.
+CLIP_MARKERS_MOD = 'Zenderal - Patch Collection'
 NEUTRAL_MOD = 'SIGMA - Fisting animations - 1st person'
 
 STANCES_ESP = 'Stances - Dynamic Weapon Movesets SE.esp'

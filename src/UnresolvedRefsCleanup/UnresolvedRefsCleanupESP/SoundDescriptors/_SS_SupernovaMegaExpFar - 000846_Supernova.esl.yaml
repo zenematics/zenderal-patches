@@ -1,0 +1,8 @@
+FormKey: 000846:Supernova.esl
+EditorID: _SS_SupernovaMegaExpFar
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Supernova\Supernova_Far.wav
+LoopAndRumble: {}
+Priority: 128

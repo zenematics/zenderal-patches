@@ -1,0 +1,24 @@
+FormKey: 154605:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Manager_Quest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: TVR_Manager_Quest
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TVR_Primal_Perk
+      Object: 02A78F:Triumvirate - Mage Archetypes.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TwinSouls
+  Versioning:
+  - Break0
+  ExtraBindDataVersion: 0
+  FileName: ''
+Name:
+  TargetLanguage: English
+  Value: Manager Quest
+Flags:
+- StartGameEnabled
+- 0x10
+- RunOnce
+Filter: TVR\
+NextAliasID: 1
