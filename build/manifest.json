@@ -1273,6 +1273,24 @@
       ]
     },
     {
+      "$comment": "JellyFishFP (un)armed (the first-person F1 fist set, see FirstPersonUnarmedStances) calls SoundPlay.JFsfxPunchRustle from JellyFish's Sound Reprisetory, which the list does not install, so its punches swung silently. One new SNDR with that EditorID = Audio Overhaul's winning WPNSwingUnarmed 0C06D1 verbatim (the swing SIGMA's punches play), plus a BDI file registering the event in every actor graph (JellyFish's own BDI registers only FingerCrack). The finger crack and block rustle stay silent, as in vanilla. See arch-docs/patches/FirstPersonUnarmedStances.md.",
+      "name": "Zenderal - JellyFish Unarmed Sounds",
+      "archiveName": "Zenderal - JellyFish Unarmed Sounds",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/FirstPersonUnarmedStances/JellyFishUnarmedSoundsESP",
+          "dest": "Zenderal - JellyFish Unarmed Sounds.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/FirstPersonUnarmedStances/skse/ZenJFUnarmedSounds_BDI.json",
+          "to": "SKSE/Plugins/BehaviorDataInjector"
+        }
+      ]
+    },
+    {
       "$comment": "Curator's taste: the level-up sound (UILevelUpSD 057B44, played by _00E_EPUpdateFunctions' UILevelUp marker 057B45) plays a holy spell cast from its own path, Sound/FX/Zenderal/ZEN_LevelUp_HolySpellCast.wav. The override is Rumble - UI.esp's record verbatim (keeps RumbleValues 255; Rumble had already swapped Enderal's Levelup.wav for Skyrim's UI_LevelUp.wav) with only SoundFiles changed; Rumble - UI is the only other list plugin touching 057B44 (2026-10-26) and is not mastered, so load after it. The .wav is a licensed Motion Array SFX: NOT in this archive - src/LevelUpSound/tools/01-build-level-up-sound.py converts it into the MO2 mod 'Zenderal - Level Up Sound'.",
       "name": "Zenderal - Level Up Sound",
       "archiveName": "Zenderal - Level Up Sound",
@@ -1409,6 +1427,19 @@
       "files": [
         {
           "from": "src/CreatureRagdollFix/data/Pandora_Engine",
+          "to": "Pandora_Engine"
+        }
+      ]
+    },
+    {
+      "$comment": "Pandora-native patch zfistcombo (needs a Pandora run). First person, both hands unarmed: left click chains right hook -> left hook -> right hook. Attack_MCO's AttackRightH2H 0870D6 sends attackStart for fists, but 1HM_AttackBehavior's attackStart transitions wait for weaponSwing, which SIGMA's and JellyFish's right hooks and every left hook (weaponLeftSwing) never send, so every click restarted a right hook. Two fists-only transitions (priority 1) accept the click from preHitFrame and start the next punch at AttackWinStart / AttackWinStartLeft until attackStop; plus the fist power attack from a left hook. Checked by tools/01-verify.py against the template. See arch-docs/patches/FirstPersonFistCombo.md.",
+      "name": "Zenderal - First Person Fist Combo",
+      "archiveName": "Zenderal - First Person Fist Combo",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/FirstPersonFistCombo/Pandora_Engine",
           "to": "Pandora_Engine"
         }
       ]

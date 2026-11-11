@@ -1,0 +1,13 @@
+FormKey: 000800:Zenderal - JellyFish Unarmed Sounds.esp
+EditorID: JFsfxPunchRustle
+Type: Standard
+Category: 00AA6E:Audio Overhaul Skyrim.esp
+SoundFiles:
+- data\Sound\fx\wpn\swing\unarmed\wpn_swing_unarmed_01.wav
+- data\Sound\fx\wpn\swing\unarmed\wpn_swing_unarmed_02.wav
+OutputModel: 04893B:Audio Overhaul Skyrim.esp
+LoopAndRumble: {}
+PercentFrequencyVariance: 8
+Priority: 64
+Variance: 6
+StaticAttenuation: 10.13
