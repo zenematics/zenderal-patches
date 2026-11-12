@@ -173,3 +173,5 @@ __pycache__/
 /build/staging/
 # SureAI voice lines extracted for the trailer (copyrighted; never redistribute)
 /trailer-audio/
+/src/EnderalPairedAnims/tools/hkxconv/bin/
+/src/EnderalPairedAnims/tools/hkxconv/obj/
