@@ -2,8 +2,8 @@
 
 - **Source:** `src/CCCStandDown/` (C++ in `src/`, build with `build.cmd`; `SmoothCamAPI.h` is
   SmoothCam's public modder header, copied as its comment asks)
-- **Ships:** *(no plugin — `SKSE/Plugins/ZenCCCStandDown.dll` + `ZenCCCStandDown.ini`)*, MO2 mod
-  `Zenderal - CCC Stand Down`
+- **Ships:** *(no plugin — `SKSE/Plugins/ZenCCCStandDown.dll` + `ZenCCCStandDown.ini`)*; the live copy
+  is in `Zenderal - Patch Collection` (deploy rebuilds there)
 - **FormID block:** _(none)_
 
 ## What it does
@@ -14,8 +14,14 @@ memory scenes. The game's own first-person dialogue camera is used while the pla
 - **shrunk to a child.** The ref scale is below `ScaleBelowPct` (90).
 - **a child race.** `ChildRace=1`.
 - **hidden or faded.** The alpha is below `AlphaBelowPct` (99).
+- **in the prologue before character creation** (1.1.0, `BeforeChargen=1`). That is MQP01 running, or MQP02
+  ("A New Life", the ship with Sirius) running below stage 17.
 
 CCC works normally again on the next frame after none of these is true.
+
+Before character creation it also **hides the player's body meshes in first person**
+(`HideBodyBeforeChargen=1`). Improved Camera draws the body there, and until the race menu that body is
+Enderal's placeholder male.
 
 ## Why
 
@@ -45,6 +51,42 @@ The only `SetRace(NordRaceChild)` in Enderal's source is `_00E_MQ00_TrigBox00Scr
 developer test box (its message box reads "Yippee, jetzt bin ich Jorle Rostlöffel!"). The child-race
 check is kept as a cheap guard for any mod that does the same.
 
+### 1.1.0: Sirius and the placeholder body (2026-11-12)
+
+The curator's report: CCC still filmed the talk with Sirius in the intro, and the camera showed a male
+body. Sirius is MQP02 `003158`, on the ship (`MQP02StartShip 046ECC`). There the player is a normal-sized,
+visible adult, so none of 1.0's checks fired. Character creation is `_00E_MQP02_Functions.StartCharacterGeneration()`
+(`Game.ShowRaceMenu()`, then `GoToState("Chargen")`). That state's `OnUpdate` calls `SetStage(17)` once
+no menu is open. So "before character creation" = MQP01 running, or MQP02 running below 17. A Skip
+the Prologue start runs neither. The Daddy scene was confirmed held off in the 2026-11-12 `SceneDirector.log`
+(`SmoothCam camera already held by another plugin (owner 159); not staging this conversation`). The Sirius
+lines had already rotated out of both kept logs.
+
+**Body, first try (1.1.0, failed):** this version wrote 0 to IC's `bEnableBody`. IC's General settings
+block is `*(DLLMAIN::Plugin singleton + 0x1A8)`, getter at RVA `0x2570`, byte 0. The curator found the
+first-person body then **ran ahead of the camera**. With the flag off, IC stopped putting the camera at
+the head, but it went on drawing the body it had already un-culled. **Do not toggle IC's body setting
+live.**
+
+**1.2.1, the end condition:** 1.2.0 counted "MQP01 running" as before character creation, but **Enderal
+never stops MQP01**. The SmoothCam hold and the body hiding therefore stayed on for the whole game: the
+log showed one `Holding …` and no release. Now character creation counts as done for good once MQP02
+reaches stage 17, MQP02 finishes, or MQP03 `07B1E5` has started. Before that, it is MQP02 running, or
+MQP01 running while MQP02 hasn't started.
+
+**1.2.2, the real cause of both:** CommonLibSSE-NG's `TESQuest::IsRunning()` is only `!IsStopping() &&
+!promoteTask`. It never checks that the quest was started (`kEnabled`), so **every never-started quest
+reads as running**. That is why MQP01 "ran" all game in 1.2.0, and MQP03 "ran" from the intro in 1.2.1, so
+the body showed at once. Now running = `IsEnabled() && !IsStopping()` (Papyrus's sense). The 1.2.1 note
+above, that "Enderal never stops MQP01", was a wrong diagnosis caused by this. **Never use CommonLib's
+`IsRunning()` alone.**
+
+**Body, 1.2.0:** while the camera is first person and before character creation, every `BSGeometry`
+under the player's third-person root gets `SetAppCulled(true)`. This is re-applied every frame, in case
+IC un-culls its parts. Only the meshes this plugin culled are shown again afterwards. The skeleton still
+animates, so IC's head camera doesn't move. The race menu is a third-person camera, so the body shows
+there.
+
 ## How it works
 
 **CCC already has a "stand down" path, so nothing in CCC is patched** **[upstream: github.com/fatalCMD/ccc
@@ -71,6 +113,11 @@ nothing anyway.
 camera directly"), and this plugin can do nothing. Its log says so at startup.
 
 ## Status
+
+**1.2.2 verified in game 2026-11-12** by the curator: CCC stays out of the Sirius talk, and the first-person
+body is hidden through the prologue and shows again after character creation. To re-check, `ZenCCCStandDown.log`
+should show `Holding SmoothCam's camera (MQP02 stage …)`, `Player body hidden before character creation (N
+meshes)` and, after the race menu, `Player body shown again`.
 
 **Verified in game 2026-10-18:** in a new game, the MQP01 talks with Daddy stayed in the first-person
 dialogue camera. The MQP03 and alpha scenes have not been checked separately.
