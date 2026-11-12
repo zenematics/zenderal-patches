@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Malphas Fixes Merge.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Malphas' Blessing - Fixes (NAUT1CAY) merged onto the NPCs EGO and Malphas' EGO patches edit, so their gameplay changes stay. Load after Malphas' Blessing - Fixes.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  - Master: Malphas' Blessing - Enderal.esp
+    FileSize: 0
+  - Master: MB - Unique Aeterna.esp
+    FileSize: 0
+  INTV: 1

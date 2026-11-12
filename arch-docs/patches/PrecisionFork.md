@@ -27,8 +27,9 @@ touches the target, and every unarmed capsule in the list sits on the arm:
 | SIGMA - Fisting animations - 1st person | hand, `Scale(5.0)` |
 | `Precision_base.toml`, Enderal's H2H events `AttackStartH2HLeft/Right`, `attackPowerStartForwardH2H*Hand` | hand, Scale 3, Translation ±25/0/15 |
 
-A punch travels at shoulder height, so these pass over a rat (`SkeeverRace`) or a wolf. A sword's capsule is the
-blade (~100 units) and its swings go down. (Side note, not investigated: FHR's `Left/Right Light Attack` Brawler clips
+A punch travels at shoulder height, so these pass over a rat (`SkeeverRace`) or a wolf. ~~A sword's capsule is the
+blade (~100 units) and its swings go down.~~ Wrong: a two-hander misses rats and spiders too (player report
+2026-11-12), see patch `0004` below. (Side note, not investigated: FHR's `Left/Right Light Attack` Brawler clips
 carry no Precision event at all, only `preHitFrame`/`FakeHit`.)
 
 **Fix (`src/ZenUnarmedReach.{h,cpp}` + `// ZP` lines in `AttackCollision.{h,cpp}`, `Havok/ContactListener.cpp`,
@@ -47,8 +48,43 @@ before animation, so its tilt lags the hand by one frame's rotation (a few degre
 `E:/Zenderal-backups/2026-11-10-precision-fork-pre-unarmed-reach/`). Unverified in game.** Shipped with `bLog = true`
 for the test: `Precision.log` must show `ZenUnarmedReach: enable true, radius 15, ...` at load, `reach capsule N units
 down` per unarmed collision, and per target `... (height H): hit` (rats, wolves) or `too tall, ignored` (humanoids).
-Precision's MCM debug *Display weapon capsule* draws it in red under the fist. Set `bLog = false` once verified.
-Rebuild: apply `0001` then `0003` to `upstream/` at `9ef45e0d8d`, run `build.cmd` (`0002` is the rolled-back ragdoll patch below, never applied).
+Precision's MCM debug *Display weapon capsule* draws it in red under the fist. **Tested in game by the curator
+(locked on to rats, fists; Discord 2026-11-12); `bLog = false` since 2026-11-12.**
+
+## Weapon attacks reach small creatures (2026-11-12, patch `0004`)
+
+**Symptom (player report 2026-11-12, GreaseLord):** "if you're using a weapon the pc has a hard time hitting any
+creature under a certain height such as spiders or rats", seen on the latest release with a two-hander (0003 had only
+fixed fists). The same complaint sits unanswered under a Nexus mod's posts (mudcrabs, two-handed, after installing
+Precision); no mod fixes it.
+
+**Cause:** the list's movesets swing at chest height, and the only thing that lowers a swing is Precision's spine
+pitch toward the target (`Collision_PitchMult`, see [`PowerAttackPitch`](PowerAttackPitch.md)), which tilts the
+upper body 1:1 by the torso-to-torso angle and ramps in over 0.33 s. That is enough for wolves, not for a rat's or
+spider's body at a two-hander's reach.
+
+**Fix (`ZenUnarmedReach.{h,cpp}` extended, `// ZP` lines in the same four files as 0003):** a humanoid's melee weapon
+swing (`WEAPON`/`SHIELD` node, weapon type 1H sword/dagger/axe/mace or two-hander; not a bash, not a staff = the
+list's pistols, not a crossbow = muskets) gets 2 to 4 capsules on the same `AttackCollision`, hanging straight down
+from evenly spaced points along Precision's blade capsule (`fStartFraction` 0.35 of its length to the tip, at most
+`fSpacing` 35 units apart: a dagger 2, a one-hander 3, a two-hander 4), radius 15. Same rules as the fist capsule:
+contacts with ground, objects, projectiles and attack capsules disabled; only actors at most `fMaxTargetHeightRatio`
+(0.8) x the attacker's height. Each capsule is at least `fMinLengthRatio` (0.75) x the attacker's height long, so a
+swing whose collision starts low still reaches the ground as it rises (one starting high reaches below the floor,
+which only matters for a small actor directly underneath on a lower level). The reach node pointer became a fixed
+`std::array<…, 4>` (`reachCollisionNodes`, plus `bReachIsWeapon` for the height ratio and log): the physics thread
+reads it in `ContactListener` while the main thread adds and removes, so it must never reallocate. Switches:
+`[WeaponReach]` in `Precision_ZenderalFixes.ini`.
+
+**Status: built 2026-11-12 (`5f4e1d17…`), deployed to `Zenderal - Patch Collection` (previous DLL + ini in
+`E:/Zenderal-backups/2026-11-12-precision-fork-pre-weapon-reach/`). Unverified in game.** Shipped with
+`[WeaponReach] bLog = true` for the test: `Precision.log` must show `ZenUnarmedReach: weapons enable true, ...` at load,
+per swing `... blade N: capsule i at t (H above the feet), L units down`, and per target `... : hit` (rats, spiders) or
+`too tall, ignored` (humanoids). *Display weapon capsule* draws them in red under the blade. Set `bLog = false` once
+verified. The player and NPCs both get it (humanoid attackers), as with fists.
+
+Rebuild: apply `0001`, `0003` then `0004` to `upstream/` at `9ef45e0d8d`, run `build.cmd` (`0002` is the rolled-back
+ragdoll patch below, never applied). `0004` is the diff from the 0001 + 0003 tree.
 
 > Moved out of `CLAUDE.md` on 2026-10-13. Text is verbatim; `[verified]` marks and dates are as originally recorded.
 

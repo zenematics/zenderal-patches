@@ -19,7 +19,7 @@ import struct
 import sys
 
 MODS = sys.argv[1] if len(sys.argv) > 1 else 'E:/Zenderal/mods'
-SRC_MOD = os.path.join(MODS, 'Pretty Enderal Clothing')
+SRC_MOD = os.path.join(MODS, 'Pretty Enderal Armory')  # merged All-in-One since 2026-11-12 (was Pretty Enderal Clothing)
 BSA = os.path.join(SRC_MOD, 'Pretty Enderal Clothing.bsa')  # Pretty 2.0 only
 OUT_MOD = os.path.join(MODS, 'Zenderal - Esme Dress Static')
 FOLDER = r'meshes\enderal\armor\immersive armors\hunter'

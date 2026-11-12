@@ -3,8 +3,10 @@
 - **Source:** `src/StanceMovesets/tools/` — `stance_sources.py` (the source and layer tables), `00-install-sources.py`,
   `01-build-stance-overlays.py`, `02-verify.py` (all three stances). Reuses `src/LSdFHighStance/tools/01-build-lsdf-high-stance.py`
   for the DAR parser, OAR condition builders and the For Honor Reforged exceptions.
-- **Ships:** *(no plugin)* MO2 mod `Zenderal - Stance Overlays`: **68 OAR `user.json` files and nothing else**, over eleven
-  third-party mods installed **untouched** from Nexus downloads.
+- **Ships:** *(no plugin)* MO2 mod `Zenderal - Stance Overlays`: **267 OAR `user.json` files and nothing else** (68 over
+  eleven third-party stance sources installed **untouched** from Nexus downloads, 95 lifting the list's sprint submods,
+  104 switching Smooth Moveset's idle chain off where a stance owns the idle).
+  Must win MO2 over any other mod shipping a `user.json` at those paths (02 checks there is none).
 - **FormID block:** _(none)_
 
 ## What it does
@@ -33,7 +35,8 @@ DoinkBoink's Stances pack 134152.
 | In High / Mid / Low | Plays |
 |---|---|
 | light / power attack chains, forward/standing power attack | the stance's set for the weapon pair |
-| idle, turns, walks, runs, equip (and whatever else the source keeps in those folders: its sprints, Muay Thai's block idle) | the stance's guard |
+| idle, turns, walks, runs, equip (and whatever else the source keeps in those folders: Muay Thai's block idle) | the stance's guard |
+| sprint (weapon drawn or sheathed) | the list's sprint mods, as in F4 (Dynamic Sprint, JellyFish one handed Sprint, Smooth Moveset, CATA) |
 | left/right/back light and power attacks, back-light **parry**, parry / block-slide / **knockdown** follow-ups, shield parry, FHR combo layers | **For Honor Reforged's own clips, with their mechanics** |
 | mixed dual wield (e.g. sword + dagger) | High: Nordic's mixed-dual set (`31090`); Mid / Low: For Honor Reforged (no source has one) |
 | fists in High | For Honor Reforged (Nordic has no unarmed set) |
@@ -113,13 +116,23 @@ them): their pages forbid modification "including creating bug fixes", and a use
      (its one clip, `dw1hm1hmidle d.hkx`, is named for no state), Vanargand's `Sprint`, sets a higher layer replaces
      everywhere) gets `disabled: true` plus
      conditions that can never be true (player AND NOT player).
+   - **Weapon drawn:** a folder whose author requires `IsWeaponDrawn`, or holding a clip the sheathed state plays
+     (`mt_sprintforward`), also gets `IsWeaponDrawn` (see the 2026-11-12 postmortem).
+   - **Sprint = F4's:** a stance folder holding any `*sprint*` clip gets `NOT IsSprinting` (01 refuses an attack folder
+     with sprint clips), and every enabled third-person OAR submod outside the stances that is sprint-only (all clips
+     sprint locomotion, never sprint attacks, or its own conditions require `IsSprinting`, or `ALSO_LIFT`) gets a
+     user.json = its winning settings with the priority rank-mapped to 1,600,000,000+ (own order and ties kept): 95
+     submods of Dynamic Sprint, JellyFish one handed Sprint, Smooth Moveset, Goetia staves and Patch Collection's
+     Crossbow Sprint Swap. 02 checks every one is lifted, unchanged otherwise, in order, and lists any non-lifted
+     submod that outranked a lifted one in F4 with overlapping conditions (hands/drawn/sprint/combat evaluated,
+     keywords unknown).
    - Priorities: High 1,500,030,000, Mid 1,500,010,000, Low 1,500,020,000, each + 10 × layer: above every FHR /
      Smooth Moveset / Patch Collection moveset submod, below Beam Walking Assist, UNDERDOG's states and RaySense;
      the stances are mutually exclusive by perk. Nordic's out-of-combat folder `31002` is disabled like Desert's
      `32003`.
 3. Lost against the copy build: no `$FHFX` heavy tell on these sets, no slot padding (after an FHR directional clip
    hands over a slot past a set's count, that one attack is FHR's neutral clip), and each source's whole folder
-   comes along (Desert/Imperium sprints, Muay Thai/Kick Boxing block idles).
+   comes along (Muay Thai/Kick Boxing block idles; the packs' sprints are switched off while sprinting, 2026-11-12).
 
 ## Postmortem: F1's run "doesn't look like a run" (2026-11-10)
 
@@ -147,6 +160,75 @@ fence folders.
 packs' guard jog stays, as their authors made it. **Verified in game 2026-11-10** (curator, F1 sword run: "looks to
 be fixed now").
 
+## Postmortem: sheathed sprint with a crooked right hand in High / Mid (2026-11-12)
+
+**Symptom (player report, GreaseLord):** in High or Mid, running (sprinting) with the weapon sheathed held the right
+hand out at an angle.
+
+**Cause [verified offline]:** the race packs' locomotion folders (Nordic `31001`/`31002`, Desert `32001`/`32003`,
+Imperium `33001`/`33002`) ship `male/` and `female/mt_sprintforward.hkx` next to their drawn sprints
+(`mt_sprintforwardsword`, `2hm_`/`2hw_`/`dw_sprintforwardsword`). `mt_sprintforward` is the clip the **sheathed**
+sprint plays, and OAR's `IsEquippedType` is true for a sheathed weapon, so a gate of perk + player + weapon pair played
+the pack's armed sprint pose with no weapon in hand. Nordic's and Desert's authors require `IsWeaponDrawn()` in their
+own `_conditions.txt`; 01 evaluated it as true for liveness but never wrote it into the overlay. Imperium's author has
+no such test (Low showed the same clip, less visibly).
+
+**Fix:** 01's `needs_drawn`: an enabled folder whose author requires the weapon drawn, or which holds any `mt_` clip
+but `mt_sprintforwardsword`, gets `IsWeaponDrawn` after its weapon/combat gate (the six folders above; none holds an
+equip clip, so drawing is unaffected). With the weapon sheathed the list's normal sprint (CATA) plays again in every
+stance. 02 fails on such a folder without `IsWeaponDrawn` (mutation test: removing it from `31001` → 1 problem).
+
+**Follow-up the same day (curator):** "the sprinting for F1 F2 and F3 is not correct, it's the wrong sprint
+animations", with the weapon drawn too. Those same six guard folders carry the packs' NPC drawn sprints
+(`mt_`/`1hm_`/`2hm_`/`2hw_`/`dw_sprintforwardsword`) under the clip names the list's sprint mods replace (Dynamic
+Sprint 93.9M, JellyFish one handed Sprint 901M, Smooth Moveset, CATA), and the stance band 1.5e9 outranked all of
+them. OAR conditions are per folder, so those folders now also carry `NOT IsSprinting`: the stances keep their guard,
+walks and runs, and sprint like F4.
+
+**Second follow-up (curator: "the sprint should be the same as F4 ... it's not"):** `NOT IsSprinting` cannot win a
+sprint's first frame: the engine sets the sprint flag only after the sprint clip has started. Dynamic Sprint relies on
+exactly that (its *Per-Sprint* folders, the sprint start, are gated on `NOT IsSprinting` and interruptible), so the
+stances still opened every sprint with the pack's clip instead of Dynamic Sprint's start. Fix: the list's sprint-only
+submods are lifted above the stance bands (Mechanism 2), so whatever F4 plays for a sprint wins in every stance; the
+`NOT IsSprinting` gate stays for the pairs no sprint mod covers. F4's own winners are unchanged except where a mixed
+FHR folder outranked a lifted one: **Gladiator - No Shield Idles** (`weaptypespear`) and **Lancer - Movement and
+Idles** (`weaptypeheavylance`): keyword-gated spear/lance weapons, believed absent from the list (not checked: the
+plugin scan was stopped). CATA's armor-based sheathed movement is untouched (the stance folders now need the weapon
+drawn; Dynamic Sprint already outranked CATA). Unverified in game.
+
+## Postmortem: Smooth Moveset's idles loop in the stances (2026-11-12)
+
+**Symptom (curator's video, OAR log):** after a sprint, standing in F1 with a sword and a lantern, the lantern arm
+snapped every ~1.7 s ("we've had a ton of loop animation issues with Smooth Moveset").
+
+**Cause [verified offline]:** Smooth Moveset's idle chain is a state machine. Dynamic Animation Casting casts its
+state spells (`mag_start on` 801, `loop on` 802, `move on` 803, `combat on` 804 …) on events that sit in Smooth's
+own `1hm_idle` / `2hm_idle` / `dw1hm1hmidle` … clips (`Smooth_loop`, `Smooth_Stop`, `Smooth_Combat`;
+`SKSE/Plugins/_DynamicAnimationCasting/SmoothMoveset.toml`). A stance's guard outranks those clips, so the events
+never fire, and the clips of the same submod the stance does not replace keep looping the state they were left in:
+here the Move Stop option's `1hm move/MLh_Idle` (1.667 s), whose `1hm_idle` sends the `Smooth_Stop` that ends it.
+Lifting Smooth's move-stop submods over the stances instead was tried and backed out: it reorders Smooth's own
+start/loop chain in F4 (79 overlaps in 02).
+
+**Fix:** 01's `smooth_chain_blocks`: every enabled submod that tests a `Smooth Moveset.esp` effect and shares a
+non-sprint clip with an enabled stance folder gets a user.json = its winning settings (Patch Collection's copy where
+it wins) + `NOT(stance perk AND the weapon pairs that stance's folders serve)`, one block per stance: 104 submods.
+In a stance at those pairs Smooth's chain is off entirely (the left arm falls to the next provider); F4 and pairs no
+stance covers keep Smooth. 02 checks every such user.json (mutation test: deleting `1hm move`'s → 1 problem).
+Unverified in game. **Rerun 01 + 02 after a Patch Collection rebuild of the Smooth configs** (the user.json carries
+their conditions).
+
+**Install check, same day (Nexus pages read):** FHR 2.4 requires For Honor in Skyrim (meshes + scripts hidden, as its
+page says: done), DMK, SCAR 2.01, Maxsu Block Overhaul, Chocolate Poise (Blessed); FHiS requires Smooth Moveset - OAR
+and wants FHiS over Smooth; MO2 has FHR > FHiS > Smooth. Smooth's requirements (OAR 3.2.1, OAR IED Conditions, IED
+1.7.4, Simple Dual Sheath, Disable Turn Animation, Draw Fix, BDI + Universal Support, DAC NG Plus 3.2.5, no old DAC)
+are all installed and OAR's log has no invalid conditions. Missing only the recommended *War Hammer and Battle Axe
+Movement Fix*. Smooth's FOMOD options installed: Jormungandr, Warden, Move Stop, Dynamic Sprint. Three main-file
+submods are absent from the installed mod since 2026-08-12 (`1hm` / `2hm` / Warden `2hm Heavy Armor` `Non-Combat
+idle Start`). Curator (2026-11-12): most likely removed on purpose to stop idles getting stuck in a loop, but an
+incorrect install is not ruled out; no record of the removal was found. If they are ever restored (reinstall Smooth's
+main file with the same FOMOD options), rerun 01 + 02: the Smooth chain blocks cover whatever submods are installed.
+
 ## Verification (2026-11-10, offline)
 
 `02-verify.py`, FHR re-read from the live profile (364 special submods): every source folder has an overlay
@@ -167,7 +249,9 @@ gate on the High perk, and checks that each addon sits above its own source's se
    Sets*, *Zenderal - Le Sentiment du Fer High Stance* unticked (shelved); MO2 order does not matter (no source ships a user.json; 01 refuses if one does). Backups of the earlier
    `modlist.txt` in `E:/Zenderal-backups/2026-11-10-stances/`.
 
-Rerun 01 + 02 after a **For Honor Reforged** change, an OAR `user.json` on an FHR submod, or a source update.
+Rerun 01 + 02 after a **For Honor Reforged** change, an OAR `user.json` on an FHR submod, a source update, or any
+change to a sprint mod (Dynamic Sprint, JellyFish one handed Sprint, Smooth Moveset, Goetia, CATA) or the enabled
+mods holding sprint clips.
 
 ## Not done / open
 

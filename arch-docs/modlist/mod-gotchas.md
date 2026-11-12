@@ -513,3 +513,25 @@ List-wide traps that are not tied to one Zenderal patch.
   a SkyrimRedirector with the four detours fixed, shipped over Stock game's copy, and then a first test of
   Reversed-Z itself (its Community Shaders support is "experimental" for stock CS 1.9.1; Bottled Shaders and
   DLSS are untested).
+
+- **First Person FOV overrode Cinematic Conversation Camera's lens: no close-ups (2026-11-12).** CCC
+  (`SceneDirector.dll` 1.5.0) sets each shot's lens by writing `PlayerCamera::worldFOV` every frame
+  (`Director.cpp:5766`, Close Up 50, extreme close-ups 35-40). First Person FOV and Tween Menu Fix (Nexus
+  172417, 1.0.11) writes the same field every frame. Its third-person override (on at 100 in `Zenderal -
+  Settings`' `FirstPersonFOV.ini` since 2026-11-08) ran through dialogue too, so every CCC close-up was shot at
+  100 and read as a wide shot. The mod does not recognise CCC (its log: `Dialogue Camera Mod Detected:
+  false`), so `bDisableOverrideInDialogue = true` must be set by hand; it is in Settings' copy since
+  2026-11-12. CCC's shot choice was never the problem: 15 of 39 shots are on (`Close Customized` preset) and
+  Close Up opens about a third of conversations. Any other mod that writes `worldFOV` every frame in third
+  person will do the same to CCC. Verified in game 2026-11-12 (close-ups back).
+- **The player's Health/Stamina/Mana bars on screen are TrueHUD's player widget, not the HUD's (2026-11-12).** The
+  list's `TrueHUD.ini` (from Aspect Layout: `MCM/Settings/TrueHUD.ini`, the same in all three layouts) sets
+  `bPlayerWidgetHideVanillaBars = 1` and `bPlayerWidgetForceHideVanillaBars = 1`. The player widget (Vel'dun's TrueHUD
+  skin) sits at the bottom left: `fPlayerWidgetX 0.017`, `Y 0.931`, scale 0.7, health 280 wide, stamina and mana 135.
+  The HUD menu's own Vel'dun bars (`_root.HUDMovieBaseInstance.Health/Magica/Stamina`) still exist, hidden, where
+  `skyhud.txt` puts them: `fHealthPosY=30` plus the HUD root at (616.65, 475.45), i.e. near the **top** of the
+  720-unit stage.
+  - Anything aligned to "the bars" has to read TrueHUD's movie: menu `TrueHUD`, root object `_root.TrueHUD`, player
+    widget `_root.TrueHUD.playerWidget` inside `TrueHUD_MainVisibilityWidgets`, bars with `Frame`/`Outline`.
+  - A SkyUI widget that measured the HUD bars landed top left ([`ArcaneFeverGauge`](../patches/ArcaneFeverGauge.md)
+    build 1); build 2 loads a copy into TrueHUD's movie instead.

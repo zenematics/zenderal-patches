@@ -1,0 +1,201 @@
+FormKey: 024C1E:Enderal - Forgotten Stories.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _00E_FS_NQR05_FatherREF
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_EPOnDeath
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BlameSpellKeyword
+      Object: 05BD16:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EPFaction
+      Object: 039DCE:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: RewardExp
+      Data: 500
+  - Name: _00E_FS_NQR05_PerversionSC
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_CorpseExplosionPile_Remains
+      Object: 02F3D4:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_NPC_PerversionDeathM
+      Object: 0248EB:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_NQR05_BloodGeysir
+      Object: 02E28B:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_FS_NQR05_PerversionExp
+      Object: 0248E9:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: _00E_HighOnesDisintegrate
+      Object: 148978:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AbsorbRedImod
+      Object: 0ABF17:Skyrim.esm
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Essential
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 50
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 800
+Factions:
+- Faction: 02A47B:Enderal - Forgotten Stories.esm
+  Fluff: 0x000000
+Voice: 04779F:Skyrim.esm
+Race: 014CF1:Enderal - Forgotten Stories.esm
+AttackRace: 014CF1:Enderal - Forgotten Stories.esm
+Perks:
+- Perk: 001D60:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001D7F:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 001DBB:Enderal SE - Gameplay Overhaul.esp
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 01C742:Enderal - Forgotten Stories.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 100
+  Responsibility: NoCrime
+  Mood: Sad
+  Assistance: HelpsAllies
+  AggroRadiusBehavior: True
+  Warn: 1200
+  WarnOrAttack: 1200
+  Attack: 1200
+Packages:
+- 024C21:Enderal - Forgotten Stories.esm
+Class: 042DC6:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Daddy
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 79
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 79
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 10
+  - Key: Speech
+    Value: 10
+  - Key: Alteration
+    Value: 10
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 100
+  - Key: Illusion
+    Value: 100
+  - Key: Restoration
+    Value: 51
+  - Key: Enchanting
+    Value: 5
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 458
+  Magicka: 295
+  Stamina: 132
+  GearedUpWeapons: 1
+HeadParts:
+- 0513FF:Skyrim.esm
+- 0C716D:Skyrim.esm
+- 0F5009:Skyrim.esm
+- 0F81D2:Skyrim.esm
+- 00083E:Malphas' Blessing - Enderal.esp
+HairColor: 0A0434:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 40
+SoundLevel: Normal
+DefaultOutfit: 03837A:Skyrim.esm
+HeadTexture: 03836D:Skyrim.esm
+TextureLighting: '#00706156'
+FaceMorph:
+  NoseLongVsShort: -0.54
+  NoseUpVsDown: 1
+  JawUpVsDown: -1
+  JawNarrowVsWide: -0.7
+  EyesUpVsDown: -1
+  EyesInVsOut: 1
+  BrowsUpVsDown: 0.88
+  BrowsInVsOut: -1
+  BrowsForwardVsBack: 1
+  ChinUpVsDown: -1
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 13
+  Eyes: 1
+  Mouth: 1
+MajorFlags:
+- 0x40000

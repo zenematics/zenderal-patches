@@ -1,0 +1,160 @@
+FormKey: 04CB85:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+EditorID: _00E_Flusshaim_Merchant_Eshra
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Female
+  - Essential
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 5
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 70
+Factions:
+- Faction: 050FCE:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 05BCF6:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Faction: 07286C:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0EAD60:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 13CA5D:Skyrim.esm
+  Fluff: 0x000000
+Voice: 02096C:Skyrim.esm
+Race: 013743:Skyrim.esm
+WornArmor: 000832:Malphas' Blessing - Enderal.esp
+Items:
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 30
+- Item:
+    Item: 0028CF:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+Packages:
+- 048333:Skyrim.esm
+- 03731A:Skyrim.esm
+- 037318:Skyrim.esm
+Class: 01325B:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Merchant Eshra Mirâya
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 10
+  - Key: TwoHanded
+    Value: 5
+  - Key: Archery
+    Value: 5
+  - Key: Block
+    Value: 5
+  - Key: Smithing
+    Value: 5
+  - Key: HeavyArmor
+    Value: 11
+  - Key: LightArmor
+    Value: 5
+  - Key: Pickpocket
+    Value: 5
+  - Key: Lockpicking
+    Value: 5
+  - Key: Sneak
+    Value: 5
+  - Key: Alchemy
+    Value: 5
+  - Key: Speech
+    Value: 5
+  - Key: Alteration
+    Value: 10
+  - Key: Conjuration
+    Value: 10
+  - Key: Destruction
+    Value: 18
+  - Key: Illusion
+    Value: 25
+  - Key: Restoration
+    Value: 13
+  - Key: Enchanting
+    Value: 10
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 83
+  Magicka: 70
+  Stamina: 57
+  GearedUpWeapons: 1
+HeadParts:
+- 07291B:Skyrim.esm
+- 00083D:Malphas' Blessing - Enderal.esp
+- 000857:Malphas' Blessing - Enderal.esp
+HairColor: 0A042E:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 00080D:MB - Unique Aeterna.esp
+CrimeFaction: 07286C:Skyrim.esm
+TextureLighting: '#00ACA688'
+FaceMorph:
+  NoseUpVsDown: -0.4
+  CheeksUpVsDown: -0.4
+  CheeksForwardVsBack: 0.4
+  EyesUpVsDown: -0.4
+  EyesInVsOut: -0.8
+  BrowsInVsOut: -0.08
+  ChinNarrowVsWide: -0.4
+  ChinUpVsDown: -0.4
+TintLayers:
+- Index: 30
+  Color: '#00A95452'
+  InterpolationValue: 0.37
+  Preset: 417
+MajorFlags:
+- 0x40000

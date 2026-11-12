@@ -170,6 +170,8 @@ __pycache__/
 !src/PistolRamrodReload/Scripts/compiled/*.pex
 !src/EnderalTogether/Scripts/compiled/
 !src/EnderalTogether/Scripts/compiled/*.pex
+!src/ArcaneFeverGauge/Scripts/compiled/
+!src/ArcaneFeverGauge/Scripts/compiled/*.pex
 
 # Build output (build.ps1 staging) - commit source, not build artifacts
 /build/staging/

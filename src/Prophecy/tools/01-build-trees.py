@@ -3660,7 +3660,12 @@ def write_druid(d, write):
     t, n = re.subn(r'^MenuDisplayObject: .*:Dragonborn\.esm\n', '', t, flags=re.M)
     assert n == 1, 'Twister menu art'
     write('Spells', t)
-    # Druidcraft: Magic Patches' winning spell (its price) with the heal added
+    # Druidcraft: Magic Patches' winning spell (its price) with the heal added.
+    # 2026-11-12 (AmiableGlobe: "on any dead body does not heal 20 health or make a goodberry, instead it makes a random
+    # plant"): the heal effect is flagged Hostile + Detrimental like Triumvirate's own corpse effect (and vanilla's
+    # Reanimate). A corpse only takes hostile effects; a friendly one is dropped before its script starts, and
+    # NoDeathDispel alone only keeps a running effect through a death [community]. The script still acts only on a
+    # dead target, so a living one gets nothing from it.
     src = glob.glob(os.path.join(REPO, 'src', 'MagicPatches', '*', 'Spells', '* - 28E6E9_*.yaml'))
     assert len(src) == 1, 'Magic Patches Druidcraft'
     t = open(src[0], encoding='utf-8').read().replace('\r\n', '\n')
@@ -3688,6 +3693,8 @@ Name:
   Value: Druidcraft
 MenuDisplayObject: {DRUIDCRAFT_ICON}
 Flags:
+- Hostile
+- Detrimental
 - NoDuration
 - NoArea
 - HideInUI

@@ -15,6 +15,8 @@ Name:
   Value: Druidcraft
 MenuDisplayObject: 191249:Triumvirate - Mage Archetypes.esp
 Flags:
+- Hostile
+- Detrimental
 - NoDuration
 - NoArea
 - HideInUI

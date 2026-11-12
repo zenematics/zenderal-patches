@@ -1,0 +1,64 @@
+{
+  "modName": "Zenderal - Arcane Fever Gauge",
+  "displayName": "Arcane Fever Gauge",
+  "minMcmVersion": 9,
+  "cursorFillMode": "topToBottom",
+  "content": [
+    {
+      "text": "Arcane Fever Gauge",
+      "type": "header"
+    },
+    {
+      "id": "iToggleKey:General",
+      "text": "Show / hide hotkey",
+      "type": "keymap",
+      "help": "Press it to hide the gauge, again to show it. With fading on, it also brings a faded gauge back for a moment.",
+      "ignoreConflicts": false,
+      "valueOptions": {
+        "sourceType": "ModSettingInt",
+        "defaultValue": -1
+      }
+    },
+    {
+      "id": "bHidden:General",
+      "text": "Hide the gauge",
+      "type": "toggle",
+      "help": "Hides the gauge until you untick this or press the hotkey.",
+      "valueOptions": {
+        "sourceType": "ModSettingBool",
+        "defaultValue": false
+      }
+    },
+    {
+      "text": "Fading",
+      "type": "header"
+    },
+    {
+      "id": "bAutoFade:General",
+      "text": "Fade out when unchanged",
+      "type": "toggle",
+      "help": "The gauge fades away once the fever has not gone up or down for the time below, and comes back whenever it changes.",
+      "groupControl": 1,
+      "valueOptions": {
+        "sourceType": "ModSettingBool",
+        "defaultValue": false
+      }
+    },
+    {
+      "id": "fFadeDelay:General",
+      "text": "Start fading after",
+      "type": "slider",
+      "help": "Seconds after the last fever change before the gauge fades out (the fade itself takes 1 second).",
+      "groupCondition": 1,
+      "groupBehavior": "disable",
+      "valueOptions": {
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "formatString": "{0} s",
+        "sourceType": "ModSettingFloat",
+        "defaultValue": 5
+      }
+    }
+  ]
+}

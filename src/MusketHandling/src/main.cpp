@@ -1,5 +1,8 @@
 #include "pch.h"
 
+#include <mutex>
+#include <unordered_map>
+
 // Muskets should be powerful but slow to use, bows agile. Two changes, both for muskets only: the
 // right-hand weapon is a crossbow (Ordo's muskets are AnimationType Crossbow) whose record comes from
 // one of [Muskets] Plugins. Bows and Enderal SE - Crossbows' crossbows are untouched.
@@ -51,9 +54,12 @@
 //    casts on the same thread. The AI's own casts leave the request variable at 0 and are untouched; the player is a
 //    PlayerCharacter (its own vtable, sections 1-3) and never comes through here. 1.4.1: the request is cleared as it
 //    is answered (one answer per reload: a second BeginCast with the request still set fired a real shot mid-reload).
+//    1.5.0 (2026-11-12): while a reload it answered is still on that hand's cast (at most 5 s), the enemy's attack, bash
+//    and block events are refused ([Pistols] NpcReloadBlockedEvents): a pistol-and-dagger bandit's AI swung ~1.6 s into
+//    every reload, so none finished and only the script's 4 s fallback ever loaded its gun.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 4, 1, 0 },
+	.Version = REL::Version{ 1, 5, 0, 0 },
 	.Name = "ZenMusketHandling"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -79,6 +85,18 @@ namespace
 	std::string              g_reloadEvent{ "reloadStart" };
 	std::string              g_loadedEvent{ "reloadStop" };
 	bool                     g_npcPistolReload{ true };  // section 4
+	// Section 4, 1.5.0: an enemy whose pistol reload this plugin started cannot attack, bash or block until that reload
+	// ends (the hand's cast is over) or kNpcReloadGuardMs pass: by FormID, the hand and when it was answered.
+	std::vector<std::string> g_npcReloadBlockedEvents{ "attackStart", "attackPowerStart", "bashStart", "bashPowerStart",
+		"blockStart" };
+	constexpr std::uint64_t  kNpcReloadGuardMs = 5000;
+	struct NpcReload
+	{
+		bool          left;
+		std::uint64_t answeredMs;
+	};
+	std::mutex                               g_npcReloadLock;
+	std::unordered_map<RE::FormID, NpcReload> g_npcReloads;
 
 	std::uint64_t         g_shotAtMs{ 0 };  // 0 = no musket shot being locked out
 	// The musket in the right hand (drawn or not, 0 = none) and whether it is empty, loaded by its reload's
@@ -343,12 +361,54 @@ namespace
 			const bool aimed = actor->NotifyAnimationGraph((prefix + "SpellAimedStart").c_str());
 			const bool ready = left || actor->NotifyAnimationGraph("MRh_SpellReady_Event");
 			const bool release = actor->NotifyAnimationGraph((prefix + "SpellRelease_Event").c_str());
+			if (aimed && release) {
+				std::scoped_lock l{ g_npcReloadLock };
+				g_npcReloads[actor->GetFormID()] = NpcReload{ left, NowMs() };
+			}
 			if (g_log) {
 				SKSE::log::info("NPC {:08X} '{}': {} with its pistol reload asked for: {}SpellAimedStart {}, {}SpellRelease_Event {}{}",
 					actor->GetFormID(), actor->GetName(), tag, prefix, aimed ? "taken" : "REFUSED", prefix, release ? "taken" : "REFUSED",
 					left ? "" : (ready ? " (ready taken)" : " (ready REFUSED)"));
 			}
 			return result;
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
+	// Section 4, 1.5.0: IAnimationGraphManagerHolder::NotifyAnimationGraph (vfunc 0x01) on the Character vtable [3]. An
+	// enemy with a pistol and a melee weapon swung it ~1.6 s into nearly every reload (attackStart from its AI,
+	// ZenPistolNPCTrace 2026-11-12: dagger bandit, ball and rod out, then the swing), so no reload ever finished. While a
+	// reload this plugin answered is still on that hand's cast, its attack/bash/block events are refused.
+	struct NpcNotifyAnimationGraph
+	{
+		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_eventName)
+		{
+			if (g_npcPistolReload && a_eventName.c_str() && StartsWithAny(a_eventName.c_str(), g_npcReloadBlockedEvents)) {
+				auto* actor = static_cast<RE::TESObjectREFR*>(a_this)->As<RE::Actor>();
+				if (actor && !actor->IsPlayerRef()) {
+					std::optional<NpcReload> reload;
+					{
+						std::scoped_lock l{ g_npcReloadLock };
+						if (auto it = g_npcReloads.find(actor->GetFormID()); it != g_npcReloads.end()) {
+							reload = it->second;
+						}
+					}
+					if (reload) {
+						bool casting = false;
+						actor->GetGraphVariableBool(reload->left ? "IsCastingLeft"sv : "IsCastingRight"sv, casting);
+						if (casting && NowMs() - reload->answeredMs < kNpcReloadGuardMs) {
+							if (g_log) {
+								SKSE::log::info("NPC {:08X} '{}': {} refused, its pistol reload is playing ({} ms in)", actor->GetFormID(),
+									actor->GetName(), a_eventName.c_str(), NowMs() - reload->answeredMs);
+							}
+							return false;
+						}
+						std::scoped_lock l{ g_npcReloadLock };
+						g_npcReloads.erase(actor->GetFormID());   // the reload is over (or past the guard)
+					}
+				}
+			}
+			return func(a_this, a_eventName);
 		}
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
@@ -525,18 +585,20 @@ namespace
 		g_reloadEvent = ReadIniValue(kIniPath, "Reload"sv, "ReloadEvent"sv).value_or("reloadStart");
 		g_loadedEvent = ReadIniValue(kIniPath, "Reload"sv, "LoadedEvent"sv).value_or("reloadStop");
 		g_npcPistolReload = ReadIniNumber<std::uint32_t>("Pistols"sv, "NpcReloadCast"sv, 1) != 0;
+		g_npcReloadBlockedEvents = ReadIniList("Pistols"sv, "NpcReloadBlockedEvents"sv,
+			{ "attackStart", "attackPowerStart", "bashStart", "bashPowerStart", "blockStart" });
 		SKSE::log::info("Muskets=[{}] LockAfterShotMs={} MaxLockMs={} BlockedEvents=[{}] SpeedMultPenalty={} Log={}",
 			Join(g_musketPlugins), g_lockAfterShotMs, g_maxLockMs, Join(g_blockedEventPrefixes), g_speedMultPenalty, g_log);
 		SKSE::log::info("Reload OnDemand={} AttackEvents=[{}] ReloadEvent={} LoadedEvent={}", g_onDemand, Join(g_attackEvents),
 			g_reloadEvent, g_loadedEvent);
-		SKSE::log::info("Pistols NpcReloadCast={}", g_npcPistolReload);
+		SKSE::log::info("Pistols NpcReloadCast={} NpcReloadBlockedEvents=[{}]", g_npcPistolReload, Join(g_npcReloadBlockedEvents));
 	}
 }
 
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenMusketHandling 1.4.1 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenMusketHandling 1.5.0 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };
@@ -548,7 +610,9 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	SKSE::log::info("PlayerCharacter::Update, NotifyAnimationGraph and its graph event sink hooked");
 	REL::Relocation<std::uintptr_t> npcSinkVtbl{ RE::VTABLE_Character[2] };
 	NpcGraphEvent::func = npcSinkVtbl.write_vfunc(0x1, NpcGraphEvent::thunk);
-	SKSE::log::info("Character graph event sink hooked (section 4: enemies' pistol reload casts)");
+	REL::Relocation<std::uintptr_t> npcGraphVtbl{ RE::VTABLE_Character[3] };
+	NpcNotifyAnimationGraph::func = npcGraphVtbl.write_vfunc(0x1, NpcNotifyAnimationGraph::thunk);
+	SKSE::log::info("Character graph event sink and NotifyAnimationGraph hooked (section 4: enemies' pistol reloads)");
 
 	const auto* serialization = SKSE::GetSerializationInterface();
 	serialization->SetUniqueID(kCosaveId);

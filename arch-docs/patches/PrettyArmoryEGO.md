@@ -116,3 +116,22 @@ Pretty 2.x no longer ships, so it would not load for players on 2.x.
 
 Masters: base, EGO, the 11 Pretty plugins, Malphas' Blessing, ERA Heavy Leather. Deployed into Patch Collection.
 The Nexus copy masters base + EGO + the 11 Pretty plugins. Unverified in game.
+
+**One MO2 mod (2026-11-12).** For tidiness, 14 of the 15 per-pack folders are merged into a single
+`Pretty Enderal Armory`, as the FOMOD installer would build it:
+- later packs overwrite earlier ones in the FOMOD's order;
+- the 79 left-out files stay out;
+- it sits at Holy Order's old spot, below ERA Part 1 and Adventurer HDT-SMP, which keep winning their files.
+
+**`Pretty Righteous Path Armory` stays its own mod above ERA.** Knight of the Path needs Pretty's Righteous Path to
+beat ERA's, and ERA must beat every other pack.
+
+Checked against the old layout: 5359 paths, and only one has a different winning file:
+`textures\kreis\ksmc\elmlock\head_n.dds`. It is now Factions' copy, which is what the FOMOD order picks; Unique
+Sets' copy had been winning.
+
+The generators that read Pretty files now read the merged folder: EsmeDressStatic, DragonPriestStaffSwap,
+MoonsteelPretty 02 and PrettyRighteousPathSMP. Their reruns gave byte-identical output.
+
+Backups of the emptied per-pack folders (meta.ini only) and Ultra's previous `modlist.txt` are in
+`E:/Zenderal-backups/2026-11-12-pretty-merge/`.

@@ -79,7 +79,7 @@
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyRage.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 6, 3, 0 },
+	.Version = REL::Version{ 1, 6, 4, 0 },
 	.Name = "ZenProphecyRage"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -1404,7 +1404,9 @@ namespace
 						(ad && ad->data.flags.any(RE::AttackData::AttackFlag::kPowerAttack)) ? " (power)" : "",
 						sinceStart, g_lastStartPower ? "power" : "light", byStart ? " -> power attack by its start" : "");
 				}
-				if (!victim || !melee || !Counts(cause, target)) {
+				// 1.6.4 (GreaseLord, 2026-11-12: "You can accumulate rage from dead bodies"): a corpse neither
+				// builds Rage nor fires an action
+				if (!victim || victim->IsDead() || !melee || !Counts(cause, target)) {
 					return RE::BSEventNotifyControl::kContinue;
 				}
 				g_lastHit = Clock::now();
@@ -1685,7 +1687,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.6.3 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.6.4 loading, runtime {}", REL::Module::get().version().string());
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

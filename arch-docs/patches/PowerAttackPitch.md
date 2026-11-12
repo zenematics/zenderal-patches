@@ -78,7 +78,9 @@ class. The live Pandora `0_master` (2026-11-10 build) has exactly these 23 power
 - **NPC power attacks lean too** (toward their combat target's torso), as their light attacks already do.
 - First person untouched (TDM's target lock is third person; Precision's `colis` has no first-person graph).
 - How much lean is *enough* is Precision's 1:1 rule; skeevers right at the feet need ~35-40°, which they get at
-  melee range (torso 105 → 20 at 120 units) but only once the ramp is full.
+  melee range (torso 105 → 20 at 120 units) but only once the ramp is full. **Not enough in practice:** a two-hander
+  still missed rats and spiders (player report 2026-11-12), so weapon swings also get capsules hanging under the
+  blade: [`PrecisionFork`](PrecisionFork.md) patch `0004`. The lean stays for the look and for mid-height targets.
 - **Unverified in game.** Pandora not yet rerun with `zpapitch` (2026-11-11).
 
 ## Install / regenerate

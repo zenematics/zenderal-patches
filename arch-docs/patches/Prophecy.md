@@ -359,6 +359,13 @@ It sits between Glory and Arcane Archery. Records are allocated after Shadow (`D
 - **Druidcraft** is our copy of Magic Patches' winning `28E6E9` plus `ZP_Prophecy_Druidcraft_Heal`. That is a
   `NoDeathDispel` script effect, `ZP_DruidcraftHealEffect`, which heals the caster 20 when the target is dead.
   Regenerate this copy if Magic Patches reprices Druidcraft.
+  **2026-11-12 (AmiableGlobe: "on any dead body does not heal 20 health or make a goodberry, instead it makes a
+  random plant"):** the heal effect is now also `Hostile` + `Detrimental`, like Triumvirate's own corpse effect and
+  vanilla's Reanimate. A corpse only accepts hostile effects; a friendly one is dropped before its script's
+  `OnEffectStart`, and `NoDeathDispel` only keeps a running effect through a death [community]. The script still
+  does nothing on a living target. The other reading of the report: a save that bought Triumvirate's own Druidcraft
+  tome before 2026-10-29 has a second "Druidcraft" without the heal; if the fix changes nothing, ask the player
+  whether two Druidcrafts are in the spell menu. Unverified in game.
 - **Force of Nature** is a lesser power. `ZP_ForceOfNatureEffect` works in this order:
   1. It takes 50% fever the way Legion does (Zen Traits, refused when the fever would reach 100).
   2. It casts Triumvirate's Force of Nature `28E6EB`: `TVR_Wildshape_Script` `SetRace`s the player to the Horned
@@ -952,6 +959,9 @@ It sits between Glory and Druid. Records are allocated after Sorcerer (`RAGE_FIR
   as a power-attack hit whatever the flag says. Every player hit is logged with its flags, view (1st/3rd person),
   the engine's attack data name and power flag, and the time since the last start - the next log says whether first
   person loses the flag or the hit event. Unverified in game.
+- **1.6.4 (GreaseLord, 2026-11-12: "You can accumulate rage from dead bodies"):** a melee hit on a dead actor no
+  longer builds a stack or fires an action (`victim->IsDead()` in the hit sink). Hits taken from a dead attacker were
+  never possible. Unverified in game.
 - **Talent count:** 134 now, past 128. `ZP_ProphecyMenu.Refresh` now checks the property arrays' lengths against
   `TreeStart` and shows a message box if the game cut them short. The first menu open in game is the test.
 - **Untested risks:**

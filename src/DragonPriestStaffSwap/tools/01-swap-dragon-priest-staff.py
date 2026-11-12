@@ -26,7 +26,7 @@ _spec.loader.exec_module(_restores)
 read_from_bsa = _restores.read_from_bsa
 
 MOD = 'Zenderal - Dragon Priest Staff Swap'
-SOURCE_MOD = 'Pretty Mages Armory'
+SOURCE_MOD = 'Pretty Enderal Armory'  # the merged All-in-One mod since 2026-11-12 (was Pretty Mages Armory)
 SOURCE_BSA = 'Pretty Mages Armory.bsa'
 SOURCE = 'meshes\\enderal\\weapons\\staves\\staffofchainlightning.nif'
 TARGETS = [

@@ -18,7 +18,7 @@ Usage:  python 02-extract-pretty-arrow.py [<modlist root>] [<target MO2 mod>]
 import os, sys, shutil
 
 MOD = 'Zenderal - Moonsteel Pretty Patch'
-SOURCE = 'Pretty Common Armory'
+SOURCE = 'Pretty Enderal Armory'  # merged All-in-One since 2026-11-12 (was Pretty Common Armory)
 WANT = {'meshes/weapons/nordhero/nordheroarrow.nif': 'meshes/Weapons/NordHero/NordHeroArrow.nif',
         'meshes/weapons/nordhero/nordheroarrowprojectile.nif': 'meshes/Weapons/NordHero/NordHeroArrowProjectile.nif'}
 

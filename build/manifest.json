@@ -1836,6 +1836,36 @@
           "to": "SKSE"
         }
       ]
+    },
+    {
+      "$comment": "Arcane Fever as a round HUD gauge right of Vel'dun's Health and Mana bars (curator, 2026-11-12). A SkyUI widget (Enderal's built-in SkyUI widget framework, no DLL): StartGameEnabled quest 800 runs ZFG_ArcaneFeverWidget (extends SKI_WidgetBase), which sends -LastFlattered (Enderal's fever) to Interface/exported/widgets/zenderal/arcanefever.swf 4x a second when it changes. The movie is our own, built from src/ArcaneFeverGauge/widget/arcanefever.as by tools/01 (skeleton SWF + FFDec AS2 compile; the .swf is committed because CI has no FFDec). The list's visible bars are TrueHUD's player widget, so the script also loads the movie into TrueHUD's menu next to that widget, where it measures the bars at runtime; the SkyUI copy (following Vel'dun's HUD bars) is the fallback and stays hidden meanwhile. MCM page (MCM Helper, quest 801 ZFG_ArcaneFeverMCM; data/MCM/Config): show/hide hotkey, hidden toggle, fade-out N s after the fever last changed. Scripts/stubs = MCM Helper's public API (MIT), compile-only.",
+      "name": "Zenderal - Arcane Fever Gauge",
+      "archiveName": "Zenderal - Arcane Fever Gauge",
+      "fomod": false,
+      "scripts": {
+        "from": "src/ArcaneFeverGauge/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "plugins": [
+        {
+          "yamlSource": "src/ArcaneFeverGauge/ArcaneFeverGaugeESP",
+          "dest": "Zenderal - Arcane Fever Gauge.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/ArcaneFeverGauge/data/Interface",
+          "to": "Interface"
+        },
+        {
+          "from": "src/ArcaneFeverGauge/data/MCM",
+          "to": "MCM"
+        },
+        {
+          "from": "src/ArcaneFeverGauge/Scripts/source",
+          "to": "Scripts/Source"
+        }
+      ]
     }
   ]
 }

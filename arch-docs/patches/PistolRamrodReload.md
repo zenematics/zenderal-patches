@@ -1066,6 +1066,14 @@ since the Flintlock NPC rebuild; the missing reload was the smaller problem.
   refused with `bWantCast` already true, retried at once. A pistol loaded and then holstered was reloaded again when
   drawn (the charge limit above). Curator: looked right; `TRACE` turned off, the trace DLL removed from `overwrite`.
   Committed 2026-11-11.
+- **2026-11-12, "why are enemies no longer pistol reloading?"** The Marauders reloaded; this was a bandit with a
+  pistol and a **dagger**. Its reloads all started and played (ball, rod, both sounds: ZenPistolNPCTrace), and its AI
+  swung the dagger ~1.6 s into each one (`attackStart`), which ended it; only the 4 s fallback loaded its gun.
+  `ZenMusketHandling` 1.5.0 refuses an enemy's attack/bash/block events while a reload it answered is still playing.
+  First 1.5.0 test too short to tell: the one kick came 0.1 s after the bandit (a sword this time) began a swing of its
+  own, when the graph's cast start is off (refused), the held flags kept the next kick off ~1.8 s and the 4 s fallback
+  loaded first. So a refused kick now lets go of `bWantCast` and the request at once, and `FALLBACK_LOAD` is 8 s.
+  Both traces back on for the check. Unverified in game.
 - **Seventh test, the fallback:** a Marauder fired at :18, :32 and :38, each time loaded by the fallback after holding
   the empty gun 4 s: about one shot per 6 s (the player's fastest is ~3–4 s), no rapid fire, never stuck. Balanced, but
   with no reload animation on these pistol-and-mace enemies.

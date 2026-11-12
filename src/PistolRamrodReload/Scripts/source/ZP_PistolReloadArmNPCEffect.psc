@@ -61,7 +61,9 @@ Float Property CAST_WAIT = 0.8 AutoReadOnly
 ; Fallback: an NPC that has held its empty pistol drawn this long without a reload loading it gets it loaded with no
 ; animation (melee swings and weapon swaps cut most reloads short; sixth test), so it cannot fire faster than about
 ; one reload but is never stuck with an empty gun.
-Float Property FALLBACK_LOAD = 4.0 AutoReadOnly
+; 8 s since 2026-11-12 (was 4): a kick refused because the NPC had just begun a swing held the next kick off ~1.8 s,
+; and at 4 s the fallback loaded the gun before a real reload could start
+Float Property FALLBACK_LOAD = 8.0 AutoReadOnly
 String Property LoopPlugin = "Pistol animation by Loop.esp" AutoReadOnly
 Int Property LOOP_KEYWORD_ID = 0x801 AutoReadOnly      ; Pistol_Animation_By_Loop
 Int Property LEFT_HAND = 0 AutoReadOnly
@@ -72,7 +74,7 @@ Int Property TYPE_SHIELD = 10 AutoReadOnly
 Int Property TYPE_TORCH = 11 AutoReadOnly
 ; 2026-11-11 trace: effect start/finish, shots, reloads asked for, loads, and every 2 s in combat the hands' state
 ; (Papyrus log, [ZP PistolReload NPC]); off since the twelfth test showed the enemy reload working
-Bool Property TRACE = False AutoReadOnly
+Bool Property TRACE = True AutoReadOnly
 
 Actor npc
 Keyword pistolKeyword
@@ -444,6 +446,10 @@ Function DryReload(Int slot)
 		If npc.GetActorValue(ChargeAV(slot)) < EMPTY - 0.01
 			SetCharge(slot, EMPTY)
 		EndIf
+		; let go at once, so the next poll can ask again (a swing begun just before the kick refuses it)
+		npc.SetAnimationVariableBool("bWantCast" + side, False)
+		npc.SetAnimationVariableFloat(request, 0.0)
+		kickTime = 0.0
 		Note("hand " + slot + " reload refused (bWantCast was " + wanted + ")")
 	EndIf
 	SetDry(slot, False)

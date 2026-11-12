@@ -1,7 +1,9 @@
 """Check the three stances without the game: High (F1), Mid (F2) and Low (F3), each = untouched sources +
 `Zenderal - Stance Overlays`. Fails if the shelved LSdF High mod is enabled alongside.
 
-  - Gating: every enabled submod starts with its stance's perk and the player; every submod folder of every source
+  - Gating: every enabled submod starts with its stance's perk and the player (and the weapon drawn where its author
+    asks or it holds the sheathed sprint mt_sprintforward; NOT IsSprinting where it holds any sprint clip, since the
+    list's sprint mods own the sprint); every submod folder of every source
     has an overlay user.json (a folder without one would run on its own conditions: NPCs, all stances), and the
     unused ones are disabled with never-true conditions.
   - Coverage: at every weapon pair at most one attack-bearing submod per stance matches by its own weapon conditions.
@@ -57,11 +59,76 @@ def conj(v):
 DIRECTION_GATES = [ov.direction_cond(n) for n in ss.ADDON_DIRECTIONS]
 
 
+def _tri(c, st):
+    """Three-valued OAR condition (True / False / None = unknown) in state st: hands, drawn, sprinting, combat,
+    effects. Keywords, actor values and the rest are unknown."""
+    n = c['condition']
+    if n in ('AND', 'OR'):
+        vals = [_tri(x, st) for x in c.get('Conditions', [])]
+        if n == 'AND':
+            v = False if False in vals else (None if None in vals else True)
+        else:
+            v = True if True in vals else (None if None in vals else False)
+    elif n == 'IsEquippedType':
+        v = st['l' if c.get('Left hand') else 'r'] == int(c['Type']['value'])
+    elif n == 'IsWeaponDrawn':
+        v = st['drawn']
+    elif n == 'IsSprinting':
+        v = st['sprint']
+    elif n == 'IsInCombat':
+        v = st['combat']
+    elif n == 'HasMagicEffect':
+        v = st['effects'].get(_effect_key(c))
+    else:
+        v = None
+    return v if v is None else v != bool(c.get('negated'))
+
+
+def _effect_key(c):
+    e = c.get('Magic effect', {})
+    return (e.get('pluginName', '').lower(), e.get('formID', '').upper().lstrip('0'))
+
+
+def _effects(conds):
+    out = set()
+    for c in conds:
+        if c['condition'] == 'HasMagicEffect':
+            out.add(_effect_key(c))
+        out |= _effects(c.get('Conditions', []))
+    return out
+
+
+def can_overlap(a, b):
+    """Can both submods' conditions hold at once (hands 0-18, drawn, sprinting, combat, every magic effect they test)?"""
+    effs = sorted(_effects(a['cfg']['conditions'] + b['cfg']['conditions']))[:8]
+    for mask in range(1 << len(effs)):
+        st0 = {'effects': {e: bool(mask >> i & 1) for i, e in enumerate(effs)}}
+        if _overlap_hands(a, b, st0):
+            return True
+    return False
+
+
+def _overlap_hands(a, b, st0):
+    for r in range(19):
+        for l in range(19):
+            for drawn in (True, False):
+                for sprint in (True, False):
+                    for combat in (True, False):
+                        st = dict(st0, r=r, l=l, drawn=drawn, sprint=sprint, combat=combat)
+                        if all(_tri(c, st) is not False for c in a['cfg']['conditions'] + b['cfg']['conditions']):
+                            return True
+    return False
+
+
 def gate_ok(conds, perk):
     """Perk, player, weapon pairs, then only FHR exceptions (negated) - or, for a directional addon, one direction
     gate first (01's direction_cond)."""
     rest = conds[3:]
     if rest and (rest[0] in DIRECTION_GATES or rest[0] == ov.IN_COMBAT):    # an addon's or an in-combat guard's gate
+        rest = rest[1:]
+    if rest and rest[0] == ov.OUT_OF_COMBAT:
+        rest = rest[1:]
+    if rest and rest[0] == ov.IS_DRAWN:
         rest = rest[1:]
     return (conds[0]['condition'] == 'HasPerk' and conds[0]['Perk']['formID'] == perk
             and conds[0]['Perk']['pluginName'] == ss.STANCES_ESP
@@ -117,6 +184,8 @@ def main():
             problems += 1
 
     # High / Mid / Low: overlays over the untouched sources
+    all_stance_clips = []
+    owned = []                                # (perk, clips, pairs) per enabled stance folder
     for st in ss.STANCES:
         enabled, n_disabled, leaks = [], 0, 0
         for key in {k for k, *_ in st['layers']}:
@@ -139,7 +208,21 @@ def main():
                     print(f'{label}: gating wrong')
                     leaks += 1
                     continue
+                # a folder whose author wants the weapon drawn, or holding a clip the sheathed state plays
+                # (mt_sprintforward), must carry IsWeaponDrawn: a sheathed weapon still passes IsEquippedType
+                if ov.needs_drawn(f) and ov.IS_DRAWN not in cfg['conditions']:
+                    print(f'{label}: plays with the weapon sheathed (no IsWeaponDrawn)')
+                    leaks += 1
+                    continue
+                # the list's sprint mods own the sprint in every stance
+                if ov.has_sprint(f) and ov.NOT_SPRINTING not in cfg['conditions']:
+                    print(f'{label}: replaces the sprint (no NOT IsSprinting)')
+                    leaks += 1
+                    continue
                 enabled.append((label, cfg['conditions'], f['clips'], key, cfg['priority']))
+        all_stance_clips.append(set().union(*[e[2] for e in enabled]))
+        for _lb, c, clips, _k, _p in enabled:
+            owned.append((c[0], clips, {(r, l) for r, l in PAIRS if ev(c[2], r, l, 80, 80)}))
         attack = [e for e in enabled if any(ATTACK.match(x) for x in e[2])]
         sets = [e for e in attack if not is_addon(e[1])]
         addons = [e for e in attack if is_addon(e[1])]
@@ -167,6 +250,72 @@ def main():
         print(f'{st["name"]} (overlays): {len(enabled)} enabled ({len(sets)} attack sets, {len(addons)} addons), '
               f'{n_disabled} disabled, '
               f'{leaks} ungated/mis-gated, {overlaps} overlaps, {checked} FHR cases covered, {missing} uncovered')
+    # Sprint = F4's in every stance: every sprint-only submod a stance folder competes with is lifted above the
+    # stance bands by our
+    # user.json, its own order kept, and no other mod ships a user.json there
+    top = max(st['priority'] + 10 * len(st['layers']) + 10 for st in ss.STANCES)
+    providers = ov.oar_submods()
+    stance_clips = set()
+    for st_clips in all_stance_clips:
+        stance_clips |= st_clips
+    lifted = ov.lifted_priorities(providers, stance_clips)
+    bad = 0
+    for f in providers:
+        if f['rel'] not in lifted:
+            continue
+        p = os.path.join(MODS, ss.OVERLAY_MOD, *f['rel'].split('/'), 'user.json')
+        if not os.path.exists(p):
+            print(f'sprint: {f["mod"]} / {f["rel"]}: not lifted')
+            bad += 1
+            continue
+        with open(p, encoding='utf-8') as fh:
+            u = json.load(fh)
+        rest = {k: v for k, v in u.items() if k != 'priority'}
+        if u['priority'] <= top or rest != {k: v for k, v in f['cfg'].items() if k != 'priority'}:
+            print(f'sprint: {f["mod"]} / {f["rel"]}: user.json is not its winning settings with a lifted priority')
+            bad += 1
+        others = [m for m in lsdf.enabled_mods() if m != ss.OVERLAY_MOD
+                  and os.path.exists(os.path.join(MODS, m, *f['rel'].split('/'), 'user.json'))]
+        if others:
+            print(f'sprint: {f["rel"]}: also has a user.json in {others} - MO2 order decides')
+            bad += 1
+    lift = sorted((f for f in providers if f['rel'] in lifted), key=lambda f: f['cfg']['priority'])
+    for a, b in zip(lift, lift[1:]):
+        if (a['cfg']['priority'] < b['cfg']['priority']) != (lifted[a['rel']] < lifted[b['rel']]):
+            print(f'sprint: order changed between {a["rel"]} and {b["rel"]}')
+            bad += 1
+    # info: a mixed submod (sprints + other clips, not lifted) that outranked a lifted one on a shared sprint clip in
+    # F4 now loses that clip to it
+    inv = sorted({(m['cfg']['priority'], m['mod'], m['rel'].split(ss.OAR + '/')[1]) for m in providers
+                  if m['rel'] not in lifted for f in lift
+                  if f['cfg']['priority'] < m['cfg']['priority'] < lifted[f['rel']] and m['clips'] & f['clips']
+                  and can_overlap(m, f)})
+    for pr, mod, rel in inv:
+        print(f'F4 lift (info): {mod} / {rel} ({pr:,}) now ranks below lifted sprint-only submods on shared clips')
+    # Smooth Moveset's idle chain: off wherever a stance owns one of a submod's clips (01's smooth_chain_blocks)
+    chain = 0
+    for f in providers:
+        if f['rel'] in lifted:
+            continue
+        blocks = ov.smooth_chain_blocks(f, owned)
+        if not blocks:
+            continue
+        chain += 1
+        p = os.path.join(MODS, ss.OVERLAY_MOD, *f['rel'].split('/'), 'user.json')
+        want = json.loads(json.dumps(f['cfg']))
+        want['conditions'] = want['conditions'] + blocks
+        if not os.path.exists(p):
+            print(f'Smooth chain: {f["rel"]}: no user.json - its state machine loops in the stance')
+            bad += 1
+            continue
+        with open(p, encoding='utf-8') as fh:
+            got = json.load(fh)
+        if got != want:
+            print(f'Smooth chain: {f["rel"]}: user.json is not its winning settings + the stance blocks')
+            bad += 1
+    print(f'Smooth chain: {chain} submods off where a stance owns the idle')
+    problems += bad
+    print(f'F4 lift: {len(lifted)} sprint-only submods lifted above {top:,}, {bad} problems, {len(inv)} F4 inversions (info)')
     print(f'{len(specials)} FHR special submods; {problems} problems')
     sys.exit(1 if problems else 0)
 

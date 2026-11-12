@@ -1,0 +1,25 @@
+FormKey: 000801:Zenderal - Arcane Fever Gauge.esp
+EditorID: ZFG_ArcaneFeverGaugeMCM
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZFG_ArcaneFeverMCM
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Gauge
+      Object: 000800:Zenderal - Arcane Fever Gauge.esp
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000801:Zenderal - Arcane Fever Gauge.esp
+      Alias: 0
+    Scripts:
+    - Name: SKI_PlayerLoadGameAlias
+Flags:
+- StartGameEnabled
+NextAliasID: 1
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm
+  VoiceTypes: Null

@@ -1,0 +1,312 @@
+diff --git a/src/AttackCollision.cpp b/src/AttackCollision.cpp
+index 36980f9..fd3c922 100644
+--- a/src/AttackCollision.cpp
++++ b/src/AttackCollision.cpp
+@@ -339,10 +339,25 @@ bool AttackCollision::Add(const CollisionDefinition& a_collisionDefinition)
+ 			ZenUnarmedReach::UpdateNode(reachNode);                                                                 // ZP
+ 			reachNode->world = node->world * reachNode->local;  // ZP: the body starts at its final pose, not the bone's
+ 			CreateCollision(world, actor, reachNode, reachNode, reach.vertexA, reach.vertexB, reach.radius, CollisionLayer::kPrecisionAttack);  // ZP
+-			reachCollisionNode = RE::NiPointer<RE::NiNode>(reachNode);                                              // ZP
++			reachCollisionNodes[0] = RE::NiPointer<RE::NiNode>(reachNode);                                          // ZP
+ 		}                                                                                                           // ZP
+ 	}                                                                                                               // ZP
+ 
++	// ZP: a humanoid's melee weapon swing -> capsules hanging down from points along the blade (ZenUnarmedReach.cpp)
++	if ((bIsRightWeapon || bIsLeftWeapon) && ZenUnarmedReach::IsWeaponEligible(actor, bIsLeftWeapon, bIsBashing)) {  // ZP
++		auto reaches = ZenUnarmedReach::ComputeAlongBlade(actor, node, attackNode, vertexA, vertexB);                // ZP
++		for (size_t i = 0; i < reaches.size() && i < reachCollisionNodes.size(); ++i) {                             // ZP
++			auto reachNode = RE::NiNode::Create(0);                                                                 // ZP
++			node->AttachChild(reachNode, true);                                                                     // ZP
++			reachNode->local.translate = reaches[i].localTranslate;                                                 // ZP
++			ZenUnarmedReach::UpdateNode(reachNode);                                                                 // ZP
++			reachNode->world = node->world * reachNode->local;                                                      // ZP
++			CreateCollision(world, actor, reachNode, reachNode, reaches[i].vertexA, reaches[i].vertexB, reaches[i].radius, CollisionLayer::kPrecisionAttack);  // ZP
++			reachCollisionNodes[i] = RE::NiPointer<RE::NiNode>(reachNode);                                          // ZP
++		}                                                                                                           // ZP
++		bReachIsWeapon = true;                                                                                      // ZP
++	}                                                                                                               // ZP
++
+ 	// Create recoil collision node
+ 	bool bIsPlayer = actor->IsPlayerRef();
+ 	if (!a_collisionDefinition.bWeaponTip && !a_collisionDefinition.bNoRecoil && !bIsBashing &&
+@@ -375,16 +390,21 @@ bool AttackCollision::Add(const CollisionDefinition& a_collisionDefinition)
+ 
+ bool AttackCollision::Remove()
+ {
+-	if (!attackCollisionNode && !recoilCollisionNode && !reachCollisionNode) {  // ZP: + reach
++	const bool bAnyReach = std::any_of(reachCollisionNodes.begin(), reachCollisionNodes.end(), [](const auto& n) { return n != nullptr; });  // ZP
++	if (!attackCollisionNode && !recoilCollisionNode && !bAnyReach) {  // ZP: + reach
+ 		return false;
+ 	}
+ 
+ 	RemoveCollision(recoilCollisionNode);
+-	RemoveCollision(reachCollisionNode);  // ZP
++	for (auto& reachNode : reachCollisionNodes) {  // ZP
++		if (reachNode) {                           // ZP
++			RemoveCollision(reachNode);            // ZP
++		}                                          // ZP
++		reachNode = nullptr;                       // ZP
++	}                                              // ZP
+ 	RemoveCollision(attackCollisionNode);
+ 
+ 	recoilCollisionNode = nullptr;
+-	reachCollisionNode = nullptr;  // ZP
+ 	attackCollisionNode = nullptr;
+ 
+ 	return true;
+@@ -508,9 +528,11 @@ bool AttackCollision::Update(float a_deltaTime)
+ 		const glm::vec4 recoilColor{ 0.2, 0.2, 0.8, 1 };
+ 		Utils::DrawCollider(attackCollisionNode.get(), 0.f, attackColor);
+ 		Utils::DrawCollider(recoilCollisionNode.get(), 0.f, recoilColor);
+-		if (reachCollisionNode) {                                           // ZP
+-			Utils::DrawCollider(reachCollisionNode.get(), 0.f, attackColor);  // ZP
+-		}                                                                   // ZP
++		for (auto& reachNode : reachCollisionNodes) {                      // ZP
++			if (reachNode) {                                               // ZP
++				Utils::DrawCollider(reachNode.get(), 0.f, attackColor);    // ZP
++			}                                                              // ZP
++		}                                                                  // ZP
+ 	}
+ 
+ 	if (lastUpdate == *g_durationOfApplicationRunTimeMS) {
+@@ -519,7 +541,9 @@ bool AttackCollision::Update(float a_deltaTime)
+ 
+ 	lastUpdate = *g_durationOfApplicationRunTimeMS;
+ 
+-	ZenUnarmedReach::UpdateNode(reachCollisionNode.get());  // ZP: keep the reach capsule pointing straight down
++	for (auto& reachNode : reachCollisionNodes) {  // ZP: keep the reach capsules pointing straight down
++		ZenUnarmedReach::UpdateNode(reachNode.get());  // ZP
++	}                                              // ZP
+ 
+ 	auto actor = actorHandle.get();
+ 	if (!actor) {
+@@ -762,7 +786,7 @@ std::shared_ptr<AttackCollision> AttackCollisions::GetAttackCollision(RE::NiAVOb
+ 
+ 	auto it = std::find_if(_attackCollisions.begin(), _attackCollisions.end(), [a_node](auto& attackCollision) {
+ 		return attackCollision->attackCollisionNode.get() == a_node ||
+-		       (attackCollision->reachCollisionNode && attackCollision->reachCollisionNode.get() == a_node);  // ZP
++		       attackCollision->IsReachNode(a_node);  // ZP
+ 	});
+ 	if (it != _attackCollisions.end()) {
+ 		return *it;
+diff --git a/src/AttackCollision.h b/src/AttackCollision.h
+index 3c59fb1..1920fbe 100644
+--- a/src/AttackCollision.h
++++ b/src/AttackCollision.h
+@@ -20,7 +20,14 @@ struct AttackCollision
+ 	RE::ActorHandle actorHandle;
+ 	RE::NiPointer<RE::NiNode> attackCollisionNode;
+ 	RE::NiPointer<RE::NiNode> recoilCollisionNode;
+-	RE::NiPointer<RE::NiNode> reachCollisionNode;  // ZP: ZenUnarmedReach capsule under the fist
++	// ZP: ZenUnarmedReach capsules: one under the fist, or up to four under a weapon's blade. A fixed array, never a
++	// vector: the physics thread reads these (ContactListener) while the main thread adds and removes them.
++	std::array<RE::NiPointer<RE::NiNode>, 4> reachCollisionNodes;  // ZP
++	bool bReachIsWeapon = false;                                    // ZP: the capsules hang under a weapon (its own height ratio)
++	bool IsReachNode(const RE::NiAVObject* a_node) const            // ZP
++	{                                                               // ZP
++		return a_node && std::any_of(reachCollisionNodes.begin(), reachCollisionNodes.end(), [a_node](const auto& n) { return n.get() == a_node; });  // ZP
++	}                                                               // ZP
+ 	float capsuleLength = 0.f;
+ 	float visualWeaponLength = 0.f;
+ 
+diff --git a/src/Havok/ContactListener.cpp b/src/Havok/ContactListener.cpp
+index b2da1b8..9cdd649 100644
+--- a/src/Havok/ContactListener.cpp
++++ b/src/Havok/ContactListener.cpp
+@@ -192,8 +192,8 @@ void ContactListener::ContactPointCallback(const RE::hkpContactPointEvent& a_eve
+ 		return;
+ 	}
+ 
+-	// ZP: the unarmed reach capsule (ZenUnarmedReach.cpp) only ever hits actors
+-	const bool bZenReach = attackCollision->reachCollisionNode && attackCollision->reachCollisionNode.get() == node;  // ZP
++	// ZP: the reach capsules (ZenUnarmedReach.cpp, under a fist or a blade) only ever hit actors
++	const bool bZenReach = attackCollision->IsReachNode(node);  // ZP
+ 	if (bZenReach && !ZenUnarmedReach::AllowLayer(attackerActor, targetActor, hitLayer)) {                           // ZP
+ 		a_event.contactPointProperties->flags.set(RE::hkpContactPointProperties::Flag::kIsDisabled);                   // ZP
+ 		return;                                                                                                        // ZP
+@@ -333,7 +333,7 @@ void ContactListener::ContactPointCallback(const RE::hkpContactPointEvent& a_eve
+ 	}
+ 
+ 	// ZP: ...and only actors clearly shorter than the attacker
+-	if (bZenReach && !ZenUnarmedReach::AllowTarget(attackerActor, targetActor)) {    // ZP
++	if (bZenReach && !ZenUnarmedReach::AllowTarget(attackerActor, targetActor, attackCollision->bReachIsWeapon)) {  // ZP
+ 		a_event.contactPointProperties->flags.set(RE::hkpContactPointProperties::Flag::kIsDisabled);  // ZP
+ 		return;                                                                       // ZP
+ 	}                                                                                 // ZP
+diff --git a/src/ZenUnarmedReach.cpp b/src/ZenUnarmedReach.cpp
+index 132d3d0..4f27045 100644
+--- a/src/ZenUnarmedReach.cpp
++++ b/src/ZenUnarmedReach.cpp
+@@ -17,6 +17,14 @@
+ // The reach node is a child of the hand bone; AttackCollision::Update turns it world-aligned once a frame (Precision's
+ // update runs at the start of the frame, before animation, so its tilt lags the hand by one frame's rotation).
+ // Switches in Data/SKSE/Plugins/Precision_ZenderalFixes.ini, [UnarmedReach].
++//
++// Weapons (patch 0004, 2026-11-12): the blade does NOT reliably reach them either. A two-hander still missed rats
++// and spiders (player report 2026-11-12): the list's movesets swing at chest height, and Precision's spine pitch
++// toward the target (Collision_PitchMult) only tilts the swing. So a humanoid's melee weapon swing gets the same kind
++// of capsule, hanging straight down from up to four points along the blade (from fStartFraction of its length to the
++// tip, at most fSpacing apart), same rules: actors only, at most fMaxTargetHeightRatio x the attacker's height.
++// Each capsule is at least fMinLengthRatio x the attacker's height long, so a swing whose collision starts low still
++// reaches the ground when it rises. Switches in [WeaponReach].
+ 
+ #include "ZenUnarmedReach.h"
+ 
+@@ -36,6 +44,16 @@ namespace ZenUnarmedReach
+ 		float g_minLength = 10.f;             // fist this close to the feet already reaches the ground
+ 		bool g_log = false;
+ 
++		// [WeaponReach]
++		bool g_weaponEnable = true;
++		float g_weaponRadius = 15.f;               // game units, x attacker scale
++		float g_weaponMaxTargetHeightRatio = 0.8f;  // target height <= this x attacker height
++		float g_weaponStartFraction = 0.35f;       // first capsule this far along the blade (grip 0, tip 1)
++		float g_weaponSpacing = 35.f;              // game units between capsules at most (radius 15: no gap a rat fits in)
++		float g_weaponMinLengthRatio = 0.75f;      // each capsule at least this x the attacker's height long
++		bool g_weaponLog = false;
++		constexpr size_t kMaxWeaponCapsules = 4;  // = AttackCollision::reachCollisionNodes
++
+ 		constexpr std::array kNodes{
+ 			"NPC R Hand [RHnd]"sv,
+ 			"NPC L Hand [LHnd]"sv,
+@@ -76,8 +94,93 @@ namespace ZenUnarmedReach
+ 			g_radius = static_cast<float>(ini.GetDoubleValue("UnarmedReach", "fRadius", g_radius));
+ 			g_maxTargetHeightRatio = static_cast<float>(ini.GetDoubleValue("UnarmedReach", "fMaxTargetHeightRatio", g_maxTargetHeightRatio));
+ 			g_log = ini.GetBoolValue("UnarmedReach", "bLog", g_log);
++
++			g_weaponEnable = ini.GetBoolValue("WeaponReach", "bEnable", g_weaponEnable);
++			g_weaponRadius = static_cast<float>(ini.GetDoubleValue("WeaponReach", "fRadius", g_weaponRadius));
++			g_weaponMaxTargetHeightRatio = static_cast<float>(ini.GetDoubleValue("WeaponReach", "fMaxTargetHeightRatio", g_weaponMaxTargetHeightRatio));
++			g_weaponStartFraction = std::clamp(static_cast<float>(ini.GetDoubleValue("WeaponReach", "fStartFraction", g_weaponStartFraction)), 0.f, 1.f);
++			g_weaponSpacing = std::max(5.f, static_cast<float>(ini.GetDoubleValue("WeaponReach", "fSpacing", g_weaponSpacing)));
++			g_weaponMinLengthRatio = std::max(0.f, static_cast<float>(ini.GetDoubleValue("WeaponReach", "fMinLengthRatio", g_weaponMinLengthRatio)));
++			g_weaponLog = ini.GetBoolValue("WeaponReach", "bLog", g_weaponLog);
+ 		}
+ 		logger::info("ZenUnarmedReach: enable {}, radius {}, max target height ratio {}, log {}", g_enable, g_radius, g_maxTargetHeightRatio, g_log);
++		logger::info("ZenUnarmedReach: weapons enable {}, radius {}, max target height ratio {}, start {}, spacing {}, min length ratio {}, log {}",
++			g_weaponEnable, g_weaponRadius, g_weaponMaxTargetHeightRatio, g_weaponStartFraction, g_weaponSpacing, g_weaponMinLengthRatio, g_weaponLog);
++	}
++
++	bool IsWeaponEligible(RE::Actor* a_actor, bool a_bLeft, bool a_bIsBashing)
++	{
++		if (!g_weaponEnable || !a_actor || a_bIsBashing) {
++			return false;
++		}
++		if (Utils::GetBodyPartData(a_actor) != Settings::defaultBodyPartData) {
++			return false;  // humanoids only, as for fists
++		}
++		auto process = a_actor->GetActorRuntimeData().currentProcess;
++		if (!process) {
++			return false;
++		}
++		auto equipped = a_bLeft ? process->GetEquippedLeftHand() : process->GetEquippedRightHand();
++		auto weapon = equipped ? equipped->As<RE::TESObjectWEAP>() : nullptr;
++		if (!weapon) {
++			return false;  // shield, torch, spell
++		}
++		switch (weapon->GetWeaponType()) {
++		case RE::WEAPON_TYPE::kOneHandSword:
++		case RE::WEAPON_TYPE::kOneHandDagger:
++		case RE::WEAPON_TYPE::kOneHandAxe:
++		case RE::WEAPON_TYPE::kOneHandMace:
++		case RE::WEAPON_TYPE::kTwoHandSword:
++		case RE::WEAPON_TYPE::kTwoHandAxe:
++			return true;
++		default:
++			return false;  // fists (their own capsule), bows, staves (the list's pistols), crossbows (muskets)
++		}
++	}
++
++	std::vector<Capsule> ComputeAlongBlade(RE::Actor* a_actor, RE::NiNode* a_bone, RE::NiNode* a_attackNode, const RE::hkVector4& a_tip, const RE::hkVector4& a_grip)
++	{
++		std::vector<Capsule> out;
++
++		const float toGame = *g_worldScaleInverse;
++		const float toHavok = *g_worldScale;
++
++		const RE::NiPoint3 tip{ a_tip.quad.m128_f32[0] * toGame, a_tip.quad.m128_f32[1] * toGame, a_tip.quad.m128_f32[2] * toGame };
++		const RE::NiPoint3 grip{ a_grip.quad.m128_f32[0] * toGame, a_grip.quad.m128_f32[1] * toGame, a_grip.quad.m128_f32[2] * toGame };
++		const float bladeLength = (tip - grip).Length();
++		if (bladeLength < 1.f) {
++			return out;
++		}
++
++		// capsules from fStartFraction to the tip, evenly spaced, at most fSpacing apart (at least two, at most four)
++		const float span = (1.f - g_weaponStartFraction) * bladeLength;
++		size_t count = static_cast<size_t>(std::ceil(span / g_weaponSpacing)) + 1;
++		count = std::clamp<size_t>(count, 2, kMaxWeaponCapsules);
++
++		const RE::NiTransform attackWorld = a_bone->world * a_attackNode->local;
++		const float boneScale = a_bone->world.scale != 0.f ? a_bone->world.scale : 1.f;
++		const float feetZ = a_actor->GetPositionZ();
++		const float minLength = g_weaponMinLengthRatio * a_actor->GetHeight();
++
++		for (size_t i = 0; i < count; ++i) {
++			const float t = g_weaponStartFraction + (1.f - g_weaponStartFraction) * static_cast<float>(i) / static_cast<float>(count - 1);
++			const RE::NiPoint3 local = grip + (tip - grip) * t;
++			const RE::NiPoint3 pointWorld = attackWorld.translate + attackWorld.rotate * local;
++			const float length = std::max(pointWorld.z - feetZ, minLength);
++
++			Capsule c;
++			c.localTranslate = (a_bone->world.rotate.Transpose() * (pointWorld - a_bone->world.translate)) / boneScale;
++			c.vertexA = RE::hkVector4(0.f, 0.f, 0.f, 0.f);
++			c.vertexB = RE::hkVector4(0.f, 0.f, -length * toHavok, 0.f);
++			c.radius = g_weaponRadius * a_actor->GetScale() * toHavok;
++			out.push_back(c);
++
++			if (g_weaponLog) {
++				logger::info("ZenUnarmedReach: {:08X} {} blade {:.0f}: capsule {} at {:.2f} ({:.0f} above the feet), {:.0f} units down, radius {:.0f}",
++					a_actor->GetFormID(), a_bone->name.c_str(), bladeLength, i, t, pointWorld.z - feetZ, length, g_weaponRadius * a_actor->GetScale());
++			}
++		}
++		return out;
+ 	}
+ 
+ 	bool IsEligible(RE::Actor* a_actor, std::string_view a_nodeName)
+@@ -150,7 +253,7 @@ namespace ZenUnarmedReach
+ 		return a_attacker && a_target && a_target != a_attacker;
+ 	}
+ 
+-	bool AllowTarget(RE::Actor* a_attacker, RE::Actor* a_target)
++	bool AllowTarget(RE::Actor* a_attacker, RE::Actor* a_target, bool a_bWeapon)
+ 	{
+ 		if (!a_attacker || !a_target) {
+ 			return false;
+@@ -158,9 +261,10 @@ namespace ZenUnarmedReach
+ 
+ 		const float attackerHeight = a_attacker->GetHeight();
+ 		const float targetHeight = a_target->GetHeight();
+-		const bool bAllow = attackerHeight <= 0.f || targetHeight <= attackerHeight * g_maxTargetHeightRatio;
++		const float ratio = a_bWeapon ? g_weaponMaxTargetHeightRatio : g_maxTargetHeightRatio;
++		const bool bAllow = attackerHeight <= 0.f || targetHeight <= attackerHeight * ratio;
+ 
+-		if (g_log) {
++		if (a_bWeapon ? g_weaponLog : g_log) {
+ 			// one line per target per attack: a rejected contact repeats every physics step, so remember the last one
+ 			static thread_local RE::FormID lastRejected = 0;
+ 			if (bAllow || lastRejected != a_target->GetFormID()) {
+diff --git a/src/ZenUnarmedReach.h b/src/ZenUnarmedReach.h
+index 4fb84aa..60efedb 100644
+--- a/src/ZenUnarmedReach.h
++++ b/src/ZenUnarmedReach.h
+@@ -22,6 +22,13 @@ namespace ZenUnarmedReach
+ 	// the capsule from the middle of the fist capsule down to the attacker's feet
+ 	[[nodiscard]] bool Compute(RE::Actor* a_actor, RE::NiNode* a_bone, RE::NiNode* a_attackNode, const RE::hkVector4& a_fistA, const RE::hkVector4& a_fistB, Capsule& a_out);
+ 
++	// patch 0004: a humanoid's melee weapon swing (sword, dagger, axe, mace, two-hander; not a bash)
++	[[nodiscard]] bool IsWeaponEligible(RE::Actor* a_actor, bool a_bLeft, bool a_bIsBashing);
++
++	// up to four capsules hanging straight down from points along the blade (Precision's weapon capsule: a_tip =
++	// vertexA, a_grip = vertexB, attack node frame, havok units)
++	[[nodiscard]] std::vector<Capsule> ComputeAlongBlade(RE::Actor* a_actor, RE::NiNode* a_bone, RE::NiNode* a_attackNode, const RE::hkVector4& a_tip, const RE::hkVector4& a_grip);
++
+ 	// keeps the reach node world-aligned, so its capsule points straight down
+ 	void UpdateNode(RE::NiNode* a_reachNode);
+ 
+@@ -29,5 +36,5 @@ namespace ZenUnarmedReach
+ 	[[nodiscard]] bool AllowLayer(RE::Actor* a_attacker, RE::Actor* a_target, CollisionLayer a_hitLayer);
+ 
+ 	// ...and only actors clearly shorter than the attacker, so humanoid fist fights stay exactly as Precision has them
+-	[[nodiscard]] bool AllowTarget(RE::Actor* a_attacker, RE::Actor* a_target);
++	[[nodiscard]] bool AllowTarget(RE::Actor* a_attacker, RE::Actor* a_target, bool a_bWeapon);
+ }

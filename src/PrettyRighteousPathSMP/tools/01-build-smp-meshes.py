@@ -35,7 +35,7 @@ DIR = os.path.join('meshes', 'armor', 'ebony')
 # (source mod, Pretty 2.0's BSA, read only if the loose 2.1 file is missing, subfolder under armor\ebony)
 SOURCES = [
     ('Pretty Righteous Path Armory', None, ''),                                   # Path, Forged (red)
-    ('Pretty Semi-Unique Armory', 'Pretty Semi-Unique Armory.bsa', 'alt'),        # Keeper (black)
+    ('Pretty Enderal Armory', 'Pretty Semi-Unique Armory.bsa', 'alt'),            # merged All-in-One since 2026-11-12        # Keeper (black)
 ]
 MESHES = [os.path.join(s, f'cuirass_{w}.nif') for s in ('f', 'm') for w in (0, 1)]
 XML = 'ZenRighteousPathFlaps.xml'

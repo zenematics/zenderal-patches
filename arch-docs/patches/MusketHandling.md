@@ -126,6 +126,12 @@ Built and deployed to Patch Collection 2026-11-11. Ninth test: every enemy reloa
 **1.4.1 (same day):** the request is cleared as it is answered, one answer per reload. With the request still set, a
 second `BeginCast` (the graph raises one when a cast is thrown away and `bWantCast` is still on) was answered too, and
 that cast, at a charge that pays for a bullet, fired a real shot mid-reload (eleventh test). Unverified in game.
+**1.5.0 (2026-11-12):** while a reload it answered is still on that hand's cast (at most 5 s), the enemy's attack, bash
+and block events are refused (a `Character` `NotifyAnimationGraph` hook, `VTABLE_Character[3]` vfunc 0x01;
+`[Pistols] NpcReloadBlockedEvents`, prefixes). Curator: "why are enemies no longer pistol reloading?" against a
+pistol-and-dagger bandit: ZenPistolNPCTrace showed its reload playing (ball, rod, both sounds) and its AI's
+`attackStart` 1.6 s in, a dagger swing that ended it, in nearly every reload; only the script's 4 s fallback ever
+loaded its gun. 1.4.1's DLL and ini: `E:/Zenderal-backups/2026-11-12-musket-handling-1.4.1/`. Unverified in game.
 
 ## Tuning
 
