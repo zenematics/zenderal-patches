@@ -415,6 +415,16 @@ def variant_datas(cfg, sub, source_stem, folder, target_stem):
     return out
 
 
+def convert_annotations(cfg):
+    """A submod with triggersFromAnnotationsOnly drops the graph's own triggers and takes the clip's annotations
+    instead, but the player's first-person power-attack clip generators carry FLAG_DONT_CONVERT_ANNOTATIONS_TO_TRIGGERS
+    (16), so their annotations never become events either: the power attack sent no attackStop and the 1P graph stayed
+    in it until a camera switch (JellyFishFP DAGGER's FFPD/dw attack, ZenParryTrace 2026-11-12). Such a submod needs
+    ignoreDontConvertAnnotationsToTriggersFlag, as JellyFish's own equip submods already set."""
+    if cfg.get('triggersFromAnnotationsOnly') and not cfg.get('ignoreDontConvertAnnotationsToTriggersFlag'):
+        cfg['ignoreDontConvertAnnotationsToTriggersFlag'] = True
+
+
 def build_twin(cfg, sub, kind, direction, mapping, stats):
     folder = safe(f'{sub.oar_mod} {sub.name} - {label(kind, direction)}')
     tdir = os.path.join(OUT, folder)
@@ -426,6 +436,7 @@ def build_twin(cfg, sub, kind, direction, mapping, stats):
                            f'{label(kind, direction).lower()} tags.')
     twin['priority'] = cfg['priority'] + OFFSET
     twin['replaceOnEcho'] = True
+    convert_annotations(twin)
     twin['conditions'] = twin_conditions(cfg.get('conditions', []), kind, direction)
     datas = []
     for target, source in mapping.items():
@@ -478,7 +489,8 @@ def write_echo_override(cfg, sub):
     in game the parry kept replaying (v2) and a quick S + attack after a SIGMA swing stayed SIGMA's. So every submod
     a twin copies gets a user.json in this mod = its effective config verbatim + replaceOnEcho (OAR's user.json
     replaces config.json; RaySensePriority's pattern). Returns a note when skipped."""
-    if cfg.get('replaceOnEcho'):
+    if cfg.get('replaceOnEcho') and (cfg.get('ignoreDontConvertAnnotationsToTriggersFlag')
+                                     or not cfg.get('triggersFromAnnotationsOnly')):
         return None
     if sub.user is not None:
         return f'{sub.oar_mod}/{sub.name}: already has a user.json in {sub.user[0]}, replaceOnEcho not added'
@@ -486,6 +498,7 @@ def write_echo_override(cfg, sub):
     os.makedirs(out, exist_ok=True)
     override = copy.deepcopy(cfg)
     override['replaceOnEcho'] = True
+    convert_annotations(override)
     with open(os.path.join(out, 'user.json'), 'w', encoding='utf-8', newline='\n') as fh:
         json.dump(override, fh, indent=4)
     return None

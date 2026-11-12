@@ -18,6 +18,11 @@
   event sent **into** the player's graphs (PlayerCharacter's `IAnimationGraphManagerHolder::NotifyAnimationGraph`,
   vtable `[3]` slot 1) with `(NOT ACCEPTED)` when the manager refused it; `VARS` = each graph's `iState` tag and the
   variables the H2H attack transitions test (`iRightHandType`, `iLeftHandType`, `bWantCastLeft`, `iWantBlock`), on change.
+  1.4.1 (2026-11-12), for first-person dual daggers that stop attacking after a weapon is equipped (freed by a
+  camera switch): graph events sent **out** of the player's graphs now also include equip/draw tags (`WeapEquip_Out`,
+  `WeaponDraw`, `BeginWeaponDraw`…), to show whether the first-person graph ever leaves its equip state. Run from
+  MO2's `overwrite` (no ticking) the same day: equip was fine. A 1P dual-dagger power attack never sent `attackStop`
+  (fixed in [`FHRFirstPerson`](FHRFirstPerson.md)). Removed from `overwrite` after.
   An `APPLY` line alone does not prove an effect took: the apply event fires before the effect's conditions are
   checked (the v3 log shows `803`'s mutually exclusive `874` and `82A` applied together).
 

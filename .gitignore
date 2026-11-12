@@ -164,6 +164,8 @@ __pycache__/
 !src/UnskippableCinematics/Scripts/compiled/*.pex
 !src/FoggyNightsChance/Scripts/compiled/
 !src/FoggyNightsChance/Scripts/compiled/*.pex
+!src/StancesSwitchBlockFix/Scripts/compiled/
+!src/StancesSwitchBlockFix/Scripts/compiled/*.pex
 !src/PistolRamrodReload/Scripts/compiled/
 !src/PistolRamrodReload/Scripts/compiled/*.pex
 !src/EnderalTogether/Scripts/compiled/

@@ -1,0 +1,32 @@
+<patch>
+	<!-- Zenderal - First Person Draw Fix (arch-docs/patches/FirstPersonDrawFix.md). The first-person weapequip graph plays
+	     the dagger, axe and mace draws in MODE_LOOPING (sword, sneak and solo draws are MODE_SINGLE_PLAY). Equipping a
+	     weapon while one is drawn re-enters the draw state and a looping clip carries on from where it is, so the
+	     clip's early BeginWeaponDraw / weaponDraw never fire again: the game never counts the new weapon as drawn and
+	     refuses every attack (ZenParryTrace 2026-11-12: only attackRelease, never attackStart) until a camera switch
+	     reloads the graph. One-shot clips restart, so the draw events fire every time. First found 2026-10-07 (zfpd). -->
+	<!-- Dag_Equip -->
+	<Replace path="#0090/mode">
+		<hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+	</Replace>
+	<!-- Dag_Dual_Equip -->
+	<Replace path="#0092/mode">
+		<hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+	</Replace>
+	<!-- Axe_Equip -->
+	<Replace path="#0084/mode">
+		<hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+	</Replace>
+	<!-- Axe_Dual_Equip -->
+	<Replace path="#0086/mode">
+		<hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+	</Replace>
+	<!-- Mac_Equip -->
+	<Replace path="#0078/mode">
+		<hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+	</Replace>
+	<!-- Mac_Dual_Equip -->
+	<Replace path="#0080/mode">
+		<hkparam name="mode">MODE_SINGLE_PLAY</hkparam>
+	</Replace>
+</patch>

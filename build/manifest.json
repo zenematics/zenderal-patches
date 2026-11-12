@@ -1491,6 +1491,19 @@
       ]
     },
     {
+      "$comment": "Pandora-native patch zfpd (needs a Pandora run). The first-person weapequip graph plays the dagger, axe and mace draws (Dag/Axe/Mac_Equip, _Dual_Equip) in MODE_LOOPING; re-equipping while drawn re-enters the draw state, the looping clip carries on, its BeginWeaponDraw/weaponDraw never fire again and the game refuses every attack until a camera switch. Sets the six nodes to MODE_SINGLE_PLAY, as the sword draws are. See arch-docs/patches/FirstPersonDrawFix.md.",
+      "name": "Zenderal - First Person Draw Fix",
+      "archiveName": "Zenderal - First Person Draw Fix",
+      "fomod": false,
+      "plugins": [],
+      "files": [
+        {
+          "from": "src/FirstPersonDrawFix/Pandora_Engine",
+          "to": "Pandora_Engine"
+        }
+      ]
+    },
+    {
       "$comment": "No plugin - one SKSE DLL. An actor hit while flying as a ragdoll (Seismic Stomp under its SlowTime, but any knockdown) is sent GetUpBegin by the engine ~55 ms after the hit, turns animation-driven with no ragdoll or character controller, and hangs rigid mid-air (measured with ZenRagdollTrace). The plugin holds GetUpBegin until the actor's pelvis has settled (1 s within 4 units, wall clock; 8 s timeout) and refuses stagger*/recoil*/bleedOutStart events while an actor is ragdolled or knocked down (a stagger pulls the graph out of ragdoll and pins the body). Hooks Character::Update (vfunc 0xAD) and NotifyAnimationGraph (vtable 3, vfunc 0x01). Build with src/AirborneGetUpFix/build.cmd (shares the CommonLibSSE-NG clone in the repo-root lib/); compiled DLL committed because CI cannot build it.",
       "name": "Zenderal - Airborne Get-Up Fix",
       "archiveName": "Zenderal - Airborne Get-Up Fix",
@@ -1664,6 +1677,23 @@
         {
           "from": "src/FoggyNightsChance/readme.txt",
           "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "Script only - no plugin. Forks Stances - Dynamic Weapon Movesets' stances_script (its own shipped .psc). A stance key sent blockStart + blockStop in one call to refresh the idle; the blockStop is lost, so the player stayed in a block no key held (ZenBlockReleaseFix ended one after every stance key, 2026-11-12) and first-person dual daggers stopped attacking. FIX ('; ZSB'): no block flick while both hands hold a one-handed weapon. No property added or removed. Live copy in Zenderal - Patch Collection, which outranks Stances - Dynamic Animation Sets. Credit: the Stances author.",
+      "name": "Zenderal - Stances Switch Block Fix",
+      "archiveName": "Zenderal - Stances Switch Block Fix",
+      "fomod": false,
+      "plugins": [],
+      "scripts": {
+        "from": "src/StancesSwitchBlockFix/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "files": [
+        {
+          "from": "src/StancesSwitchBlockFix/Scripts/source",
+          "to": "Scripts/Source"
         }
       ]
     },

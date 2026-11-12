@@ -157,6 +157,23 @@ which SIGMA's OAR block sets outrank, so they never played. So:
   specific. **Fixed (curator's choice, same day): Break Stagger off for NPCs** — `Zenderal - Settings` ships
   `Viny Mods/Break Stagger/Settings.json` with `npc.enabled = false` (see `modlist/mod-gotchas.md`). Unverified in game.
 
+**Dual-dagger power attacks locked first person (fixed 2026-11-12) [verified in trace].** Curator: with a dagger
+in each hand in first person and no stance, attacks "lock up and stop working" until a 3rd → 1st person switch.
+[`ZenParryTrace`](ZenParryTrace.md) 1.4.1 showed an `attackStart` that became `attackPowerStartInPlace` (accepted),
+then not one event from the 1P graph again (no `HitFrame`, no `attackStop`). After that every `attackStart` was
+refused for 15 s while the attack state stayed at 1. With both daggers and no stance perk the clip is JellyFishFP DAGGER's
+`FFPD/dw attack`, which sets `triggersFromAnnotationsOnly`, so OAR drops the graph's own triggers and uses the clip's.
+But the player's 1P power-attack generators carry `FLAG_DONT_CONVERT_ANNOTATIONS_TO_TRIGGERS` (above), so the
+clip's annotations (`attackStop` at the end; every one of its power clips has it) never fire either. Its light
+attacks play on generators without the flag, which is why only power attacks locked. SIGMA's dagger sets (F1–F3)
+don't use `triggersFromAnnotationsOnly`. Fix: `ignoreDontConvertAnnotationsToTriggersFlag: true` (JellyFish's own
+equip submods already set it) on the submod's `user.json` and on its 7 twins here. `tools/01`'s `convert_annotations`
+sets it on every twin and echo override whose source has `triggersFromAnnotationsOnly`. Applied in place to
+the Patch Collection copy (backup `E:/Zenderal-backups/2026-11-12-ffpd-dw-attack`); a full rerun of `tools/01`
+carries it too. A scan of the whole 1P OAR tree finds no other submod with `triggersFromAnnotationsOnly`, no
+flag and a power-attack clip. Side effect: these twins' `$LeftHeavy`/`$RightHeavy`/`$BackHeavy`/`$FHFX` now fire for
+dual daggers. Unverified in game.
+
 **Intro clips are not touched.** Two-handers' first-person attack starts in an intro state and switches to the main
 clip on the intro's end-timed `attackRelease`, so replacing or tagging both would play the parry (or cast
 everything) twice. One-handers' intros sit in `1HM_AttackRightRoot_Player_OLD`, unreachable: the branch is

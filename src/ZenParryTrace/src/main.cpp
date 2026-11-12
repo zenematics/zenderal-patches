@@ -159,7 +159,7 @@ namespace
 	{
 		const auto l = Lower(a_tag);
 		static constexpr std::array kWords{ "hitframe"sv, "weaponswing"sv, "attackwin"sv, "attackstop"sv, "collision_add"sv,
-			"collision_attack"sv, "sbf_"sv, "mco_"sv, "fakehit"sv, "stagger"sv, "blockstart"sv, "blockstop"sv, "prehitframe"sv };
+			"collision_attack"sv, "sbf_"sv, "mco_"sv, "fakehit"sv, "stagger"sv, "blockstart"sv, "blockstop"sv, "prehitframe"sv, "equip"sv, "weapondraw"sv, "beginweapondraw"sv };
 		return l == "pie" || std::ranges::any_of(kWords, [&](std::string_view w) { return l.find(w) != std::string::npos; });
 	}
 
