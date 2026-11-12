@@ -218,6 +218,15 @@ stance covers keep Smooth. 02 checks every such user.json (mutation test: deleti
 Unverified in game. **Rerun 01 + 02 after a Patch Collection rebuild of the Smooth configs** (the user.json carries
 their conditions).
 
+**Curator's taste, same day:** Smooth's `1hm / 1hm Non-Combat idle Loop2` (random variant of the relaxed one-handed
+idle; ~8-10 s in it lifts the blade over the right shoulder) is `"disabled": true` in Patch Collection's config.json.
+01 skips disabled submods, so it writes no user.json there. With a spell in the left hand the shoulder rest came from
+the older DAR pack *Smooth Combat non Combat Animation*'s `701332` (male) / `702332` (female) (out of combat,
+sword/axe/mace + spell; blade back over the shoulder the whole clip; found in OAR's log): both disabled by OAR
+`user.json` in Patch Collection's `DynamicAnimationReplacer/_CustomConditions/70x332/`. The pack's `601332` (crouched
+raised guard, any right type 0-4) then took over out of combat, which the curator did not want either: its Patch
+Collection `user.json` keeps its weapon conditions and adds `IsInCombat`.
+
 **Install check, same day (Nexus pages read):** FHR 2.4 requires For Honor in Skyrim (meshes + scripts hidden, as its
 page says: done), DMK, SCAR 2.01, Maxsu Block Overhaul, Chocolate Poise (Blessed); FHiS requires Smooth Moveset - OAR
 and wants FHiS over Smooth; MO2 has FHR > FHiS > Smooth. Smooth's requirements (OAR 3.2.1, OAR IED Conditions, IED
