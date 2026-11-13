@@ -74,6 +74,15 @@ _bsa = QRS._bsa
 MOD = 'Zenderal - Musket Aim Fix'
 ORDO = 'OrdoLegionisMuskets.esp'
 REF = os.path.join(ROOT, 'reference', 'mods', 'OrdoEnderal')
+# Muskets defined in our own plugins that join an Ordo musket's mesh group, because their mesh keeps that
+# musket's barrel, sights and grip (so its measured sight line, muzzle and clips fit unchanged): (Ordo EditorID
+# whose group it joins, its EditorID, FormID, plugin). The OAR conditions name each weapon by its own plugin.
+# 09/10/11 read this through muskets()/or_equipped(). Rerun 06 -> 09 -> 10 -> 11 -> 12 after a change here.
+EXTRA_MUSKETS = [
+    # src/ClockworkThunder: OL_Musket_Rifle's mesh with cogs on the forestock and a cog-shaped trigger guard
+    ('OL_Musket_Rifle', 'ZP_ClockworkThunder', 0x800, 'Zenderal - Clockwork Thunder.esp'),
+]
+EXTRA_PLUGIN = {eid: plugin for _, eid, _, plugin in EXTRA_MUSKETS}
 ANIMS_1P = ['meshes', 'actors', 'character', '_1stperson', 'animations']
 DAR = ANIMS_1P + ['DynamicAnimationReplacer', '_CustomConditions', '432101', 'dlc01']
 OAR = ANIMS_1P + ['OpenAnimationReplacer', MOD]
@@ -119,6 +128,15 @@ QUICK = ['crossbow_reload.hkx', 'crossbow_reloaddwarven.hkx']
 # no kick, was within 0.05 deg). So every bone of the shot clip holds its pre-shot pose until this long after
 # `arrowRelease`: two game frames at 30 fps. The recoil then plays unchanged, just later.
 REST_AFTER_SHOT = 0.067
+# Per mesh label: both arms moved this far in the gun's own frame (x across, y forward, z = down, MESH_UP is -Z)
+# while the gun stays where the correction put it. DAR's hold grips a crossbow's thin stock; on the Fucile's deep
+# forestock the left hand's knuckles sat 0.6 units inside the wood (screenshot 2026-11-13, Clockwork Thunder,
+# which shares this mesh's clips). The offset is the smallest one that puts every left-hand joint >= 0.5 units
+# outside the stock's cross-section (hold frame 0; hand_clearance() prints it for every mesh); the curator asked
+# for more, so the rifle's is the one that keeps every joint >= 1.0 outside.
+ARM_OFFSET = {
+    'ol_musket_rifle': (-0.25, 0.0, 5.0),   # 3.5 down (0.55 clearance) still read as clipping in game: 5.0 down
+}
 
 
 # ---- small maths ---------------------------------------------------------------------------------------------
@@ -330,6 +348,60 @@ def apply_correction(rig, anim, c):
     return anim  # same frames and duration: the source's block header stays as it is
 
 
+def move_arms(rig, anim, h, ramp=False, weights=None):
+    """Move both arms by h (gun frame) on every frame, the gun kept where it was: Spine2 (parent of both clavicles)
+    is translated, then the Weapon bone (under the right hand) is put back. ramp: h grows 0 -> 1 over the clip
+    (raise clips, whose first frame is vanilla's pose)."""
+    h = np.asarray(h, float)
+    spine, weapon = anim.tracks[rig.spine2], anim.tracks[rig.weapon]
+    hand = rig.parents[rig.weapon]
+    for f in range(anim.num_frames):
+        k = weights[f] if weights is not None else (f / max(1, anim.num_frames - 1) if ramp else 1.0)
+        w = rig.world(anim, f)
+        d = w[rig.weapon][:3, :3] @ (h * k)
+        moved = w[rig.spine2].copy()
+        moved[:3, 3] += d
+        spine.translations[f] = [float(x) for x in (np.linalg.inv(w[rig.spine1]) @ moved)[:3, 3]]
+        w2 = rig.world(anim, f)
+        local = np.linalg.inv(w2[hand]) @ w[rig.weapon]
+        weapon.translations[f] = [float(x) for x in local[:3, 3]]
+        if np.abs(rig.world(anim, f)[rig.weapon] - w[rig.weapon]).max() > 1e-3:
+            sys.exit('move_arms: the gun moved')
+    return anim
+
+
+def hand_clearance(rig, anim, V, f=0):
+    """Smallest distance of a left-hand joint outside the gun's cross-section at that joint (negative = inside)."""
+    w = rig.world(anim, f)
+    inv = np.linalg.inv(w[rig.weapon])
+    worst = (99.0, None)
+    for name, i in rig.index.items():
+        if not (name.startswith('NPC L Finger') or name.startswith('NPC L Hand')):
+            continue
+        p = (inv @ w[i])[:3, 3]
+        sl = V[np.abs(V[:, 1] - p[1]) < 1.0][:, [0, 2]]
+        if len(sl) < 4:
+            continue
+        pts = sorted(map(tuple, sl.round(4)))
+        cross = lambda o, a, b: (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])  # noqa: E731
+        lo, up = [], []
+        for q in pts:
+            while len(lo) >= 2 and cross(lo[-2], lo[-1], q) <= 0:
+                lo.pop()
+            lo.append(q)
+        for q in reversed(pts):
+            while len(up) >= 2 and cross(up[-2], up[-1], q) <= 0:
+                up.pop()
+            up.append(q)
+        hull = np.array(lo[:-1] + up[:-1])
+        e = np.roll(hull, -1, 0) - hull
+        n = np.c_[e[:, 1], -e[:, 0]] / np.linalg.norm(e, axis=1)[:, None]
+        d = float(((p[[0, 2]] - hull) * n).sum(1).max())
+        if d < worst[0]:
+            worst = (d, name)
+    return worst
+
+
 def delay_recoil(rig, anim, name):
     """Shot clips only: hold the pose before the kick until REST_AFTER_SHOT after `arrowRelease`. The kick is the first
     frame where the camera node or the LookNode (the parent of the arms) turns; every track is shifted later by
@@ -465,6 +537,11 @@ def muskets():
         out.setdefault(model.replace('\\', '/').lower(), []).append((eid, int(fk.group(1), 16)))
     if sum(len(v) for v in out.values()) != 14:
         sys.exit('expected 14 Ordo muskets in %s, found %d' % (REF, sum(len(v) for v in out.values())))
+    by_eid = {e: mesh for mesh, ws in out.items() for e, _ in ws}
+    for base_eid, eid, fid, _plugin in EXTRA_MUSKETS:
+        if base_eid not in by_eid:
+            sys.exit('EXTRA_MUSKETS: no Ordo musket %s' % base_eid)
+        out[by_eid[base_eid]].append((eid, fid))
     return out
 
 
@@ -491,7 +568,8 @@ def vanilla_clip(bsa, name, tmp):
 def or_equipped(weapons):
     return {'condition': 'OR', 'requiredVersion': '1.0.0.0', 'Conditions': [
         {'condition': 'IsEquipped', 'requiredVersion': '1.0.0.0',
-         'Form': {'pluginName': ORDO, 'formID': '%X' % fid}, 'Left hand': False} for _, fid in weapons]}
+         'Form': {'pluginName': EXTRA_PLUGIN.get(eid, ORDO), 'formID': '%X' % fid}, 'Left hand': False}
+        for eid, fid in weapons]}
 
 
 def write_config(path, cfg):
@@ -560,6 +638,11 @@ def main():
                 out = os.path.join(sub, 'dlc01', clip)
                 apply_correction(rig, anim, c)
                 shift = delay_recoil(rig, anim, clip)
+                if label in ARM_OFFSET:
+                    move_arms(rig, anim, ARM_OFFSET[label])
+                if clip == hold_name:
+                    print('  %-30s left hand %.2f units outside the stock (%s)'
+                          % (clip, *hand_clearance(rig, anim, V)))
                 anim_skyrim.write_skyrim_animation(out, anim, ptr_size=8)
                 check_blocks(out)
                 got = anim_skyrim.load_skyrim_animation(out)

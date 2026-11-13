@@ -1,0 +1,20 @@
+FormKey: 000804:Zenderal - Clockwork Thunder.esp
+EditorID: ZP_ClockworkThunderChainLightning
+Name:
+  TargetLanguage: English
+  Value: Clockwork Thunder
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: Aimed
+Effects:
+- BaseEffect: 00080A:Zenderal - Clockwork Thunder.esp
+  Data:
+    Magnitude: 15
+- BaseEffect: 000809:Zenderal - Clockwork Thunder.esp
+  Data: {}

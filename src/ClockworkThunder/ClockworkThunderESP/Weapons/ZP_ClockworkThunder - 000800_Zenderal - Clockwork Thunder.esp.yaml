@@ -1,0 +1,54 @@
+FormKey: 000800:Zenderal - Clockwork Thunder.esp
+EditorID: ZP_ClockworkThunder
+Name:
+  TargetLanguage: English
+  Value: Clockwork Thunder
+Model:
+  File: Zenderal\ClockworkThunder\ClockworkThunder.nif
+ObjectEffect: 000802:Zenderal - Clockwork Thunder.esp
+EnchantmentAmount: 3000
+EquipmentType: 013F45:Skyrim.esm
+BlockBashImpact: 0193C6:Skyrim.esm
+AlternateBlockMaterial: 0774B6:Skyrim.esm
+Keywords:
+- 01E715:Skyrim.esm
+- 01E719:Skyrim.esm
+- 08F958:Skyrim.esm
+- 000800:DAR Rifles.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 007ED8:OrdoLegionisMuskets.esp
+FirstPersonModel: 000801:Zenderal - Clockwork Thunder.esp
+AttackSound: 002F9C:OrdoLegionisMuskets.esp
+AttackSound2D: 002F9C:OrdoLegionisMuskets.esp
+AttackFailSound: 03C730:Skyrim.esm
+EquipSound: 03D78C:Skyrim.esm
+UnequipSound: 03D882:Skyrim.esm
+BasicStats:
+  Value: 3200
+  Weight: 9
+  Damage: 28
+Data:
+  AnimationType: Crossbow
+  Unused: 0x000000
+  Speed: 1
+  Reach: 1
+  BaseVATStoHitChance: 5
+  NumProjectiles: 1
+  RangeMin: 100
+  RangeMax: 1850
+  AnimationAttackMult: 1
+  Unknown2: 1065353216
+  Unknown3: 0x000000000000000000000000
+  Skill: Archery
+  Stagger: 0.75
+Critical:
+  Damage: 10
+  Unused: -22696
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0xFFFFFF
+  Unused3: 1
+DetectionSoundLevel: Loud

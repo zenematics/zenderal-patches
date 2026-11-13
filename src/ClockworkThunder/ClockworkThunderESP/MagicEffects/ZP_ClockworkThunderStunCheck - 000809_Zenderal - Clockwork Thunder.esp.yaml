@@ -1,0 +1,33 @@
+FormKey: 000809:Zenderal - Clockwork Thunder.esp
+EditorID: ZP_ClockworkThunderStunCheck
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ClockworkThunderStunScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StunSpell
+      Object: 000808:Zenderal - Clockwork Thunder.esp
+Name:
+  TargetLanguage: English
+  Value: Clockwork Thunder
+Flags:
+- Hostile
+- NoHitEvent
+- NoDuration
+- NoMagnitude
+- HideInUI
+- NoHitEffect
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

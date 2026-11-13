@@ -1,0 +1,9 @@
+FormKey: 000801:Zenderal - Clockwork Thunder.esp
+EditorID: 1stPersonZP_ClockworkThunder
+ObjectBounds:
+  First: -2, -44, -6
+  Second: 0, 77, 5
+Model:
+  File: Zenderal\ClockworkThunder\ClockworkThunder.nif
+MaxAngle: 90
+Unused: 0x000000

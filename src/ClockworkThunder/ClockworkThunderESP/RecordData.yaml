@@ -1,0 +1,26 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Clockwork Thunder.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Clockwork Thunder: a unique Starling rifle in rusted gold with a cog train and a cog-shaped trigger guard. Every shot that hits looses a weak chain lightning on the enemy. Lies on the broken altar in Old Askamahn's throne room. Built on Ordo Legionis' Nehrimese Flintlock Fucile. Requires Ordo Legionis (Muskets of the Enderal), DAR Rifles and Zenderal - Prophecy."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: OrdoLegionisMuskets.esp
+    FileSize: 0
+  - Master: DAR Rifles.esp
+    FileSize: 0
+  - Master: Zenderal - Prophecy.esp
+    FileSize: 0
+  INTV: 1

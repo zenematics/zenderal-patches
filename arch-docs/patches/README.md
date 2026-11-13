@@ -65,6 +65,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`SuraClaymoreFix`](SuraClaymoreFix.md) | `Zenderal - Sura Claymore Fix.esp` | none (overrides only) |
 | [`RaySensePriority`](RaySensePriority.md) | **no plugin** (OAR files only) | none |
 | [`ReversalShadow`](ReversalShadow.md) | `Zenderal - Reversal Shadow.esp` + generated meshes/texture/sound | `0x800–0x808` |
+| [`ClockworkThunder`](ClockworkThunder.md) | `Zenderal - Clockwork Thunder.esp` + 2 `.pex` + generated mesh/textures (in Patch Collection) | `0x800–0x80B` |
 | [`PerpetuumTheaterEVGATFix`](PerpetuumTheaterEVGATFix.md) | `Zenderal - Perpetuum Theater EVGAT Fix.esp` | none (overrides only) |
 | [`EppiRivervilleCobbleRemoval`](EppiRivervilleCobbleRemoval.md) | `Zenderal - EPPI Riverville Cobble Removal.esp` | none (overrides only) |
 | [`LastWatchTrapdoorFix`](LastWatchTrapdoorFix.md) | `Zenderal - Last Watch Trapdoor Fix.esp` | none (overrides only) |

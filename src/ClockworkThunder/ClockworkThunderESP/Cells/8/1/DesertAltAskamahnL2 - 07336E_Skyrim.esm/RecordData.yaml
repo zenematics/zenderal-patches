@@ -1,0 +1,48 @@
+FormKey: 07336E:Skyrim.esm
+EditorID: DesertAltAskamahnL2
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Old Askamahn, Throne Room
+Flags:
+- IsInteriorCell
+- HasWater
+- ShowSky
+Lighting:
+  AmbientColor: '#001F2C30'
+  DirectionalColor: '#00313D46'
+  FogNearColor: '#002B4431'
+  FogFar: 10000
+  DirectionalRotationZ: 90
+  FogClipDistance: 5000
+  FogPower: 0.9
+  AmbientColors:
+    DirectionalXPlus: '#00222C32'
+    DirectionalXMinus: '#001B2C2D'
+    DirectionalYPlus: '#001F2E30'
+    DirectionalYMinus: '#001F2930'
+    DirectionalZPlus: '#000E1415'
+    DirectionalZMinus: '#002F434A'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#002B4431'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - LightFadeDistances
+WaterHeight: 0
+Music: 09CFDD:Skyrim.esm
+ImageSpace: 0F1CB8:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000806:Zenderal - Clockwork Thunder.esp
+  Base: 000800:Zenderal - Clockwork Thunder.esp
+  Placement:
+    Position: 4340.4316, -5932.1636, 7450.6597
+    Rotation: 0, -1.5707963, 0

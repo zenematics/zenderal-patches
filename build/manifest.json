@@ -1866,6 +1866,28 @@
           "to": "Scripts/Source"
         }
       ]
+    },
+    {
+      "$comment": "Clockwork Thunder (curator 2026-11-13): a unique Starling rifle. WEAP 800 = Ordo Legionis' Nehrimese Flintlock Fucile (OL_Musket_Rifle 002F9B) verbatim with its own mesh (tools/01: polished-gold textures on Environment Map shaders (Rise's Complex Material recipe), a meshing cog train on the forestock in front of the lock, the trigger guard replaced by a thin cog ring; generated, not committed: ships in Patch Collection), Damage 28, the DAR Rifles bolt-action keyword, and weapon enchantment 802 whose script effect 803 (ZP_ClockworkThunderChainScript, compiled, committed) casts bolt 804 (Prophecy's chain lightning bolt at 15 damage, its explosion copied without the Chain flag: 80A/80B) starting FROM every enemy the shot hits (which takes only the ball), and bounces it up to 4 times to the nearest hostile enemy within 700 units (RemoteCast from the last one struck, blamed on the player). The bolt also carries 809, ZP_ClockworkThunderStunScript (compiled, committed): every actor it strikes that is below the player's level, not dead and not a teammate gets 808, 3 s of paralysis (807 = Enderal's Arcane Archer affinity paralysis 14CEBD as a Target Actor effect, its construct/restrained immunities kept). Placed (806) on the broken altar in Old Askamahn's throne room; owns that cell's header (07336E). Temper 805 only. Musket systems: ZenMusketHandling.ini lists the plugin, tools/03 adds it to the rifle's ADS/ramrod OAR configs. Masters Ordo, DAR Rifles, Zenderal - Prophecy. Ships inside Zenderal - Patch Collection.",
+      "name": "Zenderal - Clockwork Thunder",
+      "archiveName": "Zenderal - Clockwork Thunder",
+      "fomod": false,
+      "scripts": {
+        "from": "src/ClockworkThunder/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "plugins": [
+        {
+          "yamlSource": "src/ClockworkThunder/ClockworkThunderESP",
+          "dest": "Zenderal - Clockwork Thunder.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/ClockworkThunder/Scripts/source",
+          "to": "Scripts/Source"
+        }
+      ]
     }
   ]
 }

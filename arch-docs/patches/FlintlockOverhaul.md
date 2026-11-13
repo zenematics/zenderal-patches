@@ -160,6 +160,30 @@ Clips keep Havok's block header (`blockDuration` = (maxFramesPerBlock - 1) x fra
 latent issue [`LoopPistolAnims`](LoopPistolAnims.md) v12 found. Quick Reload Stack's `retime()` writes the same
 header since 2026-11-01, so the `havok_blocks()` call after it is now a no-op kept for safety.
 
+**Our own muskets** (2026-11-13): `tools/06` `EXTRA_MUSKETS` puts a musket defined in one of our plugins into an
+Ordo mesh's group when its mesh keeps that musket's barrel, sights and grip; `or_equipped` names it by its own
+plugin, and 09/10/11 follow. First user: [`ClockworkThunder`](ClockworkThunder.md) in `OL_Musket_Rifle`'s group (its
+`tools/03` patched the installed configs without rerunning this chain).
+
+**Left hand in the Fucile's stock** (2026-11-13, curator's screenshot with Clockwork Thunder, same clips as Ordo's
+Nehrimese Flintlock Fucile): DAR's hold grips a crossbow's thin stock, so on `ol_musket_rifle`'s deep forestock the
+left hand's knuckle joints sat 0.62 units inside the wood (measured per joint against the stock's cross-section).
+`tools/06` `ARM_OFFSET` moves both arms by (−0.25, 0, 5.0) units in the gun's frame (5 down) on every clip of
+that mesh while the gun stays put (`move_arms`: Spine2 translated, the Weapon bone put back; asserted to 0.001);
+the raises are built from the moved holds. A first try at 3.5 down (0.55 units clearance) showed no change in
+game, because **the hold that plays is the ramrod mod's**: `tools/10`'s `Ramrod 1P <mesh>` submods (priority
+432600+) outrank the ADS set and carry their own copies of its hold/aim clips (`SAFETY_ADS`) and shot clips that
+start on its hold. A `06 → 10` rerun picks the offset up by itself. Every left-hand joint is now ≥ 1.0 units
+outside the stock (reload 0.91); `hand_clearance` prints the value for every mesh on each run. Sights unchanged
+(front −0.99°, roll 0.01, nothing in the line of sight). The deployed clips were moved in place the same way:
+both ADS rifle submods in Patch Collection, and in `Zenderal - Musket Ramrod Reload` the `Ramrod 1P
+ol_musket_rifle` hold/aim copies plus its two shot clips, fading out over 0.30 → 0.80 s as they blend into the
+reload. The reload clips and the idle were left alone. Backups:
+`E:/Zenderal-backups/2026-11-13-clockwork-thunder/ads-rifle-before-arm-offset/` and
+`.../ramrod-1p-rifle-before-arm-offset/`. **Verified in game 2026-11-13** (first person, curator: "looks right"). Note: this script still checks for the retired
+MO2 mod `Zenderal - Musket Aim Fix` (its clips now live in Patch Collection), so a full rerun needs that path fixed
+first.
+
 **Rerun** after DAR Rifles, Ordo Legionis, PG Patcher Output or Quick Reload Stack changes (needs numpy).
 Backup of v4: `E:/Zenderal-backups/2026-11-01-musket-aim-fix-v4/`. **In game (2026-11-01, first build):** upright
 and lined up, "almost perfect", but the dot covered the muzzle. Second test: the drop works (muzzle just under

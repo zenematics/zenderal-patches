@@ -136,7 +136,9 @@ loaded its gun. 1.4.1's DLL and ini: `E:/Zenderal-backups/2026-11-12-musket-hand
 ## Tuning
 
 All in `ZenMusketHandling.ini`: `LockAfterShotMs`, `MaxLockMs`, `BlockedEvents`, `SpeedMultPenalty` (0 = off),
-`Plugins`, `Log`. With `Log=1`, `My Games\Skyrim Special Edition\SKSE\ZenMusketHandling.log` records
+`Plugins`, `Log`. Since 2026-11-13 `Plugins` also lists `Zenderal - Clockwork Thunder.esp`
+([`ClockworkThunder`](ClockworkThunder.md), a musket defined in its own plugin); any new musket WEAP of ours needs
+its plugin added there (repo `data/` copy and Patch Collection's live one). With `Log=1`, `My Games\Skyrim Special Edition\SKSE\ZenMusketHandling.log` records
 each musket shot and each dropped dodge with its delay after the shot — use it to tune the lock.
 
 ## Status

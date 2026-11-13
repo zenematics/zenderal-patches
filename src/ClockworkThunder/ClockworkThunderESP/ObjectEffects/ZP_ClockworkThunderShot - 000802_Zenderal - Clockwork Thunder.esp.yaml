@@ -1,0 +1,15 @@
+FormKey: 000802:Zenderal - Clockwork Thunder.esp
+EditorID: ZP_ClockworkThunderShot
+Name:
+  TargetLanguage: English
+  Value: Chain Lightning
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 3000
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 000803:Zenderal - Clockwork Thunder.esp
+  Data: {}
