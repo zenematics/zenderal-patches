@@ -1,0 +1,26 @@
+FormKey: 000827:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseFireNovaDamage
+Name:
+  TargetLanguage: English
+  Value: Fire Nova
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 05BD16:Skyrim.esm
+- 001F93:Enderal SE - Gameplay Overhaul.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+ResistValue: ResistFire
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

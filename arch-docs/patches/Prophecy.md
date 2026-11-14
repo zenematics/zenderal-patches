@@ -21,6 +21,18 @@ Kittytails / Shatterveil spells, the shouts), then adds the count to `ZP_Prophec
 (`ZP_ProphecyPointsEarned`) is untouched, so points + learned stays what the save was given. Gifts (the turret) stay,
 and `giftDone` keeps them from being handed out again; taught words of power stay taught. Unverified in game.
 
+## Stagger lockout for bosses (2026-11-13)
+
+For [`EnemyThreat`](EnemyThreat.md) (bosses can't be stun-locked): keyword **`ZP_StaggerLockout 0xB4C`**
+(`STAGGER_LOCKOUT_KW`, appended last; next free ID **`0xB4D`**), and `guard_staggers()` puts
+`HasMagicEffectKeyword ZP_StaggerLockout == 0` first in the conditions of every Stagger-archetype effect this plugin
+writes: the Utility Droid stagger `0x942` (also Seismic Stomp's 1 s chain and Point Blank), Stunning Blows `0x860`,
+Lockjaw `0x83E`, the 4 Pinning Shot effects `0x8C2–0x8C5`, Holy Templar's `0xA27`/`0xA29`/`0xA62`. Enemy Threat's
+bosses carry the keyword for 5 s after a stagger, so these don't land on them. `STAGGER_MGEFS = 10` is asserted: a new
+Stagger effect fails the build until it is checked and the count raised. Enemy Threat masters this plugin (the keyword
+lives here for that reason). Regenerated with no other change (live Patch Collection copy serialized and diffed: only
+the keyword and the 10 conditions differ). Unverified in game.
+
 ## Postmortem: points re-awarded on every opening (2026-10-24)
 
 Report: Prophecy points kept going up each time the menu opened, without the levels for them. Papyrus log
@@ -633,6 +645,92 @@ the JSON has no `explosions`, so no fist bursts:
   do not count.
 
 Unverified in game.
+
+## Centurion Armor: Gadgets' second capstone (curator, 2026-11-13)
+
+**The ask:** Ashihito Power Armor's (Skyrim SE Nexus 50659, by ashihito; v2.0 + its Centurion Armor Skeleton Fix,
+both in MO2 downloads) boardable Steam Centurion mech as a Gadgets power: "summon the armor to you and can use it as a
+summon companion OR get in and pilot it". Only that one machine, nothing else from the mod.
+
+**Permissions (read on the Nexus page 2026-11-13):** assets may be used without asking as long as ashihito is credited;
+modifications allowed with credit; no uploads elsewhere, no paid or donation-point use. The "other users' assets" the
+page names are the humanoid suit's body/hair, not the Centurion. **Credit ashihito in the list's credits.** The mod
+reads "Alert sound by On-Jin": the beep we ship is that file.
+
+**Why not the mod's plugin:** triage (porter subagent, read-only) - HEDR 1.7, no DLL, but it masters all three DLC
+stubs, overrides Tamriel `00003C` (= `MQP01Home` in Enderal) and four Markarth exterior cells, ships Skyrim's NAVI
+`012FB4` (the Forgotten Temple floor-tile trap) and its own two cells with the scripts' persistent refs. Its Centurion
+closure touches one DLC form (`aaaAbNOfalldamage 006F57` -> Dragonborn `01E801`, null here). So the 40 Centurion
+records are copied into Prophecy under our IDs (`write_centurion`, `APA_MAP`: the mod's record -> ours), every string
+re-authored in English, the no-fall-damage effect dropped, and the mod's three cell-bound scripts rewritten. The mod's
+plugin never loads; `reference/mods/AshihitoPowerArmor/` (serialized) and `reference/mods/_raw/AshihitoPowerArmor/`
+(the extracted archive, skeleton fix applied) are reference-only.
+
+**How it works.** Node `gad7` off Overclock, a capstone via `EXTRA_CAPSTONES` (Overclock stays the woven one:
+`FAITH_CAPSTONE['Gadgets']`), allocated last (`GADGETS_LATE_NODES_2`): perk `0xB4D`, records `0xB4E-0xB75`.
+- **Power** `ZP_Centurion_Power` (lesser power, granted by the menu; `ZP_CenturionPowerEffect`): while piloting ->
+  climb out (dispels the ride); a living Centurion in `ZP_Centurion_List` -> recalled to the player's side; otherwise a
+  new companion is placed 200 units ahead, a teammate (`SetPlayerTeammate`), one at a time.
+- **Companion** `ZP_Centurion_Companion`: Enderal's Starling Centurion record (EGO's `100CD1`: level 35, +390
+  Health, combat style `09035B`, steam breath ability, Centurion sounds) on **our armor race** `ZP_Centurion_Race`
+  (the mod's: `CenturionSkeleton.nif` on the vanilla `SteamProject.hkx` graph, `ArmorRace` = DwarvenCenturionRace,
+  its HeadData removed - Nord head parts that are placed refs/absent in Enderal; the player enters by SetRace, never
+  the race menu), skin `ZP_Centurion_Skin` (the mod's steam suit, AR 600). Player faction, SureAI's
+  `_DefaultFollowPlayer`, Protected. Its script `ZP_CenturionActor`: **activate** = board (the mod's furniture flow:
+  sheathe, pull-chain idle, equip sound, fade; worn gear remembered in `ZP_Centurion_Gear`; the companion disables
+  itself; the ride cast on the player); **sneak-activate** = dismiss; refused while the cooldown effect runs.
+- **Ride** `ZP_Centurion_RideOn` (`ZP_CenturionRideOn`, duration = global `ZP_Centurion_Duration` 180 s): SetRace
+  to the armor race, suit equipped, the control ability added; beep + message at 90%; on finish (time, the power,
+  or the Favorites menu's *Climb out* `ZP_Centurion_Dismount`): race and gear back, the companion re-enabled beside
+  the player, cooldown `ZP_Centurion_CooldownSeconds` 300 s cast.
+- **Controls** `ZP_CenturionControl` = the mod's key script, kept: a creature race has no attack input, so attack
+  keys send the Centurion graph's attack events by movement direction; Activate held = power-attack mode (the
+  Centurion smoke FX, perk `ZP_Centurion_PowerAttackPerk` (+100 unarmed), `ZP_Centurion_PowerAttackSpell` 50 in a
+  20-ft burst per blow, 140 Stamina a swing); Shout held = the chosen breath (steam breath `090355`, Centurion
+  Flames/Sparks/Frost, picked with Favorites -> `ZP_Centurion_SpellMenu`); Tween Menu held = flight (an invisible
+  `ZP_Centurion_MovingFloor` translated up and forward, 5 Magicka per half second, the jet VFX). Menus, activation
+  and dialogue are off for the ride. Only the player is controlled (the race ActorEffect carries only the stat
+  ability `ZP_Centurion_Ability`: +600 Health, +200 Stamina, 25% magic / 100% frost + poison resist, waterbreathing).
+- **Assets** (`copy_centurion_assets`, from `_raw`): `CenturionArmor.nif`, `CenturionSkeleton.nif` (the fix's),
+  `CenturionFire.nif`, `MovingFloor.nif`, `glowball.dds`, `beep.wav`; everything else the meshes name is vanilla and in
+  Enderal's archives. Deployed into Patch Collection with the plugin and the five scripts.
+- **Card art:** `Interface/ProphecyPics/ZP_Prophecy_CenturionArmor.dds` is not made yet (the curator's art).
+
+**First test (curator, 2026-11-13 17:33; recording):** summon and boarding worked; the view was Improved Camera's
+first person inside the mech (camera on the Centurion's head node, then the torso), and no way out was found. Camera:
+fixed in [`ImprovedCameraSheatheFix`](ImprovedCameraSheatheFix.md) 1.9.0 (a player race without `ActorTypeNPC` rides
+in a vanilla third person, SmoothCam held - it anchors on `NPC Spine1`, which the Centurion skeleton lacks, while the
+vanilla camera uses the skeleton's `Camera3rd`); `ZP_CenturionActor` no longer calls `Game.ForceThirdPerson()` (IC
+made it its head camera). Exits: the Favorites menu's *Climb out* only picked the dismount spell as the breath to cast
+with Shout, and the power cannot be cast with fighting off - now the menu entry dispels the ride at once and the
+**Sneak key climbs out** (`ClimbOut()`, `RideSpell` on the control effect); two notifications list the controls at
+the start of a ride. The jet's `TranslateTo() on a None object` in the log is the one update already queued when
+Jetfinish deleted the floor (guarded now). Unverified in game.
+
+**Risks, all unverified in game:** `SetRace` on the player under this list's DLLs (TDM, Precision, Improved Camera,
+High Poly Player Head acts only in the race menu); Enderal's playable-race abilities leave and return with the race
+swap; a death while piloting (the ride's finish never runs: reload); the companion's `IdlePullChain` is the player's
+idle (works in the mod). The v3 layout places the star above Overclock (`gad7: (0, 5.2)`).
+
+## Martial Arts balance pass (curator, 2026-11-12: "I think Martial Arts might be overpowered ... do all of it")
+
+The tree stacked five damage sources, and one was far ahead: **Hissing Dragon's cone was cast on every swing, hit
+or miss, with no cooldown** - Ordinator's `ORD_RisingTide_Script` on the Iron Fist ability listens for the
+`weaponSwing`/`weaponLeftSwing` animation events and casts the FormList's chosen spell (50 damage, Sun 80, in a cone)
+each time. With fists swinging twice a second that was ~100 elemental damage a second before a punch connected; the
+list's best 1H sword does 45 a swing.
+- **Hissing Dragon on landed hits only:** the script is dropped from `ZP_ORD_Lia_IronFist_Effect_Ab` (`COPY_EDITS`,
+  the ability is now inert) and `ZenProphecyRage.dll` 1.7.0 casts the FormList `00087D`'s first spell at the victim
+  from Invoker's hit path (unarmed source, both hands weapon-free, one cast per swing; never while sneaking;
+  `hissingDragon` in the JSON). Invoker's count is separate and unchanged in shape.
+- **Hissing Dragon damage halved:** fire/frost/shock 50 → 25, Sun 80/40 → 40/20 (`COPY_EDITS`); poison and
+  disease untouched. Talent text now says "every unarmed hit you land".
+- **Iron Fist 15% → 10% of current Stamina** (`VALUE_EDITS`; Ordinator's own is 5%).
+- **Invoker every 5th → every 7th punch** (`DRAGONS_BREATH['Every']`); its 60 damage stays.
+- **Flow State: the slow time stays at 8 s; the nova + chain lightning move to 12 s** (`FLOW_NOVA['Cooldown']`).
+  The script reads a new property `NovaSpacing` (a running effect on an older save keeps its saved `NovaEvery`, and
+  reads a new property as 0, so the script falls back to 12 when it is 0).
+Stunning Blows and Breaking Waves untouched. Unverified in game.
 
 ## Sorcery balance pass + chain-lightning effigies (curator, 2026-10-29)
 
@@ -1793,3 +1891,31 @@ started with in a save. Both play before `Debug.MessageBox`, because the box pau
 ### 2026-10-08 prototype
 
 **PROTOTYPE — not an ESL yet, on purpose.** A separate perk tree for Ordinator-derived perks (see [`arch-docs/ordinator/`](../ordinator/)), opened by the **Prophecy** power and drawn by **Custom Skills Framework** on the engine's vanilla StatsMenu. `800` `ZP_ProphecyLevel`, `801` `ZP_ProphecyRatio`, `802` `ZP_ProphecyPoints` (the tree's own currency; CSF spends it), `803` `ZP_ProphecyShowMenu`, `804` test perk *First Omen*, `805` power `ZP_ProphecyPower`, `806` its script MGEF, `807` StartGameEnabled+RunOnce quest that `AddSpell`s the power. The power just sets `ZP_ProphecyShowMenu` to 1 — CSF polls that global every frame and opens the tree, so no CSF Papyrus native is needed and it works with either CSF build. Config is the CSF v2 / meh321 INI format (`Data/NetScriptFramework/Plugins/CustomSkill.<id>.config.txt`). **Needs a 1.5.97 CSF**: current Exit-9B CSF (3.x) is AE-only (address IDs like `410201`); the candidates are meh321's original NetScriptFramework CSF (NSF is already in the list) or CSF v2.0.2's SE build from Nexus 41780 old files. CSF v2 renders through the beast-skill (vampire) path and defaults to `DLC01/Interface/INTVampirePerkSkydome.nif`, which Enderal ships in `Skyrim - Meshes0.bsa`. Kept non-ESL until CSF is proven to resolve FormIDs in a light plugin (one variable per test). Built 2026-10-08, round-trips identically; **not run in game**.
+
+## 2026-11-14: Ghostblade's apparition vs Arcane Arsenal (evLRise); Bloodletter's direction (GreaseLord)
+
+**Ghostblade (evLRise, Discord):** "After learning the Arcane Arsenal trait from Arcane Archer, the apparition no
+longer teleports to enemies when you sneak attack." Enderal's Ghostblade affinity (`_00E_FS_Affinity_AbGhostblade
+02A045`, Ambush effect `02A043`) hands the player the listener perk `02A042`, whose only entry is
+`ApplyCombatHitSpell` -> `02A046` (player sneaking, target not detecting the player); its effect `02A044` runs
+SureAI's `_00E_FS_Affinity_Ghostblade_OnAttack` (moves the apparition onto the target, fake attack, 80 damage).
+The engine applies ONE combat-hit spell per hit, and Arcane Arsenal's perk (every bow hit) - Deadeye's too (every
+musket hit) - takes that slot with Prophecy's shared hit spell `000910`. Fix: `write_gunhit` appends `02A044`
+itself to that spell (`ghostblade_hit`), gated on the player having `02A043`, the player sneaking and `GetDetected
+player == 0` on the target, so the teleport runs whichever perk wins. **Prophecy now masters `Enderal - Forgotten
+Stories.esm`** (`RecordData.yaml`; it referenced only Skyrim.esm forms of Enderal's until now). Unverified in game.
+
+**Bloodletter (GreaseLord, Discord):** "the node in the rage tree will sometimes not proc its health steal effect",
+video promised. What the code says: Bloodletter and Soulrender fire on the `side` trigger, which the Rage DLL read
+from the movement input at `attackPowerStartInPlace` (forward if y >= |x|, back if -y >= |x|, else side), while For
+Honor Reforged picks its Left / Right / Backward power attacks by Directional Movement Keys' graph int
+`DirecionalCycleMoveset` (`DirectionalMovement.dll`; 8-way: 1 forward, 3 right, 5 back, 7 left, even values the
+diagonals, on which FHR plays its *normal* power attack). The curator's own log (00:49) shows diagonal starts
+`(-1, 1)` and `(1, 1)` read as forward, and a right-stick just off the axis would read side while FHR swung forward:
+the swing on screen and the action fired disagreed. **Rage DLL 1.7.1:** where DMK's variable is set, 3/7 = side and
+5 = back; forward / standing from the input as before (FHR's normal attack is the same clip for both); without the
+variable the old rule. The log line now carries `DMK cycle N`. Second suspect, kept for the video: the pack's
+`_CDW_DarkWarriorSlash` effect (`000805`, the Absorb Health 40) has conditions `IsHostileToActor == 1` and no
+`_CDW_DarkWarriorSlashAimingFixMGEF 0008AF` on the target, while the +40 Health (`_CDW_FakeAbsorbRestoreHealth
+00158A`, Self) and the VFX have none - a target not yet hostile would show the flash and the heal with no drain.
+Deployed into Patch Collection. Unverified in game.

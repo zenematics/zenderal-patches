@@ -53,6 +53,10 @@ clip generators read `MODE_SINGLE_PLAY`.
 ## Known gaps / open
 
 - Pandora applies this `Replace` form: the 2026-11-12 10:37 output reads `MODE_SINGLE_PLAY` on all six. **Verified in game 2026-11-12** (curator: "seemed to be fixed"; trace: five re-equips while drawn, then every click attacked).
+- **Lock-up came back on 2026-11-13 by another route:** equipping from the inventory with weapons out. The
+  first-person draw starts inside the menu and loses its events there. It is fixed in
+  [`BlockReleaseFix`](BlockReleaseFix.md) 1.1.0, which sends the equip again after the menu closes. This patch is
+  still needed for re-equips outside menus.
 - The two earlier fixes this day ([`StancesSwitchBlockFix`](StancesSwitchBlockFix.md) and the `FFPD/dw attack`
   power-attack flag in [`FHRFirstPerson`](FHRFirstPerson.md)) addressed real faults seen in the logs, but not this one.
 

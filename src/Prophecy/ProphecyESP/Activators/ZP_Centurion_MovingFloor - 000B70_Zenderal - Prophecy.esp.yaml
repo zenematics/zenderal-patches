@@ -1,0 +1,12 @@
+FormKey: 000B70:Zenderal - Prophecy.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: ZP_Centurion_MovingFloor
+SkyrimMajorRecordFlags:
+- 0x4000000
+Model:
+  File: Magic\AshihitoPArace\MovingFloor.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

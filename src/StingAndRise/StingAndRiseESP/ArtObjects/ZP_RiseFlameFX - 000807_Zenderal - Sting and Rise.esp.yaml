@@ -1,0 +1,7 @@
+FormKey: 000807:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseFlameFX
+Version2: 1
+Model:
+  File: Zenderal\StingAndRise\RiseEnchFX.nif
+Type:
+- MagicHitEffect

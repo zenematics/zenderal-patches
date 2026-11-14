@@ -1,0 +1,22 @@
+FormKey: 00080A:Zenderal - Enemy Threat.esp
+EditorID: ZET_RoarStaggerEffect
+Name:
+  TargetLanguage: English
+  Value: Boss Roar
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- HideInUI
+- PowerAffectsMagnitude
+MagicSkill: Destruction
+TaperWeight: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

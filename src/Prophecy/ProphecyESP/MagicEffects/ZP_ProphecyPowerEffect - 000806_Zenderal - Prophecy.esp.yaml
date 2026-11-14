@@ -91,6 +91,8 @@ VirtualMachineAdapter:
       - Name: ''
         Object: 00081E:Zenderal - Prophecy.esp
       - Name: ''
+        Object: 000B4D:Zenderal - Prophecy.esp
+      - Name: ''
         Object: 000A6E:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000A6F:Zenderal - Prophecy.esp
@@ -343,6 +345,7 @@ VirtualMachineAdapter:
       - "You gain 15% resistance to lightning."
       - "Your maximum Stamina is increased by 25."
       - "Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%."
+      - "Grants the \"Centurion Armor\" power: call a Dwemer war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow, hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it."
       - "Darkness gathers in you while you stand in shadow, up to 10: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the \"Gather Shadows\" spell (3 Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness."
       - "Your Sneak skill is increased by 10."
       - "Your maximum Mana is increased by 25."
@@ -356,18 +359,18 @@ VirtualMachineAdapter:
       - "Your Psionics skill is increased by 10."
       - "Your Sneak skill is increased by 10."
       - "Grants the \"Nightfall\" power (a full Darkness meter): for 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once."
-      - "Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty."
+      - "Your unarmed attacks deal extra damage equal to 10% of your current Stamina. Requires both hands to be empty."
       - "Your maximum Stamina is increased by 25."
       - "Your unarmed attacks deal 5 more damage."
-      - "Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking."
+      - "Choose a damage type (fire, frost, shock, poison, disease or sun): every unarmed hit you land unleashes a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking."
       - "Your Stamina regenerates 25 percent faster."
-      - "Every 5th unarmed hit unleashes fire, frost or lightning on the enemy, at random: a fireball explosion, a freeze that holds it for 4 seconds, or chain lightning that leaps to nearby enemies. Each deals 60 damage."
+      - "Every 7th unarmed hit unleashes fire, frost or lightning on the enemy, at random: a fireball explosion, a freeze that holds it for 4 seconds, or chain lightning that leaps to nearby enemies. Each deals 60 damage."
       - "Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies."
       - "Your armor rating is increased by 40."
       - "Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty."
       - "Your maximum Health is increased by 25."
       - "You gain 10% resistance to magic."
-      - "Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 8 seconds)."
+      - "Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 12 seconds)."
       - "Grants the \"Seismic Stomp\" talent (150 seconds cooldown): stomp the ground to send out a shockwave that makes every enemy within 19 feet bleed for 50 damage over 5 seconds, while time briefly slows. Enemies of your level or lower are hurled into the air; stronger and unique enemies are staggered for 3 seconds instead."
       - "Your maximum Health is increased by 25."
       - "Your Blocking skill is increased by 10."
@@ -491,6 +494,7 @@ VirtualMachineAdapter:
       - 'ProphecyPics/ZP_Prophecy_InsulatedGloves.dds'
       - 'ProphecyPics/ZP_Prophecy_SteadyHands.dds'
       - 'ProphecyPics/ZP_Prophecy_Overclock.dds'
+      - 'ProphecyPics/ZP_Prophecy_CenturionArmor.dds'
       - 'ProphecyPics/ZP_Prophecy_GatherShadows.dds'
       - 'ProphecyPics/ZP_Prophecy_SilentStep.dds'
       - 'ProphecyPics/ZP_Prophecy_DarkReservoir.dds'
@@ -639,111 +643,112 @@ VirtualMachineAdapter:
       - 36
       - 36
       - 38
+      - 39
       - -1
-      - 40
-      - 40
       - 41
-      - 43
       - 41
-      - 45
-      - 41
-      - 47
-      - 43
-      - 49
-      - 49
-      - 51
+      - 42
+      - 44
+      - 42
+      - 46
+      - 42
+      - 48
+      - 44
+      - 50
+      - 50
+      - 52
       - -1
-      - 53
-      - 53
-      - 54
-      - 56
       - 54
       - 54
-      - 59
-      - 56
-      - 61
-      - 61
-      - 63
+      - 55
+      - 57
+      - 55
+      - 55
+      - 60
+      - 57
+      - 62
+      - 62
+      - 64
       - -1
-      - 65
-      - 65
       - 66
-      - 68
       - 66
-      - 70
-      - 68
-      - 72
-      - 72
-      - 74
+      - 67
+      - 69
+      - 67
+      - 71
+      - 69
+      - 73
+      - 73
+      - 75
       - -1
-      - 76
-      - 76
       - 77
-      - 79
-      - 79
-      - 79
       - 77
-      - 83
-      - 83
-      - 85
-      - 83
-      - 81
-      - 88
+      - 78
+      - 80
+      - 80
+      - 80
+      - 78
+      - 84
+      - 84
+      - 86
+      - 84
+      - 82
       - 89
+      - 90
       - -1
-      - 91
-      - 91
-      - 92
-      - 94
-      - 94
-      - 94
       - 92
       - 92
-      - 99
-      - 99
-      - 101
-      - 101
-      - 101
-      - 97
-      - 105
+      - 93
+      - 95
+      - 95
+      - 95
+      - 93
+      - 93
+      - 100
+      - 100
+      - 102
+      - 102
+      - 102
+      - 98
+      - 106
       - -1
-      - 107
-      - 107
       - 108
-      - 110
       - 108
-      - 112
-      - 110
-      - 114
-      - 114
-      - 116
+      - 109
+      - 111
+      - 109
+      - 113
+      - 111
+      - 115
+      - 115
+      - 117
       - -1
-      - 118
-      - 118
       - 119
-      - 121
       - 119
-      - 123
-      - 123
-      - 125
-      - 125
-      - 127
+      - 120
+      - 122
+      - 120
+      - 124
+      - 124
+      - 126
+      - 126
+      - 128
       - -1
-      - 129
-      - 129
       - 130
-      - 132
-      - 132
-      - 134
-      - 134
-      - 132
       - 130
-      - 138
-      - 138
-      - 138
-      - 134
-      - 142
+      - 131
+      - 133
+      - 133
+      - 135
+      - 135
+      - 133
+      - 131
+      - 139
+      - 139
+      - 139
+      - 135
       - 143
+      - 144
     - MutagenObjectType: ScriptIntListProperty
       Name: ParentB
       Data:
@@ -796,8 +801,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 45
       - -1
+      - 46
       - -1
       - -1
       - -1
@@ -808,8 +813,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 59
       - -1
+      - 60
       - -1
       - -1
       - -1
@@ -819,8 +824,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 70
       - -1
+      - 71
       - -1
       - -1
       - -1
@@ -835,8 +840,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 85
       - -1
+      - 86
       - -1
       - -1
       - -1
@@ -852,8 +857,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 104
       - -1
+      - 105
       - -1
       - -1
       - -1
@@ -861,8 +866,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 112
       - -1
+      - 113
       - -1
       - -1
       - -1
@@ -889,7 +894,8 @@ VirtualMachineAdapter:
       - -1
       - -1
       - -1
-      - 140
+      - -1
+      - 141
       - -1
       - -1
     - MutagenObjectType: ScriptIntListProperty
@@ -899,38 +905,39 @@ VirtualMachineAdapter:
       - 31
       - 34
       - 36
-      - 52
-      - 75
-      - 94
-      - 107
-      - 117
-      - 123
-      - 121
+      - 40
+      - 53
+      - 76
+      - 95
+      - 108
+      - 118
+      - 124
+      - 122
       - 0
       - 8
-      - 40
-      - 43
-      - 45
+      - 41
+      - 44
+      - 46
+      - 50
       - 49
-      - 48
-      - 98
-      - 97
       - 99
-      - 101
-      - 104
-      - 91
-      - 134
-      - 136
+      - 98
+      - 100
+      - 102
+      - 105
+      - 92
+      - 135
       - 137
       - 138
-      - 129
-      - 141
+      - 139
+      - 130
       - 142
-      - 112
-      - 144
-      - 65
-      - 106
-      - 128
+      - 143
+      - 113
+      - 145
+      - 66
+      - 107
+      - 129
       - 23
     - MutagenObjectType: ScriptObjectListProperty
       Name: PowerSpell
@@ -943,6 +950,8 @@ VirtualMachineAdapter:
         Object: 000944:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000882:Zenderal - Prophecy.esp
+      - Name: ''
+        Object: 000B54:Zenderal - Prophecy.esp
       - Name: ''
         Object: 000A7F:Zenderal - Prophecy.esp
       - Name: ''
@@ -1015,15 +1024,15 @@ VirtualMachineAdapter:
       - 0
       - 11
       - 28
-      - 40
-      - 53
-      - 65
-      - 76
-      - 91
-      - 107
-      - 118
-      - 129
-      - 145
+      - 41
+      - 54
+      - 66
+      - 77
+      - 92
+      - 108
+      - 119
+      - 130
+      - 146
     - MutagenObjectType: ScriptIntListProperty
       Name: GiftPerk
       Data:
@@ -1075,6 +1084,7 @@ VirtualMachineAdapter:
       - 0
       - 0
       - 0
+      - 30
       - 30
       - 0
       - 0

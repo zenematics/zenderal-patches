@@ -1,0 +1,27 @@
+FormKey: 000806:Zenderal - Perk Overhaul.esp
+EditorID: ZEN_PO_HighDexterityWardancerME
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZEN_PO_HighDexterityWardancerSC
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: LockSeconds
+      Data: 6
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ZEN_PO_HighDexterityStruck
+      Object: 000804:Zenderal - Perk Overhaul.esp
+Name:
+  TargetLanguage: English
+  Value: High Dexterity
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -14,9 +14,18 @@
 // tapped again. This plugin tracks the block keys itself (DWP's ParryKey/ParryKey2 plus the vanilla
 // Left/Right Attack/Block controls on every device) and, once none has been held for GraceMs, ends
 // any player block that is still on - the same wantBlocking = 0 + blockStop DWP would have sent.
+//
+// 1.1.0, menu equips in first person: a weapon equipped from the inventory while weapons are drawn sends
+// WeapOut{Right,Left}ReplaceForceEquip / WeapEquip into both graphs while the game is paused. The third-person
+// graph runs in the menu (the inventory shows it) and its events arrive; the first-person graph's draw also starts
+// there, but its IuEquip / BeginWeaponDraw / weaponDraw are lost (ZenParryTrace 1.5.0, 2026-11-13: two lock-ups,
+// 1P sent only the draw's end after the menu closed, every attack refused until a camera switch). When the game
+// sends the equip event again after the menu closes, the draw restarts live and works; it does not always. So once
+// the game runs again, in first person with a weapon out, an equip event the menu swallowed is sent again unless
+// the game already did.
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 0, 2, 0 },
+	.Version = REL::Version{ 1, 1, 0, 0 },
 	.Name = "ZenBlockReleaseFix"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -42,6 +51,25 @@ namespace
 	std::vector<std::uint64_t> g_held;
 	std::uint64_t              g_lastReleaseMs{ 0 };
 	std::uint64_t              g_lastFixMs{ 0 };
+
+	// 1.1.0 menu equip redraw.
+	bool        g_redrawEnabled{ true };
+	std::string g_pendingEquip;          // equip event the game sent while paused, not yet seen again live
+	int         g_framesSinceUnpause{ 0 };
+	bool        g_resending{ false };
+	constexpr int kRedrawDelayFrames = 2;  // give the game's own resend (sent as the menu closes) a chance first
+
+	bool IsEquipEvent(std::string_view a_name)
+	{
+		return a_name == "WeapOutRightReplaceForceEquip"sv || a_name == "WeapOutLeftReplaceForceEquip"sv ||
+		       a_name == "WeapEquip"sv || a_name == "WeapSoloEquip"sv || a_name == "WeapLeftEquip"sv;
+	}
+
+	bool GamePaused()
+	{
+		auto* ui = RE::UI::GetSingleton();
+		return ui && ui->GameIsPaused();
+	}
 
 	std::uint64_t NowMs() { return ::GetTickCount64(); }
 
@@ -168,6 +196,58 @@ namespace
 		}
 	}
 
+	void CheckMenuEquip(RE::PlayerCharacter* a_player)
+	{
+		if (g_pendingEquip.empty()) {
+			return;
+		}
+		if (++g_framesSinceUnpause < kRedrawDelayFrames) {
+			return;
+		}
+		const std::string eventName = std::move(g_pendingEquip);
+		g_pendingEquip.clear();
+
+		const auto* camera = RE::PlayerCamera::GetSingleton();
+		auto*       state = a_player->AsActorState();
+		if (!camera || !camera->IsInFirstPerson() || !state) {
+			return;
+		}
+		const auto weaponState = state->GetWeaponState();
+		if (weaponState != RE::WEAPON_STATE::kDrawn && weaponState != RE::WEAPON_STATE::kDrawing &&
+			weaponState != RE::WEAPON_STATE::kWantToDraw) {
+			return;
+		}
+		g_resending = true;
+		const bool accepted = a_player->NotifyAnimationGraph(RE::BSFixedString{ eventName });
+		g_resending = false;
+		if (g_log) {
+			SKSE::log::info("Menu equip: sent {} again after the menu closed ({}; weaponState={})", eventName,
+				accepted ? "accepted" : "NOT accepted", static_cast<std::uint32_t>(weaponState));
+		}
+	}
+
+	// IAnimationGraphManagerHolder::NotifyAnimationGraph on the player (vtable [3], slot 1).
+	struct PlayerNotifyGraph
+	{
+		static bool thunk(RE::IAnimationGraphManagerHolder* a_this, const RE::BSFixedString& a_eventName)
+		{
+			const bool result = func(a_this, a_eventName);
+			if (g_redrawEnabled && !g_resending && a_eventName.c_str() && IsEquipEvent(a_eventName.c_str())) {
+				if (GamePaused()) {
+					// Keep a right-hand replace if there is one: the game's own resend is that event.
+					if (g_pendingEquip.empty() || g_pendingEquip != "WeapOutRightReplaceForceEquip"sv) {
+						g_pendingEquip = a_eventName.c_str();
+					}
+					g_framesSinceUnpause = 0;
+				} else {
+					g_pendingEquip.clear();  // sent live: the first-person draw gets its events
+				}
+			}
+			return result;
+		}
+		static inline REL::Relocation<decltype(thunk)> func;
+	};
+
 	// Actor::Update (vfunc 0xAD) on the player's vtable: once per frame while the game runs.
 	struct PlayerUpdate
 	{
@@ -175,6 +255,9 @@ namespace
 		{
 			func(a_this, a_delta);
 			CheckStuckBlock(a_this);
+			if (g_redrawEnabled && !GamePaused()) {
+				CheckMenuEquip(a_this);
+			}
 		}
 		static inline REL::Relocation<decltype(thunk)> func;
 	};
@@ -231,6 +314,8 @@ namespace
 	{
 		g_graceMs = ReadIniInt(kIniPath, "General"sv, "GraceMs"sv, 200);
 		g_log = ReadIniInt(kIniPath, "General"sv, "Log"sv, 1) != 0;
+		g_redrawEnabled = ReadIniInt(kIniPath, "MenuEquip"sv, "Enabled"sv, 1) != 0;
+		SKSE::log::info("MenuEquip Enabled={}", g_redrawEnabled);
 		g_dwpKeys[0] = ReadIniInt(kDwpIniPath, "DualWieldParrying"sv, "ParryKey"sv, kNoKey);
 		g_dwpKeys[1] = ReadIniInt(kDwpIniPath, "DualWieldParrying"sv, "ParryKey2"sv, kNoKey);
 		SKSE::log::info("GraceMs={} Log={} DWP ParryKey={} ParryKey2={}", g_graceMs, g_log, g_dwpKeys[0], g_dwpKeys[1]);
@@ -256,6 +341,7 @@ namespace
 		case SKSE::MessagingInterface::kNewGame:
 			g_held.clear();
 			g_lastReleaseMs = NowMs();
+			g_pendingEquip.clear();
 			break;
 		default:
 			break;
@@ -266,12 +352,15 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenBlockReleaseFix 1.0.2 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenBlockReleaseFix 1.1.0 loading, runtime {}", REL::Module::get().version().string());
 	LoadSettings();
 
 	REL::Relocation<std::uintptr_t> vtbl{ RE::VTABLE_PlayerCharacter[0] };
 	PlayerUpdate::func = vtbl.write_vfunc(0xAD, PlayerUpdate::thunk);
 	SKSE::log::info("PlayerCharacter::Update hooked");
+	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
+	PlayerNotifyGraph::func = graphVtbl.write_vfunc(0x1, PlayerNotifyGraph::thunk);
+	SKSE::log::info("PlayerCharacter NotifyAnimationGraph hooked");
 
 	SKSE::GetMessagingInterface()->RegisterListener(MessageHandler);
 	return true;

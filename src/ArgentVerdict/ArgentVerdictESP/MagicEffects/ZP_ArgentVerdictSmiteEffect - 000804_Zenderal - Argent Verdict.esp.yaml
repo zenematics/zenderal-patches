@@ -1,0 +1,28 @@
+FormKey: 000804:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictSmiteEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_HolyPlaceExplosion
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ExplosionRef
+      Object: 000A54:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: Smite
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Power attacks have a 25% chance to call down a pillar of holy light on the target, 40 damage, while beams of light strike the enemies around it for 10 each. Undead take double damage.

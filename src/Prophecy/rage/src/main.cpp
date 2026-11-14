@@ -79,7 +79,7 @@
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyRage.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 6, 4, 0 },
+	.Version = REL::Version{ 1, 7, 0, 0 },
 	.Name = "ZenProphecyRage"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -127,6 +127,8 @@ namespace
 		bool               ready{ false };
 		// Dragon's Breath
 		RE::BGSPerk*       dragonPerk{ nullptr };
+		RE::BGSPerk*       hissingPerk{ nullptr };   // 1.7.0: Hissing Dragon's cone, once per landed punch
+		RE::BGSListForm*   hissingList{ nullptr };   // ORD_Lia_HissingDragon_FormList: the chosen cone spell
 		std::vector<RE::SpellItem*> dragonSpells;
 		std::vector<RE::BGSExplosion*> dragonBlasts;   // 1.1.1: each spell's look, set off at the target with it
 		int                dragonEvery{ 5 };
@@ -242,6 +244,12 @@ namespace
 			}
 			SKSE::log::info("Dragon's Breath: every {} unarmed hits, {} spells, {} blasts", c.dragonEvery,
 				c.dragonSpells.size(), c.dragonBlasts.size());
+		}
+		if (j.contains("hissingDragon")) {
+			auto& h = j["hissingDragon"];
+			c.hissingPerk = Lookup<RE::BGSPerk>(plugin, h["perk"], "Hissing Dragon perk");
+			c.hissingList = Lookup<RE::BGSListForm>(plugin, h["list"], "Hissing Dragon form list");
+			SKSE::log::info("Hissing Dragon: cone per landed punch, list {}", c.hissingList ? "found" : "MISSING");
 		}
 		if (j.contains("ricochet")) {
 			auto& r = j["ricochet"];
@@ -646,14 +654,28 @@ namespace
 					if (dir == "standing") {
 						const auto in = RE::PlayerControls::GetSingleton()->data.moveInputVec;
 						constexpr float kDead = 0.3f;
-						if (in.y > kDead && in.y >= std::abs(in.x)) {
-							dir = "forward";
-						} else if (in.y < -kDead && -in.y >= std::abs(in.x)) {
+						// 1.7.1 (GreaseLord, 2026-11-14: "Bloodletter ... will sometimes not proc"): For Honor Reforged picks
+						// its Left / Right / Backward power attack by Directional Movement Keys' graph int
+						// DirecionalCycleMoveset (8-way: 1 forward, 3 right, 5 back, 7 left, even = the diagonals, on which
+						// FHR plays its normal power attack), not by the raw input - the rule below called a diagonal
+						// (-1, 1) "forward" and a diagonal back "back" while FHR swung forward, and a stick just off the
+						// axis "side" while FHR did not. Where DMK's variable is set, it decides side / back; forward /
+						// standing still come from the input (FHR's normal attack is the same clip for both).
+						std::int32_t cycle = 0;
+						const bool haveCycle = Player()->GetGraphVariableInt("DirecionalCycleMoveset", cycle) && cycle != 0;
+						if (haveCycle && (cycle == 3 || cycle == 7)) {
+							dir = "side";
+						} else if (haveCycle && cycle == 5) {
 							dir = "back";
-						} else if (std::abs(in.x) > kDead) {
+						} else if (in.y > kDead && (haveCycle || in.y >= std::abs(in.x))) {
+							dir = "forward";
+						} else if (!haveCycle && in.y < -kDead && -in.y >= std::abs(in.x)) {
+							dir = "back";
+						} else if (!haveCycle && std::abs(in.x) > kDead) {
 							dir = "side";
 						}
-						from = fmt::format("input ({:.2f}, {:.2f})", in.x, in.y);
+						from = haveCycle ? fmt::format("DMK cycle {}, input ({:.2f}, {:.2f})", cycle, in.x, in.y)
+						                 : fmt::format("input ({:.2f}, {:.2f})", in.x, in.y);
 					}
 					g_paDirection = dir;
 					g_paAt = Clock::now();
@@ -777,8 +799,15 @@ namespace
 	{
 		auto& c = g_cfg;
 		auto* player = Player();
-		if (!c.dragonPerk || c.dragonSpells.empty() || a_event->cause.get() != player || a_event->target.get() == player ||
-			!Has(c.dragonPerk)) {
+		if (a_event->cause.get() != player || a_event->target.get() == player) {
+			return;
+		}
+		// 1.7.0 (Martial Arts balance pass, 2026-11-12): Hissing Dragon's cone used to be cast by Ordinator's script
+		// from the swing animation event - every swing, hit or miss. Now it is cast here, once per punch that lands,
+		// from the same unarmed checks as Invoker (both hands free, one cast per swing), never while sneaking.
+		const bool invoker = c.dragonPerk && !c.dragonSpells.empty() && Has(c.dragonPerk);
+		const bool hissing = c.hissingPerk && c.hissingList && Has(c.hissingPerk) && !player->IsSneaking();
+		if (!invoker && !hissing) {
 			return;
 		}
 		auto* victim = a_event->target->As<RE::Actor>();
@@ -809,6 +838,20 @@ namespace
 			return;
 		}
 		g_dragonLastHit = now;
+		if (hissing) {
+			RE::SpellItem* cone = nullptr;
+			for (auto* f : c.hissingList->forms) {
+				if (f && (cone = f->As<RE::SpellItem>())) break;
+			}
+			if (cone) {
+				player->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)
+					->CastSpellImmediate(cone, false, victim, 1.0f, false, 0.0f, player);
+				SKSE::log::info("Hissing Dragon: {:08X} at {:08X}", cone->GetFormID(), victim->GetFormID());
+			}
+		}
+		if (!invoker) {
+			return;
+		}
 		++g_dragonHits;
 		SKSE::log::info("Dragon's Breath: punch on {:08X} (flags {:X}) - {}/{}", victim->GetFormID(),
 			a_event->flags.underlying(), g_dragonHits, c.dragonEvery);
@@ -1687,7 +1730,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.6.4 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.7.1 loading, runtime {}", REL::Module::get().version().string());
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

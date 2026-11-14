@@ -1,0 +1,22 @@
+FormKey: 000802:Zenderal - Enemy Threat.esp
+EditorID: ZET_BossAbility
+Name:
+  TargetLanguage: English
+  Value: Boss
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: 000803:Zenderal - Enemy Threat.esp
+  Data: {}
+- BaseEffect: 000804:Zenderal - Enemy Threat.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsStaggeredConditionData
+    ComparisonValue: 1

@@ -1,0 +1,8 @@
+FormKey: 00080C:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseGold
+Version2: 1
+Diffuse: Zenderal\StingAndRise\RiseGold_d.dds
+NormalOrGloss: Zenderal\StingAndRise\RiseGold_n.dds
+EnvironmentMaskOrSubsurfaceTint: Zenderal\StingAndRise\RiseGold_m.dds
+Environment: Zenderal\StingAndRise\RiseGold_e.dds
+Flags: []

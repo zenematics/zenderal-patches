@@ -1,0 +1,64 @@
+FormKey: 069D9A:Skyrim.esm
+EditorID: _00E_Message_Vagrant_P09_HighDexterity
+Description:
+  TargetLanguage: English
+  Value: If you are not wearing heavy armor, there is a chance of 15%% (25%% with a four-piece light armor set) that the damage of an incoming attack is completely intercepted, and you deal 20%% more damage and critical damage. The damage bonus is lost for 6 seconds whenever an enemy's attack or spell hits you unblocked.
+Name:
+  TargetLanguage: English
+  Value: 'Vagabund: Hohes Geschick'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Unlock memory (1 memory point)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFC:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CF7:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Flags:
+    - OR
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069D96:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: You already unlocked this memory!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFC:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Back
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFC:Skyrim.esm

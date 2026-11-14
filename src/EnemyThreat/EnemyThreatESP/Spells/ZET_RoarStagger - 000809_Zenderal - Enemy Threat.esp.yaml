@@ -1,0 +1,18 @@
+FormKey: 000809:Zenderal - Enemy Threat.esp
+EditorID: ZET_RoarStagger
+Name:
+  TargetLanguage: English
+  Value: Boss Roar
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: 00080A:Zenderal - Enemy Threat.esp
+  Data:
+    Magnitude: 0.75

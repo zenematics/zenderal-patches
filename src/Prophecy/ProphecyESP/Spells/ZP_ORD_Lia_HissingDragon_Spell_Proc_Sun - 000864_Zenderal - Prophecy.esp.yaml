@@ -17,7 +17,7 @@ TargetType: Aimed
 Effects:
 - BaseEffect: 000869:Zenderal - Prophecy.esp
   Data:
-    Magnitude: 80
+    Magnitude: 40
   Conditions:
   - MutagenObjectType: ConditionFloat
     Flags:
@@ -32,7 +32,7 @@ Effects:
     ComparisonValue: 1
 - BaseEffect: 000865:Zenderal - Prophecy.esp
   Data:
-    Magnitude: 40
+    Magnitude: 20
   Conditions:
   - MutagenObjectType: ConditionFloat
     Data:

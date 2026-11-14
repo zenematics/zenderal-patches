@@ -26,7 +26,7 @@
 // Log: My Games/Skyrim Special Edition/SKSE/ZenParryTrace.log
 
 SKSEPluginInfo(
-	.Version = REL::Version{ 1, 4, 0, 0 },
+	.Version = REL::Version{ 1, 5, 0, 0 },
 	.Name = "ZenParryTrace"sv,
 	.Author = "Zenderal"sv,
 	.StructCompatibility = SKSE::StructCompatibility::Independent,
@@ -359,6 +359,81 @@ namespace
 		return out;
 	}
 
+	// 1.5.0: active behavior nodes per graph (1P and 3P), filtered to equip/readied/stagger/magic/killmove names, on
+	// change. Built 2026-11-13: re-equipping dual daggers while drawn, the first-person graph ignored the equip event
+	// (no enter events, no BeginWeaponDraw/weaponDraw) and only played the draw's end 0.4-0.8 s later. Shows the state
+	// it was in. hkbBehaviorReferenceGenerator: hkbBehaviorGraph* at 0x50 (ZenPistolNPCTrace's walk).
+	std::uintptr_t g_refGenVtbl{ 0 };
+	std::uintptr_t g_hkGraphVtbl{ 0 };
+
+	bool NodeOfInterest(std::string_view a_name)
+	{
+		const auto l = Lower(a_name);
+		static constexpr std::array kWords{ "equip"sv, "weap"sv, "readied"sv, "stagger"sv, "magic"sv, "killmove"sv,
+			"paired"sv, "mt_"sv, "default_behavior"sv, "sheath"sv, "draw"sv, "dag"sv };
+		return std::ranges::any_of(kWords, [&](std::string_view w) { return l.find(w) != std::string::npos; });
+	}
+
+	void CollectNodes(RE::hkbBehaviorGraph* a_graph, std::vector<std::string>& a_out, int a_depth)
+	{
+		if (!a_graph || *reinterpret_cast<const std::uintptr_t*>(a_graph) != g_hkGraphVtbl || !a_graph->activeNodes ||
+			a_depth > 6) {
+			return;
+		}
+		auto& nodes = *a_graph->activeNodes;
+		for (std::int32_t i = 0; i < static_cast<std::int32_t>(nodes.size()); ++i) {
+			const auto& info = nodes[i];
+			auto*       node = info.nodeTemplate ? info.nodeTemplate : info.nodeClone;
+			if (node) {
+				const char* name = node->name.c_str();
+				if (name && NodeOfInterest(name)) {
+					a_out.emplace_back(a_depth ? std::format("{}:{}", a_depth, name) : std::string{ name });
+				}
+			}
+			auto* clone = info.nodeClone ? info.nodeClone : info.nodeTemplate;
+			if (clone && *reinterpret_cast<const std::uintptr_t*>(clone) == g_refGenVtbl) {
+				auto* sub = *reinterpret_cast<RE::hkbBehaviorGraph**>(reinterpret_cast<std::uintptr_t>(clone) + 0x50);
+				CollectNodes(sub, a_out, a_depth + 1);
+			}
+		}
+	}
+
+	void LogNodes(RE::BSAnimationGraphManager* a_manager, std::uint64_t a_now)
+	{
+		static std::array<std::vector<std::string>, 4> last;
+		if (!a_manager) {
+			return;
+		}
+		std::uint32_t i = 0;
+		for (auto& graph : a_manager->graphs) {
+			if (i >= 4) {
+				break;
+			}
+			std::vector<std::string> now;
+			if (graph) {
+				CollectNodes(graph->behaviorGraph, now, 0);
+			}
+			std::ranges::sort(now);
+			now.erase(std::unique(now.begin(), now.end()), now.end());
+			if (now != last[i]) {
+				std::string diff;
+				for (const auto& n : now) {
+					if (!std::ranges::binary_search(last[i], n)) {
+						diff += " +" + n;
+					}
+				}
+				for (const auto& n : last[i]) {
+					if (!std::ranges::binary_search(now, n)) {
+						diff += " -" + n;
+					}
+				}
+				SKSE::log::info("{:>8} NODES {}{}", a_now, g_graphIs1P[i].load() ? "1P" : "3P", diff);
+				last[i] = std::move(now);
+			}
+			++i;
+		}
+	}
+
 	struct GraphEventSink
 	{
 		static RE::BSEventNotifyControl thunk(RE::BSTEventSink<RE::BSAnimationGraphEvent>* a_this,
@@ -440,6 +515,11 @@ namespace
 				SKSE::log::info("{:>8} FX    on [{}] off [{}] now [{}] attackState={} blocking={}", now, MaskText(mask & ~old),
 					MaskText(old & ~mask), MaskText(mask), std::to_underlying(a_this->AsActorState()->GetAttackState()),
 					a_this->IsBlocking());
+			}
+
+			if (manager) {
+				RE::BSSpinLockGuard locker(manager->GetRuntimeData().updateLock);
+				LogNodes(manager.get(), now);
 			}
 
 			const auto vars = GraphVarsSnapshot(manager.get());
@@ -601,7 +681,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenParryTrace 1.3.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenParryTrace 1.5.0 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::log::info("EVENT lines: graph that sent it (1P/3P, * = the active graph). attackState: 0 none, 1 draw, 2 swing, "
 					"3 hit, 4 next attack, 5 follow-through, 6 bash, 8 bow draw ...");
 
@@ -619,6 +699,8 @@ SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 	// 1.4.0: PlayerCharacter's own IAnimationGraphManagerHolder vtable ([3], as for Character): events into the player.
 	REL::Relocation<std::uintptr_t> playerGraphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	PlayerNotifyGraph::func = playerGraphVtbl.write_vfunc(0x1, PlayerNotifyGraph::thunk);
+	g_refGenVtbl = REL::Relocation<std::uintptr_t>{ RE::VTABLE_hkbBehaviorReferenceGenerator[0] }.address();
+	g_hkGraphVtbl = REL::Relocation<std::uintptr_t>{ RE::VTABLE_hkbBehaviorGraph[0] }.address();
 	SKSE::log::info("player graph event sink and update hooked; Character graph events hooked for followed targets");
 
 	SKSE::GetMessagingInterface()->RegisterListener([](SKSE::MessagingInterface::Message* a_msg) {

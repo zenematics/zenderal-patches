@@ -11,7 +11,7 @@ cmake_minimum_required(VERSION 3.25)
 #               it steps aside there instead, and its ForceThirdPerson hook no longer turns a forced third person
 #               (furniture, Immersive Interactions) into its head-camera view.
 # SSE 1.5.97 / 1.6.x via CommonLibSSE-NG.
-project(ZenICSheatheFix VERSION 1.8.0 LANGUAGES CXX)
+project(ZenICSheatheFix VERSION 1.9.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

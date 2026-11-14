@@ -1,0 +1,27 @@
+FormKey: 000803:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictSmite
+Name:
+  TargetLanguage: English
+  Value: Argent Verdict
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 3000
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 000804:Zenderal - Argent Verdict.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetRandomPercentConditionData
+    ComparisonValue: 25

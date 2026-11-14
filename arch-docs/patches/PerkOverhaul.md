@@ -3,7 +3,7 @@
 - **Source:** `src/PerkOverhaul/`
 - **Ships:** `Zenderal - Perk Overhaul.esp` (ESL; masters `Skyrim.esm`, `Update.esm`, FS, `Enderal SE - Gameplay Overhaul.esp`) + `ZEN_PO_BladeMasterCritHealSC.pex`
 - **Requires:** powerofthree's Papyrus Extender (`PO3_Events_AME.RegisterForCriticalHit`)
-- **FormID block:** `0x800–0x8FF` reserved for the overhaul; `0x800–0x803` used
+- **FormID block:** `0x800–0x8FF` reserved for the overhaul; `0x800–0x806` used
 - **Status:** built 2026-10-21, Spriggit round trip identical (bar property sort order). **Unverified in game.**
 
 Zenderal's rework of Enderal's class perk trees, on top of EGO. One plugin that grows class by
@@ -106,6 +106,31 @@ inventory, silently. Per hit, not per kill — the ammo sits in the target's inv
 
 Hero Menu MESG `069D72` (base Enderal's, no overriders) gets the line through `tools/01`; the PERK's own
 English description is hand-edited to match. Unverified in game.
+
+## Vagrant (light armor), 2026-11-13
+
+Request: compare Enderal's light armor perks with Ordinator / LoreRim and rework them. Enderal has no light armor
+tree: its seven light armor perks sit in the **Vagrant** tree among the potion perks (Suitable Armor I/II, Wind
+Walker, Lightweight, Perfect Fit, Snakeblood, High Dexterity). Live scan: EGO wins the four reworked PERKs and their
+four MESGs (FS also touches `069CFC`, EGO loads later). **EGO turned every "only light armor" check into "no heavy
+armor worn"** (`WornHasKeyword ArmorHeavy 06BBD2 == 0`), so these work in clothes or naked too; every new entry
+uses that same rule in place of Ordinator's all-slots check. EGO had already removed Snakeblood's +5% armor and
+already shows Perfect Fit's real 30% in the Hero Menu (the PERK descriptions are EGO's stale German, unread).
+
+| Perk | Added (source) | How |
+|---|---|---|
+| Wind Walker `069CF5` / MESG `069D8F` | half damage from power attacks while sprinting (Ordinator As a Leaf; EGO's no-stagger-while-sprinting half was already there) | `ModIncomingDamage` x0.5, IsSprinting + no heavy, attacker IsPowerAttacking |
+| Perfect Fit `069CF8` / `069D94` | spells cost 10% less (Requiem/LoreRim's Agile Spellcasting idea) | `ModSpellCost` x0.9, no heavy |
+| Snakeblood `069CFA` / `069D97` | 10% less damage from attackers other than the last hostile actor (Ordinator Into the Maelstrom, its exact `IsLastHostileActor == 0` trick) | `ModIncomingDamage` x0.9 |
+| High Dexterity `069CFC` / `069D9A` | +20% attack and critical damage while not struck (Ordinator Wardancer) | `ModAttackDamage` + `CalculateMyCriticalHitDamage` x1.2, no heavy + `ZEN_PO_HighDexterityStruck 804 == 0`; ability `805` → MGEF `806` → `ZEN_PO_HighDexterityWardancerSC`: an unblocked hit from a hostile actor sets the global to 1 for 6 s (a new hit restarts it) |
+
+High Dexterity keeps EGO's dodge: 15%, or 25% with Forgotten Stories' four-piece light set bonus
+(`_50E_LSet_4Pieces_ME 02EF62`); it has no melee check, so its text now says "incoming attack". Ordinator's
+Wardancer is driven by its compiled `ORD_Initiative_Script` (not decompiled here); ours is a fresh, smaller script.
+Generated: `python -I src/PerkOverhaul/tools/02-build-light-armor.py` (EGO's records + appended entries; each text
+replacement must match once). Round trip identical. **Deployed into Patch Collection** (it carries this plugin since
+2026-11-12; the standalone MO2 mod is gone). LoreRim's own guide pages were 404 on 2026-11-13, so only its Agile
+Spellcasting idea is used. Unverified in game.
 
 ## Regenerating / checking overriders
 

@@ -39,12 +39,16 @@
  },
  "dragonsBreath": {
   "perk": "000AF5",
-  "every": 5,
+  "every": 7,
   "spells": [
    "000AF6",
    "000AF9",
    "000AFC"
   ]
+ },
+ "hissingDragon": {
+  "perk": "000820",
+  "list": "00087D"
  },
  "ricochet": {
   "perk": "000B0E",

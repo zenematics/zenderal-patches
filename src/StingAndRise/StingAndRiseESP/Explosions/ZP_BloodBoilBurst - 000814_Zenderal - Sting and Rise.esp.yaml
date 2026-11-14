@@ -1,0 +1,15 @@
+FormKey: 000814:Zenderal - Sting and Rise.esp
+EditorID: ZP_BloodBoilBurst
+Version2: 3
+ObjectBounds:
+  First: -33, -11, 8
+  Second: 33, 8, 113
+Model:
+  File: Zenderal\StingAndRise\BloodBoilBurst.nif
+Sound1: 02E28E:Enderal - Forgotten Stories.esm
+ImpactDataSet: 01F82A:Skyrim.esm
+Radius: 128
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

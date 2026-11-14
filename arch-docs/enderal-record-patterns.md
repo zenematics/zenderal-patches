@@ -163,6 +163,22 @@ compiled `.pex`.
 **Rule:** if a MGEF's description promises a mechanic, either attach a script that implements it, or
 record in this repo's notes that it is display-only and where the real logic lives.
 
+### 1.4 A weapon enchantment's EnchantArt needs an EnchantShader too
+
+Sting and Rise (2026-11-13) gave their weapon-enchant MGEFs an `EnchantArt` (the art hung on the drawn weapon,
+Chillrend's way) and no `EnchantShader`, to keep a glow off the hilt: in game **nothing showed**. Every MGEF in
+the list whose enchant art does show pairs it with an `EnchantShader` (Enderal's Druid affinity `02F1A1` =
+Chillrend's art `10A045` + shader `10A043`, the bound weapons, Elemental Fury, Kittytails' Aero). Inferred from
+the records, not read from the exe. **Rule:** give the MGEF an EnchantShader; if the art alone should be the look,
+use a shader that draws nothing (Sting and Rise's `ZP_EnchantArtCarrierFXS 000813`: Chillrend's with every colour
+black and every alpha ratio 0). **In this list the shader is then nulled at load** by Glow Be Gone Redone - NG
+(`RemoveWeaponFX = true`: every magic effect's `enchantShader`, and with `RemoveActorFX` its Hit Shader, except
+Conjuration/bound/summon-type effects and its toml's exclusions), so a new weapon effect also needs an entry in its
+`MagicEffectExclusionList`
+([`modlist/mod-gotchas.md`](modlist/mod-gotchas.md)). [`patches/StingAndRise.md`](patches/StingAndRise.md).
+**[verified in game]** 2026-11-13: the same art meshes stayed invisible with no shader and with the shader nulled by
+Glow Be Gone, and showed once the shader survived.
+
 ---
 
 ## 2. Perks and entry points

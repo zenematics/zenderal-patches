@@ -49,7 +49,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`DintHairs`](DintHairs.md) | *(rebuilt third-party plugins, MO2 mods `[Dint999] BDOR Hairs - Hairs Only` / `[Dint999] HairPack02 - Hairs Only`)* | _(none)_ |
 | [`GuardFalconer`](GuardFalconer.md) | `Zenderal - Guard Falconer Patch.esp` | none (overrides only) |
 | [`MoonsteelPretty`](MoonsteelPretty.md) | `Zenderal - Moonsteel Pretty Patch.esp` + 2 loose meshes | none (overrides only) |
-| [`FlintlockOverhaul`](FlintlockOverhaul.md) | `Zenderal - Flintlock Overhaul.esp` + `ZP_FlintlockAmmoPlayerScript.pex` + `Zenderal - DAR Rifles Recipes Off.esp` + `_KID.ini` + Wheeler icons | `0x800–0x813` |
+| [`FlintlockOverhaul`](FlintlockOverhaul.md) | `Zenderal - Flintlock Overhaul.esp` + `ZP_FlintlockAmmoPlayerScript.pex` + `Zenderal - DAR Rifles Recipes Off.esp` + `_KID.ini` + Wheeler icons | `0x800–0x815` |
 | [`DragonPriestStaffSwap`](DragonPriestStaffSwap.md) | *(no plugin — loose meshes, MO2 mod `Zenderal - Dragon Priest Staff Swap`)* | _(none)_ |
 | [`StaffDrawFix`](StaffDrawFix.md) | *(no plugin — OAR submod, MO2 mod `Zenderal - Staff Draw Fix`)* | _(none)_ |
 | [`LoopPistolAnims`](LoopPistolAnims.md) | *(no plugin — OAR mod, MO2 mod `Zenderal - Loop Pistol Animations`)* | _(none)_ |
@@ -66,6 +66,8 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`RaySensePriority`](RaySensePriority.md) | **no plugin** (OAR files only) | none |
 | [`ReversalShadow`](ReversalShadow.md) | `Zenderal - Reversal Shadow.esp` + generated meshes/texture/sound | `0x800–0x808` |
 | [`ClockworkThunder`](ClockworkThunder.md) | `Zenderal - Clockwork Thunder.esp` + 2 `.pex` + generated mesh/textures (in Patch Collection) | `0x800–0x80B` |
+| [`StingAndRise`](StingAndRise.md) | `Zenderal - Sting and Rise.esp` + 5 `.pex` + Sting and Rise meshes (spider; sun pommel + wings) + 2 enchant-art meshes + 2 burst meshes + sun mote + fire nova + Sting's grip diffuse + 7 gold + 3 ornament textures + 3 palettes (in Patch Collection) | `0x800–0x82E` |
+| [`ArgentVerdict`](ArgentVerdict.md) | `Zenderal - Argent Verdict.esp` + own mesh (human hand with bones through its back, forearm into the handle with rose vines, thorn bracelet) + 7 generated textures (in Patch Collection) | `0x800–0x805` (`0x802` retired) |
 | [`PerpetuumTheaterEVGATFix`](PerpetuumTheaterEVGATFix.md) | `Zenderal - Perpetuum Theater EVGAT Fix.esp` | none (overrides only) |
 | [`EppiRivervilleCobbleRemoval`](EppiRivervilleCobbleRemoval.md) | `Zenderal - EPPI Riverville Cobble Removal.esp` | none (overrides only) |
 | [`LastWatchTrapdoorFix`](LastWatchTrapdoorFix.md) | `Zenderal - Last Watch Trapdoor Fix.esp` | none (overrides only) |
@@ -81,6 +83,7 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`LostOnesDismembering`](LostOnesDismembering.md) | `Zenderal - Lost Ones Dismembering.esp` + DF JSON + generated meshes | `0x800–0x832` |
 | [`FrostSpiderMotherFix`](FrostSpiderMotherFix.md) | `Zenderal - Frost Spider Mother Fix.esp` | none (one override) |
 | [`MaceSpeed`](MaceSpeed.md) | `Zenderal - Mace Speed.esp` | none (overrides only) |
+| [`StealthTuning`](StealthTuning.md) | `Zenderal - Stealth Tuning.esp` | none (overrides only) |
 | [`ArmorBalance`](ArmorBalance.md) | `Zenderal - Armor Balance.esp` | none (overrides only) |
 | [`GrassBounds`](GrassBounds.md) | `Zenderal - Grass Bounds.esp` | none (overrides only) |
 | [`TreeLOD21Match`](TreeLOD21Match.md) | *(generated 3D tree LOD models, not committed)* | none |
@@ -139,10 +142,13 @@ One doc per folder in `src/`: what it ships, its FormID block, how it works and 
 | [`CompassNavigationOverhaulFork`](CompassNavigationOverhaulFork.md) | rebuilt `SKSE/Plugins/CompassNavigationOverhaul.dll`, copied into the third-party mod `Compass Navigation Overhaul - Enderal Patch` | none (no plugin) |
 | [`FogWood`](FogWood.md) | `Zenderal - Fog Wood.esp` (full plugin; + scripts, to come) | `0x800–0x337A` |
 | [`EsmeDressStatic`](EsmeDressStatic.md) | **no plugin**: MO2 mod `Zenderal - Esme Dress Static`, Pretty's Hunter cuirass + hood (Fuse00 Adventurer meshes) with FSMP's marker disabled, so Esme's dress stops exploding | none |
+| [`PrologueRopeFix`](PrologueRopeFix.md) | *(no plugin — one recompiled script, live copy in Patch Collection)*: prologue ship's "Find a rope" scene gets a watchdog + trace so the AI-driven player cannot stay frozen | _(none)_ |
 | [`MQ17GeneratorGunFix`](MQ17GeneratorGunFix.md) | *(no plugin — one recompiled script, live copy in Patch Collection)*: final-boss generators count gun hits on themselves, not only on their hit boxes | _(none)_ |
 | [`HUDBannerFix`](HUDBannerFix.md) | **no plugin**: MO2 mod `Zenderal - HUD Banner Fix`, Vel'dun's `hudmenu.swf` with a watchdog that clears a shout/quest banner stuck after a menu | none |
 | [`MalphasFixesMerge`](MalphasFixesMerge.md) | `Zenderal - Malphas Fixes Merge.esp`: NAUT1CAY's Malphas' Blessing - Fixes merged onto the 7 NPCs EGO and Malphas' EGO patches edit | none (overrides only) |
+| [`EVGModestyOff`](EVGModestyOff.md) | **no plugin**: MO2 mod `Zenderal - EVG Modesty Off`, 4 OAR `user.json` disabling EVG Conditional Idles' Modesty walks | none |
 | [`VeldunFuturaFont`](VeldunFuturaFont.md) | **no plugin**: MO2 mod `Zenderal - Vel'dun Futura Font` (`Interface/fontconfig.txt`): Vel'dun UI's menus back on Futura Book BT (its OII 3 beta patch maps them to Lato) | none |
 | [`ResponsiveGroundsEnderal`](ResponsiveGroundsEnderal.md) | **no plugin**: MO2 mod `Zenderal - Responsive Grounds Enderal` (`SKSE/Plugins/ResponsiveGrounds.json`): Responsive Grounds' per-texture settings for Enderal's sand, beaches, dry ground, paths and desert rock | none |
 | [`EnderalTogether`](EnderalTogether.md) | **testing only**: Skyrim Together Reborn (upstream `dev`) + the Enderal Together fork's Enderal changes + Zenderal fixes, as MO2 mod `Zenderal - Enderal Together (testing)` in profile `Ultra - Co-op (testing)` | none |
 | [`ArcaneFeverGauge`](ArcaneFeverGauge.md) | `Zenderal - Arcane Fever Gauge.esp` + 2 scripts + widget `Interface/exported/widgets/zenderal/arcanefever.swf` + MCM Helper page: Arcane Fever as a round gauge right of the Health/Mana bars (TrueHUD's), with a hide hotkey and optional fade-out | `0x800–0x801` |
+| [`EnemyThreat`](EnemyThreat.md) | `Zenderal - Enemy Threat.esp` + 2 scripts + SPID ini: enemies scale with Prophecy points earned (up to +25% damage dealt, −30% taken at 30); the 91 `ActorTypeBoss` NPCs take half damage, deal +30%, have 3× poise and a stagger lockout, and enrage/roar/call 2 adds at half health. Owns EGO's `XionStagger 001D16` | `0x800–0x80E` |

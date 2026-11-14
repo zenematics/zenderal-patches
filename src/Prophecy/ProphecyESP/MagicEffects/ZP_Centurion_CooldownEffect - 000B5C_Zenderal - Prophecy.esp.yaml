@@ -1,0 +1,22 @@
+FormKey: 000B5C:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_CooldownEffect
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor cooling'
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+- PowerAffectsDuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'The Centurion Armor cannot be boarded for <dur> seconds.'

@@ -1,0 +1,27 @@
+FormKey: 000826:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseFireNova
+Name:
+  TargetLanguage: English
+  Value: Fire Nova
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: 000823:Zenderal - Sting and Rise.esp
+  Data:
+    Duration: 30
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasKeywordConditionData
+      Keyword: 013796:Skyrim.esm
+    ComparisonValue: 1
+- BaseEffect: 000827:Zenderal - Sting and Rise.esp
+  Data:
+    Magnitude: 25

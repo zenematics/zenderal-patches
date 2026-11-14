@@ -1,0 +1,48 @@
+FormKey: 069D97:Skyrim.esm
+EditorID: _00E_Message_Vagrant_P08_A_SnakeBlood
+Description:
+  TargetLanguage: English
+  Value: Your poison resistance is increased by 50%%. A poison resistance of 50%% or more will protect you from paralyze and slow effects caused by poisons. If you are not wearing heavy armor, attacks from enemies other than the one you last fought deal 10%% less damage, so a crowd hurts less.
+Name:
+  TargetLanguage: English
+  Value: 'Vagabund: Schlangenblut'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Unlock memory (1 memory point)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFA:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFB:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: You already unlocked this memory!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFA:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Back
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFA:Skyrim.esm

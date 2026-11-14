@@ -1,0 +1,53 @@
+FormKey: 000B59:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_ControlEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_CenturionControl
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SpellList
+      Object: 000B67:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Fire
+      Object: 0248DD:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FireEffect
+      Object: 000B6D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDwarvenCenturion
+      Object: 030B3B:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDwarvenCenturionArm01
+      Object: 04BB4E:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDwarvenCenturionArm02
+      Object: 04BB51:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MovingFloor
+      Object: 000B70:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PowerAttackPerk
+      Object: 000B5F:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PowerAttackSpell
+      Object: 000B61:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SelectMenu
+      Object: 000B68:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RideSpell
+      Object: 000B56:Zenderal - Prophecy.esp
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor controls'
+Flags:
+- HideInUI
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

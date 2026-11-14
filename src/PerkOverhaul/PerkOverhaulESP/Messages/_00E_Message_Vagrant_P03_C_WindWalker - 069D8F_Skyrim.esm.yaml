@@ -1,0 +1,48 @@
+FormKey: 069D8F:Skyrim.esm
+EditorID: _00E_Message_Vagrant_P03_C_WindWalker
+Description:
+  TargetLanguage: English
+  Value: If you are not wearing heavy armor, your Stamina regeneration is increased by 30%% and enemies can no longer stagger you while sprinting. While sprinting, you also take 50%% less damage from power attacks.
+Name:
+  TargetLanguage: English
+  Value: 'Vagabund: Windläufer'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: Unlock memory (1 memory point)
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CF5:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 05BCFA:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CFF:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: You already unlocked this memory!
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CF5:Skyrim.esm
+    ComparisonValue: 1
+- Text:
+    TargetLanguage: English
+    Value: Back
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasPerkConditionData
+      Perk: 069CF5:Skyrim.esm

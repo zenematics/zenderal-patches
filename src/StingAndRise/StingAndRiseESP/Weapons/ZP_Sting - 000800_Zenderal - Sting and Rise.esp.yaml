@@ -1,0 +1,53 @@
+FormKey: 000800:Zenderal - Sting and Rise.esp
+EditorID: ZP_Sting
+ObjectBounds:
+  First: -5, -12, -2
+  Second: 4, 44, 2
+Name:
+  TargetLanguage: English
+  Value: Sting
+Model:
+  File: Zenderal\StingAndRise\Sting.nif
+ObjectEffect: 000801:Zenderal - Sting and Rise.esp
+EnchantmentAmount: 3000
+EquipmentType: 013F42:Skyrim.esm
+BlockBashImpact: 0183FF:Skyrim.esm
+AlternateBlockMaterial: 018401:Skyrim.esm
+Keywords:
+- 01E713:Skyrim.esm
+- 01E71E:Skyrim.esm
+- 06727B:Skyrim.esm
+- 08F958:Skyrim.esm
+- 14CE9A:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+ImpactDataSet: 013CAC:Skyrim.esm
+FirstPersonModel: 000818:Zenderal - Sting and Rise.esp
+AttackFailSound: 03C730:Skyrim.esm
+EquipSound: 03C72E:Skyrim.esm
+UnequipSound: 03C72F:Skyrim.esm
+BasicStats:
+  Value: 1000
+  Weight: 5
+  Damage: 20
+Data:
+  AnimationType: OneHandDagger
+  Unused: 0x000000
+  Speed: 1.3
+  Reach: 0.7
+  NumProjectiles: 1
+  AnimationAttackMult: 1
+  Unknown2: 1056964608
+  RumbleLeftMotorStrength: 0.5
+  RumbleRightMotorStrength: 1
+  RumbleDuration: 0.33
+  Unknown3: 0x000000000000000000000000
+  Skill: OneHanded
+Critical:
+  Damage: 15
+  PercentMult: 1
+  Flags:
+  - OnDeath
+  Unused2: 0x000000
+DetectionSoundLevel: Silent

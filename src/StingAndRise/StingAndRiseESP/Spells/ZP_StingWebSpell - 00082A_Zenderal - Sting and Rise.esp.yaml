@@ -1,0 +1,22 @@
+FormKey: 00082A:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingWebSpell
+Name:
+  TargetLanguage: English
+  Value: Spider Web
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 00082B:Zenderal - Sting and Rise.esp
+  Data:
+    Magnitude: 100
+    Duration: 3
+- BaseEffect: 00082E:Zenderal - Sting and Rise.esp
+  Data:
+    Duration: 6

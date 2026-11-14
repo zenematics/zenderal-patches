@@ -1,0 +1,17 @@
+FormKey: 000B5D:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_Dismount
+Name:
+  TargetLanguage: English
+  Value: 'Dismount Centurion Armor'
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: 'Climb out of the Centurion Armor.'
+Flags:
+- ManualCostCalc
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000B5E:Zenderal - Prophecy.esp
+  Data: {}

@@ -1,0 +1,11 @@
+FormKey: 000B69:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_CooldownMsg
+Description:
+  TargetLanguage: English
+  Value: 'The Centurion Armor is still cooling down. It cannot be boarded yet.'
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor'
+INAM: 0x00000000
+Flags:
+- MessageBox

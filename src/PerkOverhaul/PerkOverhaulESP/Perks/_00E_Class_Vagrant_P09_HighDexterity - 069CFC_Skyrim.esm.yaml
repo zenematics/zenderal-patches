@@ -1,0 +1,84 @@
+FormKey: 069CFC:Skyrim.esm
+EditorID: _00E_Class_Vagrant_P09_HighDexterity
+Name:
+  TargetLanguage: English
+  Value: 'Vagabund: Hohes Geschick'
+Description:
+  TargetLanguage: English
+  Value: Tragt Ihr ausschließlich leichte Rüstung (Kopf, Brust, Hände, Füße), besteht eine 10-prozentige Chance, dass der Schaden eines Nahkampfangriffes vollständig abgefangen wird.
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThanOrEqualTo
+      Data:
+        MutagenObjectType: GetRandomPercentConditionData
+      ComparisonValue: 25
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 02EF62:Enderal - Forgotten Stories.esm
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      CompareOperator: LessThanOrEqualTo
+      Data:
+        MutagenObjectType: GetRandomPercentConditionData
+      ComparisonValue: 15
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 02EF62:Enderal - Forgotten Stories.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetGlobalValueConditionData
+        Global: 000804:Zenderal - Perk Overhaul.esp
+  EntryPoint: ModAttackDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.2
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetGlobalValueConditionData
+        Global: 000804:Zenderal - Perk Overhaul.esp
+  EntryPoint: CalculateMyCriticalHitDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 1.2
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000805:Zenderal - Perk Overhaul.esp

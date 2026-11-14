@@ -133,6 +133,12 @@ __pycache__/
 !src/Prophecy/Scripts/compiled/*.pex
 !src/ControllerLayout/Scripts/compiled/
 !src/ControllerLayout/Scripts/compiled/*.pex
+!src/EnemyThreat/Scripts/compiled/
+!src/EnemyThreat/Scripts/compiled/*.pex
+!src/ClockworkThunder/Scripts/compiled/
+!src/ClockworkThunder/Scripts/compiled/*.pex
+!src/StingAndRise/Scripts/compiled/
+!src/StingAndRise/Scripts/compiled/*.pex
 
 # KataAffinities21: extracted third-party BSA contents + generator temp dirs
 /src/KataAffinities21/build/

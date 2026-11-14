@@ -1,0 +1,39 @@
+FormKey: 00081E:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingSpiderlingEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_StingSpiderlingEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Burst
+      Object: 000820:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BurstFX
+      Object: 000822:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Spiderlings
+      Object: 00081F:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WebCooldown
+      Object: 00082E:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WebSpell
+      Object: 00082A:Zenderal - Sting and Rise.esp
+Name:
+  TargetLanguage: English
+  Value: Venom Spiderling
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

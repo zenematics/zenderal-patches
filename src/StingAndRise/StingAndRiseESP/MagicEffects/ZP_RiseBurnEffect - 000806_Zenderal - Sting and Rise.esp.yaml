@@ -1,0 +1,35 @@
+FormKey: 000806:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseBurnEffect
+Version2: 4
+Name:
+  TargetLanguage: English
+  Value: Burning
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+- 001F93:Enderal SE - Gameplay Overhaul.esp
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 0.9
+ResistValue: ResistFire
+TaperWeight: 0.2
+HitShader: 01B212:Skyrim.esm
+EnchantShader: 000813:Zenderal - Sting and Rise.esp
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 01C2AF:Skyrim.esm
+DualCastScale: 1
+EnchantArt: 000807:Zenderal - Sting and Rise.esp
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Sets the target ablaze for <dur> seconds, <mag> fire damage per second. Undead it strikes are marked with a mote of sunlight. A marked undead that dies or is turned bursts in a fire nova that deals 25 fire damage, plus 2.5 per level, to the enemies around it and to a turned undead itself, marking the undead among them.

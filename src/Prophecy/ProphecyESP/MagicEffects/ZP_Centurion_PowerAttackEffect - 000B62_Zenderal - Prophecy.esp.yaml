@@ -1,0 +1,28 @@
+FormKey: 000B62:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_PowerAttackEffect
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor power attack'
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- NoRecast
+- PowerAffectsMagnitude
+- NoDeathDispel
+MagicSkill: Destruction
+MinimumSkillLevel: 25
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Explosion: 000B63:Zenderal - Prophecy.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds:
+- Type: Release
+  Sound: 0A0F52:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

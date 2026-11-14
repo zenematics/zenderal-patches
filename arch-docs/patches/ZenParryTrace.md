@@ -23,6 +23,13 @@
   `WeaponDraw`, `BeginWeaponDraw`…), to show whether the first-person graph ever leaves its equip state. Run from
   MO2's `overwrite` (no ticking) the same day: equip was fine. A 1P dual-dagger power attack never sent `attackStop`
   (fixed in [`FHRFirstPerson`](FHRFirstPerson.md)). Removed from `overwrite` after.
+  1.5.0 (2026-11-13): `NODES 1P/3P +added -removed` = each graph's active behavior nodes (equip/weap/readied/stagger/
+  magic/killmove/paired/draw/dag names, sub-behaviors walked as ZenPistolNPCTrace does), on change. For the lock-up that
+  outlived [`FirstPersonDrawFix`](FirstPersonDrawFix.md): with fists drawn (R=0 L=0), equipping a dagger from the
+  inventory sent `WeapOutRightReplaceForceEquip`, which only the 3P graph took (no 1P `IuEquip`/`weaponDraw`); 1P only
+  played the draw's end 0.8-1.2 s later. Run from `overwrite`. Second run the same day: the NODES lines appear only
+  when the menu closes (the trace's player update doesn't run while paused). The draw had been running in the menu
+  since the last equip event, and its events were lost. Fixed in [`BlockReleaseFix`](BlockReleaseFix.md) 1.1.0.
   An `APPLY` line alone does not prove an effect took: the apply event fires before the effect's conditions are
   checked (the v3 log shows `803`'s mutually exclusive `874` and `82A` applied together).
 

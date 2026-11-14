@@ -1,0 +1,27 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Stealth Tuning.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: >-
+    Keeps EGO's stealth model (light, armor noise, distance) and trims it: sneak base value -13 ->
+    -16, light weight 1.0 -> 0.6 indoors and out, searching NPCs find a hidden player half as fast
+    and give up sooner.
+    Replaces Enderal SE - Stealth Overhaul.esp (disable it). Must load after Enderal SE - Gameplay
+    Overhaul.esp.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  INTV: 1

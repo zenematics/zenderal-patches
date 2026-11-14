@@ -657,6 +657,10 @@ namespace
 
 	SmoothCamAPI::IVSmoothCam1* g_scApi{ nullptr };
 	bool                        g_scHolding{ false };
+	bool                        g_creatureEnabled{ true };         // [CreatureRace] ThirdPerson=1 (1.9.0)
+	bool                        g_creatureRide{ false };           // the player's race has no ActorTypeNPC
+	bool                        g_creatureWasFirstPerson{ false };
+	bool                        g_creatureJePatched{ false };
 	bool                        g_scTakenReported{ false };
 	bool                        g_scHoldEnabled{ true };
 	std::uint8_t*               g_scManager{ nullptr };
@@ -703,7 +707,7 @@ namespace
 		if (!g_scApi || !g_scManager) {
 			return;
 		}
-		bool headCamera = *reinterpret_cast<std::uint32_t*>(g_scManager + kMgrMode) == 2 || g_scManager[kMgrPending3P] != 0;
+		bool headCamera = *reinterpret_cast<std::uint32_t*>(g_scManager + kMgrMode) == 2 || g_scManager[kMgrPending3P] != 0 || g_creatureRide;
 		// With IC's head camera on furniture there is no pending flag to be early on; the actor's sit/sleep
 		// state changes before the camera does, so it is the early signal there (and for mounting).
 		if (!headCamera && g_thirdPersonBody) {
@@ -717,6 +721,62 @@ namespace
 			SmoothCamHold();
 		} else if (!headCamera && g_scHolding) {
 			SmoothCamRelease();
+		}
+	}
+
+	// ---------------------------------------------------------------- a creature race on the player (1.9.0, 2026-11-13)
+	// Prophecy's Centurion Armor pilots the player as a Dwarven-Centurion-shaped race (SetRace). The list plays in
+	// Improved Camera's first person, so the ride showed the inside of the mech: IC's first-person body put the camera
+	// on the Centurion's head node (recording 2026-11-13 17:33), and the Papyrus Game.ForceThirdPerson before the swap
+	// had become IC's head camera (TakeOverForcedThirdPerson=1). A third person is no better under SmoothCam, which
+	// anchors on "NPC Spine1 [Spn1]" - the Centurion skeleton names its spine "NPC Spine [Spn1]" - while the vanilla
+	// third-person camera reads the skeleton's own "Camera3rd [Cam3]" node, which the mod's skeleton places for
+	// exactly this. So while the player's race carries no ActorTypeNPC keyword: the engine camera is forced to third
+	// person whenever it is first person, IC's ForceThirdPerson hook is made a plain third person (its je -> jmp, the
+	// TakeOverForcedThirdPerson=0 byte, for the ride only) and its pending flag cleared, and SmoothCam's camera is held
+	// (DecideSmoothCamHold) so the vanilla camera runs. When a playable race is back: the byte restored, SmoothCam
+	// released, and first person restored if that is where the ride started. Main thread (PlayerCharacter::Update).
+	void UpdateCreatureRide()
+	{
+		auto* player = RE::PlayerCharacter::GetSingleton();
+		auto* camera = RE::PlayerCamera::GetSingleton();
+		if (!player || !camera) {
+			return;
+		}
+		static RE::BGSKeyword* s_actorTypeNPC = RE::TESForm::LookupByID<RE::BGSKeyword>(0x00013794);
+		auto*      race = player->GetRace();
+		const bool creature = race && s_actorTypeNPC && !race->HasKeyword(s_actorTypeNPC);
+		if (creature != g_creatureRide) {
+			g_creatureRide = creature;
+			if (creature) {
+				g_creatureWasFirstPerson = camera->IsInFirstPerson();
+				if (g_ic2Module && *reinterpret_cast<std::uint8_t*>(g_ic2Module + kForceThirdPersonJeRVA) == 0x74) {
+					g_creatureJePatched = Write(g_ic2Module + kForceThirdPersonJeRVA, &kJmpShort, 1);
+				}
+				if (g_scManager) {
+					g_scManager[kMgrPending3P] = 0;
+				}
+				SKSE::log::info("Creature race on the player ({} {:08X}, no ActorTypeNPC): third person on the vanilla camera; Improved Camera's forced-third-person hook {}; was {} person",
+					race->GetFormEditorID() ? race->GetFormEditorID() : "", race->GetFormID(), g_creatureJePatched ? "made a plain third person" : "left as it is", g_creatureWasFirstPerson ? "first" : "third");
+			} else {
+				if (g_creatureJePatched) {
+					const std::uint8_t je = 0x74;
+					Write(g_ic2Module + kForceThirdPersonJeRVA, &je, 1);
+					g_creatureJePatched = false;
+				}
+				if (g_creatureWasFirstPerson && !camera->IsInFirstPerson()) {
+					camera->ForceFirstPerson();
+				}
+				SKSE::log::info("Playable race back on the player ({:08X}); {}", race ? race->GetFormID() : 0u, g_creatureWasFirstPerson ? "first person restored" : "camera left where it is");
+			}
+		}
+		if (creature) {
+			if (g_scManager) {
+				g_scManager[kMgrPending3P] = 0;
+			}
+			if (camera->IsInFirstPerson()) {
+				camera->ForceThirdPerson();
+			}
 		}
 	}
 
@@ -810,6 +870,9 @@ namespace
 		static void thunk(RE::PlayerCharacter* a_player, float a_delta)
 		{
 			func(a_player, a_delta);
+			if (g_creatureEnabled) {
+				UpdateCreatureRide();
+			}
 			if (g_scHoldEnabled) {
 				DecideSmoothCamHold();
 			}
@@ -1327,13 +1390,18 @@ namespace
 			wchar_t nearBuf[32]{};
 			::GetPrivateProfileStringW(L"ImprovedCamera2", L"HeadCameraNearDistance", L"4", nearBuf, 32, kIniPath);
 			g_headCamNear = static_cast<float>(::_wtof(nearBuf));
+			g_creatureEnabled = ::GetPrivateProfileIntW(L"CreatureRace", L"ThirdPerson", 1, kIniPath) != 0;
 			if (g_ic2Module) {
 				g_scManager = Manager();
 			}
-			if (g_ic2Module && (g_scHoldEnabled || g_holdEntryFrame || g_headCamNear > 0.0f)) {
+			if (!g_creatureEnabled) {
+				SKSE::log::info("[CreatureRace] ThirdPerson=0 - a creature race on the player (Centurion Armor) keeps whatever camera Improved Camera and SmoothCam give it");
+			}
+			if (g_ic2Module && (g_scHoldEnabled || g_holdEntryFrame || g_headCamNear > 0.0f || g_creatureEnabled)) {
 				REL::Relocation<std::uintptr_t> pcVtbl{ RE::VTABLE_PlayerCharacter[0] };
 				PlayerUpdate::func = pcVtbl.write_vfunc(0xAD, PlayerUpdate::thunk);
-				SKSE::log::info("PlayerCharacter::Update hooked:{}{}{}",
+				SKSE::log::info("PlayerCharacter::Update hooked:{}{}{}{}",
+					g_creatureEnabled ? " a creature race on the player rides in a vanilla third person;" : "",
 					g_scHoldEnabled ? " SmoothCam's camera is held while Improved Camera's head camera is up;" : "",
 					g_holdEntryFrame ? " the head camera's entry frame keeps the previous frame's camera (no third-person flash);" : "",
 					g_headCamNear > 0.0f ? std::format(" the head camera's near plane is capped at {:.1f}", g_headCamNear) : std::string{});
@@ -1362,7 +1430,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenICSheatheFix 1.8.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenICSheatheFix 1.9.0 loading, runtime {}", REL::Module::get().version().string());
 	const auto* messaging = SKSE::GetMessagingInterface();
 	if (!SmoothCamAPI::RegisterInterfaceLoaderCallback(messaging, [](void* a_instance, SmoothCamAPI::InterfaceVersion a_version) {
 			g_scApi = reinterpret_cast<SmoothCamAPI::IVSmoothCam1*>(a_instance);  // every version derives from IVSmoothCam1

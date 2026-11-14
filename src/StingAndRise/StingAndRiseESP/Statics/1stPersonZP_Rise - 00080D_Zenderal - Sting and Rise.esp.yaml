@@ -1,0 +1,16 @@
+FormKey: 00080D:Zenderal - Sting and Rise.esp
+EditorID: 1stPersonZP_Rise
+Version2: 6
+ObjectBounds:
+  First: -4, -8, -2
+  Second: 3, 31, 1
+Model:
+  File: Zenderal\StingAndRise\Rise.nif
+  AlternateTextures:
+  - Name: Noble_Shortsword_MP
+    NewTexture: 00080C:Zenderal - Sting and Rise.esp
+  - Name: scb
+    NewTexture: 000816:Zenderal - Sting and Rise.esp
+    Index: 1
+MaxAngle: 90
+Unused: 0x000000

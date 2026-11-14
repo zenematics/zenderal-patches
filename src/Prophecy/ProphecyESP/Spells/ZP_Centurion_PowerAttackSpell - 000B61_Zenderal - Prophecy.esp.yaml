@@ -1,0 +1,20 @@
+FormKey: 000B61:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_PowerAttackSpell
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor power attack'
+MenuDisplayObject: 0A59AC:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 2
+Flags:
+- ManualCostCalc
+CastType: FireAndForget
+HalfCostPerk: 0F2CA7:Skyrim.esm
+Effects:
+- BaseEffect: 000B62:Zenderal - Prophecy.esp
+  Data:
+    Magnitude: 50
+    Area: 20

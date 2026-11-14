@@ -1,0 +1,14 @@
+FormKey: 00081D:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingSpiderlingAbility
+Name:
+  TargetLanguage: English
+  Value: Venom Spiderling
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 00081E:Zenderal - Sting and Rise.esp
+  Data: {}

@@ -1,0 +1,22 @@
+FormKey: 000B50:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_SkinAA
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  - Hands
+  - Feet
+  ArmorType: HeavyArmor
+  ActsLike44: True
+Race: 0131F1:Skyrim.esm
+Priority:
+  Male: 10
+  Female: 10
+WeightSliderEnabled:
+  Male: False
+  Female: False
+WeaponAdjust: 0.2
+WorldModel:
+  Male:
+    File: actors\AshihitoPArace\CenturionArmor\CenturionArmor.nif
+    Data: 0x0200000004000000000000004DFA43A064647300E216086BCD87968F64647300E216086B188FFC7C64647300262C333B77D69F1664647300E216086B
+FootstepSound: 086EF7:Skyrim.esm

@@ -1,0 +1,31 @@
+FormKey: 000809:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseArmorPierce
+Name:
+  TargetLanguage: English
+  Value: Rise
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasKeywordConditionData
+        Keyword: 000808:Zenderal - Sting and Rise.esp
+      ComparisonValue: 1
+  - RunOnTabIndex: 2
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: HasMagicEffectConditionData
+        MagicEffect: 000802:Zenderal - Sting and Rise.esp
+      ComparisonValue: 1
+  EntryPoint: ModTargetDamageResistance
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0

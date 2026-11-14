@@ -1,0 +1,15 @@
+FormKey: 000B5B:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_Cooldown
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor cooling'
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000B5C:Zenderal - Prophecy.esp
+  Data:
+    Duration: 300

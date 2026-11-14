@@ -41,6 +41,10 @@ Description:
 Conditions:
 - MutagenObjectType: ConditionFloat
   Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 000B4C:Zenderal - Prophecy.esp
+- MutagenObjectType: ConditionFloat
+  Data:
     MutagenObjectType: IsHostileToActorConditionData
     TargetNpc: 000014:Skyrim.esm
   ComparisonValue: 1

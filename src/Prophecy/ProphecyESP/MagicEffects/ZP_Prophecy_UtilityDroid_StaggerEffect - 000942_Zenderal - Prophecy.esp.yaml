@@ -20,3 +20,8 @@ Sounds: []
 Description:
   TargetLanguage: English
   Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 000B4C:Zenderal - Prophecy.esp

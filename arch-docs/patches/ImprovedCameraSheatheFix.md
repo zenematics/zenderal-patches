@@ -544,3 +544,66 @@ value), so plain first person and third person are untouched. 0 = leave IC's rul
 `Advanced/fNearDistanceMax` in Zen.json, which would change plain first person too. Built 2026-11-09 ~00:10 (`compiled/` updated); the Patch Collection copy landed once the
 game was closed (its DLL had been locked), so the next launch runs 1.8.0. **Verified in game 2026-11-09 00:10** (four bites: the log's `near plane 10.53 -> 4.0`
 line, the curator: "food looks fine").
+
+## 2026-11-13: players stuck on stairs = IC's collision bumper (profile change, no DLL change)
+
+**Report:** players kept getting stuck walking up stairs; with Improved Camera disabled it was "barely an issue"
+(curator). SkyParkour's Auto Parkour was ruled out by the curator.
+
+**Cause (IC 2.0.0.2226's own PDB, `dumpbin /disasm` with the PDB beside the DLL, so every function has its name):**
+IC replaces the player's character-controller shape. `BODY::BodyBumper::Update` (RVA 24A70, called from
+`BODY::Manager::Update` every frame) finds the controller's convex hull (`FindControllerConvexShape`) and swaps in
+`CreateModifiedConvexShape(state, forward, back, side)` (RVA 25440), set on the controller through its vtable
+`+0x128`. That function copies every hull vertex and, with `t` = 0 at the back-most vertex and 1 at the front-most
+(local +Y), sets `y += t*forward - (1-t)*back`, then `x += side` for `x > 0` and `x -= side` for `x < 0`; the
+result becomes a new `hkpConvexVerticesShape` (convex radius 0.05). **No height limit:** the hull's feet are stretched
+45 units forward like its chest, so its flat front-bottom edge sits over the next one or two treads and meets a stair
+riser as a vertical wall. Ramp-collision stairs mostly still work; real step collision blocks. For races whose
+controller is a two-capsule list shape (werewolves), the capsules instead get `fWerewolfBumperOffset` added to their
+radius, with the ends moved in to keep the height.
+
+- **When it is on:** `BODY::Manager::Update` (2A20F) passes "IC camera mode is 1 or 2, or the camera is not in first
+  person": IC's first person, its head camera, and third person. Off only in a plain first-person state outside IC's
+  modes; turning it off rebuilds the hull with 0, 0, 0 (an exact copy of the original).
+- **Settings** (`from_json<ProfileAdvanced>`, Plugin `+0x1C0`): `+8 fForwardBumperOffset` (default 45), `+0xC
+  fSideBumperOffset` (15), `+0x10 fBackBumperOffset` (15), `+0x14 fWerewolfBumperOffset` (15). Zen.json shipped IC's
+  defaults.
+- A hull already rebuilt is cached (state 2) and takes new offsets only after a turn-off: IC's menu note "Collision
+  changes only take affect when you next go into third person". A fresh launch reads the profile.
+
+**Change (option 1, test + fix in one):** Zen.json `Advanced` bumper offsets 45/15/15/15 → **0/0/0/0** (Zenderal -
+Settings, 2026-11-13). The hull is then the vanilla one. Possible cost: IC's camera sits on the head, ahead of the hull's
+centre, so pressing face-first into a wall may show its inside. If that is not acceptable, **option 2:** hook RVA 25440
+in this DLL and stretch only the vertices above step height, so the upper hull keeps the camera out of walls and the
+feet stay vanilla. **Unverified in game.**
+
+## 2026-11-13: 1.9.0 - a creature race on the player rides in a vanilla third person (Centurion Armor)
+
+**Report (curator, 17:33):** "calling the Centurion armor works but once inside the POV is broken and all I can see is
+the inside of the armor, there doesn't seem to be a way to get out either." Recording `2026.11.13 - 17.30.15.04.mp4`,
+last 40 s: a first-person view from the Centurion's head height with its gun arms either side, then the inside of the
+torso's cog cluster. Never a third person.
+
+**Cause.** Prophecy's ride (`ZP_CenturionRideOn`) makes the player the armor race with `SetRace`. The list plays in
+IC's first person, so IC's first-person body simply put the camera on the new body's head node, inside the mech. The
+Papyrus `Game.ForceThirdPerson()` the boarding script made before the swap did not help: this log shows it becoming
+IC's head camera at 17:32:17 and 17:32:21 (`TakeOverForcedThirdPerson=1`), which ended by itself a second after the
+3D reload. A third person under SmoothCam would not have helped either: SmoothCam anchors its camera on
+`NPC Spine1 [Spn1]` (its DLL's only spine string), and the Centurion skeleton (`centurionskeleton.nif`) names that bone
+`NPC Spine [Spn1]`. The vanilla third-person camera instead reads the skeleton's own `Camera3rd [Cam3]` node, which the
+mod's skeleton carries - that is the camera the mod's author played with.
+
+**Fix, 1.9.0 `[CreatureRace] ThirdPerson=1`** (`UpdateCreatureRide`, in the `PlayerCharacter::Update` hook): while
+the player's race has no `ActorTypeNPC` keyword (`013794`; the Centurion race carries `ActorTypeDwarven` only), (1)
+`PlayerCamera::ForceThirdPerson()` whenever the camera is first person, (2) IC's ForceThirdPerson hook byte
+`+B3EDA` turned je -> jmp for the ride only (the `TakeOverForcedThirdPerson=0` byte; restored after) and its pending
+flag `+235h` cleared every frame, so IC stays out (with `ThirdPersonBody=0` a third-person camera is mode 3 to it), and
+(3) SmoothCam's camera held through the existing `DecideSmoothCamHold` (`|| g_creatureRide`), so the vanilla camera
+runs on `Camera3rd`. When a playable race is back: byte restored, SmoothCam released, and `ForceFirstPerson()` if the
+ride began in first person. The boarding script no longer calls `Game.ForceThirdPerson()`. Deployed into Patch
+Collection (DLL + the ini section appended to the live ini). **Unverified in game.** The rule is race-wide: any
+future player race without `ActorTypeNPC` gets the same treatment; the log names the race.
+
+The way out was the second half of the report: the Favorites menu's *Climb out* only selected the dismount spell as
+the breath to cast with Shout, and the power cannot be cast with fighting controls off. Now the menu entry ends the
+ride at once and the Sneak key climbs out too ([`Prophecy.md`](Prophecy.md), Centurion Armor).

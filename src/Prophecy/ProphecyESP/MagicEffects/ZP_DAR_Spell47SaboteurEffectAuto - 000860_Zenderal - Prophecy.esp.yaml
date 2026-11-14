@@ -21,6 +21,10 @@ Description:
   Value: ''
 Conditions:
 - MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasMagicEffectKeywordConditionData
+    Keyword: 000B4C:Zenderal - Prophecy.esp
+- MutagenObjectType: ConditionFloat
   CompareOperator: LessThan
   Data:
     MutagenObjectType: GetRandomPercentConditionData

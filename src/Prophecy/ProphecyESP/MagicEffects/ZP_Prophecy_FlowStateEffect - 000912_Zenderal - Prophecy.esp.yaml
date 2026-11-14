@@ -11,8 +11,8 @@ VirtualMachineAdapter:
       Name: Nova
       Object: 00093D:Zenderal - Prophecy.esp
     - MutagenObjectType: ScriptFloatProperty
-      Name: NovaEvery
-      Data: 8.0
+      Name: NovaSpacing
+      Data: 12.0
     - MutagenObjectType: ScriptFloatProperty
       Name: SlowEvery
       Data: 8.0

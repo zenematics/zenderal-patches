@@ -1,0 +1,13 @@
+FormKey: 000B73:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_EquipSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\NPC\DwarvenCenturion\Equip\NPC_DwarvenCenturion_Equip_01.wav
+OutputModel: 0B4058:Skyrim.esm
+LoopAndRumble:
+  Unknown: 2
+PercentFrequencyVariance: 21
+Priority: 128
+Variance: 2
+StaticAttenuation: 15.83

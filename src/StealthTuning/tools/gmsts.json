@@ -1,0 +1,690 @@
+{
+ "fCombatDamageBonusMeleeSneakingMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "02B1F1:Skyrim.esm",
+    4.0
+   ]
+  ]
+ },
+ "fCombatDamageBonusSneakingMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A17A:Skyrim.esm",
+    2.0
+   ]
+  ]
+ },
+ "fCombatDetectionDialogueIdleMaxElapsedTime": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A17B:Skyrim.esm",
+    25.0
+   ]
+  ]
+ },
+ "fCombatDetectionDialogueIdleMinElapsedTime": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A17C:Skyrim.esm",
+    10.0
+   ]
+  ]
+ },
+ "fCombatSneak1HAxeMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "050DA0:Skyrim.esm",
+    1.5
+   ]
+  ]
+ },
+ "fCombatSneak1HDaggerMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "050D9F:Skyrim.esm",
+    2.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "050D9F:Skyrim.esm",
+    2.5
+   ]
+  ]
+ },
+ "fCombatSneak1HMaceMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "050DA1:Skyrim.esm",
+    1.5
+   ]
+  ]
+ },
+ "fCombatSneak1HSwordMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "050DA2:Skyrim.esm",
+    2.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "050DA2:Skyrim.esm",
+    1.5
+   ]
+  ]
+ },
+ "fCombatSneak2HAxeMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "069F48:Skyrim.esm",
+    1.5
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "069F48:Skyrim.esm",
+    1.0
+   ]
+  ]
+ },
+ "fCombatSneak2HSwordMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "069F47:Skyrim.esm",
+    1.5
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "069F47:Skyrim.esm",
+    1.0
+   ]
+  ]
+ },
+ "fCombatSneakAttackBonusMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A18F:Skyrim.esm",
+    100.0
+   ]
+  ]
+ },
+ "fCombatSneakBowMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "03997F:Skyrim.esm",
+    1.5
+   ]
+  ]
+ },
+ "fCombatSneakCrossbowMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "039981:Skyrim.esm",
+    1.5
+   ]
+  ]
+ },
+ "fCombatSneakHandMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "050DA3:Skyrim.esm",
+    2.0
+   ]
+  ]
+ },
+ "fCombatSneakStaffMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "0BF65F:Skyrim.esm",
+    1.5
+   ]
+  ]
+ },
+ "fCombatStealthPointDrainMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "049450:Skyrim.esm",
+    3.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "049450:Skyrim.esm",
+    12.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "049450:Skyrim.esm",
+    12.0
+   ]
+  ]
+ },
+ "fCombatStealthPointRegenAlertWaitTime": {
+  "chain": [
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "007EA6:Enderal SE - Gameplay Overhaul.esp",
+    30.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "000803:Enderal SE - Stealth Overhaul.esp",
+    30.0
+   ]
+  ]
+ },
+ "fCombatStealthPointRegenAttackedWaitTime": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "10E73F:Skyrim.esm",
+    15.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "10E73F:Skyrim.esm",
+    120.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "10E73F:Skyrim.esm",
+    120.0
+   ]
+  ]
+ },
+ "fCombatStealthPointRegenDetectedEventWaitTime": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "10E740:Skyrim.esm",
+    10.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "10E740:Skyrim.esm",
+    60.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "10E740:Skyrim.esm",
+    60.0
+   ]
+  ]
+ },
+ "fCombatStealthPointRegenLostWaitTime": {
+  "chain": [
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "007EA7:Enderal SE - Gameplay Overhaul.esp",
+    30.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "000804:Enderal SE - Stealth Overhaul.esp",
+    30.0
+   ]
+  ]
+ },
+ "fCombatStealthPointRegenMin": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "049452:Skyrim.esm",
+    5.0
+   ]
+  ]
+ },
+ "fCombatStealthPointRegenMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "049451:Skyrim.esm",
+    0.2
+   ]
+  ]
+ },
+ "fDamageSneakAttackMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "069F46:Skyrim.esm",
+    1.5
+   ]
+  ]
+ },
+ "fDetectionLOSDistanceMultExterior": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "12E3DB:Skyrim.esm",
+    0.45
+   ]
+  ]
+ },
+ "fDetectionLOSDistanceMultInterior": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "12E3DC:Skyrim.esm",
+    0.7
+   ]
+  ]
+ },
+ "fDetectionSneakLightMod": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "04D363:Skyrim.esm",
+    18.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "04D363:Skyrim.esm",
+    8.5
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "04D363:Skyrim.esm",
+    8.5
+   ]
+  ]
+ },
+ "fDistanceProjectileExplosionDetection": {
+  "chain": [
+   [
+    "Audio Overhaul Skyrim.esp",
+    "0180F0:Audio Overhaul Skyrim.esp",
+    400.0
+   ]
+  ]
+ },
+ "fPlayerDetectionSneakBase": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "0CD085:Skyrim.esm",
+    10.0
+   ]
+  ]
+ },
+ "fPlayerDetectionSneakMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "0CD084:Skyrim.esm",
+    0.4
+   ]
+  ]
+ },
+ "fSkillUsageSneakPerSecond": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "105CB6:Skyrim.esm",
+    0.625
+   ]
+  ]
+ },
+ "fSneakActionMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A1FF:Skyrim.esm",
+    2.0
+   ]
+  ]
+ },
+ "fSneakAlertMod": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "06071B:Skyrim.esm",
+    0.0
+   ]
+  ]
+ },
+ "fSneakAmbushNonTargetMod": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A200:Skyrim.esm",
+    0.0
+   ]
+  ]
+ },
+ "fSneakAttackSkillUsageMelee": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "105CB7:Skyrim.esm",
+    30.0
+   ]
+  ]
+ },
+ "fSneakBaseValue": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A201:Skyrim.esm",
+    -19.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "01A201:Skyrim.esm",
+    -13.0
+   ]
+  ]
+ },
+ "fSneakDistanceAttenuationExponent": {
+  "chain": [
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "000803:Enderal SE - Gameplay Overhaul.esp",
+    3.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "000800:Enderal SE - Stealth Overhaul.esp",
+    3.0
+   ]
+  ]
+ },
+ "fSneakEquippedWeightBase": {
+  "chain": [
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "007EA2:Enderal SE - Gameplay Overhaul.esp",
+    5.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "000801:Enderal SE - Stealth Overhaul.esp",
+    5.0
+   ]
+  ]
+ },
+ "fSneakEquippedWeightMult": {
+  "chain": [
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "007EA3:Enderal SE - Gameplay Overhaul.esp",
+    1.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "000802:Enderal SE - Stealth Overhaul.esp",
+    1.0
+   ]
+  ]
+ },
+ "fSneakExteriorDistanceMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A204:Skyrim.esm",
+    2.1
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "01A204:Skyrim.esm",
+    1.2
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "01A204:Skyrim.esm",
+    1.2
+   ]
+  ]
+ },
+ "fSneakFlyingDistanceMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "04378D:Skyrim.esm",
+    3.0
+   ]
+  ]
+ },
+ "fSneakLightExteriorMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "0ED367:Skyrim.esm",
+    0.5
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "0ED367:Skyrim.esm",
+    1.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "0ED367:Skyrim.esm",
+    1.0
+   ]
+  ]
+ },
+ "fSneakLightMoveMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "0BF65D:Skyrim.esm",
+    0.02
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "0BF65D:Skyrim.esm",
+    0.05
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "0BF65D:Skyrim.esm",
+    0.05
+   ]
+  ]
+ },
+ "fSneakLightMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A205:Skyrim.esm",
+    0.3
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "01A205:Skyrim.esm",
+    1.0
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "01A205:Skyrim.esm",
+    1.0
+   ]
+  ]
+ },
+ "fSneakLightRunMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "0BF65E:Skyrim.esm",
+    0.22
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "0BF65E:Skyrim.esm",
+    0.3
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "0BF65E:Skyrim.esm",
+    0.3
+   ]
+  ]
+ },
+ "fSneakMaxDistance": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A206:Skyrim.esm",
+    2500.0
+   ]
+  ]
+ },
+ "fSneakPerceptionSkillMax": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "060719:Skyrim.esm",
+    70.0
+   ]
+  ]
+ },
+ "fSneakPerceptionSkillMin": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "06071A:Skyrim.esm",
+    0.0
+   ]
+  ]
+ },
+ "fSneakRunningMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A207:Skyrim.esm",
+    2.0
+   ]
+  ]
+ },
+ "fSneakSkillMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A208:Skyrim.esm",
+    0.5
+   ]
+  ]
+ },
+ "fSneakSleepBonus": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "094BE6:Skyrim.esm",
+    -0.0
+   ],
+   [
+    "Enderal SE - Bug Fixes.esp",
+    "094BE6:Skyrim.esm",
+    -0.1
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "094BE6:Skyrim.esm",
+    -0.2
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "094BE6:Skyrim.esm",
+    -0.15
+   ]
+  ]
+ },
+ "fSneakSleepMod": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "10E054:Skyrim.esm",
+    0.0
+   ]
+  ]
+ },
+ "fSneakSoundLosMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "01A209:Skyrim.esm",
+    0.3
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "01A209:Skyrim.esm",
+    0.35
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "01A209:Skyrim.esm",
+    0.35
+   ]
+  ]
+ },
+ "fSneakSoundsMult": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "10B2F5:Skyrim.esm",
+    1.0
+   ],
+   [
+    "Enderal SE - Gameplay Overhaul.esp",
+    "10B2F5:Skyrim.esm",
+    1.2
+   ],
+   [
+    "Enderal SE - Stealth Overhaul.esp",
+    "10B2F5:Skyrim.esm",
+    1.2
+   ]
+  ]
+ },
+ "fTorchLightLevelNight": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "0484F6:Skyrim.esm",
+    1.6
+   ]
+  ]
+ },
+ "iCombatStealthPointDetectionThreshold": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "049453:Skyrim.esm",
+    25
+   ]
+  ]
+ },
+ "iLightLevelInteriorMod": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "046EEF:Skyrim.esm",
+    25
+   ]
+  ]
+ },
+ "iLightLevelMax": {
+  "chain": [
+   [
+    "Skyrim.esm",
+    "097D3B:Skyrim.esm",
+    300
+   ]
+  ]
+ }
+}

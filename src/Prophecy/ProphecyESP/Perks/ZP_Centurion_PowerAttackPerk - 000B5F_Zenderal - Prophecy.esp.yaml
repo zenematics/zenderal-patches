@@ -1,0 +1,18 @@
+FormKey: 000B5F:Zenderal - Prophecy.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZP_Centurion_PowerAttackPerk
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor power attack'
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Hidden: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 000B60:Zenderal - Prophecy.esp
+MajorFlags:
+- NonPlayable

@@ -1,0 +1,8 @@
+FormKey: 000816:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseScabbardGold
+Version2: 1
+Diffuse: Zenderal\StingAndRise\RiseScabbardGold_d.dds
+NormalOrGloss: Zenderal\StingAndRise\RiseScabbardGold_n.dds
+EnvironmentMaskOrSubsurfaceTint: Zenderal\StingAndRise\RiseScabbardGold_m.dds
+Environment: Zenderal\StingAndRise\RiseGold_e.dds
+Flags: []

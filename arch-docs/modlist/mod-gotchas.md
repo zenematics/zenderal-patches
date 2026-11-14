@@ -535,3 +535,23 @@ List-wide traps that are not tied to one Zenderal patch.
     widget `_root.TrueHUD.playerWidget` inside `TrueHUD_MainVisibilityWidgets`, bars with `Frame`/`Outline`.
   - A SkyUI widget that measured the HUD bars landed top left ([`ArcaneFeverGauge`](../patches/ArcaneFeverGauge.md)
     build 1); build 2 loads a copy into TrueHUD's movie instead.
+- **Glow Be Gone Redone - NG removes every weapon enchant shader at load, ours included (2026-11-13).** The list
+  ships it (Nexus 171248, SKSE) with `RemoveWeaponFX = true` and `RemoveActorFX = true`: at kDataLoaded it nulls
+  `enchantShader` and `effectShader` (offset 0x30: the CK's **Hit Shader**, so enemies show no hit glow either) on
+every magic effect that is neither protected (Conjuration school; bound
+  weapon, summon, reanimate, spawn-scripted-ref, etherealize, invisibility, detect-life archetypes; an NPC as the
+  associated form) nor named in its toml's `ExclusionList` (plugins, matched against any file in the record's
+  source list) or `MagicEffectExclusionList` (`"Plugin.esp:00000802"`; low 12 bits for a light plugin). It
+  leaves enchant art, hit art and EFSH records alone; an exclusion brings back both shaders. A weapon's enchant art
+  shows only with an enchant shader,
+  so a new weapon effect that needs its art (or its shader) needs an exclusion: Sting and Rise's
+  `tools/03-glow-be-gone-exclusion.py` writes Glow Be Gone's toml + its entries into **Zenderal - Settings**
+  (outranks it). Add further entries to that script rather than hand-editing the copy.
+  [`patches/StingAndRise.md`](../patches/StingAndRise.md)
+- **Never install the standalone "Dynamic Cubemaps" mod (Nexus 112763) with Bottled Shaders (2026-11-13).** It is the
+  2024 Community Shaders feature package (shader files + `Shaders/Features/DynamicCubemaps.ini` 1-0-3) of something
+  Bottled Shaders already ships (Dynamic Cubemaps 2-6-2). Sorted above Bottled Shaders, its `DynamicCubemaps.hlsli`
+  (no `GetDynamicCubemapSpecularIrradiance`, which Bottled's `Lighting.hlsl` calls) and compute shaders replace
+  Bottled's, which breaks the lighting shader's compile. The curator added it for Precious Objects Complex Material
+  and Dynamic Cubemap (meshes/textures only, fine to keep); unticked in Ultra the same day (backup of the profile in
+  `E:/Zenderal-backups/2026-11-13-ultra-modlist`). Mods that "require Dynamic Cubemaps" are satisfied by Bottled Shaders.

@@ -1,0 +1,10 @@
+FormKey: 000B6F:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_JetArt
+ObjectBounds:
+  First: -26, -26, -11
+  Second: 26, 26, 14
+Model:
+  File: Magic\AshihitoPArace\CenturionFire.nif
+  Data: 0x020000000000000000000000
+Type:
+- MagicCasting

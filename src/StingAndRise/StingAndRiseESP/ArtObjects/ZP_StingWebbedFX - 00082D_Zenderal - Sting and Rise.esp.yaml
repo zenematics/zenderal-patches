@@ -1,0 +1,10 @@
+FormKey: 00082D:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingWebbedFX
+Version2: 2
+ObjectBounds:
+  First: -250, -218, 20
+  Second: 243, 299, 64
+Model:
+  File: Zenderal\StingAndRise\StingWebStrands.nif
+Type:
+- MagicCasting

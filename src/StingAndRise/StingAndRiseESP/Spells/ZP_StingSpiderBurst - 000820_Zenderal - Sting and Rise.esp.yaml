@@ -1,0 +1,21 @@
+FormKey: 000820:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingSpiderBurst
+Name:
+  TargetLanguage: English
+  Value: Venom Burst
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: 00081A:Zenderal - Sting and Rise.esp
+  Data:
+    Duration: 1
+- BaseEffect: 000821:Zenderal - Sting and Rise.esp
+  Data:
+    Magnitude: 25

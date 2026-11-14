@@ -1,0 +1,10 @@
+FormKey: 000801:Zenderal - Argent Verdict.esp
+EditorID: 1stPersonZP_ArgentVerdict
+Version2: 7
+ObjectBounds:
+  First: -15, -42, -4
+  Second: 19, 54, 4
+Model:
+  File: Zenderal\ArgentVerdict\ArgentVerdict.nif
+MaxAngle: 90
+Unused: 0x000000

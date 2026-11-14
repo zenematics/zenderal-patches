@@ -1,0 +1,33 @@
+FormKey: 069CF8:Skyrim.esm
+EditorID: _00E_Class_Vagrant_P06_PerfectFit
+Name:
+  TargetLanguage: English
+  Value: 'Vagabund: Passgenau'
+Description:
+  TargetLanguage: English
+  Value: Tragt Ihr ausschließlich leichte Rüstung (Kopf, Brust, Hände, Füße), erhaltet Ihr 25 Prozent Rüstungsbonus.
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+  EntryPoint: ModArmorRating
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 1.3
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+  EntryPoint: ModSpellCost
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 0.9

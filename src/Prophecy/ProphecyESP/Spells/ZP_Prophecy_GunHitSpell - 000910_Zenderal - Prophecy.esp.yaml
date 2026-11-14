@@ -228,3 +228,23 @@ Effects:
       Reference: 000014:Skyrim.esm
       ItemSource: Right
     ComparisonValue: 12
+- BaseEffect: 02A044:Enderal - Forgotten Stories.esm
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      MagicEffect: 02A043:Enderal - Forgotten Stories.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsSneakingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: GetDetectedConditionData
+      TargetNpc: 000014:Skyrim.esm

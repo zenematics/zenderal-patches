@@ -1,0 +1,31 @@
+FormKey: 00082B:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingWebbedEffect
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Webbed
+MenuDisplayObject: 10A046:Skyrim.esm
+Keywords:
+- 0B729E:Skyrim.esm
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+HitShader: 00082C:Zenderal - Sting and Rise.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+CastType: FireAndForget
+TargetType: Touch
+HitEffectArt: 00082D:Zenderal - Sting and Rise.esp
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

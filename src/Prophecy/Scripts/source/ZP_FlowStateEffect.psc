@@ -10,7 +10,9 @@ Float Property Cooldown = 10.0 Auto          ; unused since 2026-10-29: a runnin
 Float Property SlowEvery = 8.0 Auto          ; new names, so saves pick up the defaults (curator: 8 s each)
 Explosion Property Nova Auto
 Float Property NovaCooldown = 15.0 Auto      ; unused, as Cooldown
-Float Property NovaEvery = 8.0 Auto
+Float Property NovaEvery = 8.0 Auto          ; unused since 2026-11-12 (NovaSpacing), as Cooldown
+Float Property NovaSpacing = 12.0 Auto       ; nova + chain lightning spacing (balance pass 2026-11-12); a running
+                                             ; effect on an older save reads a new property as 0, hence the guard below
 Spell Property ChainLightning Auto            ; with the nova, at the combat target (2026-10-29)
 
 Actor Player
@@ -46,8 +48,11 @@ Event OnAnimationEvent(ObjectReference akSource, string asEventName)
 	If !ChainLightning
 		ChainLightning = Game.GetFormFromFile(0x00000B02, "Zenderal - Prophecy.esp") as Spell   ; likewise
 	EndIf
+	If NovaSpacing <= 0.0
+		NovaSpacing = 12.0
+	EndIf
 	If Nova && now >= NextNova
-		NextNova = now + NovaEvery
+		NextNova = now + NovaSpacing
 		Player.PlaceAtMe(Nova)
 		Actor foe = Foe()
 		If ChainLightning && foe

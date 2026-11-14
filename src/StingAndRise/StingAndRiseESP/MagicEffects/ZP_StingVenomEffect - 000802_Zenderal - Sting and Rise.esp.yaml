@@ -1,0 +1,37 @@
+FormKey: 000802:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingVenomEffect
+Name:
+  TargetLanguage: English
+  Value: Sting Venom
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 042509:Skyrim.esm
+- 05BD16:Skyrim.esm
+- 1093BB:Skyrim.esm
+- 001EA1:Enderal SE - Gameplay Overhaul.esp
+- 001F93:Enderal SE - Gameplay Overhaul.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- Painless
+- NoDeathDispel
+BaseCost: 1.1
+ResistValue: PoisonResist
+TaperWeight: 0.2
+HitShader: 10CC64:Skyrim.esm
+EnchantShader: 000813:Zenderal - Sting and Rise.esp
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+EnchantArt: 000803:Zenderal - Sting and Rise.esp
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Deals <mag> poison damage per second and slows the target by 10% for <dur> seconds. An enemy that dies poisoned bursts into a spiderling that fights at your side for 15 seconds and bursts in venom when it dies, and enemies its venom kills burst too.

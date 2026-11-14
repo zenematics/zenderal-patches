@@ -1,0 +1,7 @@
+FormKey: 000803:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingVenomCoatFX
+Version2: 1
+Model:
+  File: Zenderal\StingAndRise\StingEnchFX.nif
+Type:
+- MagicHitEffect

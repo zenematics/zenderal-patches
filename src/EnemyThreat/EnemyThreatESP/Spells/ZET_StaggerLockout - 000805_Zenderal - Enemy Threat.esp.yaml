@@ -1,0 +1,17 @@
+FormKey: 000805:Zenderal - Enemy Threat.esp
+EditorID: ZET_StaggerLockout
+Name:
+  TargetLanguage: English
+  Value: Steadied
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- NoAbsorbOrReflect
+CastType: FireAndForget
+Effects:
+- BaseEffect: 000806:Zenderal - Enemy Threat.esp
+  Data:
+    Duration: 5

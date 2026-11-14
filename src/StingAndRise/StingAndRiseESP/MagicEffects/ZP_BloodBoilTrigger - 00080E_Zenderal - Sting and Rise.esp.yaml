@@ -1,0 +1,40 @@
+FormKey: 00080E:Zenderal - Sting and Rise.esp
+EditorID: ZP_BloodBoilTrigger
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_BloodBoilEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Blast
+      Object: 00080F:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BoilShader
+      Object: 000815:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BoilVisual
+      Object: 000814:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Cooldown
+      Object: 000811:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CooldownEffect
+      Object: 000812:Zenderal - Sting and Rise.esp
+Name:
+  TargetLanguage: English
+  Value: Blood Boil
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

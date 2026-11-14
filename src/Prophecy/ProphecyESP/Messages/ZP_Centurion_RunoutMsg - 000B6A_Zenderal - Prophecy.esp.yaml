@@ -1,0 +1,11 @@
+FormKey: 000B6A:Zenderal - Prophecy.esp
+EditorID: ZP_Centurion_RunoutMsg
+Description:
+  TargetLanguage: English
+  Value: 'The Centurion Armor''s core is running low. It will shut down soon.'
+Name:
+  TargetLanguage: English
+  Value: 'Centurion Armor'
+INAM: 0x00000000
+Flags:
+- MessageBox

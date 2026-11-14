@@ -106,7 +106,12 @@ NIGHTBLADE = {'Fraction': 0.5, 'PerPoint': 15}
 SHROUD_DARKNESS = {'TicksPerPoint': 4}
 # Dragon's Breath (curator 2026-10-28): every Every-th unarmed hit, ZenProphecyRage.dll casts one of three elemental
 # cones at the target - Hissing Dragon's fire/frost/shock procs, reaching Range units (~5 m) instead of 128
-DRAGONS_BREATH = {'Every': 5, 'Damage': 60}
+DRAGONS_BREATH = {'Every': 7, 'Damage': 60}
+# Centurion Armor (Gadgets' second capstone, curator 2026-11-13): Ashihito Power Armor's (Nexus 50659, ashihito; assets
+# usable with credit) boardable Steam Centurion as a Prophecy power. The mod's plugin never loads in Enderal (Skyrim
+# cells, Tamriel = MQP01Home, NAVI 012FB4, DLC masters); its Centurion closure is copied here under our IDs with the
+# three scripts rewritten (ZP_Centurion*). Duration / cooldown = the mod's defaults.
+CENTURION = {'Duration': 180, 'Cooldown': 300}   # 5 -> 7 in the Martial Arts balance pass (curator 2026-11-12)
 SHADE_VEIL_DETECT = 50   # Shade Veil: ModDetectionSneakSkill Add, SureAI's "percent" (Infiltrator: Devious 15)
 NIGHTFALL_FEVER = 50     # Shadow's capstone power: Arcane Fever per use; refused at this much or more (as Wrath)
 # Druid's numbers (curator 2026-10-27). Force of Nature's 60 s are Triumvirate's own (its spell 28E6EB); the familiars
@@ -233,6 +238,9 @@ TREES = [
     ('gad3', 'Utility Droid', 'Grants the "Utility Droid" power: throw out a mechanical spider that follows you, heals you, staggers enemies around it and now and then finds a Spare Part for you (at most one every 3 hours). It lasts until destroyed, and using the power again calls it back to you. Your first droid is free; each new one costs 10 Spare Parts.', o('0306CB'), [o('030C45')], ['gad1']),
     ('gad4', 'Clockwork Turret', 'You can build Clockwork Turrets at a forge, and you receive one when you learn this. The "Clockwork Turret" power deploys it for 30 seconds: it turns and fires at your target, or the nearest enemy in combat, dealing damage equal to 30% of your Handicraft skill.', o('056C92'), [], ['gad2', 'gad3']),
     ('gad5', 'Overclock', 'Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.', None, [o('056C9F'), o('056CA7')], ['gad4']),
+    # Centurion Armor (2026-11-13): a second capstone off Overclock (EXTRA_CAPSTONES), allocated after everything
+    # else (GADGETS_LATE_NODES_2) so no older ID moved. Numbers = CENTURION, defined above
+    ('gad7', 'Centurion Armor', 'Grants the "Centurion Armor" power: call a Dwemer war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow, hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it.', None, [], ['gad5']),
   ]),
   # Shadow (2026-10-27, curator's design): Triumvirate's Shadow Mage spells, granted by the menu (SHADOW_GRANTS; Magic
   # Patches prices them), and Nightfall as a fever-priced power (write_shadow). Allocated after every older block
@@ -250,15 +258,15 @@ TREES = [
     ('shd5', 'Nightfall', f'Grants the "Nightfall" power (a full Darkness meter): for 60 seconds, a pool of darkness follows you and every Shadow spell you know is cast on you at once.', None, [], ['shd4']),
   ]),
   ('Martial Arts', 'Fists, footwork and timing.', [
-    ('ma1', 'Iron Fist', 'Your unarmed attacks deal extra damage equal to 15% of your current Stamina. Requires both hands to be empty.', '058F6E:Skyrim.esm', [], []),
-    ('ma2', 'Hissing Dragon', 'Choose a damage type (fire, frost, shock, poison, disease or sun): your unarmed attacks unleash a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking.', o('04D4E3'), [], ['ma1']),
+    ('ma1', 'Iron Fist', 'Your unarmed attacks deal extra damage equal to 10% of your current Stamina. Requires both hands to be empty.', '058F6E:Skyrim.esm', [], []),
+    ('ma2', 'Hissing Dragon', 'Choose a damage type (fire, frost, shock, poison, disease or sun): every unarmed hit you land unleashes a shockwave that deals it to everyone in front of you. Requires both hands to be empty, and does not trigger while sneaking.', o('04D4E3'), [], ['ma1']),
     # Dragon's Breath (2026-10-28): beside Hissing Dragon, off Conditioning (the root's stat talent), allocated after
     # Nightblade's records (MARTIAL_LATE_NODES)
     # renamed Invoker (curator 2026-10-29); its records keep their DragonsBreath EditorIDs
     ('ma6', 'Invoker',f"Every {DRAGONS_BREATH['Every']}th unarmed hit unleashes fire, frost or lightning on the enemy, at random: a fireball explosion, a freeze that holds it for 4 seconds, or chain lightning that leaps to nearby enemies. Each deals {DRAGONS_BREATH['Damage']} damage.", None, [], ['mst1']),
     ('ma3', 'Stunning Blows', 'Your unarmed attacks have a 15% chance to stagger enemies, and deal 25% more damage to staggered enemies.', s('000851'), [], ['ma1']),
     ('ma4', 'Breaking Waves', 'Your unarmed attacks have a 15% chance to land a critical strike that deals damage equal to 40% of your current Stamina. Requires both hands to be empty.', o('04D4DA'), [], ['ma2', 'ma3']),
-    ('ma5', 'Flow State', 'Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 8 seconds).', None, [], ['ma4']),
+    ('ma5', 'Flow State', 'Dodging in combat briefly slows time to a crawl (once every 8 seconds) and releases a Shock Nova that deals 40 shock damage to nearby enemies and sends chain lightning into your foe (once every 12 seconds).', None, [], ['ma4']),   # numbers = FLOW_NOVA (defined later in the file)
   ]),
   # Glory (2026-10-21, curator's design): all hand-built - see write_glory. Its records sit AFTER every other
   # block (GLORY_FIRST_ID) so adding it did not renumber the four older trees in existing saves.
@@ -449,7 +457,7 @@ HAND_STATS = {'Druidic': {'vst1': ('manarate', 10), 'vst2': ('armor', 40), 'vst3
                        'yst4': ('armor', 40), 'yst5': ('healrate', 25), 'yst6': ('staminarate', 25)}}
 HAND_W2 = {'vst6', 'cst6', 'yst6'}
 STAT_FIRST_ID = 0x9C4
-FAITH_CAPSTONE = {'Faith': 'faith4'}     # the 2026-10-25 rework: Templar (faith5) is the merge talent now
+FAITH_CAPSTONE = {'Faith': 'faith4', 'Gadgets': 'gad5'}   # Gadgets: Overclock stays the woven capstone; Centurion Armor (gad7, last in the list) is the extra one     # the 2026-10-25 rework: Templar (faith5) is the merge talent now
 CAPSTONE_LEVEL = 30
 SHADOW_LATE_NODES = ('shd6',)            # Shade Veil (2026-10-28): allocated after Shatterveil's records
 SHADOW_LATE_NODES_2 = ('shd7',)          # Darkness (2026-10-28): allocated after the Darkness meter's records
@@ -457,7 +465,8 @@ SHADOW_LATE = SHADOW_LATE_NODES + SHADOW_LATE_NODES_2
 MARTIAL_LATE_NODES = ('ma6',)
 FIREARMS_LATE_NODES = ('gun6',)          # Ricochet Rounds (2026-10-29): allocated after The Hunt's records
 FIREARMS_LATE_NODES_2 = ('gun7', 'gun8', 'gun9', 'gun10', 'gun11')   # the pistol branch (2026-11-01): after The Hunt's summon art
-EXTRA_CAPSTONES = {'gun11'}              # capstones not after a W2 stat talent (Fan the Hammer: the pistol branch's)
+EXTRA_CAPSTONES = {'gun11', 'gad7'}      # capstones not after a W2 stat talent (Fan the Hammer: the pistol branch's; Centurion Armor)
+GADGETS_LATE_NODES_2 = ('gad7',)          # Centurion Armor (2026-11-13): allocated after Enemy Threat's stagger keyword
 LATE_NODES = ('gad6',)                   # talents added after the stat talents: allocated after the Faith records                      # every capstone needs this player level (curator 2026-10-25; ZP_ProphecyMenu.LevelReq)
 STAT = {}                          # node id -> (kind, magnitude)
 
@@ -490,7 +499,7 @@ def weave_stats():
             at = next(i for i, n in enumerate(ns) if n[0] == after)
             ns.insert(at + 1, stat(s, [s[4]]))
         for s in [w1, w2] + sides: STAT[s[0]] = (s[2], s[3])
-        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES + SHADOW_LATE + MARTIAL_LATE_NODES + FIREARMS_LATE_NODES + FIREARMS_LATE_NODES_2), (tree, len(ns))
+        assert len(ns) == 11 + sum(1 for n in ns if n[0] in LATE_NODES + SHADOW_LATE + MARTIAL_LATE_NODES + FIREARMS_LATE_NODES + FIREARMS_LATE_NODES_2 + GADGETS_LATE_NODES_2), (tree, len(ns))
         TREES[k] = (tree, desc, ns)
 
 
@@ -599,7 +608,21 @@ SURROUNDED = {'Radius': 400.0, 'MinEnemies': 3, 'StaminaPerSecond': 2.0}
 EXTRA_SEEDS = [s('00084F'),          # Monk - its bleed spell/MGEF become Bleeding Shot's
                o('07B101')]          # ORD_Bck_QuickReflexes_Spell_Self - the slow-time spell Flow State casts
 # Plain numeric edits on copied perk effects: (node, EntryPoint, old value, new value)
-VALUE_EDITS = [('ma1', 'ModAttackDamage', '0.05', '0.15')]
+VALUE_EDITS = [('ma1', 'ModAttackDamage', '0.05', '0.10')]   # Iron Fist: Ordinator's 5% of Stamina; was 15% here until the 2026-11-12 balance pass
+# Martial Arts balance pass (curator 2026-11-12, "do all of it"): edits on copied records, by EditorID - (regex,
+# replacement, expected count), applied in write(). Hissing Dragon's cone was cast by Ordinator's ORD_RisingTide_Script
+# on the Iron Fist ability from the weaponSwing/weaponLeftSwing animation events: every SWING, hit or miss, no
+# cooldown. The script is dropped from the ability (the ability is now inert) and ZenProphecyRage.dll 1.7.0 casts
+# the chosen cone (FormList 00087D's first form) once per punch that LANDS, from the same hit path as Invoker, not
+# while sneaking. The cones' damage is halved: 50 -> 25, Sun 80/40 -> 40/20 (poison / disease untouched).
+COPY_EDITS = {
+    'ZP_ORD_Lia_IronFist_Effect_Ab': ((r'^VirtualMachineAdapter:\n(?:  .*\n)+', '', 1),),
+    'ZP_ORD_Lia_HissingDragon_Spell_Proc_Fire': ((r'^    Magnitude: 50$', '    Magnitude: 25', 1),),
+    'ZP_ORD_Lia_HissingDragon_Spell_Proc_Frost': ((r'^    Magnitude: 50$', '    Magnitude: 25', 1),),
+    'ZP_ORD_Lia_HissingDragon_Spell_Proc_Shock': ((r'^    Magnitude: 50$', '    Magnitude: 25', 1),),
+    'ZP_ORD_Lia_HissingDragon_Spell_Proc_Sun': ((r'^    Magnitude: 40$', '    Magnitude: 20', 1), (r'^    Magnitude: 80$', '    Magnitude: 40', 1)),   # the 40 first, or the lowered 80 counts twice
+}
+HISSING_LIST = f'00087D:{MOD}'     # ORD_Lia_HissingDragon_FormList: the chosen cone, filled by ORD_HissingDragon_Script
 # Skyrim forms a copied record names that Enderal lacks (or has at that ID as something else). A target
 # of None removes the YAML list entry/line carrying the reference; the DUMMY_* are inert records of ours.
 DUMMY_QUEST, DUMMY_LOC, DUMMY_SPELL = f'00080A:{MOD}', f'00080B:{MOD}', f'00080C:{MOD}'
@@ -727,7 +750,7 @@ def main():
     glory_all = [n[0] for t, _, ns in TREES if t == GLORY for n in ns if n[0] not in STAT]
     glory_nodes = [nid for nid in glory_all if nid not in GLORY_LATE_NODES]
     for nid, n in nodes.items():                         # perks first, in tree order, for readable IDs
-        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES or nid in shadow_all or nid in druid_all or nid in DRUID_LATE_NODES or nid in DRUID_LATE_NODES_2 or nid in sorc_all or nid in rage_all or nid in SHADOW_LATE or nid in MARTIAL_LATE_NODES or nid in FIREARMS_LATE_NODES or nid in FIREARMS_LATE_NODES_2: continue
+        if nid in glory_all or nid in arc_nids or nid in nec_nids or nid in STAT or nid in LATE_NODES or nid in shadow_all or nid in druid_all or nid in DRUID_LATE_NODES or nid in DRUID_LATE_NODES_2 or nid in sorc_all or nid in rage_all or nid in SHADOW_LATE or nid in MARTIAL_LATE_NODES or nid in FIREARMS_LATE_NODES or nid in FIREARMS_LATE_NODES_2 or nid in GADGETS_LATE_NODES_2: continue
         if n[3]: newid[n[3]] = f'{nxt:06X}:{MOD}'
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     for a, nid in alias.items(): newid[a] = nodeperk[nid]
@@ -913,6 +936,15 @@ def main():
     # the respec confirm box (curator 2026-11-09; ZP_ProphecyMenu looks it up by this ID). Append LAST
     assert nxt == RESPEC_MSG, f"the respec message would not be 0x{RESPEC_MSG:03X} (0x{nxt:03X})"
     nxt += 1
+    # the stagger lockout keyword (2026-11-13, for Zenderal - Enemy Threat's bosses). Append LAST
+    assert nxt == STAGGER_LOCKOUT_KW, f"the stagger lockout keyword would not be 0x{STAGGER_LOCKOUT_KW:03X} (0x{nxt:03X})"
+    nxt += 1
+
+    # Centurion Armor (2026-11-13): its perk, then its records. Append LAST
+    assert nxt == CENTURION_FIRST_ID, f"Centurion Armor would not start at 0x{CENTURION_FIRST_ID:03X} (0x{nxt:03X})"
+    for nid in GADGETS_LATE_NODES_2:
+        nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
+    cent = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(CENTURION_RECORDS)}; nxt += len(CENTURION_RECORDS)
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -948,6 +980,9 @@ def main():
         for script_from, script_to in SCRIPT_SWAP.get(ed(t), ()):
             assert t.count(f'- Name: {script_from}\n') == 1, (ed(t), script_from)
             t = t.replace(f'- Name: {script_from}\n', f'- Name: {script_to}\n')
+        for pat, repl, want in COPY_EDITS.get(ed(t), ()):
+            t, n = re.subn(pat, repl, t, flags=re.M)
+            assert n == want, (ed(t), pat, n)
         fk = re.search(r'^FormKey: (.+?)\s*$', t, re.M).group(1)
         h = fk.split(':')[0]
         os.makedirs(os.path.join(ESP, ty), exist_ok=True)
@@ -1041,6 +1076,8 @@ def main():
             t = t.replace(speed, '')
         if nid in ('gun2', 'gun3'):
             t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit)
+        if nid == 'gad7':    # Centurion Armor: the power, granted by the menu (perk_powers finds the LesserPower)
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + cent['power'] + '\n'
         if nid == 'ma5':
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + flowab + '\n'
         # Sharpshooter, muskets only (curator 2026-10-23): item type 12 on the owner tab
@@ -1134,6 +1171,7 @@ def main():
     write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, sharp, glory, gunhit_extra)
     write_flow(flowab, flowme, newid, write, nova, flowchain, dragon['Shockme'])
     write_droid(droid, write)
+    write_centurion(cent, write)
     write_never(write)
     write_dummies(write)
     # add_fever(newid, write, rec) - off since 2026-10-25 (curator): Faith's free heals no longer raise Arcane Fever
@@ -1196,6 +1234,7 @@ Priority: 128
         sys.exit('unresolved references - fix SPEC or the source trees')
     copy_assets(models, scripts)
     copy_holy_assets(hidx, hcopy)
+    copy_centurion_assets()
     write_menu(nodes, nodeperk, write, {'nec2': nec['effspell'],      # spells: AddPerk would not teach them
                                         'faith1': newid[htm('000826')], 'faith4': newid[htm('000829')],
                                         **SHADOW_GRANTS, 'shd7': shadow['dspell'], **DRUID_GRANTS, 'dru1': druid['craftspell'],
@@ -1203,6 +1242,7 @@ Priority: 128
                                         'arc3': arc['iceshout'],                # a shout: the menu teaches its word
                                         'sor9': WYRM_SHOUT,                     # Veil Wyrm: all three words
                                         **shout_grants})                        # the 50%-fever powers, as shouts (replaces faith4's spell)
+    guard_staggers(write)
     print(f'records copied {len(copy)}, perks {len(nodes)}, next free ID 0x{nxt:03X}, models {len(models)}, scripts {len(scripts)}')
 
 
@@ -1632,7 +1672,7 @@ def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late, g
             + f"- BaseEffect: {bleedsnd['mgef']}\n  Data: {{}}\n" + gate(nodeperk['gun3'])
             + '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetDeadConditionData\n'
             + lacks(be) + MUSKET_IN_HAND
-            + body + arcane_hits(arc, late, nodeperk, gate, lacks) + ''.join(keep))
+            + body + arcane_hits(arc, late, nodeperk, gate, lacks) + ''.join(keep) + ghostblade_hit())
     t = t[:eff.start(1)] + body + t[eff.end(1):]
     write('Spells', t)
     pp = glob.glob(os.path.join(ESP, 'Perks', f"* - {nodeperk['gun5'].split(':')[0]}_*"))[0]
@@ -1640,6 +1680,26 @@ def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late, g
     ord_fk = fk_of(ord_path)
     assert pt.count(f'  Spell: {ord_fk}\n') == 1, 'Deadeye hit-spell entry not found'
     open(pp, 'w', encoding='utf-8', newline='\r\n').write(pt.replace(f'  Spell: {ord_fk}\n', f'  Spell: {gunhit}\n'))
+
+
+# Enderal's Ghostblade affinity (evLRise, 2026-11-14: "After learning the Arcane Arsenal trait ... the apparition no
+# longer teleports to enemies when you sneak attack"): its listener perk `02A042` casts `02A046` through
+# ApplyCombatHitSpell (player sneaking, target not detecting the player), and the engine applies ONE such spell per
+# hit - Arcane Arsenal's / Deadeye's entry (every bow or musket hit) took the slot. So the same effect `02A044` (the
+# script that moves the apparition, SureAI's, needs nothing of its own spell) rides in this spell too, under the
+# perk's conditions plus "the player has the affinity's Ambush effect `02A043`".
+GHOSTBLADE_ME = '02A044:Enderal - Forgotten Stories.esm'
+GHOSTBLADE_AB = '02A043:Enderal - Forgotten Stories.esm'
+
+
+def ghostblade_hit():
+    return (f'- BaseEffect: {GHOSTBLADE_ME}\n  Data: {{}}\n  Conditions:\n'
+            '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: HasMagicEffectConditionData\n'
+            f'      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n      MagicEffect: {GHOSTBLADE_AB}\n    ComparisonValue: 1\n'
+            '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: IsSneakingConditionData\n'
+            '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n    ComparisonValue: 1\n'
+            '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetDetectedConditionData\n'
+            '      TargetNpc: 000014:Skyrim.esm\n')
 
 
 def write_flow(ab, me, newid, write, nova, chain, chainme):
@@ -1672,7 +1732,7 @@ VirtualMachineAdapter:
       Name: Nova
       Object: {nova['novaexp']}
     - MutagenObjectType: ScriptFloatProperty
-      Name: NovaEvery
+      Name: NovaSpacing
       Data: {FLOW_NOVA['Cooldown']}
     - MutagenObjectType: ScriptFloatProperty
       Name: SlowEvery
@@ -1748,6 +1808,252 @@ Effects:
     Magnitude: {FLOW_NOVA['Damage']}
     Area: 13
 """)
+
+
+# ---------------------------------------------------------------- Centurion Armor (curator 2026-11-13)
+APA = 'AshihitoPowerArmor.esp'
+APA_DIR = os.path.join(REF, 'mods', 'AshihitoPowerArmor')             # serialized for lookup (reference-only)
+APA_RAW = os.path.join(REF, 'mods', '_raw', 'AshihitoPowerArmor')     # the extracted archive (+ the skeleton fix's nif)
+CENTURION_FIRST_ID = 0xB4D       # after Enemy Threat's stagger keyword (0xB4C); the perk, then CENTURION_RECORDS
+CENTURION_RECORDS = ('race', 'skin', 'aa', 'npc', 'list', 'gear', 'power', 'powerme', 'ride', 'rideme', 'control', 'controlme',
+                     'abarmor', 'cool', 'coolme', 'getoff', 'getoffme', 'paperk', 'paab', 'paspell', 'pame', 'paexp',
+                     'flames', 'sparks', 'frost', 'spelllist', 'menu', 'coolmsg', 'runoutmsg', 'duration', 'cooldown',
+                     'jetvfx', 'jetshader', 'jetart', 'floor', 'beepsnd', 'beepmark', 'equipsnd', 'equipmark', 'actmark')
+# the mod's record -> ours (every own-plugin reference inside the copied records must be in this map)
+APA_MAP = {'2A7E0A': 'race', '2A7E0C': 'skin', '2A7E0B': 'aa', '2A7E0E': 'ride', '2A7E0D': 'rideme', '2DA84A': 'control',
+           '2DA849': 'controlme', '2DF94C': 'abarmor', '31237B': 'cool', '31237A': 'coolme', '2B2017': 'getoff',
+           '2B2018': 'getoffme', '2E4A4D': 'paperk', '31747C': 'paab', '31C585': 'paspell', '31C584': 'pame',
+           '31C586': 'paexp', '47EBF2': 'flames', '47EBF3': 'sparks', '47EBF4': 'frost', '47EBF5': 'spelllist',
+           '2DF94B': 'menu', '31747E': 'coolmsg', '321689': 'runoutmsg', '2CB540': 'duration', '31C587': 'cooldown',
+           '2EEC53': 'jetvfx', '27F5C4': 'jetshader', '2E9B4F': 'jetart', '27F5BC': 'floor', '006F5A': 'beepsnd',
+           '006F59': 'beepmark', '006F53': 'equipsnd', '00499C': 'equipmark', '2D0642': 'actmark'}
+APA_TYPES = {'race': 'Races', 'skin': 'Armors', 'aa': 'ArmorAddons', 'ride': 'Spells', 'rideme': 'MagicEffects',
+             'control': 'Spells', 'controlme': 'MagicEffects', 'abarmor': 'Spells', 'cool': 'Spells', 'coolme': 'MagicEffects',
+             'getoff': 'Spells', 'getoffme': 'MagicEffects', 'paperk': 'Perks', 'paab': 'Spells', 'paspell': 'Spells',
+             'pame': 'MagicEffects', 'paexp': 'Explosions', 'flames': 'Spells', 'sparks': 'Spells', 'frost': 'Spells',
+             'spelllist': 'FormLists', 'menu': 'Messages', 'coolmsg': 'Messages', 'runoutmsg': 'Messages',
+             'duration': 'Globals', 'cooldown': 'Globals', 'jetvfx': 'VisualEffects', 'jetshader': 'EffectShaders',
+             'jetart': 'ArtObjects', 'floor': 'Activators', 'beepsnd': 'SoundDescriptors', 'beepmark': 'SoundMarkers',
+             'equipsnd': 'SoundDescriptors', 'equipmark': 'SoundMarkers', 'actmark': 'SoundMarkers'}
+CENTURION_EDID = {'race': 'ZP_Centurion_Race', 'skin': 'ZP_Centurion_Skin', 'aa': 'ZP_Centurion_SkinAA', 'ride': 'ZP_Centurion_RideOn',
+                  'rideme': 'ZP_Centurion_RideOnEffect', 'control': 'ZP_Centurion_Control', 'controlme': 'ZP_Centurion_ControlEffect',
+                  'abarmor': 'ZP_Centurion_Ability', 'cool': 'ZP_Centurion_Cooldown', 'coolme': 'ZP_Centurion_CooldownEffect',
+                  'getoff': 'ZP_Centurion_Dismount', 'getoffme': 'ZP_Centurion_DismountEffect', 'paperk': 'ZP_Centurion_PowerAttackPerk',
+                  'paab': 'ZP_Centurion_PowerAttackAbility', 'paspell': 'ZP_Centurion_PowerAttackSpell', 'pame': 'ZP_Centurion_PowerAttackEffect',
+                  'paexp': 'ZP_Centurion_PowerAttackExplosion', 'flames': 'ZP_Centurion_Flames', 'sparks': 'ZP_Centurion_Sparks',
+                  'frost': 'ZP_Centurion_Frost', 'spelllist': 'ZP_Centurion_SpellList', 'menu': 'ZP_Centurion_SpellMenu',
+                  'coolmsg': 'ZP_Centurion_CooldownMsg', 'runoutmsg': 'ZP_Centurion_RunoutMsg', 'duration': 'ZP_Centurion_Duration',
+                  'cooldown': 'ZP_Centurion_CooldownSeconds', 'jetvfx': 'ZP_Centurion_JetVFX', 'jetshader': 'ZP_Centurion_JetShader',
+                  'jetart': 'ZP_Centurion_JetArt', 'floor': 'ZP_Centurion_MovingFloor', 'beepsnd': 'ZP_Centurion_BeepSD',
+                  'beepmark': 'ZP_Centurion_Beep', 'equipsnd': 'ZP_Centurion_EquipSD', 'equipmark': 'ZP_Centurion_Equip',
+                  'actmark': 'ZP_Centurion_Activate'}
+CENTURION_NPC_BASE = os.path.join(REF, 'mods', 'EGO - Enderal Gameplay Overhaul', 'Npcs', '_00E_MQ13c_SC04_Centurion - 100CD1_Skyrim.esm.yaml')
+CENTURION_NO_FALL = '006F57:AshihitoPowerArmor.esp'     # aaaAbNOfalldamage: its effect is Dragonborn's 01E801, null in Enderal
+# the mod's own files the records name; everything else they reference is vanilla, in Enderal's archives
+CENTURION_ASSETS = ['meshes/actors/AshihitoPArace/CenturionArmor/CenturionArmor.nif',
+                    'meshes/actors/AshihitoPArace/CenturionArmor/CenturionSkeleton.nif',    # the Skeleton Fix's copy
+                    'meshes/Magic/AshihitoPArace/CenturionFire.nif', 'meshes/Magic/AshihitoPArace/MovingFloor.nif',
+                    'textures/Armor/AshihitoPA/glowball.dds', 'sound/fx/AshihitoPArace/beep.wav']
+
+
+def apa_load(key):
+    hid = {v: k for k, v in APA_MAP.items()}[key]
+    fs = [f for f in glob.glob(os.path.join(APA_DIR, APA_TYPES[key], '*.yaml')) if f' - {hid}_' in os.path.basename(f)]
+    assert len(fs) == 1, ('Ashihito Power Armor record', key, hid, fs)
+    return open(fs[0], encoding='utf-8').read().replace('\r\n', '\n')
+
+
+def write_centurion(c, write):
+    """Centurion Armor (Gadgets' second capstone). The power (ZP_CenturionPowerEffect) summons a Centurion of our copy of
+    the mod's armor race, a teammate on SureAI's follow package (one at a time; cast again = recall; while boarded =
+    climb out). Activating it (ZP_CenturionActor) puts the player inside: gear remembered in a FormList, race switched to
+    the armor race in its steam suit for CENTURION['Duration'] seconds (ZP_CenturionRideOn), the mod's key-driven control
+    effect added (ZP_CenturionControl: both arms, power-attack hold, breath spells, flight), the companion disabled
+    meanwhile and re-enabled beside the player when the ride ends; then CENTURION['Cooldown'] seconds of cooling.
+    Sneak-activate dismisses. Every record is the mod's, under our ID, with English names; see APA_MAP."""
+    def name(txt, value):
+        value = value.replace("'", "''")
+        return re.sub(r'^Name:\n(?:  .*\n|\n)*', f"Name:\n  TargetLanguage: English\n  Value: '{value}'\n", txt, count=1, flags=re.M)
+
+    def desc(txt, value):
+        value = value.replace("'", "''")
+        if re.search(r'^Description:', txt, re.M):
+            return re.sub(r'^Description:\n(?:  .*\n|\n)*', f"Description:\n  TargetLanguage: English\n  Value: '{value}'\n", txt, count=1, flags=re.M)
+        return txt
+
+    def vmad(txt, script, props):
+        block = f'VirtualMachineAdapter:\n  Scripts:\n  - Name: {script}\n    Properties:\n' + ''.join(
+            f'    - MutagenObjectType: ScriptObjectProperty\n      Name: {k}\n      Object: {v}\n' for k, v in props)
+        txt2, n = re.subn(r'^VirtualMachineAdapter:\n(?:  .*\n)*', block, txt, count=1, flags=re.M)
+        assert n == 1, ('no VMAD to replace', script)
+        return txt2
+
+    def take(key, title=None, description=None, script=None, props=()):
+        txt = apa_load(key)
+        txt = re.sub(r'^FormKey: .*$', f'FormKey: {c[key]}', txt, count=1, flags=re.M)
+        txt = re.sub(r'^EditorID: .*$', f'EditorID: {CENTURION_EDID[key]}', txt, count=1, flags=re.M)
+        txt = txt.replace(f'- BaseEffect: {CENTURION_NO_FALL}\n  Data: {{}}\n', '')
+        if script:
+            txt = vmad(txt, script, props)       # the mod's script block (with its own refs) goes first
+        for hid, k in APA_MAP.items():
+            txt = txt.replace(f'{hid}:{APA}', c[k])
+        left = re.findall(r'[0-9A-F]{6}:' + re.escape(APA), txt)
+        assert not left, ('Ashihito reference left in', key, sorted(set(left)))
+        if title is not None: txt = name(txt, title)
+        if description is not None: txt = desc(txt, description)
+        return txt
+
+    A = 'Centurion Armor'
+    # the race: the mod's (a modified Dwarven Centurion skeleton on the vanilla Steam Centurion graph), minus its Nord
+    # HeadData (default head parts / presets that are placed refs or absent in Enderal; the player enters by SetRace,
+    # never through the race menu) and minus the control ability (added to the player by the ride, not to the companion)
+    t = take('race', A, '')
+    t, n = re.subn(r'^HeadData:\n(?:  .*\n|  - .*\n)*', '', t, count=1, flags=re.M)
+    assert n == 1, 'race HeadData'
+    t = t.replace(f"ActorEffect:\n- {c['control']}\n- {c['abarmor']}\n", f"ActorEffect:\n- {c['abarmor']}\n")
+    assert t.count(c['control']) == 0 and 'HeadData' not in t
+    write('Races', t)
+    write('Armors', take('skin', A, ''))
+    write('ArmorAddons', take('aa'))
+    # the ride: the mod's lesser power + script effect; the companion's script sets the duration and casts it
+    write('Spells', take('ride', A, 'You pilot the Centurion Armor for <dur> seconds.'))
+    t = take('rideme', A, '', 'ZP_CenturionRideOn', [('CenturionRace', c['race']), ('SteamArmor', c['skin']), ('Gear', c['gear']),
+                                       ('Duration', c['duration']), ('Cooldown', c['cooldown']), ('RunoutMsg', c['runoutmsg']),
+                                       ('AlertSound', c['beepmark']), ('CoolSpell', c['cool']), ('ControlSpell', c['control']),
+                                       ('CenturionList', c['list'])])
+    write('MagicEffects', t)
+    write('Spells', take('control', A + ' controls', ''))
+    t = take('controlme', A + ' controls', '', 'ZP_CenturionControl', [('SpellList', c['spelllist']), ('Fire', '0248DD:Skyrim.esm'), ('FireEffect', c['jetvfx']),
+                                        ('FXDwarvenCenturion', '030B3B:Skyrim.esm'), ('FXDwarvenCenturionArm01', '04BB4E:Skyrim.esm'),
+                                        ('FXDwarvenCenturionArm02', '04BB51:Skyrim.esm'), ('MovingFloor', c['floor']),
+                                        ('PowerAttackPerk', c['paperk']), ('PowerAttackSpell', c['paspell']), ('SelectMenu', c['menu']),
+                                        ('RideSpell', c['ride'])])
+    write('MagicEffects', t)
+    write('Spells', take('abarmor', A, ''))
+    write('Spells', take('cool', A + ' cooling', ''))
+    write('MagicEffects', take('coolme', A + ' cooling', 'The Centurion Armor cannot be boarded for <dur> seconds.'))
+    write('Spells', take('getoff', 'Dismount ' + A, 'Climb out of the Centurion Armor.'))
+    write('MagicEffects', take('getoffme', 'Dismount ' + A, '', 'ZP_CenturionGetOff', [('RideSpell', c['ride'])]))
+    write('Perks', take('paperk', A + ' power attack', ''))
+    write('Spells', take('paab', A + ' power attack', ''))
+    write('Spells', take('paspell', A + ' power attack', ''))
+    write('MagicEffects', take('pame', A + ' power attack', ''))
+    write('Explosions', take('paexp', A + ' power attack'))
+    write('Spells', take('flames', 'Centurion Flames', ''))
+    write('Spells', take('sparks', 'Centurion Sparks', ''))
+    write('Spells', take('frost', 'Centurion Frost', ''))
+    write('FormLists', take('spelllist'))
+    # the Favorites-key menu: one button per SpellList entry, in its order (steam breath, flames, sparks, frost, dismount)
+    t = take('menu', 'Centurion Armor', 'Choose what the Centurion breathes.')
+    t = re.sub(r'^MenuButtons:\n(?:- .*\n|  .*\n)*', 'MenuButtons:\n' + ''.join(
+        f'- Text:\n    TargetLanguage: English\n    Value: {b}\n' for b in ('Steam', 'Flames', 'Sparks', 'Frost', 'Climb out')), t, count=1, flags=re.M)
+    assert t.count('- Text:') == 5
+    write('Messages', t)
+    write('Messages', take('coolmsg', A, 'The Centurion Armor is still cooling down. It cannot be boarded yet.'))
+    write('Messages', take('runoutmsg', A, "The Centurion Armor's core is running low. It will shut down soon."))
+    t = take('duration'); t = re.sub(r'^Data: .*$', f"Data: {CENTURION['Duration']}", t, count=1, flags=re.M); write('Globals', t)
+    t = take('cooldown'); t = re.sub(r'^Data: .*$', f"Data: {CENTURION['Cooldown']}", t, count=1, flags=re.M); write('Globals', t)
+    write('VisualEffects', take('jetvfx'))
+    write('EffectShaders', take('jetshader'))
+    write('ArtObjects', take('jetart'))
+    write('Activators', take('floor'))
+    for k in ('beepsnd', 'equipsnd'): write('SoundDescriptors', take(k))
+    for k in ('beepmark', 'equipmark', 'actmark'): write('SoundMarkers', take(k))
+    # two FormLists: the live companion (one at a time), and the gear worn when boarding
+    write('FormLists', f"FormKey: {c['list']}\nEditorID: ZP_Centurion_List\nItems: []\n")
+    write('FormLists', f"FormKey: {c['gear']}\nEditorID: ZP_Centurion_Gear\nItems: []\n")
+    # the companion: Enderal's Starling Centurion (EGO's record: its stats, combat style, sounds, steam-breath ability)
+    # on our armor race, a teammate on SureAI's follow package; no template, no EP on death, no loot
+    t = open(CENTURION_NPC_BASE, encoding='utf-8').read().replace('\r\n', '\n')
+    t = re.sub(r'^FormKey: .*$', f"FormKey: {c['npc']}", t, count=1, flags=re.M)
+    t = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Centurion_Companion', t, count=1, flags=re.M)
+    t = vmad(t, 'ZP_CenturionActor', [('RideSpell', c['ride']), ('CoolEffect', c['coolme']), ('CoolMsg', c['coolmsg']),
+                                      ('Gear', c['gear']), ('Duration', c['duration']), ('EquipSound', c['equipmark']),
+                                      ('CenturionList', c['list'])])
+    for pat, repl in [
+            (r'^  TemplateFlags:\n  - Factions\n', '  Flags:\n  - Protected\n  - DoesNotBleed\n'),
+            (r'^Factions:\n(?:- .*\n(?:  .*\n)*)', f'Factions:\n- Faction: {PLAYER_FACTION}\n  Fluff: 0x000000\n'),
+            (r'^DeathItem: .*\n', ''),
+            (r'^Template: .*\n', ''),
+            (r'^Race: .*$', f"Race: {c['race']}"),
+            (r'^AIData:\n(?:  .*\n)*', 'AIData:\n  Aggression: Aggressive\n  Confidence: Foolhardy\n  EnergyLevel: 50\n'
+                                       '  Responsibility: NoCrime\n  Assistance: HelpsFriendsAndAllies\n'),
+            (r'^Packages:\n(?:- .*\n)*', f'Packages:\n- {FOLLOW_PLAYER}\n'),
+            (r'^Name:\n(?:  .*\n)*', f'Name:\n  TargetLanguage: English\n  Value: {A}\n')]:
+        t, n = re.subn(pat, repl, t, count=1, flags=re.M)
+        assert n == 1, f'Starling Centurion record changed: {pat}'
+    write('Npcs', t)
+    # the power: a lesser power whose script effect summons / recalls / dismounts
+    write('Spells', f"""FormKey: {c['power']}
+EditorID: ZP_Centurion_Power
+Name:
+  TargetLanguage: English
+  Value: {A}
+MenuDisplayObject: 0A6459:Skyrim.esm
+EquipmentType: 025BEE:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: 'Calls your Centurion Armor to your side, or recalls it. While you pilot it, climbs out.'
+Flags:
+- ManualCostCalc
+Type: LesserPower
+CastType: FireAndForget
+Effects:
+- BaseEffect: {c['powerme']}
+  Data: {{}}
+""")
+    write('MagicEffects', f"""FormKey: {c['powerme']}
+EditorID: ZP_Centurion_PowerEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_CenturionPowerEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CompanionBase
+      Object: {c['npc']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CenturionList
+      Object: {c['list']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RideSpell
+      Object: {c['ride']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RideEffect
+      Object: {c['rideme']}
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ActivateSound
+      Object: {c['actmark']}
+Name:
+  TargetLanguage: English
+  Value: {A}
+MenuDisplayObject: 0A6459:Skyrim.esm
+Flags:
+- HideInUI
+- NoMagnitude
+- NoArea
+- NoDuration
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+""")
+
+
+def copy_centurion_assets():
+    """The mod's own files the Centurion records name, from the extracted archive (reference/mods/_raw)."""
+    assets = os.path.join(PATCH, 'assets')
+    for rel in CENTURION_ASSETS:
+        src = os.path.join(APA_RAW, rel.replace('/', os.sep))
+        assert os.path.isfile(src), f'Centurion asset missing: {src}'
+        dst = os.path.join(assets, rel.lower().replace('/', os.sep))
+        os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copyfile(src, dst)
 
 
 def write_droid(d, write):
@@ -2037,7 +2343,7 @@ TRIPWIRE_DAMAGE = 40
 # Flow State's Shock Nova (curator, 2026-10-23): Enderal's shock-mass blast + its weapon shock-damage enchantment, copied
 SHOCK_MASS_EXP = os.path.join(REF, 'base', 'Skyrim', 'Explosions', 'ExplosionShockMass01ShockDamage - 03BC85_Skyrim.esm.yaml')
 SHOCK_DAMAGE_ENCH = os.path.join(REF, 'base', 'Skyrim', 'ObjectEffects', 'EnchWeaponShockDamage06 - 045F9E_Skyrim.esm.yaml')
-FLOW_NOVA = {'Damage': 40, 'Radius': 300, 'Cooldown': 8.0, 'SlowCooldown': 8.0}   # both 8 s (curator 2026-10-29)
+FLOW_NOVA = {'Damage': 40, 'Radius': 300, 'Cooldown': 12.0, 'SlowCooldown': 8.0}   # slow 8 s (curator 2026-10-29); nova + lightning 8 -> 12 s (balance pass 2026-11-12)
 
 
 def add_tripwire_blast(newid, write, blast):
@@ -4911,6 +5217,8 @@ Description:
         # Dragon's Breath (Martial Arts, 2026-10-28): counted here with the other hit events, Rage or not
         'dragonsBreath': {'perk': hexid(nodeperk['ma6']), 'every': DRAGONS_BREATH['Every'],
                           'spells': [hexid(dragon[f'{e}spell']) for e in DRAGON_ELEMENTS]},   # no fist bursts
+        # Hissing Dragon (2026-11-12): the chosen cone once per landed punch (DLL 1.7.0), see COPY_EDITS
+        'hissingDragon': {'perk': hexid(nodeperk['ma2']), 'list': hexid(HISSING_LIST)},
         # Ricochet Rounds (Firearms, 2026-10-29): a pistol hit - the Flintlock Overhaul's shot enchantments all carry
         # PMPistolShot, tagged ZP_FlintlockShot - re-casts the same shot from the target at the next enemy
         'ricochet': {'perk': hexid(nodeperk['gun6']), 'chance': RICOCHET['Chance'],
@@ -5080,6 +5388,33 @@ def convert_powers_to_shouts(shouts, nodeperk, write, extra_powers):
 
 
 RESPEC_MSG = 0xB4B     # ZP_ProphecyRespecConfirm, read by ID in ZP_ProphecyMenu: never move it
+STAGGER_LOCKOUT_KW = 0xB4C   # ZP_StaggerLockout, carried by Zenderal - Enemy Threat's boss lockout effect: never move it
+STAGGER_MGEFS = 10           # Prophecy's Stagger-archetype effects today; the guard asserts the count
+
+
+def guard_staggers(write):
+    """Bosses can't be stun-locked (curator 2026-11-13, Zenderal - Enemy Threat): for a few seconds after a stagger a
+    boss carries an effect with keyword ZP_StaggerLockout, and none of Prophecy's stagger effects (Seismic Stomp's
+    chain, the Utility Droid, Point Blank, Stunning Blows, Pinning Shot, Lockjaw, the Holy Templar staggers) land on
+    an actor with it. The keyword lives here, not in Enemy Threat, because Enemy Threat masters Prophecy.
+    The condition goes FIRST and without OR: Skyrim groups ORs before ANDs, so a leading AND applies to the rest."""
+    kw = f'{STAGGER_LOCKOUT_KW:06X}:{MOD}'
+    write('Keywords', f"FormKey: {kw}\nEditorID: ZP_StaggerLockout\nColor: '#00000000'\n")
+    guard = ('- MutagenObjectType: ConditionFloat\n  Data:\n    MutagenObjectType: HasMagicEffectKeywordConditionData\n'
+             f'    Keyword: {kw}\n')
+    n = 0
+    for p in sorted(glob.glob(os.path.join(ESP, 'MagicEffects', '*.yaml'))):
+        t = open(p, encoding='utf-8').read().replace('\r\n', '\n')
+        if not re.search(r'^  Type: Stagger$', t, re.M):
+            continue
+        assert kw not in t, p
+        if re.search(r'^Conditions:$', t, re.M):
+            t = re.sub(r'^Conditions:\n', 'Conditions:\n' + guard, t, count=1, flags=re.M)
+        else:
+            t = t.rstrip('\n') + '\nConditions:\n' + guard
+        open(p, 'w', encoding='utf-8', newline='\r\n').write(t)
+        n += 1
+    assert n == STAGGER_MGEFS, f'{n} stagger effects guarded, expected {STAGGER_MGEFS}: check each new one, then update'
 
 
 def write_menu(nodes, nodeperk, write, grants):

@@ -18,4 +18,4 @@ TargetType: Aimed
 Effects:
 - BaseEffect: 000874:Zenderal - Prophecy.esp
   Data:
-    Magnitude: 50
+    Magnitude: 25

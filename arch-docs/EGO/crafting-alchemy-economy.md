@@ -185,7 +185,10 @@ In the list (checked 2026-11-01 against the `Ultra` profile):
 
 - **`Enderal SE - Stealth Overhaul.esp`** (Nexus Enderal SE mod 12, "a light weight version of EGO's
   stealth changes") loads after EGO and re-sets 17 of these GMSTs to EGO's values. Only
-  `fSneakSleepBonus` differs (−0.15, so it overrides EGO's −0.2). It is a full plugin, not ESL. **[verified]**
+  `fSneakSleepBonus` differs (−0.15, so it overrides EGO's −0.2). It is a full plugin, not ESL. Its
+  five copies of EGO's *new* GMSTs are new records of its own (`000800`–`000804`); the engine finds a
+  setting by EditorID, so they still override. Replaced by
+  [`StealthTuning`](../patches/StealthTuning.md) since 2026-11-12. **[verified]**
 - **EGO also lowers the player's starting Sneak from 15 to 5** (`Player 000007`, all skills 5). Playable
   races carry no skill boosts. The optional `EGO SE - Higher Starting Skills.esp` (all skills 10)
   overrides the whole Player record and is disabled in the list. **[verified]**

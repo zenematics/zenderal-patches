@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Argent Verdict.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Argent Verdict: a unique silver great hammer built from Pretty Enderal Armory's Aeterna Warhammer (Caenraes' Noble Armory model), all silver, its head a clenched hand gripping a stake that carries the face and spike, its forearm flowing into the handle under a bracelet of thorns, with a dark navy leather grip. Its power attacks have a 25% chance to Smite. Requires EGO and Zenderal - Prophecy; its mesh and textures ship in Zenderal - Patch Collection."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Zenderal - Prophecy.esp
+    FileSize: 0
+  INTV: 1

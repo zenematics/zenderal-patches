@@ -1,0 +1,15 @@
+FormKey: 000822:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingSpiderBurstFX
+Version2: 3
+ObjectBounds:
+  First: -33, -11, 8
+  Second: 33, 8, 113
+Model:
+  File: Zenderal\StingAndRise\StingSpiderBurst.nif
+Sound1: 02E28E:Enderal - Forgotten Stories.esm
+ImpactDataSet: 046008:Skyrim.esm
+Radius: 64
+Flags:
+- 0x1
+- IgnoreLosCheck
+- IgnoreImageSpaceSwap

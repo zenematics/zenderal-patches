@@ -1,0 +1,25 @@
+FormKey: 000808:Zenderal - Enemy Threat.esp
+EditorID: ZET_EnrageEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: _00E_UpdateSpeedmult
+Name:
+  TargetLanguage: English
+  Value: Enraged
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- FXPersist
+- HideInUI
+HitShader: 07FA6E:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

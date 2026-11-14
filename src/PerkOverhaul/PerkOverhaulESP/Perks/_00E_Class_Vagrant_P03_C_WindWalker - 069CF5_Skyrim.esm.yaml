@@ -1,0 +1,49 @@
+FormKey: 069CF5:Skyrim.esm
+EditorID: _00E_Class_Vagrant_P03_C_WindWalker
+Name:
+  TargetLanguage: English
+  Value: 'Vagabund: Windläufer'
+Description:
+  TargetLanguage: English
+  Value: 'Tragt Ihr ausschließlich leichte Rüstung (Kopf, Brust, Hände, Füße), wird Eure Ausdauer um 30 Prozent schneller wiederhergestellt. '
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 105F20:Skyrim.esm
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsSprintingConditionData
+      ComparisonValue: 1
+  EntryPoint: ModIncomingStagger
+  PerkConditionTabCount: 2
+  Modification: Multiply
+  Value: 0
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsSprintingConditionData
+      ComparisonValue: 1
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsPowerAttackingConditionData
+      ComparisonValue: 1
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.5

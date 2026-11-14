@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.25)
 # and it drops key-ups that arrive mid-stagger, mid-sheathe, while controls are disabled or while
 # IsBlocking briefly reads false, so the player stays blocking until the key is tapped again.
 # Ends any player block whose block keys are no longer held. SSE 1.5.97 only, CommonLibSSE-NG.
-project(ZenBlockReleaseFix VERSION 1.0.0 LANGUAGES CXX)
+project(ZenBlockReleaseFix VERSION 1.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Sting and Rise.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Sting and Rise: two unique daggers on Pretty Enderal Armory's models. Sting poisons and slows, and an enemy that dies poisoned bursts into a short-lived spiderling ally. Rise burns, and marks undead with a mote of sunlight that bursts like Dawnbreaker when they die. Requires EGO, Pretty Enderal Armory and powerofthree's Papyrus Extender."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Enderal SE - Gameplay Overhaul.esp
+    FileSize: 0
+  INTV: 1

@@ -1,0 +1,37 @@
+FormKey: 000801:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingVenom
+Name:
+  TargetLanguage: English
+  Value: Sting Venom
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 3000
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 000802:Zenderal - Sting and Rise.esp
+  Data:
+    Magnitude: 5
+    Duration: 6
+- BaseEffect: 000817:Zenderal - Sting and Rise.esp
+  Data:
+    Magnitude: 10
+    Duration: 6
+- BaseEffect: 000819:Zenderal - Sting and Rise.esp
+  Data:
+    Duration: 6
+- BaseEffect: 00080E:Zenderal - Sting and Rise.esp
+  Data:
+    Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 000806:Zenderal - Sting and Rise.esp
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: HasMagicEffectConditionData
+      MagicEffect: 000812:Zenderal - Sting and Rise.esp

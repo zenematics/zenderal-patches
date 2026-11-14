@@ -1,0 +1,28 @@
+FormKey: 000817:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingSlowEffect
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Sting Venom
+MenuDisplayObject: 10A046:Skyrim.esm
+Keywords:
+- 0B729E:Skyrim.esm
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- HideInUI
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

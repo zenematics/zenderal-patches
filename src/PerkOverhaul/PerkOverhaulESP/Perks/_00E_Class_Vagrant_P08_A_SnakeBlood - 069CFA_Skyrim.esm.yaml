@@ -1,0 +1,29 @@
+FormKey: 069CFA:Skyrim.esm
+EditorID: _00E_Class_Vagrant_P08_A_SnakeBlood
+Name:
+  TargetLanguage: English
+  Value: 'Vagabund: Schlangenblut'
+Description:
+  TargetLanguage: English
+  Value: 'Solange Eure Ausdauer über 50 Prozent beträgt, ist Eure Giftresistenz um 40 Prozent, sowie der Rüstungswert leichter Rüstungen um 5 Prozent erhöht. '
+NumRanks: 1
+Playable: True
+Effects:
+- MutagenObjectType: PerkAbilityEffect
+  Ability: 105F2D:Skyrim.esm
+- MutagenObjectType: PerkEntryPointModifyValue
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: WornHasKeywordConditionData
+        Keyword: 06BBD2:Skyrim.esm
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: IsLastHostileActorConditionData
+  EntryPoint: ModIncomingDamage
+  PerkConditionTabCount: 3
+  Modification: Multiply
+  Value: 0.9

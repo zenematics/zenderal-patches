@@ -1,0 +1,10 @@
+FormKey: 000825:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseMoteFX
+Version2: 2
+ObjectBounds:
+  First: -250, -218, 20
+  Second: 243, 299, 64
+Model:
+  File: Zenderal\StingAndRise\RiseMote.nif
+Type:
+- MagicCasting

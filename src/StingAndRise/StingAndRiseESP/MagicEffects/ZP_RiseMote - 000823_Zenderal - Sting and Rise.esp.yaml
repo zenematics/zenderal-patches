@@ -1,0 +1,29 @@
+FormKey: 000823:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseMote
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_RiseMoteEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BurstFX
+      Object: 000828:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Nova
+      Object: 000826:Zenderal - Sting and Rise.esp
+Name:
+  TargetLanguage: English
+  Value: Mote of Sunlight
+Flags:
+- FXPersist
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectLightArchetype
+  Association: 000824:Zenderal - Sting and Rise.esp
+CastType: FireAndForget
+TargetType: Touch
+HitEffectArt: 000825:Zenderal - Sting and Rise.esp
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

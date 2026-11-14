@@ -1,0 +1,49 @@
+FormKey: 000803:Zenderal - Enemy Threat.esp
+EditorID: ZET_BossEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZET_BossEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EnrageSpell
+      Object: 000807:Zenderal - Enemy Threat.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EnrageEffect
+      Object: 000808:Zenderal - Enemy Threat.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RoarStagger
+      Object: 000809:Zenderal - Enemy Threat.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RoarExplosion
+      Object: 00080B:Zenderal - Enemy Threat.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PhaseFaction
+      Object: 00080C:Zenderal - Enemy Threat.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AddBosses
+      Object: 00080D:Zenderal - Enemy Threat.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: AddBases
+      Object: 00080E:Zenderal - Enemy Threat.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Boss
+Flags:
+- NoMagnitude
+- NoArea
+- NoDuration
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

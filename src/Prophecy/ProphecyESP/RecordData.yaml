@@ -11,6 +11,8 @@ ModHeader:
   MasterReferences:
   - Master: Skyrim.esm
     FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
   - Master: Triumvirate - Mage Archetypes.esp
     FileSize: 0
   - Master: Aero.esl

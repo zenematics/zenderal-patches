@@ -1,0 +1,16 @@
+FormKey: 000828:Zenderal - Sting and Rise.esp
+EditorID: ZP_RiseFireNovaFX
+ObjectBounds:
+  First: -116, -116, -23
+  Second: 116, 116, 44
+Model:
+  File: Zenderal\StingAndRise\RiseNova.nif
+Sound1: 08F3E7:Skyrim.esm
+ImpactDataSet: 026113:Skyrim.esm
+Radius: 300
+VerticalOffsetMult: 0.2
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

@@ -1,0 +1,23 @@
+FormKey: 000806:Zenderal - Enemy Threat.esp
+EditorID: ZET_StaggerLockoutEffect
+Name:
+  TargetLanguage: English
+  Value: Steadied
+Keywords:
+- 000B4C:Zenderal - Prophecy.esp
+Flags:
+- Recover
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

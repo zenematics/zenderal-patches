@@ -1,0 +1,14 @@
+FormKey: 000805:Zenderal - Perk Overhaul.esp
+EditorID: ZEN_PO_HighDexterityWardancerAb
+Name:
+  TargetLanguage: English
+  Value: High Dexterity
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 000806:Zenderal - Perk Overhaul.esp
+  Data: {}
