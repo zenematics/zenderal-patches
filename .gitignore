@@ -178,6 +178,8 @@ __pycache__/
 !src/EnderalTogether/Scripts/compiled/*.pex
 !src/ArcaneFeverGauge/Scripts/compiled/
 !src/ArcaneFeverGauge/Scripts/compiled/*.pex
+!src/BloodSpurtFreezeFix/Scripts/compiled/
+!src/BloodSpurtFreezeFix/Scripts/compiled/*.pex
 
 # Build output (build.ps1 staging) - commit source, not build artifacts
 /build/staging/
