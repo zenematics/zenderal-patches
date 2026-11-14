@@ -49,6 +49,14 @@ with 00 as well (one byte; refused if the same instruction also yields a valid k
 the leaf set afterwards must be the old one minus exactly the bad keys (asserted). 11 meshes in the list
 (2026-11-09), all SureAI's or Bethesda's own data, one bad key each.
 
+Third fault (2026-11-13): a leaf whose key names a triangle no wider than one vertex quantum (THIN_QUANTA).
+A sphere sweep that grazes one can add a contact it never fills in (position, normal and distance all
+0xFFFFFFFF); the NaN distance then stops the hit sort at SkyrimSE.exe+07E98BB (EXCEPTION_STACK_OVERFLOW,
+ConvexPlanesFix's crash). A player's camera sweep did it twice on SureAI's rug_01.nif, key 000C0061, a
+triangle 3.1 Havok units long and 0.001 wide. Every leaf whose keys are ALL thin is closed with 00 (a leaf that
+also yields a real triangle is left alone and printed as "kept"); the key set afterwards must be the old one
+minus exactly the closed keys, all thin (asserted). 214 keys in 129 meshes (2026-11-13).
+
 Scope: the WINNING copy of every mesh in the list (loose file by MO2 priority, overwrite first;
 else the last archive in load order that has it). The meshes are other authors' work (SureAI's,
 and whatever mod's copy wins), so they are generated from the install, never committed. Re-run
@@ -202,6 +210,7 @@ def compressed_mesh(data, blocks, shape):
     _, p, size = blocks[ref]
     end = p + size
     bpi, bpw, maskw, maski = struct.unpack_from('<4I', data, p)
+    error, = struct.unpack_from('<f', data, p + 16)         # the vertex quantum, in Havok units
     p += 16 + 4 + 32 + 2                                    # error, bounds min/max, welding + material type
     for _ in range(3):                                      # materials 32 / 16 / 8
         n, = struct.unpack_from('<I', data, p); p += 4 + 4 * n
@@ -209,19 +218,24 @@ def compressed_mesh(data, blocks, shape):
     n, = struct.unpack_from('<I', data, p); p += 4          # named materials
     assert n == 0, 'named materials'
     n, = struct.unpack_from('<I', data, p); p += 4 + 32 * n  # chunk transforms
-    nbv, = struct.unpack_from('<I', data, p); p += 4 + 16 * nbv
+    nbv, = struct.unpack_from('<I', data, p); p += 4
+    bigv = [struct.unpack_from('<3f', data, p + 16 * v) for v in range(nbv)]
+    p += 16 * nbv
     nbt, = struct.unpack_from('<I', data, p); p += 4
+    bigt = []
     for t in range(nbt):
         tri = struct.unpack_from('<3H', data, p + 12 * t)
         if max(tri) >= nbv:
             raise ValueError('big triangle %d names vertex %d of %d' % (t, max(tri), nbv))
+        bigt.append(tri)
     p += 12 * nbt
     nch, = struct.unpack_from('<I', data, p); p += 4
-    chunks = []
+    chunks, geometry = [], []
     for c in range(nch):
         p += 16 + 4                                         # translation, material index
         reference, = struct.unpack_from('<H', data, p); p += 4  # + transform index
-        nv, = struct.unpack_from('<I', data, p); p += 4 + 2 * nv
+        nv, = struct.unpack_from('<I', data, p); p += 4
+        q = struct.unpack_from('<%dH' % nv, data, p); p += 2 * nv
         ni, = struct.unpack_from('<I', data, p); p += 4
         idx = struct.unpack_from('<%dH' % ni, data, p); p += 2 * ni
         if idx and max(idx) >= nv // 3:
@@ -229,9 +243,11 @@ def compressed_mesh(data, blocks, shape):
         n, = struct.unpack_from('<I', data, p); p += 4 + 2 * n  # strips
         n, = struct.unpack_from('<I', data, p); p += 4 + 2 * n  # welding
         chunks.append((reference, ni))
+        geometry.append((q, idx))
     n, = struct.unpack_from('<I', data, p); p += 4          # convex pieces
     assert n == 0 and p == end, ('CMS data layout', n, p - end)
-    return dict(bpw=bpw, maskw=maskw, maski=maski, nbt=nbt, chunks=chunks)
+    return dict(bpw=bpw, maskw=maskw, maski=maski, nbt=nbt, chunks=chunks,
+                error=error, bigv=bigv, bigt=bigt, geometry=geometry)
 
 
 def key_names_triangle(cms, key):
@@ -250,16 +266,51 @@ def key_names_triangle(cms, key):
     return (i & cms['maski']) + 2 < ni
 
 
+# --- third fault: triangles no wider than one vertex quantum ---------------------------------------------
+THIN_QUANTA = 1.1           # a triangle at most this many quanta wide is "thin"
+
+
+def triangle_width(cms, key):
+    """Width (twice the area over the longest edge) of the triangle `key` names, in the mesh's own vertex
+    quanta; None if the key names no triangle. A chunk triangle is measured in its quantized integers (the
+    chunk's translation and transform move all three corners alike); a big triangle in Havok units / quantum."""
+    if not key_names_triangle(cms, key):
+        return None
+    section, i = key >> cms['bpw'], key & cms['maskw']
+    if section == 0:
+        pts = [cms['bigv'][v] for v in cms['bigt'][i]]
+        scale = cms['error']
+        if scale <= 0:
+            return None
+        pts = [[c / scale for c in pt] for pt in pts]
+    else:
+        c = section - 1
+        reference = cms['chunks'][c][0]
+        q, idx = cms['geometry'][reference if reference != 0xFFFF else c]
+        i &= cms['maski']
+        pts = [q[3 * v:3 * v + 3] for v in idx[i:i + 3]]
+    a, b, c = pts
+    u = [b[k] - a[k] for k in range(3)]
+    w = [c[k] - a[k] for k in range(3)]
+    cross = (u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0])
+    area2 = sum(x * x for x in cross) ** 0.5
+    longest = max(sum((p[k] - q2[k]) ** 2 for k in range(3)) ** 0.5 for p, q2 in ((a, b), (b, c), (a, c)))
+    return 0.0 if longest == 0 else area2 / longest
+
+
 def fix(data):
-    """-> (fixed bytes or None, report lines). Raises on anything the one-byte fix can't handle."""
-    out, report = bytearray(data), []
+    """-> (fixed bytes or None, report lines, notes). Raises on anything the one-byte fix can't handle.
+    Report lines are one per byte changed; notes are thin triangles the fix had to leave alone."""
+    out, report, notes = bytearray(data), [], []
     blocks = nif_blocks(data)
     for start, size, shape in mopp_blocks(data, blocks):
         code = bytes(data[start:start + size])
         new = bytearray(code)
         cms = compressed_mesh(data, blocks, shape)
         starts, args, keys, problems = walk(code)
-        if not problems and not (cms and any(not key_names_triangle(cms, k) for k in keys)):
+        widths = {k: triangle_width(cms, k) for k in keys} if cms else {}
+        thin = {k for k, w in widths.items() if w is not None and w <= THIN_QUANTA}
+        if not problems and not (cms and any(not key_names_triangle(cms, k) for k in keys)) and not thin:
             continue
         for kind, i, parent in sorted(set(problems), key=lambda x: x[1]):
             if parent is not None and code[parent] in JUMPS and parent not in args:
@@ -291,10 +342,33 @@ def fix(data):
                 s3, a3, k3, p3 = walk(bytes(new))
                 assert not p3, ('broken after closing bad leaves', p3)
                 assert k3 == k2 - bad, ('leaf keys after closing bad leaves', len(k2), len(bad), len(k3))
+            # third fault: leaves whose every key names a triangle at most one quantum wide. A sweep that grazes
+            # one can come back with a contact it never filled in (all bits set), whose NaN distance stops the
+            # hit sort at SkyrimSE.exe+07E98BB (ConvexPlanesFix's crash). Such a triangle has no surface to lose.
+            leaves = {}
+            s3, a3, k3, p3 = walk(bytes(new), leaves)
+            live_thin = thin & k3
+            closed = set()
+            for i in sorted(p for p, ks in leaves.items() if ks & live_thin):
+                if not leaves[i] <= live_thin or i in a3:
+                    notes.append('MOPP %d bytes: leaf %02X at %d gives thin key(s) %s but also %s; left alone'
+                                 % (size, new[i], i, ' '.join('%08X' % k for k in sorted(leaves[i] & live_thin)),
+                                    'a real triangle' if not leaves[i] <= live_thin else 'is an argument byte'))
+                    continue
+                report.append('MOPP %d bytes: leaf %02X at %d gives key %s, a triangle %s quanta wide -> 00'
+                              % (size, new[i], i, ' '.join('%08X' % k for k in sorted(leaves[i])),
+                                 '/'.join('%.2f' % widths[k] for k in sorted(leaves[i]))))
+                new[i] = 0x00
+                closed |= leaves[i]
+            if closed:
+                s4, a4, k4, p4 = walk(bytes(new))
+                assert not p4, ('broken after closing thin leaves', p4)
+                assert k4 == k3 - closed, ('leaf keys after closing thin leaves', len(k3), len(closed), len(k4))
+                assert all(widths[k] <= THIN_QUANTA for k in closed), 'closed a key that is not thin'
         out[start:start + size] = new
     if not report:
-        return None, []
-    return bytes(out), report
+        return None, [], notes
+    return bytes(out), report, notes
 
 
 # --- the installed list (as GrassBounds resolves it) ---------------------------------------------------
@@ -413,7 +487,7 @@ def main():
     if not a.dry_run and os.path.isdir(os.path.join(out, 'meshes')):
         shutil.rmtree(os.path.join(out, 'meshes'))
     scanned = with_mopp = 0
-    written, refused, losing = [], [], []
+    written, refused, losing, kept = [], [], [], []
     for key, srcs in sorted(copies.items()):
         for n, (src, rel, read) in enumerate(srcs if a.all_sources else srcs[:1]):
             data = read()
@@ -422,10 +496,12 @@ def main():
                 continue
             with_mopp += 1
             try:
-                fixed, report = fix(data)
+                fixed, report, notes = fix(data)
             except (AssertionError, ValueError, struct.error) as e:
                 refused.append((rel, src, str(e)))
                 continue
+            if notes and not n:
+                kept.append((rel, src, notes))
             if not fixed:
                 continue
             if n:                                   # a copy that does not win: report only
@@ -450,6 +526,9 @@ def main():
             print('          ' + line)
     for rel, src, report in losing:
         print('broken (does not win, not shipped)  %s  [%s]: %s' % (rel, src, '; '.join(report)))
+    for rel, src, notes in kept:
+        for line in notes:
+            print('kept    %s  [%s]: %s' % (rel, src, line))
     for rel, src, why in refused:
         print('REFUSED %s  [%s]: %s' % (rel, src, why))
     print('%s %d meshes; scanned %d copies (%d with MOPP) of %d mesh paths, %d archives'

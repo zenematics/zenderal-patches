@@ -1,7 +1,7 @@
 # CollisionMoppFix
 
 - **Source:** `src/CollisionMoppFix/` (generated: `tools/01-fix-broken-mopp.py`)
-- **Ships:** *(no plugin — 18 generated meshes, MO2 mod `Zenderal - Collision MOPP Fix`)*
+- **Ships:** *(no plugin — 146 generated meshes since 2026-11-13, MO2 mod `Zenderal - Collision MOPP Fix`)*
 - **FormID block:** _(none)_
 
 ## What it does
@@ -15,6 +15,10 @@ Bethesda ceiling). A MOPP is the byte-code tree Havok walks to find which collis
 - **Keys past the mesh (2026-11-09, 11 meshes):** the MOPP code is well formed, but one leaf hands out a key
   that names no triangle. A query that reaches it reads past the compressed mesh's index list and crashes with
   `EXCEPTION_ACCESS_VIOLATION` at `SkyrimSE.exe+10E675B`. See [Second fault](#second-fault-a-leaf-key-past-the-compressed-mesh-verified-2026-11-09).
+- **Thin triangles (2026-11-13, 129 meshes, 214 keys):** a leaf's key names a triangle at most one vertex quantum
+  wide. A camera sweep over one (a rug, twice) came back with a contact it never filled in, and the hit sort ran
+  off the stack: `EXCEPTION_STACK_OVERFLOW` at `SkyrimSE.exe+07E98BB`. See
+  [Third fault](#third-fault-thin-triangles-found-and-fixed-2026-11-13-unverified-in-game).
 
 The fix closes each broken branch or bad leaf by changing one byte to `00`.
 
@@ -180,6 +184,83 @@ outranks every source of all 18. Previous folder in `E:/Zenderal-backups/2026-11
 
 **Unverified in game.** For the palms, the test is aiming a bow, gun or spell across a fan palm in the desert
 (cell 17, −6).
+
+## Third fault: thin triangles **[found and fixed 2026-11-13; unverified in game]**
+
+**The crash:** `EXCEPTION_STACK_OVERFLOW` at `SkyrimSE.exe+07E98BB`, the hit sort that never stops on a NaN
+distance (see [`ConvexPlanesFix`](ConvexPlanesFix.md)). A player (GreaseLord) crashed twice in the Golden Mare Mill,
+FS cell `001515`, which Golden Mare Mill SE rebuilds. Both crashes came on the camera's collision sweep (SmoothCam;
+the second through SkyParkour's camera handler) while the auto vanity camera circled the player.
+
+**Reading the hit list off the stack:**
+
+- The collector's hits sit on the stack from about `RSP+0x180`, 64 bytes each:
+  - position (16 bytes);
+  - normal + distance (16 bytes);
+  - cast collidable A + its key;
+  - hit collidable B + its key.
+- In both crashes, the bad entries have position, normal and distance all `0xFFFFFFFF`, with valid A/B pointers. The
+  cast added a contact it never filled in, and the distance is NaN.
+- Both carry B key **`000C0061`**.
+- In the second crash, the same B also has filled hits at keys `00000001`, `00000009`, `000800A9` and `000A0011`,
+  at game (336–340, 170, 0.5).
+
+**The mesh:**
+
+- `runs\deco\rugs\rug_01.nif` (`_00E_NobleGothicRug`, ref `003F4D` at (199.9, 61.7), turned 90°, scale 0.57) has all
+  five keys.
+  - Its key-`000C0061` triangle (bitsPerWIndex 18: chunk 2, index position 97) is 3.119 Havok units long and
+    **0.001 wide**, one quantum.
+  - In world space it lies along x = 308.4 at floor height.
+  - Its key-1/9/A0011/800A9 triangles cover exactly the logged hit positions.
+- SureAI's copy in `E - Meshes.bsa` has the same collision; ETATU CM Meshes' copy wins and carries it unchanged.
+
+**List-wide:**
+
+- A scan of every compressed mesh's MOPP keys (12,627 meshes, 4.7 M keys) finds **214 keys in 129 meshes** that name
+  a triangle at most one quantum wide.
+  - Several are in Enderal's own archive, such as the scroll piles.
+  - The rug has four.
+- 1,437 keys in 457 meshes are under 0.002 wide or under 1/500 of their length. Those are not touched.
+- Only the rug has been tied to a crash, so thinness alone is not always fatal. A flat floor piece swept by a low
+  camera sphere is the likely worst case.
+
+**The fix (curator's choice: all of them, 2026-11-13):**
+
+- `tools/01` closes every MOPP leaf whose keys **all** name a triangle at most `THIN_QUANTA` = 1.1 vertex quanta
+  wide.
+  - Width = twice the area over the longest edge.
+  - Chunk triangles are measured in their quantized integers. A chunk's translation and transform move all three
+    corners alike, so they don't change the width.
+  - Big triangles are measured in Havok units divided by the mesh's `Error` (its quantum).
+- A leaf that also yields a real triangle, or whose byte is another instruction's argument, is left alone and listed
+  as `kept`. None was, on 2026-11-13.
+- Asserted per MOPP:
+  - the tree walks clean afterwards;
+  - its key set is the old one minus exactly the closed keys;
+  - every closed key is thin.
+- Result: the 214 keys in 129 meshes, closed with one byte each.
+
+**Shipped (2026-11-13): 146 meshes** = 129 thin + the earlier faults.
+
+- The Ark street lamp is gone from this mod. PG Patcher Output's 2026-11-11 copy now wins it, and that copy carries
+  this fix's MOPP code byte for byte: PG Patcher was built on top of it.
+  - If PG Patcher is rerun without this mod's lamp, it reads ETATU's broken copy again. Rerunning `tools/01` after
+    PG Patcher (as below) catches that.
+- Three earlier meshes changed source and were rebuilt from today's winners: the Bank of Ark stair, the Silvergrove
+  door stairs and the Esrathir water-channel pillar.
+- Backup of the 18-mesh build: `E:/Zenderal-backups/2026-11-13-collision-mopp-fix/`.
+
+**The Hollow Hand crashes were the second fault.** Those are the two on 2026-11-09, same player, cell `11F9C5`. Both
+failed at B key **`00040015`**. That is the Silvergrove door stairs' key past its compressed mesh (table above),
+closed by this mod since 2026-11-09.
+
+- Three door stairs `_00E_Tropical_ClayHouseDoorStairs` stand in that cell, at x −2453 / −2396 / −2346, y 8918.
+- The 18:56 crash's filled hits lie on them: (−2438, 8912, 3522), (−2457, 8935, 3506).
+- The player's install predated the 11-09 build.
+- An out-of-range key there gives the same unfilled contact as a thin triangle, so it ends in this crash, not the
+  `+10E675B` read.
+- The first scan missed it because it read this mod's already-fixed copy.
 
 ## Keeping it right
 
