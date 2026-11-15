@@ -71,6 +71,12 @@ gave up six minutes later, one spawn alive and uncounted, no error and no reloca
 spent). Two answers in the 01:00 build, deployed into Patch Collection: the stone in the wood now offers **Call the
 next wave** during a run (`RunMsg`), and a stall is handled and logged (`STALL_SECONDS`, `TraceSpawns`; both
 below). Why the spawn would not die is still open; the next stall's `ZFW left:` lines will say. Unverified in game.
+
+**The Rogue (curator, 2026-11-15):** the entry stone in the pine forest is gone. A man called Rogue, in the Set of the
+Tracker, sits on the fence base beside the Castle Bleakstar road sign in Dark Valley and takes the player in through
+dialogue; the stone inside the wood is still the way out (section below). Built 13:17, deployed into Patch Collection,
+**unverified in game**: the seat height and his facing are first guesses (`ROGUE_Z`, `ROGUE_ANGLE`; bump
+`ROGUE_VERSION` after moving them, a save moves him on its next load).
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -389,6 +395,44 @@ are the cause, the fix is to make the spawns unable to hit each other (a perk on
 Damage` x0 against the arena faction does not stop the hit event; a cleaner route is a dedicated combat style
 or spacing the archers so the ring does not fire through itself).
 
+## The Rogue at the signpost (2026-11-15)
+
+The curator wanted a person instead of the Vyn stone: *a male Rogue wearing the Tracker armor, sat on a wall somewhere
+in Dark Valley, that you speak to*. Dark Valley is region `Jonas 0023A3` (123 Vyn cells; the Old Watermill, Bone Farm,
+Castle Bleakstar, the Alchemist's camp). Its only low walls are Whiterun-kit farm-fence bases (`WRFenceBase*`, 75 units
+high) in a few roadside stubs; the one a traveller passes is the fence base `032FEA` (`WRFenceBaseEnd01`, at
+(-79220.68, 43170.23, 1101.59), yaw 0.744 rad) 42 units from the Fahlstern road sign `0297A5`/`0297A6` (FS; Fahlstern =
+Castle Bleakstar) in cell `WaldTuerme 001D6C`. EPPI Improved Locations overrides that cell with one far object; nothing
+moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the seat.
+
+- **Records** (`tools/02`, `0x81F`-`0x826`): NPC `ZFW_Rogue 0x81F` = `_03E_BanditSunCoastDamCamp 02F435`'s record (FS,
+  Traits-templated on the male Highwayman face `02A1BA`, so it needs no facegen of ours) made ours: Essential + Unique,
+  level 10, `TemplateFlags: Traits` only, no factions, no scripts, no items, Unaggressive / Cowardly / HelpsNobody,
+  class `CombatRogue 013180`, outfit `ZFW_RogueOutfit 0x820` = the Set of the Tracker (`_25E_LSet_Pathfinders*`
+  cuirass `0508C6`, boots `0508C4`, gauntlets `0508C8`, hood `0508CB`; the set bonus item is not worn), packages
+  `_DefaultSitLinkedRef 0DD723` then a sandbox. Two top-level player branches (`Category: Player`, `TopLevel`) on the
+  arena quest: *Take me to the Fog Wood.* (`0x821`-`0x823`; the response carries the TopicInfo fragment
+  `ZFW_RogueTake`, run **OnEnd** so his line finishes, → `ZFW_ArenaQuest.RogueTake` → god-mode check → `StartRun`) and
+  *What is the Fog Wood?* (`0x824`-`0x826`, two lines). Every response is conditioned `GetIsID ZFW_Rogue`. Topics are
+  folders (`DialogTopics/<EditorID> - <FormKey>/RecordData.yaml` + `Responses/`), the shape of
+  `ArkGenericDialogue_Museum1_0 028EA4`; `topicinfo.psc` for the fragment is in `papyrus-source/vanilla-stubs`.
+- **Placement by script, no Vyn cell edited** (as the stone was): `EnsureRogue` reads the NPC base, the furniture
+  `InvisibleChairMarker 06411B` and the anchor (Alchemist's Abandoned Camp map marker `053B65`, a persistent Vyn ref
+  5,400 units away) **by FormID with `GetFormFromFile`, not through properties**: a quest's properties are captured at
+  its start and the stone that used to trigger the one-time restart is gone, so an existing save gets him on its next
+  load with no restart. It places the seat at `ROGUE_X/Y/Z/ANGLE`, places him, links the seat to him (Papyrus
+  Extender `SetLinkedRef`, which `_DefaultSitLinkedRef` sits him in), moves him onto it and `EvaluatePackage`s; both
+  are persistent and kept in `ZFW_Persist` across a quest restart (an actor = the Rogue, the furniture = the seat,
+  anything else = an old stone). Every load and idle tick it puts him back on the seat if he is more than 200 units
+  from it and not fighting, and `RetireStone` deletes the Vyn stone of a save from before. `ReturnToRogue` (run end,
+  console exit) drops the player 160 units in front of him, facing him. The seat: the fence base's top centre (local
+  (0, 36.5, 75) turned by its yaw) = (-79196, 43197, 1177); the chair marker's root is the sitter's feet, so it sits
+  32 lower (`ROGUE_Z` 1144.6) and faces the wall's left normal (yaw - 90° = -47.4°), where the sign and the road are.
+  Whether the AI sits him in a seat with no navmesh under it is the first thing to check in game; the fallback is to
+  move the seat down to the ground in front of the wall.
+- **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
+  `StoneActivated` is only reachable through a console-placed stone now.
+
 ## Postmortem: the bodies that came back (co-op, 2026-11-10)
 
 Two mechanisms, both outside the arena script, both read off the host's logs of the 2026-11-10 session (Papyrus
@@ -447,7 +491,9 @@ an open design question, not a bug of this build.
 | `0x818`-`0x819` | `ZFW_Themes` (all themes, objective index), global `ZFW_WaveSize` |
 | `0x81A`-`0x81B` | CONT `ZFW_Chest` (Fogbound Cache), `ZFW_CachePotions` |
 | `0x81C`-`0x81D` | global `ZFW_QuestVersion`, FormList `ZFW_Persist` (the one-time quest restart) |
-| `0x81E` | `ZFW_RunMsg` (the stone during a run: call the next wave / leave / stay); `0x81F`-`0x84F` free |
+| `0x81E` | `ZFW_RunMsg` (the stone during a run: call the next wave / leave / stay) |
+| `0x81F`-`0x820` | NPC `ZFW_Rogue`, OTFT `ZFW_RogueOutfit` (the Set of the Tracker) |
+| `0x821`-`0x826` | the Rogue's dialogue: branch / topic / response for *Take me to the Fog Wood.* and *What is the Fog Wood?*; `0x827`-`0x84F` free |
 | `0x850`-`0x88F` | the 64 cells |
 | `0x8B0`-`0x8EF` | their 64 landscapes |
 | `0x910`-`0x933` | the 36 navmeshes |

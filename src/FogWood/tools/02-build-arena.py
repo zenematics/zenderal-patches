@@ -50,6 +50,18 @@ ID_POTIONS = 0x80D
 ID_BEST, ID_WAVE = 0x80E, 0x80F
 ID_ENTER_MSG, ID_LEAVE_MSG = 0x810, 0x811
 ID_RUN_MSG = 0x81E                    # the stone during a run: call the next wave / leave / stay (2026-11-15)
+# The Rogue (2026-11-15, curator): a man in the Set of the Tracker sitting on the fence base by the Castle Bleakstar
+# road sign in Dark Valley takes the player in; the Vyn stone is retired (the exit stone in the wood stays). His
+# records: NPC, outfit, two top-level dialogue branches (take me / what is it) with their topics and responses.
+ID_ROGUE, ID_ROGUE_OUTFIT = 0x81F, 0x820
+ID_ROGUE_BRANCH_TAKE, ID_ROGUE_TOPIC_TAKE, ID_ROGUE_INFO_TAKE = 0x821, 0x822, 0x823
+ID_ROGUE_BRANCH_WHAT, ID_ROGUE_TOPIC_WHAT, ID_ROGUE_INFO_WHAT = 0x824, 0x825, 0x826
+ROGUE_SRC = os.path.join(ROOT, 'reference', 'base-2.1.4.4', 'EnderalFS', 'Npcs',
+                         '_03E_BanditSunCoastDamCamp - 02F435_Enderal - Forgotten Stories.esm.yaml')   # a Traits-templated male bandit: the copy
+ROGUE_FACE = '02A1BA' + ':Skyrim.esm'            # _03E_Bandit02Ranged_Range0800: the male Highwayman face the copy already borrows (own facegen)
+ROGUE_CLASS = '013180' + ':Skyrim.esm'           # CombatRogue
+ROGUE_PACKAGES = ['0DD723' + ':Skyrim.esm', '01B217' + ':Skyrim.esm']   # _DefaultSitLinkedRef (his seat, linked by the script), then a sandbox
+TRACKER_SET = ['0508C6' + ':Skyrim.esm', '0508C4' + ':Skyrim.esm', '0508C8' + ':Skyrim.esm', '0508CB' + ':Skyrim.esm']   # Set of the Tracker: cuirass, boots, gauntlets, hood
 # 0x80C (ZFW_Bosses) and 0x812 (ZFW_Elites) were the first arena's flat lists: retired, never reuse
 ID_PACKS = {1.0: (0x813, 'ZFW_PackFull'), 0.5: (0x814, 'ZFW_PackHalf'), 0.35: (0x815, 'ZFW_PackThird'), 0.7: (0x816, 'ZFW_PackMost')}
 # 0x80D ZFW_HealthPotions (was ZFW_Potions), 0x817 ZFW_ManaPotions
@@ -386,6 +398,74 @@ def winning_race(key):
     return found
 
 
+def rogue_yaml():
+    """The Rogue: _03E_BanditSunCoastDamCamp's record (already Traits-templated on a male Highwayman face, so no facegen
+    of our own is needed) with everything but the face made ours: essential and unique, no factions, no scripts, no loot,
+    unaggressive, the Tracker outfit, the sit-at-linked-ref package, the CombatRogue class."""
+    s = open(ROGUE_SRC, 'rb').read().decode('utf-8').replace('\r\n', '\n')
+
+    def cut(block_re):
+        nonlocal s
+        s2 = re.sub(block_re, '', s, count=1, flags=re.M)
+        assert s2 != s, block_re
+        s = s2
+
+    def sub(old_re, new, count=1):
+        nonlocal s
+        s2, n = re.subn(old_re, new, s, flags=re.M)
+        assert n == count, (old_re, n)
+        s = s2
+
+    sub(r'^FormKey: .*$', 'FormKey: ' + fk(ID_ROGUE))
+    sub(r'^EditorID: .*$', 'EditorID: ZFW_Rogue')
+    cut(r'^VirtualMachineAdapter:\n(?:  .*\n)+')
+    sub(r'^Configuration:\n', 'Configuration:\n  Flags:\n  - Essential\n  - Unique\n')
+    sub(r'^    Level: 5$', '    Level: 10')
+    sub(r'^  TemplateFlags:\n(?:  - .*\n)+', '  TemplateFlags:\n  - Traits\n')
+    cut(r'^Factions:\n(?:- .*\n|  .*\n)+')
+    cut(r'^DeathItem: .*\n')
+    sub(r'^Template: .*$', 'Template: ' + ROGUE_FACE)
+    cut(r'^Items:\n(?:- .*\n|  .*\n)+')
+    sub(r'^AIData:\n(?:  .*\n)+', 'AIData:\n  Aggression: Unaggressive\n  Confidence: Cowardly\n  EnergyLevel: 50\n'
+        '  Mood: Neutral\n  Assistance: HelpsNobody\n  AggroRadiusBehavior: False\n  Warn: 1300\n  WarnOrAttack: 800\n  Attack: 800\n')
+    sub(r'^Packages:\n(?:- .*\n)+', 'Packages:\n' + ''.join('- %s\n' % k for k in ROGUE_PACKAGES))
+    sub(r'^Class: .*$', 'Class: ' + ROGUE_CLASS)
+    sub(r'^Name:\n  TargetLanguage: English\n  Values:\n(?:  - .*\n|    .*\n)+', 'Name:\n  TargetLanguage: English\n  Value: Rogue\n')
+    sub(r'^DefaultOutfit: .*$', 'DefaultOutfit: ' + fk(ID_ROGUE_OUTFIT))
+    assert 'Highwayman' not in s and '02F32B' not in s and (chr(10) + '  Values:') not in s, 'bandit data left in the Rogue'
+    lines = s.split('\n')
+    while lines and lines[-1] == '':
+        lines.pop()
+    return lines
+
+
+def dialog_branch(local, edid, topic):
+    return ['FormKey: ' + fk(local), 'EditorID: ' + edid, 'Quest: ' + fk(ID_QUEST), 'Category: Player', 'Flags:', '- TopLevel',
+            'StartingTopic: ' + fk(topic)]
+
+
+def dialog_topic(local, edid, prompt, branch):
+    """A player topic: its Name is the prompt the player picks (ArkGenericDialogue_Museum1_0's shape)."""
+    return ['FormKey: ' + fk(local), 'EditorID: ' + edid, 'Name:', '  TargetLanguage: English', '  Value: ' + quoted(prompt),
+            'Branch: ' + fk(branch), 'Quest: ' + fk(ID_QUEST), 'SubtypeName: CUST']
+
+
+def dialog_info(local, edid, lines, fragment=None):
+    """The Rogue's answer(s) to a topic, spoken only by him (GetIsID); fragment = a TopicInfo script run when the line ends."""
+    out = ['FormKey: ' + fk(local), 'EditorID: ' + edid]
+    if fragment:
+        out += ['VirtualMachineAdapter:', '  Scripts:', '  - Name: ' + fragment, '    Properties:'] + obj('Arena', fk(ID_QUEST)) + [
+            '  ScriptFragments:', '    MutagenObjectType: ScriptFragments', '    FileName: ' + fragment, '    OnEnd:',
+            '      ExtraBindDataVersion: 1', '      ScriptName: ' + fragment, '      FragmentName: Fragment_0']
+    out += ['Flags: {}', 'PreviousDialog: Null', 'FavorLevel: None', 'Responses:']
+    for n, text in enumerate(lines, 1):
+        out += ['- EmotionValue: 50', '  ResponseNumber: %d' % n, '  Unknown2: 0x000000', '  Flags:', '  - UseEmotionAnimation',
+                '  Unknown3: 0x000000', '  Text:', '    TargetLanguage: English', '    Value: ' + quoted(text), "  ScriptNotes: ''", "  Edits: ''"]
+    out += ['Conditions:', '- MutagenObjectType: ConditionFloat', '  Data:', '    MutagenObjectType: GetIsIDConditionData',
+            '    Object: ' + fk(ID_ROGUE), '  ComparisonValue: 1']
+    return out
+
+
 def _ref_text(sub, key):
     """The winning serialized record of a FormKey among the list's overriders (reference/mods), else the base's."""
     local, master = key.split(':', 1)
@@ -427,7 +507,8 @@ def combat_override_packages(key, depth=0):
 
 
 def main():
-    for sub in ('Quests', 'Activators', 'Factions', 'FormLists', 'Globals', 'Messages', 'Npcs', 'Containers'):
+    for sub in ('Quests', 'Activators', 'Factions', 'FormLists', 'Globals', 'Messages', 'Npcs', 'Containers', 'Outfits',
+                'DialogBranches', 'DialogTopics'):
         if os.path.isdir(os.path.join(OUT, sub)):
             shutil.rmtree(os.path.join(OUT, sub))
     assert os.path.isfile(WOLF_SRC), WOLF_SRC
@@ -559,6 +640,21 @@ def main():
         ID_RUN_MSG, 'ZFW_RunMsg',
         'The fog waits. Call the next wave now - whatever still stands is taken by the fog - or leave the wood? The run ends if you leave.',
         ['Call the next wave', 'Leave the Fog Wood', 'Stay']))
+    # The Rogue who takes the player in (2026-11-15).
+    write(os.path.join(OUT, 'Outfits', 'ZFW_RogueOutfit - %06X_%s.yaml' % (ID_ROGUE_OUTFIT, PLUGIN)),
+          ['FormKey: ' + fk(ID_ROGUE_OUTFIT), 'EditorID: ZFW_RogueOutfit', 'Items:'] + ['- ' + k for k in TRACKER_SET])
+    write(os.path.join(OUT, 'Npcs', 'ZFW_Rogue - %06X_%s.yaml' % (ID_ROGUE, PLUGIN)), rogue_yaml())
+    for branch, topic, info, tag, prompt, answers, fragment in (
+            (ID_ROGUE_BRANCH_TAKE, ID_ROGUE_TOPIC_TAKE, ID_ROGUE_INFO_TAKE, 'Take', 'Take me to the Fog Wood.',
+             ["Then go. When you've had your fill of it, the stone in the wood is the only road back."], 'ZFW_RogueTake'),
+            (ID_ROGUE_BRANCH_WHAT, ID_ROGUE_TOPIC_WHAT, ID_ROGUE_INFO_WHAT, 'What', 'What is the Fog Wood?',
+             ['A stretch of pines where the fog never lifts, and whatever walks in it does not stay dead.',
+              "Nothing you kill there is worth a penny or a memory. It's a place to try a blade before the blade tries you."], None)):
+        write(os.path.join(OUT, 'DialogBranches', 'ZFW_Rogue%sBranch - %06X_%s.yaml' % (tag, branch, PLUGIN)),
+              dialog_branch(branch, 'ZFW_Rogue%sBranch' % tag, topic))
+        tdir = os.path.join(OUT, 'DialogTopics', 'ZFW_Rogue%sTopic - %06X_%s' % (tag, topic, PLUGIN))
+        write(os.path.join(tdir, 'RecordData.yaml'), dialog_topic(topic, 'ZFW_Rogue%sTopic' % tag, prompt, branch))
+        write(os.path.join(tdir, 'Responses', 'ZFW_Rogue%sInfo - %06X_%s.yaml' % (tag, info, PLUGIN)), dialog_info(info, 'ZFW_Rogue%sInfo' % tag, answers, fragment))
     print('arena records written: quest 0x%X (%d spawn aliases), stone 0x%X, faction 0x%X, %d themes (0x%X-0x%X) in %s, %d werewolf bases, %d+%d potions, messages, globals'
           % (ID_QUEST, SPAWN_SLOTS, ID_STONE, ID_FACTION, len(THEMES), ID_THEME0, ID_THEME0 + THEME_STRIDE * len(THEMES) - 1,
              ' / '.join('T%d:%d' % (t, len(v)) for t, v in sorted(tiers.items())), len(WEREWOLVES), len(HEALTH_POTIONS), len(MANA_POTIONS)))

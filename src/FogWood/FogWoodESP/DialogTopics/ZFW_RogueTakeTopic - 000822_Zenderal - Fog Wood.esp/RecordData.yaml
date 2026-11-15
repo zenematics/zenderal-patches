@@ -1,0 +1,8 @@
+FormKey: 000822:Zenderal - Fog Wood.esp
+EditorID: ZFW_RogueTakeTopic
+Name:
+  TargetLanguage: English
+  Value: 'Take me to the Fog Wood.'
+Branch: 000821:Zenderal - Fog Wood.esp
+Quest: 000804:Zenderal - Fog Wood.esp
+SubtypeName: CUST

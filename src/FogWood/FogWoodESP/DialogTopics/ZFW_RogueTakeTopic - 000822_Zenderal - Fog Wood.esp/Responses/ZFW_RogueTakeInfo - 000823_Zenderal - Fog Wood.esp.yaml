@@ -1,0 +1,37 @@
+FormKey: 000823:Zenderal - Fog Wood.esp
+EditorID: ZFW_RogueTakeInfo
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZFW_RogueTake
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Arena
+      Object: 000804:Zenderal - Fog Wood.esp
+  ScriptFragments:
+    MutagenObjectType: ScriptFragments
+    FileName: ZFW_RogueTake
+    OnEnd:
+      ExtraBindDataVersion: 1
+      ScriptName: ZFW_RogueTake
+      FragmentName: Fragment_0
+Flags: {}
+PreviousDialog: Null
+FavorLevel: None
+Responses:
+- EmotionValue: 50
+  ResponseNumber: 1
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'Then go. When you''ve had your fill of it, the stone in the wood is the only road back.'
+  ScriptNotes: ''
+  Edits: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 00081F:Zenderal - Fog Wood.esp
+  ComparisonValue: 1

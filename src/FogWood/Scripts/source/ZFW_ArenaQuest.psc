@@ -133,6 +133,26 @@ Float Property NO_KILL_RANGE = 600.0 AutoReadOnly
 Float Property BOUND = 11500.0 AutoReadOnly
 {The wood is 6x6 cells round the origin with walls 512 inside the edge; a player past this on either axis is put
  back at the entry (the curator ran off the edge of the map: the invisible walls did not hold).}
+String Property PLUGIN_FILE = "Zenderal - Fog Wood.esp" AutoReadOnly
+Int Property ROGUE_ID = 0x81F AutoReadOnly
+{The Rogue (curator, 2026-11-15): a man in the Set of the Tracker sitting on the fence base by the Castle Bleakstar
+ road sign in Dark Valley takes the player in; the Vyn stone is retired. His forms are read from our own plugin by
+ FormID (not properties): a quest's properties are captured at its start, and the stone that used to trigger the
+ restart is gone, so an existing save gets him on its next load.}
+Int Property ROGUE_SEAT_ID = 0x06411B AutoReadOnly
+{InvisibleChairMarker (Skyrim.esm): the furniture his _DefaultSitLinkedRef package sits him in, placed on the wall.}
+Int Property ROGUE_ANCHOR_ID = 0x053B65 AutoReadOnly
+{Alchemist's Abandoned Camp map marker: a persistent Vyn ref 5,400 units from the seat, as the stone used one.}
+Float Property ROGUE_X = -79196.0 AutoReadOnly
+{The seat: the top centre of the fence base WRFenceBaseEnd01 032FEA (-79220.68, 43170.23, 1101.59, yaw 0.744 rad;
+ its top is 75 above its origin) beside the FS road sign 0297A5/0297A6 (Fahlstern = Castle Bleakstar), cell
+ WaldTuerme 001D6C. The marker's root is the sitter's feet, so it sits 32 below the wall top (a chair's seat height)
+ and he faces the wall's left normal (yaw - 90 deg), where the sign and the road are.}
+Float Property ROGUE_Y = 43197.1 AutoReadOnly
+Float Property ROGUE_Z = 1144.6 AutoReadOnly
+Float Property ROGUE_ANGLE = -47.4 AutoReadOnly
+Int Property ROGUE_VERSION = 1 AutoReadOnly
+{Bump when ROGUE_X/Y/Z/ANGLE move: a save's Rogue and seat are moved to the new spot on the next load.}
 Int Property STONE_VERSION = 3 AutoReadOnly
 {Bump when STONE_X/Y/Z move: a save's already placed stone is moved to the new spot on the next load.
  1 = Whisperwood (-83776, 16832, 4452); 2 = pine forest through saved properties (never moved); 3 = constants.}
@@ -151,7 +171,10 @@ Int Property CHESTS_AT_START = 6 AutoReadOnly
  Each sits on the navmesh within CHEST_SPREAD of a random spawn marker or the entry.}
 Int Property CHESTS_PER_BOSS = 3 AutoReadOnly
 
-ObjectReference StoneRef
+ObjectReference StoneRef                        ; the retired Vyn stone of saves from before the Rogue (RetireStone)
+ObjectReference RogueRef
+ObjectReference SeatRef
+Int RoguePlaced = 0
 Int StonePlaced = 0
 Bool Property Running = False Auto Hidden
 Bool WaveActive = False
@@ -218,31 +241,100 @@ ObjectReference Function Anchor()
 	Return anchor
 EndFunction
 
-Function EnsureStone()
-	{Places the Fogbound Stone once (persistent, so it survives cell resets and saves), and moves a stone a save
-	 already holds when the spot changed (STONE_VERSION).}
-	ObjectReference anchor = Anchor()
-	If anchor == None || FogStone == None
+Function EnsureGuide()
+	{Every load and every idle tick: the Vyn stone of an older save goes, the Rogue sits by the road sign.}
+	RetireStone()
+	EnsureRogue()
+EndFunction
+
+Function RetireStone()
+	{The entry stone the quest used to place in the pine forest (curator, 2026-11-15: a person takes you in now).}
+	If StoneRef != None
+		StoneRef.Disable()
+		StoneRef.Delete()
+		StoneRef = None
+		Debug.Trace("ZFW: the Vyn stone is gone; the Rogue takes you now")
+	EndIf
+EndFunction
+
+Function EnsureRogue()
+	{Places the Rogue and his seat once (persistent, so they survive cell resets and saves), puts him back on the wall
+	 when something knocked him off it, and moves both when the spot changed (ROGUE_VERSION). The seat is linked to
+	 him (Papyrus Extender SetLinkedRef), which is what his _DefaultSitLinkedRef package sits him in.}
+	ActorBase base = Game.GetFormFromFile(ROGUE_ID, PLUGIN_FILE) as ActorBase
+	Furniture seat = Game.GetFormFromFile(ROGUE_SEAT_ID, "Skyrim.esm") as Furniture
+	ObjectReference anchor = Game.GetFormFromFile(ROGUE_ANCHOR_ID, "Skyrim.esm") as ObjectReference
+	If base == None || seat == None || anchor == None
 		Return
 	EndIf
-	If StoneRef == None && Persist != None && Persist.GetSize() > 0
-		StoneRef = Persist.GetAt(0) as ObjectReference     ; back from the quest restart
-		StonePlaced = STONE_VERSION
+	If (RogueRef == None || SeatRef == None) && Persist != None
+		Int i = 0                               ; back from the quest restart: an actor, the seat, or an old stone
+		While i < Persist.GetSize()
+			ObjectReference kept = Persist.GetAt(i) as ObjectReference
+			If kept != None
+				If (kept as Actor) != None
+					RogueRef = kept
+					RoguePlaced = ROGUE_VERSION
+				ElseIf kept.GetBaseObject() == seat
+					SeatRef = kept
+				ElseIf StoneRef == None
+					StoneRef = kept
+				EndIf
+			EndIf
+			i += 1
+		EndWhile
 	EndIf
-	If StoneRef == None
-		StoneRef = anchor.PlaceAtMe(FogStone, 1, True, True)
-		StoneRef.SetPosition(STONE_X, STONE_Y, STONE_Z)
-		StoneRef.SetAngle(0.0, 0.0, STONE_ANGLE)
-		StoneRef.Enable()
-		StonePlaced = STONE_VERSION
-		Debug.Trace("ZFW: stone placed at " + STONE_X + ", " + STONE_Y + ", " + STONE_Z)
-	ElseIf StonePlaced != STONE_VERSION
-		StoneRef.MoveTo(anchor)                   ; into the new spot's cell first: SetPosition alone stays in the old one
-		StoneRef.SetPosition(STONE_X, STONE_Y, STONE_Z)
-		StoneRef.SetAngle(0.0, 0.0, STONE_ANGLE)
-		StonePlaced = STONE_VERSION
-		Debug.Trace("ZFW: stone moved to " + STONE_X + ", " + STONE_Y + ", " + STONE_Z + " (version " + STONE_VERSION + ")")
+	If SeatRef == None
+		SeatRef = anchor.PlaceAtMe(seat, 1, True, True)
+		SeatRef.SetPosition(ROGUE_X, ROGUE_Y, ROGUE_Z)
+		SeatRef.SetAngle(0.0, 0.0, ROGUE_ANGLE)
+	ElseIf RoguePlaced != ROGUE_VERSION
+		SeatRef.MoveTo(anchor)                  ; into the new spot's cell first: SetPosition alone stays in the old one
+		SeatRef.SetPosition(ROGUE_X, ROGUE_Y, ROGUE_Z)
+		SeatRef.SetAngle(0.0, 0.0, ROGUE_ANGLE)
 	EndIf
+	If RogueRef == None
+		RogueRef = anchor.PlaceAtMe(base, 1, True, True)
+		PO3_SKSEFunctions.SetLinkedRef(RogueRef, SeatRef)
+		SeatRogue()
+		Debug.Trace("ZFW: the Rogue placed at " + ROGUE_X + ", " + ROGUE_Y + ", " + ROGUE_Z)
+	ElseIf RoguePlaced != ROGUE_VERSION
+		RogueRef.MoveTo(anchor)
+		PO3_SKSEFunctions.SetLinkedRef(RogueRef, SeatRef)
+		SeatRogue()
+		Debug.Trace("ZFW: the Rogue moved to " + ROGUE_X + ", " + ROGUE_Y + ", " + ROGUE_Z + " (version " + ROGUE_VERSION + ")")
+	ElseIf !Running && RogueRef.Is3DLoaded() && RogueRef.GetDistance(SeatRef) > 200.0 && !(RogueRef as Actor).IsInCombat()
+		SeatRogue()                             ; knocked off the wall (the goblin pack 1,500 units east): back on it
+	EndIf
+	RoguePlaced = ROGUE_VERSION
+EndFunction
+
+Function SeatRogue()
+	RogueRef.MoveTo(SeatRef)
+	RogueRef.SetAngle(0.0, 0.0, ROGUE_ANGLE)
+	(RogueRef as Actor).EvaluatePackage()
+EndFunction
+
+Function ReturnToRogue()
+	{The player back on the road in front of the Rogue (160 units the way he faces, a little above the ground).}
+	EnsureGuide()
+	If RogueRef != None
+		PlayerRef.MoveTo(RogueRef)
+		PlayerRef.SetPosition(ROGUE_X + 160.0 * Math.sin(ROGUE_ANGLE), ROGUE_Y + 160.0 * Math.cos(ROGUE_ANGLE), ROGUE_Z - 20.0)
+		PlayerRef.SetAngle(0.0, 0.0, ROGUE_ANGLE + 180.0)
+	EndIf
+EndFunction
+
+Function RogueTake(ObjectReference akSpeaker)
+	{The Rogue's "Take me to the Fog Wood." (ZFW_RogueTake, after his line).}
+	If Busy || Running
+		Return
+	EndIf
+	If PO3_SKSEFunctions.GetGodMode()
+		Debug.MessageBox("The fog will not take an immortal. Turn god mode off first.")
+		Return
+	EndIf
+	StartRun()
 EndFunction
 
 Function OnGameLoaded()
@@ -250,7 +342,7 @@ Function OnGameLoaded()
 	If !Spawned || !Drops || !Chests || (!Running && Spawned.Length < SLOTS)   ; never compare an array to None: a fatal cast error aborts the function
 		OnInit()                                ; also grows the arrays of a save made with a smaller version
 	EndIf
-	EnsureStone()
+	EnsureGuide()
 	If Running
 		InTick = False
 		FriendlyFire(True)
@@ -274,8 +366,11 @@ EndFunction
 Function PrepareRestart()
 	{Called by the stone right before it stops and starts the quest: keeps the placed stone, stamps the version.}
 	Persist.Revert()
-	If StoneRef != None
-		Persist.AddForm(StoneRef)
+	If RogueRef != None
+		Persist.AddForm(RogueRef)
+	EndIf
+	If SeatRef != None
+		Persist.AddForm(SeatRef)
 	EndIf
 	QuestVersion.SetValue(QUEST_VERSION)
 	HideBanner()
@@ -396,10 +491,7 @@ Function EndRun(Bool abDied)
 	PlayerRef.RestoreActorValue("Health", 100000.0)
 	PlayerRef.RestoreActorValue("Magicka", 100000.0)
 	PlayerRef.RestoreActorValue("Stamina", 100000.0)
-	EnsureStone()
-	If StoneRef != None
-		PlayerRef.MoveTo(StoneRef, 128.0, 0.0, 0.0)
-	EndIf
+	ReturnToRogue()
 	PlayerRef.AddToFaction(EPFaction)
 	If EPRank > 0
 		PlayerRef.SetFactionRank(EPFaction, EPRank)
@@ -423,10 +515,7 @@ Function ExitToStone()
 	Busy = True
 	Game.FadeOutGame(True, True, 0.0, 1.0)
 	Utility.Wait(1.0)
-	EnsureStone()
-	If StoneRef != None
-		PlayerRef.MoveTo(StoneRef, 128.0, 0.0, 0.0)
-	EndIf
+	ReturnToRogue()
 	Utility.Wait(1.0)
 	Game.FadeOutGame(False, True, 0.0, 1.5)
 	Busy = False
@@ -434,7 +523,7 @@ EndFunction
 
 Event OnUpdate()
 	If !Running
-		EnsureStone()
+		EnsureGuide()
 		Return
 	EndIf
 	RegisterForSingleUpdate(1.0)                ; FIRST: an error anywhere below used to end the loop, and with it the waves

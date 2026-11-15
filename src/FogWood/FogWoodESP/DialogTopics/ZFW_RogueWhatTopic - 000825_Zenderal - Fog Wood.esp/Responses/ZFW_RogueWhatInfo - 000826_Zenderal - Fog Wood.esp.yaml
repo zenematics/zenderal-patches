@@ -1,0 +1,34 @@
+FormKey: 000826:Zenderal - Fog Wood.esp
+EditorID: ZFW_RogueWhatInfo
+Flags: {}
+PreviousDialog: Null
+FavorLevel: None
+Responses:
+- EmotionValue: 50
+  ResponseNumber: 1
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'A stretch of pines where the fog never lifts, and whatever walks in it does not stay dead.'
+  ScriptNotes: ''
+  Edits: ''
+- EmotionValue: 50
+  ResponseNumber: 2
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'Nothing you kill there is worth a penny or a memory. It''s a place to try a blade before the blade tries you.'
+  ScriptNotes: ''
+  Edits: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 00081F:Zenderal - Fog Wood.esp
+  ComparisonValue: 1
