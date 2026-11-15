@@ -232,6 +232,10 @@ TUBE_FRONT_NUB = False
 TUBE_SCREWS = False
 TUBE_TOP_FRONT = 29.39         # the wrist top at z -27 (asserted: the stock moved if this changes)
 GLASS_R = 1.55
+BOLT_FLOOR = 0.1              # the floor plate's top under the tube axis (floor axis - 0.2, panel raised 0.1; measured)
+BOLT_LIFT = 0.6               # bolt cards' centre above the axis: the glass's visible upper part
+BOLT_HALF = 0.95
+GLOW_HALF = 0.6
 COLLAR_R = 1.94                # the round barrel's radius at the breech
 TUBE_BEAD = 0.06               # the bead ring stands this far over the collar
 CHANNEL_GAP = 0.05             # wood clearance round the widest gold (beads) and behind the rear nub
@@ -1734,12 +1738,13 @@ def tube_glass(o, d, L):
                  u_scale=1.0, v_scale=1.0 / L)
 
 
-def tube_cards(o, d, L, half_width, angles, u_span):
+def tube_cards(o, d, L, half_width, angles, u_span, lift=0.0):
     """Flat cards through the axis (both faces drawn by the shader): u across (0..u_span), v along 0..1.
     0 deg lies flat (across the gun, facing up), so it faces a player looking down at the wrist."""
-    a0, a1 = o + d * (1.1 * FIT), o + d * (L - 1.1 * FIT)
     ex = np.array([1.0, 0, 0])
     ey = np.cross(d, ex)
+    up = ey if ey[1] > 0 else -ey
+    a0, a1 = o + d * (1.1 * FIT) + up * lift, o + d * (L - 1.1 * FIT) + up * lift
     V, T, UV = [], [], []
     for ang in angles:
         a = math.radians(ang)
@@ -2207,15 +2212,19 @@ def main():
     glass_shape = new_shape(GLASS_SHAPE, GV, GN, GT, GUV, nif.add_block('BSLightingShaderProperty', gshader),
                             nif.add_block('NiAlphaProperty', alpha_property(ALPHA_BLEND, 0)))
     # effect shaders: SLSF1 ZBuffer test + falloff, SLSF2 double sided; no palette, no vertex colours
+    # no angle falloff (1, 1, 1, 1): first person sees the tube at a low angle, and (1, 0.3, 1, 0) faded the
+    # cards out there (curator 2026-11-15: "why is the lightning not in the tube in first person anymore?")
     bolt_shader = nif.add_block('BSEffectShaderProperty', effect_shader(BOLT_TEX, BOLT_EMISSIVE, 3.0,
-                                                                        0x80000040, 0x10, (1.0, 0.3, 1.0, 0.0)))
+                                                                        0x80000040, 0x10, (1.0, 1.0, 1.0, 1.0)))
     bolt_ctl = add_float_controllers(nif, bolt_shader, [
         (6, 1.32, steps(1.32, [0.0, 0.5, 0.0, 0.5, 0.25, 0.5, 0.0, 0.75, 0.5, 0.0, 0.5], 0.12)),   # which bolt
         (8, 0.91, steps(0.91, [0.0, 0.37, 0.71, 0.18, 0.55, 0.86, 0.29], 0.13)),                # where along
         (0, 1.10, [(0.0, 4.0), (0.07, 8.0), (0.15, 2.5), (0.24, 6.5), (0.33, 1.5), (0.41, 7.5), (0.52, 3.0),
                    (0.61, 9.0), (0.70, 2.0), (0.82, 6.0), (0.93, 3.5), (1.10, 4.0)]),          # flicker
     ])
-    BV_, BN_, BT_, BUV_ = tube_cards(t_o, t_d, t_L, GLASS_R * 0.85, (0.0, 60.0, -60.0), 0.5)
+    # the floor plate runs through the glass BOLT_FLOOR below its axis, so the bolt lives in the upper part:
+    # cards lifted BOLT_LIFT, every card edge kept above the plate and inside the glass (asserted)
+    BV_, BN_, BT_, BUV_ = tube_cards(t_o, t_d, t_L, BOLT_HALF, (0.0, 30.0, -30.0), 0.5, BOLT_LIFT)
     bolt_shape = new_shape(BOLT_SHAPE, BV_, BN_, BT_, BUV_, bolt_shader,
                            nif.add_block('NiAlphaProperty', alpha_property(ALPHA_ADDITIVE, 128)))
     glow_shader = nif.add_block('BSEffectShaderProperty', effect_shader(GLOW_TEX, BOLT_EMISSIVE, 0.8,
@@ -2224,7 +2233,13 @@ def main():
         (8, 0.6, [(0.0, 0.0), (0.6, 1.0)]),                                                   # crawls along
         (0, 0.85, [(0.0, 0.8), (0.2, 1.4), (0.45, 0.5), (0.65, 1.2), (0.85, 0.8)]),
     ])
-    WV_, WN_, WT_, WUV_ = tube_cards(t_o, t_d, t_L, GLASS_R * 0.45, (0.0, 90.0), 1.0)
+    WV_, WN_, WT_, WUV_ = tube_cards(t_o, t_d, t_L, GLOW_HALF, (0.0, 90.0), 1.0, BOLT_LIFT)
+    for nm_, cv_ in (('bolt', BV_), ('glow', WV_)):
+        rel_ = cv_ - t_o
+        along_ = rel_ @ t_d
+        radial_ = rel_ - np.outer(along_, t_d)
+        assert np.linalg.norm(radial_, axis=1).max() < GLASS_R - 0.1, (nm_, 'card outside the glass')
+        assert radial_[:, 1].min() > -BOLT_FLOOR + 0.05, (nm_, 'card under the floor plate', radial_[:, 1].min())
     glow_shape = new_shape(GLOW_SHAPE, WV_, WN_, WT_, WUV_, glow_shader,
                            nif.add_block('NiAlphaProperty', alpha_property(ALPHA_ADDITIVE, 128)))
     # the cogs packed over the plate: their own shape, shader property and texture set (copies of the cogs')

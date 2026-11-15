@@ -258,6 +258,11 @@ X across; ×0.62 to world):
     bolts side by side; each card shows one half), `ClockworkThunderGlow`: two narrow cards with `ShockBoltTile01.dds`.
     BSEffectShaderProperty (layout decoded from Bethesda's `meshes\magic\testlightninggeo.nif`), SLSF1 ZBuffer
     test + falloff, SLSF2 double-sided, pale blue emissive, additive NiAlphaProperty 0x100D like Bethesda's.
+    **Since 2026-11-15 (first person showed an empty tube):** the floor plate's top runs through the glass 0.1
+    under its axis, so axis-centred cards were half buried and the flat one stood 0.1 over an opaque plate; and the
+    falloff (1, 0.3, 1, 0) faded cards seen at first person's low angle. The cards are now lifted 0.6 above the
+    axis (bolt half-width 0.95 at 0 / +-30 deg, glow 0.6 at 0 / 90 deg), every edge asserted above the plate and
+    inside the glass, and the bolt's falloff is off (1, 1, 1, 1). **[unverified in game]**
     **Animated by our own float controllers** (`add_float_controllers`; Bethesda's test mesh has one key and
     zero length, so nothing to copy): the bolt's U offset steps between the two bolts every 0.12 s and its V offset
     jumps along the tube every 0.13 s (stepped keys), its emissive multiple flickers 1.5..9 over 1.1 s; the glow
