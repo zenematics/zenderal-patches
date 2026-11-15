@@ -1,0 +1,10 @@
+FormKey: 00080C:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictStrikeSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\ArgentVerdict\SmiteStrike.wav
+OutputModel: 0F1B1A:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyVariance: 3
+Priority: 128

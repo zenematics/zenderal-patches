@@ -1,0 +1,26 @@
+FormKey: 000853:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictMotesMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ArgentVerdictMotesScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Charges
+      Object: 000852:Zenderal - Argent Verdict.esp
+Name:
+  TargetLanguage: English
+  Value: Argent Charge
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

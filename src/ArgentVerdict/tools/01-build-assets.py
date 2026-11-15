@@ -33,14 +33,19 @@ The textures, from Pretty's own with Sting and Rise's pipeline (src/StingAndRise
   bones through the back of the hand, the bracelet, the sockets' cut lines; on the same silver ramp);
 - a silver cubemap graded from Bethesda's chrome studio cubemap, for where Complex Material is off.
 
-Two variants of the head (curator 2026-11-14: "save what we have but make a variant that is a spiked Gauntlet"):
-'hand' (fist.py + roses.py, the saved design) and 'gauntlet' (gauntlet.py), each its own mesh and painted set.
+The head is the spiked gauntlet (gauntlet.py; curator 2026-11-14: "save what we have but make a variant that is a
+spiked Gauntlet", then 2026-11-15: "this version we've made is THE Argent Verdict", "remove the other versions"): the
+hand above (fist.py + roses.py) was the first head and stays only as the gauntlet's source, its pose and its painter
+(fist.py, fist_tex.py, roses.py); its own mesh and painted set (ArgentFist_*) are gone. The gauntlet's parts are
+one shape, ZP_ArgentGauntlet.
 
 Outputs, into <mods>/<target> (default Zenderal - Patch Collection): meshes/Zenderal/ArgentVerdict/ArgentVerdict.nif
-(hand) and ArgentVerdictGauntlet.nif, textures/Zenderal/ArgentVerdict/ArgentVerdict_d, _n, _m, _e.dds (the hammer),
-ArgentFist_d, _n, _m.dds (hand) and ArgentGauntlet_d, _n, _m.dds.
+(the gauntlet; ArgentVerdictGauntlet.nif until 2026-11-15), textures/Zenderal/ArgentVerdict/ArgentVerdict_d, _n, _m,
+_e.dds (the hammer) and ArgentGauntlet_d, _n, _m.dds (the gauntlet).
 
-Usage:  python 01-build-assets.py [--out-root <dir>] [--variant all|hand|gauntlet]
+The mesh carries the four knuckle motes (motes.py; their textures are tools/03's).
+
+Usage:  python 01-build-assets.py [--out-root <dir>]
 """
 import argparse
 import importlib.util
@@ -61,6 +66,7 @@ sys.path.insert(0, HERE)
 import fist  # noqa: E402
 import fist_tex  # noqa: E402
 import gauntlet  # noqa: E402
+import motes  # noqa: E402
 
 MESH = 'meshes/weapons/elven/elvenwarhammer.nif'      # Pretty's Aeterna Warhammer (= its 1st-person mesh)
 SHAPE = 'Noble'                                       # Noble_Warhammer_MP
@@ -69,14 +75,10 @@ OUT_D = 'textures/Zenderal/ArgentVerdict/ArgentVerdict_d.dds'
 OUT_N = 'textures/Zenderal/ArgentVerdict/ArgentVerdict_n.dds'
 OUT_M = 'textures/Zenderal/ArgentVerdict/ArgentVerdict_m.dds'
 OUT_E = 'textures/Zenderal/ArgentVerdict/ArgentVerdict_e.dds'
-# the head's variants (curator 2026-11-14: "save what we have but make a variant that is a spiked Gauntlet"): each
-# its own mesh and its own painted texture set for the generated parts; the hammer's silver set is shared
-VARIANTS = {
-    'hand': dict(mesh='meshes/Zenderal/ArgentVerdict/ArgentVerdict.nif', tex='textures/Zenderal/ArgentVerdict/ArgentFist',
-                 shapes=(('fist', 'ZP_ArgentFist'), ('roses', 'ZP_ArgentRoses'))),
-    'gauntlet': dict(mesh='meshes/Zenderal/ArgentVerdict/ArgentVerdictGauntlet.nif',
-                     tex='textures/Zenderal/ArgentVerdict/ArgentGauntlet', shapes=(('fist', 'ZP_ArgentGauntlet'),)),
-}
+# the head: the spiked gauntlet, its own painted texture set for the generated parts (the hammer's silver set beside
+# it); the hand head ('hand': ArgentVerdict.nif, ArgentFist_*, shapes ZP_ArgentFist + ZP_ArgentRoses) retired 2026-11-15
+HEAD = dict(mesh='meshes/Zenderal/ArgentVerdict/ArgentVerdict.nif', tex='textures/Zenderal/ArgentVerdict/ArgentGauntlet',
+            shapes=(('fist', 'ZP_ArgentGauntlet'),))
 BLOOD = ('Edgeblood', 'Edgeblood01')                 # the head's two blood-overlay copies
 BLOCK = ((-3.75, 37.45, -2.20), (4.25, 41.46, 2.07))  # the head's centre block (measured; asserted within 0.05)
 CUT = (-4.2, 4.6)             # head triangles with their centre's x in here are the block (and its neck stubs)
@@ -184,7 +186,7 @@ def fist_textures(out_root, asm, tex):
     return D
 
 
-def build_mesh(nif, variant='hand'):
+def build_mesh(nif):
     hits = [i for i in nif.find('BSTriShape') if sr.name_of(nif, i).startswith(SHAPE)]
     assert len(hits) == 1
     k = hits[0]
@@ -224,8 +226,7 @@ def build_mesh(nif, variant='hand'):
     near = sv[(P[sv, 1] > c[1] + SHAFT_RADIUS_Y[0]) & (P[sv, 1] < c[1] + SHAFT_RADIUS_Y[1])]   # where the arm meets it
     assert len(near) >= 8, ('no shaft ring where the forearm meets it', len(near))
     shaft_r = float(np.hypot(P[near, 0] - c[0], P[near, 2] - c[2]).max())
-    build = fist.fist if variant == 'hand' else gauntlet.gauntlet
-    grids, info = build(c, cut_x, neck_half, shaft_r)
+    grids, info = gauntlet.gauntlet(c, cut_x, neck_half, shaft_r)
     shaft_top = min(info['shaft_join_y'] + SHAFT_INTO_ARM, info['shaft_held_y'] - 0.05)
     assert shaft_top > info['shaft_join_y'] + 0.2, ('the forearm holds too little of the shaft', shaft_top)
     top = sv[P[sv, 1] > shaft_top]
@@ -254,11 +255,18 @@ def build_mesh(nif, variant='hand'):
     # changes: its shader is copied from the hammer's)
     asm = fist_tex.assemble(grids)
     parts = fist_tex.split(asm)
-    V_ = VARIANTS[variant]
+    V_ = HEAD
     for group, name in V_['shapes']:
         if group in parts:
             add_fist(nif, k, s, xf, name, V_['tex'], *parts[group])
     assert set(parts) <= {g for g, _ in V_['shapes']}, parts.keys()
+    # the knuckle motes (the charges, unlit): motes.py
+    m = motes.add_motes(nif, c, info, nifse)
+    print('argent verdict motes: 4 x Kittytail\'s circle (ring %.1f -> %.2f units, x %.4f) at %s, knuckles %s apart; '
+          'textures %s' % (m['ring_r'], motes.MOTE_RADIUS, m['scale'],
+                           ' '.join('(%.2f %.2f %.2f)' % tuple(p) for p in m['points']),
+                           ' '.join('%.2f' % g for g in m['gaps']), ', '.join(m['textures'])))
+    assert (m['gaps'] > 2 * motes.MOTE_RADIUS * 0.9).all(), ('the motes overlap', m['gaps'])
     # the hammer's own texture set: ours
     ts = struct.unpack_from('<i', nif.blocks[s['shader']], nifse.LSP_TEXSET)[0]
     paths = nifse.texture_paths(nif.blocks[ts])
@@ -266,11 +274,11 @@ def build_mesh(nif, variant='hand'):
         paths[slot] = rel.replace('/', chr(92))
     nif.blocks[ts] = nifse.texture_set(paths)
     V = asm['V']
-    print('argent verdict %s mesh: block (%d triangles) and knob (%d) cut, head x %.2f, face and spike scaled %.2f '
+    print('argent verdict mesh: block (%d triangles) and knob (%d) cut, head x %.2f, face and spike scaled %.2f '
           '(cut ends at x %.2f / %.2f, necks %.2f x %.2f), shaft (r %.2f) top pulled down to y %.2f (%d vertices); '
           'fist (scale %.2f, x %.2f .. %.2f) + stake (r %.2f) + sockets: %d parts, %d vertices / %d triangles, x '
           '%.2f .. %.2f, y %.2f .. %.2f, z %.2f .. %.2f; atlas %.1f texels per unit; shapes %s' % (
-              variant, block.sum(), KNOB_TRIS, c[0], HEAD_SCALE, cut_x[0], cut_x[1], neck_half[0], neck_half[1], shaft_r,
+              block.sum(), KNOB_TRIS, c[0], HEAD_SCALE, cut_x[0], cut_x[1], neck_half[0], neck_half[1], shaft_r,
               shaft_top, len(top), fist.HAND_SCALE, info['hand_x'][0], info['hand_x'][1],
               info['stake_r'], len(grids), len(V), len(asm['T']), V[:, 0].min(), V[:, 0].max(), V[:, 1].min(),
               V[:, 1].max(), V[:, 2].min(), V[:, 2].max(), asm['density'],
@@ -283,7 +291,6 @@ def main():
     ap.add_argument('--mods', default=os.path.join(sr.MO2, 'mods'))
     ap.add_argument('--target', default='Zenderal - Patch Collection')
     ap.add_argument('--out-root', default=None)
-    ap.add_argument('--variant', choices=['all'] + sorted(VARIANTS), default='all')
     args = ap.parse_args()
     mods = sr.profile_mods()
     out_root = args.out_root or os.path.join(args.mods, args.target)
@@ -298,21 +305,29 @@ def main():
                 TEX + 'warhammer_m.dds', OUT_D, OUT_N, OUT_M, grip=(shape, GRIP_Y) + NAVY)
     _, raw = sr.winner(args.mods, [], sr.CHROME_CUBEMAP, sr.CHROME_BSAS)   # Bethesda's, never a replacer's
     sr.gold_cubemap(raw, os.path.join(out_root, *OUT_E.split('/')))
-    for variant in (sorted(VARIANTS) if args.variant == 'all' else [args.variant]):
-        _, fresh = sr.load(args.mods, mods, MESH)
-        mesh, asm = build_mesh(fresh, variant)
-        fist_textures(out_root, asm, VARIANTS[variant]['tex'])
-        out = mesh.tobytes()
-        back = nifse.Nif(out)
-        assert back.tobytes() == out
-        sr.check_refs(back)
-        p = os.path.join(out_root, *VARIANTS[variant]['mesh'].split('/'))
-        os.makedirs(os.path.dirname(p), exist_ok=True)
-        with open(p, 'wb') as fh:
-            fh.write(out)
-        print('wrote %s (%d bytes, %d blocks)' % (p, len(out), len(back.blocks)))
-        print('PyNifly reads it as', sr.readback(p))
-    print('argent verdict: meshes and texture sets written to', out_root)
+    for t in motes.VANILLA_TEXTURES:                    # the motes' flare: the game's own texture
+        sr.winner(args.mods, mods, 'textures/effects/' + t, sr.TEX_BSAS)
+    _, fresh = sr.load(args.mods, mods, MESH)
+    mesh, asm = build_mesh(fresh)
+    fist_textures(out_root, asm, HEAD['tex'])
+    out = mesh.tobytes()
+    back = nifse.Nif(out)
+    assert back.tobytes() == out
+    sr.check_refs(back)
+    p = os.path.join(out_root, *HEAD['mesh'].split('/'))
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    with open(p, 'wb') as fh:
+        fh.write(out)
+    print('wrote %s (%d bytes, %d blocks)' % (p, len(out), len(back.blocks)))
+    print('PyNifly reads it as', sr.readback(p))
+    for gone in ('meshes/Zenderal/ArgentVerdict/ArgentVerdictGauntlet.nif',   # the gauntlet's old path, the hand's set
+                 'textures/Zenderal/ArgentVerdict/ArgentFist_d.dds', 'textures/Zenderal/ArgentVerdict/ArgentFist_n.dds',
+                 'textures/Zenderal/ArgentVerdict/ArgentFist_m.dds'):
+        q = os.path.join(out_root, *gone.split('/'))
+        if os.path.exists(q):
+            os.remove(q)
+            print('removed', q)
+    print('argent verdict: mesh and texture sets written to', out_root)
 
 
 if __name__ == '__main__':

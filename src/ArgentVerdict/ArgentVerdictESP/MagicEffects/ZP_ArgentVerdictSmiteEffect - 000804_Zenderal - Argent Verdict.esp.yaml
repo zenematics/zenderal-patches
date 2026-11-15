@@ -2,11 +2,26 @@ FormKey: 000804:Zenderal - Argent Verdict.esp
 EditorID: ZP_ArgentVerdictSmiteEffect
 VirtualMachineAdapter:
   Scripts:
-  - Name: ZP_HolyPlaceExplosion
+  - Name: ZP_ArgentVerdictSmiteScript
     Properties:
     - MutagenObjectType: ScriptObjectProperty
-      Name: ExplosionRef
-      Object: 000A54:Zenderal - Prophecy.esp
+      Name: BeamBase
+      Object: 000856:Zenderal - Argent Verdict.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BellSound
+      Object: 000850:Zenderal - Argent Verdict.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Charges
+      Object: 000852:Zenderal - Argent Verdict.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Impact
+      Object: 000857:Zenderal - Argent Verdict.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Strike
+      Object: 000847:Zenderal - Argent Verdict.esp
 Name:
   TargetLanguage: English
   Value: Smite
@@ -25,4 +40,4 @@ CastingSoundLevel: Silent
 Sounds: []
 Description:
   TargetLanguage: English
-  Value: Power attacks have a 25% chance to call down a pillar of holy light on the target, 40 damage, while beams of light strike the enemies around it for 10 each. Undead take double damage.
+  Value: Every two light attacks that hit an enemy light a mote of runic light on one of the four knuckles. Once all four are lit, the next power attack spends 20 Mana to call beams of light down from the sky on up to 4 enemies around you, 80 damage to Health and 40 to Stamina and Magicka each, and each beam scatters 4 orbs of runic light that strike the enemies in their path for 15. Undead take double damage.

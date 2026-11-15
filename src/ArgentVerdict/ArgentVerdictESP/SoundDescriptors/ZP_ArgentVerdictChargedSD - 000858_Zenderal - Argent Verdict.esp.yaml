@@ -1,0 +1,9 @@
+FormKey: 000858:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictChargedSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\ArgentVerdict\SmiteCharged.wav
+OutputModel: 0F1B1A:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

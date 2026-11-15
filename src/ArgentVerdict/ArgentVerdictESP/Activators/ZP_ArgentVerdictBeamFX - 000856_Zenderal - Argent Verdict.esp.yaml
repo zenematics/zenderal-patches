@@ -1,0 +1,7 @@
+FormKey: 000856:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictBeamFX
+Model:
+  File: Zenderal\ArgentVerdict\VerdictSmiteBeam.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []

@@ -1,0 +1,9 @@
+FormKey: 00084F:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictBellSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\ArgentVerdict\SmiteBell.wav
+OutputModel: 0F1B1A:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

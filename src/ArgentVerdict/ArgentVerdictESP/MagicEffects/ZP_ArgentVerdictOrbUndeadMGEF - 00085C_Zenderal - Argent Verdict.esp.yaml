@@ -1,0 +1,43 @@
+FormKey: 00085C:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictOrbUndeadMGEF
+Name:
+  TargetLanguage: English
+  Value: Smite
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- FXPersist
+- HideInUI
+- NoRecast
+- NoDeathDispel
+BaseCost: 2.5
+MagicSkill: Destruction
+ResistValue: ResistMagic
+TaperWeight: 0.3
+HitShader: 00084B:Zenderal - Argent Verdict.esp
+TaperCurve: 2
+TaperDuration: 0.1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 00085A:Zenderal - Argent Verdict.esp
+CastType: FireAndForget
+TargetType: Aimed
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: HasKeywordConditionData
+    Keyword: 013796:Skyrim.esm
+  ComparisonValue: 1

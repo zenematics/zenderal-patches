@@ -1,0 +1,10 @@
+FormKey: 00085F:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictOrbLight
+Time: -1
+Radius: 300
+Color: '#00F2F8FF'
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 2.5

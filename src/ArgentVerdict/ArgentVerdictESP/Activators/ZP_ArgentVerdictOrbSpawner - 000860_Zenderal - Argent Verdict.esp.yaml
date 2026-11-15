@@ -1,0 +1,20 @@
+FormKey: 000860:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictOrbSpawner
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ArgentVerdictOrbSpawnerScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Orb
+      Object: 00085D:Zenderal - Argent Verdict.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Model:
+  File: Effects\FXEmptyObject.nif
+  Data: 0x020000000000000000000000
+MarkerColor: '#00CC4C33'
+Flags: []

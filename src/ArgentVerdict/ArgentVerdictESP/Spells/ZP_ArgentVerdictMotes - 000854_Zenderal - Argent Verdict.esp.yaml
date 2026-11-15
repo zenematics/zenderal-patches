@@ -1,0 +1,17 @@
+FormKey: 000854:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictMotes
+Name:
+  TargetLanguage: English
+  Value: Argent Charge
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 000853:Zenderal - Argent Verdict.esp
+  Data: {}

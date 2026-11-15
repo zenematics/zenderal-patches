@@ -1,0 +1,21 @@
+FormKey: 00085D:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictOrb
+Name:
+  TargetLanguage: English
+  Value: Smite
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: Aimed
+Effects:
+- BaseEffect: 00085B:Zenderal - Argent Verdict.esp
+  Data:
+    Magnitude: 15
+- BaseEffect: 00085C:Zenderal - Argent Verdict.esp
+  Data:
+    Magnitude: 15

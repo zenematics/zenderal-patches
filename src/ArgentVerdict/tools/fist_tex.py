@@ -19,8 +19,16 @@ part's paint coordinates: millimetres of the full-size hand) and given a height 
 - engravings (silver work, cut lines filled dark like niello): grooves and a bead row round the neck sockets; the
   stake polished;
 - the gauntlet variant's plate (lames, knuckle guard, back plate, wrist lames): polished, a shade darker at each
-  edge, two raised rivets near the start of each finger lame; its spikes polished, brighter toward the point; its
-  glove (palm, thumb pad) navy leather, matt and not metal;
+  edge, two raised rivets near the start of each finger lame; its spikes polished, brighter toward the point; under
+  the plates (palm, the curl, the thumb pad) silver scale mail: rows of overlapping round scales, each one rising
+  to its free edge (2026-11-14: the first build's navy leather read as a black palm);
+- the gauntlet's wear (curator 2026-11-14: "add more worn / scratched look to the smooth metal parts such as fingers
+  and back of the hand", "similar to the pommels texture"): the hammer's own silver carries its wear in the diffuse
+  (its normal map is nearly flat), measured on the pommel and the silver round it (ramp position mean 0.16 to 0.5,
+  spread 0.07 / 0.1-0.15 / 0.08-0.17 at large / middle / fine scale); the plates, lames, spikes and the gauntlet's
+  stake and sockets (meta 'worn'; the hand variant's stay as they were) get the same:
+  a darker base, tarnish clouds, brushed streaks along each part, dark grime spots, bright rubbed speckle along the
+  edges and in patches, and faint hairline scratches; the mail only the tarnish and grime;
 - the bracelet of thorns and the rose vine: polished, a shade darker, faint lengthwise lines;
 - rose petals: smooth and polished, shaded darker toward the heart of each rose; leaves: a midrib and paired side
   veins, pressed in.
@@ -43,7 +51,16 @@ SKIN = (0.07, 0.015, 0.025)                  # undulation, fine grain, pore dept
 BONE = (0.035, 0.012, 0.04)                  # bone: undulation, fine grain, pit depth (mm)
 VEIN_DEPTH = 0.05                            # leaf veins (mm)
 RIVET = (1.3, 0.25, 0.11, 0.16)              # gauntlet rivets: radius, height (mm), off the back (x round), along (x length)
-LEATHER = ((0.05, 0.075, 0.18), 0.03)        # the gauntlet's glove: navy (the grip's), grain depth (mm)
+MAIL = (0.17, 1.08, 0.55)                    # the gauntlet's scale mail: row pitch (mesh units; columns about
+#                                              2x), scale radius (x the grid's covering radius), rise (paint mm)
+
+
+# the gauntlet's wear (see the docstring): which kinds; base shift; tarnish (spread, cycles per mesh unit); brushed
+# streaks (spread, texels across x along); grime (threshold, darkening); rubbed speckle (edge band x a part's length,
+# patch threshold, dot chance, brightening); hairline scratches (per square unit, radius in units, brightening)
+WEAR = dict(kinds=('plate', 'lame', 'spike'), light=('mail',), base=-0.13,
+            tarnish=(0.11, 1.1, 2.7), streak=(0.06, 1.6, 45.0), grime=(0.7, 0.28),
+            speckle=(0.14, 0.62, 0.42, 0.42), hairline=(7.0, (0.12, 0.45), 0.16))
 
 
 def smoothstep(a, b, x):
@@ -203,7 +220,7 @@ def paint(asm, silver_ramp, preview=False):
     CM[:] = COMPLEX + (0.0,)
     PV = D.copy() if preview else None
     light = np.array([-0.35, 0.55, -0.76]) / np.linalg.norm([-0.35, 0.55, -0.76])
-    for ch in asm['charts']:
+    for ci, ch in enumerate(asm['charts']):
         g = ch['grid']
         n, m, w, h = ch['n'], ch['m'], ch['w'], ch['h']
         cw, ch_ = w - 2 * PAD, h - 2 * PAD
@@ -224,6 +241,8 @@ def paint(asm, silver_ramp, preview=False):
         Nx = bil(Nn)
         Nx /= np.maximum(np.linalg.norm(Nx, axis=-1, keepdims=True), 1e-9)
         flat = X.reshape(-1, 3)
+        worn = g.kind in WEAR['kinds'] + WEAR['light'] or g.meta.get('worn', False)
+        Xm = bil(np.concatenate([g.P, g.P[:, :1]], 1)).reshape(-1, 3) if worn else None   # mesh units
         hgt = np.zeros(h * w)
         groove = np.zeros(h * w)
         wr = np.zeros(h * w)
@@ -308,10 +327,38 @@ def paint(asm, silver_ramp, preview=False):
                     tone += 0.06 * dome
         if kind == 'spike':                                            # polished, brighter toward the point
             tone += 0.06 * sfrac
-        if kind == 'leather':                                          # the glove: navy leather grain
-            grain = value_noise(flat, 1 / 0.7, 51) * 0.7 + value_noise(flat, 1 / 0.25, 52) * 0.3
-            hgt += (grain - 0.5) * LEATHER[1]
-            tone = grain
+        if kind == 'mail':                                             # scale mail: staggered rows of round
+            pitch = MAIL[0]                                            # scales, each row lying over the one
+            row_ = np.clip(np.round(if_).astype(int), 0, n - 1).ravel()  # below it, free edges toward the start
+            ncol = max(int(round(np.median(ch['circ']) / (2 * pitch))), 3)   # a whole number of columns round it
+            along = sf.ravel()                                          # mesh units along the part
+            col = (jf / m).ravel() * ncol
+            colw = ch['circ'][row_] / ncol
+            half = colw / 2                                             # radius that covers the staggered grid
+            y0 = (pitch ** 2 - half ** 2) / (2 * pitch)
+            rc = MAIL[1] * np.maximum(np.sqrt(half ** 2 + y0 ** 2), pitch)
+            jb = np.floor(along / pitch).astype(int)
+            rise = np.full(h * w, -1.0)
+            ring = np.zeros(h * w)
+            for dj in (1, 0):                                           # the upper row first: it lies on top
+                j = jb + dj
+                off = 0.5 * (j % 2)
+                dx = (col - (np.floor(col - off) + 0.5 + off)) * colw
+                dy = j * pitch - along
+                d = np.hypot(dx, dy)
+                take = (d < rc) & (rise < 0)
+                rise = np.where(take, np.clip(dy / rc, 0, 1), rise)
+                ring = np.where(take, d / rc, ring)
+            rise = np.clip(rise, 0, 1)
+            rim = smoothstep(0.84, 1.0, ring)                           # each scale's edge, all the way round:
+            hgt += MAIL[2] * (0.45 + 0.55 * rise) * (1 - rim)           # it dips there, so the scallops read as
+            tone += -0.08 + 0.12 * rise - 0.16 * rim                    # scales, not as rows of bricks (preview)
+        dirt = np.zeros(h * w)
+        if worn:                                                       # the gauntlet's wear (WEAR)
+            sfr = (if_ / max(n - 1, 1)).ravel()
+            d_t, d_h, dirt = wear(ch, Xm, jf, sf, sfr, h, w, cw, ch_, ci, light=kind in WEAR['light'])
+            tone += d_t
+            hgt += d_h
         groove = np.clip(groove, 0, 1)
         hgt -= ENGRAVE_DEPTH * groove
         hgt = hgt.reshape(h, w)
@@ -338,13 +385,11 @@ def paint(asm, silver_ramp, preview=False):
         cmr = COMPLEX[0] * (1 - 0.75 * grv)
         cmg = COMPLEX[1] - 0.45 * grv - 0.12 * wrk - 0.08 * por - 0.05 * skw
         metal = np.full_like(cmr, COMPLEX[2])
-        if kind == 'leather':                                          # not metal: the grip's navy, matt
-            gr = tone.reshape(h, w)
-            col = np.array(LEATHER[0])[None, None, :] * (0.7 + 0.6 * gr)[..., None]
-            spec = np.full_like(cmr, 0.3)
-            cmr = np.full_like(cmr, 0.03)
-            cmg = np.full_like(cmr, 0.32)
-            metal = np.zeros_like(cmr)
+        if worn:                                                       # dirt and tarnish: a little less gloss
+            dr = dirt.reshape(h, w)
+            spec = spec - 0.15 * dr
+            cmr = cmr - 0.08 * dr
+            cmg = cmg - 0.22 * dr
         sl = (slice(ch['y0'], ch['y0'] + h), slice(ch['x0'], ch['x0'] + w))
         D[sl] = col
         NM[sl] = np.concatenate([nrm, np.clip(spec, 0, 1)[..., None]], -1)
@@ -362,6 +407,81 @@ def paint(asm, silver_ramp, preview=False):
             lit = np.clip(nw @ light, 0.08, 1) / np.clip(Nx @ light, 0.08, 1)
             PV[sl] = np.clip(col * np.clip(lit, 0.35, 1.8)[..., None], 0, 1)
     return (D, NM, CM, PV) if preview else (D, NM, CM)
+
+
+def roll_soft(a):
+    """A 1-2 texel soft dot from single texels (a 3x3 tent, wrapping across: the chart's columns run round)."""
+    b = 4 * a + np.roll(a, 1, 1) + np.roll(a, -1, 1)
+    up = np.vstack([a[:1], a[:-1]])
+    dn = np.vstack([a[1:], a[-1:]])
+    return (b + up + dn) / 8.0
+
+
+def wear(ch, Xm, jf, sf, sfrac, h, w, cw, ch_, seed, light=False):
+    """The gauntlet's worn silver for one chart: tone change (ramp position), height change (mm, tiny: the hammer's
+    wear is nearly all diffuse) and a dirt mask (less gloss). Seeded by the chart's index, so a build is repeatable."""
+    W = WEAR
+    rng = np.random.RandomState(5000 + seed)
+    n, m = ch['n'], ch['m']
+    dt = np.zeros(h * w)
+    dh = np.zeros(h * w)
+    # tarnish clouds: solid noise on the mesh position, so they run on across seams and parts
+    cl = value_noise(Xm, W['tarnish'][1], 71) * 0.6 + value_noise(Xm, W['tarnish'][2], 72) * 0.4
+    dt += (cl - 0.5) * 2 * W['tarnish'][0]
+    # grime: sparse dark spots, speckled inside
+    gm = smoothstep(W['grime'][0], W['grime'][0] + 0.14, value_noise(Xm, 3.2, 73))
+    gm *= 0.55 + 0.45 * value_noise(Xm, 26.0, 74)
+    dt -= W['grime'][1] * gm
+    dirt = np.clip(gm + 0.5 * np.clip(0.5 - cl, 0, 1), 0, 1)
+    if light:
+        return dt * 0.6, dh, dirt * 0.6
+    dt += W['base']
+    # brushed streaks along the part: noise fast across, slow along (columns wrap round the ring)
+    ncx = max(int(round(cw / W['streak'][1])), 4)
+    ncy = max(int(round(ch_ / W['streak'][2])), 2)
+    G = rng.rand(ncy + 1, ncx)
+    xc = (jf / m).ravel() * ncx
+    yc = np.clip(sf.ravel() / max(ch['s'][-1], 1e-9), 0, 1) * ncy
+    x0, y0 = np.floor(xc).astype(int), np.clip(np.floor(yc).astype(int), 0, ncy - 1)
+    fx, fy = xc - x0, yc - y0
+    fx, fy = fx * fx * (3 - 2 * fx), fy * fy * (3 - 2 * fy)
+    xa, xb = x0 % ncx, (x0 + 1) % ncx
+    st = ((1 - fy) * ((1 - fx) * G[y0, xa] + fx * G[y0, xb]) + fy * ((1 - fx) * G[y0 + 1, xa] + fx * G[y0 + 1, xb]))
+    dt += (st - 0.5) * 2 * W['streak'][0]
+    dh += (st - 0.5) * 0.004
+    # rubbed speckle: a band along each end of the part (its lips and rims) and patches, as the pommel's spray
+    band, patch_t, chance, lift = W['speckle']
+    edge = np.exp(-(sfrac / band) ** 2) + np.exp(-((1 - sfrac) / band) ** 2)
+    dens = np.clip(edge + smoothstep(patch_t, patch_t + 0.15, value_noise(Xm, 2.4, 75)), 0, 1)
+    dots = (rng.rand(h * w) < dens * chance).astype(float)
+    dots = roll_soft(dots.reshape(h, w)).ravel()
+    dt += lift * np.clip(dots * 1.6, 0, 1)
+    dh += 0.004 * dots
+    # hairline scratches: faint bright arcs, drawn in the chart's texels (wrapping across)
+    area = ch['s'][-1] * float(np.mean(ch['circ']))
+    tpx = cw / max(float(np.max(ch['circ'])), 1e-9)
+    tpy = ch_ / max(ch['s'][-1], 1e-9)
+    hl = np.zeros((h, w))
+    for _ in range(rng.poisson(W['hairline'][0] * area)):
+        R = rng.uniform(*W['hairline'][1])
+        a0 = rng.uniform(0, 2 * np.pi)
+        span = rng.uniform(0.6, 1.8)
+        cx, cy = PAD + rng.uniform(0, cw), PAD + rng.uniform(0, ch_)
+        a = np.linspace(a0, a0 + span, 40)
+        px, py = cx + R * tpx * np.cos(a), cy + R * tpy * np.sin(a)
+        for shift in (-cw, 0, cw):
+            qx = px + shift
+            bx0, bx1 = int(max(qx.min() - 3, 0)), int(min(qx.max() + 4, w))
+            by0, by1 = int(max(py.min() - 3, 0)), int(min(py.max() + 4, h))
+            if bx1 <= bx0 or by1 <= by0:
+                continue
+            yy, xx = np.mgrid[by0:by1, bx0:bx1] + 0.5
+            d = np.min(np.hypot(xx[..., None] - qx[None, None, :], yy[..., None] - py[None, None, :]), -1)
+            fade = rng.uniform(0.5, 1.0)
+            hl[by0:by1, bx0:bx1] = np.maximum(hl[by0:by1, bx0:bx1], fade * np.exp(-(d / 0.6) ** 2))
+    dt += W['hairline'][2] * hl.ravel()
+    dh -= 0.006 * hl.ravel()
+    return dt, dh, dirt
 
 
 def silver_ramp_at(stops, t):

@@ -1,0 +1,20 @@
+FormKey: 00085A:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictOrbProj
+ObjectBounds:
+  First: -246, -259, -119
+  Second: 246, 259, 43
+Model:
+  File: Zenderal\ArgentVerdict\VerdictOrb.nif
+Flags:
+- PassThroughSmallTransparent
+Type: Cone
+Speed: 540
+Range: 1620
+Light: 00085F:Zenderal - Argent Verdict.esp
+FadeDuration: 0.5
+ConeSpread: -2
+CollisionRadius: 14
+RelaunchInterval: 0.25
+CollisionLayer: 109E3A:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 1

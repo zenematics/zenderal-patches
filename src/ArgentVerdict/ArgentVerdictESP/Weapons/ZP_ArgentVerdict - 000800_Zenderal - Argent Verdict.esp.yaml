@@ -1,8 +1,21 @@
 FormKey: 000800:Zenderal - Argent Verdict.esp
 EditorID: ZP_ArgentVerdict
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ArgentVerdictEquipScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Hammer
+      Object: 000800:Zenderal - Argent Verdict.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: MoteAbility
+      Object: 000854:Zenderal - Argent Verdict.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
 ObjectBounds:
-  First: -11, -48, -5
-  Second: 16, 43, 5
+  First: -11, -48, -6
+  Second: 16, 44, 5
 Name:
   TargetLanguage: English
   Value: Argent Verdict

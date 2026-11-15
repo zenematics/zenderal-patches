@@ -12,6 +12,11 @@ shells and tubes); built lean, since the whole fist is one BSTriShape (at most 6
 `forearm_roses(surface, y_lo, y_hi)` returns the parts in the mesh frame centred on the shaft's axis: surface(y,
 theta) gives the forearm's surface point and outward normal at height y and angle theta round its axis, y_lo .. y_hi
 the stretch of arm the vine climbs.
+
+`column_roses(surface, y_lo, y_hi)` is the gauntlet variant's (curator 2026-11-14: "add some metal Rose and
+thorns"): two thorny vines, mirror images of each other, rise from the back (theta -90 deg) at y_lo, wind round
+either side of the wrist lames and meet at the front (theta 90 deg, the fingers' side) at y_hi under one rose with a
+leaf pair; leaves and thorns along both.
 """
 import numpy as np
 
@@ -121,6 +126,59 @@ def forearm_roses(surface, y_lo, y_hi):
     out = []
     for V in VINES:
         out += vine(surface, y_lo, y_hi, V)
+    return out
+
+
+# the gauntlet's two vines: stem radius, angle from the back where they start and from the front where they end (rad),
+# leaves and thorns along each (0..1; thorn length, base radius), a smaller rose on each (along, size, turn deg), the
+# rose at the front (size, turn deg), how far above y_hi it sits. The first build's (stem 0.07, one rose 0.86) was lost
+# under the fist in the preview.
+COLUMN = dict(radius=0.1, ends=(0.32, 0.2), leaves=(0.12, 0.3, 0.62, 0.8), thorns=7, thorn=(0.26, 0.06),
+              side_roses=((0.46, 0.74, 40.0),), rose=(1.3, 18.0), rose_lift=0.0, leaf=1.0)
+
+
+def column_roses(surface, y_lo, y_hi):
+    C = COLUMN
+    up = np.array([0.0, 1.0, 0.0])
+    out = []
+    for sgn in (1.0, -1.0):
+        ts = np.linspace(0, 1, VINE_SAMPLES)
+        pts, nrm = [], []
+        for f in ts:
+            th = -np.pi / 2 + sgn * (C['ends'][0] + (np.pi - C['ends'][0] - C['ends'][1]) * f)
+            P, n = surface(y_lo + (y_hi - y_lo) * f, th)
+            pts.append(P + n * C['radius'] * VINE_LIFT)
+            nrm.append(n)
+        Cv, Nv = np.array(pts), np.array(nrm)
+        out.append(fist.tube(Cv, C['radius'] * np.interp(ts, [0, 0.06, 0.94, 1], [0.6, 1, 1, 0.75]), 'thorn', m=8))
+        tang = unit(np.gradient(Cv, axis=0))
+
+        def at(f):
+            k = int(round(f * (len(Cv) - 1)))
+            return Cv[k], Nv[k], tang[k]
+        for i, f in enumerate(C['leaves']):
+            P, n, t = at(f)
+            side = unit(np.cross(n, t)) * (1 if i % 2 else -1) * sgn
+            out.append(leaf(P + n * C['radius'] * 0.8, unit(0.7 * t + side + 0.3 * n), unit(n + 0.3 * up),
+                            LEAF_SIZE[0] * C['leaf'], LEAF_SIZE[1] * C['leaf']))
+        for i in range(C['thorns']):
+            f = (i + 0.5) / C['thorns']
+            P, n, t = at(f)
+            side = unit(np.cross(n, t)) * (1 if i % 2 else -1) * sgn
+            out.append(thorn(P + n * C['radius'] * 0.6, unit(n + 0.4 * side - 0.4 * t), *C['thorn']))
+        for f, size, turn in C['side_roses']:                       # a smaller rose on each, mirrored
+            P, n, t = at(f)
+            out += bloom(P + n * C['radius'] * 1.1, unit(n + 0.3 * up), size, sgn * turn)
+            for s2 in (-1, 1):
+                out.append(leaf(P + n * C['radius'], unit(s2 * t + 0.5 * n - 0.2 * up), unit(n + 0.4 * up),
+                                LEAF_SIZE[0] * 0.9, LEAF_SIZE[1] * 0.9))
+    P, n = surface(y_hi + C['rose_lift'], np.pi / 2)                  # the rose where they meet
+    size, turn = C['rose']
+    out += bloom(P + n * C['radius'] * 1.1, unit(n + 0.3 * up), size, turn)
+    across = unit(np.cross(up, n))
+    for sgn in (-1, 1):                                              # a leaf pair tucked under it
+        out.append(leaf(P + n * C['radius'], unit(sgn * across + 0.5 * n - 0.2 * up), unit(n + 0.4 * up),
+                        LEAF_SIZE[0] * 0.9, LEAF_SIZE[1] * 0.9))
     return out
 
 

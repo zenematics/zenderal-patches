@@ -1,0 +1,16 @@
+FormKey: 000857:Zenderal - Argent Verdict.esp
+EditorID: ZP_ArgentVerdictBeamImpact
+ObjectBounds:
+  First: -116, -116, -23
+  Second: 116, 116, 44
+Model:
+  File: Zenderal\ArgentVerdict\VerdictImpact.nif
+Sound1: 00080C:Zenderal - Argent Verdict.esp
+PlacedObject: 000860:Zenderal - Argent Verdict.esp
+Radius: 100
+VerticalOffsetMult: 0.2
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

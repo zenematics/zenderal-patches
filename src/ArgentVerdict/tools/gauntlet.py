@@ -8,10 +8,18 @@ pose: its finger joints, thumb and palm), armoured: our own geometry, every part
 - a knuckle guard across the four knuckles carrying a spike (gadling) over each;
 - a back plate over the back of the hand, a ridge down its middle, a domed rivet near each corner and a spike in
   the middle;
-- the palm, the curl inside the fist and the thumb's pad are the glove under the armour: navy leather (as the grip);
+- the palm, the curl inside the fist and the thumb's pad: silver scale mail (painted; curator 2026-11-14 of the
+  first build's navy leather: "change the black palm to metal");
+- the hand is turned about the stake until its wrist is straight under it, so the wrist lames stack straight down
+  the shaft's axis (curator 2026-11-14: "can we make the wrist section more vertically symmetrical rather than
+  leaning diagonally?"; the first build kept the hand's 8 deg, and the lames' centres walked from behind the stake
+  onto the shaft);
 - the wrist: telescoping armour lames, each a band with a rolled lower rim, stepping down in size from the wrist onto
-  the shaft (their centres moving from behind the stake onto the shaft's axis), the top one ringed with spikes, and
-  a collar on the shaft below the last: armour blends the wrist into the handle;
+  the shaft, all on the shaft's axis, the top one ringed with spikes (none at the front or back), and a collar on
+  the shaft below the last: armour blends the wrist into the handle;
+- roses and thorns (curator 2026-11-14: "add some metal Rose and thorns"): two thorny vines rise from the back of the
+  collar, wind round either side of the lames, mirror images of each other, and meet at the front under one rose
+  (roses.column_roses);
 - the stake out to the face's and spike's necks and their sockets, as the hand variant.
 
 `gauntlet(c, neck_x, neck_half, shaft_r)` returns (grids, info) like fist.fist.
@@ -32,8 +40,11 @@ GUARD = (5.5, 9.0, 0.55)   # knuckle guard: half thickness out, half width along
 BACK_PLATE = (2.4, 2.2, 0.9)   # back plate thickness, ridge height (mm), width (x the palm's)
 LAMES = dict(count=4, height=0.85, step=0.7, top=1.0, rim=((0.0, 0.94), (0.06, 1.0), (0.75, 1.03), (0.88, 1.08),
                                                            (0.96, 1.07), (1.0, 1.0)),
-             first=(1.12, 1.15), last=1.18, spikes=6, spike=(0.8, 0.16))    # mesh units; first = x the wrist's
+             first=(1.12, 1.15), last=1.18, spikes=6, phase=0.0, spike=(0.8, 0.16))    # mesh units; first = x the
+#                                                                     wrist's; phase 0: spikes at 0, 60 .. 300 deg
 COLLAR = ((0.05, 1.17), (0.4, 1.21), (0.7, 0.95))   # below the last lame: (depth, x the shaft's radius)
+G_VINE = (-0.75, 0.85)     # the vines rise from this far below the last lame's top (on the collar) to this far down
+#                            the second lame (x its height), where the rose sits
 
 
 def lame(A, B, side_ref, dors_ref, half_a, half_b, rivets=True, rings_n=16, m=20, cap=0.55, tip=False):
@@ -147,12 +158,12 @@ def armoured_hand(b, half_w):
     for g_, o in zip(G, O):                                     # a gadling over each knuckle
         grids.append(spike(g_ + o * k * GUARD[0] * 0.2, unit(o + np.array([0.0, 0.15, 0.0])), k * GADLING[0],
                            k * GADLING[1]))
-    # the glove under the armour: palm, the curl, the thumb's pad
+    # under the plates: the palm, the curl, the thumb's pad, in scale mail (fist_tex 'mail')
     S = fist.palm_shape(b, half_w, k, J)
-    grids.append(fist.deformed_box(S, 'leather'))
-    grids.append(fist.deformed_box(fist.curl_filler(b, half_w, J), 'leather', nu=36, nv=26, density=0.5))
+    grids.append(fist.deformed_box(S, 'mail'))
+    grids.append(fist.deformed_box(fist.curl_filler(b, half_w, J), 'mail', nu=36, nv=26, density=0.5))
     grids.append(fist.ellipsoid((half_w * 0.6, 0.52 * S['u_bot'], -1.25 * b / 1.55), np.eye(3),
-                                (k * 13.0, k * 21.0, k * 9.0), kind='leather'))
+                                (k * 13.0, k * 21.0, k * 9.0), kind='mail'))
     # the back plate over the back of the hand, a ridge down its middle
     Mx = np.array([j['x'] for j in J])
     Mu = np.array([j['M'][1] for j in J])
@@ -174,7 +185,7 @@ def armoured_hand(b, half_w):
     u = u_lo + (u_hi - u_lo) * 0.5
     w = float(fist.palm_back(S, 0.0, u)) - k * (t_ + rid)
     grids.append(spike((0.0, u, w + k * 2.0), np.array([0.0, 0.35, -1.0]), k * BACK_SPIKE[0], k * BACK_SPIKE[1]))
-    # the thumb: three lames over its bones, the pad leather, a spike over its joint
+    # the thumb: three lames over its bones, the pad in mail, a spike over its joint
     th = fist.THUMB
     p = {n: np.array([th[n][0] * half_w, k * th[n][1], k * th[n][2]]) for n in ('cmc', 'mcp', 'ip', 'tip')}
     rad = [(k * a * PLATE[0], k * d_ * PLATE[1]) for a, d_ in th['radii']]
@@ -187,7 +198,7 @@ def armoured_hand(b, half_w):
     toward = np.array([0.6, 0.0, -0.5])
     inward = unit(toward - d * (toward @ d))
     grids.append(fist.ellipsoid(p['cmc'] + (p['mcp'] - p['cmc']) * 0.46 + inward * k * 8.0,
-                                (inward, d, np.cross(d, inward)), (k * 16.0, k * 31.0, k * 15.0), kind='leather'))
+                                (inward, d, np.cross(d, inward)), (k * 16.0, k * 31.0, k * 15.0), kind='mail'))
     o = unit(np.array(refs[1]) + np.array(refs[2]))
     grids.append(spike(p['ip'] + o * rad[2][1] * 0.8, o, k * SPIKE_PIP[0], k * SPIKE_PIP[1]))
     return grids, k, S
@@ -195,14 +206,14 @@ def armoured_hand(b, half_w):
 
 def wrist_lames(k, base_y, base_z, shaft_r):
     """Mesh frame round the shaft: telescoping lames from the wrist onto the shaft, spikes round the first, a collar
-    below the last. Returns the parts, the y where the shaft comes out, and the lames' rings (for how high the shaft
-    may run up inside them)."""
+    below the last. Returns the parts, the y where the shaft comes out, the lames' rings (for how high the shaft may
+    run up inside them) and each band's shape (for the vines' surface, column_surface)."""
     L = LAMES
     hx, hz = k * fist.WRIST_MM[0] / 2, k * fist.WRIST_MM[1] / 2
     s = k / (2 * fist.BUILD_HALF_W * 0.97 / fist.HAND_BREADTH_MM)
     m = 48
     a = 2 * np.pi * np.arange(m) / m
-    parts, all_rings = [], []
+    parts, all_rings, bands = [], [], []
     for i in range(L['count']):
         f = i / (L['count'] - 1)
         g = f * f * (3 - 2 * f)
@@ -218,9 +229,10 @@ def wrist_lames(k, base_y, base_z, shaft_r):
         R = np.array(R)
         all_rings += list(R)
         parts.append(Grid(R, 'lame', cap0=R[0].mean(0), cap1=R[-1].mean(0)))
+        bands.append(dict(rx=rx, rz=rz, e=e, zc=zc, top=top, height=L['height'], rim=L['rim']))
         if i == 0:                                              # spikes round the first lame
             for j in range(L['spikes']):
-                ang = 2 * np.pi * (j + 0.5) / L['spikes']
+                ang = 2 * np.pi * (j + L['phase']) / L['spikes']
                 c_, s_ = se(np.array([ang]), e)
                 P = np.array([1.08 * rx * c_[0], top - 0.88 * L['height'], zc + 1.08 * rz * s_[0]])
                 out = unit(np.array([P[0], 0.0, P[2] - zc]) + np.array([0.0, -0.25, 0.0]))
@@ -232,14 +244,51 @@ def wrist_lames(k, base_y, base_z, shaft_r):
         R.append(np.stack([shaft_r * q * cs, np.full(m, bottom + 0.15 - dd), shaft_r * q * sn], -1))
     R = np.array(R)
     parts.append(Grid(R, 'lame', cap0=R[0].mean(0), cap1=R[-1].mean(0)))
+    d0, d1 = COLLAR[0][0], COLLAR[-1][0]
+    bands.append(dict(rx=shaft_r, rz=shaft_r, e=2.0, zc=0.0, top=bottom + 0.15 - d0, height=d1 - d0,
+                      rim=tuple(((d - d0) / (d1 - d0), q) for d, q in COLLAR)))
     join = bottom + 0.15 - COLLAR[-1][0]
-    return parts, join, all_rings
+    return parts, join, all_rings, bands
+
+
+def column_surface(bands, m=72, n=72, hold=0.18, soften=0.25):
+    """The wrist lames' outer surface for the vines (fist.ring_surface): at each height the outermost band there,
+    held over `hold` (so a vine crosses a band's lower rim instead of dropping into the step under it) and softened
+    over `soften` (mesh units)."""
+    y_top = max(b['top'] for b in bands)
+    y_bot = min(b['top'] - b['height'] for b in bands)
+    ys = np.linspace(y_top, y_bot, n)
+    th = 2 * np.pi * np.arange(m) / m
+    rad = np.zeros((n, m))
+    a = 2 * np.pi * np.arange(720) / 720
+    for b in bands:
+        cs, sn = se(a, b['e'])
+        x, z = b['rx'] * cs, b['rz'] * sn
+        assert abs(b['zc']) < 1e-9, 'a band off the shaft axis'
+        phi = np.arctan2(z, x)
+        o = np.argsort(phi)
+        ph, rr = phi[o], np.hypot(x, z)[o]
+        r0 = np.interp(th, np.concatenate([ph - 2 * np.pi, ph, ph + 2 * np.pi]), np.tile(rr, 3))
+        tt = (b['top'] - ys) / b['height']
+        cover = (tt >= -1e-6) & (tt <= 1 + 1e-6)                # its own ends included (float)
+        q = np.interp(tt, [t for t, _ in b['rim']], [v for _, v in b['rim']])
+        rad = np.where(cover[:, None], np.maximum(rad, q[:, None] * r0[None, :]), rad)
+    assert (rad > 0).all(), 'a gap between the bands'
+    dy = (y_top - y_bot) / (n - 1)
+    wh, ws = max(int(round(hold / dy)), 1), max(int(round(soften / dy)), 1)
+    held = np.array([rad[max(i - wh, 0):i + 1].max(0) for i in range(n)])     # a band's rim held below it
+    soft = np.array([held[max(i - ws, 0):i + ws + 1].mean(0) for i in range(n)])
+    rings = np.stack([soft * np.cos(th)[None], np.repeat(ys[:, None], m, 1), soft * np.sin(th)[None]], -1)
+    return fist.ring_surface(list(rings))
 
 
 def gauntlet(c, neck_x, neck_half, shaft_r):
     c = np.asarray(c, float)
     grids, k, S = armoured_hand(fist.BUILD_STAKE_R, fist.BUILD_HALF_W)
-    th = -np.radians(fist.TILT)
+    # turned about the stake until the wrist's centre is straight under it (z = 0): the lames then stack upright
+    tilt = float(np.degrees(np.arctan(S['wrist_w'] / S['u_bot'])))
+    assert 0.0 < tilt < 30.0, ('the wrist is not where it was', tilt)
+    th = -np.radians(tilt)
     cth, sth = np.cos(th), np.sin(th)
     R = np.array([[1.0, 0.0, 0.0], [0.0, cth, -sth], [0.0, sth, cth]])
     sc = fist.HAND_SCALE
@@ -252,7 +301,11 @@ def gauntlet(c, neck_x, neck_half, shaft_r):
         g.apply(lambda P: c + (sc * np.asarray(P)) @ R.T)
     ks = k * sc
     base = R @ np.array([0.0, S['u_bot'], S['wrist_w']]) * sc
-    wrist, join, rings = wrist_lames(ks, base[1], base[2], shaft_r)
+    assert abs(base[2]) < 1e-9, base
+    wrist, join, rings, bands = wrist_lames(ks, base[1], 0.0, shaft_r)
+    import roses                                               # two thorny vines up the lames, a rose at the front
+    garden = roses.column_roses(column_surface(bands), bands[-2]['top'] + G_VINE[0],
+                                bands[1]['top'] - bands[1]['height'] * G_VINE[1])
     circle = shaft_r * np.stack([np.cos(np.linspace(0, 2 * np.pi, 24, endpoint=False)),
                                  np.sin(np.linspace(0, 2 * np.pi, 24, endpoint=False))], -1)
     held = join
@@ -266,13 +319,15 @@ def gauntlet(c, neck_x, neck_half, shaft_r):
     stake = fist.tube(np.stack([xs, np.zeros_like(xs), np.zeros_like(xs)], -1), np.full(len(xs), stake_r), 'stake',
                       m=28, density=0.6)
     sockets = [fist.socket(x0, 1.0, neck_half, stake_r), fist.socket(x1, -1.0, neck_half, stake_r)]
-    for g in wrist + [stake] + sockets:
+    for g in [stake] + sockets:                                # worn like the plates (fist_tex WEAR); the hand
+        g.meta['worn'] = True                                  # variant's stake and sockets stay as they were
+    for g in wrist + [stake] + sockets + garden:
         g.paint = g.P / ks
         g.paint_cap0 = None if g.cap0 is None else g.cap0 / ks
         g.paint_cap1 = None if g.cap1 is None else g.cap1 / ks
         g.meta['mm'] = 1.0 / ks
         g.apply(lambda P: c + np.asarray(P))
-    grids += wrist + [stake] + sockets
-    info = dict(shaft_join_y=c[1] + join, shaft_held_y=c[1] + held, stake_r=stake_r, units_per_mm=ks,
+    grids += wrist + [stake] + sockets + garden
+    info = dict(tilt=tilt, shaft_join_y=c[1] + join, shaft_held_y=c[1] + held, stake_r=stake_r, units_per_mm=ks,
                 hand_x=(c[0] - fist.BUILD_HALF_W * sc, c[0] + fist.BUILD_HALF_W * sc))
     return grids, info

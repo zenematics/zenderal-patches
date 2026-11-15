@@ -1971,14 +1971,24 @@
       ]
     },
     {
-      "$comment": "Argent Verdict (curator 2026-11-13): a unique silver great hammer on Pretty Enderal Armory's Aeterna Warhammer (Caenraes' Noble Armory model, open with credit), all silver with a white leather grip through alternate texture sets on Pretty's mesh (no mesh copied); power attacks have a 25% chance to Smite (Prophecy's Hallowed Flare sky-bolt). Masters EGO and Zenderal - Prophecy. Textures generated from the installed list (not committed). Live copy in Zenderal - Patch Collection.",
+      "$comment": "Argent Verdict (curator 2026-11-13): a unique silver great hammer built from Pretty Enderal Armory's Aeterna Warhammer (Caenraes' Noble Armory model, open with credit: credit Caenraes), all polished silver with a dark navy grip, on its own generated mesh (tools/01; not committed, ships in Patch Collection): WEAP 800 a spiked gauntlet gripping a stake (scale-mail palm, upright wrist lames, thorny vines and roses, worn like the hammer's pommel; final 2026-11-15: the hand head and WEAP 806 removed). Weapon enchantment 803 (2026-11-14, the Smite, version 3): every light-attack hit on a hostile actor adds a charge (851, ZP_ArgentVerdictChargeScript, GLOB 852; 8 a full charge since 2026-11-15) and every second one lights one of four tiny copies of Kittytail's Absolution rune circle on the head's knuckles (the fourth rings the curator's second church bell, 858/859, licensed, tools/03 --charged) (tools/motes.py: nodes ZP_ArgentMote1-4 in the mesh, lit by SKSE NetImmerse.SetNodeScale, re-set every second by ability 854 / ZP_ArgentVerdictMotesScript while the hammer is equipped, ZP_ArgentVerdictEquipScript on it); a power attack with all four and 20 Mana (spent) runs 804 (ZP_ArgentVerdictSmiteScript): the motes go out, the curator's church bell rings (84F/850, licensed, tools/03 --bell), and over up to 4 enemies (the struck one, then the nearest within 800 of the player) Kittytail's Absolution beam stood on end (ACTI 856 on tools/03's VerdictSmiteBeam.nif, her strips pulled 1024 units down, her rune circle in the sky; her five textures at textures/Light) comes down, then the impact 857 (Kittytail's impact in white and black, the strike's sound 80C) and 80 Health / 40 Stamina and Magicka (847, her Absolution effects, undead double), and each beam's impact places an orb spawner (ACTI 860, ZP_ArgentVerdictOrbSpawnerScript, OnInit: Prophecy's Smite chain) that scatters 4 orbs (PROJ 85A = Prophecy's Smite orb projectile on tools/03's VerdictOrb.nif, Prophecy's HolyBoltProj starburst in white with black wisps, light 85F, 15 damage, 85B-85D) through DoCombatSpellApply (needs powerofthree's Papyrus Extender); the older versions (v1 sky bolt, v2 bolt from the hammer + chain) removed 2026-11-15; the Judgement Blade and Penance fan were scrapped (808-840 retired); scripts compiled and committed, generated meshes, textures and sounds not committed. Masters Zenderal - Prophecy. Live copy in Zenderal - Patch Collection.",
       "name": "Zenderal - Argent Verdict",
       "archiveName": "Zenderal - Argent Verdict",
       "fomod": false,
+      "scripts": {
+        "from": "src/ArgentVerdict/Scripts/compiled",
+        "to": "Scripts"
+      },
       "plugins": [
         {
           "yamlSource": "src/ArgentVerdict/ArgentVerdictESP",
           "dest": "Zenderal - Argent Verdict.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/ArgentVerdict/Scripts/source",
+          "to": "Scripts/Source"
         }
       ]
     },

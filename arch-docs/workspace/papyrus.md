@@ -132,6 +132,16 @@ in the Spriggit YAML**, so most sessions never open it. If you do:
   B612's plain-text card description showed a stored `\n\n` as a huge gap. A Papyrus `"\n"` literal compiles to a lone
   LF (check the `.pex` string table). Prophecy's card header is built this way in `ZP_ProphecyMenu`.
 
+## Never name a local `x`, `y` or `z` in a script that extends ObjectReference (2026-11-14)
+
+`ObjectReference.psc` declares `float Property X`/`Y`/`Z` (get = `GetPositionX()` …), and the compiler resolved a
+local `z` declared at the top of `OnInit` as the local where it was assigned but as the reference's own `Z` property
+inside the `While` loop below it (`propget z, self` in the bytecode). It compiles clean and runs without an error:
+Argent Verdict's orb spawner (`Float z = GetPositionZ() + height`) launched every orb at its own height, the enemy's
+feet, for three test rounds (`arch-docs/patches/ArgentVerdict.md`). Name position locals `posX`/`baseZ`/… instead.
+Check a suspicious script with a disassembly: look for `propget` on `self` of a name that is not one of its own
+properties.
+
 ## A script's events run concurrently: guard a long tick (2026-11-09)
 
 Every event (and every external call) runs on its own thread, and the same script can run several at once;

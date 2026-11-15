@@ -11,9 +11,33 @@ EnchantmentAmount: 3000
 TargetType: Touch
 EnchantType: Enchantment
 Effects:
+- BaseEffect: 000851:Zenderal - Argent Verdict.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000852:Zenderal - Argent Verdict.esp
+    ComparisonValue: 8
 - BaseEffect: 000804:Zenderal - Argent Verdict.esp
   Data: {}
   Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: IsPowerAttackingConditionData
@@ -21,7 +45,16 @@ Effects:
       Reference: 000014:Skyrim.esm
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
-    CompareOperator: LessThan
+    CompareOperator: GreaterThanOrEqualTo
     Data:
-      MutagenObjectType: GetRandomPercentConditionData
-    ComparisonValue: 25
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000852:Zenderal - Argent Verdict.esp
+    ComparisonValue: 8
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ActorValue: Magicka
+    ComparisonValue: 20
