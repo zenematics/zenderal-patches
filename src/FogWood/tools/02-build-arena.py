@@ -49,6 +49,7 @@ ID_TIERS = [0x807, 0x808, 0x809, 0x80A, 0x80B]
 ID_POTIONS = 0x80D
 ID_BEST, ID_WAVE = 0x80E, 0x80F
 ID_ENTER_MSG, ID_LEAVE_MSG = 0x810, 0x811
+ID_RUN_MSG = 0x81E                    # the stone during a run: call the next wave / leave / stay (2026-11-15)
 # 0x80C (ZFW_Bosses) and 0x812 (ZFW_Elites) were the first arena's flat lists: retired, never reuse
 ID_PACKS = {1.0: (0x813, 'ZFW_PackFull'), 0.5: (0x814, 'ZFW_PackHalf'), 0.35: (0x815, 'ZFW_PackThird'), 0.7: (0x816, 'ZFW_PackMost')}
 # 0x80D ZFW_HealthPotions (was ZFW_Potions), 0x817 ZFW_ManaPotions
@@ -444,7 +445,7 @@ def main():
     props += objlist('CacheMarkers', [fk(ID_CACHE0 + i) for i in range(CACHE_COUNT)])
     props += obj('QuestVersion', fk(ID_QUEST_VERSION)) + obj('Persist', fk(ID_PERSIST))
     props += obj('BestWave', fk(ID_BEST)) + obj('CurrentWave', fk(ID_WAVE))
-    props += obj('EnterMsg', fk(ID_ENTER_MSG)) + obj('LeaveMsg', fk(ID_LEAVE_MSG))
+    props += obj('EnterMsg', fk(ID_ENTER_MSG)) + obj('LeaveMsg', fk(ID_LEAVE_MSG)) + obj('RunMsg', fk(ID_RUN_MSG))
     def alias_binding(alias_id, script):
         return ['  - Property:', "      Name: ''", '      Object: ' + fk(ID_QUEST), '      Alias: %d' % alias_id,
                 '    Scripts:', '    - Name: ' + script, '      Properties:',
@@ -550,10 +551,14 @@ def main():
         ID_ENTER_MSG, 'ZFW_EnterMsg',
         'The stone hums under your hand. Beyond it lies the Fog Wood, where the fog sends wave after wave against '
         'whoever stands in it. Nothing you kill there feeds you: no experience, no loot but what you need to keep fighting. '
-        'Fall, and the fog returns you here. The fog sweeps the ground before every wave: keep what you mean to keep on you.',
+        'Fall, and the fog returns you here. The fog sweeps the ground before every wave: keep what you mean to keep on you. If a wave is slow to come, the stone in the wood calls it.',
         ['Enter the Fog Wood', 'Not now']))
     write(os.path.join(OUT, 'Messages', 'ZFW_LeaveMsg - %06X_%s.yaml' % (ID_LEAVE_MSG, PLUGIN)), message(
         ID_LEAVE_MSG, 'ZFW_LeaveMsg', 'Leave the Fog Wood? The run ends here.', ['Leave', 'Stay']))
+    write(os.path.join(OUT, 'Messages', 'ZFW_RunMsg - %06X_%s.yaml' % (ID_RUN_MSG, PLUGIN)), message(
+        ID_RUN_MSG, 'ZFW_RunMsg',
+        'The fog waits. Call the next wave now - whatever still stands is taken by the fog - or leave the wood? The run ends if you leave.',
+        ['Call the next wave', 'Leave the Fog Wood', 'Stay']))
     print('arena records written: quest 0x%X (%d spawn aliases), stone 0x%X, faction 0x%X, %d themes (0x%X-0x%X) in %s, %d werewolf bases, %d+%d potions, messages, globals'
           % (ID_QUEST, SPAWN_SLOTS, ID_STONE, ID_FACTION, len(THEMES), ID_THEME0, ID_THEME0 + THEME_STRIDE * len(THEMES) - 1,
              ' / '.join('T%d:%d' % (t, len(v)) for t, v in sorted(tiers.items())), len(WEREWOLVES), len(HEALTH_POTIONS), len(MANA_POTIONS)))

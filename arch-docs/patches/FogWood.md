@@ -64,6 +64,13 @@ and the bodies still stood, for two co-op reasons found in the logs - postmortem
 the same night (`SweepCorpses`; the EP fork's `receiveEP` gate in [`FeverDeathLatchFix.md`](FeverDeathLatchFix.md)),
 deployed into Patch Collection 01:45, **unverified in game**; the Skyrim Together side (a deleted temporary actor
 should be removed on the server, not handed on) is a separate task on the co-op fork.
+
+**Waves that never came (curator, 2026-11-15):** several times the next wave did not spawn after the last visible
+kill. The 2026-11-14 solo logs show it: wave 3 of the 22:42 run (24 spawns) had 23 corpses listed when the player
+gave up six minutes later, one spawn alive and uncounted, no error and no relocation line (the trace budget was
+spent). Two answers in the 01:00 build, deployed into Patch Collection: the stone in the wood now offers **Call the
+next wave** during a run (`RunMsg`), and a stall is handled and logged (`STALL_SECONDS`, `TraceSpawns`; both
+below). Why the spawn would not die is still open; the next stall's `ZFW left:` lines will say. Unverified in game.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -321,6 +328,20 @@ A `PATCH`x`PATCH` (6x6) cell arena, cells -3..2 on both axes (24,576 units squar
   now traces once per call outside the budget (`ZFW: doomed N listed corpses, swept M other dead arena actors`),
   and the wave clear traces `ZFW: wave N cleared, K corpses listed`: the 2026-11-10 log could not say whether the
   wipe had run because the `ZFW target:`/`ZFW hit:` lines had spent `TRACE_BUDGET` in the first wave.
+- **The stone calls the next wave** (`ZFW_RunMsg 0x81E`, 2026-11-15): activated during a run it asks *Call the next
+  wave / Leave the Fog Wood / Stay*. The call only raises `ForceNext`; the loop acts on it at the top of its next
+  tick (never beside `SpawnWave` or `ProcessDeaths`): whatever still stands is `ClearSpawns`'d and the wave ends
+  without caches (a forced wave is not a cleared one), the next spawns after `FORCED_WAVE_DELAY` (3 s); called
+  between waves it just shortens the wait. `QUEST_VERSION` is 3, so a save from before `RunMsg` existed restarts the
+  quest once at its next stone activation and gets the property; until then the stone shows the old leave box.
+- **Stalls are escalated and logged** (2026-11-15): the 20 s gather (`NO_KILL_SECONDS`) now runs on its own clock
+  (`LastGatherAt`; it used to reset `LastKillAt`, so "no kill for N seconds" could never grow past 20). With
+  `LAST_FEW` or fewer alive and no kill for `STALL_SECONDS` (60), `GatherLastFew` also brings every remaining
+  spawn that has no line of sight to the player (`HasLOS`, valid with the player as target: under the ground,
+  behind a wall; a boss in plain sight keeps its fight) and `KillEssential`s one bleeding out at 0 Health (no theme
+  base is Essential or Protected - 131 scanned on 2026-11-15 - so this is a net, not a fix). The first three gathers
+  of a wave and every forced wave log each remaining spawn outside the budget (`TraceSpawns`: dead, Health,
+  bleedout, 3D, disabled, distance, Z against the player's, LOS, combat state and target, AI, worldspace).
 
 ## Postmortem: the alias script never bound (2026-11-06)
 
@@ -425,7 +446,8 @@ an open design question, not a bug of this build.
 | `0x817` | `ZFW_ManaPotions` (`0x80D` is `ZFW_HealthPotions`) |
 | `0x818`-`0x819` | `ZFW_Themes` (all themes, objective index), global `ZFW_WaveSize` |
 | `0x81A`-`0x81B` | CONT `ZFW_Chest` (Fogbound Cache), `ZFW_CachePotions` |
-| `0x81C`-`0x81D` | global `ZFW_QuestVersion`, FormList `ZFW_Persist` (the one-time quest restart); `0x81E`-`0x84F` free |
+| `0x81C`-`0x81D` | global `ZFW_QuestVersion`, FormList `ZFW_Persist` (the one-time quest restart) |
+| `0x81E` | `ZFW_RunMsg` (the stone during a run: call the next wave / leave / stay); `0x81F`-`0x84F` free |
 | `0x850`-`0x88F` | the 64 cells |
 | `0x8B0`-`0x8EF` | their 64 landscapes |
 | `0x910`-`0x933` | the 36 navmeshes |

@@ -1,0 +1,18 @@
+FormKey: 00081E:Zenderal - Fog Wood.esp
+EditorID: ZFW_RunMsg
+Description:
+  TargetLanguage: English
+  Value: 'The fog waits. Call the next wave now - whatever still stands is taken by the fog - or leave the wood? The run ends if you leave.'
+INAM: 0x00000000
+Flags:
+- MessageBox
+MenuButtons:
+- Text:
+    TargetLanguage: English
+    Value: 'Call the next wave'
+- Text:
+    TargetLanguage: English
+    Value: 'Leave the Fog Wood'
+- Text:
+    TargetLanguage: English
+    Value: 'Stay'

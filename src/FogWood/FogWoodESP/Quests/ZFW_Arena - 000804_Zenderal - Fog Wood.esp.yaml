@@ -192,6 +192,9 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: LeaveMsg
       Object: 000811:Zenderal - Fog Wood.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RunMsg
+      Object: 00081E:Zenderal - Fog Wood.esp
   FileName: ''
   Aliases:
   - Property:

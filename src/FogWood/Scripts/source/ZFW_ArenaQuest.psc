@@ -60,6 +60,9 @@ FormList Property Persist Auto
 {What survives that restart: [0] the placed Fogbound Stone.}
 Message Property EnterMsg Auto
 Message Property LeaveMsg Auto
+Message Property RunMsg Auto
+{The stone during a run: call the next wave now, leave, or stay (curator, 2026-11-15: waves that never came
+ after the last visible kill). Saves made before it exist get it through the QUEST_VERSION restart.}
 
 Int Property BOSS_EVERY = 5 AutoReadOnly
 Int Property MAX_SPAWNS = 30 AutoReadOnly
@@ -90,7 +93,7 @@ Float Property STONE_Z = 642.0 AutoReadOnly
 Float Property STONE_ANGLE = 0.0 AutoReadOnly
 Int Property STONE_ANCHOR_ID = 0x132F43 AutoReadOnly
 {Tower Encampment map marker in Skyrim.esm (Enderal's), a persistent Vyn ref 5,143 units from the spot.}
-Int Property QUEST_VERSION = 2 AutoReadOnly
+Int Property QUEST_VERSION = 3 AutoReadOnly
 {Bump to force one restart of the quest on existing saves (new objectives, text-display globals, properties).}
 Int Property FRIEND_HITS = 100000 AutoReadOnly
 {iFriendHitCombatAllowed / iFriendHitNonCombatAllowed for the run: the hits an ally may land before the victim turns
@@ -112,6 +115,12 @@ Float Property CORPSE_WIPE_DELAY = 2.0 AutoReadOnly
  may still have IED's weapon job queued, see Doom); loot and every loose piece of gear go when the next wave comes.}
 Float Property SWEEP_RADIUS = 24000.0 AutoReadOnly
 {SweepGround's reach from the player: the whole 6x6-cell wood from anywhere in it (loaded refs only).}
+Float Property FORCED_WAVE_DELAY = 3.0 AutoReadOnly
+{Seconds from the stone's "Call the next wave" to the spawn.}
+Float Property STALL_SECONDS = 60.0 AutoReadOnly
+{No kill for this long with LAST_FEW or fewer alive: every remaining spawn that cannot see the player is brought
+ to them, wherever it stands (NO_KILL_SECONDS only fetches the far ones), and a spawn bleeding out at 0 Health is
+ killed outright (an essential base never dies on its own). Each is logged.}
 Float Property TICK_TIMEOUT = 30.0 AutoReadOnly
 {A tick that has not finished in this long died of an error (its InTick flag never cleared): the next one runs.}
 Int Property LAST_FEW = 3 AutoReadOnly
@@ -149,8 +158,11 @@ Bool WaveActive = False
 Int Wave = 0
 Float NextWaveAt = 0.0
 Float LastKillAt = 0.0
+Float LastGatherAt = 0.0
 Float CorpseWipeAt = 0.0
 Bool InTick = False
+Bool ForceNext = False                          ; the stone asked for the next wave; the loop acts on it (ForceNextWave)
+Int StallTraces = 0                             ; per wave: how many times the remaining spawns were logged
 Float TickStarted = 0.0
 Int EPRank = 0
 Actor[] Spawned
@@ -290,9 +302,16 @@ Function StoneActivated(ObjectReference akStone)
 		Return
 	EndIf
 	If Running || PlayerRef.GetWorldSpace() == FogWoodWorld
-		If LeaveMsg.Show() == 0
-			If Running
+		If Running && RunMsg != None
+			Int choice = RunMsg.Show()
+			If choice == 0
+				ForceNextWave()
+			ElseIf choice == 1
 				EndRun(False)
+			EndIf
+		ElseIf LeaveMsg.Show() == 0
+			If Running
+				EndRun(False)                   ; a save from before RunMsg existed, until the quest restarts
 			Else
 				ExitToStone()                   ; came in by other means (console): just the way out
 			EndIf
@@ -456,6 +475,19 @@ Function Tick()
 		EndRun(True)                            ; fallback for the alias's OnEnterBleedout (Enderal has no health regen, so nobody gets up)
 		Return
 	EndIf
+	If ForceNext
+		ForceNext = False
+		If WaveActive
+			Debug.Trace("ZFW: wave " + Wave + " forced on by the stone with " + CountAlive() + " spawns left")
+			TraceSpawns("forced")
+			ClearSpawns()                       ; whatever still stands is taken by the fog; no caches for a forced wave
+			WaveActive = False
+			CorpseWipeAt = Utility.GetCurrentRealTime()
+		Else
+			Debug.Trace("ZFW: the next wave called from the stone between waves")
+		EndIf
+		NextWaveAt = Utility.GetCurrentRealTime() + FORCED_WAVE_DELAY
+	EndIf
 	If WaveActive
 		Int alive = ProcessDeaths()
 		If alive == 0
@@ -468,9 +500,15 @@ Function Tick()
 			EndIf
 			CorpseWipeAt = Utility.GetCurrentRealTime() + CORPSE_WIPE_DELAY
 			NextWaveAt = Utility.GetCurrentRealTime() + NEXT_WAVE_DELAY
-		ElseIf alive <= LAST_FEW && Utility.GetCurrentRealTime() - LastKillAt > NO_KILL_SECONDS
-			GatherLastFew(alive)
-			LastKillAt = Utility.GetCurrentRealTime()
+		ElseIf alive <= LAST_FEW && Utility.GetCurrentRealTime() - LastKillAt > NO_KILL_SECONDS && Utility.GetCurrentRealTime() - LastGatherAt > NO_KILL_SECONDS
+			Bool stalled = Utility.GetCurrentRealTime() - LastKillAt > STALL_SECONDS
+			If StallTraces < 3
+				StallTraces += 1
+				Debug.Trace("ZFW: wave " + Wave + ": " + alive + " left, no kill for " + ((Utility.GetCurrentRealTime() - LastKillAt) as Int) + " s, stalled " + stalled)
+				TraceSpawns("left")
+			EndIf
+			GatherLastFew(alive, stalled)
+			LastGatherAt = Utility.GetCurrentRealTime()
 		EndIf
 	Else
 		If CorpseCount > 0 && Utility.GetCurrentRealTime() >= CorpseWipeAt
@@ -673,6 +711,9 @@ Function SpawnWave(Int aiWave)
 	EndIf
 	WaveActive = True
 	LastKillAt = Utility.GetCurrentRealTime()
+	LastGatherAt = 0.0
+	StallTraces = 0
+	ForceNext = False
 	If bossWave
 		WaveSize.SetValue(count - 1)
 	Else
@@ -880,20 +921,64 @@ Bool Function Outside(ObjectReference akRef)
 	Return Math.Abs(akRef.GetPositionX()) > BOUND || Math.Abs(akRef.GetPositionY()) > BOUND
 EndFunction
 
-Function GatherLastFew(Int aiAlive)
-	{The wave's last few, out of reach for NO_KILL_SECONDS, are brought to the player.}
+Function GatherLastFew(Int aiAlive, Bool abStalled)
+	{The wave's last few, out of reach for NO_KILL_SECONDS, are brought to the player. Stalled (no kill for
+	 STALL_SECONDS): so is every remaining spawn that cannot see the player, however near (under the ground, behind
+	 a wall; a boss in plain sight is left to its fight), and one bleeding out at 0 Health is killed outright.}
 	Int i = 0
 	While i < Spawned.Length
 		Actor a = Spawned[i]
-		If a != None && a.GetActorValue("Health") > 0.0 && a.GetDistance(PlayerRef) > NO_KILL_RANGE
-			If TraceBudget > 0
-				TraceBudget -= 1
-				Debug.Trace("ZFW: gathering one of the last " + aiAlive + " (no kill for " + NO_KILL_SECONDS + " s)")
+		If a != None && !a.IsDead()
+			If a.GetActorValue("Health") <= 0.0
+				If abStalled
+					Debug.Trace("ZFW: " + a.GetDisplayName() + " (" + a + ") bleeds out at 0 Health and will not die: killed")
+					a.KillEssential(PlayerRef)
+				EndIf
+			ElseIf a.GetDistance(PlayerRef) > NO_KILL_RANGE || (abStalled && !a.HasLOS(PlayerRef))
+				If TraceBudget > 0
+					TraceBudget -= 1
+					Debug.Trace("ZFW: gathering one of the last " + aiAlive + " (no kill for " + NO_KILL_SECONDS + " s)")
+				EndIf
+				Relocate(a)
 			EndIf
-			Relocate(a)
 		EndIf
 		i += 1
 	EndWhile
+EndFunction
+
+Int Function CountAlive()
+	Int n = 0
+	Int i = 0
+	While i < Spawned.Length
+		If Spawned[i] != None
+			n += 1
+		EndIf
+		i += 1
+	EndWhile
+	Return n
+EndFunction
+
+Function TraceSpawns(String asWhy)
+	{Every spawn still in the array, with what decides whether it can die: outside the trace budget, at most
+	 a few times per wave (the stall log and the stone's forced wave). The 2026-11-14 stalls left no trace at all.}
+	Int i = 0
+	While i < Spawned.Length
+		Actor a = Spawned[i]
+		If a != None
+			Debug.Trace("ZFW " + asWhy + ": " + a.GetDisplayName() + " (" + a + ") base " + a.GetBaseObject() + "; dead " + a.IsDead() + ", health " + a.GetActorValue("Health") + ", bleedout " + a.IsBleedingOut() + ", 3D " + a.Is3DLoaded() + ", disabled " + a.IsDisabled() + ", distance " + a.GetDistance(PlayerRef) + ", z " + a.GetPositionZ() + " (player " + PlayerRef.GetPositionZ() + "), LOS " + a.HasLOS(PlayerRef) + ", combat " + a.GetCombatState() + ", target " + a.GetCombatTarget() + ", AI " + a.IsAIEnabled() + ", in wood " + (a.GetWorldSpace() == FogWoodWorld))
+		EndIf
+		i += 1
+	EndWhile
+EndFunction
+
+Function ForceNextWave()
+	{The stone's "Call the next wave" (curator, 2026-11-15). Only a flag: the loop acts on it in its own tick, so
+	 this never runs beside SpawnWave or ProcessDeaths (the InTick rule).}
+	If !Running
+		Return
+	EndIf
+	ForceNext = True
+	Debug.Notification("The fog stirs.")
 EndFunction
 
 ObjectReference Function MarkerNearPlayer()
