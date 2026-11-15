@@ -1,0 +1,10 @@
+FormKey: 00081C:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispFXArt
+Version2: 4
+ObjectBounds:
+  First: -46, -80, -20
+  Second: 41, 34, 20
+Model:
+  File: Zenderal\Whisper\WhisperWisp.nif
+Type:
+- MagicCasting

@@ -1,0 +1,36 @@
+FormKey: 000802:Zenderal - Whisper.esp
+EditorID: ZP_WhisperEnch
+Name:
+  TargetLanguage: English
+  Value: Whisper
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 3000
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 00080B:Zenderal - Whisper.esp
+  Data:
+    Duration: 5
+- BaseEffect: 000805:Zenderal - Whisper.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000803:Zenderal - Whisper.esp
+    ComparisonValue: 5

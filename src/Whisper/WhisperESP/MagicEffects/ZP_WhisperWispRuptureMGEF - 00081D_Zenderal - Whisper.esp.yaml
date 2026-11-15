@@ -1,0 +1,30 @@
+FormKey: 00081D:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispRuptureMGEF
+Name:
+  TargetLanguage: English
+  Value: Soul Rupture
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+BaseCost: 1
+MagicSkill: Alteration
+HitShader: 054223:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistMagic
+CastType: FireAndForget
+TargetType: TargetActor
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Magic resistance reduced by <mag>% for <dur> seconds.
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1

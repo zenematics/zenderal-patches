@@ -1,0 +1,24 @@
+FormKey: 000811:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWaveProj
+Version2: 7
+ObjectBounds:
+  First: -178, -12, -261
+  Second: 178, 757, 21
+Model:
+  File: Zenderal\Whisper\WhisperWave.nif
+Flags:
+- Supersonic
+- PassThroughSmallTransparent
+Type: Cone
+Speed: 1500
+Range: 1000
+Light: 000810:Zenderal - Whisper.esp
+Sound: 000812:Zenderal - Whisper.esp
+MuzzleFlashDuration: 1
+FadeDuration: 0.5
+ImpactForce: 10
+ConeSpread: 12
+CollisionRadius: 64
+RelaunchInterval: 0.125
+MuzzleFlashModel: ''
+SoundLevel: 1

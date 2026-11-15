@@ -1,0 +1,10 @@
+FormKey: 000801:Zenderal - Whisper.esp
+EditorID: 1stPersonZP_Whisper
+Version2: 6
+ObjectBounds:
+  First: -11, -13, -2
+  Second: 4, 45, 2
+Model:
+  File: Zenderal\Whisper\Whisper.nif
+MaxAngle: 90
+Unused: 0x000000

@@ -1,0 +1,20 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Whisper.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Whisper: a unique one-handed Entropy axe on billyro's Stalwart Axe (credit billyro), Caenraes' Noble Armory mount (credit Caenraes) and Mihail's rattlesnake (credit Mihail) coiled up its grip with an amethyst in its open mouth. Your Entropy spells feed it souls; with five a power attack tears them out as Soul Rend; its hits soul trap. Needs powerofthree's Papyrus Extender. Its mesh, textures and scripts ship in Zenderal - Patch Collection."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  INTV: 1

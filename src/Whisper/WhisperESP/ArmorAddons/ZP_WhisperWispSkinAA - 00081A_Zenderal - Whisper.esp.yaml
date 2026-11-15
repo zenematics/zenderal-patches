@@ -1,0 +1,20 @@
+FormKey: 00081A:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispSkinAA
+Version2: 3
+BodyTemplate:
+  FirstPersonFlags:
+  - Head
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000818:Zenderal - Whisper.esp
+Priority:
+  Male: 0
+  Female: 0
+WeightSliderEnabled:
+  Male: False
+  Female: False
+Unknown2: 17
+WorldModel:
+  Male:
+    File: Actors\Witchlight\Character Assets\Witchlight.nif
+    Data: 0x020000000200000000000000DEB3D7CF6464730038973CEA9E4462BC0000000000000000

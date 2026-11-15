@@ -1,0 +1,56 @@
+FormKey: 000804:Zenderal - Whisper.esp
+EditorID: ZP_WhisperSoulsMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WhisperSoulsScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Axe
+      Object: 000800:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FullSound
+      Object: 00080F:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GatherVFX
+      Object: 0531B1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PoofSound
+      Object: 000823:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ReleaseSound
+      Object: 056AC6:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SoulFXS
+      Object: 054223:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Souls
+      Object: 000803:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StreamVFX
+      Object: 0531AF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Wave
+      Object: 00080A:Zenderal - Whisper.esp
+Name:
+  TargetLanguage: English
+  Value: Whisper Souls
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -141,6 +141,8 @@ __pycache__/
 !src/StingAndRise/Scripts/compiled/*.pex
 !src/ArgentVerdict/Scripts/compiled/
 !src/ArgentVerdict/Scripts/compiled/*.pex
+!src/Whisper/Scripts/compiled/
+!src/Whisper/Scripts/compiled/*.pex
 !src/MQ16YuslanKneelFix/Scripts/compiled/
 !src/MQ16YuslanKneelFix/Scripts/compiled/*.pex
 !src/PrologueRopeFix/Scripts/compiled/

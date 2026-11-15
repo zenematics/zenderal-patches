@@ -1,0 +1,26 @@
+FormKey: 000806:Zenderal - Whisper.esp
+EditorID: ZP_WhisperSoulsAbility
+Name:
+  TargetLanguage: English
+  Value: Whisper Souls
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 000804:Zenderal - Whisper.esp
+  Data: {}
+- BaseEffect: 00080D:Zenderal - Whisper.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000803:Zenderal - Whisper.esp
+    ComparisonValue: 5

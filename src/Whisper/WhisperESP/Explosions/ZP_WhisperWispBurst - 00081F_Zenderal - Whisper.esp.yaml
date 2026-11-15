@@ -1,0 +1,13 @@
+FormKey: 00081F:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispBurst
+Version2: 2
+Model:
+  File: Zenderal\Whisper\WhisperWispBurst.nif
+Sound1: 03C8FC:Skyrim.esm
+Radius: 320
+ISRadius: 1024
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap
+- NoControllerVibration
+SoundLevel: Silent

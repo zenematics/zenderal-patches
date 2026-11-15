@@ -1,0 +1,14 @@
+FormKey: 000816:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispAbility
+Name:
+  TargetLanguage: English
+  Value: Soul Wisp
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+Effects:
+- BaseEffect: 000817:Zenderal - Whisper.esp
+  Data: {}

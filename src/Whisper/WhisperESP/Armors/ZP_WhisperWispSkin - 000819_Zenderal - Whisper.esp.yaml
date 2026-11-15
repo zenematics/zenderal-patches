@@ -1,0 +1,19 @@
+FormKey: 000819:Zenderal - Whisper.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZP_WhisperWispSkin
+Version2: 2
+SkyrimMajorRecordFlags:
+- NotPlayable
+BodyTemplate:
+  FirstPersonFlags:
+  - Head
+  ArmorType: Clothing
+  ActsLike44: True
+Race: 000818:Zenderal - Whisper.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Armature:
+- 00081A:Zenderal - Whisper.esp
+MajorFlags:
+- NonPlayable

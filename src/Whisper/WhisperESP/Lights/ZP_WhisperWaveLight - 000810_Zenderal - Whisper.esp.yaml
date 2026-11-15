@@ -1,0 +1,16 @@
+FormKey: 000810:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWaveLight
+Version2: 5
+ObjectBounds:
+  First: -38, -40, -74
+  Second: 38, 40, 48
+Time: -1
+Radius: 400
+Color: '#00B450FF'
+Flags:
+- Dynamic
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FadeValue: 2.5

@@ -1,0 +1,10 @@
+FormKey: 000820:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispLoopSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\Whisper\WhisperWispLoop.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+Priority: 128

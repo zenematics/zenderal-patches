@@ -1,0 +1,9 @@
+FormKey: 000812:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWaveSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\KittyClass_DarkWarrior\DarkWarriorSlashProj.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

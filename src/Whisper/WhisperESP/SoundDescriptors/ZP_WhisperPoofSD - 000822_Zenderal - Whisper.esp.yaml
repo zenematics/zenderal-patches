@@ -1,0 +1,9 @@
+FormKey: 000822:Zenderal - Whisper.esp
+EditorID: ZP_WhisperPoofSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\Whisper\WhisperPoof.wav
+OutputModel: 0FD93D:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

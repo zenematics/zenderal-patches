@@ -1,0 +1,46 @@
+FormKey: 000805:Zenderal - Whisper.esp
+EditorID: ZP_WhisperCleaveEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WhisperCleaveScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: EmptyActivator
+      Object: 0B79FF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GatherVFX
+      Object: 0531B1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PoofSound
+      Object: 000823:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ReleaseSound
+      Object: 056AC6:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Souls
+      Object: 000803:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Wave
+      Object: 00080A:Zenderal - Whisper.esp
+Name:
+  TargetLanguage: English
+  Value: Soul Cleave
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: While Whisper is in hand, each Entropy spell that strikes an enemy pulls its soul into the axe, and its eyes glow brighter with each. With 5 souls the crystal blazes, and the next power attack releases them as a wave of purple light that cleaves through every enemy before you for 80 magic damage. An enemy the wave kills rises as a Soul Wisp that fights at your side for 30 seconds, one at a time; strike it with an Entropy spell and it bursts, lowering the magic resistance of nearby enemies by 15% and restoring 30 Magicka.

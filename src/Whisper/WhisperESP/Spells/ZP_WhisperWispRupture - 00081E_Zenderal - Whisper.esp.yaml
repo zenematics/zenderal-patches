@@ -1,0 +1,19 @@
+FormKey: 00081E:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispRupture
+Name:
+  TargetLanguage: English
+  Value: Soul Rupture
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: TargetActor
+Effects:
+- BaseEffect: 00081D:Zenderal - Whisper.esp
+  Data:
+    Magnitude: 15
+    Duration: 15

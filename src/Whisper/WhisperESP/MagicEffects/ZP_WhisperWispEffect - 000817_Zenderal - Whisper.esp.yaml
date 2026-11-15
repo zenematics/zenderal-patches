@@ -1,0 +1,45 @@
+FormKey: 000817:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WhisperWispEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: BurstFX
+      Object: 00081F:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GatherVFX
+      Object: 0531B1:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GlowFX
+      Object: 00081B:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LoopSound
+      Object: 000821:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Rupture
+      Object: 00081E:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: StreamVFX
+      Object: 0531AF:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Wisps
+      Object: 000814:Zenderal - Whisper.esp
+Name:
+  TargetLanguage: English
+  Value: Soul Wisp
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

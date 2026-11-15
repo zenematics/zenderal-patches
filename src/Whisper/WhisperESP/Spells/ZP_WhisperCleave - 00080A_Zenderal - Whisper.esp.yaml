@@ -1,0 +1,21 @@
+FormKey: 00080A:Zenderal - Whisper.esp
+EditorID: ZP_WhisperCleave
+Name:
+  TargetLanguage: English
+  Value: Soul Cleave
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: Aimed
+Effects:
+- BaseEffect: 000813:Zenderal - Whisper.esp
+  Data:
+    Duration: 1
+- BaseEffect: 000809:Zenderal - Whisper.esp
+  Data:
+    Magnitude: 80

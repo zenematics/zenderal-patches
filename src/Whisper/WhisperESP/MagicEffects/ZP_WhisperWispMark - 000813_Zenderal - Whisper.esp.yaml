@@ -1,0 +1,42 @@
+FormKey: 000813:Zenderal - Whisper.esp
+EditorID: ZP_WhisperWispMark
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_WhisperWispMarkEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Wisp
+      Object: 000815:Zenderal - Whisper.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Wisps
+      Object: 000814:Zenderal - Whisper.esp
+Name:
+  TargetLanguage: English
+  Value: Soul Wisp
+Flags:
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+- NoDeathDispel
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 000811:Zenderal - Whisper.esp
+CastType: FireAndForget
+TargetType: Aimed
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1

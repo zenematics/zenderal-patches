@@ -1,0 +1,34 @@
+FormKey: 000809:Zenderal - Whisper.esp
+EditorID: ZP_WhisperCleaveMGEF
+Name:
+  TargetLanguage: English
+  Value: Soul Cleave
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- HideInUI
+- NoRecast
+- NoDeathDispel
+BaseCost: 1
+MagicSkill: Destruction
+ResistValue: ResistMagic
+HitShader: 054223:Skyrim.esm
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000811:Zenderal - Whisper.esp
+CastType: FireAndForget
+TargetType: Aimed
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: IsHostileToActorConditionData
+    TargetNpc: 000014:Skyrim.esm
+  ComparisonValue: 1
