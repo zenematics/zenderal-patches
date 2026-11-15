@@ -25,6 +25,10 @@ changed (00-scan-overriders.py lists the winners; this script refuses to run if 
            crosshair, and reach only the spell's 13 ft Area; the curator wants visible bounces, 2026-11-13)
   805 COBJ ZP_TemperClockworkThunder  <- Ordo's matchlock temper 00F5D6 (gold ingot + ...), the second item a
            Starling ingot 0DB8A2 instead of 0F11C0; new product. No forge recipe: the rifle is unique
+  80C SNDR ZP_ClockworkThunderShotSD <- Ordo's OLM_WPNMusketFire 002F9C, its four musket shots -> the curator's
+           laser shot (tools/04 installs the wav); the rifle's AttackSound and AttackSound2D point at it
+  80D/80E SNDR ZP_CTReload1/2 <- WPNBowNockSD 03E7B4, one file each: the curator's sci-fi reload sounds, played by
+           SoundPlay events tools/05 times into Clockwork Thunder's own copies of the rifle's reload clips
   806 REFR the rifle on the broken altar (RuinsAltarBroken ref 07410A) in Old Askamahn's throne room
            (DesertAltAskamahnL2 07336E, Enma Darkhand's room), plus the cell header (Skyrim.esm's, the only
            plugin with the cell in the live order) and its two group files. Lies on its side along the altar;
@@ -65,6 +69,7 @@ CHAIN_RANGE = 700.0         # units from the last enemy struck (the script's Ran
 STARLING_INGOT = '0DB8A2:Skyrim.esm'      # IngotStarling
 MODEL = r'Zenderal\ClockworkThunder\ClockworkThunder.nif'
 MESH_REL = 'meshes/Zenderal/ClockworkThunder/ClockworkThunder.nif'
+SHOT_SOUND = r'data\sound\fx\Zenderal\ClockworkThunder\ClockworkThunderShot.wav'   # tools/04 installs it
 
 CELL_DIR = 'Cells/8/1/DesertAltAskamahnL2 - 07336E_Skyrim.esm'
 ALTAR_POS = (4372.4653, -5912.3335, 7429.4985)    # RuinsAltarBroken 07410A (no plugin overrides it, 00-scan)
@@ -84,6 +89,7 @@ EXPECTED_WINNERS = {
     '000B02:Zenderal - Prophecy.esp': 'Zenderal - Prophecy.esp',
     '000AFD:Zenderal - Prophecy.esp': 'Zenderal - Prophecy.esp',
     '000B01:Zenderal - Prophecy.esp': 'Zenderal - Prophecy.esp',
+    '002F9C:OrdoLegionisMuskets.esp': ORDO,
 }
 
 
@@ -177,7 +183,8 @@ def main():
     if not os.path.isfile(mesh):
         sys.exit('run 01-build-assets.py first (no %s)' % mesh)
 
-    for sub in ('Weapons', 'Statics', 'ObjectEffects', 'MagicEffects', 'Spells', 'Explosions', 'ConstructibleObjects', 'Cells'):
+    for sub in ('Weapons', 'Statics', 'ObjectEffects', 'MagicEffects', 'Spells', 'Explosions', 'ConstructibleObjects', 'Cells',
+                'SoundDescriptors'):
         shutil.rmtree(os.path.join(OUT, sub), ignore_errors=True)
 
     # 800 WEAP
@@ -198,7 +205,29 @@ def main():
     w = sub1(w, r'^(BasicStats:\n  Value: )666$', r'\g<1>' + str(VALUE))
     w = sub1(w, r'^(BasicStats:\n(?:  .*\n)*?  Damage: )20$', r'\g<1>' + str(DAMAGE))
     w = sub1(w, r'^(Critical:\n  Damage: )9$', r'\g<1>' + str(CRIT_DAMAGE))
+    # the curator's own shot sound (2026-11-15: "add this noise to when it's fired"): both attack sounds -> 80C
+    w = sub1(w, r'^AttackSound: 002F9C:OrdoLegionisMuskets\.esp$', 'AttackSound: 00080C:' + ME)
+    w = sub1(w, r'^AttackSound2D: 002F9C:OrdoLegionisMuskets\.esp$', 'AttackSound2D: 00080C:' + ME)
     rec('Weapons', 'ZP_ClockworkThunder', '000800', w)
+
+    # 80C SNDR: Ordo's shot descriptor (category, output model, priority, pitch variance) playing our shot wav,
+    # which tools/04 installs from the curator's licensed Motion Array file (not committed)
+    sd = one(os.path.join(ORDO_REF, 'SoundDescriptors'), 'OLM_WPNMusketFire - 002F9C')
+    sd = sub1(sd, r'^FormKey: .*$', 'FormKey: 00080C:' + ME)
+    sd = sub1(sd, r'^EditorID: .*$', 'EditorID: ZP_ClockworkThunderShotSD')
+    sd = sub1(sd, r'^SoundFiles:\n(?:- .*\n)+', lambda m: 'SoundFiles:\n- ' + SHOT_SOUND + '\n')
+    rec('SoundDescriptors', 'ZP_ClockworkThunderShotSD', '00080C', sd)
+
+    # 80D/80E SNDR: the reload sounds tools/05 times into Clockwork Thunder's own reload clips (SoundPlay.<EditorID>),
+    # vanilla's bow nock verbatim (weapon category, positional output model) with one file each, as the musket
+    # loading sounds (FlintlockOverhaul tools/11) are; the wavs are the curator's licensed files, not committed
+    nock = read(os.path.join(BASE, 'SoundDescriptors', 'WPNBowNockSD - 03E7B4_Skyrim.esm.yaml'))
+    for fid, eid in (('00080D', 'ZP_CTReload1'), ('00080E', 'ZP_CTReload2')):
+        r = sub1(nock, r'^FormKey: .*$', 'FormKey: %s:%s' % (fid, ME))
+        r = sub1(r, r'^EditorID: .*$', 'EditorID: ' + eid)
+        r = sub1(r, r'^SoundFiles:\n(?:- .*\n)+',
+                 lambda m, e=eid: 'SoundFiles:\n- Data\\Sound\\FX\\Zenderal\\ClockworkThunder\\%s.wav\n' % e)
+        rec('SoundDescriptors', eid, fid, r)
 
     # 801 STAT
     s = one(os.path.join(ORDO_REF, 'Statics'), 'OLM_1stPersonMusketRifle - 002F9A')

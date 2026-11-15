@@ -134,6 +134,142 @@ X across; ×0.62 to world):
   build stops if a cog leaves the silhouette or the surface under it varies more than `MAX_RELIEF`. Cells that only
   see hidden inner faces take the disc's median height. The surface is sampled about every 0.3 units, because the
   forestock is long thin triangles.
+- **Lightning tube** (curator 2026-11-15: "a glass tube with a lightning bolt sparking in it ... with some gold
+  fittings"; the first build sat on the side-plate side's lock panel, read from a screenshot, and was wrong: "not
+  on the side, on the top, just before the hammer"; a slim tube sloping down the wrist top, then an enlarged one,
+  were both wrong too: the curator's highlight on a side view, "the tube is horizontal matching the barrel", then
+  on the horizontal build sitting over the wrist: "hollow out the wood to align the tube with the barrel", with an
+  L outline down the breech face and back at the barrel's underside). The tube is **coaxial with the barrel**
+  (axis x 0, y 27.17 = the round barrel's axis; collars r 1.94 = the barrel's radius, bead +0.06, glass r 1.55),
+  from the breech plug's rear face (z -25.33; front collar at -25.35, no nub, the tang under it) back to the rear
+  cap at z -35.8 (with its terminal nub); 10.45 long. **The wood is cut away for it** (`cut_channel`, `channel_box`):
+  the stock (the largest welded piece) and the tang are split along a convex region's planes (any plane, inside
+  where p . n >= c) - Sutherland-Hodgman per triangle, every attribute interpolated on the cut edges, the inside
+  dropped. The region: floor y 26.97 (`CHANNEL_FLOOR_BELOW_AXIS` 0.2 under the axis), full width
+  (`CHANNEL_HALF_WIDTH` 5: a slot's side walls hid the tube from the side), front the breech plug's rear face, and
+  behind the rear nub (z -36.43) a **ramp** rising 0.8 per unit back (`CHANNEL_RAMP`, about 39 deg) into the wrist.
+  `channel_walls` closes it: floor and ramp each filled from their plane's cut outline (strips between the
+  outline's break points: the stock's own cross-section; the lock mortise is covered over), the front plane's cut
+  edges carried down to the floor. New faces take wood by a planar map through the largest butt-side triangle
+  (`wood_uv_map`, asserted to land on wood in the metallic map). The lock (plate x <= -1.87, hammer) and the side
+  plate are not cut. **Embedding** (curator after the first in-game look: "the cutaway wood gaps on the right side
+  by the hammer and back are too noticeable ... more embedded and seamless"): the first cut went down to the
+  barrel's underside (y 25.19, the curator's L outline) with a vertical rear wall; on the hammer side the lock
+  plate then stood 2.3 above bare floor beside the tube, and the back was a step with a ledge. Raised to just under
+  the axis, the wood holds the tube's lower half and meets the lock plate's top (27.5), and the ramp replaces the
+  step. Previous (flat) cut kept as `before-lightning-tube/ClockworkThunder-flat-cut.nif`. The rifle's NiTriShapeData is
+  now written whole (`nifsplice.trishape_data` gained vertex colours; Ordo's block rewrites byte-identical, checked
+  2026-11-15). Top y 29.2, below the breech top. Three new shapes, each with its own shader block:
+  **After the first in-game look (2026-11-15)**, in order: (1) the front face of the cut, round the front collar
+  against the breech, is **gold** ("should be metal not wood"; `close_cut` groups go to the gold shape); (2) a
+  deeper pocket round the rear cap was built, then dropped for **a longer tube whose rear end clears the wood**
+  ("instead of cutting away just extend the tube length"): `tube_axis` finds the rear cap as the first z, going
+  back, where the wrist top under the whole end fitting (and the end cog) is `CAP_CLEARANCE` 0.1 under the bead
+  ring - z -42.0, 16.65 long (`pocket_box` is kept, unused); the ramp then closes nothing and is optional;
+  (3) **a cog on the tube's end** (`tube_end_cog`: the same cog, coaxial, on the rear cap's face, facing back, the
+  nub through its hole, tips at the bead ring, 0.4 thick); (4) the **floor beside the tube is a gold plate** (a
+  two-strip version was built; the curator kept the plate) **covered in cogs** (`plate_cogs`: packed by size,
+  largest first, on a 0.1 grid, inside the plate's outline and clear of glass, strap and collars; big ones
+  (r >= 0.38) on the plate with teeth interleaving, smaller ones a layer up over the gaps; 28 cogs, capped by one
+  shape's 65535 vertices/triangles), in their own shape `ClockworkThunderPlateCogs` with its own copies of the cog
+  shader and texture set. Cut faces take their UVs from the original wrist top straight above them
+  (`wood_uv_map`), so the remaining wood (the ramp, when there is one) carries the wood that was there.
+  **Second in-game round (same day):** (5) a **slot** for the tube's rear half (`slot_box`: from the strap back past
+  the end cog, floor 0.05 under the bead rings, x +-2.05; wood walls where the wrist is wider) - the wrist top had run
+  through the glass's lower part ("cut away the wood a little to house the tube better"; the "tube is clipping"
+  picture); (6) the plate is now a **panel like the lock plate** ("make the plate look more like the side panels",
+  picture of the lock plate's tail): `plate_panel` raised 0.1 with a 0.14 bevel to the cut's outline, from the slot
+  forward, in the RIFLE's shape and texture set, UVs sampled from the lock plate's outer face (`lockplate_uv_map`:
+  its tail, 0.75 along / 1:1 across, cells of 0.25 so nothing smears), plus a pair of round rivets a side
+  (`plate_rivets`); (7) **wires** on it ("could you add some wires maybe to the plate?", sketch): two gold tubes a
+  side (`plate_wires`, r 0.065) from under the front collar, snaking back to the slot; the plate cogs keep off the
+  wires, rivets and the slot (12 now).
+  **Third in-game round:** the box slot left only a gap ("I still want the wood, just space for the tube to sit
+  in") and the lock-plate texture read worse than the gold: (8) the slot is now a **groove** (`groove_box`,
+  `groove_faces`): a 24-sided prism round the tube's rear half (inradius = bead ring + 0.05), only the wood inside it
+  removed; each prism face is filled where it lies in the wood (split at the cut outline's crossings, the middle of
+  each piece tested against the wrist top / first cut's floor), plus a front end wall (the prism's cross-section
+  clipped at the floor height); behind the plate the first cut's own wood floor is kept (cut off at the strap).
+  (9) The panel keeps its shape, bevel and rivets but is gold again (cog shape, planar UVs); `lockplate_uv_map` is
+  kept, unused. (10) **Two metal side tubes** ("on either side of the plate add 2 tubes with cogs on the end", then
+  "metal tubes"): one gold pipe a side (`side_tube_layout`, `side_tube_parts`: r 0.2, the longest stretch the panel
+  allows, collars and a small cog on each end with an axle nub); one wire a side now, held inboard of the tube;
+  rivets and plate cogs keep off them.
+  **Fourth in-game round:** "all looks good but I don't like these jagged edges from the cut out" / "maybe we could
+  hide them with more metal tubing?": the groove went to 48 sides with 0.1 z steps, and a fill strip whose two ends
+  see a different number of outline crossings is split until they agree (skipped strips had left notches); and
+  **gold tubes run along both groove edges** (`groove_edge_tubes`, `sweep_tube`: r 0.24, the edge traced from the
+  groove's own cut outline per 0.2 of z, smoothed over 3 bins either side, rounded ends), from the strap back to
+  about z -40.5, where the wrist drops below the groove. Then ("the pipes aren't connected to anything and look a
+  little creased in areas, have them bow smoothly and then connect to the end of the tube parts"): each pipe's middle
+  is a cubic in z fitted to the traced edge (no kinks), its front end bends (cubic Bezier, tangents matched) into
+  the rear end cog of that side's metal side tube along its axis, and its rear end into the rear collar's front
+  shoulder, 40 deg below the side (`bezier`, `EDGE_TUBE_COLLAR_ANGLE`); 12-sided.
+  (11) "add various different sized Cogs in this space, from large / medium and small" (the strip outside the
+  side tube): the plate cogs no longer keep off the side tube's whole length, only its end cogs and collars (a cog,
+  0.16 thick, fits under the pipe, whose underside is 0.2 over the panel; asserted), and may overhang the panel's
+  bevel by 0.1; 28 cogs, r 0.55 down to 0.18.
+- **Shot sound** (curator 2026-11-15: "add this noise to when it's fired", their licensed Motion Array
+  `MA_SoundsByGFXSounds_Sci-FiLaserGunShot_1.wav`): SNDR `ZP_ClockworkThunderShotSD 80C` = Ordo's
+  `OLM_WPNMusketFire 002F9C` verbatim (category, output model, priority, 8% pitch variance) with its four musket
+  shots replaced by `sound\fx\Zenderal\ClockworkThunder\ClockworkThunderShot.wav`; the rifle's AttackSound and
+  AttackSound2D point at it (tools/02; 002F9C added to tools/00's winner scan). `tools/04-install-shot-sound.py
+  <wav>` converts the file (24-bit -> 16-bit PCM, 48 kHz stereo kept, peak-normalised, Reversal Shadow's
+  converter) into Patch Collection; the wav is not committed. Then ("add this sound effect to the fire"):
+  `tools/04` takes several wavs and mixes them as layers from 0; the shipped shot = the laser shot + `Blaster Rifle
+  Shot V03.wav` (16-bit 44.1 kHz, resampled to 48 kHz), 2.64 s, scaled 0.854 to stay under the 16-bit peak. The
+  laser-only file is kept in `E:/Zenderal-backups/2026-11-13-clockwork-thunder/`. Then ("turn up the newer shot
+  sounds, they're a little quiet"): the plain mix already peaked at 0.96 of full scale, loudest 50 ms at -9.5 dB RMS,
+  so `tools/04` now runs it through a soft limiter (`--drive 2.5`: tanh(k x)/tanh(k) on the peak-normalised mix),
+  -9.5 -> -4.8 dB RMS, peak still 32000; the plain mix is kept as `ClockworkThunderShot-laser-blaster-plain.wav` in
+  that backup folder. Then ("add this shot sound on top of the others"): a third layer,
+  `MA_SoundsByGFXSounds_SniperRifleShot_4.wav` (licensed Motion Array, 24-bit 48 kHz stereo, 2.2 s), all three from
+  0, same limiter: -10.2 -> -4.9 dB RMS, 2.64 s (the two-layer version kept as
+  `ClockworkThunderShot-laser-blaster-loud.wav`). Then ("I want the shot sounds fired at the same time, not
+  staggered"): the files open on different lead-ins (attacks at 0.113 s laser, 0.003 s blaster, 0.253 s sniper), so
+  mixed from their file starts the bangs came one after another; `tools/04` now cuts each layer to 2 ms before its
+  own attack (first frame at 10% of its peak) before summing, so all three hit together, 2 ms after the trigger.
+  Then ("add this on shot too"): a fourth layer, `MA_MotionAudio_Sci-FiBlasterShot_04.wav` (licensed Motion Array;
+  attack at 0.007 s), aligned the same way; -9.3 -> -4.8 dB RMS, 2.63 s (three-layer version kept as
+  `ClockworkThunderShot-3-layers.wav`). **[unverified in game]**
+- **Reload sounds** (curator 2026-11-15: "add these to the reload, decide how they're paced based on the animation
+  movement", their licensed Motion Array `MA_Designed_SciFiWeaponsReload_1/_2.wav`; `tools/05`). The rifle shares
+  OL_Musket_Rifle's ramrod reload (FlintlockOverhaul tools/09-12), whose reload clip (4.43 s) moves: handling click
+  0.17, ball drawn 0.84, **ball into the muzzle 1.71**, ramrod drawn 2.22, **rod stowed 2.96**, back on aim 4.43.
+  Both sounds are short two-hit designed reloads with their attack at the start (first loud 50 ms at 0.05 s; 0.8 and
+  0.6 s audible), so `ZP_CTReload1` (SNDR 80D) lands on the ball going in (the loading) and `ZP_CTReload2` (80E) on
+  the rod being stowed (the closing), each starting 0.05 s before its beat; asserted that Reload 1 has died away
+  before Reload 2 starts in every clip. Clockwork Thunder gets its own copies of the rifle's four reload submods
+  (third person, its *both reload perks* faster copy, first person and its faster copy; reload clips only, 16 in
+  all) under OAR mod `Zenderal - Clockwork Thunder Reload` in Patch Collection, keyed on Clockwork Thunder alone,
+  priority +200000 (order kept). In each copy the two musket loading-sound annotations (`SoundPlay.ZEN_MusketLoad7`
+  / `ZEN_MusketLoad1`) are edited in place, text and time (no size change; the faster copies scale the beats, not
+  the sounds); Zodd's handling clicks stay. SNDR 80D/80E = vanilla's bow nock verbatim, one file each,
+  `Data\Sound\FX\Zenderal\ClockworkThunder\ZP_CTReload1/2.wav` (16-bit mono 48 kHz, not committed). Rerun
+  `tools/05 <Reload_1.wav> <Reload_2.wav>` after FlintlockOverhaul tools/09-10 rebuild the ramrod reload (and after
+  `tools/03`). Volume: `--gain 0.85` by default since 2026-11-15 ("lower the reload sounds by 15%"), about -1.4 dB
+  (peaks ~23450 of 32767). **[unverified in game]**
+  - `ClockworkThunderGlass`: radius 1.55, a copy of the rifle's Environment Map shader with ZBuffer write off,
+    specular white/3.0, glossiness 300, our own faint tint (`ClockworkThunderGlass_d/_n/_m.dds`, alpha 0.18; the
+    env mask's alpha is 1 so Complex Material stays off) and Bethesda's `textures\cubemaps\chrome_e.dds` path
+    (the list's TB's HD Cubemaps copy wins); NiAlphaProperty 0x00ED (blend).
+  - `ClockworkThunderBolt`: three cards through the axis (0 deg lies flat, facing a player looking down at the
+    wrist; then +-60 deg) with `FXLightningBolt01.dds` (two forked
+    bolts side by side; each card shows one half), `ClockworkThunderGlow`: two narrow cards with `ShockBoltTile01.dds`.
+    BSEffectShaderProperty (layout decoded from Bethesda's `meshes\magic\testlightninggeo.nif`), SLSF1 ZBuffer
+    test + falloff, SLSF2 double-sided, pale blue emissive, additive NiAlphaProperty 0x100D like Bethesda's.
+    **Animated by our own float controllers** (`add_float_controllers`; Bethesda's test mesh has one key and
+    zero length, so nothing to copy): the bolt's U offset steps between the two bolts every 0.12 s and its V offset
+    jumps along the tube every 0.13 s (stepped keys), its emissive multiple flickers 1.5..9 over 1.1 s; the glow
+    crawls (V offset 0..1 in 0.6 s) and pulses. Flags 0x48 (Active + Compute Scaled Time, loop) as Bethesda's;
+    the rifle's BSXFlags (203) already carries the Animated bit. The textures are the list's winners (Rustic
+    Daedra's bolt, SRW0 Voltage's tile), referenced by vanilla path.
+  - Gold fittings in the cog shape (`tube_fittings`, `lathe`): an end fitting at each end (terminal nub, cap,
+    bevel, bead, collar sleeving the glass; the profile drawn for a 1.5 collar, scaled by `FIT`; the front one
+    without a nub) and a strap round the middle (`TUBE_SCREWS` off); 1600 triangles.
+  Previous mesh in `E:/Zenderal-backups/2026-11-13-clockwork-thunder/before-lightning-tube/`. Built and deployed
+  2026-11-15. **[unverified in game]**: whether the controllers animate on an equipped weapon / world model and how
+  the glass sorts against the bolt.
 - **Oval escutcheon removed** (curator 2026-11-13: "on the right side where the cogs are there's a gold panel
   underneath, just remove it so the cogs aren't overlapping on it"): Ordo's oval plate on the lock side of the
   forestock (its own welded piece, `OVAL_BOX`, 64 triangles) sat under the third and fourth cogs. It is dropped

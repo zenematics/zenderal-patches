@@ -20,8 +20,8 @@ Description:
   Value: ''
 ImpactDataSet: 007ED8:OrdoLegionisMuskets.esp
 FirstPersonModel: 000801:Zenderal - Clockwork Thunder.esp
-AttackSound: 002F9C:OrdoLegionisMuskets.esp
-AttackSound2D: 002F9C:OrdoLegionisMuskets.esp
+AttackSound: 00080C:Zenderal - Clockwork Thunder.esp
+AttackSound2D: 00080C:Zenderal - Clockwork Thunder.esp
 AttackFailSound: 03C730:Skyrim.esm
 EquipSound: 03D78C:Skyrim.esm
 UnequipSound: 03D882:Skyrim.esm

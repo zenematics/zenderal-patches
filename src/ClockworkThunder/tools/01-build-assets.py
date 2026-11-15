@@ -91,6 +91,9 @@ OUT_E = 'textures/Zenderal/ClockworkThunder/ClockworkThunder_e.dds'
 OUT_COG = 'textures/Zenderal/ClockworkThunder/ClockworkThunderCog_d.dds'
 OUT_COG_N = 'textures/Zenderal/ClockworkThunder/ClockworkThunderCog_n.dds'
 OUT_COG_M = 'textures/Zenderal/ClockworkThunder/ClockworkThunderCog_m.dds'
+OUT_GLASS_D = 'textures/Zenderal/ClockworkThunder/ClockworkThunderGlass_d.dds'
+OUT_GLASS_N = 'textures/Zenderal/ClockworkThunder/ClockworkThunderGlass_n.dds'
+OUT_GLASS_M = 'textures/Zenderal/ClockworkThunder/ClockworkThunderGlass_m.dds'
 
 COG_SHAPE_NAME = 'ClockworkThunderCogs'
 
@@ -149,6 +152,109 @@ GUARD_MIN_TRIS = 500
 # are seated on the stock without it. The stock's own surface runs on underneath it.
 OVAL_BOX = ((-3.6, -2.0), (23.0, 27.0), (-6.0, 0.0))
 OVAL_TRIS = (40, 100)
+
+# Curator 2026-11-15: "a glass tube with a lightning bolt sparking in it ... with some gold fittings", then
+# (the first build sat on the side-plate side's lock panel) "not on the side, on the top, just before the hammer":
+# on the TOP of the wrist, on the centre line, from just behind the barrel's tang (its top strip ends at z -26.6)
+# back along the wrist. The wrist top falls from y 29.4 at z -27 to 26.9 at z -37 (convex), 3-4 units wide; the
+# hammer stands on the lock side at x <= -2.3 (surface scan 2026-11-15). (The second build followed the wrist's
+# slope; the third was enlarged; the fourth, below, is horizontal.)
+#   glass     an alpha-blended Environment Map shader (Bethesda's chrome cubemap path; our own faint tint)
+#   lightning two crossed cards with Bethesda's FXLightningBolt01 (two forked bolts) + one with ShockBoltTile01
+#             (a glowing core), on effect shaders with additive blending; float controllers make the bolt jump
+#             (stepped U/V offsets) and flicker (emissive multiple), looping. Bethesda's own lightning meshes
+#             only animate through such controllers; the rifle's BSXFlags already has the Animated bit.
+#   fittings  gold (the cog shape and shader): collars with a bead and a terminal nub at both ends, a strap
+#             round the middle with a screw head on the wood each side.
+# Third pass, same day (curator's mark on the second build's render: "enlarge the tube, have it extend from the
+# barrel"): the front collar is the barrel's width (the breech plug is x +-2.23) and butts against the breech
+# plug's rear face (z -25.33) with no nub, so the barrel runs into the tube; the axis sits ON the wrist's crown
+# (half the tube in the wood, under the first-person sight line) and 0.6 toward the side-plate side, where the mark
+# lies and away from the hammer (x <= -2.33; pan x >= -1.78 only below y 26.7). The strap keeps no screws: the
+# tube now covers the wrist's width.
+# Fourth pass (curator's highlight on a side view: "the tube is horizontal matching the barrel"): the tube runs
+# straight back from the breech along the barrel's line, not down the wrist: axis parallel to the barrel (+Z), its
+# collars the barrel's width (round barrel r 1.94), sunk TUBE_SINK into the wrist's crown just behind the tang.
+# The wrist falls away under it (y 29.4 at z -27 to 26.6 at z -38), so two gold legs (at the strap and near the
+# rear cap) carried it down to the wood; then, against the highlight, it was lowered so its axis sits about at
+# the barrel's top, slimmed and shortened: it rests in the wrist all along, so no legs.
+# Fifth pass (curator's mark on the fourth: "hollow out the wood to align the tube with the barrel"): the tube is
+# COAXIAL with the barrel (axis x 0, y = the round barrel's axis, collars the barrel's radius) and a channel is cut
+# into the wrist for it, down to just under the tube (`cut_channel`: the rifle's own triangles split along the
+# channel's five planes, the inside dropped; `channel_walls` closes the cut with wood: the wall planes' cut edges
+# carried down to a floor). Only the stock and the tang (wholly inside the channel's width) are cut; the lock plate
+# (x <= -1.87) and the breech plug are left alone.
+TUBE_Z = (None, -25.35)        # rear end cap: found by tube_axis (clear of the wood); the front cap's outer face
+CAP_CLEARANCE = 0.1            # the wrist top this far under the rear cap's bead ring
+END_COG_THICK = 0.4            # the cog on the rear end cap (the nub, 0.45 x FIT long, stands through it)
+END_COG_TOOTH = 0.45
+PLATE_COG_RADII = (0.55, 0.45, 0.38, 0.3, 0.24, 0.18)  # the cogs packed over the gold floor plate, largest first
+PLATE_COG_MAX = 40             # the plate-cog shape stays under 65535 vertices (about 1490 a cog)
+PLATE_COG_LAYER = 0.09         # a cog overlapping earlier ones sits this much higher per layer
+PLATE_COG_INNER = 1.74         # their inner edges this far from the axis (glass 1.55, strap ring 1.67)
+COLLAR_CLEAR = 2.08            # ... and this far beside the collars (bead ring 2.0)
+PLATE_COG_MARGIN = 0.05        # plate outline left past each cog's rim
+PLATE_COG_OVERHANG = 0.1       # ... though a cog may reach this far over the panel's bevel
+PLATE_COG_PACK = 0.88          # centre distance / sum of radii within a layer: teeth interleave
+PLATE_COG_TOP_BELOW = 0.35     # cogs smaller than this sit one layer up, over the gaps between the big ones
+PLATE_COG_OVER = 0.55          # ... and may come this close to a big one (overlapping its edge)
+PLATE_COG_GRID = 0.1           # candidate centre spacing
+PLATE_COG_THICK = 0.16         # for the largest; smaller ones thinner (square root of the radius ratio)
+PLATE_COG_SHAPE = 'ClockworkThunderPlateCogs'   # its own shape: the cog shape would pass 65535 vertices
+PANEL_H = 0.1                  # the plate panel stands this far over the cut's floor ...
+PANEL_BEVEL = 0.14             # ... its top inset this far from the outline, a bevel between (like the lock plate)
+PANEL_CELL = 0.25              # panel cell size (UV sampling)
+GROOVE_SIDES = 48              # the groove's prism round the tube's rear half (24 showed kinks along its edge)
+GROOVE_STEP = 0.1              # its faces filled in z steps of this
+EDGE_TUBE_R = 0.24             # the gold tubes along the groove's edges
+EDGE_TUBE_BIN = 0.2
+EDGE_TUBE_TRIM = 0.4           # the fitted middle stops this far inside the traced edge at each end
+EDGE_TUBE_COLLAR_ANGLE = 40.0  # where the pipe enters the rear collar's front shoulder: degrees below the side
+SIDE_TUBE_R = 0.2              # the metal side tubes on the plate, one a side
+SIDE_TUBE_COLLAR = 0.28
+SIDE_TUBE_COLLAR_LEN = 0.22
+SIDE_TUBE_COG_R = 0.4          # their end cogs (tips); the tube's axis stands this high over the panel
+SIDE_TUBE_COG_T = 0.12
+SIDE_TUBE_X_MAX = 2.9          # the outermost axis offset tried
+SIDE_TUBE_X_MIN = 2.05         # ... and the innermost (end cogs clear of the main glass, r 1.55)
+SIDE_TUBE_MIN_LEN = 2.0
+PANEL_TAIL_MID = 3.8           # the lock plate's tail: its middle this far in front of the plate's rear end
+RIVET_R = 0.17                 # the panel's rivets, a pair a side
+RIVET_GAP = 0.5                # between the two of a pair (along the gun)
+RIVET_MIN_X = 2.3              # a rivet's inner edge at least this far from the axis
+WIRE_R = 0.065                 # the wires on the panel
+WIRE_LANES = ((1.95, 0.0),)   # (offset from the axis, wave phase) per wire, each side (one: the side tubes)
+WIRE_WAVE = 0.14
+WIRE_EDGE = 0.08               # panel top left past a wire
+TUBE_X = 0.0
+TUBE_LEGS = ()                 # z of legs to the wood (none: it lies in its channel)
+TUBE_FRONT_NUB = False
+TUBE_SCREWS = False
+TUBE_TOP_FRONT = 29.39         # the wrist top at z -27 (asserted: the stock moved if this changes)
+GLASS_R = 1.55
+COLLAR_R = 1.94                # the round barrel's radius at the breech
+TUBE_BEAD = 0.06               # the bead ring stands this far over the collar
+CHANNEL_GAP = 0.05             # wood clearance round the widest gold (beads) and behind the rear nub
+CHANNEL_FLOOR_BELOW_AXIS = 0.2 # the cut's floor this far under the tube's axis: the wood hugs its lower half
+CHANNEL_RAMP = 0.8             # behind the rear cap the floor rises this much per unit back (about 39 deg)
+CHANNEL_RAMP_REACH = 12.0      # a back bound for the cut, well past where the ramp leaves the wrist
+POCKET_GAP = 0.08              # the rear cap's pocket: this far under its bead ring and in front of it
+CHANNEL_FRONT = -25.33         # the breech plug's rear face
+# Curator's outline (an "L" on the side view: down the breech face, then straight back at the barrel's underside):
+# the wood is taken down across the stock's WHOLE width, not a slot (a slot's side walls hid the tube from the side).
+CHANNEL_HALF_WIDTH = 5.0       # wider than the stock: no side walls, the floor is the stock's own cross-section
+FIT = COLLAR_R / 1.5           # the end fitting's profile was drawn for a 1.5 collar
+TUBE_SEG = 32
+BOLT_TEX = 'textures\\effects\\FXLightningBolt01.dds'
+GLOW_TEX = 'textures\\effects\\ShockBoltTile01.dds'
+GLASS_ENV = 'textures\\cubemaps\\chrome_e.dds'
+GLASS_TINT = (0.80, 0.88, 0.95, 0.18)   # diffuse RGB + alpha
+BOLT_EMISSIVE = (0.72, 0.84, 1.0, 1.0)
+BOLT_SHAPE = 'ClockworkThunderBolt'
+GLOW_SHAPE = 'ClockworkThunderGlow'
+GLASS_SHAPE = 'ClockworkThunderGlass'
+ALPHA_ADDITIVE = 0x100D        # Bethesda's lightning (testlightninggeo.nif): src alpha, dest one
+ALPHA_BLEND = 0x00ED           # src alpha, inverse src alpha
 GUARD_CENTRE = (-31.5, 19.6)   # (z, y): the hole's centre, round the trigger's tip
 GUARD_HOLE = 3.6               # hole radius: clears the trigger tip (5.2 long, 4.6 tall; its top is in the wood)
 GUARD_THICK = 1.4              # across the gun (the old guard was 2.8 wide; curator: subtle)
@@ -686,7 +792,1028 @@ def muzzle_cog(cog, tooth0, ax, bore, zface):
     return P, PN, tris
 
 
+def outline_span(fs, z):
+    """(min x, max x) where the cut outline segments fs (on a plane through z) cross z, or None."""
+    xs = []
+    for p, q in fs:
+        a, b = (p, q) if p[2] <= q[2] else (q, p)
+        if a[2] - 1e-7 <= z <= b[2] + 1e-7 and b[2] - a[2] > 1e-9:
+            xs.append(a[0] + (b[0] - a[0]) * (z - a[2]) / (b[2] - a[2]))
+    return (min(xs), max(xs)) if len(xs) >= 2 else None
+
+
+def plate_cogs(cog, floor_segs, y_floor, z_front, z_back, collar_zs, wires=(), rivets=()):
+    """Curator 2026-11-15: "add some metallic pieces with small cogs on the cut out parts", then (the plate kept over
+    a two-strip version) "cover the plate in cogs". The floor beside the tube is a gold plate (close_cut's floor
+    group goes to the gold shape); cogs lying flat are packed over it, both sides: candidate centres on a fine grid,
+    front to back and outward from the tube, each taking the largest of PLATE_COG_RADII that fits inside the plate's
+    outline (PLATE_COG_MARGIN left past its rim), stays clear of the tube (PLATE_COG_INNER; COLLAR_CLEAR beside the
+    collars, z ranges collar_zs) and meets every placed cog no closer than PLATE_COG_PACK x the sum of the radii
+    (teeth just interleaving). Each turned by its index, so the field does not read as a pattern; placed by size,
+    largest first."""
+    CV, CN, CT = cog
+    rad = np.max(np.linalg.norm(CV[:, :2], axis=1))
+    zmin, zmax = CV[:, 2].min(), CV[:, 2].max()
+    parts, placed = [], []
+    cap = min(PLATE_COG_MAX, 65000 // max(len(CV), len(CT)))      # one shape: vertices and triangles both < 65535
+
+    def inner(z):
+        for za, zb in collar_zs:
+            if za - 0.6 <= z <= zb + 0.6:
+                return COLLAR_CLEAR
+        return PLATE_COG_INNER
+
+    def fits(xc, zc, r):
+        for zz in np.linspace(zc - r, zc + r, 9):
+            sp = outline_span(floor_segs, zz)
+            if sp is None or not (sp[0] + PLATE_COG_MARGIN <= xc - r and xc + r <= sp[1] - PLATE_COG_MARGIN):
+                return False
+            if abs(xc) - r < inner(zz):
+                return False
+            # a cog may overhang the panel's bevel by up to PLATE_COG_OVERHANG
+            if not (PANEL_BEVEL - PLATE_COG_OVERHANG <= xc - r - sp[0] and PANEL_BEVEL - PLATE_COG_OVERHANG <= sp[1] - xc - r):
+                return False
+        for path in wires:                             # off the wires
+            for wx, wz in path:
+                if abs(wz - zc) < r + WIRE_R + 0.03 and math.hypot(wx - xc, wz - zc) < r + WIRE_R + 0.03:
+                    return False
+        for rx_, rz_, rr in rivets:
+            if math.hypot(rx_ - xc, rz_ - zc) < r + rr + 0.04:
+                return False
+        lay = r < PLATE_COG_TOP_BELOW
+        return all(math.hypot(xc - x2, zc - z2) >= (PLATE_COG_PACK if lay == (r2 < PLATE_COG_TOP_BELOW)
+                                                    else PLATE_COG_OVER) * (r + r2) for x2, z2, r2 in placed)
+
+    for r in PLATE_COG_RADII:                         # every cog of one size before the next, largest first
+        for z in np.arange(z_front - 0.3, z_back, -PLATE_COG_GRID):
+            for side in (-1, 1):
+                for a in np.arange(PLATE_COG_INNER, 3.4, PLATE_COG_GRID):     # a = the cog's inner edge
+                    if len(placed) < cap and fits(side * (a + r), z, r):
+                        placed.append((side * (a + r), float(z), r))
+    # two layers: the big cogs on the plate, the small ones one layer up over the gaps (they may overlap a big cog's
+    # edge, never each other)
+    layer = [1 if r < PLATE_COG_TOP_BELOW else 0 for _, _, r in placed]
+    for n_, (xc, zc, r) in enumerate(placed):
+        thick = PLATE_COG_THICK * (r / max(PLATE_COG_RADII)) ** 0.5
+        tz = thick / (zmax - zmin)
+        t = math.radians(37.0 * n_)
+        c, s = math.cos(t), math.sin(t)
+        sc = r / rad
+        rx = (CV[:, 0] * c - CV[:, 1] * s) * sc
+        ry = (CV[:, 0] * s + CV[:, 1] * c) * sc
+        # cog plane (x, y) -> gun (x, z), thickness -> up: a mirror, so the winding flips
+        P = np.stack([xc + rx, y_floor + layer[n_] * PLATE_COG_LAYER + (CV[:, 2] - zmin) * tz - 0.02, zc + ry],
+                     axis=1)
+        tris = CT[:, [0, 2, 1]].copy()
+        PN = np.zeros_like(P)
+        fn_raw = np.cross(P[tris[:, 1]] - P[tris[:, 0]], P[tris[:, 2]] - P[tris[:, 0]])
+        for kk in range(3):
+            np.add.at(PN, tris[:, kk], fn_raw)
+        PN /= np.maximum(np.linalg.norm(PN, axis=1, keepdims=True), 1e-12)
+        top = P[:, 1] > y_floor + layer[n_] * PLATE_COG_LAYER + 0.5 * thick
+        assert (PN[top, 1] > 0).mean() > 0.3, 'plate cog faces down'
+        parts.append((P, PN, tris))
+    by = {r: sum(1 for p in placed if p[2] == r) for r in PLATE_COG_RADII}
+    print('plate cogs: %d (by radius %s; side -1: %d, +1: %d; layers %s)'
+          % (len(placed), by, sum(1 for p in placed if p[0] < 0), sum(1 for p in placed if p[0] > 0),
+             {k_: layer.count(k_) for k_ in sorted(set(layer))}))
+    return parts
+
+
+def tube_end_cog(cog, tooth0, o):
+    """Curator 2026-11-15: "add a Cog to the end of the Tube". The same cog standing on the rear end cap's outer face,
+    coaxial with the tube, facing back: hole round the terminal nub (which stands through it like an axle), tooth
+    tips at the cap's bead ring (so it clears the wood with the cap), END_COG_THICK thick, one tooth straight up."""
+    CV, CN, CT = cog
+    k = FIT
+    H = 0.30 * k + 0.04
+    T = COLLAR_R + TUBE_BEAD
+    B = T - END_COG_TOOTH
+    x, y = remap_cog_radii(CV, H, B, T)
+    t = math.radians(90.0 - tooth0)
+    c, s = math.cos(t), math.sin(t)
+    zmin, zmax = CV[:, 2].min(), CV[:, 2].max()
+    tz = END_COG_THICK / (zmax - zmin)
+    # the cog's front (its max Z) faces back (-Z): Z mirrored, so the winding flips
+    P = np.stack([o[0] + x * c - y * s, o[1] + x * s + y * c, o[2] - (CV[:, 2] - zmin) * tz], axis=1)
+    tris = CT[:, [0, 2, 1]].copy()
+    PN = np.zeros_like(P)
+    fn_raw = np.cross(P[tris[:, 1]] - P[tris[:, 0]], P[tris[:, 2]] - P[tris[:, 0]])
+    for kk in range(3):
+        np.add.at(PN, tris[:, kk], fn_raw)
+    PN /= np.maximum(np.linalg.norm(PN, axis=1, keepdims=True), 1e-12)
+    back = P[:, 2] < o[2] - 0.5 * END_COG_THICK
+    assert (PN[back, 2] < 0).mean() > 0.3, 'end cog faces the wrong way'
+    print('tube end cog: hole %.2f, rim %.2f, tips %.2f, %.2f thick, z %.2f..%.2f'
+          % (H, B, T, END_COG_THICK, P[:, 2].min(), P[:, 2].max()))
+    return P, PN, tris
+
+
 # ---- preview ---------------------------------------------------------------------------------------------
+
+def lathe(profile, origin, axis, nseg, u_scale=1.0, v_scale=0.1):
+    """Surface of revolution: profile = [(t along axis, radius), ...] in order. Every profile segment gets its own
+    two rings (hard edge between segments, smooth around). Returns V, N, T, UV."""
+    axis = np.asarray(axis, float) / np.linalg.norm(axis)
+    a = np.array([1.0, 0, 0]) if abs(axis[0]) < 0.9 else np.array([0, 1.0, 0])
+    e1 = np.cross(axis, a)
+    e1 /= np.linalg.norm(e1)
+    e2 = np.cross(axis, e1)
+    th = np.linspace(0, 2 * math.pi, nseg + 1)
+    V, N, T, UV = [], [], [], []
+    run = 0.0
+    for (t0, r0), (t1, r1) in zip(profile[:-1], profile[1:]):
+        dt, dr = t1 - t0, r1 - r0
+        L = math.hypot(dt, dr)
+        if L < 1e-9:
+            continue
+        nr, na = dt / L, -dr / L                         # outward normal in the (radius, axis) plane
+        base = len(V)
+        for t, r, v in ((t0, r0, run), (t1, r1, run + L)):
+            for k, a_ in enumerate(th):
+                radial = math.cos(a_) * e1 + math.sin(a_) * e2
+                V.append(origin + axis * t + radial * r)
+                N.append(radial * nr + axis * na)
+                UV.append((u_scale * k / nseg, v_scale * v))
+        for k in range(nseg):
+            p, q = base + k, base + k + 1
+            pn, qn = p + nseg + 1, q + nseg + 1
+            T += [(p, q, qn), (p, qn, pn)]
+        run += L
+    V, N, T, UV = np.array(V), np.array(N), np.array(T, int), np.array(UV)
+    fn = tri_normals(V, T)
+    vn = N[T].mean(1)
+    flip = (fn * vn).sum(1) < 0
+    T[flip] = T[flip][:, [0, 2, 1]]
+    return V, N, T, UV
+
+
+def top_samples(V, T):
+    """Points densely sampled on the rifle's upward-facing triangles (the wrist's top)."""
+    N = tri_normals(V, T)
+    up = T[N[:, 1] > 0.3]
+    P0, P1, P2 = V[up[:, 0]], V[up[:, 1]], V[up[:, 2]]
+    pts = []
+    k = 10
+    for a in range(k + 1):
+        for b in range(k + 1 - a):
+            u, v = a / k, b / k
+            pts.append(P0 * (1 - u - v) + P1 * u + P2 * v)
+    return np.concatenate(pts)
+
+
+def top_height(samples, x, z, half=0.3):
+    m = (np.abs(samples[:, 2] - z) < half) & (np.abs(samples[:, 0] - x) < half)
+    assert m.any(), ('no wrist top at', x, z)
+    return float(samples[m, 1].max())
+
+
+def tube_axis(samples, barrel_y):
+    """(origin at the rear end cap, unit direction rear -> front, length, axis height over the original wood along
+    the tube): coaxial with the barrel (its axis y, x 0), running back from the breech. The rear end is found, not
+    set (curator 2026-11-15, after the in-game look: "instead of cutting away just extend the tube length further
+    out so it clears the wood"): the first z, going back, where the wrist top under the whole rear end fitting
+    (cap, bevel and bead, across the bead's width) lies CAP_CLEARANCE under the bead ring's lowest point."""
+    _, z1 = TUBE_Z
+    front = top_height(samples, 0.0, -27.0)
+    assert abs(front - TUBE_TOP_FRONT) < 0.15, ('wrist top moved', front)
+    y = barrel_y
+    k = FIT
+    low = y - COLLAR_R - TUBE_BEAD - CAP_CLEARANCE
+    reach = COLLAR_R + TUBE_BEAD
+    cap_len = 0.44 * k
+    z0 = None
+    for z in np.arange(-34.0, -60.0, -0.05):
+        m = ((samples[:, 2] > z - END_COG_THICK) & (samples[:, 2] < z + cap_len)
+             & (np.abs(samples[:, 0] - TUBE_X) < reach))
+        if m.any() and samples[m, 1].max() < low:
+            z0 = float(z)
+            break
+    assert z0 is not None, 'the wrist never drops under the rear cap'
+    zs = np.linspace(z0, z1, 41)
+    ys = np.array([top_height(samples, TUBE_X, z) for z in zs])
+    o = np.array([TUBE_X, y, z0])
+    return o, np.array([0.0, 0.0, 1.0]), z1 - z0, y - ys
+
+
+def channel_box(o, L):
+    """The cut for the tube, a convex region given by its planes (n, c, name): inside where p . n >= c.
+    floor  y >= yf (just under the tube's axis: the wood comes up round the tube's lower half)
+    ramp   behind the rear cap the floor rises at CHANNEL_RAMP (rise per unit back) into the wrist
+    front  z <= the breech plug's rear face
+    sides  |x| <= CHANNEL_HALF_WIDTH (wider than the stock: no side walls)
+    back   z >= the ramp's foot - CHANNEL_RAMP_REACH (a bound; the ramp has left the wood by then)
+    Returns (planes, yf, z_ramp, z1)."""
+    k = FIT
+    yf = o[1] - CHANNEL_FLOOR_BELOW_AXIS
+    zr = o[2] - 0.45 * k - CHANNEL_GAP
+    z1 = CHANNEL_FRONT
+    t = CHANNEL_RAMP
+    half = CHANNEL_HALF_WIDTH
+    planes = [(np.array([0, 1.0, 0]), yf, 'floor'),
+              (np.array([0, 1.0, t]), yf + t * zr, 'ramp'),
+              (np.array([0, 0, -1.0]), -z1, 'front'),
+              (np.array([1.0, 0, 0]), -half, 'left'),
+              (np.array([-1.0, 0, 0]), -half, 'right'),
+              (np.array([0, 0, 1.0]), zr - CHANNEL_RAMP_REACH, 'back')]
+    return planes, yf, zr, z1
+
+
+def cut_channel(V, A, T, comp, planes):
+    """Cut the convex region out of the chosen pieces of the rifle mesh. V = positions (n,3); A = per-vertex
+    attributes (n,m) interpolated linearly on cut edges; T = triangles. Each triangle that meets the region is split
+    plane by plane (Sutherland-Hodgman): the part outside a plane is kept, the part inside goes on to the next plane,
+    and what is inside all of them is dropped. Returns new V, A, T and, per plane, the cut segments that bound the
+    hole (each clipped to the region), for the closing faces."""
+    newV, newA = [V], [A]
+    nv = [len(V)]
+    segs = {p[2]: [] for p in planes}
+
+    def add(p, a):
+        newV.append(p[None])
+        newA.append(a[None])
+        nv[0] += 1
+        return nv[0] - 1
+
+    def clip_seg(p, q, skip):
+        """The part of segment p-q inside every plane but `skip`."""
+        t0, t1 = 0.0, 1.0
+        for n, c, name in planes:
+            if name == skip:
+                continue
+            dp, dq = p @ n - c, q @ n - c
+            if dp < 0 and dq < 0:
+                return None
+            if dp < 0:
+                t0 = max(t0, dp / (dp - dq))
+            elif dq < 0:
+                t1 = min(t1, dp / (dp - dq))
+        if t1 - t0 < 1e-6:
+            return None
+        return p + (q - p) * t0, p + (q - p) * t1
+
+    # a triangle can only meet the region if every vertex is not outside one same plane
+    D = np.stack([V @ n - c for n, c, _ in planes], 1)          # (nv, planes)
+    meets = comp & ~(D[T] < 0).all(1).any(1)
+    kept = [tuple(t) for t in T[~meets]]
+    flags = list(comp[~meets])
+    dropped = 0
+    for tri in T[meets]:
+        pieces = [[(int(i), V[i], A[i]) for i in tri]]
+        for n, c, name in planes:
+            nxt = []
+            for poly in pieces:
+                d = [p @ n - c for _, p, _ in poly]                 # >= 0: inside this plane
+                if min(d) >= -1e-7:
+                    nxt.append(poly)
+                    continue
+                if max(d) <= 1e-7:
+                    out, ins = poly, []
+                else:
+                    out, ins, cut = [], [], []
+                    for j in range(len(poly)):
+                        a, b = poly[j], poly[(j + 1) % len(poly)]
+                        da, db = d[j], d[(j + 1) % len(poly)]
+                        if da >= 0:
+                            ins.append(a)
+                        else:
+                            out.append(a)
+                        if (da < 0) != (db < 0):
+                            tt = da / (da - db)
+                            p = a[1] + (b[1] - a[1]) * tt
+                            at = a[2] + (b[2] - a[2]) * tt
+                            vi = add(p, at)
+                            out.append((vi, p, at))
+                            ins.append((vi, p, at))
+                            cut.append(p)
+                    if len(cut) == 2:
+                        s = clip_seg(cut[0], cut[1], name)
+                        if s is not None:
+                            segs[name].append(s)
+                if len(out) >= 3:
+                    for j in range(1, len(out) - 1):
+                        kept.append((out[0][0], out[j][0], out[j + 1][0]))
+                        flags.append(True)
+                if len(ins) >= 3:
+                    nxt.append(ins)
+            pieces = nxt
+        dropped += len(pieces)
+    return (np.concatenate(newV), np.concatenate(newA), np.array(kept, int), np.array(flags, bool), segs,
+            int(meets.sum()), dropped)
+
+
+def pocket_box(o):
+    """The second, deeper cut round the rear end cap (curator 2026-11-15, on the first in-game look: "cut away so that
+    the end cap of the tube gold casing is fully visible"): floor just under the cap's bead ring, from in front of the
+    bead back past the nub, then a ramp at CHANNEL_RAMP up into the wrist. Same plane form as channel_box."""
+    k = FIT
+    yp = o[1] - COLLAR_R - TUBE_BEAD - POCKET_GAP
+    zr = o[2] - 0.45 * k - CHANNEL_GAP
+    zf = o[2] + 0.44 * k + POCKET_GAP                  # just in front of the bead ring
+    t = CHANNEL_RAMP
+    half = CHANNEL_HALF_WIDTH
+    planes = [(np.array([0, 1.0, 0]), yp, 'pfloor'),
+              (np.array([0, 1.0, t]), yp + t * zr, 'pramp'),
+              (np.array([0, 0, -1.0]), -zf, 'pfront'),
+              (np.array([1.0, 0, 0]), -half, 'left'),
+              (np.array([-1.0, 0, 0]), -half, 'right'),
+              (np.array([0, 0, 1.0]), zr - CHANNEL_RAMP_REACH, 'back')]
+    return planes, yp, zr, zf
+
+
+def slot_box(o, z_front):
+    """Curator 2026-11-15, in game: "might need cut away the wood a little to house the tube better" - from the strap
+    back the wrist top ran through the glass's lower part, under the first cut's floor. A slot for the tube's rear
+    half: floor just under the collars' bead ring, as wide as the bead ring (+CHANNEL_GAP), from z_front (the strap)
+    back past the end cog and nub; wood walls wherever the wrist is wider than the slot. Same plane form."""
+    k = FIT
+    w = COLLAR_R + TUBE_BEAD + CHANNEL_GAP
+    ys = o[1] - COLLAR_R - TUBE_BEAD - CHANNEL_GAP
+    zb = o[2] - max(0.45 * k, END_COG_THICK) - CHANNEL_GAP
+    planes = [(np.array([0, 1.0, 0]), ys, 'sfloor'),
+              (np.array([0, 0, -1.0]), -z_front, 'sfront'),
+              (np.array([0, 0, 1.0]), zb, 'sback'),
+              (np.array([1.0, 0, 0]), -w, 'sleft'),
+              (np.array([-1.0, 0, 0]), -w, 'sright')]
+    return planes, ys, z_front, zb, w
+
+
+def lockplate_uv_map(V, T, UV, comp):
+    """Curator 2026-11-15: "make the plate look more like the side panels" (picture: the lock plate). UVs for the
+    plate panel from the lock plate's own outer face: a panel point (x, z) is laid proportionally onto the lock
+    plate's face (z along, |x| across -> y) and takes the UV of the lock-plate triangle there (barycentric in the
+    face's (z, y) projection; nearest one, clamped, outside it), so the panel carries the lock plate's polished
+    metal, grime and edge wear in the rifle's own texture set and shader."""
+    ids, counts = np.unique(comp, return_counts=True)
+    best = None
+    for c in ids:
+        sel = np.where(comp == c)[0]
+        pv = V[np.unique(T[sel])]
+        if pv[:, 0].max() < -1.5 and pv[:, 2].max() - pv[:, 2].min() > 15 and (best is None or len(sel) > best[1]):
+            best = (c, len(sel))
+    assert best is not None, 'no lock plate'
+    sel = np.where(comp == best[0])[0]
+    n = tri_normals(V, T[sel])
+    face = sel[n[:, 0] < -0.7]
+    assert len(face) > 10, ('lock plate outer face', len(face))
+    P = V[T[face]]
+    U = UV[T[face]]
+    a, b, cc = P[:, 0, [2, 1]], P[:, 1, [2, 1]], P[:, 2, [2, 1]]
+    den = (b[:, 1] - cc[:, 1]) * (a[:, 0] - cc[:, 0]) + (cc[:, 0] - b[:, 0]) * (a[:, 1] - cc[:, 1])
+    ok = np.abs(den) > 1e-9
+    a, b, cc, den, U = a[ok], b[:, :][ok], cc[ok], den[ok], U[ok]
+    cen = (a + b + cc) / 3
+    fz0, fz1 = cen[:, 0].min(), cen[:, 0].max()
+    fy0, fy1 = cen[:, 1].min(), cen[:, 1].max()
+    print('plate panel UVs from the lock plate (piece %d, %d outer-face triangles, z %.1f..%.1f, y %.1f..%.1f)'
+          % (best[0], len(face), fz0, fz1, fy0, fy1))
+
+    def make(z0, z1, xmax):
+        def uvmap(p):
+            # onto the lock plate's smooth tail (the curator's picture), 0.75 along / 1:1 across: its polish and
+            # wear at about their own size; the middle of the face holds the dark hammer-pivot area
+            zz = fz0 + PANEL_TAIL_MID + 0.75 * (p[2] - 0.5 * (z0 + z1))
+            yy = 0.5 * (fy0 + fy1) + (abs(p[0]) - 0.5 * xmax)
+            l1 = ((b[:, 1] - cc[:, 1]) * (zz - cc[:, 0]) + (cc[:, 0] - b[:, 0]) * (yy - cc[:, 1])) / den
+            l2 = ((cc[:, 1] - a[:, 1]) * (zz - cc[:, 0]) + (a[:, 0] - cc[:, 0]) * (yy - cc[:, 1])) / den
+            L = np.stack([l1, l2, 1 - l1 - l2], 1)
+            inside = np.where((L >= -1e-6).all(1))[0]
+            if len(inside):
+                i = inside[0]
+                w = L[i]
+            else:
+                i = int(np.argmin(((cen - [zz, yy]) ** 2).sum(1)))
+                w = np.clip(L[i], 0, None)
+                w = w / w.sum()
+            u, v = w @ U[i]
+            return (float(u), float(v))
+        return uvmap
+    return make
+
+
+def plate_panel(floor_segs, y_floor, z_lo, z_hi, uvmap):
+    """The plate as a panel like the lock plate: raised PANEL_H over the cut's floor, its top inset PANEL_BEVEL from
+    the cut's outline on both sides, a bevel running down to the outline; it runs from z_hi (the breech wall) back to
+    z_lo (the slot's front), across under the tube. Cut into cells about PANEL_CELL square, so each vertex's UV
+    (sampled from the lock plate) is interpolated over a small patch only. (V, N, T, UV) for the rifle shape."""
+    zs = sorted({round(float(p[2]), 6) for s in floor_segs for p in s} | {round(z_lo, 6), round(z_hi, 6)}
+                | {round(float(z), 6) for z in np.arange(z_lo, z_hi, PANEL_CELL)})
+    zs = [z for z in zs if z_lo - 1e-6 <= z <= z_hi + 1e-6]
+    rows = []
+    for z in zs:
+        sp = outline_span(floor_segs, min(max(z, z_lo + 1e-5), z_hi - 1e-5))
+        if sp is not None and sp[1] - sp[0] > 2 * PANEL_BEVEL + 0.05:
+            rows.append((z, sp[0], sp[1]))
+    assert len(rows) > 3, 'no panel'
+    V, N, T, UV = [], [], [], []
+    yt = y_floor + PANEL_H
+
+    def quad(ps, n):
+        base = len(V)
+        for p in ps:
+            V.append(np.array(p, float))
+            N.append(np.array(n, float) / np.linalg.norm(n))
+            UV.append(uvmap(p))
+        tri = [(base, base + 1, base + 2), (base, base + 2, base + 3)]
+        if np.cross(V[base + 1] - V[base], V[base + 2] - V[base]) @ np.array(n, float) < 0:
+            tri = [(a, c, b) for a, b, c in tri]
+        T.extend(tri)
+
+    bev_n = lambda s: (s * PANEL_H, PANEL_BEVEL, 0.0)
+    for (za, la, ra), (zb, lb, rb) in zip(rows[:-1], rows[1:]):
+        ncol = max(1, int(math.ceil(max(ra - la, rb - lb) / PANEL_CELL)))
+        for c_ in range(ncol):
+            f0, f1 = c_ / ncol, (c_ + 1) / ncol
+            xa0, xa1 = la + PANEL_BEVEL + f0 * (ra - la - 2 * PANEL_BEVEL), la + PANEL_BEVEL + f1 * (ra - la - 2 * PANEL_BEVEL)
+            xb0, xb1 = lb + PANEL_BEVEL + f0 * (rb - lb - 2 * PANEL_BEVEL), lb + PANEL_BEVEL + f1 * (rb - lb - 2 * PANEL_BEVEL)
+            quad([(xa0, yt, za), (xa1, yt, za), (xb1, yt, zb), (xb0, yt, zb)], (0, 1, 0))
+        quad([(ra - PANEL_BEVEL, yt, za), (ra, y_floor, za), (rb, y_floor, zb), (rb - PANEL_BEVEL, yt, zb)], bev_n(1))
+        quad([(la + PANEL_BEVEL, yt, za), (la, y_floor, za), (lb, y_floor, zb), (lb + PANEL_BEVEL, yt, zb)],
+             bev_n(-1))
+    z, l, r = rows[0]                                  # the rear end: a bevel down toward the slot
+    quad([(l + PANEL_BEVEL, yt, z), (r - PANEL_BEVEL, yt, z), (r, y_floor, z - PANEL_BEVEL),
+          (l, y_floor, z - PANEL_BEVEL)], (0, PANEL_BEVEL, -PANEL_H))
+    return np.array(V), np.array(N), np.array(T, int), np.array(UV)
+
+
+def plate_rivets(floor_segs, y_top, z_lo, z_hi, tubes=()):
+    """A pair of round rivets on each side of the panel, like the lock plate's (one behind the other, near the outer
+    edge), at the first z (from the front) with room. Returns (parts [(P, PN, T, UV)], circles [(x, z, r)])."""
+    parts, circles = [], []
+    prof = [(-0.1, 0.0), (-0.1, RIVET_R), (0.03, RIVET_R), (0.09, RIVET_R * 0.75), (0.12, RIVET_R * 0.35),
+            (0.13, 0.0)]
+    for side in (-1, 1):
+        for z in np.arange(z_hi - 1.0, z_lo + 1.0, -0.1):
+            sp1, sp2 = outline_span(floor_segs, z), outline_span(floor_segs, z - RIVET_GAP)
+            if sp1 is None or sp2 is None:
+                continue
+            e = min((sp1[1] if side > 0 else -sp1[0]), (sp2[1] if side > 0 else -sp2[0]))
+            x = e - PANEL_BEVEL - RIVET_R - 0.12
+            clear = all(abs(side * x - tx) > SIDE_TUBE_COG_R + RIVET_R + 0.05 or not (tr - RIVET_R - 0.4 < zz_ < tf + RIVET_R + 0.4)
+                        for _s, tx, tr, tf in tubes for zz_ in (z, z - RIVET_GAP))
+            if x - RIVET_R >= RIVET_MIN_X and clear:
+                for zz in (z, z - RIVET_GAP):
+                    V, N, T, UV = lathe(prof, np.array([side * x, y_top, zz]), (0, 1.0, 0), 12)
+                    parts.append((V, N, T, UV))
+                    circles.append((side * x, zz, RIVET_R))
+                break
+    print('plate rivets: %s' % [(round(x, 2), round(z, 2)) for x, z, _ in circles])
+    return parts, circles
+
+
+def plate_wires(floor_segs, y_top, z_start, z_end, tubes=()):
+    """Curator 2026-11-15: "could you add some wires maybe to the plate?" (sketch: two per side, from under the front
+    collar, snaking back along the plate). Each wire is a gold tube (WIRE_R, 8 sides) lying on the panel along a wavy
+    path: offset from the axis = its lane + WIRE_WAVE x sin (growing in from the collar), clamped inside the panel's
+    top (less WIRE_EDGE) and outside the glass; from under the front collar's edge back to z_end. Returns (parts
+    [(V, N, T, UV)], paths [[(x, z), ...]]) - the paths keep the plate cogs off the wires."""
+    parts, paths = [], []
+    for side in (-1, 1):
+        for lane, phase in WIRE_LANES:
+            pts = []
+            for z in np.arange(z_start, z_end, -0.08):
+                t = (z_start - z) / max(z_start - z_end, 1e-6)
+                off = lane + WIRE_WAVE * math.sin(2 * math.pi * (1.6 * t + phase)) * min(1.0, t * 4)
+                sp = outline_span(floor_segs, z)
+                lo = GLASS_R + WIRE_R + 0.03
+                hi = ((sp[1] if side > 0 else -sp[0]) - PANEL_BEVEL - WIRE_EDGE - WIRE_R) if sp is not None else lo
+                for ts, tx, tr, tf in tubes:                # inboard of the side tube
+                    if ts == side and tr - SIDE_TUBE_COG_R - 0.1 <= z <= tf + SIDE_TUBE_COG_R + 0.1:
+                        hi = min(hi, abs(tx) - SIDE_TUBE_COG_R - WIRE_R - 0.04)
+                pts.append((side * min(max(off, lo), max(hi, lo)), float(z)))
+            if len(pts) < 4:
+                continue
+            P = np.array([[x, y_top + WIRE_R - 0.01, z] for x, z in pts])
+            V, N, T, UV = [], [], [], []
+            seg = 8
+            for i, p in enumerate(P):
+                d = P[min(i + 1, len(P) - 1)] - P[max(i - 1, 0)]
+                d /= np.linalg.norm(d)
+                e1 = np.cross(d, [0, 1.0, 0])
+                e1 /= np.linalg.norm(e1)
+                e2 = np.cross(e1, d)
+                for k in range(seg + 1):
+                    a = 2 * math.pi * k / seg
+                    nn = math.cos(a) * e1 + math.sin(a) * e2
+                    V.append(p + nn * WIRE_R)
+                    N.append(nn)
+                    UV.append((k / seg * 0.1, i * 0.02))
+            for i in range(len(P) - 1):
+                for k in range(seg):
+                    a, b = i * (seg + 1) + k, i * (seg + 1) + k + 1
+                    T += [(a, a + seg + 1, b), (b, a + seg + 1, b + seg + 1)]
+            V, N, T = np.array(V), np.array(N), np.array(T, int)
+            fn = tri_normals(V, T)
+            flip = (fn * N[T].mean(1)).sum(1) < 0
+            T[flip] = T[flip][:, [0, 2, 1]]
+            parts.append((V, N, T, np.array(UV)))
+            paths.append(pts)
+    print('plate wires: %d' % len(paths))
+    return parts, paths
+
+
+def groove_box(o, z_front):
+    """Curator 2026-11-15 (in game, after a box slot left only a gap): "I still want the wood, just space for the
+    tube to sit in". A groove: a GROOVE_SIDES-sided prism round the tube's axis, circumscribing a circle of the bead
+    ring's radius + CHANNEL_GAP, from z_front (the strap) back past the end cog and nub. Only wood inside it goes;
+    the wood beside and under the tube stays. Planes in the cut's form (inside where p . n >= c); also returns the
+    prism's faces (n, centre offset, half width) for groove_faces."""
+    k = FIT
+    r_in = COLLAR_R + TUBE_BEAD + CHANNEL_GAP          # the faces' distance from the axis
+    R = r_in / math.cos(math.pi / GROOVE_SIDES)          # the corners'
+
+    zb = o[2] - max(0.45 * k, END_COG_THICK) - CHANNEL_GAP
+    planes, faces = [], []
+    for i in range(GROOVE_SIDES):
+        a = 2 * math.pi * (i + 0.5) / GROOVE_SIDES
+        radial = np.array([math.cos(a), math.sin(a), 0.0])
+        n = -radial                                         # inside = toward the axis
+        c = float(n @ (np.array([o[0], o[1], 0.0]) + radial * r_in))
+        planes.append((n, c, 'g%d' % i))
+        faces.append((n, radial, r_in * math.tan(math.pi / GROOVE_SIDES)))
+    planes += [(np.array([0, 0, -1.0]), -z_front, 'gfront'), (np.array([0, 0, 1.0]), zb, 'gback')]
+    return planes, faces, r_in, zb
+
+
+def groove_faces(segs, faces, o, r_in, z_lo, z_hi, inside, y_front, uvmap):
+    """Closing faces of the groove. Each prism face is filled where it lies in the wood: for each z interval (break
+    points at the cut segments' ends and every GROOVE_STEP), the face's width is split at the cut outline's
+    crossings and each piece whose middle is inside the wood (inside(p)) becomes a quad. The front end wall (the
+    prism's cross-section at z_hi clipped at the wood's height there, y_front) is a fan. (V, N, T, UV)."""
+    V, N, T, UV = [], [], [], []
+    ax = np.array([o[0], o[1], 0.0])
+
+    def quad(ps, n):
+        base = len(V)
+        for p in ps:
+            V.append(np.array(p, float))
+            N.append(np.array(n, float))
+            UV.append(uvmap(p))
+        tri = [(base, base + 1, base + 2), (base, base + 2, base + 3)]
+        if np.cross(V[base + 1] - V[base], V[base + 2] - V[base]) @ np.array(n, float) < 0:
+            tri = [(a, c, b) for a, b, c in tri]
+        T.extend(tri)
+
+    for i, (n, radial, h) in enumerate(faces):
+        t = np.array([-radial[1], radial[0], 0.0])
+        fc = ax + radial * r_in
+        fs = segs['g%d' % i]
+        zs = sorted({round(float(p[2]), 6) for s in fs for p in s}
+                    | {round(float(z), 6) for z in np.arange(z_lo, z_hi, GROOVE_STEP)} | {round(z_lo, 6), round(z_hi, 6)})
+        zs = [z for z in zs if z_lo - 1e-6 <= z <= z_hi + 1e-6]
+
+        def cuts(z):
+            us = []
+            for p, q in fs:
+                a_, b_ = (p, q) if p[2] <= q[2] else (q, p)
+                if a_[2] - 1e-7 <= z <= b_[2] + 1e-7 and b_[2] - a_[2] > 1e-9:
+                    m = a_ + (b_ - a_) * (z - a_[2]) / (b_[2] - a_[2])
+                    us.append(float((m - fc) @ t))
+            return sorted(us)
+
+        def strip(za, zb, depth=0):
+            """Fill one z interval of this face; where the outline crosses it a different number of times at its two
+            ends, split it until they agree (skipping it left notches in the groove's edge)."""
+            if zb - za < 1e-5:
+                return
+            ca, cb = cuts(za + 1e-6), cuts(zb - 1e-6)
+            if len(ca) != len(cb):
+                if depth < 10:
+                    zm_ = 0.5 * (za + zb)
+                    strip(za, zm_, depth + 1)
+                    strip(zm_, zb, depth + 1)
+                return
+            ba, bb = [-h] + ca + [h], [-h] + cb + [h]
+            for k in range(len(ba) - 1):
+                um = 0.25 * (ba[k] + ba[k + 1] + bb[k] + bb[k + 1])
+                pm = fc + t * um
+                pm[2] = 0.5 * (za + zb)
+                if max(ba[k + 1] - ba[k], bb[k + 1] - bb[k]) < 1e-6 or not inside(pm):
+                    continue
+                pts = []
+                for z, u in ((za, ba[k]), (za, ba[k + 1]), (zb, bb[k + 1]), (zb, bb[k])):
+                    p = fc + t * u
+                    p[2] = z
+                    pts.append(p)
+                quad(pts, n)
+
+        for za, zb in zip(zs[:-1], zs[1:]):
+            strip(za, zb)
+    # the front end wall: the prism's cross-section at z_hi, below the wood, facing back into the groove
+    poly = [ax + radial * r_in + np.array([-radial[1], radial[0], 0.0]) * h for n, radial, h in faces]
+    clipped = []                                       # Sutherland-Hodgman: keep y <= y_front
+    for j in range(len(poly)):
+        a, b = poly[j], poly[(j + 1) % len(poly)]
+        da, db = y_front - a[1], y_front - b[1]
+        if da >= 0:
+            clipped.append(a)
+        if (da >= 0) != (db >= 0):
+            clipped.append(a + (b - a) * (da / (da - db)))
+    pts = [np.array([p[0], p[1], z_hi]) for p in clipped]
+    if len(pts) >= 3:
+        cen = np.mean(pts, 0)
+        for a, b in zip(pts, pts[1:] + pts[:1]):
+            base = len(V)
+            for p in (cen, a, b):
+                V.append(p)
+                N.append(np.array([0, 0, -1.0]))
+                UV.append(uvmap(p))
+            tri = (base, base + 1, base + 2)
+            if np.cross(V[base + 1] - V[base], V[base + 2] - V[base]) @ np.array([0, 0, -1.0]) < 0:
+                tri = (base, base + 2, base + 1)
+            T.append(tri)
+    return np.array(V), np.array(N), np.array(T, int), np.array(UV)
+
+
+def sweep_tube(P, r, seg=10):
+    """A tube of radius r swept along the polyline P (n, 3), with rounded ends. (V, N, T, UV)."""
+    V, N, T, UV = [], [], [], []
+    frames = []
+    for i, p in enumerate(P):
+        d = P[min(i + 1, len(P) - 1)] - P[max(i - 1, 0)]
+        d /= np.linalg.norm(d)
+        e1 = np.cross(d, [0, 1.0, 0])
+        e1 /= np.linalg.norm(e1)
+        e2 = np.cross(e1, d)
+        frames.append((d, e1, e2))
+        for k in range(seg + 1):
+            a = 2 * math.pi * k / seg
+            nn = math.cos(a) * e1 + math.sin(a) * e2
+            V.append(p + nn * r)
+            N.append(nn)
+            UV.append((k / seg * 0.15, i * 0.03))
+    for i in range(len(P) - 1):
+        for k in range(seg):
+            a, b = i * (seg + 1) + k, i * (seg + 1) + k + 1
+            T += [(a, a + seg + 1, b), (b, a + seg + 1, b + seg + 1)]
+    V, N, T, UV = np.array(V), np.array(N), np.array(T, int), np.array(UV)
+    fn = tri_normals(V, T)
+    flip = (fn * N[T].mean(1)).sum(1) < 0
+    T[flip] = T[flip][:, [0, 2, 1]]
+    parts = [(V, N, T, UV)]
+    cap = [(0.0, r), (0.35 * r, 0.94 * r), (0.7 * r, 0.7 * r), (0.95 * r, 0.3 * r), (r, 0.0)]
+    for p, (d, _e1, _e2), sgn in ((P[0], frames[0], -1.0), (P[-1], frames[-1], 1.0)):
+        parts.append(lathe(cap, p, d * sgn, seg))
+    return parts
+
+
+def bezier(A, dA, B, dB, n):
+    """n points of the cubic from A (leaving along dA) to B (arriving along dB), A and B included."""
+    s_ = np.linalg.norm(B - A) / 3.0
+    c1, c2 = A + dA / np.linalg.norm(dA) * s_, B - dB / np.linalg.norm(dB) * s_
+    t = np.linspace(0, 1, n)[:, None]
+    return (1 - t) ** 3 * A + 3 * (1 - t) ** 2 * t * c1 + 3 * (1 - t) * t ** 2 * c2 + t ** 3 * B
+
+
+def groove_edge_tubes(gsegs, z_lo, z_hi, o, side_tubes, y_side):
+    """Curator 2026-11-15, in game: the groove's edges looked jagged - "maybe we could hide them with more metal
+    tubing?" - then "the pipes aren't connected to anything and look a little creased in areas, have them bow
+    smoothly and then connect to the end of the tube parts". A gold tube (EDGE_TUBE_R) along each side's groove edge:
+    the edge traced from the groove's own cut outline (per EDGE_TUBE_BIN of z, the outline point farthest from the
+    axis on that side) and fitted with a cubic in z (no kinks); its front end bends (cubic Bezier, tangents matched)
+    into the rear end of that side's metal side tube, along its axis; its rear end into the main tube's rear collar,
+    entering its front shoulder low on that side."""
+    pts = np.array([p for name, ss in gsegs.items() if name.startswith('g') and name[1:].isdigit()
+                    for s in ss for p in s])
+    assert len(pts), 'no groove outline'
+    k = FIT
+    parts, report = [], []
+    for side in (-1, 1):
+        sel = pts[(pts[:, 0] - o[0]) * side > 0.3]
+        path = []
+        for z in np.arange(z_lo + 0.5 * EDGE_TUBE_BIN, z_hi, EDGE_TUBE_BIN):
+            m = np.abs(sel[:, 2] - z) < 0.5 * EDGE_TUBE_BIN
+            if m.any():
+                q = sel[m][np.argmax((sel[m][:, 0] - o[0]) * side)]
+                path.append((q[0], q[1], z))
+        assert len(path) > 6, ('no groove edge', side)
+        P = np.array(path)
+        cx = np.polyfit(P[:, 2], P[:, 0], 3)
+        cy = np.polyfit(P[:, 2], P[:, 1] + EDGE_TUBE_R * 0.4, 3)
+        curve = lambda z: np.array([np.polyval(cx, z), np.polyval(cy, z), z])
+        tangent = lambda z: np.array([np.polyval(np.polyder(cx), z), np.polyval(np.polyder(cy), z), 1.0])
+        z0, z1 = P[0, 2] + EDGE_TUBE_TRIM, P[-1, 2] - EDGE_TUBE_TRIM
+        mid = np.array([curve(z) for z in np.arange(z0, z1 + 1e-6, 0.12)])
+        # front: into the rear end of this side's side tube, along its axis
+        st = [t_ for t_ in side_tubes if t_[0] == side][0]
+        F = np.array([st[1], y_side, st[2] - SIDE_TUBE_COG_T - 0.03])
+        front = bezier(mid[-1], tangent(z1), F, np.array([0, 0, 1.0]), 14)
+        # rear: into the rear collar's front shoulder, low on this side
+        a = math.radians(EDGE_TUBE_COLLAR_ANGLE)
+        rr = 1.3 * k - 0.05
+        Rt = np.array([o[0] + side * rr * math.cos(a), o[1] - rr * math.sin(a), o[2] + 0.95 * k - 0.05])
+        rear = bezier(Rt, np.array([0, 0, 1.0]), mid[0], tangent(z0), 14)
+        S = np.concatenate([rear[:-1], mid, front[1:]])
+        parts += sweep_tube(S, EDGE_TUBE_R, 12)
+        report.append((side, round(float(S[0, 2]), 2), round(float(S[-1, 2]), 2), len(S)))
+    print('groove edge tubes (side, z from, z to, points): %s' % report)
+    return parts
+
+
+def side_tube_layout(floor_segs, z_lo, z_hi):
+    """Curator 2026-11-15: "on either side of the plate add 2 tubes with cogs on the end". One small tube a side,
+    lying on the panel along the gun: for each side, over axis offsets x from SIDE_TUBE_X_MAX inward to
+    SIDE_TUBE_X_MIN (clear of the main glass), the longest stretch within z_lo..z_hi where the panel's top leaves
+    room for the end cogs; the longest overall (the outermost among lengths within 0.2), at least SIDE_TUBE_MIN_LEN. Returns [(side, x (signed), z_rear,
+    z_front)]."""
+    out = []
+    reach = SIDE_TUBE_COG_R + 0.04
+    zs = np.arange(z_hi, z_lo, -0.05)
+    for side in (-1, 1):
+        best = None
+        for x in np.arange(SIDE_TUBE_X_MAX, SIDE_TUBE_X_MIN - 1e-6, -0.05):
+            run, best_run = [], []
+            for z in zs:
+                sp = outline_span(floor_segs, z)
+                ok = sp is not None and (sp[1] if side > 0 else -sp[0]) - PANEL_BEVEL - reach >= x
+                if ok:
+                    run.append(z)
+                    if len(run) > len(best_run):
+                        best_run = list(run)
+                else:
+                    run = []
+            if best_run:
+                length = best_run[0] - best_run[-1]
+                # the longest tube; among nearly equal lengths the outermost (x runs outward-first)
+                if best is None or length > best[4] + 0.2:
+                    best = (side, float(side * x), float(best_run[-1]) + reach, float(best_run[0]) - reach, length)
+        assert best is not None and best[4] >= SIDE_TUBE_MIN_LEN, ('no room for a side tube', side, best)
+        out.append(best[:4])
+    print('side tubes (side, x, z rear, z front): %s' % [tuple(round(v, 2) for v in b) for b in out])
+    return out
+
+
+def side_tube_parts(cog, tooth0, tubes, y_top):
+    """The side tubes, all gold metal (curator: "metal tubes"): a pipe of SIDE_TUBE_R, a collar at each end and a cog
+    on each end face (axis along the gun, an axle nub through it), standing on the panel. (V, N, T, UV or None for
+    the cog's own UVs) each."""
+    CV, CN, CT = cog
+    parts = []
+    zmin, zmax = CV[:, 2].min(), CV[:, 2].max()
+    collar = [(0.0, 0.0), (0.0, SIDE_TUBE_COLLAR), (SIDE_TUBE_COLLAR_LEN, SIDE_TUBE_COLLAR),
+              (SIDE_TUBE_COLLAR_LEN, SIDE_TUBE_R + 0.02), (SIDE_TUBE_COLLAR_LEN + 0.15, SIDE_TUBE_R + 0.02)]
+    nub = [(-0.06, 0.0), (-0.06, 0.08), (SIDE_TUBE_COG_T + 0.08, 0.08), (SIDE_TUBE_COG_T + 0.08, 0.0)]
+    for side, x, zr, zf in tubes:
+        y = y_top + SIDE_TUBE_COG_R + 0.01                  # the end cogs stand on the panel
+        parts.append(lathe([(0.0, SIDE_TUBE_R), (zf - zr, SIDE_TUBE_R)], np.array([x, y, zr]), (0, 0, 1.0), 16,
+                           u_scale=0.5, v_scale=0.15))
+        for zend, d in ((zr, 1.0), (zf, -1.0)):
+            o = np.array([x, y, zend])
+            V, N, T, UV = lathe(collar, o, (0, 0, d), 16)
+            parts.append((V, N, T, UV))
+            # the cog on the end face, facing out (along -d), its hole round the nub
+            H = 0.1
+            Tt = SIDE_TUBE_COG_R
+            B = Tt - 0.12
+            xx, yy = remap_cog_radii(CV, H, B, Tt)
+            tz = SIDE_TUBE_COG_T / (zmax - zmin)
+            t = math.radians(90.0 - tooth0)
+            c, s_ = math.cos(t), math.sin(t)
+            P = np.stack([x + xx * c - yy * s_, y + xx * s_ + yy * c, zend - d * (CV[:, 2] - zmin) * tz], axis=1)
+            tris = CT[:, [0, 2, 1]].copy() if d > 0 else CT.copy()
+            PN = np.zeros_like(P)
+            fn_raw = np.cross(P[tris[:, 1]] - P[tris[:, 0]], P[tris[:, 2]] - P[tris[:, 0]])
+            for kk in range(3):
+                np.add.at(PN, tris[:, kk], fn_raw)
+            PN /= np.maximum(np.linalg.norm(PN, axis=1, keepdims=True), 1e-12)
+            outward = P[:, 2] * d < (zend - d * 0.5 * SIDE_TUBE_COG_T) * d
+            assert (PN[outward, 2] * -d > 0).mean() > 0.3, 'side tube cog faces the wrong way'
+            parts.append((P, PN, tris, None))
+            V, N, T, UV = lathe(nub, np.array([x, y, zend]), (0, 0, -d), 10)
+            parts.append((V, N, T, UV))
+    return parts
+
+
+def close_cut(segs, planes, fills, drops, floor_y, uvmaps):
+    """Faces closing a cut. Fill planes (floor, ramp: not vertical, normal without X): each plane's cross-section of
+    the stock, filled from its cut outline by strips between the outline's break points (between two, each side is
+    one straight segment; inner cavities such as the lock mortise are covered over: the lock stands in the wood).
+    Drop planes (vertical): each cut edge carried straight down to floor_y. Returns {group: (V, N, T, UV)}, groups
+    each fill plane's name and each drop plane's name; uvmaps[group](point) gives a vertex's UVs."""
+    out = {}
+    pl = {name: (n, c) for n, c, name in planes}
+
+    def group(name):
+        if name not in out:
+            out[name] = ([], [], [], [])
+        return out[name]
+
+    def quad(gname, ps, n, coords):
+        V, N, T, UV = group(gname)
+        base = len(V)
+        for p in ps:
+            V.append(p)
+            N.append(n)
+            UV.append(uvmaps[gname](p))
+        tri = [(base, base + 1, base + 2), (base, base + 2, base + 3)]
+        if np.cross(ps[1] - ps[0], ps[2] - ps[0]) @ n < 0:
+            tri = [(a, c, b) for a, b, c in tri]
+        T.extend(tri)
+
+    def fill(gname, fs, yfun, n):
+        zs = sorted({round(float(p[2]), 6) for s in fs for p in s})
+
+        def span(z):
+            xs = []
+            for p, q in fs:
+                a, b = (p, q) if p[2] <= q[2] else (q, p)
+                if a[2] - 1e-7 <= z <= b[2] + 1e-7 and b[2] - a[2] > 1e-9:
+                    xs.append(a[0] + (b[0] - a[0]) * (z - a[2]) / (b[2] - a[2]))
+            return (min(xs), max(xs)) if len(xs) >= 2 else None
+
+        made = 0
+        for za, zb in zip(zs[:-1], zs[1:]):
+            if zb - za < 1e-5:
+                continue
+            sa, sb = span(za + 1e-5), span(zb - 1e-5)
+            if sa is None or sb is None:
+                continue
+            ps = [np.array([x, yfun(z), z]) for x, z in ((sa[0], za), (sa[1], za), (sb[1], zb), (sb[0], zb))]
+            quad(gname, ps, n, lambda p: (p[2], p[0]))
+            made += 1
+        return made
+
+    for name in fills:
+        n, c = pl[name]
+        assert abs(n[0]) < 1e-9 and n[1] > 0, name
+        made = fill(name, segs[name], lambda z, n=n, c=c: (c - n[2] * z) / n[1], n / np.linalg.norm(n))
+        # the floor must close something; the ramp only where the wrist still stands over the floor behind the tube
+        assert made or name != fills[0], ('no faces for', name)
+    for name in drops:
+        n, c = pl[name]
+        for p, q in segs[name]:
+            if abs(p[1] - floor_y) < 1e-4 and abs(q[1] - floor_y) < 1e-4:
+                continue
+            pd, qd = p.copy(), q.copy()
+            pd[1] = qd[1] = floor_y
+            quad(name, [p, q, qd, pd], n, lambda p: (p[0], p[1]))
+    for name in ('left', 'right', 'back'):
+        assert not segs.get(name), ('the cut reached a side or its back bound', name)
+    return {k: (np.array(v[0]), np.array(v[1]), np.array(v[2], int), np.array(v[3])) for k, v in out.items()}
+
+
+def wood_uv_map(V, T, UV, metal, mask, z0, z1):
+    """UVs for cut faces: a point takes the UV of the original stock surface straight above it (projected along Y
+    onto the upward-facing stock triangles between z0 and z1, the wood the cut removes; the highest one if several),
+    so the cut faces carry the wood that was there and meet the uncut wood without a seam. Outside the top's
+    footprint, the nearest top triangle's barycentric weights, clamped. (A single planar map through one triangle,
+    the first try, ran off its UV island onto metal; the butt-side source of the first build read paler in game.)"""
+    n = tri_normals(V, T)
+    c = V[T].mean(1)
+    sel = np.where(mask & (n[:, 1] > 0.2) & (c[:, 2] > z0 - 1) & (c[:, 2] < z1 + 1))[0]
+    assert len(sel) > 20, ('no wrist top to take wood from', len(sel))
+    P = V[T[sel]]                       # (k, 3, 3)
+    U = UV[T[sel]]                      # (k, 3, 2)
+    a, b, cc = P[:, 0, [0, 2]], P[:, 1, [0, 2]], P[:, 2, [0, 2]]
+    den = (b[:, 1] - cc[:, 1]) * (a[:, 0] - cc[:, 0]) + (cc[:, 0] - b[:, 0]) * (a[:, 1] - cc[:, 1])
+    ok = np.abs(den) > 1e-9
+    P, U, a, b, cc, den = P[ok], U[ok], a[ok], b[ok], cc[ok], den[ok]
+    cen = (a + b + cc) / 3
+    H, W = metal.shape
+
+    def uvmap(p):
+        x, z = p[0], p[2]
+        l1 = ((b[:, 1] - cc[:, 1]) * (x - cc[:, 0]) + (cc[:, 0] - b[:, 0]) * (z - cc[:, 1])) / den
+        l2 = ((cc[:, 1] - a[:, 1]) * (x - cc[:, 0]) + (a[:, 0] - cc[:, 0]) * (z - cc[:, 1])) / den
+        l3 = 1 - l1 - l2
+        L = np.stack([l1, l2, l3], 1)
+        inside = (L >= -1e-6).all(1)
+        if inside.any():
+            ys = (L[inside, :, None] * P[inside]).sum(1)[:, 1]
+            i = np.where(inside)[0][np.argmax(ys)]
+            w = L[i]
+        else:
+            i = int(np.argmin(((cen - [x, z]) ** 2).sum(1)))
+            w = np.clip(L[i], 0, None)
+            w = w / w.sum()
+        u, v = w @ U[i]
+        assert metal[int(v % 1 * (H - 1)), int(u % 1 * (W - 1))] < 0.5, ('cut-face wood UV landed on metal', p, u, v)
+        return (float(u), float(v))
+    print('cut faces take their wood from %d wrist-top triangles straight above them' % len(P))
+    return uvmap
+
+
+def tube_fittings(o, d, L, samples):
+    """Gold: an end fitting at each end (terminal nub, cap, bevel, bead, collar running into the glass), a strap
+    round the middle and a screw head on the wood at each of its feet. (V, N, T, UV) lists for the cog shape."""
+    G = GLASS_R
+    k = FIT
+    end = [(-0.45 * k, 0.0), (-0.45 * k, 0.30 * k), (0.0, 0.30 * k), (0.0, 1.25 * k), (0.12 * k, COLLAR_R),
+           (0.30 * k, COLLAR_R), (0.30 * k, COLLAR_R + TUBE_BEAD), (0.44 * k, COLLAR_R + TUBE_BEAD),
+           (0.44 * k, COLLAR_R),
+           (0.80 * k, COLLAR_R), (0.95 * k, 1.30 * k), (0.95 * k, G + 0.03), (1.30 * k, G + 0.03)]
+    front = end if TUBE_FRONT_NUB else [(0.0, 0.0)] + end[3:]
+    parts = [lathe(end, o, d, TUBE_SEG), lathe(front, o + d * L, -d, TUBE_SEG)]
+    m = o + d * (0.5 * L)
+    rs = G + 0.12
+    strap = [(-0.2, G - 0.02), (-0.2, rs), (0.2, rs), (0.2, G - 0.02)]
+    parts.append(lathe(strap, m, d, TUBE_SEG))
+    # a screw head on the wood just outside each side of the strap; its axis is the wrist's up at the strap
+    up = np.cross(d, np.array([1.0, 0, 0]))
+    up = up if up[1] > 0 else -up
+    screw = [(-0.25 * k, 0.0), (-0.25 * k, 0.36 * k), (0.10 * k, 0.36 * k), (0.18 * k, 0.27 * k), (0.24 * k, 0.0)]
+    # legs: a post from under the tube to the wrist top, a flange on the wood (sunk 0.2) and a saddle under the tube
+    for zl in TUBE_LEGS:
+        assert TUBE_Z[0] + 1.5 * k < zl < TUBE_Z[1] - 1.5 * k, ('leg off the tube', zl)
+        wood = top_height(samples, o[0], zl, 0.25)
+        top = o[1] - G + 0.1                               # just inside the glass's underside
+        h = top - wood + 0.2
+        assert h > 0.5, ('leg too short: the tube sits on the wood there', zl, h)
+        leg = [(-0.2, 0.0), (-0.2, 0.75), (0.0, 0.75), (0.12, 0.42), (h - 0.35, 0.36), (h - 0.2, 0.62),
+               (h, 0.62), (h, 0.0)]
+        parts.append(lathe(leg, np.array([o[0], wood, zl]), (0, 1.0, 0), 16))
+    for sgn in ((-1, 1) if TUBE_SCREWS else ()):
+        x = sgn * (rs + 0.25)
+        y = top_height(samples, x, m[2], 0.25)
+        parts.append(lathe(screw, np.array([x, y, m[2]]), up, 16))
+    return parts
+
+
+def tube_glass(o, d, L):
+    return lathe([(0.0, GLASS_R), (L - 1.8 * FIT, GLASS_R)], o + d * (0.9 * FIT), d, TUBE_SEG,
+                 u_scale=1.0, v_scale=1.0 / L)
+
+
+def tube_cards(o, d, L, half_width, angles, u_span):
+    """Flat cards through the axis (both faces drawn by the shader): u across (0..u_span), v along 0..1.
+    0 deg lies flat (across the gun, facing up), so it faces a player looking down at the wrist."""
+    a0, a1 = o + d * (1.1 * FIT), o + d * (L - 1.1 * FIT)
+    ex = np.array([1.0, 0, 0])
+    ey = np.cross(d, ex)
+    V, T, UV = [], [], []
+    for ang in angles:
+        a = math.radians(ang)
+        w = (math.cos(a) * ex + math.sin(a) * ey) * half_width
+        base = len(V)
+        for (u, v, pt) in ((0, 0, a0 - w), (u_span, 0, a0 + w), (u_span, 1, a1 + w), (0, 1, a1 - w)):
+            V.append(np.array(pt, float))
+            UV.append((u, v))
+        T += [(base, base + 1, base + 2), (base, base + 2, base + 3)]
+    V, T, UV = np.array(V), np.array(T, int), np.array(UV, float)
+    n = tri_normals(V, T)
+    N = np.zeros_like(V)
+    for k in range(3):
+        np.add.at(N, T[:, k], n)
+    N /= np.linalg.norm(N, axis=1, keepdims=True)
+    return V, N, T, UV
+
+
+def sized(s):
+    e = s.encode()
+    return struct.pack('<I', len(e)) + e
+
+
+def effect_shader(tex, emissive, mult, flags1, flags2, falloff=(1.0, 1.0, 1.0, 1.0)):
+    """BSEffectShaderProperty (BS 83/100 share this layout; decoded from Bethesda's testlightninggeo.nif):
+    name, extra data, controller, flags 1/2, UV offset/scale, source texture, clamp/lighting influence/env LOD,
+    falloff (start angle, stop angle, start opacity, stop opacity), emissive colour, emissive multiple, soft
+    falloff depth, greyscale texture. Controller ref patched by the caller."""
+    return (struct.pack('<iIi', -1, 0, -1) + struct.pack('<II', flags1, flags2) +
+            struct.pack('<4f', 0.0, 0.0, 1.0, 1.0) + sized(tex) + bytes([3, 255, 0, 0]) +
+            struct.pack('<4f', *falloff) + struct.pack('<4f', *emissive) + struct.pack('<2f', mult, 100.0) +
+            sized(''))
+
+
+EFFECT_CONTROLLER_OFFSET = 8   # name + extra-data count (0), then the controller ref
+
+
+def add_float_controllers(nif, shader_i, tracks):
+    """tracks = [(controlled variable, period, [(t, value), ...])]: one BSEffectShaderPropertyFloatController
+    each (looping, Active + Compute Scaled Time like Bethesda's: flags 0x48), chained, linear keys. Variables:
+    0 emissive multiple, 6 U offset, 8 V offset. Steps are written as two keys 0.001 s apart."""
+    first = prev = -1
+    made = []
+    for var, period, keys in tracks:
+        data = struct.pack('<II', len(keys), 1) + b''.join(struct.pack('<2f', t, v) for t, v in keys)
+        d = nif.add_block('NiFloatData', data)
+        it = nif.add_block('NiFloatInterpolator', struct.pack('<fi', -3.4028234663852886e+38, d))
+        c = nif.add_block('BSEffectShaderPropertyFloatController',
+                          struct.pack('<iHffffiiI', -1, 0x48, 1.0, 0.0, 0.0, period, shader_i, it, var))
+        if prev < 0:
+            first = c
+        else:
+            struct.pack_into('<i', nif.blocks[prev], 0, c)
+        prev = c
+        made += [d, it, c]
+    struct.pack_into('<i', nif.blocks[shader_i], EFFECT_CONTROLLER_OFFSET, first)
+    return made
+
+
+def steps(period, values, dt):
+    """Stepped keys: values held dt each, looping over period."""
+    keys, t = [], 0.0
+    for k, v in enumerate(values):
+        if k:
+            keys.append((t - 0.001, values[k - 1]))
+        keys.append((t, v))
+        t += dt
+    keys.append((period, values[-1]))
+    return keys
+
+
+def alpha_property(flags, threshold):
+    return struct.pack('<iIiHB', -1, 0, -1, flags, threshold)
+
 
 def preview(prefix, layers):
     """Side views (lock side, plate side): painter's algorithm over (V, T, UV, texture) layers."""
@@ -838,17 +1965,163 @@ def main():
         AV.append(P)
         AN.append(PN)
         AUV.append(CUV)
+    tops = top_samples(RV, RT_SURF)
+    t_o, t_d, t_L, t_clear = tube_axis(tops, bax[1])
+
+    # ---- the channel for the tube, cut into the rifle's own mesh
+    planes, c_yf, c_zr, c_z1 = channel_box(t_o, t_L)
+    comp = components(RV, RT)
+    ids, counts = np.unique(comp, return_counts=True)
+    cut_ids = {int(ids[np.argmax(counts)])}            # the stock: the largest welded piece
+    for c in ids:
+        pv = RV[np.unique(RT[comp == c])]
+        if (np.abs(pv[:, 0]).max() <= COLLAR_R and pv[:, 2].max() > c_zr - CHANNEL_RAMP_REACH
+                and pv[:, 2].min() < c_z1 and pv[:, 1].max() > c_yf):
+            cut_ids.add(int(c))                        # e.g. the tang: wholly under the tube
+    RN, RTg, RBt = np.array(rd['normals']), np.array(rd['tangents']), np.array(rd['bitangents'])
+    RC = np.array(rd['colors'])
+    nv_before = len(RV)
+    wood = wood_uv_map(RV, RT, RUV, metal, np.isin(comp, list(cut_ids)), c_zr - 4.0, c_z1)  # the wrist as it was
+    gold_uv = lambda p: (0.5 + 0.12 * p[0], 0.5 + 0.12 * p[1])          # vertical faces: across, up
+    gold_floor_uv = lambda p: (0.5 + 0.12 * p[0], 0.5 + 0.12 * p[2])
+
+    def add_faces(groups, names):
+        """Append closing faces to the rifle shape (tangents from UVs as the cogs, white vertex colours)."""
+        nonlocal RV, RN, RTg, RBt, RUV, RC, RT, flags
+        for g in names:
+            if g not in groups:
+                continue
+            WV, WN, WT, WUV = groups[g]
+            du_, dv_ = uv_derivatives(WV, WUV, WT)
+            wder = {'du': ortho(du_, WN), 'dv': ortho(dv_, WN)}
+            RT = np.concatenate([RT, WT + len(RV)])
+            flags = np.concatenate([flags, np.ones(len(WT), bool)])
+            RV = np.concatenate([RV, WV])
+            RN = np.concatenate([RN, WN])
+            RTg = np.concatenate([RTg, wder[conv[0]] * conv[1]])
+            RBt = np.concatenate([RBt, wder[conv[2]] * conv[3]])
+            RUV = np.concatenate([RUV, WUV])
+            RC = np.concatenate([RC, np.ones((len(WV), 4))])
+
+    report = []
+    flags = np.isin(comp, list(cut_ids))
+    # (a second, deeper cut round the rear cap, `pocket_box`, was built and replaced the same day by a longer tube
+    # whose rear cap clears the wood: curator, "instead of cutting away just extend the tube length")
+    for planes_, fills, drops, floor_y, label in ((planes, ('floor', 'ramp'), ('front',), c_yf, 'channel'),):
+        A = np.c_[RN, RTg, RBt, RUV, RC]
+        RV, A, RT, flags, segs, n_meet, n_drop = cut_channel(RV, A, RT, flags, planes_)
+        RN, RTg, RBt, RUV, RC = A[:, 0:3], A[:, 3:6], A[:, 6:9], A[:, 9:11], A[:, 11:15]
+        for arr in (RN, RTg, RBt):
+            arr /= np.maximum(np.linalg.norm(arr, axis=1, keepdims=True), 1e-9)
+        # metal (the gold shape): the front face round the front collar against the breech ("should be metal not
+        # wood") and the floor beside the tube (a gold plate the small cogs lie on); wood: the ramp behind
+        GOLD_FACES = ('front',)
+        uvmaps = {g: (gold_uv if g in GOLD_FACES else wood) for g in tuple(fills) + tuple(drops)}
+        uvmaps['floor'] = wood
+        groups = close_cut(segs, planes_, fills, drops, floor_y, uvmaps)
+        add_faces(groups, [g for g in groups if g not in GOLD_FACES and g != 'floor'])   # floor: the panel instead
+        for g in GOLD_FACES:
+            if g in groups:
+                FV, FN, FT, FUV = groups[g]
+                AT.append(FT + sum(len(v) for v in AV))
+                AV.append(FV)
+                AN.append(FN)
+                AUV.append(FUV)
+        floor_segs = segs['floor']
+        floor_group = groups['floor']
+        report.append('%s: %d triangles met it, %d inside pieces dropped, closing faces %s'
+                      % (label, n_meet, n_drop, {g: len(v[2]) for g, v in groups.items()}))
+    # behind the plate (z < z_slot) the first cut's floor stays wood: its closing faces, cut off at z_slot
+    z_slot = t_o[2] + 0.5 * t_L
+    FV, FN, FT, FUV = floor_group
+    FV, FA, FT, _f, _s, _m, _d = cut_channel(FV, np.c_[FN, FUV], FT, np.ones(len(FT), bool),
+                                             [(np.array([0, 0, 1.0]), z_slot, 'plate')])
+    add_faces({'floor': (FV, FA[:, 0:3], FT, FA[:, 3:5])}, ['floor'])
+    flags = np.ones(len(RT), bool) & flags
+    # the groove the tube's rear half lies in (from the strap back): a prism round the tube, wood kept round it
+    g_planes, g_faces, g_r, g_zb = groove_box(t_o, z_slot)
+    A = np.c_[RN, RTg, RBt, RUV, RC]
+    RV, A, RT, flags, gsegs, g_meet, g_drop = cut_channel(RV, A, RT, flags, g_planes)
+    RN, RTg, RBt, RUV, RC = A[:, 0:3], A[:, 3:6], A[:, 6:9], A[:, 9:11], A[:, 11:15]
+    for arr in (RN, RTg, RBt):
+        arr /= np.maximum(np.linalg.norm(arr, axis=1, keepdims=True), 1e-9)
+
+    def in_wood(p_):
+        """Below the wood's top: the original wrist top, and the first cut's floor where it reaches."""
+        m_ = (np.abs(tops[:, 2] - p_[2]) < 0.3) & (np.abs(tops[:, 0] - p_[0]) < 0.3)
+        if not m_.any():
+            return False
+        top_ = float(tops[m_, 1].max())
+        if c_zr <= p_[2] <= c_z1:
+            top_ = min(top_, c_yf)
+        return p_[1] < top_
+    assert not gsegs['gback'], 'the groove has wood at its back end'
+    GV, GN, GT, GUV = groove_faces(gsegs, g_faces, t_o, g_r, g_zb, z_slot, in_wood, c_yf, wood)
+    add_faces({'groove': (GV, GN, GT, GUV)}, ['groove'])
+    report.append('groove: %d sides, r %.2f, z %.2f..%.2f; %d triangles met it, %d inside pieces dropped, %d closing '
+                  'triangles' % (GROOVE_SIDES, g_r, g_zb, z_slot, g_meet, g_drop, len(GT)))
+    # the plate: a panel like the lock plate (bevelled edge, rivets), gold as before
+    PV_, PN__, PT_, PUV_ = plate_panel(floor_segs, c_yf, z_slot, c_z1, gold_floor_uv)
+    AT.append(PT_ + sum(len(v) for v in AV))
+    AV.append(PV_)
+    AN.append(PN__)
+    AUV.append(PUV_)
+    assert len(RV) < 65535
+    nif.blocks[data_i] = bytearray(ns.trishape_data(RV.tolist(), RN.tolist(), RTg.tolist(), RBt.tolist(),
+                                                     RUV.tolist(), RT.tolist(), list(rd['center']), rd['radius'],
+                                                     RC.tolist()))
+    print('channel: floor y %.2f from z %.2f (ramp %.2f per unit behind) to %.2f; pieces %s cut; %d -> %d vertices'
+          % (c_yf, c_zr, CHANNEL_RAMP, c_z1, sorted(cut_ids), nv_before, len(RV)))
+    for r_ in report:
+        print('  ' + r_)
+    fittings = tube_fittings(t_o, t_d, t_L, tops)
+    for P, PN, tris, uv in fittings:
+        AT.append(tris + sum(len(v) for v in AV))
+        AV.append(P)
+        AN.append(PN)
+        AUV.append(uv)
+    print('lightning tube on the wrist top: axis y %.2f at z %.1f -> y %.2f at z %.1f (%.1f deg), length %.2f, axis '
+          '%.2f..%.2f over the wood; %d gold fitting parts, %d triangles'
+          % (t_o[1], t_o[2], t_o[1] + t_d[1] * t_L, t_o[2] + t_d[2] * t_L, math.degrees(math.asin(t_d[1])), t_L,
+             t_clear.min(), t_clear.max(), len(fittings), sum(len(f[2]) for f in fittings)))
     for P, PN, tris in (guard_cog((CV, CN, CT), hole, tooth0),
-                        muzzle_cog((CV, CN, CT), tooth0, bax, bore, bzface)):
+                        muzzle_cog((CV, CN, CT), tooth0, bax, bore, bzface),
+                        tube_end_cog((CV, CN, CT), tooth0, t_o)):
         AT.append(tris + sum(len(v) for v in AV))
         AV.append(P)
         AN.append(PN)
         AUV.append(CUV)
+    y_panel = c_yf + PANEL_H
+    side_tubes = side_tube_layout(floor_segs, z_slot + 0.3, TUBE_Z[1] - 1.3 * FIT - 0.15)
+    side_parts = side_tube_parts((CV, CN, CT), tooth0, side_tubes, y_panel)
+    rivet_parts, rivet_circles = plate_rivets(floor_segs, y_panel, z_slot, c_z1, side_tubes)
+    wire_parts, wire_paths = plate_wires(floor_segs, y_panel, TUBE_Z[1] - 0.9 * FIT, z_slot + 0.6, side_tubes)
+    edge_parts = groove_edge_tubes(gsegs, g_zb, z_slot, t_o, side_tubes, y_panel + SIDE_TUBE_COG_R + 0.01)
+    for P, PN, tris, uv in rivet_parts + wire_parts + side_parts + edge_parts:
+        AT.append(tris + sum(len(v) for v in AV))
+        AV.append(P)
+        AN.append(PN)
+        AUV.append(CUV if uv is None else uv)
+    # the plate cogs keep off the side tubes' end cogs and collars; under the pipe itself they fit (the pipe's
+    # underside is SIDE_TUBE_COG_R - SIDE_TUBE_R over the panel, more than a cog is thick), so the strip outside
+    # the side tube takes large, medium and small cogs (curator, "various different sized Cogs in this space")
+    assert SIDE_TUBE_COG_R - SIDE_TUBE_R > PLATE_COG_THICK + 0.02
+    for ts, tx, tr, tf in side_tubes:
+        for zz_ in (tr - 0.5 * SIDE_TUBE_COG_T, tr + 0.5 * SIDE_TUBE_COLLAR_LEN,
+                    tf - 0.5 * SIDE_TUBE_COLLAR_LEN, tf + 0.5 * SIDE_TUBE_COG_T):
+            rivet_circles.append((tx, float(zz_), SIDE_TUBE_COG_R))
     V = np.concatenate(AV)
     N = np.concatenate(AN)
     T = np.concatenate(AT)
     UV = np.concatenate(AUV)
     assert len(V) < 65535
+    collar_zs = [(t_o[2], t_o[2] + 1.3 * FIT), (TUBE_Z[1] - 1.3 * FIT, TUBE_Z[1])]
+    plate = plate_cogs((CV, CN, CT), floor_segs, y_panel, c_z1, z_slot, collar_zs, wire_paths, rivet_circles)
+    PV = np.concatenate([p_[0] for p_ in plate])
+    PN_ = np.concatenate([p_[1] for p_ in plate])
+    PT = np.concatenate([p_[2] + k_ * len(CV) for k_, p_ in enumerate(plate)])
+    PUV = np.concatenate([CUV] * len(plate))
+    assert len(PV) < 65535, ('plate cogs past one shape', len(PV))
     du, dv = uv_derivatives(V, UV, T)
     der = {'du': ortho(du, N), 'dv': ortho(dv, N)}
     tan = der[conv[0]] * conv[1]
@@ -895,15 +2168,84 @@ def main():
     struct.pack_into('<i', bshader, ns.shader_texset_offset(bshader), barrel_texset)
     struct.pack_into('<i', bshape, fo['shader'], nif.add_block('BSLightingShaderProperty', bshader))
     barrel_shape = nif.add_block('NiTriShape', bshape)
+
+    # ---- the lightning tube: glass, then the bolts inside (each shape its own shader block)
+    blocks_before_tube = len(nif.blocks)
+    def new_shape(name, V_, N_, T_, UV_, shader_block, alpha_block):
+        du_, dv_ = uv_derivatives(V_, UV_, T_)
+        d_ = {'du': ortho(du_, N_), 'dv': ortho(dv_, N_)}
+        c_ = (V_.min(0) + V_.max(0)) / 2
+        data_ = nif.add_block('NiTriShapeData', ns.trishape_data(
+            V_.tolist(), N_.tolist(), (d_[conv[0]] * conv[1]).tolist(), (d_[conv[2]] * conv[3]).tolist(),
+            UV_.tolist(), T_.tolist(), c_.tolist(), float(np.linalg.norm(V_ - c_, axis=1).max())))
+        s_ = bytearray(nif.blocks[sh])
+        struct.pack_into('<I', s_, fo['name'], nif.add_string(name))
+        struct.pack_into('<i', s_, fo['data'], data_)
+        struct.pack_into('<i', s_, fo['shader'], shader_block)
+        struct.pack_into('<i', s_, fo['alpha'], alpha_block)
+        return nif.add_block('NiTriShape', s_)
+
+    gD = np.zeros((64, 64, 4), np.float32) + np.array(GLASS_TINT, np.float32)
+    _rise.write_texture(gD, os.path.join(out_root, *OUT_GLASS_D.split('/')), 'BC7_UNORM')
+    gN = np.zeros((64, 64, 4), np.float32) + np.array([0.5, 0.5, 1.0, 1.0], np.float32)
+    _rise.write_texture(gN, os.path.join(out_root, *OUT_GLASS_N.split('/')), 'BC7_UNORM')
+    gM = np.zeros((64, 64, 4), np.float32) + np.array([0.75, 0.75, 0.75, 1.0], np.float32)  # alpha 1: no CM
+    _rise.write_texture(gM, os.path.join(out_root, *OUT_GLASS_M.split('/')), 'BC7_UNORM')
+    glass_texset = nif.add_block('BSShaderTextureSet', ns.texture_set(
+        [OUT_GLASS_D.replace('/', '\\'), OUT_GLASS_N.replace('/', '\\'), '', '', GLASS_ENV,
+         OUT_GLASS_M.replace('/', '\\')] + [''] * (len(rifle_set) - 6)))
+    gshader = bytearray(nif.blocks[shader_i])          # the rifle's, already Environment Map
+    t_ = ns.shader_texset_offset(gshader)
+    struct.pack_into('<i', gshader, t_, glass_texset)
+    f1_ = 16 + 4 * struct.unpack_from('<I', gshader, 8)[0]
+    struct.pack_into('<I', gshader, f1_ + 4, struct.unpack_from('<I', gshader, f1_ + 4)[0] & ~1)  # no Z write
+    # after the texture-set ref: emissive colour 12, mult 4, clamp 4, alpha 4, refraction 4, glossiness, specular
+    struct.pack_into('<f', gshader, t_ + 32, 300.0)                     # glossiness
+    struct.pack_into('<3f', gshader, t_ + 36, 1.0, 1.0, 1.0)            # specular colour
+    struct.pack_into('<f', gshader, t_ + 48, 3.0)                       # specular strength
+    GV, GN, GT, GUV = tube_glass(t_o, t_d, t_L)
+    glass_shape = new_shape(GLASS_SHAPE, GV, GN, GT, GUV, nif.add_block('BSLightingShaderProperty', gshader),
+                            nif.add_block('NiAlphaProperty', alpha_property(ALPHA_BLEND, 0)))
+    # effect shaders: SLSF1 ZBuffer test + falloff, SLSF2 double sided; no palette, no vertex colours
+    bolt_shader = nif.add_block('BSEffectShaderProperty', effect_shader(BOLT_TEX, BOLT_EMISSIVE, 3.0,
+                                                                        0x80000040, 0x10, (1.0, 0.3, 1.0, 0.0)))
+    bolt_ctl = add_float_controllers(nif, bolt_shader, [
+        (6, 1.32, steps(1.32, [0.0, 0.5, 0.0, 0.5, 0.25, 0.5, 0.0, 0.75, 0.5, 0.0, 0.5], 0.12)),   # which bolt
+        (8, 0.91, steps(0.91, [0.0, 0.37, 0.71, 0.18, 0.55, 0.86, 0.29], 0.13)),                # where along
+        (0, 1.10, [(0.0, 4.0), (0.07, 8.0), (0.15, 2.5), (0.24, 6.5), (0.33, 1.5), (0.41, 7.5), (0.52, 3.0),
+                   (0.61, 9.0), (0.70, 2.0), (0.82, 6.0), (0.93, 3.5), (1.10, 4.0)]),          # flicker
+    ])
+    BV_, BN_, BT_, BUV_ = tube_cards(t_o, t_d, t_L, GLASS_R * 0.85, (0.0, 60.0, -60.0), 0.5)
+    bolt_shape = new_shape(BOLT_SHAPE, BV_, BN_, BT_, BUV_, bolt_shader,
+                           nif.add_block('NiAlphaProperty', alpha_property(ALPHA_ADDITIVE, 128)))
+    glow_shader = nif.add_block('BSEffectShaderProperty', effect_shader(GLOW_TEX, BOLT_EMISSIVE, 0.8,
+                                                                        0x80000040, 0x10, (1.0, 0.3, 1.0, 0.0)))
+    glow_ctl = add_float_controllers(nif, glow_shader, [
+        (8, 0.6, [(0.0, 0.0), (0.6, 1.0)]),                                                   # crawls along
+        (0, 0.85, [(0.0, 0.8), (0.2, 1.4), (0.45, 0.5), (0.65, 1.2), (0.85, 0.8)]),
+    ])
+    WV_, WN_, WT_, WUV_ = tube_cards(t_o, t_d, t_L, GLASS_R * 0.45, (0.0, 90.0), 1.0)
+    glow_shape = new_shape(GLOW_SHAPE, WV_, WN_, WT_, WUV_, glow_shader,
+                           nif.add_block('NiAlphaProperty', alpha_property(ALPHA_ADDITIVE, 128)))
+    # the cogs packed over the plate: their own shape, shader property and texture set (copies of the cogs')
+    plate_texset = nif.add_block('BSShaderTextureSet', bytes(nif.blocks[cog_texset]))
+    pshader = bytearray(nif.blocks[cog_shader])
+    struct.pack_into('<i', pshader, ns.shader_texset_offset(pshader), plate_texset)
+    plate_shape = new_shape(PLATE_COG_SHAPE, PV, PN_, PT, PUV, nif.add_block('BSLightingShaderProperty', pshader), -1)
+    tube_blocks = len(nif.blocks) - blocks_before_tube
+    print('lightning tube: glass %d tris, bolt cards %d, glow cards %d; %d controller blocks'
+          % (len(GT), len(BT_), len(WT_), len(bolt_ctl) + len(glow_ctl)))
+
     at = kids.index(sh) + 1
-    nif.blocks[root] = ns.set_children(nif.blocks[root], kids[:at] + [barrel_shape, cog_shape] + kids[at:])
+    nif.blocks[root] = ns.set_children(nif.blocks[root], kids[:at] + [barrel_shape, cog_shape, plate_shape, glass_shape,
+                                                                      glow_shape, bolt_shape] + kids[at:])
     out = nif.tobytes()
     # read back: our parser, then PyNifly (an independent reader)
     back = ns.Nif(out)
     rb = ns.read_trishape_data(back.blocks[cog_data])
     assert len(rb['verts']) == len(V) and len(rb['tris']) == len(T)
     orig = ns.Nif(raw)
-    assert len(back.blocks) == len(orig.blocks) + 8
+    assert len(back.blocks) == len(orig.blocks) + 8 + tube_blocks
     rbb = ns.read_trishape_data(back.blocks[barrel_data])
     assert len(rbb['verts']) == len(BV) and len(rbb['tris']) == len(BT)
     for k in range(len(orig.blocks)):
@@ -915,7 +2257,7 @@ def main():
         fh.write(out)
     chk = NifFile(mesh_path)
     names = sorted(s_.name for s_ in chk.shapes)
-    assert COG_SHAPE_NAME in names and BARREL_SHAPE_NAME in names and len(chk.shapes) == 3, names
+    assert COG_SHAPE_NAME in names and BARREL_SHAPE_NAME in names and GLASS_SHAPE in names and BOLT_SHAPE in names and GLOW_SHAPE in names and PLATE_COG_SHAPE in names and len(chk.shapes) == 7, names
     cog_chk = [s_ for s_ in chk.shapes if s_.name == COG_SHAPE_NAME][0]
     assert len(cog_chk.verts) == len(V) and np.allclose(np.array(cog_chk.verts), V, atol=1e-3)
     print('wrote', mesh_path, len(out), 'bytes;', len(V), 'cog verts,', len(T), 'tris')

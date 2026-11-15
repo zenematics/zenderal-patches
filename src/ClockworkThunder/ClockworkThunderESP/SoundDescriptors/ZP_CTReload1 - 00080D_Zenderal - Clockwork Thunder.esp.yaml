@@ -1,0 +1,12 @@
+FormKey: 00080D:Zenderal - Clockwork Thunder.esp
+EditorID: ZP_CTReload1
+Version2: 6
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- Data\Sound\FX\Zenderal\ClockworkThunder\ZP_CTReload1.wav
+OutputModel: 05A28A:Skyrim.esm
+LoopAndRumble:
+  Unknown: 1
+Priority: 64
+Variance: 2

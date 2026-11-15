@@ -1,0 +1,11 @@
+FormKey: 00080C:Zenderal - Clockwork Thunder.esp
+EditorID: ZP_ClockworkThunderShotSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\ClockworkThunder\ClockworkThunderShot.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble: {}
+PercentFrequencyVariance: 8
+Priority: 128
+Variance: 4

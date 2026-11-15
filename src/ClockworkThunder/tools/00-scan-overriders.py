@@ -33,6 +33,7 @@ TARGETS = {
     '000AFD:Zenderal - Prophecy.esp': 'MGEF Invoker shock (copied)',
     '000B01:Zenderal - Prophecy.esp': 'EXPL flash-less chain explosion (copied)',
     '14CEBD:Skyrim.esm': 'MGEF Arcane Archer affinity paralysis (stun copied)',
+    '002F9C:OrdoLegionisMuskets.esp': 'SNDR OLM_WPNMusketFire (the shot descriptor copied for our shot sound)',
 }
 
 

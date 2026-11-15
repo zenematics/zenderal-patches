@@ -159,8 +159,9 @@ def read_texture_set(b):
     return out
 
 
-def trishape_data(verts, normals, tangents, bitangents, uvs, tris, center, radius):
-    """NiTriShapeData payload: vertices, normals + tangents/bitangents, one UV set, triangles."""
+def trishape_data(verts, normals, tangents, bitangents, uvs, tris, center, radius, colors=None):
+    """NiTriShapeData payload: vertices, normals + tangents/bitangents, optional RGBA vertex colours, one UV set,
+    triangles."""
     out = bytearray()
     out += struct.pack('<iHBB', 0, len(verts), 0, 0)   # group id, num vertices, keep, compress
     out += b'\x01' + b''.join(struct.pack('<3f', *v) for v in verts)
@@ -170,7 +171,10 @@ def trishape_data(verts, normals, tangents, bitangents, uvs, tris, center, radiu
     out += b''.join(struct.pack('<3f', *v) for v in tangents)
     out += b''.join(struct.pack('<3f', *v) for v in bitangents)
     out += struct.pack('<4f', *center, radius)
-    out += b'\x00'                                     # no vertex colours
+    if colors is None:
+        out += b'\x00'                                 # no vertex colours
+    else:
+        out += b'\x01' + b''.join(struct.pack('<4f', *c) for c in colors)
     out += b''.join(struct.pack('<2f', *uv) for uv in uvs)
     out += struct.pack('<H', 0)                        # consistency flags
     out += struct.pack('<i', -1)                       # additional data
@@ -206,6 +210,7 @@ def read_trishape_data(b):
     radius = struct.unpack_from('<f', b, i + 12)[0]
     i += 16
     hasc = b[i]
+    C = [struct.unpack_from('<4f', b, i + 1 + 16 * k) for k in range(nv)] if hasc else None
     i += 1 + (16 * nv if hasc else 0)
     nuv = flags & 63
     UV = [struct.unpack_from('<2f', b, i + 8 * k) for k in range(nv)] if nuv else []
@@ -224,7 +229,7 @@ def read_trishape_data(b):
         i += 2 + 2 * c
     assert i == len(b), ('NiTriShapeData layout', i, len(b))
     return dict(verts=V, normals=N, tangents=T, bitangents=B, center=center, radius=radius, uvs=UV,
-                tris=TR, flags=flags, has_colors=hasc)
+                tris=TR, flags=flags, has_colors=hasc, colors=C)
 
 
 def replace_triangles(b, tris):
