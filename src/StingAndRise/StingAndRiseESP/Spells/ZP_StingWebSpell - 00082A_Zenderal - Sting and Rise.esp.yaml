@@ -16,7 +16,7 @@ Effects:
 - BaseEffect: 00082B:Zenderal - Sting and Rise.esp
   Data:
     Magnitude: 100
-    Duration: 3
+    Duration: 6
 - BaseEffect: 00082E:Zenderal - Sting and Rise.esp
   Data:
-    Duration: 6
+    Duration: 9

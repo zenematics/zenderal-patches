@@ -6,9 +6,12 @@ as a broken black screen and invites exactly that key press (2026-10-25). Curato
 Enderal's MCM "Skip videos" (`_00E_VideoSkip`) still skips them on purpose.
 
 For each script below this copies SureAI's source, flips exactly that one PlayBink argument (asserted once), adds a
-`; ZP` comment and compiles with the Enderal-first import path. Then it checks the compiled string table against the
-game's shipped .pex (extracted from Enderal's BSAs): the only differences allowed are the optimizer's `::temp`
-names and the script name's case.
+`; ZP` comment and compiles with the fork's own folder first, then the Enderal-first import path (the compiler finds
+scripts by name: with Enderal's tree first it compiled SureAI's copy, and this tool shipped all seven scripts
+unmodified until 2026-11-14). Then it checks the compiled string table against the game's shipped .pex (extracted
+from Enderal's BSAs): the only differences allowed are the optimizer's `::temp` names and the script name's case.
+Strings cannot show a flipped bool, so it also reads PlayBink's bool literal from the bytecode: 1 in the shipped
+and rebuilt .pex, 0 in ours.
 
 Usage: python 01-build-unskippable-cinematics.py
 """
@@ -89,10 +92,31 @@ TYPE_NAMES = {"float", "int", "bool", "string"}
 
 
 def compile_one(psc, outdir, imports):
+    # The compiler resolves the script by NAME through -i, first wins: without psc's own folder first it
+    # compiles SureAI's copy of the same name from the Enderal tree and still says "1 succeeded". Until
+    # 2026-11-14 this tool did exactly that and shipped all seven scripts unmodified.
+    imports = os.path.dirname(os.path.abspath(psc)) + ";" + imports
     r = subprocess.run([TOOLS["papyrusCompiler"], psc, "-f=" + TOOLS.get("papyrusFlags", "TESV_Papyrus_Flags.flg"),
                         "-i=" + imports, "-o=" + outdir, "-op"], capture_output=True, text=True)
     assert "1 succeeded" in r.stdout, r.stdout + r.stderr
     return open(os.path.join(outdir, os.path.splitext(os.path.basename(psc))[0] + ".pex"), "rb").read()
+
+
+def playbink_flags(data, video):
+    """The bool literal after each `video` string literal in the bytecode: PlayBink's abInterruptible.
+
+    A call argument is a type byte + value: 2 = string (u16 string-table index), 5 = bool (one byte)."""
+    strings = pex_strings(data)
+    out = []
+    for idx, s in enumerate(strings):
+        if s.lower() != video.lower():
+            continue
+        pat = b"\x02" + struct.pack(">H", idx) + b"\x05"
+        p = data.find(pat)
+        while p != -1:
+            out.append(data[p + 4])
+            p = data.find(pat, p + 1)
+    return out
 
 
 def main():
@@ -130,6 +154,10 @@ def main():
         # the optimizer (-op) can drop an unused temp's type name ("float"); anything else means the source drifted
         extra = (a - b) - TYPE_NAMES
         assert not extra and not (b - a), (script, sorted(a - b)[:8], sorted(b - a)[:8])
+        # strings cannot see a flipped bool: read the literal itself (shipped: interruptible, ours: not)
+        assert playbink_flags(shipped, video) == [1], (script, "shipped PlayBink flag", playbink_flags(shipped, video))
+        assert playbink_flags(rebuilt, video) == [1], (script, "rebuilt PlayBink flag", playbink_flags(rebuilt, video))
+        assert playbink_flags(ours, video) == [0], (script, "the fork's .pex still plays the video interruptible")
         note = f"; shipped also has {sorted(a - b)} (unused temp types)" if a - b else ""
         print(f"  {script:26} {video:30} compiled; = rebuilt source; shipped .pex matches ({len(b)} strings){note}")
     print(f"built {len(SCRIPTS)} scripts")

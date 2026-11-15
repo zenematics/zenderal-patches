@@ -1,18 +1,16 @@
 Scriptname ZP_RiseMoteEffect extends ActiveMagicEffect
 {Sting and Rise - Rise's mote of sunlight. Rides on the mote effect (vanilla Mage Light in sun gold: a light on its
-bearer and the orb above it) that Rise's enchantment puts on undead it strikes. Two things set off a fire nova from a
-marked undead:
-- its death: the mote is dispelled when its bearer dies; then - vanilla's soul trap test: OnEffectFinish, then
-  IsDead - the corpse bursts;
-- a successful Turn Undead on it (curator 2026-11-13): any effect of the engine's TurnUndead archetype applied to it
-  that is still active TurnCheckSeconds later (a turn that fails its level check never stays), at most once every
-  NovaCooldown seconds per undead (a concentration turn re-applies). The turned undead is burnt by its own nova too
-  (curator: "doesn't actually damage the undead it comes from"): its mote is dispelled first (alive: no burst) and
-  the nova's own mote replaces it, so it is refreshed, never doubled, and it still bursts when it dies.
+bearer and the orb above it) that Rise's enchantment (in game: Sunrise) puts on undead it strikes. A successful Turn
+Undead on a marked undead sets off a fire nova from it (curator 2026-11-13): any effect of the engine's TurnUndead
+archetype applied to it that is still active TurnCheckSeconds later (a turn that fails its level check never stays),
+at most once every NovaCooldown seconds per undead (a concentration turn re-applies). The turned undead is burnt by its
+own nova too (curator: "doesn't actually damage the undead it comes from"): its mote is dispelled first and the
+nova's own mote replaces it, so it is refreshed, never doubled. Its death sets off nothing since 2026-11-15 (curator:
+"remove the on kill Fire Nova, keep the Turn undead fire nova"; until then OnEffectFinish + IsDead burst the corpse).
 The nova: BurstFX (Enderal's own fire nova, the Fire Arrow talent's Wayfarer burst: Fire Storm's ring of flame scaled
 to Radius, no damage of its own) at the undead and Nova, remote-cast from the player (kill credit, Enderal's EP), on
-every living actor within Radius hostile to the player. Nova puts a new mote on the undead among them first, so a
-nova can set off more novas. Its fire damage is DamageBase + DamagePerLevel x the player's level, set on the spell
+every living actor within Radius hostile to the player. Nova puts a new mote on the undead among them first, so the
+next Turn Undead on them sets off more novas. Its fire damage is DamageBase + DamagePerLevel x the player's level, set on the spell
 before each nova (SKSE SetNthEffectMagnitude; curator: 20 flat "doesn't seem to do much"). Needs powerofthree's
 Papyrus Extender.}
 
@@ -31,12 +29,6 @@ Float lastTurnNova = -1000.0
 
 Event OnEffectStart(Actor akTarget, Actor akCaster)
 	me = akTarget
-EndEvent
-
-Event OnEffectFinish(Actor akTarget, Actor akCaster)
-	If akTarget && akTarget.IsDead()
-		Burst(Nova, BurstFX, akTarget, False, Radius, DamageBase, DamagePerLevel)
-	EndIf
 EndEvent
 
 Event OnMagicEffectApply(ObjectReference akCaster, MagicEffect akEffect)

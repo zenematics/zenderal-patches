@@ -5,8 +5,8 @@ VirtualMachineAdapter:
   - Name: ZP_CastWardEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
-      Name: Ward
-      Object: 000E55:Shatterveil.esp
+      Name: Shield
+      Object: 000B76:Zenderal - Prophecy.esp
 Name:
   TargetLanguage: English
   Value: Orbit Ward

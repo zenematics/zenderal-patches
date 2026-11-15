@@ -2,7 +2,7 @@ FormKey: 000AA2:Zenderal - Prophecy.esp
 EditorID: ZP_Prophecy_OrbitWard
 Description:
   TargetLanguage: English
-  Value: 'While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting.'
+  Value: 'While you cast a spell, a ward surrounds you: the next 2 weapon, arrow or claw hits deal 50% damage, then it breaks. It falls away when you stop casting.'
 Name:
   TargetLanguage: English
   Value: 'Orbit Ward'

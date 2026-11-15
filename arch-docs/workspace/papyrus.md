@@ -41,8 +41,19 @@ a good copy in the second: with `-i="broken;good"` the compile **failed** on the
 `-i="good;broken"` it **succeeded**. So the correct order is:
 
 ```
--i="<papyrusSource.enderal>;<papyrusSource.skse>;<papyrusSource.vanilla>;<importDirs...>"
+-i="<your source>;<papyrusSource.enderal>;<papyrusSource.skse>;<papyrusSource.vanilla>;<importDirs...>"
 ```
+
+**`<your source>` first is not optional when you fork a SureAI script. [verified 2026-11-14]** The
+compiler looks the script up **by name** through `-i`, even when you pass it a full path to your
+`.psc`. With Enderal's tree first, a fork named like SureAI's (`_00E_MQ16_Functions.psc`) compiles
+**SureAI's copy** and reports `1 succeeded`. Nothing fails: you ship the unmodified script.
+[`MQ16YuslanKneelFix`](../patches/MQ16YuslanKneelFix.md)'s first build did this (caught because its
+`.pex` had no new strings), and [`UnskippableCinematics`](../patches/UnskippableCinematics.md)
+shipped all seven scripts unmodified because of it: a flipped bool adds no strings, so its string
+check could not see it (read from the bytecode: every `PlayBink` still passes `true`). A generator
+that compiles a fork must put the fork's own folder first and assert something only the fork
+contains (a new string, or the changed literal in the bytecode).
 
 > SureAI's own `How to modify Enderal scripts.txt` (inside `ScriptsEnderal.zip`) states the sources
 > "must be loaded in the following order: Creation Kit scripts (Scripts.zip), SKSE scripts, Enderal

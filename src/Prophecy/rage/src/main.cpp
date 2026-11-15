@@ -162,6 +162,10 @@ namespace
 		double             coupBonus{ 1.0 };
 		double             coupHealth{ 0.25 };
 		double             bladeSeconds{ 3.0 };
+		// Orbit Ward's shield (1.8.0)
+		RE::EffectSetting* wardEffect{ nullptr };
+		int                wardHits{ 2 };
+		float              wardFraction{ 0.5f };
 		// Arcane Arsenal's elemental arrows
 		RE::BGSPerk*       arsenalPerk{ nullptr };
 		RE::TESGlobal*     arsenalGlobal{ nullptr };
@@ -290,6 +294,13 @@ namespace
 			}
 			c.arsenalScale = a.value("scale", 0.3f);
 			SKSE::log::info("Arcane Arsenal arrows: {} arts, scale {}", c.arsenalArts.size(), c.arsenalScale);
+		}
+		if (j.contains("orbitWard")) {
+			auto& w = j["orbitWard"];
+			c.wardEffect = Lookup<RE::EffectSetting>(plugin, w["effect"], "Orbit Ward shield effect");
+			c.wardHits = w.value("hits", 2);
+			c.wardFraction = w.value("fraction", 0.5f);
+			SKSE::log::info("Orbit Ward: {} hits at {:.0f}% damage while the shield is on", c.wardHits, (1.0f - c.wardFraction) * 100.0f);
 		}
 		if (j.contains("effigies")) {
 			auto& e = j["effigies"];
@@ -1406,6 +1417,87 @@ namespace
 		}
 	}
 
+	// ---- Orbit Ward's shield (1.8.0, 2026-11-14). evLRise: Shatterveil's Orbit Ward (one whole hit negated per glass
+	// ward) made a pistol caster "literally immune to damage while reloading"; the curator: "only block 1 or 2 hits and
+	// only mitigate some of the damage not block it all". The talent's script now casts Prophecy's own shield spell, and
+	// this detour on the engine's hit processing (ID 38586: every weapon, arrow and claw hit, before damage is dealt)
+	// takes wardFraction off each of the next wardHits hits on the player while that effect is on, then dispels it. The
+	// charges are reset by the effect's apply event. Detours, so a plugin already at the entry stays chained.
+	int g_wardCharges = 0;
+	using ProcessHit_t = void (*)(RE::Actor*, RE::HitData&);
+	ProcessHit_t g_processHit = nullptr;
+
+	void WardDispel()
+	{
+		auto* player = Player();
+		auto* list = player ? player->AsMagicTarget()->GetActiveEffectList() : nullptr;
+		if (!list) {
+			return;
+		}
+		for (auto* ae : *list) {
+			if (ae && ae->GetBaseObject() == g_cfg.wardEffect && !ae->flags.any(RE::ActiveEffect::Flag::kDispelled)) {
+				ae->Dispel(false);
+			}
+		}
+	}
+
+	void ProcessHitHook(RE::Actor* a_target, RE::HitData& a_data)
+	{
+		if (a_target && g_cfg.wardEffect && g_wardCharges > 0 && a_target == Player() && a_data.totalDamage > 0.0f &&
+			a_target->AsMagicTarget()->HasMagicEffect(g_cfg.wardEffect)) {
+			const float before = a_data.totalDamage;
+			a_data.totalDamage *= 1.0f - g_cfg.wardFraction;
+			a_data.physicalDamage *= 1.0f - g_cfg.wardFraction;
+			--g_wardCharges;
+			auto* by = a_data.aggressor.get().get();
+			SKSE::log::info("Orbit Ward: hit from {:08X} '{}' {:.1f} -> {:.1f}, {} charge(s) left", by ? by->GetFormID() : 0,
+				by ? by->GetName() : "?", before, a_data.totalDamage, g_wardCharges);
+			if (g_wardCharges == 0) {
+				SKSE::GetTaskInterface()->AddTask([] { WardDispel(); });
+			}
+		}
+		g_processHit(a_target, a_data);
+	}
+
+	void InstallWardHook()
+	{
+		if (!g_cfg.wardEffect) {
+			return;
+		}
+		const auto  target = REL::ID(38586).address();
+		const auto* bytes = reinterpret_cast<const std::uint8_t*>(target);
+		g_processHit = reinterpret_cast<ProcessHit_t>(target);
+		DetourTransactionBegin();
+		DetourUpdateThread(GetCurrentThread());
+		DetourAttach(reinterpret_cast<PVOID*>(&g_processHit), reinterpret_cast<PVOID>(&ProcessHitHook));
+		const auto err = DetourTransactionCommit();
+		SKSE::log::info("Orbit Ward: hit processing (ID 38586, first bytes {:02X} {:02X}) detoured: {}", bytes[0], bytes[1],
+			err == NO_ERROR ? "ok" : "FAILED");
+		if (err != NO_ERROR) {
+			g_processHit = nullptr;
+		}
+	}
+
+	class ApplySink : public RE::BSTEventSink<RE::TESMagicEffectApplyEvent>
+	{
+	public:
+		static ApplySink* Get()
+		{
+			static ApplySink sink;
+			return &sink;
+		}
+
+		RE::BSEventNotifyControl ProcessEvent(const RE::TESMagicEffectApplyEvent* a_event, RE::BSTEventSource<RE::TESMagicEffectApplyEvent>*) override
+		{
+			if (a_event && g_cfg.wardEffect && a_event->magicEffect == g_cfg.wardEffect->GetFormID() && a_event->target &&
+				a_event->target.get() == Player()) {
+				g_wardCharges = g_cfg.wardHits;
+				SKSE::log::info("Orbit Ward: shield up, {} charge(s)", g_wardCharges);
+			}
+			return RE::BSEventNotifyControl::kContinue;
+		}
+	};
+
 	class HitSink : public RE::BSTEventSink<RE::TESHitEvent>
 	{
 	public:
@@ -1694,6 +1786,8 @@ namespace
 			LoadConfig();
 			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESHitEvent>(HitSink::Get());
 			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESSpellCastEvent>(CastSink::Get());
+			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESMagicEffectApplyEvent>(ApplySink::Get());
+			InstallWardHook();
 			if (std::filesystem::exists("Data/Interface/oxygenMeter2.swf")) {
 				RE::UI::GetSingleton()->Register(kMeterMenu, RageMeter::Create);
 				g_meterRegistered = true;
@@ -1714,6 +1808,7 @@ namespace
 				g_effigies.clear();
 				g_effigyLoadout.clear();
 				g_bladeOn = false;
+				g_wardCharges = 0;
 				StopAllArrowArts();
 				if (g_cfg.bladeAbility && Player()->HasSpell(g_cfg.bladeAbility)) {
 					Player()->RemoveSpell(g_cfg.bladeAbility);   // an ability is saved with the game
@@ -1730,7 +1825,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.7.1 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.8.0 loading, runtime {}", REL::Module::get().version().string());
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

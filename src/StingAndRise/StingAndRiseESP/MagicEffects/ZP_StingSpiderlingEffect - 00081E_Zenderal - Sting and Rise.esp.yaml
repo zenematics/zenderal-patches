@@ -5,6 +5,9 @@ VirtualMachineAdapter:
   - Name: ZP_StingSpiderlingEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
+      Name: Bite
+      Object: 00082F:Zenderal - Sting and Rise.esp
+    - MutagenObjectType: ScriptObjectProperty
       Name: Burst
       Object: 000820:Zenderal - Sting and Rise.esp
     - MutagenObjectType: ScriptObjectProperty

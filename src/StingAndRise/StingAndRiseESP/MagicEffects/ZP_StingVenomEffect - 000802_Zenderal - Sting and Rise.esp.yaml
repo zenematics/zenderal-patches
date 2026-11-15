@@ -34,4 +34,4 @@ EnchantArt: 000803:Zenderal - Sting and Rise.esp
 Sounds: []
 Description:
   TargetLanguage: English
-  Value: Deals <mag> poison damage per second and slows the target by 10% for <dur> seconds. An enemy that dies poisoned bursts into a spiderling that fights at your side for 15 seconds and bursts in venom when it dies, and enemies its venom kills burst too.
+  Value: Deals <mag> poison damage per second and slows the target by 10% for <dur> seconds. An enemy that dies poisoned bursts into a spiderling that fights at your side for 30 seconds and bursts in venom when it dies, and enemies its venom kills burst too.

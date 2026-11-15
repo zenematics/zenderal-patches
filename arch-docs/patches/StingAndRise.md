@@ -7,7 +7,7 @@
   guard) + 2 generated enchant-art meshes + Blood Boil's burst mesh + the spiderling's venom burst + Rise's sun mote
   and fire nova + Sting's green-gripped diffuse + 7 gold textures (Rise's grip ivory) + 3 ornament textures + 3
   recoloured palettes (not committed), all inside **Zenderal - Patch Collection** (as Clockwork Thunder)
-- **FormID block:** `0x800–0x82E` (`0x82F+` free for the placement)
+- **FormID block:** `0x800–0x830` (`0x831+` free for the placement)
 - **Needs:** powerofthree's Papyrus Extender (every area search: Blood Boil, the venom burst and fire nova, the
   spiderling's first target; as Prophecy's A Willing Sacrifice); an exclusion in Glow Be Gone's toml (`tools/03`,
   below)
@@ -17,18 +17,20 @@
 
 Two unique daggers meant to be used together:
 
-- **Sting**: the point of its blade is coated in the green Dwemer ichor (the green puddle the curator saw in game):
+- **Midnight Sting** (renamed from "Sting", curator 2026-11-14): the point of its blade is coated in the green Dwemer ichor (the green puddle the curator saw in game):
   the tip and another 15% of the blade. Each hit poisons for **6 seconds**, 5 poison damage a second, and slows
   the enemy by **10%** for as long (curator, 2026-11-13). A blackened-steel **spider** clutches its ring pommel
   and its leather grip is **very dark green** (below). **An enemy that dies poisoned bursts into a Venom
-  Spiderling** that fights for the player for 15 seconds and bursts in venom when it dies; an enemy that venom kills
+  Spiderling** that hunts the nearest enemy at double speed and fights for the player for 30 seconds, and bursts in venom when it dies; an enemy that venom kills
   bursts into another (curator, 2026-11-13; below).
-- **Rise**: polished, reflective gold metal, its scabbard's metal fittings too, with small flames flickering along
+- **Sunrise** (renamed from "Rise", curator 2026-11-15; EditorIDs, files and the plugin keep "Rise"): polished, reflective gold metal, its scabbard's metal fittings too, with small flames flickering along
   its blade; a **silver** weapon; an **ivory white leather** grip; a **gold sun in place of
   its pommel** and **gold wings spread sideways over its cross guard** (curator, 2026-11-13; below). Each hit burns
   for **6 seconds**, 5 fire damage a second (Enderal's own *Burning*, the Fire Arrow talent's damage over time).
-  **Undead it strikes carry a mote of sunlight** over them; a marked enemy that dies bursts in a **weak fire
-  nova**, and the nova marks the undead it hits (curator, 2026-11-13; below).
+  **Undead it strikes carry a mote of sunlight** over them; a successful **Turn Undead** on a marked undead
+  bursts it in a **fire nova** that burns it and the enemies around it, and the nova marks the undead it hits
+  (curator, 2026-11-13; below). Since 2026-11-15 a marked undead's death sets off nothing (curator: "remove the on
+  kill Fire Nova, keep the Turn undead fire nova").
 - **The pair, hidden** (curator, 2026-11-13: "keep it as a hidden effect"; no item text names either): while Sting's
   venom is on an enemy, **Rise's hits ignore its armor**. And either dagger striking an enemy that carries the
   other's damage over time **boils its blood**: a blood burst, 40 damage to it and every enemy within 250 units,
@@ -44,11 +46,11 @@ texture-set swap on Pretty's shapes (below).
 
 | FormKey | Record | From |
 |---|---|---|
-| `800` | WEAP `ZP_Sting` "Sting" | Yero's Last Words `13C2AF` (EGO's record: Enderal's unique dagger, 20 damage, crit 15, Speed 1.3, `WeapTypeUnique`) verbatim; Name, Model = Pretty's assassin blade, bounds measured from it, FirstPersonModel = Blood Needle's `14483F` (same nif), ObjectEffect `801` + charge 3000, Value 500 → 1000 |
+| `800` | WEAP `ZP_Sting` "Midnight Sting" ("Sting" until 2026-11-14) | Yero's Last Words `13C2AF` (EGO's record: Enderal's unique dagger, 20 damage, crit 15, Speed 1.3, `WeapTypeUnique`) verbatim; Name, Model = Pretty's assassin blade, bounds measured from it, FirstPersonModel = Blood Needle's `14483F` (same nif), ObjectEffect `801` + charge 3000, Value 500 → 1000 |
 | `801` | ENCH `ZP_StingVenom` "Sting Venom" | weapon enchantment (Touch), `802` at 5 for 6 s, the slow `817` at 10 for 6 s, the brood mark `819` for 6 s, then Blood Boil's `80E`; `NoAutoCalc`, cost 1, charge 3000 |
 | `802` | MGEF `ZP_StingVenomEffect` "Sting Venom" | EGO's weapon poison `EnchPoisonNoShader 001F73` (No Screen Flashes' copy, the winner: no poison blur) verbatim: poison resistance, EGO's poison and weapon-enchant keywords, the green chaurus-poison hit shader on the target. **Removed:** `PowerAffectsDuration` (always 6 s), its "target does not have it yet" condition (a new hit refreshes the 6 s), `DispelWithKeywords` (see below). **Added:** EnchantArt `803` |
 | `803` | ARTO `ZP_StingVenomCoatFX` | `ChillrendEnchFX 10A045` (type and shape), model `Zenderal\StingAndRise\StingEnchFX.nif` |
-| `804` | WEAP `ZP_Rise` "Rise" | Yero's Last Words like Sting; Model = `Zenderal\StingAndRise\Rise.nif` (Pretty's Aeterna dagger without its knob, + the sun pommel and wings; below) with its blade shape's texture set swapped for `80C` and its scabbard's (`scb`, index 1) for `816` (alternate textures), bounds from the mesh, FirstPersonModel `80D`, ObjectEffect `805`, + keywords `808` and `WeapMaterialSilver 10AA1A` (curator: silver; EGO's silver perks ×2.15 vs undead and full damage to ghosts, Prophecy's Smite, as the Relentless Sword), script `ZP_RiseArmorPierceScript` |
+| `804` | WEAP `ZP_Rise` "Sunrise" (was "Rise" until 2026-11-15) | Yero's Last Words like Sting; Model = `Zenderal\StingAndRise\Rise.nif` (Pretty's Aeterna dagger without its knob, + the sun pommel and wings; below) with its blade shape's texture set swapped for `80C` and its scabbard's (`scb`, index 1) for `816` (alternate textures), bounds from the mesh, FirstPersonModel `80D`, ObjectEffect `805`, + keywords `808` and `WeapMaterialSilver 10AA1A` (curator: silver; EGO's silver perks ×2.15 vs undead and full damage to ghosts, Prophecy's Smite, as the Relentless Sword), script `ZP_RiseArmorPierceScript` |
 | `805` | ENCH `ZP_RiseFlame` "Burning" | weapon enchantment (Touch), `806` at 5 for 6 s, the mote `823` for 30 s on `ActorTypeUndead 013796` only, then Blood Boil's `80E`; `NoAutoCalc`, cost 1, charge 3000 |
 | `806` | MGEF `ZP_RiseBurnEffect` "Burning" | Enderal's `_00E_A1_FireArrowEnchME 067252` (Flame Shot's copy, the winner) verbatim: fire resistance, `PowerAffectsMagnitude` (fire perks raise it), the fire impact. **Removed:** `NoRecast` (a new hit refreshes the burn). **Added:** `FireFXShader 01B212` as hit shader (the target is seen burning; every fire damage effect, EGO's weapon fire included, uses it), EGO's `XionWeaponEnch 001F93` (like Sting's: EGO's spell-damage perk skips weapon enchantments), EnchantArt `807`. The item card's text names the burn and the mote (the armor bonus and Blood Boil are hidden) |
 | `807` | ARTO `ZP_RiseFlameFX` | `ChillrendEnchFX 10A045`, model `Zenderal\StingAndRise\RiseEnchFX.nif` |
@@ -71,9 +73,9 @@ texture-set swap on Pretty's shapes (below).
 | `819` | MGEF `ZP_StingBroodMark` | Prophecy's relay `B4A` (script, Touch, hidden, painless); script `ZP_StingBroodMarkEffect`. Dispelled when its bearer dies: the spawn |
 | `81A` | MGEF `ZP_StingBroodMarkBurst` | `819` + `NoDeathDispel`: the venom burst's mark (1 s), so a kill by the burst itself still spawns |
 | `81B` | FACT `ZP_StingBroodSpawned` | hidden; a corpse that has spawned its spiderling joins it (one per corpse) |
-| `81C` | NPC_ `ZP_StingSpiderling` "Venom Spiderling" | EGO's Young Moss Crawler `_03E_JungerMooskrabbler 01CB69` (the winner) minus its `_00E_EPOnDeath` script (no EP for its kills; it pays a killer of None) and `Respawn`; level = the player's (PcLevelMult 1, 1–100); `PlayerFaction 000DB1` for its faction; ability `81D`; Aggressive, Foolhardy, helps allies; `_DefaultFollowPlayer 04B037`; keyword `_00E_SummonedCreature 044FEA`; Height 0.49 → **0.30** |
+| `81C` | NPC_ `ZP_StingSpiderling` "Venom Spiderling" | EGO's Young Moss Crawler `_03E_JungerMooskrabbler 01CB69` (the winner) minus its `_00E_EPOnDeath` script (no EP for its kills; it pays a killer of None) and `Respawn`; level = the player's (PcLevelMult 1, 1–100); `PlayerFaction 000DB1` for its faction; ability `81D`; Aggressive, Foolhardy, helps allies; `_DefaultFollowPlayer 04B037`; keyword `_00E_SummonedCreature 044FEA`; Height 0.49 → 0.30 → **0.5** (2026-11-14: at 0.30 its bite reach, the race's unarmed reach 96 × its scale, was ~22 units and it barely bit) |
 | `81D` | SPEL `ZP_StingSpiderlingAbility` | Prophecy's Legion skeleton ability `9A7` → `81E` |
-| `81E` | MGEF `ZP_StingSpiderlingEffect` | Legion's skeleton effect `9A8` (hidden, constant); script `ZP_StingSpiderlingEffect` (lifetime, venom burst, and the webs: PO3 `OnWeaponHit` / `OnMagicHit` → `82A`) |
+| `81E` | MGEF `ZP_StingSpiderlingEffect` | Legion's skeleton effect `9A8` (hidden, constant); script `ZP_StingSpiderlingEffect` (30 s lifetime, double speed (`SpeedMult` 200 + a carry-weight nudge), hunting the nearest enemy every 0.5 s, the bite assist (`82F`), venom burst, and the webs: PO3 `OnWeaponHit` / `OnMagicHit` → `82A`) |
 | `81F` | FLST `ZP_StingSpiderlings` | the living spiderlings (filled and pruned by the scripts) |
 | `820` | SPEL `ZP_StingSpiderBurst` "Venom Burst" | Willing Sacrifice's blast `99D`: `81A` for 1 s, then `821` at 25 |
 | `821` | MGEF `ZP_StingSpiderBurstDamage` | Willing Sacrifice's `99E` (damage Health), resisted by poison resistance |
@@ -84,11 +86,13 @@ texture-set swap on Pretty's shapes (below).
 | `826` | SPEL `ZP_RiseFireNova` "Fire Nova" | `99D` like `820`: the mote `823` (undead only) for 30 s, then `827` at 25 in the record; `ZP_RiseMoteEffect` sets it to 25 + 2.5 × player level before each nova (SKSE `SetNthEffectMagnitude`) |
 | `827` | MGEF `ZP_RiseFireNovaDamage` | `99E` (damage Health), resisted by fire resistance (`ResistFire`) |
 | `829` | *(retired, never reuse)* | the first build's perk on the spiderling (ApplyCombatHitSpell → `82A`): never went off in game |
-| `82A` | SPEL `ZP_StingWebSpell` "Spider Web" | Prophecy's gun hit spell `910` shape (Touch): `82B` at 100 for 3 s + the cooldown `82E` for 6 s |
+| `82A` | SPEL `ZP_StingWebSpell` "Spider Web" | Prophecy's gun hit spell `910` shape (Touch): `82B` at 100 for 6 s (3 until 2026-11-15) + the cooldown `82E` for 9 s |
 | `82B` | MGEF `ZP_StingWebbedEffect` "Webbed" | Sting's slow `817` (Peak Value Modifier on `SpeedMult`, `Recover`): at 100 the enemy cannot move (it still turns and swings); + `FXPersist`, hit shader `82C`, hit art `82D`. In Glow Be Gone's exclusion (`tools/03`) |
 | `82C` | EFSH `ZP_StingWebbedFXS` | vanilla `WebbedFXS 02E1CD` (unused in Enderal: `FXSpiderwebs01.dds` over the body, `GradCobWeb` palette) with quick fades (in 0.2, out 0.6; vanilla's fades out over 100 s), opaque (1 / 1) and white `#F4F4F0` (vanilla's pale teal at 0.35 barely showed) |
 | `82D` | ARTO `ZP_StingWebbedFX` | hit art on `StingWebStrands.nif` (`tools/01`): vanilla's web strip `fxspiderwebhitstrip01.nif` (the game's copy) without collision, havok flags or blast node, × 0.4: web sheets from the ground to about the chest (0.3 was easy to miss) |
-| `82E` | MGEF `ZP_StingWebCooldown` | Willing Sacrifice's marker `9A1` (as Blood Boil's `812`): 6 s = 3 webbed + 3 free |
+| `82E` | MGEF `ZP_StingWebCooldown` | Willing Sacrifice's marker `9A1` (as Blood Boil's `812`): 9 s = 6 webbed + 3 free |
+| `82F` | SPEL `ZP_StingSpiderBite` "Venom Bite" | `99D` like `820`: `830` at 15. The spiderling's assisted bite: cast by its script on a hit frame the game's own check missed, target within 110 and 70° of its facing |
+| `830` | MGEF `ZP_StingSpiderBiteDamage` | `99E` (damage Health), resisted by poison resistance |
 | `828` | EXPL `ZP_RiseFireNovaFX` | Enderal's Wayfarer fire nova `_00E_A1_FireArrowWayfarerExp 143325` (Flame Shot's copy, the winner) on `RiseNova.nif`, Radius 300; no enchantment, damage, push or screen effect of its own |
 
 Masters: the base three + EGO (its keywords). ESL, HEDR 1.7.
@@ -181,17 +185,20 @@ flame `FireStormAreaEffect.nif` scaled so the mesh's own reach marker `BlastRadi
 radius (× 0.488; the ring's movers carry no keyed path, so the marker is the measure: check the size in game),
 with no damage, push, enchantment or screen effect of its own; and `826` is remote-cast from the player on every
 living actor within **300** hostile to the player: a new mote on the undead among them first, then **25 + 2.5 × the player's level** fire
-damage (fire resistance). So a nova that kills a marked undead sets off the next one.
+damage (fire resistance). So a nova that kills a marked undead set off the next one.
 
-**A successful Turn Undead sets it off too** (curator, same evening: "successful Turn undead spells trigger Fire
+**The on-death nova is gone (2026-11-15)**, curator: "remove the on kill Fire Nova, keep the Turn undead fire
+nova". `ZP_RiseMoteEffect` lost its `OnEffectFinish` + `IsDead` burst; everything below (the Turn Undead nova,
+its damage, the marks it leaves) is unchanged, so the nova's marks now only matter to the next Turn Undead.
+
+**A successful Turn Undead sets it off** (the only trigger since 2026-11-15) (curator, same evening: "successful Turn undead spells trigger Fire
 Nova from any undead marked with a Mote"). The mote's script hears every effect applied to its bearer
 (`OnMagicEffectApply`); one of the engine's TurnUndead archetype (`PO3_SKSEFunctions.GetEffectArchetypeAsInt` = 24:
 neither the base game nor SKSE has an archetype getter here) that is still active 0.25 s later (PO3
 `HasActiveMagicEffect`; a turn that fails its level check does not stay) bursts the nova from that undead, at most
 once every 2 s per undead (a concentration turn re-applies; two turn effects in one cast fire once). The turned
 undead is burnt by its own nova too (curator: it "doesn't actually damage the undead it comes from"): its mote is
-dispelled first (alive, so no burst) and the nova's own mote replaces it, refreshed rather than doubled, so it still
-bursts when it dies. That covers all 17
+dispelled first and the nova's own mote replaces it, refreshed rather than doubled. That covers all 17
 TurnUndead effects in the list (Enderal/EGO's Turn Undead line, Kata's concentration turns, Circle of Protection's
 hazards, the mass turn), whoever casts them; the nova is still blamed on the player. Rise's text names it.
 **[unverified in game]**; the open question is whether a turn that fails the level check really never shows as
@@ -219,8 +226,8 @@ over large undead, the nova ring's size against its 300 radius, and the chain of
 ### The spiderlings' webs
 
 Curator (2026-11-13): "make it so Stings spider attacks stop enemies in place with web attached", "maybe not just
-feet but webs attached to them", "takes them 3 seconds to break free". Every hit a spiderling lands webs the enemy
-for **3 s**: movement speed −100 (rooted; it can still turn and attack), a white web shader over its body and vanilla
+feet but webs attached to them", "takes them 3 seconds to break free"; 2026-11-15: "extend ... web stop to 6 seconds". Every hit a spiderling lands
+webs the enemy for **6 s**: movement speed −100 (rooted; it can still turn and attack), a white web shader over its body and vanilla
 web sheets from the ground up to its chest. Then it is free for **3 s** before it can be webbed again (cooldown
 `82E`, checked by the script before it casts).
 
@@ -234,6 +241,18 @@ webbed …`. The look was also too faint: the body shader is now opaque white an
 
 Tunables: `WEB_SECONDS`, `WEB_FREE_SECONDS`, `WEB_SHADER` in `tools/02`, `WEB_SCALE` in `tools/01`. **[unverified in
 game]**: the webs firing (look for the trace), the root holding (SpeedMult at 0), the look on big creatures.
+
+**Faster, hunting, landing (2026-11-14).** Curator: "last for 30 seconds and make them twice as fast ... very quickly
+seek and attack targets", then "I don't think the Spiderlings ... are hitting very easily, maybe precision issue?".
+Not Precision: its source (`PrecisionHandler::ActorHasAttackCollision`, `AttackHooks::Func1/Func2`) only takes a
+creature's hits over when it has made attack capsules, and no Precision config in the list defines the spiders'
+body-part data (`017929`), so their bites use the game's own melee check: race unarmed reach (96) × the actor's
+scale. At height 0.30 × the race's 0.75 that was ~22 units, less than a human's body radius, so the AI rarely got
+close enough to start a bite. Now: height **0.5** (a young moss crawler's own, reach ~36), lifetime **30 s**,
+`SpeedMult` **200**, and every 0.5 s a spiderling with no live hostile target is sent at the nearest enemy within
+2500. The **bite assist**: on its own `HitFrame` / `weaponSwing`, if no real hit followed within 0.15 s and its
+combat target is within 110 and 70° of its facing, `82F` (15 poison) + the web land anyway (traced: `[ZP Sting]
+spiderling … bite landed … (assist)`). **[unverified in game]**
 
 ### Rise's sun pommel and wings; the grips
 

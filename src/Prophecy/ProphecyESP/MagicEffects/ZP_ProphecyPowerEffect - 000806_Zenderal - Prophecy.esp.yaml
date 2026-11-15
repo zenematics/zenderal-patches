@@ -438,7 +438,7 @@ VirtualMachineAdapter:
       - "Grants the \"Blink Step\" lesser power (35 Mana): you shatter like glass and re-form up to 33 feet ahead."
       - "Your Elementalism skill is increased by 10."
       - "Your maximum Mana is increased by 75."
-      - "While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting."
+      - "While you cast a spell, a ward surrounds you: the next 2 weapon, arrow or claw hits deal 50% damage, then it breaks. It falls away when you stop casting."
       - "You gain 15% resistance to fire."
       - "Grants the \"Frost Spires\" spell: spires of ice burst from the ground, dealing 30 damage to Health and Stamina - up to four times that the more spires strike - and staggering."
       - "You gain 15% resistance to frost."

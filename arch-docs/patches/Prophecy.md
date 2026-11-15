@@ -1919,3 +1919,39 @@ variable the old rule. The log line now carries `DMK cycle N`. Second suspect, k
 `_CDW_DarkWarriorSlashAimingFixMGEF 0008AF` on the target, while the +40 Health (`_CDW_FakeAbsorbRestoreHealth
 00158A`, Self) and the VFX have none - a target not yet hostile would show the flash and the heal with no drain.
 Deployed into Patch Collection. Unverified in game.
+
+## 2026-11-14: Orbit Ward raised by pistols (evLRise)
+
+**Report (Discord, 16:48):** "Orbit Ward trait from Sorcery triggers when you use a pistol, as it considers it a
+spell. It also triggers while reloading the pistol, completely negating the downside of reload times, as you're
+literally immune to damage while reloading. [...] you will never take any damage if you just cycle between pistol
+shots and off-hand spells."
+
+**Cause.** Every Flintlock pistol is a staff-type WEAP, so to the graph its shot and its ramrod reload are casts:
+`BeginCastRight/Left` fires and `IsCastingRight/Left` stays set for the whole reload. `ZP_CastWardEffect` raised the
+ward on any `BeginCast*` and kept it while any `IsCasting*` was set, so a pistol hand both raised and held it.
+
+**Fix (`ZP_CastWardEffect`, recompiled, in Patch Collection):** `SpellHand(left)` = that hand holds no weapon of type 8
+(staves and pistols). The ward is raised only for a `BeginCast*` from a spell hand, and the poll counts
+`IsCastingRight/Left` only for a spell hand (`IsCastingDual` only with spells in both). A real staff is excluded with
+the pistols (the talent reads "while you cast a spell"). Unverified in game.
+
+**Nerf (curator, same hour: "nerf the talent in general to only block X amount of damage instead of negate it
+completely ... only block 1 or 2 hits and only mitigate some of the damage not block it all").** Shatterveil's
+Orbit Ward cannot do that: its DLL (closed; see ShatterveilAE) zeroes one whole weapon/arrow/claw hit per glass ward
+and `Shatterveil.ini` has no absorb setting. So the talent no longer casts Shatterveil's spell at all:
+
+- `ZP_CastWardEffect` casts Prophecy's own **`ZP_Prophecy_OrbitWard_Shield` `0xB76`** (effect `0xB77`, Self, 60 s,
+  Script archetype, the vanilla ward's hand art `018124` as its look; `ORBIT_SHIELD_RECORDS`, after Centurion
+  Armor's). The script property is renamed `Ward` -> `Shield` so a save's stored Shatterveil value is not kept.
+- **ZenProphecyRage.dll 1.8.0** detours the engine's hit processing (ID 38586, the function every melee, arrow and
+  claw hit goes through before damage; Microsoft Detours, so a plugin already at its entry stays chained). While the
+  player carries effect `0xB77` and has charges, each hit's `totalDamage`/`physicalDamage` is multiplied by
+  `1 - Fraction` and a charge is spent; at 0 the effect is dispelled (next frame, main thread). Charges are reset to
+  `Hits` by the effect's apply event (`TESMagicEffectApplyEvent`), so each cast is a fresh ward. Config:
+  `ZenProphecyRage.json` `orbitWard` {effect, hits, fraction}; log lines `Orbit Ward: shield up` / `hit from ...`.
+- `ORBIT_SHIELD = {'Hits': 2, 'Fraction': 0.5}`: the next two hits deal half damage, then the ward breaks. Spell
+  damage is untouched (as before: Shatterveil's wards took physical hits only). Talent text updated.
+
+The glass-orb look is gone with Shatterveil's spell. Deployed into Patch Collection (the DLL waits for the game to
+close). Unverified in game.

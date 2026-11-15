@@ -101,6 +101,7 @@ DARKNESS = {'Max': 10, 'Fill': [(20, 1.0), (40, 1.5), (60, 2.0), (90, 3.0)], 'Ve
 # your Magicka into damage" of its text, though the damage never read it. The Mana drain is removed (2026-10-30) and
 # the DLL spends Fraction of the Darkness (rounded up) on each proc hit, adding PerPoint magic damage per point spent.
 NIGHTBLADE = {'Fraction': 0.5, 'PerPoint': 15}
+ORBIT_SHIELD = {'Hits': 2, 'Fraction': 0.5}   # Orbit Ward's shield (2026-11-14): hits mitigated per cast, share taken off each (ORBIT_SHIELD_RECORDS)
 # Draining Shroud builds Darkness (curator 2026-10-30: "let draining shroud slowly build up darkness like an absorb from
 # enemies"): the DLL counts its cloak proc's absorb ticks (about one per enemy per second), a point per TicksPerPoint
 SHROUD_DARKNESS = {'TicksPerPoint': 4}
@@ -359,7 +360,7 @@ TREES = [
     ('sor1', 'Blink Step', f'Grants the "Blink Step" lesser power ({BLINK_MANA} Mana): you shatter like glass and re-form up to 33 feet ahead.', None, [], []),
     ('cst1', 'Arcane Study', None, None, [], ['sor1']),
     ('cst2', 'Mana Font', None, None, [], ['sor1']),
-    ('sor2', 'Orbit Ward', 'While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting.', None, [], ['cst1']),
+    ('sor2', 'Orbit Ward', f'While you cast a spell, a ward surrounds you: the next {ORBIT_SHIELD["Hits"]} weapon, arrow or claw hits deal {int(round((1 - ORBIT_SHIELD["Fraction"]) * 100))}% damage, then it breaks. It falls away when you stop casting.', None, [], ['cst1']),
     ('cst3', 'Ember Ward', None, None, [], ['sor2']),
     ('sor3', 'Frost Spires', f'Grants the "Frost Spires" spell: spires of ice burst from the ground, dealing {SORC_MAG['Spires']} damage to Health and Stamina - up to four times that the more spires strike - and staggering.', None, [], ['sor2']),
     ('cst4', 'Rime Ward', None, None, [], ['sor3']),
@@ -945,6 +946,9 @@ def main():
     for nid in GADGETS_LATE_NODES_2:
         nodeperk[nid] = f'{nxt:06X}:{MOD}'; nxt += 1
     cent = {k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(CENTURION_RECORDS)}; nxt += len(CENTURION_RECORDS)
+    # Orbit Ward's own shield (2026-11-14): the spell the talent raises instead of Shatterveil's. Append LAST
+    assert nxt == ORBIT_SHIELD_FIRST_ID, f"Orbit Ward's shield would not start at 0x{ORBIT_SHIELD_FIRST_ID:03X} (0x{nxt:03X})"
+    sorc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(ORBIT_SHIELD_RECORDS)}); nxt += len(ORBIT_SHIELD_RECORDS)
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -1222,7 +1226,7 @@ Priority: 128
     write_unsold_tomes(write)
     write_dragons_breath(dragon, write, sharp, arc)
     write_pistols(pistol, nodeperk, write, glory)
-    write_rage(rage, nodeperk, write, dragon, flowchain, pistol, droid['stg'], arc)
+    write_rage(rage, nodeperk, write, dragon, flowchain, pistol, droid['stg'], arc, sorc)
     shout_grants = convert_powers_to_shouts(shouts, nodeperk, write, {'faith4': newid[htm('000829')]})
     add_talent_cooldown('ZP_Prophecy_IceShot', 'Ice Shot', arc['icepower'], ARC['IceCooldown'], shouts['arc3'], write)
     for key, name, wav in NEW_POWER_SOUNDS:
@@ -1815,6 +1819,15 @@ APA = 'AshihitoPowerArmor.esp'
 APA_DIR = os.path.join(REF, 'mods', 'AshihitoPowerArmor')             # serialized for lookup (reference-only)
 APA_RAW = os.path.join(REF, 'mods', '_raw', 'AshihitoPowerArmor')     # the extracted archive (+ the skeleton fix's nif)
 CENTURION_FIRST_ID = 0xB4D       # after Enemy Threat's stagger keyword (0xB4C); the perk, then CENTURION_RECORDS
+# Orbit Ward's shield (2026-11-14; evLRise: Shatterveil's wards made a pistol caster "literally immune to damage while
+# reloading", curator: "nerf the talent in general to only block X amount of damage instead of negate it completely ...
+# only block 1 or 2 hits and only mitigate some of the damage"): the talent no longer casts Shatterveil's Orbit Ward
+# (its DLL zeroes a whole hit per glass ward, no setting for less). ZP_CastWardEffect casts this spell instead, and
+# ZenProphecyRage.dll (1.8.0, a detour on the engine's hit processing, ID 38586) takes ORBIT_SHIELD['Fraction'] off
+# each of the next ORBIT_SHIELD['Hits'] weapon / arrow / claw hits on the player while the effect is on, then dispels
+# it. The look is the vanilla ward's hand art. After Centurion Armor's records
+ORBIT_SHIELD_FIRST_ID = 0xB76
+ORBIT_SHIELD_RECORDS = ('wardshield', 'wardshieldme')
 CENTURION_RECORDS = ('race', 'skin', 'aa', 'npc', 'list', 'gear', 'power', 'powerme', 'ride', 'rideme', 'control', 'controlme',
                      'abarmor', 'cool', 'coolme', 'getoff', 'getoffme', 'paperk', 'paab', 'paspell', 'pame', 'paexp',
                      'flames', 'sparks', 'frost', 'spelllist', 'menu', 'coolmsg', 'runoutmsg', 'duration', 'cooldown',
@@ -4653,7 +4666,52 @@ Priority: 128
         mt, n = re.subn(r'^Sounds: \[\]$', f"Sounds:\n- Type: Release\n  Sound: {s['wyrmsnd']}", mt, flags=re.M)
         assert n == 1, f'{fk}: Sounds'
         write(ty, mt)
-    # Orbit Ward while casting
+    # Orbit Ward while casting: the shield the script raises (2026-11-14, ORBIT_SHIELD; was Shatterveil's ORBIT_WARD)
+    write('Spells', f"""FormKey: {s['wardshield']}
+EditorID: ZP_Prophecy_OrbitWard_Shield
+Name:
+  TargetLanguage: English
+  Value: Orbit Ward
+MenuDisplayObject: 0435A5:Skyrim.esm
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: Self
+Effects:
+- BaseEffect: {s['wardshieldme']}
+  Data:
+    Duration: 60
+""")
+    write('MagicEffects', f"""FormKey: {s['wardshieldme']}
+EditorID: ZP_Prophecy_OrbitWard_ShieldEffect
+Name:
+  TargetLanguage: English
+  Value: Orbit Ward
+MenuDisplayObject: 0435A5:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- Painless
+- NoRecast
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Self
+HitEffectArt: 018124:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: 'A ward surrounds you while you cast: the next <{ORBIT_SHIELD["Hits"]}> weapon, arrow or claw hits deal {int(round((1 - ORBIT_SHIELD["Fraction"]) * 100))}% damage.'
+""")
     write('Spells', f"""FormKey: {s['orbitab']}
 EditorID: ZP_Prophecy_OrbitWard_Ability
 Name:
@@ -4680,8 +4738,8 @@ VirtualMachineAdapter:
   - Name: ZP_CastWardEffect
     Properties:
     - MutagenObjectType: ScriptObjectProperty
-      Name: Ward
-      Object: {ORBIT_WARD}
+      Name: Shield
+      Object: {s['wardshield']}
 Name:
   TargetLanguage: English
   Value: Orbit Ward
@@ -5151,7 +5209,7 @@ Effects:
 """)
 
 
-def write_rage(r, nodeperk, write, dragon, flowchain, pistol, stagger, arc):
+def write_rage(r, nodeperk, write, dragon, flowchain, pistol, stagger, arc, sorc):
     for k in ARSENAL_ART_RECORDS:
         edid, model = ARSENAL_ARTS[k]
         write('ArtObjects', f"FormKey: {arc[k]}\nEditorID: {edid}\nFormVersion: 44\nObjectBounds:\n  First: -8, -8, -8\n"
@@ -5240,6 +5298,9 @@ Description:
         # on the arrowhead while a bow's arrow is nocked (BowAttached/BowDrawn) and on the player's arrows in flight
         'arsenal': {'perk': hexid(nodeperk['arc1']), 'global': hexid(arc['arglob']),
                     'arts': [hexid(arc[k]) for k in ARSENAL_ART_RECORDS], 'scale': ARSENAL_ART_SCALE},
+        # Orbit Ward's shield (Sorcery, 2026-11-14): while its effect is on the player, each of the next Hits
+        # weapon / arrow / claw hits loses Fraction of its damage (DLL 1.8.0, hit-processing detour), then it is dispelled
+        'orbitWard': {'effect': hexid(sorc['wardshieldme']), 'hits': ORBIT_SHIELD['Hits'], 'fraction': ORBIT_SHIELD['Fraction']},
         # Twin Effigies (Sorcery, 2026-10-29): Shatterveil's effigies cast the spells the player held when casting it
         'effigies': {'plugin': SHVL, 'spells': list(EFFIGY_CAST['Spells']), 'faction': EFFIGY_CAST['Faction'],
                      'base': EFFIGY_CAST['Base'], 'castEvery': EFFIGY_CAST['CastEvery'], 'range': EFFIGY_CAST['Range'],

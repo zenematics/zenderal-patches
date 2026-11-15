@@ -3,6 +3,8 @@
 #include <RE/Skyrim.h>
 #include <SKSE/SKSE.h>
 
+#include <detours/detours.h>
+
 #include <algorithm>
 #include <array>
 #include <cctype>

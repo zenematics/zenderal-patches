@@ -148,10 +148,15 @@ CARRIER = '000813'      # the invisible enchant shader the enchant art needs (se
 # The on-hit rework (curator 2026-11-13). Sting: an enemy that dies poisoned bursts into a spiderling that fights for
 # SPIDER_LIFE s and bursts in venom when it dies; enemies that venom kills burst too. Rise: undead it strikes are marked
 # with a mote of sunlight; a marked enemy that dies bursts in a weak fire nova (curator, same evening: "instead of the
-# Dawnbreaker effect"), marking the undead around it. Blood Boil and Rise's armor bonus stay, as hidden effects (out
+# Dawnbreaker effect"), marking the undead around it; since 2026-11-15 only a successful Turn Undead on a marked undead
+# sets the nova off (curator: "remove the on kill Fire Nova, keep the Turn undead fire nova"). Blood Boil and Rise's armor bonus stay, as hidden effects (out
 # of the descriptions).
-SPIDER_LIFE = 15            # s, curator; ZP_StingSpiderlingEffect's LifeSeconds (AutoReadOnly there)
-SPIDER_HEIGHT = 0.30        # the young Moss Crawler is 0.49
+SPIDER_LIFE = 30            # s, curator (15 until 2026-11-14); ZP_StingSpiderlingEffect's LifeSeconds (AutoReadOnly)
+SPIDER_SPEED = 200          # SpeedMult (100 = the race's own): curator 2026-11-14, "twice as fast"; the script's SpeedMult
+SPIDER_HEIGHT = 0.5         # the young Moss Crawler is 0.49 (x its race's 0.75). 0.30 until 2026-11-14: a bite reach
+                            # of ~22 units (race unarmed reach 96 x scale), so the spiderlings barely ever bit
+BITE_DAMAGE = 15            # the spiderling's assisted bite (Venom Bite 82F/830), poison; the script lands it on a
+BITE_REACH = 110            # hit frame the game's own check missed, target within this (its BiteReach)
 SPIDER_BURST_DAMAGE = 25    # the venom burst, to every enemy within SPIDER_BURST_RADIUS
 SPIDER_BURST_RADIUS = 200   # ZP_StingSpiderlingEffect's Radius (AutoReadOnly there; rework() checks all three)
 MOTE_SECONDS = 30           # a mote lasts this long unless its bearer dies first
@@ -166,7 +171,7 @@ NOVA_SOURCE = '_00E_A1_FireArrowWayfarerExp - 143325_Skyrim.esm.yaml'   # Endera
                                    # Wayfarer burst, vanilla Fire Storm's ring of flame at radius 256
 NOVA_MODEL = r'Zenderal\StingAndRise\RiseNova.nif'                     # tools/01: that ring scaled to NOVA_RADIUS
 SPIT_IMPACTS = '046008:Skyrim.esm' # MAGSpiderSpitImpactSet: the spider spit's splats
-WEB_SECONDS = 3             # curator: "takes them 3 seconds to break free"
+WEB_SECONDS = 6             # curator: "takes them 3 seconds to break free"; 6 since 2026-11-15 ("extend ... to 6")
 WEB_FREE_SECONDS = 3        # then free of webs this long (a spiderling bites often)
 WEB_MODEL = r'Zenderal\StingAndRise\StingWebStrands.nif'   # tools/01: vanilla web strands, scaled to an actor's legs
 WEB_SHADER = {              # vanilla WebbedFXS 02E1CD, quick in and out (its fill fades out over 100 s); curator: the
@@ -177,9 +182,10 @@ STING_TEXT = ('Deals <mag> poison damage per second and slows the target by %d%%
               'dies poisoned bursts into a spiderling that fights at your side for %d seconds and bursts in venom when '
               'it dies, and enemies its venom kills burst too.' % (STING_SLOW, SPIDER_LIFE))
 RISE_TEXT = ('Sets the target ablaze for <dur> seconds, <mag> fire damage per second. Undead it strikes are marked with '
-             'a mote of sunlight. A marked undead that dies or is turned bursts in a fire nova that deals %d fire '
-             'damage, plus %g per level, to the enemies around it and to a turned undead itself, marking the undead '
-             'among them.' % (NOVA_DAMAGE, NOVA_PER_LEVEL))   # turned: ZP_RiseMoteEffect
+             'a mote of sunlight. A marked undead that is turned bursts in a fire nova that deals %d fire damage, '
+             'plus %g per level, to it and to the enemies around it, marking the undead among them.'
+             % (NOVA_DAMAGE, NOVA_PER_LEVEL))   # turned: ZP_RiseMoteEffect; the on-death nova went 2026-11-15 (curator)
+RISE_NAME = 'Sunrise'       # curator 2026-11-15 (was Rise; EditorIDs, files and the plugin keep "Rise")
 SPIDER_BURST_MODEL = r'Zenderal\StingAndRise\StingSpiderBurst.nif'    # tools/01
 MOTE_MODEL = r'Zenderal\StingAndRise\RiseMote.nif'                    # tools/01
 PROPHECY = os.path.join(ROOT, 'src', 'Prophecy', 'ProphecyESP')
@@ -582,6 +588,8 @@ def rework():
     """819-827: Sting's spiderlings and Rise's motes of sunlight (see the constants above)."""
     scripts = os.path.dirname(SCRIPT)
     for name, prop, want in (('ZP_StingSpiderlingEffect', 'LifeSeconds', SPIDER_LIFE),
+                             ('ZP_StingSpiderlingEffect', 'SpeedMult', SPIDER_SPEED),
+                             ('ZP_StingSpiderlingEffect', 'BiteReach', BITE_REACH),
                              ('ZP_StingSpiderlingEffect', 'Radius', SPIDER_BURST_RADIUS),
                              ('ZP_RiseMoteEffect', 'Radius', NOVA_RADIUS),
                              ('ZP_RiseMoteEffect', 'DamageBase', NOVA_DAMAGE),
@@ -631,7 +639,7 @@ def rework():
     a = sub1(a, r'^EditorID: .*$', 'EditorID: ZP_StingSpiderlingEffect')
     a = sub1(a, r'^VirtualMachineAdapter:\n(?:  .*\n)+', vmad('ZP_StingSpiderlingEffect', [
         ('Burst', '000820:' + ME), ('BurstFX', '000822:' + ME), ('Spiderlings', '00081F:' + ME),
-        ('WebCooldown', '00082E:' + ME), ('WebSpell', '00082A:' + ME)]))
+        ('WebCooldown', '00082E:' + ME), ('WebSpell', '00082A:' + ME), ('Bite', '00082F:' + ME)]))
     a = sub1(a, r'^(Name:\n  TargetLanguage: English\n  Value: ).*$', r'\g<1>Venom Spiderling')
     a = sub1(a, r'^CastType: ConstantEffect\n', '')
     a = sub1(a, r'^- NoMagnitude\n- NoArea\n- NoDuration\n', '- NoDuration\n- NoMagnitude\n- NoArea\n')   # flag bits
@@ -652,7 +660,7 @@ def rework():
     rec('Explosions', 'ZP_StingSpiderBurstFX', '000822', x)
 
     # ---- Rise: the mote of sunlight = vanilla Mage Light (LightFFAimed 01EA6D: a light on the target + the orb art
-    # above it) in sun gold, on undead; when its bearer dies (it is dispelled on death) ZP_RiseMoteEffect bursts it
+    # above it) in sun gold, on undead; a successful Turn Undead on its bearer makes ZP_RiseMoteEffect burst it
     t = one(os.path.join(EGO, 'MagicEffects'), '01EA6D_Skyrim.esm')            # EGO's record wins
     assert 'MagicEffectLightArchetype' in t and 'HitEffectArt: 041F06' in t
     t = sub1(t, r'^FormKey: .*$', 'FormKey: 000823:' + ME)
@@ -662,7 +670,7 @@ def rework():
         ('BurstFX', '000828:' + ME), ('Nova', '000826:' + ME)]))
     t = english(t, 'Name', 'Mote of Sunlight')
     t = sub1(t, r'^Keywords:\n(?:- .*\n)+', '')
-    t = sub1(t, r'^Flags:\n(?:- .*\n)+', 'Flags:\n- FXPersist\n- Painless\n')     # dispelled on death: the burst
+    t = sub1(t, r'^Flags:\n(?:- .*\n)+', 'Flags:\n- FXPersist\n- Painless\n')
     for field in ('BaseCost', 'MagicSkill', 'CastingLight', 'MinimumSkillLevel', 'SpellmakingCastingTime', 'Projectile',
                   'CastingArt', 'ImpactData', 'SkillUsageMultiplier'):
         t = re.sub(r'^%s: .*\n' % field, '', t, flags=re.M)   # BaseCost 0 too: never the costliest (enchant-art) effect
@@ -689,6 +697,9 @@ def rework():
         '- BaseEffect: 000827:' + ME, '  Data:', '    Magnitude: %d' % NOVA_DAMAGE])
     damage_effect('000827', 'ZP_RiseFireNovaDamage', 'Fire Nova', resist='ResistFire')
     web_records()
+    blast_spell('00082F', 'ZP_StingSpiderBite', 'Venom Bite', [                 # the spiderling's assisted bite
+        '- BaseEffect: 000830:' + ME, '  Data:', '    Magnitude: %d' % BITE_DAMAGE])
+    damage_effect('000830', 'ZP_StingSpiderBiteDamage', 'Venom Bite', resist='PoisonResist')
 
 
 def web_records():
@@ -777,7 +788,7 @@ def main():
     st = sub1(st, r'^(Model:\n  File: ).*$', lambda m: m.group(1) + STING_OWN_MODEL)
     st = sub1(st, r'^(Model:\n  File: .*\n)  Data: .*\n', r'\g<1>')
     rec('Statics', '1stPersonZP_Sting', '000818', st)
-    dagger('000800', 'ZP_Sting', 'Sting', STING_OWN_MODEL, blood, '000818:' + ME, '000801', bounds_source=OWN_SOURCE)
+    dagger('000800', 'ZP_Sting', 'Midnight Sting', STING_OWN_MODEL, blood, '000818:' + ME, '000801', bounds_source=OWN_SOURCE)
     enchantment('000801', 'ZP_StingVenom', 'Sting Venom', '000802', STING_DPS, [
         '- BaseEffect: 000817:' + ME,                       # the slow: hidden, named in the venom's text
         '  Data:',
@@ -819,7 +830,7 @@ def main():
     st = sub1(st, r'^EditorID: .*$', 'EditorID: 1stPersonZP_Rise')
     st = sub1(st, r'^(Model:\n  File: ).*\n  Data: .*\n', lambda m: m.group(1) + RISE_OWN_MODEL + '\n' + alt)
     rec('Statics', '1stPersonZP_Rise', '00080D', st)
-    dagger('000804', 'ZP_Rise', 'Rise', RISE_OWN_MODEL, aeterna, '00080D:' + ME, '000805', alt=alt,
+    dagger('000804', 'ZP_Rise', RISE_NAME, RISE_OWN_MODEL, aeterna, '00080D:' + ME, '000805', alt=alt,
            bounds_source=OWN_SOURCE,
            extra_keywords=['000808:' + ME, SILVER], script='\n'.join([
                'VirtualMachineAdapter:',
@@ -857,7 +868,7 @@ def main():
         'EditorID: ZP_RiseArmorPierce',
         'Name:',
         '  TargetLanguage: English',
-        '  Value: Rise',
+        '  Value: ' + RISE_NAME,
         'Description:',
         '  TargetLanguage: English',
         "  Value: ''",                                  # a hidden effect (curator 2026-11-13)

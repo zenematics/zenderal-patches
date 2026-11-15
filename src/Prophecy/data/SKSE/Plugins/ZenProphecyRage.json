@@ -85,6 +85,11 @@
   ],
   "scale": 0.3
  },
+ "orbitWard": {
+  "effect": "000B77",
+  "hits": 2,
+  "fraction": 0.5
+ },
  "effigies": {
   "plugin": "Shatterveil.esp",
   "spells": [

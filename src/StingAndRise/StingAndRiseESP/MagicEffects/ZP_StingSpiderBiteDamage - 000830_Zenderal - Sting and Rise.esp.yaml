@@ -1,0 +1,26 @@
+FormKey: 000830:Zenderal - Sting and Rise.esp
+EditorID: ZP_StingSpiderBiteDamage
+Name:
+  TargetLanguage: English
+  Value: Venom Bite
+MenuDisplayObject: 0435A5:Skyrim.esm
+Keywords:
+- 05BD16:Skyrim.esm
+- 001F93:Enderal SE - Gameplay Overhaul.esp
+Flags:
+- Hostile
+- Detrimental
+- NoDuration
+- NoArea
+ResistValue: PoisonResist
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: TargetActor
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

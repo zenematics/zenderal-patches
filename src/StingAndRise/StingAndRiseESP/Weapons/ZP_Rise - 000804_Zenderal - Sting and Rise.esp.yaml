@@ -15,7 +15,7 @@ ObjectBounds:
   Second: 10, 42, 2
 Name:
   TargetLanguage: English
-  Value: Rise
+  Value: Sunrise
 Model:
   File: Zenderal\StingAndRise\Rise.nif
   AlternateTextures:

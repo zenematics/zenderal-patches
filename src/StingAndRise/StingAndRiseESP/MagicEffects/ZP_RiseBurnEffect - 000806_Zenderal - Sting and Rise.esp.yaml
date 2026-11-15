@@ -32,4 +32,4 @@ EnchantArt: 000807:Zenderal - Sting and Rise.esp
 Sounds: []
 Description:
   TargetLanguage: English
-  Value: Sets the target ablaze for <dur> seconds, <mag> fire damage per second. Undead it strikes are marked with a mote of sunlight. A marked undead that dies or is turned bursts in a fire nova that deals 25 fire damage, plus 2.5 per level, to the enemies around it and to a turned undead itself, marking the undead among them.
+  Value: Sets the target ablaze for <dur> seconds, <mag> fire damage per second. Undead it strikes are marked with a mote of sunlight. A marked undead that is turned bursts in a fire nova that deals 25 fire damage, plus 2.5 per level, to it and to the enemies around it, marking the undead among them.
