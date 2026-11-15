@@ -2,7 +2,7 @@ FormKey: 000B5C:Zenderal - Prophecy.esp
 EditorID: ZP_Centurion_CooldownEffect
 Name:
   TargetLanguage: English
-  Value: 'Centurion Armor cooling'
+  Value: 'Starling Power Armor cooling'
 MenuDisplayObject: 0435A5:Skyrim.esm
 Flags:
 - Hostile
@@ -19,4 +19,4 @@ DualCastScale: 1
 Sounds: []
 Description:
   TargetLanguage: English
-  Value: 'The Centurion Armor cannot be boarded for <dur> seconds.'
+  Value: 'The Starling Power Armor cannot be boarded for <dur> seconds.'

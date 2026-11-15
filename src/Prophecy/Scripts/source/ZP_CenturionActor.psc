@@ -23,7 +23,7 @@ Event OnActivate(ObjectReference akActionRef)
 	EndIf
 	If player.IsSneaking()
 		busy = True
-		Debug.Notification("The Centurion Armor powers down.")
+		Debug.Notification("The Starling Power Armor powers down.")
 		CenturionList.Revert()
 		Disable()
 		Delete()

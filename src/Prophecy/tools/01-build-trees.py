@@ -88,7 +88,7 @@ RAGE = {'Max': 10, 'MaxUntempered': 15, 'DamagePerStack': 2, 'FadeAfter': 6, 'Fa
 # 2026-10-28 (curator): daytime shade outdoors filled nothing at 60, so a fourth, slower step up to 90 (the log showed
 # 137 in open light); the DLL logs the light level every 5 s for the next tuning.
 DARKNESS = {'Max': 10, 'Fill': [(20, 1.0), (40, 1.5), (60, 2.0), (90, 3.0)], 'VeilMult': 2.0, 'DrainEvery': 4.0,
-            'Cost': {'shd1': 3, 'shd2': 4, 'shd3': 4, 'shd4': 3, 'shd5': 'full', 'shd7': 2},
+            'Cost': {'shd1': 3, 'shd2': 4, 'shd3': 'full', 'shd4': 3, 'shd5': 'full', 'shd7': 2},   # shd3 'full' since 2026-11-15 (curator)
             # the meter: Rage's (Oxygen Meter 2's movie, our own menu), dark navy / purple (curator 2026-10-28; bar #4E5180, was 2A1A5E). Rage
             # follows the casting bar's slot (90.7% in Vel'dun's bottom HUD); this sits just below the Stamina / Mana
             # bars (curator's screenshots: -2.5 sat on the compass, 2.8 on the Stamina / Mana bars, 4.0 a little high and wide)
@@ -100,8 +100,24 @@ DARKNESS = {'Max': 10, 'Fill': [(20, 1.0), (40, 1.5), (60, 2.0), (90, 3.0)], 'Ve
 # and its 335B52 effect takes 50% of the CASTER's current Magicka (TVR_PercentageDamage_Script: akCaster) - the "50% of
 # your Magicka into damage" of its text, though the damage never read it. The Mana drain is removed (2026-10-30) and
 # the DLL spends Fraction of the Darkness (rounded up) on each proc hit, adding PerPoint magic damage per point spent.
-NIGHTBLADE = {'Fraction': 0.5, 'PerPoint': 15}
+# 2026-11-15 (a tester: 70-100 a dash, spammable with a dodge back, "the weapon you use almost irrelevant"; curator:
+# "it should cost an entire darkness meter to use Nightblade at the very least"): the cast costs the full meter
+# (DARKNESS Cost 'full', like Nightfall) and each dash spends ALL the Darkness, so a dash is worth what was gathered
+# since the last one and a spammed dash is the base 45. Same day, curator: "remove the damage from nightblade all
+# together": the proc's 45 is 0 (its damage effect stays for the hit look) and the DLL's Darkness damage is off
+# (records nbspell/nbme kept, unused). Nightblade is the dash alone - and (curator, same day: "instead you regain
+# some darkness if you successfuly kill the enemy you dash to") a kill by the player of the enemy last dashed to,
+# within Window seconds of the dash, gives Refund Darkness back (Darkness DLL 1.4.0, TESDeathEvent).
+NIGHTBLADE = {'Fraction': 1.0, 'PerPoint': 0, 'Damage': False, 'Refund': 3, 'Window': 8.0}
 ORBIT_SHIELD = {'Hits': 2, 'Fraction': 0.5}   # Orbit Ward's shield (2026-11-14): hits mitigated per cast, share taken off each (ORBIT_SHIELD_RECORDS)
+# Starling Power Armor (2026-11-15; curator: the Centurion Armor renamed, and "add Shock Nova to the left Power attack
+# and Chain Lightning on hit to the Right power attacks ... only when piloting it, when its just following you around
+# it just does standard attacks and steam"). One new record: a global the control script raises for a right-arm power
+# swing and ZenProphecyRage.dll (1.9.0) reads on the hit that swing lands (Dragon's Breath's chain lightning cast from
+# the player at the enemy struck, once per swing, then the global is cleared). The left arm's power swing places Flow
+# State's Shock Nova explosion (0x93D) at the armor. The companion by itself keeps EGO's Starling Centurion attacks and
+# steam breath. The gold look is tools/09 (textures + the mesh's texture paths). Append LAST
+CENTURION_ARM_ID = 0xB78
 # Draining Shroud builds Darkness (curator 2026-10-30: "let draining shroud slowly build up darkness like an absorb from
 # enemies"): the DLL counts its cloak proc's absorb ticks (about one per enemy per second), a point per TicksPerPoint
 SHROUD_DARKNESS = {'TicksPerPoint': 4}
@@ -241,7 +257,7 @@ TREES = [
     ('gad5', 'Overclock', 'Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%.', None, [o('056C9F'), o('056CA7')], ['gad4']),
     # Centurion Armor (2026-11-13): a second capstone off Overclock (EXTRA_CAPSTONES), allocated after everything
     # else (GADGETS_LATE_NODES_2) so no older ID moved. Numbers = CENTURION, defined above
-    ('gad7', 'Centurion Armor', 'Grants the "Centurion Armor" power: call a Dwemer war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow, hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it.', None, [], ['gad5']),
+    ('gad7', 'Starling Power Armor', 'Grants the "Starling Power Armor" power: call a gilded Starling war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow - the left arm then bursts in a shock nova, and lightning chains from whoever the right arm strikes - hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it.', None, [], ['gad5']),
   ]),
   # Shadow (2026-10-27, curator's design): Triumvirate's Shadow Mage spells, granted by the menu (SHADOW_GRANTS; Magic
   # Patches prices them), and Nightfall as a fever-priced power (write_shadow). Allocated after every older block
@@ -249,7 +265,7 @@ TREES = [
   ('Shadow', 'Darkness, stealth and stolen strength.', [
     ('shd1', 'Gather Shadows', f'Darkness gathers in you while you stand in shadow, up to {DARKNESS["Max"]}: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the "Gather Shadows" spell ({DARKNESS["Cost"]["shd1"]} Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness.', None, [], []),
     ('shd2', 'Draining Shroud', f'Grants the "Draining Shroud" spell ({DARKNESS["Cost"]["shd2"]} Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every {SHROUD_DARKNESS["TicksPerPoint"]} seconds of draining an enemy builds 1 Darkness.', None, [], ['shd1']),
-    ('shd3', 'Nightblade', f'Grants the "Nightblade" spell ({DARKNESS["Cost"]["shd3"]} Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing {NIGHTBLADE["PerPoint"]} more magic damage per point spent.', None, [], ['shd1']),
+    ('shd3', 'Nightblade', f'Grants the "Nightblade" spell (a full Darkness meter): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them. The dash itself does no damage, but kill the enemy you dashed to within {NIGHTBLADE["Window"]:.0f} seconds and you regain {NIGHTBLADE["Refund"]} Darkness.', None, [], ['shd1']),
     # Shade Veil (2026-10-28): off Silent Step, a dead end; added after the tree's first build, so allocated last
     # (SHADOW_LATE_NODES). The menu holds two parents at most, so it does not join the merge below
     ('shd6', 'Shade Veil', f'While you sneak, your body is wrapped in black and grey mist, you are {SHADE_VEIL_DETECT}% harder to detect, and Darkness gathers twice as fast.', None, [], ['sst1']),
@@ -949,6 +965,9 @@ def main():
     # Orbit Ward's own shield (2026-11-14): the spell the talent raises instead of Shatterveil's. Append LAST
     assert nxt == ORBIT_SHIELD_FIRST_ID, f"Orbit Ward's shield would not start at 0x{ORBIT_SHIELD_FIRST_ID:03X} (0x{nxt:03X})"
     sorc.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(ORBIT_SHIELD_RECORDS)}); nxt += len(ORBIT_SHIELD_RECORDS)
+    # Starling Power Armor's right-arm global (2026-11-15). Append LAST
+    assert nxt == CENTURION_ARM_ID, f"the armor's right-arm global would not be 0x{CENTURION_ARM_ID:03X} (0x{nxt:03X})"
+    cent['arm'] = f'{nxt:06X}:{MOD}'; nxt += 1
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -1175,7 +1194,7 @@ def main():
     write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, sharp, glory, gunhit_extra)
     write_flow(flowab, flowme, newid, write, nova, flowchain, dragon['Shockme'])
     write_droid(droid, write)
-    write_centurion(cent, write)
+    write_centurion(cent, write, nova)
     write_never(write)
     write_dummies(write)
     # add_fever(newid, write, rec) - off since 2026-10-25 (curator): Faith's free heals no longer raise Arcane Fever
@@ -1226,7 +1245,7 @@ Priority: 128
     write_unsold_tomes(write)
     write_dragons_breath(dragon, write, sharp, arc)
     write_pistols(pistol, nodeperk, write, glory)
-    write_rage(rage, nodeperk, write, dragon, flowchain, pistol, droid['stg'], arc, sorc)
+    write_rage(rage, nodeperk, write, dragon, flowchain, pistol, droid['stg'], arc, sorc, cent)
     shout_grants = convert_powers_to_shouts(shouts, nodeperk, write, {'faith4': newid[htm('000829')]})
     add_talent_cooldown('ZP_Prophecy_IceShot', 'Ice Shot', arc['icepower'], ARC['IceCooldown'], shouts['arc3'], write)
     for key, name, wav in NEW_POWER_SOUNDS:
@@ -1859,12 +1878,13 @@ CENTURION_EDID = {'race': 'ZP_Centurion_Race', 'skin': 'ZP_Centurion_Skin', 'aa'
                   'cooldown': 'ZP_Centurion_CooldownSeconds', 'jetvfx': 'ZP_Centurion_JetVFX', 'jetshader': 'ZP_Centurion_JetShader',
                   'jetart': 'ZP_Centurion_JetArt', 'floor': 'ZP_Centurion_MovingFloor', 'beepsnd': 'ZP_Centurion_BeepSD',
                   'beepmark': 'ZP_Centurion_Beep', 'equipsnd': 'ZP_Centurion_EquipSD', 'equipmark': 'ZP_Centurion_Equip',
-                  'actmark': 'ZP_Centurion_Activate'}
+                  'actmark': 'ZP_Centurion_Activate', 'arm': 'ZP_Centurion_RightArm'}
 CENTURION_NPC_BASE = os.path.join(REF, 'mods', 'EGO - Enderal Gameplay Overhaul', 'Npcs', '_00E_MQ13c_SC04_Centurion - 100CD1_Skyrim.esm.yaml')
 CENTURION_NO_FALL = '006F57:AshihitoPowerArmor.esp'     # aaaAbNOfalldamage: its effect is Dragonborn's 01E801, null in Enderal
 # the mod's own files the records name; everything else they reference is vanilla, in Enderal's archives
-CENTURION_ASSETS = ['meshes/actors/AshihitoPArace/CenturionArmor/CenturionArmor.nif',
-                    'meshes/actors/AshihitoPArace/CenturionArmor/CenturionSkeleton.nif',    # the Skeleton Fix's copy
+# (CenturionArmor.nif itself is written by tools/09-build-starling-armor.py: the mod's mesh with its texture paths on
+# our gold set; run it after this script)
+CENTURION_ASSETS = ['meshes/actors/AshihitoPArace/CenturionArmor/CenturionSkeleton.nif',    # the Skeleton Fix's copy
                     'meshes/Magic/AshihitoPArace/CenturionFire.nif', 'meshes/Magic/AshihitoPArace/MovingFloor.nif',
                     'textures/Armor/AshihitoPA/glowball.dds', 'sound/fx/AshihitoPArace/beep.wav']
 
@@ -1876,8 +1896,8 @@ def apa_load(key):
     return open(fs[0], encoding='utf-8').read().replace('\r\n', '\n')
 
 
-def write_centurion(c, write):
-    """Centurion Armor (Gadgets' second capstone). The power (ZP_CenturionPowerEffect) summons a Centurion of our copy of
+def write_centurion(c, write, nova):
+    """Starling Power Armor (Gadgets' second capstone; "Centurion Armor" until 2026-11-15, EditorIDs kept). The power (ZP_CenturionPowerEffect) summons a Centurion of our copy of
     the mod's armor race, a teammate on SureAI's follow package (one at a time; cast again = recall; while boarded =
     climb out). Activating it (ZP_CenturionActor) puts the player inside: gear remembered in a FormList, race switched to
     the armor race in its steam suit for CENTURION['Duration'] seconds (ZP_CenturionRideOn), the mod's key-driven control
@@ -1916,7 +1936,7 @@ def write_centurion(c, write):
         if description is not None: txt = desc(txt, description)
         return txt
 
-    A = 'Centurion Armor'
+    A = 'Starling Power Armor'
     # the race: the mod's (a modified Dwarven Centurion skeleton on the vanilla Steam Centurion graph), minus its Nord
     # HeadData (default head parts / presets that are placed refs or absent in Enderal; the player enters by SetRace,
     # never through the race menu) and minus the control ability (added to the player by the ride, not to the companion)
@@ -1929,7 +1949,7 @@ def write_centurion(c, write):
     write('Armors', take('skin', A, ''))
     write('ArmorAddons', take('aa'))
     # the ride: the mod's lesser power + script effect; the companion's script sets the duration and casts it
-    write('Spells', take('ride', A, 'You pilot the Centurion Armor for <dur> seconds.'))
+    write('Spells', take('ride', A, 'You pilot the Starling Power Armor for <dur> seconds.'))
     t = take('rideme', A, '', 'ZP_CenturionRideOn', [('CenturionRace', c['race']), ('SteamArmor', c['skin']), ('Gear', c['gear']),
                                        ('Duration', c['duration']), ('Cooldown', c['cooldown']), ('RunoutMsg', c['runoutmsg']),
                                        ('AlertSound', c['beepmark']), ('CoolSpell', c['cool']), ('ControlSpell', c['control']),
@@ -1940,30 +1960,32 @@ def write_centurion(c, write):
                                         ('FXDwarvenCenturion', '030B3B:Skyrim.esm'), ('FXDwarvenCenturionArm01', '04BB4E:Skyrim.esm'),
                                         ('FXDwarvenCenturionArm02', '04BB51:Skyrim.esm'), ('MovingFloor', c['floor']),
                                         ('PowerAttackPerk', c['paperk']), ('PowerAttackSpell', c['paspell']), ('SelectMenu', c['menu']),
-                                        ('RideSpell', c['ride'])])
+                                        ('RideSpell', c['ride']),
+                                        # 2026-11-15: the piloted power blows' effects (see CENTURION_ARM_ID)
+                                        ('ShockNova', nova['novaexp']), ('RightArm', c['arm'])])
     write('MagicEffects', t)
     write('Spells', take('abarmor', A, ''))
     write('Spells', take('cool', A + ' cooling', ''))
-    write('MagicEffects', take('coolme', A + ' cooling', 'The Centurion Armor cannot be boarded for <dur> seconds.'))
-    write('Spells', take('getoff', 'Dismount ' + A, 'Climb out of the Centurion Armor.'))
+    write('MagicEffects', take('coolme', A + ' cooling', 'The Starling Power Armor cannot be boarded for <dur> seconds.'))
+    write('Spells', take('getoff', 'Dismount ' + A, 'Climb out of the Starling Power Armor.'))
     write('MagicEffects', take('getoffme', 'Dismount ' + A, '', 'ZP_CenturionGetOff', [('RideSpell', c['ride'])]))
     write('Perks', take('paperk', A + ' power attack', ''))
     write('Spells', take('paab', A + ' power attack', ''))
     write('Spells', take('paspell', A + ' power attack', ''))
     write('MagicEffects', take('pame', A + ' power attack', ''))
     write('Explosions', take('paexp', A + ' power attack'))
-    write('Spells', take('flames', 'Centurion Flames', ''))
-    write('Spells', take('sparks', 'Centurion Sparks', ''))
-    write('Spells', take('frost', 'Centurion Frost', ''))
+    write('Spells', take('flames', 'Starling Flames', ''))
+    write('Spells', take('sparks', 'Starling Sparks', ''))
+    write('Spells', take('frost', 'Starling Frost', ''))
     write('FormLists', take('spelllist'))
     # the Favorites-key menu: one button per SpellList entry, in its order (steam breath, flames, sparks, frost, dismount)
-    t = take('menu', 'Centurion Armor', 'Choose what the Centurion breathes.')
+    t = take('menu', A, 'Choose what the armor breathes.')
     t = re.sub(r'^MenuButtons:\n(?:- .*\n|  .*\n)*', 'MenuButtons:\n' + ''.join(
         f'- Text:\n    TargetLanguage: English\n    Value: {b}\n' for b in ('Steam', 'Flames', 'Sparks', 'Frost', 'Climb out')), t, count=1, flags=re.M)
     assert t.count('- Text:') == 5
     write('Messages', t)
-    write('Messages', take('coolmsg', A, 'The Centurion Armor is still cooling down. It cannot be boarded yet.'))
-    write('Messages', take('runoutmsg', A, "The Centurion Armor's core is running low. It will shut down soon."))
+    write('Messages', take('coolmsg', A, 'The Starling Power Armor is still cooling down. It cannot be boarded yet.'))
+    write('Messages', take('runoutmsg', A, "The Starling Power Armor's core is running low. It will shut down soon."))
     t = take('duration'); t = re.sub(r'^Data: .*$', f"Data: {CENTURION['Duration']}", t, count=1, flags=re.M); write('Globals', t)
     t = take('cooldown'); t = re.sub(r'^Data: .*$', f"Data: {CENTURION['Cooldown']}", t, count=1, flags=re.M); write('Globals', t)
     write('VisualEffects', take('jetvfx'))
@@ -1975,6 +1997,8 @@ def write_centurion(c, write):
     # two FormLists: the live companion (one at a time), and the gear worn when boarding
     write('FormLists', f"FormKey: {c['list']}\nEditorID: ZP_Centurion_List\nItems: []\n")
     write('FormLists', f"FormKey: {c['gear']}\nEditorID: ZP_Centurion_Gear\nItems: []\n")
+    # the right arm's power swing (2026-11-15): 1 from the swing until its hit (the Rage DLL clears it) or 2 s
+    write('Globals', f"MutagenObjectType: GlobalShort\nFormKey: {c['arm']}\nEditorID: ZP_Centurion_RightArm\nData: 0\n")
     # the companion: Enderal's Starling Centurion (EGO's record: its stats, combat style, sounds, steam-breath ability)
     # on our armor race, a teammate on SureAI's follow package; no template, no EP on death, no loot
     t = open(CENTURION_NPC_BASE, encoding='utf-8').read().replace('\r\n', '\n')
@@ -2006,7 +2030,7 @@ MenuDisplayObject: 0A6459:Skyrim.esm
 EquipmentType: 025BEE:Skyrim.esm
 Description:
   TargetLanguage: English
-  Value: 'Calls your Centurion Armor to your side, or recalls it. While you pilot it, climbs out.'
+  Value: 'Calls your Starling Power Armor to your side, or recalls it. While you pilot it, climbs out.'
 Flags:
 - ManualCostCalc
 Type: LesserPower
@@ -2067,6 +2091,9 @@ def copy_centurion_assets():
         assert os.path.isfile(src), f'Centurion asset missing: {src}'
         dst = os.path.join(assets, rel.lower().replace('/', os.sep))
         os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copyfile(src, dst)
+    mesh = os.path.join(assets, 'meshes', 'actors', 'ashihitoparace', 'centurionarmor', 'centurionarmor.nif')
+    if not os.path.isfile(mesh):
+        print('NOTE: the armor mesh is missing - run tools/09-build-starling-armor.py (gold textures + mesh)')
 
 
 def write_droid(d, write):
@@ -3532,15 +3559,20 @@ def write_nightblade(sh, write, nodeperk):
     y = tvr_record('Spells', NIGHTBLADE_PROC)
     entry = f'- BaseEffect: {NIGHTBLADE_DRAIN}:{TRIUMVIRATE}\n  Data: {{}}\n'
     assert y.count(entry) == 1, 'Nightblade proc: drain entry'
-    write('Spells', y.replace(entry, ''))
+    y = y.replace(entry, '')
+    if not NIGHTBLADE['Damage']:   # 2026-11-15: no damage at all; the effect stays for its hit look
+        dmg = f'- BaseEffect: {NIGHTBLADE_DAMAGE}:{TRIUMVIRATE}\n  Data:\n    Magnitude: 45\n'
+        assert y.count(dmg) == 1, 'Nightblade proc: damage entry'
+        y = y.replace(dmg, dmg.replace('Magnitude: 45', 'Magnitude: 0'))
+    write('Spells', y)
     # the buff's description: Triumvirate's says the dash converts 50% of the Magicka into damage
     me = tvr_record('MagicEffects', NIGHTBLADE_BUFF)
     old = ('  Value: Able to melee attack from up to <50> feet to perform a dash attack, converting <50>% of your Magicka '
            'into bonus magic damage on hit. Lasts <dur> seconds. (<mag> damage)\n')
     assert me.count(old) == 1, 'Nightblade buff: description'
-    write('MagicEffects', me.replace(old, '  Value: Power attacks reach targets up to <50> feet away, dashing you to them '
-          'for 45 magic damage. Each dash spends half your Darkness for '
-          f'<{NIGHTBLADE["PerPoint"]}> more damage per point. Lasts <dur> seconds.\n'))
+    write('MagicEffects', me.replace(old, '  Value: Power attacks reach targets up to <50> feet away, dashing you to them. '
+          f'Kill the enemy you dashed to within <{NIGHTBLADE["Window"]:.0f}> seconds to regain <{NIGHTBLADE["Refund"]}> '
+          'Darkness. Lasts <dur> seconds.\n'))
     # the Darkness damage: Triumvirate's damage effect (its hit shader, resist, look) without the dash-keyword
     # condition, in a spell the DLL casts from the player with the magnitude it computes
     me = tvr_record('MagicEffects', NIGHTBLADE_DAMAGE)
@@ -3613,10 +3645,14 @@ Description:
         'veilMult': DARKNESS['VeilMult'], 'drainEvery': DARKNESS['DrainEvery'],
         'refusal': 'Not enough Darkness.',
         'spells': [{'name': next(n[1] for _, _, ns in TREES for n in ns if n[0] == nid), 'plugin': fk.split(':', 1)[1],
-                    'id': hexid(fk), 'cost': DARKNESS['Cost'][nid]} for nid, fk in spells],
+                    'id': hexid(fk), 'cost': DARKNESS['Cost'][nid],
+                    'freeFollowUps': nid == 'shd5'} for nid, fk in spells],   # Nightfall's script casts the buffs (1.3.1)
         'meter': DARKNESS['Meter'],
-        'nightblade': {'procPlugin': TRIUMVIRATE, 'procId': NIGHTBLADE_PROC, 'damageSpell': hexid(sh['nbspell']),
-                       'fraction': NIGHTBLADE['Fraction'], 'perPoint': NIGHTBLADE['PerPoint']},
+        'nightblade': {'procPlugin': TRIUMVIRATE, 'procId': NIGHTBLADE_PROC,
+                       'refund': NIGHTBLADE['Refund'], 'window': NIGHTBLADE['Window'],   # the kill refund (1.4.0)
+                       # no damageSpell = the DLL never spends or damages on a dash (2026-11-15)
+                       **({'damageSpell': hexid(sh['nbspell']), 'fraction': NIGHTBLADE['Fraction'],
+                           'perPoint': NIGHTBLADE['PerPoint']} if NIGHTBLADE['Damage'] else {})},
         'shroud': {'procPlugin': TRIUMVIRATE, 'procId': SHROUD_CLOAK, 'ticksPerPoint': SHROUD_DARKNESS['TicksPerPoint']},
     }
     os.makedirs(os.path.dirname(DARKNESS_JSON), exist_ok=True)
@@ -5209,7 +5245,7 @@ Effects:
 """)
 
 
-def write_rage(r, nodeperk, write, dragon, flowchain, pistol, stagger, arc, sorc):
+def write_rage(r, nodeperk, write, dragon, flowchain, pistol, stagger, arc, sorc, cent):
     for k in ARSENAL_ART_RECORDS:
         edid, model = ARSENAL_ARTS[k]
         write('ArtObjects', f"FormKey: {arc[k]}\nEditorID: {edid}\nFormVersion: 44\nObjectBounds:\n  First: -8, -8, -8\n"
@@ -5301,6 +5337,9 @@ Description:
         # Orbit Ward's shield (Sorcery, 2026-11-14): while its effect is on the player, each of the next Hits
         # weapon / arrow / claw hits loses Fraction of its damage (DLL 1.8.0, hit-processing detour), then it is dispelled
         'orbitWard': {'effect': hexid(sorc['wardshieldme']), 'hits': ORBIT_SHIELD['Hits'], 'fraction': ORBIT_SHIELD['Fraction']},
+        # Starling Power Armor (Gadgets, 2026-11-15): while armGlobal is 1 (the control script's right-arm power swing),
+        # the player's next hit on an enemy casts chainSpell (Dragon's Breath's chain lightning) at it and clears the global
+        'centurion': {'armGlobal': hexid(cent['arm']), 'chainSpell': hexid(dragon['Shockspell'])},
         # Twin Effigies (Sorcery, 2026-10-29): Shatterveil's effigies cast the spells the player held when casting it
         'effigies': {'plugin': SHVL, 'spells': list(EFFIGY_CAST['Spells']), 'faction': EFFIGY_CAST['Faction'],
                      'base': EFFIGY_CAST['Base'], 'castEvery': EFFIGY_CAST['CastEvery'], 'range': EFFIGY_CAST['Range'],

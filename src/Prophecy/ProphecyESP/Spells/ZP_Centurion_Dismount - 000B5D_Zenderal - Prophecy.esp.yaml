@@ -2,12 +2,12 @@ FormKey: 000B5D:Zenderal - Prophecy.esp
 EditorID: ZP_Centurion_Dismount
 Name:
   TargetLanguage: English
-  Value: 'Dismount Centurion Armor'
+  Value: 'Dismount Starling Power Armor'
 MenuDisplayObject: 0A6459:Skyrim.esm
 EquipmentType: 025BEE:Skyrim.esm
 Description:
   TargetLanguage: English
-  Value: 'Climb out of the Centurion Armor.'
+  Value: 'Climb out of the Starling Power Armor.'
 Flags:
 - ManualCostCalc
 Type: LesserPower

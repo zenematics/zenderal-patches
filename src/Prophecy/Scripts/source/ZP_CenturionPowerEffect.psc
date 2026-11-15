@@ -25,7 +25,7 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	If current
 		current.MoveTo(player, 160.0 * Math.Sin(angle), 160.0 * Math.Cos(angle), 0.0)
 		current.SetAngle(0.0, 0.0, angle)
-		Debug.Notification("The Centurion Armor returns to your side.")
+		Debug.Notification("The Starling Power Armor returns to your side.")
 		Return
 	EndIf
 	ObjectReference placed = player.PlaceAtMe(CompanionBase, 1, False, False)
@@ -41,7 +41,7 @@ Event OnEffectStart(Actor akTarget, Actor akCaster)
 	If ActivateSound
 		ActivateSound.Play(mech)
 	EndIf
-	Debug.Notification("Your Centurion Armor arrives. Activate it to climb in; sneak and activate to dismiss it.")
+	Debug.Notification("Your Starling Power Armor arrives. Activate it to climb in; sneak and activate to dismiss it.")
 EndEvent
 
 ; the remembered Centurion if it still lives and stands (not disabled: that is the one the player is inside)

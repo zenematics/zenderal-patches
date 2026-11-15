@@ -162,6 +162,9 @@ namespace
 		double             coupBonus{ 1.0 };
 		double             coupHealth{ 0.25 };
 		double             bladeSeconds{ 3.0 };
+		// Starling Power Armor's right-arm power swing (1.9.0)
+		RE::TESGlobal*     armGlobal{ nullptr };
+		RE::SpellItem*     armChain{ nullptr };
 		// Orbit Ward's shield (1.8.0)
 		RE::EffectSetting* wardEffect{ nullptr };
 		int                wardHits{ 2 };
@@ -294,6 +297,12 @@ namespace
 			}
 			c.arsenalScale = a.value("scale", 0.3f);
 			SKSE::log::info("Arcane Arsenal arrows: {} arts, scale {}", c.arsenalArts.size(), c.arsenalScale);
+		}
+		if (j.contains("centurion")) {
+			auto& a = j["centurion"];
+			c.armGlobal = Lookup<RE::TESGlobal>(plugin, a["armGlobal"], "Starling Power Armor right-arm global");
+			c.armChain = Lookup<RE::SpellItem>(plugin, a["chainSpell"], "Starling Power Armor chain lightning");
+			SKSE::log::info("Starling Power Armor: right-arm power hits cast {}", c.armChain ? c.armChain->GetName() : "(none)");
 		}
 		if (j.contains("orbitWard")) {
 			auto& w = j["orbitWard"];
@@ -1498,6 +1507,34 @@ namespace
 		}
 	};
 
+	// ---- Starling Power Armor (1.9.0, 2026-11-15; curator: "Chain Lightning on hit to the Right power attacks ... only
+	// when piloting it"). The control script sets armGlobal to 1 as a right-arm power swing starts and back to 0 two
+	// seconds later; the first hit the player lands meanwhile casts Dragon's Breath's chain lightning at the enemy
+	// struck (as Invoker does) and clears the global, so one chain per swing.
+	void ArmorChain(const RE::TESHitEvent* a_event)
+	{
+		auto& c = g_cfg;
+		if (!c.armGlobal || !c.armChain || c.armGlobal->value < 0.5f) {
+			return;
+		}
+		auto* player = Player();
+		if (a_event->cause.get() != player || a_event->target.get() == player) {
+			return;
+		}
+		auto* victim = a_event->target->As<RE::Actor>();
+		if (!victim || victim->IsDead()) {
+			SKSE::log::info("Starling Power Armor: right-arm power hit on {:08X} (form type {}, source {:08X}, flags {:#x}) - {}",
+				a_event->target->GetFormID(), static_cast<int>(a_event->target->GetFormType()), a_event->source,
+				a_event->flags.underlying(), victim ? "dead" : "not an actor");
+			return;
+		}
+		c.armGlobal->value = 0.0f;
+		player->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)
+			->CastSpellImmediate(c.armChain, false, victim, 1.0f, false, 0.0f, player);
+		SKSE::log::info("Starling Power Armor: right-arm power hit on {:08X} '{}' - chain lightning", victim->GetFormID(),
+			victim->GetName());
+	}
+
 	class HitSink : public RE::BSTEventSink<RE::TESHitEvent>
 	{
 	public:
@@ -1514,6 +1551,7 @@ namespace
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			DragonsBreath(a_event);
+			ArmorChain(a_event);
 			PistolTalents(a_event);
 			Ricochet(a_event);
 			if (!g_cfg.ready || !Has(g_cfg.root)) {
@@ -1822,10 +1860,39 @@ namespace
 	}
 }
 
+// Papyrus natives (script ZP_Aim, src/Prophecy/Scripts/source/ZP_Aim.psc). 1.10.0 (2026-11-15), for Whisper's Soul
+// Cleave (curator: "make the projectile from the power attack fire where the player is aiming rather than always just
+// horizontal to the player"): Papyrus has no camera, and in third person TDM turns the body away from the crosshair
+// (bFaceCrosshairWhileAttacking = 0 in the list), so the player's own angles are not the aim.
+namespace AimNatives
+{
+	// The render camera's position (WorldRootCamera) and its forward axis (the camera root's +Y), the frame
+	// SpellAimTrace measured shots against: { x, y, z, forward x, y, z }, or empty with no camera.
+	std::vector<float> CameraAim(RE::StaticFunctionTag*)
+	{
+		auto* camera = RE::PlayerCamera::GetSingleton();
+		auto* world = RE::Main::WorldRootCamera();
+		if (!camera || !camera->cameraRoot || !world) {
+			return {};
+		}
+		const auto& r = camera->cameraRoot->world.rotate;
+		const auto& p = world->world.translate;
+		return { p.x, p.y, p.z, r.entry[0][1], r.entry[1][1], r.entry[2][1] };
+	}
+
+	bool Register(RE::BSScript::IVirtualMachine* a_vm)
+	{
+		a_vm->RegisterFunction("CameraAim", "ZP_Aim", CameraAim);
+		SKSE::log::info("Papyrus: ZP_Aim.CameraAim registered");
+		return true;
+	}
+}
+
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.8.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.10.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::GetPapyrusInterface()->Register(AimNatives::Register);
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };
 	NotifyPlayerGraph::func = graphVtbl.write_vfunc(0x1, NotifyPlayerGraph::thunk);

@@ -1955,3 +1955,119 @@ and `Shatterveil.ini` has no absorb setting. So the talent no longer casts Shatt
 
 The glass-orb look is gone with Shatterveil's spell. Deployed into Patch Collection (the DLL waits for the game to
 close). Unverified in game.
+
+## 2026-11-15: Starling Power Armor (the Centurion Armor renamed, piloted power blows, worn gold)
+
+**The ask (curator):** rename to "Starling Power Armor"; "add Shock Nova to the left Power attack and Chain Lightning
+on hit to the Right power attacks ... only when piloting it, when its just following you around it just does standard
+attacks and steam"; "retexture it with the new gold cubemaps including the backpack / power pack? add some worn /
+scratches".
+
+**Rename.** Every shown name and message (`A` in `write_centurion`, the gad7 talent, the power, the breath menu, the
+cooling / run-out messages, the scripts' notifications) reads Starling Power Armor; the breath spells are Starling
+Flames / Sparks / Frost. EditorIDs stay `ZP_Centurion_*` (the perk's EditorID follows the talent name:
+`ZP_Prophecy_StarlingPowerArmor`, same FormID `0xB4D`).
+
+**Power blows, piloted only.** Both are in `ZP_CenturionControl` (the ride's control effect), which only the piloting
+player runs: the companion by itself keeps EGO's Starling Centurion attacks and steam breath.
+
+- Left arm, power mode: after the mod's power-blow spell, `he.PlaceAtMe(ShockNova)` - Flow State's nova explosion
+  `0x93D` (300 radius, its enchantment hits hostiles only), as `ZP_FlowStateEffect` places it.
+- Right arm, power mode: the script sets the new global **`ZP_Centurion_RightArm` `0xB78`** to 1 as the swing starts
+  and back to 0 two seconds later (also in `CenturionFinish`). **ZenProphecyRage.dll 1.9.0** (`ArmorChain`, in the hit
+  sink before the Rage logic; config `centurion` {armGlobal, chainSpell}) casts Dragon's Breath's chain lightning
+  `0xAFC` from the player at the first living enemy a player hit lands on while the global is 1, then clears it: one
+  chain per swing, on the hit itself. Log line `Starling Power Armor: right-arm power hit on ...`.
+
+**Worn gold (`tools/09-build-starling-armor.py`, run after `01`).** The mod's `CenturionArmor.nif` keeps vanilla's Steam
+Centurion textures on its 15 body shapes, SRP's `dwemetalsheet01` on the BackPack and SRP's `DweLoreCube01` on the
+Aetherium crest, all env-map shaders on Bethesda's bronze cubemap. The tool builds one gold set per source under
+`textures/Zenderal/Prophecy/` (`StarlingArmor`, `StarlingPack`, `StarlingCrest`: diffuse, normal, Complex Material mask;
+Sting and Rise's recipe with a darker ramp - Rise's starts at 0.74 brightness and washed the whole machine out in the
+first build - and the source luminance's 2..99 percentiles onto it with gamma 1.25, so engravings and recesses stay
+dark) plus Rise's gold chrome cubemap `StarlingArmor_e`, and writes the mesh with those shapes' texture paths swapped
+(nothing else; Glass, the glow Ball and g_Glow untouched) to `src/Prophecy/assets` and Patch Collection.
+`01-build-trees.py` no longer copies the mesh (it clears `assets/`, then prints a reminder). Wear is texture-space and
+seeded: tarnish clouds, grime spots in the flats, rubbed edges read from the normal map's slopes (bright, glossier),
+hairline scratches (pale, duller, a groove in the normal map), a rubbed speckle - diffuse, gloss (CM G) and highlight
+mask move together. The source's own env mask (`_m`; PG Patcher's for the sheet) is the polish map: reflection
+0.55..1 of CM's 0.94. Assertions as gold_set's (alpha-0 mask, non-grey 1x1 mip). Textures not committed; the mesh is.
+
+Deployed into Patch Collection (plugin, 3 scripts, JSON, DLL 1.9.0 - the game was closed, so Orbit Ward's 1.8.0 DLL
+went with it - mesh and 10 textures). Unverified in game: the nova and chain on power blows, the gold look under
+Dynamic Cubemaps, the rename everywhere.
+
+**Build 3 (same day; curator: "the backpack didn't look changed its still a completely different color to the rest
+of the armor and can we polish up some of the details?").** Nothing of build 2 had reached the game: **PG Patcher
+Output sits above Patch Collection in MO2 and held its own patched copy of the 2026-11-13 mesh** (old textures; the
+backpack re-pointed at SRP's Complex Material sheet with a black cubemap), so the player saw the bronze body and a dark
+reflective pack. That copy is removed (backup `E:/Zenderal-backups/2026-11-15-starling-armor-pgpatcher/`, its
+`ParallaxGen_Diff.json` entry too) and the mesh is in PGPatcher's blocklist (`Tools/PG Patcher/PGPatcher/cfg/
+settings.json`, `*\actors\ashihitoparace\centurionarmor\centurionarmor.nif`), so a
+rerun leaves it to us. On top: the three sets are tone-matched (each set's 2nd / 50th / 98th luminance percentiles land
+on the same ramp positions 0 / 0.5 / 0.92, `TONE_PCT`/`TONE_AT`: the pack's dark sheet had landed a band darker than
+the plates), details polished (rubbed edges and rivets brighter, glossier and as reflective as the polished plates;
+less grime), and the pack shader's bronze specular tint set white like the body's. Unverified in game.
+
+**First test (02:19, curator: "the chain lightning and shock nova didn't activate on standard power attacks").** The
+Rage log shows five `attackStartForwardPowerRight/Left` starts (so Activate was held and the power branches ran) and
+no `Starling Power Armor: right-arm power hit` line; the Papyrus log has no error from the script (so `RightArm` bound:
+`SetValue` on None would have logged). Open: whether the mech's punches raise a `TESHitEvent` at all, and whether
+`ShockNova` bound / the placed explosion shows. Trace build deployed: the script logs `[ZP Starling]` at ride start
+(the three properties), each right power swing (global value) and each left swing (the placed nova ref or "ShockNova is
+None"); the DLL logs a hit in the window that is not a living actor. Precision Creatures annotates only draugr and
+vampire lord clips, so the Steam Centurion graph's hits are the engine's own. Retest pending.
+
+## 2026-11-15: Nightblade costs the whole meter (tester report)
+
+**Report (Kenir, Ironpath):** Nightblade "adds around 70-100 dmg to every attack, it triggers not only on power
+attacks and can pretty much be spammed (with a dodge back), making the weapon you use almost irrelevant"; its damage
+lands before the dagger, so the hit is seldom a sneak attack; Draining Shroud is well balanced; the Darkness talent
+"alarms nearby enemies where it lands (even with silent casting)"; early sneaking is impossible until Nightblade at
+level 9. **Curator:** "it should cost an entire darkness meter to use Nightblade at the very least."
+
+**What the records say.** The numbers fit: a dash is Triumvirate's flat 45 plus 15 per Darkness point spent, and the
+DLL spent half the meter (rounded up), so 2-4 points = 75-105. In darkness the meter refills a point a second
+(`DARKNESS['Fill']`), so a dash every few seconds kept paying. The cast itself cost 4 Darkness.
+
+**Change.** `DARKNESS['Cost']['shd3'] = 'full'` (the cast needs and spends the whole meter, like Nightfall) and
+`NIGHTBLADE['Fraction'] = 1.0`: each dash spends ALL the Darkness, so a dash is worth what was gathered since the last
+one and a spammed dash is the base 45. Texts (talent, the buff `335B49`'s description) say so. **ZenProphecyDarkness.dll
+1.3.1:** the 3 s "follow-up casts are free" window after a full-cost spell (there for Nightfall, whose script casts the
+other buffs) now opens only for spells flagged `freeFollowUps` in the JSON (Nightfall); before, it would have opened
+after Nightblade too. Plugin, JSON and DLL deployed into Patch Collection. Unverified in game.
+
+**Then, same morning: no damage at all, a kill refunds Darkness** (curator: "remove the damage from nightblade all
+together" ... "instead you regain some darkness if you successfuly kill the enemy you dash to"). The proc's damage
+effect `335B51` stays in `335B4F` at **magnitude 0** (its hit look), the JSON's `nightblade` block has no
+`damageSpell`, so the DLL never spends or damages on a dash (`NIGHTBLADE['Damage'] = False`; records `0xAF3`/`0xAF4`
+kept, unused). **Darkness DLL 1.4.0:** each proc hit remembers the enemy reached and when; a `TESDeathEvent` for that
+enemy with the player as killer within `window` 8 s gives `refund` 3 Darkness back (capped at the meter; one refund
+per dash, cleared on any death of that enemy; log `Nightblade: killed ...`). A kill by a follower, summon or DoT with
+another source pays nothing (the event's killer is not the player). Texts: talent and `335B49`. The cast still costs
+the full meter. Deployed into Patch Collection. Unverified in game.
+
+**Left open.**
+- *Triggers on light attacks:* the doc says `TVR_BlinkStrikes_Script` casts the proc on `PowerAttack_Start_End`; the
+  script could not be re-read this session (the BSA/decompiler tool paths in `tools.json` point at `C:/Tools`, which is
+  gone from this PC). With the full-meter spend a light-attack trigger no longer matters for the damage, only for the
+  dash itself.
+- *Sneak attack:* the Darkness damage is cast on the proc's hit event, before the weapon lands. Moving it onto the next
+  weapon hit (the Rage DLL's hit sink could carry it) would let the dagger's sneak multiplier apply; not done.
+- *Darkness alarms enemies:* nothing in its records alerts: the beam `30D2A0` is Silent (`SoundLevel 2`), the impact
+  `0xAF1` Silent, the effect has no Hostile flag, the hazard `0xAF2` carries no spell, and the casting sound level is
+  Normal (Enderal has no Quiet Casting; a Normal cast alerts within earshot - that may be the whole report, "where it
+  lands" being where the caster stood when it rang). Needs an in-game check (cast it from hiding at a distance, then
+  from next to an enemy).
+- *Early sneaking:* [`StealthTuning`](StealthTuning.md) already addresses the pre-Nightblade levels (tick it, untick
+  Stealth Overhaul).
+
+## ZenProphecyRage.dll 1.10.0: a Papyrus native for Whisper (2026-11-15)
+
+Not a Prophecy feature: the Rage DLL is the SKSE plugin already in Patch Collection, so Whisper's aim went into it
+instead of a new DLL. `SKSE::GetPapyrusInterface()->Register` binds `ZP_Aim.CameraAim()` (script
+`src/Prophecy/Scripts/source/ZP_Aim.psc`, compiled into Prophecy's `Scripts/compiled`, shipped in Patch Collection):
+`{ x, y, z, forward x, y, z }` of the render camera (`RE::Main::WorldRootCamera()` translate, the
+`PlayerCamera::cameraRoot` world rotation's +Y column), the frame SpellAimTrace measured shots against; empty with no
+camera. It runs on the Papyrus VM's thread (not callable from tasklets). Whisper's Soul Cleave flies along it
+(see [Whisper](Whisper.md)). Nothing else in the DLL changed. Built, installed, unverified in game.

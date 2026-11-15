@@ -34,37 +34,43 @@
    "name": "Gather Shadows",
    "plugin": "Triumvirate - Mage Archetypes.esp",
    "id": "3727BF",
-   "cost": 3
+   "cost": 3,
+   "freeFollowUps": false
   },
   {
    "name": "Draining Shroud",
    "plugin": "Triumvirate - Mage Archetypes.esp",
    "id": "31C5C1",
-   "cost": 4
+   "cost": 4,
+   "freeFollowUps": false
   },
   {
    "name": "Nightblade",
    "plugin": "Triumvirate - Mage Archetypes.esp",
    "id": "330A43",
-   "cost": 4
+   "cost": "full",
+   "freeFollowUps": false
   },
   {
    "name": "Pull Through Shadows",
    "plugin": "Triumvirate - Mage Archetypes.esp",
    "id": "30D2A4",
-   "cost": 3
+   "cost": 3,
+   "freeFollowUps": false
   },
   {
    "name": "Nightfall",
    "plugin": "Zenderal - Prophecy.esp",
    "id": "000A7F",
-   "cost": "full"
+   "cost": "full",
+   "freeFollowUps": true
   },
   {
    "name": "Darkness",
    "plugin": "Zenderal - Prophecy.esp",
    "id": "000AEE",
-   "cost": 2
+   "cost": 2,
+   "freeFollowUps": false
   }
  ],
  "meter": {
@@ -83,9 +89,8 @@
  "nightblade": {
   "procPlugin": "Triumvirate - Mage Archetypes.esp",
   "procId": "335B4F",
-  "damageSpell": "000AF3",
-  "fraction": 0.5,
-  "perPoint": 15
+  "refund": 3,
+  "window": 8.0
  },
  "shroud": {
   "procPlugin": "Triumvirate - Mage Archetypes.esp",

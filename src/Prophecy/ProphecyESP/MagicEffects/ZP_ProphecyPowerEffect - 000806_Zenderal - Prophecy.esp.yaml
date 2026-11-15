@@ -345,13 +345,13 @@ VirtualMachineAdapter:
       - "You gain 15% resistance to lightning."
       - "Your maximum Stamina is increased by 25."
       - "Your Clockwork Turret power deploys two turrets side by side, and they fire 2% faster with every shot, up to 200%."
-      - "Grants the \"Centurion Armor\" power: call a Dwemer war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow, hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it."
+      - "Grants the \"Starling Power Armor\" power: call a gilded Starling war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow - the left arm then bursts in a shock nova, and lightning chains from whoever the right arm strikes - hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it."
       - "Darkness gathers in you while you stand in shadow, up to 10: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the \"Gather Shadows\" spell (3 Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness."
       - "Your Sneak skill is increased by 10."
       - "Your maximum Mana is increased by 25."
       - "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every 4 seconds of draining an enemy builds 1 Darkness."
       - "Your Mana regenerates 10 percent faster."
-      - "Grants the \"Nightblade\" spell (4 Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing 15 more magic damage per point spent."
+      - "Grants the \"Nightblade\" spell (a full Darkness meter): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them. The dash itself does no damage, but kill the enemy you dashed to within 8 seconds and you regain 3 Darkness."
       - "Your One-handed skill is increased by 10."
       - "While you sneak, your body is wrapped in black and grey mist, you are 50% harder to detect, and Darkness gathers twice as fast."
       - "Grants the \"Darkness\" spell (2 Darkness): a bolt that leaves a pool of black mist and darkness where it strikes for 30 seconds."
@@ -494,7 +494,7 @@ VirtualMachineAdapter:
       - 'ProphecyPics/ZP_Prophecy_InsulatedGloves.dds'
       - 'ProphecyPics/ZP_Prophecy_SteadyHands.dds'
       - 'ProphecyPics/ZP_Prophecy_Overclock.dds'
-      - 'ProphecyPics/ZP_Prophecy_CenturionArmor.dds'
+      - 'ProphecyPics/ZP_Prophecy_StarlingPowerArmor.dds'
       - 'ProphecyPics/ZP_Prophecy_GatherShadows.dds'
       - 'ProphecyPics/ZP_Prophecy_SilentStep.dds'
       - 'ProphecyPics/ZP_Prophecy_DarkReservoir.dds'

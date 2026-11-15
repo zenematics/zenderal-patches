@@ -59,7 +59,7 @@ Packages:
 Class: 042DC6:Skyrim.esm
 Name:
   TargetLanguage: English
-  Value: Centurion Armor
+  Value: Starling Power Armor
 PlayerSkills:
   SkillValues:
   - Key: OneHanded

@@ -2,7 +2,7 @@ FormKey: 000B61:Zenderal - Prophecy.esp
 EditorID: ZP_Centurion_PowerAttackSpell
 Name:
   TargetLanguage: English
-  Value: 'Centurion Armor power attack'
+  Value: 'Starling Power Armor power attack'
 MenuDisplayObject: 0A59AC:Skyrim.esm
 EquipmentType: 013F44:Skyrim.esm
 Description:

@@ -37,9 +37,15 @@ VirtualMachineAdapter:
     - MutagenObjectType: ScriptObjectProperty
       Name: RideSpell
       Object: 000B56:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ShockNova
+      Object: 00093D:Zenderal - Prophecy.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: RightArm
+      Object: 000B78:Zenderal - Prophecy.esp
 Name:
   TargetLanguage: English
-  Value: 'Centurion Armor controls'
+  Value: 'Starling Power Armor controls'
 Flags:
 - HideInUI
 Archetype:

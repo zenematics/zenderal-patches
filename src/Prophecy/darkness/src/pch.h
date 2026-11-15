@@ -13,6 +13,7 @@
 #include <fstream>
 #include <optional>
 #include <ranges>
+#include <set>
 #include <string>
 #include <string_view>
 #include <utility>

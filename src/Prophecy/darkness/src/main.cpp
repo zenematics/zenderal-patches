@@ -16,8 +16,9 @@
 //
 // The Shadow talents' spells cost Darkness instead of Mana: their Mana cost is 0 for the player (SpellItem::AdjustCost),
 // a cast without enough Darkness is refused (ActorMagicCaster::CheckCast) with a notification, and a cast spends its
-// cost (TESSpellCastEvent). Nightfall costs the full meter. Nightblade's dash hits spend half the Darkness for extra
-// damage (1.1.0; the plugin removes its Mana drain). Draining Shroud's absorb ticks on enemies build Darkness (1.3.0:
+// cost (TESSpellCastEvent). Nightfall and (since 2026-11-15, curator) Nightblade cost the full meter. Nightblade's
+// dash hits spend the Darkness (Fraction of it: all of it since 2026-11-15, half before) for extra damage (1.1.0; the
+// plugin removes its Mana drain). Draining Shroud's absorb ticks on enemies build Darkness (1.3.0:
 // one point per TicksPerPoint ticks, light does not drain it meanwhile). Without Gather Shadows the spells cost Mana.
 // Log: My Games/Skyrim Special Edition/SKSE/ZenProphecyDarkness.log
 
@@ -44,13 +45,19 @@ namespace
 		double             veilMult{ 2.0 };
 		double             drainEvery{ 4.0 };
 		std::map<RE::FormID, int> costs;              // spell -> Darkness (the full meter: max)
+		std::set<RE::FormID>      freeFollowUps;      // 1.3.1: spells whose script then casts the others (Nightfall)
 		std::map<RE::FormID, std::string> names;
 		std::string        refusal{ "Not enough Darkness." };
 		// Nightblade (1.1.0): each hit of Triumvirate's proc spends Fraction of the Darkness for PerPoint damage a point
+		// (off since 2026-11-15: no damageSpell in the JSON). 1.4.0: a kill by the player of the enemy last dashed to,
+		// within nightbladeWindow seconds, refunds nightbladeRefund Darkness (curator: "you regain some darkness if you
+		// successfully kill the enemy you dash to").
 		RE::FormID         nightbladeProc{ 0 };
 		RE::SpellItem*     nightbladeDamage{ nullptr };
 		double             nightbladeFraction{ 0.5 };
 		double             nightbladePerPoint{ 15.0 };
+		int                nightbladeRefund{ 0 };
+		double             nightbladeWindow{ 8.0 };
 		// Draining Shroud (1.3.0): each absorb tick of its cloak proc on an enemy is a step towards a point of Darkness
 		RE::FormID         shroudProc{ 0 };
 		int                shroudTicksPerPoint{ 4 };
@@ -71,7 +78,7 @@ namespace
 	Clock::time_point g_lastRefusal{};
 	Clock::time_point g_lastLightLog{};   // 1.0.1: the light level every LightLogEvery s, to tune the fill steps
 	constexpr double  kLightLogEvery = 5.0;
-	Clock::time_point g_quietUntil{};   // after a full-meter spell (Nightfall): its script casts the Shadow buffs, free
+	Clock::time_point g_quietUntil{};   // after Nightfall (freeFollowUps): its script casts the Shadow buffs, free
 	constexpr double  kQuietAfterFull = 3.0;
 	std::atomic<bool> g_running{ false };
 	RE::SCRIPT_FUNCTION::Condition_t* g_lightLevel{ nullptr };
@@ -126,6 +133,9 @@ namespace
 				const int cost = s["cost"].is_string() ? c.max : s["cost"].get<int>();   // "full": the whole meter
 				c.costs[spell->GetFormID()] = cost;
 				c.names[spell->GetFormID()] = name;
+				if (s.value("freeFollowUps", false)) {
+					c.freeFollowUps.insert(spell->GetFormID());
+				}
 				SKSE::log::info("spell {}: {:08X}, {} Darkness", name, spell->GetFormID(), cost);
 			}
 		}
@@ -134,9 +144,15 @@ namespace
 			if (auto* proc = Lookup<RE::SpellItem>(nb["procPlugin"].get<std::string>(), nb["procId"], "Nightblade proc")) {
 				c.nightbladeProc = proc->GetFormID();
 			}
-			c.nightbladeDamage = Lookup<RE::SpellItem>(plugin, nb["damageSpell"], "Nightblade Darkness damage");
-			c.nightbladeFraction = nb["fraction"].get<double>();
-			c.nightbladePerPoint = nb["perPoint"].get<double>();
+			if (nb.contains("damageSpell")) {
+				c.nightbladeDamage = Lookup<RE::SpellItem>(plugin, nb["damageSpell"], "Nightblade Darkness damage");
+				c.nightbladeFraction = nb["fraction"].get<double>();
+				c.nightbladePerPoint = nb["perPoint"].get<double>();
+			}
+			c.nightbladeRefund = nb.value("refund", 0);
+			c.nightbladeWindow = nb.value("window", 8.0);
+			SKSE::log::info("Nightblade: dash damage {}, kill within {:.0f} s refunds {} Darkness",
+				c.nightbladeDamage ? "on" : "off", c.nightbladeWindow, c.nightbladeRefund);
 		}
 		if (j.contains("shroud")) {
 			auto& sh = j["shroud"];
@@ -473,7 +489,7 @@ namespace
 				SKSE::log::info("{} cast by Nightfall: free", g_cfg.names[a_event->spell]);
 				return RE::BSEventNotifyControl::kContinue;
 			}
-			if (it->second >= g_cfg.max) {
+			if (g_cfg.freeFollowUps.count(a_event->spell)) {   // 1.3.1: was every full-cost spell - Nightblade is one now
 				g_quietUntil = now + std::chrono::duration_cast<Clock::duration>(std::chrono::duration<double>(kQuietAfterFull));
 			}
 			SetDarkness(g_dark - it->second, g_cfg.names[a_event->spell]);
@@ -485,6 +501,9 @@ namespace
 	// The proc's own hit events (one per effect that lands) - one spend per target per DedupeWindow
 	std::map<RE::FormID, Clock::time_point> g_nightbladeHits;
 	constexpr double kNightbladeDedupe = 0.5;
+	// 1.4.0: the enemy last dashed to and when (the kill refund)
+	RE::FormID        g_dashTarget{ 0 };
+	Clock::time_point g_dashAt{};
 
 	// Draining Shroud: its cloak re-applies the absorb about once a second per enemy - one tick per target per window
 	std::map<RE::FormID, Clock::time_point> g_shroudHits;
@@ -534,10 +553,17 @@ namespace
 				ShroudTick(target);
 				return RE::BSEventNotifyControl::kContinue;
 			}
-			if (!c.nightbladeProc || a_event->source != c.nightbladeProc || !c.nightbladeDamage) {
+			if (!c.nightbladeProc || a_event->source != c.nightbladeProc) {
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			const auto now = Clock::now();
+			if (c.nightbladeRefund > 0) {   // 1.4.0: remember who the dash reached
+				g_dashTarget = target->GetFormID();
+				g_dashAt = now;
+			}
+			if (!c.nightbladeDamage) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
 			auto& last = g_nightbladeHits[target->GetFormID()];
 			if (Seconds(now - last) < kNightbladeDedupe) {
 				return RE::BSEventNotifyControl::kContinue;
@@ -552,6 +578,42 @@ namespace
 			Player()->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)
 				->CastSpellImmediate(c.nightbladeDamage, false, target, 1.0f, false, damage, Player());
 			SKSE::log::info("Nightblade: {} Darkness -> {:.0f} damage on {:08X}", spend, damage, target->GetFormID());
+			return RE::BSEventNotifyControl::kContinue;
+		}
+	};
+
+	// 1.4.0: the dashed-to enemy dies by the player's hand within the window - Darkness back
+	class DeathSink : public RE::BSTEventSink<RE::TESDeathEvent>
+	{
+	public:
+		static DeathSink* Get()
+		{
+			static DeathSink sink;
+			return &sink;
+		}
+
+		RE::BSEventNotifyControl ProcessEvent(const RE::TESDeathEvent* a_event, RE::BSTEventSource<RE::TESDeathEvent>*) override
+		{
+			auto& c = g_cfg;
+			if (!a_event || !a_event->actorDying || c.nightbladeRefund <= 0 || !g_dashTarget || !Active()) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			if (a_event->actorDying->GetFormID() != g_dashTarget) {
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			const auto now = Clock::now();
+			const double since = Seconds(now - g_dashAt);
+			const bool byPlayer = a_event->actorKiller && a_event->actorKiller.get() == Player();
+			g_dashTarget = 0;   // one refund per dash, whichever way it died
+			if (since > c.nightbladeWindow || !byPlayer) {
+				SKSE::log::info("Nightblade: dashed-to {:08X} died {:.1f} s after the dash, killer {} - no refund",
+					a_event->actorDying->GetFormID(), since, byPlayer ? "player" : "other");
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			const int before = g_dark;
+			SetDarkness(std::min(c.max, g_dark + c.nightbladeRefund), "Nightblade kill");
+			SKSE::log::info("Nightblade: killed {:08X} {:.1f} s after the dash - Darkness {} -> {}",
+				a_event->actorDying->GetFormID(), since, before, g_dark);
 			return RE::BSEventNotifyControl::kContinue;
 		}
 	};
@@ -747,6 +809,7 @@ namespace
 			LoadConfig();
 			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESSpellCastEvent>(CastSink::Get());
 			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESHitEvent>(HitSink::Get());
+			RE::ScriptEventSourceHolder::GetSingleton()->AddEventSink<RE::TESDeathEvent>(DeathSink::Get());
 			if (std::filesystem::exists("Data/Interface/oxygenMeter2.swf")) {
 				RE::UI::GetSingleton()->Register(kMeterMenu, DarknessMeter::Create);
 				g_meterRegistered = true;
@@ -775,7 +838,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyDarkness 1.3.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyDarkness 1.4.0 loading, runtime {}", REL::Module::get().version().string());
 	REL::Relocation<std::uintptr_t> spellVtbl{ RE::VTABLE_SpellItem[0] };
 	AdjustCost::func = spellVtbl.write_vfunc(0x63, AdjustCost::thunk);
 	REL::Relocation<std::uintptr_t> casterVtbl{ RE::VTABLE_ActorMagicCaster[0] };

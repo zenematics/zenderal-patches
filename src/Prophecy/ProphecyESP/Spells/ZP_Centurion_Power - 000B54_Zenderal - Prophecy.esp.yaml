@@ -2,12 +2,12 @@ FormKey: 000B54:Zenderal - Prophecy.esp
 EditorID: ZP_Centurion_Power
 Name:
   TargetLanguage: English
-  Value: Centurion Armor
+  Value: Starling Power Armor
 MenuDisplayObject: 0A6459:Skyrim.esm
 EquipmentType: 025BEE:Skyrim.esm
 Description:
   TargetLanguage: English
-  Value: 'Calls your Centurion Armor to your side, or recalls it. While you pilot it, climbs out.'
+  Value: 'Calls your Starling Power Armor to your side, or recalls it. While you pilot it, climbs out.'
 Flags:
 - ManualCostCalc
 Type: LesserPower

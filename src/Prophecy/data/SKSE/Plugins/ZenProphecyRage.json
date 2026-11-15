@@ -90,6 +90,10 @@
   "hits": 2,
   "fraction": 0.5
  },
+ "centurion": {
+  "armGlobal": "000B78",
+  "chainSpell": "000AFC"
+ },
  "effigies": {
   "plugin": "Shatterveil.esp",
   "spells": [

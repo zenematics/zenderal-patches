@@ -2,10 +2,10 @@ FormKey: 000B68:Zenderal - Prophecy.esp
 EditorID: ZP_Centurion_SpellMenu
 Description:
   TargetLanguage: English
-  Value: 'Choose what the Centurion breathes.'
+  Value: 'Choose what the armor breathes.'
 Name:
   TargetLanguage: English
-  Value: 'Centurion Armor'
+  Value: 'Starling Power Armor'
 INAM: 0x00000000
 Flags:
 - MessageBox

@@ -2,7 +2,7 @@ FormKey: 000B65:Zenderal - Prophecy.esp
 EditorID: ZP_Centurion_Sparks
 Name:
   TargetLanguage: English
-  Value: 'Centurion Sparks'
+  Value: 'Starling Sparks'
 MenuDisplayObject: 09FA64:Skyrim.esm
 EquipmentType: 013F44:Skyrim.esm
 Description:

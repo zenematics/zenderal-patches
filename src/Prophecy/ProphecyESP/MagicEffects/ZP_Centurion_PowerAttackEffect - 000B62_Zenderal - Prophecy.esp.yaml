@@ -2,7 +2,7 @@ FormKey: 000B62:Zenderal - Prophecy.esp
 EditorID: ZP_Centurion_PowerAttackEffect
 Name:
   TargetLanguage: English
-  Value: 'Centurion Armor power attack'
+  Value: 'Starling Power Armor power attack'
 MenuDisplayObject: 0435A5:Skyrim.esm
 Flags:
 - Hostile

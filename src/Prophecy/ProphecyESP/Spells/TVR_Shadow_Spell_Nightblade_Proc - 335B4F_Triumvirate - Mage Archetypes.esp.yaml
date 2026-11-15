@@ -27,7 +27,7 @@ Effects:
   Data: {}
 - BaseEffect: 335B51:Triumvirate - Mage Archetypes.esp
   Data:
-    Magnitude: 45
+    Magnitude: 0
     Duration: 1
 - BaseEffect: 381AFB:Triumvirate - Mage Archetypes.esp
   Data: {}

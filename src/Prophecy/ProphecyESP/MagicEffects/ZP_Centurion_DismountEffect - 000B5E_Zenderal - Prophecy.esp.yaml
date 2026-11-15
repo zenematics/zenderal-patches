@@ -9,7 +9,7 @@ VirtualMachineAdapter:
       Object: 000B56:Zenderal - Prophecy.esp
 Name:
   TargetLanguage: English
-  Value: 'Dismount Centurion Armor'
+  Value: 'Dismount Starling Power Armor'
 Flags:
 - NoMagnitude
 MagicSkill: Alteration

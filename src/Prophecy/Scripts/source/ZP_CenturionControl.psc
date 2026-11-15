@@ -9,7 +9,12 @@ every half second); the Sneak key = climb out (sneaking itself is off for the ri
 Most controls are disabled for the ride (menus, activation, dialogue): a pure war machine.
 Changes from the mod: English notifications; the unused RocketFire spell dropped; only the player is controlled; the
 Sneak-key exit and the menu's immediate Climb out (2026-11-13: the first test found no way out - the menu only picked
-Climb out as the breath spell, to be cast with the Shout key).}
+Climb out as the breath spell, to be cast with the Shout key).
+2026-11-15 (renamed Starling Power Armor; curator: "add Shock Nova to the left Power attack and Chain Lightning on hit
+to the Right power attacks ... only when piloting it"): a left-arm power blow places Flow State's Shock Nova explosion
+at the armor as the blow lands; a right-arm power swing sets RightArm to 1, and ZenProphecyRage.dll casts Dragon's
+Breath's chain lightning at the enemy the swing hits (then clears it; cleared here too 2 s after the swing). The
+companion on its own (not piloted) never runs this script, so it keeps its standard attacks and steam.}
 
 Spell Property PowerAttackSpell Auto
 FormList Property SpellList Auto
@@ -18,6 +23,8 @@ Activator Property MovingFloor Auto
 Perk Property PowerAttackPerk Auto
 Message Property SelectMenu Auto
 Spell Property RideSpell Auto
+Explosion Property ShockNova Auto         ; ZP_Prophecy_FlowStateNova 0x93D: placed at the armor on a left power blow
+GlobalVariable Property RightArm Auto     ; ZP_Centurion_RightArm: 1 during a right power swing, read by the Rage DLL
 VisualEffect Property FireEffect Auto
 VisualEffect Property FXDwarvenCenturion Auto
 VisualEffect Property FXDwarvenCenturionArm01 Auto
@@ -78,7 +85,8 @@ Event OnEffectStart(Actor Target, Actor Caster)
 	RegisterForKey(activate)
 	RegisterForKey(sprint)
 	RegisterForKey(Favoriteskey)
-	Debug.Notification("Centurion Armor: attack keys swing the arms, hold Activate for power blows, hold Shout to breathe.")
+	Debug.Trace("[ZP Starling] ride on: ShockNova=" + ShockNova + " RightArm=" + RightArm + " PowerAttackSpell=" + PowerAttackSpell)
+	Debug.Notification("Starling Power Armor: attack keys swing the arms, hold Activate for power blows, hold Shout to breathe.")
 	Utility.Wait(3.0)
 	Debug.Notification("Hold Tween Menu to fly. Favorites picks the breath. Sneak key or Favorites > Climb out to get out.")
 EndEvent
@@ -118,9 +126,12 @@ Event OnKeyDown(Int KeyCode)
 					Else
 						Debug.SendAnimationEvent(he, "attackStartForwardPowerRight")
 					EndIf
+					RightArm.SetValue(1)          ; the hit this swing lands chains lightning (ZenProphecyRage.dll)
+					Debug.Trace("[ZP Starling] right power swing, RightArm=" + RightArm.GetValue())
 					Utility.Wait(0.5)
 					PowerAttackSpell.Cast(he)
 					Utility.Wait(2.0)
+					RightArm.SetValue(0)
 					he.DamageActorValue("Stamina", 140)
 				EndIf
 			Else
@@ -171,6 +182,12 @@ Event OnKeyDown(Int KeyCode)
 					EndIf
 					Utility.Wait(0.5)
 					PowerAttackSpell.Cast(he)
+					If ShockNova
+						ObjectReference nova = he.PlaceAtMe(ShockNova)   ; Flow State's nova round the armor (hostiles only)
+						Debug.Trace("[ZP Starling] left power swing: nova placed " + nova)
+					Else
+						Debug.Trace("[ZP Starling] left power swing: ShockNova is None")
+					EndIf
 					Utility.Wait(1.6)
 					he.DamageActorValue("Stamina", 140)
 				EndIf
@@ -421,6 +438,9 @@ Function CenturionFinish()
 		norimono = None
 	EndIf
 	he.RemovePerk(PowerAttackPerk)
+	If RightArm
+		RightArm.SetValue(0)
+	EndIf
 EndFunction
 
 Function DeathProcess()
