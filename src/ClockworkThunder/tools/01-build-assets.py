@@ -9,6 +9,8 @@ Inputs (the curator's installed list, nothing committed):
   rifle tex    textures/olm/ol_engflintlockrifle/englishflintlockrifle_{basecolor,metallic,height}.dds
   cog          meshes/clutter/dwemer/dwecog01.nif (Enderal's own Starling cog, E - Meshes.bsa) and its
                diffuse textures/dungeons/dwemerruins/DweMetalSheet01Small.dds
+  scope        Scoped Bows SE's Nordic bow (OutLaw666, assets free to use; extracted from the curator's download)
+               and the rifle's corrected 1st-person aim clip (FlintlockOverhaul tools/06, run it first): scope.py
 
 Outputs, into <mods>/<target mod>/ (default Zenderal - Patch Collection):
   meshes/Zenderal/ClockworkThunder/ClockworkThunder.nif
@@ -59,6 +61,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, '..', '..', '..'))
 sys.path.insert(0, HERE)
 import nifsplice as ns  # noqa: E402
+import scope  # noqa: E402   (the ring scope, from Scoped Bows SE's Nordic bow)
 
 TOOLS = json.load(open(os.path.join(ROOT, '.claude', 'config', 'tools.json'), encoding='utf-8-sig'))
 sys.path.insert(0, TOOLS['pynifly'])
@@ -96,6 +99,13 @@ OUT_GLASS_N = 'textures/Zenderal/ClockworkThunder/ClockworkThunderGlass_n.dds'
 OUT_GLASS_M = 'textures/Zenderal/ClockworkThunder/ClockworkThunderGlass_m.dds'
 
 COG_SHAPE_NAME = 'ClockworkThunderCogs'
+OUT_SCOPE_D = 'textures/Zenderal/ClockworkThunder/ClockworkThunderScope_d.dds'
+OUT_SCOPE_N = 'textures/Zenderal/ClockworkThunder/ClockworkThunderScope_n.dds'
+OUT_SCOPE_M = 'textures/Zenderal/ClockworkThunder/ClockworkThunderScope_m.dds'
+OUT_RETICLE = 'textures/Zenderal/ClockworkThunder/ClockworkThunderReticle.dds'
+SCOPE_SHAPE = 'ClockworkThunderScope'
+SCOPE_LENS_SHAPE = 'ClockworkThunderScopeLens'
+SCOPE_RETICLE_SHAPE = 'ClockworkThunderScopeReticle'
 
 # (side, Z along the gun, Y height, radius, in-plane turn in degrees), rifle shape space.
 # side -1 = the lock side, +1 = the side-plate side. Big + meshing cog on each side of the butt, one on the
@@ -2232,13 +2242,61 @@ def main():
     pshader = bytearray(nif.blocks[cog_shader])
     struct.pack_into('<i', pshader, ns.shader_texset_offset(pshader), plate_texset)
     plate_shape = new_shape(PLATE_COG_SHAPE, PV, PN_, PT, PUV, nif.add_block('BSLightingShaderProperty', pshader), -1)
+
+    # ---- the ring scope (scope.py): gold rings + mounts, lens glass, glowing reticle; each its own shader block
+    fd_, tmpn = tempfile.mkstemp(suffix='.nif')
+    os.close(fd_)
+    with open(tmpn, 'wb') as fh_:
+        fh_.write(raw)
+    rx = NifFile(tmpn).shapes[0].transform
+    R_sh = np.array(rx.rotation.matrix if hasattr(rx.rotation, 'matrix') else rx.rotation, float).reshape(3, 3)
+    t_sh, s_sh = np.array(rx.translation, float), float(rx.scale)
+    os.remove(tmpn)
+    sb_dir = tempfile.mkdtemp()
+    sb_parts = scope.read_parts(NifFile, scope.scoped_bows_nif(os.path.join(MO2, 'downloads'), sb_dir))
+    shutil.rmtree(sb_dir, ignore_errors=True)
+    eye_, ray_, cam_ = scope.crosshair_ray(
+        os.path.join(ROOT, 'src', 'FlintlockOverhaul', 'tools', '06-build-musket-aim-fix.py'),
+        os.path.join(args.mods, 'Zenderal - Patch Collection'), DATA)
+    top_pts = np.concatenate([BV, RV[np.unique(RT)]])
+
+    def barrel_top(x_, z_):
+        m_ = (np.abs(top_pts[:, 0] - x_) < 0.6) & (np.abs(top_pts[:, 2] - z_) < 0.5)
+        assert m_.any(), ('nothing under the scope mount', x_, z_)
+        return float(top_pts[m_, 1].max())
+    (SGV, SGN, SGT, SGUV), (SLV, SLN, SLT, SLUV), (SRV, SRN, SRT, SRUV) = scope.build(
+        sb_parts, eye_, ray_, cam_, R_sh, t_sh, s_sh, barrel_top)
+    k_rgb, k_metal, k_norm = scope.key_band_texture()
+    k_rgb, k_norm, k_cm = polished_gold(k_rgb, k_metal, k_norm, 'scope')
+    write_bc7(k_rgb, os.path.join(out_root, OUT_SCOPE_D))
+    _rise.write_texture(k_norm, os.path.join(out_root, *OUT_SCOPE_N.split('/')), 'BC7_UNORM')
+    write_complex_mask(k_cm, os.path.join(out_root, *OUT_SCOPE_M.split('/')))
+    scope_texset = nif.add_block('BSShaderTextureSet', ns.texture_set(
+        [OUT_SCOPE_D.replace('/', '\\'), OUT_SCOPE_N.replace('/', '\\'), '', '', OUT_E.replace('/', '\\'),
+         OUT_SCOPE_M.replace('/', '\\')] + [''] * (len(rifle_set) - 6)))
+    sshader = bytearray(nif.blocks[cog_shader])
+    struct.pack_into('<i', sshader, ns.shader_texset_offset(sshader), scope_texset)
+    scope_shape = new_shape(SCOPE_SHAPE, SGV, SGN, SGT, SGUV, nif.add_block('BSLightingShaderProperty', sshader), -1)
+    lens_texset = nif.add_block('BSShaderTextureSet', bytes(nif.blocks[glass_texset]))
+    lshader = bytearray(gshader)
+    struct.pack_into('<i', lshader, ns.shader_texset_offset(lshader), lens_texset)
+    lens_shape = new_shape(SCOPE_LENS_SHAPE, SLV, SLN, SLT, SLUV, nif.add_block('BSLightingShaderProperty', lshader),
+                           nif.add_block('NiAlphaProperty', alpha_property(ALPHA_BLEND, 0)))
+    wD = np.ones((64, 64, 4), np.float32)
+    _rise.write_texture(wD, os.path.join(out_root, *OUT_RETICLE.split('/')), 'BC7_UNORM')
+    ret_shader = nif.add_block('BSEffectShaderProperty', effect_shader(
+        OUT_RETICLE.replace('/', '\\'), scope.RETICLE_EMISSIVE, 2.0, 0x80000040, 0x10, (1.0, 1.0, 1.0, 1.0)))
+    reticle_shape = new_shape(SCOPE_RETICLE_SHAPE, SRV, SRN, SRT, SRUV, ret_shader,
+                              nif.add_block('NiAlphaProperty', alpha_property(ALPHA_ADDITIVE, 128)))
+    print('scope: gold %d tris, lens %d, reticle %d' % (len(SGT), len(SLT), len(SRT)))
     tube_blocks = len(nif.blocks) - blocks_before_tube
     print('lightning tube: glass %d tris, bolt cards %d, glow cards %d; %d controller blocks'
           % (len(GT), len(BT_), len(WT_), len(bolt_ctl) + len(glow_ctl)))
 
     at = kids.index(sh) + 1
     nif.blocks[root] = ns.set_children(nif.blocks[root], kids[:at] + [barrel_shape, cog_shape, plate_shape, glass_shape,
-                                                                      glow_shape, bolt_shape] + kids[at:])
+                                                                      glow_shape, bolt_shape, scope_shape, lens_shape,
+                                                                      reticle_shape] + kids[at:])
     out = nif.tobytes()
     # read back: our parser, then PyNifly (an independent reader)
     back = ns.Nif(out)
@@ -2257,7 +2315,7 @@ def main():
         fh.write(out)
     chk = NifFile(mesh_path)
     names = sorted(s_.name for s_ in chk.shapes)
-    assert COG_SHAPE_NAME in names and BARREL_SHAPE_NAME in names and GLASS_SHAPE in names and BOLT_SHAPE in names and GLOW_SHAPE in names and PLATE_COG_SHAPE in names and len(chk.shapes) == 7, names
+    assert COG_SHAPE_NAME in names and BARREL_SHAPE_NAME in names and GLASS_SHAPE in names and BOLT_SHAPE in names and GLOW_SHAPE in names and PLATE_COG_SHAPE in names and SCOPE_SHAPE in names and SCOPE_LENS_SHAPE in names and SCOPE_RETICLE_SHAPE in names and len(chk.shapes) == 10, names
     cog_chk = [s_ for s_ in chk.shapes if s_.name == COG_SHAPE_NAME][0]
     assert len(cog_chk.verts) == len(V) and np.allclose(np.array(cog_chk.verts), V, atol=1e-3)
     print('wrote', mesh_path, len(out), 'bytes;', len(V), 'cog verts,', len(T), 'tris')
