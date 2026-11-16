@@ -354,7 +354,7 @@ at build time. The scope is part of the rifle's mesh: no script, no zoom (Scoped
   glass shader (alpha blend); the reticle is an emissive cyan `BSEffectShaderProperty` on a white texture
   (`ClockworkThunderReticle.dds`), additive. Three shapes, each its own shader block and texture set:
   `ClockworkThunderScope`, `ClockworkThunderScopeLens`, `ClockworkThunderScopeReticle`.
-**[unverified in game]** (mock renders from the aiming eye and the side only).
+Verified in game 2026-11-16 (curator: "Looks right").
 
 ## Placement (`tools/02`)
 
