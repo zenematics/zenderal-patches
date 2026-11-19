@@ -551,7 +551,8 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   already names changes nothing for an actor already wearing the old items, so `OUTFIT_VERSION` 2 takes the old
   cuirass and hood off him by form (`RemoveItem`), sets the outfit, adds and equips the new cuirass, and logs what
   is worn on the body; and `tools/05` now also detaches `BBHatMaskBCollar` from its parent node (in case the
-  engine ignored the Hidden flag on an armour shape; the file is 4 bytes shorter). Unverified in game.
+  engine ignored the Hidden flag on an armour shape; the file is 4 bytes shorter). **Seat verified in game 2026-11-19
+  (curator: "he's sat where he needs to be now")**; the wrap and the face tint await their word.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
