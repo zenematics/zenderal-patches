@@ -1,0 +1,43 @@
+FormKey: 130C29:Skyrim.esm
+EditorID: MaxNordwindgebirgeL4
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Old Hatolis, Ice King's Hall
+Flags:
+- IsInteriorCell
+- ShowSky
+Lighting:
+  AmbientColor: '#00ADC8CB'
+  DirectionalColor: '#006AA2A2'
+  FogNearColor: '#00CCD7D9'
+  FogFar: 8000
+  FogClipDistance: 5000
+  FogPower: 0.5
+  AmbientColors:
+    DirectionalXPlus: '#00666B7B'
+    DirectionalXMinus: '#0024262F'
+    DirectionalYPlus: '#00706F82'
+    DirectionalYMinus: '#005B5E6A'
+    DirectionalZPlus: '#0037373E'
+    DirectionalZMinus: '#000A0C0C'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00B3C4CA'
+  FogMax: 0.8
+LightingTemplate: 06AB01:Skyrim.esm
+WaterHeight: 0
+SkyAndWeatherFromRegion: 0823E4:Skyrim.esm
+AcousticSpace: 0C5B6B:Skyrim.esm
+Music: 01BECD:Skyrim.esm
+ImageSpace: 130E5E:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 00081C:Zenderal - Owl Bow.esp
+  MajorRecordFlagsRaw: 536870912
+  SkyrimMajorRecordFlags:
+  - 0x20000000
+  Base: 000800:Zenderal - Owl Bow.esp
+  Placement:
+    Position: 293.74063, 1570.1747, -100.813286
+    Rotation: 0, 0, 2.7858014

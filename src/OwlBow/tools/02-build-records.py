@@ -29,6 +29,9 @@
   81A GLOB ZP_OwlBowCritReady     1 from the 5th shot's release to the next release (ZP_OwlBowQuiverEffect)
   81B PERK ZP_OwlBowCritPerk      hidden; Calculate My Critical Hit Chance +100 while 81A = 1 with Snowveil
            (Prophecy Deadeye's entry; tabs: owner = global, weapon = GetIsID 800). The 5th shot also hoots (811)
+  81C REFR                        Snowveil laid across the arms of the Ice King's throne (131163) in Old Hatolis, Ice
+           King's Hall (cell MaxNordwindgebirgeL4 130C29; curator's pick 2026-11-19). The cell header is Skyrim.esm's,
+           the only plugin that defines the cell or the throne (tools/00-scan-overriders.py -> overriders.json)
 
 Usage:  python src/OwlBow/tools/02-build-records.py
 """
@@ -115,6 +118,67 @@ def script(nm, props):
     for pn, val in props:
         out += '    - MutagenObjectType: ScriptObjectProperty\n      Name: %s\n      Object: %s\n' % (pn, val)
     return out
+
+
+PLACE = dict(cell='MaxNordwindgebirgeL4', cell_fk='130C29:Skyrim.esm', throne='131163:Skyrim.esm', arm_top=56.25,
+             local_y=0.0, rest=0.1)
+# the throne's armrests are flat at 56.25 in its mesh (surface.levels / top_z, local |x| 27..45); the bow lies flat, its
+# length along the throne's width, its tips (feathers, lowest z -3.97) on the arms, the grip over the seat (36.6, below)
+
+
+def place_record():
+    import json
+    import math
+    import sys
+    import numpy as np
+    st = os.path.join(ROOT, 'src', 'StingAndRise', 'tools')
+    sys.path.insert(0, st)
+    import importlib.util
+    import surface
+    spec = importlib.util.spec_from_file_location('sr_assets', os.path.join(st, '01-build-assets.py'))
+    sr = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(sr)
+    ov = json.load(open(os.path.join(HERE, 'overriders.json'), encoding='utf-8'))
+    for k in (PLACE['cell_fk'], PLACE['throne']):
+        assert ov[k] == ['Skyrim.esm'], ('another plugin touches', k, ov[k], ': rerun tools/00 and rethink the header')
+    refs = surface.cell_refs(PLACE['cell'])
+    th = refs[PLACE['throne']]
+    assert abs(th['rot'][0]) < 1e-6 and abs(th['rot'][1]) < 1e-6
+    _, tnif = surface.winning_model(sr, surface.model_path(surface.base_record(th['base'])))
+    tV, tT = surface.mesh_triangles(tnif)
+    Rt = surface.ref_matrix(th['rot'])
+    heading = th['rot'][2] + math.pi / 2                      # the bow's +y (its length) along the throne's +x
+    Rb = surface.ref_matrix((0.0, 0.0, heading))
+    assert np.allclose(Rb @ [0, 1, 0], Rt @ [1, 0, 0], atol=1e-6)
+    _, bnif = sr.winner(sr.MO2 + '/mods', ['Zenderal - Patch Collection'], 'meshes/' + MODEL.replace(chr(92), '/'))
+    import tempfile
+    tmp = os.path.join(tempfile.mkdtemp(), 'bow.nif')
+    open(tmp, 'wb').write(bnif)
+    sys.path.insert(0, sr.TOOLS['pynifly'])
+    from pyn.pynifly import NifFile
+    bv = np.vstack([np.array(x.verts) for x in NifFile(tmp).shapes if x.name != 'OwlBowNockArrow'])
+    tips = bv[np.abs(bv[:, 1]) > 38]
+    zmin = float(tips[:, 2].min())
+    centre = np.array(th['pos']) + Rt @ (th['scale'] * np.array([0.0, PLACE['local_y'], PLACE['arm_top']]))
+    pos = centre + np.array([0, 0, -zmin + PLACE['rest']])
+    # every tip vertex over the armrests, the rest clear of the throne
+    def to_throne(P):
+        return ((P - np.array(th['pos'])) @ Rt) / th['scale']
+    for P, what in ((tips, 'tip'),):
+        L = to_throne(pos + P @ Rb.T)
+        under = [surface.top_z(tV, tT, x, y, below=z + 0.5) for x, y, z in L[::7]]
+        assert all(u is not None and abs(u - PLACE['arm_top']) < 0.1 for u in under), ('a tip not over an armrest', under[:10])
+    Lall = to_throne(pos + bv @ Rb.T)
+    low = Lall[:, 2].min()
+    assert low > PLACE['arm_top'] - 3.97 / th['scale'] - 0.01, low
+    files = surface.cell_override(PLACE['cell'], 'Skyrim.esm', [(fk(0x81C), fk(0x800), pos, (0.0, 0.0, heading))])
+    for rel, text in files.items():
+        path = os.path.join(OUT, *rel.split('/'))
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
+    print('  Snowveil placed at %s, heading %.3f, across the throne\'s arms (z %.2f)' % (
+        tuple(round(float(v), 2) for v in pos), heading, centre[2]))
 
 
 def main():
@@ -346,6 +410,7 @@ MajorFlags:
         assert 'Pretty Unique Armory' not in t and 'Gameplay Overhaul' not in t, p
         for m in re.findall(r':([^\s:]+\.es[mp])', t):
             assert m in ('Skyrim.esm', ME), (p, m)
+    place_record()
     print('%d records written to %s' % (len(written), OUT))
 
 

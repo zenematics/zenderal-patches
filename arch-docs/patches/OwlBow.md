@@ -315,3 +315,10 @@ Rerun 01 after a Pretty Enderal Armory update (Real Bows' mesh/texture) or an Ar
 - Each pasted cord-end triangle now takes its own source block: the best of 600 placements inside the same island, ≥ 95% on cord, closest to the cord's median brightness and grain (worst mismatch 0.03).
 - The UV-coded renders of both limbs show the facets as cord.
 - The build takes ~40 s longer for it.
+
+**Placed (2026-11-19, curator's pick of three cold candidates).** Snowveil lies across the arms of the Ice King's throne in Old Hatolis, Ice King's Hall: ref `81C` on throne `131163`, cell `MaxNordwindgebirgeL4 130C29`, a hall of 372 ice blocks.
+
+- **Ownership.** `tools/00-scan-overriders.py` (Clockwork Thunder's scanner) finds that only Skyrim.esm defines the cell or the throne, so the header is Skyrim.esm's, copied verbatim by `surface.cell_override`.
+- **Pose.** `02-build-records.py` `place_record` lays the bow flat, its length along the throne's width. Its lowest tip point (feathers, z −3.97) rests on the armrests, which are flat at 56.25 in the mesh, at scale 1.48.
+- **Checks.** It asserts every tip vertex is over an armrest and checks the overriders file.
+- **Status.** A top-down/front plot of the throne mesh and the bow checks the pose. Unverified in game. The other candidates were Frostwater Chasm and Old Ishmartep, Nest.
