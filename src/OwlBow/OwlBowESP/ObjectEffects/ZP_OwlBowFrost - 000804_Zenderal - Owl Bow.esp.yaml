@@ -1,0 +1,26 @@
+FormKey: 000804:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowFrost
+Name:
+  TargetLanguage: English
+  Value: Owl Frost
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 3000
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 000806:Zenderal - Owl Bow.esp
+  Data:
+    Magnitude: 30
+    Duration: 4
+- BaseEffect: 000807:Zenderal - Owl Bow.esp
+  Data:
+    Duration: 3
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetRandomPercentConditionData
+    ComparisonValue: 5

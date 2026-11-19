@@ -1,0 +1,29 @@
+FormKey: 000B7A:Zenderal - Prophecy.esp
+EditorID: ZP_Prophecy_Nightblade_Ability_Effect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: TVR_BlinkStrikes_Script
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TVR_Proc
+      Object: 335B4F:Triumvirate - Mage Archetypes.esp
+Name:
+  TargetLanguage: English
+  Value: Nightblade
+MenuDisplayObject: 2FDF71:Triumvirate - Mage Archetypes.esp
+Flags:
+- NoArea
+BaseCost: 0.4
+MagicSkill: Destruction
+MinimumSkillLevel: 50
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: ConstantEffect
+SkillUsageMultiplier: 0.12
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: While your Darkness meter is full, power attacks reach targets up to <50> feet away, dashing you to them and spending the meter. Kill the enemy you dashed to within <8> seconds to regain <3> Darkness.

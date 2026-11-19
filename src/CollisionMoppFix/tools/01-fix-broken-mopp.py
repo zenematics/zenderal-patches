@@ -57,6 +57,12 @@ triangle 3.1 Havok units long and 0.001 wide. Every leaf whose keys are ALL thin
 also yields a real triangle is left alone and printed as "kept"); the key set afterwards must be the old one
 minus exactly the closed keys, all thin (asserted). 214 keys in 129 meshes (2026-11-13).
 
+PG Patcher feed (2026-11-16): when PG Patcher Output's copy wins and is clean but the copy PG reads without this
+mod (the best one below PG's output) is broken, the clean winner is shipped unchanged ("fed"). Otherwise this mod
+drops the mesh, PG's next run rebuilds it from the broken original and the fault is back: the Ark street lamp,
+dropped 2026-11-13 10:11, rebuilt broken by a PG run at 17:52, crashed a player's ray cast on 2026-11-16
+(SkyrimSE.exe+0B91E6F, ID 62402 = the ray-cast MOPP walker, whose undefined opcodes are exactly UNDEFINED).
+
 Scope: the WINNING copy of every mesh in the list (loose file by MO2 priority, overwrite first;
 else the last archive in load order that has it). The meshes are other authors' work (SureAI's,
 and whatever mod's copy wins), so they are generated from the install, never committed. Re-run
@@ -455,6 +461,25 @@ def archives(root, mods, profile, plugins):
     return out                                      # load order: later wins
 
 
+PG_OUTPUT = 'PG Patcher Output'
+
+
+def pg_input_broken(srcs):
+    """The copy PG Patcher reads when this mod lacks the mesh (the best one below its own output):
+    a short description if its MOPP is broken, else None."""
+    below = next((s for s in srcs[1:] if s[0] != PG_OUTPUT), None)
+    if below is None:
+        return None
+    data = below[2]()
+    if b'bhkMoppBvTreeShape' not in data:
+        return None
+    try:
+        fixed, report, _ = fix(data)
+    except (AssertionError, ValueError, struct.error):
+        return 'PG Patcher would read %s, which this tool cannot check' % below[0]
+    return ('PG Patcher would read %s: %s' % (below[0], '; '.join(report))) if fixed else None
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--modlist', default='E:/Zenderal')
@@ -487,7 +512,7 @@ def main():
     if not a.dry_run and os.path.isdir(os.path.join(out, 'meshes')):
         shutil.rmtree(os.path.join(out, 'meshes'))
     scanned = with_mopp = 0
-    written, refused, losing, kept = [], [], [], []
+    written, refused, losing, kept, fed = [], [], [], [], []
     for key, srcs in sorted(copies.items()):
         for n, (src, rel, read) in enumerate(srcs if a.all_sources else srcs[:1]):
             data = read()
@@ -503,6 +528,15 @@ def main():
             if notes and not n:
                 kept.append((rel, src, notes))
             if not fixed:
+                feed = None if n or src != PG_OUTPUT else pg_input_broken(srcs)
+                if feed:
+                    # PG Patcher's clean copy only stays clean while PG reads this mod's copy: dropping it
+                    # here made the next PG run rebuild the lamp from ETATU's broken original (2026-11-13)
+                    fed.append((rel, src, feed))
+                    if not a.dry_run:
+                        dst = os.path.join(out, *rel.split(BS))
+                        os.makedirs(os.path.dirname(dst), exist_ok=True)
+                        open(dst, 'wb').write(data)
                 continue
             if n:                                   # a copy that does not win: report only
                 losing.append((rel, src, report))
@@ -524,6 +558,8 @@ def main():
         print('fixed   %s  [from %s]' % (rel, src))
         for line in report:
             print('          ' + line)
+    for rel, src, why in fed:
+        print('fed     %s  [%s is clean, shipped as is: %s]' % (rel, src, why))
     for rel, src, report in losing:
         print('broken (does not win, not shipped)  %s  [%s]: %s' % (rel, src, '; '.join(report)))
     for rel, src, notes in kept:
@@ -531,8 +567,9 @@ def main():
             print('kept    %s  [%s]: %s' % (rel, src, line))
     for rel, src, why in refused:
         print('REFUSED %s  [%s]: %s' % (rel, src, why))
-    print('%s %d meshes; scanned %d copies (%d with MOPP) of %d mesh paths, %d archives'
-          % ('would write' if a.dry_run else 'wrote', len(written), scanned, with_mopp, len(copies), len(bsas)))
+    print('%s %d meshes (+ %d fed to PG Patcher); scanned %d copies (%d with MOPP) of %d mesh paths, %d archives'
+          % ('would write' if a.dry_run else 'wrote', len(written), len(fed), scanned, with_mopp, len(copies),
+             len(bsas)))
     if refused:
         raise SystemExit('%d meshes could not be checked or fixed (above)' % len(refused))
 

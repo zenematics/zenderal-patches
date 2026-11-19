@@ -1,0 +1,19 @@
+FormKey: 000818:Zenderal - Caldera.esp
+MajorRecordFlagsRaw: 65536
+EditorID: ZP_CalderaVentLight
+SkyrimMajorRecordFlags:
+- 0x10000
+Time: -1
+Radius: 192
+Color: '#00FBA260'
+Flags:
+- Flicker
+FalloffExponent: 1
+FOV: 90
+NearClip: 1
+FlickerPeriod: 1
+FlickerIntensityAmplitude: 1
+FlickerMovementAmplitude: 32
+FadeValue: 4
+MajorFlags:
+- RandomAnimStart

@@ -1,0 +1,7 @@
+FormKey: 000809:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowSnowFX
+Version2: 1
+Model:
+  File: Zenderal\OwlBow\OwlBowSnowFX.nif
+Type:
+- MagicHitEffect

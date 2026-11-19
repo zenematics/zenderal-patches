@@ -7,7 +7,7 @@
   guard) + 2 generated enchant-art meshes + Blood Boil's burst mesh + the spiderling's venom burst + Rise's sun mote
   and fire nova + Sting's green-gripped diffuse + 7 gold textures (Rise's grip ivory) + 3 ornament textures + 3
   recoloured palettes (not committed), all inside **Zenderal - Patch Collection** (as Clockwork Thunder)
-- **FormID block:** `0x800–0x830` (`0x831+` free for the placement)
+- **FormID block:** `0x800–0x832` (`0x831`-`0x832` the placed daggers)
 - **Needs:** powerofthree's Papyrus Extender (every area search: Blood Boil, the venom burst and fire nova, the
   spiderling's first target; as Prophecy's A Willing Sacrifice); an exclusion in Glow Be Gone's toml (`tools/03`,
   below)
@@ -498,8 +498,31 @@ SureAI's own game files.
 
 ## Placement
 
-**Not placed yet**: where the daggers are found is the curator's call. Test with `help "Sting"` / `help "Rise"`
-→ `player.additem <id> 1`.
+**Placed 2026-11-15** (curator, each from a shortlist of three), by `tools/02`'s `place_records` with this folder's
+`tools/surface.py` (below):
+- **Midnight Sting**, REFR `831`: "Undercity Old Vault", Forgotten Stories' vault in Ark's underworld overrun by tunnel
+  spiders (level 25; cell `FSNQ03Hideout 02A9C6:FS`, FS's header verbatim, the only plugin with it): **inside the open
+  coffin** that lies on a table in its coffin room (CommonCoffinOpen01 ref `02AF7A`; the coffin stacked under it,
+  `02AF7B`, ends at z 1475.2, under this one's floor), along its length, centred: position (-687.09, 4807.61,
+  1480.64), heading pi/2, 0.1 over the floor (mesh z 3.79, z 1479.0). The two cluttered low tables were passed over.
+- **Sunrise**, REFR `832`: "Old Soltyris, The Void", the end of the Sun Path desert ruin (cell
+  `DesertAltSoltyrisL2KeyLvl2 06E4F3`, Skyrim.esm's header): **on the Dwemer pedestal** (`06EEB4`) where the dungeon
+  leaves its reward (the Wall of Frost tome, two potions, a soul gem, a helmet), in the free strip beside them, each
+  item's mesh 2 units clear (the tome as a 26 x 20 box: its mesh has no shape the reader understands): position
+  (471.75, -2373.38, 1054.88), heading 1.963, 0.1 over the top (mesh z 87.42, z 1053.54).
+
+Both lie with **Don't Havok Settle** (still until touched, so they never shove the pedestal's loot). Unverified in game.
+
+`tools/surface.py` (shared: Whisper's and Argent Verdict's placements import it too): reads a cell's refs from the
+reference serializations (Skyrim.esm, FS, EGO merged), samples the winning furniture mesh (node transforms composed,
+hidden and skinned shapes skipped), finds its flat levels (`levels`: shelf boards, a table top, a coffin floor) and
+asserts the one a placement names is there, rasters the surface's top and everything rising over it (its own walls and
+rails, the items already on it) on a grid, and searches the nearest spot where the item's own footprint (from its
+installed mesh) lies wholly on the top, clear of all of it (`find_spot`). It checks each ref it reads is still won by
+one of those serializations (`check_winners`, this folder's overrider scan), and writes the cell override: the
+winning header verbatim (name English only, its navmeshes and refs out, any field after them kept), our ref, and the
+block / sub-block group files, round-tripping through Spriggit unchanged. Bethesda Z rotation: the compass sense
+(angle 90 faces +X). Test before an in-game look with `help "Sting"` / `help "Rise"` → `player.additem <id> 1`.
 
 ## Regenerate
 

@@ -1,0 +1,73 @@
+FormKey: 000812:Zenderal - Clockwork Thunder.esp
+EditorID: ZPCTSaleBuy
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_ClockworkThunderSale
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Gold
+      Object: 00000F:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Rifle
+      Object: 000806:Zenderal - Clockwork Thunder.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Sold
+      Object: 000814:Zenderal - Clockwork Thunder.esp
+  ScriptFragments:
+    MutagenObjectType: ScriptFragments
+    FileName: ZP_ClockworkThunderSale
+    OnEnd:
+      ExtraBindDataVersion: 1
+      ScriptName: ZP_ClockworkThunderSale
+      FragmentName: Fragment_0
+Flags: {}
+PreviousDialog: Null
+FavorLevel: None
+Responses:
+- EmotionValue: 50
+  ResponseNumber: 1
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'Splendid, that''s it!'
+  ScriptNotes: ''
+  Edits: ''
+- EmotionValue: 50
+  ResponseNumber: 2
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'Again: Thank you.'
+  ScriptNotes: ''
+  Edits: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 13378C:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 000814:Zenderal - Clockwork Thunder.esp
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetInCellConditionData
+    RunOnType: Reference
+    Reference: 000806:Zenderal - Clockwork Thunder.esp
+    Cell: 14B5A2:Skyrim.esm
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetItemCountConditionData
+    RunOnType: Reference
+    Reference: 000014:Skyrim.esm
+    ItemOrList: 00000F:Skyrim.esm
+  ComparisonValue: 2000

@@ -141,8 +141,12 @@ __pycache__/
 !src/StingAndRise/Scripts/compiled/*.pex
 !src/ArgentVerdict/Scripts/compiled/
 !src/ArgentVerdict/Scripts/compiled/*.pex
+!src/Caldera/Scripts/compiled/
+!src/Caldera/Scripts/compiled/*.pex
 !src/Whisper/Scripts/compiled/
 !src/Whisper/Scripts/compiled/*.pex
+!src/OwlBow/Scripts/compiled/
+!src/OwlBow/Scripts/compiled/*.pex
 !src/MQ16YuslanKneelFix/Scripts/compiled/
 !src/MQ16YuslanKneelFix/Scripts/compiled/*.pex
 !src/PrologueRopeFix/Scripts/compiled/
@@ -195,3 +199,8 @@ __pycache__/
 /trailer-audio/
 /src/EnderalPairedAnims/tools/hkxconv/bin/
 /src/EnderalPairedAnims/tools/hkxconv/obj/
+# Prophecy tools/09 output: textures generated from Bethesda's Steam Centurion set (rerun tools/09)
+/src/Prophecy/assets/textures/Zenderal/
+# local DLL build logs
+/src/*/build-*.log
+/src/*/*/build-*.log

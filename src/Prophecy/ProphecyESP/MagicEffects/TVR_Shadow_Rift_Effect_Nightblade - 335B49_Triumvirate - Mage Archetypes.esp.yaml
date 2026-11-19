@@ -42,4 +42,4 @@ Sounds:
   Sound: 000D66:Triumvirate - Mage Archetypes.esp
 Description:
   TargetLanguage: English
-  Value: Power attacks reach targets up to <50> feet away, dashing you to them. Kill the enemy you dashed to within <8> seconds to regain <3> Darkness. Lasts <dur> seconds.
+  Value: While your Darkness meter is full, power attacks reach targets up to <50> feet away, dashing you to them and spending the meter. Kill the enemy you dashed to within <8> seconds to regain <3> Darkness. Lasts <dur> seconds.

@@ -1,0 +1,24 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Lock-On Ranged Damage.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: Bows, crossbows, muskets and pistols do 60% damage while locked on with True Directional Movement; manual aim does full damage. TDM's lock-on effect applies a hidden perk.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: TrueDirectionalMovement.esp
+    FileSize: 0
+  - Master: Zenderal - Flintlock Overhaul.esp
+    FileSize: 0
+  INTV: 1

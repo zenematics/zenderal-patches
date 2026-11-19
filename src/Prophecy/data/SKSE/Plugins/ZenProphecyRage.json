@@ -90,6 +90,20 @@
   "hits": 2,
   "fraction": 0.5
  },
+ "graphFlags": [
+  {
+   "variable": "bPerkQuickdraw",
+   "perk": "000815",
+   "enderalPlugin": "Skyrim.esm",
+   "enderalPerk": "069CD5"
+  },
+  {
+   "variable": "bPerkQuickShot",
+   "perk": "000818",
+   "enderalPlugin": "Skyrim.esm",
+   "enderalPerk": "069CD4"
+  }
+ ],
  "centurion": {
   "armGlobal": "000B78",
   "chainSpell": "000AFC"

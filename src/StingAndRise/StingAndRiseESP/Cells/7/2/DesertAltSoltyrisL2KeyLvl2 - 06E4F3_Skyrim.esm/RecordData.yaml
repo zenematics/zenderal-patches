@@ -1,0 +1,51 @@
+FormKey: 06E4F3:Skyrim.esm
+EditorID: DesertAltSoltyrisL2KeyLvl2
+Version2: 12
+Name:
+  TargetLanguage: English
+  Value: Old Soltyris, The Void
+Flags:
+- IsInteriorCell
+- HasWater
+Lighting:
+  AmbientColor: '#002D2D2D'
+  DirectionalColor: '#00A7B5C2'
+  FogNearColor: '#00000000'
+  FogFar: 5000
+  DirectionalRotationZ: 90
+  FogClipDistance: 163840
+  FogPower: 0.9
+  AmbientColors:
+    DirectionalXPlus: '#00917655'
+    DirectionalXMinus: '#00272719'
+    DirectionalYPlus: '#00554E35'
+    DirectionalYMinus: '#002C251B'
+    DirectionalZPlus: '#005F5538'
+    DirectionalZMinus: '#005C5238'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - FogMax
+  - LightFadeDistances
+WaterHeight: 0
+Location: 03E16D:Skyrim.esm
+ImageSpace: 063209:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000832:Zenderal - Sting and Rise.esp
+  MajorRecordFlagsRaw: 536870912
+  SkyrimMajorRecordFlags:
+  - 0x20000000
+  Base: 000804:Zenderal - Sting and Rise.esp
+  Placement:
+    Position: 471.75052, -2373.3816, 1054.8787
+    Rotation: 0, 0, 1.9634954

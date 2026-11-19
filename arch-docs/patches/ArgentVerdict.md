@@ -11,7 +11,7 @@
   gauntlet's own record and first-person static while it was compared with the hand head; `0x80C`, `0x845`–`0x847`,
   `0x84B`, `0x84F`–`0x860` the Smite (version 3), its charges and orbs (`0x85E` retired); `0x841`–`0x844`,
   `0x848`–`0x84A`, `0x84C`–`0x84E` retired (version 2); `0x808`–`0x80B` and `0x80D`–`0x840` retired (the Judgement
-  Blade and the Penance fan, scrapped 2026-11-14): never reuse; `0x861+` free for the placement)
+  Blade and the Penance fan, scrapped 2026-11-14): never reuse; `0x861` the placed hammer)
 - **Needs:** Zenderal - Prophecy (master: the Smite effect's shape), powerofthree's Papyrus Extender (the chain's
   `FindAllReferencesOfFormType`); the mesh is built from Pretty Enderal Armory's, but ships as our own file, so Pretty
   is not needed at run time; Dark Hierophant Magic is **not** installed (its records and files are copied)
@@ -31,7 +31,8 @@ its **forearm flows into the handle** under a **bracelet of thorns**, two **thor
 the grip is dark navy leather. **Smite** (version 3, 2026-11-14): every two light attacks that hit an enemy light a
 very small mote of runic light on one of the head's four knuckles (8 for a full charge since the balance pass of
 2026-11-15; any hit, one a mote, before) (Kittytail's Absolution rune circle, about 1.5 units across, round
-each gauntlet spike or on each bone knuckle); the hit that lights the fourth rings a church bell (ready). Once all
+each gauntlet spike or on each bone knuckle); the hit that lights the fourth rings a church bell (ready). A corpse
+never charges; the killing blow still does (see Status, 2026-11-19). Once all
 four are lit, the next power attack, for 20 Mana (none spent, charge kept, below it), **calls Kittytail's
 Absolution beam down from the sky** onto up to four enemies round the player (the struck one first, then the nearest
 within 800 units): her rune circle hangs in the sky over each and the beam runs straight down onto it, a church bell
@@ -478,8 +479,19 @@ from `tools/fist.py`, its vines from `tools/roses.py`) or the texture in `tools/
 
 ## Placement
 
-**Not placed yet**: where it is found is the curator's call. Test with `help "Argent Verdict"` →
-`player.additem <id> 1` (`…800`; a save that held the compared gauntlet `…806` loses it: add `…800`).
+**Placed 2026-11-15** (curator, from a shortlist of three: "Destroyed Abbey"): REFR `861` in **Thalgard's Destroyed
+Abbey, Halls** (cell `ThalgardOrdensklosterL1 127E21`, Skyrim.esm's header copied verbatim: the only plugin with the
+cell), lying on the socket of the **Malphas statue** at the far end of the Halls (socket ref `128502`, statue `128503`),
+across the socket's front, in front of the statue: past Sunborn mages and archers (level 45), monk ghosts (40) and the
+undead in the hall; the Archivist (45) waits in the basement. `tools/02`'s `place_record` finds the spot each run with
+Sting and Rise's `tools/surface.py` (the socket's top at mesh z 1.35, PG Patcher Output's copy, asserted present; the
+statue's base raster as the obstacle, 2-unit grid, the hammer's footprint from its own installed mesh; nearest the
+statue's x at the socket's front edge): position (1887.98, 7535.14, 938.23), heading 1.601 (across the front), 0.1
+above the socket top (z 932.72), **Don't Havok Settle** (it stays exactly there until touched). The top stands about
+165 units over the hall floor; its front edge is within reach. Every ref read is checked to be won by Skyrim.esm, FS
+or EGO (the serializations it reads). Placed through an offline search only: **unverified in game** (check it lies
+flat and whole on the socket, nothing clipping the statue). Test before then with `help "Argent Verdict"` →
+`player.additem <id> 1`.
 
 ## Status
 
@@ -525,3 +537,15 @@ version we've made is THE Argent Verdict" and "remove the other versions": the h
 `--variant` option and version 2's bolt node removed (the rebuilt mesh is the compared gauntlet's, byte for byte, minus
 that empty node; every texture identical), the three backup banks deleted. Plugin round trip clean, scripts and
 plugin deployed into Patch Collection. **The balance pass is unverified in game.**
+
+**Corpses charged it** (GreaseLord, 2026-11-17: "The weapon can accumulate charges by striking corpses probably not
+intended"). The charge effect's only target condition was `IsHostileToActor` the player, which a corpse still is, and
+a corpse accepts the hammer's effects. A plain `GetDead`/`IsDead` gate would also drop the killing blow: the
+enchantment's effects start after the hit's damage (the Smite already runs on "a corpse the blow killed", above). So
+`ZP_ArgentVerdictChargeScript.Fresh` (2026-11-19) counts a dead target only within `FreshSeconds` (1.0) of its death:
+PO3's `GetTimeOfDeath` (the actor process's `deathTime`, game hours, returned in game days) against
+`Utility.GetCurrentGameTime()`, scaled by the `TimeScale` global (`00003A:Skyrim.esm`, a new property); a death time
+of 0 (unknown, e.g. a corpse loaded from a save) never counts. Every hit on a dead target logs
+`[ZP Argent charge] hit on dead <actor>: died <s> s ago, counts <bool>` in the Papyrus log, which settles the units
+in game. Same fix in Caldera's copy of the script. Compiled, plugin round trip clean, deployed into Patch Collection.
+**Unverified in game.**

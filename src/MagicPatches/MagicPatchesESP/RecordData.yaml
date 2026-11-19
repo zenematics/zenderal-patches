@@ -7,7 +7,7 @@ ModHeader:
   Flags:
   - Small
   Author: Zenderal
-  Description: Magic compatibility and balance patches for the Zenderal list. Reprices Apocalypse - Magic of Skyrim and Triumvirate - Mage Archetypes player spells onto the EGO cost ladder, taxes Triumvirate's self-heals with Arcane Fever, moves the Warlock and Shadow Mage destruction spells to Entropy, moves eleven Apocalypse spells to the Enderal discipline their effects belong to (earth and weather to Elementalism, withering, conjured gear and the dead to Entropy), doubles the damage/absorb strength of weapon enchantments (charge per hit unchanged), and reprices the Gargoyles in Enderal summons onto the list's summon costs.
+  Description: Magic compatibility and balance patches for the Zenderal list. Reprices Apocalypse - Magic of Skyrim and Triumvirate - Mage Archetypes player spells onto the EGO cost ladder, taxes Triumvirate's self-heals with Arcane Fever, moves the Warlock and Shadow Mage destruction spells to Entropy, moves eleven Apocalypse spells to the Enderal discipline their effects belong to (earth and weather to Elementalism, withering, conjured gear and the dead to Entropy), doubles the damage/absorb strength of weapon enchantments (charge per hit unchanged), reprices the Gargoyles in Enderal summons onto the list's summon costs, and stops the ranks of Kata's Fire, Frost and Shock Shield from stacking.
   Stats:
     Version: 1.7
   MasterReferences:
@@ -16,6 +16,8 @@ ModHeader:
   - Master: Update.esm
     FileSize: 0
   - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: KataPUMB_SpellPackage.esp
     FileSize: 0
   - Master: KataPUMBSpellPack.esp
     FileSize: 0

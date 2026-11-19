@@ -1,0 +1,208 @@
+FormKey: 000800:Alt Start - Jespars Camp.esp
+EditorID: AltStart_CampChest
+ObjectBounds:
+  First: -51, -25, -6
+  Second: 51, 29, 46
+Name:
+  TargetLanguage: English
+  Value: Salvaged Belongings
+Model:
+  File: Enderal\Clutter\containers\chest01_Enderal\chest01_Enderal.nif
+  Data: 0x020000000000000000000000
+Items:
+- Item:
+    Item: 00000A:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 00000F:Skyrim.esm
+    Count: 55
+- Item:
+    Item: 0028B0:Skyrim.esm
+    Count: 40
+- Item:
+    Item: 0028C5:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028C8:Skyrim.esm
+    Count: 5
+- Item:
+    Item: 0028CD:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028D2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028DB:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028DE:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0028E3:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0028E4:Skyrim.esm
+    Count: 12
+- Item:
+    Item: 0028E8:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0030BE:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0030C1:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0050E7:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 014C18:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 01895F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 027F03:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 027F06:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 027F08:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 027F09:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02A514:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 02E4E3:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0316A9:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 031ACC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 034C5D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 034CDD:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 037941:Skyrim.esm
+    Count: 7
+- Item:
+    Item: 03F86A:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 044F07:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 044F09:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 044F13:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 044FB8:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0458DB:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0479FF:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 04C981:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 04D9E2:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 051529:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 063B46:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 064B2E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 065C98:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0706DD:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07B8C7:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 085614:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 085624:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 085641:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 08591F:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 09059C:Skyrim.esm
+    Count: 4
+- Item:
+    Item: 0AF5FD:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0BEB60:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0C8864:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0C8866:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0C886A:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 0C886C:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0C886E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0C8870:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0CE70B:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0E4897:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0F08F9:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0F5D06:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 0FEC69:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 112679:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 137A06:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 01E8E2:Enderal - Forgotten Stories.esm
+    Count: 1
+Weight: 20

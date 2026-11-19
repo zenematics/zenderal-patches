@@ -1,0 +1,43 @@
+FormKey: 127E21:Skyrim.esm
+EditorID: ThalgardOrdensklosterL1
+Name:
+  TargetLanguage: English
+  Value: Destroyed Abbey, Halls
+Flags:
+- IsInteriorCell
+- HasWater
+- ShowSky
+Lighting:
+  AmbientColor: '#001A1D18'
+  DirectionalColor: '#001F1F1D'
+  FogNearColor: '#005B6156'
+  FogFar: 19000
+  FogClipDistance: 15000
+  FogPower: 0.8
+  AmbientColors:
+    DirectionalXPlus: '#001C1D19'
+    DirectionalXMinus: '#00171D16'
+    DirectionalYPlus: '#001A1E18'
+    DirectionalYMinus: '#001A1B18'
+    DirectionalZPlus: '#000C0D0A'
+    DirectionalZMinus: '#00272C25'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#0037362B'
+  FogMax: 0.9
+LightingTemplate: 06AB01:Skyrim.esm
+WaterHeight: 0
+SkyAndWeatherFromRegion: 0022AB:Skyrim.esm
+AcousticSpace: 0C5B6B:Skyrim.esm
+Music: 01BECD:Skyrim.esm
+ImageSpace: 01FAE9:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000861:Zenderal - Argent Verdict.esp
+  MajorRecordFlagsRaw: 536870912
+  SkyrimMajorRecordFlags:
+  - 0x20000000
+  Base: 000800:Zenderal - Argent Verdict.esp
+  Placement:
+    Position: 1887.9805, 7535.138, 938.22833
+    Rotation: 0, 0, 1.6008004

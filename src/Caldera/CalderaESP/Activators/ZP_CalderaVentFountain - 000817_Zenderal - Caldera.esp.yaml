@@ -1,0 +1,14 @@
+FormKey: 000817:Zenderal - Caldera.esp
+MajorRecordFlagsRaw: 67108864
+EditorID: ZP_CalderaVentFountain
+SkyrimMajorRecordFlags:
+- 0x4000000
+ObjectBounds:
+  First: -36, -35, -126
+  Second: 33, 34, 165
+Model:
+  File: Zenderal\Caldera\CalderaVent.nif
+MarkerColor: '#00CC4C33'
+Flags: []
+MajorFlags:
+- NavMeshGenerationFilter

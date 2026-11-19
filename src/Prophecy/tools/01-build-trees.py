@@ -88,7 +88,7 @@ RAGE = {'Max': 10, 'MaxUntempered': 15, 'DamagePerStack': 2, 'FadeAfter': 6, 'Fa
 # 2026-10-28 (curator): daytime shade outdoors filled nothing at 60, so a fourth, slower step up to 90 (the log showed
 # 137 in open light); the DLL logs the light level every 5 s for the next tuning.
 DARKNESS = {'Max': 10, 'Fill': [(20, 1.0), (40, 1.5), (60, 2.0), (90, 3.0)], 'VeilMult': 2.0, 'DrainEvery': 4.0,
-            'Cost': {'shd1': 3, 'shd2': 4, 'shd3': 'full', 'shd4': 3, 'shd5': 'full', 'shd7': 2},   # shd3 'full' since 2026-11-15 (curator)
+            'Cost': {'shd1': 3, 'shd2': 4, 'shd3': 'full', 'shd4': 3, 'shd5': 'full', 'shd7': 2},   # shd3: the spell is retired (2026-11-16), its entry only guards a save that still holds it
             # the meter: Rage's (Oxygen Meter 2's movie, our own menu), dark navy / purple (curator 2026-10-28; bar #4E5180, was 2A1A5E). Rage
             # follows the casting bar's slot (90.7% in Vel'dun's bottom HUD); this sits just below the Stamina / Mana
             # bars (curator's screenshots: -2.5 sat on the compass, 2.8 on the Stamina / Mana bars, 4.0 a little high and wide)
@@ -108,7 +108,24 @@ DARKNESS = {'Max': 10, 'Fill': [(20, 1.0), (40, 1.5), (60, 2.0), (90, 3.0)], 'Ve
 # (records nbspell/nbme kept, unused). Nightblade is the dash alone - and (curator, same day: "instead you regain
 # some darkness if you successfuly kill the enemy you dash to") a kill by the player of the enemy last dashed to,
 # within Window seconds of the dash, gives Refund Darkness back (Darkness DLL 1.4.0, TESDeathEvent).
-NIGHTBLADE = {'Fraction': 1.0, 'PerPoint': 0, 'Damage': False, 'Refund': 3, 'Window': 8.0}
+# 2026-11-16 (curator: "to confirm: Nightblade 1 dash costs all Darkness"): EVERY dash spends Fraction (all) of the
+# Darkness whether or not the damage is on (Darkness DLL 1.4.1); the cast still costs the full meter.
+# Same day, curator ("no I don't want this" to free dashes on an empty meter): A DASH NEEDS A FULL METER. Every effect
+# of the proc 335B4F (the four Blink dashes, the marker, the 0-damage effect) carries GetGlobalValue ZP_Darkness >=
+# Max, so below a full meter a power attack is a plain power attack, and the DLL (1.4.2) spends only on a hit it sees
+# with a full meter (FullOnly). The DLL keeps the global in step with the meter (Publish).
+NIGHTBLADE = {'Fraction': 1.0, 'PerPoint': 0, 'Damage': False, 'Refund': 3, 'Window': 8.0, 'FullOnly': True}
+# 2026-11-16 (curator: "have nightblade activate on a power attack with full darkness, no cast of the spell"): the
+# talent no longer grants Triumvirate's spell. Its perk carries a constant ability (NIGHTBLADE_ABILITY_RECORDS) whose
+# effect is our copy of the 60 s buff 335B49 - the same TVR_BlinkStrikes_Script, which listens for the power attack
+# and casts the (full-meter-gated) proc - without the buff's art, sounds and keyword dispel. The old spell is taken off
+# existing saves by the Darkness DLL (1.5.0, 'retiredSpells') at every load.
+NIGHTBLADE_ABILITY_FIRST_ID = 0xB79
+NIGHTBLADE_ABILITY_RECORDS = ('nbab', 'nbabme')
+# 2026-11-16 (curator: "I still want the effects and sounds to play on dash"): the buff's look went with the spell, so
+# the Darkness DLL (1.5.1) plays it on each full-meter dash instead - Triumvirate's Rift buff art on the player for
+# DashArtSeconds and the buff's release sound at the player (the proc's own Blink arts and hit sounds still play).
+NIGHTBLADE_DASH_FX = {'Art': '2FDF74', 'ArtSeconds': 2.0, 'Sound': '000D66'}   # TVR_Rift_Art_Buff, TVR_Shadow_Descriptor_Release
 ORBIT_SHIELD = {'Hits': 2, 'Fraction': 0.5}   # Orbit Ward's shield (2026-11-14): hits mitigated per cast, share taken off each (ORBIT_SHIELD_RECORDS)
 # Starling Power Armor (2026-11-15; curator: the Centurion Armor renamed, and "add Shock Nova to the left Power attack
 # and Chain Lightning on hit to the Right power attacks ... only when piloting it, when its just following you around
@@ -265,7 +282,7 @@ TREES = [
   ('Shadow', 'Darkness, stealth and stolen strength.', [
     ('shd1', 'Gather Shadows', f'Darkness gathers in you while you stand in shadow, up to {DARKNESS["Max"]}: the darker it is, the faster. In light it slowly fades. Your Shadow talents spend Darkness instead of Mana. Grants the "Gather Shadows" spell ({DARKNESS["Cost"]["shd1"]} Darkness): for 60 seconds, your melee attacks and Shadow spells are up to 50% stronger in darkness.', None, [], []),
     ('shd2', 'Draining Shroud', f'Grants the "Draining Shroud" spell ({DARKNESS["Cost"]["shd2"]} Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every {SHROUD_DARKNESS["TicksPerPoint"]} seconds of draining an enemy builds 1 Darkness.', None, [], ['shd1']),
-    ('shd3', 'Nightblade', f'Grants the "Nightblade" spell (a full Darkness meter): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them. The dash itself does no damage, but kill the enemy you dashed to within {NIGHTBLADE["Window"]:.0f} seconds and you regain {NIGHTBLADE["Refund"]} Darkness.', None, [], ['shd1']),
+    ('shd3', 'Nightblade', f'While your Darkness meter is full, your power attacks reach targets up to 50 feet away, dashing you to them and spending the meter. The dash does no damage of its own; kill the enemy you dashed to within {NIGHTBLADE["Window"]:.0f} seconds and you regain {NIGHTBLADE["Refund"]} Darkness.', None, [], ['shd1']),
     # Shade Veil (2026-10-28): off Silent Step, a dead end; added after the tree's first build, so allocated last
     # (SHADOW_LATE_NODES). The menu holds two parents at most, so it does not join the merge below
     ('shd6', 'Shade Veil', f'While you sneak, your body is wrapped in black and grey mist, you are {SHADE_VEIL_DETECT}% harder to detect, and Darkness gathers twice as fast.', None, [], ['sst1']),
@@ -968,6 +985,9 @@ def main():
     # Starling Power Armor's right-arm global (2026-11-15). Append LAST
     assert nxt == CENTURION_ARM_ID, f"the armor's right-arm global would not be 0x{CENTURION_ARM_ID:03X} (0x{nxt:03X})"
     cent['arm'] = f'{nxt:06X}:{MOD}'; nxt += 1
+    # Nightblade as a passive (2026-11-16): the perk's ability and its effect. Append LAST
+    assert nxt == NIGHTBLADE_ABILITY_FIRST_ID, f"Nightblade's ability would not start at 0x{NIGHTBLADE_ABILITY_FIRST_ID:03X} (0x{nxt:03X})"
+    shadow.update({k: f'{nxt + i:06X}:{MOD}' for i, k in enumerate(NIGHTBLADE_ABILITY_RECORDS)}); nxt += len(NIGHTBLADE_ABILITY_RECORDS)
 
     assert nxt <= 0xFFF, 'out of ESL range'
     have = enderal_formkeys()
@@ -1097,8 +1117,8 @@ def main():
                      '      ComparisonValue: 100\n')
             assert t.count(speed) == 1, ('Breaking Waves speed condition', t.count(speed))
             t = t.replace(speed, '')
-        if nid in ('gun2', 'gun3'):
-            t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit)
+        if nid in ('gun2', 'gun3'):   # muskets only (item type 12 on the owner tab, 2026-11-17)
+            t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit, 12)
         if nid == 'gad7':    # Centurion Armor: the power, granted by the menu (perk_powers finds the LesserPower)
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + cent['power'] + '\n'
         if nid == 'ma5':
@@ -1122,9 +1142,12 @@ def main():
                       '        MutagenObjectType: GetEquippedItemTypeConditionData\n      ComparisonValue: 7\n')
             assert t.count(bow_or) == 2, ('Deadeye bow-or entries', t.count(bow_or))
             t = t.replace(bow_or, '')
+            hit_entry = '- MutagenObjectType: PerkEntryPointSelectSpell\n  Priority: 146\n  Conditions:\n  - RunOnTabIndex: 1\n'
+            assert t.count(hit_entry) == 1, ('Deadeye hit-spell entry', t.count(hit_entry))
+            t = t.replace(hit_entry, '- MutagenObjectType: PerkEntryPointSelectSpell\n  Priority: 146\n  Conditions:\n' + owner_item_type(12) + '  - RunOnTabIndex: 1\n')
         # Arcane Archery: the hit-spell perks point at the shared gun hit spell (one ApplyCombatHitSpell per hit)
-        if nid in ('arc1', 'arc3', 'arc4'):
-            t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit)
+        if nid in ('arc1', 'arc3', 'arc4'):   # bows only (item type 7 on the owner tab, 2026-11-17)
+            t = t.rstrip('\n') + '\n' + gun_hit_effect(gunhit, 7)
         if nid in ARC_ABILITY:
             if 'Effects:' not in t: t = t.rstrip('\n') + '\nEffects:\n'
             t = t.rstrip('\n') + '\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + arc[ARC_ABILITY[nid]] + '\n'
@@ -1155,6 +1178,8 @@ def main():
             t = t.rstrip('\n') + ('\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + shadow['veilab'] +
                                   '\n- MutagenObjectType: PerkEntryPointModifyValue\n  EntryPoint: ModDetectionSneakSkill\n'
                                   f'  PerkConditionTabCount: 2\n  Modification: Add\n  Value: {SHADE_VEIL_DETECT}\n')
+        if nid == 'shd3':      # Nightblade (2026-11-16): the dash listener as a constant ability, no spell to cast
+            t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + shadow['nbab'] + '\n'
         if nid == 'shd1':      # Gather Shadows: the Darkness ability (the DLL writes the count into its magnitude)
             t = t.rstrip('\n') + '\nEffects:\n- MutagenObjectType: PerkAbilityEffect\n  Ability: ' + shadow['darkab'] + '\n'
         if nid == 'shd5':      # Nightfall: the power (the four spells are granted by the menu, SHADOW_GRANTS)
@@ -1625,8 +1650,19 @@ def add_unarmed(t):
     return out
 
 
-def gun_hit_effect(spell):
-    return ('Effects:\n- MutagenObjectType: PerkEntryPointSelectSpell\n  Conditions:\n  - RunOnTabIndex: 1\n'
+def owner_item_type(item_type):
+    """Perk-entry owner-tab (tab 0) condition: the perk owner's right-hand item type (12 = crossbow-type, Ordo's
+    muskets; 7 = bow). Curator 2026-11-17 ("the talents on Firearms need an 'is musket' condition"): Elemental Rounds'
+    fire landed on bow hits although the hit spell's effect carried the same check on PlayerRef, so the talent's own
+    ApplyCombatHitSpell entry now refuses the hit before the spell is ever applied."""
+    return ('  - Conditions:\n    - MutagenObjectType: ConditionFloat\n      Data:\n'
+            '        MutagenObjectType: GetEquippedItemTypeConditionData\n        ItemSource: Right\n'
+            f'      ComparisonValue: {item_type}\n')
+
+
+def gun_hit_effect(spell, item_type):
+    return ('Effects:\n- MutagenObjectType: PerkEntryPointSelectSpell\n  Conditions:\n' + owner_item_type(item_type)
+            + '  - RunOnTabIndex: 1\n'
             '    Conditions:\n    - MutagenObjectType: ConditionFloat\n      Data:\n'
             f'        MutagenObjectType: HasKeywordConditionData\n        Keyword: {WEAPTYPEBOW}\n'
             '      ComparisonValue: 1\n  EntryPoint: ApplyCombatHitSpell\n  PerkConditionTabCount: 3\n'
@@ -1644,9 +1680,10 @@ def write_gunhit(gunhit, newid, nodeperk, write, deadeye, bleedsnd, arc, late, g
     t = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_GunHitSpell', t, count=1, flags=re.M)
     t = re.sub(r'^(Name:\n  TargetLanguage: English\n  Value: ).*$', r'\1Firearms', t, count=1, flags=re.M)
     def gate(perk):
-        # MutagenObjectType must be the first key under Data or Spriggit fails to read it
+        # MutagenObjectType must be the first key under Data or Spriggit fails to read it. Run on Target = the
+        # caster = the perk owner (Ordinator gates its on-hit effects this way), not an explicit PlayerRef (2026-11-17)
         return ('  Conditions:\n  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: HasPerkConditionData\n'
-                '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n'
+                '      RunOnType: Target\n'
                 f'      Perk: {perk}\n    ComparisonValue: 1\n')
     eff = re.search(r'^Effects:\n((?:[- ].*\n)*)', t, re.M)
     assert eff, 'Monk spell has no Effects'
@@ -2704,10 +2741,21 @@ ICE_LATE_RECORDS = ('iceshout', 'iceword')       # Ice Shot as a talent (2026-10
 # Sharpshooter is muskets only (curator 2026-10-23): crossbow-type weapons, item type 12 - Ordo's muskets, and the
 # list's 4 Xion crossbows, which only Enderal SE - Crossbows' own keyword 00081B tells apart (Prophecy masters
 # Skyrim.esm alone). Hit-spell form (on PlayerRef) and perk-tab form.
+# Hit-spell effect form: run on Target = the caster (the perk owner), as Ordinator's on-hit effects do; the explicit
+# PlayerRef form let Elemental Rounds' fire through on bow hits (curator 2026-11-17; mechanism open, see Prophecy.md)
 MUSKET_IN_HAND = ('  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetEquippedItemTypeConditionData\n'
-                  '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n      ItemSource: Right\n    ComparisonValue: 12\n')
+                  '      RunOnType: Target\n      ItemSource: Right\n    ComparisonValue: 12\n')
 MUSKET_TAB_COND = ('    - MutagenObjectType: ConditionFloat\n      Data:\n        MutagenObjectType: GetEquippedItemTypeConditionData\n'
                    '        ItemSource: Right\n      ComparisonValue: 12\n')
+# Quick Reload (gun1) and Run and Gun (gun4) work through SetBooleanGraphVariable perk entries (bPerkQuickdraw: the
+# fast bow draw / crossbow reload; bPerkQuickShot: full speed while aiming), and the engine evaluates that entry
+# point's conditions ONCE, in the actor's animation-graph initialisation (SkyrimSE 1.7.104: the only call of
+# BGSEntryPoint::HandleEntryPoint with entry point 54 is in function 37982, disassembled 2026-11-16). So the item-type
+# 12 condition above only decided whether the flag was set when the player's 3D loaded: a musket in hand at load left
+# both flags on, and the player's bows drew and aimed with the Firearms perks (curator 2026-11-16). ZenProphecyRage.dll
+# 1.13.0 owns the flags instead: every tick, unless the player has Enderal's own perk for the flag (Rapid Shot
+# 069CD5 / Ranger 069CD4: the engine's value stands), flag = our perk AND a crossbow-type weapon in the right hand.
+GRAPH_FLAGS = (('bPerkQuickdraw', 'gun1', '069CD5'), ('bPerkQuickShot', 'gun4', '069CD4'))
 # Records added after Arcane Archery's block (2026-10-23), in order - append new ones LAST: Quick Reload's own ability
 # (Sharpshooter, muskets only), then the raven's own ability + its effect (Send a Raven stays until killed)
 SHARP_RECORDS = ('qrab', 'ravenab', 'ravenabme', 'ravennpc', 'cawsound', 'cawmarker',
@@ -2730,7 +2778,7 @@ RAVEN_ARMA_SRC = os.path.join(_TVR_REF, 'ArmorAddons', f'TVR_Primal_Addon_CallRa
 OWL_MODEL = r'Zenderal\Prophecy\BarnOwl.nif'   # owl1go.nif re-rigged onto the raven skeleton - tools/05-build-owl-mesh.py
 OWL_SPAWN_WAV = r'Data\Sound\FX\Zenderal\ZEN_OwlSpawn_01.wav'      # the curator's file - tools/03-install-sounds.py
 BOW_IN_HAND = ('  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: GetEquippedItemTypeConditionData\n'
-               '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n      ItemSource: Right\n    ComparisonValue: 7\n')
+               '      RunOnType: Target\n      ItemSource: Right\n    ComparisonValue: 7\n')
 SPELL_WARD_RANK2 = '085654:Skyrim.esm'   # _10E_SpellSpellWard; Levin's Spell Ward Rework's shell version wins in the list
 ARC_SEEDS = [o('014E7B')]          # ORD_Res_MageWard_Art - the first No Distractions build's shell; unused, kept so Lion's Arrow's IDs stay put
 FROST_ENCH = '04605B:Skyrim.esm'   # EnchFrostDamageFFContact
@@ -3453,6 +3501,11 @@ SHADOW_DANCE_DASHES = ('30818C', '30818D', '30818E', '30818F', '30D293', '30D294
                        '30D295', '30D296', '30D297', '30D298', '30D299', '30D29A')   # (owned: no Magicka)
 NIGHTBLADE_BUFF = '335B49'                # TVR_Shadow_Rift_Effect_Nightblade: the 60 s buff (owned: its description)
 NIGHTBLADE_DAMAGE = '335B51'             # its 45 magic damage effect: the look and resist our damage copies
+# 2026-11-16 (Kenir: "you're still unable to sneak attack with the nightblade ability ... maybe the effect put on the
+# enemy"): every effect the proc lands on the enemy was flagged Hostile, and a hostile effect on an unaware enemy
+# alerts it before the blade arrives. Our copies of the six without Hostile (the four Blink dashes, the 0-damage
+# debuff with the hit look, the short-range debuff); nothing else changed.
+NIGHTBLADE_PROC_EFFECTS = ('335B4B', '335B4C', '335B4D', '335B4E', NIGHTBLADE_DAMAGE, '381AFB')
 DARK_SPELL_SRC = {'dspell': os.path.join(REPO, 'src', 'MagicPatches', 'MagicPatchesESP', 'Spells',
                                          'TVR_Shadow_I025_Spell_Darkness - 3727C3_Triumvirate - Mage Archetypes.esp.yaml'),
                   'dme': ('MagicEffects', '395F16'), 'dimpset': ('ImpactDataSets', '395F14'),
@@ -3466,8 +3519,8 @@ DARKNESS_JSON = os.path.join(PATCH, 'data', 'SKSE', 'Plugins', 'ZenProphecyDarkn
 SHADE_VEIL_FXS = os.path.join(REF, 'base', 'Skyrim', 'EffectShaders', 'DA02ArmorShadow - 081180_Skyrim.esm.yaml')
 SHADOW_GRANTS = {'shd1': f'3727BF:{TRIUMVIRATE}',    # TVR_Shadow_I000_Spell_GatherShadows
                  'shd2': f'31C5C1:{TRIUMVIRATE}',    # TVR_Shadow_D075_Spell_DrainingShroud
-                 'shd3': f'330A43:{TRIUMVIRATE}',    # TVR_Shadow_D050_Spell_Nightblade
                  'shd4': f'30D2A4:{TRIUMVIRATE}'}    # TVR_Shadow_A075_Spell_PullThroughShadows
+NIGHTBLADE_SPELL = f'330A43:{TRIUMVIRATE}'           # TVR_Shadow_D050_Spell_Nightblade: granted until 2026-11-16, now retired (DLL removes it)
 NIGHTFALL_SPELL = f'31C5B8:{TRIUMVIRATE}'            # TVR_Shadow_I100_Spell_Nightfall
 SHADOW_ICON = f'381AEB:{TRIUMVIRATE}'                # Triumvirate's Shadow menu art and hand art
 SHADOW_CAST_ART = f'381AEC:{TRIUMVIRATE}'
@@ -3564,15 +3617,68 @@ def write_nightblade(sh, write, nodeperk):
         dmg = f'- BaseEffect: {NIGHTBLADE_DAMAGE}:{TRIUMVIRATE}\n  Data:\n    Magnitude: 45\n'
         assert y.count(dmg) == 1, 'Nightblade proc: damage entry'
         y = y.replace(dmg, dmg.replace('Magnitude: 45', 'Magnitude: 0'))
+    if NIGHTBLADE['FullOnly']:   # 2026-11-16: no effect of the proc applies below a full meter - no dash
+        # Same day (Kenir: "it still triggers on normal attacks"): Triumvirate's TVR_BlinkStrikes_Script casts the proc
+        # on the animation event PowerAttack_Start_End, which SIGMA's and JellyFish's FIRST-PERSON light-attack clips
+        # carry too (grep of the list's .hkx, 2026-11-16). So every effect also asks the player (IsPowerAttacking)
+        # for a real power attack; the DLL (1.5.2) asks the same before it spends.
+        gate = ('  Conditions:\n  - MutagenObjectType: ConditionFloat\n    CompareOperator: GreaterThanOrEqualTo\n'
+                '    Data:\n      MutagenObjectType: GetGlobalValueConditionData\n'
+                f"      Global: {sh['darkglobal']}\n    ComparisonValue: {DARKNESS['Max']}\n"
+                '  - MutagenObjectType: ConditionFloat\n    Data:\n      MutagenObjectType: IsPowerAttackingConditionData\n'
+                '      RunOnType: Reference\n      Reference: 000014:Skyrim.esm\n    ComparisonValue: 1\n')
+        y, n = re.subn(r'^(- BaseEffect: [0-9A-F]{6}:[^\n]*\n  Data:(?: \{\}\n|\n(?:    [^\n]*\n)+))',
+                       lambda m: m.group(1) + gate, y, flags=re.M)
+        assert n == 6, f'Nightblade proc: {n} effects gated, expected 6'
     write('Spells', y)
+    # the proc's six effects without Hostile (2026-11-16, see NIGHTBLADE_PROC_EFFECTS)
+    for mid in NIGHTBLADE_PROC_EFFECTS:
+        e = tvr_record('MagicEffects', mid)
+        assert e.count('\n- Hostile\n') == 1, f'Nightblade effect {mid}: Hostile flag'
+        e = e.replace('\n- Hostile\n', '\n')
+        assert not re.search(r'^Flags:\n(?!- )', e, flags=re.M), f'Nightblade effect {mid}: empty flag list'
+        write('MagicEffects', e)
     # the buff's description: Triumvirate's says the dash converts 50% of the Magicka into damage
     me = tvr_record('MagicEffects', NIGHTBLADE_BUFF)
     old = ('  Value: Able to melee attack from up to <50> feet to perform a dash attack, converting <50>% of your Magicka '
            'into bonus magic damage on hit. Lasts <dur> seconds. (<mag> damage)\n')
     assert me.count(old) == 1, 'Nightblade buff: description'
-    write('MagicEffects', me.replace(old, '  Value: Power attacks reach targets up to <50> feet away, dashing you to them. '
-          f'Kill the enemy you dashed to within <{NIGHTBLADE["Window"]:.0f}> seconds to regain <{NIGHTBLADE["Refund"]}> '
-          'Darkness. Lasts <dur> seconds.\n'))
+    desc = ('  Value: While your Darkness meter is full, power attacks reach targets up to <50> feet away, dashing you to them '
+            'and spending the meter. Kill the enemy you dashed to within '
+            f'<{NIGHTBLADE["Window"]:.0f}> seconds to regain <{NIGHTBLADE["Refund"]}> Darkness.\n')
+    write('MagicEffects', me.replace(old, desc.replace('Darkness.\n', 'Darkness. Lasts <dur> seconds.\n')))
+    # the passive (2026-11-16): our copy of the buff effect as a constant effect - script and its proc property kept,
+    # the buff's keyword (Triumvirate dispels by it), arts, sounds and duration flags dropped - on a perk ability
+    ab = tvr_record('MagicEffects', NIGHTBLADE_BUFF)
+    ab = re.sub(r'^FormKey: .*$', f"FormKey: {sh['nbabme']}", ab, count=1, flags=re.M)
+    ab = re.sub(r'^EditorID: .*$', 'EditorID: ZP_Prophecy_Nightblade_Ability_Effect', ab, count=1, flags=re.M)
+    for pat, what in ((r'^Keywords:\n(?:- .*\n)+', 'keywords'), (r'^CastingArt: .*\n', 'casting art'), (r'^HitEffectArt: .*\n', 'hit art'),
+                      (r'^CastingLight: .*\n', 'casting light'), (r'^Sounds:\n(?:[- ] .*\n)+', 'sounds'),
+                      (r'^- DispelWithKeywords\n', 'dispel flag'), (r'^- FXPersist\n', 'fxpersist'), (r'^- PowerAffectsDuration\n', 'duration flag')):
+        ab, n = re.subn(pat, '', ab, count=1, flags=re.M)
+        assert n == 1, f'Nightblade ability effect: {what}'
+    assert 'TVR_BlinkStrikes_Script' in ab and f'Object: {NIGHTBLADE_PROC}:{TRIUMVIRATE}' in ab, 'Nightblade ability effect: script'
+    ab, n = re.subn(r'^CastType: FireAndForget$', 'CastType: ConstantEffect', ab, count=1, flags=re.M)
+    assert n == 1, 'Nightblade ability effect: cast type'
+    ab = re.sub(r'^Description:\n  TargetLanguage: English\n  Value: .*\n', 'Description:\n  TargetLanguage: English\n' + desc, ab, count=1, flags=re.M)
+    assert 'While your Darkness meter is full' in ab, 'Nightblade ability effect: description'
+    write('MagicEffects', ab)
+    write('Spells', f"""FormKey: {sh['nbab']}
+EditorID: ZP_Prophecy_Nightblade_Ability
+Name:
+  TargetLanguage: English
+  Value: Nightblade
+MenuDisplayObject: {SHADOW_ICON}
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Type: Ability
+CastType: ConstantEffect
+Effects:
+- BaseEffect: {sh['nbabme']}
+  Data: {{}}
+""")
     # the Darkness damage: Triumvirate's damage effect (its hit shader, resist, look) without the dash-keyword
     # condition, in a spell the DLL casts from the player with the magnitude it computes
     me = tvr_record('MagicEffects', NIGHTBLADE_DAMAGE)
@@ -3634,7 +3740,7 @@ Description:
     write_nightblade(sh, write, nodeperk)
     write_shadow_no_mana(write)
     hexid = lambda fk: fk.split(':')[0]
-    spells = ([(nid, SHADOW_GRANTS[nid]) for nid in ('shd1', 'shd2', 'shd3', 'shd4')] + [('shd5', sh['power'])] +
+    spells = ([(nid, SHADOW_GRANTS[nid]) for nid in ('shd1', 'shd2', 'shd4')] + [('shd3', NIGHTBLADE_SPELL), ('shd5', sh['power'])] +
               [('shd7', sh['dspell'])])
     cfg = {
         '$comment': 'Generated by src/Prophecy/tools/01-build-trees.py (write_shadow) - never hand-edit. FormIDs are '
@@ -3644,15 +3750,21 @@ Description:
         'max': DARKNESS['Max'], 'fill': [{'lightAtMost': l, 'secondsPerPoint': s} for l, s in DARKNESS['Fill']],
         'veilMult': DARKNESS['VeilMult'], 'drainEvery': DARKNESS['DrainEvery'],
         'refusal': 'Not enough Darkness.',
+        'retiredSpells': [{'name': 'Nightblade (spell)', 'plugin': TRIUMVIRATE, 'id': hexid(NIGHTBLADE_SPELL)}],   # 1.5.0: taken off the player at every load
         'spells': [{'name': next(n[1] for _, _, ns in TREES for n in ns if n[0] == nid), 'plugin': fk.split(':', 1)[1],
                     'id': hexid(fk), 'cost': DARKNESS['Cost'][nid],
                     'freeFollowUps': nid == 'shd5'} for nid, fk in spells],   # Nightfall's script casts the buffs (1.3.1)
         'meter': DARKNESS['Meter'],
         'nightblade': {'procPlugin': TRIUMVIRATE, 'procId': NIGHTBLADE_PROC,
+                       'fraction': NIGHTBLADE['Fraction'],                                 # each dash spends this share (1.4.1: always)
+                       'fullOnly': NIGHTBLADE['FullOnly'],                                 # 1.4.2: a hit below a full meter spends nothing (the proc's effects are gated the same)
+                       'dashArtPlugin': TRIUMVIRATE, 'dashArt': NIGHTBLADE_DASH_FX['Art'],      # 1.5.1: the buff's look and sound, on each dash
+                       'dashArtSeconds': NIGHTBLADE_DASH_FX['ArtSeconds'],
+                       'dashSoundPlugin': TRIUMVIRATE, 'dashSound': NIGHTBLADE_DASH_FX['Sound'],
                        'refund': NIGHTBLADE['Refund'], 'window': NIGHTBLADE['Window'],   # the kill refund (1.4.0)
-                       # no damageSpell = the DLL never spends or damages on a dash (2026-11-15)
-                       **({'damageSpell': hexid(sh['nbspell']), 'fraction': NIGHTBLADE['Fraction'],
-                           'perPoint': NIGHTBLADE['PerPoint']} if NIGHTBLADE['Damage'] else {})},
+                       # no damageSpell = the DLL never damages on a dash (2026-11-15)
+                       **({'damageSpell': hexid(sh['nbspell']), 'perPoint': NIGHTBLADE['PerPoint']}
+                          if NIGHTBLADE['Damage'] else {})},
         'shroud': {'procPlugin': TRIUMVIRATE, 'procId': SHROUD_CLOAK, 'ticksPerPoint': SHROUD_DARKNESS['TicksPerPoint']},
     }
     os.makedirs(os.path.dirname(DARKNESS_JSON), exist_ok=True)
@@ -4806,7 +4918,7 @@ Description:
 # Dragonborn stub list, so theirs never sell. Prophecy overrides every bundle holding a granted spell's tome (the
 # winning record, the Enderal patch's) minus those entries; merchant lists stay untouched.
 def write_unsold_tomes(write):
-    granted = set(SHADOW_GRANTS.values()) | set(DRUID_GRANTS.values())
+    granted = set(SHADOW_GRANTS.values()) | set(DRUID_GRANTS.values()) | {NIGHTBLADE_SPELL}
     # + the two Druid talents that grant our own versions of Triumvirate spells (curator 2026-10-29: "remove any spells
     # unlocked via this talent tree from vendors"): Druidcraft's and Force of Nature's tomes teach Triumvirate's originals
     granted |= {DRUIDCRAFT_SPELL, FON_SPELL}
@@ -5337,6 +5449,9 @@ Description:
         # Orbit Ward's shield (Sorcery, 2026-11-14): while its effect is on the player, each of the next Hits
         # weapon / arrow / claw hits loses Fraction of its damage (DLL 1.8.0, hit-processing detour), then it is dispelled
         'orbitWard': {'effect': hexid(sorc['wardshieldme']), 'hits': ORBIT_SHIELD['Hits'], 'fraction': ORBIT_SHIELD['Fraction']},
+        # Firearms' graph flags (2026-11-16, DLL 1.13.0): see GRAPH_FLAGS
+        'graphFlags': [{'variable': var, 'perk': hexid(nodeperk[nid]), 'enderalPlugin': 'Skyrim.esm', 'enderalPerk': ep}
+                       for var, nid, ep in GRAPH_FLAGS],
         # Starling Power Armor (Gadgets, 2026-11-15): while armGlobal is 1 (the control script's right-arm power swing),
         # the player's next hit on an enemy casts chainSpell (Dragon's Breath's chain lightning) at it and clears the global
         'centurion': {'armGlobal': hexid(cent['arm']), 'chainSpell': hexid(dragon['Shockspell'])},

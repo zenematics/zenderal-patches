@@ -1,0 +1,41 @@
+FormKey: 02A9C6:Enderal - Forgotten Stories.esm
+EditorID: FSNQ03Hideout
+Version2: 6
+Name:
+  TargetLanguage: English
+  Value: Undercity, Old Vault
+Flags:
+- IsInteriorCell
+- HasWater
+Lighting:
+  AmbientColor: '#00141413'
+  DirectionalColor: '#00131213'
+  FogNearColor: '#00131313'
+  FogFar: 5000
+  FogClipDistance: 5000
+  FogPower: 0.8
+  AmbientColors:
+    DirectionalXPlus: '#00040404'
+    DirectionalXMinus: '#00030403'
+    DirectionalYPlus: '#00040404'
+    DirectionalYMinus: '#00040304'
+    DirectionalZPlus: '#00010101'
+    DirectionalZMinus: '#00060606'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00121212'
+  FogMax: 1
+WaterHeight: 0
+AcousticSpace: 0C5B6B:Skyrim.esm
+Music: 01BECD:Skyrim.esm
+ImageSpace: 06C033:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000831:Zenderal - Sting and Rise.esp
+  MajorRecordFlagsRaw: 536870912
+  SkyrimMajorRecordFlags:
+  - 0x20000000
+  Base: 000800:Zenderal - Sting and Rise.esp
+  Placement:
+    Position: -687.08563, 4807.6084, 1480.6372
+    Rotation: 0, 0, 1.5707964

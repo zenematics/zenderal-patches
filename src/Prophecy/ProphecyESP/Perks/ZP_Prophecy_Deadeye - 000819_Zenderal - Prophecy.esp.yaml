@@ -18,6 +18,12 @@ Effects:
 - MutagenObjectType: PerkEntryPointSelectSpell
   Priority: 146
   Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetEquippedItemTypeConditionData
+        ItemSource: Right
+      ComparisonValue: 12
   - RunOnTabIndex: 1
     Conditions:
     - MutagenObjectType: ConditionFloat

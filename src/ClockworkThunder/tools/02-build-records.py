@@ -71,21 +71,26 @@ MODEL = r'Zenderal\ClockworkThunder\ClockworkThunder.nif'
 MESH_REL = 'meshes/Zenderal/ClockworkThunder/ClockworkThunder.nif'
 SHOT_SOUND = r'data\sound\fx\Zenderal\ClockworkThunder\ClockworkThunderShot.wav'   # tools/04 installs it
 
-CELL_DIR = 'Cells/8/1/DesertAltAskamahnL2 - 07336E_Skyrim.esm'
-ALTAR_POS = (4372.4653, -5912.3335, 7429.4985)    # RuinsAltarBroken 07410A (no plugin overrides it, 00-scan)
-ALTAR_ROT_Z = 1.5881906
-ALTAR_TOP = 14.0            # the broken slab's top in the winning mesh (PG Patcher Output's RuinsFurnitureRubble15,
-                            # height field sampled 2026-11-13: a flat z 14 plane with gaps down to -2; rails at 19-21)
-ALTAR_SPOT = (0.0, -28.0)   # altar-local XY of the rifle's centre: the slab, clear of the rails (y +-68)
-DROP = 1.0                  # start this far above the slab and let Havok settle it
+# where it lies (curator 2026-11-16: moved from Old Askamahn's broken altar to Yerai's Workshop in Ark, the Starling
+# inventor's workshop off Yerai's House). Yerai's own tool bench is taken (a spider centurion, his tools); the empty
+# noble desk by the Starling sphere centurion near the door holds it. The cell is owned by Yerai: the rifle counts as
+# stolen when taken (curator: "leave it stolen tag").
+CELL_DIR = 'Cells/8/1/ArkSternlingshausWerkstatt - 14B5A2_Skyrim.esm'
+CELL_HEADER_BASE = os.path.join(ROOT, 'reference', 'base', 'EnderalFS')   # Forgotten Stories wins the header (00-scan)
+DESK_POS = (-6.578315734863281, -287.0887756347656, 38.79561996459961)   # NobleDesk02 14B6BF (Skyrim.esm's, 00-scan)
+DESK_ROT_Z = 3.290001153945923
+DESK_TOP = 63.32            # the desk top in the winning mesh (Skyrim 3D Furniture's NobleDesk02.nif: one flat level)
+DESK_SPOT = (1.4, -18.4)    # desk-local XY of the rifle's centre: the middle of its top (x -80.5..83.2, y -49.2..12.5)
+DESK_HALF_LENGTH = 80.0     # the rifle must fit along the desk (local x)
+DROP = 1.0                  # start this far above the desk and let Havok settle it
 
 EXPECTED_WINNERS = {
     '14CEBD:Skyrim.esm': 'Skyrim.esm',
     '002F9B:OrdoLegionisMuskets.esp': ORDO,
     '002F9A:OrdoLegionisMuskets.esp': ORDO,
     '00F5D6:OrdoLegionisMuskets.esp': ORDO,
-    '07336E:Skyrim.esm': 'Skyrim.esm',
-    '07410A:Skyrim.esm': 'Skyrim.esm',
+    '14B5A2:Skyrim.esm': 'Enderal - Forgotten Stories.esm',
+    '14B6BF:Skyrim.esm': 'Skyrim.esm',
     '000B02:Zenderal - Prophecy.esp': 'Zenderal - Prophecy.esp',
     '000AFD:Zenderal - Prophecy.esp': 'Zenderal - Prophecy.esp',
     '000B01:Zenderal - Prophecy.esp': 'Zenderal - Prophecy.esp',
@@ -151,26 +156,105 @@ def rifle_lying_bounds(mesh_path):
     return P.min(0), P.max(0)
 
 
-def placement(mesh_path):
-    """Position + rotation of the rifle lying on its side on the altar slab.
+def ref_matrix(rot):
+    """Bethesda's reference rotation (radians): extrinsic X, Y, Z, each clockwise seen down its axis
+    (Sting and Rise's surface.py): R = Rz(-z) Ry(-y) Rx(-x), acting on local columns."""
+    import numpy as np
 
-    In root space the rifle is upright (length along +Y, its side faces +-X, upside down: up is -Z). A quarter
-    turn about Y lays it on a side; with no Z turn its length stays along world Y, which is the altar's long axis
-    (the altar is turned 1.588 rad, so its local X runs along world -Y). Which side ends down depends on the
-    engine's sign for Y; the height clears both, and Havok settles it on load."""
+    def r(axis, a):
+        c, s = math.cos(a), math.sin(a)
+        return {'x': np.array([[1, 0, 0], [0, c, -s], [0, s, c]]), 'y': np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]]),
+                'z': np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]])}[axis]
+    rx, ry, rz = rot
+    return r('z', -rz) @ r('y', -ry) @ r('x', -rx)
+
+
+def placement(mesh_path):
+    """Position + rotation of the rifle lying on its side along the desk.
+
+    In root space the rifle is upright (length along +Y, its side faces +-X, upside down: up is -Z). A quarter turn
+    about Y lays it on a side; a turn about Z then lays its length along the desk's long (local X) axis. Centred on
+    the desk top's middle, its lowest point DROP above the top; Havok settles it on load."""
+    import numpy as np
     lo, hi = rifle_lying_bounds(mesh_path)
-    th = ALTAR_ROT_Z
-    ax, ay = ALTAR_SPOT
-    cx = ALTAR_POS[0] + ax * math.cos(th) + ay * math.sin(th)
-    cy = ALTAR_POS[1] - ax * math.sin(th) + ay * math.cos(th)
-    # lying: root (x, y, z) -> world (+-z, y, -+x); centre the root bounds on (cx, cy)
-    y = cy - (lo[1] + hi[1]) / 2
-    x = cx - (lo[2] + hi[2]) / 2      # the other sign moves it by < 8 units across a 190-wide altar
-    z = ALTAR_POS[2] + ALTAR_TOP + max(hi[0], -lo[0]) + DROP
-    # the rifle must lie inside the altar's long extent (local X -108..108 between the end posts)
-    half = (hi[1] - lo[1]) / 2
-    assert half < 100, half
-    return (x, y, z), (0.0, -math.pi / 2, 0.0), (lo, hi)
+    corners = np.array([[x, y, z] for x in (lo[0], hi[0]) for y in (lo[1], hi[1]) for z in (lo[2], hi[2])])
+    desk = ref_matrix((0.0, 0.0, DESK_ROT_Z))
+    along = desk @ np.array([1.0, 0, 0])
+    best = max((abs((ref_matrix((0.0, -math.pi / 2, a)) @ np.array([0, 1.0, 0])) @ along), a)
+               for a in np.linspace(0, 2 * math.pi, 3601))
+    assert best[0] > 0.9999, best
+    rot = (0.0, -math.pi / 2, float(best[1]))
+    W = corners @ ref_matrix(rot).T
+    centre = np.asarray(DESK_POS) + desk @ np.array([DESK_SPOT[0], DESK_SPOT[1], 0.0])
+    off = (W.min(0) + W.max(0)) / 2
+    x, y = centre[0] - off[0], centre[1] - off[1]
+    z = DESK_POS[2] + DESK_TOP - W.min(0)[2] + DROP
+    length = np.ptp(W @ along)
+    assert length / 2 < DESK_HALF_LENGTH, length          # it fits along the desk top
+    return (float(x), float(y), float(z)), rot, (lo, hi)
+
+
+# Buying it from Yerai (curator 2026-11-16): one player line on Yerai, answered with his own recorded lines (tools/06
+# copies his .fuz files to these responses' voice paths). With the gold: "Splendid, that's it!" (his steering-unit
+# line, NQ23 1346D9 #1) + "Again: Thank you." (end of NQ26, 14B5B5 #4); the fragment takes SALE_PRICE gold and makes the
+# desk rifle the player's (no stolen tag). Without it: "Blasted blazes! ..." (NQ23 132E0F #1). Shown while the rifle still
+# lies on the desk (GetInCell on 806) and it has not been sold (GLOB 814).
+SALE_PRICE = 2000
+YERAI = '13378C:Skyrim.esm'         # _00E_CapitalCity_YeraiDalTerrowin (voice type VT_Yerai 13378F)
+GOLD = '00000F:Skyrim.esm'          # Gold001
+SALE_QUEST, SALE_BRANCH, SALE_TOPIC, SALE_BUY, SALE_BROKE, SALE_SOLD = '00080F', '000810', '000811', '000812', '000813', '000814'
+SALE_QUEST_EDID, SALE_TOPIC_EDID = 'ZPCTSale', 'ZPCTSaleTopic'   # short: they make up the voice file names (tools/06)
+SALE_PROMPT = "That gold rifle on your desk. I'll give you %s gold for it." % format(SALE_PRICE, ',')
+SALE_LINES = {   # response FormID -> [(text, Yerai's source voice file)]
+    SALE_BUY: [("Splendid, that's it!", 'nq23_nq23_d3_greeting01top_001346d9_1.fuz'),
+               ('Again: Thank you.', 'nq26_nq26_d2_greetingbranc_0014b5b5_4.fuz')],
+    SALE_BROKE: [('Blasted blazes! You are really, really starting to annoy me, you know that?', 'nq23__00132e0f_1.fuz')],
+}
+
+
+def sale_records():
+    q = lambda s: "'" + s.replace("'", "''") + "'"
+    for sub in ('Quests', 'DialogBranches', 'DialogTopics', 'Globals'):
+        shutil.rmtree(os.path.join(OUT, sub), ignore_errors=True)
+    rec('Quests', SALE_QUEST_EDID, SALE_QUEST, '\n'.join([
+        'FormKey: %s:%s' % (SALE_QUEST, ME), 'EditorID: ' + SALE_QUEST_EDID,
+        'Flags:', '- StartGameEnabled', 'Priority: 50', 'Type: Misc']))
+    rec('Globals', 'ZP_ClockworkThunderSold', SALE_SOLD, '\n'.join([
+        'MutagenObjectType: GlobalShort', 'FormKey: %s:%s' % (SALE_SOLD, ME), 'EditorID: ZP_ClockworkThunderSold', 'Data: 0']))
+    rec('DialogBranches', 'ZPCTSaleBranch', SALE_BRANCH, '\n'.join([
+        'FormKey: %s:%s' % (SALE_BRANCH, ME), 'EditorID: ZPCTSaleBranch', 'Quest: %s:%s' % (SALE_QUEST, ME),
+        'Category: Player', 'Flags:', '- TopLevel', 'StartingTopic: %s:%s' % (SALE_TOPIC, ME)]))
+    tdir = 'DialogTopics/%s - %s_%s' % (SALE_TOPIC_EDID, SALE_TOPIC, ME)
+    write(tdir + '/RecordData.yaml', '\n'.join([
+        'FormKey: %s:%s' % (SALE_TOPIC, ME), 'EditorID: ' + SALE_TOPIC_EDID, 'Name:', '  TargetLanguage: English',
+        '  Value: ' + q(SALE_PROMPT), 'Branch: %s:%s' % (SALE_BRANCH, ME), 'Quest: %s:%s' % (SALE_QUEST, ME),
+        'SubtypeName: CUST']))
+    common = ['- MutagenObjectType: ConditionFloat', '  Data:', '    MutagenObjectType: GetIsIDConditionData',
+              '    Object: ' + YERAI, '  ComparisonValue: 1',
+              '- MutagenObjectType: ConditionFloat', '  Data:', '    MutagenObjectType: GetGlobalValueConditionData',
+              '    Global: %s:%s' % (SALE_SOLD, ME),
+              '- MutagenObjectType: ConditionFloat', '  Data:', '    MutagenObjectType: GetInCellConditionData',
+              '    RunOnType: Reference', '    Reference: 000806:' + ME, '    Cell: 14B5A2:Skyrim.esm', '  ComparisonValue: 1']
+    for info, edid, op, frag in ((SALE_BUY, 'ZPCTSaleBuy', 'GreaterThanOrEqualTo', True),
+                                 (SALE_BROKE, 'ZPCTSaleBroke', 'LessThan', False)):
+        out = ['FormKey: %s:%s' % (info, ME), 'EditorID: ' + edid]
+        if frag:
+            out += ['VirtualMachineAdapter:', '  Scripts:', '  - Name: ZP_ClockworkThunderSale', '    Properties:']
+            for pn, val in (('Gold', GOLD), ('Rifle', '000806:' + ME), ('Sold', '%s:%s' % (SALE_SOLD, ME))):
+                out += ['    - MutagenObjectType: ScriptObjectProperty', '      Name: ' + pn, '      Object: ' + val]
+            out += ['  ScriptFragments:', '    MutagenObjectType: ScriptFragments', '    FileName: ZP_ClockworkThunderSale',
+                    '    OnEnd:', '      ExtraBindDataVersion: 1', '      ScriptName: ZP_ClockworkThunderSale',
+                    '      FragmentName: Fragment_0']
+        out += ['Flags: {}', 'PreviousDialog: Null', 'FavorLevel: None', 'Responses:']
+        for n, (text, _) in enumerate(SALE_LINES[info], 1):
+            out += ['- EmotionValue: 50', '  ResponseNumber: %d' % n, '  Unknown2: 0x000000', '  Flags:',
+                    '  - UseEmotionAnimation', '  Unknown3: 0x000000', '  Text:', '    TargetLanguage: English',
+                    '    Value: ' + q(text), "  ScriptNotes: ''", "  Edits: ''"]
+        out += ['Conditions:'] + common + [
+            '- MutagenObjectType: ConditionFloat', '  CompareOperator: ' + op, '  Data:',
+            '    MutagenObjectType: GetItemCountConditionData', '    RunOnType: Reference', '    Reference: 000014:Skyrim.esm',
+            '    ItemOrList: ' + GOLD, '  ComparisonValue: %d' % SALE_PRICE]
+        write('%s/Responses/%s - %s_%s.yaml' % (tdir, edid, info, ME), '\n'.join(out))
 
 
 def main():
@@ -420,7 +504,7 @@ def main():
 
     # 806 REFR + cell header
     (x, y, z), (rx, ry, rz), (lo, hi) = placement(mesh)
-    cell = read(os.path.join(BASE, CELL_DIR, 'RecordData.yaml'))
+    cell = read(os.path.join(CELL_HEADER_BASE, CELL_DIR, 'RecordData.yaml'))
     # a non-localized plugin keeps only the English name (Spriggit writes it back that way)
     cell = sub1(cell, r'^Name:\n  TargetLanguage: English\n  Values:\n  - Language: English\n    String: (.*)\n(?:  - .*\n    .*\n)*',
                 r'Name:\n  TargetLanguage: English\n  Value: \g<1>\n')
@@ -428,18 +512,22 @@ def main():
     import numpy as np
     f32 = [str(np.float32(v)) for v in (x, y, z)]    # the float the plugin stores, as Spriggit prints it
     cell = cell[:cut + 1] + '\n'.join([
-        'Temporary:',
+        'Persistent:',                    # the sale script holds it (Rifle property) and a condition reads it
         '- MutagenObjectType: PlacedObject',
         '  FormKey: 000806:' + ME,
+        '  MajorRecordFlagsRaw: 1024',
+        '  SkyrimMajorRecordFlags:',
+        '  - 0x400',
         '  Base: 000800:' + ME,
         '  Placement:',
         '    Position: %s, %s, %s' % tuple(f32),
-        '    Rotation: %g, %.7f, %g' % (rx, ry, rz),
+        '    Rotation: %g, %.7f, %.7f' % (rx, ry, rz),
     ])
     write(CELL_DIR + '/RecordData.yaml', cell)
     for g in ('Cells/8/GroupRecordData.yaml', 'Cells/8/1/GroupRecordData.yaml'):
         write(g, read(os.path.join(BASE, g)))
     write('Cells/GroupRecordData.yaml', '{}')     # what Spriggit writes back for this plugin's cell group
+    sale_records()
     print('rifle root bounds %s .. %s' % (lo.round(1), hi.round(1)))
     print('placed at %.1f, %.1f, %.1f rotation %s' % (x, y, z, (rx, round(ry, 4), rz)))
     print('records written to', OUT)

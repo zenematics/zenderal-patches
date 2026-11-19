@@ -162,6 +162,15 @@ namespace
 		double             coupBonus{ 1.0 };
 		double             coupHealth{ 0.25 };
 		double             bladeSeconds{ 3.0 };
+		// Firearms' graph flags (1.13.0): the SetBooleanGraphVariable perk entries' conditions are evaluated once, at
+		// graph initialisation (HandleEntryPoint 54's only call site, 37982), so the flag = ours && musket rule runs here
+		struct GraphFlag
+		{
+			RE::BSFixedString variable;
+			RE::BGSPerk*      ours{ nullptr };      // Quick Reload / Run and Gun
+			RE::BGSPerk*      enderal{ nullptr };   // Rapid Shot / Ranger: with it the engine's own value stands
+		};
+		std::vector<GraphFlag> graphFlags;
 		// Starling Power Armor's right-arm power swing (1.9.0)
 		RE::TESGlobal*     armGlobal{ nullptr };
 		RE::SpellItem*     armChain{ nullptr };
@@ -303,6 +312,16 @@ namespace
 			c.armGlobal = Lookup<RE::TESGlobal>(plugin, a["armGlobal"], "Starling Power Armor right-arm global");
 			c.armChain = Lookup<RE::SpellItem>(plugin, a["chainSpell"], "Starling Power Armor chain lightning");
 			SKSE::log::info("Starling Power Armor: right-arm power hits cast {}", c.armChain ? c.armChain->GetName() : "(none)");
+		}
+		if (j.contains("graphFlags")) {
+			for (auto& f : j["graphFlags"]) {
+				decltype(c.graphFlags)::value_type g;
+				g.variable = f["variable"].get<std::string>();
+				g.ours = Lookup<RE::BGSPerk>(plugin, f["perk"], "graph flag perk");
+				g.enderal = Lookup<RE::BGSPerk>(f["enderalPlugin"].get<std::string>(), f["enderalPerk"], "graph flag Enderal perk");
+				c.graphFlags.push_back(std::move(g));
+			}
+			SKSE::log::info("Firearms: {} graph flags owned", c.graphFlags.size());
 		}
 		if (j.contains("orbitWard")) {
 			auto& w = j["orbitWard"];
@@ -1741,11 +1760,41 @@ namespace
 	}
 
 	// every 250 ms on the main thread: sprint memory, fading, combat end, Vehemence's end
+	// 1.13.0 (curator 2026-11-16: "Firearms perks are working on Bows"): bPerkQuickdraw / bPerkQuickShot follow
+	// our perk AND a crossbow-type weapon (Ordo's muskets) in the right hand. The engine wrote them once, from the
+	// perk entries' conditions at graph initialisation, so a musket held at load left them on for every bow after.
+	// Enderal's own Rapid Shot / Ranger set the same flags for bows too: with one of those the engine's value stands.
+	void GraphFlagsTick(RE::PlayerCharacter* a_player)
+	{
+		if (g_cfg.graphFlags.empty()) {
+			return;
+		}
+		bool musket = false;
+		if (auto* obj = a_player->GetEquippedObject(false)) {
+			if (auto* weap = obj->As<RE::TESObjectWEAP>()) {
+				musket = weap->IsCrossbow();
+			}
+		}
+		for (auto& f : g_cfg.graphFlags) {
+			if (f.enderal && a_player->HasPerk(f.enderal)) {
+				continue;
+			}
+			const bool want = f.ours && a_player->HasPerk(f.ours) && musket;
+			bool cur = false;
+			if (!a_player->GetGraphVariableBool(f.variable, cur) || cur == want) {
+				continue;
+			}
+			a_player->SetGraphVariableBool(f.variable, want);
+			SKSE::log::info("Firearms: {} {} -> {} (musket in hand: {})", f.variable.c_str(), cur, want, musket);
+		}
+	}
+
 	void Tick()
 	{
 		auto* player = Player();
 		const bool paused = RE::UI::GetSingleton()->GameIsPaused();
 		if (player && player->Is3DLoaded() && !paused) {
+			GraphFlagsTick(player);
 			EffigyTick(player);
 			if (g_bladeOn && Clock::now() >= g_bladeUntil) {
 				BladeOff("timed out");
@@ -1880,10 +1929,265 @@ namespace AimNatives
 		return { p.x, p.y, p.z, r.entry[0][1], r.entry[1][1], r.entry[2][1] };
 	}
 
+	// 1.11.0 (2026-11-16), for Caldera's eruption (curator: "make sure the Volcano spawns on the ground, sometimes it
+	// spawns waist height"): rays straight down on the pathing-pick layer (L_PATHINGPICK: never bipeds, character
+	// controllers, props or clutter, so actors and loose objects are not ground). 1.12.0 (curator, the same evening:
+	// "make the fissures spawn on the ground sometimes they float up"; the log's first eruption on a dead goblin found
+	// "ground" 20 units above the body): the pathing pick also meets trees, water, invisible walls, collision boxes,
+	// large debris and the transparent layers, so a ray now passes through those and stops only on these.
+	bool IsGroundLayer(RE::COL_LAYER a_layer)
+	{
+		switch (a_layer) {
+		case RE::COL_LAYER::kUnidentified:
+		case RE::COL_LAYER::kStatic:
+		case RE::COL_LAYER::kAnimStatic:
+		case RE::COL_LAYER::kTerrain:
+		case RE::COL_LAYER::kGround:
+			return true;
+		default:
+			return false;
+		}
+	}
+
+	struct GroundHit
+	{
+		bool                hit{ false };
+		float               z{ 0.0f };
+		RE::COL_LAYER       layer{ RE::COL_LAYER::kUnidentified };
+		std::uint32_t       refID{ 0 };
+		std::uint32_t       baseID{ 0 };
+		std::vector<int>    skipped;  // the layers passed through
+	};
+
+	// One ray from a_top down to a_bottom at (a_x, a_y); a hit on any other layer restarts it just below that hit
+	// (at most 8 times). The VM thread and the task queue call it, so the world is read-locked (BSReadWriteLock
+	// readers nest; the engine's step takes it for writing).
+	GroundHit CastGround(RE::bhkWorld* a_world, float a_x, float a_y, float a_top, float a_bottom)
+	{
+		GroundHit out;
+		const float s = RE::bhkWorld::GetWorldScale();
+		float top = a_top;
+		for (int i = 0; i < 8 && top > a_bottom; ++i) {
+			RE::bhkPickData pick;
+			pick.rayInput.from = RE::hkVector4(a_x * s, a_y * s, top * s, 0.0f);
+			pick.rayInput.to = RE::hkVector4(a_x * s, a_y * s, a_bottom * s, 0.0f);
+			pick.rayInput.filterInfo.SetCollisionLayer(RE::COL_LAYER::kPathPick);
+			{
+				RE::BSReadLockGuard lock(a_world->worldLock);
+				a_world->PickObject(pick);
+			}
+			if (!pick.rayOutput.HasHit()) {
+				return out;
+			}
+			const float z = top - (top - a_bottom) * pick.rayOutput.hitFraction;
+			const auto layer = pick.rayOutput.rootCollidable->GetCollisionLayer();
+			if (IsGroundLayer(layer)) {
+				out.hit = true;
+				out.z = z;
+				out.layer = layer;
+				if (auto* ref = RE::TESHavokUtilities::FindCollidableRef(*pick.rayOutput.rootCollidable)) {
+					out.refID = ref->GetFormID();
+					out.baseID = ref->GetBaseObject() ? ref->GetBaseObject()->GetFormID() : 0;
+				}
+				return out;
+			}
+			out.skipped.push_back(static_cast<int>(layer));
+			top = z - 0.5f;
+		}
+		return out;
+	}
+
+	std::string Skipped(const GroundHit& a_hit)
+	{
+		std::string s;
+		for (const int l : a_hit.skipped) {
+			s += (s.empty() ? "" : ",") + std::to_string(l);
+		}
+		return s.empty() ? "none" : s;
+	}
+
+	// The ground straight below a reference: one CastGround from a_up above its position to a_down below.
+	// { z, layer } of the ground hit, or empty with no world or no ground; each call logged.
+	std::vector<float> GroundBelow(RE::StaticFunctionTag*, RE::TESObjectREFR* a_ref, float a_up, float a_down)
+	{
+		if (!a_ref || a_up + a_down <= 0.0f) {
+			return {};
+		}
+		auto* cell = a_ref->GetParentCell();
+		auto* world = cell ? cell->GetbhkWorld() : nullptr;
+		if (!world) {
+			return {};
+		}
+		const auto p = a_ref->GetPosition();
+		const auto h = CastGround(world, p.x, p.y, p.z + a_up, p.z - a_down);
+		SKSE::log::info("GroundBelow {:08X} at z {:.1f}: {} (layer {}, ref {:08X} base {:08X}; passed through layers {})",
+			a_ref->GetFormID(), p.z, h.hit ? "ground " + std::to_string(h.z) : std::string("no ground"),
+			static_cast<int>(h.layer), h.refID, h.baseID, Skipped(h));
+		if (!h.hit) {
+			return {};
+		}
+		return { h.z, static_cast<float>(h.layer) };
+	}
+
+	// 1.12.0: lays a flat, disk-shaped reference (Caldera's cracked field, 300 units across) on the ground's slope: a
+	// flat disk on a slope floats on its downhill side. CastGround at its centre and on two rings (0.45 and 0.9 of
+	// a_radius, 8 points each, from as high as a 40-degree slope reaches), a least-squares plane through the hits, then
+	// again without the points more than 24 units off it (a rock, a wall, a ledge); its 3D turned so its +Z is the
+	// plane's normal (the spin the script gave it kept, at most 35 degrees of tilt) and its centre a_lift above the
+	// plane. The 3D is changed in place (the engine rebuilds it from the reference's angle only on a move or a reload:
+	// the field lives 7 seconds) on the main thread (a task). False when it cannot start (no reference or 3D).
+	bool LayOnGround(RE::StaticFunctionTag*, RE::TESObjectREFR* a_ref, float a_radius, float a_lift)
+	{
+		if (!a_ref || a_radius <= 0.0f || !a_ref->Get3D()) {
+			return false;
+		}
+		auto handle = a_ref->CreateRefHandle();
+		SKSE::GetTaskInterface()->AddTask([handle, a_radius, a_lift]() {
+			auto ref = handle.get();
+			auto* root = ref ? ref->Get3D() : nullptr;
+			auto* cell = ref ? ref->GetParentCell() : nullptr;
+			auto* world = cell ? cell->GetbhkWorld() : nullptr;
+			if (!root || !world) {
+				SKSE::log::info("LayOnGround: the reference or its 3D is gone");
+				return;
+			}
+			const auto c = root->world.translate;
+			struct P { float x, y, z; };
+			std::vector<P> pts;
+			int missed = 0;
+			auto sample = [&](float a_x, float a_y, float a_reach) {
+				const auto h = CastGround(world, a_x, a_y, c.z + a_reach, c.z - a_reach - 64.0f);
+				if (h.hit) {
+					pts.push_back({ a_x - c.x, a_y - c.y, h.z });
+				} else {
+					++missed;
+				}
+			};
+			sample(c.x, c.y, 64.0f);
+			constexpr float kPi = 3.14159265f;
+			for (const float frac : { 0.45f, 0.9f }) {
+				const float r = a_radius * frac;
+				for (int k = 0; k < 8; ++k) {
+					const float a = (static_cast<float>(k) + (frac > 0.5f ? 0.5f : 0.0f)) * 2.0f * kPi / 8.0f;
+					sample(c.x + r * std::cos(a), c.y + r * std::sin(a), r * 0.84f + 48.0f);   // tan 40 = 0.84
+				}
+			}
+			// z = p0 + p1 x + p2 y by least squares (x, y relative to the centre)
+			auto fit = [](const std::vector<P>& a_pts, float a_out[3]) {
+				double m[3][4] = {};
+				for (const auto& q : a_pts) {
+					const double v[3] = { 1.0, q.x, q.y };
+					for (int i = 0; i < 3; ++i) {
+						for (int j = 0; j < 3; ++j) {
+							m[i][j] += v[i] * v[j];
+						}
+						m[i][3] += v[i] * q.z;
+					}
+				}
+				for (int i = 0; i < 3; ++i) {   // Gauss-Jordan with partial pivoting
+					int piv = i;
+					for (int r = i + 1; r < 3; ++r) {
+						if (std::abs(m[r][i]) > std::abs(m[piv][i])) {
+							piv = r;
+						}
+					}
+					if (std::abs(m[piv][i]) < 1e-9) {
+						return false;
+					}
+					for (int j = 0; j < 4; ++j) {
+						std::swap(m[i][j], m[piv][j]);
+					}
+					for (int r = 0; r < 3; ++r) {
+						if (r != i) {
+							const double f = m[r][i] / m[i][i];
+							for (int j = i; j < 4; ++j) {
+								m[r][j] -= f * m[i][j];
+							}
+						}
+					}
+				}
+				for (int i = 0; i < 3; ++i) {
+					a_out[i] = static_cast<float>(m[i][3] / m[i][i]);
+				}
+				return true;
+			};
+			float pl[3] = { 0.0f, 0.0f, 0.0f };
+			std::size_t used = pts.size();
+			bool ok = pts.size() >= 5 && fit(pts, pl);
+			if (ok) {
+				std::vector<P> keep;
+				for (const auto& q : pts) {
+					if (std::abs(q.z - (pl[0] + pl[1] * q.x + pl[2] * q.y)) <= 24.0f) {
+						keep.push_back(q);
+					}
+				}
+				float pl2[3];
+				if (keep.size() >= 5 && fit(keep, pl2)) {
+					std::copy(pl2, pl2 + 3, pl);
+					used = keep.size();
+				}
+			}
+			if (!ok) {
+				SKSE::log::info("LayOnGround {:08X}: {} ground points, {} missed: left flat", ref->GetFormID(),
+					pts.size(), missed);
+				return;
+			}
+			// the plane's normal, at most 35 degrees from up
+			const float maxSlope = std::tan(35.0f * kPi / 180.0f);
+			float gx = pl[1];
+			float gy = pl[2];
+			const float g = std::sqrt(gx * gx + gy * gy);
+			if (g > maxSlope) {
+				gx *= maxSlope / g;
+				gy *= maxSlope / g;
+			}
+			RE::NiPoint3 n{ -gx, -gy, 1.0f };
+			n /= n.Length();
+			// the rotation taking up to n (Rodrigues, about up x n), then the 3D's own rotation (the script's spin)
+			const float cosA = n.z;
+			const float sinA = std::sqrt(std::max(0.0f, 1.0f - cosA * cosA));
+			RE::NiMatrix3 align;   // identity
+			if (sinA > 1e-5f) {
+				const float kx = -n.y / sinA;
+				const float ky = n.x / sinA;
+				const float v = 1.0f - cosA;
+				align.entry[0][0] = cosA + kx * kx * v;
+				align.entry[0][1] = kx * ky * v;
+				align.entry[0][2] = ky * sinA;
+				align.entry[1][0] = kx * ky * v;
+				align.entry[1][1] = cosA + ky * ky * v;
+				align.entry[1][2] = -kx * sinA;
+				align.entry[2][0] = -ky * sinA;
+				align.entry[2][1] = kx * sinA;
+				align.entry[2][2] = cosA;
+			}
+			RE::NiMatrix3 rot;
+			for (int i = 0; i < 3; ++i) {
+				for (int j = 0; j < 3; ++j) {
+					rot.entry[i][j] = align.entry[i][0] * root->local.rotate.entry[0][j] +
+					                  align.entry[i][1] * root->local.rotate.entry[1][j] +
+					                  align.entry[i][2] * root->local.rotate.entry[2][j];
+				}
+			}
+			const float z = pl[0] + a_lift;
+			root->local.rotate = rot;
+			root->local.translate.z += z - c.z;   // the root hangs from the cell's node (no rotation, no scale)
+			ref->data.location.z = z;
+			RE::NiUpdateData ud;
+			root->Update(ud);
+			SKSE::log::info("LayOnGround {:08X}: {} ground points ({} used, {} missed), centre z {:.1f} -> {:.1f}, "
+			                "slope {:.1f} degrees (normal {:.3f} {:.3f} {:.3f})",
+				ref->GetFormID(), pts.size(), used, missed, c.z, z, std::acos(n.z) * 180.0f / kPi, n.x, n.y, n.z);
+		});
+		return true;
+	}
+
 	bool Register(RE::BSScript::IVirtualMachine* a_vm)
 	{
 		a_vm->RegisterFunction("CameraAim", "ZP_Aim", CameraAim);
-		SKSE::log::info("Papyrus: ZP_Aim.CameraAim registered");
+		a_vm->RegisterFunction("GroundBelow", "ZP_Aim", GroundBelow);
+		a_vm->RegisterFunction("LayOnGround", "ZP_Aim", LayOnGround);
+		SKSE::log::info("Papyrus: ZP_Aim.CameraAim, ZP_Aim.GroundBelow, ZP_Aim.LayOnGround registered");
 		return true;
 	}
 }
@@ -1891,7 +2195,7 @@ namespace AimNatives
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyRage 1.10.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyRage 1.13.0 loading, runtime {}", REL::Module::get().version().string());
 	SKSE::GetPapyrusInterface()->Register(AimNatives::Register);
 	// the player's graph events (power attack direction): PlayerCharacter's IAnimationGraphManagerHolder vtable, slot 1
 	REL::Relocation<std::uintptr_t> graphVtbl{ RE::VTABLE_PlayerCharacter[3] };

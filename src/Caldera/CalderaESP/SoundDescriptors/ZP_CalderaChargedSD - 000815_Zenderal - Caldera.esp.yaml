@@ -1,0 +1,9 @@
+FormKey: 000815:Zenderal - Caldera.esp
+EditorID: ZP_CalderaChargedSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\Caldera\CalderaCharged.wav
+OutputModel: 0F1B1A:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

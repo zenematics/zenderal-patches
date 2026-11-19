@@ -1,0 +1,10 @@
+FormKey: 000801:Zenderal - Caldera.esp
+EditorID: 1stPersonZP_Caldera
+Version2: 6
+ObjectBounds:
+  First: -9, -18, -9
+  Second: 9, 41, 9
+Model:
+  File: Zenderal\Caldera\Caldera.nif
+MaxAngle: 90
+Unused: 0x000000

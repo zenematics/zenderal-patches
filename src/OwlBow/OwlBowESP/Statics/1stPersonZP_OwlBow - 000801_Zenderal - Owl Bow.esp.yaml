@@ -1,0 +1,9 @@
+FormKey: 000801:Zenderal - Owl Bow.esp
+EditorID: 1stPersonZP_OwlBow
+ObjectBounds:
+  First: -19, -63, -4
+  Second: 7, 63, 4
+Model:
+  File: Zenderal\OwlBow\OwlBow.nif
+MaxAngle: 90
+Unused: 0x000000

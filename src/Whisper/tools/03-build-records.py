@@ -149,6 +149,11 @@ CHARGED_FILE = chr(92).join(('data', 'sound', 'fx', 'Zenderal', 'Whisper', 'Whis
 CHARGED_COLOUR = '#00B450FF'   # purple (Mutagen's #AARRGGBB; Candlelight's #0081AFE2)
 STREAM, GATHER = '0531AF:Skyrim.esm', '0531B1:Skyrim.esm'    # SoulTrapPVFX01 / 02
 SHIMMER, CAPTURE = '054223:Skyrim.esm', '056AC6:Skyrim.esm'  # SoulTrapTargetActFXS, MAGMysticismSoulTrapCapture
+# where Whisper is found (curator 2026-11-15, from a shortlist: "Bodumir's Hideout"): the Whisperwood hideout of Bodumir
+# Shadowdance (level-23 unique mage) and an Entropist, on the lower board of the shelf in Bodumir's room (CommonShelf04
+# ref 0DE649; its top holds two books and a meal). The cell header is EGO's (EGO wins it; only Skyrim.esm forms in it)
+PLACE = dict(cell='PilzwaldDungeonAltesHaus', header=EGO_ESP, surface='0DE649:Skyrim.esm', shelf_rot=3.0107965,
+             top=16.81)           # the lower board in the winning mesh (Skyrim 3D Furniture's; surface.levels)
 WISP_LIFE = 30            # seconds (curator); ZP_WhisperWispEffect's LifeSeconds (checked)
 WISP_MODEL = chr(92).join(('Zenderal', 'Whisper', 'WhisperWisp.nif'))   # tools/06's
 WISP_BURST_MODEL = chr(92).join(('Zenderal', 'Whisper', 'WhisperWispBurst.nif'))   # tools/06's
@@ -575,13 +580,30 @@ def wisp_records():
             'FormKey: ' + me(sm), 'EditorID: %sSound' % eid, 'FormVersion: 43', 'SoundDescriptor: ' + me(sd)]))
 
 
+def place_record():
+    """824 REFR: Whisper on the lower board of the shelf in Bodumir Shadowdance's room (see PLACE)."""
+    sys.path.insert(0, os.path.join(ROOT, 'src', 'StingAndRise', 'tools'))
+    import surface
+    sr = _module('sr_assets', os.path.join(ROOT, 'src', 'StingAndRise', 'tools', '01-build-assets.py'))
+    th = PLACE['shelf_rot']
+    files, spot = surface.place_unique(sr, PLACE['cell'], PLACE['header'], PLACE['surface'], PLACE['top'], MODEL,
+                                       me('000800'), me('000824'), [th + math.pi / 2, th - math.pi / 2], band=40.0)
+    for rel, text in files.items():
+        path = os.path.join(OUT, *rel.split('/'))
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
+    print('  Whisper placed at %s, heading %.3f, on %s (z %.2f), %.1f from the board\'s middle' % (
+        tuple(round(v, 2) for v in spot['position']), spot['heading'], PLACE['surface'], spot['top'], spot['distance']))
+
+
 def main():
     check_winners()
     check_scripts()
     bounds = mesh_bounds()
     for sub in ('Weapons', 'Statics', 'ObjectEffects', 'Globals', 'MagicEffects', 'Spells', 'Lights',
                 'SoundDescriptors', 'SoundMarkers', 'Projectiles', 'FormLists', 'Npcs', 'Races', 'Armors',
-                'ArmorAddons', 'VisualEffects', 'ArtObjects', 'Explosions'):
+                'ArmorAddons', 'VisualEffects', 'ArtObjects', 'Explosions', 'Cells'):
         shutil.rmtree(os.path.join(OUT, sub), ignore_errors=True)
 
     # 800 the axe
@@ -615,8 +637,9 @@ def main():
     rec('Statics', '1stPersonZP_Whisper', '000801', st)
     souls_records()
     wisp_records()
+    place_record()
     print('wrote', OUT, '(800 WEAP ZP_Whisper, 801 STAT 1stPersonZP_Whisper, 802-806, 809-812 the souls, Soul Cleave, '
-          'soul trap, the charged light and sound; 813-81C the soul wisp);',
+          'soul trap, the charged light and sound; 813-823 the soul wisp; 824 placed in Bodumir\'s hideout);',
           bounds.replace('\n', ' '))
 
 

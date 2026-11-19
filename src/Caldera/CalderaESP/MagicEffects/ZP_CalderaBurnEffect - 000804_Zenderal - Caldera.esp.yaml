@@ -1,0 +1,32 @@
+FormKey: 000804:Zenderal - Caldera.esp
+EditorID: ZP_CalderaBurnEffect
+Version2: 4
+Name:
+  TargetLanguage: English
+  Value: Burning
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 01CEAD:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- FXPersist
+- PowerAffectsMagnitude
+- NoDeathDispel
+BaseCost: 0.9
+ResistValue: ResistFire
+TaperWeight: 0.2
+HitShader: 01B212:Skyrim.esm
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 01C2AF:Skyrim.esm
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Sets the enemy ablaze, <mag> fire damage a second for <dur> seconds.

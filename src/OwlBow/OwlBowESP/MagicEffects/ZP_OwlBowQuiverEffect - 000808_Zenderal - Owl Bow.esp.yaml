@@ -1,0 +1,47 @@
+FormKey: 000808:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowQuiverEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_OwlBowQuiverEffect
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: IceArrow
+      Object: 000802:Zenderal - Owl Bow.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ReleaseHoot
+      Object: 000811:Zenderal - Owl Bow.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ShotFlap
+      Object: 000819:Zenderal - Owl Bow.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CritReady
+      Object: 00081A:Zenderal - Owl Bow.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CritPerk
+      Object: 00081B:Zenderal - Owl Bow.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DrawAir1
+      Object: 000813:Zenderal - Owl Bow.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DrawAir2
+      Object: 000815:Zenderal - Owl Bow.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DrawAir3
+      Object: 000817:Zenderal - Owl Bow.esp
+Name:
+  TargetLanguage: English
+  Value: Snowveil
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

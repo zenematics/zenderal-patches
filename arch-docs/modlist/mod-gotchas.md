@@ -555,3 +555,10 @@ every magic effect that is neither protected (Conjuration school; bound
   Bottled's, which breaks the lighting shader's compile. The curator added it for Precious Objects Complex Material
   and Dynamic Cubemap (meshes/textures only, fine to keep); unticked in Ultra the same day (backup of the profile in
   `E:/Zenderal-backups/2026-11-13-ultra-modlist`). Mods that "require Dynamic Cubemaps" are satisfied by Bottled Shaders.
+- **KataPUMB Magic Package ships Enderal's old set-bonus script (2026-11-16, player report: "set bonuses stop
+  working").** Its loose `scripts/_00e_armorsetscript.pex` (source beside it) is the 1.x/2.0 version: OnEquipped
+  +1 / OnUnequipped −1 on the set's global, bonuses chosen from that counter. Any missed event (SkyUI equip from a
+  container, scripted stripping) leaves the saved counter wrong for good. Enderal 2.1's copy recounts the worn pieces
+  every time and fills `ArmorSetListener`/`__Config_SetList`, which the old script lacks. Hidden in MO2
+  (`_00e_armorsetscript.pex.mohidden`) so the BSA's 2.1 script runs; Kata's own `kata_*` scripts untouched. Saves heal
+  on the next equip/unequip of a set piece. Re-hide after reinstalling Kata's mod. **Next Patch Collection (after the 2026-11-16 upload): ship Enderal 2.1's own `.pex` (from its BSA) in it**, so players get the fix without hiding anything. Unverified in game.

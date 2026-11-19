@@ -19,8 +19,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 000819:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
@@ -30,8 +29,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 12
 - BaseEffect: 00094D:Zenderal - Prophecy.esp
@@ -40,8 +38,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 000817:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
@@ -54,8 +51,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 12
 - BaseEffect: 000B4A:Zenderal - Prophecy.esp
@@ -65,15 +61,13 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 000817:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 12
 - BaseEffect: 04605A:Skyrim.esm
@@ -84,15 +78,13 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 000816:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 12
 - BaseEffect: 04605A:Skyrim.esm
@@ -103,8 +95,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 00094E:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
@@ -115,8 +106,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 7
 - BaseEffect: 04605B:Skyrim.esm
@@ -127,8 +117,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 00094E:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
@@ -139,8 +128,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 7
 - BaseEffect: 04605C:Skyrim.esm
@@ -151,8 +139,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 00094E:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
@@ -163,8 +150,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 7
 - BaseEffect: 000967:Zenderal - Prophecy.esp
@@ -174,8 +160,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 000951:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
@@ -184,8 +169,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 7
 - BaseEffect: 000989:Zenderal - Prophecy.esp
@@ -195,15 +179,13 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: HasPerkConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       Perk: 000950:Zenderal - Prophecy.esp
     ComparisonValue: 1
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 7
 - BaseEffect: 0008B3:Zenderal - Prophecy.esp
@@ -213,8 +195,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 12
 - BaseEffect: 0008B2:Zenderal - Prophecy.esp
@@ -224,8 +205,7 @@ Effects:
   - MutagenObjectType: ConditionFloat
     Data:
       MutagenObjectType: GetEquippedItemTypeConditionData
-      RunOnType: Reference
-      Reference: 000014:Skyrim.esm
+      RunOnType: Target
       ItemSource: Right
     ComparisonValue: 12
 - BaseEffect: 02A044:Enderal - Forgotten Stories.esm

@@ -1,0 +1,16 @@
+FormKey: 00080A:Zenderal - Caldera.esp
+EditorID: ZP_CalderaShockwave
+ObjectBounds:
+  First: -116, -116, -23
+  Second: 116, 116, 44
+Model:
+  File: Zenderal\Caldera\CalderaShockwave.nif
+Sound1: 08F3E7:Skyrim.esm
+ImpactDataSet: 026113:Skyrim.esm
+Radius: 350
+VerticalOffsetMult: 0.2
+Flags:
+- 0x1
+- AlwaysUsesWorldOrientation
+- IgnoreImageSpaceSwap
+SoundLevel: Normal

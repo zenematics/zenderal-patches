@@ -1,0 +1,8 @@
+FormKey: 000811:Zenderal - Clockwork Thunder.esp
+EditorID: ZPCTSaleTopic
+Name:
+  TargetLanguage: English
+  Value: 'That gold rifle on your desk. I''ll give you 2,000 gold for it.'
+Branch: 000810:Zenderal - Clockwork Thunder.esp
+Quest: 00080F:Zenderal - Clockwork Thunder.esp
+SubtypeName: CUST

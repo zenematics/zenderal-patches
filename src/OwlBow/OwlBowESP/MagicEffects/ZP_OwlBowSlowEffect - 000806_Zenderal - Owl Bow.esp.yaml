@@ -1,0 +1,31 @@
+FormKey: 000806:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowSlowEffect
+Version2: 1
+Name:
+  TargetLanguage: English
+  Value: Owl Frost
+MenuDisplayObject: 10A046:Skyrim.esm
+Keywords:
+- 0B729E:Skyrim.esm
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- FXPersist
+SpellmakingCastingTime: 0.5
+HitShader: 10A044:Skyrim.esm
+EnchantShader: 00080A:Zenderal - Owl Bow.esp
+Archetype:
+  MutagenObjectType: MagicEffectPeakValueModArchetype
+  ActorValue: SpeedMult
+EnchantArt: 000809:Zenderal - Owl Bow.esp
+CastType: FireAndForget
+TargetType: Touch
+SkillUsageMultiplier: 1
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: Arrows of ice that slow the target by <mag>% for <dur> seconds.

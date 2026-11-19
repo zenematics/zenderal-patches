@@ -211,3 +211,13 @@ near the top of the list. Its 11:04 run on 2026-10-25 had patched the 11 Ordinat
 overrode the mod's own. `*\ordinator\*` is now in PGPatcher's blocklist (`Tools/PG Patcher/PGPatcher/cfg/settings.json`,
 `params.processing.blocklist`; only this mod has that folder), and the 11 stale copies were moved out of the output to
 `E:/Zenderal-backups/2026-10-25-pgpatcher-prophecy/` with the old settings file. Later PG Patcher runs leave them alone.
+
+## 2026-11-16: the menu text went stale (Patch Collection 2.5)
+
+`ZenProphecyUI.json` holds each talent's description copied from the Prophecy quest arrays at the time `tools/01` ran.
+Patch Collection 2.5 (uploaded 2026-11-16T00:05Z) carried the esp of 2026-11-15 11:57 (Nightblade: full-meter cast,
+no damage, kill refund) next to the UI JSON of 2026-11-13, so the constellation menu still read "4 Darkness ...
+dashing you to them for 45 magic damage. Each dash spends half your Darkness" (Kenir, Discord 2026-11-16 10:12). The
+esp's own spell text (the buff `335B49`) was right. Regenerated and redeployed into Patch Collection the same morning.
+**Rule: after every Prophecy `tools/01`, run `src/ProphecyV3/tools/01-build-layout.py` and deploy the JSON with the
+esp.** The 2.4 archive of 2026-11-12 had the pre-change text and cost 4 throughout, so it was not the source.

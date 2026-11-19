@@ -143,6 +143,22 @@ in the Spriggit YAML**, so most sessions never open it. If you do:
   B612's plain-text card description showed a stored `\n\n` as a huge gap. A Papyrus `"\n"` literal compiles to a lone
   LF (check the `.pex` string table). Prophecy's card header is built this way in `ZP_ProphecyMenu`.
 
+## Keep every string in a script under ~4 KB, docstrings included (2026-11-16) **[verified]**
+
+The game's compiled-script loader copies each string of a `.pex` string table into a fixed buffer, with no length
+check. A longer string overruns it: the game crashed **at load** (`EXCEPTION_ACCESS_VIOLATION` at
+`SkyrimSE.exe+14AA7ED`, ID 104661 `mov byte ptr [rbx+rax], 0`; `RBX` = the string's length, `RAX` = 8 bytes of its
+text, `ZP_CalderaEruptionScript` on the stack, a `CompiledScriptLoader` / `LinkerProcessor` among the objects).
+The string was Caldera's eruption-script docstring, 4407 bytes. The list's longest working string is 3854 bytes
+(`ZP_PistolReloadArmScript`), so the buffer is most likely 4096. The docstring goes into the string table like any
+other string, and it compiles without a warning.
+- Keep docstrings short (Caldera's builder refuses one over 3000 characters, `check_docstrings`) and put the history
+  in `arch-docs/patches/<Patch>.md`. A long `Debug.Trace` literal counts too.
+- To check: the scratchpad tool used was a 40-line string-table reader (big-endian: magic `FA57C0DE`, 16 header bytes,
+  three length-prefixed names, then `u16` count and `u16`-length strings); scan `mods/` for any string over 3500.
+- `ZP_PistolReloadArmScript` (3854) and `ZP_FlintlockAmmoPlayerScript` (3646) are the closest: shorten their
+  docstrings before adding to them.
+
 ## Never name a local `x`, `y` or `z` in a script that extends ObjectReference (2026-11-14)
 
 `ObjectReference.psc` declares `float Property X`/`Y`/`Z` (get = `GetPositionX()` …), and the compiler resolved a

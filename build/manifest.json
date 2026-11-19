@@ -1948,7 +1948,7 @@
       ]
     },
     {
-      "$comment": "Clockwork Thunder (curator 2026-11-13): a unique Starling rifle. WEAP 800 = Ordo Legionis' Nehrimese Flintlock Fucile (OL_Musket_Rifle 002F9B) verbatim with its own mesh (tools/01: polished-gold textures on Environment Map shaders (Rise's Complex Material recipe), a meshing cog train on the forestock in front of the lock, a glass tube with animated lightning (effect-shader cards + float controllers) and gold fittings, coaxial with the barrel from the breech back, in a channel cut through the wrist, the trigger guard replaced by a thin cog ring; generated, not committed: ships in Patch Collection), Damage 28, the DAR Rifles bolt-action keyword, and weapon enchantment 802 whose script effect 803 (ZP_ClockworkThunderChainScript, compiled, committed) casts bolt 804 (Prophecy's chain lightning bolt at 15 damage, its explosion copied without the Chain flag: 80A/80B) starting FROM every enemy the shot hits (which takes only the ball), and bounces it up to 4 times to the nearest hostile enemy within 700 units (RemoteCast from the last one struck, blamed on the player). The bolt also carries 809, ZP_ClockworkThunderStunScript (compiled, committed): every actor it strikes that is below the player's level, not dead and not a teammate gets 808, 3 s of paralysis (807 = Enderal's Arcane Archer affinity paralysis 14CEBD as a Target Actor effect, its construct/restrained immunities kept). Placed (806) on the broken altar in Old Askamahn's throne room; owns that cell's header (07336E). Temper 805 only. Shot sound: SNDR 80C (Ordo's shot descriptor 002F9C playing the curator's licensed laser shot; tools/04 installs the wav into Patch Collection, not committed) as both attack sounds; reload sounds SNDR 80D/80E, timed by tools/05 into Clockwork Thunder's own copies of the rifle's ramrod reload clips (OAR mod Zenderal - Clockwork Thunder Reload in Patch Collection; wavs not committed). Musket systems: ZenMusketHandling.ini lists the plugin, tools/03 adds it to the rifle's ADS/ramrod OAR configs. Masters Ordo, DAR Rifles, Zenderal - Prophecy. Ships inside Zenderal - Patch Collection.",
+      "$comment": "Clockwork Thunder (curator 2026-11-13): a unique Starling rifle. WEAP 800 = Ordo Legionis' Nehrimese Flintlock Fucile (OL_Musket_Rifle 002F9B) verbatim with its own mesh (tools/01: polished-gold textures on Environment Map shaders (Rise's Complex Material recipe), a meshing cog train on the forestock in front of the lock, a glass tube with animated lightning (effect-shader cards + float controllers) and gold fittings, coaxial with the barrel from the breech back, in a channel cut through the wrist, the trigger guard replaced by a thin cog ring; generated, not committed: ships in Patch Collection), Damage 28, the DAR Rifles bolt-action keyword, and weapon enchantment 802 whose script effect 803 (ZP_ClockworkThunderChainScript, compiled, committed) casts bolt 804 (Prophecy's chain lightning bolt at 15 damage, its explosion copied without the Chain flag: 80A/80B) starting FROM every enemy the shot hits (which takes only the ball), and bounces it up to 4 times to the nearest hostile enemy within 700 units (RemoteCast from the last one struck, blamed on the player). The bolt also carries 809, ZP_ClockworkThunderStunScript (compiled, committed): every actor it strikes that is below the player's level, not dead and not a teammate gets 808, 3 s of paralysis (807 = Enderal's Arcane Archer affinity paralysis 14CEBD as a Target Actor effect, its construct/restrained immunities kept). Placed (806) on the empty noble desk in Yerai's Workshop, Ark (since 2026-11-16; Yerai owns the cell, so it counts as stolen; 806 is persistent); owns that cell's header (14B5A2, Forgotten Stories' forwarded). For sale from Yerai for 2,000 gold (80F-814: a player topic answered with Yerai's own recorded lines, which tools/06 copies from L - Voices.bsa into Patch Collection, not committed; fragment ZP_ClockworkThunderSale, compiled and committed, makes the desk rifle the player's). Temper 805 only. Shot sound: SNDR 80C (Ordo's shot descriptor 002F9C playing the curator's licensed laser shot; tools/04 installs the wav into Patch Collection, not committed) as both attack sounds; reload sounds SNDR 80D/80E, timed by tools/05 into Clockwork Thunder's own copies of the rifle's ramrod reload clips (OAR mod Zenderal - Clockwork Thunder Reload in Patch Collection; wavs not committed). Musket systems: ZenMusketHandling.ini lists the plugin, tools/03 adds it to the rifle's ADS/ramrod OAR configs. Masters Ordo, DAR Rifles, Zenderal - Prophecy. Ships inside Zenderal - Patch Collection.",
       "name": "Zenderal - Clockwork Thunder",
       "archiveName": "Zenderal - Clockwork Thunder",
       "fomod": false,
@@ -2014,6 +2014,44 @@
       ]
     },
     {
+      "$comment": "Caldera (curator 2026-11-16): a unique one-handed mace, a forge hammer whose sledge head is cracked through with molten lava. Pretty Enderal Armory's Aeterna Mace (Caenraes' Noble Armory model, open with credit: credit Caenraes) with its flanged head and long shaft cut, its collar, grip, ring and pommel in Craftsman Tools Replacer hammer01's proportions (measured only: that mod forbids reuse), and a generated rounded sledge head (tools/01-build-mesh.py) whose cracks glow in five tiers (ZP_CalderaTier0-4, SetNodeScale) as the charge builds. WEAP 800, Enderal's Burning on every hit (804); every two light-attack hits light one more tier (805, GLOB 807, ZP_CalderaChargeScript, the curator's metal whoosh at full charge 811/815); a power attack on a full charge, hit or miss, for 20 Mana (the cracks' ability hears the swing and casts self spell 81B/81C; 806 on the hit is the fallback; ZP_CalderaEruptionScript) bursts vanilla Fire Storm's ring scaled to 350 on the ground under the enemy swung at, or in front of the player (80A; the ground found by ZP_Aim.GroundBelow, a ray in ZenProphecyRage.dll 1.12.0 that stops only on terrain and statics) with a fire blast and stagger on every enemy within it (80B-80D), and raises Apocalypse's volcano there (80E explosion with the curator's eruption sound 814, 80F our copy of its controller, 810 lava bombs; blast and bombs scale with Elementalism, set by the script) with five small volcanoes round it on their own ground rays, mainly for show (816 Apocalypse's controller again, 817 its fountain on CalderaVent.nif, Apocalypse's mesh at 0.4 with its lava spray's speed and gravity scaled, 818 its light, 819 3-damage bombs; 812, the glowing cracked field, retired) and the curator's lava-river loop 813 at the volcano for 7 s (81A; the three sounds installed by tools/03, not committed). Masters Apocalypse; needs powerofthree's Papyrus Extender and ZenProphecyRage.dll 1.12.0 with Prophecy's ZP_Aim (both in Patch Collection). Scripts compiled and committed; generated mesh and textures not committed. Live copy in Zenderal - Patch Collection.",
+      "name": "Zenderal - Caldera",
+      "archiveName": "Zenderal - Caldera",
+      "fomod": false,
+      "scripts": {
+        "from": "src/Caldera/Scripts/compiled",
+        "to": "Scripts"
+      },
+      "plugins": [
+        {
+          "yamlSource": "src/Caldera/CalderaESP",
+          "dest": "Zenderal - Caldera.esp"
+        }
+      ],
+      "files": [
+        {
+          "from": "src/Caldera/Scripts/source",
+          "to": "Scripts/Source"
+        }
+      ]
+    },
+    {
+      "$comment": "Owl Bow, in game Snowveil (curator 2026-11-16): a unique silver bow on Real Bows' Daedric bow (DecimusMaximus; Pretty Enderal Armory's Firewind model): polished silver, gray grip and cord wraps with silver bands and lacing, its tips Real Bows' own sleeve and spike in silver with a plume of white feathers at the spike's base and a collar of six a face over the wrap's end (the game's hawk feather made white), four more a face at each grip end, a glowing white-blue string, a light snowfall while drawn (enchant art on Chillrend's frame with the game's falling-snow look; Glow Be Gone exclusion via src/StingAndRise/tools/03). Needs no arrows: equipping it gives the quiver ability (ZP_OwlBowQuiverEffect) that keeps 50 hidden non-playable arrows (the bound arrow in white energy, no quiver) equipped and topped up after each shot; unequipping takes them and puts the old arrows back (powerofthree's Papyrus Extender GetEquippedAmmo). Enchantment: slows 30% for 4 s; 5% to freeze a weak enemy (no higher level, not unique) solid for 3 s. WEAP 800 (Firewind's record, 23 damage, unique). Records: src/OwlBow/tools/02; mesh/textures/arrows/snow generated by tools/01 into Zenderal - Patch Collection (not committed), which also carries a live copy of the plugin and scripts.",
+      "name": "Zenderal - Owl Bow",
+      "archiveName": "Zenderal - Owl Bow",
+      "fomod": false,
+      "scripts": { "from": "src/OwlBow/Scripts/compiled", "to": "Scripts" },
+      "plugins": [
+        {
+          "yamlSource": "src/OwlBow/OwlBowESP",
+          "dest": "Zenderal - Owl Bow.esp"
+        }
+      ],
+      "files": [
+        { "from": "src/OwlBow/Scripts/source", "to": "Scripts/Source" }
+      ]
+    },
+    {
       "$comment": "Whisper (curator 2026-11-15): a unique one-handed Entropy axe built from billyro's Stalwart Axe (Skyrim LE Nexus 70388; billyro gave the curator permission: credit billyro) on Caenraes' Noble Armory mount (Pretty Enderal Armory's war axe; credit Caenraes), Mihail's rattlesnake (Triumvirate - Mage Archetypes' copy; open with credit: credit Mihail) coiled up its near-black purple grip, its open-mouthed head the pommel holding an amethyst crystal (vanilla's black soul gem, recoloured), an ouroboros on the shaft, six relief snakes on the blade. WEAP 800 (EGO's Aeterna War Axe 07C992's record, unique, no vendor) and its first-person static 801. The souls (2026-11-15): ability 806 (ZP_WhisperSoulsScript, given while the axe is in hand by ZP_WhisperEquipScript): the player's Entropy spells that land on an enemy pull a soul along a soul stream (GLOB 803, 5 a full charge, one per 0.75 s; powerofthree's Papyrus Extender OnMagicHit); the axe's eyes glow one step per soul and its crystal blazes at 5 with a purple halo (Candlelight's flare sprites), a purple copy of Prophecy's Smite orb without its outer ring (tools/02, its palette rewritten purple) and a purple light (80C/80D), and the curator's licensed spooky-breath .wav plays (80E/80F; tools/04 installs it into Patch Collection, not committed) (nodes ZP_WhisperSoul1-5 / ZP_WhisperBlaze in the mesh, SKSE NetImmerse.SetNodeScale). Enchantment 802: Enderal's Soul Trap for 5 s on every hit (80B, without the purple enchant shader), and Soul Cleave on a power attack with 5 souls, hit or miss (since 2026-11-15 the souls script hears the swing: SKSE actor action 0 + powerofthree's IsPowerAttacking, ZP_WhisperCleaveScript.Release; 805 on the enchantment is the card text and a fallback): a horizontal purple crescent wave (projectile 811, Fire Breath's Cone shape, on tools/05's WhisperWave.nif; light 810; Kittytail's slash sound 812) thrown along the crosshair from 120 past the player (the camera, ZP_Aim.CameraAim: a native in Prophecy's ZenProphecyRage.dll 1.10.0, which ships ZP_Aim.pex; without it the player's look angles), 80 magic damage (80A/809) to everything it passes through, with the curator's licensed poof (822/823). An enemy the wave kills rises as a Soul Wisp (813-81C: a death mark on the wave, Enderal's Wisp 0D0D69 copied as a 30 s ally on a race copy without the blue glow, its glow tools/06's purple WhisperWisp.nif; one at a time; ZP_WhisperWispMarkEffect / ZP_WhisperWispEffect); it whispers on a loop (the curator's licensed wav made mono and seamless by tools/04, 820/821) and bursts when the player's Entropy spell strikes it: tools/06's purple flash 81F, Soul Rupture 81D/81E (magic resistance -15 for 15 s) on enemies within 400, 30 Magicka to the player. Sounds not committed: tools/04 --charged/--wisp/--poof. Visuals vanilla (soul trap streams, shimmer, capture sound). Scripts compiled and committed; the mesh and textures are generated from the installed list (tools/01, tools/02; not committed) and ship in Zenderal - Patch Collection with a live copy of the plugin and scripts.",
       "name": "Zenderal - Whisper",
       "archiveName": "Zenderal - Whisper",
@@ -2047,6 +2085,42 @@
         {
           "from": "src/BloodSpurtFreezeFix/readme.txt",
           "to": ""
+        }
+      ]
+    },
+    {
+      "$comment": "Ark Undercity pits drew grey reflective sheets (player video 2026-11-15). Base Enderal's MurkyWater 062A72 verbatim with WaterReflectivity 0.55 -> 0.1; also affects ~20 other interiors using it. Verified in game 2026-11-15 (Meddok's Fishery). Generated by tools/01-build-undercity-water-fix.py.",
+      "name": "Zenderal - Undercity Water Fix",
+      "archiveName": "Zenderal - Undercity Water Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/UndercityWaterFix/UndercityWaterFixESP",
+          "dest": "Zenderal - Undercity Water Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Jespar's camp starting chest (Juno's Alt Start - Jespars Camp, Enderal Nexus 1152) gave base Enderal's Psionic Push (Rank I) tome 01E8DF:FS, whose spell EGO retired. Juno's AltStart_CampChest 000800 verbatim with that entry pointing at EGO's Rank I tome 01E8E2:FS. Load after Alt Start - Jespars Camp.esp. Generated by tools/01-build-alt-start-tome-fix.py. Unverified in game.",
+      "name": "Zenderal - Alt Start Tome Fix",
+      "archiveName": "Zenderal - Alt Start Tome Fix",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/AltStartTomeFix/AltStartTomeFixESP",
+          "dest": "Zenderal - Alt Start Tome Fix.esp"
+        }
+      ]
+    },
+    {
+      "$comment": "Curator's request (2026-11-16): bows, crossbows, muskets and pistols do 60% damage while locked on with True Directional Movement; manual aim does full damage. TDM's lock-on effect TDM_TargetLock 000804 verbatim + PerkToApply = hidden perk 800 (x0.6 ModAttackDamage + crit damage on WeapTypeBow, x0.6 ModSpellMagnitude on ZP_FlintlockShot). Load after TrueDirectionalMovement.esp and the Flintlock Overhaul. Generated by tools/01-build-lock-on-ranged-damage.py. Unverified in game.",
+      "name": "Zenderal - Lock-On Ranged Damage",
+      "archiveName": "Zenderal - Lock-On Ranged Damage",
+      "fomod": false,
+      "plugins": [
+        {
+          "yamlSource": "src/LockOnRangedDamage/LockOnRangedDamageESP",
+          "dest": "Zenderal - Lock-On Ranged Damage.esp"
         }
       ]
     }

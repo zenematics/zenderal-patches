@@ -910,7 +910,52 @@ def main():
         t = sub1(t, r'^EditorID: .*$', 'EditorID: ' + editor_id)
         t = sub1(t, r'^CreatedObject: .*$', 'CreatedObject: %s:%s' % (product, ME))
         rec('ConstructibleObjects', editor_id, formkey, t)
+    place_records()
     print('records written to', OUT)
+
+
+# where the daggers are found (curator 2026-11-15, from a shortlist):
+# - Midnight Sting: "Undercity Old Vault", Forgotten Stories' vault in Ark's underworld overrun by tunnel spiders
+#   (level 25): inside the open coffin that lies on a table in its coffin room (CommonCoffinOpen01 ref 02AF7A; the
+#   second coffin 02AF7B is stacked under it and stays below its floor). The cell header is FS's (the only plugin)
+# - Sunrise: "Old Soltyris, The Void", the end of the Sun Path desert ruin: on the Dwemer pedestal (06EEB4) beside the
+#   tome, potions, soul gem and helmet the dungeon already leaves there, clear of each. The header is Skyrim.esm's
+PLACE_STING = dict(cell='FSNQ03Hideout', header='Enderal - Forgotten Stories.esm',
+                   surface='02AF7A:Enderal - Forgotten Stories.esm', top=3.79,      # the coffin's floor (surface.levels)
+                   headings=[math.pi / 2, -math.pi / 2], band=30.0,                # along the coffin; its walls block
+                   blockers=[('02AF7B:Enderal - Forgotten Stories.esm', None)])
+TOME = ((-13.0, -10.0, -1.0), (13.0, 10.0, 6.0))       # a spell tome, generously: its mesh has no shape surface reads
+PLACE_RISE = dict(cell='DesertAltSoltyrisL2KeyLvl2', header='Skyrim.esm', surface='06EEB4:Skyrim.esm',
+                  top=87.42,                             # the pedestal's top (PG Patcher Output's mesh; surface.levels)
+                  headings=[math.radians(a) for a in np.arange(0.0, 180.0, 7.5)], band=60.0,
+                  blockers=[('03A2EB:Skyrim.esm', None), ('03A2EC:Skyrim.esm', None),      # the two potions
+                            ('03A2ED:Skyrim.esm', None), ('03A2EE:Skyrim.esm', None),      # the soul gem, the helmet
+                            ('03A2EF:Skyrim.esm', TOME)])                                  # the Wall of Frost tome
+
+
+def place_records():
+    """831 / 832 REFR: Midnight Sting in the Old Vault's coffin, Sunrise on the Void's pedestal (see PLACE_*)."""
+    sys.path.insert(0, HERE)
+    import surface
+    spec = importlib.util.spec_from_file_location('sr_assets', os.path.join(HERE, '01-build-assets.py'))
+    sr = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(sr)
+    files = {}
+    for name, place, model, base, ref in (('Midnight Sting', PLACE_STING, STING_OWN_MODEL, '000800', '000831'),
+                                          ('Sunrise', PLACE_RISE, RISE_OWN_MODEL, '000804', '000832')):
+        f, spot = surface.place_unique(sr, place['cell'], place['header'], place['surface'], place['top'], model,
+                                       '%s:%s' % (base, ME), '%s:%s' % (ref, ME), place['headings'],
+                                       blockers=place['blockers'], band=place['band'])
+        files.update(f)
+        print('  %s placed at %s, heading %.3f, on %s (z %.2f), %.1f from its middle' % (
+            name, tuple(round(v, 2) for v in spot['position']), spot['heading'], place['surface'], spot['top'],
+            spot['distance']))
+    shutil.rmtree(os.path.join(OUT, 'Cells'), ignore_errors=True)
+    for rel, text in files.items():
+        path = os.path.join(OUT, *rel.split('/'))
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w', encoding='utf-8', newline='\n') as fh:
+            fh.write(text)
 
 
 if __name__ == '__main__':

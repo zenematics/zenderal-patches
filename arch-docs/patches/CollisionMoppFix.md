@@ -262,10 +262,58 @@ closed by this mod since 2026-11-09.
   `+10E675B` read.
 - The first scan missed it because it read this mod's already-fixed copy.
 
+## The lamp came back: PG Patcher fed from a broken copy **[found 2026-11-16]**
+
+A player's crash, 2026-11-16 14:07 (GreaseLord, 27 min into a session):
+
+- **Signature:** `EXCEPTION_BREAKPOINT` at `SkyrimSE.exe+0B91E6F` (ID 62402+0xBFF).
+- **Call chain:** HDT-SMP's per-frame `ActorManager::setSkeletonsActive` → a world ray cast (`hkpWorldRayCaster`) toward
+  an NPC's head (the Herald `0C2E27:FS`) → `hkScaledMoppBvTreeShape` over a compressed mesh.
+- **Where:** Ark's market district, cell `070791` (worldspace `CapitalCityMarketArea 07072A`).
+
+ID 62402 is the **ray-cast** MOPP walker, a second VM next to 67551. Its opcode dispatch
+(`cmp edx, 0x70; ja int3`, then byte table `+0xB92128` and offsets `+0xB9209C`) sends exactly this tool's `UNDEFINED`
+set to the int3 (read from the exe, 2026-11-16), so `walk` holds for ray casts as well. The walk read opcode `0xBF`
+(`RDX`).
+
+Every mesh placed in that worldspace was walked (438 meshes, 2122 refs). One is broken: the Ark street lamp,
+**winning from PG Patcher Output**, with the original fault (split `11` at 351 of 352).
+
+**How it came back:**
+
+1. 2026-11-13 10:11: `tools/01` found PG Patcher Output's 11-11 lamp clean (PG had built it on this mod's fixed
+   copy), so it shipped no lamp and deleted the old one.
+2. 17:52 the same day: another session reran PG Patcher. With no lamp in this mod, PG read ETATU's broken copy and
+   wrote it out broken again.
+3. `tools/01` was not rerun after that PG run.
+
+The player's install had the broken lamp too (the crash shows it), so a list built after that PG run likely ships
+it to everyone.
+
+**Fix in the tool (2026-11-16):** when PG Patcher Output's copy wins and is clean, but the copy PG would read without
+this mod (the best one below PG's output) is broken, the clean winner is shipped unchanged ("fed"). PG's next run
+then reads a clean lamp, and the cycle is broken. PG has already re-patched its own output once (11-09 → 11-11)
+with the MOPP bytes unchanged.
+
+**Rebuilt 2026-11-16: 138 meshes = 135 fixed + 3 fed.** The 146-mesh build is backed up in
+`E:/Zenderal-backups/2026-11-16-collision-mopp-fix/`.
+
+- **Fixed again:** the lamp (from PG Patcher Output's broken 17:52 copy).
+- **Fed:** the Bank of Ark stair, the Silvergrove door stairs and the Esrathir water-channel pillar. PG's 17:52 copies
+  are clean only because they were built on this mod's fixed ones, and the copies PG reads below them are broken.
+  These would have been the next lamps.
+- **Dropped:** 9 `_pgpatcher_dups\…` files (PG's per-texture duplicates). PG's 17:52 run rebuilt them clean, and every
+  base mesh they copy is still fixed here.
+
+After the rebuild, the market worldspace walks clean (the lamp now wins from this mod). Unverified in game; players
+get it with the next list build.
+
 ## Keeping it right
 
 - **Rerun `tools/01` after PG Patcher runs, after any mesh mod is added, removed, updated or reordered, and after
-  a load-order change.** The shipped copies are the winners at the time of the run: a newer PG Patcher pass on
+  a load-order change.** Since 2026-11-16 a skipped rerun no longer brings a fault back through PG Patcher: the tool
+  "feeds" PG a clean copy of every mesh whose input below PG's output is broken (lines starting `fed` in its output).
+  A rerun is still needed so the shipped copies are the current winners. The shipped copies are the winners at the time of the run: a newer PG Patcher pass on
   the lamp would be hidden behind this mod's older copy. Rerunning also catches a newly installed mesh with the
   same fault.
 - The mod must outrank every source of these meshes. PG Patcher Output wins some of them (stair, door stairs,

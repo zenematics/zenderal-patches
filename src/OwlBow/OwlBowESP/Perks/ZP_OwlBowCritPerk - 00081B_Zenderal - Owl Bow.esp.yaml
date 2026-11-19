@@ -1,0 +1,36 @@
+FormKey: 00081B:Zenderal - Owl Bow.esp
+MajorRecordFlagsRaw: 4
+EditorID: ZP_OwlBowCritPerk
+SkyrimMajorRecordFlags:
+- NotPlayable
+Name:
+  TargetLanguage: English
+  Value: 'Snowveil'
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  Priority: 50
+  Conditions:
+  - Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetGlobalValueConditionData
+        Global: 00081A:Zenderal - Owl Bow.esp
+      ComparisonValue: 1
+  - RunOnTabIndex: 1
+    Conditions:
+    - MutagenObjectType: ConditionFloat
+      Data:
+        MutagenObjectType: GetIsIDConditionData
+        Object: 000800:Zenderal - Owl Bow.esp
+      ComparisonValue: 1
+  EntryPoint: CalculateMyCriticalHitChance
+  PerkConditionTabCount: 3
+  Modification: Add
+  Value: 100
+MajorFlags:
+- NonPlayable

@@ -27,8 +27,8 @@ below the player's level** for 3 seconds.
 | `808` | SPEL `ZP_ClockworkThunderStun` | Target Actor, `807` for **3 s** (`STUN_SECONDS`) |
 | `809` | MGEF `ZP_ClockworkThunderStunCheck` | Script effect (Aimed, hidden) running `ZP_ClockworkThunderStunScript` (`StunSpell` = `808`) |
 | `805` | COBJ `ZP_TemperClockworkThunder` | Ordo's matchlock temper `00F5D6`: gold ingot + **Starling ingot** `0DB8A2` (was `0F11C0`); new product. **No forge recipe**: the rifle is unique |
-| `806` | REFR | the rifle on the broken altar in **Old Askamahn's throne room** (cell `DesertAltAskamahnL2 07336E`, Enma Darkhand's room) |
-| override | CELL `07336E:Skyrim.esm` header | Skyrim.esm's, verbatim (only the English name: the plugin is not localized). **This plugin now owns that cell's header**; no other plugin in Ultra touches it (`tools/00`, 2026-11-13) |
+| `806` | REFR | the rifle on the empty noble desk `14B6BF` in **Yerai's Workshop, Ark** (cell `ArkSternlingshausWerkstatt 14B5A2`; until 2026-11-16 on the broken altar in Old Askamahn's throne room) |
+| override | CELL `14B5A2:Skyrim.esm` header | Forgotten Stories' (the winner), verbatim minus its refs (only the English name: the plugin is not localized). **This plugin owns that cell's header** (`tools/00`, 2026-11-16) |
 
 ### The bounces (curator 2026-11-13: "the effect should bounce between enemies")
 
@@ -358,14 +358,47 @@ Verified in game 2026-11-16 (curator: "Looks right").
 
 ## Placement (`tools/02`)
 
-On the broken altar `RuinsAltarBroken 07410A` (its mesh `RuinsFurnitureRubble15.nif`, PG Patcher Output's copy wins)
-in the throne room: a height field sampled from the mesh shows a flat broken slab at local z 14 with gaps, end
-posts and rails at 19–21 (y ±68). The rifle lies along the altar's long axis, centred at altar-local (0, −28), on its
-side: rotation (0, −π/2, 0). In root space the rifle is upright (length +Y, upside down: up is −Z). A quarter turn
-about Y lays it down, and with no Z turn its length stays on world Y, the altar's long axis (the altar is turned
-1.588 rad). Which side faces up depends on the engine's sign for Y. The height clears both sides by 1 unit and the
-REFR has **no** Don't Havok Settle, so Havok lets it come to rest on the slab. **[unverified in game]**: if it lands
-badly, set Don't Havok Settle as [`ReversalShadow`](ReversalShadow.md) does and adjust the height.
+**Since 2026-11-16: Yerai's Workshop in Ark** (`ArkSternlingshausWerkstatt 14B5A2`, through the door in Ark, Yerai's
+House). The curator chose the Starling inventor's workshop for a Starling rifle.
+
+- **The spot:** Yerai's own tool bench `14B6A7` is taken: a half-scale spider centurion on one half, his tool ring,
+  nails and a bottle on the other, leaving about 37 units free. The rifle is 107 long. So it lies on the empty noble
+  desk `14B6BF` by the Starling sphere centurion, near the door.
+  - The desk is `NobleDesk02`; Skyrim 3D Furniture's mesh wins. Its top is one flat level at local z 63.32
+    (`surface.levels`).
+  - The rifle lies on its side along the desk's long axis, centred on the top: rotation (0, −π/2, 4.8607). The Z turn
+    is solved with Sting and Rise's reference-rotation convention.
+  - Its lowest point is 1 unit above the top; Havok settles it on load.
+- **Ownership:** Yerai (`13378C`) owns the cell, so the rifle counts as **stolen** when taken. The curator chose to
+  leave it so; **buying it from Yerai** (below) makes it the player's. The ref `806` is **persistent** (the sale script
+  holds it).
+- **Cell header:** Forgotten Stories' copy (it adds a crafting plan to the cell), forwarded verbatim minus its refs.
+  This plugin now owns that header. The Askamahn cell `07336E` is no longer touched.
+- **Checked:** the desk and the rifle rendered together, from above and from the side.
+- **Unverified in game.**
+
+Until 2026-11-16 it lay on the broken altar `07410A` in Old Askamahn's throne room (`07336E`), solved the same way.
+
+## Buying it from Yerai (`tools/02`, `tools/06`, 2026-11-16)
+
+Curator's request: dialogue to buy it, voiced with **Yerai's own recordings**, not a cloned voice (his voice type
+`VT_Yerai 13378F` is a real actor's). None of his 62 recorded lines (NQ23/NQ26, his Horst quests) names a price or
+a rifle, so the price is in the player's line and he answers with lines that fit:
+
+| Record | What |
+|---|---|
+| `80F` QUST `ZPCTSale` | start-game dialogue quest, no aliases |
+| `810` DLBR / `811` DIAL `ZPCTSaleTopic` | top-level player topic on Yerai: *"That gold rifle on your desk. I'll give you 2,000 gold for it."* |
+| `812` INFO `ZPCTSaleBuy` | with ≥ 2,000 gold: "Splendid, that's it!" (NQ23 `1346D9` #1, the steering unit) + "Again: Thank you." (NQ26 `14B5B5` #4). Fragment `ZP_ClockworkThunderSale` takes the gold, `SetActorOwner(player)` on the desk rifle (no stolen tag), sets `814` |
+| `813` INFO `ZPCTSaleBroke` | with less: "Blasted blazes! You are really, really starting to annoy me, you know that?" (NQ23 `132E0F` #1) |
+| `814` GLOB `ZP_ClockworkThunderSold` | 1 once bought |
+
+Both responses need `GetIsID` Yerai, `814` = 0, and `GetInCell 14B5A2` run on the rifle ref (false once it is taken).
+`tools/06` copies his three `.fuz` (audio + lip, unedited) from `L - Voices.bsa` to
+`sound\voice\Zenderal - Clockwork Thunder.esp\VT_Yerai\zpctsale_zpctsaletopic_<FormID>_<n>.fuz` in Patch Collection
+(SureAI's audio, not committed). The engine names the file from the quest EditorID (≤ 10 characters), the topic
+EditorID (to 25 in all) and the response's local FormID; both EditorIDs are short, so nothing is cut (asserted).
+The plugin round-trips through Spriggit (only quoting differs). **Unverified in game.**
 
 ## Regenerate
 
@@ -376,8 +409,8 @@ python src/ClockworkThunder/tools/02-build-records.py     # YAML (refuses if a c
 python src/ClockworkThunder/tools/03-add-to-musket-clips.py   # after Flintlock Overhaul regenerates its clips
 ```
 
-Rerun `00` → `02` after Ordo Legionis, Prophecy's chain lightning or the Askamahn cell changes hands. Rerun `01` after
-the rifle mesh/textures, the cog mesh or the altar change, and after Flintlock Overhaul `tools/06` (the scope sits
+Rerun `00` → `02` after Ordo Legionis, Prophecy's chain lightning or Yerai's Workshop (cell or desk) changes hands. Rerun `01` after
+the rifle mesh/textures or the cog mesh change, and after Flintlock Overhaul `tools/06` (the scope sits
 on its aim ray); then `02` (placement reads the built mesh). Load after
 `Zenderal - Prophecy.esp`.
 
@@ -388,7 +421,7 @@ Deployed into Patch Collection (plugin, mesh, textures, `ZP_ClockworkThunderStun
 the curator places `Zenderal - Clockwork Thunder.esp` after `Zenderal - Prophecy.esp`. **Unverified in game**: the
 look in both views and when dropped, the lightning on hit (and its leap), the stun (lower-level enemies only), reload on demand / dodge lock, ADS and
 the ramrod reload with this gun, and the rest pose on the altar (`help "Clockwork Thunder"` →
-`player.additem <id> 1` to test without the trip; `coc DesertAltAskamahnL2` for the altar).
+`player.additem <id> 1` to test without the trip; `coc ArkSternlingshausWerkstatt` for its desk since 2026-11-16).
 
 First in-game look (2026-11-13, curator): ADS works, but the left hand clipped into the forestock. The cause was
 the rifle mesh's shared ADS clips (Ordo's Fucile had it too), not the cogs; fixed there, see

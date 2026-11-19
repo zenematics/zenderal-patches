@@ -1,0 +1,35 @@
+FormKey: 000808:Zenderal - Caldera.esp
+EditorID: ZP_CalderaTiersMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_CalderaTiersScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Charges
+      Object: 000807:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Eruption
+      Object: 00081B:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Hammer
+      Object: 000800:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Caldera Charge
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,21 @@
+FormKey: 00080B:Zenderal - Caldera.esp
+EditorID: ZP_CalderaBlast
+Name:
+  TargetLanguage: English
+  Value: Eruption
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- NoAbsorbOrReflect
+CastType: FireAndForget
+TargetType: Touch
+Effects:
+- BaseEffect: 00080C:Zenderal - Caldera.esp
+  Data:
+    Magnitude: 45
+- BaseEffect: 00080D:Zenderal - Caldera.esp
+  Data:
+    Magnitude: 0.5

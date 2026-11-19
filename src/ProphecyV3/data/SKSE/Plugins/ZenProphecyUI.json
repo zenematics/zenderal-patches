@@ -1043,9 +1043,9 @@
     {
      "index": 40,
      "perk": 2893,
-     "name": "Centurion Armor",
-     "description": "Grants the \"Centurion Armor\" power: call a Dwemer war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow, hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it.",
-     "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_CenturionArmor.dds",
+     "name": "Starling Power Armor",
+     "description": "Grants the \"Starling Power Armor\" power: call a gilded Starling war machine to your side. It follows you and fights for you, and activating it lets you climb in and pilot it for 3 minutes: attack with either arm, hold Activate to put your weight behind every blow - the left arm then bursts in a shock nova, and lightning chains from whoever the right arm strikes - hold Shout to breathe steam or an element chosen with the Favorites key, and hold the Tween Menu key to fly. Afterwards it needs 5 minutes to cool. Use the power again to recall the armor, or to climb out; sneak and activate it to dismiss it.",
+     "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_StarlingPowerArmor.dds",
      "parents": [
       39
      ],
@@ -1233,7 +1233,7 @@
      "index": 46,
      "perk": 2675,
      "name": "Nightblade",
-     "description": "Grants the \"Nightblade\" spell (4 Darkness): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them for 45 magic damage. Each dash spends half your Darkness, dealing 15 more magic damage per point spent.",
+     "description": "While your Darkness meter is full, your power attacks reach targets up to 50 feet away, dashing you to them and spending the meter. The dash does no damage of its own; kill the enemy you dashed to within 8 seconds and you regain 3 Darkness.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_Nightblade.dds",
      "parents": [
       42
@@ -3389,7 +3389,7 @@
      "index": 133,
      "perk": 2722,
      "name": "Orbit Ward",
-     "description": "While you cast a spell, five glass wards orbit you. Each absorbs one whole weapon, arrow or claw hit, then breaks. They fall away when you stop casting.",
+     "description": "While you cast a spell, a ward surrounds you: the next 2 weapon, arrow or claw hits deal 50% damage, then it breaks. It falls away when you stop casting.",
      "image": "Data\\Interface\\ProphecyPics\\ZP_Prophecy_OrbitWard.dds",
      "parents": [
       131

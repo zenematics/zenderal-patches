@@ -108,6 +108,13 @@ NAME = 'Argent Verdict'
 PRETTY = r'Weapons\Elven\ElvenWarHammer.nif'         # Pretty's (Caenraes' Noble Armory model), the base record's
 PRETTY_1P = r'Weapons\Elven\1stPersonElvenWarHammer.nif'
 MODEL = r'Zenderal\ArgentVerdict\ArgentVerdict.nif'    # tools/01's, both views: the spiked gauntlet head
+# where Argent Verdict is found (curator 2026-11-15, from a shortlist: "Destroyed Abbey"): Thalgard's ruined abbey of the
+# Order, laid on the socket of the Malphas statue (refs 128502 / 128503) at the far end of its Halls, past Sunborn mages
+# and archers (level 45) and monk ghosts; in front of the statue, across the socket's front edge (y 7512), clear of the
+# statue's base. The cell header is Skyrim.esm's (the only plugin with it)
+PLACE = dict(cell='ThalgardOrdensklosterL1', header='Skyrim.esm', surface='128502:Skyrim.esm', socket_rot=0.03000412,
+             top=1.35,                       # the socket's top in the winning mesh (PG Patcher Output's; surface.levels)
+             statue='128503:Skyrim.esm', prefer=(1918.47, 7512.0))
 TARGET = 'Zenderal - Patch Collection'                 # where tools/01 writes it
 DAMAGE, CRIT, SPEED, VALUE = 46, 23, 0.65, 1500
 CHARGE = 3000                                          # Sting and Rise's: ~3000 hits before a recharge
@@ -448,7 +455,7 @@ def main():
     bounds = mesh_facts(MODEL, 'ZP_ArgentGauntlet')
     for sub in ('Weapons', 'Statics', 'TextureSets', 'ObjectEffects', 'MagicEffects', 'ConstructibleObjects',   # TextureSets: the retired 802
                 'Projectiles', 'Explosions', 'Lights', 'SoundDescriptors', 'ImpactDataSets', 'Impacts', 'EffectShaders',
-                'Spells', 'Activators', 'SoundMarkers', 'Globals', 'ArtObjects', 'FormLists'):   # the last 3: retired
+                'Spells', 'Activators', 'SoundMarkers', 'Globals', 'ArtObjects', 'FormLists', 'Cells'):   # ArtObjects, FormLists: retired
         shutil.rmtree(os.path.join(OUT, sub), ignore_errors=True)
 
     # 800 the hammer
@@ -572,7 +579,8 @@ def main():
         '    - MutagenObjectType: ScriptObjectProperty', '      Name: ChargedSound', '      Object: 000859:' + ME,
         '    - MutagenObjectType: ScriptObjectProperty', '      Name: Charges', '      Object: 000852:' + ME,
         '    - MutagenObjectType: ScriptObjectProperty', '      Name: MoteAbility', '      Object: 000854:' + ME,
-        '    - MutagenObjectType: ScriptObjectProperty', '      Name: PlayerRef', '      Object: 000014:Skyrim.esm', '']))
+        '    - MutagenObjectType: ScriptObjectProperty', '      Name: PlayerRef', '      Object: 000014:Skyrim.esm',
+        '    - MutagenObjectType: ScriptObjectProperty', '      Name: TimeScale', '      Object: 00003A:Skyrim.esm', '']))
     c = english(c, 'Name', 'Argent Charge')
     c = sub1(c, r'^- Painless\n', '- HideInUI\n- Painless\n')
     c = english(c, 'Description', "''")
@@ -612,7 +620,26 @@ def main():
     c = sub1(c, r'^EditorID: .*$', 'EditorID: ZP_TemperArgentVerdict')
     c = sub1(c, r'^CreatedObject: .*$', 'CreatedObject: 000800:' + ME)
     rec('ConstructibleObjects', 'ZP_TemperArgentVerdict', '000805', c)
+    place_record()
     print('records written to', OUT)
+
+
+def place_record():
+    """861 REFR: the hammer on the Malphas statue's socket in the Destroyed Abbey's Halls (see PLACE)."""
+    sys.path.insert(0, os.path.join(ROOT, 'src', 'StingAndRise', 'tools'))
+    import surface
+    sr = _module('sr_assets', os.path.join(ROOT, 'src', 'StingAndRise', 'tools', '01-build-assets.py'))
+    th = PLACE['socket_rot']
+    files, spot = surface.place_unique(sr, PLACE['cell'], PLACE['header'], PLACE['surface'], PLACE['top'], MODEL,
+                                       '000800:' + ME, '000861:' + ME, [th + math.pi / 2, th - math.pi / 2],
+                                       blockers=[(PLACE['statue'], None)], prefer=PLACE['prefer'], cell_size=2.0)
+    for rel, text in files.items():
+        path = os.path.join(OUT, *rel.split('/'))
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(text)
+    print('  Argent Verdict placed at %s, heading %.3f, on the socket (z %.2f), %.1f from the preferred spot' % (
+        tuple(round(v, 2) for v in spot['position']), spot['heading'], spot['top'], spot['distance']))
 
 
 if __name__ == '__main__':

@@ -1,0 +1,17 @@
+FormKey: 000809:Zenderal - Caldera.esp
+EditorID: ZP_CalderaTiers
+Name:
+  TargetLanguage: English
+  Value: Caldera Charge
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 000808:Zenderal - Caldera.esp
+  Data: {}

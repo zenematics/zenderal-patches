@@ -150,3 +150,31 @@ changes, keeping the mod's 2:3 ratio:
 Verified: the new plugin differs from the previous build only by these two spells and the master (both re-serialized and
 compared). Deployed to Patch Collection; previous copy in `E:/Zenderal-backups/2026-11-08-gargoyle-summons`.
 **Unverified in game.**
+
+## Kata elemental shields no longer stack (2026-11-19)
+
+Player report (GreaseLord, 2026-11-17): Fire Shield (Rank I) and Fire Shield (Rank III) were active at the same time.
+
+`KataPUMB_SpellPackage.esp` ships Fire, Frost and Shock Shield in five ranks. Each rank is its own MGEF with the
+PeakValueModifier archetype (`ResistFire`/`ResistFrost`/`ResistShock`). The engine keeps only the strongest of the
+PeakValueModifier effects that share an `Association` keyword; effects without one all count. Kata made one keyword per
+element (`Kata_FireShield 0098C5`, `Kata_FrostShield 0098C6`, `Kata_ShockShield 0098C7`) and put it on each Rank I's
+`Keywords`, but set it as the `Association` on Fire Shield I only. So all fifteen ranks stacked: all five Fire ranks
+gave 8 + 14 + 20 + 35 + 50 = 127% fire resistance.
+
+`tools/13-shield-no-stack.py` writes the 15 MGEFs from `reference/mods/KataPUMBSpellPackage`: Kata's record verbatim,
+plus its element's keyword in `Keywords` (as Kata's Rank I has) and as the archetype's `Association`. Fire Shield I is
+already like that, so its override is verbatim; it is kept so this plugin owns all fifteen.
+
+- Only the strongest rank of each element counts. **The three elements still stack with each other** (per-element
+  keywords, as Kata made them).
+- No list plugin overrides these MGEFs (`arch-docs/magic` provenance chain = Kata only), and nothing else references
+  the three keywords.
+- Kata's other pack (`KataPUMBSpellPack.esp`) has one shield per element sharing one keyword (`001487`); untouched.
+- **Magic Patches now masters `KataPUMB_SpellPackage.esp`** (ten masters); it already loads after it (240 vs 380 in Ultra).
+- The step writes and deletes only `*_KataPUMB_SpellPackage.esp.yaml` files in `MagicEffects/`, so it is independent
+  of the other steps' order.
+
+Verified: builds clean and round-trips; the new plugin differs from the previous live copy only by these 15 MGEFs and
+the master (both serialized and compared). Deployed to Patch Collection; previous copy in
+`E:/Zenderal-backups/2026-11-19-magic-patches-shield-stack`. **Unverified in game.**

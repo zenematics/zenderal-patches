@@ -1,0 +1,22 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Caldera.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "Caldera: a unique one-handed mace, a forge hammer whose sledge head is cracked through with molten lava, on Pretty Enderal Armory's Aeterna Mace handle (Caenraes' Noble Armory model). Its hits burn; light attacks fill its cracks, and a power attack on a full charge sets off a volcanic eruption (Apocalypse's Volcano). Requires Apocalypse - Magic of Skyrim and powerofthree's Papyrus Extender; its mesh and textures ship in Zenderal - Patch Collection."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  - Master: Apocalypse - Magic of Skyrim.esp
+    FileSize: 0
+  INTV: 1

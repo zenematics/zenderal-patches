@@ -1,0 +1,9 @@
+FormKey: 000816:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowDrawAir3SD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\OwlBow\SnowveilDrawAir3.wav
+OutputModel: 0F1B1A:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

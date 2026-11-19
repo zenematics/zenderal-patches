@@ -1,0 +1,10 @@
+FormKey: 000813:Zenderal - Caldera.esp
+EditorID: ZP_CalderaLavaLoopSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\Caldera\CalderaLavaLoop.wav
+OutputModel: 10E425:Skyrim.esm
+LoopAndRumble:
+  Loop: Loop
+Priority: 128

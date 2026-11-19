@@ -1,0 +1,52 @@
+FormKey: 00081C:Zenderal - Caldera.esp
+EditorID: ZP_CalderaEruptionSwingEffect
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_CalderaEruptionScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Blast
+      Object: 00080B:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Charges
+      Object: 000807:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: GroundMarker
+      Object: 000034:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LavaBomb
+      Object: 000810:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: LavaLoop
+      Object: 00081A:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Shockwave
+      Object: 00080A:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Vent
+      Object: 000816:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Volcano
+      Object: 00080E:Zenderal - Caldera.esp
+Name:
+  TargetLanguage: English
+  Value: Eruption
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

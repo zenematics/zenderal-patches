@@ -2047,6 +2047,12 @@ per dash, cleared on any death of that enemy; log `Nightblade: killed ...`). A k
 another source pays nothing (the event's killer is not the player). Texts: talent and `335B49`. The cast still costs
 the full meter. Deployed into Patch Collection. Unverified in game.
 
+**Shipped in Patch Collection 2.5 (2026-11-16T00:05Z) with a stale v3 menu JSON** (see ProphecyV3.md, 2026-11-16):
+Kenir reported "no shadow cost right now" and a description "still mentioning the added damage and wrong cost". The
+archive's esp, JSON and DLL 1.4.0 are this build (checked in the zip: cost "full", no damageSpell, refund 3, new
+texts); only `ZenProphecyUI.json` was the 2026-11-13 copy. The dashes spending nothing is the design now; the cast
+takes the full meter. Regenerated and redeployed. His log would settle whether the cast itself was charged.
+
 **Left open.**
 - *Triggers on light attacks:* the doc says `TVR_BlinkStrikes_Script` casts the proc on `PowerAttack_Start_End`; the
   script could not be re-read this session (the BSA/decompiler tool paths in `tools.json` point at `C:/Tools`, which is
@@ -2071,3 +2077,155 @@ instead of a new DLL. `SKSE::GetPapyrusInterface()->Register` binds `ZP_Aim.Came
 `PlayerCamera::cameraRoot` world rotation's +Y column), the frame SpellAimTrace measured shots against; empty with no
 camera. It runs on the Papyrus VM's thread (not callable from tasklets). Whisper's Soul Cleave flies along it
 (see [Whisper](Whisper.md)). Nothing else in the DLL changed. Built, installed, unverified in game.
+
+**2026-11-16, curator: "to confirm: Nightblade 1 dash costs all Darkness."** Darkness DLL **1.4.1**: every dash of
+the proc spends `fraction` (1.0, all) of the Darkness whether or not the dash damage is on (1.4.0 only spent when
+`damageSpell` was set, so dashes were free); a dash on an empty meter spends nothing and still happens (Triumvirate's
+script fires the dash; nothing of ours gates it). The cast still costs the full meter; the kill refund (3 within 8 s)
+stays. Texts updated (talent, `335B49`, v3 JSON regenerated). Deployed into Patch Collection. Unverified in game.
+
+**2026-11-16, later: a dash needs a full meter** (curator: "no I don't want this" to dashes on an empty meter; chose
+"a dash only happens with 10 Darkness and empties it; no free dashes"). Prophecy already owns the proc `335B4F`: each
+of its six effects (the four `TVR_Flash_Script` Blink dashes `335B4B`-`335B4E`, the 0-damage `335B51`, the marker
+`381AFB`) now carries `GetGlobalValue ZP_Darkness 0xAEA >= 10` (`NIGHTBLADE['FullOnly']`); the DLL writes the meter
+into that global on every change (`Publish`). Below a full meter a power attack under Nightblade is a plain power
+attack. **Darkness DLL 1.4.2** (`fullOnly`): a proc hit with less than a full meter spends nothing (logged), a full one
+spends it all; the kill refund stays. Texts (talent, `335B49`, v3 JSON) say "A dash needs a full Darkness meter and
+spends it". Open: whether the engine still raises the proc's `TESHitEvent` when every effect's condition fails (the
+DLL no longer cares), and whether `GetGlobalValue` on a spell's effect is evaluated for a script-cast `Cast(caster,
+target)` (vanilla uses effect conditions on script casts, e.g. perk-gated cloak effects, so it should). Deployed into
+Patch Collection. Unverified in game.
+
+**2026-11-16, later still: no spell to cast** (curator: "have nightblade activate on a power attack with full
+darkness, no cast of the spell"). The talent no longer grants Triumvirate's Nightblade spell `330A43`. Its perk
+`0xA73` carries a constant ability **`0xB79`** whose effect **`0xB7A`** is our copy of the 60 s buff `335B49`: the same
+`TVR_BlinkStrikes_Script` with its `TVR_Proc` = the owned, full-meter-gated proc `335B4F`, as a `ConstantEffect`
+without the buff's keyword (Triumvirate dispels by it), arts, light, sounds, `FXPersist`/`PowerAffectsDuration`. So:
+a power attack with 10 Darkness dashes and spends the meter; anything less is a plain power attack; no cast, no
+duration. **Darkness DLL 1.5.0** `retiredSpells`: at every load / new game the DLL removes `330A43` from the player
+(saves made before today hold it); its cost entry stays in the JSON only to guard a cast before that. Its tome stays
+out of the lists (`write_unsold_tomes`). Nightfall still casts Triumvirate's buffs through its own script; if that
+includes `330A43`'s buff, a second listener runs for 60 s next to the passive - the proc's conditions and the DLL's
+full-meter rule make the second cast a no-op (unverified). Texts: talent, `335B49`, v3 JSON. Not read: the script's
+own source (no decompiler on this PC) - it is assumed to register for the power-attack event in `OnEffectStart` and
+never to rely on the effect's duration. Deployed into Patch Collection. Unverified in game.
+
+**2026-11-16, the dash's look** (curator: "I still want the effects and sounds to play on dash"). The buff's Rift art
+(`TVR_Rift_Art_Buff 2FDF74`, on the player for the buff's 60 s) and its release sound
+(`TVR_Shadow_Descriptor_Release 000D66`) left with the spell. **Darkness DLL 1.5.1** plays both on each full-meter
+dash: `DashFx` after the spend - `ApplyArtObject` on the player for `dashArtSeconds` 2.0, and the sound through
+`BSAudioManager::GetSoundHandle` following the player's 3D (`NIGHTBLADE_DASH_FX`, JSON `dashArt*`/`dashSound*`). The
+proc's own Blink arts and hit sounds (`335B4B`-`335B4E`: `TVR_Walk_Hands`, `TVR_Walk_Descriptor_Impact`) never left.
+Unverified in game.
+
+**2026-11-16 evening, Kenir's second report: "still unable to sneak attack with the nightblade ability, maybe its
+that the tp is too close so you always bump into enemies or the effect put on the enemy. also it still triggers on
+normal attacks. not just power."** Both read from the records this time; `TVR_BlinkStrikes_Script` and
+`TVR_Flash_Script` were pulled out of Triumvirate's BSA with a 60-line Python BSA reader (`tools.json`'s BSA Browser
+and Champollion still point at the missing `C:/Tools`) and their string tables read.
+
+- *The trigger.* The script registers one animation event, `PowerAttack_Start_End`, and casts the proc on it. A grep
+  of every `.hkx` in the list found that event in 2,129 clips, among them SIGMA's **first-person light-attack clips**
+  (daggers `1hm_attackright/left`, battleaxes) and JellyFish's first-person punches: in first person a light attack
+  announces a power attack's start, so a dagger player dashed on every click. Fix in two layers: every effect of the
+  proc `335B4F` now also carries `IsPowerAttacking == 1` run on the player (`RunOnType Reference 000014`, next to the
+  full-meter global), and **Darkness DLL 1.5.2** refuses the spend when `Actor::IsPowerAttacking()` is false at the
+  proc's hit (`Nightblade: proc ... outside a power attack`). The attack data is the light attack's on those clips, so
+  both say no.
+- *The sneak attack.* All six effects the proc lands on the enemy were flagged **Hostile**: the four Blink dashes
+  (`335B4B`-`335B4E`), the 0-damage debuff `335B51` and the short-range debuff `381AFB`. A hostile effect on an unaware
+  enemy is a hit: it alerts the enemy at the moment of the cast, which is the power attack's start, and the blade
+  arrives a dash later against an aware target, so no sneak multiplier. Prophecy now **owns those six effects**
+  (`NIGHTBLADE_PROC_EFFECTS`; Triumvirate's records minus `Hostile`, nothing else changed: `TVR_Flash_Script` with
+  `TVR_DistanceInFront -96` / `TVR_Speed 20000`, arts, sounds, conditions kept). The dash lands 96 units from the
+  enemy, Kenir's other guess, which is melee range and not changed. Non-hostile spell hits still raise `TESHitEvent`,
+  so the DLL's spend, refund and `DashFx` are untouched (`381AFB` is `NoHitEvent` as before).
+
+Generated (`tools/01` → `09` → v3 `01`), DLL built, deployed into Patch Collection once the game closed. Unverified in
+game; the Darkness-alarm and early-sneak items above stay open.
+
+## Firearms talents gated on the talent itself (2026-11-17)
+
+Curator, after the graph-flag fix: **"the fire damage perk from Prophecy firearms is still proccing on Bow hits"**,
+then **"the talents on Firearms need an 'is musket' or 'is Pistol' condition, that's all."** Ground truth from the
+newest Ultra save (`Save76`, parsed with the scratch `ess_prophecy.py`: SE offsets in the file-location table count
+from the two length fields before the LZ4 body): the player owns Quick Reload, Elemental Rounds, Bleeding Shot, Run
+and Gun, Deadeye, Ricochet Rounds, the whole pistol branch, the Gadgets and the Starling Power Armor, **no Arcane
+Archery talent**, and the Arcane Arsenal element global is 0. So the fire on bow hits is Elemental Rounds'
+`EnchFireDamageFFContact` effect on the shared gun hit spell `000910`, landing past its `GetEquippedItemType Right
+== 12 (PlayerRef)` effect condition. The built esp carries that condition exactly (CTDA fn 597, param 1, run-on 2,
+reference 0x14; dumped), and the engine's `GetEquippedItemType` (SCRIPT_FUNCTION entry `.data+0x208A520`, condition
+function ID 21677, mapping 14220) returns the right-hand WEAP's animation type, 7 for bows and 12 for crossbow-type
+weapons, with no special case. **Why the effect condition let a bow through is still open** (Ordinator gates its own
+on-hit effects on the MGEF with run-on Target, and vanilla/SureAI use PlayerRef on aimed talents, so neither pattern
+is known-bad); the fix does not depend on the answer:
+
+- **Every Firearms `ApplyCombatHitSpell` entry now carries the gate on the talent itself** (`owner_item_type(12)`
+  in `tools/01`, a tab-0 condition `GetEquippedItemType Right == 12`): Elemental Rounds, Bleeding Shot and Deadeye
+  (Ordinator's entry, `Priority: 146`) refuse the hit before the spell is applied. Arcane Arsenal, Ice Shot and Send
+  a Raven get the same with 7 (bows only), so a musket hit no longer applies the spell for a pure archer either.
+- The hit spell's own effect gates (`gate()`, `MUSKET_IN_HAND`, `BOW_IN_HAND`) run on **Target** (= the caster, the
+  perk owner), Ordinator's pattern, instead of an explicit PlayerRef. The Ghostblade effect keeps SureAI's PlayerRef
+  conditions. CTDA dump of the rebuilt esp: run-on 1, reference 0.
+- Pistols are already their own gate: the DLL casts the Hair Trigger hit spell only after `PistolShot()` finds the
+  Flintlock shot keyword on the hit's enchantment, and no bow carries it (checked the whole `src/` tree).
+
+Esp + `ZenProphecyUI.json` deployed into Patch Collection 2026-11-17 00:48. Unverified in game. If fire still lands
+on a bow after this, the perk-entry condition is being evaluated against something other than the shooter's right
+hand, and the next step is a Rage DLL trace of both hand slots at each ranged hit event.
+
+## ZenProphecyRage.dll 1.13.0: Firearms' graph flags (2026-11-16)
+
+Curator, late evening: **"Firearms perks are working on Bows, stop this."** Every Firearms record is gated on item type
+12 (`MUSKET_IN_HAND` / `MUSKET_TAB_COND`: Deadeye's entries, the gun hit spell's effects, Quick Reload's own
+ability), and the pistol branch keys on the Flintlock shot keyword, so the records were not the leak. The two perks
+that work through the **animation graph** were: Quick Reload sets `bPerkQuickdraw` (the graph's fast bow draw and
+fast crossbow reload) and Run and Gun sets `bPerkQuickShot` (full speed while aiming), both through
+`SetBooleanGraphVariable` perk entries carrying the item-type 12 condition on their owner tab.
+
+Disassembly of SkyrimSE 1.7.104 (capstone + the format-5 Address Library; scratch `find_ep54.py` / `dis_func.py`):
+`BGSEntryPoint::HandleEntryPoint` (ID 23526) has 114 call sites, and **exactly one passes entry point 54**
+(`kSetBooleanGraphVariable`): function **37982** at `+0x227`, the actor's animation-graph initialisation, which seeds
+the graph's other variables first (via the shared variable-name table 11437 and SetGraphVariable
+Bool/Float/Int 63607-63609) and is itself called only from the PlayerCharacter override 40756 (both vtable entries,
+no other callers). So the entry point's conditions are evaluated **once, when the actor's 3D and graph are
+created**: a musket in the right hand at load left both flags on, and every bow drawn afterwards drew and aimed with
+the Firearms perks; a bow at load left Quick Reload off until the next load. Enderal's own Rapid Shot `069CD5` (no
+condition) and Ranger `069CD4` (`IsSneaking == 0`, evaluated the same way) set the same flags.
+
+**ZenProphecyRage.dll 1.13.0 owns the flags** (`graphFlags` in `ZenProphecyRage.json`, from `GRAPH_FLAGS` in
+`tools/01`): every 250 ms tick, for each flag, unless the player has Enderal's perk for it (then the engine's value
+stands, Rapid Shot and Ranger are meant for bows), flag = our perk AND a crossbow-type `TESObjectWEAP` in the right
+hand (`IsCrossbow()`: Ordo's muskets). Read first (`GetGraphVariableBool`), written only on a change, each write
+logged (`Firearms: bPerkQuickdraw 1 -> 0 (musket in hand: false)`), so the active graph is corrected within a tick
+after a weapon swap, a learn, a respec or a first/third-person switch. The perk entries keep their condition (correct
+at graph init, harmless). Records unchanged (tree hash identical after the rerun); DLL + JSON deployed into Patch
+Collection. Unverified in game. Steady Aim (+10 Marksman) still helps bows: Marksman is the skill of muskets and
+bows alike, and that stat talent is not a Firearms mechanic.
+
+## ZenProphecyRage.dll 1.11.0: a ground ray for Caldera (2026-11-16)
+
+Again not a Prophecy feature: Caldera's eruption (curator: "make sure the Volcano spawns on the ground, sometimes it
+spawns waist height") needs the ground under an enemy whose position may be a ragdoll's. `ZP_Aim.GroundBelow(akRef,
+afUp, afDown)` (declared in `ZP_Aim.psc`, recompiled) casts one `bhkPickData` ray straight down from `afUp` above the
+reference's position to `afDown` below, in its cell's `bhkWorld` under the world's read lock (the VM thread calls it),
+on collision layer 42 `kPathPick` (`L_PATHINGPICK`: per the COLL records it meets static, anim static, terrain,
+ground, trees, water, collision boxes, invisible walls and the transparent layers, never biped, character
+controller, props or clutter; `L_DROPPINGPICK` would hit actors), and returns `[z]` of the first hit, empty with no
+hit or no world (None when the DLL is missing). Nothing else in the DLL changed. Built and deployed into Patch
+Collection with `ZP_Aim.pex`; unverified in game (Caldera's `[ZP Caldera eruption]` log line shows the ground found).
+
+**1.12.0 (the same evening)**, after the curator's "make the fissures spawn on the ground sometimes they float up"
+(the log: a dead goblin's ray stopped 20 units above the body). `CastGround` stops only on layers `kUnidentified`,
+`kStatic`, `kAnimStatic`, `kTerrain`, `kGround` (`hkpCollidable::GetCollisionLayer` of the hit) and restarts 0.5 below
+any other hit (trees, water, invisible walls, collision boxes, debris, the transparent layers; at most 8 times);
+`GroundBelow` returns `[z, layer]` and logs every call (the hit's reference and base FormIDs, the layers passed
+through). New `ZP_Aim.LayOnGround(akRef, afRadius, afLift)`: queued as an SKSE task (main thread): `CastGround` at the
+reference's 3D centre and on two rings of 8 (0.45 and 0.9 of `afRadius`, each from as high as a 40-degree slope
+reaches), a least-squares plane (`z = p0 + p1 x + p2 y`, Gauss-Jordan), refitted without points more than 24 units
+off it (needs 5), tilt capped at 35 degrees; the 3D root's `local.rotate` becomes Rodrigues(up to the normal) times
+its own (the spin kept), `local.translate.z` moves the centre to `afLift` above the plane, `data.location.z` follows,
+then `NiAVObject::Update`. No Euler angles: Papyrus `SetAngle`'s axis order and signs were not needed. Each fit is
+logged. Built clean, deployed; unverified in game. The same evening Caldera dropped the cracked field for small
+volcanoes, so nothing calls `LayOnGround` any more; it stays in the DLL (no rebuild) for the next flat effect that
+must lie on a slope. `GroundBelow` now also finds the ground under each small volcano.

@@ -46,6 +46,7 @@ namespace
 		double             drainEvery{ 4.0 };
 		std::map<RE::FormID, int> costs;              // spell -> Darkness (the full meter: max)
 		std::set<RE::FormID>      freeFollowUps;      // 1.3.1: spells whose script then casts the others (Nightfall)
+		std::vector<RE::SpellItem*> retiredSpells;    // 1.5.0: taken off the player at every load (Nightblade's spell)
 		std::map<RE::FormID, std::string> names;
 		std::string        refusal{ "Not enough Darkness." };
 		// Nightblade (1.1.0): each hit of Triumvirate's proc spends Fraction of the Darkness for PerPoint damage a point
@@ -58,6 +59,10 @@ namespace
 		double             nightbladePerPoint{ 15.0 };
 		int                nightbladeRefund{ 0 };
 		double             nightbladeWindow{ 8.0 };
+		bool               nightbladeFullOnly{ false };   // 1.4.2: a dash needs a full meter (the proc's effects are gated the same)
+		RE::BGSArtObject*  dashArt{ nullptr };            // 1.5.1: the buff's art on the player for dashArtSeconds on each dash
+		float              dashArtSeconds{ 2.0f };
+		RE::BGSSoundDescriptorForm* dashSound{ nullptr }; // 1.5.1: the buff's release sound at the player on each dash
 		// Draining Shroud (1.3.0): each absorb tick of its cloak proc on an enemy is a step towards a point of Darkness
 		RE::FormID         shroudProc{ 0 };
 		int                shroudTicksPerPoint{ 4 };
@@ -139,19 +144,38 @@ namespace
 				SKSE::log::info("spell {}: {:08X}, {} Darkness", name, spell->GetFormID(), cost);
 			}
 		}
+		if (j.contains("retiredSpells")) {
+			for (auto& s : j["retiredSpells"]) {
+				const auto name = s["name"].get<std::string>();
+				if (auto* spell = Lookup<RE::SpellItem>(s["plugin"].get<std::string>(), s["id"], name)) {
+					c.retiredSpells.push_back(spell);
+					SKSE::log::info("retired spell {}: {:08X} - removed from the player at every load", name, spell->GetFormID());
+				}
+			}
+		}
 		if (j.contains("nightblade")) {
 			auto& nb = j["nightblade"];
 			if (auto* proc = Lookup<RE::SpellItem>(nb["procPlugin"].get<std::string>(), nb["procId"], "Nightblade proc")) {
 				c.nightbladeProc = proc->GetFormID();
 			}
+			c.nightbladeFraction = nb.value("fraction", 1.0);   // 1.4.1: every dash spends this share, damage or not
 			if (nb.contains("damageSpell")) {
 				c.nightbladeDamage = Lookup<RE::SpellItem>(plugin, nb["damageSpell"], "Nightblade Darkness damage");
-				c.nightbladeFraction = nb["fraction"].get<double>();
 				c.nightbladePerPoint = nb["perPoint"].get<double>();
 			}
 			c.nightbladeRefund = nb.value("refund", 0);
 			c.nightbladeWindow = nb.value("window", 8.0);
-			SKSE::log::info("Nightblade: dash damage {}, kill within {:.0f} s refunds {} Darkness",
+			c.nightbladeFullOnly = nb.value("fullOnly", false);
+			if (nb.contains("dashArt")) {
+				c.dashArt = Lookup<RE::BGSArtObject>(nb["dashArtPlugin"].get<std::string>(), nb["dashArt"], "Nightblade dash art");
+				c.dashArtSeconds = nb.value("dashArtSeconds", 2.0f);
+			}
+			if (nb.contains("dashSound")) {
+				c.dashSound = Lookup<RE::BGSSoundDescriptorForm>(nb["dashSoundPlugin"].get<std::string>(), nb["dashSound"], "Nightblade dash sound");
+			}
+			SKSE::log::info("Nightblade: dash art {}, dash sound {}", c.dashArt ? "on" : "off", c.dashSound ? "on" : "off");
+			SKSE::log::info("Nightblade: a dash {}spends {:.0f}% of the Darkness, dash damage {}, kill within {:.0f} s refunds {} Darkness",
+				c.nightbladeFullOnly ? "needs a full meter and " : "", c.nightbladeFraction * 100.0,
 				c.nightbladeDamage ? "on" : "off", c.nightbladeWindow, c.nightbladeRefund);
 		}
 		if (j.contains("shroud")) {
@@ -498,6 +522,28 @@ namespace
 	};
 
 	// ---------------------------------------------------------------- Nightblade
+	// 1.5.1 (curator: "I still want the effects and sounds to play on dash"): the 60 s buff's Rift art and release
+	// sound, which left with the spell, on the player at each dash (the proc's own Blink arts and hit sounds still play)
+	void DashFx()
+	{
+		auto* player = Player();
+		if (!player) {
+			return;
+		}
+		if (g_cfg.dashArt) {
+			player->ApplyArtObject(g_cfg.dashArt, g_cfg.dashArtSeconds, nullptr, false, false, nullptr, false);
+		}
+		if (g_cfg.dashSound) {
+			RE::BSSoundHandle handle;
+			if (RE::BSAudioManager::GetSingleton()->GetSoundHandle(handle, g_cfg.dashSound) && handle.IsValid()) {
+				if (auto* root = player->Get3D()) {
+					handle.SetObjectToFollow(root);
+				}
+				handle.Play();
+			}
+		}
+	}
+
 	// The proc's own hit events (one per effect that lands) - one spend per target per DedupeWindow
 	std::map<RE::FormID, Clock::time_point> g_nightbladeHits;
 	constexpr double kNightbladeDedupe = 0.5;
@@ -561,20 +607,35 @@ namespace
 				g_dashTarget = target->GetFormID();
 				g_dashAt = now;
 			}
-			if (!c.nightbladeDamage) {
-				return RE::BSEventNotifyControl::kContinue;
-			}
 			auto& last = g_nightbladeHits[target->GetFormID()];
 			if (Seconds(now - last) < kNightbladeDedupe) {
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			last = now;
+			// 1.5.2: the proc is cast on the animation event PowerAttack_Start_End, which first-person light-attack
+			// clips carry too; the effects refuse (IsPowerAttacking condition) and so does the spend
+			if (auto* pl = Player(); pl && !pl->IsPowerAttacking()) {
+				SKSE::log::info("Nightblade: proc on {:08X} outside a power attack - no dash, nothing spent", target->GetFormID());
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			// 1.4.2: below a full meter the proc's effects do not apply (GetGlobalValue conditions), so nothing is spent
+			if (c.nightbladeFullOnly && g_dark < c.max) {
+				SKSE::log::info("Nightblade: proc on {:08X} with {} Darkness - no dash, nothing spent", target->GetFormID(), g_dark);
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			// 1.4.1 (curator: "1 dash costs all Darkness"): the spend happens on every dash, damage or not
 			const int spend = static_cast<int>(std::ceil(g_dark * c.nightbladeFraction));
 			if (spend <= 0) {
+				SKSE::log::info("Nightblade: dash on {:08X} with 0 Darkness - nothing to spend", target->GetFormID());
+				return RE::BSEventNotifyControl::kContinue;
+			}
+			SetDarkness(g_dark - spend, "Nightblade");
+			DashFx();   // 1.5.1
+			if (!c.nightbladeDamage) {
+				SKSE::log::info("Nightblade: dash on {:08X} spent {} Darkness", target->GetFormID(), spend);
 				return RE::BSEventNotifyControl::kContinue;
 			}
 			const float damage = static_cast<float>(spend * c.nightbladePerPoint);
-			SetDarkness(g_dark - spend, "Nightblade");
 			Player()->GetMagicCaster(RE::MagicSystem::CastingSource::kInstant)
 				->CastSpellImmediate(c.nightbladeDamage, false, target, 1.0f, false, damage, Player());
 			SKSE::log::info("Nightblade: {} Darkness -> {:.0f} damage on {:08X}", spend, damage, target->GetFormID());
@@ -827,6 +888,15 @@ namespace
 				g_fillTimer = g_drainTimer = 0.0;
 				SKSE::log::info("Darkness {} after {}", g_dark, new_game ? "a new game" : "a load");
 				Publish();
+				// 1.5.0: spells a talent used to grant (Nightblade's, now a passive) come off the player
+				if (auto* player = Player()) {
+					for (auto* spell : g_cfg.retiredSpells) {
+						if (player->HasSpell(spell)) {
+							player->RemoveSpell(spell);
+							SKSE::log::info("retired spell {:08X} '{}' removed from the player", spell->GetFormID(), spell->GetName());
+						}
+					}
+				}
 			});
 			break;
 		default:
@@ -838,7 +908,7 @@ namespace
 SKSE_PLUGIN_LOAD(const SKSE::LoadInterface* a_skse)
 {
 	SKSE::Init(a_skse);
-	SKSE::log::info("ZenProphecyDarkness 1.4.0 loading, runtime {}", REL::Module::get().version().string());
+	SKSE::log::info("ZenProphecyDarkness 1.5.2 loading, runtime {}", REL::Module::get().version().string());
 	REL::Relocation<std::uintptr_t> spellVtbl{ RE::VTABLE_SpellItem[0] };
 	AdjustCost::func = spellVtbl.write_vfunc(0x63, AdjustCost::thunk);
 	REL::Relocation<std::uintptr_t> casterVtbl{ RE::VTABLE_ActorMagicCaster[0] };

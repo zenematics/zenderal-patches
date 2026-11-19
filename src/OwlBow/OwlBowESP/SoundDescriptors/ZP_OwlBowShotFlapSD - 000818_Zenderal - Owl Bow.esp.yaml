@@ -1,0 +1,16 @@
+FormKey: 000818:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowShotFlapSD
+Type: Standard
+Category: 0172A1:Skyrim.esm
+SoundFiles:
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap1.wav
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap2.wav
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap3.wav
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap4.wav
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap5.wav
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap6.wav
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap7.wav
+- data\sound\fx\Zenderal\OwlBow\SnowveilShotFlap8.wav
+OutputModel: 0F1B1A:Skyrim.esm
+LoopAndRumble: {}
+Priority: 128

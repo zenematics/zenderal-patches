@@ -351,7 +351,7 @@ VirtualMachineAdapter:
       - "Your maximum Mana is increased by 25."
       - "Grants the \"Draining Shroud\" spell (4 Darkness): for 60 seconds, you absorb 10 Health per second from nearby enemies, and every 4 seconds of draining an enemy builds 1 Darkness."
       - "Your Mana regenerates 10 percent faster."
-      - "Grants the \"Nightblade\" spell (a full Darkness meter): for 60 seconds, your power attacks can reach targets up to 50 feet away, dashing you to them. The dash itself does no damage, but kill the enemy you dashed to within 8 seconds and you regain 3 Darkness."
+      - "While your Darkness meter is full, your power attacks reach targets up to 50 feet away, dashing you to them and spending the meter. The dash does no damage of its own; kill the enemy you dashed to within 8 seconds and you regain 3 Darkness."
       - "Your One-handed skill is increased by 10."
       - "While you sneak, your body is wrapped in black and grey mist, you are 50% harder to detect, and Darkness gathers twice as fast."
       - "Grants the \"Darkness\" spell (2 Darkness): a bolt that leaves a pool of black mist and darkness where it strikes for 30 seconds."
@@ -917,7 +917,6 @@ VirtualMachineAdapter:
       - 8
       - 41
       - 44
-      - 46
       - 50
       - 49
       - 99
@@ -974,8 +973,6 @@ VirtualMachineAdapter:
         Object: 3727BF:Triumvirate - Mage Archetypes.esp
       - Name: ''
         Object: 31C5C1:Triumvirate - Mage Archetypes.esp
-      - Name: ''
-        Object: 330A43:Triumvirate - Mage Archetypes.esp
       - Name: ''
         Object: 30D2A4:Triumvirate - Mage Archetypes.esp
       - Name: ''

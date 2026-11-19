@@ -29,6 +29,13 @@
  "veilMult": 2.0,
  "drainEvery": 4.0,
  "refusal": "Not enough Darkness.",
+ "retiredSpells": [
+  {
+   "name": "Nightblade (spell)",
+   "plugin": "Triumvirate - Mage Archetypes.esp",
+   "id": "330A43"
+  }
+ ],
  "spells": [
   {
    "name": "Gather Shadows",
@@ -45,17 +52,17 @@
    "freeFollowUps": false
   },
   {
-   "name": "Nightblade",
-   "plugin": "Triumvirate - Mage Archetypes.esp",
-   "id": "330A43",
-   "cost": "full",
-   "freeFollowUps": false
-  },
-  {
    "name": "Pull Through Shadows",
    "plugin": "Triumvirate - Mage Archetypes.esp",
    "id": "30D2A4",
    "cost": 3,
+   "freeFollowUps": false
+  },
+  {
+   "name": "Nightblade",
+   "plugin": "Triumvirate - Mage Archetypes.esp",
+   "id": "330A43",
+   "cost": "full",
    "freeFollowUps": false
   },
   {
@@ -89,6 +96,13 @@
  "nightblade": {
   "procPlugin": "Triumvirate - Mage Archetypes.esp",
   "procId": "335B4F",
+  "fraction": 1.0,
+  "fullOnly": true,
+  "dashArtPlugin": "Triumvirate - Mage Archetypes.esp",
+  "dashArt": "2FDF74",
+  "dashArtSeconds": 2.0,
+  "dashSoundPlugin": "Triumvirate - Mage Archetypes.esp",
+  "dashSound": "000D66",
   "refund": 3,
   "window": 8.0
  },

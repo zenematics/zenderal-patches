@@ -19,15 +19,93 @@ HalfCostPerk: 0C44C0:Skyrim.esm
 Effects:
 - BaseEffect: 335B4B:Triumvirate - Mage Archetypes.esp
   Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000AEA:Zenderal - Prophecy.esp
+    ComparisonValue: 10
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
 - BaseEffect: 335B4C:Triumvirate - Mage Archetypes.esp
   Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000AEA:Zenderal - Prophecy.esp
+    ComparisonValue: 10
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
 - BaseEffect: 335B4D:Triumvirate - Mage Archetypes.esp
   Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000AEA:Zenderal - Prophecy.esp
+    ComparisonValue: 10
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
 - BaseEffect: 335B4E:Triumvirate - Mage Archetypes.esp
   Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000AEA:Zenderal - Prophecy.esp
+    ComparisonValue: 10
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
 - BaseEffect: 335B51:Triumvirate - Mage Archetypes.esp
   Data:
     Magnitude: 0
     Duration: 1
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000AEA:Zenderal - Prophecy.esp
+    ComparisonValue: 10
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
 - BaseEffect: 381AFB:Triumvirate - Mage Archetypes.esp
   Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000AEA:Zenderal - Prophecy.esp
+    ComparisonValue: 10
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1

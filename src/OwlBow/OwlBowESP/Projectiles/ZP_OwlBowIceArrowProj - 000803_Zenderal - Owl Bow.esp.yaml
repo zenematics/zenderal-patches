@@ -1,0 +1,22 @@
+FormKey: 000803:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowIceArrowProj
+Version2: 11
+ObjectBounds:
+  First: -4, -299, -9
+  Second: 4, 0, 9
+Name:
+  TargetLanguage: English
+  Value: Ice Arrow
+Model:
+  File: Zenderal\OwlBow\IceArrowFlight.nif
+Type: Arrow
+Gravity: 0.35
+Speed: 3600
+Range: 60000
+Sound: 03F2B4:Skyrim.esm
+FadeDuration: 5
+ImpactForce: 1
+CollisionRadius: 0.5
+RelaunchInterval: 0.25
+MuzzleFlashModel: ''
+SoundLevel: 1

@@ -1,0 +1,41 @@
+FormKey: 000805:Zenderal - Caldera.esp
+EditorID: ZP_CalderaChargeMGEF
+VirtualMachineAdapter:
+  Scripts:
+  - Name: ZP_CalderaChargeScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: ChargedSound
+      Object: 000811:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Charges
+      Object: 000807:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: PlayerRef
+      Object: 000014:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TierAbility
+      Object: 000809:Zenderal - Caldera.esp
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TimeScale
+      Object: 00003A:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Caldera Charge
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: Touch
+DualCastScale: 1
+CastingSoundLevel: Silent
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''

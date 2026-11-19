@@ -1,0 +1,72 @@
+FormKey: 335B4D:Triumvirate - Mage Archetypes.esp
+EditorID: TVR_Shadow_Rift_Effect_Nightblade_2
+VirtualMachineAdapter:
+  Scripts:
+  - Name: TVR_Flash_Script
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: TVR_DistanceInFront
+      Data: -96
+    - MutagenObjectType: ScriptFloatProperty
+      Name: TVR_Speed
+      Data: 20000
+Name:
+  TargetLanguage: English
+  Value: Blink Front
+MenuDisplayObject: 2FDF85:Triumvirate - Mage Archetypes.esp
+Keywords:
+- 30D2AA:Triumvirate - Mage Archetypes.esp
+Flags:
+- SnapToNavmesh
+- NoMagnitude
+- NoArea
+- HideInUI
+CastingLight: 308186:Triumvirate - Mage Archetypes.esp
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+TargetType: TargetActor
+CastingArt: 2FDF84:Triumvirate - Mage Archetypes.esp
+DualCastScale: 1
+CastingSoundLevel: Normal
+Sounds:
+- Sound: 03F37A:Skyrim.esm
+- Type: Charge
+  Sound: 03EDD5:Skyrim.esm
+- Type: Ready
+  Sound: 03F1F0:Skyrim.esm
+- Type: Release
+  Sound: 025D9B:Triumvirate - Mage Archetypes.esp
+- Type: OnHit
+  Sound: 025D2A:Triumvirate - Mage Archetypes.esp
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetDeadConditionData
+- MutagenObjectType: ConditionGlobal
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetVATSFrontAreaFreeConditionData
+  ComparisonValue: 326821:Triumvirate - Mage Archetypes.esp
+- MutagenObjectType: ConditionFloat
+  CompareOperator: LessThan
+  Data:
+    MutagenObjectType: GetRelativeAngleConditionData
+    Axis: Z
+  ComparisonValue: 225
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetRelativeAngleConditionData
+    Axis: Z
+  ComparisonValue: 135
+- MutagenObjectType: ConditionFloat
+  CompareOperator: GreaterThanOrEqualTo
+  Data:
+    MutagenObjectType: GetDistanceConditionData
+  ComparisonValue: 192

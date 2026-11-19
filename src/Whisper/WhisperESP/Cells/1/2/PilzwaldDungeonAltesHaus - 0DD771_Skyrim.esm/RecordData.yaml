@@ -1,0 +1,48 @@
+FormKey: 0DD771:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 393216
+EditorID: PilzwaldDungeonAltesHaus
+SkyrimMajorRecordFlags:
+- Dangerous_OffLimits_InteriorCell
+- Compressed
+Name:
+  TargetLanguage: English
+  Value: Hideout
+Flags:
+- IsInteriorCell
+Lighting:
+  AmbientColor: '#00181E27'
+  DirectionalColor: '#00131311'
+  FogNearColor: '#00273231'
+  FogFar: 2800
+  FogClipDistance: 2500
+  FogPower: 0.7
+  AmbientColors:
+    DirectionalXPlus: '#00231E13'
+    DirectionalXMinus: '#001C1E12'
+    DirectionalYPlus: '#00201F13'
+    DirectionalYMinus: '#00201C13'
+    DirectionalZPlus: '#000F0E08'
+    DirectionalZMinus: '#00302D1D'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00537C8C'
+  FogMax: 1
+LightingTemplate: 0B2157:Skyrim.esm
+WaterHeight: 0
+Location: 0A1A15:Skyrim.esm
+Music: 0B3674:Skyrim.esm
+ImageSpace: 0A2687:Skyrim.esm
+Temporary:
+- MutagenObjectType: PlacedObject
+  FormKey: 000824:Zenderal - Whisper.esp
+  MajorRecordFlagsRaw: 536870912
+  SkyrimMajorRecordFlags:
+  - 0x20000000
+  Base: 000800:Zenderal - Whisper.esp
+  Placement:
+    Position: 737.16626, -540.05194, -469.78226
+    Rotation: 0, 0, 4.581593
+MajorFlags:
+- OffLimits
+- 0x40000

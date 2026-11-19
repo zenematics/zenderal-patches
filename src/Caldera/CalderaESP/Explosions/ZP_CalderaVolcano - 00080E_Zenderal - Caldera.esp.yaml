@@ -1,0 +1,16 @@
+FormKey: 00080E:Zenderal - Caldera.esp
+EditorID: ZP_CalderaVolcano
+ObjectBounds:
+  First: -5, -5, -5
+  Second: 5, 5, 5
+Model:
+  File: ApocNew\DestructionFire_Explosion_Pyroclasm.nif
+  Data: 0x020000000000000000000000
+Sound1: 000814:Zenderal - Caldera.esp
+ImpactDataSet: 026113:Skyrim.esm
+PlacedObject: 00080F:Zenderal - Caldera.esp
+Force: 128
+Radius: 64
+Flags:
+- 0x1
+- IgnoreImageSpaceSwap

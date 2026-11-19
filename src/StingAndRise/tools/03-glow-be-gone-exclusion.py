@@ -27,10 +27,12 @@ REL = os.path.join('SKSE', 'Plugins', 'GlowBeGoneSSE.toml')
 TARGET_MOD = 'Zenderal - Settings'
 SOURCE_MOD = 'Glow Be Gone Redone - NG'
 ME = 'Zenderal - Sting and Rise.esp'
-KEEP = [
-    ('000802', 'ZP_StingVenomEffect: Sting\'s poison coat (enchant art) needs its enchant shader'),
-    ('000806', 'ZP_RiseBurnEffect: Rise\'s flames (enchant art) need their enchant shader'),
-    ('00082B', 'ZP_StingWebbedEffect: the spiderling\'s web over the body is its hit shader'),
+OWL = 'Zenderal - Owl Bow.esp'
+KEEP = [   # (plugin, local id, why)
+    (ME, '000802', 'ZP_StingVenomEffect: Sting\'s poison coat (enchant art) needs its enchant shader'),
+    (ME, '000806', 'ZP_RiseBurnEffect: Rise\'s flames (enchant art) need their enchant shader'),
+    (ME, '00082B', 'ZP_StingWebbedEffect: the spiderling\'s web over the body is its hit shader'),
+    (OWL, '000806', 'ZP_OwlBowSlowEffect: the Owl Bow\'s snowfall (enchant art) needs its enchant shader'),
 ]
 
 
@@ -61,17 +63,17 @@ def main():
     nl = '\r\n' if '\r\n' in text else '\n'
     if 'RemoveWeaponFX = true' not in text:
         print('note: RemoveWeaponFX is not true in %s; the exclusion is harmless then' % src[0])
-    if ME in text:
-        sys.exit('%s already names %s - nothing to do' % (src[1], ME))
+    if ME in text or OWL in text:
+        sys.exit('%s already names %s / %s - nothing to do' % (src[1], ME, OWL))
     block = re.search(r'^MagicEffectExclusionList = \[(?:.*\r?\n)*?\]', text, re.M)
     if not block:
         sys.exit('no MagicEffectExclusionList in ' + src[1])
-    lines = ''.join('    "%s:%s",  # %s%s' % (ME, '00' + fid, note, nl) for fid, note in KEEP)
+    lines = ''.join('    "%s:%s",  # %s%s' % (plug, '00' + fid, note, nl) for plug, fid, note in KEEP)
     end = block.end() - 1                                   # the closing ]
     out = text[:end] + lines + text[end:]
-    assert out.count(ME) == len(KEEP)
+    assert out.count(ME) + out.count(OWL) == len(KEEP)
     dst = os.path.join(MO2, 'mods', TARGET_MOD, REL)
-    print('from %s\n  to %s\n  + %s' % (src[1], dst, '\n  + '.join('%s:00%s' % (ME, f) for f, _ in KEEP)))
+    print('from %s\n  to %s\n  + %s' % (src[1], dst, '\n  + '.join('%s:00%s' % (pl, f) for pl, f, _ in KEEP)))
     if dry:
         return
     os.makedirs(os.path.dirname(dst), exist_ok=True)

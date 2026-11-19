@@ -81,7 +81,7 @@ reads it in `ContactListener` while the main thread adds and removes, so it must
 `[WeaponReach] bLog = true` for the test: `Precision.log` must show `ZenUnarmedReach: weapons enable true, ...` at load,
 per swing `... blade N: capsule i at t (H above the feet), L units down`, and per target `... : hit` (rats, spiders) or
 `too tall, ignored` (humanoids). *Display weapon capsule* draws them in red under the blade. Set `bLog = false` once
-verified. The player and NPCs both get it (humanoid attackers), as with fists.
+verified. **`bLog = false` since 2026-11-16** (curator's call for the 0.9.9.4 compile; Patch Collection 2.5). The player and NPCs both get it (humanoid attackers), as with fists.
 
 Rebuild: apply `0001`, `0003` then `0004` to `upstream/` at `9ef45e0d8d`, run `build.cmd` (`0002` is the rolled-back
 ragdoll patch below, never applied). `0004` is the diff from the 0001 + 0003 tree.

@@ -1,0 +1,51 @@
+FormKey: 14B5A2:Skyrim.esm
+EditorID: ArkSternlingshausWerkstatt
+Version2: 6
+Name:
+  TargetLanguage: English
+  Value: Ark, Yerai's Workshop
+Flags:
+- IsInteriorCell
+- PublicArea
+Lighting:
+  AmbientColor: '#00000000'
+  DirectionalColor: '#00000000'
+  FogNearColor: '#00000000'
+  FogPower: 1
+  AmbientColors:
+    DirectionalXPlus: '#00221F20'
+    DirectionalXMinus: '#001B1F1D'
+    DirectionalYPlus: '#001F201F'
+    DirectionalYMinus: '#001F1D1F'
+    DirectionalZPlus: '#000E0E0E'
+    DirectionalZMinus: '#002F2F2F'
+    Specular: '#00000000'
+    Scale: 1
+  FogFarColor: '#00000000'
+  FogMax: 1
+  Inherits:
+  - AmbientColor
+  - DirectionalColor
+  - FogColor
+  - FogNear
+  - FogFar
+  - ClipDistance
+  - FogPower
+  - FogMax
+  - LightFadeDistances
+LightingTemplate: 0E7C5E:Skyrim.esm
+WaterHeight: 0
+Owner: 13378C:Skyrim.esm
+AcousticSpace: 0FD93A:Skyrim.esm
+Music: 13C973:Skyrim.esm
+ImageSpace: 0A2687:Skyrim.esm
+Persistent:
+- MutagenObjectType: PlacedObject
+  FormKey: 000806:Zenderal - Clockwork Thunder.esp
+  MajorRecordFlagsRaw: 1024
+  SkyrimMajorRecordFlags:
+  - 0x400
+  Base: 000800:Zenderal - Clockwork Thunder.esp
+  Placement:
+    Position: 14.479332, -274.1782, 109.27697
+    Rotation: 0, -1.5707963, 4.8607420

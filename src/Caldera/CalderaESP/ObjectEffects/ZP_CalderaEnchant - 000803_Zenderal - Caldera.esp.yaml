@@ -1,0 +1,64 @@
+FormKey: 000803:Zenderal - Caldera.esp
+EditorID: ZP_CalderaEnchant
+Name:
+  TargetLanguage: English
+  Value: Caldera
+EnchantmentCost: 1
+Flags:
+- NoAutoCalc
+CastType: FireAndForget
+EnchantmentAmount: 3000
+TargetType: Touch
+EnchantType: Enchantment
+Effects:
+- BaseEffect: 000804:Zenderal - Caldera.esp
+  Data:
+    Magnitude: 5
+    Duration: 6
+- BaseEffect: 000805:Zenderal - Caldera.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: LessThan
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000807:Zenderal - Caldera.esp
+    ComparisonValue: 8
+- BaseEffect: 000806:Zenderal - Caldera.esp
+  Data: {}
+  Conditions:
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsHostileToActorConditionData
+      TargetNpc: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    Data:
+      MutagenObjectType: IsPowerAttackingConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+    ComparisonValue: 1
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetGlobalValueConditionData
+      Global: 000807:Zenderal - Caldera.esp
+    ComparisonValue: 8
+  - MutagenObjectType: ConditionFloat
+    CompareOperator: GreaterThanOrEqualTo
+    Data:
+      MutagenObjectType: GetActorValueConditionData
+      RunOnType: Reference
+      Reference: 000014:Skyrim.esm
+      ActorValue: Magicka
+    ComparisonValue: 20

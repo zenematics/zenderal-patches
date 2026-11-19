@@ -1,0 +1,17 @@
+FormKey: 000805:Zenderal - Owl Bow.esp
+EditorID: ZP_OwlBowQuiver
+Name:
+  TargetLanguage: English
+  Value: Snowveil
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+Flags:
+- ManualCostCalc
+- IgnoreResistance
+- NoAbsorbOrReflect
+Type: Ability
+Effects:
+- BaseEffect: 000808:Zenderal - Owl Bow.esp
+  Data: {}

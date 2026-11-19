@@ -1,0 +1,37 @@
+FormKey: 00080D:Zenderal - Caldera.esp
+EditorID: ZP_CalderaBlastStagger
+Name:
+  TargetLanguage: English
+  Value: Eruption Stagger
+MenuDisplayObject: 04E264:Skyrim.esm
+Keywords:
+- 022839:Apocalypse - Magic of Skyrim.esp
+Flags:
+- Hostile
+- HideInUI
+- NoRecast
+BaseCost: 4.5
+MagicSkill: Destruction
+ResistValue: ResistFire
+TaperWeight: 0.3
+MinimumSkillLevel: 100
+SpellmakingArea: 2
+TaperCurve: 2
+TaperDuration: 1
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Stagger
+CastType: FireAndForget
+TargetType: Touch
+ImpactData: 01C2AF:Skyrim.esm
+SkillUsageMultiplier: 1
+DualCastScale: 1
+Sounds: []
+Description:
+  TargetLanguage: English
+  Value: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 000007:Skyrim.esm

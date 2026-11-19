@@ -1,0 +1,20 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: Zenderal - Owl Bow.esp
+GameRelease: EnderalSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Zenderal
+  Description: "A unique silver bow on Real Bows' Daedric bow (credit DecimusMaximus), its tips silver talons with silver feathers, its string white light. It needs no arrows: it looses arrows of ice that slow, and now and then freeze a weak enemy solid. Its mesh, textures and scripts ship in Zenderal - Patch Collection."
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  - Master: Update.esm
+    FileSize: 0
+  - Master: Enderal - Forgotten Stories.esm
+    FileSize: 0
+  INTV: 1

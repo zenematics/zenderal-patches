@@ -745,6 +745,17 @@ Extender. `tools/03` checks the numbers it writes on the item card against the s
   soul each 0.75 s), watch the eyes step up and the crystal blaze, then power-attack an enemy; the Papyrus log shows
   each soul and the release.
 
+## Placement (2026-11-15)
+
+The curator picked "Bodumir's Hideout" from a shortlist of three: REFR `824` in the Whisperwood (Whisper's namesake;
+cell `PilzwaldDungeonAltesHaus 0DD771`, "Hideout"), the hideout of **Bodumir Shadowdance** (level-23 unique mage) and an
+Entropist (17), **on the lower board of the shelf in Bodumir's room** (CommonShelf04 ref `0DE649`, a few steps from
+him; its top already holds two books and a meal, no gap for the axe). `tools/03`'s `place_record`, with Sting and
+Rise's `tools/surface.py`: the board at mesh z 16.81 (Skyrim 3D Furniture's copy, asserted present), the axe along the
+shelf (heading 4.582 = the shelf's 3.011 + pi/2), centred: position (737.17, -540.05, -469.78), 0.1 over the board
+(z -471.75), **Don't Havok Settle**. The cell header is **EGO's** (EGO wins it; it references only Skyrim.esm forms,
+so no EGO master), copied verbatim with its trailing MajorFlags. Unverified in game.
+
 ## Regenerate
 
 ```
