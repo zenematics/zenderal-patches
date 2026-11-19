@@ -270,6 +270,13 @@ X across; ×0.62 to world):
   Previous mesh in `E:/Zenderal-backups/2026-11-13-clockwork-thunder/before-lightning-tube/`. Built and deployed
   2026-11-15. **[unverified in game]**: whether the controllers animate on an equipped weapon / world model and how
   the glass sorts against the bolt.
+  - **No falloff (2026-11-19, curator's clip: "in first person ... inconsistent on if it shows or not").** Both
+    effect shaders had SLSF1 falloff (flag `0x40`, opacity 1 face-on → 0 at cos 0.3, about 17° off edge-on). Every
+    card contains the tube's axis, and the first-person eye looks nearly along it, so the cards sat close to edge-on
+    and faded in and out as the hold moved (the clip: an empty glass tube in every first-person frame). They now carry
+    `EFFECT_FLAGS1` = ZBuffer test only, falloff values 1. The bolt texture is additive on black, so a grazing card
+    shows only the bolt. The rebuilt mesh differs from the previous one in exactly those 14 bytes. Previous mesh in
+    `E:/Zenderal-backups/2026-11-19-clockwork-thunder/before-no-falloff/`. **[unverified in game]**
 - **Oval escutcheon removed** (curator 2026-11-13: "on the right side where the cogs are there's a gold panel
   underneath, just remove it so the cogs aren't overlapping on it"): Ordo's oval plate on the lock side of the
   forestock (its own welded piece, `OVAL_BOX`, 64 triangles) sat under the third and fourth cogs. It is dropped

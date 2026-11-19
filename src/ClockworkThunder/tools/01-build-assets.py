@@ -261,6 +261,7 @@ GLASS_ENV = 'textures\\cubemaps\\chrome_e.dds'
 GLASS_TINT = (0.80, 0.88, 0.95, 0.18)   # diffuse RGB + alpha
 BOLT_EMISSIVE = (0.72, 0.84, 1.0, 1.0)
 BOLT_SHAPE = 'ClockworkThunderBolt'
+EFFECT_FLAGS1 = 0x80000000   # ZBuffer test only: no falloff (see the effect shaders)
 GLOW_SHAPE = 'ClockworkThunderGlow'
 GLASS_SHAPE = 'ClockworkThunderGlass'
 ALPHA_ADDITIVE = 0x100D        # Bethesda's lightning (testlightninggeo.nif): src alpha, dest one
@@ -2216,9 +2217,12 @@ def main():
     GV, GN, GT, GUV = tube_glass(t_o, t_d, t_L)
     glass_shape = new_shape(GLASS_SHAPE, GV, GN, GT, GUV, nif.add_block('BSLightingShaderProperty', gshader),
                             nif.add_block('NiAlphaProperty', alpha_property(ALPHA_BLEND, 0)))
-    # effect shaders: SLSF1 ZBuffer test + falloff, SLSF2 double sided; no palette, no vertex colours
+    # effect shaders: SLSF1 ZBuffer test, SLSF2 double sided; no palette, no vertex colours. NO falloff (curator
+    # 2026-11-19: in first person the lightning came and went): every card contains the tube's axis, and in first
+    # person the eye looks nearly along it, so the falloff (flag 0x40, opacity 1 face-on -> 0 at cos 0.3) faded the
+    # cards to nothing as the hold moved; the bolt texture is additive on black, so grazing cards show only the bolt
     bolt_shader = nif.add_block('BSEffectShaderProperty', effect_shader(BOLT_TEX, BOLT_EMISSIVE, 3.0,
-                                                                        0x80000040, 0x10, (1.0, 0.3, 1.0, 0.0)))
+                                                                        EFFECT_FLAGS1, 0x10))
     bolt_ctl = add_float_controllers(nif, bolt_shader, [
         (6, 1.32, steps(1.32, [0.0, 0.5, 0.0, 0.5, 0.25, 0.5, 0.0, 0.75, 0.5, 0.0, 0.5], 0.12)),   # which bolt
         (8, 0.91, steps(0.91, [0.0, 0.37, 0.71, 0.18, 0.55, 0.86, 0.29], 0.13)),                # where along
@@ -2229,7 +2233,7 @@ def main():
     bolt_shape = new_shape(BOLT_SHAPE, BV_, BN_, BT_, BUV_, bolt_shader,
                            nif.add_block('NiAlphaProperty', alpha_property(ALPHA_ADDITIVE, 128)))
     glow_shader = nif.add_block('BSEffectShaderProperty', effect_shader(GLOW_TEX, BOLT_EMISSIVE, 0.8,
-                                                                        0x80000040, 0x10, (1.0, 0.3, 1.0, 0.0)))
+                                                                        EFFECT_FLAGS1, 0x10))
     glow_ctl = add_float_controllers(nif, glow_shader, [
         (8, 0.6, [(0.0, 0.0), (0.6, 1.0)]),                                                   # crawls along
         (0, 0.85, [(0.0, 0.8), (0.2, 1.4), (0.45, 0.5), (0.65, 1.2), (0.85, 0.8)]),
