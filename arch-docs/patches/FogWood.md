@@ -84,7 +84,8 @@ save carried an invisible Rogue and an unusable seat. Fixed the same day: both e
 load), the seat moved to the wall's front edge (`ROGUE_VERSION` 2), the player's return spot lowered to the ground, and a
 10 s idle tick that re-seats him and logs `ZFW: the Rogue at ...; sit state N (3 = sitting)` once per load when his cell
 is in. Deployed into Patch Collection; **unverified in game**: whether the AI sits him on a wall top with no navmesh is
-still the open question, and that line answers it.
+still the open question, and that line answers it. His three lines are text only so far (they flash by: no Fuz Ro D'oh
+in the list); the curator records them through Motion Array and `tools/03` turns the WAVs into his `.fuz` files.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -449,6 +450,16 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   really "not there"; the curator noticed. `EnsureRogue` now enables both whenever either is disabled, so the saves
   from those days heal on their next load. Rule: after a `PlaceAtMe` whose fourth argument is true, the `Enable()`
   goes on the next line.
+- **Voice (2026-11-19):** the curator asked for his lines to voice them (Motion Array); `tools/03-install-rogue-voice.py`
+  `--lines` prints the three (`take_1` *Then go. When you've had your fill of it, the stone in the wood is the only
+  road back.*; `what_1` *A stretch of pines where the fog never lifts, and whatever walks in it does not stay dead.*;
+  `what_2` *Nothing you kill there is worth a penny or a memory. It's a place to try a blade before the blade tries
+  you.*) and `--src <folder>` turns `take_1.wav`, `what_1.wav`, `what_2.wav` (any PCM WAV) into
+  `Sound\Voice\Zenderal - Fog Wood.esp\VT_Male_Bandit01\zfw_arena_zfw_rogue{take,what}top_0000082{3,6}_<n>.fuz` in
+  Patch Collection, through the Creation Kit's LipGenerator / xwmaencode / LIPFuzer with the records' own text
+  (`--silent` = silent placeholders of the reading time). The naming rule and the recipe:
+  [`workspace/voice-files.md`](../workspace/voice-files.md). Dry run passed on a test tone; awaiting the recordings.
+  If the wording changes in the recording, change the INFO text too: the lip sync is generated from it.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
