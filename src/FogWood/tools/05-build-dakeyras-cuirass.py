@@ -55,6 +55,18 @@ def main():
                 nif.blocks[i] = bytes(nb)
                 hidden.append((i, flags, flags | HIDDEN))
         assert len(hidden) == 1, (SOURCE % weight, 'mask shapes found:', hidden)
+        # and detached from its parent node, in case the engine ignores the flag on an armour shape (the first build's
+        # wrap was still on him, though SetOutfit alone may have been the cause; both are fixed at once)
+        mask_i = hidden[0][0]
+        detached = []
+        for i, b in enumerate(nif.blocks):
+            if nif.btype(i) not in ('NiNode', 'BSFadeNode'):
+                continue
+            _, kids = nifse.node_children(b)
+            if mask_i in kids:
+                nif.blocks[i] = bytes(nifse.set_children(b, [k for k in kids if k != mask_i]))
+                detached.append(i)
+        assert len(detached) == 1, ('parents of the mask shape:', detached)
         out = os.path.join(args.target, OUT_REL % weight)
         os.makedirs(os.path.dirname(out), exist_ok=True)
         data = nif.tobytes()

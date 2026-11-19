@@ -143,20 +143,22 @@ Int Property ROGUE_SEAT_ID = 0x06411B AutoReadOnly
 {InvisibleChairMarker (Skyrim.esm): the furniture his _DefaultSitLinkedRef package sits him in, placed on the wall.}
 Int Property ROGUE_ANCHOR_ID = 0x053B65 AutoReadOnly
 {Alchemist's Abandoned Camp map marker: a persistent Vyn ref 5,400 units from the seat, as the stone used one.}
-Float Property ROGUE_X = -80026.4 AutoReadOnly
-{The seat (curator, 2026-11-19: "make him sit on this rock"): on top of the boulder RockL05 0548FA (origin
- -80154.4, 42882.8, 1152.1, yaw 314.2 deg; crown at 1338, 300 across) beside the hay cart 12DABB on the road 540 units
- south-west of the Castle Bleakstar sign, cell WaldTuerme 001D6C. Hips at the crown's eastern edge, facing heading
- 105.0 (the road and the cart): the winning mesh's surface there is 1303 and drops 60 within 40 units ahead, so the
- lower legs hang over it; the chair marker's root is the sitter's feet, 32 below (scratchpad rock_seat.py, from
- the mesh). The LAND under that edge is about 1177: he sits some 95 above it, 130 above the road by the cart.}
-Float Property ROGUE_Y = 42826.2 AutoReadOnly
-Float Property ROGUE_Z = 1271.0 AutoReadOnly
-Float Property ROGUE_ANGLE = 105.0 AutoReadOnly
-Int Property ROGUE_VERSION = 3 AutoReadOnly
+Float Property ROGUE_X = -80200.8 AutoReadOnly
+{The seat (curator, 2026-11-19: "make him sit on this rock", then a drawing: the front-left of the rock seen from
+ the south, legs over the edge): on top of the boulder RockL05 0548FA (origin -80154.4, 42882.8, 1152.1, yaw 314.2
+ deg; crown at 1338, 300 across) beside the hay cart 12DABB on the road 540 units south-west of the Castle
+ Bleakstar sign, cell WaldTuerme 001D6C. Hips at the crown's south-west edge (102 units out from the crown centre
+ at heading 210: the winning mesh's surface there is 1310 and ends within 20 units ahead - a drop, so the lower
+ legs hang over it), facing 195.0, where the road and the curator's camera were; the chair marker's root is the
+ sitter's feet, 32 below the surface (scratchpad rock_seat.py, from the mesh).}
+Float Property ROGUE_Y = 42783.0 AutoReadOnly
+Float Property ROGUE_Z = 1277.6 AutoReadOnly
+Float Property ROGUE_ANGLE = 195.0 AutoReadOnly
+Int Property ROGUE_VERSION = 4 AutoReadOnly
 {Bump when ROGUE_X/Y/Z/ANGLE move: a save's Rogue and seat are moved to the new spot on the next load.
  1 = the fence base's top centre (-79196.0, 43197.1), placed disabled and never seen; 2 = its front edge, 50 along
- the wall (-79195.6, 43215.1, 1144.6, -47.4; log-verified sitting); 3 = the boulder by the hay cart.}
+ the wall (-79195.6, 43215.1, 1144.6, -47.4; log-verified sitting); 3 = the boulder's east edge facing the cart
+ (-80026.4, 42826.2, 1271.0, 105; seen sitting, "the wrong side"); 4 = its south-west edge facing the road.}
 String Property DAKEYRAS_PRESET = "Zen's Joseph Goatee" AutoReadOnly
 {The curator's RaceMenu preset (SKSE/Plugins/CharGen/Presets/<name>.jslot, shipped in Patch Collection): RaceMenu
  loads it onto him at runtime (CharGen.LoadCharacterPresetEx: head parts, every slider including RaceMenu-only
@@ -168,8 +170,15 @@ Int Property DAKEYRAS_FACE_VERSION = 1 AutoReadOnly
 Int Property ROGUE_OUTFIT_ID = 0x820 AutoReadOnly
 {OTFT ZFW_RogueOutfit; SetOutfit once per OUTFIT_VERSION, because an existing actor keeps the items his old outfit gave
  him (the hood, the cuirass with the mouth wrap) until the outfit is set again.}
-Int Property OUTFIT_VERSION = 1 AutoReadOnly
-{1 = Tracker set without the hood, the cuirass on the mask-hidden mesh copies (2026-11-19).}
+Int Property OUTFIT_VERSION = 2 AutoReadOnly
+{1 = Tracker set without the hood, the cuirass on the mask-hidden mesh copies (2026-11-19); 2 = the same, forced: the
+ old cuirass and hood taken off him and the new cuirass equipped (SetOutfit alone left the wrap on).}
+Int Property DAKEYRAS_CUIRASS_ID = 0x83B AutoReadOnly
+{ARMO ZFW_DakeyrasCuirass (tools/02): the Tracker cuirass on tools/05's mesh copies with the mouth wrap gone.}
+Int Property TRACKER_CUIRASS_ID = 0x0508C6 AutoReadOnly
+{_25E_LSet_PathfindersCuirass, with the wrap.}
+Int Property TRACKER_HOOD_ID = 0x0508CB AutoReadOnly
+{_25E_LSet_PathfinderHood.}
 Int Property GODMODE_GLOBAL_ID = 0x827 AutoReadOnly
 {GLOB ZFW_GodMode: 1 while god mode is on. No condition function reads god mode, so UpdateGodMode sets it when the
  dialogue menu opens (and each idle tick), and the Rogue's "Take me" topic answers with a refusal while it is 1
@@ -350,12 +359,17 @@ Function EnsureRogue()
 	EndIf
 	Actor dakeyras = RogueRef as Actor
 	dakeyras.SetGhost(True)                     ; no hit lands on him and no combat AI picks him (curator: never aggro'd)
-	If OutfitApplied != OUTFIT_VERSION
+	If OutfitApplied != OUTFIT_VERSION && RogueRef.Is3DLoaded()
 		Outfit o = Game.GetFormFromFile(ROGUE_OUTFIT_ID, PLUGIN_FILE) as Outfit
-		If o != None
-			dakeyras.SetOutfit(o)               ; an existing actor keeps his old outfit's items until this
+		Armor cuirass = Game.GetFormFromFile(DAKEYRAS_CUIRASS_ID, PLUGIN_FILE) as Armor
+		If o != None && cuirass != None
+			dakeyras.RemoveItem(Game.GetFormFromFile(TRACKER_CUIRASS_ID, "Skyrim.esm"), 99, True)   ; the cuirass with the wrap
+			dakeyras.RemoveItem(Game.GetFormFromFile(TRACKER_HOOD_ID, "Skyrim.esm"), 99, True)      ; the hood
+			dakeyras.SetOutfit(o)               ; a no-op when the record already names it (version 1 showed the wrap still on)
+			dakeyras.AddItem(cuirass, 1, True)
+			dakeyras.EquipItem(cuirass, False, True)
 			OutfitApplied = OUTFIT_VERSION
-			Debug.Trace("ZFW: Dakeyras' outfit set (version " + OUTFIT_VERSION + ")")
+			Debug.Trace("ZFW: Dakeyras' outfit set (version " + OUTFIT_VERSION + "); worn on the body: " + dakeyras.GetWornForm(0x00000004))
 		EndIf
 	EndIf
 	If !Running && RogueRef.Is3DLoaded() && !dakeyras.IsInCombat()
@@ -411,12 +425,12 @@ Function SeatRogue()
 EndFunction
 
 Function ReturnToRogue()
-	{The player back on the ground in front of Dakeyras: 200 units the way he faces (clear of the small rock 0548FC
-	 and the cart), where the cell's LAND is 1177, so 15 above it; the seat itself is 150 above the ground.}
+	{The player back on the ground in front of Dakeyras: 200 units the way he faces, where the cell's LAND is 1266,
+	 so 15 above it (the ground rises to the south-west: the seat is only 12 above the LAND there).}
 	EnsureGuide()
 	If RogueRef != None
 		PlayerRef.MoveTo(RogueRef)
-		PlayerRef.SetPosition(ROGUE_X + 200.0 * Math.sin(ROGUE_ANGLE), ROGUE_Y + 200.0 * Math.cos(ROGUE_ANGLE), ROGUE_Z - 79.2)
+		PlayerRef.SetPosition(ROGUE_X + 200.0 * Math.sin(ROGUE_ANGLE), ROGUE_Y + 200.0 * Math.cos(ROGUE_ANGLE), ROGUE_Z + 3.4)
 		PlayerRef.SetAngle(0.0, 0.0, ROGUE_ANGLE + 180.0)
 	EndIf
 EndFunction

@@ -541,7 +541,17 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   `_1` copy, first-person model Pretty's) + ARMO `ZFW_DakeyrasCuirass 0x83B` (the base cuirass minus set script, set
   enchantment and description) replace `0508C6` in outfit `0x820`; `SetOutfit` runs once per `OUTFIT_VERSION`
   because an existing actor keeps his old outfit's items (the hood was still his). Meshes in Patch Collection, not
-  committed; rerun `tools/05` after a Pretty update. Unverified in game.
+  committed; rerun `tools/05` after a Pretty update.
+- **Second look (22:41):** seated (the watchdog re-seated him 3 s after the load: the log), on the east edge, *the
+  wrong side of the rock*, and the wrap still on although `SetOutfit` had run. The curator's drawing: the front-left
+  of the rock seen from the south, legs over the edge, facing the viewer. `ROGUE_VERSION` 4: the seat at (-80200.8,
+  42783.0, 1277.6) facing 195 = the crown's south-west edge (102 units out at heading 210; the surface ends within
+  20 units ahead); the LAND rises to the south-west (1266 two hundred units out), so his feet are only 12 above it
+  there and the player returns 200 ahead at `ROGUE_Z + 3.4`. The wrap: `SetOutfit` with the outfit the record
+  already names changes nothing for an actor already wearing the old items, so `OUTFIT_VERSION` 2 takes the old
+  cuirass and hood off him by form (`RemoveItem`), sets the outfit, adds and equips the new cuirass, and logs what
+  is worn on the body; and `tools/05` now also detaches `BBHatMaskBCollar` from its parent node (in case the
+  engine ignored the Hidden flag on an armour shape; the file is 4 bytes shorter). Unverified in game.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
