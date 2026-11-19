@@ -86,9 +86,10 @@ load), the seat moved to the wall's front edge (`ROGUE_VERSION` 2), the player's
 is in. Deployed into Patch Collection; **unverified in game**: whether the AI sits him on a wall top with no navmesh is
 still the open question, and that line answers it. **Voiced the same evening:** the curator recorded his first three lines
 through Motion Array (MP3) and asked for *greeting and goodbyes, additional lore and lines for if a player has TGM*; he
-now has 15 lines (`0x827`-`0x838`, bullets below), the three recorded ones installed through `tools/03`, the other twelve
-as silent placeholders of their reading time until recorded. Plugin and script redeployed into Patch Collection.
-Unverified in game.
+now has 15 lines (`0x827`-`0x838`, bullets below). By the end of the evening the curator had recorded 14 of them (MP3) and
+reworded seven after recording (`who_1` became a 29 s monologue): the texts below are the final ones, the recordings are
+installed through `tools/03` with lip sync from those texts, and `walks_2` is a silent placeholder until recorded. Plugin
+and script redeployed into Patch Collection. Unverified in game.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -454,18 +455,24 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   from those days heal on their next load. Rule: after a `PlaceAtMe` whose fourth argument is true, the `Enable()`
   goes on the next line.
 - **More of him (2026-11-19, curator: greetings, goodbyes, lore, god mode):** three more top-level player topics
-  (`tools/02` `ROGUE_LORE`, branch / topic / INFO each): *Who are you?* `0x830`-`0x832` (*Nobody. I went into that fog
-  with eleven others, long ago, and came out alone.* / *Now I sit here and point. It's safer work.*), *What walks in
-  the fog?* `0x833`-`0x835` (*Everything Vyn has to offer with teeth or a blade. Lost Ones, Arps, goblins, wolves, men.
-  Worse, deeper in.* / *They come in waves, each thicker than the last. If you fall, the fog spits you out by the
-  stone. It doesn't keep you.*), *Is there anything to gain in there?* `0x836`-`0x838` (*Practice. The fog takes its
+  (`tools/02` `ROGUE_LORE`, branch / topic / INFO each): *Who are you?* `0x830`-`0x832` (*Me? A Hunter of sorts, tracked my prey a
+  little too far into the Fog... it was only then... I realised... I wasn't the one hunting... The Fog it's unnatural...
+  it changed me... Now I listen... Fog shifts, it beckons... I just point the way to those worthy of it... safer that
+  way I suppose... The woods are my home now, never much liked stone walls and people anyway.* / *It's not me you
+  should concern yourself with, I can take you to that which you seek.*), *What walks in the fog?* `0x833`-`0x835`
+  (*Everything Vyn has to offer with teeth or a blade. Lost Ones, Arps, goblins, wolves, men. Worse, deeper in.* /
+  *They come in waves, each thicker than the last. If you fall, the fog spits you out. I don't know what magic rests
+  within it, but my guess is... it gauges strength... awaiting a worthy challenger... Why else would it manifest such
+  entities within it, beckoning those with strength to tread deeper into its fog...*), *Is there anything to gain in
+  there?* `0x836`-`0x838` (*Practice. The fog takes its
   dead back, so there's no loot worth the name and nothing to remember them by.* / *There are caches, if you look.
   Potions, mostly. The fog is generous with those, and with nothing else.*). Hellos `ZFW_RogueHello 0x828` and
   goodbyes `ZFW_RogueBye 0x82C` are Misc topics on the quest (`ArkGenericDialogue_Hellos 132D46`'s shape: Category
   Misc, Subtype Hello/Goodbye, no branch), one INFO per line flagged Random (+ RandomEnd on the last) so he varies
-  them: *You've the look of someone who wants to get hurt.* / *The fog's still there. It always is.* / *Speak up. The
-  fog's not going anywhere, and neither am I.* (`0x829`-`0x82B`); *Mind the fog.* / *Come back with all your fingers.*
-  (`0x82D`-`0x82E`). **God mode:** no condition function reads it, so GLOB `ZFW_GodMode 0x827` is set by the script
+  them: *The mist's creeping in... what do you want?* / *The fog's still there... It always is.* / *The Fog's thick
+  tonight...* (`0x829`-`0x82B`); *Mind the fog.* / *Don't get lost in the woods now...* (`0x82D`-`0x82E`). The curator
+  reworded hello_1, hello_3, bye_2, who_1, who_2 and walks_2 (and hello_2's pause) after recording; my first drafts
+  are in the git history. Only punctuation was normalised (dot runs to three, apostrophes, a capital after `?`). **God mode:** no condition function reads it, so GLOB `ZFW_GodMode 0x827` is set by the script
   (`UpdateGodMode`, PO3 `GetGodMode`) when the dialogue menu opens (`RegisterForMenu("Dialogue Menu")`; an INFO's
   conditions run when the player picks the topic, a few frames later) and each idle tick; *Take me to the Fog Wood.*
   then answers with `ZFW_RogueTakeRefuseInfo 0x82F` (*No. The fog wants something it can take. Come back when you can
@@ -479,9 +486,13 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   Patch Collection, through the Creation Kit's LipGenerator / xwmaencode / LIPFuzer with the records' own text
   (`--silent` = silent placeholders of the reading time, so an unrecorded line's subtitle still stays up). The naming
   rule and the recipe: [`workspace/voice-files.md`](../workspace/voice-files.md). Installed 2026-11-19: the curator's
-  Motion Array recordings of `take_1`, `what_1`, `what_2` (the lip sync inside them is 7-11 KB of phonemes; a test
-  tone's was 75 bytes) and silent placeholders for the other twelve; rerun it with the new recordings in the same
-  folder. If the wording changes in a recording, change the INFO text too: the lip sync is generated from it.
+  Motion Array recordings of 14 lines (kept under their line names in `E:/Zenderal-backups/2026-11-19-rogue-voice`,
+  not committed; the lip sync inside them is 7-37 KB of phonemes, a test tone's was 75 bytes) and a silent placeholder
+  for `walks_2`; drop its recording in that folder and rerun. When a recording's wording differs from the INFO text,
+  change the text and rerun: the lip sync is generated from it. Finding the reworded ones without the author's text:
+  Windows' offline `System.Speech` dictation (`SpeechRecognitionEngine`, `SetInputToWaveFile` on a 16 kHz mono WAV)
+  is rough but enough to tell a changed line from an unchanged one; its `Recognize()` repeats the result until the
+  stream ends and then throws, so dedupe and catch.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
