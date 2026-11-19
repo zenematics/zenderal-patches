@@ -143,20 +143,20 @@ Int Property ROGUE_SEAT_ID = 0x06411B AutoReadOnly
 {InvisibleChairMarker (Skyrim.esm): the furniture his _DefaultSitLinkedRef package sits him in, placed on the wall.}
 Int Property ROGUE_ANCHOR_ID = 0x053B65 AutoReadOnly
 {Alchemist's Abandoned Camp map marker: a persistent Vyn ref 5,400 units from the seat, as the stone used one.}
-Float Property ROGUE_X = -79195.6 AutoReadOnly
-{The seat, on top of the fence base WRFenceBaseEnd01 032FEA (origin -79220.68, 43170.23, 1101.59, yaw 0.744 rad; 64
- thick, its top 75 above its origin = 106 above the ground, which is 1068-1073 round it) beside the FS road sign
- 0297A5/0297A6 (Fahlstern = Castle Bleakstar) at its near end, cell WaldTuerme 001D6C. In the wall's own frame the
- seat is (-12, 50, 75): 12 toward the road side, so the hips sit at the front edge and the lower legs hang in front
- of the stone instead of inside it, and 50 along, 47 from the sign board. The chair marker's root is the sitter's
- feet, so it sits 32 below the wall top (a chair's seat height), and he faces the wall's left normal (yaw - 90 deg),
- where the sign and the road are.}
-Float Property ROGUE_Y = 43215.1 AutoReadOnly
-Float Property ROGUE_Z = 1144.6 AutoReadOnly
-Float Property ROGUE_ANGLE = -47.4 AutoReadOnly
-Int Property ROGUE_VERSION = 2 AutoReadOnly
+Float Property ROGUE_X = -80026.4 AutoReadOnly
+{The seat (curator, 2026-11-19: "make him sit on this rock"): on top of the boulder RockL05 0548FA (origin
+ -80154.4, 42882.8, 1152.1, yaw 314.2 deg; crown at 1338, 300 across) beside the hay cart 12DABB on the road 540 units
+ south-west of the Castle Bleakstar sign, cell WaldTuerme 001D6C. Hips at the crown's eastern edge, facing heading
+ 105.0 (the road and the cart): the winning mesh's surface there is 1303 and drops 60 within 40 units ahead, so the
+ lower legs hang over it; the chair marker's root is the sitter's feet, 32 below (scratchpad rock_seat.py, from
+ the mesh). The LAND under that edge is about 1177: he sits some 95 above it, 130 above the road by the cart.}
+Float Property ROGUE_Y = 42826.2 AutoReadOnly
+Float Property ROGUE_Z = 1271.0 AutoReadOnly
+Float Property ROGUE_ANGLE = 105.0 AutoReadOnly
+Int Property ROGUE_VERSION = 3 AutoReadOnly
 {Bump when ROGUE_X/Y/Z/ANGLE move: a save's Rogue and seat are moved to the new spot on the next load.
- 1 = the top centre (-79196.0, 43197.1), placed disabled and never seen; 2 = the front edge, 50 along the wall.}
+ 1 = the fence base's top centre (-79196.0, 43197.1), placed disabled and never seen; 2 = its front edge, 50 along
+ the wall (-79195.6, 43215.1, 1144.6, -47.4; log-verified sitting); 3 = the boulder by the hay cart.}
 Int Property GODMODE_GLOBAL_ID = 0x827 AutoReadOnly
 {GLOB ZFW_GodMode: 1 while god mode is on. No condition function reads god mode, so UpdateGodMode sets it when the
  dialogue menu opens (and each idle tick), and the Rogue's "Take me" topic answers with a refusal while it is 1
@@ -352,12 +352,12 @@ Function SeatRogue()
 EndFunction
 
 Function ReturnToRogue()
-	{The player back on the road in front of the Rogue: 160 units the way he faces, where the ground is 1082, so 17
-	 above it (the seat is 72 above the ground; -20 dropped the player 42 units).}
+	{The player back on the ground in front of Dakeyras: 200 units the way he faces (clear of the small rock 0548FC
+	 and the cart), where the cell's LAND is 1177, so 15 above it; the seat itself is 150 above the ground.}
 	EnsureGuide()
 	If RogueRef != None
 		PlayerRef.MoveTo(RogueRef)
-		PlayerRef.SetPosition(ROGUE_X + 160.0 * Math.sin(ROGUE_ANGLE), ROGUE_Y + 160.0 * Math.cos(ROGUE_ANGLE), ROGUE_Z - 45.0)
+		PlayerRef.SetPosition(ROGUE_X + 200.0 * Math.sin(ROGUE_ANGLE), ROGUE_Y + 200.0 * Math.cos(ROGUE_ANGLE), ROGUE_Z - 79.2)
 		PlayerRef.SetAngle(0.0, 0.0, ROGUE_ANGLE + 180.0)
 	EndIf
 EndFunction

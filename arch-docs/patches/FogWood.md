@@ -509,9 +509,15 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   (preset loaded on the player, Sculpt tab, Export Head) and `tools/04-install-dakeyras-face.py --export <name>`
   copies `Exported/<name>.nif` + `.dds` to `FaceGeom`/`FaceTint\Zenderal - Fog Wood.esp\0000081F.*` in Patch
   Collection (not committed). The six custom morphs in the preset cannot live in the record; the export carries
-  them. The boulder: the curator's last save stood on `RockL05 0548FA` (crown 1338, 300 across, by the cart); the seat
-  spot is computed from the winning mesh's top surface (`scratchpad/rock_seat.py`, same convention as the wall:
-  hips at the edge, chair root 32 below) once the rock is confirmed. Voice type unchanged, so his 15 lines stay.
+  them. **The boulder** (confirmed by the curator: the one their last save stood on): `RockL05 0548FA` at
+  (-80154.4, 42882.8, 1152.1), yaw 314.2, crown 1338, 300 across, beside the hay cart `12DABB` on the road 540 units
+  south-west of the sign. `ROGUE_VERSION` 3: the seat at (-80026.4, 42826.2, 1271.0) facing 105 (the road and the
+  cart) = the crown's eastern edge on the list's winning mesh (PG Patcher's copy of ERM's RockL05), computed by
+  `scratchpad/rock_seat.py` the wall's way: hips 12 units inside the point where the surface falls 40, chair-marker
+  root 32 below the surface (1303), so the lower legs hang over a 60-unit drop; the LAND under that edge is ~1177.
+  `ReturnToRogue` now puts the player 200 units ahead of him at `ROGUE_Z - 79.2` (LAND 1176.8 there, clear of the
+  small rock `0548FC` and the cart). A save from before moves him on load. Voice type unchanged, so his 15 lines stay.
+  Plugin and script redeployed 2026-11-19 evening; the face still waits for the RaceMenu export (`tools/04`).
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
