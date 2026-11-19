@@ -83,8 +83,10 @@ and nothing enabled either (the stone's placement had its `Enable()`; his was dr
 save carried an invisible Rogue and an unusable seat. Fixed the same day: both enabled (existing saves too, on their next
 load), the seat moved to the wall's front edge (`ROGUE_VERSION` 2), the player's return spot lowered to the ground, and a
 10 s idle tick that re-seats him and logs `ZFW: the Rogue at ...; sit state N (3 = sitting)` once per load when his cell
-is in. Deployed into Patch Collection; **unverified in game**: whether the AI sits him on a wall top with no navmesh is
-still the open question, and that line answers it. **Voiced the same evening:** the curator recorded his first three lines
+is in. Deployed into Patch Collection. **The log answered it the same evening (18:46):** `ZFW: the Rogue moved to
+-79195.6, 43215.1, 1144.6 (version 2)` on load, then `ZFW: the Rogue at ...; sit state 3 (3 = sitting), 0.01 from the
+seat, package _DefaultSitLinkedRef, disabled False/False, linked TRUE`: the AI does sit an actor in a chair marker with
+no navmesh under it when he is moved onto it. Whether he *looks* right on the wall is the curator's call. **Voiced the same evening:** the curator recorded his first three lines
 through Motion Array (MP3) and asked for *greeting and goodbyes, additional lore and lines for if a player has TGM*; he
 now has 15 lines (`0x827`-`0x838`, bullets below). By the end of the evening the curator had recorded all 15 (MP3) and
 reworded seven after recording (`who_1` became a 29 s monologue): the texts below are the final ones and every recording
