@@ -76,7 +76,9 @@ ROGUE_LORE = (
       "Now I sit here and point. It's safer work."]),
     ('Walks', 'What walks in the fog?',
      ['Everything Vyn has to offer with teeth or a blade. Lost Ones, Arps, goblins, wolves, men. Worse, deeper in.',
-      "They come in waves, each thicker than the last. If you fall, the fog spits you out by the stone. It doesn't keep you."]),
+      "They come in waves, each thicker than the last. If you fall, the fog spits you out. I don't know what magic rests within it, "
+      "but my guess is... it gauges strength... awaiting a worthy challenger... Why else would it manifest such entities within it, "
+      "beckoning those with strength to tread deeper into its fog..."]),   # curator's own words, 2026-11-19
     ('Gain', 'Is there anything to gain in there?',
      ["Practice. The fog takes its dead back, so there's no loot worth the name and nothing to remember them by.",
       'There are caches, if you look. Potions, mostly. The fog is generous with those, and with nothing else.']),
