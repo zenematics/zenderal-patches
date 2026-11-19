@@ -410,7 +410,7 @@ are the cause, the fix is to make the spawns unable to hit each other (a perk on
 Damage` x0 against the arena faction does not stop the hit event; a cleaner route is a dedicated combat style
 or spacing the archers so the ring does not fire through itself).
 
-## The Rogue at the signpost (2026-11-15)
+## The Rogue at the signpost (2026-11-15) - Dakeyras since 2026-11-19
 
 The curator wanted a person instead of the Vyn stone: *a male Rogue wearing the Tracker armor, sat on a wall somewhere
 in Dark Valley, that you speak to*. Dark Valley is region `Jonas 0023A3` (123 Vyn cells; the Old Watermill, Bone Farm,
@@ -494,6 +494,24 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   Windows' offline `System.Speech` dictation (`SpeechRecognitionEngine`, `SetInputToWaveFile` on a 16 kHz mono WAV)
   is rough but enough to tell a changed line from an unchanged one; its `Recognize()` repeats the result until the
   stream ends and then throws, so dedupe and catch.
+- **Dakeyras (curator, 2026-11-19 evening):** *change his appearance to my preset "Zen's Joseph Goatee"*, *rename
+  him to: Dakeyras*, *remove the tracker helmet / mask too*, and *make him sit on this rock* (a screenshot of a boulder
+  by the hay cart 540 units south-west of the sign). The record (`tools/02` `DAKEYRAS_*`): Name Dakeyras; the Traits
+  template on the Highwayman face dropped; race Half Qyranian `013748` (the preset's face part is High Poly Head's
+  `00KLH_MaleHeadRedguard 000805`); the seven head parts, 18 NAM9 morphs, NAMA presets 9/1/15, skin-tone tint
+  (`#615349`, race tint index 1, also QNAM), weight 75 and head texture `SkinHeadMaleRedGuard20 05164B` read from the
+  `.jslot` in `overwrite/SKSE/Plugins/CharGen/Presets/` (a RaceMenu `formIdentifier` of an ESL carries the index
+  bits: *Beards of Power.esp|032974* is `000974`); a hair-colour record of his own, `ZFW_DakeyrasHair 0x839`
+  (`#1A1C1C`). The plugin masters `High Poly Head.esm`, `Beards of Power.esp` and `Brows.esp` since (Brows.esp will
+  not serialize in Spriggit 0.40 - its one brow record was read from the binary). Outfit `0x820` without the hood.
+  **The face needs facegen files**: a record alone draws dark and mismatched, and the preset's High Poly Head parts and
+  RaceMenu-only morphs (`CME_*`, `EFM_*`) only come out right from RaceMenu itself, so the curator exports the head
+  (preset loaded on the player, Sculpt tab, Export Head) and `tools/04-install-dakeyras-face.py --export <name>`
+  copies `Exported/<name>.nif` + `.dds` to `FaceGeom`/`FaceTint\Zenderal - Fog Wood.esp\0000081F.*` in Patch
+  Collection (not committed). The six custom morphs in the preset cannot live in the record; the export carries
+  them. The boulder: the curator's last save stood on `RockL05 0548FA` (crown 1338, 300 across, by the cart); the seat
+  spot is computed from the winning mesh's top surface (`scratchpad/rock_seat.py`, same convention as the wall:
+  hips at the edge, chair root 32 below) once the rock is confirmed. Voice type unchanged, so his 15 lines stay.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
@@ -562,7 +580,8 @@ an open design question, not a bug of this build.
 | `0x828`-`0x82B` | `ZFW_RogueHello` (Misc, HELO) + 3 Random greeting INFOs |
 | `0x82C`-`0x82E` | `ZFW_RogueBye` (Misc, GBYE) + 2 Random goodbye INFOs |
 | `0x82F` | `ZFW_RogueTakeRefuseInfo`: *Take me* with god mode on |
-| `0x830`-`0x838` | lore topics *Who are you?* / *What walks in the fog?* / *Is there anything to gain in there?* (branch / topic / INFO each); `0x839`-`0x84F` free |
+| `0x830`-`0x838` | lore topics *Who are you?* / *What walks in the fog?* / *Is there anything to gain in there?* (branch / topic / INFO each) |
+| `0x839` | CLFM `ZFW_DakeyrasHair` (the preset's near-black hair); `0x83A`-`0x84F` free |
 | `0x850`-`0x88F` | the 64 cells |
 | `0x8B0`-`0x8EF` | their 64 landscapes |
 | `0x910`-`0x933` | the 36 navmeshes |
