@@ -70,6 +70,28 @@ ROGUE_HELLOS = ["The mist's creeping in... what do you want?",   # hello_1 the c
                 "The Fog's thick tonight..."]   # hello_3 the curator's words, 2026-11-19
 ROGUE_BYES = ['Mind the fog.', "Don't get lost in the woods now..."]   # bye_2 the curator's words, 2026-11-19
 ROGUE_REFUSE = 'No. The fog wants something it can take. Come back when you can bleed.'
+# Dakeyras (curator, 2026-11-19: "change his appearance to my preset Zen's Joseph Goatee", "rename him to: Dakeyras"):
+# the preset's head parts, morphs, tints, weight and hair colour written into the record, Traits template gone; the
+# facegen mesh + tint come from a RaceMenu head export installed by tools/04 (a record alone gives a dark face).
+# Head parts as the .jslot lists them (an ESL's formIdentifier carries the index bits: Beards of Power 032974 = 000974).
+ID_DAKEYRAS_HAIR = 0x839                    # CLFM: the preset's hair colour 0x1A1C1C (near black)
+DAKEYRAS_RACE = '013748:Skyrim.esm'         # Half Qyranian (RedguardRace): the preset's face is HPH's 00KLH_MaleHeadRedguard
+DAKEYRAS_HEAD_PARTS = ['051631:Skyrim.esm',             # MaleMouthHumanoidDefault
+                       '000821:High Poly Head.esm',     # 00KLH_MarksMaleHumanoid01LeftGash (scar)
+                       '0DFC00:Skyrim.esm',             # HairMaleNord14
+                       '0F6F84:Skyrim.esm',             # MaleEyesHumanLightIceGreyBlindLeft
+                       '0033A2:Brows.esp',              # 01_Hverg_BrowsMaleHumanoid01_l
+                       '000805:High Poly Head.esm',     # 00KLH_MaleHeadRedguard (face)
+                       '000974:Beards of Power.esp']    # BoP_new_mustache_01b (goatee)
+DAKEYRAS_HEAD_TEXTURE = '05164B:Skyrim.esm'             # SkinHeadMaleRedGuard20
+DAKEYRAS_SKIN = '#00615349'                             # tint 0 SkinTone 0xFF615349 -> (97, 83, 73); also the body tint (QNAM)
+DAKEYRAS_WEIGHT = 75
+DAKEYRAS_MORPHS = [('NoseLongVsShort', 0.5), ('NoseUpVsDown', 0.0), ('JawUpVsDown', 0.08), ('JawNarrowVsWide', -1.0),
+                   ('JawForwardVsBack', 0.04), ('CheeksUpVsDown', 0.02), ('CheeksForwardVsBack', -0.7), ('EyesUpVsDown', 0.0),
+                   ('EyesInVsOut', -0.4), ('BrowsUpVsDown', -1.0), ('BrowsInVsOut', -0.4), ('BrowsForwardVsBack', -0.24),
+                   ('LipsUpVsDown', 0.66), ('LipsInVsOut', 0.16), ('ChinNarrowVsWide', 0.1), ('ChinUpVsDown', -0.4),
+                   ('ChinUnderbiteVsOverbite', 0.3), ('EyesForwardVsBack', -0.64)]   # NAM9 order = the .jslot's morphs.default
+DAKEYRAS_PARTS = (9, 1, 15)                             # NAMA nose / eyes / mouth presets (the .jslot's presets [9, -1, 1, 15])
 ROGUE_LORE = (
     ('Who', 'Who are you?',
      ["Me? A Hunter of sorts, tracked my prey a little too far into the Fog... it was only then... I realised... I wasn't the one "
@@ -90,7 +112,7 @@ ROGUE_SRC = os.path.join(ROOT, 'reference', 'base-2.1.4.4', 'EnderalFS', 'Npcs',
 ROGUE_FACE = '02A1BA' + ':Skyrim.esm'            # _03E_Bandit02Ranged_Range0800: the male Highwayman face the copy already borrows (own facegen)
 ROGUE_CLASS = '013180' + ':Skyrim.esm'           # CombatRogue
 ROGUE_PACKAGES = ['0DD723' + ':Skyrim.esm', '01B217' + ':Skyrim.esm']   # _DefaultSitLinkedRef (his seat, linked by the script), then a sandbox
-TRACKER_SET = ['0508C6' + ':Skyrim.esm', '0508C4' + ':Skyrim.esm', '0508C8' + ':Skyrim.esm', '0508CB' + ':Skyrim.esm']   # Set of the Tracker: cuirass, boots, gauntlets, hood
+TRACKER_SET = [k + ':Skyrim.esm' for k in ('0508C6', '0508C4', '0508C8')]   # Set of the Tracker: cuirass, boots, gauntlets (the hood 0508CB dropped 2026-11-19)
 # 0x80C (ZFW_Bosses) and 0x812 (ZFW_Elites) were the first arena's flat lists: retired, never reuse
 ID_PACKS = {1.0: (0x813, 'ZFW_PackFull'), 0.5: (0x814, 'ZFW_PackHalf'), 0.35: (0x815, 'ZFW_PackThird'), 0.7: (0x816, 'ZFW_PackMost')}
 # 0x80D ZFW_HealthPotions (was ZFW_Potions), 0x817 ZFW_ManaPotions
@@ -428,9 +450,10 @@ def winning_race(key):
 
 
 def rogue_yaml():
-    """The Rogue: _03E_BanditSunCoastDamCamp's record (already Traits-templated on a male Highwayman face, so no facegen
-    of our own is needed) with everything but the face made ours: essential and unique, no factions, no scripts, no loot,
-    unaggressive, the Tracker outfit, the sit-at-linked-ref package, the CombatRogue class."""
+    """Dakeyras (the Rogue until 2026-11-19): _03E_BanditSunCoastDamCamp's record with everything made ours: essential
+    and unique, no factions, no scripts, no loot, unaggressive, the Tracker outfit (no hood), the sit-at-linked-ref
+    package, the CombatRogue class, and the curator's preset as his face record (DAKEYRAS_*; the Traits template on
+    the Highwayman face is gone, so his facegen files must ship: tools/04)."""
     s = open(ROGUE_SRC, 'rb').read().decode('utf-8').replace('\r\n', '\n')
 
     def cut(block_re):
@@ -450,18 +473,27 @@ def rogue_yaml():
     cut(r'^VirtualMachineAdapter:\n(?:  .*\n)+')
     sub(r'^Configuration:\n', 'Configuration:\n  Flags:\n  - Essential\n  - Unique\n')
     sub(r'^    Level: 5$', '    Level: 10')
-    sub(r'^  TemplateFlags:\n(?:  - .*\n)+', '  TemplateFlags:\n  - Traits\n')
+    cut(r'^  TemplateFlags:\n(?:  - .*\n)+')
     cut(r'^Factions:\n(?:- .*\n|  .*\n)+')
     cut(r'^DeathItem: .*\n')
-    sub(r'^Template: .*$', 'Template: ' + ROGUE_FACE)
+    cut(r'^Template: .*\n')
+    sub(r'^Race: .*$', 'Race: ' + DAKEYRAS_RACE)
+    sub(r'^AttackRace: .*$', 'AttackRace: ' + DAKEYRAS_RACE)
+    sub(r'^HeadParts:\n(?:- .*\n)+', 'HeadParts:\n' + ''.join('- %s\n' % k for k in DAKEYRAS_HEAD_PARTS))
+    sub(r'^HairColor: .*$', 'HairColor: ' + fk(ID_DAKEYRAS_HAIR) + '\nHeadTexture: ' + DAKEYRAS_HEAD_TEXTURE)
+    sub(r'^Weight: .*$', 'Weight: %d' % DAKEYRAS_WEIGHT)
+    sub(r'^TextureLighting: .*$', "TextureLighting: '%s'" % DAKEYRAS_SKIN)
+    sub(r'^FaceMorph:\n(?:  .*\n)+', 'FaceMorph:\n' + ''.join('  %s: %s\n' % (k, repr(float(v))) for k, v in DAKEYRAS_MORPHS))
+    sub(r'^FaceParts:\n(?:  .*\n)+', 'FaceParts:\n  Nose: %d\n  Eyes: %d\n  Mouth: %d\n' % DAKEYRAS_PARTS)
+    sub(r'^TintLayers:\n(?:- .*\n|  .*\n)+', "TintLayers:\n- Index: 1\n  Color: '%s'\n  InterpolationValue: 1\n  Preset: -1\n" % DAKEYRAS_SKIN)
     cut(r'^Items:\n(?:- .*\n|  .*\n)+')
     sub(r'^AIData:\n(?:  .*\n)+', 'AIData:\n  Aggression: Unaggressive\n  Confidence: Cowardly\n  EnergyLevel: 50\n'
         '  Mood: Neutral\n  Assistance: HelpsNobody\n  AggroRadiusBehavior: False\n  Warn: 1300\n  WarnOrAttack: 800\n  Attack: 800\n')
     sub(r'^Packages:\n(?:- .*\n)+', 'Packages:\n' + ''.join('- %s\n' % k for k in ROGUE_PACKAGES))
     sub(r'^Class: .*$', 'Class: ' + ROGUE_CLASS)
-    sub(r'^Name:\n  TargetLanguage: English\n  Values:\n(?:  - .*\n|    .*\n)+', 'Name:\n  TargetLanguage: English\n  Value: Rogue\n')
+    sub(r'^Name:\n  TargetLanguage: English\n  Values:\n(?:  - .*\n|    .*\n)+', 'Name:\n  TargetLanguage: English\n  Value: Dakeyras\n')
     sub(r'^DefaultOutfit: .*$', 'DefaultOutfit: ' + fk(ID_ROGUE_OUTFIT))
-    assert 'Highwayman' not in s and '02F32B' not in s and (chr(10) + '  Values:') not in s, 'bandit data left in the Rogue'
+    assert 'Highwayman' not in s and '02F32B' not in s and '02A1BA' not in s and (chr(10) + '  Values:') not in s, 'bandit data left in the Rogue'
     lines = s.split('\n')
     while lines and lines[-1] == '':
         lines.pop()
@@ -548,7 +580,7 @@ def combat_override_packages(key, depth=0):
 
 
 def main():
-    for sub in ('Quests', 'Activators', 'Factions', 'FormLists', 'Globals', 'Messages', 'Npcs', 'Containers', 'Outfits',
+    for sub in ('Quests', 'Activators', 'Factions', 'FormLists', 'Globals', 'Messages', 'Npcs', 'Containers', 'Outfits', 'Colors',
                 'DialogBranches', 'DialogTopics'):
         if os.path.isdir(os.path.join(OUT, sub)):
             shutil.rmtree(os.path.join(OUT, sub))
@@ -686,6 +718,9 @@ def main():
     write(os.path.join(OUT, 'Outfits', 'ZFW_RogueOutfit - %06X_%s.yaml' % (ID_ROGUE_OUTFIT, PLUGIN)),
           ['FormKey: ' + fk(ID_ROGUE_OUTFIT), 'EditorID: ZFW_RogueOutfit', 'Items:'] + ['- ' + k for k in TRACKER_SET])
     write(os.path.join(OUT, 'Npcs', 'ZFW_Rogue - %06X_%s.yaml' % (ID_ROGUE, PLUGIN)), rogue_yaml())
+    write(os.path.join(OUT, 'Colors', 'ZFW_DakeyrasHair - %06X_%s.yaml' % (ID_DAKEYRAS_HAIR, PLUGIN)),
+          ['FormKey: ' + fk(ID_DAKEYRAS_HAIR), 'EditorID: ZFW_DakeyrasHair', 'Name:', '  TargetLanguage: English',
+           "  Value: Dakeyras' hair", "Color: '#001A1C1C'"])
     for branch, topic, info, tag, prompt, answers, fragment, godmode in (
             (ID_ROGUE_BRANCH_TAKE, ID_ROGUE_TOPIC_TAKE, ID_ROGUE_INFO_TAKE, 'Take', 'Take me to the Fog Wood.',
              ["Then go. When you've had your fill of it, the stone in the wood is the only road back."], 'ZFW_RogueTake', 0),
