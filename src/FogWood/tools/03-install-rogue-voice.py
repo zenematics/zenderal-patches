@@ -1,10 +1,9 @@
 """Voice the Rogue's three lines from the curator's recordings (Motion Array voice-over, 2026-11-19).
 
-The Rogue (NPC 0x81F, voice type VT_Male_Bandit01 088CEB) answers two player topics on the arena quest ZFW_Arena:
-    take_1   ZFW_RogueTakeTopic / ZFW_RogueTakeInfo 0x823, response 1
-    what_1   ZFW_RogueWhatTopic / ZFW_RogueWhatInfo 0x826, response 1
-    what_2   ZFW_RogueWhatTopic / ZFW_RogueWhatInfo 0x826, response 2
-Each needs a .fuz (xWMA audio + FaceFX lip sync) at
+The Rogue (NPC 0x81F, voice type VT_Male_Bandit01 088CEB) speaks on the arena quest ZFW_Arena: five player topics
+(Take me / What is it / Who are you / What walks in the fog / Anything to gain), the god-mode refusal on "Take me",
+three random hellos and two goodbyes - 15 lines, LINES below (recording name -> INFO EditorID + response number;
+--lines prints them with their texts). Each needs a .fuz (xWMA audio + FaceFX lip sync) at
     Sound\\Voice\\Zenderal - Fog Wood.esp\\VT_Male_Bandit01\\<quest[:10]>_<topic[:25 - len(quest[:10])]>_<00 + local ID>_<n>.fuz
 The engine builds that name from the quest EditorID cut to 10 characters, the topic EditorID cut so both make 25, and
 the response's FormID with the plugin index as 00 (measured on 219 of Enderal's own files in L - Voices.bsa: quest
@@ -17,10 +16,11 @@ Pipeline, all from the Creation Kit install (tools.json papyrusCompiler's Root/T
 
 Usage:
     python src/FogWood/tools/03-install-rogue-voice.py --lines              # print the lines to record
-    python src/FogWood/tools/03-install-rogue-voice.py --src <folder>       # take_1.wav, what_1.wav, what_2.wav
+    python src/FogWood/tools/03-install-rogue-voice.py --src <folder>       # <name>.wav or <name>.mp3 per line
         [--silent]        a line with no recording gets a silent .fuz of its reading time (subtitle stays up)
         [--target <MO2 mod folder>]   default <modlistRoot>/mods/Zenderal - Patch Collection
-WAV only (PCM 8/16/24/32-bit, any rate, mono or stereo): Motion Array's WAV export, not its MP3.
+WAV (PCM 8/16/24/32-bit, any rate, mono or stereo) is read directly; MP3/M4A/OGG/FLAC through imageio-ffmpeg's
+bundled ffmpeg (installed here; Motion Array exports MP3).
 """
 import argparse
 import glob
@@ -46,11 +46,24 @@ LIPFUZER = os.path.join(CK_TOOLS, 'LipGen', 'LipFuzer', 'LIPFuzer.exe')
 XWMAENCODE = os.path.join(CK_TOOLS, 'Audio', 'xwmaencode.exe')
 PLUGIN = 'Zenderal - Fog Wood.esp'
 VOICE_TYPE = 'VT_Male_Bandit01'
-LINES = {                                   # recording name -> (topic EditorID, response number)
-    'take_1': ('ZFW_RogueTakeTopic', 1),
-    'what_1': ('ZFW_RogueWhatTopic', 1),
-    'what_2': ('ZFW_RogueWhatTopic', 2),
+LINES = {                                   # recording name -> (INFO EditorID, response number)
+    'take_1': ('ZFW_RogueTakeInfo', 1),       # Take me to the Fog Wood.
+    'tgm_1': ('ZFW_RogueTakeRefuseInfo', 1),  #   ... with god mode on
+    'what_1': ('ZFW_RogueWhatInfo', 1),       # What is the Fog Wood?
+    'what_2': ('ZFW_RogueWhatInfo', 2),
+    'who_1': ('ZFW_RogueWhoInfo', 1),         # Who are you?
+    'who_2': ('ZFW_RogueWhoInfo', 2),
+    'walks_1': ('ZFW_RogueWalksInfo', 1),     # What walks in the fog?
+    'walks_2': ('ZFW_RogueWalksInfo', 2),
+    'gain_1': ('ZFW_RogueGainInfo', 1),       # Is there anything to gain in there?
+    'gain_2': ('ZFW_RogueGainInfo', 2),
+    'hello_1': ('ZFW_RogueHelloInfo1', 1),    # greetings (random)
+    'hello_2': ('ZFW_RogueHelloInfo2', 1),
+    'hello_3': ('ZFW_RogueHelloInfo3', 1),
+    'bye_1': ('ZFW_RogueByeInfo1', 1),        # goodbyes (random)
+    'bye_2': ('ZFW_RogueByeInfo2', 1),
 }
+SOURCE_EXTS = ('.wav', '.mp3', '.m4a', '.ogg', '.flac')   # anything but WAV goes through imageio-ffmpeg's ffmpeg
 RATE = 44100
 
 
@@ -65,23 +78,32 @@ def load_lines():
     for f in glob.glob(os.path.join(ESP_DIR, 'Quests', '*.yaml')):
         t = open(f, encoding='utf-8').read()
         quests[read_yaml_scalar(t, 'FormKey')] = read_yaml_scalar(t, 'EditorID')
-    topics = {}
+    infos = {}
     for d in glob.glob(os.path.join(ESP_DIR, 'DialogTopics', '*')):
         t = open(os.path.join(d, 'RecordData.yaml'), encoding='utf-8').read()
-        edid = read_yaml_scalar(t, 'EditorID')
-        responses = {}
+        topic, quest = read_yaml_scalar(t, 'EditorID'), quests[read_yaml_scalar(t, 'Quest')]
         for r in glob.glob(os.path.join(d, 'Responses', '*.yaml')):
             rt = open(r, encoding='utf-8').read()
             local = int(read_yaml_scalar(rt, 'FormKey').split(':')[0], 16)
-            for n, value in re.findall(r"ResponseNumber: (\d+)\n(?:.*\n)*?\s+Value: '((?:[^']|'')*)'", rt):
-                responses[int(n)] = (local, value.replace("''", "'"))
-        topics[edid] = (quests[read_yaml_scalar(t, 'Quest')], responses)
+            texts = {int(n): value.replace("''", "'")
+                     for n, value in re.findall(r"ResponseNumber: (\d+)\n(?:.*\n)*?\s+Value: '((?:[^']|'')*)'", rt)}
+            infos[read_yaml_scalar(rt, 'EditorID')] = (quest, topic, local, texts)
     out = {}
-    for name, (topic, n) in LINES.items():
-        quest, responses = topics[topic]
-        local, text = responses[n]
-        out[name] = (quest, topic, local, n, text)
+    for name, (info, n) in LINES.items():
+        quest, topic, local, texts = infos[info]
+        out[name] = (quest, topic, local, n, texts[n])
     return out
+
+
+def decode_to_wav(src, dst):
+    """MP3 (or anything ffmpeg reads) -> 44.1 kHz 16-bit mono WAV through imageio-ffmpeg's bundled ffmpeg."""
+    try:
+        import imageio_ffmpeg
+    except ImportError:
+        raise SystemExit('%s is not a WAV and imageio-ffmpeg is not installed to decode it (pip install imageio-ffmpeg)' % src)
+    run([imageio_ffmpeg.get_ffmpeg_exe(), '-y', '-hide_banner', '-loglevel', 'error', '-i', src,
+         '-ac', '1', '-ar', str(RATE), '-sample_fmt', 's16', dst], cwd=os.path.dirname(dst))
+    return dst
 
 
 def voice_name(quest, topic, local, n):
@@ -158,7 +180,7 @@ def main():
     args = ap.parse_args()
     lines = load_lines()
     if args.lines or not args.src:
-        print('The Rogue (VT_Male_Bandit01). Record each as <name>.wav:\n')
+        print('The Rogue (VT_Male_Bandit01). Record each as <name>.wav or <name>.mp3:\n')
         for name, (quest, topic, local, n, text) in lines.items():
             print('%-7s  %s\n         -> Sound\\Voice\\%s\\%s\\%s.fuz\n' % (name, text, PLUGIN, VOICE_TYPE, voice_name(quest, topic, local, n)))
         if not args.src:
@@ -171,9 +193,10 @@ def main():
     work = tempfile.mkdtemp(prefix='rogue_voice_')
     done = 0
     for name, (quest, topic, local, n, text) in lines.items():
-        src = os.path.join(args.src, name + '.wav')
-        if os.path.isfile(src):
-            data, fmt = load_wav_mono_44k(src)
+        src = next((p for p in (os.path.join(args.src, name + ext) for ext in SOURCE_EXTS) if os.path.isfile(p)), None)
+        if src:
+            wav = src if src.lower().endswith('.wav') else decode_to_wav(src, os.path.join(work, name + '_src.wav'))
+            data, fmt = load_wav_mono_44k(wav)
             how = '%s (%d ch, %d-bit, %d Hz, %.1f s)' % (os.path.basename(src), fmt[0], fmt[1] * 8, fmt[2], len(data) / float(RATE))
         elif args.silent:
             seconds = 0.6 + 0.07 * len(text)          # the subtitle's reading time

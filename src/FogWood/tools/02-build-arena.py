@@ -56,6 +56,31 @@ ID_RUN_MSG = 0x81E                    # the stone during a run: call the next wa
 ID_ROGUE, ID_ROGUE_OUTFIT = 0x81F, 0x820
 ID_ROGUE_BRANCH_TAKE, ID_ROGUE_TOPIC_TAKE, ID_ROGUE_INFO_TAKE = 0x821, 0x822, 0x823
 ID_ROGUE_BRANCH_WHAT, ID_ROGUE_TOPIC_WHAT, ID_ROGUE_INFO_WHAT = 0x824, 0x825, 0x826
+# More of him (curator, 2026-11-19: "greeting and goodbyes, additional lore and lines for if a player has TGM"):
+# GLOB ZFW_GodMode is set by the script when the dialogue menu opens (PO3 GetGodMode; no condition function reads god
+# mode), and the "Take me" topic answers with a refusal while it is 1. Hellos/goodbyes are Misc topics (HELO/GBYE) on
+# the quest, their INFOs Random; three more player topics carry the lore.
+ID_GODMODE = 0x827
+ID_ROGUE_TOPIC_HELLO, ID_ROGUE_INFO_HELLO = 0x828, (0x829, 0x82A, 0x82B)
+ID_ROGUE_TOPIC_BYE, ID_ROGUE_INFO_BYE = 0x82C, (0x82D, 0x82E)
+ID_ROGUE_INFO_TAKE_REFUSE = 0x82F
+ID_ROGUE_LORE = {'Who': (0x830, 0x831, 0x832), 'Walks': (0x833, 0x834, 0x835), 'Gain': (0x836, 0x837, 0x838)}   # branch, topic, info
+ROGUE_HELLOS = ["You've the look of someone who wants to get hurt.",
+                "The fog's still there. It always is.",
+                "Speak up. The fog's not going anywhere, and neither am I."]
+ROGUE_BYES = ['Mind the fog.', 'Come back with all your fingers.']
+ROGUE_REFUSE = 'No. The fog wants something it can take. Come back when you can bleed.'
+ROGUE_LORE = (
+    ('Who', 'Who are you?',
+     ['Nobody. I went into that fog with eleven others, long ago, and came out alone.',
+      "Now I sit here and point. It's safer work."]),
+    ('Walks', 'What walks in the fog?',
+     ['Everything Vyn has to offer with teeth or a blade. Lost Ones, Arps, goblins, wolves, men. Worse, deeper in.',
+      "They come in waves, each thicker than the last. If you fall, the fog spits you out by the stone. It doesn't keep you."]),
+    ('Gain', 'Is there anything to gain in there?',
+     ["Practice. The fog takes its dead back, so there's no loot worth the name and nothing to remember them by.",
+      'There are caches, if you look. Potions, mostly. The fog is generous with those, and with nothing else.']),
+)
 ROGUE_SRC = os.path.join(ROOT, 'reference', 'base-2.1.4.4', 'EnderalFS', 'Npcs',
                          '_03E_BanditSunCoastDamCamp - 02F435_Enderal - Forgotten Stories.esm.yaml')   # a Traits-templated male bandit: the copy
 ROGUE_FACE = '02A1BA' + ':Skyrim.esm'            # _03E_Bandit02Ranged_Range0800: the male Highwayman face the copy already borrows (own facegen)
@@ -450,19 +475,31 @@ def dialog_topic(local, edid, prompt, branch):
             'Branch: ' + fk(branch), 'Quest: ' + fk(ID_QUEST), 'SubtypeName: CUST']
 
 
-def dialog_info(local, edid, lines, fragment=None):
-    """The Rogue's answer(s) to a topic, spoken only by him (GetIsID); fragment = a TopicInfo script run when the line ends."""
+def misc_topic(local, edid, subtype, subtype_name):
+    """A Hello/Goodbye topic on the quest (ArkGenericDialogue_Hellos 132D46's shape: Category Misc, no branch)."""
+    return ['FormKey: ' + fk(local), 'EditorID: ' + edid, 'Name:', '  TargetLanguage: English', '  Value: ' + edid,
+            'Quest: ' + fk(ID_QUEST), 'Category: Misc', 'Subtype: ' + subtype, 'SubtypeName: ' + subtype_name]
+
+
+def dialog_info(local, edid, lines, fragment=None, flags=(), previous=None, godmode=None):
+    """The Rogue's answer(s) to a topic, spoken only by him (GetIsID); fragment = a TopicInfo script run when the line ends;
+    flags = INFO flags (Random / RandomEnd group consecutive hellos); previous = the INFO before this one in the topic;
+    godmode = 0/1 adds GetGlobalValue ZFW_GodMode == that (the "Take me" answer vs its refusal)."""
     out = ['FormKey: ' + fk(local), 'EditorID: ' + edid]
     if fragment:
         out += ['VirtualMachineAdapter:', '  Scripts:', '  - Name: ' + fragment, '    Properties:'] + obj('Arena', fk(ID_QUEST)) + [
             '  ScriptFragments:', '    MutagenObjectType: ScriptFragments', '    FileName: ' + fragment, '    OnEnd:',
             '      ExtraBindDataVersion: 1', '      ScriptName: ' + fragment, '      FragmentName: Fragment_0']
-    out += ['Flags: {}', 'PreviousDialog: Null', 'FavorLevel: None', 'Responses:']
+    out += (['Flags:', '  Flags:'] + ['  - ' + f for f in flags]) if flags else ['Flags: {}']
+    out += ['PreviousDialog: ' + (fk(previous) if previous else 'Null'), 'FavorLevel: None', 'Responses:']
     for n, text in enumerate(lines, 1):
         out += ['- EmotionValue: 50', '  ResponseNumber: %d' % n, '  Unknown2: 0x000000', '  Flags:', '  - UseEmotionAnimation',
                 '  Unknown3: 0x000000', '  Text:', '    TargetLanguage: English', '    Value: ' + quoted(text), "  ScriptNotes: ''", "  Edits: ''"]
     out += ['Conditions:', '- MutagenObjectType: ConditionFloat', '  Data:', '    MutagenObjectType: GetIsIDConditionData',
             '    Object: ' + fk(ID_ROGUE), '  ComparisonValue: 1']
+    if godmode is not None:
+        out += ['- MutagenObjectType: ConditionFloat', '  Data:', '    MutagenObjectType: GetGlobalValueConditionData',
+                '    Global: ' + fk(ID_GODMODE), '  ComparisonValue: %d' % godmode]
     return out
 
 
@@ -624,7 +661,8 @@ def main():
 
     # shorts, so <Global=...> text replacement prints whole numbers
     write(os.path.join(OUT, 'FormLists', 'ZFW_Persist - %06X_%s.yaml' % (ID_PERSIST, PLUGIN)), formlist(ID_PERSIST, 'ZFW_Persist', []))
-    for local, edid in ((ID_BEST, 'ZFW_BestWave'), (ID_WAVE, 'ZFW_CurrentWave'), (ID_WAVE_SIZE, 'ZFW_WaveSize'), (ID_QUEST_VERSION, 'ZFW_QuestVersion')):
+    for local, edid in ((ID_BEST, 'ZFW_BestWave'), (ID_WAVE, 'ZFW_CurrentWave'), (ID_WAVE_SIZE, 'ZFW_WaveSize'), (ID_QUEST_VERSION, 'ZFW_QuestVersion'),
+                        (ID_GODMODE, 'ZFW_GodMode')):
         write(os.path.join(OUT, 'Globals', '%s - %06X_%s.yaml' % (edid, local, PLUGIN)),
               ['MutagenObjectType: GlobalShort', 'FormKey: ' + fk(local), 'EditorID: ' + edid, 'Data: 0'])
 
@@ -644,17 +682,34 @@ def main():
     write(os.path.join(OUT, 'Outfits', 'ZFW_RogueOutfit - %06X_%s.yaml' % (ID_ROGUE_OUTFIT, PLUGIN)),
           ['FormKey: ' + fk(ID_ROGUE_OUTFIT), 'EditorID: ZFW_RogueOutfit', 'Items:'] + ['- ' + k for k in TRACKER_SET])
     write(os.path.join(OUT, 'Npcs', 'ZFW_Rogue - %06X_%s.yaml' % (ID_ROGUE, PLUGIN)), rogue_yaml())
-    for branch, topic, info, tag, prompt, answers, fragment in (
+    for branch, topic, info, tag, prompt, answers, fragment, godmode in (
             (ID_ROGUE_BRANCH_TAKE, ID_ROGUE_TOPIC_TAKE, ID_ROGUE_INFO_TAKE, 'Take', 'Take me to the Fog Wood.',
-             ["Then go. When you've had your fill of it, the stone in the wood is the only road back."], 'ZFW_RogueTake'),
+             ["Then go. When you've had your fill of it, the stone in the wood is the only road back."], 'ZFW_RogueTake', 0),
             (ID_ROGUE_BRANCH_WHAT, ID_ROGUE_TOPIC_WHAT, ID_ROGUE_INFO_WHAT, 'What', 'What is the Fog Wood?',
              ['A stretch of pines where the fog never lifts, and whatever walks in it does not stay dead.',
-              "Nothing you kill there is worth a penny or a memory. It's a place to try a blade before the blade tries you."], None)):
+              "Nothing you kill there is worth a penny or a memory. It's a place to try a blade before the blade tries you."], None, None)) + tuple(
+            (ids[0], ids[1], ids[2], tag, prompt, answers, None, None) for tag, prompt, answers in ROGUE_LORE for ids in [ID_ROGUE_LORE[tag]]):
         write(os.path.join(OUT, 'DialogBranches', 'ZFW_Rogue%sBranch - %06X_%s.yaml' % (tag, branch, PLUGIN)),
               dialog_branch(branch, 'ZFW_Rogue%sBranch' % tag, topic))
         tdir = os.path.join(OUT, 'DialogTopics', 'ZFW_Rogue%sTopic - %06X_%s' % (tag, topic, PLUGIN))
         write(os.path.join(tdir, 'RecordData.yaml'), dialog_topic(topic, 'ZFW_Rogue%sTopic' % tag, prompt, branch))
-        write(os.path.join(tdir, 'Responses', 'ZFW_Rogue%sInfo - %06X_%s.yaml' % (tag, info, PLUGIN)), dialog_info(info, 'ZFW_Rogue%sInfo' % tag, answers, fragment))
+        write(os.path.join(tdir, 'Responses', 'ZFW_Rogue%sInfo - %06X_%s.yaml' % (tag, info, PLUGIN)),
+              dialog_info(info, 'ZFW_Rogue%sInfo' % tag, answers, fragment, godmode=godmode))
+    # god mode on: the "Take me" topic answers with the refusal instead (no fragment, so no run)
+    tdir = os.path.join(OUT, 'DialogTopics', 'ZFW_RogueTakeTopic - %06X_%s' % (ID_ROGUE_TOPIC_TAKE, PLUGIN))
+    write(os.path.join(tdir, 'Responses', 'ZFW_RogueTakeRefuseInfo - %06X_%s.yaml' % (ID_ROGUE_INFO_TAKE_REFUSE, PLUGIN)),
+          dialog_info(ID_ROGUE_INFO_TAKE_REFUSE, 'ZFW_RogueTakeRefuseInfo', [ROGUE_REFUSE], previous=ID_ROGUE_INFO_TAKE, godmode=1))
+    # hellos and goodbyes: Misc topics, one INFO per line, Random so he varies them
+    for topic, edid, subtype, name, infos, lines in (
+            (ID_ROGUE_TOPIC_HELLO, 'ZFW_RogueHello', ('Hello', 'HELO'), 'Hello', ID_ROGUE_INFO_HELLO, ROGUE_HELLOS),
+            (ID_ROGUE_TOPIC_BYE, 'ZFW_RogueBye', ('Goodbye', 'GBYE'), 'Bye', ID_ROGUE_INFO_BYE, ROGUE_BYES)):
+        assert len(infos) == len(lines)
+        tdir = os.path.join(OUT, 'DialogTopics', '%s - %06X_%s' % (edid, topic, PLUGIN))
+        write(os.path.join(tdir, 'RecordData.yaml'), misc_topic(topic, edid, subtype[0], subtype[1]))
+        for i, (info, line) in enumerate(zip(infos, lines)):
+            flags = ['Random'] + (['RandomEnd'] if i == len(lines) - 1 else [])
+            write(os.path.join(tdir, 'Responses', 'ZFW_Rogue%sInfo%d - %06X_%s.yaml' % (name, i + 1, info, PLUGIN)),
+                  dialog_info(info, 'ZFW_Rogue%sInfo%d' % (name, i + 1), [line], flags=flags, previous=infos[i - 1] if i else None))
     print('arena records written: quest 0x%X (%d spawn aliases), stone 0x%X, faction 0x%X, %d themes (0x%X-0x%X) in %s, %d werewolf bases, %d+%d potions, messages, globals'
           % (ID_QUEST, SPAWN_SLOTS, ID_STONE, ID_FACTION, len(THEMES), ID_THEME0, ID_THEME0 + THEME_STRIDE * len(THEMES) - 1,
              ' / '.join('T%d:%d' % (t, len(v)) for t, v in sorted(tiers.items())), len(WEREWOLVES), len(HEALTH_POTIONS), len(MANA_POTIONS)))

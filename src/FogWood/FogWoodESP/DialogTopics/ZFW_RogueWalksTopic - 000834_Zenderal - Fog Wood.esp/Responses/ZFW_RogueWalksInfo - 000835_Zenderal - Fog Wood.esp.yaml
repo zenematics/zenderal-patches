@@ -1,0 +1,34 @@
+FormKey: 000835:Zenderal - Fog Wood.esp
+EditorID: ZFW_RogueWalksInfo
+Flags: {}
+PreviousDialog: Null
+FavorLevel: None
+Responses:
+- EmotionValue: 50
+  ResponseNumber: 1
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'Everything Vyn has to offer with teeth or a blade. Lost Ones, Arps, goblins, wolves, men. Worse, deeper in.'
+  ScriptNotes: ''
+  Edits: ''
+- EmotionValue: 50
+  ResponseNumber: 2
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'They come in waves, each thicker than the last. If you fall, the fog spits you out by the stone. It doesn''t keep you.'
+  ScriptNotes: ''
+  Edits: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 00081F:Zenderal - Fog Wood.esp
+  ComparisonValue: 1

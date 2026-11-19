@@ -1,0 +1,25 @@
+FormKey: 00082A:Zenderal - Fog Wood.esp
+EditorID: ZFW_RogueHelloInfo2
+Flags:
+  Flags:
+  - Random
+PreviousDialog: 000829:Zenderal - Fog Wood.esp
+FavorLevel: None
+Responses:
+- EmotionValue: 50
+  ResponseNumber: 1
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'The fog''s still there. It always is.'
+  ScriptNotes: ''
+  Edits: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 00081F:Zenderal - Fog Wood.esp
+  ComparisonValue: 1

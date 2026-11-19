@@ -35,3 +35,8 @@ Conditions:
     MutagenObjectType: GetIsIDConditionData
     Object: 00081F:Zenderal - Fog Wood.esp
   ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 000827:Zenderal - Fog Wood.esp
+  ComparisonValue: 0

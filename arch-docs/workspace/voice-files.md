@@ -4,7 +4,11 @@ A response (INFO) with no voice file plays silent and its subtitle flashes by in
 D'oh** (FLICK, despite the name, is a console kit). A `.fuz` = xWMA audio + FaceFX `.lip`, and with one the line plays
 for its length and the mouth moves. Everything needed ships with the Creation Kit install (`tools.json`
 `papyrusCompiler`'s `Root/Tools`): `LipGen/LipGenerator/LipGenerator.exe` (+ `FonixData.cdf`), `Audio/xwmaencode.exe`,
-`LipGen/LipFuzer/LIPFuzer.exe`. No xVASynth, no ffmpeg on this machine (2026-11-19).
+`LipGen/LipFuzer/LIPFuzer.exe`. No xVASynth; ffmpeg only as `imageio_ffmpeg.get_ffmpeg_exe()` (2026-11-19).
+
+A line whose text is not read from a condition function (god mode, for one) can still branch: a GLOB the script sets
+when the `Dialogue Menu` opens (`RegisterForMenu` + `OnMenuOpen`), with `GetGlobalValue` on the INFOs. An INFO's
+conditions are evaluated when the player picks the topic, after the menu has opened, so the value is fresh.
 
 ## Where the engine looks **[verified]**
 
@@ -22,7 +26,8 @@ Sound\Voice\<plugin file name>\<voice type EditorID>\<quest>_<topic>_<FormID>_<n
 
 ## Recipe (what `src/FogWood/tools/03-install-rogue-voice.py` does)
 
-1. The recording as 44.1 kHz 16-bit mono PCM WAV (the tool converts any PCM WAV with numpy; MP3 is not readable here).
+1. The recording as 44.1 kHz 16-bit mono PCM WAV (the tool converts any PCM WAV with numpy; MP3 and the rest go
+   through the ffmpeg that the installed `imageio-ffmpeg` Python package bundles - the only decoder on this machine).
 2. `LipGenerator.exe <wav> "<the record's exact text>"` writes `<wav>.lip` beside it (and a `tmp16khz.wav` in the
    working directory). The text must be the INFO's text, or the lip sync drifts.
 3. `xwmaencode.exe <wav> <xwm>`.

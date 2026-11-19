@@ -84,8 +84,11 @@ save carried an invisible Rogue and an unusable seat. Fixed the same day: both e
 load), the seat moved to the wall's front edge (`ROGUE_VERSION` 2), the player's return spot lowered to the ground, and a
 10 s idle tick that re-seats him and logs `ZFW: the Rogue at ...; sit state N (3 = sitting)` once per load when his cell
 is in. Deployed into Patch Collection; **unverified in game**: whether the AI sits him on a wall top with no navmesh is
-still the open question, and that line answers it. His three lines are text only so far (they flash by: no Fuz Ro D'oh
-in the list); the curator records them through Motion Array and `tools/03` turns the WAVs into his `.fuz` files.
+still the open question, and that line answers it. **Voiced the same evening:** the curator recorded his first three lines
+through Motion Array (MP3) and asked for *greeting and goodbyes, additional lore and lines for if a player has TGM*; he
+now has 15 lines (`0x827`-`0x838`, bullets below), the three recorded ones installed through `tools/03`, the other twelve
+as silent placeholders of their reading time until recorded. Plugin and script redeployed into Patch Collection.
+Unverified in game.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -450,16 +453,35 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   really "not there"; the curator noticed. `EnsureRogue` now enables both whenever either is disabled, so the saves
   from those days heal on their next load. Rule: after a `PlaceAtMe` whose fourth argument is true, the `Enable()`
   goes on the next line.
-- **Voice (2026-11-19):** the curator asked for his lines to voice them (Motion Array); `tools/03-install-rogue-voice.py`
-  `--lines` prints the three (`take_1` *Then go. When you've had your fill of it, the stone in the wood is the only
-  road back.*; `what_1` *A stretch of pines where the fog never lifts, and whatever walks in it does not stay dead.*;
-  `what_2` *Nothing you kill there is worth a penny or a memory. It's a place to try a blade before the blade tries
-  you.*) and `--src <folder>` turns `take_1.wav`, `what_1.wav`, `what_2.wav` (any PCM WAV) into
-  `Sound\Voice\Zenderal - Fog Wood.esp\VT_Male_Bandit01\zfw_arena_zfw_rogue{take,what}top_0000082{3,6}_<n>.fuz` in
+- **More of him (2026-11-19, curator: greetings, goodbyes, lore, god mode):** three more top-level player topics
+  (`tools/02` `ROGUE_LORE`, branch / topic / INFO each): *Who are you?* `0x830`-`0x832` (*Nobody. I went into that fog
+  with eleven others, long ago, and came out alone.* / *Now I sit here and point. It's safer work.*), *What walks in
+  the fog?* `0x833`-`0x835` (*Everything Vyn has to offer with teeth or a blade. Lost Ones, Arps, goblins, wolves, men.
+  Worse, deeper in.* / *They come in waves, each thicker than the last. If you fall, the fog spits you out by the
+  stone. It doesn't keep you.*), *Is there anything to gain in there?* `0x836`-`0x838` (*Practice. The fog takes its
+  dead back, so there's no loot worth the name and nothing to remember them by.* / *There are caches, if you look.
+  Potions, mostly. The fog is generous with those, and with nothing else.*). Hellos `ZFW_RogueHello 0x828` and
+  goodbyes `ZFW_RogueBye 0x82C` are Misc topics on the quest (`ArkGenericDialogue_Hellos 132D46`'s shape: Category
+  Misc, Subtype Hello/Goodbye, no branch), one INFO per line flagged Random (+ RandomEnd on the last) so he varies
+  them: *You've the look of someone who wants to get hurt.* / *The fog's still there. It always is.* / *Speak up. The
+  fog's not going anywhere, and neither am I.* (`0x829`-`0x82B`); *Mind the fog.* / *Come back with all your fingers.*
+  (`0x82D`-`0x82E`). **God mode:** no condition function reads it, so GLOB `ZFW_GodMode 0x827` is set by the script
+  (`UpdateGodMode`, PO3 `GetGodMode`) when the dialogue menu opens (`RegisterForMenu("Dialogue Menu")`; an INFO's
+  conditions run when the player picks the topic, a few frames later) and each idle tick; *Take me to the Fog Wood.*
+  then answers with `ZFW_RogueTakeRefuseInfo 0x82F` (*No. The fog wants something it can take. Come back when you can
+  bleed.*, `GetGlobalValue == 1`, no fragment, so no run) instead of the normal line (now `== 0`); `RogueTake` keeps its
+  message box for a stale global. Every INFO still carries `GetIsID ZFW_Rogue`. Round-tripped through Spriggit: 11
+  INFOs, 15 lines, flags and conditions identical.
+- **Voice (2026-11-19):** `tools/03-install-rogue-voice.py --lines` prints the 15 lines with the file names they become;
+  `--src <folder>` turns `<name>.wav` or `<name>.mp3` (`take_1`, `tgm_1`, `what_1/2`, `who_1/2`, `walks_1/2`, `gain_1/2`,
+  `hello_1/2/3`, `bye_1/2`; MP3 through imageio-ffmpeg's bundled ffmpeg, the only decoder on this machine) into
+  `Sound\Voice\Zenderal - Fog Wood.esp\VT_Male_Bandit01\zfw_arena_zfw_rogue<topic cut to 16>_000008xx_<n>.fuz` in
   Patch Collection, through the Creation Kit's LipGenerator / xwmaencode / LIPFuzer with the records' own text
-  (`--silent` = silent placeholders of the reading time). The naming rule and the recipe:
-  [`workspace/voice-files.md`](../workspace/voice-files.md). Dry run passed on a test tone; awaiting the recordings.
-  If the wording changes in the recording, change the INFO text too: the lip sync is generated from it.
+  (`--silent` = silent placeholders of the reading time, so an unrecorded line's subtitle still stays up). The naming
+  rule and the recipe: [`workspace/voice-files.md`](../workspace/voice-files.md). Installed 2026-11-19: the curator's
+  Motion Array recordings of `take_1`, `what_1`, `what_2` (the lip sync inside them is 7-11 KB of phonemes; a test
+  tone's was 75 bytes) and silent placeholders for the other twelve; rerun it with the new recordings in the same
+  folder. If the wording changes in a recording, change the INFO text too: the lip sync is generated from it.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
@@ -523,7 +545,12 @@ an open design question, not a bug of this build.
 | `0x81C`-`0x81D` | global `ZFW_QuestVersion`, FormList `ZFW_Persist` (the one-time quest restart) |
 | `0x81E` | `ZFW_RunMsg` (the stone during a run: call the next wave / leave / stay) |
 | `0x81F`-`0x820` | NPC `ZFW_Rogue`, OTFT `ZFW_RogueOutfit` (the Set of the Tracker) |
-| `0x821`-`0x826` | the Rogue's dialogue: branch / topic / response for *Take me to the Fog Wood.* and *What is the Fog Wood?*; `0x827`-`0x84F` free |
+| `0x821`-`0x826` | the Rogue's dialogue: branch / topic / response for *Take me to the Fog Wood.* and *What is the Fog Wood?* |
+| `0x827` | GLOB `ZFW_GodMode` (set by the script as the dialogue menu opens; the *Take me* answers condition on it) |
+| `0x828`-`0x82B` | `ZFW_RogueHello` (Misc, HELO) + 3 Random greeting INFOs |
+| `0x82C`-`0x82E` | `ZFW_RogueBye` (Misc, GBYE) + 2 Random goodbye INFOs |
+| `0x82F` | `ZFW_RogueTakeRefuseInfo`: *Take me* with god mode on |
+| `0x830`-`0x838` | lore topics *Who are you?* / *What walks in the fog?* / *Is there anything to gain in there?* (branch / topic / INFO each); `0x839`-`0x84F` free |
 | `0x850`-`0x88F` | the 64 cells |
 | `0x8B0`-`0x8EF` | their 64 landscapes |
 | `0x910`-`0x933` | the 36 navmeshes |

@@ -1,0 +1,8 @@
+FormKey: 000837:Zenderal - Fog Wood.esp
+EditorID: ZFW_RogueGainTopic
+Name:
+  TargetLanguage: English
+  Value: 'Is there anything to gain in there?'
+Branch: 000836:Zenderal - Fog Wood.esp
+Quest: 000804:Zenderal - Fog Wood.esp
+SubtypeName: CUST

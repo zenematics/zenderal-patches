@@ -1,0 +1,28 @@
+FormKey: 00082F:Zenderal - Fog Wood.esp
+EditorID: ZFW_RogueTakeRefuseInfo
+Flags: {}
+PreviousDialog: 000823:Zenderal - Fog Wood.esp
+FavorLevel: None
+Responses:
+- EmotionValue: 50
+  ResponseNumber: 1
+  Unknown2: 0x000000
+  Flags:
+  - UseEmotionAnimation
+  Unknown3: 0x000000
+  Text:
+    TargetLanguage: English
+    Value: 'No. The fog wants something it can take. Come back when you can bleed.'
+  ScriptNotes: ''
+  Edits: ''
+Conditions:
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetIsIDConditionData
+    Object: 00081F:Zenderal - Fog Wood.esp
+  ComparisonValue: 1
+- MutagenObjectType: ConditionFloat
+  Data:
+    MutagenObjectType: GetGlobalValueConditionData
+    Global: 000827:Zenderal - Fog Wood.esp
+  ComparisonValue: 1

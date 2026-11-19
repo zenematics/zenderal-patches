@@ -157,6 +157,10 @@ Float Property ROGUE_ANGLE = -47.4 AutoReadOnly
 Int Property ROGUE_VERSION = 2 AutoReadOnly
 {Bump when ROGUE_X/Y/Z/ANGLE move: a save's Rogue and seat are moved to the new spot on the next load.
  1 = the top centre (-79196.0, 43197.1), placed disabled and never seen; 2 = the front edge, 50 along the wall.}
+Int Property GODMODE_GLOBAL_ID = 0x827 AutoReadOnly
+{GLOB ZFW_GodMode: 1 while god mode is on. No condition function reads god mode, so UpdateGodMode sets it when the
+ dialogue menu opens (and each idle tick), and the Rogue's "Take me" topic answers with a refusal while it is 1
+ (ZFW_RogueTakeRefuseInfo; the normal answer and its fragment need 0). Read by FormID like the other Rogue forms.}
 Int Property STONE_VERSION = 3 AutoReadOnly
 {Bump when STONE_X/Y/Z move: a save's already placed stone is moved to the new spot on the next load.
  1 = Whisperwood (-83776, 16832, 4452); 2 = pine forest through saved properties (never moved); 3 = constants.}
@@ -252,6 +256,20 @@ Function EnsureGuide()
 	{Every load and every idle tick: the Vyn stone of an older save goes, the Rogue sits by the road sign.}
 	RetireStone()
 	EnsureRogue()
+	RegisterForMenu("Dialogue Menu")        ; idempotent; the god-mode global is set as the menu opens
+	UpdateGodMode()
+EndFunction
+
+Function UpdateGodMode()
+	{GLOB ZFW_GodMode = god mode on, read by the conditions of the Rogue's "Take me" answers.}
+	GlobalVariable g = Game.GetFormFromFile(GODMODE_GLOBAL_ID, PLUGIN_FILE) as GlobalVariable
+	If g != None
+		If PO3_SKSEFunctions.GetGodMode()
+			g.SetValue(1.0)
+		Else
+			g.SetValue(0.0)
+		EndIf
+	EndIf
 EndFunction
 
 Function RetireStone()
@@ -349,8 +367,8 @@ Function RogueTake(ObjectReference akSpeaker)
 	If Busy || Running
 		Return
 	EndIf
-	If PO3_SKSEFunctions.GetGodMode()
-		Debug.MessageBox("The fog will not take an immortal. Turn god mode off first.")
+	If PO3_SKSEFunctions.GetGodMode()           ; the refusal INFO normally answers instead; this catches a stale global
+		Debug.MessageBox("The fog wants something it can take. Turn god mode off first.")
 		Return
 	EndIf
 	StartRun()
@@ -374,8 +392,11 @@ Function OnGameLoaded()
 EndFunction
 
 Event OnMenuOpen(String asMenu)
-	{The console opening during a run ends it (every command, god mode included, goes through it).}
-	If asMenu == "Console" && Running && !Busy
+	{The console opening during a run ends it (every command, god mode included, goes through it). The dialogue menu
+	 opening refreshes the god-mode global before a topic is picked (an INFO's conditions run at the pick).}
+	If asMenu == "Dialogue Menu"
+		UpdateGodMode()
+	ElseIf asMenu == "Console" && Running && !Busy
 		EndNote = "The fog does not answer to the console. "
 		EndRun(False)
 	EndIf
