@@ -86,10 +86,10 @@ load), the seat moved to the wall's front edge (`ROGUE_VERSION` 2), the player's
 is in. Deployed into Patch Collection; **unverified in game**: whether the AI sits him on a wall top with no navmesh is
 still the open question, and that line answers it. **Voiced the same evening:** the curator recorded his first three lines
 through Motion Array (MP3) and asked for *greeting and goodbyes, additional lore and lines for if a player has TGM*; he
-now has 15 lines (`0x827`-`0x838`, bullets below). By the end of the evening the curator had recorded 14 of them (MP3) and
-reworded seven after recording (`who_1` became a 29 s monologue): the texts below are the final ones, the recordings are
-installed through `tools/03` with lip sync from those texts, and `walks_2` is a silent placeholder until recorded. Plugin
-and script redeployed into Patch Collection. Unverified in game.
+now has 15 lines (`0x827`-`0x838`, bullets below). By the end of the evening the curator had recorded all 15 (MP3) and
+reworded seven after recording (`who_1` became a 29 s monologue): the texts below are the final ones and every recording
+is installed through `tools/03` with lip sync from those texts. Plugin and script redeployed into Patch Collection.
+Unverified in game.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -486,9 +486,8 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   Patch Collection, through the Creation Kit's LipGenerator / xwmaencode / LIPFuzer with the records' own text
   (`--silent` = silent placeholders of the reading time, so an unrecorded line's subtitle still stays up). The naming
   rule and the recipe: [`workspace/voice-files.md`](../workspace/voice-files.md). Installed 2026-11-19: the curator's
-  Motion Array recordings of 14 lines (kept under their line names in `E:/Zenderal-backups/2026-11-19-rogue-voice`,
-  not committed; the lip sync inside them is 7-37 KB of phonemes, a test tone's was 75 bytes) and a silent placeholder
-  for `walks_2`; drop its recording in that folder and rerun. When a recording's wording differs from the INFO text,
+  Motion Array recordings of all 15 lines (kept under their line names in `E:/Zenderal-backups/2026-11-19-rogue-voice`,
+  not committed; the lip sync inside them is 7-37 KB of phonemes, a test tone's was 75 bytes). When a recording's wording differs from the INFO text,
   change the text and rerun: the lip sync is generated from it. Finding the reworded ones without the author's text:
   Windows' offline `System.Speech` dictation (`SpeechRecognitionEngine`, `SetInputToWaveFile` on a 16 kHz mono WAV)
   is rough but enough to tell a changed line from an unchanged one; its `Recognize()` repeats the result until the
