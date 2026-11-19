@@ -143,19 +143,25 @@ Int Property ROGUE_SEAT_ID = 0x06411B AutoReadOnly
 {InvisibleChairMarker (Skyrim.esm): the furniture his _DefaultSitLinkedRef package sits him in, placed on the wall.}
 Int Property ROGUE_ANCHOR_ID = 0x053B65 AutoReadOnly
 {Alchemist's Abandoned Camp map marker: a persistent Vyn ref 5,400 units from the seat, as the stone used one.}
-Float Property ROGUE_X = -79196.0 AutoReadOnly
-{The seat: the top centre of the fence base WRFenceBaseEnd01 032FEA (-79220.68, 43170.23, 1101.59, yaw 0.744 rad;
- its top is 75 above its origin) beside the FS road sign 0297A5/0297A6 (Fahlstern = Castle Bleakstar), cell
- WaldTuerme 001D6C. The marker's root is the sitter's feet, so it sits 32 below the wall top (a chair's seat height)
- and he faces the wall's left normal (yaw - 90 deg), where the sign and the road are.}
-Float Property ROGUE_Y = 43197.1 AutoReadOnly
+Float Property ROGUE_X = -79195.6 AutoReadOnly
+{The seat, on top of the fence base WRFenceBaseEnd01 032FEA (origin -79220.68, 43170.23, 1101.59, yaw 0.744 rad; 64
+ thick, its top 75 above its origin = 106 above the ground, which is 1068-1073 round it) beside the FS road sign
+ 0297A5/0297A6 (Fahlstern = Castle Bleakstar) at its near end, cell WaldTuerme 001D6C. In the wall's own frame the
+ seat is (-12, 50, 75): 12 toward the road side, so the hips sit at the front edge and the lower legs hang in front
+ of the stone instead of inside it, and 50 along, 47 from the sign board. The chair marker's root is the sitter's
+ feet, so it sits 32 below the wall top (a chair's seat height), and he faces the wall's left normal (yaw - 90 deg),
+ where the sign and the road are.}
+Float Property ROGUE_Y = 43215.1 AutoReadOnly
 Float Property ROGUE_Z = 1144.6 AutoReadOnly
 Float Property ROGUE_ANGLE = -47.4 AutoReadOnly
-Int Property ROGUE_VERSION = 1 AutoReadOnly
-{Bump when ROGUE_X/Y/Z/ANGLE move: a save's Rogue and seat are moved to the new spot on the next load.}
+Int Property ROGUE_VERSION = 2 AutoReadOnly
+{Bump when ROGUE_X/Y/Z/ANGLE move: a save's Rogue and seat are moved to the new spot on the next load.
+ 1 = the top centre (-79196.0, 43197.1), placed disabled and never seen; 2 = the front edge, 50 along the wall.}
 Int Property STONE_VERSION = 3 AutoReadOnly
 {Bump when STONE_X/Y/Z move: a save's already placed stone is moved to the new spot on the next load.
  1 = Whisperwood (-83776, 16832, 4452); 2 = pine forest through saved properties (never moved); 3 = constants.}
+Float Property IDLE_TICK = 10.0 AutoReadOnly
+{Seconds between the idle ticks (no run on) that keep the Rogue seated and trace him once per load.}
 Int Property TRACE_BUDGET = 120 AutoReadOnly
 {Papyrus-log lines a run may write about spawns hitting or targeting each other.}
 String Property FLINTLOCK = "Zenderal - Flintlock Overhaul.esp" AutoReadOnly
@@ -175,6 +181,7 @@ ObjectReference StoneRef                        ; the retired Vyn stone of saves
 ObjectReference RogueRef
 ObjectReference SeatRef
 Int RoguePlaced = 0
+Bool RogueTraced = False                        ; one "ZFW: the Rogue at" line per load, once his 3D is in
 Int StonePlaced = 0
 Bool Property Running = False Auto Hidden
 Bool WaveActive = False
@@ -273,8 +280,7 @@ Function EnsureRogue()
 			ObjectReference kept = Persist.GetAt(i) as ObjectReference
 			If kept != None
 				If (kept as Actor) != None
-					RogueRef = kept
-					RoguePlaced = ROGUE_VERSION
+					RogueRef = kept             ; RoguePlaced is 0 after a restart: the move below is idempotent
 				ElseIf kept.GetBaseObject() == seat
 					SeatRef = kept
 				ElseIf StoneRef == None
@@ -293,18 +299,30 @@ Function EnsureRogue()
 		SeatRef.SetPosition(ROGUE_X, ROGUE_Y, ROGUE_Z)
 		SeatRef.SetAngle(0.0, 0.0, ROGUE_ANGLE)
 	EndIf
+	If SeatRef.IsDisabled()
+		SeatRef.Enable()                        ; PlaceAtMe's abInitiallyDisabled: the first build (2026-11-15) enabled neither
+	EndIf                                       ; the seat nor him, so he sat in every save invisible until 2026-11-19
 	If RogueRef == None
 		RogueRef = anchor.PlaceAtMe(base, 1, True, True)
+		RogueRef.Enable()
 		PO3_SKSEFunctions.SetLinkedRef(RogueRef, SeatRef)
 		SeatRogue()
 		Debug.Trace("ZFW: the Rogue placed at " + ROGUE_X + ", " + ROGUE_Y + ", " + ROGUE_Z)
-	ElseIf RoguePlaced != ROGUE_VERSION
+	ElseIf RoguePlaced != ROGUE_VERSION || RogueRef.IsDisabled()
+		RogueRef.Enable()
 		RogueRef.MoveTo(anchor)
 		PO3_SKSEFunctions.SetLinkedRef(RogueRef, SeatRef)
 		SeatRogue()
 		Debug.Trace("ZFW: the Rogue moved to " + ROGUE_X + ", " + ROGUE_Y + ", " + ROGUE_Z + " (version " + ROGUE_VERSION + ")")
-	ElseIf !Running && RogueRef.Is3DLoaded() && RogueRef.GetDistance(SeatRef) > 200.0 && !(RogueRef as Actor).IsInCombat()
-		SeatRogue()                             ; knocked off the wall (the goblin pack 1,500 units east): back on it
+	ElseIf !Running && RogueRef.Is3DLoaded() && !(RogueRef as Actor).IsInCombat()
+		If RogueRef.GetDistance(SeatRef) > 200.0
+			SeatRogue()                         ; knocked off the wall (the goblin pack 1,500 units east): back on it
+		EndIf
+		If !RogueTraced                         ; what the AI makes of a seat with no navmesh under it
+			RogueTraced = True
+			Actor rogue = RogueRef as Actor
+			Debug.Trace("ZFW: the Rogue at " + RogueRef.GetPositionX() + ", " + RogueRef.GetPositionY() + ", " + RogueRef.GetPositionZ() + "; sit state " + rogue.GetSitState() + " (3 = sitting), " + RogueRef.GetDistance(SeatRef) + " from the seat, package " + rogue.GetCurrentPackage() + ", disabled " + RogueRef.IsDisabled() + "/" + SeatRef.IsDisabled() + ", linked " + (RogueRef.GetLinkedRef() == SeatRef))
+		EndIf
 	EndIf
 	RoguePlaced = ROGUE_VERSION
 EndFunction
@@ -316,11 +334,12 @@ Function SeatRogue()
 EndFunction
 
 Function ReturnToRogue()
-	{The player back on the road in front of the Rogue (160 units the way he faces, a little above the ground).}
+	{The player back on the road in front of the Rogue: 160 units the way he faces, where the ground is 1082, so 17
+	 above it (the seat is 72 above the ground; -20 dropped the player 42 units).}
 	EnsureGuide()
 	If RogueRef != None
 		PlayerRef.MoveTo(RogueRef)
-		PlayerRef.SetPosition(ROGUE_X + 160.0 * Math.sin(ROGUE_ANGLE), ROGUE_Y + 160.0 * Math.cos(ROGUE_ANGLE), ROGUE_Z - 20.0)
+		PlayerRef.SetPosition(ROGUE_X + 160.0 * Math.sin(ROGUE_ANGLE), ROGUE_Y + 160.0 * Math.cos(ROGUE_ANGLE), ROGUE_Z - 45.0)
 		PlayerRef.SetAngle(0.0, 0.0, ROGUE_ANGLE + 180.0)
 	EndIf
 EndFunction
@@ -342,12 +361,15 @@ Function OnGameLoaded()
 	If !Spawned || !Drops || !Chests || (!Running && Spawned.Length < SLOTS)   ; never compare an array to None: a fatal cast error aborts the function
 		OnInit()                                ; also grows the arrays of a save made with a smaller version
 	EndIf
+	RogueTraced = False
 	EnsureGuide()
 	If Running
 		InTick = False
 		FriendlyFire(True)
 		RegisterForMenu("Console")
 		RegisterForSingleUpdate(1.0)
+	Else
+		RegisterForSingleUpdate(IDLE_TICK)
 	EndIf
 EndFunction
 
@@ -523,7 +545,8 @@ EndFunction
 
 Event OnUpdate()
 	If !Running
-		EnsureGuide()
+		EnsureGuide()                           ; the Rogue back on his seat, and his sit state traced once he is loaded
+		RegisterForSingleUpdate(IDLE_TICK)
 		Return
 	EndIf
 	RegisterForSingleUpdate(1.0)                ; FIRST: an error anywhere below used to end the loop, and with it the waves

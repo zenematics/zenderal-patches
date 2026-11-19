@@ -77,6 +77,14 @@ Tracker, sits on the fence base beside the Castle Bleakstar road sign in Dark Va
 dialogue; the stone inside the wood is still the way out (section below). Built 13:17, deployed into Patch Collection,
 **unverified in game**: the seat height and his facing are first guesses (`ROGUE_Z`, `ROGUE_ANGLE`; bump
 `ROGUE_VERSION` after moving them, a save moves him on its next load).
+
+**He was never there (2026-11-19, curator):** both `PlaceAtMe` calls placed him and the seat with `abInitiallyDisabled`
+and nothing enabled either (the stone's placement had its `Enable()`; his was dropped), so from 2026-11-15 to 11-19 every
+save carried an invisible Rogue and an unusable seat. Fixed the same day: both enabled (existing saves too, on their next
+load), the seat moved to the wall's front edge (`ROGUE_VERSION` 2), the player's return spot lowered to the ground, and a
+10 s idle tick that re-seats him and logs `ZFW: the Rogue at ...; sit state N (3 = sitting)` once per load when his cell
+is in. Deployed into Patch Collection; **unverified in game**: whether the AI sits him on a wall top with no navmesh is
+still the open question, and that line answers it.
 Next test: find the Fogbound Stone in the pine forest (`cow Vyn -18 8`, then `player.setpos x -72640` and
 `player.setpos y 33856`) (`player.moveto <slot>000961` puts you
 at the wood's exit stone instead; the Whisperwood stone is script-placed, so `prid` has no fixed ID), activate it,
@@ -425,11 +433,22 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   are persistent and kept in `ZFW_Persist` across a quest restart (an actor = the Rogue, the furniture = the seat,
   anything else = an old stone). Every load and idle tick it puts him back on the seat if he is more than 200 units
   from it and not fighting, and `RetireStone` deletes the Vyn stone of a save from before. `ReturnToRogue` (run end,
-  console exit) drops the player 160 units in front of him, facing him. The seat: the fence base's top centre (local
-  (0, 36.5, 75) turned by its yaw) = (-79196, 43197, 1177); the chair marker's root is the sitter's feet, so it sits
-  32 lower (`ROGUE_Z` 1144.6) and faces the wall's left normal (yaw - 90° = -47.4°), where the sign and the road are.
-  Whether the AI sits him in a seat with no navmesh under it is the first thing to check in game; the fallback is to
-  move the seat down to the ground in front of the wall.
+  console exit) drops the player 160 units in front of him, facing him, 17 above the road there (ground 1082; the
+  first build's `ROGUE_Z - 20` dropped him 42 units). The seat, in the fence base's own frame: (-12, 50, 75) = world
+  (-79195.6, 43215.1, 1176.6), 12 toward the road so the hips sit at the front edge and the lower legs hang in front
+  of the stone (the wall is 64 thick), 50 along it (47 from the sign board at its near end); the chair marker's root
+  is the sitter's feet, so it sits 32 lower (`ROGUE_Z` 1144.6) and faces the wall's left normal (yaw - 90° = -47.4°),
+  where the sign and the road are. The ground round the wall is 1068-1073 (the cell's LAND), so the wall top is 106
+  up and his feet hang 72 above the road. Whether the AI sits him in a seat with no navmesh under it is the open
+  question: the idle tick (`IDLE_TICK` 10 s) logs `ZFW: the Rogue at ...; sit state N (3 = sitting), <distance> from
+  the seat, package ...` once per load when his 3D is in; the fallback is to move the seat down to the ground in
+  front of the wall.
+- **Postmortem, the disabled Rogue (2026-11-19):** `PlaceAtMe(form, 1, True, True)` places *disabled* (the fourth
+  argument) so the position can be set before anything shows; the stone's placement followed it with `Enable()`, the
+  Rogue's and the seat's did not, and no log says so (a disabled actor raises nothing). Four days of "unverified" were
+  really "not there"; the curator noticed. `EnsureRogue` now enables both whenever either is disabled, so the saves
+  from those days heal on their next load. Rule: after a `PlaceAtMe` whose fourth argument is true, the `Enable()`
+  goes on the next line.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
