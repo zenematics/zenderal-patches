@@ -504,12 +504,20 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   bits: *Beards of Power.esp|032974* is `000974`); a hair-colour record of his own, `ZFW_DakeyrasHair 0x839`
   (`#1A1C1C`). The plugin masters `High Poly Head.esm`, `Beards of Power.esp` and `Brows.esp` since (Brows.esp will
   not serialize in Spriggit 0.40 - its one brow record was read from the binary). Outfit `0x820` without the hood.
-  **The face needs facegen files**: a record alone draws dark and mismatched, and the preset's High Poly Head parts and
-  RaceMenu-only morphs (`CME_*`, `EFM_*`) only come out right from RaceMenu itself, so the curator exports the head
-  (preset loaded on the player, Sculpt tab, Export Head) and `tools/04-install-dakeyras-face.py --export <name>`
-  copies `Exported/<name>.nif` + `.dds` to `FaceGeom`/`FaceTint\Zenderal - Fog Wood.esp\0000081F.*` in Patch
-  Collection (not committed). The six custom morphs in the preset cannot live in the record; the export carries
-  them. **The boulder** (confirmed by the curator: the one their last save stood on): `RockL05 0548FA` at
+  **The face itself comes from RaceMenu at runtime** (the curator: *you have the facedata, get it applied however you
+  can*): `ApplyDakeyrasFace` calls `CharGen.LoadCharacterPresetEx(him, "Zen's Joseph Goatee", ZFW_DakeyrasHair, -1)`
+  once per `DAKEYRAS_FACE_VERSION` while his 3D is loaded (idle tick), which puts the `.jslot`'s head parts, every
+  slider including the six RaceMenu-only ones, and tints on him and rebuilds his head; the preset file ships in Patch
+  Collection under `SKSE/Plugins/CharGen/Presets/` (not committed). `chargen.psc` warns *DO NOT USE ON NPCs* because
+  it changes the actor base for good; he is unique and that is wanted. The open risk is the tint (a dark face) if
+  RaceMenu does not generate one for an NPC without facegen files: the log line `ZFW: Dakeyras takes the preset`
+  says whether the call succeeded, the in-game look says the rest. Fallbacks, both needing baked files: RaceMenu's
+  Export Head with the preset on the player (the curator's character, Gunslinger, is a female Breton, so not as
+  is), or `cqf ZFW_Arena DakeyrasFace 2` (`CharGen.ExportHead`, same thing, into `SKSE/Plugins/CharGen/`), then
+  `tools/04-install-dakeyras-face.py --export <name>` copies `<name>.nif` + `.dds` to `FaceGeom`/`FaceTint\Zenderal -
+  Fog Wood.esp\0000081F.*` in Patch Collection; a Creation Kit bake would drop the six RaceMenu-only sliders, and
+  the list's CK (CKPE 0.4, CK 1.5.73, Root Builder) exits within ten seconds of launch anyway (2026-11-19, from
+  MO2's Run button and from `moshortcut://`; no CKPE log written), cause not looked into. **The boulder** (confirmed by the curator: the one their last save stood on): `RockL05 0548FA` at
   (-80154.4, 42882.8, 1152.1), yaw 314.2, crown 1338, 300 across, beside the hay cart `12DABB` on the road 540 units
   south-west of the sign. `ROGUE_VERSION` 3: the seat at (-80026.4, 42826.2, 1271.0) facing 105 (the road and the
   cart) = the crown's eastern edge on the list's winning mesh (PG Patcher's copy of ERM's RockL05), computed by

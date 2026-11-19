@@ -58,10 +58,13 @@ def main():
             print('  %-40s %7d bytes  tint %s' % (os.path.basename(f)[:-4], os.path.getsize(f), 'yes' if os.path.isfile(dds) else 'MISSING'))
         if not args.export:
             return
-    nif = os.path.join(EXPORTED, args.export + '.nif')
-    dds = os.path.join(EXPORTED, args.export + '.dds')
-    assert os.path.isfile(nif), 'no export ' + nif
-    assert os.path.isfile(dds), 'no tint ' + dds
+    nif = dds = None
+    for folder in (EXPORTED, os.path.dirname(EXPORTED)):     # RaceMenu's menu export, or CharGen.ExportHead's folder
+        n, d = os.path.join(folder, args.export + '.nif'), os.path.join(folder, args.export + '.dds')
+        if os.path.isfile(n) and os.path.isfile(d):
+            nif, dds = n, d
+            break
+    assert nif, 'no export %s.nif + .dds in %s or its parent' % (args.export, EXPORTED)
     geom_dir = os.path.join(args.target, 'meshes', 'actors', 'character', 'FaceGenData', 'FaceGeom', PLUGIN)
     tint_dir = os.path.join(args.target, 'textures', 'actors', 'character', 'FaceGenData', 'FaceTint', PLUGIN)
     os.makedirs(geom_dir, exist_ok=True)

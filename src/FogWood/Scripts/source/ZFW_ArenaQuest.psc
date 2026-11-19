@@ -157,6 +157,14 @@ Int Property ROGUE_VERSION = 3 AutoReadOnly
 {Bump when ROGUE_X/Y/Z/ANGLE move: a save's Rogue and seat are moved to the new spot on the next load.
  1 = the fence base's top centre (-79196.0, 43197.1), placed disabled and never seen; 2 = its front edge, 50 along
  the wall (-79195.6, 43215.1, 1144.6, -47.4; log-verified sitting); 3 = the boulder by the hay cart.}
+String Property DAKEYRAS_PRESET = "Zen's Joseph Goatee" AutoReadOnly
+{The curator's RaceMenu preset (SKSE/Plugins/CharGen/Presets/<name>.jslot, shipped in Patch Collection): RaceMenu
+ loads it onto him at runtime (CharGen.LoadCharacterPresetEx: head parts, every slider including RaceMenu-only
+ ones, tints), since no Creation Kit here can bake facegen and the record alone draws a dark face (2026-11-19).}
+Int Property DAKEYRAS_HAIR_ID = 0x839 AutoReadOnly
+{CLFM ZFW_DakeyrasHair: RaceMenu writes the preset's hair colour into the colour form it is given.}
+Int Property DAKEYRAS_FACE_VERSION = 1 AutoReadOnly
+{Bump to re-apply the preset to a save that already had it.}
 Int Property GODMODE_GLOBAL_ID = 0x827 AutoReadOnly
 {GLOB ZFW_GodMode: 1 while god mode is on. No condition function reads god mode, so UpdateGodMode sets it when the
  dialogue menu opens (and each idle tick), and the Rogue's "Take me" topic answers with a refusal while it is 1
@@ -186,6 +194,7 @@ ObjectReference RogueRef
 ObjectReference SeatRef
 Int RoguePlaced = 0
 Bool RogueTraced = False                        ; one "ZFW: the Rogue at" line per load, once his 3D is in
+Int FaceApplied = 0                             ; DAKEYRAS_FACE_VERSION once RaceMenu has put the preset on him
 Int StonePlaced = 0
 Bool Property Running = False Auto Hidden
 Bool WaveActive = False
@@ -336,6 +345,7 @@ Function EnsureRogue()
 		If RogueRef.GetDistance(SeatRef) > 200.0
 			SeatRogue()                         ; knocked off the wall (the goblin pack 1,500 units east): back on it
 		EndIf
+		ApplyDakeyrasFace()
 		If !RogueTraced                         ; what the AI makes of a seat with no navmesh under it
 			RogueTraced = True
 			Actor rogue = RogueRef as Actor
@@ -343,6 +353,35 @@ Function EnsureRogue()
 		EndIf
 	EndIf
 	RoguePlaced = ROGUE_VERSION
+EndFunction
+
+Function ApplyDakeyrasFace()
+	{RaceMenu puts the curator's preset on him, once per DAKEYRAS_FACE_VERSION, while his 3D is loaded (the head is
+	 rebuilt in place). CharGen.psc warns against LoadCharacterPreset on NPCs because it changes the actor base for
+	 good; he is unique and that is the point. Logged either way.}
+	If RogueRef == None || FaceApplied == DAKEYRAS_FACE_VERSION || !RogueRef.Is3DLoaded()
+		Return
+	EndIf
+	ColorForm hair = Game.GetFormFromFile(DAKEYRAS_HAIR_ID, PLUGIN_FILE) as ColorForm
+	Bool ok = CharGen.LoadCharacterPresetEx(RogueRef as Actor, DAKEYRAS_PRESET, hair, -1)
+	Debug.Trace("ZFW: Dakeyras takes the preset '" + DAKEYRAS_PRESET + "': " + ok + " (version " + DAKEYRAS_FACE_VERSION + ")")
+	If ok
+		FaceApplied = DAKEYRAS_FACE_VERSION
+		(RogueRef as Actor).QueueNiNodeUpdate()
+	EndIf
+EndFunction
+
+Function DakeyrasFace(Int aiMode)
+	{Console: "cqf ZFW_Arena DakeyrasFace 1" puts the preset on him again; "... 2" exports the PLAYER's head (RaceMenu's
+	 Export Head: SKSE/Plugins/CharGen/Dakeyras.nif + .dds) for tools/04 to install as his facegen files.}
+	If aiMode == 2
+		CharGen.ExportHead("Dakeyras")
+		Debug.Notification("Your head is exported as Dakeyras (SKSE/Plugins/CharGen)")
+		Debug.Trace("ZFW: the player's head exported as Dakeyras")
+	Else
+		FaceApplied = 0
+		ApplyDakeyrasFace()
+	EndIf
 EndFunction
 
 Function SeatRogue()
