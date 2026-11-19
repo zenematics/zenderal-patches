@@ -159,14 +159,16 @@ Int Property ROGUE_VERSION = 4 AutoReadOnly
  1 = the fence base's top centre (-79196.0, 43197.1), placed disabled and never seen; 2 = its front edge, 50 along
  the wall (-79195.6, 43215.1, 1144.6, -47.4; log-verified sitting); 3 = the boulder's east edge facing the cart
  (-80026.4, 42826.2, 1271.0, 105; seen sitting, "the wrong side"); 4 = its south-west edge facing the road.}
-String Property DAKEYRAS_PRESET = "Zen's Joseph Goatee" AutoReadOnly
-{The curator's RaceMenu preset (SKSE/Plugins/CharGen/Presets/<name>.jslot, shipped in Patch Collection): RaceMenu
+String Property DAKEYRAS_PRESET = "ZFW_Dakeyras" AutoReadOnly
+{The curator's RaceMenu preset "Zen's Joseph Goatee" as tools/06 rewrites it (its Beards of Power goatee named by
+ local id, the plugin in modNames; the first load left him beardless), SKSE/Plugins/CharGen/Presets/<name>.jslot in
+ Patch Collection: RaceMenu
  loads it onto him at runtime (CharGen.LoadCharacterPresetEx: head parts, every slider including RaceMenu-only
  ones, tints), since no Creation Kit here can bake facegen and the record alone draws a dark face (2026-11-19).}
 Int Property DAKEYRAS_HAIR_ID = 0x839 AutoReadOnly
 {CLFM ZFW_DakeyrasHair: RaceMenu writes the preset's hair colour into the colour form it is given.}
-Int Property DAKEYRAS_FACE_VERSION = 1 AutoReadOnly
-{Bump to re-apply the preset to a save that already had it.}
+Int Property DAKEYRAS_FACE_VERSION = 2 AutoReadOnly
+{Bump to re-apply the preset to a save that already had it. 1 = the curator's file as is (no goatee); 2 = ZFW_Dakeyras.}
 Int Property ROGUE_OUTFIT_ID = 0x820 AutoReadOnly
 {OTFT ZFW_RogueOutfit; SetOutfit once per OUTFIT_VERSION, because an existing actor keeps the items his old outfit gave
  him (the hood, the cuirass with the mouth wrap) until the outfit is set again.}

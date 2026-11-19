@@ -552,7 +552,14 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   cuirass and hood off him by form (`RemoveItem`), sets the outfit, adds and equips the new cuirass, and logs what
   is worn on the body; and `tools/05` now also detaches `BBHatMaskBCollar` from its parent node (in case the
   engine ignored the Hidden flag on an armour shape; the file is 4 bytes shorter). **Seat verified in game 2026-11-19
-  (curator: "he's sat where he needs to be now")**; the wrap and the face tint await their word.
+  (curator: "he's sat where he needs to be now")**; wrap gone and face right the same night, **but no goatee**. The goatee
+  is `BoP_new_mustache_01b 000974` of the ESL-flagged `Beards of Power.esp`, and the curator's `.jslot` names it
+  `Beards of Power.esp|032974` (the light index bits folded into the id) with no Beards of Power in its `modNames`,
+  while the six parts from full plugins all came through. `tools/06-build-dakeyras-preset.py` rewrites the curator's
+  file as `ZFW_Dakeyras.jslot` (light-plugin parts named by local id, the plugin added to `modNames`, nothing else
+  changed) into Patch Collection, and `DAKEYRAS_FACE_VERSION` 2 loads that one. If the goatee is still missing, the
+  cause is elsewhere (RaceMenu's NPC path, or the part's three ExtraParts) and the export route is the fallback.
+  Unverified.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
