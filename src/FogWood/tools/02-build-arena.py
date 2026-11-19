@@ -72,8 +72,10 @@ ROGUE_BYES = ['Mind the fog.', 'Come back with all your fingers.']
 ROGUE_REFUSE = 'No. The fog wants something it can take. Come back when you can bleed.'
 ROGUE_LORE = (
     ('Who', 'Who are you?',
-     ['Nobody. I went into that fog with eleven others, long ago, and came out alone.',
-      "Now I sit here and point. It's safer work."]),
+     ["Me? A Hunter of sorts, tracked my prey a little too far into the Fog... it was only then... I realised... I wasn't the one "
+      "hunting... The Fog it's unnatural... it changed me... Now I listen... Fog shifts, it beckons... I just point the way to those "
+      "worthy of it... safer that way I suppose... The woods are my home now, never much liked stone walls and people anyway.",   # curator's words, 2026-11-19
+      "It's not me you should concern yourself with, I can take you to that which you seek."]),   # curator's words, 2026-11-19
     ('Walks', 'What walks in the fog?',
      ['Everything Vyn has to offer with teeth or a blade. Lost Ones, Arps, goblins, wolves, men. Worse, deeper in.',
       "They come in waves, each thicker than the last. If you fall, the fog spits you out. I don't know what magic rests within it, "

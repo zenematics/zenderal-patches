@@ -12,7 +12,7 @@ Responses:
   Unknown3: 0x000000
   Text:
     TargetLanguage: English
-    Value: 'Nobody. I went into that fog with eleven others, long ago, and came out alone.'
+    Value: 'Me? A Hunter of sorts, tracked my prey a little too far into the Fog... it was only then... I realised... I wasn''t the one hunting... The Fog it''s unnatural... it changed me... Now I listen... Fog shifts, it beckons... I just point the way to those worthy of it... safer that way I suppose... The woods are my home now, never much liked stone walls and people anyway.'
   ScriptNotes: ''
   Edits: ''
 - EmotionValue: 50
@@ -23,7 +23,7 @@ Responses:
   Unknown3: 0x000000
   Text:
     TargetLanguage: English
-    Value: 'Now I sit here and point. It''s safer work.'
+    Value: 'It''s not me you should concern yourself with, I can take you to that which you seek.'
   ScriptNotes: ''
   Edits: ''
 Conditions:
