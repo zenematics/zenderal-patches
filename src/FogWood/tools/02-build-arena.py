@@ -67,7 +67,7 @@ ID_ROGUE_INFO_TAKE_REFUSE = 0x82F
 ID_ROGUE_LORE = {'Who': (0x830, 0x831, 0x832), 'Walks': (0x833, 0x834, 0x835), 'Gain': (0x836, 0x837, 0x838)}   # branch, topic, info
 ROGUE_HELLOS = ["You've the look of someone who wants to get hurt.",
                 "The fog's still there... It always is.",   # curator's punctuation, 2026-11-19
-                "Speak up. The fog's not going anywhere, and neither am I."]
+                "The Fog's thick tonight..."]   # hello_3 the curator's words, 2026-11-19
 ROGUE_BYES = ['Mind the fog.', "Don't get lost in the woods now..."]   # bye_2 the curator's words, 2026-11-19
 ROGUE_REFUSE = 'No. The fog wants something it can take. Come back when you can bleed.'
 ROGUE_LORE = (
