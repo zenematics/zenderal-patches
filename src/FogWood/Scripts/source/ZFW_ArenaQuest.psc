@@ -165,6 +165,11 @@ Int Property DAKEYRAS_HAIR_ID = 0x839 AutoReadOnly
 {CLFM ZFW_DakeyrasHair: RaceMenu writes the preset's hair colour into the colour form it is given.}
 Int Property DAKEYRAS_FACE_VERSION = 1 AutoReadOnly
 {Bump to re-apply the preset to a save that already had it.}
+Int Property ROGUE_OUTFIT_ID = 0x820 AutoReadOnly
+{OTFT ZFW_RogueOutfit; SetOutfit once per OUTFIT_VERSION, because an existing actor keeps the items his old outfit gave
+ him (the hood, the cuirass with the mouth wrap) until the outfit is set again.}
+Int Property OUTFIT_VERSION = 1 AutoReadOnly
+{1 = Tracker set without the hood, the cuirass on the mask-hidden mesh copies (2026-11-19).}
 Int Property GODMODE_GLOBAL_ID = 0x827 AutoReadOnly
 {GLOB ZFW_GodMode: 1 while god mode is on. No condition function reads god mode, so UpdateGodMode sets it when the
  dialogue menu opens (and each idle tick), and the Rogue's "Take me" topic answers with a refusal while it is 1
@@ -195,6 +200,7 @@ ObjectReference SeatRef
 Int RoguePlaced = 0
 Bool RogueTraced = False                        ; one "ZFW: the Rogue at" line per load, once his 3D is in
 Int FaceApplied = 0                             ; DAKEYRAS_FACE_VERSION once RaceMenu has put the preset on him
+Int OutfitApplied = 0                           ; OUTFIT_VERSION once SetOutfit has run on him
 Int StonePlaced = 0
 Bool Property Running = False Auto Hidden
 Bool WaveActive = False
@@ -341,9 +347,21 @@ Function EnsureRogue()
 		PO3_SKSEFunctions.SetLinkedRef(RogueRef, SeatRef)
 		SeatRogue()
 		Debug.Trace("ZFW: the Rogue moved to " + ROGUE_X + ", " + ROGUE_Y + ", " + ROGUE_Z + " (version " + ROGUE_VERSION + ")")
-	ElseIf !Running && RogueRef.Is3DLoaded() && !(RogueRef as Actor).IsInCombat()
-		If RogueRef.GetDistance(SeatRef) > 200.0
-			SeatRogue()                         ; knocked off the wall (the goblin pack 1,500 units east): back on it
+	EndIf
+	Actor dakeyras = RogueRef as Actor
+	dakeyras.SetGhost(True)                     ; no hit lands on him and no combat AI picks him (curator: never aggro'd)
+	If OutfitApplied != OUTFIT_VERSION
+		Outfit o = Game.GetFormFromFile(ROGUE_OUTFIT_ID, PLUGIN_FILE) as Outfit
+		If o != None
+			dakeyras.SetOutfit(o)               ; an existing actor keeps his old outfit's items until this
+			OutfitApplied = OUTFIT_VERSION
+			Debug.Trace("ZFW: Dakeyras' outfit set (version " + OUTFIT_VERSION + ")")
+		EndIf
+	EndIf
+	If !Running && RogueRef.Is3DLoaded() && !dakeyras.IsInCombat()
+		If dakeyras.GetSitState() == 0 && !dakeyras.IsInDialogueWithPlayer()
+			Debug.Trace("ZFW: Dakeyras is not sitting (" + RogueRef.GetDistance(SeatRef) + " from the seat): seated again")
+			SeatRogue()                         ; whatever stood him up (a 3D reset, a shove, a slide down the rock): back on it
 		EndIf
 		ApplyDakeyrasFace()
 		If !RogueTraced                         ; what the AI makes of a seat with no navmesh under it
@@ -368,6 +386,8 @@ Function ApplyDakeyrasFace()
 	If ok
 		FaceApplied = DAKEYRAS_FACE_VERSION
 		(RogueRef as Actor).QueueNiNodeUpdate()
+		Utility.Wait(2.0)                       ; the head rebuild resets his 3D and stands him up (traced 22:30: 154 units off, sit state 0)
+		SeatRogue()
 	EndIf
 EndFunction
 

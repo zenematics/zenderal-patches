@@ -526,6 +526,22 @@ moves the fence or the sign; a Goblins pack stands 1,450-1,740 units east of the
   `ReturnToRogue` now puts the player 200 units ahead of him at `ROGUE_Z - 79.2` (LAND 1176.8 there, clear of the
   small rock `0548FC` and the cart). A save from before moves him on load. Voice type unchanged, so his 15 lines stay.
   Plugin and script redeployed 2026-11-19 evening; the face still waits for the RaceMenu export (`tools/04`).
+- **Seated for good (curator, 2026-11-19, from the first look: standing beside the rock, mouth wrap still on):** the log
+  showed why: placed on the seat at 22:30:10, RaceMenu's preset at 22:30:22 (`TRUE`), and the head rebuild reset his
+  3D, stood him up and slid him 154 units down the rock (sit state 0) - under the 200-unit re-seat rule, with no
+  navmesh for the sit package to walk back. Now: the idle tick re-seats him whenever `GetSitState() == 0` (not in
+  dialogue, no run on), `ApplyDakeyrasFace` waits 2 s after the preset and seats him again, and *not be aggro'd by
+  enemies / npc*: `SetGhost(True)` every pass (no hit lands, no combat AI picks a ghost), Confidence Foolhardy (never
+  flees; still Unaggressive / HelpsNobody), and his own sit package `ZFW_DakeyrasSit 0x83C` (`_DefaultSitLinkedRef`
+  minus ObserveCombatBehavior, GreetCorpseBehavior, ReactionToPlayerActions, FriendlyFireComments,
+  AggroRadiusBehavior, WorldInteractions; `InterruptOverride` None) so a fight beside him does not stand him up.
+  **The mouth wrap** is its own shape, `BBHatMaskBCollar`, in the Tracker cuirass mesh (Pretty Enderal Armory's copy
+  wins): `tools/05-build-dakeyras-cuirass.py` writes `meshes\Zenderal\FogWood\DakeyrasCuirass_0/_1.nif` with that
+  shape's NiAVObject Hidden flag set (nothing else touched), ARMA `0x83A` (Pretty Unique Sets' winning addon on the
+  `_1` copy, first-person model Pretty's) + ARMO `ZFW_DakeyrasCuirass 0x83B` (the base cuirass minus set script, set
+  enchantment and description) replace `0508C6` in outfit `0x820`; `SetOutfit` runs once per `OUTFIT_VERSION`
+  because an existing actor keeps his old outfit's items (the hood was still his). Meshes in Patch Collection, not
+  committed; rerun `tools/05` after a Pretty update. Unverified in game.
 - **Kept:** the exit stone in the wood (`0x961`, `ZFW_StoneScript`) and its run-time box; the `EnterMsg` path in
   `StoneActivated` is only reachable through a console-placed stone now.
 
@@ -595,7 +611,9 @@ an open design question, not a bug of this build.
 | `0x82C`-`0x82E` | `ZFW_RogueBye` (Misc, GBYE) + 2 Random goodbye INFOs |
 | `0x82F` | `ZFW_RogueTakeRefuseInfo`: *Take me* with god mode on |
 | `0x830`-`0x838` | lore topics *Who are you?* / *What walks in the fog?* / *Is there anything to gain in there?* (branch / topic / INFO each) |
-| `0x839` | CLFM `ZFW_DakeyrasHair` (the preset's near-black hair); `0x83A`-`0x84F` free |
+| `0x839` | CLFM `ZFW_DakeyrasHair` (the preset's near-black hair) |
+| `0x83A`-`0x83B` | ARMA + ARMO `ZFW_DakeyrasCuirass`: the Tracker cuirass on the mask-hidden mesh copies (`tools/05`) |
+| `0x83C` | PACK `ZFW_DakeyrasSit`: `_DefaultSitLinkedRef` without the interrupts that stand him up; `0x83D`-`0x84F` free |
 | `0x850`-`0x88F` | the 64 cells |
 | `0x8B0`-`0x8EF` | their 64 landscapes |
 | `0x910`-`0x933` | the 36 navmeshes |

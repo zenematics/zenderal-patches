@@ -1,0 +1,46 @@
+FormKey: 00083C:Zenderal - Fog Wood.esp
+EditorID: ZFW_DakeyrasSit
+Version2: 1
+Type: Package
+InterruptOverride: None
+PreferredSpeed: Run
+InteruptFlags:
+- HellosToPlayer
+- RandomConversations
+- AllowIdleChatter
+- 0x400
+- 0x800
+- 0x1000
+- 0x2000
+- 0x4000
+- 0x8000
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+PackageTemplate: 0A9277:Skyrim.esm
+DataInputVersion: 2
+Data:
+- Key: 16
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Type: SingleRef
+    Target:
+      MutagenObjectType: PackageTargetLinkedReference
+- Key: 3
+  Value:
+    MutagenObjectType: PackageDataFloat
+- Key: 4
+  Value:
+    MutagenObjectType: PackageDataBool
+XnamMarker: 0x11
+OnBegin:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnEnd:
+  Topics:
+  - MutagenObjectType: TopicReference
+OnChange:
+  Topics:
+  - MutagenObjectType: TopicReference

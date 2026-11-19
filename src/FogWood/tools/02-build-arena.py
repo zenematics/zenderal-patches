@@ -111,7 +111,16 @@ ROGUE_SRC = os.path.join(ROOT, 'reference', 'base-2.1.4.4', 'EnderalFS', 'Npcs',
                          '_03E_BanditSunCoastDamCamp - 02F435_Enderal - Forgotten Stories.esm.yaml')   # a Traits-templated male bandit: the copy
 ROGUE_FACE = '02A1BA' + ':Skyrim.esm'            # _03E_Bandit02Ranged_Range0800: the male Highwayman face the copy already borrows (own facegen)
 ROGUE_CLASS = '013180' + ':Skyrim.esm'           # CombatRogue
-ROGUE_PACKAGES = ['0DD723' + ':Skyrim.esm', '01B217' + ':Skyrim.esm']   # _DefaultSitLinkedRef (his seat, linked by the script), then a sandbox
+# Seated for good (curator, 2026-11-19: "he needs to remain sat down and not be aggro'd by enemies / npc"): his own
+# copy of _DefaultSitLinkedRef without the interrupts that stand a sitter up (combat nearby, corpses, player actions,
+# world interactions), his cuirass on mask-hidden mesh copies (tools/05), and Foolhardy confidence; the script makes
+# him a ghost (no hits, no combat target) and re-seats him whenever he is not sitting.
+ID_DAKEYRAS_CUIRASS_AA, ID_DAKEYRAS_CUIRASS, ID_DAKEYRAS_SIT = 0x83A, 0x83B, 0x83C
+DAKEYRAS_CUIRASS_MODEL = 'meshes\\Zenderal\\FogWood\\DakeyrasCuirass_1.nif'[7:]     # ARMA model paths are under meshes\
+SIT_SOURCE = '0DD723' + ':Skyrim.esm'            # _DefaultSitLinkedRef
+SIT_INTERRUPTS_DROPPED = ('ObserveCombatBehavior', 'GreetCorpseBehavior', 'ReactionToPlayerActions', 'FriendlyFireComments',
+                          'AggroRadiusBehavior', 'WorldInteractions')
+ROGUE_PACKAGES = [None, '01B217' + ':Skyrim.esm']   # [0] = his sit package (set below once fk() exists), then a sandbox
 TRACKER_SET = [k + ':Skyrim.esm' for k in ('0508C6', '0508C4', '0508C8')]   # Set of the Tracker: cuirass, boots, gauntlets (the hood 0508CB dropped 2026-11-19)
 # 0x80C (ZFW_Bosses) and 0x812 (ZFW_Elites) were the first arena's flat lists: retired, never reuse
 ID_PACKS = {1.0: (0x813, 'ZFW_PackFull'), 0.5: (0x814, 'ZFW_PackHalf'), 0.35: (0x815, 'ZFW_PackThird'), 0.7: (0x816, 'ZFW_PackMost')}
@@ -487,9 +496,9 @@ def rogue_yaml():
     sub(r'^FaceParts:\n(?:  .*\n)+', 'FaceParts:\n  Nose: %d\n  Eyes: %d\n  Mouth: %d\n' % DAKEYRAS_PARTS)
     sub(r'^TintLayers:\n(?:- .*\n|  .*\n)+', "TintLayers:\n- Index: 1\n  Color: '%s'\n  InterpolationValue: 1\n  Preset: -1\n" % DAKEYRAS_SKIN)
     cut(r'^Items:\n(?:- .*\n|  .*\n)+')
-    sub(r'^AIData:\n(?:  .*\n)+', 'AIData:\n  Aggression: Unaggressive\n  Confidence: Cowardly\n  EnergyLevel: 50\n'
+    sub(r'^AIData:\n(?:  .*\n)+', 'AIData:\n  Aggression: Unaggressive\n  Confidence: Foolhardy\n  EnergyLevel: 50\n'
         '  Mood: Neutral\n  Assistance: HelpsNobody\n  AggroRadiusBehavior: False\n  Warn: 1300\n  WarnOrAttack: 800\n  Attack: 800\n')
-    sub(r'^Packages:\n(?:- .*\n)+', 'Packages:\n' + ''.join('- %s\n' % k for k in ROGUE_PACKAGES))
+    sub(r'^Packages:\n(?:- .*\n)+', 'Packages:\n' + ''.join('- %s\n' % (k or fk(ID_DAKEYRAS_SIT)) for k in ROGUE_PACKAGES))
     sub(r'^Class: .*$', 'Class: ' + ROGUE_CLASS)
     sub(r'^Name:\n  TargetLanguage: English\n  Values:\n(?:  - .*\n|    .*\n)+', 'Name:\n  TargetLanguage: English\n  Value: Dakeyras\n')
     sub(r'^DefaultOutfit: .*$', 'DefaultOutfit: ' + fk(ID_ROGUE_OUTFIT))
@@ -539,12 +548,53 @@ def dialog_info(local, edid, lines, fragment=None, flags=(), previous=None, godm
     return out
 
 
+def dakeyras_cuirass_yaml():
+    """ARMA 0x83A + ARMO 0x83B: the Tracker cuirass's winning records (Pretty Unique Sets' addon, the base armour) with
+    the male world model on tools/05's mask-hidden copy; no set script, no set enchantment, no value."""
+    aa = _ref_text('ArmorAddons', '0508C5' + ':Skyrim.esm')
+    assert aa and '013748:Skyrim.esm' in aa, 'Tracker cuirass addon not serialized, or no Qyranian in its races'
+    aa = re.sub(r'^FormKey: .*$', 'FormKey: ' + fk(ID_DAKEYRAS_CUIRASS_AA), aa, count=1, flags=re.M)
+    aa = re.sub(r'^EditorID: .*$', 'EditorID: ZFW_DakeyrasCuirassAA', aa, count=1, flags=re.M)
+    aa2, n = re.subn(r'(^WorldModel:\n  Male:\n(?:    [^\n]*\n)*?    File: )[^\n]*', r'\g<1>' + DAKEYRAS_CUIRASS_MODEL.replace('\\', '\\\\'), aa, count=1, flags=re.M)
+    assert n == 1, 'male world model not found in the addon'
+    aa = aa2
+    ar = _ref_text('Armors', '0508C6' + ':Skyrim.esm')
+    assert ar, 'Tracker cuirass not serialized'
+    ar = re.sub(r'^FormKey: .*$', 'FormKey: ' + fk(ID_DAKEYRAS_CUIRASS), ar, count=1, flags=re.M)
+    ar = re.sub(r'^EditorID: .*$', 'EditorID: ZFW_DakeyrasCuirass', ar, count=1, flags=re.M)
+    ar = re.sub(r'^VirtualMachineAdapter:\n(?:  .*\n)+', '', ar, count=1, flags=re.M)
+    ar = re.sub(r'^ObjectEffect: .*\n', '', ar, count=1, flags=re.M)
+    ar = re.sub(r'^Description:\n(?:  .*\n)+', '', ar, count=1, flags=re.M)
+    ar = re.sub(r'^Name:\n  TargetLanguage: English\n  Values:\n(?:  - .*\n|    .*\n)+', 'Name:\n  TargetLanguage: English\n  Value: Tracker Cuirass\n', ar, count=1, flags=re.M)
+    ar2, n = re.subn(r'^Armature:\n(?:- .*\n)+', 'Armature:\n- ' + fk(ID_DAKEYRAS_CUIRASS_AA) + '\n', ar, count=1, flags=re.M)
+    assert n == 1, 'no Armature in the cuirass'
+    ar = ar2
+    assert '  Values:' not in ar and '0508C5' not in ar, 'translations or the base addon left in the cuirass copy'
+    return [l for l in aa.split('\n') if l != ''], [l for l in ar.split('\n') if l != '']
+
+
+def dakeyras_sit_yaml():
+    """PACK 0x83C: _DefaultSitLinkedRef with the interrupts that stand a sitter up removed and no combat override."""
+    t = _ref_text('Packages', SIT_SOURCE)
+    assert t, 'sit package not serialized'
+    t = re.sub(r'^FormKey: .*$', 'FormKey: ' + fk(ID_DAKEYRAS_SIT), t, count=1, flags=re.M)
+    t = re.sub(r'^EditorID: .*$', 'EditorID: ZFW_DakeyrasSit', t, count=1, flags=re.M)
+    t2, n = re.subn(r'^InterruptOverride: .*$', 'InterruptOverride: None', t, count=1, flags=re.M)
+    assert n == 1
+    t = t2
+    for flag in SIT_INTERRUPTS_DROPPED:
+        t2, n = re.subn(r'^- %s\n' % flag, '', t, count=1, flags=re.M)
+        assert n == 1, flag
+        t = t2
+    return [l for l in t.split('\n') if l != '']
+
+
 def _ref_text(sub, key):
     """The winning serialized record of a FormKey among the list's overriders (reference/mods), else the base's."""
     local, master = key.split(':', 1)
     pattern = ' - %s_%s.yaml' % (local, master)
     roots = [os.path.join(ROOT, 'reference', 'base-2.1.4.4', 'Skyrim' if master == 'Skyrim.esm' else 'EnderalFS', sub)]
-    roots += [os.path.join(ROOT, 'reference', 'mods', m, sub) for m in OVERRIDERS]
+    roots += [os.path.join(ROOT, 'reference', 'mods', m, sub) for m in OVERRIDERS + ['Pretty/Pretty Unique Sets']]
     found = ''
     for d in roots:
         if not os.path.isdir(d):
@@ -581,6 +631,7 @@ def combat_override_packages(key, depth=0):
 
 def main():
     for sub in ('Quests', 'Activators', 'Factions', 'FormLists', 'Globals', 'Messages', 'Npcs', 'Containers', 'Outfits', 'Colors',
+                'ArmorAddons', 'Armors', 'Packages',
                 'DialogBranches', 'DialogTopics'):
         if os.path.isdir(os.path.join(OUT, sub)):
             shutil.rmtree(os.path.join(OUT, sub))
@@ -716,7 +767,11 @@ def main():
         ['Call the next wave', 'Leave the Fog Wood', 'Stay']))
     # The Rogue who takes the player in (2026-11-15).
     write(os.path.join(OUT, 'Outfits', 'ZFW_RogueOutfit - %06X_%s.yaml' % (ID_ROGUE_OUTFIT, PLUGIN)),
-          ['FormKey: ' + fk(ID_ROGUE_OUTFIT), 'EditorID: ZFW_RogueOutfit', 'Items:'] + ['- ' + k for k in TRACKER_SET])
+          ['FormKey: ' + fk(ID_ROGUE_OUTFIT), 'EditorID: ZFW_RogueOutfit', 'Items:'] + ['- ' + k for k in TRACKER_SET if not k.startswith('0508C6')] + ['- ' + fk(ID_DAKEYRAS_CUIRASS)])
+    aa_lines, ar_lines = dakeyras_cuirass_yaml()
+    write(os.path.join(OUT, 'ArmorAddons', 'ZFW_DakeyrasCuirassAA - %06X_%s.yaml' % (ID_DAKEYRAS_CUIRASS_AA, PLUGIN)), aa_lines)
+    write(os.path.join(OUT, 'Armors', 'ZFW_DakeyrasCuirass - %06X_%s.yaml' % (ID_DAKEYRAS_CUIRASS, PLUGIN)), ar_lines)
+    write(os.path.join(OUT, 'Packages', 'ZFW_DakeyrasSit - %06X_%s.yaml' % (ID_DAKEYRAS_SIT, PLUGIN)), dakeyras_sit_yaml())
     write(os.path.join(OUT, 'Npcs', 'ZFW_Rogue - %06X_%s.yaml' % (ID_ROGUE, PLUGIN)), rogue_yaml())
     write(os.path.join(OUT, 'Colors', 'ZFW_DakeyrasHair - %06X_%s.yaml' % (ID_DAKEYRAS_HAIR, PLUGIN)),
           ['FormKey: ' + fk(ID_DAKEYRAS_HAIR), 'EditorID: ZFW_DakeyrasHair', 'Name:', '  TargetLanguage: English',

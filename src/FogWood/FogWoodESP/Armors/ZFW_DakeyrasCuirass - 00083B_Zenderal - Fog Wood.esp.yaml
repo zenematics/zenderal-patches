@@ -1,0 +1,30 @@
+FormKey: 00083B:Zenderal - Fog Wood.esp
+EditorID: ZFW_DakeyrasCuirass
+Version2: 2
+ObjectBounds:
+  First: -20, -36, -12
+  Second: 20, 25, 14
+Name:
+  TargetLanguage: English
+  Value: Tracker Cuirass
+WorldModel:
+  Male:
+    Model:
+      File: armor\BosmerArmorMATY743\go\heavycuirass_go.nif
+      Data: 0x020000000000000000000000
+BodyTemplate:
+  FirstPersonFlags:
+  - Body
+  ActsLike44: True
+Race: 000019:Skyrim.esm
+Keywords:
+- 06BBD3:Skyrim.esm
+- 06BBDB:Skyrim.esm
+- 06C0EC:Skyrim.esm
+- 08F959:Skyrim.esm
+- 0C27BD:Skyrim.esm
+Armature:
+- 00083A:Zenderal - Fog Wood.esp
+Value: 35
+Weight: 12
+ArmorRating: 32.4

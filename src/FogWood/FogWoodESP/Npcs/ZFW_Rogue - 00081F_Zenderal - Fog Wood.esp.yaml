@@ -20,7 +20,7 @@ Race: 013748:Skyrim.esm
 AttackRace: 013748:Skyrim.esm
 AIData:
   Aggression: Unaggressive
-  Confidence: Cowardly
+  Confidence: Foolhardy
   EnergyLevel: 50
   Mood: Neutral
   Assistance: HelpsNobody
@@ -29,7 +29,7 @@ AIData:
   WarnOrAttack: 800
   Attack: 800
 Packages:
-- 0DD723:Skyrim.esm
+- 00083C:Zenderal - Fog Wood.esp
 - 01B217:Skyrim.esm
 Class: 013180:Skyrim.esm
 Name:
