@@ -295,3 +295,23 @@ Rerun 01 after a Pretty Enderal Armory update (Real Bows' mesh/texture) or an Ar
   - Every look change before this (size, blending, alpha, `FXPersist`) was answering the wrong question.
 - **The wind was hidden.** The bound arrow keeps its tracer under `AddOnNode99`, a BSValueNode hidden in the nif. The game shows it only on a tracer roll. `import_tracer` now clears the hidden flag on every node it copies.
 - **Lesson.** Check what the winning copy of a vanilla texture actually is before building on its path. Weather mods blank vanilla FX textures.
+
+**Snow verified in game (2026-11-19)** with the game's own flake texture. ZenSnowveilTrace was removed from MO2 overwrite after use; it can be reused by copying `trace/compiled/` back to `overwrite/SKSE/Plugins`, and deleted again after. Wind (tracer unhidden) is still unconfirmed.
+
+**Wrap ends and sleeve feathers (2026-11-19, curator's crops)**
+
+- **Grip wrap ends.** Each grip-wrap UV island has a strip past the grip line mapped onto a lighter patch of Real Bows' atlas: the upper end's tongue at y 13–18, and the lower limb's back strip at y −14..−26. Both were painted silver. `wrap_tongues` pastes the same island's own wrap texels (diffuse + normal) over them, shifted in v, and asserts that the shifted block lands on the wrap. The island rule then paints them as grip.
+- **Cord wrap ends (the green crops).** The cord wrap shares an island with the limb and ends on a diagonal. The wood wedge beside it and the strip to the sleeve (y 36–46) have no cord texture detail, so they came out silver. That included a bevel facet on the inside of the bend.
+  - Cord texels are now pasted over them, and those triangles count as cord outright: `pasted_cord`, because two of them still scored under the detail threshold.
+  - The cord runs to `CORD_END` 46.
+  - The silver band at the cord's tip end is gone.
+- **Finding it.** A UV-coded debug render plus `OWLBOW_DEBUG_TRIS=<ids>`, which prints the painter's per-triangle classification, found the bevel facet after two wrong guesses (the band, then the string's nock loops at y 51–52).
+- **Sleeve feathers (the orange crop).** `SLEEVE_ROW`: 5 overlapping feathers per face on both limbs, rooted on the tip sleeve's own back-edge vertices from the cord's end to the spike base, laid toward the tip and 26° out to the back, weighted to the limb's second bone.
+  - A first row on the mid-limb (y 19–32) was the wrong place and was removed.
+- **Status.** Unverified in game.
+
+**Follow-up the same day.** The inner bend's bevel facet read as a near-black panel: one shared shift had put a dark, smooth cord block on it.
+
+- Each pasted cord-end triangle now takes its own source block: the best of 600 placements inside the same island, ≥ 95% on cord, closest to the cord's median brightness and grain (worst mismatch 0.03).
+- The UV-coded renders of both limbs show the facets as cord.
+- The build takes ~40 s longer for it.

@@ -66,6 +66,8 @@ STRING_EMIT_MULT = 2.5
 # wraps are the striped stretch at |y| 32.5..43 (Real Bows' own wraps, measured from its texture)
 TIP_Y, SPIKE_Y, GRIP_Y, CORD_Y = 44.0, 53.0, 13.0, (32.5, 43.0)
 GRIP_BAND_Y, CORD_BAND_Y = 11.6, (33.4, 42.0)   # silver bands at the wraps' ends
+CORD_END = 46.0                                 # the cord wrap runs to the sleeve (non-metal up to here)
+CORD_TAIL = 36.0                                # from here, plain limb triangles beside the cord's diagonal end become cord
 LACE_U = (0.476, 0.011)            # the grip's stitched seam column in Real Bows' atlas (u centre, half width)
 ORN_UV = (0.015, 0.095, 0.32, 0.68)   # unused atlas corner (asserted empty) painted plain silver for the ornaments
 TIP_BONES = {1: 'Bow_UpBone2', -1: 'Bow_LoBone2'}
@@ -75,6 +77,11 @@ TIP_BONES = {1: 'Bow_UpBone2', -1: 'Bow_LoBone2'}
 # game's hawk feathers (made white) lie flat along each face of the limb, clear of it
 GRIP_FEATHERS = dict(y=13.6, lengths=(6.0, 5.4, 4.8, 4.2), fan=(-4.0, 8.0, 20.0, 32.0), root=0.22)
 GRIP_BONES = {1: 'Bow_UpBone1', -1: 'Bow_LoBone1'}
+SLEEVE_ROW = dict(t=(0.02, 0.22, 0.42, 0.62, 0.82), lengths=(8.0, 7.6, 7.2, 6.8, 6.4), ang=26.0)
+# a row of overlapping feathers along each tip sleeve's back edge (Real Bows' tip metal, from the cord wrap's end to the
+# spike's base), on both faces of both limbs, laid toward the tip and out to the back (curator 2026-11-19: the bare
+# polished sleeve between the collar and the plume "needs covering with feathers on both sides of the bow", drawn as a
+# row of overlapping feather tips along its top). T = fraction of the way from the cord's end to the spike base
 NOCK_ARROW = dict(rest_y=4.8, rest_x=0.9, fold=(0.0, 1.0), head=0.1, head_r=0.8, shaft_r=0.3, fletch=(0.76, 0.97), fletch_h=0.32,
                   grip_front=4.7, head_past=12.0, lift=2.5)
 # lift: the arrow's line rises this far from the nock to where it crosses the riser (curator 2026-11-16: in first person
@@ -316,6 +323,35 @@ def tip_parts(V, T, metal, spike, string, sgn, hawk):
             y = unit(np.cross(z * face, x))
             P = seat_feather(c0 + bd * (COLLAR['root'] * (k - (n - 1) / 2)), x, y, Q, L, face, surf, k)
             feathers.append((P, ftri if face > 0 else ftri[:, ::-1], fuv))
+    # the sleeve row: rooted on the metal along its back edge, from the cord's end to the spike base
+    G = SLEEVE_ROW
+    Mv = V[np.unique(T[metal & ~spike & side_t])]
+    y_end = CORD_Y[1] * sgn
+
+    def sleeve_centre(yy):
+        q = Mv[np.abs(Mv[:, 1] - yy) < 2.5]
+        assert len(q) >= 3, ('no sleeve at', yy)
+        return np.array([(q[:, 0].min() + q[:, 0].max()) / 2, yy, 0.0]), q[:, 0].max() - q[:, 0].min()
+    y_a = Mv[np.argmin(np.abs(Mv[:, 1]))][1] + sgn * 0.6           # the sleeve's start, by the cord's end
+    y_b = front[1]
+    for face in (1, -1):
+        for k, (tt, L) in enumerate(zip(G['t'], G['lengths'])):
+            yy = y_a + (y_b - y_a) * tt
+            c0_, w0 = sleeve_centre(yy)
+            c1_, _ = sleeve_centre(yy + sgn * 1.2)
+            td_ = unit(c1_ - c0_)
+            bd_ = unit(np.cross(z, td_))
+            bd_ = bd_ if bd_ @ b > 0 else -bd_
+            a_ = math.radians(G['ang'])
+            x = unit(td_ * math.cos(a_) + bd_ * math.sin(a_))
+            y = unit(np.cross(z * face, x))
+            # rooted on the sleeve's own back-edge vertex at this height, pulled in a little (the sleeve bends hard,
+            # so its centre +- a width fraction can land off the metal)
+            near = Mv[np.abs(Mv[:, 1] - yy) < 1.5]
+            edge = near[np.argmax((near - c0_) @ bd_)]
+            root = np.array([edge[0], edge[1], 0.0]) - bd_ * 0.2
+            P = seat_feather(root, x, y, Q, L, face, surf, len(COLLAR['fan']) + k)
+            feathers.append((P, ftri if face > 0 else ftri[:, ::-1], fuv))
     return silver, feathers
 
 
@@ -375,6 +411,99 @@ def box(a, r):
     return out.astype(np.float32)
 
 
+def wrap_tongues(V, UV, T, tex, nrm, tid, ok, string, metal):
+    """The grip wrap's UV islands each have a strip past the grip line mapped onto a lighter patch of Real Bows' atlas
+    (the upper end's tongue at y 13-18, the lower limb's strip at y -14..-26 on its back), which read as plain metal
+    beside the cord (curator 2026-11-19, both ends). Those texels get the same island's own wrap texels (diffuse and
+    normal), shifted in v from inside its wrap part; the shifted block must land on the island's dark wrap."""
+    lum = tex[..., :3].mean(2)
+    t_ = np.maximum(tid, 0).ravel()
+    n_ = np.bincount(t_, ok.ravel(), len(T)) + 1e-9
+    tri_l = np.bincount(t_, (lum * ok).ravel(), len(T)) / n_
+    tcy = np.abs(V[T].mean(1)[:, 1])
+    body = ~string & ~metal
+    bi = np.nonzero(body)[0]
+    comp = components(len(V), T[body])[T[body][:, 0]]
+    tex, nrm = tex.copy(), nrm.copy()
+    res = tex.shape[0]
+    pasted_cord = np.zeros(len(T), bool)
+    for c in np.unique(comp):
+        m = bi[comp == c]
+        if not ((tri_l[m] < 0.2).mean() > 0.6 and tcy[m].min() < GRIP_Y):
+            continue
+        tongue, wrap = m[tcy[m] >= GRIP_Y], m[tcy[m] < GRIP_Y]
+        if not len(tongue):
+            continue
+        M = ok & np.isin(tid, tongue)
+        W = ok & np.isin(tid, wrap) & (lum < 0.2)
+        ty, tx = np.nonzero(M)
+        wy, wx = np.nonzero(W)
+        dv = int(round(np.median(wy) - (ty.min() + ty.max()) / 2))
+        sy = ty + dv
+        assert (0 <= sy).all() and (sy < res).all()
+        hit = W[sy, tx].mean()
+        assert hit > 0.8, ('the shifted block misses the wrap', hit)
+        tex[ty, tx] = tex[sy, tx]
+        nrm[ty, tx] = nrm[sy, tx]
+        print('  wrap tongue: %d triangles (y %.1f..%.1f), %d texels from %+d rows of the same island (%.0f%% on wrap)'
+              % (len(tongue), tcy[tongue].min(), tcy[tongue].max(), len(ty), dv, 100 * hit))
+    # the cord wrap's tip end: its last strip before the sleeve (y CORD_Y[1]..CORD_END) maps onto a lighter patch and was
+    # painted plain silver (curator 2026-11-19, the green crops by the collar on both limbs): the cord's own texels in
+    side = np.sign(V[T].mean(1)[:, 1])
+    # the cord's own texture detail per triangle (paint's cord test): the wrap ends on a diagonal, so the wood wedge past
+    # it reaches below y CORD_Y[1] too
+    sc = res / 2048.0
+    energy = box(np.abs(lum - box(lum, int(4 * sc))), int(7 * sc))
+    tri_e = np.bincount(t_, (energy * ok).ravel(), len(T)) / n_
+    for c in np.unique(comp):
+        m = bi[comp == c]
+        cord = m[(tcy[m] > CORD_Y[0] + 2) & (tcy[m] < CORD_Y[1] - 1) & (tri_e[m] > 0.05)]
+        if len(cord) < 10:
+            continue
+        for sg in (1, -1):
+            tongue = m[(((tcy[m] >= CORD_Y[1]) & (tcy[m] < CORD_END)) | ((tcy[m] >= CORD_TAIL) & (tri_e[m] <= 0.05)))
+                       & (tcy[m] < CORD_END) & (side[m] == sg)]
+            src = cord[side[cord] == sg]
+            if not len(tongue) or not len(src):
+                continue
+            # per triangle, the source block (a shift inside the same island) whose texels all land on the
+            # cord and best match the cord's typical brightness and grain (2026-11-19: one shift for all of them put a
+            # dark, smooth block on the inner bend's bevel facet, which read as a black panel)
+            W = ok & np.isin(tid, src)
+            wl, we = np.median(lum[W]), np.median(energy[W])
+            lum0, en0 = lum.copy(), energy.copy()
+            wy_all, wx_all = np.nonzero(W)
+            rng = np.random.default_rng(1)
+            hits, worst = [], 0.0
+            for t in tongue:
+                ty, tx = np.nonzero(ok & (tid == t))
+                if not len(ty):
+                    continue
+                best = None
+                cy0, cx0 = int(ty.mean()), int(tx.mean())
+                for k in rng.choice(len(wy_all), size=min(600, len(wy_all)), replace=False):
+                    dv, du = int(wy_all[k]) - cy0, int(wx_all[k]) - cx0
+                    sy, sx = ty + dv, tx + du
+                    if sy.min() < 0 or sy.max() >= res or sx.min() < 0 or sx.max() >= res:
+                        continue
+                    on = W[sy, sx].mean()
+                    if on < 0.95:
+                        continue
+                    score = abs(lum0[sy, sx].mean() - wl) / max(wl, 1e-3) + abs(en0[sy, sx].mean() - we) / max(we, 1e-3)
+                    if best is None or score < best[0]:
+                        best = (score, (dv, du), on)
+                assert best is not None, ('no cord block for triangle', int(t))
+                sy, sx = ty + best[1][0], tx + best[1][1]
+                tex[ty, tx] = tex[sy, sx]
+                nrm[ty, tx] = nrm[sy, sx]
+                hits.append(best[2])
+                worst = max(worst, best[0])
+            print('  cord end: %d triangles (y %.1f..%.1f), each from its best-matching cord block (worst mismatch %.2f)'
+                  % (len(tongue), sg * tcy[tongue].min(), sg * tcy[tongue].max(), worst))
+            pasted_cord[tongue] = True
+    return tex, nrm, pasted_cord
+
+
 def paint(V, N, UV, T, tex, nrm, string, metal):
     from PIL import Image
     if tex.shape[0] != RES:
@@ -382,6 +511,7 @@ def paint(V, N, UV, T, tex, nrm, string, metal):
         nrm = np.asarray(Image.fromarray((nrm * 255).astype(np.uint8)).resize((RES, RES), Image.LANCZOS), np.float32) / 255
     tid, ypos = rasterise(V, N, UV, T, ~string)
     ok = tid >= 0
+    tex, nrm, pasted_cord = wrap_tongues(V, UV, T, tex, nrm, tid, ok, string, metal)
     ay = np.abs(ypos)
     sc = RES / 2048.0
     lum = tex[..., :3].mean(2)
@@ -392,13 +522,27 @@ def paint(V, N, UV, T, tex, nrm, string, metal):
     tri_e = np.bincount(t_, (energy * ok).ravel(), len(T)) / n_
     tcy = np.abs(V[T].mean(1)[:, 1])
     grip_tri = (tri_l < 0.2) & (tcy < GRIP_Y) & ~metal
-    cord_tri = (tcy > CORD_Y[0]) & (tcy < CORD_Y[1]) & (tri_e > 0.05) & ~metal
+    # the wrap's own UV islands, whole (curator 2026-11-19: its end tongue past y 13, near the grip feathers, came out
+    # plain silver): every dark triangle of an island that is mostly dark and reaches the grip
+    body = ~string & ~metal
+    bi = np.nonzero(body)[0]
+    comp = components(len(V), T[body])[T[body][:, 0]]
+    for c in np.unique(comp):
+        m = bi[comp == c]
+        if (tri_l[m] < 0.2).mean() > 0.6 and tcy[m].min() < GRIP_Y:
+            add = m[(tri_l[m] < 0.2) & ~grip_tri[m]]
+            grip_tri[add] = True
+            print('  grip wrap island: %d triangles, y %.1f..%.1f, +%d past the grip line' % (len(m), tcy[m].min(), tcy[m].max(), len(add)))
+    cord_tri = ((tcy > CORD_Y[0]) & (tcy < CORD_END) & (tri_e > 0.05) | pasted_cord) & ~metal
+    if os.environ.get('OWLBOW_DEBUG_TRIS'):
+        for i in map(int, os.environ['OWLBOW_DEBUG_TRIS'].split(',')):
+            print('  DEBUG tri %d: y %.1f lum %.2f energy %.3f cord %s grip %s metal %s texels %d' % (i, tcy[i], tri_l[i], tri_e[i], cord_tri[i], grip_tri[i], metal[i], (tid == i).sum()))
     grip = ok & grip_tri[np.maximum(tid, 0)]
     cord = ok & cord_tri[np.maximum(tid, 0)]
     wrap = grip | cord
     uu = np.broadcast_to(np.arange(RES, dtype=np.float32)[None, :] / RES, (RES, RES))
     lace = grip & (np.abs(uu - LACE_U[0]) < LACE_U[1]) & (lum > box(lum, int(6 * sc)) + 0.015)
-    band = (grip & (ay > GRIP_BAND_Y)) | (cord & ((ay < CORD_BAND_Y[0]) | (ay > CORD_BAND_Y[1])))
+    band = (grip & (ay > GRIP_BAND_Y) & (ay < GRIP_Y)) | (cord & (ay < CORD_BAND_Y[0]))   # cord's tip end: wrap to the sleeve (curator 2026-11-19)
     lining = lace | band
     u0, u1, v0, v1 = ORN_UV
     orn = np.zeros((RES, RES), bool)
